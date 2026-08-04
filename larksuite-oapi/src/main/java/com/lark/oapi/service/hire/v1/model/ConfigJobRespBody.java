@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConfigJobRespBody {
-    /**
-     * 职位配置
-     * <p> 示例值：
-     */
-    @SerializedName("job_config")
-    private JobConfigResult jobConfig;
+  /**
+   * 职位设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_config")
+  private JobConfigResult jobConfig;
 
-    public JobConfigResult getJobConfig() {
-        return this.jobConfig;
-    }
+  public JobConfigResult getJobConfig() {
+    return this.jobConfig;
+  }
 
-    public void setJobConfig(JobConfigResult jobConfig) {
-        this.jobConfig = jobConfig;
-    }
-
+  public void setJobConfig(JobConfigResult jobConfig) {
+    this.jobConfig = jobConfig;
+  }
 }

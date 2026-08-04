@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 消息排序方式
- */
+/** 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。 */
 public enum ListMessageReadHistoryMessageV1SortTypeEnum {
-    BYCREATETIMEASC("ByCreateTimeAsc"), // 按消息创建时间升序排列
-    BYCREATETIMEDESC("ByCreateTimeDesc"), // 按消息创建时间降序排列
-    ;
-    private String value;
+  BYCREATETIMEASC("ByCreateTimeAsc"), // 按消息创建时间升序排列
+  BYCREATETIMEDESC("ByCreateTimeDesc"), // 按消息创建时间降序排列
+  ;
+  private String value;
 
-    ListMessageReadHistoryMessageV1SortTypeEnum(String value) {
-        this.value = value;
-    }
+  ListMessageReadHistoryMessageV1SortTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

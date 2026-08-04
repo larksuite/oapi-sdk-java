@@ -13,235 +13,247 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileUploadInfo {
+  /**
+   * 文件名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 上传点类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_type")
+  private String parentType;
+
+  /**
+   * 文件夹的token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_node")
+  private String parentNode;
+
+  /**
+   * 文件大小
+   *
+   * <p>示例值：
+   */
+  @SerializedName("size")
+  private Integer size;
+
+  /**
+   * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+   *
+   * <p>示例值：4SQaj7YVvp
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getParentType() {
+    return this.parentType;
+  }
+
+  public void setParentType(String parentType) {
+    this.parentType = parentType;
+  }
+
+  public String getParentNode() {
+    return this.parentNode;
+  }
+
+  public void setParentNode(String parentNode) {
+    this.parentNode = parentNode;
+  }
+
+  public Integer getSize() {
+    return this.size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public FileUploadInfo() {}
+
+  public FileUploadInfo(Builder builder) {
     /**
      * 文件名
-     * <p> 示例值：test.txt
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 上传点类型
-     * <p> 示例值：explorer
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_type")
-    private String parentType;
+    this.parentType = builder.parentType;
     /**
      * 文件夹的token
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_node")
-    private String parentNode;
+    this.parentNode = builder.parentNode;
     /**
      * 文件大小
-     * <p> 示例值：1024
+     *
+     * <p>示例值：
      */
-    @SerializedName("size")
-    private Integer size;
+    this.size = builder.size;
     /**
      * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
-     * <p> 示例值：4SQaj7YVvp
+     *
+     * <p>示例值：4SQaj7YVvp
      */
-    @SerializedName("file_token")
+    this.fileToken = builder.fileToken;
+  }
+
+  public static class Builder {
+    /**
+     * 文件名
+     *
+     * <p>示例值：
+     */
+    private String fileName;
+
+    /**
+     * 上传点类型
+     *
+     * <p>示例值：
+     */
+    private String parentType;
+
+    /**
+     * 文件夹的token
+     *
+     * <p>示例值：
+     */
+    private String parentNode;
+
+    /**
+     * 文件大小
+     *
+     * <p>示例值：
+     */
+    private Integer size;
+
+    /**
+     * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+     *
+     * <p>示例值：4SQaj7YVvp
+     */
     private String fileToken;
 
-    // builder 开始
-    public FileUploadInfo() {
+    /**
+     * 文件名
+     *
+     * <p>示例值：
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public FileUploadInfo(Builder builder) {
-        /**
-         * 文件名
-         * <p> 示例值：test.txt
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 上传点类型
-         * <p> 示例值：explorer
-         */
-        this.parentType = builder.parentType;
-        /**
-         * 文件夹的token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        this.parentNode = builder.parentNode;
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         */
-        this.size = builder.size;
-        /**
-         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
-         * <p> 示例值：4SQaj7YVvp
-         */
-        this.fileToken = builder.fileToken;
+    /**
+     * 上传点类型
+     *
+     * <p>示例值：
+     *
+     * @param parentType
+     * @return
+     */
+    public Builder parentType(String parentType) {
+      this.parentType = parentType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上传点类型
+     *
+     * <p>示例值：
+     *
+     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum}
+     * @return
+     */
+    public Builder parentType(
+        com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum parentType) {
+      this.parentType = parentType.getValue();
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    /**
+     * 文件夹的token
+     *
+     * <p>示例值：
+     *
+     * @param parentNode
+     * @return
+     */
+    public Builder parentNode(String parentNode) {
+      this.parentNode = parentNode;
+      return this;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    /**
+     * 文件大小
+     *
+     * <p>示例值：
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
     }
 
-    public String getParentType() {
-        return this.parentType;
+    /**
+     * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
+     *
+     * <p>示例值：4SQaj7YVvp
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setParentType(String parentType) {
-        this.parentType = parentType;
+    public FileUploadInfo build() {
+      return new FileUploadInfo(this);
     }
+  }
 
-    public String getParentNode() {
-        return this.parentNode;
-    }
-
-    public void setParentNode(String parentNode) {
-        this.parentNode = parentNode;
-    }
-
-    public Integer getSize() {
-        return this.size;
-    }
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        /**
-         * 文件名
-         * <p> 示例值：test.txt
-         */
-        private String fileName;
-        /**
-         * 上传点类型
-         * <p> 示例值：explorer
-         */
-        private String parentType;
-        /**
-         * 文件夹的token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        private String parentNode;
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         */
-        private Integer size;
-        /**
-         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
-         * <p> 示例值：4SQaj7YVvp
-         */
-        private String fileToken;
-
-        /**
-         * 文件名
-         * <p> 示例值：test.txt
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 上传点类型
-         * <p> 示例值：explorer
-         *
-         * @param parentType
-         * @return
-         */
-        public Builder parentType(String parentType) {
-            this.parentType = parentType;
-            return this;
-        }
-
-        /**
-         * 上传点类型
-         * <p> 示例值：explorer
-         *
-         * @param parentType {@link com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum}
-         * @return
-         */
-        public Builder parentType(com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum parentType) {
-            this.parentType = parentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文件夹的token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         *
-         * @param parentNode
-         * @return
-         */
-        public Builder parentNode(String parentNode) {
-            this.parentNode = parentNode;
-            return this;
-        }
-
-
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Integer size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 文件token，如果没传则是上传新文件，传了则是上传该文件的新版本
-         * <p> 示例值：4SQaj7YVvp
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public FileUploadInfo build() {
-            return new FileUploadInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

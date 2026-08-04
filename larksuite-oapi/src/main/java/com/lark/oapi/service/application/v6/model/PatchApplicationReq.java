@@ -13,142 +13,144 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v6.enums.*;
 
 public class PatchApplicationReq {
+  /**
+   * 指定返回的语言
+   *
+   * <p>示例值：zh_cn
+   */
+  @Query
+  @SerializedName("lang")
+  private String lang;
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  /**
+   * 应用的 id
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private Application body;
+
+  public Application getApplication() {
+    return this.body;
+  }
+
+  public void setApplication(Application body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchApplicationReq() {}
+
+  public PatchApplicationReq(Builder builder) {
     /**
      * 指定返回的语言
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @Query
-    @SerializedName("lang")
-    private String lang;
+    this.lang = builder.lang;
     /**
      * 应用的 id
-     * <p> 示例值：cli_9b445f5258795107
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String lang; // 指定返回的语言
+
+    /**
+     * 指定返回的语言
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
+    }
+
+    /**
+     * 指定返回的语言
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param lang {@link com.lark.oapi.service.application.v6.enums.PatchApplicationI18nKeyEnum}
+     * @return
+     */
+    public Builder lang(
+        com.lark.oapi.service.application.v6.enums.PatchApplicationI18nKeyEnum lang) {
+      this.lang = lang.getValue();
+      return this;
+    }
+
+    private String appId; // 应用的 id
+
+    /**
+     * 应用的 id
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private Application body;
 
-    // builder 开始
-    public PatchApplicationReq() {
-    }
-
-    public PatchApplicationReq(Builder builder) {
-        /**
-         * 指定返回的语言
-         * <p> 示例值：zh_cn
-         */
-        this.lang = builder.lang;
-        /**
-         * 应用的 id
-         * <p> 示例值：cli_9b445f5258795107
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLang() {
-        return this.lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public Application getApplication() {
-        return this.body;
+      return this.body;
     }
 
-    public void setApplication(Application body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder application(Application body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String lang; // 指定返回的语言
-        private String appId; // 应用的 id
-        private Application body;
-
-        /**
-         * 指定返回的语言
-         * <p> 示例值：zh_cn
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-        /**
-         * 指定返回的语言
-         * <p> 示例值：zh_cn
-         *
-         * @param lang {@link com.lark.oapi.service.application.v6.enums.PatchApplicationI18nKeyEnum}
-         * @return
-         */
-        public Builder lang(com.lark.oapi.service.application.v6.enums.PatchApplicationI18nKeyEnum lang) {
-            this.lang = lang.getValue();
-            return this;
-        }
-
-        /**
-         * 应用的 id
-         * <p> 示例值：cli_9b445f5258795107
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public Application getApplication() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder application(Application body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchApplicationReq build() {
-            return new PatchApplicationReq(this);
-        }
+    public PatchApplicationReq build() {
+      return new PatchApplicationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

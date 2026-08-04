@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMenuSecondLevel {
+  /**
+   * 二级菜单 ID
+   *
+   * <p>示例值：7039638308221468675
+   */
+  @SerializedName("chat_menu_second_level_id")
+  private String chatMenuSecondLevelId;
+
+  /**
+   * 二级菜单信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_menu_item")
+  private ChatMenuItem chatMenuItem;
+
+  public String getChatMenuSecondLevelId() {
+    return this.chatMenuSecondLevelId;
+  }
+
+  public void setChatMenuSecondLevelId(String chatMenuSecondLevelId) {
+    this.chatMenuSecondLevelId = chatMenuSecondLevelId;
+  }
+
+  public ChatMenuItem getChatMenuItem() {
+    return this.chatMenuItem;
+  }
+
+  public void setChatMenuItem(ChatMenuItem chatMenuItem) {
+    this.chatMenuItem = chatMenuItem;
+  }
+
+  // builder 开始
+  public ChatMenuSecondLevel() {}
+
+  public ChatMenuSecondLevel(Builder builder) {
     /**
-     * 二级菜单ID
-     * <p> 示例值：7039638308221468675
+     * 二级菜单 ID
+     *
+     * <p>示例值：7039638308221468675
      */
-    @SerializedName("chat_menu_second_level_id")
-    private String chatMenuSecondLevelId;
+    this.chatMenuSecondLevelId = builder.chatMenuSecondLevelId;
     /**
      * 二级菜单信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_menu_item")
+    this.chatMenuItem = builder.chatMenuItem;
+  }
+
+  public static class Builder {
+    /**
+     * 二级菜单 ID
+     *
+     * <p>示例值：7039638308221468675
+     */
+    private String chatMenuSecondLevelId;
+
+    /**
+     * 二级菜单信息
+     *
+     * <p>示例值：
+     */
     private ChatMenuItem chatMenuItem;
 
-    // builder 开始
-    public ChatMenuSecondLevel() {
+    /**
+     * 二级菜单 ID
+     *
+     * <p>示例值：7039638308221468675
+     *
+     * @param chatMenuSecondLevelId
+     * @return
+     */
+    public Builder chatMenuSecondLevelId(String chatMenuSecondLevelId) {
+      this.chatMenuSecondLevelId = chatMenuSecondLevelId;
+      return this;
     }
 
-    public ChatMenuSecondLevel(Builder builder) {
-        /**
-         * 二级菜单ID
-         * <p> 示例值：7039638308221468675
-         */
-        this.chatMenuSecondLevelId = builder.chatMenuSecondLevelId;
-        /**
-         * 二级菜单信息
-         * <p> 示例值：
-         */
-        this.chatMenuItem = builder.chatMenuItem;
+    /**
+     * 二级菜单信息
+     *
+     * <p>示例值：
+     *
+     * @param chatMenuItem
+     * @return
+     */
+    public Builder chatMenuItem(ChatMenuItem chatMenuItem) {
+      this.chatMenuItem = chatMenuItem;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ChatMenuSecondLevel build() {
+      return new ChatMenuSecondLevel(this);
     }
+  }
 
-    public String getChatMenuSecondLevelId() {
-        return this.chatMenuSecondLevelId;
-    }
-
-    public void setChatMenuSecondLevelId(String chatMenuSecondLevelId) {
-        this.chatMenuSecondLevelId = chatMenuSecondLevelId;
-    }
-
-    public ChatMenuItem getChatMenuItem() {
-        return this.chatMenuItem;
-    }
-
-    public void setChatMenuItem(ChatMenuItem chatMenuItem) {
-        this.chatMenuItem = chatMenuItem;
-    }
-
-    public static class Builder {
-        /**
-         * 二级菜单ID
-         * <p> 示例值：7039638308221468675
-         */
-        private String chatMenuSecondLevelId;
-        /**
-         * 二级菜单信息
-         * <p> 示例值：
-         */
-        private ChatMenuItem chatMenuItem;
-
-        /**
-         * 二级菜单ID
-         * <p> 示例值：7039638308221468675
-         *
-         * @param chatMenuSecondLevelId
-         * @return
-         */
-        public Builder chatMenuSecondLevelId(String chatMenuSecondLevelId) {
-            this.chatMenuSecondLevelId = chatMenuSecondLevelId;
-            return this;
-        }
-
-
-        /**
-         * 二级菜单信息
-         * <p> 示例值：
-         *
-         * @param chatMenuItem
-         * @return
-         */
-        public Builder chatMenuItem(ChatMenuItem chatMenuItem) {
-            this.chatMenuItem = chatMenuItem;
-            return this;
-        }
-
-
-        public ChatMenuSecondLevel build() {
-            return new ChatMenuSecondLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

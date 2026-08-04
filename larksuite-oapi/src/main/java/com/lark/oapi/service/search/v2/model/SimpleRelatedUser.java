@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SimpleRelatedUser {
+  /**
+   * 用户ID，根据 user_id_type 选择返回的用户 ID 类型
+   *
+   * <p>示例值：fdsfds2
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 协作分数，根据消息沟通频率、文档协作频率、邮件往来频率、日程会议协作频率等加权计算得出
+   *
+   * <p>示例值：0.9
+   */
+  @SerializedName("score")
+  private Double score;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Double getScore() {
+    return this.score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  // builder 开始
+  public SimpleRelatedUser() {}
+
+  public SimpleRelatedUser(Builder builder) {
     /**
-     * 用户id
-     * <p> 示例值：
+     * 用户ID，根据 user_id_type 选择返回的用户 ID 类型
+     *
+     * <p>示例值：fdsfds2
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 协作分数，根据消息沟通频率、文档协作频率、邮件往来频率、日程会议协作频率等加权计算得出
+     *
+     * <p>示例值：0.9
+     */
+    this.score = builder.score;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID，根据 user_id_type 选择返回的用户 ID 类型
+     *
+     * <p>示例值：fdsfds2
+     */
     private String userId;
+
     /**
-     * ci分数
-     * <p> 示例值：0.9
+     * 协作分数，根据消息沟通频率、文档协作频率、邮件往来频率、日程会议协作频率等加权计算得出
+     *
+     * <p>示例值：0.9
      */
-    @SerializedName("score")
     private Double score;
 
-    // builder 开始
-    public SimpleRelatedUser() {
+    /**
+     * 用户ID，根据 user_id_type 选择返回的用户 ID 类型
+     *
+     * <p>示例值：fdsfds2
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SimpleRelatedUser(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * ci分数
-         * <p> 示例值：0.9
-         */
-        this.score = builder.score;
+    /**
+     * 协作分数，根据消息沟通频率、文档协作频率、邮件往来频率、日程会议协作频率等加权计算得出
+     *
+     * <p>示例值：0.9
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Double score) {
+      this.score = score;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SimpleRelatedUser build() {
+      return new SimpleRelatedUser(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Double getScore() {
-        return this.score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * ci分数
-         * <p> 示例值：0.9
-         */
-        private Double score;
-
-        /**
-         * 用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * ci分数
-         * <p> 示例值：0.9
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Double score) {
-            this.score = score;
-            return this;
-        }
-
-
-        public SimpleRelatedUser build() {
-            return new SimpleRelatedUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

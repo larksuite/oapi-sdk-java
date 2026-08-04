@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageVideoChatContent {
+  /**
+   * 主题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  // builder 开始
+  public MessageVideoChatContent() {}
+
+  public MessageVideoChatContent(Builder builder) {
     /**
      * 主题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("topic")
+    this.topic = builder.topic;
+  }
+
+  public static class Builder {
+    /**
+     * 主题
+     *
+     * <p>示例值：
+     */
     private String topic;
 
-    // builder 开始
-    public MessageVideoChatContent() {
+    /**
+     * 主题
+     *
+     * <p>示例值：
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public MessageVideoChatContent(Builder builder) {
-        /**
-         * 主题
-         * <p> 示例值：
-         */
-        this.topic = builder.topic;
+    public MessageVideoChatContent build() {
+      return new MessageVideoChatContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTopic() {
-        return this.topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public static class Builder {
-        /**
-         * 主题
-         * <p> 示例值：
-         */
-        private String topic;
-
-        /**
-         * 主题
-         * <p> 示例值：
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        public MessageVideoChatContent build() {
-            return new MessageVideoChatContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

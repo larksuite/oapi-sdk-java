@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CampusVolumnteerInfo {
+  /**
+   * 志愿顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("volunteer_seq")
+  private Long volunteerSeq;
+
+  public Long getVolunteerSeq() {
+    return this.volunteerSeq;
+  }
+
+  public void setVolunteerSeq(Long volunteerSeq) {
+    this.volunteerSeq = volunteerSeq;
+  }
+
+  // builder 开始
+  public CampusVolumnteerInfo() {}
+
+  public CampusVolumnteerInfo(Builder builder) {
     /**
      * 志愿顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("volunteer_seq")
+    this.volunteerSeq = builder.volunteerSeq;
+  }
+
+  public static class Builder {
+    /**
+     * 志愿顺序
+     *
+     * <p>示例值：1
+     */
     private Long volunteerSeq;
 
-    // builder 开始
-    public CampusVolumnteerInfo() {
+    /**
+     * 志愿顺序
+     *
+     * <p>示例值：1
+     *
+     * @param volunteerSeq
+     * @return
+     */
+    public Builder volunteerSeq(Long volunteerSeq) {
+      this.volunteerSeq = volunteerSeq;
+      return this;
     }
 
-    public CampusVolumnteerInfo(Builder builder) {
-        /**
-         * 志愿顺序
-         * <p> 示例值：1
-         */
-        this.volunteerSeq = builder.volunteerSeq;
+    public CampusVolumnteerInfo build() {
+      return new CampusVolumnteerInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Long getVolunteerSeq() {
-        return this.volunteerSeq;
-    }
-
-    public void setVolunteerSeq(Long volunteerSeq) {
-        this.volunteerSeq = volunteerSeq;
-    }
-
-    public static class Builder {
-        /**
-         * 志愿顺序
-         * <p> 示例值：1
-         */
-        private Long volunteerSeq;
-
-        /**
-         * 志愿顺序
-         * <p> 示例值：1
-         *
-         * @param volunteerSeq
-         * @return
-         */
-        public Builder volunteerSeq(Long volunteerSeq) {
-            this.volunteerSeq = volunteerSeq;
-            return this;
-        }
-
-
-        public CampusVolumnteerInfo build() {
-            return new CampusVolumnteerInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

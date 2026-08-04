@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventSearchItem {
+  /**
+   * 日程 ID
+   *
+   * <p>示例值：calevt_1234567890abcdef
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+   *
+   * <p>示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private CalendarEventSearchMeta metaData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public CalendarEventSearchMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(CalendarEventSearchMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public CalendarEventSearchItem() {}
+
+  public CalendarEventSearchItem(Builder builder) {
     /**
      * 日程 ID
-     * <p> 示例值：calevt_1234567890abcdef
+     *
+     * <p>示例值：calevt_1234567890abcdef
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-     * <p> 示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
+     *
+     * <p>示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 日程 ID
+     *
+     * <p>示例值：calevt_1234567890abcdef
+     */
+    private String id;
+
+    /**
+     * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
+     */
+    private String displayInfo;
+
+    /**
+     * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
+     *
+     * <p>示例值：
+     */
     private CalendarEventSearchMeta metaData;
 
-    // builder 开始
-    public CalendarEventSearchItem() {
+    /**
+     * 日程 ID
+     *
+     * <p>示例值：calevt_1234567890abcdef
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CalendarEventSearchItem(Builder builder) {
-        /**
-         * 日程 ID
-         * <p> 示例值：calevt_1234567890abcdef
-         */
-        this.id = builder.id;
-        /**
-         * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(CalendarEventSearchMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public CalendarEventSearchItem build() {
+      return new CalendarEventSearchItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public CalendarEventSearchMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(CalendarEventSearchMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 日程 ID
-         * <p> 示例值：calevt_1234567890abcdef
-         */
-        private String id;
-        /**
-         * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
-         */
-        private String displayInfo;
-        /**
-         * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
-         * <p> 示例值：
-         */
-        private CalendarEventSearchMeta metaData;
-
-        /**
-         * 日程 ID
-         * <p> 示例值：calevt_1234567890abcdef
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 包含日程基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：Q2 <h>周会</h>\n2026-04-23 15:00-16:00\n会议室 A103
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 日程元信息，包含搜索日程的基本数据；更多数据可通过获取日程接口拉取。
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(CalendarEventSearchMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public CalendarEventSearchItem build() {
-            return new CalendarEventSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

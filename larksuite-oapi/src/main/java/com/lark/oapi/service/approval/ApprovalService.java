@@ -26,111 +26,130 @@ import com.lark.oapi.service.approval.v4.resource.InstanceComment;
 import com.lark.oapi.service.approval.v4.resource.Task;
 
 public class ApprovalService {
-    private final V4 v4;
-    private final Approval approval; // 原生审批定义
-    private final District district; // district
-    private final ExternalApproval externalApproval; // 三方审批定义
-    private final ExternalInstance externalInstance; // 三方审批实例
-    private final ExternalTask externalTask; // 三方审批任务
-    private final Instance instance; // 原生审批实例
-    private final InstanceComment instanceComment; // 原生审批评论
-    private final Task task; // 原生审批任务
+  private final V4 v4;
+  private final Approval approval; // approval
+  private final District district; // district
+  private final ExternalApproval externalApproval; // external_approval
+  private final ExternalInstance externalInstance; // external_instance
+  private final ExternalTask externalTask; // external_task
+  private final Instance instance; // instance
+  private final InstanceComment instanceComment; // instance.comment
+  private final Task task; // task
 
-    public ApprovalService(Config config) {
-        this.v4 = new V4(config);
-        this.approval = new Approval(config);
-        this.district = new District(config);
-        this.externalApproval = new ExternalApproval(config);
-        this.externalInstance = new ExternalInstance(config);
-        this.externalTask = new ExternalTask(config);
-        this.instance = new Instance(config);
-        this.instanceComment = new InstanceComment(config);
-        this.task = new Task(config);
+  public ApprovalService(Config config) {
+    this.v4 = new V4(config);
+    this.approval = new Approval(config);
+    this.district = new District(config);
+    this.externalApproval = new ExternalApproval(config);
+    this.externalInstance = new ExternalInstance(config);
+    this.externalTask = new ExternalTask(config);
+    this.instance = new Instance(config);
+    this.instanceComment = new InstanceComment(config);
+    this.task = new Task(config);
+  }
+
+  public V4 v4() {
+    return v4;
+  }
+
+  public Approval approval() {
+    return approval;
+  }
+
+  public District district() {
+    return district;
+  }
+
+  public ExternalApproval externalApproval() {
+    return externalApproval;
+  }
+
+  public ExternalInstance externalInstance() {
+    return externalInstance;
+  }
+
+  public ExternalTask externalTask() {
+    return externalTask;
+  }
+
+  public Instance instance() {
+    return instance;
+  }
+
+  public InstanceComment instanceComment() {
+    return instanceComment;
+  }
+
+  public Task task() {
+    return task;
+  }
+
+  public abstract static class P2ApprovalUpdatedV4Handler
+      implements IEventHandler<P2ApprovalUpdatedV4> {
+    @Override
+    public P2ApprovalUpdatedV4 getEvent() {
+      return new P2ApprovalUpdatedV4();
     }
+  }
 
-    public V4 v4() {
-        return v4;
+  public abstract static class P2InstanceStatusChangedV4Handler
+      implements IEventHandler<P2InstanceStatusChangedV4> {
+    @Override
+    public P2InstanceStatusChangedV4 getEvent() {
+      return new P2InstanceStatusChangedV4();
     }
+  }
 
-    public Approval approval() {
-        return approval;
+  public abstract static class P2TaskStatusChangedV4Handler
+      implements IEventHandler<P2TaskStatusChangedV4> {
+    @Override
+    public P2TaskStatusChangedV4 getEvent() {
+      return new P2TaskStatusChangedV4();
     }
+  }
 
-    public District district() {
-        return district;
+  public abstract static class P1LeaveApprovalV4Handler
+      implements IEventHandler<P1LeaveApprovalV4> {
+    @Override
+    public P1LeaveApprovalV4 getEvent() {
+      return new P1LeaveApprovalV4();
     }
+  }
 
-    public ExternalApproval externalApproval() {
-        return externalApproval;
+  public abstract static class P1WorkApprovalV4Handler implements IEventHandler<P1WorkApprovalV4> {
+    @Override
+    public P1WorkApprovalV4 getEvent() {
+      return new P1WorkApprovalV4();
     }
+  }
 
-    public ExternalInstance externalInstance() {
-        return externalInstance;
+  public abstract static class P1ShiftApprovalV4Handler
+      implements IEventHandler<P1ShiftApprovalV4> {
+    @Override
+    public P1ShiftApprovalV4 getEvent() {
+      return new P1ShiftApprovalV4();
     }
+  }
 
-    public ExternalTask externalTask() {
-        return externalTask;
+  public abstract static class P1RemedyApprovalV4Handler
+      implements IEventHandler<P1RemedyApprovalV4> {
+    @Override
+    public P1RemedyApprovalV4 getEvent() {
+      return new P1RemedyApprovalV4();
     }
+  }
 
-    public Instance instance() {
-        return instance;
+  public abstract static class P1TripApprovalV4Handler implements IEventHandler<P1TripApprovalV4> {
+    @Override
+    public P1TripApprovalV4 getEvent() {
+      return new P1TripApprovalV4();
     }
+  }
 
-    public InstanceComment instanceComment() {
-        return instanceComment;
+  public abstract static class P1OutApprovalV4Handler implements IEventHandler<P1OutApprovalV4> {
+    @Override
+    public P1OutApprovalV4 getEvent() {
+      return new P1OutApprovalV4();
     }
-
-    public Task task() {
-        return task;
-    }
-
-    public abstract static class P2ApprovalUpdatedV4Handler implements IEventHandler<P2ApprovalUpdatedV4> {
-        @Override
-        public P2ApprovalUpdatedV4 getEvent() {
-            return new P2ApprovalUpdatedV4();
-        }
-    }
-
-    public abstract static class P1LeaveApprovalV4Handler implements IEventHandler<P1LeaveApprovalV4> {
-        @Override
-        public P1LeaveApprovalV4 getEvent() {
-            return new P1LeaveApprovalV4();
-        }
-    }
-
-    public abstract static class P1WorkApprovalV4Handler implements IEventHandler<P1WorkApprovalV4> {
-        @Override
-        public P1WorkApprovalV4 getEvent() {
-            return new P1WorkApprovalV4();
-        }
-    }
-
-    public abstract static class P1ShiftApprovalV4Handler implements IEventHandler<P1ShiftApprovalV4> {
-        @Override
-        public P1ShiftApprovalV4 getEvent() {
-            return new P1ShiftApprovalV4();
-        }
-    }
-
-    public abstract static class P1RemedyApprovalV4Handler implements IEventHandler<P1RemedyApprovalV4> {
-        @Override
-        public P1RemedyApprovalV4 getEvent() {
-            return new P1RemedyApprovalV4();
-        }
-    }
-
-    public abstract static class P1TripApprovalV4Handler implements IEventHandler<P1TripApprovalV4> {
-        @Override
-        public P1TripApprovalV4 getEvent() {
-            return new P1TripApprovalV4();
-        }
-    }
-
-
-    public abstract static class P1OutApprovalV4Handler implements IEventHandler<P1OutApprovalV4> {
-        @Override
-        public P1OutApprovalV4 getEvent() {
-            return new P1OutApprovalV4();
-        }
-    }
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventSearchFilter {
+  /**
+   * 日历 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calendar_ids")
+  private String[] calendarIds;
+
+  /**
+   * 组织者用户 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("organizer_user_ids")
+  private String[] organizerUserIds;
+
+  /**
+   * 参与者用户 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendee_user_ids")
+  private String[] attendeeUserIds;
+
+  /**
+   * 参与者群 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendee_chat_ids")
+  private String[] attendeeChatIds;
+
+  /**
+   * 会议室 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_room_ids")
+  private String[] meetingRoomIds;
+
+  /**
+   * 日程时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_range")
+  private TimeRange timeRange;
+
+  public String[] getCalendarIds() {
+    return this.calendarIds;
+  }
+
+  public void setCalendarIds(String[] calendarIds) {
+    this.calendarIds = calendarIds;
+  }
+
+  public String[] getOrganizerUserIds() {
+    return this.organizerUserIds;
+  }
+
+  public void setOrganizerUserIds(String[] organizerUserIds) {
+    this.organizerUserIds = organizerUserIds;
+  }
+
+  public String[] getAttendeeUserIds() {
+    return this.attendeeUserIds;
+  }
+
+  public void setAttendeeUserIds(String[] attendeeUserIds) {
+    this.attendeeUserIds = attendeeUserIds;
+  }
+
+  public String[] getAttendeeChatIds() {
+    return this.attendeeChatIds;
+  }
+
+  public void setAttendeeChatIds(String[] attendeeChatIds) {
+    this.attendeeChatIds = attendeeChatIds;
+  }
+
+  public String[] getMeetingRoomIds() {
+    return this.meetingRoomIds;
+  }
+
+  public void setMeetingRoomIds(String[] meetingRoomIds) {
+    this.meetingRoomIds = meetingRoomIds;
+  }
+
+  public TimeRange getTimeRange() {
+    return this.timeRange;
+  }
+
+  public void setTimeRange(TimeRange timeRange) {
+    this.timeRange = timeRange;
+  }
+
+  // builder 开始
+  public CalendarEventSearchFilter() {}
+
+  public CalendarEventSearchFilter(Builder builder) {
     /**
      * 日历 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calendar_ids")
-    private String[] calendarIds;
+    this.calendarIds = builder.calendarIds;
     /**
      * 组织者用户 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("organizer_user_ids")
-    private String[] organizerUserIds;
+    this.organizerUserIds = builder.organizerUserIds;
     /**
      * 参与者用户 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attendee_user_ids")
-    private String[] attendeeUserIds;
+    this.attendeeUserIds = builder.attendeeUserIds;
     /**
      * 参与者群 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attendee_chat_ids")
-    private String[] attendeeChatIds;
+    this.attendeeChatIds = builder.attendeeChatIds;
     /**
      * 会议室 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_room_ids")
-    private String[] meetingRoomIds;
+    this.meetingRoomIds = builder.meetingRoomIds;
     /**
      * 日程时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_range")
+    this.timeRange = builder.timeRange;
+  }
+
+  public static class Builder {
+    /**
+     * 日历 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] calendarIds;
+
+    /**
+     * 组织者用户 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] organizerUserIds;
+
+    /**
+     * 参与者用户 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] attendeeUserIds;
+
+    /**
+     * 参与者群 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] attendeeChatIds;
+
+    /**
+     * 会议室 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] meetingRoomIds;
+
+    /**
+     * 日程时间范围
+     *
+     * <p>示例值：
+     */
     private TimeRange timeRange;
 
-    // builder 开始
-    public CalendarEventSearchFilter() {
+    /**
+     * 日历 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param calendarIds
+     * @return
+     */
+    public Builder calendarIds(String[] calendarIds) {
+      this.calendarIds = calendarIds;
+      return this;
     }
 
-    public CalendarEventSearchFilter(Builder builder) {
-        /**
-         * 日历 ID 列表
-         * <p> 示例值：
-         */
-        this.calendarIds = builder.calendarIds;
-        /**
-         * 组织者用户 ID 列表
-         * <p> 示例值：
-         */
-        this.organizerUserIds = builder.organizerUserIds;
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         */
-        this.attendeeUserIds = builder.attendeeUserIds;
-        /**
-         * 参与者群 ID 列表
-         * <p> 示例值：
-         */
-        this.attendeeChatIds = builder.attendeeChatIds;
-        /**
-         * 会议室 ID 列表
-         * <p> 示例值：
-         */
-        this.meetingRoomIds = builder.meetingRoomIds;
-        /**
-         * 日程时间范围
-         * <p> 示例值：
-         */
-        this.timeRange = builder.timeRange;
+    /**
+     * 组织者用户 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param organizerUserIds
+     * @return
+     */
+    public Builder organizerUserIds(String[] organizerUserIds) {
+      this.organizerUserIds = organizerUserIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参与者用户 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param attendeeUserIds
+     * @return
+     */
+    public Builder attendeeUserIds(String[] attendeeUserIds) {
+      this.attendeeUserIds = attendeeUserIds;
+      return this;
     }
 
-    public String[] getCalendarIds() {
-        return this.calendarIds;
+    /**
+     * 参与者群 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param attendeeChatIds
+     * @return
+     */
+    public Builder attendeeChatIds(String[] attendeeChatIds) {
+      this.attendeeChatIds = attendeeChatIds;
+      return this;
     }
 
-    public void setCalendarIds(String[] calendarIds) {
-        this.calendarIds = calendarIds;
+    /**
+     * 会议室 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param meetingRoomIds
+     * @return
+     */
+    public Builder meetingRoomIds(String[] meetingRoomIds) {
+      this.meetingRoomIds = meetingRoomIds;
+      return this;
     }
 
-    public String[] getOrganizerUserIds() {
-        return this.organizerUserIds;
+    /**
+     * 日程时间范围
+     *
+     * <p>示例值：
+     *
+     * @param timeRange
+     * @return
+     */
+    public Builder timeRange(TimeRange timeRange) {
+      this.timeRange = timeRange;
+      return this;
     }
 
-    public void setOrganizerUserIds(String[] organizerUserIds) {
-        this.organizerUserIds = organizerUserIds;
+    public CalendarEventSearchFilter build() {
+      return new CalendarEventSearchFilter(this);
     }
+  }
 
-    public String[] getAttendeeUserIds() {
-        return this.attendeeUserIds;
-    }
-
-    public void setAttendeeUserIds(String[] attendeeUserIds) {
-        this.attendeeUserIds = attendeeUserIds;
-    }
-
-    public String[] getAttendeeChatIds() {
-        return this.attendeeChatIds;
-    }
-
-    public void setAttendeeChatIds(String[] attendeeChatIds) {
-        this.attendeeChatIds = attendeeChatIds;
-    }
-
-    public String[] getMeetingRoomIds() {
-        return this.meetingRoomIds;
-    }
-
-    public void setMeetingRoomIds(String[] meetingRoomIds) {
-        this.meetingRoomIds = meetingRoomIds;
-    }
-
-    public TimeRange getTimeRange() {
-        return this.timeRange;
-    }
-
-    public void setTimeRange(TimeRange timeRange) {
-        this.timeRange = timeRange;
-    }
-
-    public static class Builder {
-        /**
-         * 日历 ID 列表
-         * <p> 示例值：
-         */
-        private String[] calendarIds;
-        /**
-         * 组织者用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] organizerUserIds;
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] attendeeUserIds;
-        /**
-         * 参与者群 ID 列表
-         * <p> 示例值：
-         */
-        private String[] attendeeChatIds;
-        /**
-         * 会议室 ID 列表
-         * <p> 示例值：
-         */
-        private String[] meetingRoomIds;
-        /**
-         * 日程时间范围
-         * <p> 示例值：
-         */
-        private TimeRange timeRange;
-
-        /**
-         * 日历 ID 列表
-         * <p> 示例值：
-         *
-         * @param calendarIds
-         * @return
-         */
-        public Builder calendarIds(String[] calendarIds) {
-            this.calendarIds = calendarIds;
-            return this;
-        }
-
-
-        /**
-         * 组织者用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param organizerUserIds
-         * @return
-         */
-        public Builder organizerUserIds(String[] organizerUserIds) {
-            this.organizerUserIds = organizerUserIds;
-            return this;
-        }
-
-
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param attendeeUserIds
-         * @return
-         */
-        public Builder attendeeUserIds(String[] attendeeUserIds) {
-            this.attendeeUserIds = attendeeUserIds;
-            return this;
-        }
-
-
-        /**
-         * 参与者群 ID 列表
-         * <p> 示例值：
-         *
-         * @param attendeeChatIds
-         * @return
-         */
-        public Builder attendeeChatIds(String[] attendeeChatIds) {
-            this.attendeeChatIds = attendeeChatIds;
-            return this;
-        }
-
-
-        /**
-         * 会议室 ID 列表
-         * <p> 示例值：
-         *
-         * @param meetingRoomIds
-         * @return
-         */
-        public Builder meetingRoomIds(String[] meetingRoomIds) {
-            this.meetingRoomIds = meetingRoomIds;
-            return this;
-        }
-
-
-        /**
-         * 日程时间范围
-         * <p> 示例值：
-         *
-         * @param timeRange
-         * @return
-         */
-        public Builder timeRange(TimeRange timeRange) {
-            this.timeRange = timeRange;
-            return this;
-        }
-
-
-        public CalendarEventSearchFilter build() {
-            return new CalendarEventSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceMessageParam {
+  /**
+   * 是否搜索消息。默认为**否**。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * 圈选条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private KnowledgeSourceMessageFilter filter;
+
+  /**
+   * 排除条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reject")
+  private KnowledgeSourceMessageReject reject;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public KnowledgeSourceMessageFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(KnowledgeSourceMessageFilter filter) {
+    this.filter = filter;
+  }
+
+  public KnowledgeSourceMessageReject getReject() {
+    return this.reject;
+  }
+
+  public void setReject(KnowledgeSourceMessageReject reject) {
+    this.reject = reject;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceMessageParam() {}
+
+  public EnterpriseKnowledgeSourceMessageParam(Builder builder) {
     /**
-     * searchable
-     * <p> 示例值：false
+     * 是否搜索消息。默认为**否**。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("searchable")
+    this.searchable = builder.searchable;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
+     */
+    this.filter = builder.filter;
+    /**
+     * 排除条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
+     */
+    this.reject = builder.reject;
+  }
+
+  public static class Builder {
+    /**
+     * 是否搜索消息。默认为**否**。
+     *
+     * <p>示例值：true
+     */
     private Boolean searchable;
+
     /**
-     * filter
-     * <p> 示例值：
+     * 圈选条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
     private KnowledgeSourceMessageFilter filter;
+
     /**
-     * reject
-     * <p> 示例值：
+     * 排除条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reject")
     private KnowledgeSourceMessageReject reject;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceMessageParam() {
+    /**
+     * 是否搜索消息。默认为**否**。
+     *
+     * <p>示例值：true
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceMessageParam(Builder builder) {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * reject
-         * <p> 示例值：
-         */
-        this.reject = builder.reject;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(KnowledgeSourceMessageFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 排除条件。不填写时，默认搜索**权限范围内 1 年内**的用户消息。
+     *
+     * <p>示例值：
+     *
+     * @param reject
+     * @return
+     */
+    public Builder reject(KnowledgeSourceMessageReject reject) {
+      this.reject = reject;
+      return this;
     }
 
-    public Boolean getSearchable() {
-        return this.searchable;
+    public EnterpriseKnowledgeSourceMessageParam build() {
+      return new EnterpriseKnowledgeSourceMessageParam(this);
     }
+  }
 
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public KnowledgeSourceMessageFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(KnowledgeSourceMessageFilter filter) {
-        this.filter = filter;
-    }
-
-    public KnowledgeSourceMessageReject getReject() {
-        return this.reject;
-    }
-
-    public void setReject(KnowledgeSourceMessageReject reject) {
-        this.reject = reject;
-    }
-
-    public static class Builder {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        private KnowledgeSourceMessageFilter filter;
-        /**
-         * reject
-         * <p> 示例值：
-         */
-        private KnowledgeSourceMessageReject reject;
-
-        /**
-         * searchable
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * filter
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(KnowledgeSourceMessageFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * reject
-         * <p> 示例值：
-         *
-         * @param reject
-         * @return
-         */
-        public Builder reject(KnowledgeSourceMessageReject reject) {
-            this.reject = reject;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceMessageParam build() {
-            return new EnterpriseKnowledgeSourceMessageParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

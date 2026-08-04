@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoBackgroundCheckPackageAdditionalItem {
+  /**
+   * 账号下已有的附加调查项 ID
+   *
+   * <p>示例值：ext001
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附加调查项名称
+   *
+   * <p>示例值：工作履历信息验证X2
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 附加调查项描述
+   *
+   * <p>示例值：详细调查
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public EcoBackgroundCheckPackageAdditionalItem() {}
+
+  public EcoBackgroundCheckPackageAdditionalItem(Builder builder) {
     /**
-     * 附件调查项 ID
-     * <p> 示例值：ext001
+     * 账号下已有的附加调查项 ID
+     *
+     * <p>示例值：ext001
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 附加调查项名称
-     * <p> 示例值：工作履历信息验证X2
+     *
+     * <p>示例值：工作履历信息验证X2
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 附加调查项描述
-     * <p> 示例值：详细调查
+     *
+     * <p>示例值：详细调查
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 账号下已有的附加调查项 ID
+     *
+     * <p>示例值：ext001
+     */
+    private String id;
+
+    /**
+     * 附加调查项名称
+     *
+     * <p>示例值：工作履历信息验证X2
+     */
+    private String name;
+
+    /**
+     * 附加调查项描述
+     *
+     * <p>示例值：详细调查
+     */
     private String description;
 
-    // builder 开始
-    public EcoBackgroundCheckPackageAdditionalItem() {
+    /**
+     * 账号下已有的附加调查项 ID
+     *
+     * <p>示例值：ext001
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EcoBackgroundCheckPackageAdditionalItem(Builder builder) {
-        /**
-         * 附件调查项 ID
-         * <p> 示例值：ext001
-         */
-        this.id = builder.id;
-        /**
-         * 附加调查项名称
-         * <p> 示例值：工作履历信息验证X2
-         */
-        this.name = builder.name;
-        /**
-         * 附加调查项描述
-         * <p> 示例值：详细调查
-         */
-        this.description = builder.description;
+    /**
+     * 附加调查项名称
+     *
+     * <p>示例值：工作履历信息验证X2
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附加调查项描述
+     *
+     * <p>示例值：详细调查
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public EcoBackgroundCheckPackageAdditionalItem build() {
+      return new EcoBackgroundCheckPackageAdditionalItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 附件调查项 ID
-         * <p> 示例值：ext001
-         */
-        private String id;
-        /**
-         * 附加调查项名称
-         * <p> 示例值：工作履历信息验证X2
-         */
-        private String name;
-        /**
-         * 附加调查项描述
-         * <p> 示例值：详细调查
-         */
-        private String description;
-
-        /**
-         * 附件调查项 ID
-         * <p> 示例值：ext001
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附加调查项名称
-         * <p> 示例值：工作履历信息验证X2
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 附加调查项描述
-         * <p> 示例值：详细调查
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public EcoBackgroundCheckPackageAdditionalItem build() {
-            return new EcoBackgroundCheckPackageAdditionalItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

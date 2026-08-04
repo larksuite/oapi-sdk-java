@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenShortcut {
+  /**
+   * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
+   *
+   * <p>示例值：ou_2f592462es0s63fda1137dq01c4e624f
+   */
+  @SerializedName("feed_card_id")
+  private String feedCardId;
+
+  /**
+   * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getFeedCardId() {
+    return this.feedCardId;
+  }
+
+  public void setFeedCardId(String feedCardId) {
+    this.feedCardId = feedCardId;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public OpenShortcut() {}
+
+  public OpenShortcut(Builder builder) {
     /**
      * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
-     * <p> 示例值：ou_2f592462es0s63fda1137dq01c4e624f
+     *
+     * <p>示例值：ou_2f592462es0s63fda1137dq01c4e624f
      */
-    @SerializedName("feed_card_id")
-    private String feedCardId;
+    this.feedCardId = builder.feedCardId;
     /**
      * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
+     *
+     * <p>示例值：ou_2f592462es0s63fda1137dq01c4e624f
+     */
+    private String feedCardId;
+
+    /**
+     * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
+     *
+     * <p>示例值：
+     */
     private Integer type;
 
-    // builder 开始
-    public OpenShortcut() {
+    /**
+     * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
+     *
+     * <p>示例值：ou_2f592462es0s63fda1137dq01c4e624f
+     *
+     * @param feedCardId
+     * @return
+     */
+    public Builder feedCardId(String feedCardId) {
+      this.feedCardId = feedCardId;
+      return this;
     }
 
-    public OpenShortcut(Builder builder) {
-        /**
-         * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
-         * <p> 示例值：ou_2f592462es0s63fda1137dq01c4e624f
-         */
-        this.feedCardId = builder.feedCardId;
-        /**
-         * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
+     *
+     * <p>示例值：
+     *
+     * @param type {@link com.lark.oapi.service.im.v2.enums.OpenShortcutOpenShortcutTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.im.v2.enums.OpenShortcutOpenShortcutTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getFeedCardId() {
-        return this.feedCardId;
+    public OpenShortcut build() {
+      return new OpenShortcut(this);
     }
+  }
 
-    public void setFeedCardId(String feedCardId) {
-        this.feedCardId = feedCardId;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
-         * <p> 示例值：ou_2f592462es0s63fda1137dq01c4e624f
-         */
-        private String feedCardId;
-        /**
-         * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
-         * <p> 示例值：
-         */
-        private Integer type;
-
-        /**
-         * 置顶项的Open ID；当前版本 CHAT 类型对应 open_chat_id（以 oc_ 开头）
-         * <p> 示例值：ou_2f592462es0s63fda1137dq01c4e624f
-         *
-         * @param feedCardId
-         * @return
-         */
-        public Builder feedCardId(String feedCardId) {
-            this.feedCardId = feedCardId;
-            return this;
-        }
-
-
-        /**
-         * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.OpenShortcutOpenShortcutTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.im.v2.enums.OpenShortcutOpenShortcutTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public OpenShortcut build() {
-            return new OpenShortcut(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

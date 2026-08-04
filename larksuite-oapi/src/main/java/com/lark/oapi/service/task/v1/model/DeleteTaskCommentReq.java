@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v1.enums.*;
 
 public class DeleteTaskCommentReq {
+  /**
+   * 任务ID
+   *
+   * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
+  @Path
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 评论ID
+   *
+   * <p>示例值：6937231762296684564
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  // builder 开始
+  public DeleteTaskCommentReq() {}
+
+  public DeleteTaskCommentReq(Builder builder) {
     /**
      * 任务ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 评论ID
-     * <p> 示例值：6937231762296684564
+     *
+     * <p>示例值：6937231762296684564
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
+    this.commentId = builder.commentId;
+  }
 
-    // builder 开始
-    public DeleteTaskCommentReq() {
+  public static class Builder {
+
+    private String taskId; // 任务ID
+    private String commentId; // 评论ID
+
+    /**
+     * 任务ID
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public DeleteTaskCommentReq(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 评论ID
-         * <p> 示例值：6937231762296684564
-         */
-        this.commentId = builder.commentId;
+    /**
+     * 评论ID
+     *
+     * <p>示例值：6937231762296684564
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteTaskCommentReq build() {
+      return new DeleteTaskCommentReq(this);
     }
+  }
 
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
-    public static class Builder {
-
-        private String taskId; // 任务ID
-        private String commentId; // 评论ID
-
-        /**
-         * 任务ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 评论ID
-         * <p> 示例值：6937231762296684564
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-
-        public DeleteTaskCommentReq build() {
-            return new DeleteTaskCommentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserSimpleInfo {
+  /**
+   * 用户的id
+   *
+   * <p>示例值：184625381123
+   */
+  @SerializedName("id")
+  private Integer id;
+
+  /**
+   * 用户的名称
+   *
+   * <p>示例值：user_name
+   */
+  @SerializedName("name")
+  private String name;
+
+  public Integer getId() {
+    return this.id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public UserSimpleInfo() {}
+
+  public UserSimpleInfo(Builder builder) {
     /**
      * 用户的id
-     * <p> 示例值：184625381123
+     *
+     * <p>示例值：184625381123
      */
-    @SerializedName("id")
-    private Integer id;
+    this.id = builder.id;
     /**
      * 用户的名称
-     * <p> 示例值：user_name
+     *
+     * <p>示例值：user_name
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 用户的id
+     *
+     * <p>示例值：184625381123
+     */
+    private Integer id;
+
+    /**
+     * 用户的名称
+     *
+     * <p>示例值：user_name
+     */
     private String name;
 
-    // builder 开始
-    public UserSimpleInfo() {
+    /**
+     * 用户的id
+     *
+     * <p>示例值：184625381123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(Integer id) {
+      this.id = id;
+      return this;
     }
 
-    public UserSimpleInfo(Builder builder) {
-        /**
-         * 用户的id
-         * <p> 示例值：184625381123
-         */
-        this.id = builder.id;
-        /**
-         * 用户的名称
-         * <p> 示例值：user_name
-         */
-        this.name = builder.name;
+    /**
+     * 用户的名称
+     *
+     * <p>示例值：user_name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserSimpleInfo build() {
+      return new UserSimpleInfo(this);
     }
+  }
 
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 用户的id
-         * <p> 示例值：184625381123
-         */
-        private Integer id;
-        /**
-         * 用户的名称
-         * <p> 示例值：user_name
-         */
-        private String name;
-
-        /**
-         * 用户的id
-         * <p> 示例值：184625381123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(Integer id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户的名称
-         * <p> 示例值：user_name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public UserSimpleInfo build() {
-            return new UserSimpleInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

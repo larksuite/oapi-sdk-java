@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FixScoreOption {
+  /**
+   * 分数
+   *
+   * <p>示例值：1.5
+   */
+  @SerializedName("score")
+  private Double score;
+
+  /**
+   * 评估项等级顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  public Double getScore() {
+    return this.score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  // builder 开始
+  public FixScoreOption() {}
+
+  public FixScoreOption(Builder builder) {
     /**
      * 分数
-     * <p> 示例值：1.5
+     *
+     * <p>示例值：1.5
      */
-    @SerializedName("score")
-    private Double score;
+    this.score = builder.score;
     /**
      * 评估项等级顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
+    this.order = builder.order;
+  }
+
+  public static class Builder {
+    /**
+     * 分数
+     *
+     * <p>示例值：1.5
+     */
+    private Double score;
+
+    /**
+     * 评估项等级顺序
+     *
+     * <p>示例值：1
+     */
     private Integer order;
 
-    // builder 开始
-    public FixScoreOption() {
+    /**
+     * 分数
+     *
+     * <p>示例值：1.5
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Double score) {
+      this.score = score;
+      return this;
     }
 
-    public FixScoreOption(Builder builder) {
-        /**
-         * 分数
-         * <p> 示例值：1.5
-         */
-        this.score = builder.score;
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
+    /**
+     * 评估项等级顺序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FixScoreOption build() {
+      return new FixScoreOption(this);
     }
+  }
 
-    public Double getScore() {
-        return this.score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public static class Builder {
-        /**
-         * 分数
-         * <p> 示例值：1.5
-         */
-        private Double score;
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         */
-        private Integer order;
-
-        /**
-         * 分数
-         * <p> 示例值：1.5
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Double score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        public FixScoreOption build() {
-            return new FixScoreOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

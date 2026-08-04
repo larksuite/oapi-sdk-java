@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchUserMailboxLabelReqBody {
+  /**
+   * 邮件标签，必须填写名字或颜色中的至少一个字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Label label;
+
+  public Label getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Label label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public PatchUserMailboxLabelReqBody() {}
+
+  public PatchUserMailboxLabelReqBody(Builder builder) {
     /**
-     * 邮件标签
-     * <p> 示例值：
+     * 邮件标签，必须填写名字或颜色中的至少一个字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件标签，必须填写名字或颜色中的至少一个字段
+     *
+     * <p>示例值：
+     */
     private Label label;
 
-    // builder 开始
-    public PatchUserMailboxLabelReqBody() {
+    /**
+     * 邮件标签，必须填写名字或颜色中的至少一个字段
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Label label) {
+      this.label = label;
+      return this;
     }
 
-    public PatchUserMailboxLabelReqBody(Builder builder) {
-        /**
-         * 邮件标签
-         * <p> 示例值：
-         */
-        this.label = builder.label;
+    public PatchUserMailboxLabelReqBody build() {
+      return new PatchUserMailboxLabelReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Label getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(Label label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件标签
-         * <p> 示例值：
-         */
-        private Label label;
-
-        /**
-         * 邮件标签
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Label label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public PatchUserMailboxLabelReqBody build() {
-            return new PatchUserMailboxLabelReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

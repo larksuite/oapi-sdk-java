@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDocumentBlockChildrenReqBody {
+  /**
+   * 添加的子块列表。了解块的父子关系规则，参考[文档概述-基本概念](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)。在一次请求中，你最多可以创建
+   * 5 个电子表格（Sheet）块
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private Block[] children;
+
+  /**
+   * 指定在某个块的子块列表中，新创建的子块的放置位置。索引的起始值为 0，表示子块列表的第一个位置；索引的最大值为某个块的子块数量，表示子块列表的最后一个位置。例如：一个块的子块列表中有 5
+   * 个子块，那么它们的索引分别为 0、1、2、3、4。如果要在该块的子块列表的中放置一个新创建的子块，并将其放置到第一个位置，那么索引值应为
+   * 0；如果要将新创建的子块放置到最后一个位置，那么索引值应为 -1
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("index")
+  private Integer index;
+
+  public Block[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(Block[] children) {
+    this.children = children;
+  }
+
+  public Integer getIndex() {
+    return this.index;
+  }
+
+  public void setIndex(Integer index) {
+    this.index = index;
+  }
+
+  // builder 开始
+  public CreateDocumentBlockChildrenReqBody() {}
+
+  public CreateDocumentBlockChildrenReqBody(Builder builder) {
     /**
-     * 添加的孩子列表。
-     * <p> 示例值：
+     * 添加的子块列表。了解块的父子关系规则，参考[文档概述-基本概念](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)。在一次请求中，你最多可以创建
+     * 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+    /**
+     * 指定在某个块的子块列表中，新创建的子块的放置位置。索引的起始值为 0，表示子块列表的第一个位置；索引的最大值为某个块的子块数量，表示子块列表的最后一个位置。例如：一个块的子块列表中有 5
+     * 个子块，那么它们的索引分别为 0、1、2、3、4。如果要在该块的子块列表的中放置一个新创建的子块，并将其放置到第一个位置，那么索引值应为
+     * 0；如果要将新创建的子块放置到最后一个位置，那么索引值应为 -1
+     *
+     * <p>示例值：0
+     */
+    this.index = builder.index;
+  }
+
+  public static class Builder {
+    /**
+     * 添加的子块列表。了解块的父子关系规则，参考[文档概述-基本概念](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)。在一次请求中，你最多可以创建
+     * 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
+     */
     private Block[] children;
+
     /**
-     * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-     * <p> 示例值：0
+     * 指定在某个块的子块列表中，新创建的子块的放置位置。索引的起始值为 0，表示子块列表的第一个位置；索引的最大值为某个块的子块数量，表示子块列表的最后一个位置。例如：一个块的子块列表中有 5
+     * 个子块，那么它们的索引分别为 0、1、2、3、4。如果要在该块的子块列表的中放置一个新创建的子块，并将其放置到第一个位置，那么索引值应为
+     * 0；如果要将新创建的子块放置到最后一个位置，那么索引值应为 -1
+     *
+     * <p>示例值：0
      */
-    @SerializedName("index")
     private Integer index;
 
-    // builder 开始
-    public CreateDocumentBlockChildrenReqBody() {
+    /**
+     * 添加的子块列表。了解块的父子关系规则，参考[文档概述-基本概念](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)。在一次请求中，你最多可以创建
+     * 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(Block[] children) {
+      this.children = children;
+      return this;
     }
 
-    public CreateDocumentBlockChildrenReqBody(Builder builder) {
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         */
-        this.index = builder.index;
+    /**
+     * 指定在某个块的子块列表中，新创建的子块的放置位置。索引的起始值为 0，表示子块列表的第一个位置；索引的最大值为某个块的子块数量，表示子块列表的最后一个位置。例如：一个块的子块列表中有 5
+     * 个子块，那么它们的索引分别为 0、1、2、3、4。如果要在该块的子块列表的中放置一个新创建的子块，并将其放置到第一个位置，那么索引值应为
+     * 0；如果要将新创建的子块放置到最后一个位置，那么索引值应为 -1
+     *
+     * <p>示例值：0
+     *
+     * @param index
+     * @return
+     */
+    public Builder index(Integer index) {
+      this.index = index;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateDocumentBlockChildrenReqBody build() {
+      return new CreateDocumentBlockChildrenReqBody(this);
     }
+  }
 
-    public Block[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(Block[] children) {
-        this.children = children;
-    }
-
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public static class Builder {
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         */
-        private Block[] children;
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         */
-        private Integer index;
-
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(Block[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         *
-         * @param index
-         * @return
-         */
-        public Builder index(Integer index) {
-            this.index = index;
-            return this;
-        }
-
-
-        public CreateDocumentBlockChildrenReqBody build() {
-            return new CreateDocumentBlockChildrenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

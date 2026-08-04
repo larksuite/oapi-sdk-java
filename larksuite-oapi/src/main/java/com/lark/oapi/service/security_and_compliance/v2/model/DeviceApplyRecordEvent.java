@@ -13,321 +13,351 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeviceApplyRecordEvent {
+  /**
+   * 设备申报记录ID
+   *
+   * <p>示例值：7088763625288187923
+   */
+  @SerializedName("device_apply_record_id")
+  private String deviceApplyRecordId;
+
+  /**
+   * 设备记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("device_record")
+  private DeviceRecordEvent deviceRecord;
+
+  /**
+   * 申报时间
+   *
+   * <p>示例值：2022-11-28 17:21:26
+   */
+  @SerializedName("apply_time")
+  private String applyTime;
+
+  /**
+   * 申报状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("apply_status")
+  private Integer applyStatus;
+
+  /**
+   * 申报人ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private UserId operator;
+
+  /**
+   * 申报设备归属
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("apply_device_ownership")
+  private Integer applyDeviceOwnership;
+
+  /**
+   * 申报理由
+   *
+   * <p>示例值：reason
+   */
+  @SerializedName("apply_reason")
+  private String applyReason;
+
+  public String getDeviceApplyRecordId() {
+    return this.deviceApplyRecordId;
+  }
+
+  public void setDeviceApplyRecordId(String deviceApplyRecordId) {
+    this.deviceApplyRecordId = deviceApplyRecordId;
+  }
+
+  public DeviceRecordEvent getDeviceRecord() {
+    return this.deviceRecord;
+  }
+
+  public void setDeviceRecord(DeviceRecordEvent deviceRecord) {
+    this.deviceRecord = deviceRecord;
+  }
+
+  public String getApplyTime() {
+    return this.applyTime;
+  }
+
+  public void setApplyTime(String applyTime) {
+    this.applyTime = applyTime;
+  }
+
+  public Integer getApplyStatus() {
+    return this.applyStatus;
+  }
+
+  public void setApplyStatus(Integer applyStatus) {
+    this.applyStatus = applyStatus;
+  }
+
+  public UserId getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(UserId operator) {
+    this.operator = operator;
+  }
+
+  public Integer getApplyDeviceOwnership() {
+    return this.applyDeviceOwnership;
+  }
+
+  public void setApplyDeviceOwnership(Integer applyDeviceOwnership) {
+    this.applyDeviceOwnership = applyDeviceOwnership;
+  }
+
+  public String getApplyReason() {
+    return this.applyReason;
+  }
+
+  public void setApplyReason(String applyReason) {
+    this.applyReason = applyReason;
+  }
+
+  // builder 开始
+  public DeviceApplyRecordEvent() {}
+
+  public DeviceApplyRecordEvent(Builder builder) {
     /**
      * 设备申报记录ID
-     * <p> 示例值：7088763625288187923
+     *
+     * <p>示例值：7088763625288187923
      */
-    @SerializedName("device_apply_record_id")
-    private String deviceApplyRecordId;
+    this.deviceApplyRecordId = builder.deviceApplyRecordId;
     /**
      * 设备记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("device_record")
-    private DeviceRecordEvent deviceRecord;
+    this.deviceRecord = builder.deviceRecord;
     /**
      * 申报时间
-     * <p> 示例值：2022-11-28 17:21:26
+     *
+     * <p>示例值：2022-11-28 17:21:26
      */
-    @SerializedName("apply_time")
-    private String applyTime;
+    this.applyTime = builder.applyTime;
     /**
      * 申报状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("apply_status")
-    private Integer applyStatus;
+    this.applyStatus = builder.applyStatus;
     /**
      * 申报人ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private UserId operator;
+    this.operator = builder.operator;
     /**
      * 申报设备归属
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("apply_device_ownership")
-    private Integer applyDeviceOwnership;
+    this.applyDeviceOwnership = builder.applyDeviceOwnership;
     /**
      * 申报理由
-     * <p> 示例值：reason
+     *
+     * <p>示例值：reason
      */
-    @SerializedName("apply_reason")
+    this.applyReason = builder.applyReason;
+  }
+
+  public static class Builder {
+    /**
+     * 设备申报记录ID
+     *
+     * <p>示例值：7088763625288187923
+     */
+    private String deviceApplyRecordId;
+
+    /**
+     * 设备记录
+     *
+     * <p>示例值：
+     */
+    private DeviceRecordEvent deviceRecord;
+
+    /**
+     * 申报时间
+     *
+     * <p>示例值：2022-11-28 17:21:26
+     */
+    private String applyTime;
+
+    /**
+     * 申报状态
+     *
+     * <p>示例值：0
+     */
+    private Integer applyStatus;
+
+    /**
+     * 申报人ID
+     *
+     * <p>示例值：
+     */
+    private UserId operator;
+
+    /**
+     * 申报设备归属
+     *
+     * <p>示例值：0
+     */
+    private Integer applyDeviceOwnership;
+
+    /**
+     * 申报理由
+     *
+     * <p>示例值：reason
+     */
     private String applyReason;
 
-    // builder 开始
-    public DeviceApplyRecordEvent() {
+    /**
+     * 设备申报记录ID
+     *
+     * <p>示例值：7088763625288187923
+     *
+     * @param deviceApplyRecordId
+     * @return
+     */
+    public Builder deviceApplyRecordId(String deviceApplyRecordId) {
+      this.deviceApplyRecordId = deviceApplyRecordId;
+      return this;
     }
 
-    public DeviceApplyRecordEvent(Builder builder) {
-        /**
-         * 设备申报记录ID
-         * <p> 示例值：7088763625288187923
-         */
-        this.deviceApplyRecordId = builder.deviceApplyRecordId;
-        /**
-         * 设备记录
-         * <p> 示例值：
-         */
-        this.deviceRecord = builder.deviceRecord;
-        /**
-         * 申报时间
-         * <p> 示例值：2022-11-28 17:21:26
-         */
-        this.applyTime = builder.applyTime;
-        /**
-         * 申报状态
-         * <p> 示例值：0
-         */
-        this.applyStatus = builder.applyStatus;
-        /**
-         * 申报人ID
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 申报设备归属
-         * <p> 示例值：0
-         */
-        this.applyDeviceOwnership = builder.applyDeviceOwnership;
-        /**
-         * 申报理由
-         * <p> 示例值：reason
-         */
-        this.applyReason = builder.applyReason;
+    /**
+     * 设备记录
+     *
+     * <p>示例值：
+     *
+     * @param deviceRecord
+     * @return
+     */
+    public Builder deviceRecord(DeviceRecordEvent deviceRecord) {
+      this.deviceRecord = deviceRecord;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 申报时间
+     *
+     * <p>示例值：2022-11-28 17:21:26
+     *
+     * @param applyTime
+     * @return
+     */
+    public Builder applyTime(String applyTime) {
+      this.applyTime = applyTime;
+      return this;
     }
 
-    public String getDeviceApplyRecordId() {
-        return this.deviceApplyRecordId;
+    /**
+     * 申报状态
+     *
+     * <p>示例值：0
+     *
+     * @param applyStatus
+     * @return
+     */
+    public Builder applyStatus(Integer applyStatus) {
+      this.applyStatus = applyStatus;
+      return this;
     }
 
-    public void setDeviceApplyRecordId(String deviceApplyRecordId) {
-        this.deviceApplyRecordId = deviceApplyRecordId;
+    /**
+     * 申报状态
+     *
+     * <p>示例值：0
+     *
+     * @param applyStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceApplyStatusEnum}
+     * @return
+     */
+    public Builder applyStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums
+                .DeviceApplyRecordEventDeviceApplyStatusEnum
+            applyStatus) {
+      this.applyStatus = applyStatus.getValue();
+      return this;
     }
 
-    public DeviceRecordEvent getDeviceRecord() {
-        return this.deviceRecord;
+    /**
+     * 申报人ID
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(UserId operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public void setDeviceRecord(DeviceRecordEvent deviceRecord) {
-        this.deviceRecord = deviceRecord;
+    /**
+     * 申报设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param applyDeviceOwnership
+     * @return
+     */
+    public Builder applyDeviceOwnership(Integer applyDeviceOwnership) {
+      this.applyDeviceOwnership = applyDeviceOwnership;
+      return this;
     }
 
-    public String getApplyTime() {
-        return this.applyTime;
+    /**
+     * 申报设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param applyDeviceOwnership {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceOwnershipEnum}
+     * @return
+     */
+    public Builder applyDeviceOwnership(
+        com.lark.oapi.service.security_and_compliance.v2.enums
+                .DeviceApplyRecordEventDeviceOwnershipEnum
+            applyDeviceOwnership) {
+      this.applyDeviceOwnership = applyDeviceOwnership.getValue();
+      return this;
     }
 
-    public void setApplyTime(String applyTime) {
-        this.applyTime = applyTime;
+    /**
+     * 申报理由
+     *
+     * <p>示例值：reason
+     *
+     * @param applyReason
+     * @return
+     */
+    public Builder applyReason(String applyReason) {
+      this.applyReason = applyReason;
+      return this;
     }
 
-    public Integer getApplyStatus() {
-        return this.applyStatus;
+    public DeviceApplyRecordEvent build() {
+      return new DeviceApplyRecordEvent(this);
     }
+  }
 
-    public void setApplyStatus(Integer applyStatus) {
-        this.applyStatus = applyStatus;
-    }
-
-    public UserId getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(UserId operator) {
-        this.operator = operator;
-    }
-
-    public Integer getApplyDeviceOwnership() {
-        return this.applyDeviceOwnership;
-    }
-
-    public void setApplyDeviceOwnership(Integer applyDeviceOwnership) {
-        this.applyDeviceOwnership = applyDeviceOwnership;
-    }
-
-    public String getApplyReason() {
-        return this.applyReason;
-    }
-
-    public void setApplyReason(String applyReason) {
-        this.applyReason = applyReason;
-    }
-
-    public static class Builder {
-        /**
-         * 设备申报记录ID
-         * <p> 示例值：7088763625288187923
-         */
-        private String deviceApplyRecordId;
-        /**
-         * 设备记录
-         * <p> 示例值：
-         */
-        private DeviceRecordEvent deviceRecord;
-        /**
-         * 申报时间
-         * <p> 示例值：2022-11-28 17:21:26
-         */
-        private String applyTime;
-        /**
-         * 申报状态
-         * <p> 示例值：0
-         */
-        private Integer applyStatus;
-        /**
-         * 申报人ID
-         * <p> 示例值：
-         */
-        private UserId operator;
-        /**
-         * 申报设备归属
-         * <p> 示例值：0
-         */
-        private Integer applyDeviceOwnership;
-        /**
-         * 申报理由
-         * <p> 示例值：reason
-         */
-        private String applyReason;
-
-        /**
-         * 设备申报记录ID
-         * <p> 示例值：7088763625288187923
-         *
-         * @param deviceApplyRecordId
-         * @return
-         */
-        public Builder deviceApplyRecordId(String deviceApplyRecordId) {
-            this.deviceApplyRecordId = deviceApplyRecordId;
-            return this;
-        }
-
-
-        /**
-         * 设备记录
-         * <p> 示例值：
-         *
-         * @param deviceRecord
-         * @return
-         */
-        public Builder deviceRecord(DeviceRecordEvent deviceRecord) {
-            this.deviceRecord = deviceRecord;
-            return this;
-        }
-
-
-        /**
-         * 申报时间
-         * <p> 示例值：2022-11-28 17:21:26
-         *
-         * @param applyTime
-         * @return
-         */
-        public Builder applyTime(String applyTime) {
-            this.applyTime = applyTime;
-            return this;
-        }
-
-
-        /**
-         * 申报状态
-         * <p> 示例值：0
-         *
-         * @param applyStatus
-         * @return
-         */
-        public Builder applyStatus(Integer applyStatus) {
-            this.applyStatus = applyStatus;
-            return this;
-        }
-
-        /**
-         * 申报状态
-         * <p> 示例值：0
-         *
-         * @param applyStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceApplyStatusEnum}
-         * @return
-         */
-        public Builder applyStatus(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceApplyStatusEnum applyStatus) {
-            this.applyStatus = applyStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 申报人ID
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(UserId operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 申报设备归属
-         * <p> 示例值：0
-         *
-         * @param applyDeviceOwnership
-         * @return
-         */
-        public Builder applyDeviceOwnership(Integer applyDeviceOwnership) {
-            this.applyDeviceOwnership = applyDeviceOwnership;
-            return this;
-        }
-
-        /**
-         * 申报设备归属
-         * <p> 示例值：0
-         *
-         * @param applyDeviceOwnership {@link com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceOwnershipEnum}
-         * @return
-         */
-        public Builder applyDeviceOwnership(com.lark.oapi.service.security_and_compliance.v2.enums.DeviceApplyRecordEventDeviceOwnershipEnum applyDeviceOwnership) {
-            this.applyDeviceOwnership = applyDeviceOwnership.getValue();
-            return this;
-        }
-
-
-        /**
-         * 申报理由
-         * <p> 示例值：reason
-         *
-         * @param applyReason
-         * @return
-         */
-        public Builder applyReason(String applyReason) {
-            this.applyReason = applyReason;
-            return this;
-        }
-
-
-        public DeviceApplyRecordEvent build() {
-            return new DeviceApplyRecordEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

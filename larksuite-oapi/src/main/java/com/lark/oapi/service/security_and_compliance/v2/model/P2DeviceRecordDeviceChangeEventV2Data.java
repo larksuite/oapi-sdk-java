@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2DeviceRecordDeviceChangeEventV2Data {
-    /**
-     * 设备认证编码
-     * <p> 示例值：7089353870308032531
-     */
-    @SerializedName("device_record_id")
-    private String deviceRecordId;
-    /**
-     * 版本号
-     * <p> 示例值：0
-     */
-    @SerializedName("version")
-    private String version;
-    /**
-     * 变更类型
-     * <p> 示例值：
-     */
-    @SerializedName("change_type")
-    private Integer changeType;
-    /**
-     * 变更前数据
-     * <p> 示例值：
-     */
-    @SerializedName("before")
-    private DeviceChangeEvent before;
-    /**
-     * 变更后数据
-     * <p> 示例值：
-     */
-    @SerializedName("after")
-    private DeviceChangeEvent after;
+  /**
+   * 设备认证编码
+   *
+   * <p>示例值：7089353870308032531
+   */
+  @SerializedName("device_record_id")
+  private String deviceRecordId;
 
-    public String getDeviceRecordId() {
-        return this.deviceRecordId;
-    }
+  /**
+   * 版本号
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("version")
+  private String version;
 
-    public void setDeviceRecordId(String deviceRecordId) {
-        this.deviceRecordId = deviceRecordId;
-    }
+  /**
+   * 变更类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("change_type")
+  private Integer changeType;
 
-    public String getVersion() {
-        return this.version;
-    }
+  /**
+   * 变更后数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("before")
+  private DeviceChangeEvent before;
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  /**
+   * 变更后数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("after")
+  private DeviceChangeEvent after;
 
-    public Integer getChangeType() {
-        return this.changeType;
-    }
+  public String getDeviceRecordId() {
+    return this.deviceRecordId;
+  }
 
-    public void setChangeType(Integer changeType) {
-        this.changeType = changeType;
-    }
+  public void setDeviceRecordId(String deviceRecordId) {
+    this.deviceRecordId = deviceRecordId;
+  }
 
-    public DeviceChangeEvent getBefore() {
-        return this.before;
-    }
+  public String getVersion() {
+    return this.version;
+  }
 
-    public void setBefore(DeviceChangeEvent before) {
-        this.before = before;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
-    public DeviceChangeEvent getAfter() {
-        return this.after;
-    }
+  public Integer getChangeType() {
+    return this.changeType;
+  }
 
-    public void setAfter(DeviceChangeEvent after) {
-        this.after = after;
-    }
+  public void setChangeType(Integer changeType) {
+    this.changeType = changeType;
+  }
 
+  public DeviceChangeEvent getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(DeviceChangeEvent before) {
+    this.before = before;
+  }
+
+  public DeviceChangeEvent getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(DeviceChangeEvent after) {
+    this.after = after;
+  }
 }

@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProgressRateNew {
+  /**
+   * 进展百分比，保留两位小数
+   *
+   * <p>示例值：50.21
+   */
+  @SerializedName("percent")
+  private Double percent;
+
+  /**
+   * 进展状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public Double getPercent() {
+    return this.percent;
+  }
+
+  public void setPercent(Double percent) {
+    this.percent = percent;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public ProgressRateNew() {}
+
+  public ProgressRateNew(Builder builder) {
     /**
      * 进展百分比，保留两位小数
-     * <p> 示例值：50.21
+     *
+     * <p>示例值：50.21
      */
-    @SerializedName("percent")
-    private Double percent;
+    this.percent = builder.percent;
     /**
      * 进展状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 进展百分比，保留两位小数
+     *
+     * <p>示例值：50.21
+     */
+    private Double percent;
+
+    /**
+     * 进展状态
+     *
+     * <p>示例值：0
+     */
     private Integer status;
 
-    // builder 开始
-    public ProgressRateNew() {
+    /**
+     * 进展百分比，保留两位小数
+     *
+     * <p>示例值：50.21
+     *
+     * @param percent
+     * @return
+     */
+    public Builder percent(Double percent) {
+      this.percent = percent;
+      return this;
     }
 
-    public ProgressRateNew(Builder builder) {
-        /**
-         * 进展百分比，保留两位小数
-         * <p> 示例值：50.21
-         */
-        this.percent = builder.percent;
-        /**
-         * 进展状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
+    /**
+     * 进展状态
+     *
+     * <p>示例值：0
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 进展状态
+     *
+     * <p>示例值：0
+     *
+     * @param status {@link com.lark.oapi.service.okr.v1.enums.ProgressRateNewStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.okr.v1.enums.ProgressRateNewStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public Double getPercent() {
-        return this.percent;
+    public ProgressRateNew build() {
+      return new ProgressRateNew(this);
     }
+  }
 
-    public void setPercent(Double percent) {
-        this.percent = percent;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 进展百分比，保留两位小数
-         * <p> 示例值：50.21
-         */
-        private Double percent;
-        /**
-         * 进展状态
-         * <p> 示例值：0
-         */
-        private Integer status;
-
-        /**
-         * 进展百分比，保留两位小数
-         * <p> 示例值：50.21
-         *
-         * @param percent
-         * @return
-         */
-        public Builder percent(Double percent) {
-            this.percent = percent;
-            return this;
-        }
-
-
-        /**
-         * 进展状态
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 进展状态
-         * <p> 示例值：0
-         *
-         * @param status {@link com.lark.oapi.service.okr.v1.enums.ProgressRateNewStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.okr.v1.enums.ProgressRateNewStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public ProgressRateNew build() {
-            return new ProgressRateNew(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserAssignInfo {
+  /**
+   * 席位 ID。
+   *
+   * <p>示例值：7079609167680782300
+   */
+  @SerializedName("subscription_id")
+  private String subscriptionId;
+
+  /**
+   * 席位的许可证（license plan key）。
+   *
+   * <p>示例值：suite_enterprise_e5
+   */
+  @SerializedName("license_plan_key")
+  private String licensePlanKey;
+
+  /**
+   * 席位名称。
+   *
+   * <p>示例值：旗舰版 E5
+   */
+  @SerializedName("product_name")
+  private String productName;
+
+  /**
+   * 国际化名称。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private ProductI18nName i18nName;
+
+  /**
+   * 席位起始时间。
+   *
+   * <p>示例值：1674981000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 席位结束时间。
+   *
+   * <p>示例值：1674991000
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
+  public String getLicensePlanKey() {
+    return this.licensePlanKey;
+  }
+
+  public void setLicensePlanKey(String licensePlanKey) {
+    this.licensePlanKey = licensePlanKey;
+  }
+
+  public String getProductName() {
+    return this.productName;
+  }
+
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
+
+  public ProductI18nName getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(ProductI18nName i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public UserAssignInfo() {}
+
+  public UserAssignInfo(Builder builder) {
     /**
-     * 席位id
-     * <p> 示例值：7079609167680782300
+     * 席位 ID。
+     *
+     * <p>示例值：7079609167680782300
      */
-    @SerializedName("subscription_id")
+    this.subscriptionId = builder.subscriptionId;
+    /**
+     * 席位的许可证（license plan key）。
+     *
+     * <p>示例值：suite_enterprise_e5
+     */
+    this.licensePlanKey = builder.licensePlanKey;
+    /**
+     * 席位名称。
+     *
+     * <p>示例值：旗舰版 E5
+     */
+    this.productName = builder.productName;
+    /**
+     * 国际化名称。
+     *
+     * <p>示例值：
+     */
+    this.i18nName = builder.i18nName;
+    /**
+     * 席位起始时间。
+     *
+     * <p>示例值：1674981000
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 席位结束时间。
+     *
+     * <p>示例值：1674991000
+     */
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 席位 ID。
+     *
+     * <p>示例值：7079609167680782300
+     */
     private String subscriptionId;
+
     /**
-     * license_plan_key
-     * <p> 示例值：suite_enterprise_e5
+     * 席位的许可证（license plan key）。
+     *
+     * <p>示例值：suite_enterprise_e5
      */
-    @SerializedName("license_plan_key")
     private String licensePlanKey;
+
     /**
-     * 席位名称
-     * <p> 示例值：旗舰版 E5
+     * 席位名称。
+     *
+     * <p>示例值：旗舰版 E5
      */
-    @SerializedName("product_name")
     private String productName;
+
     /**
-     * 国际化名称
-     * <p> 示例值：
+     * 国际化名称。
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
     private ProductI18nName i18nName;
+
     /**
-     * 席位起始时间
-     * <p> 示例值：1674981000
+     * 席位起始时间。
+     *
+     * <p>示例值：1674981000
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 席位结束时间
-     * <p> 示例值：1674991000
+     * 席位结束时间。
+     *
+     * <p>示例值：1674991000
      */
-    @SerializedName("end_time")
     private String endTime;
 
-    // builder 开始
-    public UserAssignInfo() {
+    /**
+     * 席位 ID。
+     *
+     * <p>示例值：7079609167680782300
+     *
+     * @param subscriptionId
+     * @return
+     */
+    public Builder subscriptionId(String subscriptionId) {
+      this.subscriptionId = subscriptionId;
+      return this;
     }
 
-    public UserAssignInfo(Builder builder) {
-        /**
-         * 席位id
-         * <p> 示例值：7079609167680782300
-         */
-        this.subscriptionId = builder.subscriptionId;
-        /**
-         * license_plan_key
-         * <p> 示例值：suite_enterprise_e5
-         */
-        this.licensePlanKey = builder.licensePlanKey;
-        /**
-         * 席位名称
-         * <p> 示例值：旗舰版 E5
-         */
-        this.productName = builder.productName;
-        /**
-         * 国际化名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 席位起始时间
-         * <p> 示例值：1674981000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 席位结束时间
-         * <p> 示例值：1674991000
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 席位的许可证（license plan key）。
+     *
+     * <p>示例值：suite_enterprise_e5
+     *
+     * @param licensePlanKey
+     * @return
+     */
+    public Builder licensePlanKey(String licensePlanKey) {
+      this.licensePlanKey = licensePlanKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 席位名称。
+     *
+     * <p>示例值：旗舰版 E5
+     *
+     * @param productName
+     * @return
+     */
+    public Builder productName(String productName) {
+      this.productName = productName;
+      return this;
     }
 
-    public String getSubscriptionId() {
-        return this.subscriptionId;
+    /**
+     * 国际化名称。
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(ProductI18nName i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public void setSubscriptionId(String subscriptionId) {
-        this.subscriptionId = subscriptionId;
+    /**
+     * 席位起始时间。
+     *
+     * <p>示例值：1674981000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getLicensePlanKey() {
-        return this.licensePlanKey;
+    /**
+     * 席位结束时间。
+     *
+     * <p>示例值：1674991000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setLicensePlanKey(String licensePlanKey) {
-        this.licensePlanKey = licensePlanKey;
+    public UserAssignInfo build() {
+      return new UserAssignInfo(this);
     }
+  }
 
-    public String getProductName() {
-        return this.productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public ProductI18nName getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(ProductI18nName i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 席位id
-         * <p> 示例值：7079609167680782300
-         */
-        private String subscriptionId;
-        /**
-         * license_plan_key
-         * <p> 示例值：suite_enterprise_e5
-         */
-        private String licensePlanKey;
-        /**
-         * 席位名称
-         * <p> 示例值：旗舰版 E5
-         */
-        private String productName;
-        /**
-         * 国际化名称
-         * <p> 示例值：
-         */
-        private ProductI18nName i18nName;
-        /**
-         * 席位起始时间
-         * <p> 示例值：1674981000
-         */
-        private String startTime;
-        /**
-         * 席位结束时间
-         * <p> 示例值：1674991000
-         */
-        private String endTime;
-
-        /**
-         * 席位id
-         * <p> 示例值：7079609167680782300
-         *
-         * @param subscriptionId
-         * @return
-         */
-        public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = subscriptionId;
-            return this;
-        }
-
-
-        /**
-         * license_plan_key
-         * <p> 示例值：suite_enterprise_e5
-         *
-         * @param licensePlanKey
-         * @return
-         */
-        public Builder licensePlanKey(String licensePlanKey) {
-            this.licensePlanKey = licensePlanKey;
-            return this;
-        }
-
-
-        /**
-         * 席位名称
-         * <p> 示例值：旗舰版 E5
-         *
-         * @param productName
-         * @return
-         */
-        public Builder productName(String productName) {
-            this.productName = productName;
-            return this;
-        }
-
-
-        /**
-         * 国际化名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(ProductI18nName i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 席位起始时间
-         * <p> 示例值：1674981000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 席位结束时间
-         * <p> 示例值：1674991000
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public UserAssignInfo build() {
-            return new UserAssignInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

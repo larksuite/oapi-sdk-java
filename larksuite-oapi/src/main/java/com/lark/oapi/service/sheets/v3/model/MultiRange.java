@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MultiRange {
+  /**
+   * 多个范围
+   *
+   * <p>示例值：Sheet1!A1:B2
+   */
+  @SerializedName("ranges")
+  private String[] ranges;
+
+  public String[] getRanges() {
+    return this.ranges;
+  }
+
+  public void setRanges(String[] ranges) {
+    this.ranges = ranges;
+  }
+
+  // builder 开始
+  public MultiRange() {}
+
+  public MultiRange(Builder builder) {
     /**
-     * 同一个工作表的多个范围
-     * <p> 示例值：Sheet1!A1:B2
+     * 多个范围
+     *
+     * <p>示例值：Sheet1!A1:B2
      */
-    @SerializedName("ranges")
+    this.ranges = builder.ranges;
+  }
+
+  public static class Builder {
+    /**
+     * 多个范围
+     *
+     * <p>示例值：Sheet1!A1:B2
+     */
     private String[] ranges;
 
-    // builder 开始
-    public MultiRange() {
+    /**
+     * 多个范围
+     *
+     * <p>示例值：Sheet1!A1:B2
+     *
+     * @param ranges
+     * @return
+     */
+    public Builder ranges(String[] ranges) {
+      this.ranges = ranges;
+      return this;
     }
 
-    public MultiRange(Builder builder) {
-        /**
-         * 同一个工作表的多个范围
-         * <p> 示例值：Sheet1!A1:B2
-         */
-        this.ranges = builder.ranges;
+    public MultiRange build() {
+      return new MultiRange(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getRanges() {
-        return this.ranges;
-    }
-
-    public void setRanges(String[] ranges) {
-        this.ranges = ranges;
-    }
-
-    public static class Builder {
-        /**
-         * 同一个工作表的多个范围
-         * <p> 示例值：Sheet1!A1:B2
-         */
-        private String[] ranges;
-
-        /**
-         * 同一个工作表的多个范围
-         * <p> 示例值：Sheet1!A1:B2
-         *
-         * @param ranges
-         * @return
-         */
-        public Builder ranges(String[] ranges) {
-            this.ranges = ranges;
-            return this;
-        }
-
-
-        public MultiRange build() {
-            return new MultiRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

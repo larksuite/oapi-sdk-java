@@ -13,230 +13,246 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetTicketCustomizedFieldRespBody {
-    /**
-     * ticket customized field id
-     * <p> 示例值：1542164574896126
-     */
-    @SerializedName("ticket_customized_field_id")
-    private String ticketCustomizedFieldId;
-    /**
-     * help desk id
-     * <p> 示例值：7836004780707807251
-     */
-    @SerializedName("helpdesk_id")
-    private String helpdeskId;
-    /**
-     * key name
-     * <p> 示例值："test dropdown"
-     */
-    @SerializedName("key_name")
-    private String keyName;
-    /**
-     * display name
-     * <p> 示例值："test dropdown"
-     */
-    @SerializedName("display_name")
-    private String displayName;
-    /**
-     * the position of ticket customized field in the page
-     * <p> 示例值："3"
-     */
-    @SerializedName("position")
-    private String position;
-    /**
-     * type of the field
-     * <p> 示例值："dropdown"
-     */
-    @SerializedName("field_type")
-    private String fieldType;
-    /**
-     * description of the field
-     * <p> 示例值："下拉示例"
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * if the field is visible
-     * <p> 示例值：true
-     */
-    @SerializedName("visible")
-    private Boolean visible;
-    /**
-     * if the field is editable
-     * <p> 示例值：true
-     */
-    @SerializedName("editable")
-    private Boolean editable;
-    /**
-     * if the field is required
-     * <p> 示例值：true
-     */
-    @SerializedName("required")
-    private Boolean required;
-    /**
-     * the time when the field is created
-     * <p> 示例值：1591239289000
-     */
-    @SerializedName("created_at")
-    private String createdAt;
-    /**
-     * the time when the field is updated
-     * <p> 示例值：1591239289000
-     */
-    @SerializedName("updated_at")
-    private String updatedAt;
-    /**
-     * the user who created the ticket customized field
-     * <p> 示例值：
-     */
-    @SerializedName("created_by")
-    private TicketUser createdBy;
-    /**
-     * the user who recently updated the ticket customized field
-     * <p> 示例值：
-     */
-    @SerializedName("updated_by")
-    private TicketUser updatedBy;
-    /**
-     * if the dropdown field supports multi-select
-     * <p> 示例值：true
-     */
-    @SerializedName("dropdown_allow_multiple")
-    private Boolean dropdownAllowMultiple;
+  /**
+   * 工单自定义字段ID
+   *
+   * <p>示例值：6834320707288072194
+   */
+  @SerializedName("ticket_customized_field_id")
+  private String ticketCustomizedFieldId;
 
-    public String getTicketCustomizedFieldId() {
-        return this.ticketCustomizedFieldId;
-    }
+  /**
+   * 服务台ID
+   *
+   * <p>示例值：1542164574896126
+   */
+  @SerializedName("helpdesk_id")
+  private String helpdeskId;
 
-    public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
-        this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-    }
+  /**
+   * 键名
+   *
+   * <p>示例值：test dropdown
+   */
+  @SerializedName("key_name")
+  private String keyName;
 
-    public String getHelpdeskId() {
-        return this.helpdeskId;
-    }
+  /**
+   * 名称
+   *
+   * <p>示例值：test dropdown
+   */
+  @SerializedName("display_name")
+  private String displayName;
 
-    public void setHelpdeskId(String helpdeskId) {
-        this.helpdeskId = helpdeskId;
-    }
+  /**
+   * 字段在列表后台管理列表中的位置
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("position")
+  private String position;
 
-    public String getKeyName() {
-        return this.keyName;
-    }
+  /**
+   * 类型;;string - 单行文本;;multiline - 多行文本;;dropdown - 下拉列表;;dropdown_nested - 级联下拉
+   *
+   * <p>示例值：dropdown
+   */
+  @SerializedName("field_type")
+  private String fieldType;
 
-    public void setKeyName(String keyName) {
-        this.keyName = keyName;
-    }
+  /**
+   * 描述
+   *
+   * <p>示例值：下拉示例
+   */
+  @SerializedName("description")
+  private String description;
 
-    public String getDisplayName() {
-        return this.displayName;
-    }
+  /**
+   * 是否可见
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("visible")
+  private Boolean visible;
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
+  /**
+   * 是否可以修改
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("editable")
+  private Boolean editable;
 
-    public String getPosition() {
-        return this.position;
-    }
+  /**
+   * 是否必填
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("required")
+  private Boolean required;
 
-    public void setPosition(String position) {
-        this.position = position;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1591239289000
+   */
+  @SerializedName("created_at")
+  private String createdAt;
 
-    public String getFieldType() {
-        return this.fieldType;
-    }
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1591239289000
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
 
-    public void setFieldType(String fieldType) {
-        this.fieldType = fieldType;
-    }
+  /**
+   * 更新用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("created_by")
+  private TicketUser createdBy;
 
-    public String getDescription() {
-        return this.description;
-    }
+  /**
+   * 更新用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("updated_by")
+  private TicketUser updatedBy;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  /**
+   * 是否支持多选，仅在字段类型是dropdown的时候有效
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("dropdown_allow_multiple")
+  private Boolean dropdownAllowMultiple;
 
-    public Boolean getVisible() {
-        return this.visible;
-    }
+  public String getTicketCustomizedFieldId() {
+    return this.ticketCustomizedFieldId;
+  }
 
-    public void setVisible(Boolean visible) {
-        this.visible = visible;
-    }
+  public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
+    this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+  }
 
-    public Boolean getEditable() {
-        return this.editable;
-    }
+  public String getHelpdeskId() {
+    return this.helpdeskId;
+  }
 
-    public void setEditable(Boolean editable) {
-        this.editable = editable;
-    }
+  public void setHelpdeskId(String helpdeskId) {
+    this.helpdeskId = helpdeskId;
+  }
 
-    public Boolean getRequired() {
-        return this.required;
-    }
+  public String getKeyName() {
+    return this.keyName;
+  }
 
-    public void setRequired(Boolean required) {
-        this.required = required;
-    }
+  public void setKeyName(String keyName) {
+    this.keyName = keyName;
+  }
 
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
+  public String getDisplayName() {
+    return this.displayName;
+  }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
 
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
+  public String getPosition() {
+    return this.position;
+  }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+  public void setPosition(String position) {
+    this.position = position;
+  }
 
-    public TicketUser getCreatedBy() {
-        return this.createdBy;
-    }
+  public String getFieldType() {
+    return this.fieldType;
+  }
 
-    public void setCreatedBy(TicketUser createdBy) {
-        this.createdBy = createdBy;
-    }
+  public void setFieldType(String fieldType) {
+    this.fieldType = fieldType;
+  }
 
-    public TicketUser getUpdatedBy() {
-        return this.updatedBy;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public void setUpdatedBy(TicketUser updatedBy) {
-        this.updatedBy = updatedBy;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public Boolean getDropdownAllowMultiple() {
-        return this.dropdownAllowMultiple;
-    }
+  public Boolean getVisible() {
+    return this.visible;
+  }
 
-    public void setDropdownAllowMultiple(Boolean dropdownAllowMultiple) {
-        this.dropdownAllowMultiple = dropdownAllowMultiple;
-    }
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
 
+  public Boolean getEditable() {
+    return this.editable;
+  }
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
+  }
+
+  public Boolean getRequired() {
+    return this.required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public TicketUser getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(TicketUser createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public TicketUser getUpdatedBy() {
+    return this.updatedBy;
+  }
+
+  public void setUpdatedBy(TicketUser updatedBy) {
+    this.updatedBy = updatedBy;
+  }
+
+  public Boolean getDropdownAllowMultiple() {
+    return this.dropdownAllowMultiple;
+  }
+
+  public void setDropdownAllowMultiple(Boolean dropdownAllowMultiple) {
+    this.dropdownAllowMultiple = dropdownAllowMultiple;
+  }
 }

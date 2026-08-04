@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditInfoOrder {
+  /**
+   * 指定审计信息排序的字段。
+   *
+   * <p>示例值：operation_time
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 指定排序方向。
+   *
+   * <p>示例值：desc
+   */
+  @SerializedName("direction")
+  private String direction;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public String getDirection() {
+    return this.direction;
+  }
+
+  public void setDirection(String direction) {
+    this.direction = direction;
+  }
+
+  // builder 开始
+  public AuditInfoOrder() {}
+
+  public AuditInfoOrder(Builder builder) {
     /**
      * 指定审计信息排序的字段。
-     * <p> 示例值：operation_time
+     *
+     * <p>示例值：operation_time
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 指定排序方向。
-     * <p> 示例值：desc
+     *
+     * <p>示例值：desc
      */
-    @SerializedName("direction")
+    this.direction = builder.direction;
+  }
+
+  public static class Builder {
+    /**
+     * 指定审计信息排序的字段。
+     *
+     * <p>示例值：operation_time
+     */
+    private String field;
+
+    /**
+     * 指定排序方向。
+     *
+     * <p>示例值：desc
+     */
     private String direction;
 
-    // builder 开始
-    public AuditInfoOrder() {
+    /**
+     * 指定审计信息排序的字段。
+     *
+     * <p>示例值：operation_time
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public AuditInfoOrder(Builder builder) {
-        /**
-         * 指定审计信息排序的字段。
-         * <p> 示例值：operation_time
-         */
-        this.field = builder.field;
-        /**
-         * 指定排序方向。
-         * <p> 示例值：desc
-         */
-        this.direction = builder.direction;
+    /**
+     * 指定排序方向。
+     *
+     * <p>示例值：desc
+     *
+     * @param direction
+     * @return
+     */
+    public Builder direction(String direction) {
+      this.direction = direction;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AuditInfoOrder build() {
+      return new AuditInfoOrder(this);
     }
+  }
 
-    public String getField() {
-        return this.field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public String getDirection() {
-        return this.direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
-    public static class Builder {
-        /**
-         * 指定审计信息排序的字段。
-         * <p> 示例值：operation_time
-         */
-        private String field;
-        /**
-         * 指定排序方向。
-         * <p> 示例值：desc
-         */
-        private String direction;
-
-        /**
-         * 指定审计信息排序的字段。
-         * <p> 示例值：operation_time
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 指定排序方向。
-         * <p> 示例值：desc
-         *
-         * @param direction
-         * @return
-         */
-        public Builder direction(String direction) {
-            this.direction = direction;
-            return this;
-        }
-
-
-        public AuditInfoOrder build() {
-            return new AuditInfoOrder(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

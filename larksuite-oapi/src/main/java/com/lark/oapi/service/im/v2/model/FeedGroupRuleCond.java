@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedGroupRuleCond {
+  /**
+   * 匹配类型
+   *
+   * <p>示例值：match_all
+   */
+  @SerializedName("match_type")
+  private String matchType;
+
+  /**
+   * 条件项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("condition_items")
+  private FeedGroupRuleCondItem[] conditionItems;
+
+  public String getMatchType() {
+    return this.matchType;
+  }
+
+  public void setMatchType(String matchType) {
+    this.matchType = matchType;
+  }
+
+  public FeedGroupRuleCondItem[] getConditionItems() {
+    return this.conditionItems;
+  }
+
+  public void setConditionItems(FeedGroupRuleCondItem[] conditionItems) {
+    this.conditionItems = conditionItems;
+  }
+
+  // builder 开始
+  public FeedGroupRuleCond() {}
+
+  public FeedGroupRuleCond(Builder builder) {
     /**
      * 匹配类型
-     * <p> 示例值：match_all
+     *
+     * <p>示例值：match_all
      */
-    @SerializedName("match_type")
-    private String matchType;
+    this.matchType = builder.matchType;
     /**
      * 条件项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("condition_items")
+    this.conditionItems = builder.conditionItems;
+  }
+
+  public static class Builder {
+    /**
+     * 匹配类型
+     *
+     * <p>示例值：match_all
+     */
+    private String matchType;
+
+    /**
+     * 条件项列表
+     *
+     * <p>示例值：
+     */
     private FeedGroupRuleCondItem[] conditionItems;
 
-    // builder 开始
-    public FeedGroupRuleCond() {
+    /**
+     * 匹配类型
+     *
+     * <p>示例值：match_all
+     *
+     * @param matchType
+     * @return
+     */
+    public Builder matchType(String matchType) {
+      this.matchType = matchType;
+      return this;
     }
 
-    public FeedGroupRuleCond(Builder builder) {
-        /**
-         * 匹配类型
-         * <p> 示例值：match_all
-         */
-        this.matchType = builder.matchType;
-        /**
-         * 条件项列表
-         * <p> 示例值：
-         */
-        this.conditionItems = builder.conditionItems;
+    /**
+     * 匹配类型
+     *
+     * <p>示例值：match_all
+     *
+     * @param matchType {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum}
+     * @return
+     */
+    public Builder matchType(
+        com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum
+            matchType) {
+      this.matchType = matchType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 条件项列表
+     *
+     * <p>示例值：
+     *
+     * @param conditionItems
+     * @return
+     */
+    public Builder conditionItems(FeedGroupRuleCondItem[] conditionItems) {
+      this.conditionItems = conditionItems;
+      return this;
     }
 
-    public String getMatchType() {
-        return this.matchType;
+    public FeedGroupRuleCond build() {
+      return new FeedGroupRuleCond(this);
     }
+  }
 
-    public void setMatchType(String matchType) {
-        this.matchType = matchType;
-    }
-
-    public FeedGroupRuleCondItem[] getConditionItems() {
-        return this.conditionItems;
-    }
-
-    public void setConditionItems(FeedGroupRuleCondItem[] conditionItems) {
-        this.conditionItems = conditionItems;
-    }
-
-    public static class Builder {
-        /**
-         * 匹配类型
-         * <p> 示例值：match_all
-         */
-        private String matchType;
-        /**
-         * 条件项列表
-         * <p> 示例值：
-         */
-        private FeedGroupRuleCondItem[] conditionItems;
-
-        /**
-         * 匹配类型
-         * <p> 示例值：match_all
-         *
-         * @param matchType
-         * @return
-         */
-        public Builder matchType(String matchType) {
-            this.matchType = matchType;
-            return this;
-        }
-
-        /**
-         * 匹配类型
-         * <p> 示例值：match_all
-         *
-         * @param matchType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum}
-         * @return
-         */
-        public Builder matchType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondFeedGroupRuleCondMatchTypeEnum matchType) {
-            this.matchType = matchType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 条件项列表
-         * <p> 示例值：
-         *
-         * @param conditionItems
-         * @return
-         */
-        public Builder conditionItems(FeedGroupRuleCondItem[] conditionItems) {
-            this.conditionItems = conditionItems;
-            return this;
-        }
-
-
-        public FeedGroupRuleCond build() {
-            return new FeedGroupRuleCond(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

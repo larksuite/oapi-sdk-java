@@ -13,72 +13,64 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class CompletePreHireReq {
+  /**
+   * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+   *
+   * <p>示例值：7345005664477775407
+   */
+  @Path
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  // builder 开始
+  public CompletePreHireReq() {}
+
+  public CompletePreHireReq(Builder builder) {
     /**
-     * 待入职ID
-     * <p> 示例值：7345005664477775407
+     * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：7345005664477775407
      */
-    @Path
-    @SerializedName("pre_hire_id")
-    private String preHireId;
+    this.preHireId = builder.preHireId;
+  }
 
-    // builder 开始
-    public CompletePreHireReq() {
+  public static class Builder {
+
+    private String
+        preHireId; // 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+
+    /**
+     * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：7345005664477775407
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
     }
 
-    public CompletePreHireReq(Builder builder) {
-        /**
-         * 待入职ID
-         * <p> 示例值：7345005664477775407
-         */
-        this.preHireId = builder.preHireId;
+    public CompletePreHireReq build() {
+      return new CompletePreHireReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public static class Builder {
-
-        private String preHireId; // 待入职ID
-
-        /**
-         * 待入职ID
-         * <p> 示例值：7345005664477775407
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        public CompletePreHireReq build() {
-            return new CompletePreHireReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

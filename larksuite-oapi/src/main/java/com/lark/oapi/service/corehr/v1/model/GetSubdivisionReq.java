@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetSubdivisionReq {
+  /**
+   * 省份/行政区 ID
+   *
+   * <p>示例值：67489937334909845
+   */
+  @Path
+  @SerializedName("subdivision_id")
+  private String subdivisionId;
+
+  public String getSubdivisionId() {
+    return this.subdivisionId;
+  }
+
+  public void setSubdivisionId(String subdivisionId) {
+    this.subdivisionId = subdivisionId;
+  }
+
+  // builder 开始
+  public GetSubdivisionReq() {}
+
+  public GetSubdivisionReq(Builder builder) {
     /**
      * 省份/行政区 ID
-     * <p> 示例值：67489937334909845
+     *
+     * <p>示例值：67489937334909845
      */
-    @Path
-    @SerializedName("subdivision_id")
-    private String subdivisionId;
+    this.subdivisionId = builder.subdivisionId;
+  }
 
-    // builder 开始
-    public GetSubdivisionReq() {
+  public static class Builder {
+
+    private String subdivisionId; // 省份/行政区 ID
+
+    /**
+     * 省份/行政区 ID
+     *
+     * <p>示例值：67489937334909845
+     *
+     * @param subdivisionId
+     * @return
+     */
+    public Builder subdivisionId(String subdivisionId) {
+      this.subdivisionId = subdivisionId;
+      return this;
     }
 
-    public GetSubdivisionReq(Builder builder) {
-        /**
-         * 省份/行政区 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.subdivisionId = builder.subdivisionId;
+    public GetSubdivisionReq build() {
+      return new GetSubdivisionReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSubdivisionId() {
-        return this.subdivisionId;
-    }
-
-    public void setSubdivisionId(String subdivisionId) {
-        this.subdivisionId = subdivisionId;
-    }
-
-    public static class Builder {
-
-        private String subdivisionId; // 省份/行政区 ID
-
-        /**
-         * 省份/行政区 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param subdivisionId
-         * @return
-         */
-        public Builder subdivisionId(String subdivisionId) {
-            this.subdivisionId = subdivisionId;
-            return this;
-        }
-
-
-        public GetSubdivisionReq build() {
-            return new GetSubdivisionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

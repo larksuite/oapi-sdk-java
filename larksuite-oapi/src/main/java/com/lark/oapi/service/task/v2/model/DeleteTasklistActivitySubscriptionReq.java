@@ -13,106 +13,102 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class DeleteTasklistActivitySubscriptionReq {
+  /**
+   * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+   *
+   * <p>示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
+   */
+  @Path
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  /**
+   * 要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+   *
+   * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+   */
+  @Path
+  @SerializedName("activity_subscription_guid")
+  private String activitySubscriptionGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  public String getActivitySubscriptionGuid() {
+    return this.activitySubscriptionGuid;
+  }
+
+  public void setActivitySubscriptionGuid(String activitySubscriptionGuid) {
+    this.activitySubscriptionGuid = activitySubscriptionGuid;
+  }
+
+  // builder 开始
+  public DeleteTasklistActivitySubscriptionReq() {}
+
+  public DeleteTasklistActivitySubscriptionReq(Builder builder) {
     /**
-     * 清单GUID
-     * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
+    this.tasklistGuid = builder.tasklistGuid;
     /**
-     * 要删除的订阅GUID
-     * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     * 要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
      */
-    @Path
-    @SerializedName("activity_subscription_guid")
-    private String activitySubscriptionGuid;
+    this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
+  }
 
-    // builder 开始
-    public DeleteTasklistActivitySubscriptionReq() {
+  public static class Builder {
+
+    private String
+        tasklistGuid; // 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+    private String
+        activitySubscriptionGuid; // 要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+
+    /**
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public DeleteTasklistActivitySubscriptionReq(Builder builder) {
-        /**
-         * 清单GUID
-         * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        /**
-         * 要删除的订阅GUID
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         */
-        this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
+    /**
+     * 要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     *
+     * @param activitySubscriptionGuid
+     * @return
+     */
+    public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
+      this.activitySubscriptionGuid = activitySubscriptionGuid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteTasklistActivitySubscriptionReq build() {
+      return new DeleteTasklistActivitySubscriptionReq(this);
     }
+  }
 
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public String getActivitySubscriptionGuid() {
-        return this.activitySubscriptionGuid;
-    }
-
-    public void setActivitySubscriptionGuid(String activitySubscriptionGuid) {
-        this.activitySubscriptionGuid = activitySubscriptionGuid;
-    }
-
-    public static class Builder {
-
-        private String tasklistGuid; // 清单GUID
-        private String activitySubscriptionGuid; // 要删除的订阅GUID
-
-        /**
-         * 清单GUID
-         * <p> 示例值：f5ca6747-5ac3-422e-a97e-972c1b2c24f3
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        /**
-         * 要删除的订阅GUID
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         *
-         * @param activitySubscriptionGuid
-         * @return
-         */
-        public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
-            this.activitySubscriptionGuid = activitySubscriptionGuid;
-            return this;
-        }
-
-
-        public DeleteTasklistActivitySubscriptionReq build() {
-            return new DeleteTasklistActivitySubscriptionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

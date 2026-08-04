@@ -13,71 +13,63 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteJobRequirementReq {
+  /**
+   * 招聘需求ID，可通过[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)获取
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @Path
+  @SerializedName("job_requirement_id")
+  private String jobRequirementId;
+
+  public String getJobRequirementId() {
+    return this.jobRequirementId;
+  }
+
+  public void setJobRequirementId(String jobRequirementId) {
+    this.jobRequirementId = jobRequirementId;
+  }
+
+  // builder 开始
+  public DeleteJobRequirementReq() {}
+
+  public DeleteJobRequirementReq(Builder builder) {
     /**
-     * 招聘需求 ID
-     * <p> 示例值：1616161616
+     * 招聘需求ID，可通过[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)获取
+     *
+     * <p>示例值：6949805467799537964
      */
-    @Path
-    @SerializedName("job_requirement_id")
-    private String jobRequirementId;
+    this.jobRequirementId = builder.jobRequirementId;
+  }
 
-    // builder 开始
-    public DeleteJobRequirementReq() {
+  public static class Builder {
+
+    private String
+        jobRequirementId; // 招聘需求ID，可通过[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)获取
+
+    /**
+     * 招聘需求ID，可通过[获取招聘需求列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list)获取
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param jobRequirementId
+     * @return
+     */
+    public Builder jobRequirementId(String jobRequirementId) {
+      this.jobRequirementId = jobRequirementId;
+      return this;
     }
 
-    public DeleteJobRequirementReq(Builder builder) {
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1616161616
-         */
-        this.jobRequirementId = builder.jobRequirementId;
+    public DeleteJobRequirementReq build() {
+      return new DeleteJobRequirementReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobRequirementId() {
-        return this.jobRequirementId;
-    }
-
-    public void setJobRequirementId(String jobRequirementId) {
-        this.jobRequirementId = jobRequirementId;
-    }
-
-    public static class Builder {
-
-        private String jobRequirementId; // 招聘需求 ID
-
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1616161616
-         *
-         * @param jobRequirementId
-         * @return
-         */
-        public Builder jobRequirementId(String jobRequirementId) {
-            this.jobRequirementId = jobRequirementId;
-            return this;
-        }
-
-
-        public DeleteJobRequirementReq build() {
-            return new DeleteJobRequirementReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

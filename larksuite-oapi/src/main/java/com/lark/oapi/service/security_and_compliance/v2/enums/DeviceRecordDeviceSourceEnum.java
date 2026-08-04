@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 注册方式
- */
+/** 注册方式 */
 public enum DeviceRecordDeviceSourceEnum {
-    UNKNOWN(0), // 未知
-    PREREGISTRATION(1), // 预注册
-    DCR(2), // 系统注册
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  PREREGISTRATION(1), // 预注册
+  DCR(2), // 系统注册
+  ;
+  private Integer value;
 
-    DeviceRecordDeviceSourceEnum(Integer value) {
-        this.value = value;
-    }
+  DeviceRecordDeviceSourceEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

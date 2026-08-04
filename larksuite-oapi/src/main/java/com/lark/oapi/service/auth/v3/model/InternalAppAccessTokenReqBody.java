@@ -13,111 +13,114 @@
 
 package com.lark.oapi.service.auth.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InternalAppAccessTokenReqBody {
+  /**
+   * 应用唯一标识，创建应用后获得。有关`app_id`
+   * 的详细介绍。请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 应用秘钥，创建应用后获得。有关 `app_secret`
+   * 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+   *
+   * <p>示例值：jdsfslkjdg8e73hdf9237enbd
+   */
+  @SerializedName("app_secret")
+  private String appSecret;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getAppSecret() {
+    return this.appSecret;
+  }
+
+  public void setAppSecret(String appSecret) {
+    this.appSecret = appSecret;
+  }
+
+  // builder 开始
+  public InternalAppAccessTokenReqBody() {}
+
+  public InternalAppAccessTokenReqBody(Builder builder) {
     /**
-     * 应用唯一标识，创建应用后获得。
-     * <p> 示例值：cli_hsjeriogfkd93jf84
+     * 应用唯一标识，创建应用后获得。有关`app_id`
+     * 的详细介绍。请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("app_id")
+    this.appId = builder.appId;
+    /**
+     * 应用秘钥，创建应用后获得。有关 `app_secret`
+     * 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：jdsfslkjdg8e73hdf9237enbd
+     */
+    this.appSecret = builder.appSecret;
+  }
+
+  public static class Builder {
+    /**
+     * 应用唯一标识，创建应用后获得。有关`app_id`
+     * 的详细介绍。请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：cli_***
+     */
     private String appId;
+
     /**
-     * 应用秘钥，创建应用后获得。
-     * <p> 示例值：jdsfslkjdg8e73hdf9237enbd
+     * 应用秘钥，创建应用后获得。有关 `app_secret`
+     * 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：jdsfslkjdg8e73hdf9237enbd
      */
-    @SerializedName("app_secret")
     private String appSecret;
 
-    // builder 开始
-    public InternalAppAccessTokenReqBody() {
+    /**
+     * 应用唯一标识，创建应用后获得。有关`app_id`
+     * 的详细介绍。请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public InternalAppAccessTokenReqBody(Builder builder) {
-        /**
-         * 应用唯一标识，创建应用后获得。
-         * <p> 示例值：cli_hsjeriogfkd93jf84
-         */
-        this.appId = builder.appId;
-        /**
-         * 应用秘钥，创建应用后获得。
-         * <p> 示例值：jdsfslkjdg8e73hdf9237enbd
-         */
-        this.appSecret = builder.appSecret;
+    /**
+     * 应用秘钥，创建应用后获得。有关 `app_secret`
+     * 的详细介绍，请参考[通用参数](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology)介绍
+     *
+     * <p>示例值：jdsfslkjdg8e73hdf9237enbd
+     *
+     * @param appSecret
+     * @return
+     */
+    public Builder appSecret(String appSecret) {
+      this.appSecret = appSecret;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public InternalAppAccessTokenReqBody build() {
+      return new InternalAppAccessTokenReqBody(this);
     }
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getAppSecret() {
-        return this.appSecret;
-    }
-
-    public void setAppSecret(String appSecret) {
-        this.appSecret = appSecret;
-    }
-
-    public static class Builder {
-        /**
-         * 应用唯一标识，创建应用后获得。
-         * <p> 示例值：cli_hsjeriogfkd93jf84
-         */
-        private String appId;
-        /**
-         * 应用秘钥，创建应用后获得。
-         * <p> 示例值：jdsfslkjdg8e73hdf9237enbd
-         */
-        private String appSecret;
-
-        /**
-         * 应用唯一标识，创建应用后获得。
-         * <p> 示例值：cli_hsjeriogfkd93jf84
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 应用秘钥，创建应用后获得。
-         * <p> 示例值：jdsfslkjdg8e73hdf9237enbd
-         *
-         * @param appSecret
-         * @return
-         */
-        public Builder appSecret(String appSecret) {
-            this.appSecret = appSecret;
-            return this;
-        }
-
-
-        public InternalAppAccessTokenReqBody build() {
-            return new InternalAppAccessTokenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

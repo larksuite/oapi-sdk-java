@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 纪要关联引用类型
- */
+/** 关联引用类型 */
 public enum NoteReferenceInfoReferenceTypeEnum {
-    UNKNOWN(0), // 未知类型
-    SHARE_DOC(1), // 会中共享文档
-    ;
-    private Integer value;
+  UNKNOWN(0), // 保留值（正常业务流程中服务端不会返回）
+  SHARE_DOC(1), // 会中共享文档
+  ;
+  private Integer value;
 
-    NoteReferenceInfoReferenceTypeEnum(Integer value) {
-        this.value = value;
-    }
+  NoteReferenceInfoReferenceTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

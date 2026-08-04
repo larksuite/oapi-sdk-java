@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateUrlPin {
+  /**
+   * 图标信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("icon")
+  private ChatPinIcon icon;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：待办事项
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_title")
+  private I18nNames i18nTitle;
+
+  public ChatPinIcon getIcon() {
+    return this.icon;
+  }
+
+  public void setIcon(ChatPinIcon icon) {
+    this.icon = icon;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public I18nNames getI18nTitle() {
+    return this.i18nTitle;
+  }
+
+  public void setI18nTitle(I18nNames i18nTitle) {
+    this.i18nTitle = i18nTitle;
+  }
+
+  // builder 开始
+  public UpdateUrlPin() {}
+
+  public UpdateUrlPin(Builder builder) {
     /**
      * 图标信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("icon")
-    private ChatPinIcon icon;
+    this.icon = builder.icon;
     /**
      * 名称
-     * <p> 示例值：待办事项
+     *
+     * <p>示例值：待办事项
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_title")
+    this.i18nTitle = builder.i18nTitle;
+  }
+
+  public static class Builder {
+    /**
+     * 图标信息
+     *
+     * <p>示例值：
+     */
+    private ChatPinIcon icon;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：待办事项
+     */
+    private String title;
+
+    /**
+     * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
+     *
+     * <p>示例值：
+     */
     private I18nNames i18nTitle;
 
-    // builder 开始
-    public UpdateUrlPin() {
+    /**
+     * 图标信息
+     *
+     * <p>示例值：
+     *
+     * @param icon
+     * @return
+     */
+    public Builder icon(ChatPinIcon icon) {
+      this.icon = icon;
+      return this;
     }
 
-    public UpdateUrlPin(Builder builder) {
-        /**
-         * 图标信息
-         * <p> 示例值：
-         */
-        this.icon = builder.icon;
-        /**
-         * 名称
-         * <p> 示例值：待办事项
-         */
-        this.title = builder.title;
-        /**
-         * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
-         * <p> 示例值：
-         */
-        this.i18nTitle = builder.i18nTitle;
+    /**
+     * 名称
+     *
+     * <p>示例值：待办事项
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
+     *
+     * <p>示例值：
+     *
+     * @param i18nTitle
+     * @return
+     */
+    public Builder i18nTitle(I18nNames i18nTitle) {
+      this.i18nTitle = i18nTitle;
+      return this;
     }
 
-    public ChatPinIcon getIcon() {
-        return this.icon;
+    public UpdateUrlPin build() {
+      return new UpdateUrlPin(this);
     }
+  }
 
-    public void setIcon(ChatPinIcon icon) {
-        this.icon = icon;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public I18nNames getI18nTitle() {
-        return this.i18nTitle;
-    }
-
-    public void setI18nTitle(I18nNames i18nTitle) {
-        this.i18nTitle = i18nTitle;
-    }
-
-    public static class Builder {
-        /**
-         * 图标信息
-         * <p> 示例值：
-         */
-        private ChatPinIcon icon;
-        /**
-         * 名称
-         * <p> 示例值：待办事项
-         */
-        private String title;
-        /**
-         * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
-         * <p> 示例值：
-         */
-        private I18nNames i18nTitle;
-
-        /**
-         * 图标信息
-         * <p> 示例值：
-         *
-         * @param icon
-         * @return
-         */
-        public Builder icon(ChatPinIcon icon) {
-            this.icon = icon;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：待办事项
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 国际化名称，如果客户端语言环境对应的i18n_title存在则会被优先展示，否则展示title。
-         * <p> 示例值：
-         *
-         * @param i18nTitle
-         * @return
-         */
-        public Builder i18nTitle(I18nNames i18nTitle) {
-            this.i18nTitle = i18nTitle;
-            return this;
-        }
-
-
-        public UpdateUrlPin build() {
-            return new UpdateUrlPin(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

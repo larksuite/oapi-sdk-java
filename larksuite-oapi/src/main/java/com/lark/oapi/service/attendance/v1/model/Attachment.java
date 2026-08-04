@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Attachment {
+  /**
+   * 文件id
+   *
+   * <p>示例值：3383994
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 文件名称
+   *
+   * <p>示例值：1号文件
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 文件大小
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("size")
+  private Integer size;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：excel
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getSize() {
+    return this.size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  // builder 开始
+  public Attachment() {}
+
+  public Attachment(Builder builder) {
     /**
      * 文件id
-     * <p> 示例值：3383994
+     *
+     * <p>示例值：3383994
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 文件名称
-     * <p> 示例值：1号文件
+     *
+     * <p>示例值：1号文件
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 文件大小
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("size")
-    private Integer size;
+    this.size = builder.size;
     /**
      * 文件类型
-     * <p> 示例值：excel
+     *
+     * <p>示例值：excel
      */
-    @SerializedName("mime_type")
+    this.mimeType = builder.mimeType;
+  }
+
+  public static class Builder {
+    /**
+     * 文件id
+     *
+     * <p>示例值：3383994
+     */
+    private String fileId;
+
+    /**
+     * 文件名称
+     *
+     * <p>示例值：1号文件
+     */
+    private String name;
+
+    /**
+     * 文件大小
+     *
+     * <p>示例值：0
+     */
+    private Integer size;
+
+    /**
+     * 文件类型
+     *
+     * <p>示例值：excel
+     */
     private String mimeType;
 
-    // builder 开始
-    public Attachment() {
+    /**
+     * 文件id
+     *
+     * <p>示例值：3383994
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public Attachment(Builder builder) {
-        /**
-         * 文件id
-         * <p> 示例值：3383994
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：1号文件
-         */
-        this.name = builder.name;
-        /**
-         * 文件大小
-         * <p> 示例值：0
-         */
-        this.size = builder.size;
-        /**
-         * 文件类型
-         * <p> 示例值：excel
-         */
-        this.mimeType = builder.mimeType;
+    /**
+     * 文件名称
+     *
+     * <p>示例值：1号文件
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件大小
+     *
+     * <p>示例值：0
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    /**
+     * 文件类型
+     *
+     * <p>示例值：excel
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    public Attachment build() {
+      return new Attachment(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getSize() {
-        return this.size;
-    }
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public static class Builder {
-        /**
-         * 文件id
-         * <p> 示例值：3383994
-         */
-        private String fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：1号文件
-         */
-        private String name;
-        /**
-         * 文件大小
-         * <p> 示例值：0
-         */
-        private Integer size;
-        /**
-         * 文件类型
-         * <p> 示例值：excel
-         */
-        private String mimeType;
-
-        /**
-         * 文件id
-         * <p> 示例值：3383994
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 文件名称
-         * <p> 示例值：1号文件
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 文件大小
-         * <p> 示例值：0
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Integer size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：excel
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        public Attachment build() {
-            return new Attachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateAuthorizationApplicationRoleMemberReqBody {
+  /**
+   * 需要新增的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 需要新增的部门 ID 列表，使用飞书 aPaaS 的部门 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  // builder 开始
+  public BatchCreateAuthorizationApplicationRoleMemberReqBody() {}
+
+  public BatchCreateAuthorizationApplicationRoleMemberReqBody(Builder builder) {
     /**
-     * 需要新增的用户 ID 列表
-     * <p> 示例值：
+     * 需要新增的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+    /**
+     * 需要新增的部门 ID 列表，使用飞书 aPaaS 的部门 ID
+     *
+     * <p>示例值：
+     */
+    this.departmentIds = builder.departmentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 需要新增的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
+
     /**
-     * 需要新增的部门 ID 列表
-     * <p> 示例值：
+     * 需要新增的部门 ID 列表，使用飞书 aPaaS 的部门 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
     private String[] departmentIds;
 
-    // builder 开始
-    public BatchCreateAuthorizationApplicationRoleMemberReqBody() {
+    /**
+     * 需要新增的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public BatchCreateAuthorizationApplicationRoleMemberReqBody(Builder builder) {
-        /**
-         * 需要新增的用户 ID 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 需要新增的部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
+    /**
+     * 需要新增的部门 ID 列表，使用飞书 aPaaS 的部门 ID
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchCreateAuthorizationApplicationRoleMemberReqBody build() {
+      return new BatchCreateAuthorizationApplicationRoleMemberReqBody(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 需要新增的用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-        /**
-         * 需要新增的部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-
-        /**
-         * 需要新增的用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 需要新增的部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        public BatchCreateAuthorizationApplicationRoleMemberReqBody build() {
-            return new BatchCreateAuthorizationApplicationRoleMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

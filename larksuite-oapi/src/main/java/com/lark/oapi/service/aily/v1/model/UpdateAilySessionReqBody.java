@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAilySessionReqBody {
+  /**
+   * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+   * 技能中可消费这部分全局变量
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("channel_context")
+  private String channelContext;
+
+  /**
+   * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("metadata")
+  private String metadata;
+
+  public String getChannelContext() {
+    return this.channelContext;
+  }
+
+  public void setChannelContext(String channelContext) {
+    this.channelContext = channelContext;
+  }
+
+  public String getMetadata() {
+    return this.metadata;
+  }
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+  // builder 开始
+  public UpdateAilySessionReqBody() {}
+
+  public UpdateAilySessionReqBody(Builder builder) {
     /**
-     * 渠道上下文
-     * <p> 示例值：{}
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("channel_context")
+    this.channelContext = builder.channelContext;
+    /**
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
+     */
+    this.metadata = builder.metadata;
+  }
+
+  public static class Builder {
+    /**
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
+     */
     private String channelContext;
+
     /**
-     * 其他透传信息
-     * <p> 示例值：{}
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("metadata")
     private String metadata;
 
-    // builder 开始
-    public UpdateAilySessionReqBody() {
+    /**
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
+     *
+     * @param channelContext
+     * @return
+     */
+    public Builder channelContext(String channelContext) {
+      this.channelContext = channelContext;
+      return this;
     }
 
-    public UpdateAilySessionReqBody(Builder builder) {
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        this.channelContext = builder.channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
+    /**
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
+     *
+     * @param metadata
+     * @return
+     */
+    public Builder metadata(String metadata) {
+      this.metadata = metadata;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateAilySessionReqBody build() {
+      return new UpdateAilySessionReqBody(this);
     }
+  }
 
-    public String getChannelContext() {
-        return this.channelContext;
-    }
-
-    public void setChannelContext(String channelContext) {
-        this.channelContext = channelContext;
-    }
-
-    public String getMetadata() {
-        return this.metadata;
-    }
-
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
-    }
-
-    public static class Builder {
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        private String channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        private String metadata;
-
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         *
-         * @param channelContext
-         * @return
-         */
-        public Builder channelContext(String channelContext) {
-            this.channelContext = channelContext;
-            return this;
-        }
-
-
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         *
-         * @param metadata
-         * @return
-         */
-        public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
-        }
-
-
-        public UpdateAilySessionReqBody build() {
-            return new UpdateAilySessionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,164 +13,164 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class MountPointInfo {
+  /**
+   * 挂载点类型 space wiki
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mount_type")
+  private String mountType;
+
+  /**
+   * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mount_key")
+  private String mountKey;
+
+  /**
+   * 其他需要透传信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ext")
+  private Map<String, String> ext;
+
+  public String getMountType() {
+    return this.mountType;
+  }
+
+  public void setMountType(String mountType) {
+    this.mountType = mountType;
+  }
+
+  public String getMountKey() {
+    return this.mountKey;
+  }
+
+  public void setMountKey(String mountKey) {
+    this.mountKey = mountKey;
+  }
+
+  public Map<String, String> getExt() {
+    return this.ext;
+  }
+
+  public void setExt(Map<String, String> ext) {
+    this.ext = ext;
+  }
+
+  // builder 开始
+  public MountPointInfo() {}
+
+  public MountPointInfo(Builder builder) {
     /**
      * 挂载点类型 space wiki
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mount_type")
-    private String mountType;
+    this.mountType = builder.mountType;
     /**
      * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mount_key")
-    private String mountKey;
+    this.mountKey = builder.mountKey;
     /**
      * 其他需要透传信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ext")
+    this.ext = builder.ext;
+  }
+
+  public static class Builder {
+    /**
+     * 挂载点类型 space wiki
+     *
+     * <p>示例值：
+     */
+    private String mountType;
+
+    /**
+     * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
+     *
+     * <p>示例值：
+     */
+    private String mountKey;
+
+    /**
+     * 其他需要透传信息
+     *
+     * <p>示例值：
+     */
     private Map<String, String> ext;
 
-    // builder 开始
-    public MountPointInfo() {
+    /**
+     * 挂载点类型 space wiki
+     *
+     * <p>示例值：
+     *
+     * @param mountType
+     * @return
+     */
+    public Builder mountType(String mountType) {
+      this.mountType = mountType;
+      return this;
     }
 
-    public MountPointInfo(Builder builder) {
-        /**
-         * 挂载点类型 space wiki
-         * <p> 示例值：
-         */
-        this.mountType = builder.mountType;
-        /**
-         * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
-         * <p> 示例值：
-         */
-        this.mountKey = builder.mountKey;
-        /**
-         * 其他需要透传信息
-         * <p> 示例值：
-         */
-        this.ext = builder.ext;
+    /**
+     * 挂载点类型 space wiki
+     *
+     * <p>示例值：
+     *
+     * @param mountType {@link com.lark.oapi.service.drive.v1.enums.MountPointInfoMountPointEnum}
+     * @return
+     */
+    public Builder mountType(
+        com.lark.oapi.service.drive.v1.enums.MountPointInfoMountPointEnum mountType) {
+      this.mountType = mountType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
+     *
+     * <p>示例值：
+     *
+     * @param mountKey
+     * @return
+     */
+    public Builder mountKey(String mountKey) {
+      this.mountKey = mountKey;
+      return this;
     }
 
-    public String getMountType() {
-        return this.mountType;
+    /**
+     * 其他需要透传信息
+     *
+     * <p>示例值：
+     *
+     * @param ext
+     * @return
+     */
+    public Builder ext(Map<String, String> ext) {
+      this.ext = ext;
+      return this;
     }
 
-    public void setMountType(String mountType) {
-        this.mountType = mountType;
+    public MountPointInfo build() {
+      return new MountPointInfo(this);
     }
+  }
 
-    public String getMountKey() {
-        return this.mountKey;
-    }
-
-    public void setMountKey(String mountKey) {
-        this.mountKey = mountKey;
-    }
-
-    public Map<String, String> getExt() {
-        return this.ext;
-    }
-
-    public void setExt(Map<String, String> ext) {
-        this.ext = ext;
-    }
-
-    public static class Builder {
-        /**
-         * 挂载点类型 space wiki
-         * <p> 示例值：
-         */
-        private String mountType;
-        /**
-         * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
-         * <p> 示例值：
-         */
-        private String mountKey;
-        /**
-         * 其他需要透传信息
-         * <p> 示例值：
-         */
-        private Map<String, String> ext;
-
-        /**
-         * 挂载点类型 space wiki
-         * <p> 示例值：
-         *
-         * @param mountType
-         * @return
-         */
-        public Builder mountType(String mountType) {
-            this.mountType = mountType;
-            return this;
-        }
-
-        /**
-         * 挂载点类型 space wiki
-         * <p> 示例值：
-         *
-         * @param mountType {@link com.lark.oapi.service.drive.v1.enums.MountPointInfoMountPointEnum}
-         * @return
-         */
-        public Builder mountType(com.lark.oapi.service.drive.v1.enums.MountPointInfoMountPointEnum mountType) {
-            this.mountType = mountType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 挂载点的 key: 例如 space 为目录token，若为空表示根目录，wiki 为父节点node
-         * <p> 示例值：
-         *
-         * @param mountKey
-         * @return
-         */
-        public Builder mountKey(String mountKey) {
-            this.mountKey = mountKey;
-            return this;
-        }
-
-
-        /**
-         * 其他需要透传信息
-         * <p> 示例值：
-         *
-         * @param ext
-         * @return
-         */
-        public Builder ext(Map<String, String> ext) {
-            this.ext = ext;
-            return this;
-        }
-
-
-        public MountPointInfo build() {
-            return new MountPointInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

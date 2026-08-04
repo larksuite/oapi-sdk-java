@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedGroupItem {
+  /**
+   * 消息卡片 ID
+   *
+   * <p>示例值：7191086414609645000
+   */
+  @SerializedName("feed_id")
+  private String feedId;
+
+  /**
+   * 消息卡片类型
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("feed_type")
+  private String feedType;
+
+  public String getFeedId() {
+    return this.feedId;
+  }
+
+  public void setFeedId(String feedId) {
+    this.feedId = feedId;
+  }
+
+  public String getFeedType() {
+    return this.feedType;
+  }
+
+  public void setFeedType(String feedType) {
+    this.feedType = feedType;
+  }
+
+  // builder 开始
+  public FeedGroupItem() {}
+
+  public FeedGroupItem(Builder builder) {
     /**
      * 消息卡片 ID
-     * <p> 示例值：7191086414609645000
+     *
+     * <p>示例值：7191086414609645000
      */
-    @SerializedName("feed_id")
-    private String feedId;
+    this.feedId = builder.feedId;
     /**
      * 消息卡片类型
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("feed_type")
+    this.feedType = builder.feedType;
+  }
+
+  public static class Builder {
+    /**
+     * 消息卡片 ID
+     *
+     * <p>示例值：7191086414609645000
+     */
+    private String feedId;
+
+    /**
+     * 消息卡片类型
+     *
+     * <p>示例值：3
+     */
     private String feedType;
 
-    // builder 开始
-    public FeedGroupItem() {
+    /**
+     * 消息卡片 ID
+     *
+     * <p>示例值：7191086414609645000
+     *
+     * @param feedId
+     * @return
+     */
+    public Builder feedId(String feedId) {
+      this.feedId = feedId;
+      return this;
     }
 
-    public FeedGroupItem(Builder builder) {
-        /**
-         * 消息卡片 ID
-         * <p> 示例值：7191086414609645000
-         */
-        this.feedId = builder.feedId;
-        /**
-         * 消息卡片类型
-         * <p> 示例值：3
-         */
-        this.feedType = builder.feedType;
+    /**
+     * 消息卡片类型
+     *
+     * <p>示例值：3
+     *
+     * @param feedType
+     * @return
+     */
+    public Builder feedType(String feedType) {
+      this.feedType = feedType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息卡片类型
+     *
+     * <p>示例值：3
+     *
+     * @param feedType {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum}
+     * @return
+     */
+    public Builder feedType(
+        com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum
+            feedType) {
+      this.feedType = feedType.getValue();
+      return this;
     }
 
-    public String getFeedId() {
-        return this.feedId;
+    public FeedGroupItem build() {
+      return new FeedGroupItem(this);
     }
+  }
 
-    public void setFeedId(String feedId) {
-        this.feedId = feedId;
-    }
-
-    public String getFeedType() {
-        return this.feedType;
-    }
-
-    public void setFeedType(String feedType) {
-        this.feedType = feedType;
-    }
-
-    public static class Builder {
-        /**
-         * 消息卡片 ID
-         * <p> 示例值：7191086414609645000
-         */
-        private String feedId;
-        /**
-         * 消息卡片类型
-         * <p> 示例值：3
-         */
-        private String feedType;
-
-        /**
-         * 消息卡片 ID
-         * <p> 示例值：7191086414609645000
-         *
-         * @param feedId
-         * @return
-         */
-        public Builder feedId(String feedId) {
-            this.feedId = feedId;
-            return this;
-        }
-
-
-        /**
-         * 消息卡片类型
-         * <p> 示例值：3
-         *
-         * @param feedType
-         * @return
-         */
-        public Builder feedType(String feedType) {
-            this.feedType = feedType;
-            return this;
-        }
-
-        /**
-         * 消息卡片类型
-         * <p> 示例值：3
-         *
-         * @param feedType {@link com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum}
-         * @return
-         */
-        public Builder feedType(com.lark.oapi.service.im.v2.enums.FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum feedType) {
-            this.feedType = feedType.getValue();
-            return this;
-        }
-
-
-        public FeedGroupItem build() {
-            return new FeedGroupItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

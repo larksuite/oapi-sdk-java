@@ -13,186 +13,207 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineCostCenterReqBody {
+  /**
+   * 成本中心 ID
+   * 列表，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_ids")
+  private String[] costCenterIds;
+
+  /**
+   * 生效日期开始(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+   * effective_date_start 时，返回该日期及之后生效的版本。;- 与 effective_date_end 同时传入时，返回两者交集范围内生效的版本
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date_start")
+  private String effectiveDateStart;
+
+  /**
+   * 生效日期结束(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+   * effective_date_end 时，返回该日期及之前生效的版本。;- 与 effective_date_start 同时传入时，返回两者交集范围内生效的版本。
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("effective_date_end")
+  private String effectiveDateEnd;
+
+  /**
+   * 返回数据的字段列表，可选;- name：成本中心名称;- code：编码;- active：当前实体是否启用;- parent_cost_center_id： 上级成本中心ID;-
+   * managers：成本中心负责人ID 列表;- description：成本中心描述;- effective_date：版本生效日期;- expiration_date：版本失效日期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getCostCenterIds() {
+    return this.costCenterIds;
+  }
+
+  public void setCostCenterIds(String[] costCenterIds) {
+    this.costCenterIds = costCenterIds;
+  }
+
+  public String getEffectiveDateStart() {
+    return this.effectiveDateStart;
+  }
+
+  public void setEffectiveDateStart(String effectiveDateStart) {
+    this.effectiveDateStart = effectiveDateStart;
+  }
+
+  public String getEffectiveDateEnd() {
+    return this.effectiveDateEnd;
+  }
+
+  public void setEffectiveDateEnd(String effectiveDateEnd) {
+    this.effectiveDateEnd = effectiveDateEnd;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineCostCenterReqBody() {}
+
+  public QueryMultiTimelineCostCenterReqBody(Builder builder) {
     /**
-     * 成本中心 ID 列表
-     * <p> 示例值：
+     * 成本中心 ID
+     * 列表，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_ids")
+    this.costCenterIds = builder.costCenterIds;
+    /**
+     * 生效日期开始(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_start 时，返回该日期及之后生效的版本。;- 与 effective_date_end 同时传入时，返回两者交集范围内生效的版本
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.effectiveDateStart = builder.effectiveDateStart;
+    /**
+     * 生效日期结束(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_end 时，返回该日期及之前生效的版本。;- 与 effective_date_start 同时传入时，返回两者交集范围内生效的版本。
+     *
+     * <p>示例值：2024-12-31
+     */
+    this.effectiveDateEnd = builder.effectiveDateEnd;
+    /**
+     * 返回数据的字段列表，可选;- name：成本中心名称;- code：编码;- active：当前实体是否启用;- parent_cost_center_id： 上级成本中心ID;-
+     * managers：成本中心负责人ID 列表;- description：成本中心描述;- effective_date：版本生效日期;- expiration_date：版本失效日期
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心 ID
+     * 列表，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：
+     */
     private String[] costCenterIds;
+
     /**
-     * 生效日期开始(包含)
-     * <p> 示例值：2024-01-01
+     * 生效日期开始(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_start 时，返回该日期及之后生效的版本。;- 与 effective_date_end 同时传入时，返回两者交集范围内生效的版本
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date_start")
     private String effectiveDateStart;
+
     /**
-     * 生效日期结束(包含)
-     * <p> 示例值：2024-12-31
+     * 生效日期结束(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_end 时，返回该日期及之前生效的版本。;- 与 effective_date_start 同时传入时，返回两者交集范围内生效的版本。
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("effective_date_end")
     private String effectiveDateEnd;
+
     /**
-     * 返回数据的字段列表，可选["name", "code", "active", "parent_cost_center_id", "managers", "description", "effective_time"]
-     * <p> 示例值：
+     * 返回数据的字段列表，可选;- name：成本中心名称;- code：编码;- active：当前实体是否启用;- parent_cost_center_id： 上级成本中心ID;-
+     * managers：成本中心负责人ID 列表;- description：成本中心描述;- effective_date：版本生效日期;- expiration_date：版本失效日期
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryMultiTimelineCostCenterReqBody() {
+    /**
+     * 成本中心 ID
+     * 列表，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param costCenterIds
+     * @return
+     */
+    public Builder costCenterIds(String[] costCenterIds) {
+      this.costCenterIds = costCenterIds;
+      return this;
     }
 
-    public QueryMultiTimelineCostCenterReqBody(Builder builder) {
-        /**
-         * 成本中心 ID 列表
-         * <p> 示例值：
-         */
-        this.costCenterIds = builder.costCenterIds;
-        /**
-         * 生效日期开始(包含)
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDateStart = builder.effectiveDateStart;
-        /**
-         * 生效日期结束(包含)
-         * <p> 示例值：2024-12-31
-         */
-        this.effectiveDateEnd = builder.effectiveDateEnd;
-        /**
-         * 返回数据的字段列表，可选["name", "code", "active", "parent_cost_center_id", "managers", "description", "effective_time"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 生效日期开始(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_start 时，返回该日期及之后生效的版本。;- 与 effective_date_end 同时传入时，返回两者交集范围内生效的版本
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDateStart
+     * @return
+     */
+    public Builder effectiveDateStart(String effectiveDateStart) {
+      this.effectiveDateStart = effectiveDateStart;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效日期结束(包含);;- 若不传入 effective_date_start 和 effective_date_end，默认返回当前生效版本。;- 支持单独传入：仅传
+     * effective_date_end 时，返回该日期及之前生效的版本。;- 与 effective_date_start 同时传入时，返回两者交集范围内生效的版本。
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param effectiveDateEnd
+     * @return
+     */
+    public Builder effectiveDateEnd(String effectiveDateEnd) {
+      this.effectiveDateEnd = effectiveDateEnd;
+      return this;
     }
 
-    public String[] getCostCenterIds() {
-        return this.costCenterIds;
+    /**
+     * 返回数据的字段列表，可选;- name：成本中心名称;- code：编码;- active：当前实体是否启用;- parent_cost_center_id： 上级成本中心ID;-
+     * managers：成本中心负责人ID 列表;- description：成本中心描述;- effective_date：版本生效日期;- expiration_date：版本失效日期
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setCostCenterIds(String[] costCenterIds) {
-        this.costCenterIds = costCenterIds;
+    public QueryMultiTimelineCostCenterReqBody build() {
+      return new QueryMultiTimelineCostCenterReqBody(this);
     }
+  }
 
-    public String getEffectiveDateStart() {
-        return this.effectiveDateStart;
-    }
-
-    public void setEffectiveDateStart(String effectiveDateStart) {
-        this.effectiveDateStart = effectiveDateStart;
-    }
-
-    public String getEffectiveDateEnd() {
-        return this.effectiveDateEnd;
-    }
-
-    public void setEffectiveDateEnd(String effectiveDateEnd) {
-        this.effectiveDateEnd = effectiveDateEnd;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心 ID 列表
-         * <p> 示例值：
-         */
-        private String[] costCenterIds;
-        /**
-         * 生效日期开始(包含)
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDateStart;
-        /**
-         * 生效日期结束(包含)
-         * <p> 示例值：2024-12-31
-         */
-        private String effectiveDateEnd;
-        /**
-         * 返回数据的字段列表，可选["name", "code", "active", "parent_cost_center_id", "managers", "description", "effective_time"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 成本中心 ID 列表
-         * <p> 示例值：
-         *
-         * @param costCenterIds
-         * @return
-         */
-        public Builder costCenterIds(String[] costCenterIds) {
-            this.costCenterIds = costCenterIds;
-            return this;
-        }
-
-
-        /**
-         * 生效日期开始(包含)
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDateStart
-         * @return
-         */
-        public Builder effectiveDateStart(String effectiveDateStart) {
-            this.effectiveDateStart = effectiveDateStart;
-            return this;
-        }
-
-
-        /**
-         * 生效日期结束(包含)
-         * <p> 示例值：2024-12-31
-         *
-         * @param effectiveDateEnd
-         * @return
-         */
-        public Builder effectiveDateEnd(String effectiveDateEnd) {
-            this.effectiveDateEnd = effectiveDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["name", "code", "active", "parent_cost_center_id", "managers", "description", "effective_time"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryMultiTimelineCostCenterReqBody build() {
-            return new QueryMultiTimelineCostCenterReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

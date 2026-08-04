@@ -13,293 +13,328 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class GetApprovalReq {
+  /**
+   * 语言可选值，默认为审批定义配置的默认语言。
+   *
+   * <p>示例值：zh-CN
+   */
+  @Query
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 是否返回有数据管理权限的审批流程管理员 ID 列表（即响应参数 approval_admin_ids）。;;**默认值**：false
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_admin_id")
+  private Boolean withAdminId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 可选是否返回外部数据源和假勤控件选项
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_option")
+  private Boolean withOption;
+
+  /**
+   * 用户id
+   *
+   * <p>示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 是否返回完整的多维表格控件
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("nested_mutable_group")
+  private Boolean nestedMutableGroup;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public Boolean getWithAdminId() {
+    return this.withAdminId;
+  }
+
+  public void setWithAdminId(Boolean withAdminId) {
+    this.withAdminId = withAdminId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Boolean getWithOption() {
+    return this.withOption;
+  }
+
+  public void setWithOption(Boolean withOption) {
+    this.withOption = withOption;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Boolean getNestedMutableGroup() {
+    return this.nestedMutableGroup;
+  }
+
+  public void setNestedMutableGroup(Boolean nestedMutableGroup) {
+    this.nestedMutableGroup = nestedMutableGroup;
+  }
+
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @Path
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  // builder 开始
+  public GetApprovalReq() {}
+
+  public GetApprovalReq(Builder builder) {
     /**
-     * 语言可选值
-     * <p> 示例值：zh-CN
+     * 语言可选值，默认为审批定义配置的默认语言。
+     *
+     * <p>示例值：zh-CN
      */
-    @Query
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
-     * 可选是否返回有数据权限审批流程管理员ID列表
-     * <p> 示例值：false
+     * 是否返回有数据管理权限的审批流程管理员 ID 列表（即响应参数 approval_admin_ids）。;;**默认值**：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_admin_id")
-    private Boolean withAdminId;
+    this.withAdminId = builder.withAdminId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 可选是否返回外部数据源和假勤控件选项
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_option")
-    private Boolean withOption;
+    this.withOption = builder.withOption;
     /**
      * 用户id
-     * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+     *
+     * <p>示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 是否返回完整的多维表格控件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("nested_mutable_group")
-    private Boolean nestedMutableGroup;
+    this.nestedMutableGroup = builder.nestedMutableGroup;
     /**
-     * 审批定义 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @Path
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
+  }
 
-    // builder 开始
-    public GetApprovalReq() {
+  public static class Builder {
+    private String locale; // 语言可选值，默认为审批定义配置的默认语言。
+    private Boolean
+        withAdminId; // 是否返回有数据管理权限的审批流程管理员 ID 列表（即响应参数 approval_admin_ids）。;;**默认值**：false
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private Boolean withOption; // 可选是否返回外部数据源和假勤控件选项
+    private String userId; // 用户id
+    private Boolean nestedMutableGroup; // 是否返回完整的多维表格控件
+
+    /**
+     * 语言可选值，默认为审批定义配置的默认语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public GetApprovalReq(Builder builder) {
-        /**
-         * 语言可选值
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         * 可选是否返回有数据权限审批流程管理员ID列表
-         * <p> 示例值：false
-         */
-        this.withAdminId = builder.withAdminId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 可选是否返回外部数据源和假勤控件选项
-         * <p> 示例值：false
-         */
-        this.withOption = builder.withOption;
-        /**
-         * 用户id
-         * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
-         */
-        this.userId = builder.userId;
-        /**
-         * 是否返回完整的多维表格控件
-         * <p> 示例值：
-         */
-        this.nestedMutableGroup = builder.nestedMutableGroup;
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
+    /**
+     * 语言可选值，默认为审批定义配置的默认语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale {@link
+     *     com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否返回有数据管理权限的审批流程管理员 ID 列表（即响应参数 approval_admin_ids）。;;**默认值**：false
+     *
+     * <p>示例值：false
+     *
+     * @param withAdminId
+     * @return
+     */
+    public Builder withAdminId(Boolean withAdminId) {
+      this.withAdminId = withAdminId;
+      return this;
     }
 
-    public String getLocale() {
-        return this.locale;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Boolean getWithAdminId() {
-        return this.withAdminId;
+    /**
+     * 可选是否返回外部数据源和假勤控件选项
+     *
+     * <p>示例值：false
+     *
+     * @param withOption
+     * @return
+     */
+    public Builder withOption(Boolean withOption) {
+      this.withOption = withOption;
+      return this;
     }
 
-    public void setWithAdminId(Boolean withAdminId) {
-        this.withAdminId = withAdminId;
+    /**
+     * 用户id
+     *
+     * <p>示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 是否返回完整的多维表格控件
+     *
+     * <p>示例值：
+     *
+     * @param nestedMutableGroup
+     * @return
+     */
+    public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
+      this.nestedMutableGroup = nestedMutableGroup;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    private String approvalCode; // 审批定义 Code。获取方式：;;-
+
+    // 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public Boolean getWithOption() {
-        return this.withOption;
+    public GetApprovalReq build() {
+      return new GetApprovalReq(this);
     }
+  }
 
-    public void setWithOption(Boolean withOption) {
-        this.withOption = withOption;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Boolean getNestedMutableGroup() {
-        return this.nestedMutableGroup;
-    }
-
-    public void setNestedMutableGroup(Boolean nestedMutableGroup) {
-        this.nestedMutableGroup = nestedMutableGroup;
-    }
-
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
-
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
-
-    public static class Builder {
-        private String locale; // 语言可选值
-        private Boolean withAdminId; // 可选是否返回有数据权限审批流程管理员ID列表
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private Boolean withOption; // 可选是否返回外部数据源和假勤控件选项
-        private String userId; // 用户id
-        private Boolean nestedMutableGroup; // 是否返回完整的多维表格控件
-        private String approvalCode; // 审批定义 Code
-
-        /**
-         * 语言可选值
-         * <p> 示例值：zh-CN
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 语言可选值
-         * <p> 示例值：zh-CN
-         *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4LocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-        /**
-         * 可选是否返回有数据权限审批流程管理员ID列表
-         * <p> 示例值：false
-         *
-         * @param withAdminId
-         * @return
-         */
-        public Builder withAdminId(Boolean withAdminId) {
-            this.withAdminId = withAdminId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetApprovalGetApprovalV4UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 可选是否返回外部数据源和假勤控件选项
-         * <p> 示例值：false
-         *
-         * @param withOption
-         * @return
-         */
-        public Builder withOption(Boolean withOption) {
-            this.withOption = withOption;
-            return this;
-        }
-
-        /**
-         * 用户id
-         * <p> 示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        /**
-         * 是否返回完整的多维表格控件
-         * <p> 示例值：
-         *
-         * @param nestedMutableGroup
-         * @return
-         */
-        public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
-            this.nestedMutableGroup = nestedMutableGroup;
-            return this;
-        }
-
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        public GetApprovalReq build() {
-            return new GetApprovalReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

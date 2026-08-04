@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NameToIdData {
+  /**
+   * 匹配到的名称列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("matched_names")
+  private MatchedNameItem[] matchedNames;
+
+  public MatchedNameItem[] getMatchedNames() {
+    return this.matchedNames;
+  }
+
+  public void setMatchedNames(MatchedNameItem[] matchedNames) {
+    this.matchedNames = matchedNames;
+  }
+
+  // builder 开始
+  public NameToIdData() {}
+
+  public NameToIdData(Builder builder) {
     /**
      * 匹配到的名称列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("matched_names")
+    this.matchedNames = builder.matchedNames;
+  }
+
+  public static class Builder {
+    /**
+     * 匹配到的名称列表
+     *
+     * <p>示例值：
+     */
     private MatchedNameItem[] matchedNames;
 
-    // builder 开始
-    public NameToIdData() {
+    /**
+     * 匹配到的名称列表
+     *
+     * <p>示例值：
+     *
+     * @param matchedNames
+     * @return
+     */
+    public Builder matchedNames(MatchedNameItem[] matchedNames) {
+      this.matchedNames = matchedNames;
+      return this;
     }
 
-    public NameToIdData(Builder builder) {
-        /**
-         * 匹配到的名称列表
-         * <p> 示例值：
-         */
-        this.matchedNames = builder.matchedNames;
+    public NameToIdData build() {
+      return new NameToIdData(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public MatchedNameItem[] getMatchedNames() {
-        return this.matchedNames;
-    }
-
-    public void setMatchedNames(MatchedNameItem[] matchedNames) {
-        this.matchedNames = matchedNames;
-    }
-
-    public static class Builder {
-        /**
-         * 匹配到的名称列表
-         * <p> 示例值：
-         */
-        private MatchedNameItem[] matchedNames;
-
-        /**
-         * 匹配到的名称列表
-         * <p> 示例值：
-         *
-         * @param matchedNames
-         * @return
-         */
-        public Builder matchedNames(MatchedNameItem[] matchedNames) {
-            this.matchedNames = matchedNames;
-            return this;
-        }
-
-
-        public NameToIdData build() {
-            return new NameToIdData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

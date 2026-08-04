@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class DownloadFileReq {
+  /**
+   * 文件
+   * ID，可通过[批量查询用户人脸识别信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query)获取
+   *
+   * <p>示例值：xxxxxb306842b1c189bc5212eefxxxxx
+   */
+  @Path
+  @SerializedName("file_id")
+  private String fileId;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  // builder 开始
+  public DownloadFileReq() {}
+
+  public DownloadFileReq(Builder builder) {
     /**
-     * 文件 ID
-     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     * 文件
+     * ID，可通过[批量查询用户人脸识别信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query)获取
+     *
+     * <p>示例值：xxxxxb306842b1c189bc5212eefxxxxx
      */
-    @Path
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
+  }
 
-    // builder 开始
-    public DownloadFileReq() {
+  public static class Builder {
+
+    private String fileId; // 文件
+
+    // ID，可通过[批量查询用户人脸识别信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query)获取
+
+    /**
+     * 文件
+     * ID，可通过[批量查询用户人脸识别信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query)获取
+     *
+     * <p>示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public DownloadFileReq(Builder builder) {
-        /**
-         * 文件 ID
-         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-         */
-        this.fileId = builder.fileId;
+    public DownloadFileReq build() {
+      return new DownloadFileReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileId() {
-        return this.fileId;
-    }
-
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
-
-    public static class Builder {
-
-        private String fileId; // 文件 ID
-
-        /**
-         * 文件 ID
-         * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        public DownloadFileReq build() {
-            return new DownloadFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

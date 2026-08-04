@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpsertUserDepartmentSortInfo {
+  /**
+   * 指定员工所在的部门，标识企业内一个唯一的部门，与department_id_type类型保持一致。
+   *
+   * <p>示例值：eeddjisdwe
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 员工在部门内的排序权重。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order_weight_in_deparment")
+  private String orderWeightInDeparment;
+
+  /**
+   * 该部门在用户所属的多个部门间的排序权重。
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("order_weight_among_deparments")
+  private String orderWeightAmongDeparments;
+
+  /**
+   * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用系统默认排序下的第一个部门作为主部门，系统默认排序与部门数组传入顺序无关）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_main_department")
+  private Boolean isMainDepartment;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOrderWeightInDeparment() {
+    return this.orderWeightInDeparment;
+  }
+
+  public void setOrderWeightInDeparment(String orderWeightInDeparment) {
+    this.orderWeightInDeparment = orderWeightInDeparment;
+  }
+
+  public String getOrderWeightAmongDeparments() {
+    return this.orderWeightAmongDeparments;
+  }
+
+  public void setOrderWeightAmongDeparments(String orderWeightAmongDeparments) {
+    this.orderWeightAmongDeparments = orderWeightAmongDeparments;
+  }
+
+  public Boolean getIsMainDepartment() {
+    return this.isMainDepartment;
+  }
+
+  public void setIsMainDepartment(Boolean isMainDepartment) {
+    this.isMainDepartment = isMainDepartment;
+  }
+
+  // builder 开始
+  public UpsertUserDepartmentSortInfo() {}
+
+  public UpsertUserDepartmentSortInfo(Builder builder) {
     /**
-     * 部门id
-     * <p> 示例值：
+     * 指定员工所在的部门，标识企业内一个唯一的部门，与department_id_type类型保持一致。
+     *
+     * <p>示例值：eeddjisdwe
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+    /**
+     * 员工在部门内的排序权重。
+     *
+     * <p>示例值：100
+     */
+    this.orderWeightInDeparment = builder.orderWeightInDeparment;
+    /**
+     * 该部门在用户所属的多个部门间的排序权重。
+     *
+     * <p>示例值：20
+     */
+    this.orderWeightAmongDeparments = builder.orderWeightAmongDeparments;
+    /**
+     * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用系统默认排序下的第一个部门作为主部门，系统默认排序与部门数组传入顺序无关）
+     *
+     * <p>示例值：true
+     */
+    this.isMainDepartment = builder.isMainDepartment;
+  }
+
+  public static class Builder {
+    /**
+     * 指定员工所在的部门，标识企业内一个唯一的部门，与department_id_type类型保持一致。
+     *
+     * <p>示例值：eeddjisdwe
+     */
     private String departmentId;
+
     /**
-     * 用户在部门内的排序权重
-     * <p> 示例值：100
+     * 员工在部门内的排序权重。
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order_weight_in_deparment")
     private String orderWeightInDeparment;
+
     /**
-     * 用户多个部门间的排序权重
-     * <p> 示例值：20
+     * 该部门在用户所属的多个部门间的排序权重。
+     *
+     * <p>示例值：20
      */
-    @SerializedName("order_weight_among_deparments")
     private String orderWeightAmongDeparments;
+
     /**
-     * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门)
-     * <p> 示例值：
+     * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用系统默认排序下的第一个部门作为主部门，系统默认排序与部门数组传入顺序无关）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_main_department")
     private Boolean isMainDepartment;
 
-    // builder 开始
-    public UpsertUserDepartmentSortInfo() {
+    /**
+     * 指定员工所在的部门，标识企业内一个唯一的部门，与department_id_type类型保持一致。
+     *
+     * <p>示例值：eeddjisdwe
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public UpsertUserDepartmentSortInfo(Builder builder) {
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         */
-        this.orderWeightInDeparment = builder.orderWeightInDeparment;
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：20
-         */
-        this.orderWeightAmongDeparments = builder.orderWeightAmongDeparments;
-        /**
-         * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门)
-         * <p> 示例值：
-         */
-        this.isMainDepartment = builder.isMainDepartment;
+    /**
+     * 员工在部门内的排序权重。
+     *
+     * <p>示例值：100
+     *
+     * @param orderWeightInDeparment
+     * @return
+     */
+    public Builder orderWeightInDeparment(String orderWeightInDeparment) {
+      this.orderWeightInDeparment = orderWeightInDeparment;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该部门在用户所属的多个部门间的排序权重。
+     *
+     * <p>示例值：20
+     *
+     * @param orderWeightAmongDeparments
+     * @return
+     */
+    public Builder orderWeightAmongDeparments(String orderWeightAmongDeparments) {
+      this.orderWeightAmongDeparments = orderWeightAmongDeparments;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用系统默认排序下的第一个部门作为主部门，系统默认排序与部门数组传入顺序无关）
+     *
+     * <p>示例值：true
+     *
+     * @param isMainDepartment
+     * @return
+     */
+    public Builder isMainDepartment(Boolean isMainDepartment) {
+      this.isMainDepartment = isMainDepartment;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public UpsertUserDepartmentSortInfo build() {
+      return new UpsertUserDepartmentSortInfo(this);
     }
+  }
 
-    public String getOrderWeightInDeparment() {
-        return this.orderWeightInDeparment;
-    }
-
-    public void setOrderWeightInDeparment(String orderWeightInDeparment) {
-        this.orderWeightInDeparment = orderWeightInDeparment;
-    }
-
-    public String getOrderWeightAmongDeparments() {
-        return this.orderWeightAmongDeparments;
-    }
-
-    public void setOrderWeightAmongDeparments(String orderWeightAmongDeparments) {
-        this.orderWeightAmongDeparments = orderWeightAmongDeparments;
-    }
-
-    public Boolean getIsMainDepartment() {
-        return this.isMainDepartment;
-    }
-
-    public void setIsMainDepartment(Boolean isMainDepartment) {
-        this.isMainDepartment = isMainDepartment;
-    }
-
-    public static class Builder {
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
-        private String departmentId;
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         */
-        private String orderWeightInDeparment;
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：20
-         */
-        private String orderWeightAmongDeparments;
-        /**
-         * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门)
-         * <p> 示例值：
-         */
-        private Boolean isMainDepartment;
-
-        /**
-         * 部门id
-         * <p> 示例值：
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         *
-         * @param orderWeightInDeparment
-         * @return
-         */
-        public Builder orderWeightInDeparment(String orderWeightInDeparment) {
-            this.orderWeightInDeparment = orderWeightInDeparment;
-            return this;
-        }
-
-
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：20
-         *
-         * @param orderWeightAmongDeparments
-         * @return
-         */
-        public Builder orderWeightAmongDeparments(String orderWeightAmongDeparments) {
-            this.orderWeightAmongDeparments = orderWeightAmongDeparments;
-            return this;
-        }
-
-
-        /**
-         * 是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门)
-         * <p> 示例值：
-         *
-         * @param isMainDepartment
-         * @return
-         */
-        public Builder isMainDepartment(Boolean isMainDepartment) {
-            this.isMainDepartment = isMainDepartment;
-            return this;
-        }
-
-
-        public UpsertUserDepartmentSortInfo build() {
-            return new UpsertUserDepartmentSortInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

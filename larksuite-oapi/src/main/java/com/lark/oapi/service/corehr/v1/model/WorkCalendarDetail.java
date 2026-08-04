@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkCalendarDetail {
+  /**
+   * 工作日历ID
+   *
+   * <p>示例值：7136914415957591596
+   */
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 工作日历名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calendar_name")
+  private WkCalendarI18n calendarName;
+
+  /**
+   * 工作日历是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable")
+  private Boolean enable;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public WkCalendarI18n getCalendarName() {
+    return this.calendarName;
+  }
+
+  public void setCalendarName(WkCalendarI18n calendarName) {
+    this.calendarName = calendarName;
+  }
+
+  public Boolean getEnable() {
+    return this.enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+  // builder 开始
+  public WorkCalendarDetail() {}
+
+  public WorkCalendarDetail(Builder builder) {
     /**
      * 工作日历ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：7136914415957591596
      */
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
      * 工作日历名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calendar_name")
-    private WkCalendarI18n calendarName;
+    this.calendarName = builder.calendarName;
     /**
      * 工作日历是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable")
+    this.enable = builder.enable;
+  }
+
+  public static class Builder {
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：7136914415957591596
+     */
+    private String calendarId;
+
+    /**
+     * 工作日历名称
+     *
+     * <p>示例值：
+     */
+    private WkCalendarI18n calendarName;
+
+    /**
+     * 工作日历是否启用
+     *
+     * <p>示例值：true
+     */
     private Boolean enable;
 
-    // builder 开始
-    public WorkCalendarDetail() {
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：7136914415957591596
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public WorkCalendarDetail(Builder builder) {
-        /**
-         * 工作日历ID
-         * <p> 示例值：123456
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 工作日历名称
-         * <p> 示例值：
-         */
-        this.calendarName = builder.calendarName;
-        /**
-         * 工作日历是否启用
-         * <p> 示例值：true
-         */
-        this.enable = builder.enable;
+    /**
+     * 工作日历名称
+     *
+     * <p>示例值：
+     *
+     * @param calendarName
+     * @return
+     */
+    public Builder calendarName(WkCalendarI18n calendarName) {
+      this.calendarName = calendarName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作日历是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param enable
+     * @return
+     */
+    public Builder enable(Boolean enable) {
+      this.enable = enable;
+      return this;
     }
 
-    public String getCalendarId() {
-        return this.calendarId;
+    public WorkCalendarDetail build() {
+      return new WorkCalendarDetail(this);
     }
+  }
 
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public WkCalendarI18n getCalendarName() {
-        return this.calendarName;
-    }
-
-    public void setCalendarName(WkCalendarI18n calendarName) {
-        this.calendarName = calendarName;
-    }
-
-    public Boolean getEnable() {
-        return this.enable;
-    }
-
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
-    }
-
-    public static class Builder {
-        /**
-         * 工作日历ID
-         * <p> 示例值：123456
-         */
-        private String calendarId;
-        /**
-         * 工作日历名称
-         * <p> 示例值：
-         */
-        private WkCalendarI18n calendarName;
-        /**
-         * 工作日历是否启用
-         * <p> 示例值：true
-         */
-        private Boolean enable;
-
-        /**
-         * 工作日历ID
-         * <p> 示例值：123456
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 工作日历名称
-         * <p> 示例值：
-         *
-         * @param calendarName
-         * @return
-         */
-        public Builder calendarName(WkCalendarI18n calendarName) {
-            this.calendarName = calendarName;
-            return this;
-        }
-
-
-        /**
-         * 工作日历是否启用
-         * <p> 示例值：true
-         *
-         * @param enable
-         * @return
-         */
-        public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
-        }
-
-
-        public WorkCalendarDetail build() {
-            return new WorkCalendarDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

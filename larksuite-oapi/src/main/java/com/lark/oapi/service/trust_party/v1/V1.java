@@ -19,25 +19,28 @@ import com.lark.oapi.service.trust_party.v1.resource.CollaborationTenantCollabor
 import com.lark.oapi.service.trust_party.v1.resource.CollaborationTenantCollaborationUser;
 
 public class V1 {
-    private final CollaborationTenant collaborationTenant; // 关联组织（灰度租户可见）
-    private final CollaborationTenantCollaborationDepartment collaborationTenantCollaborationDepartment; // collaboration_tenant.collaboration_department
-    private final CollaborationTenantCollaborationUser collaborationTenantCollaborationUser; // collaboration_tenant.collaboration_user
+  private final CollaborationTenant collaborationTenant; // collaboration_tenant
+  private final CollaborationTenantCollaborationDepartment
+      collaborationTenantCollaborationDepartment; // collaboration_tenant.collaboration_department
+  private final CollaborationTenantCollaborationUser
+      collaborationTenantCollaborationUser; // collaboration_tenant.collaboration_user
 
-    public V1(Config config) {
-        this.collaborationTenant = new CollaborationTenant(config);
-        this.collaborationTenantCollaborationDepartment = new CollaborationTenantCollaborationDepartment(config);
-        this.collaborationTenantCollaborationUser = new CollaborationTenantCollaborationUser(config);
-    }
+  public V1(Config config) {
+    this.collaborationTenant = new CollaborationTenant(config);
+    this.collaborationTenantCollaborationDepartment =
+        new CollaborationTenantCollaborationDepartment(config);
+    this.collaborationTenantCollaborationUser = new CollaborationTenantCollaborationUser(config);
+  }
 
-    public CollaborationTenant collaborationTenant() {
-        return collaborationTenant;
-    }
+  public CollaborationTenant collaborationTenant() {
+    return collaborationTenant;
+  }
 
-    public CollaborationTenantCollaborationDepartment collaborationTenantCollaborationDepartment() {
-        return collaborationTenantCollaborationDepartment;
-    }
+  public CollaborationTenantCollaborationDepartment collaborationTenantCollaborationDepartment() {
+    return collaborationTenantCollaborationDepartment;
+  }
 
-    public CollaborationTenantCollaborationUser collaborationTenantCollaborationUser() {
-        return collaborationTenantCollaborationUser;
-    }
+  public CollaborationTenantCollaborationUser collaborationTenantCollaborationUser() {
+    return collaborationTenantCollaborationUser;
+  }
 }

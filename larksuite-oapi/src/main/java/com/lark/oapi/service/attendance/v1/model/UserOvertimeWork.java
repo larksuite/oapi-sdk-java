@@ -13,518 +13,568 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOvertimeWork {
+  /**
+   * 审批实例 ID
+   *
+   * <p>示例值：6737202939523236113
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 加班时长，如需使用此字段进行加班时长计算，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通。默认采用start_time和end_time计算
+   *
+   * <p>示例值：1.5
+   */
+  @SerializedName("duration")
+  private Double duration;
+
+  /**
+   * 加班时长单位
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("unit")
+  private Integer unit;
+
+  /**
+   * 加班日期类型
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("category")
+  private Integer category;
+
+  /**
+   * 加班规则类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-09 09:00:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-10 13:00:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 加班事由
+   *
+   * <p>示例值：推进项目进度
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 唯一幂等键
+   *
+   * <p>示例值：1233432312
+   */
+  @SerializedName("idempotent_id")
+  private String idempotentId;
+
+  /**
+   * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("correct_process_id")
+  private String[] correctProcessId;
+
+  /**
+   * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cancel_process_id")
+  private String[] cancelProcessId;
+
+  /**
+   * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_id")
+  private String[] processId;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public Double getDuration() {
+    return this.duration;
+  }
+
+  public void setDuration(Double duration) {
+    this.duration = duration;
+  }
+
+  public Integer getUnit() {
+    return this.unit;
+  }
+
+  public void setUnit(Integer unit) {
+    this.unit = unit;
+  }
+
+  public Integer getCategory() {
+    return this.category;
+  }
+
+  public void setCategory(Integer category) {
+    this.category = category;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getIdempotentId() {
+    return this.idempotentId;
+  }
+
+  public void setIdempotentId(String idempotentId) {
+    this.idempotentId = idempotentId;
+  }
+
+  public String[] getCorrectProcessId() {
+    return this.correctProcessId;
+  }
+
+  public void setCorrectProcessId(String[] correctProcessId) {
+    this.correctProcessId = correctProcessId;
+  }
+
+  public String[] getCancelProcessId() {
+    return this.cancelProcessId;
+  }
+
+  public void setCancelProcessId(String[] cancelProcessId) {
+    this.cancelProcessId = cancelProcessId;
+  }
+
+  public String[] getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String[] processId) {
+    this.processId = processId;
+  }
+
+  // builder 开始
+  public UserOvertimeWork() {}
+
+  public UserOvertimeWork(Builder builder) {
     /**
      * 审批实例 ID
-     * <p> 示例值：6737202939523236113
+     *
+     * <p>示例值：6737202939523236113
      */
-    @SerializedName("approval_id")
-    private String approvalId;
+    this.approvalId = builder.approvalId;
     /**
-     * 加班时长
-     * <p> 示例值：1.5
+     * 加班时长，如需使用此字段进行加班时长计算，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通。默认采用start_time和end_time计算
+     *
+     * <p>示例值：1.5
      */
-    @SerializedName("duration")
-    private Double duration;
+    this.duration = builder.duration;
     /**
      * 加班时长单位
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("unit")
-    private Integer unit;
+    this.unit = builder.unit;
     /**
      * 加班日期类型
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("category")
-    private Integer category;
+    this.category = builder.category;
     /**
      * 加班规则类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-09 09:00:00
+     *
+     * <p>示例值：2021-01-09 09:00:00
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-10 13:00:00
+     *
+     * <p>示例值：2021-01-10 13:00:00
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 加班事由
-     * <p> 示例值：推进项目进度
+     *
+     * <p>示例值：推进项目进度
      */
-    @SerializedName("reason")
-    private String reason;
+    this.reason = builder.reason;
     /**
      * 唯一幂等键
-     * <p> 示例值：1233432312
+     *
+     * <p>示例值：1233432312
      */
-    @SerializedName("idempotent_id")
+    this.idempotentId = builder.idempotentId;
+    /**
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    this.correctProcessId = builder.correctProcessId;
+    /**
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    this.cancelProcessId = builder.cancelProcessId;
+    /**
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    this.processId = builder.processId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例 ID
+     *
+     * <p>示例值：6737202939523236113
+     */
+    private String approvalId;
+
+    /**
+     * 加班时长，如需使用此字段进行加班时长计算，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通。默认采用start_time和end_time计算
+     *
+     * <p>示例值：1.5
+     */
+    private Double duration;
+
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：1
+     */
+    private Integer unit;
+
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：2
+     */
+    private Integer category;
+
+    /**
+     * 加班规则类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-09 09:00:00
+     */
+    private String startTime;
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-10 13:00:00
+     */
+    private String endTime;
+
+    /**
+     * 加班事由
+     *
+     * <p>示例值：推进项目进度
+     */
+    private String reason;
+
+    /**
+     * 唯一幂等键
+     *
+     * <p>示例值：1233432312
+     */
     private String idempotentId;
+
     /**
-     * 更正流程实例 ID
-     * <p> 示例值：
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("correct_process_id")
     private String[] correctProcessId;
+
     /**
-     * 撤销流程实例 ID
-     * <p> 示例值：
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("cancel_process_id")
     private String[] cancelProcessId;
+
     /**
-     * 发起流程实例 ID
-     * <p> 示例值：
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("process_id")
     private String[] processId;
 
-    // builder 开始
-    public UserOvertimeWork() {
+    /**
+     * 审批实例 ID
+     *
+     * <p>示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public UserOvertimeWork(Builder builder) {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         * 加班时长
-         * <p> 示例值：1.5
-         */
-        this.duration = builder.duration;
-        /**
-         * 加班时长单位
-         * <p> 示例值：1
-         */
-        this.unit = builder.unit;
-        /**
-         * 加班日期类型
-         * <p> 示例值：2
-         */
-        this.category = builder.category;
-        /**
-         * 加班规则类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-09 09:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-10 13:00:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 加班事由
-         * <p> 示例值：推进项目进度
-         */
-        this.reason = builder.reason;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
-        this.idempotentId = builder.idempotentId;
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         */
-        this.correctProcessId = builder.correctProcessId;
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         */
-        this.cancelProcessId = builder.cancelProcessId;
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         */
-        this.processId = builder.processId;
+    /**
+     * 加班时长，如需使用此字段进行加班时长计算，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)开通。默认采用start_time和end_time计算
+     *
+     * <p>示例值：1.5
+     *
+     * @param duration
+     * @return
+     */
+    public Builder duration(Double duration) {
+      this.duration = duration;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：1
+     *
+     * @param unit
+     * @return
+     */
+    public Builder unit(Integer unit) {
+      this.unit = unit;
+      return this;
     }
 
-    public String getApprovalId() {
-        return this.approvalId;
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：1
+     *
+     * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum}
+     * @return
+     */
+    public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum unit) {
+      this.unit = unit.getValue();
+      return this;
     }
 
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：2
+     *
+     * @param category
+     * @return
+     */
+    public Builder category(Integer category) {
+      this.category = category;
+      return this;
     }
 
-    public Double getDuration() {
-        return this.duration;
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：2
+     *
+     * @param category {@link
+     *     com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum}
+     * @return
+     */
+    public Builder category(
+        com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum category) {
+      this.category = category.getValue();
+      return this;
     }
 
-    public void setDuration(Double duration) {
-        this.duration = duration;
+    /**
+     * 加班规则类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public Integer getUnit() {
-        return this.unit;
+    /**
+     * 加班规则类型
+     *
+     * <p>示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setUnit(Integer unit) {
-        this.unit = unit;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-09 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public Integer getCategory() {
-        return this.category;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-10 13:00:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setCategory(Integer category) {
-        this.category = category;
+    /**
+     * 加班事由
+     *
+     * <p>示例值：推进项目进度
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    /**
+     * 唯一幂等键
+     *
+     * <p>示例值：1233432312
+     *
+     * @param idempotentId
+     * @return
+     */
+    public Builder idempotentId(String idempotentId) {
+      this.idempotentId = idempotentId;
+      return this;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    /**
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param correctProcessId
+     * @return
+     */
+    public Builder correctProcessId(String[] correctProcessId) {
+      this.correctProcessId = correctProcessId;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param cancelProcessId
+     * @return
+     */
+    public Builder cancelProcessId(String[] cancelProcessId) {
+      this.cancelProcessId = cancelProcessId;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String[] processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    public UserOvertimeWork build() {
+      return new UserOvertimeWork(this);
     }
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getIdempotentId() {
-        return this.idempotentId;
-    }
-
-    public void setIdempotentId(String idempotentId) {
-        this.idempotentId = idempotentId;
-    }
-
-    public String[] getCorrectProcessId() {
-        return this.correctProcessId;
-    }
-
-    public void setCorrectProcessId(String[] correctProcessId) {
-        this.correctProcessId = correctProcessId;
-    }
-
-    public String[] getCancelProcessId() {
-        return this.cancelProcessId;
-    }
-
-    public void setCancelProcessId(String[] cancelProcessId) {
-        this.cancelProcessId = cancelProcessId;
-    }
-
-    public String[] getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String[] processId) {
-        this.processId = processId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
-        private String approvalId;
-        /**
-         * 加班时长
-         * <p> 示例值：1.5
-         */
-        private Double duration;
-        /**
-         * 加班时长单位
-         * <p> 示例值：1
-         */
-        private Integer unit;
-        /**
-         * 加班日期类型
-         * <p> 示例值：2
-         */
-        private Integer category;
-        /**
-         * 加班规则类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-09 09:00:00
-         */
-        private String startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-10 13:00:00
-         */
-        private String endTime;
-        /**
-         * 加班事由
-         * <p> 示例值：推进项目进度
-         */
-        private String reason;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
-        private String idempotentId;
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] correctProcessId;
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] cancelProcessId;
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] processId;
-
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        /**
-         * 加班时长
-         * <p> 示例值：1.5
-         *
-         * @param duration
-         * @return
-         */
-        public Builder duration(Double duration) {
-            this.duration = duration;
-            return this;
-        }
-
-
-        /**
-         * 加班时长单位
-         * <p> 示例值：1
-         *
-         * @param unit
-         * @return
-         */
-        public Builder unit(Integer unit) {
-            this.unit = unit;
-            return this;
-        }
-
-        /**
-         * 加班时长单位
-         * <p> 示例值：1
-         *
-         * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum}
-         * @return
-         */
-        public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkUnitEnum unit) {
-            this.unit = unit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加班日期类型
-         * <p> 示例值：2
-         *
-         * @param category
-         * @return
-         */
-        public Builder category(Integer category) {
-            this.category = category;
-            return this;
-        }
-
-        /**
-         * 加班日期类型
-         * <p> 示例值：2
-         *
-         * @param category {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum}
-         * @return
-         */
-        public Builder category(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkCategoryEnum category) {
-            this.category = category.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加班规则类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 加班规则类型
-         * <p> 示例值：1
-         *
-         * @param type {@link com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.attendance.v1.enums.UserOvertimeWorkTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-09 09:00:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-10 13:00:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 加班事由
-         * <p> 示例值：推进项目进度
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         *
-         * @param idempotentId
-         * @return
-         */
-        public Builder idempotentId(String idempotentId) {
-            this.idempotentId = idempotentId;
-            return this;
-        }
-
-
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         *
-         * @param correctProcessId
-         * @return
-         */
-        public Builder correctProcessId(String[] correctProcessId) {
-            this.correctProcessId = correctProcessId;
-            return this;
-        }
-
-
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         *
-         * @param cancelProcessId
-         * @return
-         */
-        public Builder cancelProcessId(String[] cancelProcessId) {
-            this.cancelProcessId = cancelProcessId;
-            return this;
-        }
-
-
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String[] processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        public UserOvertimeWork build() {
-            return new UserOvertimeWork(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

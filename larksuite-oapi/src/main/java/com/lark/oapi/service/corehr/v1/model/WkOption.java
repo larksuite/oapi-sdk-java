@@ -13,186 +13,177 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WkOption {
+  /**
+   * 是否返回符合条件的工作日历总数，默认值为true
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("count")
+  private Boolean count;
+
+  /**
+   * 分页查询的位移，从0开始，默认值为0
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offset")
+  private Integer offset;
+
+  /**
+   * 分页查询单次查询数量，默认值为2000
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("limit")
+  private Integer limit;
+
+  /** 示例值： */
+  @SerializedName("sort_options")
+  private SortOption[] sortOptions;
+
+  public Boolean getCount() {
+    return this.count;
+  }
+
+  public void setCount(Boolean count) {
+    this.count = count;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public SortOption[] getSortOptions() {
+    return this.sortOptions;
+  }
+
+  public void setSortOptions(SortOption[] sortOptions) {
+    this.sortOptions = sortOptions;
+  }
+
+  // builder 开始
+  public WkOption() {}
+
+  public WkOption(Builder builder) {
     /**
-     * 是否返回符合条件的工作日历总数
-     * <p> 示例值：false
+     * 是否返回符合条件的工作日历总数，默认值为true
+     *
+     * <p>示例值：false
      */
-    @SerializedName("count")
+    this.count = builder.count;
+    /**
+     * 分页查询的位移，从0开始，默认值为0
+     *
+     * <p>示例值：0
+     */
+    this.offset = builder.offset;
+    /**
+     * 分页查询单次查询数量，默认值为2000
+     *
+     * <p>示例值：20
+     */
+    this.limit = builder.limit;
+    /** 示例值： */
+    this.sortOptions = builder.sortOptions;
+  }
+
+  public static class Builder {
+    /**
+     * 是否返回符合条件的工作日历总数，默认值为true
+     *
+     * <p>示例值：false
+     */
     private Boolean count;
+
     /**
-     * 分页查询的位移，从0开始
-     * <p> 示例值：0
+     * 分页查询的位移，从0开始，默认值为0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offset")
     private Integer offset;
+
     /**
-     * 分页查询 单次查询数量
-     * <p> 示例值：20
+     * 分页查询单次查询数量，默认值为2000
+     *
+     * <p>示例值：20
      */
-    @SerializedName("limit")
     private Integer limit;
-    /**
-     * 排序
-     * <p> 示例值：
-     */
-    @SerializedName("sort_options")
+
+    /** 示例值： */
     private SortOption[] sortOptions;
 
-    // builder 开始
-    public WkOption() {
+    /**
+     * 是否返回符合条件的工作日历总数，默认值为true
+     *
+     * <p>示例值：false
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(Boolean count) {
+      this.count = count;
+      return this;
     }
 
-    public WkOption(Builder builder) {
-        /**
-         * 是否返回符合条件的工作日历总数
-         * <p> 示例值：false
-         */
-        this.count = builder.count;
-        /**
-         * 分页查询的位移，从0开始
-         * <p> 示例值：0
-         */
-        this.offset = builder.offset;
-        /**
-         * 分页查询 单次查询数量
-         * <p> 示例值：20
-         */
-        this.limit = builder.limit;
-        /**
-         * 排序
-         * <p> 示例值：
-         */
-        this.sortOptions = builder.sortOptions;
+    /**
+     * 分页查询的位移，从0开始，默认值为0
+     *
+     * <p>示例值：0
+     *
+     * @param offset
+     * @return
+     */
+    public Builder offset(Integer offset) {
+      this.offset = offset;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页查询单次查询数量，默认值为2000
+     *
+     * <p>示例值：20
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public Boolean getCount() {
-        return this.count;
+    /**
+     * 示例值：
+     *
+     * @param sortOptions
+     * @return
+     */
+    public Builder sortOptions(SortOption[] sortOptions) {
+      this.sortOptions = sortOptions;
+      return this;
     }
 
-    public void setCount(Boolean count) {
-        this.count = count;
+    public WkOption build() {
+      return new WkOption(this);
     }
+  }
 
-    public Integer getOffset() {
-        return this.offset;
-    }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public Integer getLimit() {
-        return this.limit;
-    }
-
-    public void setLimit(Integer limit) {
-        this.limit = limit;
-    }
-
-    public SortOption[] getSortOptions() {
-        return this.sortOptions;
-    }
-
-    public void setSortOptions(SortOption[] sortOptions) {
-        this.sortOptions = sortOptions;
-    }
-
-    public static class Builder {
-        /**
-         * 是否返回符合条件的工作日历总数
-         * <p> 示例值：false
-         */
-        private Boolean count;
-        /**
-         * 分页查询的位移，从0开始
-         * <p> 示例值：0
-         */
-        private Integer offset;
-        /**
-         * 分页查询 单次查询数量
-         * <p> 示例值：20
-         */
-        private Integer limit;
-        /**
-         * 排序
-         * <p> 示例值：
-         */
-        private SortOption[] sortOptions;
-
-        /**
-         * 是否返回符合条件的工作日历总数
-         * <p> 示例值：false
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(Boolean count) {
-            this.count = count;
-            return this;
-        }
-
-
-        /**
-         * 分页查询的位移，从0开始
-         * <p> 示例值：0
-         *
-         * @param offset
-         * @return
-         */
-        public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
-        }
-
-
-        /**
-         * 分页查询 单次查询数量
-         * <p> 示例值：20
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        /**
-         * 排序
-         * <p> 示例值：
-         *
-         * @param sortOptions
-         * @return
-         */
-        public Builder sortOptions(SortOption[] sortOptions) {
-            this.sortOptions = sortOptions;
-            return this;
-        }
-
-
-        public WkOption build() {
-            return new WkOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

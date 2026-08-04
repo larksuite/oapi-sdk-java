@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Kie {
+  /**
+   * 目标信息识别结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("kies")
+  private KieEntity[] kies;
+
+  public KieEntity[] getKies() {
+    return this.kies;
+  }
+
+  public void setKies(KieEntity[] kies) {
+    this.kies = kies;
+  }
+
+  // builder 开始
+  public Kie() {}
+
+  public Kie(Builder builder) {
     /**
      * 目标信息识别结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("kies")
+    this.kies = builder.kies;
+  }
+
+  public static class Builder {
+    /**
+     * 目标信息识别结果
+     *
+     * <p>示例值：
+     */
     private KieEntity[] kies;
 
-    // builder 开始
-    public Kie() {
+    /**
+     * 目标信息识别结果
+     *
+     * <p>示例值：
+     *
+     * @param kies
+     * @return
+     */
+    public Builder kies(KieEntity[] kies) {
+      this.kies = kies;
+      return this;
     }
 
-    public Kie(Builder builder) {
-        /**
-         * 目标信息识别结果
-         * <p> 示例值：
-         */
-        this.kies = builder.kies;
+    public Kie build() {
+      return new Kie(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public KieEntity[] getKies() {
-        return this.kies;
-    }
-
-    public void setKies(KieEntity[] kies) {
-        this.kies = kies;
-    }
-
-    public static class Builder {
-        /**
-         * 目标信息识别结果
-         * <p> 示例值：
-         */
-        private KieEntity[] kies;
-
-        /**
-         * 目标信息识别结果
-         * <p> 示例值：
-         *
-         * @param kies
-         * @return
-         */
-        public Builder kies(KieEntity[] kies) {
-            this.kies = kies;
-            return this;
-        }
-
-
-        public Kie build() {
-            return new Kie(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserFieldKeyContainer {
+  /**
+   * 用户字段key
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_field_key")
+  private String userFieldKey;
+
+  /**
+   * 是否启用、允许
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enabled")
+  private Boolean enabled;
+
+  /**
+   * 是否不允许修改，true代表固定值不允许修改
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fixed")
+  private Boolean fixed;
+
+  public String getUserFieldKey() {
+    return this.userFieldKey;
+  }
+
+  public void setUserFieldKey(String userFieldKey) {
+    this.userFieldKey = userFieldKey;
+  }
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public Boolean getFixed() {
+    return this.fixed;
+  }
+
+  public void setFixed(Boolean fixed) {
+    this.fixed = fixed;
+  }
+
+  // builder 开始
+  public UserFieldKeyContainer() {}
+
+  public UserFieldKeyContainer(Builder builder) {
     /**
      * 用户字段key
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_field_key")
-    private String userFieldKey;
+    this.userFieldKey = builder.userFieldKey;
     /**
      * 是否启用、允许
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enabled")
-    private Boolean enabled;
+    this.enabled = builder.enabled;
     /**
      * 是否不允许修改，true代表固定值不允许修改
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fixed")
+    this.fixed = builder.fixed;
+  }
+
+  public static class Builder {
+    /**
+     * 用户字段key
+     *
+     * <p>示例值：
+     */
+    private String userFieldKey;
+
+    /**
+     * 是否启用、允许
+     *
+     * <p>示例值：
+     */
+    private Boolean enabled;
+
+    /**
+     * 是否不允许修改，true代表固定值不允许修改
+     *
+     * <p>示例值：
+     */
     private Boolean fixed;
 
-    // builder 开始
-    public UserFieldKeyContainer() {
+    /**
+     * 用户字段key
+     *
+     * <p>示例值：
+     *
+     * @param userFieldKey
+     * @return
+     */
+    public Builder userFieldKey(String userFieldKey) {
+      this.userFieldKey = userFieldKey;
+      return this;
     }
 
-    public UserFieldKeyContainer(Builder builder) {
-        /**
-         * 用户字段key
-         * <p> 示例值：
-         */
-        this.userFieldKey = builder.userFieldKey;
-        /**
-         * 是否启用、允许
-         * <p> 示例值：
-         */
-        this.enabled = builder.enabled;
-        /**
-         * 是否不允许修改，true代表固定值不允许修改
-         * <p> 示例值：
-         */
-        this.fixed = builder.fixed;
+    /**
+     * 是否启用、允许
+     *
+     * <p>示例值：
+     *
+     * @param enabled
+     * @return
+     */
+    public Builder enabled(Boolean enabled) {
+      this.enabled = enabled;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否不允许修改，true代表固定值不允许修改
+     *
+     * <p>示例值：
+     *
+     * @param fixed
+     * @return
+     */
+    public Builder fixed(Boolean fixed) {
+      this.fixed = fixed;
+      return this;
     }
 
-    public String getUserFieldKey() {
-        return this.userFieldKey;
+    public UserFieldKeyContainer build() {
+      return new UserFieldKeyContainer(this);
     }
+  }
 
-    public void setUserFieldKey(String userFieldKey) {
-        this.userFieldKey = userFieldKey;
-    }
-
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Boolean getFixed() {
-        return this.fixed;
-    }
-
-    public void setFixed(Boolean fixed) {
-        this.fixed = fixed;
-    }
-
-    public static class Builder {
-        /**
-         * 用户字段key
-         * <p> 示例值：
-         */
-        private String userFieldKey;
-        /**
-         * 是否启用、允许
-         * <p> 示例值：
-         */
-        private Boolean enabled;
-        /**
-         * 是否不允许修改，true代表固定值不允许修改
-         * <p> 示例值：
-         */
-        private Boolean fixed;
-
-        /**
-         * 用户字段key
-         * <p> 示例值：
-         *
-         * @param userFieldKey
-         * @return
-         */
-        public Builder userFieldKey(String userFieldKey) {
-            this.userFieldKey = userFieldKey;
-            return this;
-        }
-
-
-        /**
-         * 是否启用、允许
-         * <p> 示例值：
-         *
-         * @param enabled
-         * @return
-         */
-        public Builder enabled(Boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-
-        /**
-         * 是否不允许修改，true代表固定值不允许修改
-         * <p> 示例值：
-         *
-         * @param fixed
-         * @return
-         */
-        public Builder fixed(Boolean fixed) {
-            this.fixed = fixed;
-            return this;
-        }
-
-
-        public UserFieldKeyContainer build() {
-            return new UserFieldKeyContainer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

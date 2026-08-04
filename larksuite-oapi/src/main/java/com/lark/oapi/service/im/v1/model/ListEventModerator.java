@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListEventModerator {
+  /**
+   * 租户 Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识。
+   *
+   * <p>示例值：86gwe65
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public UserId getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public ListEventModerator() {}
+
+  public ListEventModerator(Builder builder) {
     /**
-     * 租户 Key
-     * <p> 示例值：86gwe65
+     * 租户 Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识。
+     *
+     * <p>示例值：86gwe65
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 用户 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 租户 Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识。
+     *
+     * <p>示例值：86gwe65
+     */
+    private String tenantKey;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：
+     */
     private UserId userId;
 
-    // builder 开始
-    public ListEventModerator() {
+    /**
+     * 租户 Key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用中的唯一标识。
+     *
+     * <p>示例值：86gwe65
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public ListEventModerator(Builder builder) {
-        /**
-         * 租户 Key
-         * <p> 示例值：86gwe65
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(UserId userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ListEventModerator build() {
+      return new ListEventModerator(this);
     }
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public UserId getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 租户 Key
-         * <p> 示例值：86gwe65
-         */
-        private String tenantKey;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        private UserId userId;
-
-        /**
-         * 租户 Key
-         * <p> 示例值：86gwe65
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public ListEventModerator build() {
-            return new ListEventModerator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 条件版本
- */
+/** 条件版本 */
 public enum RecRuleDisplayRecRuleVersionEnum {
-    仅支持条件(0), // 仅支持条件
-    支持条件组(1), // 支持条件组
-    ;
-    private Integer value;
+  仅支持条件(0), // 仅支持条件
+  支持条件组(1), // 支持条件组
+  ;
+  private Integer value;
 
-    RecRuleDisplayRecRuleVersionEnum(Integer value) {
-        this.value = value;
-    }
+  RecRuleDisplayRecRuleVersionEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

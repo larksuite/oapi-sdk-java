@@ -13,901 +13,1177 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class MatchCompensationStandardReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型，传入部门ID时传入
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 雇员ID，可通过接口[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+   *
+   * <p>示例值：7124293751317038636
+   */
+  @Query
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 薪资标准的关联对象，项目或者指标
+   *
+   * <p>示例值：cpst_item
+   */
+  @Query
+  @SerializedName("reference_object_api")
+  private String referenceObjectApi;
+
+  /**
+   * 薪资标准表关联对象ID，即薪资项目/统计指标ID，可通过接口[【批量查询薪资项】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)、[【批量查询薪资统计指标】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)获取
+   *
+   * <p>示例值：7156853394442044972
+   */
+  @Query
+  @SerializedName("reference_object_id")
+  private String referenceObjectId;
+
+  /**
+   * 部门ID，可通过接口[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)获取
+   *
+   * <p>示例值：od-53899868dd0da32292a2d809f0518c8f
+   */
+  @Query
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 工作地点ID，可通过接口[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+   *
+   * <p>示例值：7094869485965870636
+   */
+  @Query
+  @SerializedName("work_location_id")
+  private String workLocationId;
+
+  /**
+   * 公司ID，可通过接口[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+   *
+   * <p>示例值：7091599096804394540
+   */
+  @Query
+  @SerializedName("company_id")
+  private String companyId;
+
+  /**
+   * 职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+   *
+   * <p>示例值：7039313681989502508
+   */
+  @Query
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  /**
+   * 职务ID，可通过接口[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)
+   *
+   * <p>示例值：7342883436321097257
+   */
+  @Query
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 职级ID，可通过接口[【批量查询职务级别】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+   *
+   * <p>示例值：7086415175263258156
+   */
+  @Query
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  /**
+   * 人员类型ID，可通过接口[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+   *
+   * <p>示例值：7039310401359775276
+   */
+  @Query
+  @SerializedName("employee_type_id")
+  private String employeeTypeId;
+
+  /**
+   * 招聘类型
+   *
+   * <p>示例值：experienced_professionals
+   */
+  @Query
+  @SerializedName("recruitment_type")
+  private String recruitmentType;
+
+  /**
+   * 定调薪原因ID，可通过接口[【批量查询定调薪原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)获取
+   *
+   * <p>示例值：6967639606963471117
+   */
+  @Query
+  @SerializedName("cpst_change_reason_id")
+  private String cpstChangeReasonId;
+
+  /**
+   * 薪资方案ID，可通过接口[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取
+   *
+   * <p>示例值：6967639606963471118
+   */
+  @Query
+  @SerializedName("cpst_plan_id")
+  private String cpstPlanId;
+
+  /**
+   * 薪级薪等ID
+   *
+   * <p>示例值：6967639606963471119
+   */
+  @Query
+  @SerializedName("cpst_salary_level_id")
+  private String cpstSalaryLevelId;
+
+  /**
+   * 生效时间（毫秒级时间戳）
+   *
+   * <p>示例值：1660924800000
+   */
+  @Query
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 绩效评估项ID
+   *
+   * <p>示例值：7382324314454492716
+   */
+  @Query
+  @SerializedName("performance_indicator_id")
+  private String performanceIndicatorId;
+
+  /**
+   * 绩效等级ID
+   *
+   * <p>示例值：7382324475995670060
+   */
+  @Query
+  @SerializedName("performance_score_grade_id")
+  private String performanceScoreGradeId;
+
+  /**
+   * 自定义组织1 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_1_ids")
+  private String customOrg1Ids;
+
+  /**
+   * 自定义组织2 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_2_ids")
+  private String customOrg2Ids;
+
+  /**
+   * 自定义组织3 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_3_ids")
+  private String customOrg3Ids;
+
+  /**
+   * 自定义组织4 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_4_ids")
+  private String customOrg4Ids;
+
+  /**
+   * 自定义组织5 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_5_ids")
+  private String customOrg5Ids;
+
+  /**
+   * 自定义组织6 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_6_ids")
+  private String customOrg6Ids;
+
+  /**
+   * 自定义组织7 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_7_ids")
+  private String customOrg7Ids;
+
+  /**
+   * 自定义组织8 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_8_ids")
+  private String customOrg8Ids;
+
+  /**
+   * 自定义组织9 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_9_ids")
+  private String customOrg9Ids;
+
+  /**
+   * 自定义组织10 IDs
+   *
+   * <p>示例值：7530538330711508524
+   */
+  @Query
+  @SerializedName("custom_org_10_ids")
+  private String customOrg10Ids;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getReferenceObjectApi() {
+    return this.referenceObjectApi;
+  }
+
+  public void setReferenceObjectApi(String referenceObjectApi) {
+    this.referenceObjectApi = referenceObjectApi;
+  }
+
+  public String getReferenceObjectId() {
+    return this.referenceObjectId;
+  }
+
+  public void setReferenceObjectId(String referenceObjectId) {
+    this.referenceObjectId = referenceObjectId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getWorkLocationId() {
+    return this.workLocationId;
+  }
+
+  public void setWorkLocationId(String workLocationId) {
+    this.workLocationId = workLocationId;
+  }
+
+  public String getCompanyId() {
+    return this.companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  public String getEmployeeTypeId() {
+    return this.employeeTypeId;
+  }
+
+  public void setEmployeeTypeId(String employeeTypeId) {
+    this.employeeTypeId = employeeTypeId;
+  }
+
+  public String getRecruitmentType() {
+    return this.recruitmentType;
+  }
+
+  public void setRecruitmentType(String recruitmentType) {
+    this.recruitmentType = recruitmentType;
+  }
+
+  public String getCpstChangeReasonId() {
+    return this.cpstChangeReasonId;
+  }
+
+  public void setCpstChangeReasonId(String cpstChangeReasonId) {
+    this.cpstChangeReasonId = cpstChangeReasonId;
+  }
+
+  public String getCpstPlanId() {
+    return this.cpstPlanId;
+  }
+
+  public void setCpstPlanId(String cpstPlanId) {
+    this.cpstPlanId = cpstPlanId;
+  }
+
+  public String getCpstSalaryLevelId() {
+    return this.cpstSalaryLevelId;
+  }
+
+  public void setCpstSalaryLevelId(String cpstSalaryLevelId) {
+    this.cpstSalaryLevelId = cpstSalaryLevelId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getPerformanceIndicatorId() {
+    return this.performanceIndicatorId;
+  }
+
+  public void setPerformanceIndicatorId(String performanceIndicatorId) {
+    this.performanceIndicatorId = performanceIndicatorId;
+  }
+
+  public String getPerformanceScoreGradeId() {
+    return this.performanceScoreGradeId;
+  }
+
+  public void setPerformanceScoreGradeId(String performanceScoreGradeId) {
+    this.performanceScoreGradeId = performanceScoreGradeId;
+  }
+
+  public String getCustomOrg1Ids() {
+    return this.customOrg1Ids;
+  }
+
+  public void setCustomOrg1Ids(String customOrg1Ids) {
+    this.customOrg1Ids = customOrg1Ids;
+  }
+
+  public String getCustomOrg2Ids() {
+    return this.customOrg2Ids;
+  }
+
+  public void setCustomOrg2Ids(String customOrg2Ids) {
+    this.customOrg2Ids = customOrg2Ids;
+  }
+
+  public String getCustomOrg3Ids() {
+    return this.customOrg3Ids;
+  }
+
+  public void setCustomOrg3Ids(String customOrg3Ids) {
+    this.customOrg3Ids = customOrg3Ids;
+  }
+
+  public String getCustomOrg4Ids() {
+    return this.customOrg4Ids;
+  }
+
+  public void setCustomOrg4Ids(String customOrg4Ids) {
+    this.customOrg4Ids = customOrg4Ids;
+  }
+
+  public String getCustomOrg5Ids() {
+    return this.customOrg5Ids;
+  }
+
+  public void setCustomOrg5Ids(String customOrg5Ids) {
+    this.customOrg5Ids = customOrg5Ids;
+  }
+
+  public String getCustomOrg6Ids() {
+    return this.customOrg6Ids;
+  }
+
+  public void setCustomOrg6Ids(String customOrg6Ids) {
+    this.customOrg6Ids = customOrg6Ids;
+  }
+
+  public String getCustomOrg7Ids() {
+    return this.customOrg7Ids;
+  }
+
+  public void setCustomOrg7Ids(String customOrg7Ids) {
+    this.customOrg7Ids = customOrg7Ids;
+  }
+
+  public String getCustomOrg8Ids() {
+    return this.customOrg8Ids;
+  }
+
+  public void setCustomOrg8Ids(String customOrg8Ids) {
+    this.customOrg8Ids = customOrg8Ids;
+  }
+
+  public String getCustomOrg9Ids() {
+    return this.customOrg9Ids;
+  }
+
+  public void setCustomOrg9Ids(String customOrg9Ids) {
+    this.customOrg9Ids = customOrg9Ids;
+  }
+
+  public String getCustomOrg10Ids() {
+    return this.customOrg10Ids;
+  }
+
+  public void setCustomOrg10Ids(String customOrg10Ids) {
+    this.customOrg10Ids = customOrg10Ids;
+  }
+
+  // builder 开始
+  public MatchCompensationStandardReq() {}
+
+  public MatchCompensationStandardReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：
+     * 此次调用中使用的部门 ID 类型，传入部门ID时传入
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 雇员ID
-     * <p> 示例值：7124293751317038636
+     * 雇员ID，可通过接口[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+     *
+     * <p>示例值：7124293751317038636
      */
-    @Query
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 薪资标准的关联对象，项目或者指标
-     * <p> 示例值：
+     *
+     * <p>示例值：cpst_item
      */
-    @Query
-    @SerializedName("reference_object_api")
-    private String referenceObjectApi;
+    this.referenceObjectApi = builder.referenceObjectApi;
     /**
-     * 薪资标准关联对象ID
-     * <p> 示例值：7156853394442044972
+     * 薪资标准表关联对象ID，即薪资项目/统计指标ID，可通过接口[【批量查询薪资项】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)、[【批量查询薪资统计指标】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)获取
+     *
+     * <p>示例值：7156853394442044972
      */
-    @Query
-    @SerializedName("reference_object_id")
-    private String referenceObjectId;
+    this.referenceObjectId = builder.referenceObjectId;
     /**
-     * 部门ID
-     * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
+     * 部门ID，可通过接口[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)获取
+     *
+     * <p>示例值：od-53899868dd0da32292a2d809f0518c8f
      */
-    @Query
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * 工作地点ID
-     * <p> 示例值：7094869485965870636
+     * 工作地点ID，可通过接口[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+     *
+     * <p>示例值：7094869485965870636
      */
-    @Query
-    @SerializedName("work_location_id")
-    private String workLocationId;
+    this.workLocationId = builder.workLocationId;
     /**
-     * 公司ID
-     * <p> 示例值：7091599096804394540
+     * 公司ID，可通过接口[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+     *
+     * <p>示例值：7091599096804394540
      */
-    @Query
-    @SerializedName("company_id")
-    private String companyId;
+    this.companyId = builder.companyId;
     /**
-     * 职务序列ID
-     * <p> 示例值：7039313681989502508
+     * 职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+     *
+     * <p>示例值：7039313681989502508
      */
-    @Query
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
     /**
-     * 职务ID
-     * <p> 示例值：7342883436321097257
+     * 职务ID，可通过接口[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)
+     *
+     * <p>示例值：7342883436321097257
      */
-    @Query
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
-     * 职级ID
-     * <p> 示例值：7086415175263258156
+     * 职级ID，可通过接口[【批量查询职务级别】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+     *
+     * <p>示例值：7086415175263258156
      */
-    @Query
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+    this.jobLevelId = builder.jobLevelId;
     /**
-     * 人员类型ID
-     * <p> 示例值：7039310401359775276
+     * 人员类型ID，可通过接口[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：7039310401359775276
      */
-    @Query
-    @SerializedName("employee_type_id")
-    private String employeeTypeId;
+    this.employeeTypeId = builder.employeeTypeId;
     /**
      * 招聘类型
-     * <p> 示例值：experienced_professionals
+     *
+     * <p>示例值：experienced_professionals
      */
-    @Query
-    @SerializedName("recruitment_type")
-    private String recruitmentType;
+    this.recruitmentType = builder.recruitmentType;
     /**
-     * 定调薪原因ID
-     * <p> 示例值：6967639606963471117
+     * 定调薪原因ID，可通过接口[【批量查询定调薪原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)获取
+     *
+     * <p>示例值：6967639606963471117
      */
-    @Query
-    @SerializedName("cpst_change_reason_id")
-    private String cpstChangeReasonId;
+    this.cpstChangeReasonId = builder.cpstChangeReasonId;
     /**
-     * 薪资方案ID
-     * <p> 示例值：6967639606963471118
+     * 薪资方案ID，可通过接口[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取
+     *
+     * <p>示例值：6967639606963471118
      */
-    @Query
-    @SerializedName("cpst_plan_id")
-    private String cpstPlanId;
+    this.cpstPlanId = builder.cpstPlanId;
     /**
      * 薪级薪等ID
-     * <p> 示例值：6967639606963471119
+     *
+     * <p>示例值：6967639606963471119
      */
-    @Query
-    @SerializedName("cpst_salary_level_id")
-    private String cpstSalaryLevelId;
+    this.cpstSalaryLevelId = builder.cpstSalaryLevelId;
     /**
-     * 生效时间
-     * <p> 示例值：1660924800000
+     * 生效时间（毫秒级时间戳）
+     *
+     * <p>示例值：1660924800000
      */
-    @Query
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 绩效评估项ID
-     * <p> 示例值：7382324314454492716
+     *
+     * <p>示例值：7382324314454492716
      */
-    @Query
-    @SerializedName("performance_indicator_id")
-    private String performanceIndicatorId;
+    this.performanceIndicatorId = builder.performanceIndicatorId;
     /**
      * 绩效等级ID
-     * <p> 示例值：7382324475995670060
+     *
+     * <p>示例值：7382324475995670060
      */
-    @Query
-    @SerializedName("performance_score_grade_id")
-    private String performanceScoreGradeId;
+    this.performanceScoreGradeId = builder.performanceScoreGradeId;
     /**
      * 自定义组织1 IDs
-     * <p> 示例值：7530538330711508524
+     *
+     * <p>示例值：7530538330711508524
      */
-    @Query
-    @SerializedName("custom_org_1_ids")
-    private String customOrg1Ids;
+    this.customOrg1Ids = builder.customOrg1Ids;
     /**
      * 自定义组织2 IDs
-     * <p> 示例值：7530538330711508524
+     *
+     * <p>示例值：7530538330711508524
      */
-    @Query
-    @SerializedName("custom_org_2_ids")
-    private String customOrg2Ids;
+    this.customOrg2Ids = builder.customOrg2Ids;
     /**
      * 自定义组织3 IDs
-     * <p> 示例值：7530538330711508524
+     *
+     * <p>示例值：7530538330711508524
      */
-    @Query
-    @SerializedName("custom_org_3_ids")
-    private String customOrg3Ids;
+    this.customOrg3Ids = builder.customOrg3Ids;
     /**
      * 自定义组织4 IDs
-     * <p> 示例值：7530538330711508524
+     *
+     * <p>示例值：7530538330711508524
      */
-    @Query
-    @SerializedName("custom_org_4_ids")
-    private String customOrg4Ids;
+    this.customOrg4Ids = builder.customOrg4Ids;
     /**
      * 自定义组织5 IDs
-     * <p> 示例值：7530538330711508524
+     *
+     * <p>示例值：7530538330711508524
      */
-    @Query
-    @SerializedName("custom_org_5_ids")
-    private String customOrg5Ids;
+    this.customOrg5Ids = builder.customOrg5Ids;
+    /**
+     * 自定义组织6 IDs
+     *
+     * <p>示例值：7530538330711508524
+     */
+    this.customOrg6Ids = builder.customOrg6Ids;
+    /**
+     * 自定义组织7 IDs
+     *
+     * <p>示例值：7530538330711508524
+     */
+    this.customOrg7Ids = builder.customOrg7Ids;
+    /**
+     * 自定义组织8 IDs
+     *
+     * <p>示例值：7530538330711508524
+     */
+    this.customOrg8Ids = builder.customOrg8Ids;
+    /**
+     * 自定义组织9 IDs
+     *
+     * <p>示例值：7530538330711508524
+     */
+    this.customOrg9Ids = builder.customOrg9Ids;
+    /**
+     * 自定义组织10 IDs
+     *
+     * <p>示例值：7530538330711508524
+     */
+    this.customOrg10Ids = builder.customOrg10Ids;
+  }
 
-    // builder 开始
-    public MatchCompensationStandardReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型，传入部门ID时传入
+    private String
+        employmentId; // 雇员ID，可通过接口[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+    private String referenceObjectApi; // 薪资标准的关联对象，项目或者指标
+    private String
+        referenceObjectId; // 薪资标准表关联对象ID，即薪资项目/统计指标ID，可通过接口[【批量查询薪资项】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)、[【批量查询薪资统计指标】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)获取
+    private String
+        departmentId; // 部门ID，可通过接口[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)获取
+    private String
+        workLocationId; // 工作地点ID，可通过接口[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+    private String
+        companyId; // 公司ID，可通过接口[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+    private String
+        jobFamilyId; // 职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+    private String
+        jobId; // 职务ID，可通过接口[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)
+    private String
+        jobLevelId; // 职级ID，可通过接口[【批量查询职务级别】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+    private String
+        employeeTypeId; // 人员类型ID，可通过接口[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+    private String recruitmentType; // 招聘类型
+    private String
+        cpstChangeReasonId; // 定调薪原因ID，可通过接口[【批量查询定调薪原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)获取
+    private String
+        cpstPlanId; // 薪资方案ID，可通过接口[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取
+    private String cpstSalaryLevelId; // 薪级薪等ID
+    private String effectiveTime; // 生效时间（毫秒级时间戳）
+    private String performanceIndicatorId; // 绩效评估项ID
+    private String performanceScoreGradeId; // 绩效等级ID
+    private String customOrg1Ids; // 自定义组织1 IDs
+    private String customOrg2Ids; // 自定义组织2 IDs
+    private String customOrg3Ids; // 自定义组织3 IDs
+    private String customOrg4Ids; // 自定义组织4 IDs
+    private String customOrg5Ids; // 自定义组织5 IDs
+    private String customOrg6Ids; // 自定义组织6 IDs
+    private String customOrg7Ids; // 自定义组织7 IDs
+    private String customOrg8Ids; // 自定义组织8 IDs
+    private String customOrg9Ids; // 自定义组织9 IDs
+    private String customOrg10Ids; // 自定义组织10 IDs
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public MatchCompensationStandardReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 雇员ID
-         * <p> 示例值：7124293751317038636
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         */
-        this.referenceObjectApi = builder.referenceObjectApi;
-        /**
-         * 薪资标准关联对象ID
-         * <p> 示例值：7156853394442044972
-         */
-        this.referenceObjectId = builder.referenceObjectId;
-        /**
-         * 部门ID
-         * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 工作地点ID
-         * <p> 示例值：7094869485965870636
-         */
-        this.workLocationId = builder.workLocationId;
-        /**
-         * 公司ID
-         * <p> 示例值：7091599096804394540
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 职务序列ID
-         * <p> 示例值：7039313681989502508
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 职务ID
-         * <p> 示例值：7342883436321097257
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 职级ID
-         * <p> 示例值：7086415175263258156
-         */
-        this.jobLevelId = builder.jobLevelId;
-        /**
-         * 人员类型ID
-         * <p> 示例值：7039310401359775276
-         */
-        this.employeeTypeId = builder.employeeTypeId;
-        /**
-         * 招聘类型
-         * <p> 示例值：experienced_professionals
-         */
-        this.recruitmentType = builder.recruitmentType;
-        /**
-         * 定调薪原因ID
-         * <p> 示例值：6967639606963471117
-         */
-        this.cpstChangeReasonId = builder.cpstChangeReasonId;
-        /**
-         * 薪资方案ID
-         * <p> 示例值：6967639606963471118
-         */
-        this.cpstPlanId = builder.cpstPlanId;
-        /**
-         * 薪级薪等ID
-         * <p> 示例值：6967639606963471119
-         */
-        this.cpstSalaryLevelId = builder.cpstSalaryLevelId;
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 绩效评估项ID
-         * <p> 示例值：7382324314454492716
-         */
-        this.performanceIndicatorId = builder.performanceIndicatorId;
-        /**
-         * 绩效等级ID
-         * <p> 示例值：7382324475995670060
-         */
-        this.performanceScoreGradeId = builder.performanceScoreGradeId;
-        /**
-         * 自定义组织1 IDs
-         * <p> 示例值：7530538330711508524
-         */
-        this.customOrg1Ids = builder.customOrg1Ids;
-        /**
-         * 自定义组织2 IDs
-         * <p> 示例值：7530538330711508524
-         */
-        this.customOrg2Ids = builder.customOrg2Ids;
-        /**
-         * 自定义组织3 IDs
-         * <p> 示例值：7530538330711508524
-         */
-        this.customOrg3Ids = builder.customOrg3Ids;
-        /**
-         * 自定义组织4 IDs
-         * <p> 示例值：7530538330711508524
-         */
-        this.customOrg4Ids = builder.customOrg4Ids;
-        /**
-         * 自定义组织5 IDs
-         * <p> 示例值：7530538330711508524
-         */
-        this.customOrg5Ids = builder.customOrg5Ids;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums
+                .MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的部门 ID 类型，传入部门ID时传入
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 此次调用中使用的部门 ID 类型，传入部门ID时传入
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v1.enums
+                .MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 雇员ID，可通过接口[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+     *
+     * <p>示例值：7124293751317038636
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    /**
+     * 薪资标准的关联对象，项目或者指标
+     *
+     * <p>示例值：cpst_item
+     *
+     * @param referenceObjectApi
+     * @return
+     */
+    public Builder referenceObjectApi(String referenceObjectApi) {
+      this.referenceObjectApi = referenceObjectApi;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    /**
+     * 薪资标准的关联对象，项目或者指标
+     *
+     * <p>示例值：cpst_item
+     *
+     * @param referenceObjectApi {@link
+     *     com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum}
+     * @return
+     */
+    public Builder referenceObjectApi(
+        com.lark.oapi.service.corehr.v1.enums
+                .MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum
+            referenceObjectApi) {
+      this.referenceObjectApi = referenceObjectApi.getValue();
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 薪资标准表关联对象ID，即薪资项目/统计指标ID，可通过接口[【批量查询薪资项】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/item/list)、[【批量查询薪资统计指标】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)获取
+     *
+     * <p>示例值：7156853394442044972
+     *
+     * @param referenceObjectId
+     * @return
+     */
+    public Builder referenceObjectId(String referenceObjectId) {
+      this.referenceObjectId = referenceObjectId;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 部门ID，可通过接口[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/list)获取
+     *
+     * <p>示例值：od-53899868dd0da32292a2d809f0518c8f
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getReferenceObjectApi() {
-        return this.referenceObjectApi;
+    /**
+     * 工作地点ID，可通过接口[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取
+     *
+     * <p>示例值：7094869485965870636
+     *
+     * @param workLocationId
+     * @return
+     */
+    public Builder workLocationId(String workLocationId) {
+      this.workLocationId = workLocationId;
+      return this;
     }
 
-    public void setReferenceObjectApi(String referenceObjectApi) {
-        this.referenceObjectApi = referenceObjectApi;
+    /**
+     * 公司ID，可通过接口[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取
+     *
+     * <p>示例值：7091599096804394540
+     *
+     * @param companyId
+     * @return
+     */
+    public Builder companyId(String companyId) {
+      this.companyId = companyId;
+      return this;
     }
 
-    public String getReferenceObjectId() {
-        return this.referenceObjectId;
+    /**
+     * 职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取
+     *
+     * <p>示例值：7039313681989502508
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
     }
 
-    public void setReferenceObjectId(String referenceObjectId) {
-        this.referenceObjectId = referenceObjectId;
+    /**
+     * 职务ID，可通过接口[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)
+     *
+     * <p>示例值：7342883436321097257
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 职级ID，可通过接口[【批量查询职务级别】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取
+     *
+     * <p>示例值：7086415175263258156
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 人员类型ID，可通过接口[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：7039310401359775276
+     *
+     * @param employeeTypeId
+     * @return
+     */
+    public Builder employeeTypeId(String employeeTypeId) {
+      this.employeeTypeId = employeeTypeId;
+      return this;
     }
 
-    public String getWorkLocationId() {
-        return this.workLocationId;
+    /**
+     * 招聘类型
+     *
+     * <p>示例值：experienced_professionals
+     *
+     * @param recruitmentType
+     * @return
+     */
+    public Builder recruitmentType(String recruitmentType) {
+      this.recruitmentType = recruitmentType;
+      return this;
     }
 
-    public void setWorkLocationId(String workLocationId) {
-        this.workLocationId = workLocationId;
+    /**
+     * 招聘类型
+     *
+     * <p>示例值：experienced_professionals
+     *
+     * @param recruitmentType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum}
+     * @return
+     */
+    public Builder recruitmentType(
+        com.lark.oapi.service.corehr.v1.enums
+                .MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum
+            recruitmentType) {
+      this.recruitmentType = recruitmentType.getValue();
+      return this;
     }
 
-    public String getCompanyId() {
-        return this.companyId;
+    /**
+     * 定调薪原因ID，可通过接口[【批量查询定调薪原因】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)获取
+     *
+     * <p>示例值：6967639606963471117
+     *
+     * @param cpstChangeReasonId
+     * @return
+     */
+    public Builder cpstChangeReasonId(String cpstChangeReasonId) {
+      this.cpstChangeReasonId = cpstChangeReasonId;
+      return this;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    /**
+     * 薪资方案ID，可通过接口[【批量查询薪资方案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)获取
+     *
+     * <p>示例值：6967639606963471118
+     *
+     * @param cpstPlanId
+     * @return
+     */
+    public Builder cpstPlanId(String cpstPlanId) {
+      this.cpstPlanId = cpstPlanId;
+      return this;
     }
 
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
+    /**
+     * 薪级薪等ID
+     *
+     * <p>示例值：6967639606963471119
+     *
+     * @param cpstSalaryLevelId
+     * @return
+     */
+    public Builder cpstSalaryLevelId(String cpstSalaryLevelId) {
+      this.cpstSalaryLevelId = cpstSalaryLevelId;
+      return this;
     }
 
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
+    /**
+     * 生效时间（毫秒级时间戳）
+     *
+     * <p>示例值：1660924800000
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 绩效评估项ID
+     *
+     * <p>示例值：7382324314454492716
+     *
+     * @param performanceIndicatorId
+     * @return
+     */
+    public Builder performanceIndicatorId(String performanceIndicatorId) {
+      this.performanceIndicatorId = performanceIndicatorId;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    /**
+     * 绩效等级ID
+     *
+     * <p>示例值：7382324475995670060
+     *
+     * @param performanceScoreGradeId
+     * @return
+     */
+    public Builder performanceScoreGradeId(String performanceScoreGradeId) {
+      this.performanceScoreGradeId = performanceScoreGradeId;
+      return this;
     }
 
-    public String getJobLevelId() {
-        return this.jobLevelId;
+    /**
+     * 自定义组织1 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg1Ids
+     * @return
+     */
+    public Builder customOrg1Ids(String customOrg1Ids) {
+      this.customOrg1Ids = customOrg1Ids;
+      return this;
     }
 
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
+    /**
+     * 自定义组织2 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg2Ids
+     * @return
+     */
+    public Builder customOrg2Ids(String customOrg2Ids) {
+      this.customOrg2Ids = customOrg2Ids;
+      return this;
     }
 
-    public String getEmployeeTypeId() {
-        return this.employeeTypeId;
+    /**
+     * 自定义组织3 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg3Ids
+     * @return
+     */
+    public Builder customOrg3Ids(String customOrg3Ids) {
+      this.customOrg3Ids = customOrg3Ids;
+      return this;
     }
 
-    public void setEmployeeTypeId(String employeeTypeId) {
-        this.employeeTypeId = employeeTypeId;
+    /**
+     * 自定义组织4 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg4Ids
+     * @return
+     */
+    public Builder customOrg4Ids(String customOrg4Ids) {
+      this.customOrg4Ids = customOrg4Ids;
+      return this;
     }
 
-    public String getRecruitmentType() {
-        return this.recruitmentType;
+    /**
+     * 自定义组织5 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg5Ids
+     * @return
+     */
+    public Builder customOrg5Ids(String customOrg5Ids) {
+      this.customOrg5Ids = customOrg5Ids;
+      return this;
     }
 
-    public void setRecruitmentType(String recruitmentType) {
-        this.recruitmentType = recruitmentType;
+    /**
+     * 自定义组织6 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg6Ids
+     * @return
+     */
+    public Builder customOrg6Ids(String customOrg6Ids) {
+      this.customOrg6Ids = customOrg6Ids;
+      return this;
     }
 
-    public String getCpstChangeReasonId() {
-        return this.cpstChangeReasonId;
+    /**
+     * 自定义组织7 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg7Ids
+     * @return
+     */
+    public Builder customOrg7Ids(String customOrg7Ids) {
+      this.customOrg7Ids = customOrg7Ids;
+      return this;
     }
 
-    public void setCpstChangeReasonId(String cpstChangeReasonId) {
-        this.cpstChangeReasonId = cpstChangeReasonId;
+    /**
+     * 自定义组织8 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg8Ids
+     * @return
+     */
+    public Builder customOrg8Ids(String customOrg8Ids) {
+      this.customOrg8Ids = customOrg8Ids;
+      return this;
     }
 
-    public String getCpstPlanId() {
-        return this.cpstPlanId;
+    /**
+     * 自定义组织9 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg9Ids
+     * @return
+     */
+    public Builder customOrg9Ids(String customOrg9Ids) {
+      this.customOrg9Ids = customOrg9Ids;
+      return this;
     }
 
-    public void setCpstPlanId(String cpstPlanId) {
-        this.cpstPlanId = cpstPlanId;
+    /**
+     * 自定义组织10 IDs
+     *
+     * <p>示例值：7530538330711508524
+     *
+     * @param customOrg10Ids
+     * @return
+     */
+    public Builder customOrg10Ids(String customOrg10Ids) {
+      this.customOrg10Ids = customOrg10Ids;
+      return this;
     }
 
-    public String getCpstSalaryLevelId() {
-        return this.cpstSalaryLevelId;
+    public MatchCompensationStandardReq build() {
+      return new MatchCompensationStandardReq(this);
     }
-
-    public void setCpstSalaryLevelId(String cpstSalaryLevelId) {
-        this.cpstSalaryLevelId = cpstSalaryLevelId;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getPerformanceIndicatorId() {
-        return this.performanceIndicatorId;
-    }
-
-    public void setPerformanceIndicatorId(String performanceIndicatorId) {
-        this.performanceIndicatorId = performanceIndicatorId;
-    }
-
-    public String getPerformanceScoreGradeId() {
-        return this.performanceScoreGradeId;
-    }
-
-    public void setPerformanceScoreGradeId(String performanceScoreGradeId) {
-        this.performanceScoreGradeId = performanceScoreGradeId;
-    }
-
-    public String getCustomOrg1Ids() {
-        return this.customOrg1Ids;
-    }
-
-    public void setCustomOrg1Ids(String customOrg1Ids) {
-        this.customOrg1Ids = customOrg1Ids;
-    }
-
-    public String getCustomOrg2Ids() {
-        return this.customOrg2Ids;
-    }
-
-    public void setCustomOrg2Ids(String customOrg2Ids) {
-        this.customOrg2Ids = customOrg2Ids;
-    }
-
-    public String getCustomOrg3Ids() {
-        return this.customOrg3Ids;
-    }
-
-    public void setCustomOrg3Ids(String customOrg3Ids) {
-        this.customOrg3Ids = customOrg3Ids;
-    }
-
-    public String getCustomOrg4Ids() {
-        return this.customOrg4Ids;
-    }
-
-    public void setCustomOrg4Ids(String customOrg4Ids) {
-        this.customOrg4Ids = customOrg4Ids;
-    }
-
-    public String getCustomOrg5Ids() {
-        return this.customOrg5Ids;
-    }
-
-    public void setCustomOrg5Ids(String customOrg5Ids) {
-        this.customOrg5Ids = customOrg5Ids;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String employmentId; // 雇员ID
-        private String referenceObjectApi; // 薪资标准的关联对象，项目或者指标
-        private String referenceObjectId; // 薪资标准关联对象ID
-        private String departmentId; // 部门ID
-        private String workLocationId; // 工作地点ID
-        private String companyId; // 公司ID
-        private String jobFamilyId; // 职务序列ID
-        private String jobId; // 职务ID
-        private String jobLevelId; // 职级ID
-        private String employeeTypeId; // 人员类型ID
-        private String recruitmentType; // 招聘类型
-        private String cpstChangeReasonId; // 定调薪原因ID
-        private String cpstPlanId; // 薪资方案ID
-        private String cpstSalaryLevelId; // 薪级薪等ID
-        private String effectiveTime; // 生效时间
-        private String performanceIndicatorId; // 绩效评估项ID
-        private String performanceScoreGradeId; // 绩效等级ID
-        private String customOrg1Ids; // 自定义组织1 IDs
-        private String customOrg2Ids; // 自定义组织2 IDs
-        private String customOrg3Ids; // 自定义组织3 IDs
-        private String customOrg4Ids; // 自定义组织4 IDs
-        private String customOrg5Ids; // 自定义组织5 IDs
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 雇员ID
-         * <p> 示例值：7124293751317038636
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         *
-         * @param referenceObjectApi
-         * @return
-         */
-        public Builder referenceObjectApi(String referenceObjectApi) {
-            this.referenceObjectApi = referenceObjectApi;
-            return this;
-        }
-
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         *
-         * @param referenceObjectApi {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum}
-         * @return
-         */
-        public Builder referenceObjectApi(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardReferenceObjectApiEnum referenceObjectApi) {
-            this.referenceObjectApi = referenceObjectApi.getValue();
-            return this;
-        }
-
-
-        /**
-         * 薪资标准关联对象ID
-         * <p> 示例值：7156853394442044972
-         *
-         * @param referenceObjectId
-         * @return
-         */
-        public Builder referenceObjectId(String referenceObjectId) {
-            this.referenceObjectId = referenceObjectId;
-            return this;
-        }
-
-
-        /**
-         * 部门ID
-         * <p> 示例值：od-53899868dd0da32292a2d809f0518c8f
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 工作地点ID
-         * <p> 示例值：7094869485965870636
-         *
-         * @param workLocationId
-         * @return
-         */
-        public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
-        }
-
-
-        /**
-         * 公司ID
-         * <p> 示例值：7091599096804394540
-         *
-         * @param companyId
-         * @return
-         */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
-
-
-        /**
-         * 职务序列ID
-         * <p> 示例值：7039313681989502508
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 职务ID
-         * <p> 示例值：7342883436321097257
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 职级ID
-         * <p> 示例值：7086415175263258156
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 人员类型ID
-         * <p> 示例值：7039310401359775276
-         *
-         * @param employeeTypeId
-         * @return
-         */
-        public Builder employeeTypeId(String employeeTypeId) {
-            this.employeeTypeId = employeeTypeId;
-            return this;
-        }
-
-
-        /**
-         * 招聘类型
-         * <p> 示例值：experienced_professionals
-         *
-         * @param recruitmentType
-         * @return
-         */
-        public Builder recruitmentType(String recruitmentType) {
-            this.recruitmentType = recruitmentType;
-            return this;
-        }
-
-        /**
-         * 招聘类型
-         * <p> 示例值：experienced_professionals
-         *
-         * @param recruitmentType {@link com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum}
-         * @return
-         */
-        public Builder recruitmentType(com.lark.oapi.service.corehr.v1.enums.MatchCompensationStandardMatchCompensationStandardRecruitmentTypeEnum recruitmentType) {
-            this.recruitmentType = recruitmentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 定调薪原因ID
-         * <p> 示例值：6967639606963471117
-         *
-         * @param cpstChangeReasonId
-         * @return
-         */
-        public Builder cpstChangeReasonId(String cpstChangeReasonId) {
-            this.cpstChangeReasonId = cpstChangeReasonId;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案ID
-         * <p> 示例值：6967639606963471118
-         *
-         * @param cpstPlanId
-         * @return
-         */
-        public Builder cpstPlanId(String cpstPlanId) {
-            this.cpstPlanId = cpstPlanId;
-            return this;
-        }
-
-
-        /**
-         * 薪级薪等ID
-         * <p> 示例值：6967639606963471119
-         *
-         * @param cpstSalaryLevelId
-         * @return
-         */
-        public Builder cpstSalaryLevelId(String cpstSalaryLevelId) {
-            this.cpstSalaryLevelId = cpstSalaryLevelId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估项ID
-         * <p> 示例值：7382324314454492716
-         *
-         * @param performanceIndicatorId
-         * @return
-         */
-        public Builder performanceIndicatorId(String performanceIndicatorId) {
-            this.performanceIndicatorId = performanceIndicatorId;
-            return this;
-        }
-
-
-        /**
-         * 绩效等级ID
-         * <p> 示例值：7382324475995670060
-         *
-         * @param performanceScoreGradeId
-         * @return
-         */
-        public Builder performanceScoreGradeId(String performanceScoreGradeId) {
-            this.performanceScoreGradeId = performanceScoreGradeId;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织1 IDs
-         * <p> 示例值：7530538330711508524
-         *
-         * @param customOrg1Ids
-         * @return
-         */
-        public Builder customOrg1Ids(String customOrg1Ids) {
-            this.customOrg1Ids = customOrg1Ids;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织2 IDs
-         * <p> 示例值：7530538330711508524
-         *
-         * @param customOrg2Ids
-         * @return
-         */
-        public Builder customOrg2Ids(String customOrg2Ids) {
-            this.customOrg2Ids = customOrg2Ids;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织3 IDs
-         * <p> 示例值：7530538330711508524
-         *
-         * @param customOrg3Ids
-         * @return
-         */
-        public Builder customOrg3Ids(String customOrg3Ids) {
-            this.customOrg3Ids = customOrg3Ids;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织4 IDs
-         * <p> 示例值：7530538330711508524
-         *
-         * @param customOrg4Ids
-         * @return
-         */
-        public Builder customOrg4Ids(String customOrg4Ids) {
-            this.customOrg4Ids = customOrg4Ids;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织5 IDs
-         * <p> 示例值：7530538330711508524
-         *
-         * @param customOrg5Ids
-         * @return
-         */
-        public Builder customOrg5Ids(String customOrg5Ids) {
-            this.customOrg5Ids = customOrg5Ids;
-            return this;
-        }
-
-
-        public MatchCompensationStandardReq build() {
-            return new MatchCompensationStandardReq(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

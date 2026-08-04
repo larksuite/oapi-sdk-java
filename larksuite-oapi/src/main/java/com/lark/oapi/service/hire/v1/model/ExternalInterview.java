@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalInterview {
+  /**
+   * 外部系统面试主键 （仅用于幂等）
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 外部投递 ID
+   *
+   * <p>示例值：6960663240925956437
+   */
+  @SerializedName("external_application_id")
+  private String externalApplicationId;
+
+  /**
+   * 外部面试 ID
+   *
+   * <p>示例值：6960663240925956436
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 参与状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("participate_status")
+  private Integer participateStatus;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1618500278638
+   */
+  @SerializedName("begin_time")
+  private Long beginTime;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1618500278639
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  /**
+   * 面试评价列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interview_assessments")
+  private ExternalInterviewAssessment[] interviewAssessments;
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getExternalApplicationId() {
+    return this.externalApplicationId;
+  }
+
+  public void setExternalApplicationId(String externalApplicationId) {
+    this.externalApplicationId = externalApplicationId;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getParticipateStatus() {
+    return this.participateStatus;
+  }
+
+  public void setParticipateStatus(Integer participateStatus) {
+    this.participateStatus = participateStatus;
+  }
+
+  public Long getBeginTime() {
+    return this.beginTime;
+  }
+
+  public void setBeginTime(Long beginTime) {
+    this.beginTime = beginTime;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public ExternalInterviewAssessment[] getInterviewAssessments() {
+    return this.interviewAssessments;
+  }
+
+  public void setInterviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
+    this.interviewAssessments = interviewAssessments;
+  }
+
+  // builder 开始
+  public ExternalInterview() {}
+
+  public ExternalInterview(Builder builder) {
     /**
      * 外部系统面试主键 （仅用于幂等）
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 外部投递 ID
-     * <p> 示例值：6960663240925956437
+     *
+     * <p>示例值：6960663240925956437
      */
-    @SerializedName("external_application_id")
-    private String externalApplicationId;
+    this.externalApplicationId = builder.externalApplicationId;
     /**
      * 外部面试 ID
-     * <p> 示例值：6960663240925956436
+     *
+     * <p>示例值：6960663240925956436
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 参与状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("participate_status")
-    private Integer participateStatus;
+    this.participateStatus = builder.participateStatus;
     /**
      * 开始时间
-     * <p> 示例值：1618500278638
+     *
+     * <p>示例值：1618500278638
      */
-    @SerializedName("begin_time")
-    private Long beginTime;
+    this.beginTime = builder.beginTime;
     /**
      * 结束时间
-     * <p> 示例值：1618500278639
+     *
+     * <p>示例值：1618500278639
      */
-    @SerializedName("end_time")
-    private Long endTime;
+    this.endTime = builder.endTime;
     /**
      * 面试评价列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("interview_assessments")
+    this.interviewAssessments = builder.interviewAssessments;
+  }
+
+  public static class Builder {
+    /**
+     * 外部系统面试主键 （仅用于幂等）
+     *
+     * <p>示例值：123
+     */
+    private String externalId;
+
+    /**
+     * 外部投递 ID
+     *
+     * <p>示例值：6960663240925956437
+     */
+    private String externalApplicationId;
+
+    /**
+     * 外部面试 ID
+     *
+     * <p>示例值：6960663240925956436
+     */
+    private String id;
+
+    /**
+     * 参与状态
+     *
+     * <p>示例值：1
+     */
+    private Integer participateStatus;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1618500278638
+     */
+    private Long beginTime;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1618500278639
+     */
+    private Long endTime;
+
+    /**
+     * 面试评价列表
+     *
+     * <p>示例值：
+     */
     private ExternalInterviewAssessment[] interviewAssessments;
 
-    // builder 开始
-    public ExternalInterview() {
+    /**
+     * 外部系统面试主键 （仅用于幂等）
+     *
+     * <p>示例值：123
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public ExternalInterview(Builder builder) {
-        /**
-         * 外部系统面试主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6960663240925956437
-         */
-        this.externalApplicationId = builder.externalApplicationId;
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6960663240925956436
-         */
-        this.id = builder.id;
-        /**
-         * 参与状态
-         * <p> 示例值：1
-         */
-        this.participateStatus = builder.participateStatus;
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278638
-         */
-        this.beginTime = builder.beginTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278639
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 面试评价列表
-         * <p> 示例值：
-         */
-        this.interviewAssessments = builder.interviewAssessments;
+    /**
+     * 外部投递 ID
+     *
+     * <p>示例值：6960663240925956437
+     *
+     * @param externalApplicationId
+     * @return
+     */
+    public Builder externalApplicationId(String externalApplicationId) {
+      this.externalApplicationId = externalApplicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部面试 ID
+     *
+     * <p>示例值：6960663240925956436
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 参与状态
+     *
+     * <p>示例值：1
+     *
+     * @param participateStatus
+     * @return
+     */
+    public Builder participateStatus(Integer participateStatus) {
+      this.participateStatus = participateStatus;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1618500278638
+     *
+     * @param beginTime
+     * @return
+     */
+    public Builder beginTime(Long beginTime) {
+      this.beginTime = beginTime;
+      return this;
     }
 
-    public String getExternalApplicationId() {
-        return this.externalApplicationId;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1618500278639
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setExternalApplicationId(String externalApplicationId) {
-        this.externalApplicationId = externalApplicationId;
+    /**
+     * 面试评价列表
+     *
+     * <p>示例值：
+     *
+     * @param interviewAssessments
+     * @return
+     */
+    public Builder interviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
+      this.interviewAssessments = interviewAssessments;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public ExternalInterview build() {
+      return new ExternalInterview(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getParticipateStatus() {
-        return this.participateStatus;
-    }
-
-    public void setParticipateStatus(Integer participateStatus) {
-        this.participateStatus = participateStatus;
-    }
-
-    public Long getBeginTime() {
-        return this.beginTime;
-    }
-
-    public void setBeginTime(Long beginTime) {
-        this.beginTime = beginTime;
-    }
-
-    public Long getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
-    }
-
-    public ExternalInterviewAssessment[] getInterviewAssessments() {
-        return this.interviewAssessments;
-    }
-
-    public void setInterviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
-        this.interviewAssessments = interviewAssessments;
-    }
-
-    public static class Builder {
-        /**
-         * 外部系统面试主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        private String externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6960663240925956437
-         */
-        private String externalApplicationId;
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6960663240925956436
-         */
-        private String id;
-        /**
-         * 参与状态
-         * <p> 示例值：1
-         */
-        private Integer participateStatus;
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278638
-         */
-        private Long beginTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278639
-         */
-        private Long endTime;
-        /**
-         * 面试评价列表
-         * <p> 示例值：
-         */
-        private ExternalInterviewAssessment[] interviewAssessments;
-
-        /**
-         * 外部系统面试主键 （仅用于幂等）
-         * <p> 示例值：123
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6960663240925956437
-         *
-         * @param externalApplicationId
-         * @return
-         */
-        public Builder externalApplicationId(String externalApplicationId) {
-            this.externalApplicationId = externalApplicationId;
-            return this;
-        }
-
-
-        /**
-         * 外部面试 ID
-         * <p> 示例值：6960663240925956436
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 参与状态
-         * <p> 示例值：1
-         *
-         * @param participateStatus
-         * @return
-         */
-        public Builder participateStatus(Integer participateStatus) {
-            this.participateStatus = participateStatus;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278638
-         *
-         * @param beginTime
-         * @return
-         */
-        public Builder beginTime(Long beginTime) {
-            this.beginTime = beginTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278639
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 面试评价列表
-         * <p> 示例值：
-         *
-         * @param interviewAssessments
-         * @return
-         */
-        public Builder interviewAssessments(ExternalInterviewAssessment[] interviewAssessments) {
-            this.interviewAssessments = interviewAssessments;
-            return this;
-        }
-
-
-        public ExternalInterview build() {
-            return new ExternalInterview(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

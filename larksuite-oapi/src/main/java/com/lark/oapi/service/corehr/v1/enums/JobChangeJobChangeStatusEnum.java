@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 异动状态
- */
+/** 异动状态 */
 public enum JobChangeJobChangeStatusEnum {
-    APPROVING(0), // Approving  审批中
-    APPROVED(1), // Approved  审批通过
-    TRANSFORMED(2), // Transformed  已异动
-    REJECTED(3), // Rejected  已拒绝
-    CANCELLED(4), // Cancelled  已撤销
-    NONEEDAPPROVAL(5), // NoNeedApproval  无需审批
-    ;
-    private Integer value;
+  APPROVING(0), // Approving 审批中
+  APPROVED(1), // Approved 审批通过
+  TRANSFORMED(2), // Transformed 已异动
+  REJECTED(3), // Rejected 已拒绝
+  CANCELLED(4), // Cancelled 已撤销
+  NONEEDAPPROVAL(5), // NoNeedApproval 无需审批
+  ;
+  private Integer value;
 
-    JobChangeJobChangeStatusEnum(Integer value) {
-        this.value = value;
-    }
+  JobChangeJobChangeStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

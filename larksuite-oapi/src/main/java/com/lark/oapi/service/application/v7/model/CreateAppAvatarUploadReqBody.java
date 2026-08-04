@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppAvatarUploadReqBody {
+  /**
+   * 图片，JPEG/PNG/SVG/BMP 格式，2 MB 以内，大于 240*240 px，无圆角
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private java.io.File avatar;
+
+  public java.io.File getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(java.io.File avatar) {
+    this.avatar = avatar;
+  }
+
+  // builder 开始
+  public CreateAppAvatarUploadReqBody() {}
+
+  public CreateAppAvatarUploadReqBody(Builder builder) {
     /**
-     * 图片
-     * <p> 示例值：
+     * 图片，JPEG/PNG/SVG/BMP 格式，2 MB 以内，大于 240*240 px，无圆角
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
+    this.avatar = builder.avatar;
+  }
+
+  public static class Builder {
+    /**
+     * 图片，JPEG/PNG/SVG/BMP 格式，2 MB 以内，大于 240*240 px，无圆角
+     *
+     * <p>示例值：
+     */
     private java.io.File avatar;
 
-    // builder 开始
-    public CreateAppAvatarUploadReqBody() {
+    /**
+     * 图片，JPEG/PNG/SVG/BMP 格式，2 MB 以内，大于 240*240 px，无圆角
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(java.io.File avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public CreateAppAvatarUploadReqBody(Builder builder) {
-        /**
-         * 图片
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
+    public CreateAppAvatarUploadReqBody build() {
+      return new CreateAppAvatarUploadReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public java.io.File getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(java.io.File avatar) {
-        this.avatar = avatar;
-    }
-
-    public static class Builder {
-        /**
-         * 图片
-         * <p> 示例值：
-         */
-        private java.io.File avatar;
-
-        /**
-         * 图片
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(java.io.File avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        public CreateAppAvatarUploadReqBody build() {
-            return new CreateAppAvatarUploadReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

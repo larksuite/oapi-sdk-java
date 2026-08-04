@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Okr {
+  /**
+   * OKR ID
+   *
+   * <p>示例值：7072252816005349396
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * OKR 周期 ID
+   *
+   * <p>示例值：7067724095781142548
+   */
+  @SerializedName("period_id")
+  private String periodId;
+
+  /**
+   * 快照数据记录日期;;**示例值：** 2006-01-02
+   *
+   * <p>示例值：2022-12-01
+   */
+  @SerializedName("create_date")
+  private String createDate;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * Objective 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objectives")
+  private OkrObjective[] objectives;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getPeriodId() {
+    return this.periodId;
+  }
+
+  public void setPeriodId(String periodId) {
+    this.periodId = periodId;
+  }
+
+  public String getCreateDate() {
+    return this.createDate;
+  }
+
+  public void setCreateDate(String createDate) {
+    this.createDate = createDate;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public OkrObjective[] getObjectives() {
+    return this.objectives;
+  }
+
+  public void setObjectives(OkrObjective[] objectives) {
+    this.objectives = objectives;
+  }
+
+  // builder 开始
+  public Okr() {}
+
+  public Okr(Builder builder) {
     /**
      * OKR ID
-     * <p> 示例值：7072252816005349396
+     *
+     * <p>示例值：7072252816005349396
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * OKR 周期 ID
+     *
+     * <p>示例值：7067724095781142548
+     */
+    this.periodId = builder.periodId;
+    /**
+     * 快照数据记录日期;;**示例值：** 2006-01-02
+     *
+     * <p>示例值：2022-12-01
+     */
+    this.createDate = builder.createDate;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * Objective 列表
+     *
+     * <p>示例值：
+     */
+    this.objectives = builder.objectives;
+  }
+
+  public static class Builder {
+    /**
+     * OKR ID
+     *
+     * <p>示例值：7072252816005349396
+     */
     private String id;
+
     /**
-     * OKR周期 ID
-     * <p> 示例值：7067724095781142548
+     * OKR 周期 ID
+     *
+     * <p>示例值：7067724095781142548
      */
-    @SerializedName("period_id")
     private String periodId;
+
     /**
-     * 快照数据记录日期, 2006-01-02
-     * <p> 示例值：2022-12-01
+     * 快照数据记录日期;;**示例值：** 2006-01-02
+     *
+     * <p>示例值：2022-12-01
      */
-    @SerializedName("create_date")
     private String createDate;
+
     /**
-     * OKR周期名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * Objective列表
-     * <p> 示例值：
+     * Objective 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("objectives")
     private OkrObjective[] objectives;
 
-    // builder 开始
-    public Okr() {
+    /**
+     * OKR ID
+     *
+     * <p>示例值：7072252816005349396
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Okr(Builder builder) {
-        /**
-         * OKR ID
-         * <p> 示例值：7072252816005349396
-         */
-        this.id = builder.id;
-        /**
-         * OKR周期 ID
-         * <p> 示例值：7067724095781142548
-         */
-        this.periodId = builder.periodId;
-        /**
-         * 快照数据记录日期, 2006-01-02
-         * <p> 示例值：2022-12-01
-         */
-        this.createDate = builder.createDate;
-        /**
-         * OKR周期名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * Objective列表
-         * <p> 示例值：
-         */
-        this.objectives = builder.objectives;
+    /**
+     * OKR 周期 ID
+     *
+     * <p>示例值：7067724095781142548
+     *
+     * @param periodId
+     * @return
+     */
+    public Builder periodId(String periodId) {
+      this.periodId = periodId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 快照数据记录日期;;**示例值：** 2006-01-02
+     *
+     * <p>示例值：2022-12-01
+     *
+     * @param createDate
+     * @return
+     */
+    public Builder createDate(String createDate) {
+      this.createDate = createDate;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * Objective 列表
+     *
+     * <p>示例值：
+     *
+     * @param objectives
+     * @return
+     */
+    public Builder objectives(OkrObjective[] objectives) {
+      this.objectives = objectives;
+      return this;
     }
 
-    public String getPeriodId() {
-        return this.periodId;
+    public Okr build() {
+      return new Okr(this);
     }
+  }
 
-    public void setPeriodId(String periodId) {
-        this.periodId = periodId;
-    }
-
-    public String getCreateDate() {
-        return this.createDate;
-    }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public OkrObjective[] getObjectives() {
-        return this.objectives;
-    }
-
-    public void setObjectives(OkrObjective[] objectives) {
-        this.objectives = objectives;
-    }
-
-    public static class Builder {
-        /**
-         * OKR ID
-         * <p> 示例值：7072252816005349396
-         */
-        private String id;
-        /**
-         * OKR周期 ID
-         * <p> 示例值：7067724095781142548
-         */
-        private String periodId;
-        /**
-         * 快照数据记录日期, 2006-01-02
-         * <p> 示例值：2022-12-01
-         */
-        private String createDate;
-        /**
-         * OKR周期名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * Objective列表
-         * <p> 示例值：
-         */
-        private OkrObjective[] objectives;
-
-        /**
-         * OKR ID
-         * <p> 示例值：7072252816005349396
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * OKR周期 ID
-         * <p> 示例值：7067724095781142548
-         *
-         * @param periodId
-         * @return
-         */
-        public Builder periodId(String periodId) {
-            this.periodId = periodId;
-            return this;
-        }
-
-
-        /**
-         * 快照数据记录日期, 2006-01-02
-         * <p> 示例值：2022-12-01
-         *
-         * @param createDate
-         * @return
-         */
-        public Builder createDate(String createDate) {
-            this.createDate = createDate;
-            return this;
-        }
-
-
-        /**
-         * OKR周期名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * Objective列表
-         * <p> 示例值：
-         *
-         * @param objectives
-         * @return
-         */
-        public Builder objectives(OkrObjective[] objectives) {
-            this.objectives = objectives;
-            return this;
-        }
-
-
-        public Okr build() {
-            return new Okr(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

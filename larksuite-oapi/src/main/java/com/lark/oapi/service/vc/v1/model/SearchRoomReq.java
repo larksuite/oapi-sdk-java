@@ -13,109 +13,106 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class SearchRoomReq {
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private SearchRoomReqBody body;
+
+  public SearchRoomReqBody getSearchRoomReqBody() {
+    return this.body;
+  }
+
+  public void setSearchRoomReqBody(SearchRoomReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchRoomReq() {}
+
+  public SearchRoomReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.SearchRoomSearchRoomUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.SearchRoomSearchRoomUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private SearchRoomReqBody body;
 
-    // builder 开始
-    public SearchRoomReq() {
-    }
-
-    public SearchRoomReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public SearchRoomReqBody getSearchRoomReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchRoomReqBody(SearchRoomReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchRoomReqBody(SearchRoomReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-        private SearchRoomReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.SearchRoomSearchRoomUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.SearchRoomSearchRoomUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public SearchRoomReqBody getSearchRoomReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchRoomReqBody(SearchRoomReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchRoomReq build() {
-            return new SearchRoomReq(this);
-        }
+    public SearchRoomReq build() {
+      return new SearchRoomReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

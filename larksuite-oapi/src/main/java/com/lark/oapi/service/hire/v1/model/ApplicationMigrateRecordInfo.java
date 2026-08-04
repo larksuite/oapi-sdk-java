@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationMigrateRecordInfo {
+  /**
+   * 投递ID
+   *
+   * <p>示例值：7620778263602809132
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 转移步长
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("migrate_step")
+  private Integer migrateStep;
+
+  /**
+   * 是否是最后转移生成的投递
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_latest")
+  private Boolean isLatest;
+
+  /**
+   * 投递转移前的投递ID
+   *
+   * <p>示例值：7620778263602808766
+   */
+  @SerializedName("pre_application_id")
+  private String preApplicationId;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public Integer getMigrateStep() {
+    return this.migrateStep;
+  }
+
+  public void setMigrateStep(Integer migrateStep) {
+    this.migrateStep = migrateStep;
+  }
+
+  public Boolean getIsLatest() {
+    return this.isLatest;
+  }
+
+  public void setIsLatest(Boolean isLatest) {
+    this.isLatest = isLatest;
+  }
+
+  public String getPreApplicationId() {
+    return this.preApplicationId;
+  }
+
+  public void setPreApplicationId(String preApplicationId) {
+    this.preApplicationId = preApplicationId;
+  }
+
+  // builder 开始
+  public ApplicationMigrateRecordInfo() {}
+
+  public ApplicationMigrateRecordInfo(Builder builder) {
     /**
      * 投递ID
-     * <p> 示例值：7620778263602809132
+     *
+     * <p>示例值：7620778263602809132
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 转移步长
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("migrate_step")
-    private Integer migrateStep;
+    this.migrateStep = builder.migrateStep;
     /**
      * 是否是最后转移生成的投递
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_latest")
-    private Boolean isLatest;
+    this.isLatest = builder.isLatest;
     /**
      * 投递转移前的投递ID
-     * <p> 示例值：7620778263602808766
+     *
+     * <p>示例值：7620778263602808766
      */
-    @SerializedName("pre_application_id")
+    this.preApplicationId = builder.preApplicationId;
+  }
+
+  public static class Builder {
+    /**
+     * 投递ID
+     *
+     * <p>示例值：7620778263602809132
+     */
+    private String applicationId;
+
+    /**
+     * 转移步长
+     *
+     * <p>示例值：1
+     */
+    private Integer migrateStep;
+
+    /**
+     * 是否是最后转移生成的投递
+     *
+     * <p>示例值：true
+     */
+    private Boolean isLatest;
+
+    /**
+     * 投递转移前的投递ID
+     *
+     * <p>示例值：7620778263602808766
+     */
     private String preApplicationId;
 
-    // builder 开始
-    public ApplicationMigrateRecordInfo() {
+    /**
+     * 投递ID
+     *
+     * <p>示例值：7620778263602809132
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public ApplicationMigrateRecordInfo(Builder builder) {
-        /**
-         * 投递ID
-         * <p> 示例值：7620778263602809132
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 转移步长
-         * <p> 示例值：1
-         */
-        this.migrateStep = builder.migrateStep;
-        /**
-         * 是否是最后转移生成的投递
-         * <p> 示例值：true
-         */
-        this.isLatest = builder.isLatest;
-        /**
-         * 投递转移前的投递ID
-         * <p> 示例值：7620778263602808766
-         */
-        this.preApplicationId = builder.preApplicationId;
+    /**
+     * 转移步长
+     *
+     * <p>示例值：1
+     *
+     * @param migrateStep
+     * @return
+     */
+    public Builder migrateStep(Integer migrateStep) {
+      this.migrateStep = migrateStep;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否是最后转移生成的投递
+     *
+     * <p>示例值：true
+     *
+     * @param isLatest
+     * @return
+     */
+    public Builder isLatest(Boolean isLatest) {
+      this.isLatest = isLatest;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 投递转移前的投递ID
+     *
+     * <p>示例值：7620778263602808766
+     *
+     * @param preApplicationId
+     * @return
+     */
+    public Builder preApplicationId(String preApplicationId) {
+      this.preApplicationId = preApplicationId;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    public ApplicationMigrateRecordInfo build() {
+      return new ApplicationMigrateRecordInfo(this);
     }
+  }
 
-    public Integer getMigrateStep() {
-        return this.migrateStep;
-    }
-
-    public void setMigrateStep(Integer migrateStep) {
-        this.migrateStep = migrateStep;
-    }
-
-    public Boolean getIsLatest() {
-        return this.isLatest;
-    }
-
-    public void setIsLatest(Boolean isLatest) {
-        this.isLatest = isLatest;
-    }
-
-    public String getPreApplicationId() {
-        return this.preApplicationId;
-    }
-
-    public void setPreApplicationId(String preApplicationId) {
-        this.preApplicationId = preApplicationId;
-    }
-
-    public static class Builder {
-        /**
-         * 投递ID
-         * <p> 示例值：7620778263602809132
-         */
-        private String applicationId;
-        /**
-         * 转移步长
-         * <p> 示例值：1
-         */
-        private Integer migrateStep;
-        /**
-         * 是否是最后转移生成的投递
-         * <p> 示例值：true
-         */
-        private Boolean isLatest;
-        /**
-         * 投递转移前的投递ID
-         * <p> 示例值：7620778263602808766
-         */
-        private String preApplicationId;
-
-        /**
-         * 投递ID
-         * <p> 示例值：7620778263602809132
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 转移步长
-         * <p> 示例值：1
-         *
-         * @param migrateStep
-         * @return
-         */
-        public Builder migrateStep(Integer migrateStep) {
-            this.migrateStep = migrateStep;
-            return this;
-        }
-
-
-        /**
-         * 是否是最后转移生成的投递
-         * <p> 示例值：true
-         *
-         * @param isLatest
-         * @return
-         */
-        public Builder isLatest(Boolean isLatest) {
-            this.isLatest = isLatest;
-            return this;
-        }
-
-
-        /**
-         * 投递转移前的投递ID
-         * <p> 示例值：7620778263602808766
-         *
-         * @param preApplicationId
-         * @return
-         */
-        public Builder preApplicationId(String preApplicationId) {
-            this.preApplicationId = preApplicationId;
-            return this;
-        }
-
-
-        public ApplicationMigrateRecordInfo build() {
-            return new ApplicationMigrateRecordInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

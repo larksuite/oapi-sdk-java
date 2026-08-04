@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrName {
+  /**
+   * 中文内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("zh")
+  private String zh;
+
+  /**
+   * 英文内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("en")
+  private String en;
+
+  public String getZh() {
+    return this.zh;
+  }
+
+  public void setZh(String zh) {
+    this.zh = zh;
+  }
+
+  public String getEn() {
+    return this.en;
+  }
+
+  public void setEn(String en) {
+    this.en = en;
+  }
+
+  // builder 开始
+  public OkrName() {}
+
+  public OkrName(Builder builder) {
     /**
      * 中文内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("zh")
-    private String zh;
+    this.zh = builder.zh;
     /**
      * 英文内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("en")
+    this.en = builder.en;
+  }
+
+  public static class Builder {
+    /**
+     * 中文内容
+     *
+     * <p>示例值：
+     */
+    private String zh;
+
+    /**
+     * 英文内容
+     *
+     * <p>示例值：
+     */
     private String en;
 
-    // builder 开始
-    public OkrName() {
+    /**
+     * 中文内容
+     *
+     * <p>示例值：
+     *
+     * @param zh
+     * @return
+     */
+    public Builder zh(String zh) {
+      this.zh = zh;
+      return this;
     }
 
-    public OkrName(Builder builder) {
-        /**
-         * 中文内容
-         * <p> 示例值：
-         */
-        this.zh = builder.zh;
-        /**
-         * 英文内容
-         * <p> 示例值：
-         */
-        this.en = builder.en;
+    /**
+     * 英文内容
+     *
+     * <p>示例值：
+     *
+     * @param en
+     * @return
+     */
+    public Builder en(String en) {
+      this.en = en;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OkrName build() {
+      return new OkrName(this);
     }
+  }
 
-    public String getZh() {
-        return this.zh;
-    }
-
-    public void setZh(String zh) {
-        this.zh = zh;
-    }
-
-    public String getEn() {
-        return this.en;
-    }
-
-    public void setEn(String en) {
-        this.en = en;
-    }
-
-    public static class Builder {
-        /**
-         * 中文内容
-         * <p> 示例值：
-         */
-        private String zh;
-        /**
-         * 英文内容
-         * <p> 示例值：
-         */
-        private String en;
-
-        /**
-         * 中文内容
-         * <p> 示例值：
-         *
-         * @param zh
-         * @return
-         */
-        public Builder zh(String zh) {
-            this.zh = zh;
-            return this;
-        }
-
-
-        /**
-         * 英文内容
-         * <p> 示例值：
-         *
-         * @param en
-         * @return
-         */
-        public Builder en(String en) {
-            this.en = en;
-            return this;
-        }
-
-
-        public OkrName build() {
-            return new OkrName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

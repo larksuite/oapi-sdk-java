@@ -13,112 +13,93 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StartAppSkillReqBody {
-    /**
-     * 技能的全局变量
-     * <p> 示例值：
-     */
-    @SerializedName("global_variable")
-    private SkillGlobalVariable globalVariable;
+  /** 示例值： */
+  @SerializedName("global_variable")
+  private SkillGlobalVariable globalVariable;
+
+  /**
+   * 技能的自定义变量
+   *
+   * <p>示例值：{\"custom_string\":\"my string\",\"custom_integer\":22}
+   */
+  @SerializedName("input")
+  private String input;
+
+  public SkillGlobalVariable getGlobalVariable() {
+    return this.globalVariable;
+  }
+
+  public void setGlobalVariable(SkillGlobalVariable globalVariable) {
+    this.globalVariable = globalVariable;
+  }
+
+  public String getInput() {
+    return this.input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
+  }
+
+  // builder 开始
+  public StartAppSkillReqBody() {}
+
+  public StartAppSkillReqBody(Builder builder) {
+    /** 示例值： */
+    this.globalVariable = builder.globalVariable;
     /**
      * 技能的自定义变量
-     * <p> 示例值：{"custom_s":"text","custom_i":12,"custom_b":true,"custom_f":1.2}
+     *
+     * <p>示例值：{\"custom_string\":\"my string\",\"custom_integer\":22}
      */
-    @SerializedName("input")
+    this.input = builder.input;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private SkillGlobalVariable globalVariable;
+
+    /**
+     * 技能的自定义变量
+     *
+     * <p>示例值：{\"custom_string\":\"my string\",\"custom_integer\":22}
+     */
     private String input;
 
-    // builder 开始
-    public StartAppSkillReqBody() {
+    /**
+     * 示例值：
+     *
+     * @param globalVariable
+     * @return
+     */
+    public Builder globalVariable(SkillGlobalVariable globalVariable) {
+      this.globalVariable = globalVariable;
+      return this;
     }
 
-    public StartAppSkillReqBody(Builder builder) {
-        /**
-         * 技能的全局变量
-         * <p> 示例值：
-         */
-        this.globalVariable = builder.globalVariable;
-        /**
-         * 技能的自定义变量
-         * <p> 示例值：{"custom_s":"text","custom_i":12,"custom_b":true,"custom_f":1.2}
-         */
-        this.input = builder.input;
+    /**
+     * 技能的自定义变量
+     *
+     * <p>示例值：{\"custom_string\":\"my string\",\"custom_integer\":22}
+     *
+     * @param input
+     * @return
+     */
+    public Builder input(String input) {
+      this.input = input;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public StartAppSkillReqBody build() {
+      return new StartAppSkillReqBody(this);
     }
+  }
 
-    public SkillGlobalVariable getGlobalVariable() {
-        return this.globalVariable;
-    }
-
-    public void setGlobalVariable(SkillGlobalVariable globalVariable) {
-        this.globalVariable = globalVariable;
-    }
-
-    public String getInput() {
-        return this.input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public static class Builder {
-        /**
-         * 技能的全局变量
-         * <p> 示例值：
-         */
-        private SkillGlobalVariable globalVariable;
-        /**
-         * 技能的自定义变量
-         * <p> 示例值：{"custom_s":"text","custom_i":12,"custom_b":true,"custom_f":1.2}
-         */
-        private String input;
-
-        /**
-         * 技能的全局变量
-         * <p> 示例值：
-         *
-         * @param globalVariable
-         * @return
-         */
-        public Builder globalVariable(SkillGlobalVariable globalVariable) {
-            this.globalVariable = globalVariable;
-            return this;
-        }
-
-
-        /**
-         * 技能的自定义变量
-         * <p> 示例值：{"custom_s":"text","custom_i":12,"custom_b":true,"custom_f":1.2}
-         *
-         * @param input
-         * @return
-         */
-        public Builder input(String input) {
-            this.input = input;
-            return this;
-        }
-
-
-        public StartAppSkillReqBody build() {
-            return new StartAppSkillReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

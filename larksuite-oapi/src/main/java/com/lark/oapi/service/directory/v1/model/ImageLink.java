@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImageLink {
+  /**
+   * 72*72像素头像链接
+   *
+   * <p>示例值：http://qwed.com
+   */
+  @SerializedName("avatar_72")
+  private String avatar72;
+
+  /**
+   * 240*240像素头像链接
+   *
+   * <p>示例值：http://wssd.com
+   */
+  @SerializedName("avatar_240")
+  private String avatar240;
+
+  /**
+   * 640*640像素头像链接
+   *
+   * <p>示例值：http://wssd.com
+   */
+  @SerializedName("avatar_640")
+  private String avatar640;
+
+  /**
+   * 原始头像链接
+   *
+   * <p>示例值：https:inernal-api/image
+   */
+  @SerializedName("avatar_origin")
+  private String avatarOrigin;
+
+  public String getAvatar72() {
+    return this.avatar72;
+  }
+
+  public void setAvatar72(String avatar72) {
+    this.avatar72 = avatar72;
+  }
+
+  public String getAvatar240() {
+    return this.avatar240;
+  }
+
+  public void setAvatar240(String avatar240) {
+    this.avatar240 = avatar240;
+  }
+
+  public String getAvatar640() {
+    return this.avatar640;
+  }
+
+  public void setAvatar640(String avatar640) {
+    this.avatar640 = avatar640;
+  }
+
+  public String getAvatarOrigin() {
+    return this.avatarOrigin;
+  }
+
+  public void setAvatarOrigin(String avatarOrigin) {
+    this.avatarOrigin = avatarOrigin;
+  }
+
+  // builder 开始
+  public ImageLink() {}
+
+  public ImageLink(Builder builder) {
     /**
      * 72*72像素头像链接
-     * <p> 示例值：http://qwed.com
+     *
+     * <p>示例值：http://qwed.com
      */
-    @SerializedName("avatar_72")
-    private String avatar72;
+    this.avatar72 = builder.avatar72;
     /**
      * 240*240像素头像链接
-     * <p> 示例值：http://wssd.com
+     *
+     * <p>示例值：http://wssd.com
      */
-    @SerializedName("avatar_240")
-    private String avatar240;
+    this.avatar240 = builder.avatar240;
     /**
      * 640*640像素头像链接
-     * <p> 示例值：http://wssd.com
+     *
+     * <p>示例值：http://wssd.com
      */
-    @SerializedName("avatar_640")
-    private String avatar640;
+    this.avatar640 = builder.avatar640;
     /**
      * 原始头像链接
-     * <p> 示例值：https:inernal-api/image
+     *
+     * <p>示例值：https:inernal-api/image
      */
-    @SerializedName("avatar_origin")
+    this.avatarOrigin = builder.avatarOrigin;
+  }
+
+  public static class Builder {
+    /**
+     * 72*72像素头像链接
+     *
+     * <p>示例值：http://qwed.com
+     */
+    private String avatar72;
+
+    /**
+     * 240*240像素头像链接
+     *
+     * <p>示例值：http://wssd.com
+     */
+    private String avatar240;
+
+    /**
+     * 640*640像素头像链接
+     *
+     * <p>示例值：http://wssd.com
+     */
+    private String avatar640;
+
+    /**
+     * 原始头像链接
+     *
+     * <p>示例值：https:inernal-api/image
+     */
     private String avatarOrigin;
 
-    // builder 开始
-    public ImageLink() {
+    /**
+     * 72*72像素头像链接
+     *
+     * <p>示例值：http://qwed.com
+     *
+     * @param avatar72
+     * @return
+     */
+    public Builder avatar72(String avatar72) {
+      this.avatar72 = avatar72;
+      return this;
     }
 
-    public ImageLink(Builder builder) {
-        /**
-         * 72*72像素头像链接
-         * <p> 示例值：http://qwed.com
-         */
-        this.avatar72 = builder.avatar72;
-        /**
-         * 240*240像素头像链接
-         * <p> 示例值：http://wssd.com
-         */
-        this.avatar240 = builder.avatar240;
-        /**
-         * 640*640像素头像链接
-         * <p> 示例值：http://wssd.com
-         */
-        this.avatar640 = builder.avatar640;
-        /**
-         * 原始头像链接
-         * <p> 示例值：https:inernal-api/image
-         */
-        this.avatarOrigin = builder.avatarOrigin;
+    /**
+     * 240*240像素头像链接
+     *
+     * <p>示例值：http://wssd.com
+     *
+     * @param avatar240
+     * @return
+     */
+    public Builder avatar240(String avatar240) {
+      this.avatar240 = avatar240;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 640*640像素头像链接
+     *
+     * <p>示例值：http://wssd.com
+     *
+     * @param avatar640
+     * @return
+     */
+    public Builder avatar640(String avatar640) {
+      this.avatar640 = avatar640;
+      return this;
     }
 
-    public String getAvatar72() {
-        return this.avatar72;
+    /**
+     * 原始头像链接
+     *
+     * <p>示例值：https:inernal-api/image
+     *
+     * @param avatarOrigin
+     * @return
+     */
+    public Builder avatarOrigin(String avatarOrigin) {
+      this.avatarOrigin = avatarOrigin;
+      return this;
     }
 
-    public void setAvatar72(String avatar72) {
-        this.avatar72 = avatar72;
+    public ImageLink build() {
+      return new ImageLink(this);
     }
+  }
 
-    public String getAvatar240() {
-        return this.avatar240;
-    }
-
-    public void setAvatar240(String avatar240) {
-        this.avatar240 = avatar240;
-    }
-
-    public String getAvatar640() {
-        return this.avatar640;
-    }
-
-    public void setAvatar640(String avatar640) {
-        this.avatar640 = avatar640;
-    }
-
-    public String getAvatarOrigin() {
-        return this.avatarOrigin;
-    }
-
-    public void setAvatarOrigin(String avatarOrigin) {
-        this.avatarOrigin = avatarOrigin;
-    }
-
-    public static class Builder {
-        /**
-         * 72*72像素头像链接
-         * <p> 示例值：http://qwed.com
-         */
-        private String avatar72;
-        /**
-         * 240*240像素头像链接
-         * <p> 示例值：http://wssd.com
-         */
-        private String avatar240;
-        /**
-         * 640*640像素头像链接
-         * <p> 示例值：http://wssd.com
-         */
-        private String avatar640;
-        /**
-         * 原始头像链接
-         * <p> 示例值：https:inernal-api/image
-         */
-        private String avatarOrigin;
-
-        /**
-         * 72*72像素头像链接
-         * <p> 示例值：http://qwed.com
-         *
-         * @param avatar72
-         * @return
-         */
-        public Builder avatar72(String avatar72) {
-            this.avatar72 = avatar72;
-            return this;
-        }
-
-
-        /**
-         * 240*240像素头像链接
-         * <p> 示例值：http://wssd.com
-         *
-         * @param avatar240
-         * @return
-         */
-        public Builder avatar240(String avatar240) {
-            this.avatar240 = avatar240;
-            return this;
-        }
-
-
-        /**
-         * 640*640像素头像链接
-         * <p> 示例值：http://wssd.com
-         *
-         * @param avatar640
-         * @return
-         */
-        public Builder avatar640(String avatar640) {
-            this.avatar640 = avatar640;
-            return this;
-        }
-
-
-        /**
-         * 原始头像链接
-         * <p> 示例值：https:inernal-api/image
-         *
-         * @param avatarOrigin
-         * @return
-         */
-        public Builder avatarOrigin(String avatarOrigin) {
-            this.avatarOrigin = avatarOrigin;
-            return this;
-        }
-
-
-        public ImageLink build() {
-            return new ImageLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

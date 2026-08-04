@@ -13,494 +13,543 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveEmployExpireRecord {
+  /**
+   * 假期发放记录id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 员工ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 假期类型ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 授予余额数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("granting_quantity")
+  private String grantingQuantity;
+
+  /**
+   * 授予数量 扣减完后的授予数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("left_granting_quantity")
+  private String leftGrantingQuantity;
+
+  /**
+   * 授予单位，1表示天，2表示小时
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("granting_unit")
+  private Integer grantingUnit;
+
+  /**
+   * 生效日期，格式"2020-01-01"
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 失效日期，格式"2020-01-01"
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 授予原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private LangText[] reason;
+
+  /**
+   * 是否已经被外部系统更改过
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_update_by_external")
+  private Boolean isUpdateByExternal;
+
+  /**
+   * 授予来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("accrual_source")
+  private Integer accrualSource;
+
+  /**
+   * 假期子类型id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leave_sub_type_id")
+  private String leaveSubTypeId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public String getGrantingQuantity() {
+    return this.grantingQuantity;
+  }
+
+  public void setGrantingQuantity(String grantingQuantity) {
+    this.grantingQuantity = grantingQuantity;
+  }
+
+  public String getLeftGrantingQuantity() {
+    return this.leftGrantingQuantity;
+  }
+
+  public void setLeftGrantingQuantity(String leftGrantingQuantity) {
+    this.leftGrantingQuantity = leftGrantingQuantity;
+  }
+
+  public Integer getGrantingUnit() {
+    return this.grantingUnit;
+  }
+
+  public void setGrantingUnit(Integer grantingUnit) {
+    this.grantingUnit = grantingUnit;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public LangText[] getReason() {
+    return this.reason;
+  }
+
+  public void setReason(LangText[] reason) {
+    this.reason = reason;
+  }
+
+  public Boolean getIsUpdateByExternal() {
+    return this.isUpdateByExternal;
+  }
+
+  public void setIsUpdateByExternal(Boolean isUpdateByExternal) {
+    this.isUpdateByExternal = isUpdateByExternal;
+  }
+
+  public Integer getAccrualSource() {
+    return this.accrualSource;
+  }
+
+  public void setAccrualSource(Integer accrualSource) {
+    this.accrualSource = accrualSource;
+  }
+
+  public String getLeaveSubTypeId() {
+    return this.leaveSubTypeId;
+  }
+
+  public void setLeaveSubTypeId(String leaveSubTypeId) {
+    this.leaveSubTypeId = leaveSubTypeId;
+  }
+
+  // builder 开始
+  public LeaveEmployExpireRecord() {}
+
+  public LeaveEmployExpireRecord(Builder builder) {
     /**
-     * record id
-     * <p> 示例值：1
+     * 假期发放记录id
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 员工ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 假期类型ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 授予余额数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("granting_quantity")
-    private String grantingQuantity;
+    this.grantingQuantity = builder.grantingQuantity;
     /**
      * 授予数量 扣减完后的授予数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("left_granting_quantity")
-    private String leftGrantingQuantity;
+    this.leftGrantingQuantity = builder.leftGrantingQuantity;
     /**
      * 授予单位，1表示天，2表示小时
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("granting_unit")
-    private Integer grantingUnit;
+    this.grantingUnit = builder.grantingUnit;
     /**
      * 生效日期，格式"2020-01-01"
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 失效日期，格式"2020-01-01"
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * 授予原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
-    private LangText[] reason;
+    this.reason = builder.reason;
     /**
      * 是否已经被外部系统更改过
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_update_by_external")
-    private Boolean isUpdateByExternal;
+    this.isUpdateByExternal = builder.isUpdateByExternal;
     /**
      * 授予来源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("accrual_source")
-    private Integer accrualSource;
+    this.accrualSource = builder.accrualSource;
     /**
      * 假期子类型id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("leave_sub_type_id")
+    this.leaveSubTypeId = builder.leaveSubTypeId;
+  }
+
+  public static class Builder {
+    /**
+     * 假期发放记录id
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 员工ID
+     *
+     * <p>示例值：1
+     */
+    private String employmentId;
+
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：1
+     */
+    private String leaveTypeId;
+
+    /**
+     * 授予余额数量
+     *
+     * <p>示例值：1
+     */
+    private String grantingQuantity;
+
+    /**
+     * 授予数量 扣减完后的授予数量
+     *
+     * <p>示例值：1
+     */
+    private String leftGrantingQuantity;
+
+    /**
+     * 授予单位，1表示天，2表示小时
+     *
+     * <p>示例值：1
+     */
+    private Integer grantingUnit;
+
+    /**
+     * 生效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 失效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String expirationDate;
+
+    /**
+     * 授予原因
+     *
+     * <p>示例值：
+     */
+    private LangText[] reason;
+
+    /**
+     * 是否已经被外部系统更改过
+     *
+     * <p>示例值：true
+     */
+    private Boolean isUpdateByExternal;
+
+    /**
+     * 授予来源
+     *
+     * <p>示例值：1
+     */
+    private Integer accrualSource;
+
+    /**
+     * 假期子类型id
+     *
+     * <p>示例值：1
+     */
     private String leaveSubTypeId;
 
-    // builder 开始
-    public LeaveEmployExpireRecord() {
+    /**
+     * 假期发放记录id
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LeaveEmployExpireRecord(Builder builder) {
-        /**
-         * record id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 授予余额数量
-         * <p> 示例值：1
-         */
-        this.grantingQuantity = builder.grantingQuantity;
-        /**
-         * 授予数量 扣减完后的授予数量
-         * <p> 示例值：1
-         */
-        this.leftGrantingQuantity = builder.leftGrantingQuantity;
-        /**
-         * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1
-         */
-        this.grantingUnit = builder.grantingUnit;
-        /**
-         * 生效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 授予原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 是否已经被外部系统更改过
-         * <p> 示例值：true
-         */
-        this.isUpdateByExternal = builder.isUpdateByExternal;
-        /**
-         * 授予来源
-         * <p> 示例值：1
-         */
-        this.accrualSource = builder.accrualSource;
-        /**
-         * 假期子类型id
-         * <p> 示例值：1
-         */
-        this.leaveSubTypeId = builder.leaveSubTypeId;
+    /**
+     * 员工ID
+     *
+     * <p>示例值：1
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：1
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 授予余额数量
+     *
+     * <p>示例值：1
+     *
+     * @param grantingQuantity
+     * @return
+     */
+    public Builder grantingQuantity(String grantingQuantity) {
+      this.grantingQuantity = grantingQuantity;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 授予数量 扣减完后的授予数量
+     *
+     * <p>示例值：1
+     *
+     * @param leftGrantingQuantity
+     * @return
+     */
+    public Builder leftGrantingQuantity(String leftGrantingQuantity) {
+      this.leftGrantingQuantity = leftGrantingQuantity;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 授予单位，1表示天，2表示小时
+     *
+     * <p>示例值：1
+     *
+     * @param grantingUnit
+     * @return
+     */
+    public Builder grantingUnit(Integer grantingUnit) {
+      this.grantingUnit = grantingUnit;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 生效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 失效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    /**
+     * 授予原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(LangText[] reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getGrantingQuantity() {
-        return this.grantingQuantity;
+    /**
+     * 是否已经被外部系统更改过
+     *
+     * <p>示例值：true
+     *
+     * @param isUpdateByExternal
+     * @return
+     */
+    public Builder isUpdateByExternal(Boolean isUpdateByExternal) {
+      this.isUpdateByExternal = isUpdateByExternal;
+      return this;
     }
 
-    public void setGrantingQuantity(String grantingQuantity) {
-        this.grantingQuantity = grantingQuantity;
+    /**
+     * 授予来源
+     *
+     * <p>示例值：1
+     *
+     * @param accrualSource
+     * @return
+     */
+    public Builder accrualSource(Integer accrualSource) {
+      this.accrualSource = accrualSource;
+      return this;
     }
 
-    public String getLeftGrantingQuantity() {
-        return this.leftGrantingQuantity;
+    /**
+     * 授予来源
+     *
+     * <p>示例值：1
+     *
+     * @param accrualSource {@link
+     *     com.lark.oapi.service.corehr.v2.enums.LeaveEmployExpireRecordAccrualSourceEnum}
+     * @return
+     */
+    public Builder accrualSource(
+        com.lark.oapi.service.corehr.v2.enums.LeaveEmployExpireRecordAccrualSourceEnum
+            accrualSource) {
+      this.accrualSource = accrualSource.getValue();
+      return this;
     }
 
-    public void setLeftGrantingQuantity(String leftGrantingQuantity) {
-        this.leftGrantingQuantity = leftGrantingQuantity;
+    /**
+     * 假期子类型id
+     *
+     * <p>示例值：1
+     *
+     * @param leaveSubTypeId
+     * @return
+     */
+    public Builder leaveSubTypeId(String leaveSubTypeId) {
+      this.leaveSubTypeId = leaveSubTypeId;
+      return this;
     }
 
-    public Integer getGrantingUnit() {
-        return this.grantingUnit;
+    public LeaveEmployExpireRecord build() {
+      return new LeaveEmployExpireRecord(this);
     }
+  }
 
-    public void setGrantingUnit(Integer grantingUnit) {
-        this.grantingUnit = grantingUnit;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public LangText[] getReason() {
-        return this.reason;
-    }
-
-    public void setReason(LangText[] reason) {
-        this.reason = reason;
-    }
-
-    public Boolean getIsUpdateByExternal() {
-        return this.isUpdateByExternal;
-    }
-
-    public void setIsUpdateByExternal(Boolean isUpdateByExternal) {
-        this.isUpdateByExternal = isUpdateByExternal;
-    }
-
-    public Integer getAccrualSource() {
-        return this.accrualSource;
-    }
-
-    public void setAccrualSource(Integer accrualSource) {
-        this.accrualSource = accrualSource;
-    }
-
-    public String getLeaveSubTypeId() {
-        return this.leaveSubTypeId;
-    }
-
-    public void setLeaveSubTypeId(String leaveSubTypeId) {
-        this.leaveSubTypeId = leaveSubTypeId;
-    }
-
-    public static class Builder {
-        /**
-         * record id
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        private String employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        private String leaveTypeId;
-        /**
-         * 授予余额数量
-         * <p> 示例值：1
-         */
-        private String grantingQuantity;
-        /**
-         * 授予数量 扣减完后的授予数量
-         * <p> 示例值：1
-         */
-        private String leftGrantingQuantity;
-        /**
-         * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1
-         */
-        private Integer grantingUnit;
-        /**
-         * 生效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        private String expirationDate;
-        /**
-         * 授予原因
-         * <p> 示例值：
-         */
-        private LangText[] reason;
-        /**
-         * 是否已经被外部系统更改过
-         * <p> 示例值：true
-         */
-        private Boolean isUpdateByExternal;
-        /**
-         * 授予来源
-         * <p> 示例值：1
-         */
-        private Integer accrualSource;
-        /**
-         * 假期子类型id
-         * <p> 示例值：1
-         */
-        private String leaveSubTypeId;
-
-        /**
-         * record id
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 授予余额数量
-         * <p> 示例值：1
-         *
-         * @param grantingQuantity
-         * @return
-         */
-        public Builder grantingQuantity(String grantingQuantity) {
-            this.grantingQuantity = grantingQuantity;
-            return this;
-        }
-
-
-        /**
-         * 授予数量 扣减完后的授予数量
-         * <p> 示例值：1
-         *
-         * @param leftGrantingQuantity
-         * @return
-         */
-        public Builder leftGrantingQuantity(String leftGrantingQuantity) {
-            this.leftGrantingQuantity = leftGrantingQuantity;
-            return this;
-        }
-
-
-        /**
-         * 授予单位，1表示天，2表示小时
-         * <p> 示例值：1
-         *
-         * @param grantingUnit
-         * @return
-         */
-        public Builder grantingUnit(Integer grantingUnit) {
-            this.grantingUnit = grantingUnit;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 授予原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(LangText[] reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 是否已经被外部系统更改过
-         * <p> 示例值：true
-         *
-         * @param isUpdateByExternal
-         * @return
-         */
-        public Builder isUpdateByExternal(Boolean isUpdateByExternal) {
-            this.isUpdateByExternal = isUpdateByExternal;
-            return this;
-        }
-
-
-        /**
-         * 授予来源
-         * <p> 示例值：1
-         *
-         * @param accrualSource
-         * @return
-         */
-        public Builder accrualSource(Integer accrualSource) {
-            this.accrualSource = accrualSource;
-            return this;
-        }
-
-        /**
-         * 授予来源
-         * <p> 示例值：1
-         *
-         * @param accrualSource {@link com.lark.oapi.service.corehr.v2.enums.LeaveEmployExpireRecordAccrualSourceEnum}
-         * @return
-         */
-        public Builder accrualSource(com.lark.oapi.service.corehr.v2.enums.LeaveEmployExpireRecordAccrualSourceEnum accrualSource) {
-            this.accrualSource = accrualSource.getValue();
-            return this;
-        }
-
-
-        /**
-         * 假期子类型id
-         * <p> 示例值：1
-         *
-         * @param leaveSubTypeId
-         * @return
-         */
-        public Builder leaveSubTypeId(String leaveSubTypeId) {
-            this.leaveSubTypeId = leaveSubTypeId;
-            return this;
-        }
-
-
-        public LeaveEmployExpireRecord build() {
-            return new LeaveEmployExpireRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

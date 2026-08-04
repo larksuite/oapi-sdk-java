@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommentReaction {
+  /**
+   * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
+   *
+   * <p>示例值：like
+   */
+  @SerializedName("reaction_key")
+  private String reactionKey;
+
+  /**
+   * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("count")
+  private Integer count;
+
+  /**
+   * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ahead_users")
+  private String[] aheadUsers;
+
+  public String getReactionKey() {
+    return this.reactionKey;
+  }
+
+  public void setReactionKey(String reactionKey) {
+    this.reactionKey = reactionKey;
+  }
+
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public String[] getAheadUsers() {
+    return this.aheadUsers;
+  }
+
+  public void setAheadUsers(String[] aheadUsers) {
+    this.aheadUsers = aheadUsers;
+  }
+
+  // builder 开始
+  public CommentReaction() {}
+
+  public CommentReaction(Builder builder) {
     /**
      * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
-     * <p> 示例值：like
+     *
+     * <p>示例值：like
      */
-    @SerializedName("reaction_key")
-    private String reactionKey;
+    this.reactionKey = builder.reactionKey;
     /**
      * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("count")
-    private Integer count;
+    this.count = builder.count;
     /**
      * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ahead_users")
+    this.aheadUsers = builder.aheadUsers;
+  }
+
+  public static class Builder {
+    /**
+     * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
+     *
+     * <p>示例值：like
+     */
+    private String reactionKey;
+
+    /**
+     * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
+     *
+     * <p>示例值：10
+     */
+    private Integer count;
+
+    /**
+     * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
+     *
+     * <p>示例值：
+     */
     private String[] aheadUsers;
 
-    // builder 开始
-    public CommentReaction() {
+    /**
+     * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
+     *
+     * <p>示例值：like
+     *
+     * @param reactionKey
+     * @return
+     */
+    public Builder reactionKey(String reactionKey) {
+      this.reactionKey = reactionKey;
+      return this;
     }
 
-    public CommentReaction(Builder builder) {
-        /**
-         * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
-         * <p> 示例值：like
-         */
-        this.reactionKey = builder.reactionKey;
-        /**
-         * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
-         * <p> 示例值：10
-         */
-        this.count = builder.count;
-        /**
-         * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
-         * <p> 示例值：
-         */
-        this.aheadUsers = builder.aheadUsers;
+    /**
+     * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
+     *
+     * <p>示例值：10
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(Integer count) {
+      this.count = count;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param aheadUsers
+     * @return
+     */
+    public Builder aheadUsers(String[] aheadUsers) {
+      this.aheadUsers = aheadUsers;
+      return this;
     }
 
-    public String getReactionKey() {
-        return this.reactionKey;
+    public CommentReaction build() {
+      return new CommentReaction(this);
     }
+  }
 
-    public void setReactionKey(String reactionKey) {
-        this.reactionKey = reactionKey;
-    }
-
-    public Integer getCount() {
-        return this.count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public String[] getAheadUsers() {
-        return this.aheadUsers;
-    }
-
-    public void setAheadUsers(String[] aheadUsers) {
-        this.aheadUsers = aheadUsers;
-    }
-
-    public static class Builder {
-        /**
-         * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
-         * <p> 示例值：like
-         */
-        private String reactionKey;
-        /**
-         * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
-         * <p> 示例值：10
-         */
-        private Integer count;
-        /**
-         * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
-         * <p> 示例值：
-         */
-        private String[] aheadUsers;
-
-        /**
-         * 表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。
-         * <p> 示例值：like
-         *
-         * @param reactionKey
-         * @return
-         */
-        public Builder reactionKey(String reactionKey) {
-            this.reactionKey = reactionKey;
-            return this;
-        }
-
-
-        /**
-         * 该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。
-         * <p> 示例值：10
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(Integer count) {
-            this.count = count;
-            return this;
-        }
-
-
-        /**
-         * 用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。
-         * <p> 示例值：
-         *
-         * @param aheadUsers
-         * @return
-         */
-        public Builder aheadUsers(String[] aheadUsers) {
-            this.aheadUsers = aheadUsers;
-            return this;
-        }
-
-
-        public CommentReaction build() {
-            return new CommentReaction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

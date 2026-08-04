@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 消息卡片类型
- */
+/** 消息卡片类型 */
 public enum FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum {
-    CHAT("3"), // 会话
-    ;
-    private String value;
+  CHAT("3"), // 会话
+  ;
+  private String value;
 
-    FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupItemLarkImDatasyncOpenFeedCardTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

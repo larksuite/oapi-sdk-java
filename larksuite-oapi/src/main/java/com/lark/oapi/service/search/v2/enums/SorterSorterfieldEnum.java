@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 排序字段
- */
+/** 排序字段 */
 public enum SorterSorterfieldEnum {
-    CREATE_TIME("create_time"), // 创建时间
-    UPDATE_TIME("update_time"), // 更新时间
-    MEMBER_COUNT("member_count"), // 群成员数
-    ;
-    private String value;
+  CREATE_TIME("create_time"), // 创建时间
+  UPDATE_TIME("update_time"), // 更新时间
+  MEMBER_COUNT("member_count"), // 群成员数
+  ;
+  private String value;
 
-    SorterSorterfieldEnum(String value) {
-        this.value = value;
-    }
+  SorterSorterfieldEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

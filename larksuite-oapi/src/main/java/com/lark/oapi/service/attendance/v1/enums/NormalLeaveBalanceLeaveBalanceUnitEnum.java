@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 单位
- */
+/** 单位 */
 public enum NormalLeaveBalanceLeaveBalanceUnitEnum {
-    DAY("day"), // 天
-    HOUR("hour"), // 小时
-    ;
-    private String value;
+  DAY("day"), // 天
+  HOUR("hour"), // 小时
+  ;
+  private String value;
 
-    NormalLeaveBalanceLeaveBalanceUnitEnum(String value) {
-        this.value = value;
-    }
+  NormalLeaveBalanceLeaveBalanceUnitEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

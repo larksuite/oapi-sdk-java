@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationBasicInfo {
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage")
+  private ApplicationStage stage;
+
+  /**
+   * 内推人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("referral")
+  private ApplicationReferral referral;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Long activeStatus;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("biz_create_time")
+  private Long bizCreateTime;
+
+  /**
+   * 修改时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("biz_modify_time")
+  private Long bizModifyTime;
+
+  public ApplicationStage getStage() {
+    return this.stage;
+  }
+
+  public void setStage(ApplicationStage stage) {
+    this.stage = stage;
+  }
+
+  public ApplicationReferral getReferral() {
+    return this.referral;
+  }
+
+  public void setReferral(ApplicationReferral referral) {
+    this.referral = referral;
+  }
+
+  public Long getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Long activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public Long getBizCreateTime() {
+    return this.bizCreateTime;
+  }
+
+  public void setBizCreateTime(Long bizCreateTime) {
+    this.bizCreateTime = bizCreateTime;
+  }
+
+  public Long getBizModifyTime() {
+    return this.bizModifyTime;
+  }
+
+  public void setBizModifyTime(Long bizModifyTime) {
+    this.bizModifyTime = bizModifyTime;
+  }
+
+  // builder 开始
+  public ApplicationBasicInfo() {}
+
+  public ApplicationBasicInfo(Builder builder) {
     /**
      * 阶段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage")
-    private ApplicationStage stage;
+    this.stage = builder.stage;
     /**
      * 内推人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("referral")
-    private ApplicationReferral referral;
+    this.referral = builder.referral;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Long activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
      * 创建时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("biz_create_time")
-    private Long bizCreateTime;
+    this.bizCreateTime = builder.bizCreateTime;
     /**
      * 修改时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("biz_modify_time")
+    this.bizModifyTime = builder.bizModifyTime;
+  }
+
+  public static class Builder {
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationStage stage;
+
+    /**
+     * 内推人信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationReferral referral;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
+    private Long activeStatus;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     */
+    private Long bizCreateTime;
+
+    /**
+     * 修改时间
+     *
+     * <p>示例值：1
+     */
     private Long bizModifyTime;
 
-    // builder 开始
-    public ApplicationBasicInfo() {
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(ApplicationStage stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public ApplicationBasicInfo(Builder builder) {
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        this.stage = builder.stage;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
-        this.referral = builder.referral;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        this.bizCreateTime = builder.bizCreateTime;
-        /**
-         * 修改时间
-         * <p> 示例值：1
-         */
-        this.bizModifyTime = builder.bizModifyTime;
+    /**
+     * 内推人信息
+     *
+     * <p>示例值：
+     *
+     * @param referral
+     * @return
+     */
+    public Builder referral(ApplicationReferral referral) {
+      this.referral = referral;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Long activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public ApplicationStage getStage() {
-        return this.stage;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     *
+     * @param bizCreateTime
+     * @return
+     */
+    public Builder bizCreateTime(Long bizCreateTime) {
+      this.bizCreateTime = bizCreateTime;
+      return this;
     }
 
-    public void setStage(ApplicationStage stage) {
-        this.stage = stage;
+    /**
+     * 修改时间
+     *
+     * <p>示例值：1
+     *
+     * @param bizModifyTime
+     * @return
+     */
+    public Builder bizModifyTime(Long bizModifyTime) {
+      this.bizModifyTime = bizModifyTime;
+      return this;
     }
 
-    public ApplicationReferral getReferral() {
-        return this.referral;
+    public ApplicationBasicInfo build() {
+      return new ApplicationBasicInfo(this);
     }
+  }
 
-    public void setReferral(ApplicationReferral referral) {
-        this.referral = referral;
-    }
-
-    public Long getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Long activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public Long getBizCreateTime() {
-        return this.bizCreateTime;
-    }
-
-    public void setBizCreateTime(Long bizCreateTime) {
-        this.bizCreateTime = bizCreateTime;
-    }
-
-    public Long getBizModifyTime() {
-        return this.bizModifyTime;
-    }
-
-    public void setBizModifyTime(Long bizModifyTime) {
-        this.bizModifyTime = bizModifyTime;
-    }
-
-    public static class Builder {
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        private ApplicationStage stage;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
-        private ApplicationReferral referral;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Long activeStatus;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        private Long bizCreateTime;
-        /**
-         * 修改时间
-         * <p> 示例值：1
-         */
-        private Long bizModifyTime;
-
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(ApplicationStage stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         *
-         * @param referral
-         * @return
-         */
-        public Builder referral(ApplicationReferral referral) {
-            this.referral = referral;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Long activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         *
-         * @param bizCreateTime
-         * @return
-         */
-        public Builder bizCreateTime(Long bizCreateTime) {
-            this.bizCreateTime = bizCreateTime;
-            return this;
-        }
-
-
-        /**
-         * 修改时间
-         * <p> 示例值：1
-         *
-         * @param bizModifyTime
-         * @return
-         */
-        public Builder bizModifyTime(Long bizModifyTime) {
-            this.bizModifyTime = bizModifyTime;
-            return this;
-        }
-
-
-        public ApplicationBasicInfo build() {
-            return new ApplicationBasicInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

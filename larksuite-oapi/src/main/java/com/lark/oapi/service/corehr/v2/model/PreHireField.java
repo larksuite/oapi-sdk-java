@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireField {
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * ID
+   *
+   * <p>示例值：1234566
+   */
+  @SerializedName("id")
+  private String id;
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public PreHireField() {}
+
+  public PreHireField(Builder builder) {
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * ID
-     * <p> 示例值：1234566
+     *
+     * <p>示例值：1234566
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * ID
+     *
+     * <p>示例值：1234566
+     */
     private String id;
 
-    // builder 开始
-    public PreHireField() {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public PreHireField(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * ID
-         * <p> 示例值：1234566
-         */
-        this.id = builder.id;
+    /**
+     * ID
+     *
+     * <p>示例值：1234566
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PreHireField build() {
+      return new PreHireField(this);
     }
+  }
 
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * ID
-         * <p> 示例值：1234566
-         */
-        private String id;
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * ID
-         * <p> 示例值：1234566
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public PreHireField build() {
-            return new PreHireField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

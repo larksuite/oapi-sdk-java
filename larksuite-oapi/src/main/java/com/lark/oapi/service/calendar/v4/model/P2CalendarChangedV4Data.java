@@ -13,34 +13,23 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CalendarChangedV4Data {
-    /**
-     * 需要推送事件的用户列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_id_list")
-    private UserId[] userIdList;
+  /**
+   * 需要推送事件的用户列表。关于用户不同 ID
+   * 的介绍，参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private UserId[] userIdList;
 
-    public UserId[] getUserIdList() {
-        return this.userIdList;
-    }
+  public UserId[] getUserIdList() {
+    return this.userIdList;
+  }
 
-    public void setUserIdList(UserId[] userIdList) {
-        this.userIdList = userIdList;
-    }
-
+  public void setUserIdList(UserId[] userIdList) {
+    this.userIdList = userIdList;
+  }
 }

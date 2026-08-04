@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchMessageReadUser {
+  /**
+   * 已读的人数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("read_count")
+  private String readCount;
+
+  /**
+   * 推送的总人数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total_count")
+  private String totalCount;
+
+  public String getReadCount() {
+    return this.readCount;
+  }
+
+  public void setReadCount(String readCount) {
+    this.readCount = readCount;
+  }
+
+  public String getTotalCount() {
+    return this.totalCount;
+  }
+
+  public void setTotalCount(String totalCount) {
+    this.totalCount = totalCount;
+  }
+
+  // builder 开始
+  public BatchMessageReadUser() {}
+
+  public BatchMessageReadUser(Builder builder) {
     /**
      * 已读的人数
-     * <p> 示例值：
+     *
+     * <p>示例值：10
      */
-    @SerializedName("read_count")
-    private String readCount;
+    this.readCount = builder.readCount;
     /**
      * 推送的总人数
-     * <p> 示例值：
+     *
+     * <p>示例值：100
      */
-    @SerializedName("total_count")
+    this.totalCount = builder.totalCount;
+  }
+
+  public static class Builder {
+    /**
+     * 已读的人数
+     *
+     * <p>示例值：10
+     */
+    private String readCount;
+
+    /**
+     * 推送的总人数
+     *
+     * <p>示例值：100
+     */
     private String totalCount;
 
-    // builder 开始
-    public BatchMessageReadUser() {
+    /**
+     * 已读的人数
+     *
+     * <p>示例值：10
+     *
+     * @param readCount
+     * @return
+     */
+    public Builder readCount(String readCount) {
+      this.readCount = readCount;
+      return this;
     }
 
-    public BatchMessageReadUser(Builder builder) {
-        /**
-         * 已读的人数
-         * <p> 示例值：
-         */
-        this.readCount = builder.readCount;
-        /**
-         * 推送的总人数
-         * <p> 示例值：
-         */
-        this.totalCount = builder.totalCount;
+    /**
+     * 推送的总人数
+     *
+     * <p>示例值：100
+     *
+     * @param totalCount
+     * @return
+     */
+    public Builder totalCount(String totalCount) {
+      this.totalCount = totalCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchMessageReadUser build() {
+      return new BatchMessageReadUser(this);
     }
+  }
 
-    public String getReadCount() {
-        return this.readCount;
-    }
-
-    public void setReadCount(String readCount) {
-        this.readCount = readCount;
-    }
-
-    public String getTotalCount() {
-        return this.totalCount;
-    }
-
-    public void setTotalCount(String totalCount) {
-        this.totalCount = totalCount;
-    }
-
-    public static class Builder {
-        /**
-         * 已读的人数
-         * <p> 示例值：
-         */
-        private String readCount;
-        /**
-         * 推送的总人数
-         * <p> 示例值：
-         */
-        private String totalCount;
-
-        /**
-         * 已读的人数
-         * <p> 示例值：
-         *
-         * @param readCount
-         * @return
-         */
-        public Builder readCount(String readCount) {
-            this.readCount = readCount;
-            return this;
-        }
-
-
-        /**
-         * 推送的总人数
-         * <p> 示例值：
-         *
-         * @param totalCount
-         * @return
-         */
-        public Builder totalCount(String totalCount) {
-            this.totalCount = totalCount;
-            return this;
-        }
-
-
-        public BatchMessageReadUser build() {
-            return new BatchMessageReadUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,103 +13,100 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetAgencyReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 猎头供应商ID
+   *
+   * <p>示例值：6898173495386147079
+   */
+  @Path
+  @SerializedName("agency_id")
+  private String agencyId;
+
+  public String getAgencyId() {
+    return this.agencyId;
+  }
+
+  public void setAgencyId(String agencyId) {
+    this.agencyId = agencyId;
+  }
+
+  // builder 开始
+  public GetAgencyReq() {}
+
+  public GetAgencyReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 猎头供应商ID
-     * <p> 示例值：6898173495386147079
+     *
+     * <p>示例值：6898173495386147079
      */
-    @Path
-    @SerializedName("agency_id")
-    private String agencyId;
+    this.agencyId = builder.agencyId;
+  }
 
-    // builder 开始
-    public GetAgencyReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetAgencyReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 猎头供应商ID
-         * <p> 示例值：6898173495386147079
-         */
-        this.agencyId = builder.agencyId;
+    private String agencyId; // 猎头供应商ID
+
+    /**
+     * 猎头供应商ID
+     *
+     * <p>示例值：6898173495386147079
+     *
+     * @param agencyId
+     * @return
+     */
+    public Builder agencyId(String agencyId) {
+      this.agencyId = agencyId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetAgencyReq build() {
+      return new GetAgencyReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getAgencyId() {
-        return this.agencyId;
-    }
-
-    public void setAgencyId(String agencyId) {
-        this.agencyId = agencyId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String agencyId; // 猎头供应商ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 猎头供应商ID
-         * <p> 示例值：6898173495386147079
-         *
-         * @param agencyId
-         * @return
-         */
-        public Builder agencyId(String agencyId) {
-            this.agencyId = agencyId;
-            return this;
-        }
-
-
-        public GetAgencyReq build() {
-            return new GetAgencyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

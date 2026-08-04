@@ -13,184 +13,218 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class DeleteAppRoleMemberReq {
+  /**
+   * 协作者 ID 的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("member_id_type")
+  private String memberIdType;
+
+  public String getMemberIdType() {
+    return this.memberIdType;
+  }
+
+  public void setMemberIdType(String memberIdType) {
+    this.memberIdType = memberIdType;
+  }
+
+  /**
+   * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+   * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+   * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+   * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+   * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+   * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+   * app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+   *
+   * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 多维表格高级权限中自定义角色的唯一标识，以 rol
+   * 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。
+   *
+   * <p>示例值：roljRpwIUt
+   */
+  @Path
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 高级权限中自定义角色协作者的 ID，需与查询参数中 member_id_type 的类型需一致。获取 ID 方式参考 member_id_type 参数描述。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
+   */
+  @Path
+  @SerializedName("member_id")
+  private String memberId;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  // builder 开始
+  public DeleteAppRoleMemberReq() {}
+
+  public DeleteAppRoleMemberReq(Builder builder) {
     /**
-     * 协作者id类型，与请求体中的member_id要对应
-     * <p> 示例值：open_id
+     * 协作者 ID 的类型
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("member_id_type")
-    private String memberIdType;
+    this.memberIdType = builder.memberIdType;
     /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
-     * 自定义角色的id
-     * <p> 示例值：roljRpwIUt
+     * 多维表格高级权限中自定义角色的唯一标识，以 rol
+     * 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。
+     *
+     * <p>示例值：roljRpwIUt
      */
-    @Path
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
     /**
-     * 协作者id
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
+     * 高级权限中自定义角色协作者的 ID，需与查询参数中 member_id_type 的类型需一致。获取 ID 方式参考 member_id_type 参数描述。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
      */
-    @Path
-    @SerializedName("member_id")
-    private String memberId;
+    this.memberId = builder.memberId;
+  }
 
-    // builder 开始
-    public DeleteAppRoleMemberReq() {
+  public static class Builder {
+    private String memberIdType; // 协作者 ID 的类型
+
+    /**
+     * 协作者 ID 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
+    public Builder memberIdType(String memberIdType) {
+      this.memberIdType = memberIdType;
+      return this;
     }
 
-    public DeleteAppRoleMemberReq(Builder builder) {
-        /**
-         * 协作者id类型，与请求体中的member_id要对应
-         * <p> 示例值：open_id
-         */
-        this.memberIdType = builder.memberIdType;
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 自定义角色的id
-         * <p> 示例值：roljRpwIUt
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 协作者id
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
-         */
-        this.memberId = builder.memberId;
+    /**
+     * 协作者 ID 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum memberIdType) {
+      this.memberIdType = memberIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String appToken; // 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以
+    // ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：;
+    // ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+    private String roleId; // 多维表格高级权限中自定义角色的唯一标识，以 rol
+    // 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。
+    private String
+        memberId; // 高级权限中自定义角色协作者的 ID，需与查询参数中 member_id_type 的类型需一致。获取 ID 方式参考 member_id_type 参数描述。
+
+    /**
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public String getMemberIdType() {
-        return this.memberIdType;
+    /**
+     * 多维表格高级权限中自定义角色的唯一标识，以 rol
+     * 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。
+     *
+     * <p>示例值：roljRpwIUt
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public void setMemberIdType(String memberIdType) {
-        this.memberIdType = memberIdType;
+    /**
+     * 高级权限中自定义角色协作者的 ID，需与查询参数中 member_id_type 的类型需一致。获取 ID 方式参考 member_id_type 参数描述。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public String getAppToken() {
-        return this.appToken;
+    public DeleteAppRoleMemberReq build() {
+      return new DeleteAppRoleMemberReq(this);
     }
+  }
 
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getMemberId() {
-        return this.memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public static class Builder {
-        private String memberIdType; // 协作者id类型，与请求体中的member_id要对应
-        private String appToken; // bitable app token
-        private String roleId; // 自定义角色的id
-        private String memberId; // 协作者id
-
-        /**
-         * 协作者id类型，与请求体中的member_id要对应
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType
-         * @return
-         */
-        public Builder memberIdType(String memberIdType) {
-            this.memberIdType = memberIdType;
-            return this;
-        }
-
-        /**
-         * 协作者id类型，与请求体中的member_id要对应
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType {@link com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum}
-         * @return
-         */
-        public Builder memberIdType(com.lark.oapi.service.bitable.v1.enums.DeleteAppRoleMemberMemberIdTypeEnum memberIdType) {
-            this.memberIdType = memberIdType.getValue();
-            return this;
-        }
-
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * 自定义角色的id
-         * <p> 示例值：roljRpwIUt
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * 协作者id
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad53uew2
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        public DeleteAppRoleMemberReq build() {
-            return new DeleteAppRoleMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

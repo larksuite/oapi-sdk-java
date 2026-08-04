@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomComplete {
+  /**
+   * PC客户端自定义完成配置（含Mac和Windows）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pc")
+  private CustomCompleteItem pc;
+
+  /**
+   * PC客户端自定义完成配置（含Mac和Windows）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ios")
+  private CustomCompleteItem ios;
+
+  /**
+   * PC客户端自定义完成配置（含Mac和Windows）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("android")
+  private CustomCompleteItem android;
+
+  public CustomCompleteItem getPc() {
+    return this.pc;
+  }
+
+  public void setPc(CustomCompleteItem pc) {
+    this.pc = pc;
+  }
+
+  public CustomCompleteItem getIos() {
+    return this.ios;
+  }
+
+  public void setIos(CustomCompleteItem ios) {
+    this.ios = ios;
+  }
+
+  public CustomCompleteItem getAndroid() {
+    return this.android;
+  }
+
+  public void setAndroid(CustomCompleteItem android) {
+    this.android = android;
+  }
+
+  // builder 开始
+  public CustomComplete() {}
+
+  public CustomComplete(Builder builder) {
     /**
-     * pc客户端自定义完成配置（含mac和windows）
-     * <p> 示例值：
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
      */
-    @SerializedName("pc")
+    this.pc = builder.pc;
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     */
+    this.ios = builder.ios;
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     */
+    this.android = builder.android;
+  }
+
+  public static class Builder {
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     */
     private CustomCompleteItem pc;
+
     /**
-     * ios端的自定义完成配置
-     * <p> 示例值：
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
      */
-    @SerializedName("ios")
     private CustomCompleteItem ios;
+
     /**
-     * android端的自定义完成配置
-     * <p> 示例值：
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
      */
-    @SerializedName("android")
     private CustomCompleteItem android;
 
-    // builder 开始
-    public CustomComplete() {
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     *
+     * @param pc
+     * @return
+     */
+    public Builder pc(CustomCompleteItem pc) {
+      this.pc = pc;
+      return this;
     }
 
-    public CustomComplete(Builder builder) {
-        /**
-         * pc客户端自定义完成配置（含mac和windows）
-         * <p> 示例值：
-         */
-        this.pc = builder.pc;
-        /**
-         * ios端的自定义完成配置
-         * <p> 示例值：
-         */
-        this.ios = builder.ios;
-        /**
-         * android端的自定义完成配置
-         * <p> 示例值：
-         */
-        this.android = builder.android;
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     *
+     * @param ios
+     * @return
+     */
+    public Builder ios(CustomCompleteItem ios) {
+      this.ios = ios;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * PC客户端自定义完成配置（含Mac和Windows）
+     *
+     * <p>示例值：
+     *
+     * @param android
+     * @return
+     */
+    public Builder android(CustomCompleteItem android) {
+      this.android = android;
+      return this;
     }
 
-    public CustomCompleteItem getPc() {
-        return this.pc;
+    public CustomComplete build() {
+      return new CustomComplete(this);
     }
+  }
 
-    public void setPc(CustomCompleteItem pc) {
-        this.pc = pc;
-    }
-
-    public CustomCompleteItem getIos() {
-        return this.ios;
-    }
-
-    public void setIos(CustomCompleteItem ios) {
-        this.ios = ios;
-    }
-
-    public CustomCompleteItem getAndroid() {
-        return this.android;
-    }
-
-    public void setAndroid(CustomCompleteItem android) {
-        this.android = android;
-    }
-
-    public static class Builder {
-        /**
-         * pc客户端自定义完成配置（含mac和windows）
-         * <p> 示例值：
-         */
-        private CustomCompleteItem pc;
-        /**
-         * ios端的自定义完成配置
-         * <p> 示例值：
-         */
-        private CustomCompleteItem ios;
-        /**
-         * android端的自定义完成配置
-         * <p> 示例值：
-         */
-        private CustomCompleteItem android;
-
-        /**
-         * pc客户端自定义完成配置（含mac和windows）
-         * <p> 示例值：
-         *
-         * @param pc
-         * @return
-         */
-        public Builder pc(CustomCompleteItem pc) {
-            this.pc = pc;
-            return this;
-        }
-
-
-        /**
-         * ios端的自定义完成配置
-         * <p> 示例值：
-         *
-         * @param ios
-         * @return
-         */
-        public Builder ios(CustomCompleteItem ios) {
-            this.ios = ios;
-            return this;
-        }
-
-
-        /**
-         * android端的自定义完成配置
-         * <p> 示例值：
-         *
-         * @param android
-         * @return
-         */
-        public Builder android(CustomCompleteItem android) {
-            this.android = android;
-            return this;
-        }
-
-
-        public CustomComplete build() {
-            return new CustomComplete(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

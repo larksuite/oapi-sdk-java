@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySocialArchiveReqBody {
+  /**
+   * 用户ID列表，与入参 user_id_type 类型一致，最少1个，最大200
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private String[] userIdList;
+
+  /**
+   * 生效日期，查询在该日期生效的社保档案，格式为 YYYY-mm-dd，长度为 10 字符
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String[] getUserIdList() {
+    return this.userIdList;
+  }
+
+  public void setUserIdList(String[] userIdList) {
+    this.userIdList = userIdList;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public QuerySocialArchiveReqBody() {}
+
+  public QuerySocialArchiveReqBody(Builder builder) {
     /**
-     * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-     * <p> 示例值：
+     * 用户ID列表，与入参 user_id_type 类型一致，最少1个，最大200
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_list")
+    this.userIdList = builder.userIdList;
+    /**
+     * 生效日期，查询在该日期生效的社保档案，格式为 YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID列表，与入参 user_id_type 类型一致，最少1个，最大200
+     *
+     * <p>示例值：
+     */
     private String[] userIdList;
+
     /**
-     * 生效日志，查询在该日期生效的社保档案
-     * <p> 示例值：2024-01-01
+     * 生效日期，查询在该日期生效的社保档案，格式为 YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
 
-    // builder 开始
-    public QuerySocialArchiveReqBody() {
+    /**
+     * 用户ID列表，与入参 user_id_type 类型一致，最少1个，最大200
+     *
+     * <p>示例值：
+     *
+     * @param userIdList
+     * @return
+     */
+    public Builder userIdList(String[] userIdList) {
+      this.userIdList = userIdList;
+      return this;
     }
 
-    public QuerySocialArchiveReqBody(Builder builder) {
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         */
-        this.userIdList = builder.userIdList;
-        /**
-         * 生效日志，查询在该日期生效的社保档案
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
+    /**
+     * 生效日期，查询在该日期生效的社保档案，格式为 YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QuerySocialArchiveReqBody build() {
+      return new QuerySocialArchiveReqBody(this);
     }
+  }
 
-    public String[] getUserIdList() {
-        return this.userIdList;
-    }
-
-    public void setUserIdList(String[] userIdList) {
-        this.userIdList = userIdList;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public static class Builder {
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         */
-        private String[] userIdList;
-        /**
-         * 生效日志，查询在该日期生效的社保档案
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDate;
-
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         *
-         * @param userIdList
-         * @return
-         */
-        public Builder userIdList(String[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
-        }
-
-
-        /**
-         * 生效日志，查询在该日期生效的社保档案
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        public QuerySocialArchiveReqBody build() {
-            return new QuerySocialArchiveReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

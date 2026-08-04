@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeleteJobGradeReq {
+  /**
+   * 需要删除的职等ID。ID获取方式：;-
+   * 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("job_grade_id")
+  private String jobGradeId;
+
+  public String getJobGradeId() {
+    return this.jobGradeId;
+  }
+
+  public void setJobGradeId(String jobGradeId) {
+    this.jobGradeId = jobGradeId;
+  }
+
+  // builder 开始
+  public DeleteJobGradeReq() {}
+
+  public DeleteJobGradeReq(Builder builder) {
     /**
-     * 需要删除的职等ID
-     * <p> 示例值：1616161616
+     * 需要删除的职等ID。ID获取方式：;-
+     * 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("job_grade_id")
-    private String jobGradeId;
+    this.jobGradeId = builder.jobGradeId;
+  }
 
-    // builder 开始
-    public DeleteJobGradeReq() {
+  public static class Builder {
+
+    private String jobGradeId; // 需要删除的职等ID。ID获取方式：;-
+
+    // 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID
+
+    /**
+     * 需要删除的职等ID。ID获取方式：;-
+     * 调用[【创建职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/create)[【查询租户的职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)等接口可以返回职等ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param jobGradeId
+     * @return
+     */
+    public Builder jobGradeId(String jobGradeId) {
+      this.jobGradeId = jobGradeId;
+      return this;
     }
 
-    public DeleteJobGradeReq(Builder builder) {
-        /**
-         * 需要删除的职等ID
-         * <p> 示例值：1616161616
-         */
-        this.jobGradeId = builder.jobGradeId;
+    public DeleteJobGradeReq build() {
+      return new DeleteJobGradeReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobGradeId() {
-        return this.jobGradeId;
-    }
-
-    public void setJobGradeId(String jobGradeId) {
-        this.jobGradeId = jobGradeId;
-    }
-
-    public static class Builder {
-
-        private String jobGradeId; // 需要删除的职等ID
-
-        /**
-         * 需要删除的职等ID
-         * <p> 示例值：1616161616
-         *
-         * @param jobGradeId
-         * @return
-         */
-        public Builder jobGradeId(String jobGradeId) {
-            this.jobGradeId = jobGradeId;
-            return this;
-        }
-
-
-        public DeleteJobGradeReq build() {
-            return new DeleteJobGradeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

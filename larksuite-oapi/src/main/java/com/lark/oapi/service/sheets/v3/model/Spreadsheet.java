@@ -13,223 +13,257 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Spreadsheet {
+  /**
+   * 表格标题
+   *
+   * <p>示例值：Sales sheet
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文件夹 token。你可通过以下两种方式获取文件夹的 token：;- 文件夹的
+   * URL：https://sample.feishu.cn/drive/folder/==fldbcO1UuPz8VwnpPx5a92abcef==;- 调用开放平台接口获取：; -
+   * 调用[获取我的空间（root
+   * folder）元数据](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta)接口获取根目录（即根文件夹）的
+   * token。; -
+   * 继续调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)接口，获取根目录下文件夹的
+   * token。;;;**提示**：要在知识库中创建电子表格，你需调用[创建知识空间节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create)接口，并选择表格（sheet）类型。
+   *
+   * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+   */
+  @SerializedName("folder_token")
+  private String folderToken;
+
+  /**
+   * 电子表格的 URL 链接
+   *
+   * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 电子表格 token
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  /**
+   * 是否挂载到云空间
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("without_mount")
+  private Boolean withoutMount;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getFolderToken() {
+    return this.folderToken;
+  }
+
+  public void setFolderToken(String folderToken) {
+    this.folderToken = folderToken;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  public Boolean getWithoutMount() {
+    return this.withoutMount;
+  }
+
+  public void setWithoutMount(Boolean withoutMount) {
+    this.withoutMount = withoutMount;
+  }
+
+  // builder 开始
+  public Spreadsheet() {}
+
+  public Spreadsheet(Builder builder) {
     /**
      * 表格标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：Sales sheet
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+     * 文件夹 token。你可通过以下两种方式获取文件夹的 token：;- 文件夹的
+     * URL：https://sample.feishu.cn/drive/folder/==fldbcO1UuPz8VwnpPx5a92abcef==;- 调用开放平台接口获取：; -
+     * 调用[获取我的空间（root
+     * folder）元数据](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta)接口获取根目录（即根文件夹）的
+     * token。; -
+     * 继续调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)接口，获取根目录下文件夹的
+     * token。;;;**提示**：要在知识库中创建电子表格，你需调用[创建知识空间节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create)接口，并选择表格（sheet）类型。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
-    @SerializedName("folder_token")
-    private String folderToken;
+    this.folderToken = builder.folderToken;
     /**
-     * 文档url
-     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
-     * 表格token
-     * <p> 示例值：shtcnmBA*****yGehy8
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
+    this.spreadsheetToken = builder.spreadsheetToken;
     /**
      * 是否挂载到云空间
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("without_mount")
+    this.withoutMount = builder.withoutMount;
+  }
+
+  public static class Builder {
+    /**
+     * 表格标题
+     *
+     * <p>示例值：Sales sheet
+     */
+    private String title;
+
+    /**
+     * 文件夹 token。你可通过以下两种方式获取文件夹的 token：;- 文件夹的
+     * URL：https://sample.feishu.cn/drive/folder/==fldbcO1UuPz8VwnpPx5a92abcef==;- 调用开放平台接口获取：; -
+     * 调用[获取我的空间（root
+     * folder）元数据](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta)接口获取根目录（即根文件夹）的
+     * token。; -
+     * 继续调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)接口，获取根目录下文件夹的
+     * token。;;;**提示**：要在知识库中创建电子表格，你需调用[创建知识空间节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create)接口，并选择表格（sheet）类型。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
+    private String folderToken;
+
+    /**
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+     */
+    private String url;
+
+    /**
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     */
+    private String spreadsheetToken;
+
+    /**
+     * 是否挂载到云空间
+     *
+     * <p>示例值：false
+     */
     private Boolean withoutMount;
 
-    // builder 开始
-    public Spreadsheet() {
+    /**
+     * 表格标题
+     *
+     * <p>示例值：Sales sheet
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public Spreadsheet(Builder builder) {
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 文档url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         */
-        this.url = builder.url;
-        /**
-         * 表格token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        /**
-         * 是否挂载到云空间
-         * <p> 示例值：false
-         */
-        this.withoutMount = builder.withoutMount;
+    /**
+     * 文件夹 token。你可通过以下两种方式获取文件夹的 token：;- 文件夹的
+     * URL：https://sample.feishu.cn/drive/folder/==fldbcO1UuPz8VwnpPx5a92abcef==;- 调用开放平台接口获取：; -
+     * 调用[获取我的空间（root
+     * folder）元数据](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta)接口获取根目录（即根文件夹）的
+     * token。; -
+     * 继续调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)接口，获取根目录下文件夹的
+     * token。;;;**提示**：要在知识库中创建电子表格，你需调用[创建知识空间节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create)接口，并选择表格（sheet）类型。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * @param folderToken
+     * @return
+     */
+    public Builder folderToken(String folderToken) {
+      this.folderToken = folderToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 是否挂载到云空间
+     *
+     * <p>示例值：false
+     *
+     * @param withoutMount
+     * @return
+     */
+    public Builder withoutMount(Boolean withoutMount) {
+      this.withoutMount = withoutMount;
+      return this;
     }
 
-    public String getFolderToken() {
-        return this.folderToken;
+    public Spreadsheet build() {
+      return new Spreadsheet(this);
     }
+  }
 
-    public void setFolderToken(String folderToken) {
-        this.folderToken = folderToken;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
-    }
-
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
-    }
-
-    public Boolean getWithoutMount() {
-        return this.withoutMount;
-    }
-
-    public void setWithoutMount(Boolean withoutMount) {
-        this.withoutMount = withoutMount;
-    }
-
-    public static class Builder {
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-         */
-        private String folderToken;
-        /**
-         * 文档url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         */
-        private String url;
-        /**
-         * 表格token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         */
-        private String spreadsheetToken;
-        /**
-         * 是否挂载到云空间
-         * <p> 示例值：false
-         */
-        private Boolean withoutMount;
-
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文件夹token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-         * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
-         *
-         * @param folderToken
-         * @return
-         */
-        public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
-        }
-
-
-        /**
-         * 文档url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 表格token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-
-        /**
-         * 是否挂载到云空间
-         * <p> 示例值：false
-         *
-         * @param withoutMount
-         * @return
-         */
-        public Builder withoutMount(Boolean withoutMount) {
-            this.withoutMount = withoutMount;
-            return this;
-        }
-
-
-        public Spreadsheet build() {
-            return new Spreadsheet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

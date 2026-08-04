@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class MailRecipientLogI18nTextParam {
+  /**
+   * 参数名
+   *
+   * <p>示例值：user_name
+   */
+  @SerializedName("param_name")
+  private String paramName;
+
+  /**
+   * 参数类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("param_type")
+  private Integer paramType;
+
+  /**
+   * 参数补充数据
+   *
+   * <p>示例值：{"key":"value"}
+   */
+  @SerializedName("param_extra")
+  private Map<String, String> paramExtra;
+
+  public String getParamName() {
+    return this.paramName;
+  }
+
+  public void setParamName(String paramName) {
+    this.paramName = paramName;
+  }
+
+  public Integer getParamType() {
+    return this.paramType;
+  }
+
+  public void setParamType(Integer paramType) {
+    this.paramType = paramType;
+  }
+
+  public Map<String, String> getParamExtra() {
+    return this.paramExtra;
+  }
+
+  public void setParamExtra(Map<String, String> paramExtra) {
+    this.paramExtra = paramExtra;
+  }
+
+  // builder 开始
+  public MailRecipientLogI18nTextParam() {}
+
+  public MailRecipientLogI18nTextParam(Builder builder) {
     /**
      * 参数名
-     * <p> 示例值：user_name
+     *
+     * <p>示例值：user_name
      */
-    @SerializedName("param_name")
-    private String paramName;
+    this.paramName = builder.paramName;
     /**
      * 参数类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("param_type")
-    private Integer paramType;
+    this.paramType = builder.paramType;
     /**
      * 参数补充数据
-     * <p> 示例值：
+     *
+     * <p>示例值：{"key":"value"}
      */
-    @SerializedName("param_extra")
+    this.paramExtra = builder.paramExtra;
+  }
+
+  public static class Builder {
+    /**
+     * 参数名
+     *
+     * <p>示例值：user_name
+     */
+    private String paramName;
+
+    /**
+     * 参数类型
+     *
+     * <p>示例值：1
+     */
+    private Integer paramType;
+
+    /**
+     * 参数补充数据
+     *
+     * <p>示例值：{"key":"value"}
+     */
     private Map<String, String> paramExtra;
 
-    // builder 开始
-    public MailRecipientLogI18nTextParam() {
+    /**
+     * 参数名
+     *
+     * <p>示例值：user_name
+     *
+     * @param paramName
+     * @return
+     */
+    public Builder paramName(String paramName) {
+      this.paramName = paramName;
+      return this;
     }
 
-    public MailRecipientLogI18nTextParam(Builder builder) {
-        /**
-         * 参数名
-         * <p> 示例值：user_name
-         */
-        this.paramName = builder.paramName;
-        /**
-         * 参数类型
-         * <p> 示例值：1
-         */
-        this.paramType = builder.paramType;
-        /**
-         * 参数补充数据
-         * <p> 示例值：
-         */
-        this.paramExtra = builder.paramExtra;
+    /**
+     * 参数类型
+     *
+     * <p>示例值：1
+     *
+     * @param paramType
+     * @return
+     */
+    public Builder paramType(Integer paramType) {
+      this.paramType = paramType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参数补充数据
+     *
+     * <p>示例值：{"key":"value"}
+     *
+     * @param paramExtra
+     * @return
+     */
+    public Builder paramExtra(Map<String, String> paramExtra) {
+      this.paramExtra = paramExtra;
+      return this;
     }
 
-    public String getParamName() {
-        return this.paramName;
+    public MailRecipientLogI18nTextParam build() {
+      return new MailRecipientLogI18nTextParam(this);
     }
+  }
 
-    public void setParamName(String paramName) {
-        this.paramName = paramName;
-    }
-
-    public Integer getParamType() {
-        return this.paramType;
-    }
-
-    public void setParamType(Integer paramType) {
-        this.paramType = paramType;
-    }
-
-    public Map<String, String> getParamExtra() {
-        return this.paramExtra;
-    }
-
-    public void setParamExtra(Map<String, String> paramExtra) {
-        this.paramExtra = paramExtra;
-    }
-
-    public static class Builder {
-        /**
-         * 参数名
-         * <p> 示例值：user_name
-         */
-        private String paramName;
-        /**
-         * 参数类型
-         * <p> 示例值：1
-         */
-        private Integer paramType;
-        /**
-         * 参数补充数据
-         * <p> 示例值：
-         */
-        private Map<String, String> paramExtra;
-
-        /**
-         * 参数名
-         * <p> 示例值：user_name
-         *
-         * @param paramName
-         * @return
-         */
-        public Builder paramName(String paramName) {
-            this.paramName = paramName;
-            return this;
-        }
-
-
-        /**
-         * 参数类型
-         * <p> 示例值：1
-         *
-         * @param paramType
-         * @return
-         */
-        public Builder paramType(Integer paramType) {
-            this.paramType = paramType;
-            return this;
-        }
-
-
-        /**
-         * 参数补充数据
-         * <p> 示例值：
-         *
-         * @param paramExtra
-         * @return
-         */
-        public Builder paramExtra(Map<String, String> paramExtra) {
-            this.paramExtra = paramExtra;
-            return this;
-        }
-
-
-        public MailRecipientLogI18nTextParam build() {
-            return new MailRecipientLogI18nTextParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

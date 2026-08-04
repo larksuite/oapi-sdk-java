@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DownloadExportTaskReq {
+  /**
+   * 导出的文件的
+   * token。可通过调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)获取该参数的值。
+   *
+   * <p>示例值：boxcnxe5OdjlAkNgSNdsJvabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DownloadExportTaskReq() {}
+
+  public DownloadExportTaskReq(Builder builder) {
     /**
-     * 导出文档token
-     * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+     * 导出的文件的
+     * token。可通过调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)获取该参数的值。
+     *
+     * <p>示例值：boxcnxe5OdjlAkNgSNdsJvabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DownloadExportTaskReq() {
+  public static class Builder {
+
+    private String fileToken; // 导出的文件的
+
+    // token。可通过调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)获取该参数的值。
+
+    /**
+     * 导出的文件的
+     * token。可通过调用[查询导出任务结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get)获取该参数的值。
+     *
+     * <p>示例值：boxcnxe5OdjlAkNgSNdsJvabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public DownloadExportTaskReq(Builder builder) {
-        /**
-         * 导出文档token
-         * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
-         */
-        this.fileToken = builder.fileToken;
+    public DownloadExportTaskReq build() {
+      return new DownloadExportTaskReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-
-        private String fileToken; // 导出文档token
-
-        /**
-         * 导出文档token
-         * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DownloadExportTaskReq build() {
-            return new DownloadExportTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

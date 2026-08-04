@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Pathway {
+  /**
+   * 通道 ID
+   *
+   * <p>示例值：4692446793125560154
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：A01234
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 停启用状态；true：启用，false：停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public Pathway() {}
+
+  public Pathway(Builder builder) {
     /**
      * 通道 ID
-     * <p> 示例值：4692446793125560154
+     *
+     * <p>示例值：4692446793125560154
      */
-    @SerializedName("pathway_id")
-    private String pathwayId;
+    this.pathwayId = builder.pathwayId;
     /**
      * 编码
-     * <p> 示例值：A01234
+     *
+     * <p>示例值：A01234
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
-     * 启用
-     * <p> 示例值：true
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 通道 ID
+     *
+     * <p>示例值：4692446793125560154
+     */
+    private String pathwayId;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     */
+    private String code;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public Pathway() {
+    /**
+     * 通道 ID
+     *
+     * <p>示例值：4692446793125560154
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
     }
 
-    public Pathway(Builder builder) {
-        /**
-         * 通道 ID
-         * <p> 示例值：4692446793125560154
-         */
-        this.pathwayId = builder.pathwayId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public String getPathwayId() {
-        return this.pathwayId;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
+    /**
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    public Pathway build() {
+      return new Pathway(this);
     }
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 通道 ID
-         * <p> 示例值：4692446793125560154
-         */
-        private String pathwayId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * 通道 ID
-         * <p> 示例值：4692446793125560154
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public Pathway build() {
-            return new Pathway(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

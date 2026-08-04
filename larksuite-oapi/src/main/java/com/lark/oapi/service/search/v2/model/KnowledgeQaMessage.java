@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaMessage {
+  /**
+   * 消息发送者的角色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("role")
+  private Integer role;
+
+  /**
+   * 消息内容
+   *
+   * <p>示例值：content
+   */
+  @SerializedName("content")
+  private String content;
+
+  public Integer getRole() {
+    return this.role;
+  }
+
+  public void setRole(Integer role) {
+    this.role = role;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public KnowledgeQaMessage() {}
+
+  public KnowledgeQaMessage(Builder builder) {
     /**
      * 消息发送者的角色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("role")
-    private Integer role;
+    this.role = builder.role;
     /**
      * 消息内容
-     * <p> 示例值：content
+     *
+     * <p>示例值：content
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 消息发送者的角色
+     *
+     * <p>示例值：1
+     */
+    private Integer role;
+
+    /**
+     * 消息内容
+     *
+     * <p>示例值：content
+     */
     private String content;
 
-    // builder 开始
-    public KnowledgeQaMessage() {
+    /**
+     * 消息发送者的角色
+     *
+     * <p>示例值：1
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(Integer role) {
+      this.role = role;
+      return this;
     }
 
-    public KnowledgeQaMessage(Builder builder) {
-        /**
-         * 消息发送者的角色
-         * <p> 示例值：1
-         */
-        this.role = builder.role;
-        /**
-         * 消息内容
-         * <p> 示例值：content
-         */
-        this.content = builder.content;
+    /**
+     * 消息发送者的角色
+     *
+     * <p>示例值：1
+     *
+     * @param role {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaMessageRoleEnum}
+     * @return
+     */
+    public Builder role(com.lark.oapi.service.search.v2.enums.KnowledgeQaMessageRoleEnum role) {
+      this.role = role.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息内容
+     *
+     * <p>示例值：content
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Integer getRole() {
-        return this.role;
+    public KnowledgeQaMessage build() {
+      return new KnowledgeQaMessage(this);
     }
+  }
 
-    public void setRole(Integer role) {
-        this.role = role;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 消息发送者的角色
-         * <p> 示例值：1
-         */
-        private Integer role;
-        /**
-         * 消息内容
-         * <p> 示例值：content
-         */
-        private String content;
-
-        /**
-         * 消息发送者的角色
-         * <p> 示例值：1
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(Integer role) {
-            this.role = role;
-            return this;
-        }
-
-        /**
-         * 消息发送者的角色
-         * <p> 示例值：1
-         *
-         * @param role {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaMessageRoleEnum}
-         * @return
-         */
-        public Builder role(com.lark.oapi.service.search.v2.enums.KnowledgeQaMessageRoleEnum role) {
-            this.role = role.getValue();
-            return this;
-        }
-
-
-        /**
-         * 消息内容
-         * <p> 示例值：content
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public KnowledgeQaMessage build() {
-            return new KnowledgeQaMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

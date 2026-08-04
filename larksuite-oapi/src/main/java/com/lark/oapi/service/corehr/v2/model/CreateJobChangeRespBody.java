@@ -13,230 +13,262 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateJobChangeRespBody {
-    /**
-     * 异动记录 id
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
-    /**
-     * 雇员 id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 异动状态
-     * <p> 示例值：Approved
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * 异动类型
-     * <p> 示例值：direct_leader_change
-     */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因
-     * <p> 示例值：involuntary_transfer
-     */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
-    /**
-     * 异动流程 id
-     * <p> 示例值：6991776078461142564
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 生效时间
-     * <p> 示例值：2022-03-01
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 创建时间
-     * <p> 示例值：1627899724000
-     */
-    @SerializedName("created_time")
-    private String createdTime;
-    /**
-     * 异动详细信息
-     * <p> 示例值：
-     */
-    @SerializedName("transfer_info")
-    private TransferInfo transferInfo;
-    /**
-     * 是否调整薪酬
-     * <p> 示例值：true
-     */
-    @SerializedName("is_adjust_salary")
-    private Boolean isAdjustSalary;
-    /**
-     * 异动自定义字段
-     * <p> 示例值：
-     */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
-    /**
-     * 异动变更内容
-     * <p> 示例值：
-     */
-    @SerializedName("details_of_job_status_change")
-    private String[] detailsOfJobStatusChange;
-    /**
-     * 人员名称
-     * <p> 示例值：
-     */
-    @SerializedName("employment_name")
-    private EmploymentLookupName employmentName;
-    /**
-     * 异常状态
-     * <p> 示例值："pending"
-     */
-    @SerializedName("exception_status")
-    private String exceptionStatus;
-    /**
-     * 无权限字段
-     * <p> 示例值：
-     */
-    @SerializedName("no_permission_fields")
-    private String[] noPermissionFields;
+  /**
+   * 异动记录 id
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  /**
+   * 雇员 id
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  /**
+   * 异动状态
+   *
+   * <p>示例值：Approved
+   */
+  @SerializedName("status")
+  private String status;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 异动类型
+   *
+   * <p>示例值：direct_leader_change
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 异动原因
+   *
+   * <p>示例值：involuntary_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
 
-    public String getStatus() {
-        return this.status;
-    }
+  /**
+   * 异动流程 id
+   *
+   * <p>示例值：6991776078461142564
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1627899724000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
+  /**
+   * 异动详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transfer_info")
+  private TransferInfo transferInfo;
 
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
+  /**
+   * 是否调整薪酬
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_adjust_salary")
+  private Boolean isAdjustSalary;
 
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
+  /**
+   * 异动自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 异动变更内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details_of_job_status_change")
+  private String[] detailsOfJobStatusChange;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 人员名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_name")
+  private EmploymentLookupName employmentName;
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  /**
+   * 异常状态
+   *
+   * <p>示例值："pending"
+   */
+  @SerializedName("exception_status")
+  private String exceptionStatus;
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  /**
+   * 无权限字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("no_permission_fields")
+  private String[] noPermissionFields;
 
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
+  /**
+   * 审批节点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approval_nodes")
+  private ColumnApprovalNode[] approvalNodes;
 
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
 
-    public TransferInfo getTransferInfo() {
-        return this.transferInfo;
-    }
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 
-    public void setTransferInfo(TransferInfo transferInfo) {
-        this.transferInfo = transferInfo;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public Boolean getIsAdjustSalary() {
-        return this.isAdjustSalary;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public void setIsAdjustSalary(Boolean isAdjustSalary) {
-        this.isAdjustSalary = isAdjustSalary;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
 
-    public String[] getDetailsOfJobStatusChange() {
-        return this.detailsOfJobStatusChange;
-    }
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
 
-    public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
-        this.detailsOfJobStatusChange = detailsOfJobStatusChange;
-    }
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
 
-    public EmploymentLookupName getEmploymentName() {
-        return this.employmentName;
-    }
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
 
-    public void setEmploymentName(EmploymentLookupName employmentName) {
-        this.employmentName = employmentName;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public String getExceptionStatus() {
-        return this.exceptionStatus;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public void setExceptionStatus(String exceptionStatus) {
-        this.exceptionStatus = exceptionStatus;
-    }
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
 
-    public String[] getNoPermissionFields() {
-        return this.noPermissionFields;
-    }
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
 
-    public void setNoPermissionFields(String[] noPermissionFields) {
-        this.noPermissionFields = noPermissionFields;
-    }
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
 
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public TransferInfo getTransferInfo() {
+    return this.transferInfo;
+  }
+
+  public void setTransferInfo(TransferInfo transferInfo) {
+    this.transferInfo = transferInfo;
+  }
+
+  public Boolean getIsAdjustSalary() {
+    return this.isAdjustSalary;
+  }
+
+  public void setIsAdjustSalary(Boolean isAdjustSalary) {
+    this.isAdjustSalary = isAdjustSalary;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String[] getDetailsOfJobStatusChange() {
+    return this.detailsOfJobStatusChange;
+  }
+
+  public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+    this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+  }
+
+  public EmploymentLookupName getEmploymentName() {
+    return this.employmentName;
+  }
+
+  public void setEmploymentName(EmploymentLookupName employmentName) {
+    this.employmentName = employmentName;
+  }
+
+  public String getExceptionStatus() {
+    return this.exceptionStatus;
+  }
+
+  public void setExceptionStatus(String exceptionStatus) {
+    this.exceptionStatus = exceptionStatus;
+  }
+
+  public String[] getNoPermissionFields() {
+    return this.noPermissionFields;
+  }
+
+  public void setNoPermissionFields(String[] noPermissionFields) {
+    this.noPermissionFields = noPermissionFields;
+  }
+
+  public ColumnApprovalNode[] getApprovalNodes() {
+    return this.approvalNodes;
+  }
+
+  public void setApprovalNodes(ColumnApprovalNode[] approvalNodes) {
+    this.approvalNodes = approvalNodes;
+  }
 }

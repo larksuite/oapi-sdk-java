@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarUnderstandExtra {
+  /**
+   * ai任务唯一标识
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("ai_task_id")
+  private String aiTaskId;
+
+  /**
+   * 日程uid
+   *
+   * <p>示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
+   */
+  @SerializedName("event_uid")
+  private String eventUid;
+
+  /**
+   * 日程origin_time
+   *
+   * <p>示例值：1695355200
+   */
+  @SerializedName("origin_time")
+  private String originTime;
+
+  public String getAiTaskId() {
+    return this.aiTaskId;
+  }
+
+  public void setAiTaskId(String aiTaskId) {
+    this.aiTaskId = aiTaskId;
+  }
+
+  public String getEventUid() {
+    return this.eventUid;
+  }
+
+  public void setEventUid(String eventUid) {
+    this.eventUid = eventUid;
+  }
+
+  public String getOriginTime() {
+    return this.originTime;
+  }
+
+  public void setOriginTime(String originTime) {
+    this.originTime = originTime;
+  }
+
+  // builder 开始
+  public CalendarUnderstandExtra() {}
+
+  public CalendarUnderstandExtra(Builder builder) {
     /**
      * ai任务唯一标识
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("ai_task_id")
-    private String aiTaskId;
+    this.aiTaskId = builder.aiTaskId;
     /**
      * 日程uid
-     * <p> 示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
+     *
+     * <p>示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
      */
-    @SerializedName("event_uid")
-    private String eventUid;
+    this.eventUid = builder.eventUid;
     /**
      * 日程origin_time
-     * <p> 示例值：1695355200
+     *
+     * <p>示例值：1695355200
      */
-    @SerializedName("origin_time")
+    this.originTime = builder.originTime;
+  }
+
+  public static class Builder {
+    /**
+     * ai任务唯一标识
+     *
+     * <p>示例值：none
+     */
+    private String aiTaskId;
+
+    /**
+     * 日程uid
+     *
+     * <p>示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
+     */
+    private String eventUid;
+
+    /**
+     * 日程origin_time
+     *
+     * <p>示例值：1695355200
+     */
     private String originTime;
 
-    // builder 开始
-    public CalendarUnderstandExtra() {
+    /**
+     * ai任务唯一标识
+     *
+     * <p>示例值：none
+     *
+     * @param aiTaskId
+     * @return
+     */
+    public Builder aiTaskId(String aiTaskId) {
+      this.aiTaskId = aiTaskId;
+      return this;
     }
 
-    public CalendarUnderstandExtra(Builder builder) {
-        /**
-         * ai任务唯一标识
-         * <p> 示例值：none
-         */
-        this.aiTaskId = builder.aiTaskId;
-        /**
-         * 日程uid
-         * <p> 示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
-         */
-        this.eventUid = builder.eventUid;
-        /**
-         * 日程origin_time
-         * <p> 示例值：1695355200
-         */
-        this.originTime = builder.originTime;
+    /**
+     * 日程uid
+     *
+     * <p>示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
+     *
+     * @param eventUid
+     * @return
+     */
+    public Builder eventUid(String eventUid) {
+      this.eventUid = eventUid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程origin_time
+     *
+     * <p>示例值：1695355200
+     *
+     * @param originTime
+     * @return
+     */
+    public Builder originTime(String originTime) {
+      this.originTime = originTime;
+      return this;
     }
 
-    public String getAiTaskId() {
-        return this.aiTaskId;
+    public CalendarUnderstandExtra build() {
+      return new CalendarUnderstandExtra(this);
     }
+  }
 
-    public void setAiTaskId(String aiTaskId) {
-        this.aiTaskId = aiTaskId;
-    }
-
-    public String getEventUid() {
-        return this.eventUid;
-    }
-
-    public void setEventUid(String eventUid) {
-        this.eventUid = eventUid;
-    }
-
-    public String getOriginTime() {
-        return this.originTime;
-    }
-
-    public void setOriginTime(String originTime) {
-        this.originTime = originTime;
-    }
-
-    public static class Builder {
-        /**
-         * ai任务唯一标识
-         * <p> 示例值：none
-         */
-        private String aiTaskId;
-        /**
-         * 日程uid
-         * <p> 示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
-         */
-        private String eventUid;
-        /**
-         * 日程origin_time
-         * <p> 示例值：1695355200
-         */
-        private String originTime;
-
-        /**
-         * ai任务唯一标识
-         * <p> 示例值：none
-         *
-         * @param aiTaskId
-         * @return
-         */
-        public Builder aiTaskId(String aiTaskId) {
-            this.aiTaskId = aiTaskId;
-            return this;
-        }
-
-
-        /**
-         * 日程uid
-         * <p> 示例值：b60bbd53-a52c-45a5-940a-1987de6a000f
-         *
-         * @param eventUid
-         * @return
-         */
-        public Builder eventUid(String eventUid) {
-            this.eventUid = eventUid;
-            return this;
-        }
-
-
-        /**
-         * 日程origin_time
-         * <p> 示例值：1695355200
-         *
-         * @param originTime
-         * @return
-         */
-        public Builder originTime(String originTime) {
-            this.originTime = originTime;
-            return this;
-        }
-
-
-        public CalendarUnderstandExtra build() {
-            return new CalendarUnderstandExtra(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

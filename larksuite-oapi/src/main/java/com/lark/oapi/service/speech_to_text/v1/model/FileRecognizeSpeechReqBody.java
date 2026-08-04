@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.speech_to_text.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileRecognizeSpeechReqBody {
+  /**
+   * 语音资源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("speech")
+  private Speech speech;
+
+  /**
+   * 配置属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("config")
+  private FileConfig config;
+
+  public Speech getSpeech() {
+    return this.speech;
+  }
+
+  public void setSpeech(Speech speech) {
+    this.speech = speech;
+  }
+
+  public FileConfig getConfig() {
+    return this.config;
+  }
+
+  public void setConfig(FileConfig config) {
+    this.config = config;
+  }
+
+  // builder 开始
+  public FileRecognizeSpeechReqBody() {}
+
+  public FileRecognizeSpeechReqBody(Builder builder) {
     /**
      * 语音资源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("speech")
-    private Speech speech;
+    this.speech = builder.speech;
     /**
      * 配置属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("config")
+    this.config = builder.config;
+  }
+
+  public static class Builder {
+    /**
+     * 语音资源
+     *
+     * <p>示例值：
+     */
+    private Speech speech;
+
+    /**
+     * 配置属性
+     *
+     * <p>示例值：
+     */
     private FileConfig config;
 
-    // builder 开始
-    public FileRecognizeSpeechReqBody() {
+    /**
+     * 语音资源
+     *
+     * <p>示例值：
+     *
+     * @param speech
+     * @return
+     */
+    public Builder speech(Speech speech) {
+      this.speech = speech;
+      return this;
     }
 
-    public FileRecognizeSpeechReqBody(Builder builder) {
-        /**
-         * 语音资源
-         * <p> 示例值：
-         */
-        this.speech = builder.speech;
-        /**
-         * 配置属性
-         * <p> 示例值：
-         */
-        this.config = builder.config;
+    /**
+     * 配置属性
+     *
+     * <p>示例值：
+     *
+     * @param config
+     * @return
+     */
+    public Builder config(FileConfig config) {
+      this.config = config;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FileRecognizeSpeechReqBody build() {
+      return new FileRecognizeSpeechReqBody(this);
     }
+  }
 
-    public Speech getSpeech() {
-        return this.speech;
-    }
-
-    public void setSpeech(Speech speech) {
-        this.speech = speech;
-    }
-
-    public FileConfig getConfig() {
-        return this.config;
-    }
-
-    public void setConfig(FileConfig config) {
-        this.config = config;
-    }
-
-    public static class Builder {
-        /**
-         * 语音资源
-         * <p> 示例值：
-         */
-        private Speech speech;
-        /**
-         * 配置属性
-         * <p> 示例值：
-         */
-        private FileConfig config;
-
-        /**
-         * 语音资源
-         * <p> 示例值：
-         *
-         * @param speech
-         * @return
-         */
-        public Builder speech(Speech speech) {
-            this.speech = speech;
-            return this;
-        }
-
-
-        /**
-         * 配置属性
-         * <p> 示例值：
-         *
-         * @param config
-         * @return
-         */
-        public Builder config(FileConfig config) {
-            this.config = config;
-            return this;
-        }
-
-
-        public FileRecognizeSpeechReqBody build() {
-            return new FileRecognizeSpeechReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

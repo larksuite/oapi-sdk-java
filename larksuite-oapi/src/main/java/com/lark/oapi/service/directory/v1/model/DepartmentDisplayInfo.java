@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentDisplayInfo {
+  /**
+   * profile类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("profile_node_path_type")
+  private Integer profileNodePathType;
+
+  /**
+   * 会话页类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chatter_node_path_type")
+  private Integer chatterNodePathType;
+
+  public Integer getProfileNodePathType() {
+    return this.profileNodePathType;
+  }
+
+  public void setProfileNodePathType(Integer profileNodePathType) {
+    this.profileNodePathType = profileNodePathType;
+  }
+
+  public Integer getChatterNodePathType() {
+    return this.chatterNodePathType;
+  }
+
+  public void setChatterNodePathType(Integer chatterNodePathType) {
+    this.chatterNodePathType = chatterNodePathType;
+  }
+
+  // builder 开始
+  public DepartmentDisplayInfo() {}
+
+  public DepartmentDisplayInfo(Builder builder) {
     /**
      * profile类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("profile_node_path_type")
-    private Integer profileNodePathType;
+    this.profileNodePathType = builder.profileNodePathType;
     /**
      * 会话页类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chatter_node_path_type")
+    this.chatterNodePathType = builder.chatterNodePathType;
+  }
+
+  public static class Builder {
+    /**
+     * profile类型
+     *
+     * <p>示例值：
+     */
+    private Integer profileNodePathType;
+
+    /**
+     * 会话页类型
+     *
+     * <p>示例值：
+     */
     private Integer chatterNodePathType;
 
-    // builder 开始
-    public DepartmentDisplayInfo() {
+    /**
+     * profile类型
+     *
+     * <p>示例值：
+     *
+     * @param profileNodePathType
+     * @return
+     */
+    public Builder profileNodePathType(Integer profileNodePathType) {
+      this.profileNodePathType = profileNodePathType;
+      return this;
     }
 
-    public DepartmentDisplayInfo(Builder builder) {
-        /**
-         * profile类型
-         * <p> 示例值：
-         */
-        this.profileNodePathType = builder.profileNodePathType;
-        /**
-         * 会话页类型
-         * <p> 示例值：
-         */
-        this.chatterNodePathType = builder.chatterNodePathType;
+    /**
+     * 会话页类型
+     *
+     * <p>示例值：
+     *
+     * @param chatterNodePathType
+     * @return
+     */
+    public Builder chatterNodePathType(Integer chatterNodePathType) {
+      this.chatterNodePathType = chatterNodePathType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DepartmentDisplayInfo build() {
+      return new DepartmentDisplayInfo(this);
     }
+  }
 
-    public Integer getProfileNodePathType() {
-        return this.profileNodePathType;
-    }
-
-    public void setProfileNodePathType(Integer profileNodePathType) {
-        this.profileNodePathType = profileNodePathType;
-    }
-
-    public Integer getChatterNodePathType() {
-        return this.chatterNodePathType;
-    }
-
-    public void setChatterNodePathType(Integer chatterNodePathType) {
-        this.chatterNodePathType = chatterNodePathType;
-    }
-
-    public static class Builder {
-        /**
-         * profile类型
-         * <p> 示例值：
-         */
-        private Integer profileNodePathType;
-        /**
-         * 会话页类型
-         * <p> 示例值：
-         */
-        private Integer chatterNodePathType;
-
-        /**
-         * profile类型
-         * <p> 示例值：
-         *
-         * @param profileNodePathType
-         * @return
-         */
-        public Builder profileNodePathType(Integer profileNodePathType) {
-            this.profileNodePathType = profileNodePathType;
-            return this;
-        }
-
-
-        /**
-         * 会话页类型
-         * <p> 示例值：
-         *
-         * @param chatterNodePathType
-         * @return
-         */
-        public Builder chatterNodePathType(Integer chatterNodePathType) {
-            this.chatterNodePathType = chatterNodePathType;
-            return this;
-        }
-
-
-        public DepartmentDisplayInfo build() {
-            return new DepartmentDisplayInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,371 +13,403 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmploymentInfo {
+  /**
+   * 基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("basic_info")
+  private ProfileSettingEmploymentBasicInfo basicInfo;
+
+  /**
+   * 试用期信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("probation_info")
+  private ProfileSettingProbationInfo probationInfo;
+
+  /**
+   * 任职记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_record")
+  private ProfileSettingEmploymentRecord employmentRecord;
+
+  /**
+   * 合同记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("emp_contract_record")
+  private ProfileSettingEmpContractRecord empContractRecord;
+
+  /**
+   * 自定义分组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_groups")
+  private ProfileSettingCustomGroup[] customGroups;
+
+  /**
+   * 自定义组织记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_org_groups")
+  private JobDataCustomOrg[] customOrgGroups;
+
+  /**
+   * 司龄调整信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("seniority_adjust_informations")
+  private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+
+  /**
+   * 默认成本中心
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_cost_center")
+  private DefaultCostCenterRecord defaultCostCenter;
+
+  /**
+   * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocation")
+  private CostAllocation costAllocation;
+
+  public ProfileSettingEmploymentBasicInfo getBasicInfo() {
+    return this.basicInfo;
+  }
+
+  public void setBasicInfo(ProfileSettingEmploymentBasicInfo basicInfo) {
+    this.basicInfo = basicInfo;
+  }
+
+  public ProfileSettingProbationInfo getProbationInfo() {
+    return this.probationInfo;
+  }
+
+  public void setProbationInfo(ProfileSettingProbationInfo probationInfo) {
+    this.probationInfo = probationInfo;
+  }
+
+  public ProfileSettingEmploymentRecord getEmploymentRecord() {
+    return this.employmentRecord;
+  }
+
+  public void setEmploymentRecord(ProfileSettingEmploymentRecord employmentRecord) {
+    this.employmentRecord = employmentRecord;
+  }
+
+  public ProfileSettingEmpContractRecord getEmpContractRecord() {
+    return this.empContractRecord;
+  }
+
+  public void setEmpContractRecord(ProfileSettingEmpContractRecord empContractRecord) {
+    this.empContractRecord = empContractRecord;
+  }
+
+  public ProfileSettingCustomGroup[] getCustomGroups() {
+    return this.customGroups;
+  }
+
+  public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
+    this.customGroups = customGroups;
+  }
+
+  public JobDataCustomOrg[] getCustomOrgGroups() {
+    return this.customOrgGroups;
+  }
+
+  public void setCustomOrgGroups(JobDataCustomOrg[] customOrgGroups) {
+    this.customOrgGroups = customOrgGroups;
+  }
+
+  public SeniorityAdjustInformationEdit[] getSeniorityAdjustInformations() {
+    return this.seniorityAdjustInformations;
+  }
+
+  public void setSeniorityAdjustInformations(
+      SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
+    this.seniorityAdjustInformations = seniorityAdjustInformations;
+  }
+
+  public DefaultCostCenterRecord getDefaultCostCenter() {
+    return this.defaultCostCenter;
+  }
+
+  public void setDefaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
+    this.defaultCostCenter = defaultCostCenter;
+  }
+
+  public CostAllocation getCostAllocation() {
+    return this.costAllocation;
+  }
+
+  public void setCostAllocation(CostAllocation costAllocation) {
+    this.costAllocation = costAllocation;
+  }
+
+  // builder 开始
+  public ProfileSettingEmploymentInfo() {}
+
+  public ProfileSettingEmploymentInfo(Builder builder) {
     /**
      * 基本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("basic_info")
-    private ProfileSettingEmploymentBasicInfo basicInfo;
+    this.basicInfo = builder.basicInfo;
     /**
      * 试用期信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("probation_info")
-    private ProfileSettingProbationInfo probationInfo;
+    this.probationInfo = builder.probationInfo;
     /**
      * 任职记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_record")
-    private ProfileSettingEmploymentRecord employmentRecord;
+    this.employmentRecord = builder.employmentRecord;
     /**
      * 合同记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("emp_contract_record")
-    private ProfileSettingEmpContractRecord empContractRecord;
+    this.empContractRecord = builder.empContractRecord;
     /**
      * 自定义分组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_groups")
-    private ProfileSettingCustomGroup[] customGroups;
+    this.customGroups = builder.customGroups;
     /**
      * 自定义组织记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_org_groups")
-    private JobDataCustomOrg[] customOrgGroups;
+    this.customOrgGroups = builder.customOrgGroups;
     /**
      * 司龄调整信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("seniority_adjust_informations")
-    private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+    this.seniorityAdjustInformations = builder.seniorityAdjustInformations;
     /**
      * 默认成本中心
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_cost_center")
-    private DefaultCostCenterRecord defaultCostCenter;
+    this.defaultCostCenter = builder.defaultCostCenter;
     /**
-     * 成本分摊
-     * <p> 示例值：
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_allocation")
+    this.costAllocation = builder.costAllocation;
+  }
+
+  public static class Builder {
+    /**
+     * 基本信息
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingEmploymentBasicInfo basicInfo;
+
+    /**
+     * 试用期信息
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingProbationInfo probationInfo;
+
+    /**
+     * 任职记录
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingEmploymentRecord employmentRecord;
+
+    /**
+     * 合同记录
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingEmpContractRecord empContractRecord;
+
+    /**
+     * 自定义分组
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingCustomGroup[] customGroups;
+
+    /**
+     * 自定义组织记录
+     *
+     * <p>示例值：
+     */
+    private JobDataCustomOrg[] customOrgGroups;
+
+    /**
+     * 司龄调整信息
+     *
+     * <p>示例值：
+     */
+    private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
+
+    /**
+     * 默认成本中心
+     *
+     * <p>示例值：
+     */
+    private DefaultCostCenterRecord defaultCostCenter;
+
+    /**
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
     private CostAllocation costAllocation;
 
-    // builder 开始
-    public ProfileSettingEmploymentInfo() {
+    /**
+     * 基本信息
+     *
+     * <p>示例值：
+     *
+     * @param basicInfo
+     * @return
+     */
+    public Builder basicInfo(ProfileSettingEmploymentBasicInfo basicInfo) {
+      this.basicInfo = basicInfo;
+      return this;
     }
 
-    public ProfileSettingEmploymentInfo(Builder builder) {
-        /**
-         * 基本信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
-        this.probationInfo = builder.probationInfo;
-        /**
-         * 任职记录
-         * <p> 示例值：
-         */
-        this.employmentRecord = builder.employmentRecord;
-        /**
-         * 合同记录
-         * <p> 示例值：
-         */
-        this.empContractRecord = builder.empContractRecord;
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         */
-        this.customGroups = builder.customGroups;
-        /**
-         * 自定义组织记录
-         * <p> 示例值：
-         */
-        this.customOrgGroups = builder.customOrgGroups;
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         */
-        this.seniorityAdjustInformations = builder.seniorityAdjustInformations;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        this.defaultCostCenter = builder.defaultCostCenter;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        this.costAllocation = builder.costAllocation;
+    /**
+     * 试用期信息
+     *
+     * <p>示例值：
+     *
+     * @param probationInfo
+     * @return
+     */
+    public Builder probationInfo(ProfileSettingProbationInfo probationInfo) {
+      this.probationInfo = probationInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任职记录
+     *
+     * <p>示例值：
+     *
+     * @param employmentRecord
+     * @return
+     */
+    public Builder employmentRecord(ProfileSettingEmploymentRecord employmentRecord) {
+      this.employmentRecord = employmentRecord;
+      return this;
     }
 
-    public ProfileSettingEmploymentBasicInfo getBasicInfo() {
-        return this.basicInfo;
+    /**
+     * 合同记录
+     *
+     * <p>示例值：
+     *
+     * @param empContractRecord
+     * @return
+     */
+    public Builder empContractRecord(ProfileSettingEmpContractRecord empContractRecord) {
+      this.empContractRecord = empContractRecord;
+      return this;
     }
 
-    public void setBasicInfo(ProfileSettingEmploymentBasicInfo basicInfo) {
-        this.basicInfo = basicInfo;
+    /**
+     * 自定义分组
+     *
+     * <p>示例值：
+     *
+     * @param customGroups
+     * @return
+     */
+    public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
+      this.customGroups = customGroups;
+      return this;
     }
 
-    public ProfileSettingProbationInfo getProbationInfo() {
-        return this.probationInfo;
+    /**
+     * 自定义组织记录
+     *
+     * <p>示例值：
+     *
+     * @param customOrgGroups
+     * @return
+     */
+    public Builder customOrgGroups(JobDataCustomOrg[] customOrgGroups) {
+      this.customOrgGroups = customOrgGroups;
+      return this;
     }
 
-    public void setProbationInfo(ProfileSettingProbationInfo probationInfo) {
-        this.probationInfo = probationInfo;
+    /**
+     * 司龄调整信息
+     *
+     * <p>示例值：
+     *
+     * @param seniorityAdjustInformations
+     * @return
+     */
+    public Builder seniorityAdjustInformations(
+        SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
+      this.seniorityAdjustInformations = seniorityAdjustInformations;
+      return this;
     }
 
-    public ProfileSettingEmploymentRecord getEmploymentRecord() {
-        return this.employmentRecord;
+    /**
+     * 默认成本中心
+     *
+     * <p>示例值：
+     *
+     * @param defaultCostCenter
+     * @return
+     */
+    public Builder defaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
+      this.defaultCostCenter = defaultCostCenter;
+      return this;
     }
 
-    public void setEmploymentRecord(ProfileSettingEmploymentRecord employmentRecord) {
-        this.employmentRecord = employmentRecord;
+    /**
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param costAllocation
+     * @return
+     */
+    public Builder costAllocation(CostAllocation costAllocation) {
+      this.costAllocation = costAllocation;
+      return this;
     }
 
-    public ProfileSettingEmpContractRecord getEmpContractRecord() {
-        return this.empContractRecord;
+    public ProfileSettingEmploymentInfo build() {
+      return new ProfileSettingEmploymentInfo(this);
     }
+  }
 
-    public void setEmpContractRecord(ProfileSettingEmpContractRecord empContractRecord) {
-        this.empContractRecord = empContractRecord;
-    }
-
-    public ProfileSettingCustomGroup[] getCustomGroups() {
-        return this.customGroups;
-    }
-
-    public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
-        this.customGroups = customGroups;
-    }
-
-    public JobDataCustomOrg[] getCustomOrgGroups() {
-        return this.customOrgGroups;
-    }
-
-    public void setCustomOrgGroups(JobDataCustomOrg[] customOrgGroups) {
-        this.customOrgGroups = customOrgGroups;
-    }
-
-    public SeniorityAdjustInformationEdit[] getSeniorityAdjustInformations() {
-        return this.seniorityAdjustInformations;
-    }
-
-    public void setSeniorityAdjustInformations(SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
-        this.seniorityAdjustInformations = seniorityAdjustInformations;
-    }
-
-    public DefaultCostCenterRecord getDefaultCostCenter() {
-        return this.defaultCostCenter;
-    }
-
-    public void setDefaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
-        this.defaultCostCenter = defaultCostCenter;
-    }
-
-    public CostAllocation getCostAllocation() {
-        return this.costAllocation;
-    }
-
-    public void setCostAllocation(CostAllocation costAllocation) {
-        this.costAllocation = costAllocation;
-    }
-
-    public static class Builder {
-        /**
-         * 基本信息
-         * <p> 示例值：
-         */
-        private ProfileSettingEmploymentBasicInfo basicInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
-        private ProfileSettingProbationInfo probationInfo;
-        /**
-         * 任职记录
-         * <p> 示例值：
-         */
-        private ProfileSettingEmploymentRecord employmentRecord;
-        /**
-         * 合同记录
-         * <p> 示例值：
-         */
-        private ProfileSettingEmpContractRecord empContractRecord;
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomGroup[] customGroups;
-        /**
-         * 自定义组织记录
-         * <p> 示例值：
-         */
-        private JobDataCustomOrg[] customOrgGroups;
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         */
-        private SeniorityAdjustInformationEdit[] seniorityAdjustInformations;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        private DefaultCostCenterRecord defaultCostCenter;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        private CostAllocation costAllocation;
-
-        /**
-         * 基本信息
-         * <p> 示例值：
-         *
-         * @param basicInfo
-         * @return
-         */
-        public Builder basicInfo(ProfileSettingEmploymentBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
-        }
-
-
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         *
-         * @param probationInfo
-         * @return
-         */
-        public Builder probationInfo(ProfileSettingProbationInfo probationInfo) {
-            this.probationInfo = probationInfo;
-            return this;
-        }
-
-
-        /**
-         * 任职记录
-         * <p> 示例值：
-         *
-         * @param employmentRecord
-         * @return
-         */
-        public Builder employmentRecord(ProfileSettingEmploymentRecord employmentRecord) {
-            this.employmentRecord = employmentRecord;
-            return this;
-        }
-
-
-        /**
-         * 合同记录
-         * <p> 示例值：
-         *
-         * @param empContractRecord
-         * @return
-         */
-        public Builder empContractRecord(ProfileSettingEmpContractRecord empContractRecord) {
-            this.empContractRecord = empContractRecord;
-            return this;
-        }
-
-
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         *
-         * @param customGroups
-         * @return
-         */
-        public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
-            this.customGroups = customGroups;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织记录
-         * <p> 示例值：
-         *
-         * @param customOrgGroups
-         * @return
-         */
-        public Builder customOrgGroups(JobDataCustomOrg[] customOrgGroups) {
-            this.customOrgGroups = customOrgGroups;
-            return this;
-        }
-
-
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         *
-         * @param seniorityAdjustInformations
-         * @return
-         */
-        public Builder seniorityAdjustInformations(SeniorityAdjustInformationEdit[] seniorityAdjustInformations) {
-            this.seniorityAdjustInformations = seniorityAdjustInformations;
-            return this;
-        }
-
-
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         *
-         * @param defaultCostCenter
-         * @return
-         */
-        public Builder defaultCostCenter(DefaultCostCenterRecord defaultCostCenter) {
-            this.defaultCostCenter = defaultCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         *
-         * @param costAllocation
-         * @return
-         */
-        public Builder costAllocation(CostAllocation costAllocation) {
-            this.costAllocation = costAllocation;
-            return this;
-        }
-
-
-        public ProfileSettingEmploymentInfo build() {
-            return new ProfileSettingEmploymentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

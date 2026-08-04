@@ -13,408 +13,447 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GwRequest {
+  /**
+   * 域名
+   *
+   * <p>示例值：bytedance.feishu.net
+   */
+  @SerializedName("host")
+  private String host;
+
+  /**
+   * 请求路径
+   *
+   * <p>示例值：/space/api/msg_box/get_version
+   */
+  @SerializedName("path")
+  private String path;
+
+  /**
+   * 路径中的参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("path_params")
+  private Param[] pathParams;
+
+  /**
+   * 请求经网关解析后的query参数
+   *
+   * <p>示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 请求方法
+   *
+   * <p>示例值：GET
+   */
+  @SerializedName("method")
+  private String method;
+
+  /**
+   * 访问用户代理字段
+   *
+   * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)
+   * Chrome/116.0.0.0 Safari/537.36
+   */
+  @SerializedName("user_agent")
+  private String userAgent;
+
+  /**
+   * 来源页面地址
+   *
+   * <p>示例值：fdbd:ff1:ce00:8028::1969
+   */
+  @SerializedName("client_ip")
+  private String clientIp;
+
+  /**
+   * referer防盗链
+   *
+   * <p>示例值：https://bytedance.feishu.net/base/\u003cencryptToken\u003efca1cedc51312006579dc0740b4e5f5e6dd827c4?table=tblVVSlwxw9DwKcF\u0026view=vew9YX1Jv5
+   */
+  @SerializedName("referer")
+  private String referer;
+
+  /**
+   * 来源页面域名
+   *
+   * <p>示例值：https://bytedance.feishu.net
+   */
+  @SerializedName("origin")
+  private String origin;
+
+  /**
+   * 请求头
+   *
+   * <p>示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
+   */
+  @SerializedName("header")
+  private String header;
+
+  public String getHost() {
+    return this.host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
+  public String getPath() {
+    return this.path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  public Param[] getPathParams() {
+    return this.pathParams;
+  }
+
+  public void setPathParams(Param[] pathParams) {
+    this.pathParams = pathParams;
+  }
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public String getMethod() {
+    return this.method;
+  }
+
+  public void setMethod(String method) {
+    this.method = method;
+  }
+
+  public String getUserAgent() {
+    return this.userAgent;
+  }
+
+  public void setUserAgent(String userAgent) {
+    this.userAgent = userAgent;
+  }
+
+  public String getClientIp() {
+    return this.clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
+  }
+
+  public String getReferer() {
+    return this.referer;
+  }
+
+  public void setReferer(String referer) {
+    this.referer = referer;
+  }
+
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  public void setOrigin(String origin) {
+    this.origin = origin;
+  }
+
+  public String getHeader() {
+    return this.header;
+  }
+
+  public void setHeader(String header) {
+    this.header = header;
+  }
+
+  // builder 开始
+  public GwRequest() {}
+
+  public GwRequest(Builder builder) {
     /**
      * 域名
-     * <p> 示例值：bytedance.feishu.net
+     *
+     * <p>示例值：bytedance.feishu.net
      */
-    @SerializedName("host")
-    private String host;
+    this.host = builder.host;
     /**
      * 请求路径
-     * <p> 示例值：/space/api/msg_box/get_version
+     *
+     * <p>示例值：/space/api/msg_box/get_version
      */
-    @SerializedName("path")
-    private String path;
+    this.path = builder.path;
     /**
      * 路径中的参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("path_params")
-    private Param[] pathParams;
+    this.pathParams = builder.pathParams;
     /**
      * 请求经网关解析后的query参数
-     * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
+     *
+     * <p>示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
      * 请求方法
-     * <p> 示例值：GET
+     *
+     * <p>示例值：GET
      */
-    @SerializedName("method")
-    private String method;
+    this.method = builder.method;
     /**
      * 访问用户代理字段
-     * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/116.0.0.0 Safari/537.36
      */
-    @SerializedName("user_agent")
-    private String userAgent;
+    this.userAgent = builder.userAgent;
     /**
      * 来源页面地址
-     * <p> 示例值：fdbd:ff1:ce00:8028::1969
+     *
+     * <p>示例值：fdbd:ff1:ce00:8028::1969
      */
-    @SerializedName("client_ip")
-    private String clientIp;
+    this.clientIp = builder.clientIp;
     /**
      * referer防盗链
-     * <p> 示例值：https://bytedance.feishu.net/docx/<encryptToken>45c200080eea138771be507263e4c9930939c279?v=1.0.11.8737&vdx=1.0.9.4444
+     *
+     * <p>示例值：https://bytedance.feishu.net/base/\u003cencryptToken\u003efca1cedc51312006579dc0740b4e5f5e6dd827c4?table=tblVVSlwxw9DwKcF\u0026view=vew9YX1Jv5
      */
-    @SerializedName("referer")
-    private String referer;
+    this.referer = builder.referer;
     /**
      * 来源页面域名
-     * <p> 示例值：https://bytedance.feishu.net
+     *
+     * <p>示例值：https://bytedance.feishu.net
      */
-    @SerializedName("origin")
-    private String origin;
+    this.origin = builder.origin;
     /**
      * 请求头
-     * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
+     *
+     * <p>示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
      */
-    @SerializedName("header")
+    this.header = builder.header;
+  }
+
+  public static class Builder {
+    /**
+     * 域名
+     *
+     * <p>示例值：bytedance.feishu.net
+     */
+    private String host;
+
+    /**
+     * 请求路径
+     *
+     * <p>示例值：/space/api/msg_box/get_version
+     */
+    private String path;
+
+    /**
+     * 路径中的参数
+     *
+     * <p>示例值：
+     */
+    private Param[] pathParams;
+
+    /**
+     * 请求经网关解析后的query参数
+     *
+     * <p>示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
+     */
+    private String query;
+
+    /**
+     * 请求方法
+     *
+     * <p>示例值：GET
+     */
+    private String method;
+
+    /**
+     * 访问用户代理字段
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/116.0.0.0 Safari/537.36
+     */
+    private String userAgent;
+
+    /**
+     * 来源页面地址
+     *
+     * <p>示例值：fdbd:ff1:ce00:8028::1969
+     */
+    private String clientIp;
+
+    /**
+     * referer防盗链
+     *
+     * <p>示例值：https://bytedance.feishu.net/base/\u003cencryptToken\u003efca1cedc51312006579dc0740b4e5f5e6dd827c4?table=tblVVSlwxw9DwKcF\u0026view=vew9YX1Jv5
+     */
+    private String referer;
+
+    /**
+     * 来源页面域名
+     *
+     * <p>示例值：https://bytedance.feishu.net
+     */
+    private String origin;
+
+    /**
+     * 请求头
+     *
+     * <p>示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
+     */
     private String header;
 
-    // builder 开始
-    public GwRequest() {
+    /**
+     * 域名
+     *
+     * <p>示例值：bytedance.feishu.net
+     *
+     * @param host
+     * @return
+     */
+    public Builder host(String host) {
+      this.host = host;
+      return this;
     }
 
-    public GwRequest(Builder builder) {
-        /**
-         * 域名
-         * <p> 示例值：bytedance.feishu.net
-         */
-        this.host = builder.host;
-        /**
-         * 请求路径
-         * <p> 示例值：/space/api/msg_box/get_version
-         */
-        this.path = builder.path;
-        /**
-         * 路径中的参数
-         * <p> 示例值：
-         */
-        this.pathParams = builder.pathParams;
-        /**
-         * 请求经网关解析后的query参数
-         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
-         */
-        this.query = builder.query;
-        /**
-         * 请求方法
-         * <p> 示例值：GET
-         */
-        this.method = builder.method;
-        /**
-         * 访问用户代理字段
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
-         */
-        this.userAgent = builder.userAgent;
-        /**
-         * 来源页面地址
-         * <p> 示例值：fdbd:ff1:ce00:8028::1969
-         */
-        this.clientIp = builder.clientIp;
-        /**
-         * referer防盗链
-         * <p> 示例值：https://bytedance.feishu.net/docx/<encryptToken>45c200080eea138771be507263e4c9930939c279?v=1.0.11.8737&vdx=1.0.9.4444
-         */
-        this.referer = builder.referer;
-        /**
-         * 来源页面域名
-         * <p> 示例值：https://bytedance.feishu.net
-         */
-        this.origin = builder.origin;
-        /**
-         * 请求头
-         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
-         */
-        this.header = builder.header;
+    /**
+     * 请求路径
+     *
+     * <p>示例值：/space/api/msg_box/get_version
+     *
+     * @param path
+     * @return
+     */
+    public Builder path(String path) {
+      this.path = path;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 路径中的参数
+     *
+     * <p>示例值：
+     *
+     * @param pathParams
+     * @return
+     */
+    public Builder pathParams(Param[] pathParams) {
+      this.pathParams = pathParams;
+      return this;
     }
 
-    public String getHost() {
-        return this.host;
+    /**
+     * 请求经网关解析后的query参数
+     *
+     * <p>示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    /**
+     * 请求方法
+     *
+     * <p>示例值：GET
+     *
+     * @param method
+     * @return
+     */
+    public Builder method(String method) {
+      this.method = method;
+      return this;
     }
 
-    public String getPath() {
-        return this.path;
+    /**
+     * 访问用户代理字段
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/116.0.0.0 Safari/537.36
+     *
+     * @param userAgent
+     * @return
+     */
+    public Builder userAgent(String userAgent) {
+      this.userAgent = userAgent;
+      return this;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    /**
+     * 来源页面地址
+     *
+     * <p>示例值：fdbd:ff1:ce00:8028::1969
+     *
+     * @param clientIp
+     * @return
+     */
+    public Builder clientIp(String clientIp) {
+      this.clientIp = clientIp;
+      return this;
     }
 
-    public Param[] getPathParams() {
-        return this.pathParams;
+    /**
+     * referer防盗链
+     *
+     * <p>示例值：https://bytedance.feishu.net/base/\u003cencryptToken\u003efca1cedc51312006579dc0740b4e5f5e6dd827c4?table=tblVVSlwxw9DwKcF\u0026view=vew9YX1Jv5
+     *
+     * @param referer
+     * @return
+     */
+    public Builder referer(String referer) {
+      this.referer = referer;
+      return this;
     }
 
-    public void setPathParams(Param[] pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * 来源页面域名
+     *
+     * <p>示例值：https://bytedance.feishu.net
+     *
+     * @param origin
+     * @return
+     */
+    public Builder origin(String origin) {
+      this.origin = origin;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    /**
+     * 请求头
+     *
+     * <p>示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
+     *
+     * @param header
+     * @return
+     */
+    public Builder header(String header) {
+      this.header = header;
+      return this;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public GwRequest build() {
+      return new GwRequest(this);
     }
+  }
 
-    public String getMethod() {
-        return this.method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getUserAgent() {
-        return this.userAgent;
-    }
-
-    public void setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public String getClientIp() {
-        return this.clientIp;
-    }
-
-    public void setClientIp(String clientIp) {
-        this.clientIp = clientIp;
-    }
-
-    public String getReferer() {
-        return this.referer;
-    }
-
-    public void setReferer(String referer) {
-        this.referer = referer;
-    }
-
-    public String getOrigin() {
-        return this.origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public String getHeader() {
-        return this.header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public static class Builder {
-        /**
-         * 域名
-         * <p> 示例值：bytedance.feishu.net
-         */
-        private String host;
-        /**
-         * 请求路径
-         * <p> 示例值：/space/api/msg_box/get_version
-         */
-        private String path;
-        /**
-         * 路径中的参数
-         * <p> 示例值：
-         */
-        private Param[] pathParams;
-        /**
-         * 请求经网关解析后的query参数
-         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
-         */
-        private String query;
-        /**
-         * 请求方法
-         * <p> 示例值：GET
-         */
-        private String method;
-        /**
-         * 访问用户代理字段
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
-         */
-        private String userAgent;
-        /**
-         * 来源页面地址
-         * <p> 示例值：fdbd:ff1:ce00:8028::1969
-         */
-        private String clientIp;
-        /**
-         * referer防盗链
-         * <p> 示例值：https://bytedance.feishu.net/docx/<encryptToken>45c200080eea138771be507263e4c9930939c279?v=1.0.11.8737&vdx=1.0.9.4444
-         */
-        private String referer;
-        /**
-         * 来源页面域名
-         * <p> 示例值：https://bytedance.feishu.net
-         */
-        private String origin;
-        /**
-         * 请求头
-         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
-         */
-        private String header;
-
-        /**
-         * 域名
-         * <p> 示例值：bytedance.feishu.net
-         *
-         * @param host
-         * @return
-         */
-        public Builder host(String host) {
-            this.host = host;
-            return this;
-        }
-
-
-        /**
-         * 请求路径
-         * <p> 示例值：/space/api/msg_box/get_version
-         *
-         * @param path
-         * @return
-         */
-        public Builder path(String path) {
-            this.path = path;
-            return this;
-        }
-
-
-        /**
-         * 路径中的参数
-         * <p> 示例值：
-         *
-         * @param pathParams
-         * @return
-         */
-        public Builder pathParams(Param[] pathParams) {
-            this.pathParams = pathParams;
-            return this;
-        }
-
-
-        /**
-         * 请求经网关解析后的query参数
-         * <p> 示例值：{\"docx_synced_block_host_token\":[\"T7lCdrCcsrAH8oxmLfRbn4GecWf\"],\"docx_synced_block_host_type\":[\"22\"]}
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 请求方法
-         * <p> 示例值：GET
-         *
-         * @param method
-         * @return
-         */
-        public Builder method(String method) {
-            this.method = method;
-            return this;
-        }
-
-
-        /**
-         * 访问用户代理字段
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
-         *
-         * @param userAgent
-         * @return
-         */
-        public Builder userAgent(String userAgent) {
-            this.userAgent = userAgent;
-            return this;
-        }
-
-
-        /**
-         * 来源页面地址
-         * <p> 示例值：fdbd:ff1:ce00:8028::1969
-         *
-         * @param clientIp
-         * @return
-         */
-        public Builder clientIp(String clientIp) {
-            this.clientIp = clientIp;
-            return this;
-        }
-
-
-        /**
-         * referer防盗链
-         * <p> 示例值：https://bytedance.feishu.net/docx/<encryptToken>45c200080eea138771be507263e4c9930939c279?v=1.0.11.8737&vdx=1.0.9.4444
-         *
-         * @param referer
-         * @return
-         */
-        public Builder referer(String referer) {
-            this.referer = referer;
-            return this;
-        }
-
-
-        /**
-         * 来源页面域名
-         * <p> 示例值：https://bytedance.feishu.net
-         *
-         * @param origin
-         * @return
-         */
-        public Builder origin(String origin) {
-            this.origin = origin;
-            return this;
-        }
-
-
-        /**
-         * 请求头
-         * <p> 示例值：{\"x-lgw-locale\": [\"en-US\"], \"x-lgw-app-version\": null}
-         *
-         * @param header
-         * @return
-         */
-        public Builder header(String header) {
-            this.header = header;
-            return this;
-        }
-
-
-        public GwRequest build() {
-            return new GwRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

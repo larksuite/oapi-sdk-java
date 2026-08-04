@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TreeCostCenterReqBody {
+  /**
+   * 成本中心
+   * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 是否包含失效成本中心，默认false：否
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_inactive")
+  private Boolean needInactive;
+
+  /**
+   * 版本生效日期，格式yyyy-mm-dd，默认当前日期
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public Boolean getNeedInactive() {
+    return this.needInactive;
+  }
+
+  public void setNeedInactive(Boolean needInactive) {
+    this.needInactive = needInactive;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public TreeCostCenterReqBody() {}
+
+  public TreeCostCenterReqBody(Builder builder) {
     /**
-     * 成本中心 ID
-     * <p> 示例值：7140964208476371111
+     * 成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("cost_center_id")
+    this.costCenterId = builder.costCenterId;
+    /**
+     * 是否包含失效成本中心，默认false：否
+     *
+     * <p>示例值：false
+     */
+    this.needInactive = builder.needInactive;
+    /**
+     * 版本生效日期，格式yyyy-mm-dd，默认当前日期
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：7140964208476371111
+     */
     private String costCenterId;
+
     /**
-     * 是否包含失效成本中心，默认false
-     * <p> 示例值：false
+     * 是否包含失效成本中心，默认false：否
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_inactive")
     private Boolean needInactive;
+
     /**
-     * 生效日期，格式yyyy-mm-dd，默认当前日期
-     * <p> 示例值：2024-01-01
+     * 版本生效日期，格式yyyy-mm-dd，默认当前日期
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
 
-    // builder 开始
-    public TreeCostCenterReqBody() {
+    /**
+     * 成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public TreeCostCenterReqBody(Builder builder) {
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 是否包含失效成本中心，默认false
-         * <p> 示例值：false
-         */
-        this.needInactive = builder.needInactive;
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
+    /**
+     * 是否包含失效成本中心，默认false：否
+     *
+     * <p>示例值：false
+     *
+     * @param needInactive
+     * @return
+     */
+    public Builder needInactive(Boolean needInactive) {
+      this.needInactive = needInactive;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 版本生效日期，格式yyyy-mm-dd，默认当前日期
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    public TreeCostCenterReqBody build() {
+      return new TreeCostCenterReqBody(this);
     }
+  }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public Boolean getNeedInactive() {
-        return this.needInactive;
-    }
-
-    public void setNeedInactive(Boolean needInactive) {
-        this.needInactive = needInactive;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String costCenterId;
-        /**
-         * 是否包含失效成本中心，默认false
-         * <p> 示例值：false
-         */
-        private Boolean needInactive;
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDate;
-
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 是否包含失效成本中心，默认false
-         * <p> 示例值：false
-         *
-         * @param needInactive
-         * @return
-         */
-        public Builder needInactive(Boolean needInactive) {
-            this.needInactive = needInactive;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        public TreeCostCenterReqBody build() {
-            return new TreeCostCenterReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

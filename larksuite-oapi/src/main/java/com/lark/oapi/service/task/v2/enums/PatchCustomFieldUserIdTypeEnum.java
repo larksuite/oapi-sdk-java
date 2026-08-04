@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 用户ID格式
- */
+/** 用户ID格式 */
 public enum PatchCustomFieldUserIdTypeEnum {
-    OPEN_ID("open_id"), // open_id
-    UNION_ID("union_id"), // union_id
-    USER_ID("user_id"), // user_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // open_id
+  UNION_ID("union_id"), // union_id
+  USER_ID("user_id"), // user_id
+  ;
+  private String value;
 
-    PatchCustomFieldUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  PatchCustomFieldUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

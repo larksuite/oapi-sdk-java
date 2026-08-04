@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreviousEmployer {
+  /**
+   * 雇主信息ID
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 雇主名称
+   *
+   * <p>示例值：employer name
+   */
+  @SerializedName("employer_name")
+  private String employerName;
+
+  /**
+   * 雇主税参考号
+   *
+   * <p>示例值：1234567899
+   */
+  @SerializedName("employer_reference_number")
+  private String employerReferenceNumber;
+
+  /**
+   * 雇佣顺序
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("employment_order")
+  private String employmentOrder;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getEmployerName() {
+    return this.employerName;
+  }
+
+  public void setEmployerName(String employerName) {
+    this.employerName = employerName;
+  }
+
+  public String getEmployerReferenceNumber() {
+    return this.employerReferenceNumber;
+  }
+
+  public void setEmployerReferenceNumber(String employerReferenceNumber) {
+    this.employerReferenceNumber = employerReferenceNumber;
+  }
+
+  public String getEmploymentOrder() {
+    return this.employmentOrder;
+  }
+
+  public void setEmploymentOrder(String employmentOrder) {
+    this.employmentOrder = employmentOrder;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public PreviousEmployer() {}
+
+  public PreviousEmployer(Builder builder) {
     /**
-     * 实体在CoreHR内部的唯一键
-     * <p> 示例值：6950635856373745165
+     * 雇主信息ID
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 雇主名称
-     * <p> 示例值：employer name
+     *
+     * <p>示例值：employer name
      */
-    @SerializedName("employer_name")
-    private String employerName;
+    this.employerName = builder.employerName;
     /**
      * 雇主税参考号
-     * <p> 示例值：1234567899
+     *
+     * <p>示例值：1234567899
      */
-    @SerializedName("employer_reference_number")
-    private String employerReferenceNumber;
+    this.employerReferenceNumber = builder.employerReferenceNumber;
     /**
      * 雇佣顺序
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("employment_order")
-    private String employmentOrder;
+    this.employmentOrder = builder.employmentOrder;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 雇主信息ID
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String id;
+
+    /**
+     * 雇主名称
+     *
+     * <p>示例值：employer name
+     */
+    private String employerName;
+
+    /**
+     * 雇主税参考号
+     *
+     * <p>示例值：1234567899
+     */
+    private String employerReferenceNumber;
+
+    /**
+     * 雇佣顺序
+     *
+     * <p>示例值：true
+     */
+    private String employmentOrder;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] customFields;
 
-    // builder 开始
-    public PreviousEmployer() {
+    /**
+     * 雇主信息ID
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PreviousEmployer(Builder builder) {
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         */
-        this.id = builder.id;
-        /**
-         * 雇主名称
-         * <p> 示例值：employer name
-         */
-        this.employerName = builder.employerName;
-        /**
-         * 雇主税参考号
-         * <p> 示例值：1234567899
-         */
-        this.employerReferenceNumber = builder.employerReferenceNumber;
-        /**
-         * 雇佣顺序
-         * <p> 示例值：true
-         */
-        this.employmentOrder = builder.employmentOrder;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 雇主名称
+     *
+     * <p>示例值：employer name
+     *
+     * @param employerName
+     * @return
+     */
+    public Builder employerName(String employerName) {
+      this.employerName = employerName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 雇主税参考号
+     *
+     * <p>示例值：1234567899
+     *
+     * @param employerReferenceNumber
+     * @return
+     */
+    public Builder employerReferenceNumber(String employerReferenceNumber) {
+      this.employerReferenceNumber = employerReferenceNumber;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 雇佣顺序
+     *
+     * <p>示例值：true
+     *
+     * @param employmentOrder
+     * @return
+     */
+    public Builder employmentOrder(String employmentOrder) {
+      this.employmentOrder = employmentOrder;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getEmployerName() {
-        return this.employerName;
+    public PreviousEmployer build() {
+      return new PreviousEmployer(this);
     }
+  }
 
-    public void setEmployerName(String employerName) {
-        this.employerName = employerName;
-    }
-
-    public String getEmployerReferenceNumber() {
-        return this.employerReferenceNumber;
-    }
-
-    public void setEmployerReferenceNumber(String employerReferenceNumber) {
-        this.employerReferenceNumber = employerReferenceNumber;
-    }
-
-    public String getEmploymentOrder() {
-        return this.employmentOrder;
-    }
-
-    public void setEmploymentOrder(String employmentOrder) {
-        this.employmentOrder = employmentOrder;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         */
-        private String id;
-        /**
-         * 雇主名称
-         * <p> 示例值：employer name
-         */
-        private String employerName;
-        /**
-         * 雇主税参考号
-         * <p> 示例值：1234567899
-         */
-        private String employerReferenceNumber;
-        /**
-         * 雇佣顺序
-         * <p> 示例值：true
-         */
-        private String employmentOrder;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 雇主名称
-         * <p> 示例值：employer name
-         *
-         * @param employerName
-         * @return
-         */
-        public Builder employerName(String employerName) {
-            this.employerName = employerName;
-            return this;
-        }
-
-
-        /**
-         * 雇主税参考号
-         * <p> 示例值：1234567899
-         *
-         * @param employerReferenceNumber
-         * @return
-         */
-        public Builder employerReferenceNumber(String employerReferenceNumber) {
-            this.employerReferenceNumber = employerReferenceNumber;
-            return this;
-        }
-
-
-        /**
-         * 雇佣顺序
-         * <p> 示例值：true
-         *
-         * @param employmentOrder
-         * @return
-         */
-        public Builder employmentOrder(String employmentOrder) {
-            this.employmentOrder = employmentOrder;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public PreviousEmployer build() {
-            return new PreviousEmployer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,69 +13,63 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteExternalReferralRewardReq {
+  /**
+   * 外部内推奖励ID，通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)生成
+   *
+   * <p>示例值：
+   */
+  @Path
+  @SerializedName("external_referral_reward_id")
+  private String externalReferralRewardId;
+
+  public String getExternalReferralRewardId() {
+    return this.externalReferralRewardId;
+  }
+
+  public void setExternalReferralRewardId(String externalReferralRewardId) {
+    this.externalReferralRewardId = externalReferralRewardId;
+  }
+
+  // builder 开始
+  public DeleteExternalReferralRewardReq() {}
+
+  public DeleteExternalReferralRewardReq(Builder builder) {
     /**
-     * <p> 示例值：
+     * 外部内推奖励ID，通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)生成
+     *
+     * <p>示例值：
      */
-    @Path
-    @SerializedName("external_referral_reward_id")
-    private String externalReferralRewardId;
+    this.externalReferralRewardId = builder.externalReferralRewardId;
+  }
 
-    // builder 开始
-    public DeleteExternalReferralRewardReq() {
+  public static class Builder {
+
+    private String
+        externalReferralRewardId; // 外部内推奖励ID，通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)生成
+
+    /**
+     * 外部内推奖励ID，通过[导入外部内推奖励](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_referral_reward/create)生成
+     *
+     * <p>示例值：
+     *
+     * @param externalReferralRewardId
+     * @return
+     */
+    public Builder externalReferralRewardId(String externalReferralRewardId) {
+      this.externalReferralRewardId = externalReferralRewardId;
+      return this;
     }
 
-    public DeleteExternalReferralRewardReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.externalReferralRewardId = builder.externalReferralRewardId;
+    public DeleteExternalReferralRewardReq build() {
+      return new DeleteExternalReferralRewardReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getExternalReferralRewardId() {
-        return this.externalReferralRewardId;
-    }
-
-    public void setExternalReferralRewardId(String externalReferralRewardId) {
-        this.externalReferralRewardId = externalReferralRewardId;
-    }
-
-    public static class Builder {
-
-        private String externalReferralRewardId; //
-
-        /**
-         * <p> 示例值：
-         *
-         * @param externalReferralRewardId
-         * @return
-         */
-        public Builder externalReferralRewardId(String externalReferralRewardId) {
-            this.externalReferralRewardId = externalReferralRewardId;
-            return this;
-        }
-
-
-        public DeleteExternalReferralRewardReq build() {
-            return new DeleteExternalReferralRewardReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

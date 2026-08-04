@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nContent {
+  /**
+   * 语言
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * i18n内容
+   *
+   * <p>示例值：中文值
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public I18nContent() {}
+
+  public I18nContent(Builder builder) {
     /**
      * 语言
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * i18n内容
-     * <p> 示例值：中文值
+     *
+     * <p>示例值：中文值
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 语言
+     *
+     * <p>示例值：zh_cn
+     */
+    private String locale;
+
+    /**
+     * i18n内容
+     *
+     * <p>示例值：中文值
+     */
     private String value;
 
-    // builder 开始
-    public I18nContent() {
+    /**
+     * 语言
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public I18nContent(Builder builder) {
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * i18n内容
-         * <p> 示例值：中文值
-         */
-        this.value = builder.value;
+    /**
+     * i18n内容
+     *
+     * <p>示例值：中文值
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18nContent build() {
+      return new I18nContent(this);
     }
+  }
 
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         */
-        private String locale;
-        /**
-         * i18n内容
-         * <p> 示例值：中文值
-         */
-        private String value;
-
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * i18n内容
-         * <p> 示例值：中文值
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public I18nContent build() {
-            return new I18nContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

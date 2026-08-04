@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetLocationReq {
+  /**
+   * 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+   *
+   * <p>示例值：1215
+   */
+  @Path
+  @SerializedName("location_id")
+  private String locationId;
+
+  public String getLocationId() {
+    return this.locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  // builder 开始
+  public GetLocationReq() {}
+
+  public GetLocationReq(Builder builder) {
     /**
-     * 地点 ID
-     * <p> 示例值：1215
+     * 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：1215
      */
-    @Path
-    @SerializedName("location_id")
-    private String locationId;
+    this.locationId = builder.locationId;
+  }
 
-    // builder 开始
-    public GetLocationReq() {
+  public static class Builder {
+
+    private String locationId; // 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+
+    // 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+
+    /**
+     * 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：1215
+     *
+     * @param locationId
+     * @return
+     */
+    public Builder locationId(String locationId) {
+      this.locationId = locationId;
+      return this;
     }
 
-    public GetLocationReq(Builder builder) {
-        /**
-         * 地点 ID
-         * <p> 示例值：1215
-         */
-        this.locationId = builder.locationId;
+    public GetLocationReq build() {
+      return new GetLocationReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLocationId() {
-        return this.locationId;
-    }
-
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
-
-    public static class Builder {
-
-        private String locationId; // 地点 ID
-
-        /**
-         * 地点 ID
-         * <p> 示例值：1215
-         *
-         * @param locationId
-         * @return
-         */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
-
-
-        public GetLocationReq build() {
-            return new GetLocationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

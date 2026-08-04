@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAppWorkflowRespBody {
-    /**
-     * 自动化工作流信息
-     * <p> 示例值：
-     */
-    @SerializedName("workflows")
-    private DisplayWorkflow[] workflows;
+  /**
+   * 自动化流程信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workflows")
+  private DisplayWorkflow[] workflows;
 
-    public DisplayWorkflow[] getWorkflows() {
-        return this.workflows;
-    }
+  public DisplayWorkflow[] getWorkflows() {
+    return this.workflows;
+  }
 
-    public void setWorkflows(DisplayWorkflow[] workflows) {
-        this.workflows = workflows;
-    }
-
+  public void setWorkflows(DisplayWorkflow[] workflows) {
+    this.workflows = workflows;
+  }
 }

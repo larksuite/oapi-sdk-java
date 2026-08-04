@@ -13,231 +13,241 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class ListDistrictReq {
+  /**
+   * 分页大小，用于指定一次请求所返回的数据量上限，最大100，默认20
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 指定节点进行遍历，仅返回该节点下的数据，默认遍历根节点，返回值内容可参考list_type参数描述
+   *
+   * <p>示例值：1816670
+   */
+  @Query
+  @SerializedName("root_district_id")
+  private String rootDistrictId;
+
+  /**
+   * 遍历类型，不同的类型内容会有差异
+   *
+   * <p>示例值：sub_level
+   */
+  @Query
+  @SerializedName("list_type")
+  private String listType;
+
+  /**
+   * 返回指定语言的内容，默认返回英文数据
+   *
+   * <p>示例值：zh-CN
+   */
+  @Query
+  @SerializedName("locale")
+  private String locale;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getRootDistrictId() {
+    return this.rootDistrictId;
+  }
+
+  public void setRootDistrictId(String rootDistrictId) {
+    this.rootDistrictId = rootDistrictId;
+  }
+
+  public String getListType() {
+    return this.listType;
+  }
+
+  public void setListType(String listType) {
+    this.listType = listType;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  // builder 开始
+  public ListDistrictReq() {}
+
+  public ListDistrictReq(Builder builder) {
     /**
-     * 分页大小，用于指定一次请求所返回的数据量上限，默认20
-     * <p> 示例值：
+     * 分页大小，用于指定一次请求所返回的数据量上限，最大100，默认20
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 指定根节点，仅遍历该节点下的数据，默认遍历根节点，返回值内容与list_type 参数有关
-     * <p> 示例值：1816670
+     * 指定节点进行遍历，仅返回该节点下的数据，默认遍历根节点，返回值内容可参考list_type参数描述
+     *
+     * <p>示例值：1816670
      */
-    @Query
-    @SerializedName("root_district_id")
-    private String rootDistrictId;
+    this.rootDistrictId = builder.rootDistrictId;
     /**
      * 遍历类型，不同的类型内容会有差异
-     * <p> 示例值：
+     *
+     * <p>示例值：sub_level
      */
-    @Query
-    @SerializedName("list_type")
-    private String listType;
+    this.listType = builder.listType;
     /**
      * 返回指定语言的内容，默认返回英文数据
-     * <p> 示例值：
+     *
+     * <p>示例值：zh-CN
      */
-    @Query
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
+  }
 
-    // builder 开始
-    public ListDistrictReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于指定一次请求所返回的数据量上限，最大100，默认20
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String rootDistrictId; // 指定节点进行遍历，仅返回该节点下的数据，默认遍历根节点，返回值内容可参考list_type参数描述
+    private String listType; // 遍历类型，不同的类型内容会有差异
+    private String locale; // 返回指定语言的内容，默认返回英文数据
+
+    /**
+     * 分页大小，用于指定一次请求所返回的数据量上限，最大100，默认20
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListDistrictReq(Builder builder) {
-        /**
-         * 分页大小，用于指定一次请求所返回的数据量上限，默认20
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 指定根节点，仅遍历该节点下的数据，默认遍历根节点，返回值内容与list_type 参数有关
-         * <p> 示例值：1816670
-         */
-        this.rootDistrictId = builder.rootDistrictId;
-        /**
-         * 遍历类型，不同的类型内容会有差异
-         * <p> 示例值：
-         */
-        this.listType = builder.listType;
-        /**
-         * 返回指定语言的内容，默认返回英文数据
-         * <p> 示例值：
-         */
-        this.locale = builder.locale;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指定节点进行遍历，仅返回该节点下的数据，默认遍历根节点，返回值内容可参考list_type参数描述
+     *
+     * <p>示例值：1816670
+     *
+     * @param rootDistrictId
+     * @return
+     */
+    public Builder rootDistrictId(String rootDistrictId) {
+      this.rootDistrictId = rootDistrictId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 遍历类型，不同的类型内容会有差异
+     *
+     * <p>示例值：sub_level
+     *
+     * @param listType
+     * @return
+     */
+    public Builder listType(String listType) {
+      this.listType = listType;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 遍历类型，不同的类型内容会有差异
+     *
+     * <p>示例值：sub_level
+     *
+     * @param listType {@link
+     *     com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictListTypeEnum}
+     * @return
+     */
+    public Builder listType(
+        com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictListTypeEnum listType) {
+      this.listType = listType.getValue();
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 返回指定语言的内容，默认返回英文数据
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 返回指定语言的内容，默认返回英文数据
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale {@link com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictLocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public String getRootDistrictId() {
-        return this.rootDistrictId;
+    public ListDistrictReq build() {
+      return new ListDistrictReq(this);
     }
+  }
 
-    public void setRootDistrictId(String rootDistrictId) {
-        this.rootDistrictId = rootDistrictId;
-    }
-
-    public String getListType() {
-        return this.listType;
-    }
-
-    public void setListType(String listType) {
-        this.listType = listType;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小，用于指定一次请求所返回的数据量上限，默认20
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String rootDistrictId; // 指定根节点，仅遍历该节点下的数据，默认遍历根节点，返回值内容与list_type 参数有关
-        private String listType; // 遍历类型，不同的类型内容会有差异
-        private String locale; // 返回指定语言的内容，默认返回英文数据
-
-        /**
-         * 分页大小，用于指定一次请求所返回的数据量上限，默认20
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 指定根节点，仅遍历该节点下的数据，默认遍历根节点，返回值内容与list_type 参数有关
-         * <p> 示例值：1816670
-         *
-         * @param rootDistrictId
-         * @return
-         */
-        public Builder rootDistrictId(String rootDistrictId) {
-            this.rootDistrictId = rootDistrictId;
-            return this;
-        }
-
-
-        /**
-         * 遍历类型，不同的类型内容会有差异
-         * <p> 示例值：
-         *
-         * @param listType
-         * @return
-         */
-        public Builder listType(String listType) {
-            this.listType = listType;
-            return this;
-        }
-
-        /**
-         * 遍历类型，不同的类型内容会有差异
-         * <p> 示例值：
-         *
-         * @param listType {@link com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictListTypeEnum}
-         * @return
-         */
-        public Builder listType(com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictListTypeEnum listType) {
-            this.listType = listType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 返回指定语言的内容，默认返回英文数据
-         * <p> 示例值：
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 返回指定语言的内容，默认返回英文数据
-         * <p> 示例值：
-         *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictLocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.ListDistrictDistrictLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-
-        public ListDistrictReq build() {
-            return new ListDistrictReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

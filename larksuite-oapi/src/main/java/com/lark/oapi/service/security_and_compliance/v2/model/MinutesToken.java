@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinutesToken {
+  /**
+   * 妙记唯一标识
+   *
+   * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+   */
+  @SerializedName("minutes_token")
+  private String minutesToken;
+
+  public String getMinutesToken() {
+    return this.minutesToken;
+  }
+
+  public void setMinutesToken(String minutesToken) {
+    this.minutesToken = minutesToken;
+  }
+
+  // builder 开始
+  public MinutesToken() {}
+
+  public MinutesToken(Builder builder) {
     /**
      * 妙记唯一标识
-     * <p> 示例值：obcnq3b9jl72l83w4f14xxxx
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
      */
-    @SerializedName("minutes_token")
+    this.minutesToken = builder.minutesToken;
+  }
+
+  public static class Builder {
+    /**
+     * 妙记唯一标识
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+     */
     private String minutesToken;
 
-    // builder 开始
-    public MinutesToken() {
+    /**
+     * 妙记唯一标识
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+     *
+     * @param minutesToken
+     * @return
+     */
+    public Builder minutesToken(String minutesToken) {
+      this.minutesToken = minutesToken;
+      return this;
     }
 
-    public MinutesToken(Builder builder) {
-        /**
-         * 妙记唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f14xxxx
-         */
-        this.minutesToken = builder.minutesToken;
+    public MinutesToken build() {
+      return new MinutesToken(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMinutesToken() {
-        return this.minutesToken;
-    }
-
-    public void setMinutesToken(String minutesToken) {
-        this.minutesToken = minutesToken;
-    }
-
-    public static class Builder {
-        /**
-         * 妙记唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f14xxxx
-         */
-        private String minutesToken;
-
-        /**
-         * 妙记唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f14xxxx
-         *
-         * @param minutesToken
-         * @return
-         */
-        public Builder minutesToken(String minutesToken) {
-            this.minutesToken = minutesToken;
-            return this;
-        }
-
-
-        public MinutesToken build() {
-            return new MinutesToken(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

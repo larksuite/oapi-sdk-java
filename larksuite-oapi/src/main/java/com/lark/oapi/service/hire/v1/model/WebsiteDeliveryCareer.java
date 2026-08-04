@@ -13,259 +13,274 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDeliveryCareer {
+  /**
+   * 工作经历描述
+   *
+   * <p>示例值：在抖音公司工作了5年，表现优秀
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 结束时间, 毫秒时间戳，如果是「至今」可传值 -1
+   *
+   * <p>示例值：1618500278667
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  /**
+   * 开始时间，毫秒时间戳
+   *
+   * <p>示例值：1609430400000
+   */
+  @SerializedName("start_time")
+  private Long startTime;
+
+  /**
+   * 职位名称
+   *
+   * <p>示例值：后端研发工程师
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 公司
+   *
+   * <p>示例值：抖音公司
+   */
+  @SerializedName("company")
+  private String company;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private WebsiteDeliveryCustomizedData[] customizedData;
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public Long getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getCompany() {
+    return this.company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public WebsiteDeliveryCareer() {}
+
+  public WebsiteDeliveryCareer(Builder builder) {
     /**
-     * 描述
-     * <p> 示例值：这是一家创业公司，非常不错
+     * 工作经历描述
+     *
+     * <p>示例值：在抖音公司工作了5年，表现优秀
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
-     * 结束时间, 如果是至今传值 -1
-     * <p> 示例值：1618500278667
+     * 结束时间, 毫秒时间戳，如果是「至今」可传值 -1
+     *
+     * <p>示例值：1618500278667
      */
-    @SerializedName("end_time")
-    private Long endTime;
+    this.endTime = builder.endTime;
     /**
-     * 开始时间
-     * <p> 示例值：1609430400
+     * 开始时间，毫秒时间戳
+     *
+     * <p>示例值：1609430400000
      */
-    @SerializedName("start_time")
-    private Long startTime;
+    this.startTime = builder.startTime;
     /**
      * 职位名称
-     * <p> 示例值：后端研发实习生
+     *
+     * <p>示例值：后端研发工程师
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 公司
-     * <p> 示例值：字节跳动
+     *
+     * <p>示例值：抖音公司
      */
-    @SerializedName("company")
-    private String company;
+    this.company = builder.company;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 工作经历描述
+     *
+     * <p>示例值：在抖音公司工作了5年，表现优秀
+     */
+    private String desc;
+
+    /**
+     * 结束时间, 毫秒时间戳，如果是「至今」可传值 -1
+     *
+     * <p>示例值：1618500278667
+     */
+    private Long endTime;
+
+    /**
+     * 开始时间，毫秒时间戳
+     *
+     * <p>示例值：1609430400000
+     */
+    private Long startTime;
+
+    /**
+     * 职位名称
+     *
+     * <p>示例值：后端研发工程师
+     */
+    private String title;
+
+    /**
+     * 公司
+     *
+     * <p>示例值：抖音公司
+     */
+    private String company;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private WebsiteDeliveryCustomizedData[] customizedData;
 
-    // builder 开始
-    public WebsiteDeliveryCareer() {
+    /**
+     * 工作经历描述
+     *
+     * <p>示例值：在抖音公司工作了5年，表现优秀
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public WebsiteDeliveryCareer(Builder builder) {
-        /**
-         * 描述
-         * <p> 示例值：这是一家创业公司，非常不错
-         */
-        this.desc = builder.desc;
-        /**
-         * 结束时间, 如果是至今传值 -1
-         * <p> 示例值：1618500278667
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1609430400
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 职位名称
-         * <p> 示例值：后端研发实习生
-         */
-        this.title = builder.title;
-        /**
-         * 公司
-         * <p> 示例值：字节跳动
-         */
-        this.company = builder.company;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 结束时间, 毫秒时间戳，如果是「至今」可传值 -1
+     *
+     * <p>示例值：1618500278667
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开始时间，毫秒时间戳
+     *
+     * <p>示例值：1609430400000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Long startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getDesc() {
-        return this.desc;
+    /**
+     * 职位名称
+     *
+     * <p>示例值：后端研发工程师
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    /**
+     * 公司
+     *
+     * <p>示例值：抖音公司
+     *
+     * @param company
+     * @return
+     */
+    public Builder company(String company) {
+      this.company = company;
+      return this;
     }
 
-    public Long getEndTime() {
-        return this.endTime;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
+    public WebsiteDeliveryCareer build() {
+      return new WebsiteDeliveryCareer(this);
     }
+  }
 
-    public Long getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCompany() {
-        return this.company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * 描述
-         * <p> 示例值：这是一家创业公司，非常不错
-         */
-        private String desc;
-        /**
-         * 结束时间, 如果是至今传值 -1
-         * <p> 示例值：1618500278667
-         */
-        private Long endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1609430400
-         */
-        private Long startTime;
-        /**
-         * 职位名称
-         * <p> 示例值：后端研发实习生
-         */
-        private String title;
-        /**
-         * 公司
-         * <p> 示例值：字节跳动
-         */
-        private String company;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryCustomizedData[] customizedData;
-
-        /**
-         * 描述
-         * <p> 示例值：这是一家创业公司，非常不错
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 结束时间, 如果是至今传值 -1
-         * <p> 示例值：1618500278667
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1609430400
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Long startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 职位名称
-         * <p> 示例值：后端研发实习生
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 公司
-         * <p> 示例值：字节跳动
-         *
-         * @param company
-         * @return
-         */
-        public Builder company(String company) {
-            this.company = company;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public WebsiteDeliveryCareer build() {
-            return new WebsiteDeliveryCareer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,78 +13,66 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class MGetVisibleEmployeeIdsOptions {
+  /**
+   * 透传给权限的额外字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth_extra")
+  private Map<String, String> authExtra;
+
+  public Map<String, String> getAuthExtra() {
+    return this.authExtra;
+  }
+
+  public void setAuthExtra(Map<String, String> authExtra) {
+    this.authExtra = authExtra;
+  }
+
+  // builder 开始
+  public MGetVisibleEmployeeIdsOptions() {}
+
+  public MGetVisibleEmployeeIdsOptions(Builder builder) {
     /**
      * 透传给权限的额外字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth_extra")
+    this.authExtra = builder.authExtra;
+  }
+
+  public static class Builder {
+    /**
+     * 透传给权限的额外字段
+     *
+     * <p>示例值：
+     */
     private Map<String, String> authExtra;
 
-    // builder 开始
-    public MGetVisibleEmployeeIdsOptions() {
+    /**
+     * 透传给权限的额外字段
+     *
+     * <p>示例值：
+     *
+     * @param authExtra
+     * @return
+     */
+    public Builder authExtra(Map<String, String> authExtra) {
+      this.authExtra = authExtra;
+      return this;
     }
 
-    public MGetVisibleEmployeeIdsOptions(Builder builder) {
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         */
-        this.authExtra = builder.authExtra;
+    public MGetVisibleEmployeeIdsOptions build() {
+      return new MGetVisibleEmployeeIdsOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Map<String, String> getAuthExtra() {
-        return this.authExtra;
-    }
-
-    public void setAuthExtra(Map<String, String> authExtra) {
-        this.authExtra = authExtra;
-    }
-
-    public static class Builder {
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         */
-        private Map<String, String> authExtra;
-
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         *
-         * @param authExtra
-         * @return
-         */
-        public Builder authExtra(Map<String, String> authExtra) {
-            this.authExtra = authExtra;
-            return this;
-        }
-
-
-        public MGetVisibleEmployeeIdsOptions build() {
-            return new MGetVisibleEmployeeIdsOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

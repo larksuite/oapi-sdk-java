@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecruiterJobRespBody {
-    /**
-     * 职位负责人
-     * <p> 示例值：
-     */
-    @SerializedName("info")
-    private JobRecruiter2 info;
+  /**
+   * 职位招聘人员信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("info")
+  private JobRecruiter2 info;
 
-    public JobRecruiter2 getInfo() {
-        return this.info;
-    }
+  public JobRecruiter2 getInfo() {
+    return this.info;
+  }
 
-    public void setInfo(JobRecruiter2 info) {
-        this.info = info;
-    }
-
+  public void setInfo(JobRecruiter2 info) {
+    this.info = info;
+  }
 }

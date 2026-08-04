@@ -13,112 +13,109 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteEmployeeOptions {
+  /**
+   * 离职员工的资源转移方式。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resigned_employee_resource_receiver")
+  private ResignedUserResouceReceiver resignedEmployeeResourceReceiver;
+
+  /**
+   * 操作人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private Operator operator;
+
+  public ResignedUserResouceReceiver getResignedEmployeeResourceReceiver() {
+    return this.resignedEmployeeResourceReceiver;
+  }
+
+  public void setResignedEmployeeResourceReceiver(
+      ResignedUserResouceReceiver resignedEmployeeResourceReceiver) {
+    this.resignedEmployeeResourceReceiver = resignedEmployeeResourceReceiver;
+  }
+
+  public Operator getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(Operator operator) {
+    this.operator = operator;
+  }
+
+  // builder 开始
+  public DeleteEmployeeOptions() {}
+
+  public DeleteEmployeeOptions(Builder builder) {
     /**
-     * 资源转移方式
-     * <p> 示例值：
+     * 离职员工的资源转移方式。
+     *
+     * <p>示例值：
      */
-    @SerializedName("resigned_employee_resource_receiver")
-    private ResignedUserResouceReceiver resignedEmployeeResourceReceiver;
+    this.resignedEmployeeResourceReceiver = builder.resignedEmployeeResourceReceiver;
     /**
      * 操作人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
+    this.operator = builder.operator;
+  }
+
+  public static class Builder {
+    /**
+     * 离职员工的资源转移方式。
+     *
+     * <p>示例值：
+     */
+    private ResignedUserResouceReceiver resignedEmployeeResourceReceiver;
+
+    /**
+     * 操作人
+     *
+     * <p>示例值：
+     */
     private Operator operator;
 
-    // builder 开始
-    public DeleteEmployeeOptions() {
+    /**
+     * 离职员工的资源转移方式。
+     *
+     * <p>示例值：
+     *
+     * @param resignedEmployeeResourceReceiver
+     * @return
+     */
+    public Builder resignedEmployeeResourceReceiver(
+        ResignedUserResouceReceiver resignedEmployeeResourceReceiver) {
+      this.resignedEmployeeResourceReceiver = resignedEmployeeResourceReceiver;
+      return this;
     }
 
-    public DeleteEmployeeOptions(Builder builder) {
-        /**
-         * 资源转移方式
-         * <p> 示例值：
-         */
-        this.resignedEmployeeResourceReceiver = builder.resignedEmployeeResourceReceiver;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
+    /**
+     * 操作人
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(Operator operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteEmployeeOptions build() {
+      return new DeleteEmployeeOptions(this);
     }
+  }
 
-    public ResignedUserResouceReceiver getResignedEmployeeResourceReceiver() {
-        return this.resignedEmployeeResourceReceiver;
-    }
-
-    public void setResignedEmployeeResourceReceiver(ResignedUserResouceReceiver resignedEmployeeResourceReceiver) {
-        this.resignedEmployeeResourceReceiver = resignedEmployeeResourceReceiver;
-    }
-
-    public Operator getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(Operator operator) {
-        this.operator = operator;
-    }
-
-    public static class Builder {
-        /**
-         * 资源转移方式
-         * <p> 示例值：
-         */
-        private ResignedUserResouceReceiver resignedEmployeeResourceReceiver;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        private Operator operator;
-
-        /**
-         * 资源转移方式
-         * <p> 示例值：
-         *
-         * @param resignedEmployeeResourceReceiver
-         * @return
-         */
-        public Builder resignedEmployeeResourceReceiver(ResignedUserResouceReceiver resignedEmployeeResourceReceiver) {
-            this.resignedEmployeeResourceReceiver = resignedEmployeeResourceReceiver;
-            return this;
-        }
-
-
-        /**
-         * 操作人
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(Operator operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        public DeleteEmployeeOptions build() {
-            return new DeleteEmployeeOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

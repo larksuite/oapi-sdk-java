@@ -13,116 +13,135 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class GetUserFlowReq {
+  /**
+   * 响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+   *
+   * <p>示例值：employee_id
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  /**
+   * 打卡流水记录
+   * ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
+   * 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   * 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+   *
+   * <p>示例值：6708236686834352397
+   */
+  @Path
+  @SerializedName("user_flow_id")
+  private String userFlowId;
+
+  public String getUserFlowId() {
+    return this.userFlowId;
+  }
+
+  public void setUserFlowId(String userFlowId) {
+    this.userFlowId = userFlowId;
+  }
+
+  // builder 开始
+  public GetUserFlowReq() {}
+
+  public GetUserFlowReq(Builder builder) {
     /**
-     * 响应体中的 user_id 和 creator_id 的员工工号类型
-     * <p> 示例值：employee_id
+     * 响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
+    this.employeeType = builder.employeeType;
     /**
-     * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
-     * <p> 示例值：6708236686834352397
+     * 打卡流水记录
+     * ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
+     * 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+     *
+     * <p>示例值：6708236686834352397
      */
-    @Path
-    @SerializedName("user_flow_id")
-    private String userFlowId;
+    this.userFlowId = builder.userFlowId;
+  }
 
-    // builder 开始
-    public GetUserFlowReq() {
+  public static class Builder {
+    private String employeeType; // 响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+
+    /**
+     * 响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public GetUserFlowReq(Builder builder) {
-        /**
-         * 响应体中的 user_id 和 creator_id 的员工工号类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
-         * <p> 示例值：6708236686834352397
-         */
-        this.userFlowId = builder.userFlowId;
+    /**
+     * 响应体中的 user_id 和 creator_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum}
+     * @return
+     */
+    public Builder employeeType(
+        com.lark.oapi.service.attendance.v1.enums
+                .GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum
+            employeeType) {
+      this.employeeType = employeeType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String userFlowId; // 打卡流水记录
+
+    // ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+
+    /**
+     * 打卡流水记录
+     * ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
+     * 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+     *
+     * <p>示例值：6708236686834352397
+     *
+     * @param userFlowId
+     * @return
+     */
+    public Builder userFlowId(String userFlowId) {
+      this.userFlowId = userFlowId;
+      return this;
     }
 
-    public String getEmployeeType() {
-        return this.employeeType;
+    public GetUserFlowReq build() {
+      return new GetUserFlowReq(this);
     }
+  }
 
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public String getUserFlowId() {
-        return this.userFlowId;
-    }
-
-    public void setUserFlowId(String userFlowId) {
-        this.userFlowId = userFlowId;
-    }
-
-    public static class Builder {
-        private String employeeType; // 响应体中的 user_id 和 creator_id 的员工工号类型
-        private String userFlowId; // 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
-
-        /**
-         * 响应体中的 user_id 和 creator_id 的员工工号类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        /**
-         * 响应体中的 user_id 和 creator_id 的员工工号类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum}
-         * @return
-         */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.GetUserFlowGetUserClockInFlowDetailEmployeeTypeEnum employeeType) {
-            this.employeeType = employeeType.getValue();
-            return this;
-        }
-
-        /**
-         * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
-         * <p> 示例值：6708236686834352397
-         *
-         * @param userFlowId
-         * @return
-         */
-        public Builder userFlowId(String userFlowId) {
-            this.userFlowId = userFlowId;
-            return this;
-        }
-
-
-        public GetUserFlowReq build() {
-            return new GetUserFlowReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

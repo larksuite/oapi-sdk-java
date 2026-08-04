@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationTenant {
+  /**
+   * 关联组织列表
+   *
+   * <p>示例值：121s121234df
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 建联时间
+   *
+   * <p>示例值：1724296400
+   */
+  @SerializedName("connect_time")
+  private Integer connectTime;
+
+  /**
+   * 员工的头像url
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private ImageLink avatar;
+
+  /**
+   * 租户品牌
+   *
+   * <p>示例值：feishu
+   */
+  @SerializedName("brand")
+  private String brand;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("short_name")
+  private I18nText shortName;
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public Integer getConnectTime() {
+    return this.connectTime;
+  }
+
+  public void setConnectTime(Integer connectTime) {
+    this.connectTime = connectTime;
+  }
+
+  public ImageLink getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(ImageLink avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getBrand() {
+    return this.brand;
+  }
+
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public I18nText getShortName() {
+    return this.shortName;
+  }
+
+  public void setShortName(I18nText shortName) {
+    this.shortName = shortName;
+  }
+
+  // builder 开始
+  public CollaborationTenant() {}
+
+  public CollaborationTenant(Builder builder) {
     /**
      * 关联组织列表
-     * <p> 示例值：121s121234df
+     *
+     * <p>示例值：121s121234df
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 建联时间
-     * <p> 示例值：1724296400
+     *
+     * <p>示例值：1724296400
      */
-    @SerializedName("connect_time")
-    private Integer connectTime;
+    this.connectTime = builder.connectTime;
     /**
-     * 租户头像
-     * <p> 示例值：
+     * 员工的头像url
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
-    private ImageLink avatar;
+    this.avatar = builder.avatar;
     /**
      * 租户品牌
-     * <p> 示例值：feishu
+     *
+     * <p>示例值：feishu
      */
-    @SerializedName("brand")
+    this.brand = builder.brand;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.shortName = builder.shortName;
+  }
+
+  public static class Builder {
+    /**
+     * 关联组织列表
+     *
+     * <p>示例值：121s121234df
+     */
+    private String tenantKey;
+
+    /**
+     * 建联时间
+     *
+     * <p>示例值：1724296400
+     */
+    private Integer connectTime;
+
+    /**
+     * 员工的头像url
+     *
+     * <p>示例值：
+     */
+    private ImageLink avatar;
+
+    /**
+     * 租户品牌
+     *
+     * <p>示例值：feishu
+     */
     private String brand;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18nText name;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("short_name")
     private I18nText shortName;
 
-    // builder 开始
-    public CollaborationTenant() {
+    /**
+     * 关联组织列表
+     *
+     * <p>示例值：121s121234df
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public CollaborationTenant(Builder builder) {
-        /**
-         * 关联组织列表
-         * <p> 示例值：121s121234df
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 建联时间
-         * <p> 示例值：1724296400
-         */
-        this.connectTime = builder.connectTime;
-        /**
-         * 租户头像
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 租户品牌
-         * <p> 示例值：feishu
-         */
-        this.brand = builder.brand;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.shortName = builder.shortName;
+    /**
+     * 建联时间
+     *
+     * <p>示例值：1724296400
+     *
+     * @param connectTime
+     * @return
+     */
+    public Builder connectTime(Integer connectTime) {
+      this.connectTime = connectTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工的头像url
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(ImageLink avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public String getTenantKey() {
-        return this.tenantKey;
+    /**
+     * 租户品牌
+     *
+     * <p>示例值：feishu
+     *
+     * @param brand
+     * @return
+     */
+    public Builder brand(String brand) {
+      this.brand = brand;
+      return this;
     }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public Integer getConnectTime() {
-        return this.connectTime;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param shortName
+     * @return
+     */
+    public Builder shortName(I18nText shortName) {
+      this.shortName = shortName;
+      return this;
     }
 
-    public void setConnectTime(Integer connectTime) {
-        this.connectTime = connectTime;
+    public CollaborationTenant build() {
+      return new CollaborationTenant(this);
     }
+  }
 
-    public ImageLink getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(ImageLink avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getBrand() {
-        return this.brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public I18nText getShortName() {
-        return this.shortName;
-    }
-
-    public void setShortName(I18nText shortName) {
-        this.shortName = shortName;
-    }
-
-    public static class Builder {
-        /**
-         * 关联组织列表
-         * <p> 示例值：121s121234df
-         */
-        private String tenantKey;
-        /**
-         * 建联时间
-         * <p> 示例值：1724296400
-         */
-        private Integer connectTime;
-        /**
-         * 租户头像
-         * <p> 示例值：
-         */
-        private ImageLink avatar;
-        /**
-         * 租户品牌
-         * <p> 示例值：feishu
-         */
-        private String brand;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText shortName;
-
-        /**
-         * 关联组织列表
-         * <p> 示例值：121s121234df
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 建联时间
-         * <p> 示例值：1724296400
-         *
-         * @param connectTime
-         * @return
-         */
-        public Builder connectTime(Integer connectTime) {
-            this.connectTime = connectTime;
-            return this;
-        }
-
-
-        /**
-         * 租户头像
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(ImageLink avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 租户品牌
-         * <p> 示例值：feishu
-         *
-         * @param brand
-         * @return
-         */
-        public Builder brand(String brand) {
-            this.brand = brand;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param shortName
-         * @return
-         */
-        public Builder shortName(I18nText shortName) {
-            this.shortName = shortName;
-            return this;
-        }
-
-
-        public CollaborationTenant build() {
-            return new CollaborationTenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

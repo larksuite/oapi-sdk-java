@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetByApplicationReferralRespBody {
-    /**
-     * 内推信息
-     * <p> 示例值：
-     */
-    @SerializedName("referral")
-    private Referral referral;
+  /**
+   * 内推信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("referral")
+  private Referral referral;
 
-    public Referral getReferral() {
-        return this.referral;
-    }
+  public Referral getReferral() {
+    return this.referral;
+  }
 
-    public void setReferral(Referral referral) {
-        this.referral = referral;
-    }
-
+  public void setReferral(Referral referral) {
+    this.referral = referral;
+  }
 }

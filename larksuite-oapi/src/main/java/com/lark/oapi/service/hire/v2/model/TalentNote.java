@@ -13,333 +13,358 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentNote {
+  /**
+   * 备注 ID
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 人才 ID
+   *
+   * <p>示例值：6916472453069883661
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 投递 ID
+   *
+   * <p>示例值：6891565253964859661
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 人才备注创建时间,毫秒级时间戳
+   *
+   * <p>示例值：1618209327096
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 人才备注更新时间,毫秒级时间戳
+   *
+   * <p>示例值：1618209327096
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 创建人ID
+   *
+   * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 备注内容
+   *
+   * <p>示例值：测试备注内容
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 备注私密属性
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("privacy")
+  private Integer privacy;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Integer getPrivacy() {
+    return this.privacy;
+  }
+
+  public void setPrivacy(Integer privacy) {
+    this.privacy = privacy;
+  }
+
+  // builder 开始
+  public TalentNote() {}
+
+  public TalentNote(Builder builder) {
     /**
      * 备注 ID
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 人才 ID
-     * <p> 示例值：6916472453069883661
+     *
+     * <p>示例值：6916472453069883661
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 投递 ID
-     * <p> 示例值：6891565253964859661
+     *
+     * <p>示例值：6891565253964859661
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 人才备注创建时间,毫秒级时间戳
-     * <p> 示例值：1618209327096
+     *
+     * <p>示例值：1618209327096
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 人才备注更新时间,毫秒级时间戳
-     * <p> 示例值：1618209327096
+     *
+     * <p>示例值：1618209327096
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 创建人ID
-     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 备注内容
-     * <p> 示例值：测试备注内容
+     *
+     * <p>示例值：测试备注内容
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 备注私密属性
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("privacy")
+    this.privacy = builder.privacy;
+  }
+
+  public static class Builder {
+    /**
+     * 备注 ID
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：6916472453069883661
+     */
+    private String talentId;
+
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6891565253964859661
+     */
+    private String applicationId;
+
+    /**
+     * 人才备注创建时间,毫秒级时间戳
+     *
+     * <p>示例值：1618209327096
+     */
+    private String createTime;
+
+    /**
+     * 人才备注更新时间,毫秒级时间戳
+     *
+     * <p>示例值：1618209327096
+     */
+    private String updateTime;
+
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+     */
+    private String creatorId;
+
+    /**
+     * 备注内容
+     *
+     * <p>示例值：测试备注内容
+     */
+    private String content;
+
+    /**
+     * 备注私密属性
+     *
+     * <p>示例值：1
+     */
     private Integer privacy;
 
-    // builder 开始
-    public TalentNote() {
+    /**
+     * 备注 ID
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentNote(Builder builder) {
-        /**
-         * 备注 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 人才 ID
-         * <p> 示例值：6916472453069883661
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6891565253964859661
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 人才备注创建时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 人才备注更新时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建人ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 备注内容
-         * <p> 示例值：测试备注内容
-         */
-        this.content = builder.content;
-        /**
-         * 备注私密属性
-         * <p> 示例值：1
-         */
-        this.privacy = builder.privacy;
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：6916472453069883661
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6891565253964859661
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 人才备注创建时间,毫秒级时间戳
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 人才备注更新时间,毫秒级时间戳
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 备注内容
+     *
+     * <p>示例值：测试备注内容
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 备注私密属性
+     *
+     * <p>示例值：1
+     *
+     * @param privacy
+     * @return
+     */
+    public Builder privacy(Integer privacy) {
+      this.privacy = privacy;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    public TalentNote build() {
+      return new TalentNote(this);
     }
+  }
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getPrivacy() {
-        return this.privacy;
-    }
-
-    public void setPrivacy(Integer privacy) {
-        this.privacy = privacy;
-    }
-
-    public static class Builder {
-        /**
-         * 备注 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 人才 ID
-         * <p> 示例值：6916472453069883661
-         */
-        private String talentId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6891565253964859661
-         */
-        private String applicationId;
-        /**
-         * 人才备注创建时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         */
-        private String createTime;
-        /**
-         * 人才备注更新时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         */
-        private String updateTime;
-        /**
-         * 创建人ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
-        private String creatorId;
-        /**
-         * 备注内容
-         * <p> 示例值：测试备注内容
-         */
-        private String content;
-        /**
-         * 备注私密属性
-         * <p> 示例值：1
-         */
-        private Integer privacy;
-
-        /**
-         * 备注 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 人才 ID
-         * <p> 示例值：6916472453069883661
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6891565253964859661
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 人才备注创建时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 人才备注更新时间,毫秒级时间戳
-         * <p> 示例值：1618209327096
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 备注内容
-         * <p> 示例值：测试备注内容
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 备注私密属性
-         * <p> 示例值：1
-         *
-         * @param privacy
-         * @return
-         */
-        public Builder privacy(Integer privacy) {
-            this.privacy = privacy;
-            return this;
-        }
-
-
-        public TalentNote build() {
-            return new TalentNote(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

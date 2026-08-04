@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMessageReactionReqBody {
+  /**
+   * 表情回复的资源类型。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reaction_type")
+  private Emoji reactionType;
+
+  public Emoji getReactionType() {
+    return this.reactionType;
+  }
+
+  public void setReactionType(Emoji reactionType) {
+    this.reactionType = reactionType;
+  }
+
+  // builder 开始
+  public CreateMessageReactionReqBody() {}
+
+  public CreateMessageReactionReqBody(Builder builder) {
     /**
-     * reaction资源类型
-     * <p> 示例值：
+     * 表情回复的资源类型。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reaction_type")
+    this.reactionType = builder.reactionType;
+  }
+
+  public static class Builder {
+    /**
+     * 表情回复的资源类型。
+     *
+     * <p>示例值：
+     */
     private Emoji reactionType;
 
-    // builder 开始
-    public CreateMessageReactionReqBody() {
+    /**
+     * 表情回复的资源类型。
+     *
+     * <p>示例值：
+     *
+     * @param reactionType
+     * @return
+     */
+    public Builder reactionType(Emoji reactionType) {
+      this.reactionType = reactionType;
+      return this;
     }
 
-    public CreateMessageReactionReqBody(Builder builder) {
-        /**
-         * reaction资源类型
-         * <p> 示例值：
-         */
-        this.reactionType = builder.reactionType;
+    public CreateMessageReactionReqBody build() {
+      return new CreateMessageReactionReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Emoji getReactionType() {
-        return this.reactionType;
-    }
-
-    public void setReactionType(Emoji reactionType) {
-        this.reactionType = reactionType;
-    }
-
-    public static class Builder {
-        /**
-         * reaction资源类型
-         * <p> 示例值：
-         */
-        private Emoji reactionType;
-
-        /**
-         * reaction资源类型
-         * <p> 示例值：
-         *
-         * @param reactionType
-         * @return
-         */
-        public Builder reactionType(Emoji reactionType) {
-            this.reactionType = reactionType;
-            return this;
-        }
-
-
-        public CreateMessageReactionReqBody build() {
-            return new CreateMessageReactionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,321 +13,307 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaAnswerRequest {
+  /** 示例值： */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 是否启用图片理解与展示。默认为**否**。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("enable_image")
+  private Boolean enableImage;
+
+  /** 示例值：enterprise */
+  @SerializedName("knowledge_scope")
+  private String knowledgeScope;
+
+  /**
+   * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enterprise_knowledge_source")
+  private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
+
+  /**
+   * 额外信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private KnowledgeSourceRequestExtra extra;
+
+  /** 示例值：doubao */
+  @SerializedName("model_type")
+  private String modelType;
+
+  /**
+   * 用户在同一会话内的历史对话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("history_messages")
+  private KnowledgeQaMessage[] historyMessages;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public Boolean getEnableImage() {
+    return this.enableImage;
+  }
+
+  public void setEnableImage(Boolean enableImage) {
+    this.enableImage = enableImage;
+  }
+
+  public String getKnowledgeScope() {
+    return this.knowledgeScope;
+  }
+
+  public void setKnowledgeScope(String knowledgeScope) {
+    this.knowledgeScope = knowledgeScope;
+  }
+
+  public EnterpriseKnowledgeSourceParam getEnterpriseKnowledgeSource() {
+    return this.enterpriseKnowledgeSource;
+  }
+
+  public void setEnterpriseKnowledgeSource(
+      EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
+    this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+  }
+
+  public KnowledgeSourceRequestExtra getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(KnowledgeSourceRequestExtra extra) {
+    this.extra = extra;
+  }
+
+  public String getModelType() {
+    return this.modelType;
+  }
+
+  public void setModelType(String modelType) {
+    this.modelType = modelType;
+  }
+
+  public KnowledgeQaMessage[] getHistoryMessages() {
+    return this.historyMessages;
+  }
+
+  public void setHistoryMessages(KnowledgeQaMessage[] historyMessages) {
+    this.historyMessages = historyMessages;
+  }
+
+  // builder 开始
+  public KnowledgeQaAnswerRequest() {}
+
+  public KnowledgeQaAnswerRequest(Builder builder) {
+    /** 示例值： */
+    this.query = builder.query;
     /**
-     * 用户问题
-     * <p> 示例值：如何申请显示器
+     * 是否启用图片理解与展示。默认为**否**。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("query")
-    private String query;
+    this.enableImage = builder.enableImage;
+    /** 示例值：enterprise */
+    this.knowledgeScope = builder.knowledgeScope;
     /**
-     * 启用图片理解与展示
-     * <p> 示例值：false
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
      */
-    @SerializedName("enable_image")
-    private Boolean enableImage;
-    /**
-     * 指定答案生成的知识范围
-     * <p> 示例值：enterprise
-     */
-    @SerializedName("knowledge_scope")
-    private String knowledgeScope;
-    /**
-     * 企业内知识的检索范围，选择企业内知识时必填
-     * <p> 示例值：
-     */
-    @SerializedName("enterprise_knowledge_source")
-    private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
+    this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
     /**
      * 额外信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
-    private KnowledgeSourceRequestExtra extra;
-    /**
-     * 大模型种类
-     * <p> 示例值：doubao
-     */
-    @SerializedName("model_type")
-    private String modelType;
+    this.extra = builder.extra;
+    /** 示例值：doubao */
+    this.modelType = builder.modelType;
     /**
      * 用户在同一会话内的历史对话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("history_messages")
+    this.historyMessages = builder.historyMessages;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private String query;
+
+    /**
+     * 是否启用图片理解与展示。默认为**否**。
+     *
+     * <p>示例值：false
+     */
+    private Boolean enableImage;
+
+    /** 示例值：enterprise */
+    private String knowledgeScope;
+
+    /**
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
+
+    /**
+     * 额外信息
+     *
+     * <p>示例值：
+     */
+    private KnowledgeSourceRequestExtra extra;
+
+    /** 示例值：doubao */
+    private String modelType;
+
+    /**
+     * 用户在同一会话内的历史对话
+     *
+     * <p>示例值：
+     */
     private KnowledgeQaMessage[] historyMessages;
 
-    // builder 开始
-    public KnowledgeQaAnswerRequest() {
+    /**
+     * 示例值：
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public KnowledgeQaAnswerRequest(Builder builder) {
-        /**
-         * 用户问题
-         * <p> 示例值：如何申请显示器
-         */
-        this.query = builder.query;
-        /**
-         * 启用图片理解与展示
-         * <p> 示例值：false
-         */
-        this.enableImage = builder.enableImage;
-        /**
-         * 指定答案生成的知识范围
-         * <p> 示例值：enterprise
-         */
-        this.knowledgeScope = builder.knowledgeScope;
-        /**
-         * 企业内知识的检索范围，选择企业内知识时必填
-         * <p> 示例值：
-         */
-        this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
-        /**
-         * 额外信息
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-        /**
-         * 大模型种类
-         * <p> 示例值：doubao
-         */
-        this.modelType = builder.modelType;
-        /**
-         * 用户在同一会话内的历史对话
-         * <p> 示例值：
-         */
-        this.historyMessages = builder.historyMessages;
+    /**
+     * 是否启用图片理解与展示。默认为**否**。
+     *
+     * <p>示例值：false
+     *
+     * @param enableImage
+     * @return
+     */
+    public Builder enableImage(Boolean enableImage) {
+      this.enableImage = enableImage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：enterprise
+     *
+     * @param knowledgeScope
+     * @return
+     */
+    public Builder knowledgeScope(String knowledgeScope) {
+      this.knowledgeScope = knowledgeScope;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    /**
+     * 示例值：enterprise
+     *
+     * @param knowledgeScope {@link
+     *     com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum}
+     * @return
+     */
+    public Builder knowledgeScope(
+        com.lark.oapi.service.search.v2.enums
+                .KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum
+            knowledgeScope) {
+      this.knowledgeScope = knowledgeScope.getValue();
+      return this;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    /**
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
+     *
+     * @param enterpriseKnowledgeSource
+     * @return
+     */
+    public Builder enterpriseKnowledgeSource(
+        EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
+      this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+      return this;
     }
 
-    public Boolean getEnableImage() {
-        return this.enableImage;
+    /**
+     * 额外信息
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(KnowledgeSourceRequestExtra extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setEnableImage(Boolean enableImage) {
-        this.enableImage = enableImage;
+    /**
+     * 示例值：doubao
+     *
+     * @param modelType
+     * @return
+     */
+    public Builder modelType(String modelType) {
+      this.modelType = modelType;
+      return this;
     }
 
-    public String getKnowledgeScope() {
-        return this.knowledgeScope;
+    /**
+     * 示例值：doubao
+     *
+     * @param modelType {@link
+     *     com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum}
+     * @return
+     */
+    public Builder modelType(
+        com.lark.oapi.service.search.v2.enums
+                .KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum
+            modelType) {
+      this.modelType = modelType.getValue();
+      return this;
     }
 
-    public void setKnowledgeScope(String knowledgeScope) {
-        this.knowledgeScope = knowledgeScope;
+    /**
+     * 用户在同一会话内的历史对话
+     *
+     * <p>示例值：
+     *
+     * @param historyMessages
+     * @return
+     */
+    public Builder historyMessages(KnowledgeQaMessage[] historyMessages) {
+      this.historyMessages = historyMessages;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceParam getEnterpriseKnowledgeSource() {
-        return this.enterpriseKnowledgeSource;
+    public KnowledgeQaAnswerRequest build() {
+      return new KnowledgeQaAnswerRequest(this);
     }
+  }
 
-    public void setEnterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-        this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-    }
-
-    public KnowledgeSourceRequestExtra getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(KnowledgeSourceRequestExtra extra) {
-        this.extra = extra;
-    }
-
-    public String getModelType() {
-        return this.modelType;
-    }
-
-    public void setModelType(String modelType) {
-        this.modelType = modelType;
-    }
-
-    public KnowledgeQaMessage[] getHistoryMessages() {
-        return this.historyMessages;
-    }
-
-    public void setHistoryMessages(KnowledgeQaMessage[] historyMessages) {
-        this.historyMessages = historyMessages;
-    }
-
-    public static class Builder {
-        /**
-         * 用户问题
-         * <p> 示例值：如何申请显示器
-         */
-        private String query;
-        /**
-         * 启用图片理解与展示
-         * <p> 示例值：false
-         */
-        private Boolean enableImage;
-        /**
-         * 指定答案生成的知识范围
-         * <p> 示例值：enterprise
-         */
-        private String knowledgeScope;
-        /**
-         * 企业内知识的检索范围，选择企业内知识时必填
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
-        /**
-         * 额外信息
-         * <p> 示例值：
-         */
-        private KnowledgeSourceRequestExtra extra;
-        /**
-         * 大模型种类
-         * <p> 示例值：doubao
-         */
-        private String modelType;
-        /**
-         * 用户在同一会话内的历史对话
-         * <p> 示例值：
-         */
-        private KnowledgeQaMessage[] historyMessages;
-
-        /**
-         * 用户问题
-         * <p> 示例值：如何申请显示器
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 启用图片理解与展示
-         * <p> 示例值：false
-         *
-         * @param enableImage
-         * @return
-         */
-        public Builder enableImage(Boolean enableImage) {
-            this.enableImage = enableImage;
-            return this;
-        }
-
-
-        /**
-         * 指定答案生成的知识范围
-         * <p> 示例值：enterprise
-         *
-         * @param knowledgeScope
-         * @return
-         */
-        public Builder knowledgeScope(String knowledgeScope) {
-            this.knowledgeScope = knowledgeScope;
-            return this;
-        }
-
-        /**
-         * 指定答案生成的知识范围
-         * <p> 示例值：enterprise
-         *
-         * @param knowledgeScope {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum}
-         * @return
-         */
-        public Builder knowledgeScope(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum knowledgeScope) {
-            this.knowledgeScope = knowledgeScope.getValue();
-            return this;
-        }
-
-
-        /**
-         * 企业内知识的检索范围，选择企业内知识时必填
-         * <p> 示例值：
-         *
-         * @param enterpriseKnowledgeSource
-         * @return
-         */
-        public Builder enterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-            this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-            return this;
-        }
-
-
-        /**
-         * 额外信息
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(KnowledgeSourceRequestExtra extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 大模型种类
-         * <p> 示例值：doubao
-         *
-         * @param modelType
-         * @return
-         */
-        public Builder modelType(String modelType) {
-            this.modelType = modelType;
-            return this;
-        }
-
-        /**
-         * 大模型种类
-         * <p> 示例值：doubao
-         *
-         * @param modelType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum}
-         * @return
-         */
-        public Builder modelType(com.lark.oapi.service.search.v2.enums.KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestModelTypeEnum modelType) {
-            this.modelType = modelType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户在同一会话内的历史对话
-         * <p> 示例值：
-         *
-         * @param historyMessages
-         * @return
-         */
-        public Builder historyMessages(KnowledgeQaMessage[] historyMessages) {
-            this.historyMessages = historyMessages;
-            return this;
-        }
-
-
-        public KnowledgeQaAnswerRequest build() {
-            return new KnowledgeQaAnswerRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentTaskStepInfo {
+  /**
+   * 引用信息
+   *
+   * <p>示例值：引用自“开始做第一步”
+   */
+  @SerializedName("quote")
+  private String quote;
+
+  /**
+   * 操作内容
+   *
+   * <p>示例值：完成了第二步任务
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 操作时间
+   *
+   * <p>示例值：1776254798779
+   */
+  @SerializedName("timestamp")
+  private Integer timestamp;
+
+  public String getQuote() {
+    return this.quote;
+  }
+
+  public void setQuote(String quote) {
+    this.quote = quote;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Integer getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(Integer timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  // builder 开始
+  public AgentTaskStepInfo() {}
+
+  public AgentTaskStepInfo(Builder builder) {
     /**
      * 引用信息
-     * <p> 示例值：引用自“开始做第一步”
+     *
+     * <p>示例值：引用自“开始做第一步”
      */
-    @SerializedName("quote")
-    private String quote;
+    this.quote = builder.quote;
     /**
      * 操作内容
-     * <p> 示例值：完成了第二步任务
+     *
+     * <p>示例值：完成了第二步任务
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 操作时间
-     * <p> 示例值：1776254798779
+     *
+     * <p>示例值：1776254798779
      */
-    @SerializedName("timestamp")
+    this.timestamp = builder.timestamp;
+  }
+
+  public static class Builder {
+    /**
+     * 引用信息
+     *
+     * <p>示例值：引用自“开始做第一步”
+     */
+    private String quote;
+
+    /**
+     * 操作内容
+     *
+     * <p>示例值：完成了第二步任务
+     */
+    private String content;
+
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1776254798779
+     */
     private Integer timestamp;
 
-    // builder 开始
-    public AgentTaskStepInfo() {
+    /**
+     * 引用信息
+     *
+     * <p>示例值：引用自“开始做第一步”
+     *
+     * @param quote
+     * @return
+     */
+    public Builder quote(String quote) {
+      this.quote = quote;
+      return this;
     }
 
-    public AgentTaskStepInfo(Builder builder) {
-        /**
-         * 引用信息
-         * <p> 示例值：引用自“开始做第一步”
-         */
-        this.quote = builder.quote;
-        /**
-         * 操作内容
-         * <p> 示例值：完成了第二步任务
-         */
-        this.content = builder.content;
-        /**
-         * 操作时间
-         * <p> 示例值：1776254798779
-         */
-        this.timestamp = builder.timestamp;
+    /**
+     * 操作内容
+     *
+     * <p>示例值：完成了第二步任务
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1776254798779
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(Integer timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public String getQuote() {
-        return this.quote;
+    public AgentTaskStepInfo build() {
+      return new AgentTaskStepInfo(this);
     }
+  }
 
-    public void setQuote(String quote) {
-        this.quote = quote;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public static class Builder {
-        /**
-         * 引用信息
-         * <p> 示例值：引用自“开始做第一步”
-         */
-        private String quote;
-        /**
-         * 操作内容
-         * <p> 示例值：完成了第二步任务
-         */
-        private String content;
-        /**
-         * 操作时间
-         * <p> 示例值：1776254798779
-         */
-        private Integer timestamp;
-
-        /**
-         * 引用信息
-         * <p> 示例值：引用自“开始做第一步”
-         *
-         * @param quote
-         * @return
-         */
-        public Builder quote(String quote) {
-            this.quote = quote;
-            return this;
-        }
-
-
-        /**
-         * 操作内容
-         * <p> 示例值：完成了第二步任务
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 操作时间
-         * <p> 示例值：1776254798779
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(Integer timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        public AgentTaskStepInfo build() {
-            return new AgentTaskStepInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

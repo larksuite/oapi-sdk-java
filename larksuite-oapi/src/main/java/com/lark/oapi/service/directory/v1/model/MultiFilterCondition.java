@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MultiFilterCondition {
+  /**
+   * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。
+   * 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("expr")
+  private String expr;
+
+  /**
+   * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private FilterCondition[] conditions;
+
+  public String getExpr() {
+    return this.expr;
+  }
+
+  public void setExpr(String expr) {
+    this.expr = expr;
+  }
+
+  public FilterCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(FilterCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  // builder 开始
+  public MultiFilterCondition() {}
+
+  public MultiFilterCondition(Builder builder) {
     /**
-     * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
-     * <p> 示例值：
+     * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。
+     * 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
+     *
+     * <p>示例值：
      */
-    @SerializedName("expr")
-    private String expr;
+    this.expr = builder.expr;
     /**
      * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
+    this.conditions = builder.conditions;
+  }
+
+  public static class Builder {
+    /**
+     * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。
+     * 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
+     *
+     * <p>示例值：
+     */
+    private String expr;
+
+    /**
+     * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
+     *
+     * <p>示例值：
+     */
     private FilterCondition[] conditions;
 
-    // builder 开始
-    public MultiFilterCondition() {
+    /**
+     * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。
+     * 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
+     *
+     * <p>示例值：
+     *
+     * @param expr
+     * @return
+     */
+    public Builder expr(String expr) {
+      this.expr = expr;
+      return this;
     }
 
-    public MultiFilterCondition(Builder builder) {
-        /**
-         * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
-         * <p> 示例值：
-         */
-        this.expr = builder.expr;
-        /**
-         * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
+    /**
+     * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(FilterCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MultiFilterCondition build() {
+      return new MultiFilterCondition(this);
     }
+  }
 
-    public String getExpr() {
-        return this.expr;
-    }
-
-    public void setExpr(String expr) {
-        this.expr = expr;
-    }
-
-    public FilterCondition[] getConditions() {
-        return this.conditions;
-    }
-
-    public void setConditions(FilterCondition[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public static class Builder {
-        /**
-         * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
-         * <p> 示例值：
-         */
-        private String expr;
-        /**
-         * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
-         * <p> 示例值：
-         */
-        private FilterCondition[] conditions;
-
-        /**
-         * 逻辑表达式，内容为比较表达式的关系\n 操作数：使用序号标识一个比较表达式 运算符：逻辑运算符当前仅支持and，可以使用括号来改变优先级，括号具有最高优先级。 相同优先级从左到右的顺序进行计算。取值举例：1 and 2 and (3 and 4)
-         * <p> 示例值：
-         *
-         * @param expr
-         * @return
-         */
-        public Builder expr(String expr) {
-            this.expr = expr;
-            return this;
-        }
-
-
-        /**
-         * 比较表达式列表，内容如 base_info.mobile eq "\"+8613000000001\""的比较条件，多个表达式之间的关系为且
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(FilterCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        public MultiFilterCondition build() {
-            return new MultiFilterCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 首行缩进级别
- */
+/** 首行缩进级别。仅支持对 Text 块进行修改。 */
 public enum TextStyleIndentationLevelEnum {
-    NOINDENT("NoIndent"), // 无缩进
-    ONELEVELINDENT("OneLevelIndent"), // 一级缩进
-    ;
-    private String value;
+  NOINDENT("NoIndent"), // 无缩进
+  ONELEVELINDENT("OneLevelIndent"), // 一级缩进
+  ;
+  private String value;
 
-    TextStyleIndentationLevelEnum(String value) {
-        this.value = value;
-    }
+  TextStyleIndentationLevelEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

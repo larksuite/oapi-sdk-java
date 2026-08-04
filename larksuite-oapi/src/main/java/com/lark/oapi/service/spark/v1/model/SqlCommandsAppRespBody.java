@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SqlCommandsAppRespBody {
-    /**
-     * 如果是 SELECT 命令，返回的是查询结果的 JSON 序列化字符串。如果是其他无返回的命令，如 DELETE 等，result 为空
-     * <p> 示例值：[{\"name\":\"王一一\"}]
-     */
-    @SerializedName("result")
-    private String result;
+  /**
+   * 如果是 SELECT 命令，返回的是查询结果的 JSON 序列化字符串。如果是其他无返回的命令，如 DELETE 等，result 为空
+   *
+   * <p>示例值：[{\"name\":\"王一一\"}]
+   */
+  @SerializedName("result")
+  private String result;
 
-    public String getResult() {
-        return this.result;
-    }
+  public String getResult() {
+    return this.result;
+  }
 
-    public void setResult(String result) {
-        this.result = result;
-    }
-
+  public void setResult(String result) {
+    this.result = result;
+  }
 }

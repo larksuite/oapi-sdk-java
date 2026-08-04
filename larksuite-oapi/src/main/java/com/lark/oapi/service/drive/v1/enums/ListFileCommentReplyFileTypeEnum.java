@@ -13,24 +13,23 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 文档类型
- */
+/** 云文档类型 */
 public enum ListFileCommentReplyFileTypeEnum {
-    DOC("doc"), // 文档
-    DOCX("docx"), // 新版本文档
-    SHEET("sheet"), // 表格
-    FILE("file"), // 文件
-    SLIDES("slides"), // 幻灯片
-    BITABLE("bitable"), // 多维表格
-    ;
-    private String value;
+  DOC("doc"), // 旧版文档，已不推荐使用
+  DOCX("docx"), // 新版文档类型
+  SHEET("sheet"), // 电子表格类型
+  FILE("file"), // 文件夹类型
+  SLIDES("slides"), // 幻灯片
+  BITABLE("bitable"), // 多维表格
+  APPS("apps"), // 妙搭应用
+  ;
+  private String value;
 
-    ListFileCommentReplyFileTypeEnum(String value) {
-        this.value = value;
-    }
+  ListFileCommentReplyFileTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

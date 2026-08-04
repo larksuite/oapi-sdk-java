@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OperatorDetail {
+  /**
+   * 操作人名字信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_name")
+  private OperatorName operatorName;
+
+  /**
+   * 操作人租户名
+   *
+   * <p>示例值：明日头条
+   */
+  @SerializedName("tenant_name")
+  private String tenantName;
+
+  public OperatorName getOperatorName() {
+    return this.operatorName;
+  }
+
+  public void setOperatorName(OperatorName operatorName) {
+    this.operatorName = operatorName;
+  }
+
+  public String getTenantName() {
+    return this.tenantName;
+  }
+
+  public void setTenantName(String tenantName) {
+    this.tenantName = tenantName;
+  }
+
+  // builder 开始
+  public OperatorDetail() {}
+
+  public OperatorDetail(Builder builder) {
     /**
      * 操作人名字信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator_name")
-    private OperatorName operatorName;
+    this.operatorName = builder.operatorName;
     /**
      * 操作人租户名
-     * <p> 示例值：明日头条
+     *
+     * <p>示例值：明日头条
      */
-    @SerializedName("tenant_name")
+    this.tenantName = builder.tenantName;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人名字信息
+     *
+     * <p>示例值：
+     */
+    private OperatorName operatorName;
+
+    /**
+     * 操作人租户名
+     *
+     * <p>示例值：明日头条
+     */
     private String tenantName;
 
-    // builder 开始
-    public OperatorDetail() {
+    /**
+     * 操作人名字信息
+     *
+     * <p>示例值：
+     *
+     * @param operatorName
+     * @return
+     */
+    public Builder operatorName(OperatorName operatorName) {
+      this.operatorName = operatorName;
+      return this;
     }
 
-    public OperatorDetail(Builder builder) {
-        /**
-         * 操作人名字信息
-         * <p> 示例值：
-         */
-        this.operatorName = builder.operatorName;
-        /**
-         * 操作人租户名
-         * <p> 示例值：明日头条
-         */
-        this.tenantName = builder.tenantName;
+    /**
+     * 操作人租户名
+     *
+     * <p>示例值：明日头条
+     *
+     * @param tenantName
+     * @return
+     */
+    public Builder tenantName(String tenantName) {
+      this.tenantName = tenantName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OperatorDetail build() {
+      return new OperatorDetail(this);
     }
+  }
 
-    public OperatorName getOperatorName() {
-        return this.operatorName;
-    }
-
-    public void setOperatorName(OperatorName operatorName) {
-        this.operatorName = operatorName;
-    }
-
-    public String getTenantName() {
-        return this.tenantName;
-    }
-
-    public void setTenantName(String tenantName) {
-        this.tenantName = tenantName;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人名字信息
-         * <p> 示例值：
-         */
-        private OperatorName operatorName;
-        /**
-         * 操作人租户名
-         * <p> 示例值：明日头条
-         */
-        private String tenantName;
-
-        /**
-         * 操作人名字信息
-         * <p> 示例值：
-         *
-         * @param operatorName
-         * @return
-         */
-        public Builder operatorName(OperatorName operatorName) {
-            this.operatorName = operatorName;
-            return this;
-        }
-
-
-        /**
-         * 操作人租户名
-         * <p> 示例值：明日头条
-         *
-         * @param tenantName
-         * @return
-         */
-        public Builder tenantName(String tenantName) {
-            this.tenantName = tenantName;
-            return this;
-        }
-
-
-        public OperatorDetail build() {
-            return new OperatorDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

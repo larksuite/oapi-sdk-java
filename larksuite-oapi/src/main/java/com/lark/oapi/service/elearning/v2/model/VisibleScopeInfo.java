@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisibleScopeInfo {
+  /**
+   * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("visible_status")
+  private Integer visibleStatus;
+
+  /**
+   * 可见范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_group_list")
+  private VisibleScopeGroup[] scopeGroupList;
+
+  public Integer getVisibleStatus() {
+    return this.visibleStatus;
+  }
+
+  public void setVisibleStatus(Integer visibleStatus) {
+    this.visibleStatus = visibleStatus;
+  }
+
+  public VisibleScopeGroup[] getScopeGroupList() {
+    return this.scopeGroupList;
+  }
+
+  public void setScopeGroupList(VisibleScopeGroup[] scopeGroupList) {
+    this.scopeGroupList = scopeGroupList;
+  }
+
+  // builder 开始
+  public VisibleScopeInfo() {}
+
+  public VisibleScopeInfo(Builder builder) {
     /**
      * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("visible_status")
-    private Integer visibleStatus;
+    this.visibleStatus = builder.visibleStatus;
     /**
      * 可见范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_group_list")
+    this.scopeGroupList = builder.scopeGroupList;
+  }
+
+  public static class Builder {
+    /**
+     * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer visibleStatus;
+
+    /**
+     * 可见范围
+     *
+     * <p>示例值：
+     */
     private VisibleScopeGroup[] scopeGroupList;
 
-    // builder 开始
-    public VisibleScopeInfo() {
+    /**
+     * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param visibleStatus
+     * @return
+     */
+    public Builder visibleStatus(Integer visibleStatus) {
+      this.visibleStatus = visibleStatus;
+      return this;
     }
 
-    public VisibleScopeInfo(Builder builder) {
-        /**
-         * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.visibleStatus = builder.visibleStatus;
-        /**
-         * 可见范围
-         * <p> 示例值：
-         */
-        this.scopeGroupList = builder.scopeGroupList;
+    /**
+     * 可见范围
+     *
+     * <p>示例值：
+     *
+     * @param scopeGroupList
+     * @return
+     */
+    public Builder scopeGroupList(VisibleScopeGroup[] scopeGroupList) {
+      this.scopeGroupList = scopeGroupList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public VisibleScopeInfo build() {
+      return new VisibleScopeInfo(this);
     }
+  }
 
-    public Integer getVisibleStatus() {
-        return this.visibleStatus;
-    }
-
-    public void setVisibleStatus(Integer visibleStatus) {
-        this.visibleStatus = visibleStatus;
-    }
-
-    public VisibleScopeGroup[] getScopeGroupList() {
-        return this.scopeGroupList;
-    }
-
-    public void setScopeGroupList(VisibleScopeGroup[] scopeGroupList) {
-        this.scopeGroupList = scopeGroupList;
-    }
-
-    public static class Builder {
-        /**
-         * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer visibleStatus;
-        /**
-         * 可见范围
-         * <p> 示例值：
-         */
-        private VisibleScopeGroup[] scopeGroupList;
-
-        /**
-         * 可见范围状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param visibleStatus
-         * @return
-         */
-        public Builder visibleStatus(Integer visibleStatus) {
-            this.visibleStatus = visibleStatus;
-            return this;
-        }
-
-
-        /**
-         * 可见范围
-         * <p> 示例值：
-         *
-         * @param scopeGroupList
-         * @return
-         */
-        public Builder scopeGroupList(VisibleScopeGroup[] scopeGroupList) {
-            this.scopeGroupList = scopeGroupList;
-            return this;
-        }
-
-
-        public VisibleScopeInfo build() {
-            return new VisibleScopeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplyReserveReqBody {
+  /**
+   * 预约到期时间（unix时间，单位sec），多人会议必填
+   *
+   * <p>示例值：1608888867
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户;;使用 user_access_token
+   * 时，该参数不生效，设置归属人无意义
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 会议设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_settings")
+  private ReserveMeetingSetting meetingSettings;
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public ReserveMeetingSetting getMeetingSettings() {
+    return this.meetingSettings;
+  }
+
+  public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
+    this.meetingSettings = meetingSettings;
+  }
+
+  // builder 开始
+  public ApplyReserveReqBody() {}
+
+  public ApplyReserveReqBody(Builder builder) {
     /**
      * 预约到期时间（unix时间，单位sec），多人会议必填
-     * <p> 示例值：1608888867
+     *
+     * <p>示例值：1608888867
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
-     * 指定会议归属人，使用tenant_access_token时生效且必传，使用user_access_token时不生效，必须指定为同租户下的合法lark用户
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     * 指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户;;使用 user_access_token
+     * 时，该参数不生效，设置归属人无意义
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 会议设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_settings")
+    this.meetingSettings = builder.meetingSettings;
+  }
+
+  public static class Builder {
+    /**
+     * 预约到期时间（unix时间，单位sec），多人会议必填
+     *
+     * <p>示例值：1608888867
+     */
+    private String endTime;
+
+    /**
+     * 指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户;;使用 user_access_token
+     * 时，该参数不生效，设置归属人无意义
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private String ownerId;
+
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     */
     private ReserveMeetingSetting meetingSettings;
 
-    // builder 开始
-    public ApplyReserveReqBody() {
+    /**
+     * 预约到期时间（unix时间，单位sec），多人会议必填
+     *
+     * <p>示例值：1608888867
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public ApplyReserveReqBody(Builder builder) {
-        /**
-         * 预约到期时间（unix时间，单位sec），多人会议必填
-         * <p> 示例值：1608888867
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 指定会议归属人，使用tenant_access_token时生效且必传，使用user_access_token时不生效，必须指定为同租户下的合法lark用户
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        this.meetingSettings = builder.meetingSettings;
+    /**
+     * 指定会议归属人，使用 tenant_access_token 时生效且必传，指定对象必须为同租户下的合法飞书用户;;使用 user_access_token
+     * 时，该参数不生效，设置归属人无意义
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     *
+     * @param meetingSettings
+     * @return
+     */
+    public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
+      this.meetingSettings = meetingSettings;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    public ApplyReserveReqBody build() {
+      return new ApplyReserveReqBody(this);
     }
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public ReserveMeetingSetting getMeetingSettings() {
-        return this.meetingSettings;
-    }
-
-    public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
-        this.meetingSettings = meetingSettings;
-    }
-
-    public static class Builder {
-        /**
-         * 预约到期时间（unix时间，单位sec），多人会议必填
-         * <p> 示例值：1608888867
-         */
-        private String endTime;
-        /**
-         * 指定会议归属人，使用tenant_access_token时生效且必传，使用user_access_token时不生效，必须指定为同租户下的合法lark用户
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private String ownerId;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        private ReserveMeetingSetting meetingSettings;
-
-        /**
-         * 预约到期时间（unix时间，单位sec），多人会议必填
-         * <p> 示例值：1608888867
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 指定会议归属人，使用tenant_access_token时生效且必传，使用user_access_token时不生效，必须指定为同租户下的合法lark用户
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 会议设置
-         * <p> 示例值：
-         *
-         * @param meetingSettings
-         * @return
-         */
-        public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
-            this.meetingSettings = meetingSettings;
-            return this;
-        }
-
-
-        public ApplyReserveReqBody build() {
-            return new ApplyReserveReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

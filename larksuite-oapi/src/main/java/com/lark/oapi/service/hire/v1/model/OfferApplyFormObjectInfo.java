@@ -13,481 +13,526 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferApplyFormObjectInfo {
+  /**
+   * 字段 ID
+   *
+   * <p>示例值：7260465990618843426
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 字段描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 所属模块 ID
+   *
+   * <p>示例值：7230465990618843432
+   */
+  @SerializedName("module_id")
+  private String moduleId;
+
+  /**
+   * 是否为自定义字段：;- true：自定义字段;- false：系统预置字段
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_customized")
+  private Boolean isCustomized;
+
+  /**
+   * 是否必填：;- true：必填;- false：非必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_required")
+  private Boolean isRequired;
+
+  /**
+   * 字段启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 修改后是否需要审批：;- true：需要审批;- false：不需要审批
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_approve")
+  private Boolean needApprove;
+
+  /**
+   * 是否敏感字段（敏感字段会在发起 Offer 审批时隐藏）;- true：敏感字段;- false：非敏感字段
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_sensitive")
+  private Boolean isSensitive;
+
+  /**
+   * 字段类型（废弃）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 字段类型枚举
+   *
+   * <p>示例值：default
+   */
+  @SerializedName("object_type_v2")
+  private String objectTypeV2;
+
+  /**
+   * 字段配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("config")
+  private OfferApplyFormObjectConfigInfo config;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public String getModuleId() {
+    return this.moduleId;
+  }
+
+  public void setModuleId(String moduleId) {
+    this.moduleId = moduleId;
+  }
+
+  public Boolean getIsCustomized() {
+    return this.isCustomized;
+  }
+
+  public void setIsCustomized(Boolean isCustomized) {
+    this.isCustomized = isCustomized;
+  }
+
+  public Boolean getIsRequired() {
+    return this.isRequired;
+  }
+
+  public void setIsRequired(Boolean isRequired) {
+    this.isRequired = isRequired;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public Boolean getNeedApprove() {
+    return this.needApprove;
+  }
+
+  public void setNeedApprove(Boolean needApprove) {
+    this.needApprove = needApprove;
+  }
+
+  public Boolean getIsSensitive() {
+    return this.isSensitive;
+  }
+
+  public void setIsSensitive(Boolean isSensitive) {
+    this.isSensitive = isSensitive;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public String getObjectTypeV2() {
+    return this.objectTypeV2;
+  }
+
+  public void setObjectTypeV2(String objectTypeV2) {
+    this.objectTypeV2 = objectTypeV2;
+  }
+
+  public OfferApplyFormObjectConfigInfo getConfig() {
+    return this.config;
+  }
+
+  public void setConfig(OfferApplyFormObjectConfigInfo config) {
+    this.config = config;
+  }
+
+  // builder 开始
+  public OfferApplyFormObjectInfo() {}
+
+  public OfferApplyFormObjectInfo(Builder builder) {
     /**
      * 字段 ID
-     * <p> 示例值：23847293234
+     *
+     * <p>示例值：7260465990618843426
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 字段名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 字段描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 所属模块 ID
-     * <p> 示例值：23847293234
+     *
+     * <p>示例值：7230465990618843432
      */
-    @SerializedName("module_id")
+    this.moduleId = builder.moduleId;
+    /**
+     * 是否为自定义字段：;- true：自定义字段;- false：系统预置字段
+     *
+     * <p>示例值：true
+     */
+    this.isCustomized = builder.isCustomized;
+    /**
+     * 是否必填：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
+     */
+    this.isRequired = builder.isRequired;
+    /**
+     * 字段启用状态
+     *
+     * <p>示例值：1
+     */
+    this.activeStatus = builder.activeStatus;
+    /**
+     * 修改后是否需要审批：;- true：需要审批;- false：不需要审批
+     *
+     * <p>示例值：true
+     */
+    this.needApprove = builder.needApprove;
+    /**
+     * 是否敏感字段（敏感字段会在发起 Offer 审批时隐藏）;- true：敏感字段;- false：非敏感字段
+     *
+     * <p>示例值：false
+     */
+    this.isSensitive = builder.isSensitive;
+    /**
+     * 字段类型（废弃）
+     *
+     * <p>示例值：1
+     */
+    this.objectType = builder.objectType;
+    /**
+     * 字段类型枚举
+     *
+     * <p>示例值：default
+     */
+    this.objectTypeV2 = builder.objectTypeV2;
+    /**
+     * 字段配置信息
+     *
+     * <p>示例值：
+     */
+    this.config = builder.config;
+  }
+
+  public static class Builder {
+    /**
+     * 字段 ID
+     *
+     * <p>示例值：7260465990618843426
+     */
+    private String id;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 字段描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 所属模块 ID
+     *
+     * <p>示例值：7230465990618843432
+     */
     private String moduleId;
+
     /**
-     * 是否为自定义字段
-     * <p> 示例值：true
+     * 是否为自定义字段：;- true：自定义字段;- false：系统预置字段
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_customized")
     private Boolean isCustomized;
+
     /**
-     * 是否必填
-     * <p> 示例值：true
+     * 是否必填：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_required")
     private Boolean isRequired;
+
     /**
-     * 是否启用
-     * <p> 示例值：1
+     * 字段启用状态
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
     private Integer activeStatus;
+
     /**
-     * 是否修改后需审批
-     * <p> 示例值：true
+     * 修改后是否需要审批：;- true：需要审批;- false：不需要审批
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_approve")
     private Boolean needApprove;
+
     /**
-     * 是否敏感
-     * <p> 示例值：false
+     * 是否敏感字段（敏感字段会在发起 Offer 审批时隐藏）;- true：敏感字段;- false：非敏感字段
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_sensitive")
     private Boolean isSensitive;
+
     /**
-     * 字段类型枚举
-     * <p> 示例值：1
+     * 字段类型（废弃）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
     private Integer objectType;
+
     /**
      * 字段类型枚举
-     * <p> 示例值：default
+     *
+     * <p>示例值：default
      */
-    @SerializedName("object_type_v2")
     private String objectTypeV2;
+
     /**
-     * 配置信息
-     * <p> 示例值：
+     * 字段配置信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("config")
     private OfferApplyFormObjectConfigInfo config;
 
-    // builder 开始
-    public OfferApplyFormObjectInfo() {
+    /**
+     * 字段 ID
+     *
+     * <p>示例值：7260465990618843426
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OfferApplyFormObjectInfo(Builder builder) {
-        /**
-         * 字段 ID
-         * <p> 示例值：23847293234
-         */
-        this.id = builder.id;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 所属模块 ID
-         * <p> 示例值：23847293234
-         */
-        this.moduleId = builder.moduleId;
-        /**
-         * 是否为自定义字段
-         * <p> 示例值：true
-         */
-        this.isCustomized = builder.isCustomized;
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         */
-        this.isRequired = builder.isRequired;
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 是否修改后需审批
-         * <p> 示例值：true
-         */
-        this.needApprove = builder.needApprove;
-        /**
-         * 是否敏感
-         * <p> 示例值：false
-         */
-        this.isSensitive = builder.isSensitive;
-        /**
-         * 字段类型枚举
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 字段类型枚举
-         * <p> 示例值：default
-         */
-        this.objectTypeV2 = builder.objectTypeV2;
-        /**
-         * 配置信息
-         * <p> 示例值：
-         */
-        this.config = builder.config;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 所属模块 ID
+     *
+     * <p>示例值：7230465990618843432
+     *
+     * @param moduleId
+     * @return
+     */
+    public Builder moduleId(String moduleId) {
+      this.moduleId = moduleId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否为自定义字段：;- true：自定义字段;- false：系统预置字段
+     *
+     * <p>示例值：true
+     *
+     * @param isCustomized
+     * @return
+     */
+    public Builder isCustomized(Boolean isCustomized) {
+      this.isCustomized = isCustomized;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 是否必填：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
+     *
+     * @param isRequired
+     * @return
+     */
+    public Builder isRequired(Boolean isRequired) {
+      this.isRequired = isRequired;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 字段启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    /**
+     * 修改后是否需要审批：;- true：需要审批;- false：不需要审批
+     *
+     * <p>示例值：true
+     *
+     * @param needApprove
+     * @return
+     */
+    public Builder needApprove(Boolean needApprove) {
+      this.needApprove = needApprove;
+      return this;
     }
 
-    public void setDescription(I18n description) {
-        this.description = description;
+    /**
+     * 是否敏感字段（敏感字段会在发起 Offer 审批时隐藏）;- true：敏感字段;- false：非敏感字段
+     *
+     * <p>示例值：false
+     *
+     * @param isSensitive
+     * @return
+     */
+    public Builder isSensitive(Boolean isSensitive) {
+      this.isSensitive = isSensitive;
+      return this;
     }
 
-    public String getModuleId() {
-        return this.moduleId;
+    /**
+     * 字段类型（废弃）
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public void setModuleId(String moduleId) {
-        this.moduleId = moduleId;
+    /**
+     * 字段类型枚举
+     *
+     * <p>示例值：default
+     *
+     * @param objectTypeV2
+     * @return
+     */
+    public Builder objectTypeV2(String objectTypeV2) {
+      this.objectTypeV2 = objectTypeV2;
+      return this;
     }
 
-    public Boolean getIsCustomized() {
-        return this.isCustomized;
+    /**
+     * 字段配置信息
+     *
+     * <p>示例值：
+     *
+     * @param config
+     * @return
+     */
+    public Builder config(OfferApplyFormObjectConfigInfo config) {
+      this.config = config;
+      return this;
     }
 
-    public void setIsCustomized(Boolean isCustomized) {
-        this.isCustomized = isCustomized;
+    public OfferApplyFormObjectInfo build() {
+      return new OfferApplyFormObjectInfo(this);
     }
+  }
 
-    public Boolean getIsRequired() {
-        return this.isRequired;
-    }
-
-    public void setIsRequired(Boolean isRequired) {
-        this.isRequired = isRequired;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public Boolean getNeedApprove() {
-        return this.needApprove;
-    }
-
-    public void setNeedApprove(Boolean needApprove) {
-        this.needApprove = needApprove;
-    }
-
-    public Boolean getIsSensitive() {
-        return this.isSensitive;
-    }
-
-    public void setIsSensitive(Boolean isSensitive) {
-        this.isSensitive = isSensitive;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public String getObjectTypeV2() {
-        return this.objectTypeV2;
-    }
-
-    public void setObjectTypeV2(String objectTypeV2) {
-        this.objectTypeV2 = objectTypeV2;
-    }
-
-    public OfferApplyFormObjectConfigInfo getConfig() {
-        return this.config;
-    }
-
-    public void setConfig(OfferApplyFormObjectConfigInfo config) {
-        this.config = config;
-    }
-
-    public static class Builder {
-        /**
-         * 字段 ID
-         * <p> 示例值：23847293234
-         */
-        private String id;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 所属模块 ID
-         * <p> 示例值：23847293234
-         */
-        private String moduleId;
-        /**
-         * 是否为自定义字段
-         * <p> 示例值：true
-         */
-        private Boolean isCustomized;
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         */
-        private Boolean isRequired;
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 是否修改后需审批
-         * <p> 示例值：true
-         */
-        private Boolean needApprove;
-        /**
-         * 是否敏感
-         * <p> 示例值：false
-         */
-        private Boolean isSensitive;
-        /**
-         * 字段类型枚举
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 字段类型枚举
-         * <p> 示例值：default
-         */
-        private String objectTypeV2;
-        /**
-         * 配置信息
-         * <p> 示例值：
-         */
-        private OfferApplyFormObjectConfigInfo config;
-
-        /**
-         * 字段 ID
-         * <p> 示例值：23847293234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 所属模块 ID
-         * <p> 示例值：23847293234
-         *
-         * @param moduleId
-         * @return
-         */
-        public Builder moduleId(String moduleId) {
-            this.moduleId = moduleId;
-            return this;
-        }
-
-
-        /**
-         * 是否为自定义字段
-         * <p> 示例值：true
-         *
-         * @param isCustomized
-         * @return
-         */
-        public Builder isCustomized(Boolean isCustomized) {
-            this.isCustomized = isCustomized;
-            return this;
-        }
-
-
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         *
-         * @param isRequired
-         * @return
-         */
-        public Builder isRequired(Boolean isRequired) {
-            this.isRequired = isRequired;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 是否修改后需审批
-         * <p> 示例值：true
-         *
-         * @param needApprove
-         * @return
-         */
-        public Builder needApprove(Boolean needApprove) {
-            this.needApprove = needApprove;
-            return this;
-        }
-
-
-        /**
-         * 是否敏感
-         * <p> 示例值：false
-         *
-         * @param isSensitive
-         * @return
-         */
-        public Builder isSensitive(Boolean isSensitive) {
-            this.isSensitive = isSensitive;
-            return this;
-        }
-
-
-        /**
-         * 字段类型枚举
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 字段类型枚举
-         * <p> 示例值：default
-         *
-         * @param objectTypeV2
-         * @return
-         */
-        public Builder objectTypeV2(String objectTypeV2) {
-            this.objectTypeV2 = objectTypeV2;
-            return this;
-        }
-
-
-        /**
-         * 配置信息
-         * <p> 示例值：
-         *
-         * @param config
-         * @return
-         */
-        public Builder config(OfferApplyFormObjectConfigInfo config) {
-            this.config = config;
-            return this;
-        }
-
-
-        public OfferApplyFormObjectInfo build() {
-            return new OfferApplyFormObjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

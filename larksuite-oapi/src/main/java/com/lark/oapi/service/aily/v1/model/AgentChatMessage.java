@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentChatMessage {
+  /**
+   * 类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文本内容
+   *
+   * <p>示例值：你好，我是你的专属智能体，请问有什么可以帮你？
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 产物id
+   *
+   * <p>示例值：3d058789-6952-4697-bf9c-1add1ebc206e
+   */
+  @SerializedName("agent_artifact_id")
+  private String agentArtifactId;
+
+  /**
+   * 产物类型
+   *
+   * <p>示例值：sandbox_file
+   */
+  @SerializedName("artifact_type")
+  private String artifactType;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getAgentArtifactId() {
+    return this.agentArtifactId;
+  }
+
+  public void setAgentArtifactId(String agentArtifactId) {
+    this.agentArtifactId = agentArtifactId;
+  }
+
+  public String getArtifactType() {
+    return this.artifactType;
+  }
+
+  public void setArtifactType(String artifactType) {
+    this.artifactType = artifactType;
+  }
+
+  // builder 开始
+  public AgentChatMessage() {}
+
+  public AgentChatMessage(Builder builder) {
     /**
      * 类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文本内容
-     * <p> 示例值：你好，我是你的专属智能体，请问有什么可以帮你？
+     *
+     * <p>示例值：你好，我是你的专属智能体，请问有什么可以帮你？
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 产物id
-     * <p> 示例值：3d058789-6952-4697-bf9c-1add1ebc206e
+     *
+     * <p>示例值：3d058789-6952-4697-bf9c-1add1ebc206e
      */
-    @SerializedName("agent_artifact_id")
-    private String agentArtifactId;
+    this.agentArtifactId = builder.agentArtifactId;
     /**
      * 产物类型
-     * <p> 示例值：sandbox_file
+     *
+     * <p>示例值：sandbox_file
      */
-    @SerializedName("artifact_type")
+    this.artifactType = builder.artifactType;
+  }
+
+  public static class Builder {
+    /**
+     * 类型
+     *
+     * <p>示例值：text
+     */
+    private String type;
+
+    /**
+     * 文本内容
+     *
+     * <p>示例值：你好，我是你的专属智能体，请问有什么可以帮你？
+     */
+    private String text;
+
+    /**
+     * 产物id
+     *
+     * <p>示例值：3d058789-6952-4697-bf9c-1add1ebc206e
+     */
+    private String agentArtifactId;
+
+    /**
+     * 产物类型
+     *
+     * <p>示例值：sandbox_file
+     */
     private String artifactType;
 
-    // builder 开始
-    public AgentChatMessage() {
+    /**
+     * 类型
+     *
+     * <p>示例值：text
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public AgentChatMessage(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：text
-         */
-        this.type = builder.type;
-        /**
-         * 文本内容
-         * <p> 示例值：你好，我是你的专属智能体，请问有什么可以帮你？
-         */
-        this.text = builder.text;
-        /**
-         * 产物id
-         * <p> 示例值：3d058789-6952-4697-bf9c-1add1ebc206e
-         */
-        this.agentArtifactId = builder.agentArtifactId;
-        /**
-         * 产物类型
-         * <p> 示例值：sandbox_file
-         */
-        this.artifactType = builder.artifactType;
+    /**
+     * 文本内容
+     *
+     * <p>示例值：你好，我是你的专属智能体，请问有什么可以帮你？
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 产物id
+     *
+     * <p>示例值：3d058789-6952-4697-bf9c-1add1ebc206e
+     *
+     * @param agentArtifactId
+     * @return
+     */
+    public Builder agentArtifactId(String agentArtifactId) {
+      this.agentArtifactId = agentArtifactId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 产物类型
+     *
+     * <p>示例值：sandbox_file
+     *
+     * @param artifactType
+     * @return
+     */
+    public Builder artifactType(String artifactType) {
+      this.artifactType = artifactType;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public AgentChatMessage build() {
+      return new AgentChatMessage(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getAgentArtifactId() {
-        return this.agentArtifactId;
-    }
-
-    public void setAgentArtifactId(String agentArtifactId) {
-        this.agentArtifactId = agentArtifactId;
-    }
-
-    public String getArtifactType() {
-        return this.artifactType;
-    }
-
-    public void setArtifactType(String artifactType) {
-        this.artifactType = artifactType;
-    }
-
-    public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：text
-         */
-        private String type;
-        /**
-         * 文本内容
-         * <p> 示例值：你好，我是你的专属智能体，请问有什么可以帮你？
-         */
-        private String text;
-        /**
-         * 产物id
-         * <p> 示例值：3d058789-6952-4697-bf9c-1add1ebc206e
-         */
-        private String agentArtifactId;
-        /**
-         * 产物类型
-         * <p> 示例值：sandbox_file
-         */
-        private String artifactType;
-
-        /**
-         * 类型
-         * <p> 示例值：text
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 文本内容
-         * <p> 示例值：你好，我是你的专属智能体，请问有什么可以帮你？
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 产物id
-         * <p> 示例值：3d058789-6952-4697-bf9c-1add1ebc206e
-         *
-         * @param agentArtifactId
-         * @return
-         */
-        public Builder agentArtifactId(String agentArtifactId) {
-            this.agentArtifactId = agentArtifactId;
-            return this;
-        }
-
-
-        /**
-         * 产物类型
-         * <p> 示例值：sandbox_file
-         *
-         * @param artifactType
-         * @return
-         */
-        public Builder artifactType(String artifactType) {
-            this.artifactType = artifactType;
-            return this;
-        }
-
-
-        public AgentChatMessage build() {
-            return new AgentChatMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

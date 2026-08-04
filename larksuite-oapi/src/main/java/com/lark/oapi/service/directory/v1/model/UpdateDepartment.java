@@ -13,497 +13,544 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateDepartment {
+  /**
+   * 部门ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 自定义部门ID
+   *
+   * <p>示例值：eedasqwA
+   */
+  @SerializedName("custom_department_id")
+  private String customDepartmentId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 父部门ID
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("parent_department_id")
+  private String parentDepartmentId;
+
+  /**
+   * 部门负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leaders")
+  private DepartmentLeader[] leaders;
+
+  /**
+   * HRBP
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hrbps")
+  private String[] hrbps;
+
+  /**
+   * 在上级部门下的排序权重
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order_weight")
+  private String orderWeight;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 部门类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_type")
+  private Integer departmentType;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enabled_status")
+  private Boolean enabledStatus;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_value_map")
+  private Map<String, CustomFieldValue> customFieldValueMap;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_values")
+  private CustomFieldValue[] customFieldValues;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getCustomDepartmentId() {
+    return this.customDepartmentId;
+  }
+
+  public void setCustomDepartmentId(String customDepartmentId) {
+    this.customDepartmentId = customDepartmentId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getParentDepartmentId() {
+    return this.parentDepartmentId;
+  }
+
+  public void setParentDepartmentId(String parentDepartmentId) {
+    this.parentDepartmentId = parentDepartmentId;
+  }
+
+  public DepartmentLeader[] getLeaders() {
+    return this.leaders;
+  }
+
+  public void setLeaders(DepartmentLeader[] leaders) {
+    this.leaders = leaders;
+  }
+
+  public String[] getHrbps() {
+    return this.hrbps;
+  }
+
+  public void setHrbps(String[] hrbps) {
+    this.hrbps = hrbps;
+  }
+
+  public String getOrderWeight() {
+    return this.orderWeight;
+  }
+
+  public void setOrderWeight(String orderWeight) {
+    this.orderWeight = orderWeight;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public Integer getDepartmentType() {
+    return this.departmentType;
+  }
+
+  public void setDepartmentType(Integer departmentType) {
+    this.departmentType = departmentType;
+  }
+
+  public Boolean getEnabledStatus() {
+    return this.enabledStatus;
+  }
+
+  public void setEnabledStatus(Boolean enabledStatus) {
+    this.enabledStatus = enabledStatus;
+  }
+
+  public Map<String, CustomFieldValue> getCustomFieldValueMap() {
+    return this.customFieldValueMap;
+  }
+
+  public void setCustomFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
+    this.customFieldValueMap = customFieldValueMap;
+  }
+
+  public CustomFieldValue[] getCustomFieldValues() {
+    return this.customFieldValues;
+  }
+
+  public void setCustomFieldValues(CustomFieldValue[] customFieldValues) {
+    this.customFieldValues = customFieldValues;
+  }
+
+  // builder 开始
+  public UpdateDepartment() {}
+
+  public UpdateDepartment(Builder builder) {
     /**
      * 部门ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 自定义部门ID
-     * <p> 示例值：eedasqwA
+     *
+     * <p>示例值：eedasqwA
      */
-    @SerializedName("custom_department_id")
-    private String customDepartmentId;
+    this.customDepartmentId = builder.customDepartmentId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 父部门ID
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("parent_department_id")
-    private String parentDepartmentId;
+    this.parentDepartmentId = builder.parentDepartmentId;
     /**
      * 部门负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leaders")
-    private DepartmentLeader[] leaders;
+    this.leaders = builder.leaders;
     /**
      * HRBP
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hrbps")
-    private String[] hrbps;
+    this.hrbps = builder.hrbps;
     /**
      * 在上级部门下的排序权重
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order_weight")
-    private String orderWeight;
+    this.orderWeight = builder.orderWeight;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 部门类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_type")
-    private Integer departmentType;
+    this.departmentType = builder.departmentType;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enabled_status")
+    this.enabledStatus = builder.enabledStatus;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    this.customFieldValueMap = builder.customFieldValueMap;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    this.customFieldValues = builder.customFieldValues;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：
+     */
+    private String departmentId;
+
+    /**
+     * 自定义部门ID
+     *
+     * <p>示例值：eedasqwA
+     */
+    private String customDepartmentId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 父部门ID
+     *
+     * <p>示例值：100
+     */
+    private String parentDepartmentId;
+
+    /**
+     * 部门负责人
+     *
+     * <p>示例值：
+     */
+    private DepartmentLeader[] leaders;
+
+    /**
+     * HRBP
+     *
+     * <p>示例值：
+     */
+    private String[] hrbps;
+
+    /**
+     * 在上级部门下的排序权重
+     *
+     * <p>示例值：100
+     */
+    private String orderWeight;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 部门类型
+     *
+     * <p>示例值：
+     */
+    private Integer departmentType;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
     private Boolean enabledStatus;
+
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_value_map")
     private Map<String, CustomFieldValue> customFieldValueMap;
+
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_values")
     private CustomFieldValue[] customFieldValues;
 
-    // builder 开始
-    public UpdateDepartment() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public UpdateDepartment(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 自定义部门ID
-         * <p> 示例值：eedasqwA
-         */
-        this.customDepartmentId = builder.customDepartmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 父部门ID
-         * <p> 示例值：100
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         */
-        this.leaders = builder.leaders;
-        /**
-         * HRBP
-         * <p> 示例值：
-         */
-        this.hrbps = builder.hrbps;
-        /**
-         * 在上级部门下的排序权重
-         * <p> 示例值：100
-         */
-        this.orderWeight = builder.orderWeight;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 部门类型
-         * <p> 示例值：
-         */
-        this.departmentType = builder.departmentType;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.enabledStatus = builder.enabledStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFieldValueMap = builder.customFieldValueMap;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFieldValues = builder.customFieldValues;
+    /**
+     * 自定义部门ID
+     *
+     * <p>示例值：eedasqwA
+     *
+     * @param customDepartmentId
+     * @return
+     */
+    public Builder customDepartmentId(String customDepartmentId) {
+      this.customDepartmentId = customDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 父部门ID
+     *
+     * <p>示例值：100
+     *
+     * @param parentDepartmentId
+     * @return
+     */
+    public Builder parentDepartmentId(String parentDepartmentId) {
+      this.parentDepartmentId = parentDepartmentId;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 部门负责人
+     *
+     * <p>示例值：
+     *
+     * @param leaders
+     * @return
+     */
+    public Builder leaders(DepartmentLeader[] leaders) {
+      this.leaders = leaders;
+      return this;
     }
 
-    public String getCustomDepartmentId() {
-        return this.customDepartmentId;
+    /**
+     * HRBP
+     *
+     * <p>示例值：
+     *
+     * @param hrbps
+     * @return
+     */
+    public Builder hrbps(String[] hrbps) {
+      this.hrbps = hrbps;
+      return this;
     }
 
-    public void setCustomDepartmentId(String customDepartmentId) {
-        this.customDepartmentId = customDepartmentId;
+    /**
+     * 在上级部门下的排序权重
+     *
+     * <p>示例值：100
+     *
+     * @param orderWeight
+     * @return
+     */
+    public Builder orderWeight(String orderWeight) {
+      this.orderWeight = orderWeight;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 部门类型
+     *
+     * <p>示例值：
+     *
+     * @param departmentType
+     * @return
+     */
+    public Builder departmentType(Integer departmentType) {
+      this.departmentType = departmentType;
+      return this;
     }
 
-    public String getParentDepartmentId() {
-        return this.parentDepartmentId;
+    /**
+     * 部门类型
+     *
+     * <p>示例值：
+     *
+     * @param departmentType {@link
+     *     com.lark.oapi.service.directory.v1.enums.UpdateDepartmentDepartmentTypeEnum}
+     * @return
+     */
+    public Builder departmentType(
+        com.lark.oapi.service.directory.v1.enums.UpdateDepartmentDepartmentTypeEnum
+            departmentType) {
+      this.departmentType = departmentType.getValue();
+      return this;
     }
 
-    public void setParentDepartmentId(String parentDepartmentId) {
-        this.parentDepartmentId = parentDepartmentId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param enabledStatus
+     * @return
+     */
+    public Builder enabledStatus(Boolean enabledStatus) {
+      this.enabledStatus = enabledStatus;
+      return this;
     }
 
-    public DepartmentLeader[] getLeaders() {
-        return this.leaders;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFieldValueMap
+     * @return
+     */
+    public Builder customFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
+      this.customFieldValueMap = customFieldValueMap;
+      return this;
     }
 
-    public void setLeaders(DepartmentLeader[] leaders) {
-        this.leaders = leaders;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFieldValues
+     * @return
+     */
+    public Builder customFieldValues(CustomFieldValue[] customFieldValues) {
+      this.customFieldValues = customFieldValues;
+      return this;
     }
 
-    public String[] getHrbps() {
-        return this.hrbps;
+    public UpdateDepartment build() {
+      return new UpdateDepartment(this);
     }
+  }
 
-    public void setHrbps(String[] hrbps) {
-        this.hrbps = hrbps;
-    }
-
-    public String getOrderWeight() {
-        return this.orderWeight;
-    }
-
-    public void setOrderWeight(String orderWeight) {
-        this.orderWeight = orderWeight;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public Integer getDepartmentType() {
-        return this.departmentType;
-    }
-
-    public void setDepartmentType(Integer departmentType) {
-        this.departmentType = departmentType;
-    }
-
-    public Boolean getEnabledStatus() {
-        return this.enabledStatus;
-    }
-
-    public void setEnabledStatus(Boolean enabledStatus) {
-        this.enabledStatus = enabledStatus;
-    }
-
-    public Map<String, CustomFieldValue> getCustomFieldValueMap() {
-        return this.customFieldValueMap;
-    }
-
-    public void setCustomFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
-        this.customFieldValueMap = customFieldValueMap;
-    }
-
-    public CustomFieldValue[] getCustomFieldValues() {
-        return this.customFieldValues;
-    }
-
-    public void setCustomFieldValues(CustomFieldValue[] customFieldValues) {
-        this.customFieldValues = customFieldValues;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：
-         */
-        private String departmentId;
-        /**
-         * 自定义部门ID
-         * <p> 示例值：eedasqwA
-         */
-        private String customDepartmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 父部门ID
-         * <p> 示例值：100
-         */
-        private String parentDepartmentId;
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         */
-        private DepartmentLeader[] leaders;
-        /**
-         * HRBP
-         * <p> 示例值：
-         */
-        private String[] hrbps;
-        /**
-         * 在上级部门下的排序权重
-         * <p> 示例值：100
-         */
-        private String orderWeight;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 部门类型
-         * <p> 示例值：
-         */
-        private Integer departmentType;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean enabledStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private Map<String, CustomFieldValue> customFieldValueMap;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldValue[] customFieldValues;
-
-        /**
-         * 部门ID
-         * <p> 示例值：
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 自定义部门ID
-         * <p> 示例值：eedasqwA
-         *
-         * @param customDepartmentId
-         * @return
-         */
-        public Builder customDepartmentId(String customDepartmentId) {
-            this.customDepartmentId = customDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 父部门ID
-         * <p> 示例值：100
-         *
-         * @param parentDepartmentId
-         * @return
-         */
-        public Builder parentDepartmentId(String parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         *
-         * @param leaders
-         * @return
-         */
-        public Builder leaders(DepartmentLeader[] leaders) {
-            this.leaders = leaders;
-            return this;
-        }
-
-
-        /**
-         * HRBP
-         * <p> 示例值：
-         *
-         * @param hrbps
-         * @return
-         */
-        public Builder hrbps(String[] hrbps) {
-            this.hrbps = hrbps;
-            return this;
-        }
-
-
-        /**
-         * 在上级部门下的排序权重
-         * <p> 示例值：100
-         *
-         * @param orderWeight
-         * @return
-         */
-        public Builder orderWeight(String orderWeight) {
-            this.orderWeight = orderWeight;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 部门类型
-         * <p> 示例值：
-         *
-         * @param departmentType
-         * @return
-         */
-        public Builder departmentType(Integer departmentType) {
-            this.departmentType = departmentType;
-            return this;
-        }
-
-        /**
-         * 部门类型
-         * <p> 示例值：
-         *
-         * @param departmentType {@link com.lark.oapi.service.directory.v1.enums.UpdateDepartmentDepartmentTypeEnum}
-         * @return
-         */
-        public Builder departmentType(com.lark.oapi.service.directory.v1.enums.UpdateDepartmentDepartmentTypeEnum departmentType) {
-            this.departmentType = departmentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param enabledStatus
-         * @return
-         */
-        public Builder enabledStatus(Boolean enabledStatus) {
-            this.enabledStatus = enabledStatus;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFieldValueMap
-         * @return
-         */
-        public Builder customFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
-            this.customFieldValueMap = customFieldValueMap;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFieldValues
-         * @return
-         */
-        public Builder customFieldValues(CustomFieldValue[] customFieldValues) {
-            this.customFieldValues = customFieldValues;
-            return this;
-        }
-
-
-        public UpdateDepartment build() {
-            return new UpdateDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

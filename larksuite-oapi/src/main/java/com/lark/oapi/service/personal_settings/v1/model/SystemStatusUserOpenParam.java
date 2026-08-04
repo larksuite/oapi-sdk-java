@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemStatusUserOpenParam {
+  /**
+   * 用户ID，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+   *
+   * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+   *
+   * <p>示例值：1665990378
+   */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public SystemStatusUserOpenParam() {}
+
+  public SystemStatusUserOpenParam(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     * 用户ID，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-     * <p> 示例值：1665990378
+     *
+     * <p>示例值：1665990378
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
+    private String userId;
+
+    /**
+     * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+     *
+     * <p>示例值：1665990378
+     */
     private Integer endTime;
 
-    // builder 开始
-    public SystemStatusUserOpenParam() {
+    /**
+     * 用户ID，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SystemStatusUserOpenParam(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        this.userId = builder.userId;
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+     *
+     * <p>示例值：1665990378
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SystemStatusUserOpenParam build() {
+      return new SystemStatusUserOpenParam(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        private String userId;
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         */
-        private Integer endTime;
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public SystemStatusUserOpenParam build() {
-            return new SystemStatusUserOpenParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

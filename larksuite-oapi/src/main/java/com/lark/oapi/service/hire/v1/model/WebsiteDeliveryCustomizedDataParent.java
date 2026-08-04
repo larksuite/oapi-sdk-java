@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDeliveryCustomizedDataParent {
+  /**
+   * 自定义模块ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取
+   *
+   * <p>示例值：6960663240925956651
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private WebsiteDeliveryCustomizedData[] children;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public WebsiteDeliveryCustomizedData[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(WebsiteDeliveryCustomizedData[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public WebsiteDeliveryCustomizedDataParent() {}
+
+  public WebsiteDeliveryCustomizedDataParent(Builder builder) {
     /**
-     * 自定义字段 ID
-     * <p> 示例值：6960663240925956651
+     * 自定义模块ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取
+     *
+     * <p>示例值：6960663240925956651
      */
-    @SerializedName("object_id")
+    this.objectId = builder.objectId;
+    /**
+     * 字段列表
+     *
+     * <p>示例值：
+     */
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义模块ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取
+     *
+     * <p>示例值：6960663240925956651
+     */
     private String objectId;
+
     /**
-     * 模块下的字段
-     * <p> 示例值：
+     * 字段列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
     private WebsiteDeliveryCustomizedData[] children;
 
-    // builder 开始
-    public WebsiteDeliveryCustomizedDataParent() {
+    /**
+     * 自定义模块ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)获取
+     *
+     * <p>示例值：6960663240925956651
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public WebsiteDeliveryCustomizedDataParent(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6960663240925956651
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 字段列表
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(WebsiteDeliveryCustomizedData[] children) {
+      this.children = children;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WebsiteDeliveryCustomizedDataParent build() {
+      return new WebsiteDeliveryCustomizedDataParent(this);
     }
+  }
 
-    public String getObjectId() {
-        return this.objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public WebsiteDeliveryCustomizedData[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(WebsiteDeliveryCustomizedData[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6960663240925956651
-         */
-        private String objectId;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryCustomizedData[] children;
-
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6960663240925956651
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(WebsiteDeliveryCustomizedData[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public WebsiteDeliveryCustomizedDataParent build() {
-            return new WebsiteDeliveryCustomizedDataParent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

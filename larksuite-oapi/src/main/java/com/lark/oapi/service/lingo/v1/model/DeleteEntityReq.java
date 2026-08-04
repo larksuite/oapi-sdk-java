@@ -13,137 +13,139 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.lingo.v1.enums.*;
 
 public class DeleteEntityReq {
+  /**
+   * 外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+   *
+   * <p>示例值：星云
+   */
+  @Query
+  @SerializedName("provider")
+  private String provider;
+
+  /**
+   * 词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+   *
+   * <p>示例值：123aaa
+   */
+  @Query
+  @SerializedName("outer_id")
+  private String outerId;
+
+  public String getProvider() {
+    return this.provider;
+  }
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+  public String getOuterId() {
+    return this.outerId;
+  }
+
+  public void setOuterId(String outerId) {
+    this.outerId = outerId;
+  }
+
+  /**
+   * 词条 ID
+   *
+   * <p>示例值：enterprise_43742132363
+   */
+  @Path
+  @SerializedName("entity_id")
+  private String entityId;
+
+  public String getEntityId() {
+    return this.entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
+
+  // builder 开始
+  public DeleteEntityReq() {}
+
+  public DeleteEntityReq(Builder builder) {
     /**
-     * 数据提供方（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-     * <p> 示例值：星云
+     * 外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+     *
+     * <p>示例值：星云
      */
-    @Query
-    @SerializedName("provider")
-    private String provider;
+    this.provider = builder.provider;
     /**
-     * 外部唯一 id（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-     * <p> 示例值：123aaa
+     * 词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+     *
+     * <p>示例值：123aaa
      */
-    @Query
-    @SerializedName("outer_id")
-    private String outerId;
+    this.outerId = builder.outerId;
     /**
-     * 词条 id
-     * <p> 示例值：enterprise_43742132363
+     * 词条 ID
+     *
+     * <p>示例值：enterprise_43742132363
      */
-    @Path
-    @SerializedName("entity_id")
-    private String entityId;
+    this.entityId = builder.entityId;
+  }
 
-    // builder 开始
-    public DeleteEntityReq() {
+  public static class Builder {
+    private String provider; // 外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+    private String
+        outerId; // 词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+
+    /**
+     * 外部系统（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+     *
+     * <p>示例值：星云
+     *
+     * @param provider
+     * @return
+     */
+    public Builder provider(String provider) {
+      this.provider = provider;
+      return this;
     }
 
-    public DeleteEntityReq(Builder builder) {
-        /**
-         * 数据提供方（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：星云
-         */
-        this.provider = builder.provider;
-        /**
-         * 外部唯一 id（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：123aaa
-         */
-        this.outerId = builder.outerId;
-        /**
-         * 词条 id
-         * <p> 示例值：enterprise_43742132363
-         */
-        this.entityId = builder.entityId;
+    /**
+     * 词条在外部系统中对应的唯一 ID（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
+     *
+     * <p>示例值：123aaa
+     *
+     * @param outerId
+     * @return
+     */
+    public Builder outerId(String outerId) {
+      this.outerId = outerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String entityId; // 词条 ID
+
+    /**
+     * 词条 ID
+     *
+     * <p>示例值：enterprise_43742132363
+     *
+     * @param entityId
+     * @return
+     */
+    public Builder entityId(String entityId) {
+      this.entityId = entityId;
+      return this;
     }
 
-    public String getProvider() {
-        return this.provider;
+    public DeleteEntityReq build() {
+      return new DeleteEntityReq(this);
     }
+  }
 
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    public String getOuterId() {
-        return this.outerId;
-    }
-
-    public void setOuterId(String outerId) {
-        this.outerId = outerId;
-    }
-
-    public String getEntityId() {
-        return this.entityId;
-    }
-
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
-    }
-
-    public static class Builder {
-        private String provider; // 数据提供方（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-        private String outerId; // 外部唯一 id（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-        private String entityId; // 词条 id
-
-        /**
-         * 数据提供方（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：星云
-         *
-         * @param provider
-         * @return
-         */
-        public Builder provider(String provider) {
-            this.provider = provider;
-            return this;
-        }
-
-        /**
-         * 外部唯一 id（使用时需要将路径中的词条 ID 固定为：enterprise_0，且提供 provider 和 outer_id）
-         * <p> 示例值：123aaa
-         *
-         * @param outerId
-         * @return
-         */
-        public Builder outerId(String outerId) {
-            this.outerId = outerId;
-            return this;
-        }
-
-        /**
-         * 词条 id
-         * <p> 示例值：enterprise_43742132363
-         *
-         * @param entityId
-         * @return
-         */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
-
-
-        public DeleteEntityReq build() {
-            return new DeleteEntityReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

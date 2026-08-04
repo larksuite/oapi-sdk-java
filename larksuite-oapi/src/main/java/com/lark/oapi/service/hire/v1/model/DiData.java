@@ -13,111 +13,114 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DiData {
+  /**
+   * 字段值;;**不同类型数据格式如下**：;- 单选："1" ;- 多选："["1", "2"]" ;- 月份选择："{"date":"2022-01"}" ;-
+   * 年份选择："{"date":"2022"}" ;- 数字："123" ;- 单行文本："今天天气不错" ;- 多行文本："该候选人优势如下： 思维敏捷，逻辑清晰，对业务有自己见解" ;-
+   * 日期范围："[1688140800000,1688140800000]"
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 字段属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object_attribute")
+  private ObjectAttribute objectAttribute;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public ObjectAttribute getObjectAttribute() {
+    return this.objectAttribute;
+  }
+
+  public void setObjectAttribute(ObjectAttribute objectAttribute) {
+    this.objectAttribute = objectAttribute;
+  }
+
+  // builder 开始
+  public DiData() {}
+
+  public DiData(Builder builder) {
     /**
-     * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-     * <p> 示例值："1"
+     * 字段值;;**不同类型数据格式如下**：;- 单选："1" ;- 多选："["1", "2"]" ;- 月份选择："{"date":"2022-01"}" ;-
+     * 年份选择："{"date":"2022"}" ;- 数字："123" ;- 单行文本："今天天气不错" ;- 多行文本："该候选人优势如下： 思维敏捷，逻辑清晰，对业务有自己见解" ;-
+     * 日期范围："[1688140800000,1688140800000]"
+     *
+     * <p>示例值：1
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 字段属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("object_attribute")
+    this.objectAttribute = builder.objectAttribute;
+  }
+
+  public static class Builder {
+    /**
+     * 字段值;;**不同类型数据格式如下**：;- 单选："1" ;- 多选："["1", "2"]" ;- 月份选择："{"date":"2022-01"}" ;-
+     * 年份选择："{"date":"2022"}" ;- 数字："123" ;- 单行文本："今天天气不错" ;- 多行文本："该候选人优势如下： 思维敏捷，逻辑清晰，对业务有自己见解" ;-
+     * 日期范围："[1688140800000,1688140800000]"
+     *
+     * <p>示例值：1
+     */
+    private String value;
+
+    /**
+     * 字段属性
+     *
+     * <p>示例值：
+     */
     private ObjectAttribute objectAttribute;
 
-    // builder 开始
-    public DiData() {
+    /**
+     * 字段值;;**不同类型数据格式如下**：;- 单选："1" ;- 多选："["1", "2"]" ;- 月份选择："{"date":"2022-01"}" ;-
+     * 年份选择："{"date":"2022"}" ;- 数字："123" ;- 单行文本："今天天气不错" ;- 多行文本："该候选人优势如下： 思维敏捷，逻辑清晰，对业务有自己见解" ;-
+     * 日期范围："[1688140800000,1688140800000]"
+     *
+     * <p>示例值：1
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public DiData(Builder builder) {
-        /**
-         * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-         * <p> 示例值："1"
-         */
-        this.value = builder.value;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        this.objectAttribute = builder.objectAttribute;
+    /**
+     * 字段属性
+     *
+     * <p>示例值：
+     *
+     * @param objectAttribute
+     * @return
+     */
+    public Builder objectAttribute(ObjectAttribute objectAttribute) {
+      this.objectAttribute = objectAttribute;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DiData build() {
+      return new DiData(this);
     }
+  }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public ObjectAttribute getObjectAttribute() {
-        return this.objectAttribute;
-    }
-
-    public void setObjectAttribute(ObjectAttribute objectAttribute) {
-        this.objectAttribute = objectAttribute;
-    }
-
-    public static class Builder {
-        /**
-         * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-         * <p> 示例值："1"
-         */
-        private String value;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        private ObjectAttribute objectAttribute;
-
-        /**
-         * 字段值 1. 单选： "1" 2. 多选："["1", "2"]" 3. 月份选择："{"date":"2022-01"}" 4. 年份选择："{"date":"2022"}" 5. 数字："123" 6. 单行文本："xxx " 7. 多行文本："xxx xxxx" 8. 日期范围 "[1688140800000,1688140800000]"
-         * <p> 示例值："1"
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 字段属性
-         * <p> 示例值：
-         *
-         * @param objectAttribute
-         * @return
-         */
-        public Builder objectAttribute(ObjectAttribute objectAttribute) {
-            this.objectAttribute = objectAttribute;
-            return this;
-        }
-
-
-        public DiData build() {
-            return new DiData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

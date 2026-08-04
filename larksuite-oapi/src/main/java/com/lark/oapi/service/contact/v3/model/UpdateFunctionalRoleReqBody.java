@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateFunctionalRoleReqBody {
+  /**
+   * 角色名称。在同一租户下角色名称唯一，不能重复。
+   *
+   * <p>示例值：考勤管理员
+   */
+  @SerializedName("role_name")
+  private String roleName;
+
+  public String getRoleName() {
+    return this.roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
+  // builder 开始
+  public UpdateFunctionalRoleReqBody() {}
+
+  public UpdateFunctionalRoleReqBody(Builder builder) {
     /**
-     * 修改的角色名称，在单租户下唯一
-     * <p> 示例值：考勤管理员
+     * 角色名称。在同一租户下角色名称唯一，不能重复。
+     *
+     * <p>示例值：考勤管理员
      */
-    @SerializedName("role_name")
+    this.roleName = builder.roleName;
+  }
+
+  public static class Builder {
+    /**
+     * 角色名称。在同一租户下角色名称唯一，不能重复。
+     *
+     * <p>示例值：考勤管理员
+     */
     private String roleName;
 
-    // builder 开始
-    public UpdateFunctionalRoleReqBody() {
+    /**
+     * 角色名称。在同一租户下角色名称唯一，不能重复。
+     *
+     * <p>示例值：考勤管理员
+     *
+     * @param roleName
+     * @return
+     */
+    public Builder roleName(String roleName) {
+      this.roleName = roleName;
+      return this;
     }
 
-    public UpdateFunctionalRoleReqBody(Builder builder) {
-        /**
-         * 修改的角色名称，在单租户下唯一
-         * <p> 示例值：考勤管理员
-         */
-        this.roleName = builder.roleName;
+    public UpdateFunctionalRoleReqBody build() {
+      return new UpdateFunctionalRoleReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRoleName() {
-        return this.roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public static class Builder {
-        /**
-         * 修改的角色名称，在单租户下唯一
-         * <p> 示例值：考勤管理员
-         */
-        private String roleName;
-
-        /**
-         * 修改的角色名称，在单租户下唯一
-         * <p> 示例值：考勤管理员
-         *
-         * @param roleName
-         * @return
-         */
-        public Builder roleName(String roleName) {
-            this.roleName = roleName;
-            return this;
-        }
-
-
-        public UpdateFunctionalRoleReqBody build() {
-            return new UpdateFunctionalRoleReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

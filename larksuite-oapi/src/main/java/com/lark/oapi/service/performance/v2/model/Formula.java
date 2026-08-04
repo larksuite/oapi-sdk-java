@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Formula {
+  /**
+   * 公式 ID
+   *
+   * <p>示例值：7302271694582841364
+   */
+  @SerializedName("formula_id")
+  private String formulaId;
+
+  /**
+   * 公式名称
+   *
+   * <p>示例值：示例公式
+   */
+  @SerializedName("formula_name")
+  private String formulaName;
+
+  /**
+   * 公式详情
+   *
+   * <p>示例值：1 + 1
+   */
+  @SerializedName("formula_details")
+  private String formulaDetails;
+
+  public String getFormulaId() {
+    return this.formulaId;
+  }
+
+  public void setFormulaId(String formulaId) {
+    this.formulaId = formulaId;
+  }
+
+  public String getFormulaName() {
+    return this.formulaName;
+  }
+
+  public void setFormulaName(String formulaName) {
+    this.formulaName = formulaName;
+  }
+
+  public String getFormulaDetails() {
+    return this.formulaDetails;
+  }
+
+  public void setFormulaDetails(String formulaDetails) {
+    this.formulaDetails = formulaDetails;
+  }
+
+  // builder 开始
+  public Formula() {}
+
+  public Formula(Builder builder) {
     /**
      * 公式 ID
-     * <p> 示例值：7302271694582841364
+     *
+     * <p>示例值：7302271694582841364
      */
-    @SerializedName("formula_id")
-    private String formulaId;
+    this.formulaId = builder.formulaId;
     /**
      * 公式名称
-     * <p> 示例值：示例公式
+     *
+     * <p>示例值：示例公式
      */
-    @SerializedName("formula_name")
-    private String formulaName;
+    this.formulaName = builder.formulaName;
     /**
      * 公式详情
-     * <p> 示例值：1 + 1
+     *
+     * <p>示例值：1 + 1
      */
-    @SerializedName("formula_details")
+    this.formulaDetails = builder.formulaDetails;
+  }
+
+  public static class Builder {
+    /**
+     * 公式 ID
+     *
+     * <p>示例值：7302271694582841364
+     */
+    private String formulaId;
+
+    /**
+     * 公式名称
+     *
+     * <p>示例值：示例公式
+     */
+    private String formulaName;
+
+    /**
+     * 公式详情
+     *
+     * <p>示例值：1 + 1
+     */
     private String formulaDetails;
 
-    // builder 开始
-    public Formula() {
+    /**
+     * 公式 ID
+     *
+     * <p>示例值：7302271694582841364
+     *
+     * @param formulaId
+     * @return
+     */
+    public Builder formulaId(String formulaId) {
+      this.formulaId = formulaId;
+      return this;
     }
 
-    public Formula(Builder builder) {
-        /**
-         * 公式 ID
-         * <p> 示例值：7302271694582841364
-         */
-        this.formulaId = builder.formulaId;
-        /**
-         * 公式名称
-         * <p> 示例值：示例公式
-         */
-        this.formulaName = builder.formulaName;
-        /**
-         * 公式详情
-         * <p> 示例值：1 + 1
-         */
-        this.formulaDetails = builder.formulaDetails;
+    /**
+     * 公式名称
+     *
+     * <p>示例值：示例公式
+     *
+     * @param formulaName
+     * @return
+     */
+    public Builder formulaName(String formulaName) {
+      this.formulaName = formulaName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公式详情
+     *
+     * <p>示例值：1 + 1
+     *
+     * @param formulaDetails
+     * @return
+     */
+    public Builder formulaDetails(String formulaDetails) {
+      this.formulaDetails = formulaDetails;
+      return this;
     }
 
-    public String getFormulaId() {
-        return this.formulaId;
+    public Formula build() {
+      return new Formula(this);
     }
+  }
 
-    public void setFormulaId(String formulaId) {
-        this.formulaId = formulaId;
-    }
-
-    public String getFormulaName() {
-        return this.formulaName;
-    }
-
-    public void setFormulaName(String formulaName) {
-        this.formulaName = formulaName;
-    }
-
-    public String getFormulaDetails() {
-        return this.formulaDetails;
-    }
-
-    public void setFormulaDetails(String formulaDetails) {
-        this.formulaDetails = formulaDetails;
-    }
-
-    public static class Builder {
-        /**
-         * 公式 ID
-         * <p> 示例值：7302271694582841364
-         */
-        private String formulaId;
-        /**
-         * 公式名称
-         * <p> 示例值：示例公式
-         */
-        private String formulaName;
-        /**
-         * 公式详情
-         * <p> 示例值：1 + 1
-         */
-        private String formulaDetails;
-
-        /**
-         * 公式 ID
-         * <p> 示例值：7302271694582841364
-         *
-         * @param formulaId
-         * @return
-         */
-        public Builder formulaId(String formulaId) {
-            this.formulaId = formulaId;
-            return this;
-        }
-
-
-        /**
-         * 公式名称
-         * <p> 示例值：示例公式
-         *
-         * @param formulaName
-         * @return
-         */
-        public Builder formulaName(String formulaName) {
-            this.formulaName = formulaName;
-            return this;
-        }
-
-
-        /**
-         * 公式详情
-         * <p> 示例值：1 + 1
-         *
-         * @param formulaDetails
-         * @return
-         */
-        public Builder formulaDetails(String formulaDetails) {
-            this.formulaDetails = formulaDetails;
-            return this;
-        }
-
-
-        public Formula build() {
-            return new Formula(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

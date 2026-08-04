@@ -13,90 +13,88 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListScopeRespBody {
-    /**
-     * 已授权部门列表，授权范围为全员可见时返回的是当前企业的所有一级部门列表
-     * <p> 示例值：od-8756c536552a91988b1b64559356c5a4
-     */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
-    /**
-     * 已授权用户列表，应用申请了获取用户user_id 权限时返回；当授权范围为全员可见时返回的是当前企业所有顶级部门用户列表
-     * <p> 示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229
-     */
-    @SerializedName("user_ids")
-    private String[] userIds;
-    /**
-     * 已授权的用户组，授权范围为全员可见时返回的是当前企业所有用户组
-     * <p> 示例值：["g193821"]
-     */
-    @SerializedName("group_ids")
-    private String[] groupIds;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 已授权的部门列表。列表内的部门 ID 类型与查询参数 department_id_type 的取值一致。
+   *
+   * <p>示例值：od-8756c536552a91988b1b64559356c5a4
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
+  /**
+   * 已授权的用户列表。列表内的用户 ID 类型与查询参数 user_id_type 的取值一致。;;应用申请以下权限后才会返回该值。;;<md-perm
+   * name="contact:user.employee_id:readonly" desc="获取用户 user ID" support_app_types="custom"
+   * tags="">获取用户 user ID</md-perm>
+   *
+   * <p>示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
 
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
+  /**
+   * 已授权的用户组。
+   *
+   * <p>示例值：["g193821"]
+   */
+  @SerializedName("group_ids")
+  private String[] groupIds;
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String[] getGroupIds() {
-        return this.groupIds;
-    }
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
 
-    public void setGroupIds(String[] groupIds) {
-        this.groupIds = groupIds;
-    }
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String[] getUserIds() {
+    return this.userIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public String[] getGroupIds() {
+    return this.groupIds;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setGroupIds(String[] groupIds) {
+    this.groupIds = groupIds;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

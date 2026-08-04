@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenApiUpdateVendor {
+  /**
+   * id
+   *
+   * <p>示例值：1111111111
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public OpenApiUpdateVendor() {}
+
+  public OpenApiUpdateVendor(Builder builder) {
     /**
      * id
-     * <p> 示例值：1111111111
+     *
+     * <p>示例值：1111111111
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：1111111111
+     */
     private String id;
 
-    // builder 开始
-    public OpenApiUpdateVendor() {
+    /**
+     * id
+     *
+     * <p>示例值：1111111111
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OpenApiUpdateVendor(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1111111111
-         */
-        this.id = builder.id;
+    public OpenApiUpdateVendor build() {
+      return new OpenApiUpdateVendor(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1111111111
-         */
-        private String id;
-
-        /**
-         * id
-         * <p> 示例值：1111111111
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public OpenApiUpdateVendor build() {
-            return new OpenApiUpdateVendor(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

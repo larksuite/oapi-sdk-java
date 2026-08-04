@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nContent {
+  /**
+   * 语言版本。例如：;;- zh_cn：中文;- en_us：英文;- ja_jp：日文
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 语言版本对应的内容。
+   *
+   * <p>示例值：多语言内容
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public I18nContent() {}
+
+  public I18nContent(Builder builder) {
     /**
-     * 语言版本
-     * <p> 示例值：zh_cn
+     * 语言版本。例如：;;- zh_cn：中文;- en_us：英文;- ja_jp：日文
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("locale")
+    this.locale = builder.locale;
+    /**
+     * 语言版本对应的内容。
+     *
+     * <p>示例值：多语言内容
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 语言版本。例如：;;- zh_cn：中文;- en_us：英文;- ja_jp：日文
+     *
+     * <p>示例值：zh_cn
+     */
     private String locale;
+
     /**
-     * 字段名
-     * <p> 示例值：专家
+     * 语言版本对应的内容。
+     *
+     * <p>示例值：多语言内容
      */
-    @SerializedName("value")
     private String value;
 
-    // builder 开始
-    public I18nContent() {
+    /**
+     * 语言版本。例如：;;- zh_cn：中文;- en_us：英文;- ja_jp：日文
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public I18nContent(Builder builder) {
-        /**
-         * 语言版本
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * 字段名
-         * <p> 示例值：专家
-         */
-        this.value = builder.value;
+    /**
+     * 语言版本对应的内容。
+     *
+     * <p>示例值：多语言内容
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18nContent build() {
+      return new I18nContent(this);
     }
+  }
 
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 语言版本
-         * <p> 示例值：zh_cn
-         */
-        private String locale;
-        /**
-         * 字段名
-         * <p> 示例值：专家
-         */
-        private String value;
-
-        /**
-         * 语言版本
-         * <p> 示例值：zh_cn
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * 字段名
-         * <p> 示例值：专家
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public I18nContent build() {
-            return new I18nContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

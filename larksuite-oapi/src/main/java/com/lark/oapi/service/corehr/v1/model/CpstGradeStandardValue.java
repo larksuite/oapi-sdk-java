@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CpstGradeStandardValue {
+  /**
+   * 薪资标准的关联对象，项目或者指标
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reference_object")
+  private ReferenceObject referenceObject;
+
+  /**
+   * 薪资标准类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("standard_type")
+  private CpstStandardType standardType;
+
+  /**
+   * 上下限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("band_width")
+  private CpstBandWidth bandWidth;
+
+  /**
+   * 标准值
+   *
+   * <p>示例值：12000
+   */
+  @SerializedName("standard_value")
+  private String standardValue;
+
+  public ReferenceObject getReferenceObject() {
+    return this.referenceObject;
+  }
+
+  public void setReferenceObject(ReferenceObject referenceObject) {
+    this.referenceObject = referenceObject;
+  }
+
+  public CpstStandardType getStandardType() {
+    return this.standardType;
+  }
+
+  public void setStandardType(CpstStandardType standardType) {
+    this.standardType = standardType;
+  }
+
+  public CpstBandWidth getBandWidth() {
+    return this.bandWidth;
+  }
+
+  public void setBandWidth(CpstBandWidth bandWidth) {
+    this.bandWidth = bandWidth;
+  }
+
+  public String getStandardValue() {
+    return this.standardValue;
+  }
+
+  public void setStandardValue(String standardValue) {
+    this.standardValue = standardValue;
+  }
+
+  // builder 开始
+  public CpstGradeStandardValue() {}
+
+  public CpstGradeStandardValue(Builder builder) {
     /**
      * 薪资标准的关联对象，项目或者指标
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reference_object")
-    private ReferenceObject referenceObject;
+    this.referenceObject = builder.referenceObject;
     /**
      * 薪资标准类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("standard_type")
-    private CpstStandardType standardType;
+    this.standardType = builder.standardType;
     /**
      * 上下限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("band_width")
-    private CpstBandWidth bandWidth;
+    this.bandWidth = builder.bandWidth;
     /**
      * 标准值
-     * <p> 示例值：12000
+     *
+     * <p>示例值：12000
      */
-    @SerializedName("standard_value")
+    this.standardValue = builder.standardValue;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资标准的关联对象，项目或者指标
+     *
+     * <p>示例值：
+     */
+    private ReferenceObject referenceObject;
+
+    /**
+     * 薪资标准类型
+     *
+     * <p>示例值：
+     */
+    private CpstStandardType standardType;
+
+    /**
+     * 上下限
+     *
+     * <p>示例值：
+     */
+    private CpstBandWidth bandWidth;
+
+    /**
+     * 标准值
+     *
+     * <p>示例值：12000
+     */
     private String standardValue;
 
-    // builder 开始
-    public CpstGradeStandardValue() {
+    /**
+     * 薪资标准的关联对象，项目或者指标
+     *
+     * <p>示例值：
+     *
+     * @param referenceObject
+     * @return
+     */
+    public Builder referenceObject(ReferenceObject referenceObject) {
+      this.referenceObject = referenceObject;
+      return this;
     }
 
-    public CpstGradeStandardValue(Builder builder) {
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         */
-        this.referenceObject = builder.referenceObject;
-        /**
-         * 薪资标准类型
-         * <p> 示例值：
-         */
-        this.standardType = builder.standardType;
-        /**
-         * 上下限
-         * <p> 示例值：
-         */
-        this.bandWidth = builder.bandWidth;
-        /**
-         * 标准值
-         * <p> 示例值：12000
-         */
-        this.standardValue = builder.standardValue;
+    /**
+     * 薪资标准类型
+     *
+     * <p>示例值：
+     *
+     * @param standardType
+     * @return
+     */
+    public Builder standardType(CpstStandardType standardType) {
+      this.standardType = standardType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上下限
+     *
+     * <p>示例值：
+     *
+     * @param bandWidth
+     * @return
+     */
+    public Builder bandWidth(CpstBandWidth bandWidth) {
+      this.bandWidth = bandWidth;
+      return this;
     }
 
-    public ReferenceObject getReferenceObject() {
-        return this.referenceObject;
+    /**
+     * 标准值
+     *
+     * <p>示例值：12000
+     *
+     * @param standardValue
+     * @return
+     */
+    public Builder standardValue(String standardValue) {
+      this.standardValue = standardValue;
+      return this;
     }
 
-    public void setReferenceObject(ReferenceObject referenceObject) {
-        this.referenceObject = referenceObject;
+    public CpstGradeStandardValue build() {
+      return new CpstGradeStandardValue(this);
     }
+  }
 
-    public CpstStandardType getStandardType() {
-        return this.standardType;
-    }
-
-    public void setStandardType(CpstStandardType standardType) {
-        this.standardType = standardType;
-    }
-
-    public CpstBandWidth getBandWidth() {
-        return this.bandWidth;
-    }
-
-    public void setBandWidth(CpstBandWidth bandWidth) {
-        this.bandWidth = bandWidth;
-    }
-
-    public String getStandardValue() {
-        return this.standardValue;
-    }
-
-    public void setStandardValue(String standardValue) {
-        this.standardValue = standardValue;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         */
-        private ReferenceObject referenceObject;
-        /**
-         * 薪资标准类型
-         * <p> 示例值：
-         */
-        private CpstStandardType standardType;
-        /**
-         * 上下限
-         * <p> 示例值：
-         */
-        private CpstBandWidth bandWidth;
-        /**
-         * 标准值
-         * <p> 示例值：12000
-         */
-        private String standardValue;
-
-        /**
-         * 薪资标准的关联对象，项目或者指标
-         * <p> 示例值：
-         *
-         * @param referenceObject
-         * @return
-         */
-        public Builder referenceObject(ReferenceObject referenceObject) {
-            this.referenceObject = referenceObject;
-            return this;
-        }
-
-
-        /**
-         * 薪资标准类型
-         * <p> 示例值：
-         *
-         * @param standardType
-         * @return
-         */
-        public Builder standardType(CpstStandardType standardType) {
-            this.standardType = standardType;
-            return this;
-        }
-
-
-        /**
-         * 上下限
-         * <p> 示例值：
-         *
-         * @param bandWidth
-         * @return
-         */
-        public Builder bandWidth(CpstBandWidth bandWidth) {
-            this.bandWidth = bandWidth;
-            return this;
-        }
-
-
-        /**
-         * 标准值
-         * <p> 示例值：12000
-         *
-         * @param standardValue
-         * @return
-         */
-        public Builder standardValue(String standardValue) {
-            this.standardValue = standardValue;
-            return this;
-        }
-
-
-        public CpstGradeStandardValue build() {
-            return new CpstGradeStandardValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

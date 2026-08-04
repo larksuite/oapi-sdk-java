@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 评论操作类型，枚举值：add_comment、add_reply
- */
+/** 评论操作类型，枚举值：add_comment、add_reply */
 public enum NoticeNoticeTypeEnum {
-    ADD_COMMENT("add_comment"), // 添加评论
-    ADD_REPLY("add_reply"), // 添加回复
-    ;
-    private String value;
+  ADD_COMMENT("add_comment"), // 添加评论
+  ADD_REPLY("add_reply"), // 添加回复
+  ;
+  private String value;
 
-    NoticeNoticeTypeEnum(String value) {
-        this.value = value;
-    }
+  NoticeNoticeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

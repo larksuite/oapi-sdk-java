@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 消息状态
- */
+/** 消息状态 */
 public enum MessageMessageStatusEnum {
-    RUNNING("RUNNING"), // 运行中
-    FINISHED("FINISHED"), // 已完成
-    ;
-    private String value;
+  RUNNING("RUNNING"), // 运行中
+  FINISHED("FINISHED"), // 已完成
+  ;
+  private String value;
 
-    MessageMessageStatusEnum(String value) {
-        this.value = value;
-    }
+  MessageMessageStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

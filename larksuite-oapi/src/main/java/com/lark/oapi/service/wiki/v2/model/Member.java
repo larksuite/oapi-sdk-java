@@ -13,235 +13,246 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Member {
+  /**
+   * 知识库协作者 ID 类型
+   *
+   * <p>示例值：openid
+   */
+  @SerializedName("member_type")
+  private String memberType;
+
+  /**
+   * 知识库协作者 ID
+   *
+   * <p>示例值：ou_67e5ecb64ce1c0bd94612c17999db411
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  /**
+   * 知识库协作者角色
+   *
+   * <p>示例值：admin
+   */
+  @SerializedName("member_role")
+  private String memberRole;
+
+  /**
+   * 知识库协作者类型
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 知识库协作组权限
+   *
+   * <p>示例值：admin
+   */
+  @SerializedName("member_perm")
+  private String memberPerm;
+
+  public String getMemberType() {
+    return this.memberType;
+  }
+
+  public void setMemberType(String memberType) {
+    this.memberType = memberType;
+  }
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  public String getMemberRole() {
+    return this.memberRole;
+  }
+
+  public void setMemberRole(String memberRole) {
+    this.memberRole = memberRole;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getMemberPerm() {
+    return this.memberPerm;
+  }
+
+  public void setMemberPerm(String memberPerm) {
+    this.memberPerm = memberPerm;
+  }
+
+  // builder 开始
+  public Member() {}
+
+  public Member(Builder builder) {
     /**
-     * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
-     * <p> 示例值：userid
+     * 知识库协作者 ID 类型
+     *
+     * <p>示例值：openid
      */
-    @SerializedName("member_type")
-    private String memberType;
+    this.memberType = builder.memberType;
     /**
-     * 用户id，值的类型由上面的 member_type 参数决定
-     * <p> 示例值：1565676577122621
+     * 知识库协作者 ID
+     *
+     * <p>示例值：ou_67e5ecb64ce1c0bd94612c17999db411
      */
-    @SerializedName("member_id")
-    private String memberId;
+    this.memberId = builder.memberId;
     /**
-     * 角色:;;“admin” - 管理员;;“member” - 成员
-     * <p> 示例值：admin
+     * 知识库协作者角色
+     *
+     * <p>示例值：admin
      */
-    @SerializedName("member_role")
-    private String memberRole;
+    this.memberRole = builder.memberRole;
     /**
      * 知识库协作者类型
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 知识库协作组权限
-     * <p> 示例值：admin
+     *
+     * <p>示例值：admin
      */
-    @SerializedName("member_perm")
+    this.memberPerm = builder.memberPerm;
+  }
+
+  public static class Builder {
+    /**
+     * 知识库协作者 ID 类型
+     *
+     * <p>示例值：openid
+     */
+    private String memberType;
+
+    /**
+     * 知识库协作者 ID
+     *
+     * <p>示例值：ou_67e5ecb64ce1c0bd94612c17999db411
+     */
+    private String memberId;
+
+    /**
+     * 知识库协作者角色
+     *
+     * <p>示例值：admin
+     */
+    private String memberRole;
+
+    /**
+     * 知识库协作者类型
+     *
+     * <p>示例值：user
+     */
+    private String type;
+
+    /**
+     * 知识库协作组权限
+     *
+     * <p>示例值：admin
+     */
     private String memberPerm;
 
-    // builder 开始
-    public Member() {
+    /**
+     * 知识库协作者 ID 类型
+     *
+     * <p>示例值：openid
+     *
+     * @param memberType
+     * @return
+     */
+    public Builder memberType(String memberType) {
+      this.memberType = memberType;
+      return this;
     }
 
-    public Member(Builder builder) {
-        /**
-         * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
-         * <p> 示例值：userid
-         */
-        this.memberType = builder.memberType;
-        /**
-         * 用户id，值的类型由上面的 member_type 参数决定
-         * <p> 示例值：1565676577122621
-         */
-        this.memberId = builder.memberId;
-        /**
-         * 角色:;;“admin” - 管理员;;“member” - 成员
-         * <p> 示例值：admin
-         */
-        this.memberRole = builder.memberRole;
-        /**
-         * 知识库协作者类型
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 知识库协作组权限
-         * <p> 示例值：admin
-         */
-        this.memberPerm = builder.memberPerm;
+    /**
+     * 知识库协作者 ID
+     *
+     * <p>示例值：ou_67e5ecb64ce1c0bd94612c17999db411
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 知识库协作者角色
+     *
+     * <p>示例值：admin
+     *
+     * @param memberRole
+     * @return
+     */
+    public Builder memberRole(String memberRole) {
+      this.memberRole = memberRole;
+      return this;
     }
 
-    public String getMemberType() {
-        return this.memberType;
+    /**
+     * 知识库协作者类型
+     *
+     * <p>示例值：user
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
+    /**
+     * 知识库协作者类型
+     *
+     * <p>示例值：user
+     *
+     * @param type {@link com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getMemberId() {
-        return this.memberId;
+    /**
+     * 知识库协作组权限
+     *
+     * <p>示例值：admin
+     *
+     * @param memberPerm
+     * @return
+     */
+    public Builder memberPerm(String memberPerm) {
+      this.memberPerm = memberPerm;
+      return this;
     }
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
+    public Member build() {
+      return new Member(this);
     }
+  }
 
-    public String getMemberRole() {
-        return this.memberRole;
-    }
-
-    public void setMemberRole(String memberRole) {
-        this.memberRole = memberRole;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getMemberPerm() {
-        return this.memberPerm;
-    }
-
-    public void setMemberPerm(String memberPerm) {
-        this.memberPerm = memberPerm;
-    }
-
-    public static class Builder {
-        /**
-         * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
-         * <p> 示例值：userid
-         */
-        private String memberType;
-        /**
-         * 用户id，值的类型由上面的 member_type 参数决定
-         * <p> 示例值：1565676577122621
-         */
-        private String memberId;
-        /**
-         * 角色:;;“admin” - 管理员;;“member” - 成员
-         * <p> 示例值：admin
-         */
-        private String memberRole;
-        /**
-         * 知识库协作者类型
-         * <p> 示例值：user
-         */
-        private String type;
-        /**
-         * 知识库协作组权限
-         * <p> 示例值：admin
-         */
-        private String memberPerm;
-
-        /**
-         * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - [unionid](/:ssltoken/home/user-identity-introduction/union-id;)
-         * <p> 示例值：userid
-         *
-         * @param memberType
-         * @return
-         */
-        public Builder memberType(String memberType) {
-            this.memberType = memberType;
-            return this;
-        }
-
-
-        /**
-         * 用户id，值的类型由上面的 member_type 参数决定
-         * <p> 示例值：1565676577122621
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        /**
-         * 角色:;;“admin” - 管理员;;“member” - 成员
-         * <p> 示例值：admin
-         *
-         * @param memberRole
-         * @return
-         */
-        public Builder memberRole(String memberRole) {
-            this.memberRole = memberRole;
-            return this;
-        }
-
-
-        /**
-         * 知识库协作者类型
-         * <p> 示例值：user
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 知识库协作者类型
-         * <p> 示例值：user
-         *
-         * @param type {@link com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.wiki.v2.enums.MemberTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 知识库协作组权限
-         * <p> 示例值：admin
-         *
-         * @param memberPerm
-         * @return
-         */
-        public Builder memberPerm(String memberPerm) {
-            this.memberPerm = memberPerm;
-            return this;
-        }
-
-
-        public Member build() {
-            return new Member(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

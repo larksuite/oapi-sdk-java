@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaseLocation {
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：400700
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("location_type")
+  private Integer locationType;
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public Integer getLocationType() {
+    return this.locationType;
+  }
+
+  public void setLocationType(Integer locationType) {
+    this.locationType = locationType;
+  }
+
+  // builder 开始
+  public BaseLocation() {}
+
+  public BaseLocation(Builder builder) {
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 编码
-     * <p> 示例值：400700
+     *
+     * <p>示例值：400700
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("location_type")
+    this.locationType = builder.locationType;
+  }
+
+  public static class Builder {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：400700
+     */
+    private String code;
+
+    /**
+     * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+     *
+     * <p>示例值：1
+     */
     private Integer locationType;
 
-    // builder 开始
-    public BaseLocation() {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public BaseLocation(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 编码
-         * <p> 示例值：400700
-         */
-        this.code = builder.code;
-        /**
-         * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
-         * <p> 示例值：1
-         */
-        this.locationType = builder.locationType;
+    /**
+     * 编码
+     *
+     * <p>示例值：400700
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+     *
+     * <p>示例值：1
+     *
+     * @param locationType
+     * @return
+     */
+    public Builder locationType(Integer locationType) {
+      this.locationType = locationType;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    public BaseLocation build() {
+      return new BaseLocation(this);
     }
+  }
 
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Integer getLocationType() {
-        return this.locationType;
-    }
-
-    public void setLocationType(Integer locationType) {
-        this.locationType = locationType;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 编码
-         * <p> 示例值：400700
-         */
-        private String code;
-        /**
-         * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
-         * <p> 示例值：1
-         */
-        private Integer locationType;
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：400700
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
-         * <p> 示例值：1
-         *
-         * @param locationType
-         * @return
-         */
-        public Builder locationType(Integer locationType) {
-            this.locationType = locationType;
-            return this;
-        }
-
-
-        public BaseLocation build() {
-            return new BaseLocation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,259 +13,274 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProjectInfo {
+  /**
+   * 描述
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1735664461000
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  /**
+   * 项目链接
+   *
+   * <p>示例值：www.feishu.bytedance.com
+   */
+  @SerializedName("link")
+  private String link;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：项目名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 项目角色
+   *
+   * <p>示例值：项目角色
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1735664461000
+   */
+  @SerializedName("start_time")
+  private Long startTime;
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public Long getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
+  }
+
+  // builder 开始
+  public ProjectInfo() {}
+
+  public ProjectInfo(Builder builder) {
     /**
      * 描述
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 结束时间
-     * <p> 示例值：1735664461000
+     *
+     * <p>示例值：1735664461000
      */
-    @SerializedName("end_time")
-    private Long endTime;
+    this.endTime = builder.endTime;
     /**
      * 项目链接
-     * <p> 示例值：www.feishu.bytedance.com
+     *
+     * <p>示例值：www.feishu.bytedance.com
      */
-    @SerializedName("link")
-    private String link;
+    this.link = builder.link;
     /**
      * 项目名称
-     * <p> 示例值：项目名称
+     *
+     * <p>示例值：项目名称
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 项目角色
-     * <p> 示例值：项目角色
+     *
+     * <p>示例值：项目角色
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 开始时间
-     * <p> 示例值：1735664461000
+     *
+     * <p>示例值：1735664461000
      */
-    @SerializedName("start_time")
+    this.startTime = builder.startTime;
+  }
+
+  public static class Builder {
+    /**
+     * 描述
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String desc;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1735664461000
+     */
+    private Long endTime;
+
+    /**
+     * 项目链接
+     *
+     * <p>示例值：www.feishu.bytedance.com
+     */
+    private String link;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：项目名称
+     */
+    private String name;
+
+    /**
+     * 项目角色
+     *
+     * <p>示例值：项目角色
+     */
+    private String role;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1735664461000
+     */
     private Long startTime;
 
-    // builder 开始
-    public ProjectInfo() {
+    /**
+     * 描述
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public ProjectInfo(Builder builder) {
-        /**
-         * 描述
-         * <p> 示例值：6949805467799537964
-         */
-        this.desc = builder.desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 项目链接
-         * <p> 示例值：www.feishu.bytedance.com
-         */
-        this.link = builder.link;
-        /**
-         * 项目名称
-         * <p> 示例值：项目名称
-         */
-        this.name = builder.name;
-        /**
-         * 项目角色
-         * <p> 示例值：项目角色
-         */
-        this.role = builder.role;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
-        this.startTime = builder.startTime;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1735664461000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 项目链接
+     *
+     * <p>示例值：www.feishu.bytedance.com
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public String getDesc() {
-        return this.desc;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：项目名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    /**
+     * 项目角色
+     *
+     * <p>示例值：项目角色
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public Long getEndTime() {
-        return this.endTime;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1735664461000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Long startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
+    public ProjectInfo build() {
+      return new ProjectInfo(this);
     }
+  }
 
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRole() {
-        return this.role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Long getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    public static class Builder {
-        /**
-         * 描述
-         * <p> 示例值：6949805467799537964
-         */
-        private String desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
-        private Long endTime;
-        /**
-         * 项目链接
-         * <p> 示例值：www.feishu.bytedance.com
-         */
-        private String link;
-        /**
-         * 项目名称
-         * <p> 示例值：项目名称
-         */
-        private String name;
-        /**
-         * 项目角色
-         * <p> 示例值：项目角色
-         */
-        private String role;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
-        private Long startTime;
-
-        /**
-         * 描述
-         * <p> 示例值：6949805467799537964
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 项目链接
-         * <p> 示例值：www.feishu.bytedance.com
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * 项目名称
-         * <p> 示例值：项目名称
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 项目角色
-         * <p> 示例值：项目角色
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Long startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        public ProjectInfo build() {
-            return new ProjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

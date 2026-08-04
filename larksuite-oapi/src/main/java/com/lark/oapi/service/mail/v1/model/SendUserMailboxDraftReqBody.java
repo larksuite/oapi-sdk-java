@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendUserMailboxDraftReqBody {
+  /**
+   * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
+   *
+   * <p>示例值：1720000000
+   */
+  @SerializedName("send_time")
+  private String sendTime;
+
+  public String getSendTime() {
+    return this.sendTime;
+  }
+
+  public void setSendTime(String sendTime) {
+    this.sendTime = sendTime;
+  }
+
+  // builder 开始
+  public SendUserMailboxDraftReqBody() {}
+
+  public SendUserMailboxDraftReqBody(Builder builder) {
     /**
      * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
-     * <p> 示例值：1720000000
+     *
+     * <p>示例值：1720000000
      */
-    @SerializedName("send_time")
+    this.sendTime = builder.sendTime;
+  }
+
+  public static class Builder {
+    /**
+     * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
+     *
+     * <p>示例值：1720000000
+     */
     private String sendTime;
 
-    // builder 开始
-    public SendUserMailboxDraftReqBody() {
+    /**
+     * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
+     *
+     * <p>示例值：1720000000
+     *
+     * @param sendTime
+     * @return
+     */
+    public Builder sendTime(String sendTime) {
+      this.sendTime = sendTime;
+      return this;
     }
 
-    public SendUserMailboxDraftReqBody(Builder builder) {
-        /**
-         * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
-         * <p> 示例值：1720000000
-         */
-        this.sendTime = builder.sendTime;
+    public SendUserMailboxDraftReqBody build() {
+      return new SendUserMailboxDraftReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSendTime() {
-        return this.sendTime;
-    }
-
-    public void setSendTime(String sendTime) {
-        this.sendTime = sendTime;
-    }
-
-    public static class Builder {
-        /**
-         * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
-         * <p> 示例值：1720000000
-         */
-        private String sendTime;
-
-        /**
-         * 定时发送的 Unix 时间戳（秒）。不传或为空时立即发送。需至少为当前时间 + 5 分钟。
-         * <p> 示例值：1720000000
-         *
-         * @param sendTime
-         * @return
-         */
-        public Builder sendTime(String sendTime) {
-            this.sendTime = sendTime;
-            return this;
-        }
-
-
-        public SendUserMailboxDraftReqBody build() {
-            return new SendUserMailboxDraftReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

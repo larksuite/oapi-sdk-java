@@ -13,116 +13,128 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.wiki.v2.enums.*;
 
 public class GetSpaceReq {
+  /**
+   * 当查询**我的文档库**时，指定返回的文档库名称展示语言。
+   *
+   * <p>示例值：zh
+   */
+  @Query
+  @SerializedName("lang")
+  private String lang;
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  /**
+   * 知识空间
+   * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+   * 调用
+   * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+   * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+   *
+   * <p>示例值：6870403571079249922
+   */
+  @Path
+  @SerializedName("space_id")
+  private String spaceId;
+
+  public String getSpaceId() {
+    return this.spaceId;
+  }
+
+  public void setSpaceId(String spaceId) {
+    this.spaceId = spaceId;
+  }
+
+  // builder 开始
+  public GetSpaceReq() {}
+
+  public GetSpaceReq(Builder builder) {
     /**
-     * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
-     * <p> 示例值：zh
+     * 当查询**我的文档库**时，指定返回的文档库名称展示语言。
+     *
+     * <p>示例值：zh
      */
-    @Query
-    @SerializedName("lang")
-    private String lang;
+    this.lang = builder.lang;
     /**
-     * 知识空间id
-     * <p> 示例值：6870403571079249922
+     * 知识空间
+     * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+     * 调用
+     * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+     * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+     *
+     * <p>示例值：6870403571079249922
      */
-    @Path
-    @SerializedName("space_id")
-    private String spaceId;
+    this.spaceId = builder.spaceId;
+  }
 
-    // builder 开始
-    public GetSpaceReq() {
+  public static class Builder {
+    private String lang; // 当查询**我的文档库**时，指定返回的文档库名称展示语言。
+
+    /**
+     * 当查询**我的文档库**时，指定返回的文档库名称展示语言。
+     *
+     * <p>示例值：zh
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public GetSpaceReq(Builder builder) {
-        /**
-         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
-         * <p> 示例值：zh
-         */
-        this.lang = builder.lang;
-        /**
-         * 知识空间id
-         * <p> 示例值：6870403571079249922
-         */
-        this.spaceId = builder.spaceId;
+    /**
+     * 当查询**我的文档库**时，指定返回的文档库名称展示语言。
+     *
+     * <p>示例值：zh
+     *
+     * @param lang {@link com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum}
+     * @return
+     */
+    public Builder lang(com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum lang) {
+      this.lang = lang.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String spaceId; // 知识空间
+
+    // ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;- 调用 [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;- 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+
+    /**
+     * 知识空间
+     * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+     * 调用
+     * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+     * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+     *
+     * <p>示例值：6870403571079249922
+     *
+     * @param spaceId
+     * @return
+     */
+    public Builder spaceId(String spaceId) {
+      this.spaceId = spaceId;
+      return this;
     }
 
-    public String getLang() {
-        return this.lang;
+    public GetSpaceReq build() {
+      return new GetSpaceReq(this);
     }
+  }
 
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getSpaceId() {
-        return this.spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
-
-    public static class Builder {
-        private String lang; // 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
-        private String spaceId; // 知识空间id
-
-        /**
-         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
-         * <p> 示例值：zh
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-        /**
-         * 当查询个人文档库时，指定返回的文档库名称展示语言。可选值有：zh, id, de, en, es, fr, it, pt, vi, ru, hi, th, ko, ja, zh-HK, zh-TW。
-         * <p> 示例值：zh
-         *
-         * @param lang {@link com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum}
-         * @return
-         */
-        public Builder lang(com.lark.oapi.service.wiki.v2.enums.GetSpaceShowLanguageEnum lang) {
-            this.lang = lang.getValue();
-            return this;
-        }
-
-        /**
-         * 知识空间id
-         * <p> 示例值：6870403571079249922
-         *
-         * @param spaceId
-         * @return
-         */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
-
-
-        public GetSpaceReq build() {
-            return new GetSpaceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

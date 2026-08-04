@@ -13,185 +13,205 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TodoCommon {
+  /**
+   * 人才 ID，详情可查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+   *
+   * <p>示例值：6891524011667228941
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 职位
+   * ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)
+   *
+   * <p>示例值：6891113155221522701
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 投递
+   * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6945436033023625516
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 评估
+   * ID，详情可查看：[批量获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)
+   *
+   * <p>示例值：6914542162822695181
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public TodoCommon() {}
+
+  public TodoCommon(Builder builder) {
     /**
-     * 候选人 ID
-     * <p> 示例值：6891524011667228941
+     * 人才
+     * ID，详情可查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6891524011667228941
      */
-    @SerializedName("talent_id")
+    this.talentId = builder.talentId;
+    /**
+     * 职位
+     * ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)
+     *
+     * <p>示例值：6891113155221522701
+     */
+    this.jobId = builder.jobId;
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6945436033023625516
+     */
+    this.applicationId = builder.applicationId;
+    /**
+     * 评估
+     * ID，详情可查看：[批量获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)
+     *
+     * <p>示例值：6914542162822695181
+     */
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 人才
+     * ID，详情可查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6891524011667228941
+     */
     private String talentId;
+
     /**
-     * 职位 ID
-     * <p> 示例值：6891113155221522701
+     * 职位
+     * ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)
+     *
+     * <p>示例值：6891113155221522701
      */
-    @SerializedName("job_id")
     private String jobId;
+
     /**
-     * 投递 ID
-     * <p> 示例值：6945436033023625516
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6945436033023625516
      */
-    @SerializedName("application_id")
     private String applicationId;
+
     /**
-     * ID
-     * <p> 示例值：6914542162822695181
+     * 评估
+     * ID，详情可查看：[批量获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)
+     *
+     * <p>示例值：6914542162822695181
      */
-    @SerializedName("id")
     private String id;
 
-    // builder 开始
-    public TodoCommon() {
+    /**
+     * 人才
+     * ID，详情可查看：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6891524011667228941
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public TodoCommon(Builder builder) {
-        /**
-         * 候选人 ID
-         * <p> 示例值：6891524011667228941
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：6891113155221522701
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6945436033023625516
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * ID
-         * <p> 示例值：6914542162822695181
-         */
-        this.id = builder.id;
+    /**
+     * 职位
+     * ID，详情可查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)
+     *
+     * <p>示例值：6891113155221522701
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6945436033023625516
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 评估
+     * ID，详情可查看：[批量获取简历评估信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/evaluation/list)
+     *
+     * <p>示例值：6914542162822695181
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    public TodoCommon build() {
+      return new TodoCommon(this);
     }
+  }
 
-    public String getJobId() {
-        return this.jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 候选人 ID
-         * <p> 示例值：6891524011667228941
-         */
-        private String talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：6891113155221522701
-         */
-        private String jobId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6945436033023625516
-         */
-        private String applicationId;
-        /**
-         * ID
-         * <p> 示例值：6914542162822695181
-         */
-        private String id;
-
-        /**
-         * 候选人 ID
-         * <p> 示例值：6891524011667228941
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 职位 ID
-         * <p> 示例值：6891113155221522701
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6945436033023625516
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * ID
-         * <p> 示例值：6914542162822695181
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public TodoCommon build() {
-            return new TodoCommon(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

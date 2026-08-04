@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserSubTypeAccount {
+  /**
+   * 假期子类型
+   *
+   * <p>示例值：normal
+   */
+  @SerializedName("sub_type")
+  private String subType;
+
+  /**
+   * 假期子类型数量
+   *
+   * <p>示例值：1.51
+   */
+  @SerializedName("quota")
+  private String quota;
+
+  public String getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(String subType) {
+    this.subType = subType;
+  }
+
+  public String getQuota() {
+    return this.quota;
+  }
+
+  public void setQuota(String quota) {
+    this.quota = quota;
+  }
+
+  // builder 开始
+  public UserSubTypeAccount() {}
+
+  public UserSubTypeAccount(Builder builder) {
     /**
      * 假期子类型
-     * <p> 示例值：normal
+     *
+     * <p>示例值：normal
      */
-    @SerializedName("sub_type")
-    private String subType;
+    this.subType = builder.subType;
     /**
      * 假期子类型数量
-     * <p> 示例值：1.51
+     *
+     * <p>示例值：1.51
      */
-    @SerializedName("quota")
+    this.quota = builder.quota;
+  }
+
+  public static class Builder {
+    /**
+     * 假期子类型
+     *
+     * <p>示例值：normal
+     */
+    private String subType;
+
+    /**
+     * 假期子类型数量
+     *
+     * <p>示例值：1.51
+     */
     private String quota;
 
-    // builder 开始
-    public UserSubTypeAccount() {
+    /**
+     * 假期子类型
+     *
+     * <p>示例值：normal
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(String subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public UserSubTypeAccount(Builder builder) {
-        /**
-         * 假期子类型
-         * <p> 示例值：normal
-         */
-        this.subType = builder.subType;
-        /**
-         * 假期子类型数量
-         * <p> 示例值：1.51
-         */
-        this.quota = builder.quota;
+    /**
+     * 假期子类型
+     *
+     * <p>示例值：normal
+     *
+     * @param subType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.UserSubTypeAccountSubTypeEnum}
+     * @return
+     */
+    public Builder subType(
+        com.lark.oapi.service.attendance.v1.enums.UserSubTypeAccountSubTypeEnum subType) {
+      this.subType = subType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 假期子类型数量
+     *
+     * <p>示例值：1.51
+     *
+     * @param quota
+     * @return
+     */
+    public Builder quota(String quota) {
+      this.quota = quota;
+      return this;
     }
 
-    public String getSubType() {
-        return this.subType;
+    public UserSubTypeAccount build() {
+      return new UserSubTypeAccount(this);
     }
+  }
 
-    public void setSubType(String subType) {
-        this.subType = subType;
-    }
-
-    public String getQuota() {
-        return this.quota;
-    }
-
-    public void setQuota(String quota) {
-        this.quota = quota;
-    }
-
-    public static class Builder {
-        /**
-         * 假期子类型
-         * <p> 示例值：normal
-         */
-        private String subType;
-        /**
-         * 假期子类型数量
-         * <p> 示例值：1.51
-         */
-        private String quota;
-
-        /**
-         * 假期子类型
-         * <p> 示例值：normal
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(String subType) {
-            this.subType = subType;
-            return this;
-        }
-
-        /**
-         * 假期子类型
-         * <p> 示例值：normal
-         *
-         * @param subType {@link com.lark.oapi.service.attendance.v1.enums.UserSubTypeAccountSubTypeEnum}
-         * @return
-         */
-        public Builder subType(com.lark.oapi.service.attendance.v1.enums.UserSubTypeAccountSubTypeEnum subType) {
-            this.subType = subType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 假期子类型数量
-         * <p> 示例值：1.51
-         *
-         * @param quota
-         * @return
-         */
-        public Builder quota(String quota) {
-            this.quota = quota;
-            return this;
-        }
-
-
-        public UserSubTypeAccount build() {
-            return new UserSubTypeAccount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

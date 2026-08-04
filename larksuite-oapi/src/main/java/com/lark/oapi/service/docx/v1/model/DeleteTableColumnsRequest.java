@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteTableColumnsRequest {
+  /**
+   * 列开始索引（区间左闭右开）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("column_start_index")
+  private Integer columnStartIndex;
+
+  /**
+   * 列结束索引（区间左闭右开）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("column_end_index")
+  private Integer columnEndIndex;
+
+  public Integer getColumnStartIndex() {
+    return this.columnStartIndex;
+  }
+
+  public void setColumnStartIndex(Integer columnStartIndex) {
+    this.columnStartIndex = columnStartIndex;
+  }
+
+  public Integer getColumnEndIndex() {
+    return this.columnEndIndex;
+  }
+
+  public void setColumnEndIndex(Integer columnEndIndex) {
+    this.columnEndIndex = columnEndIndex;
+  }
+
+  // builder 开始
+  public DeleteTableColumnsRequest() {}
+
+  public DeleteTableColumnsRequest(Builder builder) {
     /**
      * 列开始索引（区间左闭右开）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("column_start_index")
-    private Integer columnStartIndex;
+    this.columnStartIndex = builder.columnStartIndex;
     /**
      * 列结束索引（区间左闭右开）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("column_end_index")
+    this.columnEndIndex = builder.columnEndIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 列开始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     */
+    private Integer columnStartIndex;
+
+    /**
+     * 列结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     */
     private Integer columnEndIndex;
 
-    // builder 开始
-    public DeleteTableColumnsRequest() {
+    /**
+     * 列开始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     *
+     * @param columnStartIndex
+     * @return
+     */
+    public Builder columnStartIndex(Integer columnStartIndex) {
+      this.columnStartIndex = columnStartIndex;
+      return this;
     }
 
-    public DeleteTableColumnsRequest(Builder builder) {
-        /**
-         * 列开始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        this.columnStartIndex = builder.columnStartIndex;
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        this.columnEndIndex = builder.columnEndIndex;
+    /**
+     * 列结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     *
+     * @param columnEndIndex
+     * @return
+     */
+    public Builder columnEndIndex(Integer columnEndIndex) {
+      this.columnEndIndex = columnEndIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteTableColumnsRequest build() {
+      return new DeleteTableColumnsRequest(this);
     }
+  }
 
-    public Integer getColumnStartIndex() {
-        return this.columnStartIndex;
-    }
-
-    public void setColumnStartIndex(Integer columnStartIndex) {
-        this.columnStartIndex = columnStartIndex;
-    }
-
-    public Integer getColumnEndIndex() {
-        return this.columnEndIndex;
-    }
-
-    public void setColumnEndIndex(Integer columnEndIndex) {
-        this.columnEndIndex = columnEndIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 列开始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        private Integer columnStartIndex;
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        private Integer columnEndIndex;
-
-        /**
-         * 列开始索引（区间左闭右开）
-         * <p> 示例值：0
-         *
-         * @param columnStartIndex
-         * @return
-         */
-        public Builder columnStartIndex(Integer columnStartIndex) {
-            this.columnStartIndex = columnStartIndex;
-            return this;
-        }
-
-
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         *
-         * @param columnEndIndex
-         * @return
-         */
-        public Builder columnEndIndex(Integer columnEndIndex) {
-            this.columnEndIndex = columnEndIndex;
-            return this;
-        }
-
-
-        public DeleteTableColumnsRequest build() {
-            return new DeleteTableColumnsRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApproverInfo {
+  /**
+   * 审批任务id
+   *
+   * <p>示例值：7410781046418966060
+   */
+  @SerializedName("approver_id")
+  private String approverId;
+
+  /**
+   * 流程id
+   *
+   * <p>示例值：7410781046418966060
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 任务状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approver_status")
+  private Integer approverStatus;
+
+  public String getApproverId() {
+    return this.approverId;
+  }
+
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public Integer getApproverStatus() {
+    return this.approverStatus;
+  }
+
+  public void setApproverStatus(Integer approverStatus) {
+    this.approverStatus = approverStatus;
+  }
+
+  // builder 开始
+  public ApproverInfo() {}
+
+  public ApproverInfo(Builder builder) {
     /**
      * 审批任务id
-     * <p> 示例值：7410781046418966060
+     *
+     * <p>示例值：7410781046418966060
      */
-    @SerializedName("approver_id")
-    private String approverId;
+    this.approverId = builder.approverId;
     /**
      * 流程id
-     * <p> 示例值：7410781046418966060
+     *
+     * <p>示例值：7410781046418966060
      */
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
      * 任务状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approver_status")
+    this.approverStatus = builder.approverStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 审批任务id
+     *
+     * <p>示例值：7410781046418966060
+     */
+    private String approverId;
+
+    /**
+     * 流程id
+     *
+     * <p>示例值：7410781046418966060
+     */
+    private String processId;
+
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1
+     */
     private Integer approverStatus;
 
-    // builder 开始
-    public ApproverInfo() {
+    /**
+     * 审批任务id
+     *
+     * <p>示例值：7410781046418966060
+     *
+     * @param approverId
+     * @return
+     */
+    public Builder approverId(String approverId) {
+      this.approverId = approverId;
+      return this;
     }
 
-    public ApproverInfo(Builder builder) {
-        /**
-         * 审批任务id
-         * <p> 示例值：7410781046418966060
-         */
-        this.approverId = builder.approverId;
-        /**
-         * 流程id
-         * <p> 示例值：7410781046418966060
-         */
-        this.processId = builder.processId;
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         */
-        this.approverStatus = builder.approverStatus;
+    /**
+     * 流程id
+     *
+     * <p>示例值：7410781046418966060
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1
+     *
+     * @param approverStatus
+     * @return
+     */
+    public Builder approverStatus(Integer approverStatus) {
+      this.approverStatus = approverStatus;
+      return this;
     }
 
-    public String getApproverId() {
-        return this.approverId;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1
+     *
+     * @param approverStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ApproverInfoApproverStatusEnum}
+     * @return
+     */
+    public Builder approverStatus(
+        com.lark.oapi.service.corehr.v2.enums.ApproverInfoApproverStatusEnum approverStatus) {
+      this.approverStatus = approverStatus.getValue();
+      return this;
     }
 
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
+    public ApproverInfo build() {
+      return new ApproverInfo(this);
     }
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public Integer getApproverStatus() {
-        return this.approverStatus;
-    }
-
-    public void setApproverStatus(Integer approverStatus) {
-        this.approverStatus = approverStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 审批任务id
-         * <p> 示例值：7410781046418966060
-         */
-        private String approverId;
-        /**
-         * 流程id
-         * <p> 示例值：7410781046418966060
-         */
-        private String processId;
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         */
-        private Integer approverStatus;
-
-        /**
-         * 审批任务id
-         * <p> 示例值：7410781046418966060
-         *
-         * @param approverId
-         * @return
-         */
-        public Builder approverId(String approverId) {
-            this.approverId = approverId;
-            return this;
-        }
-
-
-        /**
-         * 流程id
-         * <p> 示例值：7410781046418966060
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         *
-         * @param approverStatus
-         * @return
-         */
-        public Builder approverStatus(Integer approverStatus) {
-            this.approverStatus = approverStatus;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：1
-         *
-         * @param approverStatus {@link com.lark.oapi.service.corehr.v2.enums.ApproverInfoApproverStatusEnum}
-         * @return
-         */
-        public Builder approverStatus(com.lark.oapi.service.corehr.v2.enums.ApproverInfoApproverStatusEnum approverStatus) {
-            this.approverStatus = approverStatus.getValue();
-            return this;
-        }
-
-
-        public ApproverInfo build() {
-            return new ApproverInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

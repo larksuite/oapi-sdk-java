@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateRecurringPaymentReqBody {
+  /**
+   * 需更正的经常性支付记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private RecurringPaymentForUpdate[] records;
+
+  public RecurringPaymentForUpdate[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(RecurringPaymentForUpdate[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchUpdateRecurringPaymentReqBody() {}
+
+  public BatchUpdateRecurringPaymentReqBody(Builder builder) {
     /**
      * 需更正的经常性支付记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 需更正的经常性支付记录
+     *
+     * <p>示例值：
+     */
     private RecurringPaymentForUpdate[] records;
 
-    // builder 开始
-    public BatchUpdateRecurringPaymentReqBody() {
+    /**
+     * 需更正的经常性支付记录
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(RecurringPaymentForUpdate[] records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchUpdateRecurringPaymentReqBody(Builder builder) {
-        /**
-         * 需更正的经常性支付记录
-         * <p> 示例值：
-         */
-        this.records = builder.records;
+    public BatchUpdateRecurringPaymentReqBody build() {
+      return new BatchUpdateRecurringPaymentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public RecurringPaymentForUpdate[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(RecurringPaymentForUpdate[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 需更正的经常性支付记录
-         * <p> 示例值：
-         */
-        private RecurringPaymentForUpdate[] records;
-
-        /**
-         * 需更正的经常性支付记录
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(RecurringPaymentForUpdate[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchUpdateRecurringPaymentReqBody build() {
-            return new BatchUpdateRecurringPaymentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

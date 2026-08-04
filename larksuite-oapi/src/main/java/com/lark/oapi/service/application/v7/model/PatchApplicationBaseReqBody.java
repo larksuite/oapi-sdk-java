@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchApplicationBaseReqBody {
+  /**
+   * 应用名称描述多语种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18ns")
+  private AppI18nInfo[] i18ns;
+
+  /**
+   * 应用icon图片链接
+   *
+   * <p>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 应用管理后台url链接
+   *
+   * <p>示例值：https://open.feishu.cn/
+   */
+  @SerializedName("homepage_url")
+  private String homepageUrl;
+
+  public AppI18nInfo[] getI18ns() {
+    return this.i18ns;
+  }
+
+  public void setI18ns(AppI18nInfo[] i18ns) {
+    this.i18ns = i18ns;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public String getHomepageUrl() {
+    return this.homepageUrl;
+  }
+
+  public void setHomepageUrl(String homepageUrl) {
+    this.homepageUrl = homepageUrl;
+  }
+
+  // builder 开始
+  public PatchApplicationBaseReqBody() {}
+
+  public PatchApplicationBaseReqBody(Builder builder) {
     /**
      * 应用名称描述多语种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18ns")
-    private AppI18nInfo[] i18ns;
+    this.i18ns = builder.i18ns;
     /**
      * 应用icon图片链接
-     * <p> 示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
+     *
+     * <p>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
      * 应用管理后台url链接
-     * <p> 示例值：https://open.feishu.cn/
+     *
+     * <p>示例值：https://open.feishu.cn/
      */
-    @SerializedName("homepage_url")
+    this.homepageUrl = builder.homepageUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 应用名称描述多语种
+     *
+     * <p>示例值：
+     */
+    private AppI18nInfo[] i18ns;
+
+    /**
+     * 应用icon图片链接
+     *
+     * <p>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
+     */
+    private String avatarUrl;
+
+    /**
+     * 应用管理后台url链接
+     *
+     * <p>示例值：https://open.feishu.cn/
+     */
     private String homepageUrl;
 
-    // builder 开始
-    public PatchApplicationBaseReqBody() {
+    /**
+     * 应用名称描述多语种
+     *
+     * <p>示例值：
+     *
+     * @param i18ns
+     * @return
+     */
+    public Builder i18ns(AppI18nInfo[] i18ns) {
+      this.i18ns = i18ns;
+      return this;
     }
 
-    public PatchApplicationBaseReqBody(Builder builder) {
-        /**
-         * 应用名称描述多语种
-         * <p> 示例值：
-         */
-        this.i18ns = builder.i18ns;
-        /**
-         * 应用icon图片链接
-         * <p> 示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 应用管理后台url链接
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.homepageUrl = builder.homepageUrl;
+    /**
+     * 应用icon图片链接
+     *
+     * <p>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用管理后台url链接
+     *
+     * <p>示例值：https://open.feishu.cn/
+     *
+     * @param homepageUrl
+     * @return
+     */
+    public Builder homepageUrl(String homepageUrl) {
+      this.homepageUrl = homepageUrl;
+      return this;
     }
 
-    public AppI18nInfo[] getI18ns() {
-        return this.i18ns;
+    public PatchApplicationBaseReqBody build() {
+      return new PatchApplicationBaseReqBody(this);
     }
+  }
 
-    public void setI18ns(AppI18nInfo[] i18ns) {
-        this.i18ns = i18ns;
-    }
-
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public String getHomepageUrl() {
-        return this.homepageUrl;
-    }
-
-    public void setHomepageUrl(String homepageUrl) {
-        this.homepageUrl = homepageUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 应用名称描述多语种
-         * <p> 示例值：
-         */
-        private AppI18nInfo[] i18ns;
-        /**
-         * 应用icon图片链接
-         * <p> 示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
-         */
-        private String avatarUrl;
-        /**
-         * 应用管理后台url链接
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        private String homepageUrl;
-
-        /**
-         * 应用名称描述多语种
-         * <p> 示例值：
-         *
-         * @param i18ns
-         * @return
-         */
-        public Builder i18ns(AppI18nInfo[] i18ns) {
-            this.i18ns = i18ns;
-            return this;
-        }
-
-
-        /**
-         * 应用icon图片链接
-         * <p> 示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v2_953a8fc1-50bd-4b2e-87e2-b09e47dba23g
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 应用管理后台url链接
-         * <p> 示例值：https://open.feishu.cn/
-         *
-         * @param homepageUrl
-         * @return
-         */
-        public Builder homepageUrl(String homepageUrl) {
-            this.homepageUrl = homepageUrl;
-            return this;
-        }
-
-
-        public PatchApplicationBaseReqBody build() {
-            return new PatchApplicationBaseReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

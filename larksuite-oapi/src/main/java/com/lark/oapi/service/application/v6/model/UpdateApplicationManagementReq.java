@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v6.enums.*;
 
 public class UpdateApplicationManagementReq {
+  /**
+   * 应用ID
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private UpdateApplicationManagementReqBody body;
+
+  public UpdateApplicationManagementReqBody getUpdateApplicationManagementReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateApplicationManagementReqBody(UpdateApplicationManagementReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateApplicationManagementReq() {}
+
+  public UpdateApplicationManagementReq(Builder builder) {
     /**
      * 应用ID
-     * <p> 示例值：cli_a4517c8461f8100a
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appId; // 应用ID
+
+    /**
+     * 应用ID
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private UpdateApplicationManagementReqBody body;
 
-    // builder 开始
-    public UpdateApplicationManagementReq() {
-    }
-
-    public UpdateApplicationManagementReq(Builder builder) {
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a4517c8461f8100a
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public UpdateApplicationManagementReqBody getUpdateApplicationManagementReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateApplicationManagementReqBody(UpdateApplicationManagementReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateApplicationManagementReqBody(UpdateApplicationManagementReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 应用ID
-        private UpdateApplicationManagementReqBody body;
-
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a4517c8461f8100a
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public UpdateApplicationManagementReqBody getUpdateApplicationManagementReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateApplicationManagementReqBody(UpdateApplicationManagementReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateApplicationManagementReq build() {
-            return new UpdateApplicationManagementReq(this);
-        }
+    public UpdateApplicationManagementReq build() {
+      return new UpdateApplicationManagementReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

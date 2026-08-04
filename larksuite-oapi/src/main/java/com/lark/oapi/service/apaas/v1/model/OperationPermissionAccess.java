@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class OperationPermissionAccess {
+  /**
+   * 流程或云函数的api_id
+   *
+   * <p>示例值：api_id
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 流程或云函数的api_name
+   *
+   * <p>示例值：api_name
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 流程或云函数类型;枚举：;automation/;functionV2
+   *
+   * <p>示例值：automation
+   */
+  @SerializedName("operation_type")
+  private String operationType;
+
+  /**
+   * 展示名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("display_name")
+  private Map<String, String> displayName;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getOperationType() {
+    return this.operationType;
+  }
+
+  public void setOperationType(String operationType) {
+    this.operationType = operationType;
+  }
+
+  public Map<String, String> getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(Map<String, String> displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public OperationPermissionAccess() {}
+
+  public OperationPermissionAccess(Builder builder) {
     /**
-     * 运算的api_id
-     * <p> 示例值：api_id
+     * 流程或云函数的api_id
+     *
+     * <p>示例值：api_id
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
-     * 运算的api_name
-     * <p> 示例值：api_name
+     * 流程或云函数的api_name
+     *
+     * <p>示例值：api_name
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 运算类型
-     * <p> 示例值：automation
+     * 流程或云函数类型;枚举：;automation/;functionV2
+     *
+     * <p>示例值：automation
      */
-    @SerializedName("operation_type")
-    private String operationType;
+    this.operationType = builder.operationType;
     /**
      * 展示名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * 流程或云函数的api_id
+     *
+     * <p>示例值：api_id
+     */
+    private String apiId;
+
+    /**
+     * 流程或云函数的api_name
+     *
+     * <p>示例值：api_name
+     */
+    private String apiName;
+
+    /**
+     * 流程或云函数类型;枚举：;automation/;functionV2
+     *
+     * <p>示例值：automation
+     */
+    private String operationType;
+
+    /**
+     * 展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> displayName;
 
-    // builder 开始
-    public OperationPermissionAccess() {
+    /**
+     * 流程或云函数的api_id
+     *
+     * <p>示例值：api_id
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public OperationPermissionAccess(Builder builder) {
-        /**
-         * 运算的api_id
-         * <p> 示例值：api_id
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 运算的api_name
-         * <p> 示例值：api_name
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 运算类型
-         * <p> 示例值：automation
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 展示名称
-         * <p> 示例值：
-         */
-        this.displayName = builder.displayName;
+    /**
+     * 流程或云函数的api_name
+     *
+     * <p>示例值：api_name
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 流程或云函数类型;枚举：;automation/;functionV2
+     *
+     * <p>示例值：automation
+     *
+     * @param operationType
+     * @return
+     */
+    public Builder operationType(String operationType) {
+      this.operationType = operationType;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(Map<String, String> displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    public OperationPermissionAccess build() {
+      return new OperationPermissionAccess(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String getOperationType() {
-        return this.operationType;
-    }
-
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
-    }
-
-    public Map<String, String> getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(Map<String, String> displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * 运算的api_id
-         * <p> 示例值：api_id
-         */
-        private String apiId;
-        /**
-         * 运算的api_name
-         * <p> 示例值：api_name
-         */
-        private String apiName;
-        /**
-         * 运算类型
-         * <p> 示例值：automation
-         */
-        private String operationType;
-        /**
-         * 展示名称
-         * <p> 示例值：
-         */
-        private Map<String, String> displayName;
-
-        /**
-         * 运算的api_id
-         * <p> 示例值：api_id
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 运算的api_name
-         * <p> 示例值：api_name
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 运算类型
-         * <p> 示例值：automation
-         *
-         * @param operationType
-         * @return
-         */
-        public Builder operationType(String operationType) {
-            this.operationType = operationType;
-            return this;
-        }
-
-
-        /**
-         * 展示名称
-         * <p> 示例值：
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(Map<String, String> displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public OperationPermissionAccess build() {
-            return new OperationPermissionAccess(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

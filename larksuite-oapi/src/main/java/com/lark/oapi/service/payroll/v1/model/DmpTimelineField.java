@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DmpTimelineField {
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2000-01-01
+   */
+  @SerializedName("from_date")
+  private String fromDate;
+
+  /**
+   * 失效日期
+   *
+   * <p>示例值：2000-01-01
+   */
+  @SerializedName("to_date")
+  private String toDate;
+
+  /**
+   * 字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private DmpField[] fields;
+
+  public String getFromDate() {
+    return this.fromDate;
+  }
+
+  public void setFromDate(String fromDate) {
+    this.fromDate = fromDate;
+  }
+
+  public String getToDate() {
+    return this.toDate;
+  }
+
+  public void setToDate(String toDate) {
+    this.toDate = toDate;
+  }
+
+  public DmpField[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(DmpField[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public DmpTimelineField() {}
+
+  public DmpTimelineField(Builder builder) {
     /**
      * 生效日期
-     * <p> 示例值：2000-01-01
+     *
+     * <p>示例值：2000-01-01
      */
-    @SerializedName("from_date")
-    private String fromDate;
+    this.fromDate = builder.fromDate;
     /**
      * 失效日期
-     * <p> 示例值：2000-01-01
+     *
+     * <p>示例值：2000-01-01
      */
-    @SerializedName("to_date")
-    private String toDate;
+    this.toDate = builder.toDate;
     /**
      * 字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2000-01-01
+     */
+    private String fromDate;
+
+    /**
+     * 失效日期
+     *
+     * <p>示例值：2000-01-01
+     */
+    private String toDate;
+
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     */
     private DmpField[] fields;
 
-    // builder 开始
-    public DmpTimelineField() {
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2000-01-01
+     *
+     * @param fromDate
+     * @return
+     */
+    public Builder fromDate(String fromDate) {
+      this.fromDate = fromDate;
+      return this;
     }
 
-    public DmpTimelineField(Builder builder) {
-        /**
-         * 生效日期
-         * <p> 示例值：2000-01-01
-         */
-        this.fromDate = builder.fromDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2000-01-01
-         */
-        this.toDate = builder.toDate;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 失效日期
+     *
+     * <p>示例值：2000-01-01
+     *
+     * @param toDate
+     * @return
+     */
+    public Builder toDate(String toDate) {
+      this.toDate = toDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(DmpField[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getFromDate() {
-        return this.fromDate;
+    public DmpTimelineField build() {
+      return new DmpTimelineField(this);
     }
+  }
 
-    public void setFromDate(String fromDate) {
-        this.fromDate = fromDate;
-    }
-
-    public String getToDate() {
-        return this.toDate;
-    }
-
-    public void setToDate(String toDate) {
-        this.toDate = toDate;
-    }
-
-    public DmpField[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(DmpField[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 生效日期
-         * <p> 示例值：2000-01-01
-         */
-        private String fromDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2000-01-01
-         */
-        private String toDate;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        private DmpField[] fields;
-
-        /**
-         * 生效日期
-         * <p> 示例值：2000-01-01
-         *
-         * @param fromDate
-         * @return
-         */
-        public Builder fromDate(String fromDate) {
-            this.fromDate = fromDate;
-            return this;
-        }
-
-
-        /**
-         * 失效日期
-         * <p> 示例值：2000-01-01
-         *
-         * @param toDate
-         * @return
-         */
-        public Builder toDate(String toDate) {
-            this.toDate = toDate;
-            return this;
-        }
-
-
-        /**
-         * 字段信息
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(DmpField[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public DmpTimelineField build() {
-            return new DmpTimelineField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

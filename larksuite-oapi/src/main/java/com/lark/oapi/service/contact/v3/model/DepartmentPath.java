@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentPath {
+  /**
+   * 部门路径 ID 列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 部门名称信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_path_name")
+  private DepartmentPathName departmentPathName;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public DepartmentPathName getDepartmentPathName() {
+    return this.departmentPathName;
+  }
+
+  public void setDepartmentPathName(DepartmentPathName departmentPathName) {
+    this.departmentPathName = departmentPathName;
+  }
+
+  // builder 开始
+  public DepartmentPath() {}
+
+  public DepartmentPath(Builder builder) {
     /**
-     * 部门路径IDs
-     * <p> 示例值：
+     * 部门路径 ID 列表。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 部门名称信息。
+     *
+     * <p>示例值：
+     */
+    this.departmentPathName = builder.departmentPathName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门路径 ID 列表。
+     *
+     * <p>示例值：
+     */
     private String[] departmentIds;
+
     /**
-     * 部门路径名字
-     * <p> 示例值：
+     * 部门名称信息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_path_name")
     private DepartmentPathName departmentPathName;
 
-    // builder 开始
-    public DepartmentPath() {
+    /**
+     * 部门路径 ID 列表。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public DepartmentPath(Builder builder) {
-        /**
-         * 部门路径IDs
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 部门路径名字
-         * <p> 示例值：
-         */
-        this.departmentPathName = builder.departmentPathName;
+    /**
+     * 部门名称信息。
+     *
+     * <p>示例值：
+     *
+     * @param departmentPathName
+     * @return
+     */
+    public Builder departmentPathName(DepartmentPathName departmentPathName) {
+      this.departmentPathName = departmentPathName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DepartmentPath build() {
+      return new DepartmentPath(this);
     }
+  }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public DepartmentPathName getDepartmentPathName() {
-        return this.departmentPathName;
-    }
-
-    public void setDepartmentPathName(DepartmentPathName departmentPathName) {
-        this.departmentPathName = departmentPathName;
-    }
-
-    public static class Builder {
-        /**
-         * 部门路径IDs
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 部门路径名字
-         * <p> 示例值：
-         */
-        private DepartmentPathName departmentPathName;
-
-        /**
-         * 部门路径IDs
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 部门路径名字
-         * <p> 示例值：
-         *
-         * @param departmentPathName
-         * @return
-         */
-        public Builder departmentPathName(DepartmentPathName departmentPathName) {
-            this.departmentPathName = departmentPathName;
-            return this;
-        }
-
-
-        public DepartmentPath build() {
-            return new DepartmentPath(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

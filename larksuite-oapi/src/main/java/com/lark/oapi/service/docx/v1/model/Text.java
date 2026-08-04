@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Text {
+  /**
+   * 文本样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("style")
+  private TextStyle style;
+
+  /**
+   * 文本元素
+   *
+   * <p>示例值：
+   */
+  @SerializedName("elements")
+  private TextElement[] elements;
+
+  public TextStyle getStyle() {
+    return this.style;
+  }
+
+  public void setStyle(TextStyle style) {
+    this.style = style;
+  }
+
+  public TextElement[] getElements() {
+    return this.elements;
+  }
+
+  public void setElements(TextElement[] elements) {
+    this.elements = elements;
+  }
+
+  // builder 开始
+  public Text() {}
+
+  public Text(Builder builder) {
     /**
      * 文本样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("style")
-    private TextStyle style;
+    this.style = builder.style;
     /**
      * 文本元素
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("elements")
+    this.elements = builder.elements;
+  }
+
+  public static class Builder {
+    /**
+     * 文本样式
+     *
+     * <p>示例值：
+     */
+    private TextStyle style;
+
+    /**
+     * 文本元素
+     *
+     * <p>示例值：
+     */
     private TextElement[] elements;
 
-    // builder 开始
-    public Text() {
+    /**
+     * 文本样式
+     *
+     * <p>示例值：
+     *
+     * @param style
+     * @return
+     */
+    public Builder style(TextStyle style) {
+      this.style = style;
+      return this;
     }
 
-    public Text(Builder builder) {
-        /**
-         * 文本样式
-         * <p> 示例值：
-         */
-        this.style = builder.style;
-        /**
-         * 文本元素
-         * <p> 示例值：
-         */
-        this.elements = builder.elements;
+    /**
+     * 文本元素
+     *
+     * <p>示例值：
+     *
+     * @param elements
+     * @return
+     */
+    public Builder elements(TextElement[] elements) {
+      this.elements = elements;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Text build() {
+      return new Text(this);
     }
+  }
 
-    public TextStyle getStyle() {
-        return this.style;
-    }
-
-    public void setStyle(TextStyle style) {
-        this.style = style;
-    }
-
-    public TextElement[] getElements() {
-        return this.elements;
-    }
-
-    public void setElements(TextElement[] elements) {
-        this.elements = elements;
-    }
-
-    public static class Builder {
-        /**
-         * 文本样式
-         * <p> 示例值：
-         */
-        private TextStyle style;
-        /**
-         * 文本元素
-         * <p> 示例值：
-         */
-        private TextElement[] elements;
-
-        /**
-         * 文本样式
-         * <p> 示例值：
-         *
-         * @param style
-         * @return
-         */
-        public Builder style(TextStyle style) {
-            this.style = style;
-            return this;
-        }
-
-
-        /**
-         * 文本元素
-         * <p> 示例值：
-         *
-         * @param elements
-         * @return
-         */
-        public Builder elements(TextElement[] elements) {
-            this.elements = elements;
-            return this;
-        }
-
-
-        public Text build() {
-            return new Text(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,346 +13,376 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateProgressRecordReqBody {
+  /**
+   * 进展来源
+   *
+   * <p>示例值：周报系统
+   */
+  @SerializedName("source_title")
+  private String sourceTitle;
+
+  /**
+   * 进展来源链接
+   *
+   * <p>示例值：https://www.zhoubao.com
+   */
+  @SerializedName("source_url")
+  private String sourceUrl;
+
+  /**
+   * 目标 id，与 target_type 对应，可通过 OKR 内容相关接口获取
+   *
+   * <p>示例值：7041430377642082323
+   */
+  @SerializedName("target_id")
+  private String targetId;
+
+  /**
+   * 目标类型
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("target_type")
+  private Integer targetType;
+
+  /**
+   * 进展详情 富文本格式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private ContentBlock content;
+
+  /**
+   * pc进展来源链接
+   *
+   * <p>示例值：open.feishu.cn
+   */
+  @SerializedName("source_url_pc")
+  private String sourceUrlPc;
+
+  /**
+   * mobile进展来源链接
+   *
+   * <p>示例值：open.feishu.cn
+   */
+  @SerializedName("source_url_mobile")
+  private String sourceUrlMobile;
+
+  /**
+   * 进展，包括百分比和状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_rate")
+  private ProgressRateNew progressRate;
+
+  public String getSourceTitle() {
+    return this.sourceTitle;
+  }
+
+  public void setSourceTitle(String sourceTitle) {
+    this.sourceTitle = sourceTitle;
+  }
+
+  public String getSourceUrl() {
+    return this.sourceUrl;
+  }
+
+  public void setSourceUrl(String sourceUrl) {
+    this.sourceUrl = sourceUrl;
+  }
+
+  public String getTargetId() {
+    return this.targetId;
+  }
+
+  public void setTargetId(String targetId) {
+    this.targetId = targetId;
+  }
+
+  public Integer getTargetType() {
+    return this.targetType;
+  }
+
+  public void setTargetType(Integer targetType) {
+    this.targetType = targetType;
+  }
+
+  public ContentBlock getContent() {
+    return this.content;
+  }
+
+  public void setContent(ContentBlock content) {
+    this.content = content;
+  }
+
+  public String getSourceUrlPc() {
+    return this.sourceUrlPc;
+  }
+
+  public void setSourceUrlPc(String sourceUrlPc) {
+    this.sourceUrlPc = sourceUrlPc;
+  }
+
+  public String getSourceUrlMobile() {
+    return this.sourceUrlMobile;
+  }
+
+  public void setSourceUrlMobile(String sourceUrlMobile) {
+    this.sourceUrlMobile = sourceUrlMobile;
+  }
+
+  public ProgressRateNew getProgressRate() {
+    return this.progressRate;
+  }
+
+  public void setProgressRate(ProgressRateNew progressRate) {
+    this.progressRate = progressRate;
+  }
+
+  // builder 开始
+  public CreateProgressRecordReqBody() {}
+
+  public CreateProgressRecordReqBody(Builder builder) {
     /**
      * 进展来源
-     * <p> 示例值：周报系统
+     *
+     * <p>示例值：周报系统
      */
-    @SerializedName("source_title")
-    private String sourceTitle;
+    this.sourceTitle = builder.sourceTitle;
     /**
      * 进展来源链接
-     * <p> 示例值：https://www.zhoubao.com
+     *
+     * <p>示例值：https://www.zhoubao.com
      */
-    @SerializedName("source_url")
-    private String sourceUrl;
+    this.sourceUrl = builder.sourceUrl;
     /**
-     * 目标id，与target_type对应
-     * <p> 示例值：7041430377642082323
+     * 目标 id，与 target_type 对应，可通过 OKR 内容相关接口获取
+     *
+     * <p>示例值：7041430377642082323
      */
-    @SerializedName("target_id")
-    private String targetId;
+    this.targetId = builder.targetId;
     /**
      * 目标类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：2
      */
-    @SerializedName("target_type")
-    private Integer targetType;
+    this.targetType = builder.targetType;
     /**
      * 进展详情 富文本格式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private ContentBlock content;
+    this.content = builder.content;
     /**
      * pc进展来源链接
-     * <p> 示例值：open.feishu.cn
+     *
+     * <p>示例值：open.feishu.cn
      */
-    @SerializedName("source_url_pc")
-    private String sourceUrlPc;
+    this.sourceUrlPc = builder.sourceUrlPc;
     /**
      * mobile进展来源链接
-     * <p> 示例值：open.feishu.cn
+     *
+     * <p>示例值：open.feishu.cn
      */
-    @SerializedName("source_url_mobile")
-    private String sourceUrlMobile;
+    this.sourceUrlMobile = builder.sourceUrlMobile;
     /**
      * 进展，包括百分比和状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_rate")
+    this.progressRate = builder.progressRate;
+  }
+
+  public static class Builder {
+    /**
+     * 进展来源
+     *
+     * <p>示例值：周报系统
+     */
+    private String sourceTitle;
+
+    /**
+     * 进展来源链接
+     *
+     * <p>示例值：https://www.zhoubao.com
+     */
+    private String sourceUrl;
+
+    /**
+     * 目标 id，与 target_type 对应，可通过 OKR 内容相关接口获取
+     *
+     * <p>示例值：7041430377642082323
+     */
+    private String targetId;
+
+    /**
+     * 目标类型
+     *
+     * <p>示例值：2
+     */
+    private Integer targetType;
+
+    /**
+     * 进展详情 富文本格式
+     *
+     * <p>示例值：
+     */
+    private ContentBlock content;
+
+    /**
+     * pc进展来源链接
+     *
+     * <p>示例值：open.feishu.cn
+     */
+    private String sourceUrlPc;
+
+    /**
+     * mobile进展来源链接
+     *
+     * <p>示例值：open.feishu.cn
+     */
+    private String sourceUrlMobile;
+
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     */
     private ProgressRateNew progressRate;
 
-    // builder 开始
-    public CreateProgressRecordReqBody() {
+    /**
+     * 进展来源
+     *
+     * <p>示例值：周报系统
+     *
+     * @param sourceTitle
+     * @return
+     */
+    public Builder sourceTitle(String sourceTitle) {
+      this.sourceTitle = sourceTitle;
+      return this;
     }
 
-    public CreateProgressRecordReqBody(Builder builder) {
-        /**
-         * 进展来源
-         * <p> 示例值：周报系统
-         */
-        this.sourceTitle = builder.sourceTitle;
-        /**
-         * 进展来源链接
-         * <p> 示例值：https://www.zhoubao.com
-         */
-        this.sourceUrl = builder.sourceUrl;
-        /**
-         * 目标id，与target_type对应
-         * <p> 示例值：7041430377642082323
-         */
-        this.targetId = builder.targetId;
-        /**
-         * 目标类型
-         * <p> 示例值：1
-         */
-        this.targetType = builder.targetType;
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * pc进展来源链接
-         * <p> 示例值：open.feishu.cn
-         */
-        this.sourceUrlPc = builder.sourceUrlPc;
-        /**
-         * mobile进展来源链接
-         * <p> 示例值：open.feishu.cn
-         */
-        this.sourceUrlMobile = builder.sourceUrlMobile;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        this.progressRate = builder.progressRate;
+    /**
+     * 进展来源链接
+     *
+     * <p>示例值：https://www.zhoubao.com
+     *
+     * @param sourceUrl
+     * @return
+     */
+    public Builder sourceUrl(String sourceUrl) {
+      this.sourceUrl = sourceUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目标 id，与 target_type 对应，可通过 OKR 内容相关接口获取
+     *
+     * <p>示例值：7041430377642082323
+     *
+     * @param targetId
+     * @return
+     */
+    public Builder targetId(String targetId) {
+      this.targetId = targetId;
+      return this;
     }
 
-    public String getSourceTitle() {
-        return this.sourceTitle;
+    /**
+     * 目标类型
+     *
+     * <p>示例值：2
+     *
+     * @param targetType
+     * @return
+     */
+    public Builder targetType(Integer targetType) {
+      this.targetType = targetType;
+      return this;
     }
 
-    public void setSourceTitle(String sourceTitle) {
-        this.sourceTitle = sourceTitle;
+    /**
+     * 目标类型
+     *
+     * <p>示例值：2
+     *
+     * @param targetType {@link
+     *     com.lark.oapi.service.okr.v1.enums.CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum}
+     * @return
+     */
+    public Builder targetType(
+        com.lark.oapi.service.okr.v1.enums
+                .CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum
+            targetType) {
+      this.targetType = targetType.getValue();
+      return this;
     }
 
-    public String getSourceUrl() {
-        return this.sourceUrl;
+    /**
+     * 进展详情 富文本格式
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(ContentBlock content) {
+      this.content = content;
+      return this;
     }
 
-    public void setSourceUrl(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
+    /**
+     * pc进展来源链接
+     *
+     * <p>示例值：open.feishu.cn
+     *
+     * @param sourceUrlPc
+     * @return
+     */
+    public Builder sourceUrlPc(String sourceUrlPc) {
+      this.sourceUrlPc = sourceUrlPc;
+      return this;
     }
 
-    public String getTargetId() {
-        return this.targetId;
+    /**
+     * mobile进展来源链接
+     *
+     * <p>示例值：open.feishu.cn
+     *
+     * @param sourceUrlMobile
+     * @return
+     */
+    public Builder sourceUrlMobile(String sourceUrlMobile) {
+      this.sourceUrlMobile = sourceUrlMobile;
+      return this;
     }
 
-    public void setTargetId(String targetId) {
-        this.targetId = targetId;
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     *
+     * @param progressRate
+     * @return
+     */
+    public Builder progressRate(ProgressRateNew progressRate) {
+      this.progressRate = progressRate;
+      return this;
     }
 
-    public Integer getTargetType() {
-        return this.targetType;
+    public CreateProgressRecordReqBody build() {
+      return new CreateProgressRecordReqBody(this);
     }
+  }
 
-    public void setTargetType(Integer targetType) {
-        this.targetType = targetType;
-    }
-
-    public ContentBlock getContent() {
-        return this.content;
-    }
-
-    public void setContent(ContentBlock content) {
-        this.content = content;
-    }
-
-    public String getSourceUrlPc() {
-        return this.sourceUrlPc;
-    }
-
-    public void setSourceUrlPc(String sourceUrlPc) {
-        this.sourceUrlPc = sourceUrlPc;
-    }
-
-    public String getSourceUrlMobile() {
-        return this.sourceUrlMobile;
-    }
-
-    public void setSourceUrlMobile(String sourceUrlMobile) {
-        this.sourceUrlMobile = sourceUrlMobile;
-    }
-
-    public ProgressRateNew getProgressRate() {
-        return this.progressRate;
-    }
-
-    public void setProgressRate(ProgressRateNew progressRate) {
-        this.progressRate = progressRate;
-    }
-
-    public static class Builder {
-        /**
-         * 进展来源
-         * <p> 示例值：周报系统
-         */
-        private String sourceTitle;
-        /**
-         * 进展来源链接
-         * <p> 示例值：https://www.zhoubao.com
-         */
-        private String sourceUrl;
-        /**
-         * 目标id，与target_type对应
-         * <p> 示例值：7041430377642082323
-         */
-        private String targetId;
-        /**
-         * 目标类型
-         * <p> 示例值：1
-         */
-        private Integer targetType;
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         */
-        private ContentBlock content;
-        /**
-         * pc进展来源链接
-         * <p> 示例值：open.feishu.cn
-         */
-        private String sourceUrlPc;
-        /**
-         * mobile进展来源链接
-         * <p> 示例值：open.feishu.cn
-         */
-        private String sourceUrlMobile;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        private ProgressRateNew progressRate;
-
-        /**
-         * 进展来源
-         * <p> 示例值：周报系统
-         *
-         * @param sourceTitle
-         * @return
-         */
-        public Builder sourceTitle(String sourceTitle) {
-            this.sourceTitle = sourceTitle;
-            return this;
-        }
-
-
-        /**
-         * 进展来源链接
-         * <p> 示例值：https://www.zhoubao.com
-         *
-         * @param sourceUrl
-         * @return
-         */
-        public Builder sourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-            return this;
-        }
-
-
-        /**
-         * 目标id，与target_type对应
-         * <p> 示例值：7041430377642082323
-         *
-         * @param targetId
-         * @return
-         */
-        public Builder targetId(String targetId) {
-            this.targetId = targetId;
-            return this;
-        }
-
-
-        /**
-         * 目标类型
-         * <p> 示例值：1
-         *
-         * @param targetType
-         * @return
-         */
-        public Builder targetType(Integer targetType) {
-            this.targetType = targetType;
-            return this;
-        }
-
-        /**
-         * 目标类型
-         * <p> 示例值：1
-         *
-         * @param targetType {@link com.lark.oapi.service.okr.v1.enums.CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum}
-         * @return
-         */
-        public Builder targetType(com.lark.oapi.service.okr.v1.enums.CreateProgressRecordOpenAPICreateProgressRecordTargetTypeEnum targetType) {
-            this.targetType = targetType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(ContentBlock content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * pc进展来源链接
-         * <p> 示例值：open.feishu.cn
-         *
-         * @param sourceUrlPc
-         * @return
-         */
-        public Builder sourceUrlPc(String sourceUrlPc) {
-            this.sourceUrlPc = sourceUrlPc;
-            return this;
-        }
-
-
-        /**
-         * mobile进展来源链接
-         * <p> 示例值：open.feishu.cn
-         *
-         * @param sourceUrlMobile
-         * @return
-         */
-        public Builder sourceUrlMobile(String sourceUrlMobile) {
-            this.sourceUrlMobile = sourceUrlMobile;
-            return this;
-        }
-
-
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         *
-         * @param progressRate
-         * @return
-         */
-        public Builder progressRate(ProgressRateNew progressRate) {
-            this.progressRate = progressRate;
-            return this;
-        }
-
-
-        public CreateProgressRecordReqBody build() {
-            return new CreateProgressRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

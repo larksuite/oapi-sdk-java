@@ -21,37 +21,37 @@ import com.lark.oapi.service.authen.v1.resource.RefreshAccessToken;
 import com.lark.oapi.service.authen.v1.resource.UserInfo;
 
 public class V1 {
-    private final AccessToken accessToken; // access_token
-    private final OidcAccessToken oidcAccessToken; // oidc.access_token
-    private final OidcRefreshAccessToken oidcRefreshAccessToken; // oidc.refresh_access_token
-    private final RefreshAccessToken refreshAccessToken; // refresh_access_token
-    private final UserInfo userInfo; // user_info
+  private final AccessToken accessToken; // access_token
+  private final OidcAccessToken oidcAccessToken; // oidc.access_token
+  private final OidcRefreshAccessToken oidcRefreshAccessToken; // oidc.refresh_access_token
+  private final RefreshAccessToken refreshAccessToken; // refresh_access_token
+  private final UserInfo userInfo; // user_info
 
-    public V1(Config config) {
-        this.accessToken = new AccessToken(config);
-        this.oidcAccessToken = new OidcAccessToken(config);
-        this.oidcRefreshAccessToken = new OidcRefreshAccessToken(config);
-        this.refreshAccessToken = new RefreshAccessToken(config);
-        this.userInfo = new UserInfo(config);
-    }
+  public V1(Config config) {
+    this.accessToken = new AccessToken(config);
+    this.oidcAccessToken = new OidcAccessToken(config);
+    this.oidcRefreshAccessToken = new OidcRefreshAccessToken(config);
+    this.refreshAccessToken = new RefreshAccessToken(config);
+    this.userInfo = new UserInfo(config);
+  }
 
-    public AccessToken accessToken() {
-        return accessToken;
-    }
+  public AccessToken accessToken() {
+    return accessToken;
+  }
 
-    public OidcAccessToken oidcAccessToken() {
-        return oidcAccessToken;
-    }
+  public OidcAccessToken oidcAccessToken() {
+    return oidcAccessToken;
+  }
 
-    public OidcRefreshAccessToken oidcRefreshAccessToken() {
-        return oidcRefreshAccessToken;
-    }
+  public OidcRefreshAccessToken oidcRefreshAccessToken() {
+    return oidcRefreshAccessToken;
+  }
 
-    public RefreshAccessToken refreshAccessToken() {
-        return refreshAccessToken;
-    }
+  public RefreshAccessToken refreshAccessToken() {
+    return refreshAccessToken;
+  }
 
-    public UserInfo userInfo() {
-        return userInfo;
-    }
+  public UserInfo userInfo() {
+    return userInfo;
+  }
 }

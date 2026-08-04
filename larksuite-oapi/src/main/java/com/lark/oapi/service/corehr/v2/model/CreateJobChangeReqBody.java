@@ -13,457 +13,513 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateJobChangeReqBody {
+  /**
+   * 异动方式
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("transfer_mode")
+  private Integer transferMode;
+
+  /**
+   * 雇员ID，ID 类型与查询参数 user_id_type 的取值一致。;-
+   * 当user_id_type=user_id时，该字段取员工的user_id，取值参考user_id_type部分。;-
+   * 当user_id_type=people_corehr_id时，则取该员工的人事雇佣ID，可从[雇佣ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取。
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正，不会校验是否停用。
+   * ;;可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
+
+  /**
+   * 关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取;;注意：当transfer_mode（异动方式）为2时，该字段为必填
+   *
+   * <p>示例值：people_6963913041981490725_6983885526583627531
+   */
+  @SerializedName("flow_id")
+  private String flowId;
+
+  /**
+   * 生效日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transfer_info")
+  private CreateTransferInfo transferInfo;
+
+  /**
+   * 异动记录标识符，发起失败可以重新用此标志继续请求
+   *
+   * <p>示例值：transfer_3627531
+   */
+  @SerializedName("transfer_key")
+  private String transferKey;
+
+  /**
+   * 异动发起人 ID
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("initiator_id")
+  private String initiatorId;
+
+  /**
+   * 异动原因唯一标识
+   *
+   * <p>示例值：involuntary_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
+
+  /**
+   * 是否穿透更新异动类任职记录
+   *
+   * <p>示例值：update_all
+   */
+  @SerializedName("update_method")
+  private String updateMethod;
+
+  /**
+   * 是否穿透更新离职类任职记录
+   *
+   * <p>示例值：update_all
+   */
+  @SerializedName("update_method_offboarding")
+  private String updateMethodOffboarding;
+
+  public Integer getTransferMode() {
+    return this.transferMode;
+  }
+
+  public void setTransferMode(Integer transferMode) {
+    this.transferMode = transferMode;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
+
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
+
+  public String getFlowId() {
+    return this.flowId;
+  }
+
+  public void setFlowId(String flowId) {
+    this.flowId = flowId;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public CreateTransferInfo getTransferInfo() {
+    return this.transferInfo;
+  }
+
+  public void setTransferInfo(CreateTransferInfo transferInfo) {
+    this.transferInfo = transferInfo;
+  }
+
+  public String getTransferKey() {
+    return this.transferKey;
+  }
+
+  public void setTransferKey(String transferKey) {
+    this.transferKey = transferKey;
+  }
+
+  public String getInitiatorId() {
+    return this.initiatorId;
+  }
+
+  public void setInitiatorId(String initiatorId) {
+    this.initiatorId = initiatorId;
+  }
+
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
+
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
+
+  public String getUpdateMethod() {
+    return this.updateMethod;
+  }
+
+  public void setUpdateMethod(String updateMethod) {
+    this.updateMethod = updateMethod;
+  }
+
+  public String getUpdateMethodOffboarding() {
+    return this.updateMethodOffboarding;
+  }
+
+  public void setUpdateMethodOffboarding(String updateMethodOffboarding) {
+    this.updateMethodOffboarding = updateMethodOffboarding;
+  }
+
+  // builder 开始
+  public CreateJobChangeReqBody() {}
+
+  public CreateJobChangeReqBody(Builder builder) {
     /**
      * 异动方式
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("transfer_mode")
-    private Integer transferMode;
+    this.transferMode = builder.transferMode;
     /**
-     * 雇员id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     * 雇员ID，ID 类型与查询参数 user_id_type 的取值一致。;-
+     * 当user_id_type=user_id时，该字段取员工的user_id，取值参考user_id_type部分。;-
+     * 当user_id_type=people_corehr_id时，则取该员工的人事雇佣ID，可从[雇佣ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 异动类型唯一标识
-     * <p> 示例值：internal_transfer
+     * 异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正，不会校验是否停用。
+     * ;;可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
      */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
+    this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
     /**
-     * 异动流程ID
-     * <p> 示例值：people_6963913041981490725_6983885526583627531
+     * 关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取;;注意：当transfer_mode（异动方式）为2时，该字段为必填
+     *
+     * <p>示例值：people_6963913041981490725_6983885526583627531
      */
-    @SerializedName("flow_id")
-    private String flowId;
+    this.flowId = builder.flowId;
     /**
-     * 生效日期
-     * <p> 示例值：2022-03-01
+     * 生效日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
-     * 异动详细信息
-     * <p> 示例值：
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
      */
-    @SerializedName("transfer_info")
-    private CreateTransferInfo transferInfo;
+    this.transferInfo = builder.transferInfo;
     /**
-     * 异动记录标识符
-     * <p> 示例值：transfer_3627531
+     * 异动记录标识符，发起失败可以重新用此标志继续请求
+     *
+     * <p>示例值：transfer_3627531
      */
-    @SerializedName("transfer_key")
-    private String transferKey;
+    this.transferKey = builder.transferKey;
     /**
      * 异动发起人 ID
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
      */
-    @SerializedName("initiator_id")
-    private String initiatorId;
+    this.initiatorId = builder.initiatorId;
     /**
      * 异动原因唯一标识
-     * <p> 示例值：involuntary_transfer
+     *
+     * <p>示例值：involuntary_transfer
      */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
+    this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
     /**
      * 是否穿透更新异动类任职记录
-     * <p> 示例值：update_all
+     *
+     * <p>示例值：update_all
      */
-    @SerializedName("update_method")
-    private String updateMethod;
+    this.updateMethod = builder.updateMethod;
     /**
      * 是否穿透更新离职类任职记录
-     * <p> 示例值：update_all
+     *
+     * <p>示例值：update_all
      */
-    @SerializedName("update_method_offboarding")
+    this.updateMethodOffboarding = builder.updateMethodOffboarding;
+  }
+
+  public static class Builder {
+    /**
+     * 异动方式
+     *
+     * <p>示例值：2
+     */
+    private Integer transferMode;
+
+    /**
+     * 雇员ID，ID 类型与查询参数 user_id_type 的取值一致。;-
+     * 当user_id_type=user_id时，该字段取员工的user_id，取值参考user_id_type部分。;-
+     * 当user_id_type=people_corehr_id时，则取该员工的人事雇佣ID，可从[雇佣ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
+    private String employmentId;
+
+    /**
+     * 异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正，不会校验是否停用。
+     * ;;可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
+     */
+    private String transferTypeUniqueIdentifier;
+
+    /**
+     * 关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取;;注意：当transfer_mode（异动方式）为2时，该字段为必填
+     *
+     * <p>示例值：people_6963913041981490725_6983885526583627531
+     */
+    private String flowId;
+
+    /**
+     * 生效日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
+     */
+    private CreateTransferInfo transferInfo;
+
+    /**
+     * 异动记录标识符，发起失败可以重新用此标志继续请求
+     *
+     * <p>示例值：transfer_3627531
+     */
+    private String transferKey;
+
+    /**
+     * 异动发起人 ID
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
+    private String initiatorId;
+
+    /**
+     * 异动原因唯一标识
+     *
+     * <p>示例值：involuntary_transfer
+     */
+    private String transferReasonUniqueIdentifier;
+
+    /**
+     * 是否穿透更新异动类任职记录
+     *
+     * <p>示例值：update_all
+     */
+    private String updateMethod;
+
+    /**
+     * 是否穿透更新离职类任职记录
+     *
+     * <p>示例值：update_all
+     */
     private String updateMethodOffboarding;
 
-    // builder 开始
-    public CreateJobChangeReqBody() {
+    /**
+     * 异动方式
+     *
+     * <p>示例值：2
+     *
+     * @param transferMode
+     * @return
+     */
+    public Builder transferMode(Integer transferMode) {
+      this.transferMode = transferMode;
+      return this;
     }
 
-    public CreateJobChangeReqBody(Builder builder) {
-        /**
-         * 异动方式
-         * <p> 示例值：2
-         */
-        this.transferMode = builder.transferMode;
-        /**
-         * 雇员id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         */
-        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
-        /**
-         * 异动流程ID
-         * <p> 示例值：people_6963913041981490725_6983885526583627531
-         */
-        this.flowId = builder.flowId;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         */
-        this.transferInfo = builder.transferInfo;
-        /**
-         * 异动记录标识符
-         * <p> 示例值：transfer_3627531
-         */
-        this.transferKey = builder.transferKey;
-        /**
-         * 异动发起人 ID
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        this.initiatorId = builder.initiatorId;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
-        /**
-         * 是否穿透更新异动类任职记录
-         * <p> 示例值：update_all
-         */
-        this.updateMethod = builder.updateMethod;
-        /**
-         * 是否穿透更新离职类任职记录
-         * <p> 示例值：update_all
-         */
-        this.updateMethodOffboarding = builder.updateMethodOffboarding;
+    /**
+     * 异动方式
+     *
+     * <p>示例值：2
+     *
+     * @param transferMode {@link
+     *     com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum}
+     * @return
+     */
+    public Builder transferMode(
+        com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum
+            transferMode) {
+      this.transferMode = transferMode.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 雇员ID，ID 类型与查询参数 user_id_type 的取值一致。;-
+     * 当user_id_type=user_id时，该字段取员工的user_id，取值参考user_id_type部分。;-
+     * 当user_id_type=people_corehr_id时，则取该员工的人事雇佣ID，可从[雇佣ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public Integer getTransferMode() {
-        return this.transferMode;
+    /**
+     * 异动类型唯一标识，不支持仅在特殊场景使用的异动类型，如组织架构调整、职责转交和试用期转正，不会校验是否停用。
+     * ;;可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
+     *
+     * @param transferTypeUniqueIdentifier
+     * @return
+     */
+    public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+      this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+      return this;
     }
 
-    public void setTransferMode(Integer transferMode) {
-        this.transferMode = transferMode;
+    /**
+     * 关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取;;注意：当transfer_mode（异动方式）为2时，该字段为必填
+     *
+     * <p>示例值：people_6963913041981490725_6983885526583627531
+     *
+     * @param flowId
+     * @return
+     */
+    public Builder flowId(String flowId) {
+      this.flowId = flowId;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 生效日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
+     *
+     * @param transferInfo
+     * @return
+     */
+    public Builder transferInfo(CreateTransferInfo transferInfo) {
+      this.transferInfo = transferInfo;
+      return this;
     }
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
+    /**
+     * 异动记录标识符，发起失败可以重新用此标志继续请求
+     *
+     * <p>示例值：transfer_3627531
+     *
+     * @param transferKey
+     * @return
+     */
+    public Builder transferKey(String transferKey) {
+      this.transferKey = transferKey;
+      return this;
     }
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+    /**
+     * 异动发起人 ID
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * @param initiatorId
+     * @return
+     */
+    public Builder initiatorId(String initiatorId) {
+      this.initiatorId = initiatorId;
+      return this;
     }
 
-    public String getFlowId() {
-        return this.flowId;
+    /**
+     * 异动原因唯一标识
+     *
+     * <p>示例值：involuntary_transfer
+     *
+     * @param transferReasonUniqueIdentifier
+     * @return
+     */
+    public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+      this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+      return this;
     }
 
-    public void setFlowId(String flowId) {
-        this.flowId = flowId;
+    /**
+     * 是否穿透更新异动类任职记录
+     *
+     * <p>示例值：update_all
+     *
+     * @param updateMethod
+     * @return
+     */
+    public Builder updateMethod(String updateMethod) {
+      this.updateMethod = updateMethod;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 是否穿透更新离职类任职记录
+     *
+     * <p>示例值：update_all
+     *
+     * @param updateMethodOffboarding
+     * @return
+     */
+    public Builder updateMethodOffboarding(String updateMethodOffboarding) {
+      this.updateMethodOffboarding = updateMethodOffboarding;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public CreateJobChangeReqBody build() {
+      return new CreateJobChangeReqBody(this);
     }
+  }
 
-    public CreateTransferInfo getTransferInfo() {
-        return this.transferInfo;
-    }
-
-    public void setTransferInfo(CreateTransferInfo transferInfo) {
-        this.transferInfo = transferInfo;
-    }
-
-    public String getTransferKey() {
-        return this.transferKey;
-    }
-
-    public void setTransferKey(String transferKey) {
-        this.transferKey = transferKey;
-    }
-
-    public String getInitiatorId() {
-        return this.initiatorId;
-    }
-
-    public void setInitiatorId(String initiatorId) {
-        this.initiatorId = initiatorId;
-    }
-
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
-
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
-
-    public String getUpdateMethod() {
-        return this.updateMethod;
-    }
-
-    public void setUpdateMethod(String updateMethod) {
-        this.updateMethod = updateMethod;
-    }
-
-    public String getUpdateMethodOffboarding() {
-        return this.updateMethodOffboarding;
-    }
-
-    public void setUpdateMethodOffboarding(String updateMethodOffboarding) {
-        this.updateMethodOffboarding = updateMethodOffboarding;
-    }
-
-    public static class Builder {
-        /**
-         * 异动方式
-         * <p> 示例值：2
-         */
-        private Integer transferMode;
-        /**
-         * 雇员id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        private String employmentId;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         */
-        private String transferTypeUniqueIdentifier;
-        /**
-         * 异动流程ID
-         * <p> 示例值：people_6963913041981490725_6983885526583627531
-         */
-        private String flowId;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        private String effectiveDate;
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         */
-        private CreateTransferInfo transferInfo;
-        /**
-         * 异动记录标识符
-         * <p> 示例值：transfer_3627531
-         */
-        private String transferKey;
-        /**
-         * 异动发起人 ID
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        private String initiatorId;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        private String transferReasonUniqueIdentifier;
-        /**
-         * 是否穿透更新异动类任职记录
-         * <p> 示例值：update_all
-         */
-        private String updateMethod;
-        /**
-         * 是否穿透更新离职类任职记录
-         * <p> 示例值：update_all
-         */
-        private String updateMethodOffboarding;
-
-        /**
-         * 异动方式
-         * <p> 示例值：2
-         *
-         * @param transferMode
-         * @return
-         */
-        public Builder transferMode(Integer transferMode) {
-            this.transferMode = transferMode;
-            return this;
-        }
-
-        /**
-         * 异动方式
-         * <p> 示例值：2
-         *
-         * @param transferMode {@link com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum}
-         * @return
-         */
-        public Builder transferMode(com.lark.oapi.service.corehr.v2.enums.CreateJobChangeCreateJobChangeV2TransferModeEnum transferMode) {
-            this.transferMode = transferMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 雇员id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         *
-         * @param transferTypeUniqueIdentifier
-         * @return
-         */
-        public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 异动流程ID
-         * <p> 示例值：people_6963913041981490725_6983885526583627531
-         *
-         * @param flowId
-         * @return
-         */
-        public Builder flowId(String flowId) {
-            this.flowId = flowId;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         *
-         * @param transferInfo
-         * @return
-         */
-        public Builder transferInfo(CreateTransferInfo transferInfo) {
-            this.transferInfo = transferInfo;
-            return this;
-        }
-
-
-        /**
-         * 异动记录标识符
-         * <p> 示例值：transfer_3627531
-         *
-         * @param transferKey
-         * @return
-         */
-        public Builder transferKey(String transferKey) {
-            this.transferKey = transferKey;
-            return this;
-        }
-
-
-        /**
-         * 异动发起人 ID
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         *
-         * @param initiatorId
-         * @return
-         */
-        public Builder initiatorId(String initiatorId) {
-            this.initiatorId = initiatorId;
-            return this;
-        }
-
-
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         *
-         * @param transferReasonUniqueIdentifier
-         * @return
-         */
-        public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 是否穿透更新异动类任职记录
-         * <p> 示例值：update_all
-         *
-         * @param updateMethod
-         * @return
-         */
-        public Builder updateMethod(String updateMethod) {
-            this.updateMethod = updateMethod;
-            return this;
-        }
-
-
-        /**
-         * 是否穿透更新离职类任职记录
-         * <p> 示例值：update_all
-         *
-         * @param updateMethodOffboarding
-         * @return
-         */
-        public Builder updateMethodOffboarding(String updateMethodOffboarding) {
-            this.updateMethodOffboarding = updateMethodOffboarding;
-            return this;
-        }
-
-
-        public CreateJobChangeReqBody build() {
-            return new CreateJobChangeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

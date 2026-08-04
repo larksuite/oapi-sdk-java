@@ -13,183 +13,190 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetUserMailboxThreadReq {
+  /**
+   * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+   *
+   * <p>示例值：full
+   */
+  @Query
+  @SerializedName("format")
+  private String format;
+
+  /**
+   * 获取包含来自 SPAM 和 TRASH 的邮件
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("include_spam_trash")
+  private Boolean includeSpamTrash;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  public Boolean getIncludeSpamTrash() {
+    return this.includeSpamTrash;
+  }
+
+  public void setIncludeSpamTrash(Boolean includeSpamTrash) {
+    this.includeSpamTrash = includeSpamTrash;
+  }
+
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+   *
+   * <p>示例值：th_xxxxxxxxxxxx
+   */
+  @Path
+  @SerializedName("thread_id")
+  private String threadId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  // builder 开始
+  public GetUserMailboxThreadReq() {}
+
+  public GetUserMailboxThreadReq(Builder builder) {
     /**
      * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-     * <p> 示例值：full
+     *
+     * <p>示例值：full
      */
-    @Query
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
      * 获取包含来自 SPAM 和 TRASH 的邮件
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("include_spam_trash")
-    private Boolean includeSpamTrash;
+    this.includeSpamTrash = builder.includeSpamTrash;
     /**
      * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-     * <p> 示例值：th_xxxxxxxxxxxx
+     *
+     * <p>示例值：th_xxxxxxxxxxxx
      */
-    @Path
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
+  }
 
-    // builder 开始
-    public GetUserMailboxThreadReq() {
+  public static class Builder {
+    private String format; // 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+    private Boolean includeSpamTrash; // 获取包含来自 SPAM 和 TRASH 的邮件
+
+    /**
+     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+     *
+     * <p>示例值：full
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public GetUserMailboxThreadReq(Builder builder) {
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         */
-        this.format = builder.format;
-        /**
-         * 获取包含来自 SPAM 和 TRASH 的邮件
-         * <p> 示例值：
-         */
-        this.includeSpamTrash = builder.includeSpamTrash;
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-         * <p> 示例值：th_xxxxxxxxxxxx
-         */
-        this.threadId = builder.threadId;
+    /**
+     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+     *
+     * <p>示例值：full
+     *
+     * @param format {@link
+     *     com.lark.oapi.service.mail.v1.enums.GetUserMailboxThreadMailMessageFormatTypeEnum}
+     * @return
+     */
+    public Builder format(
+        com.lark.oapi.service.mail.v1.enums.GetUserMailboxThreadMailMessageFormatTypeEnum format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 获取包含来自 SPAM 和 TRASH 的邮件
+     *
+     * <p>示例值：false
+     *
+     * @param includeSpamTrash
+     * @return
+     */
+    public Builder includeSpamTrash(Boolean includeSpamTrash) {
+      this.includeSpamTrash = includeSpamTrash;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+    private String threadId; // 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
+    /**
+     * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+     *
+     * <p>示例值：th_xxxxxxxxxxxx
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public Boolean getIncludeSpamTrash() {
-        return this.includeSpamTrash;
+    public GetUserMailboxThreadReq build() {
+      return new GetUserMailboxThreadReq(this);
     }
+  }
 
-    public void setIncludeSpamTrash(Boolean includeSpamTrash) {
-        this.includeSpamTrash = includeSpamTrash;
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public static class Builder {
-        private String format; // 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-        private Boolean includeSpamTrash; // 获取包含来自 SPAM 和 TRASH 的邮件
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private String threadId; // 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format {@link com.lark.oapi.service.mail.v1.enums.GetUserMailboxThreadMailMessageFormatTypeEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.mail.v1.enums.GetUserMailboxThreadMailMessageFormatTypeEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-        /**
-         * 获取包含来自 SPAM 和 TRASH 的邮件
-         * <p> 示例值：
-         *
-         * @param includeSpamTrash
-         * @return
-         */
-        public Builder includeSpamTrash(Boolean includeSpamTrash) {
-            this.includeSpamTrash = includeSpamTrash;
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-         * <p> 示例值：th_xxxxxxxxxxxx
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        public GetUserMailboxThreadReq build() {
-            return new GetUserMailboxThreadReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

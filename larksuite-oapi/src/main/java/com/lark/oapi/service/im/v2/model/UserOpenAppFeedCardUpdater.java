@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOpenAppFeedCardUpdater {
+  /**
+   * 应用消息卡片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app_feed_card")
+  private OpenAppFeedCard appFeedCard;
+
+  /**
+   * 用户 ID（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+   *
+   * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 更新字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public OpenAppFeedCard getAppFeedCard() {
+    return this.appFeedCard;
+  }
+
+  public void setAppFeedCard(OpenAppFeedCard appFeedCard) {
+    this.appFeedCard = appFeedCard;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public UserOpenAppFeedCardUpdater() {}
+
+  public UserOpenAppFeedCardUpdater(Builder builder) {
     /**
      * 应用消息卡片
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("app_feed_card")
-    private OpenAppFeedCard appFeedCard;
+    this.appFeedCard = builder.appFeedCard;
     /**
-     * 用户 id
-     * <p> 示例值：
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 更新字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_fields")
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 应用消息卡片
+     *
+     * <p>示例值：
+     */
+    private OpenAppFeedCard appFeedCard;
+
+    /**
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     */
+    private String userId;
+
+    /**
+     * 更新字段列表
+     *
+     * <p>示例值：
+     */
     private String[] updateFields;
 
-    // builder 开始
-    public UserOpenAppFeedCardUpdater() {
+    /**
+     * 应用消息卡片
+     *
+     * <p>示例值：
+     *
+     * @param appFeedCard
+     * @return
+     */
+    public Builder appFeedCard(OpenAppFeedCard appFeedCard) {
+      this.appFeedCard = appFeedCard;
+      return this;
     }
 
-    public UserOpenAppFeedCardUpdater(Builder builder) {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
-        this.appFeedCard = builder.appFeedCard;
-        /**
-         * 用户 id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 更新字段列表
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 更新字段列表
+     *
+     * <p>示例值：
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public OpenAppFeedCard getAppFeedCard() {
-        return this.appFeedCard;
+    public UserOpenAppFeedCardUpdater build() {
+      return new UserOpenAppFeedCardUpdater(this);
     }
+  }
 
-    public void setAppFeedCard(OpenAppFeedCard appFeedCard) {
-        this.appFeedCard = appFeedCard;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         */
-        private OpenAppFeedCard appFeedCard;
-        /**
-         * 用户 id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 更新字段列表
-         * <p> 示例值：
-         */
-        private String[] updateFields;
-
-        /**
-         * 应用消息卡片
-         * <p> 示例值：
-         *
-         * @param appFeedCard
-         * @return
-         */
-        public Builder appFeedCard(OpenAppFeedCard appFeedCard) {
-            this.appFeedCard = appFeedCard;
-            return this;
-        }
-
-
-        /**
-         * 用户 id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 更新字段列表
-         * <p> 示例值：
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public UserOpenAppFeedCardUpdater build() {
-            return new UserOpenAppFeedCardUpdater(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

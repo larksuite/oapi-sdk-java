@@ -13,556 +13,611 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocChunkTableCell {
+  /**
+   * 现在只有paragraph，目前只支持文本形式的单元格内容返回
+   *
+   * <p>示例值：paragraph
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文本内容
+   *
+   * <p>示例值：Transformer-CC...
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 单元格的bbox坐标（左）
+   *
+   * <p>示例值：181.0478
+   */
+  @SerializedName("x0")
+  private String x0;
+
+  /**
+   * 单元格的bbox坐标（上）
+   *
+   * <p>示例值：57.51546
+   */
+  @SerializedName("y0")
+  private String y0;
+
+  /**
+   * 单元格的bbox坐标（右）
+   *
+   * <p>示例值：197.11617
+   */
+  @SerializedName("x1")
+  private String x1;
+
+  /**
+   * 单元格的bbox坐标（下）
+   *
+   * <p>示例值：62.600098
+   */
+  @SerializedName("y1")
+  private String y1;
+
+  /**
+   * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("row_index")
+  private Integer rowIndex;
+
+  /**
+   * 单元格列逻辑坐标，表示当前单元格在第colIndex列
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("col_index")
+  private Integer colIndex;
+
+  /**
+   * 单元格占的行数
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("row_span")
+  private Integer rowSpan;
+
+  /**
+   * 单元格占的列数
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("col_span")
+  private Integer colSpan;
+
+  /**
+   * 是否为合并单元格
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_merge_cell")
+  private Boolean isMergeCell;
+
+  /**
+   * 单元格内部图片列表（base64 / 文件token）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("images")
+  private String[] images;
+
+  /**
+   * 单元格内部文件列表（临时链接 / 文件token）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private String[] files;
+
+  /**
+   * 是否是表头
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_header")
+  private Boolean isHeader;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getX0() {
+    return this.x0;
+  }
+
+  public void setX0(String x0) {
+    this.x0 = x0;
+  }
+
+  public String getY0() {
+    return this.y0;
+  }
+
+  public void setY0(String y0) {
+    this.y0 = y0;
+  }
+
+  public String getX1() {
+    return this.x1;
+  }
+
+  public void setX1(String x1) {
+    this.x1 = x1;
+  }
+
+  public String getY1() {
+    return this.y1;
+  }
+
+  public void setY1(String y1) {
+    this.y1 = y1;
+  }
+
+  public Integer getRowIndex() {
+    return this.rowIndex;
+  }
+
+  public void setRowIndex(Integer rowIndex) {
+    this.rowIndex = rowIndex;
+  }
+
+  public Integer getColIndex() {
+    return this.colIndex;
+  }
+
+  public void setColIndex(Integer colIndex) {
+    this.colIndex = colIndex;
+  }
+
+  public Integer getRowSpan() {
+    return this.rowSpan;
+  }
+
+  public void setRowSpan(Integer rowSpan) {
+    this.rowSpan = rowSpan;
+  }
+
+  public Integer getColSpan() {
+    return this.colSpan;
+  }
+
+  public void setColSpan(Integer colSpan) {
+    this.colSpan = colSpan;
+  }
+
+  public Boolean getIsMergeCell() {
+    return this.isMergeCell;
+  }
+
+  public void setIsMergeCell(Boolean isMergeCell) {
+    this.isMergeCell = isMergeCell;
+  }
+
+  public String[] getImages() {
+    return this.images;
+  }
+
+  public void setImages(String[] images) {
+    this.images = images;
+  }
+
+  public String[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(String[] files) {
+    this.files = files;
+  }
+
+  public Boolean getIsHeader() {
+    return this.isHeader;
+  }
+
+  public void setIsHeader(Boolean isHeader) {
+    this.isHeader = isHeader;
+  }
+
+  // builder 开始
+  public DocChunkTableCell() {}
+
+  public DocChunkTableCell(Builder builder) {
     /**
      * 现在只有paragraph，目前只支持文本形式的单元格内容返回
-     * <p> 示例值：paragraph
+     *
+     * <p>示例值：paragraph
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文本内容
-     * <p> 示例值：Transformer-CC...
+     *
+     * <p>示例值：Transformer-CC...
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 单元格的bbox坐标（左）
-     * <p> 示例值：181.0478
+     *
+     * <p>示例值：181.0478
      */
-    @SerializedName("x0")
-    private String x0;
+    this.x0 = builder.x0;
     /**
      * 单元格的bbox坐标（上）
-     * <p> 示例值：57.51546
+     *
+     * <p>示例值：57.51546
      */
-    @SerializedName("y0")
-    private String y0;
+    this.y0 = builder.y0;
     /**
      * 单元格的bbox坐标（右）
-     * <p> 示例值：197.11617
+     *
+     * <p>示例值：197.11617
      */
-    @SerializedName("x1")
-    private String x1;
+    this.x1 = builder.x1;
     /**
      * 单元格的bbox坐标（下）
-     * <p> 示例值：62.600098
+     *
+     * <p>示例值：62.600098
      */
-    @SerializedName("y1")
-    private String y1;
+    this.y1 = builder.y1;
     /**
      * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("row_index")
-    private Integer rowIndex;
+    this.rowIndex = builder.rowIndex;
     /**
      * 单元格列逻辑坐标，表示当前单元格在第colIndex列
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("col_index")
-    private Integer colIndex;
+    this.colIndex = builder.colIndex;
     /**
      * 单元格占的行数
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("row_span")
-    private Integer rowSpan;
+    this.rowSpan = builder.rowSpan;
     /**
      * 单元格占的列数
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("col_span")
-    private Integer colSpan;
+    this.colSpan = builder.colSpan;
     /**
      * 是否为合并单元格
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_merge_cell")
-    private Boolean isMergeCell;
+    this.isMergeCell = builder.isMergeCell;
     /**
      * 单元格内部图片列表（base64 / 文件token）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("images")
-    private String[] images;
+    this.images = builder.images;
     /**
      * 单元格内部文件列表（临时链接 / 文件token）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
-    private String[] files;
+    this.files = builder.files;
     /**
      * 是否是表头
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_header")
+    this.isHeader = builder.isHeader;
+  }
+
+  public static class Builder {
+    /**
+     * 现在只有paragraph，目前只支持文本形式的单元格内容返回
+     *
+     * <p>示例值：paragraph
+     */
+    private String type;
+
+    /**
+     * 文本内容
+     *
+     * <p>示例值：Transformer-CC...
+     */
+    private String text;
+
+    /**
+     * 单元格的bbox坐标（左）
+     *
+     * <p>示例值：181.0478
+     */
+    private String x0;
+
+    /**
+     * 单元格的bbox坐标（上）
+     *
+     * <p>示例值：57.51546
+     */
+    private String y0;
+
+    /**
+     * 单元格的bbox坐标（右）
+     *
+     * <p>示例值：197.11617
+     */
+    private String x1;
+
+    /**
+     * 单元格的bbox坐标（下）
+     *
+     * <p>示例值：62.600098
+     */
+    private String y1;
+
+    /**
+     * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
+     *
+     * <p>示例值：10
+     */
+    private Integer rowIndex;
+
+    /**
+     * 单元格列逻辑坐标，表示当前单元格在第colIndex列
+     *
+     * <p>示例值：10
+     */
+    private Integer colIndex;
+
+    /**
+     * 单元格占的行数
+     *
+     * <p>示例值：3
+     */
+    private Integer rowSpan;
+
+    /**
+     * 单元格占的列数
+     *
+     * <p>示例值：3
+     */
+    private Integer colSpan;
+
+    /**
+     * 是否为合并单元格
+     *
+     * <p>示例值：
+     */
+    private Boolean isMergeCell;
+
+    /**
+     * 单元格内部图片列表（base64 / 文件token）
+     *
+     * <p>示例值：
+     */
+    private String[] images;
+
+    /**
+     * 单元格内部文件列表（临时链接 / 文件token）
+     *
+     * <p>示例值：
+     */
+    private String[] files;
+
+    /**
+     * 是否是表头
+     *
+     * <p>示例值：
+     */
     private Boolean isHeader;
 
-    // builder 开始
-    public DocChunkTableCell() {
+    /**
+     * 现在只有paragraph，目前只支持文本形式的单元格内容返回
+     *
+     * <p>示例值：paragraph
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public DocChunkTableCell(Builder builder) {
-        /**
-         * 现在只有paragraph，目前只支持文本形式的单元格内容返回
-         * <p> 示例值：paragraph
-         */
-        this.type = builder.type;
-        /**
-         * 文本内容
-         * <p> 示例值：Transformer-CC...
-         */
-        this.text = builder.text;
-        /**
-         * 单元格的bbox坐标（左）
-         * <p> 示例值：181.0478
-         */
-        this.x0 = builder.x0;
-        /**
-         * 单元格的bbox坐标（上）
-         * <p> 示例值：57.51546
-         */
-        this.y0 = builder.y0;
-        /**
-         * 单元格的bbox坐标（右）
-         * <p> 示例值：197.11617
-         */
-        this.x1 = builder.x1;
-        /**
-         * 单元格的bbox坐标（下）
-         * <p> 示例值：62.600098
-         */
-        this.y1 = builder.y1;
-        /**
-         * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
-         * <p> 示例值：10
-         */
-        this.rowIndex = builder.rowIndex;
-        /**
-         * 单元格列逻辑坐标，表示当前单元格在第colIndex列
-         * <p> 示例值：10
-         */
-        this.colIndex = builder.colIndex;
-        /**
-         * 单元格占的行数
-         * <p> 示例值：3
-         */
-        this.rowSpan = builder.rowSpan;
-        /**
-         * 单元格占的列数
-         * <p> 示例值：3
-         */
-        this.colSpan = builder.colSpan;
-        /**
-         * 是否为合并单元格
-         * <p> 示例值：
-         */
-        this.isMergeCell = builder.isMergeCell;
-        /**
-         * 单元格内部图片列表（base64 / 文件token）
-         * <p> 示例值：
-         */
-        this.images = builder.images;
-        /**
-         * 单元格内部文件列表（临时链接 / 文件token）
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-        /**
-         * 是否是表头
-         * <p> 示例值：
-         */
-        this.isHeader = builder.isHeader;
+    /**
+     * 文本内容
+     *
+     * <p>示例值：Transformer-CC...
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 单元格的bbox坐标（左）
+     *
+     * <p>示例值：181.0478
+     *
+     * @param x0
+     * @return
+     */
+    public Builder x0(String x0) {
+      this.x0 = x0;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 单元格的bbox坐标（上）
+     *
+     * <p>示例值：57.51546
+     *
+     * @param y0
+     * @return
+     */
+    public Builder y0(String y0) {
+      this.y0 = y0;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 单元格的bbox坐标（右）
+     *
+     * <p>示例值：197.11617
+     *
+     * @param x1
+     * @return
+     */
+    public Builder x1(String x1) {
+      this.x1 = x1;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 单元格的bbox坐标（下）
+     *
+     * <p>示例值：62.600098
+     *
+     * @param y1
+     * @return
+     */
+    public Builder y1(String y1) {
+      this.y1 = y1;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    /**
+     * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
+     *
+     * <p>示例值：10
+     *
+     * @param rowIndex
+     * @return
+     */
+    public Builder rowIndex(Integer rowIndex) {
+      this.rowIndex = rowIndex;
+      return this;
     }
 
-    public String getX0() {
-        return this.x0;
+    /**
+     * 单元格列逻辑坐标，表示当前单元格在第colIndex列
+     *
+     * <p>示例值：10
+     *
+     * @param colIndex
+     * @return
+     */
+    public Builder colIndex(Integer colIndex) {
+      this.colIndex = colIndex;
+      return this;
     }
 
-    public void setX0(String x0) {
-        this.x0 = x0;
+    /**
+     * 单元格占的行数
+     *
+     * <p>示例值：3
+     *
+     * @param rowSpan
+     * @return
+     */
+    public Builder rowSpan(Integer rowSpan) {
+      this.rowSpan = rowSpan;
+      return this;
     }
 
-    public String getY0() {
-        return this.y0;
+    /**
+     * 单元格占的列数
+     *
+     * <p>示例值：3
+     *
+     * @param colSpan
+     * @return
+     */
+    public Builder colSpan(Integer colSpan) {
+      this.colSpan = colSpan;
+      return this;
     }
 
-    public void setY0(String y0) {
-        this.y0 = y0;
+    /**
+     * 是否为合并单元格
+     *
+     * <p>示例值：
+     *
+     * @param isMergeCell
+     * @return
+     */
+    public Builder isMergeCell(Boolean isMergeCell) {
+      this.isMergeCell = isMergeCell;
+      return this;
     }
 
-    public String getX1() {
-        return this.x1;
+    /**
+     * 单元格内部图片列表（base64 / 文件token）
+     *
+     * <p>示例值：
+     *
+     * @param images
+     * @return
+     */
+    public Builder images(String[] images) {
+      this.images = images;
+      return this;
     }
 
-    public void setX1(String x1) {
-        this.x1 = x1;
+    /**
+     * 单元格内部文件列表（临时链接 / 文件token）
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(String[] files) {
+      this.files = files;
+      return this;
     }
 
-    public String getY1() {
-        return this.y1;
+    /**
+     * 是否是表头
+     *
+     * <p>示例值：
+     *
+     * @param isHeader
+     * @return
+     */
+    public Builder isHeader(Boolean isHeader) {
+      this.isHeader = isHeader;
+      return this;
     }
 
-    public void setY1(String y1) {
-        this.y1 = y1;
+    public DocChunkTableCell build() {
+      return new DocChunkTableCell(this);
     }
+  }
 
-    public Integer getRowIndex() {
-        return this.rowIndex;
-    }
-
-    public void setRowIndex(Integer rowIndex) {
-        this.rowIndex = rowIndex;
-    }
-
-    public Integer getColIndex() {
-        return this.colIndex;
-    }
-
-    public void setColIndex(Integer colIndex) {
-        this.colIndex = colIndex;
-    }
-
-    public Integer getRowSpan() {
-        return this.rowSpan;
-    }
-
-    public void setRowSpan(Integer rowSpan) {
-        this.rowSpan = rowSpan;
-    }
-
-    public Integer getColSpan() {
-        return this.colSpan;
-    }
-
-    public void setColSpan(Integer colSpan) {
-        this.colSpan = colSpan;
-    }
-
-    public Boolean getIsMergeCell() {
-        return this.isMergeCell;
-    }
-
-    public void setIsMergeCell(Boolean isMergeCell) {
-        this.isMergeCell = isMergeCell;
-    }
-
-    public String[] getImages() {
-        return this.images;
-    }
-
-    public void setImages(String[] images) {
-        this.images = images;
-    }
-
-    public String[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(String[] files) {
-        this.files = files;
-    }
-
-    public Boolean getIsHeader() {
-        return this.isHeader;
-    }
-
-    public void setIsHeader(Boolean isHeader) {
-        this.isHeader = isHeader;
-    }
-
-    public static class Builder {
-        /**
-         * 现在只有paragraph，目前只支持文本形式的单元格内容返回
-         * <p> 示例值：paragraph
-         */
-        private String type;
-        /**
-         * 文本内容
-         * <p> 示例值：Transformer-CC...
-         */
-        private String text;
-        /**
-         * 单元格的bbox坐标（左）
-         * <p> 示例值：181.0478
-         */
-        private String x0;
-        /**
-         * 单元格的bbox坐标（上）
-         * <p> 示例值：57.51546
-         */
-        private String y0;
-        /**
-         * 单元格的bbox坐标（右）
-         * <p> 示例值：197.11617
-         */
-        private String x1;
-        /**
-         * 单元格的bbox坐标（下）
-         * <p> 示例值：62.600098
-         */
-        private String y1;
-        /**
-         * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
-         * <p> 示例值：10
-         */
-        private Integer rowIndex;
-        /**
-         * 单元格列逻辑坐标，表示当前单元格在第colIndex列
-         * <p> 示例值：10
-         */
-        private Integer colIndex;
-        /**
-         * 单元格占的行数
-         * <p> 示例值：3
-         */
-        private Integer rowSpan;
-        /**
-         * 单元格占的列数
-         * <p> 示例值：3
-         */
-        private Integer colSpan;
-        /**
-         * 是否为合并单元格
-         * <p> 示例值：
-         */
-        private Boolean isMergeCell;
-        /**
-         * 单元格内部图片列表（base64 / 文件token）
-         * <p> 示例值：
-         */
-        private String[] images;
-        /**
-         * 单元格内部文件列表（临时链接 / 文件token）
-         * <p> 示例值：
-         */
-        private String[] files;
-        /**
-         * 是否是表头
-         * <p> 示例值：
-         */
-        private Boolean isHeader;
-
-        /**
-         * 现在只有paragraph，目前只支持文本形式的单元格内容返回
-         * <p> 示例值：paragraph
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 文本内容
-         * <p> 示例值：Transformer-CC...
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 单元格的bbox坐标（左）
-         * <p> 示例值：181.0478
-         *
-         * @param x0
-         * @return
-         */
-        public Builder x0(String x0) {
-            this.x0 = x0;
-            return this;
-        }
-
-
-        /**
-         * 单元格的bbox坐标（上）
-         * <p> 示例值：57.51546
-         *
-         * @param y0
-         * @return
-         */
-        public Builder y0(String y0) {
-            this.y0 = y0;
-            return this;
-        }
-
-
-        /**
-         * 单元格的bbox坐标（右）
-         * <p> 示例值：197.11617
-         *
-         * @param x1
-         * @return
-         */
-        public Builder x1(String x1) {
-            this.x1 = x1;
-            return this;
-        }
-
-
-        /**
-         * 单元格的bbox坐标（下）
-         * <p> 示例值：62.600098
-         *
-         * @param y1
-         * @return
-         */
-        public Builder y1(String y1) {
-            this.y1 = y1;
-            return this;
-        }
-
-
-        /**
-         * 单元格行逻辑坐标，表示当前单元格在第rowIndex行
-         * <p> 示例值：10
-         *
-         * @param rowIndex
-         * @return
-         */
-        public Builder rowIndex(Integer rowIndex) {
-            this.rowIndex = rowIndex;
-            return this;
-        }
-
-
-        /**
-         * 单元格列逻辑坐标，表示当前单元格在第colIndex列
-         * <p> 示例值：10
-         *
-         * @param colIndex
-         * @return
-         */
-        public Builder colIndex(Integer colIndex) {
-            this.colIndex = colIndex;
-            return this;
-        }
-
-
-        /**
-         * 单元格占的行数
-         * <p> 示例值：3
-         *
-         * @param rowSpan
-         * @return
-         */
-        public Builder rowSpan(Integer rowSpan) {
-            this.rowSpan = rowSpan;
-            return this;
-        }
-
-
-        /**
-         * 单元格占的列数
-         * <p> 示例值：3
-         *
-         * @param colSpan
-         * @return
-         */
-        public Builder colSpan(Integer colSpan) {
-            this.colSpan = colSpan;
-            return this;
-        }
-
-
-        /**
-         * 是否为合并单元格
-         * <p> 示例值：
-         *
-         * @param isMergeCell
-         * @return
-         */
-        public Builder isMergeCell(Boolean isMergeCell) {
-            this.isMergeCell = isMergeCell;
-            return this;
-        }
-
-
-        /**
-         * 单元格内部图片列表（base64 / 文件token）
-         * <p> 示例值：
-         *
-         * @param images
-         * @return
-         */
-        public Builder images(String[] images) {
-            this.images = images;
-            return this;
-        }
-
-
-        /**
-         * 单元格内部文件列表（临时链接 / 文件token）
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(String[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        /**
-         * 是否是表头
-         * <p> 示例值：
-         *
-         * @param isHeader
-         * @return
-         */
-        public Builder isHeader(Boolean isHeader) {
-            this.isHeader = isHeader;
-            return this;
-        }
-
-
-        public DocChunkTableCell build() {
-            return new DocChunkTableCell(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

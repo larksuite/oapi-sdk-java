@@ -13,556 +13,615 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileHistory {
+  /**
+   * 版本
+   *
+   * <p>示例值：7380000000000000100
+   */
+  @SerializedName("version")
+  private String version;
+
+  /**
+   * 编辑用户 ID
+   *
+   * <p>示例值：7100000000000000001
+   */
+  @SerializedName("edit_user_id")
+  private String editUserId;
+
+  /**
+   * 编辑时间，毫秒级时间戳
+   *
+   * <p>示例值：1777013761763
+   */
+  @SerializedName("edit_time")
+  private String editTime;
+
+  /**
+   * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version
+   * 占位。上传和恢复的时候则是当前file的tag+1
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("tag")
+  private Integer tag;
+
+  /**
+   * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("source_tag")
+  private Integer sourceTag;
+
+  /**
+   * 源文件名
+   *
+   * <p>示例值：demo_rename.pdf
+   */
+  @SerializedName("source_name")
+  private String sourceName;
+
+  /**
+   * 当前版本文件名
+   *
+   * <p>示例值：demo_rename.pdf
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 文件字节数（仅实际文件版本）
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("size")
+  private String size;
+
+  /**
+   * 用户来源标识；0=普通用户
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("user_source")
+  private Integer userSource;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 删除类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("delete_type")
+  private Integer deleteType;
+
+  /**
+   * 是否第三方加密
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_third_enc")
+  private Boolean isThirdEnc;
+
+  /**
+   * 风险状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("risk_status")
+  private Integer riskStatus;
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getEditUserId() {
+    return this.editUserId;
+  }
+
+  public void setEditUserId(String editUserId) {
+    this.editUserId = editUserId;
+  }
+
+  public String getEditTime() {
+    return this.editTime;
+  }
+
+  public void setEditTime(String editTime) {
+    this.editTime = editTime;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Integer getTag() {
+    return this.tag;
+  }
+
+  public void setTag(Integer tag) {
+    this.tag = tag;
+  }
+
+  public Integer getSourceTag() {
+    return this.sourceTag;
+  }
+
+  public void setSourceTag(Integer sourceTag) {
+    this.sourceTag = sourceTag;
+  }
+
+  public String getSourceName() {
+    return this.sourceName;
+  }
+
+  public void setSourceName(String sourceName) {
+    this.sourceName = sourceName;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSize() {
+    return this.size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  public Integer getUserSource() {
+    return this.userSource;
+  }
+
+  public void setUserSource(Integer userSource) {
+    this.userSource = userSource;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public Integer getDeleteType() {
+    return this.deleteType;
+  }
+
+  public void setDeleteType(Integer deleteType) {
+    this.deleteType = deleteType;
+  }
+
+  public Boolean getIsThirdEnc() {
+    return this.isThirdEnc;
+  }
+
+  public void setIsThirdEnc(Boolean isThirdEnc) {
+    this.isThirdEnc = isThirdEnc;
+  }
+
+  public Integer getRiskStatus() {
+    return this.riskStatus;
+  }
+
+  public void setRiskStatus(Integer riskStatus) {
+    this.riskStatus = riskStatus;
+  }
+
+  // builder 开始
+  public FileHistory() {}
+
+  public FileHistory(Builder builder) {
     /**
      * 版本
-     * <p> 示例值：7380000000000000100
+     *
+     * <p>示例值：7380000000000000100
      */
-    @SerializedName("version")
-    private String version;
+    this.version = builder.version;
     /**
      * 编辑用户 ID
-     * <p> 示例值：7100000000000000001
+     *
+     * <p>示例值：7100000000000000001
      */
-    @SerializedName("edit_user_id")
-    private String editUserId;
+    this.editUserId = builder.editUserId;
     /**
      * 编辑时间，毫秒级时间戳
-     * <p> 示例值：1777013761763
+     *
+     * <p>示例值：1777013761763
      */
-    @SerializedName("edit_time")
-    private String editTime;
+    this.editTime = builder.editTime;
     /**
      * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
-     * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version 占位。上传和恢复的时候则是当前file的tag+1
-     * <p> 示例值：3
+     * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version
+     * 占位。上传和恢复的时候则是当前file的tag+1
+     *
+     * <p>示例值：3
      */
-    @SerializedName("tag")
-    private Integer tag;
+    this.tag = builder.tag;
     /**
      * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("source_tag")
-    private Integer sourceTag;
+    this.sourceTag = builder.sourceTag;
     /**
      * 源文件名
-     * <p> 示例值：demo_rename.pdf
+     *
+     * <p>示例值：demo_rename.pdf
      */
-    @SerializedName("source_name")
-    private String sourceName;
+    this.sourceName = builder.sourceName;
     /**
      * 当前版本文件名
-     * <p> 示例值：demo_rename.pdf
+     *
+     * <p>示例值：demo_rename.pdf
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 文件字节数（仅实际文件版本）
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("size")
-    private String size;
+    this.size = builder.size;
     /**
      * 用户来源标识；0=普通用户
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("user_source")
-    private Integer userSource;
+    this.userSource = builder.userSource;
     /**
      * 是否删除
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_deleted")
-    private Boolean isDeleted;
+    this.isDeleted = builder.isDeleted;
     /**
      * 删除类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("delete_type")
-    private Integer deleteType;
+    this.deleteType = builder.deleteType;
     /**
      * 是否第三方加密
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_third_enc")
-    private Boolean isThirdEnc;
+    this.isThirdEnc = builder.isThirdEnc;
     /**
      * 风险状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("risk_status")
+    this.riskStatus = builder.riskStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 版本
+     *
+     * <p>示例值：7380000000000000100
+     */
+    private String version;
+
+    /**
+     * 编辑用户 ID
+     *
+     * <p>示例值：7100000000000000001
+     */
+    private String editUserId;
+
+    /**
+     * 编辑时间，毫秒级时间戳
+     *
+     * <p>示例值：1777013761763
+     */
+    private String editTime;
+
+    /**
+     * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
+     *
+     * <p>示例值：3
+     */
+    private Integer type;
+
+    /**
+     * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version
+     * 占位。上传和恢复的时候则是当前file的tag+1
+     *
+     * <p>示例值：3
+     */
+    private Integer tag;
+
+    /**
+     * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
+     *
+     * <p>示例值：4
+     */
+    private Integer sourceTag;
+
+    /**
+     * 源文件名
+     *
+     * <p>示例值：demo_rename.pdf
+     */
+    private String sourceName;
+
+    /**
+     * 当前版本文件名
+     *
+     * <p>示例值：demo_rename.pdf
+     */
+    private String name;
+
+    /**
+     * 文件字节数（仅实际文件版本）
+     *
+     * <p>示例值：12345
+     */
+    private String size;
+
+    /**
+     * 用户来源标识；0=普通用户
+     *
+     * <p>示例值：4
+     */
+    private Integer userSource;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：false
+     */
+    private Boolean isDeleted;
+
+    /**
+     * 删除类型
+     *
+     * <p>示例值：0
+     */
+    private Integer deleteType;
+
+    /**
+     * 是否第三方加密
+     *
+     * <p>示例值：false
+     */
+    private Boolean isThirdEnc;
+
+    /**
+     * 风险状态
+     *
+     * <p>示例值：0
+     */
     private Integer riskStatus;
 
-    // builder 开始
-    public FileHistory() {
+    /**
+     * 版本
+     *
+     * <p>示例值：7380000000000000100
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public FileHistory(Builder builder) {
-        /**
-         * 版本
-         * <p> 示例值：7380000000000000100
-         */
-        this.version = builder.version;
-        /**
-         * 编辑用户 ID
-         * <p> 示例值：7100000000000000001
-         */
-        this.editUserId = builder.editUserId;
-        /**
-         * 编辑时间，毫秒级时间戳
-         * <p> 示例值：1777013761763
-         */
-        this.editTime = builder.editTime;
-        /**
-         * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
-         * <p> 示例值：3
-         */
-        this.type = builder.type;
-        /**
-         * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version 占位。上传和恢复的时候则是当前file的tag+1
-         * <p> 示例值：3
-         */
-        this.tag = builder.tag;
-        /**
-         * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
-         * <p> 示例值：4
-         */
-        this.sourceTag = builder.sourceTag;
-        /**
-         * 源文件名
-         * <p> 示例值：demo_rename.pdf
-         */
-        this.sourceName = builder.sourceName;
-        /**
-         * 当前版本文件名
-         * <p> 示例值：demo_rename.pdf
-         */
-        this.name = builder.name;
-        /**
-         * 文件字节数（仅实际文件版本）
-         * <p> 示例值：12345
-         */
-        this.size = builder.size;
-        /**
-         * 用户来源标识；0=普通用户
-         * <p> 示例值：4
-         */
-        this.userSource = builder.userSource;
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 删除类型
-         * <p> 示例值：0
-         */
-        this.deleteType = builder.deleteType;
-        /**
-         * 是否第三方加密
-         * <p> 示例值：false
-         */
-        this.isThirdEnc = builder.isThirdEnc;
-        /**
-         * 风险状态
-         * <p> 示例值：0
-         */
-        this.riskStatus = builder.riskStatus;
+    /**
+     * 编辑用户 ID
+     *
+     * <p>示例值：7100000000000000001
+     *
+     * @param editUserId
+     * @return
+     */
+    public Builder editUserId(String editUserId) {
+      this.editUserId = editUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编辑时间，毫秒级时间戳
+     *
+     * <p>示例值：1777013761763
+     *
+     * @param editTime
+     * @return
+     */
+    public Builder editTime(String editTime) {
+      this.editTime = editTime;
+      return this;
     }
 
-    public String getVersion() {
-        return this.version;
+    /**
+     * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
+     *
+     * <p>示例值：3
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    /**
+     * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version
+     * 占位。上传和恢复的时候则是当前file的tag+1
+     *
+     * <p>示例值：3
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(Integer tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public String getEditUserId() {
-        return this.editUserId;
+    /**
+     * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
+     *
+     * <p>示例值：4
+     *
+     * @param sourceTag
+     * @return
+     */
+    public Builder sourceTag(Integer sourceTag) {
+      this.sourceTag = sourceTag;
+      return this;
     }
 
-    public void setEditUserId(String editUserId) {
-        this.editUserId = editUserId;
+    /**
+     * 源文件名
+     *
+     * <p>示例值：demo_rename.pdf
+     *
+     * @param sourceName
+     * @return
+     */
+    public Builder sourceName(String sourceName) {
+      this.sourceName = sourceName;
+      return this;
     }
 
-    public String getEditTime() {
-        return this.editTime;
+    /**
+     * 当前版本文件名
+     *
+     * <p>示例值：demo_rename.pdf
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setEditTime(String editTime) {
-        this.editTime = editTime;
+    /**
+     * 文件字节数（仅实际文件版本）
+     *
+     * <p>示例值：12345
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(String size) {
+      this.size = size;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    /**
+     * 用户来源标识；0=普通用户
+     *
+     * <p>示例值：4
+     *
+     * @param userSource
+     * @return
+     */
+    public Builder userSource(Integer userSource) {
+      this.userSource = userSource;
+      return this;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：false
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public Integer getTag() {
-        return this.tag;
+    /**
+     * 删除类型
+     *
+     * <p>示例值：0
+     *
+     * @param deleteType
+     * @return
+     */
+    public Builder deleteType(Integer deleteType) {
+      this.deleteType = deleteType;
+      return this;
     }
 
-    public void setTag(Integer tag) {
-        this.tag = tag;
+    /**
+     * 是否第三方加密
+     *
+     * <p>示例值：false
+     *
+     * @param isThirdEnc
+     * @return
+     */
+    public Builder isThirdEnc(Boolean isThirdEnc) {
+      this.isThirdEnc = isThirdEnc;
+      return this;
     }
 
-    public Integer getSourceTag() {
-        return this.sourceTag;
+    /**
+     * 风险状态
+     *
+     * <p>示例值：0
+     *
+     * @param riskStatus
+     * @return
+     */
+    public Builder riskStatus(Integer riskStatus) {
+      this.riskStatus = riskStatus;
+      return this;
     }
 
-    public void setSourceTag(Integer sourceTag) {
-        this.sourceTag = sourceTag;
+    public FileHistory build() {
+      return new FileHistory(this);
     }
+  }
 
-    public String getSourceName() {
-        return this.sourceName;
-    }
-
-    public void setSourceName(String sourceName) {
-        this.sourceName = sourceName;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSize() {
-        return this.size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public Integer getUserSource() {
-        return this.userSource;
-    }
-
-    public void setUserSource(Integer userSource) {
-        this.userSource = userSource;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public Integer getDeleteType() {
-        return this.deleteType;
-    }
-
-    public void setDeleteType(Integer deleteType) {
-        this.deleteType = deleteType;
-    }
-
-    public Boolean getIsThirdEnc() {
-        return this.isThirdEnc;
-    }
-
-    public void setIsThirdEnc(Boolean isThirdEnc) {
-        this.isThirdEnc = isThirdEnc;
-    }
-
-    public Integer getRiskStatus() {
-        return this.riskStatus;
-    }
-
-    public void setRiskStatus(Integer riskStatus) {
-        this.riskStatus = riskStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 版本
-         * <p> 示例值：7380000000000000100
-         */
-        private String version;
-        /**
-         * 编辑用户 ID
-         * <p> 示例值：7100000000000000001
-         */
-        private String editUserId;
-        /**
-         * 编辑时间，毫秒级时间戳
-         * <p> 示例值：1777013761763
-         */
-        private String editTime;
-        /**
-         * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
-         * <p> 示例值：3
-         */
-        private Integer type;
-        /**
-         * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version 占位。上传和恢复的时候则是当前file的tag+1
-         * <p> 示例值：3
-         */
-        private Integer tag;
-        /**
-         * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
-         * <p> 示例值：4
-         */
-        private Integer sourceTag;
-        /**
-         * 源文件名
-         * <p> 示例值：demo_rename.pdf
-         */
-        private String sourceName;
-        /**
-         * 当前版本文件名
-         * <p> 示例值：demo_rename.pdf
-         */
-        private String name;
-        /**
-         * 文件字节数（仅实际文件版本）
-         * <p> 示例值：12345
-         */
-        private String size;
-        /**
-         * 用户来源标识；0=普通用户
-         * <p> 示例值：4
-         */
-        private Integer userSource;
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         */
-        private Boolean isDeleted;
-        /**
-         * 删除类型
-         * <p> 示例值：0
-         */
-        private Integer deleteType;
-        /**
-         * 是否第三方加密
-         * <p> 示例值：false
-         */
-        private Boolean isThirdEnc;
-        /**
-         * 风险状态
-         * <p> 示例值：0
-         */
-        private Integer riskStatus;
-
-        /**
-         * 版本
-         * <p> 示例值：7380000000000000100
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        /**
-         * 编辑用户 ID
-         * <p> 示例值：7100000000000000001
-         *
-         * @param editUserId
-         * @return
-         */
-        public Builder editUserId(String editUserId) {
-            this.editUserId = editUserId;
-            return this;
-        }
-
-
-        /**
-         * 编辑时间，毫秒级时间戳
-         * <p> 示例值：1777013761763
-         *
-         * @param editTime
-         * @return
-         */
-        public Builder editTime(String editTime) {
-            this.editTime = editTime;
-            return this;
-        }
-
-
-        /**
-         * 版本类型，1、产生新版本 2、文件重命名 3、删除某个旧版本 4、恢复版本
-         * <p> 示例值：3
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * tag 编号，承担"版本序号"的角色，RENAME/DELETE_VERSION 不产生"新版本号"，没有真正的递增，直接用 version 占位。上传和恢复的时候则是当前file的tag+1
-         * <p> 示例值：3
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(Integer tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * 源 tag 编号，派生/回滚记录（即type=2、4）指向的原始 tag
-         * <p> 示例值：4
-         *
-         * @param sourceTag
-         * @return
-         */
-        public Builder sourceTag(Integer sourceTag) {
-            this.sourceTag = sourceTag;
-            return this;
-        }
-
-
-        /**
-         * 源文件名
-         * <p> 示例值：demo_rename.pdf
-         *
-         * @param sourceName
-         * @return
-         */
-        public Builder sourceName(String sourceName) {
-            this.sourceName = sourceName;
-            return this;
-        }
-
-
-        /**
-         * 当前版本文件名
-         * <p> 示例值：demo_rename.pdf
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 文件字节数（仅实际文件版本）
-         * <p> 示例值：12345
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(String size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 用户来源标识；0=普通用户
-         * <p> 示例值：4
-         *
-         * @param userSource
-         * @return
-         */
-        public Builder userSource(Integer userSource) {
-            this.userSource = userSource;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 删除类型
-         * <p> 示例值：0
-         *
-         * @param deleteType
-         * @return
-         */
-        public Builder deleteType(Integer deleteType) {
-            this.deleteType = deleteType;
-            return this;
-        }
-
-
-        /**
-         * 是否第三方加密
-         * <p> 示例值：false
-         *
-         * @param isThirdEnc
-         * @return
-         */
-        public Builder isThirdEnc(Boolean isThirdEnc) {
-            this.isThirdEnc = isThirdEnc;
-            return this;
-        }
-
-
-        /**
-         * 风险状态
-         * <p> 示例值：0
-         *
-         * @param riskStatus
-         * @return
-         */
-        public Builder riskStatus(Integer riskStatus) {
-            this.riskStatus = riskStatus;
-            return this;
-        }
-
-
-        public FileHistory build() {
-            return new FileHistory(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

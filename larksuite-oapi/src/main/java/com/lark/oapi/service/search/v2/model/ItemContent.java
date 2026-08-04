@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ItemContent {
+  /**
+   * 内容的格式
+   *
+   * <p>示例值：html
+   */
+  @SerializedName("format")
+  private String format;
+
+  /**
+   * 全文数据
+   *
+   * <p>示例值：这是一个很长的文本
+   */
+  @SerializedName("content_data")
+  private String contentData;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  public String getContentData() {
+    return this.contentData;
+  }
+
+  public void setContentData(String contentData) {
+    this.contentData = contentData;
+  }
+
+  // builder 开始
+  public ItemContent() {}
+
+  public ItemContent(Builder builder) {
     /**
      * 内容的格式
-     * <p> 示例值：html
+     *
+     * <p>示例值：html
      */
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
      * 全文数据
-     * <p> 示例值：这是一个很长的文本
+     *
+     * <p>示例值：这是一个很长的文本
      */
-    @SerializedName("content_data")
+    this.contentData = builder.contentData;
+  }
+
+  public static class Builder {
+    /**
+     * 内容的格式
+     *
+     * <p>示例值：html
+     */
+    private String format;
+
+    /**
+     * 全文数据
+     *
+     * <p>示例值：这是一个很长的文本
+     */
     private String contentData;
 
-    // builder 开始
-    public ItemContent() {
+    /**
+     * 内容的格式
+     *
+     * <p>示例值：html
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public ItemContent(Builder builder) {
-        /**
-         * 内容的格式
-         * <p> 示例值：html
-         */
-        this.format = builder.format;
-        /**
-         * 全文数据
-         * <p> 示例值：这是一个很长的文本
-         */
-        this.contentData = builder.contentData;
+    /**
+     * 内容的格式
+     *
+     * <p>示例值：html
+     *
+     * @param format {@link com.lark.oapi.service.search.v2.enums.ItemContentFormatEnum}
+     * @return
+     */
+    public Builder format(com.lark.oapi.service.search.v2.enums.ItemContentFormatEnum format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 全文数据
+     *
+     * <p>示例值：这是一个很长的文本
+     *
+     * @param contentData
+     * @return
+     */
+    public Builder contentData(String contentData) {
+      this.contentData = contentData;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    public ItemContent build() {
+      return new ItemContent(this);
     }
+  }
 
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public String getContentData() {
-        return this.contentData;
-    }
-
-    public void setContentData(String contentData) {
-        this.contentData = contentData;
-    }
-
-    public static class Builder {
-        /**
-         * 内容的格式
-         * <p> 示例值：html
-         */
-        private String format;
-        /**
-         * 全文数据
-         * <p> 示例值：这是一个很长的文本
-         */
-        private String contentData;
-
-        /**
-         * 内容的格式
-         * <p> 示例值：html
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 内容的格式
-         * <p> 示例值：html
-         *
-         * @param format {@link com.lark.oapi.service.search.v2.enums.ItemContentFormatEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.search.v2.enums.ItemContentFormatEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-
-        /**
-         * 全文数据
-         * <p> 示例值：这是一个很长的文本
-         *
-         * @param contentData
-         * @return
-         */
-        public Builder contentData(String contentData) {
-            this.contentData = contentData;
-            return this;
-        }
-
-
-        public ItemContent build() {
-            return new ItemContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

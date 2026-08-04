@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCustomFieldOptionRespBody {
-    /**
-     * 创建的选项
-     * <p> 示例值：
-     */
-    @SerializedName("option")
-    private Option option;
+  /**
+   * 创建的选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option")
+  private Option option;
 
-    public Option getOption() {
-        return this.option;
-    }
+  public Option getOption() {
+    return this.option;
+  }
 
-    public void setOption(Option option) {
-        this.option = option;
-    }
-
+  public void setOption(Option option) {
+    this.option = option;
+  }
 }

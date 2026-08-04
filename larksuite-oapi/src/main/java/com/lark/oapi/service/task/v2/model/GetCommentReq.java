@@ -13,104 +13,101 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class GetCommentReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要获取评论详情的评论ID
+   *
+   * <p>示例值：7198104824246747156
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  // builder 开始
+  public GetCommentReq() {}
+
+  public GetCommentReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 评论ID
-     * <p> 示例值：7198104824246747156
+     * 要获取评论详情的评论ID
+     *
+     * <p>示例值：7198104824246747156
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
+    this.commentId = builder.commentId;
+  }
 
-    // builder 开始
-    public GetCommentReq() {
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetCommentReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 评论ID
-         * <p> 示例值：7198104824246747156
-         */
-        this.commentId = builder.commentId;
+    private String commentId; // 要获取评论详情的评论ID
+
+    /**
+     * 要获取评论详情的评论ID
+     *
+     * <p>示例值：7198104824246747156
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetCommentReq build() {
+      return new GetCommentReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String commentId; // 评论ID
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 评论ID
-         * <p> 示例值：7198104824246747156
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-
-        public GetCommentReq build() {
-            return new GetCommentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

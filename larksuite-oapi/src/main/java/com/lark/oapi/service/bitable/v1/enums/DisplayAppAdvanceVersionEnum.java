@@ -14,19 +14,20 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 文档高级权限版本
+ * 文档高级权限版本。可结合[自定义角色
+ * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
  */
 public enum DisplayAppAdvanceVersionEnum {
-    V1("v1"), // v1版本
-    V2("v2"), // v2版本
-    ;
-    private String value;
+  V1("v1"), // v1版本
+  V2("v2"), // v2版本
+  ;
+  private String value;
 
-    DisplayAppAdvanceVersionEnum(String value) {
-        this.value = value;
-    }
+  DisplayAppAdvanceVersionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

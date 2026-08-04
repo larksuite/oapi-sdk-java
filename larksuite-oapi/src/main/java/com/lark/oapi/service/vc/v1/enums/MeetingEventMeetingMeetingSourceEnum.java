@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会议创建源
- */
+/** 会议创建源 */
 public enum MeetingEventMeetingMeetingSourceEnum {
-    CALENDAR(1), // 日程会议
-    INSTANT(2), // 即时会议
-    INTERVIEW(3), // 面试会议
-    OPEN_API(4), // 开放平台会议
-    OTHERS(100), // 其他会议类型
-    ;
-    private Integer value;
+  CALENDAR(1), // 日程会议
+  INSTANT(2), // 即时会议
+  INTERVIEW(3), // 面试会议
+  OPEN_API(4), // 开放平台会议
+  OTHERS(100), // 其他会议类型
+  ;
+  private Integer value;
 
-    MeetingEventMeetingMeetingSourceEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingEventMeetingMeetingSourceEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

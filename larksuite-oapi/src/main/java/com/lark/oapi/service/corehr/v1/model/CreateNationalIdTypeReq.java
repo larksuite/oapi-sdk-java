@@ -13,97 +13,91 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class CreateNationalIdTypeReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  @Body private NationalIdType body;
+
+  public NationalIdType getNationalIdType() {
+    return this.body;
+  }
+
+  public void setNationalIdType(NationalIdType body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateNationalIdTypeReq() {}
+
+  public CreateNationalIdTypeReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
-    @Body
+    this.clientToken = builder.clientToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
     private NationalIdType body;
 
-    // builder 开始
-    public CreateNationalIdTypeReq() {
-    }
-
-    public CreateNationalIdTypeReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
     public NationalIdType getNationalIdType() {
-        return this.body;
+      return this.body;
     }
 
-    public void setNationalIdType(NationalIdType body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder nationalIdType(NationalIdType body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private NationalIdType body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        public NationalIdType getNationalIdType() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder nationalIdType(NationalIdType body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateNationalIdTypeReq build() {
-            return new CreateNationalIdTypeReq(this);
-        }
+    public CreateNationalIdTypeReq build() {
+      return new CreateNationalIdTypeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

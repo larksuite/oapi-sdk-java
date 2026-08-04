@@ -13,309 +13,331 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomList {
+  /**
+   * 问题类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("custom_type")
+  private Integer customType;
+
+  /**
+   * 自定义题目的key，用于设置显示条件
+   *
+   * <p>示例值：238281272
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 题目是否必填
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_fill")
+  private Boolean needFill;
+
+  /**
+   * 题目标题
+   *
+   * <p>示例值：第一题
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文本框题目对应的输入提示
+   *
+   * <p>示例值：请输入
+   */
+  @SerializedName("placeholder")
+  private String placeholder;
+
+  /**
+   * 选项配置，单选多选时使用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private Options[] options;
+
+  /**
+   * 条件设置，满足某条件才显示某问题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private Conditions[] conditions;
+
+  public Integer getCustomType() {
+    return this.customType;
+  }
+
+  public void setCustomType(Integer customType) {
+    this.customType = customType;
+  }
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public Boolean getNeedFill() {
+    return this.needFill;
+  }
+
+  public void setNeedFill(Boolean needFill) {
+    this.needFill = needFill;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getPlaceholder() {
+    return this.placeholder;
+  }
+
+  public void setPlaceholder(String placeholder) {
+    this.placeholder = placeholder;
+  }
+
+  public Options[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(Options[] options) {
+    this.options = options;
+  }
+
+  public Conditions[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(Conditions[] conditions) {
+    this.conditions = conditions;
+  }
+
+  // builder 开始
+  public CustomList() {}
+
+  public CustomList(Builder builder) {
     /**
      * 问题类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("custom_type")
-    private Integer customType;
+    this.customType = builder.customType;
     /**
      * 自定义题目的key，用于设置显示条件
-     * <p> 示例值：238281272
+     *
+     * <p>示例值：238281272
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 题目是否必填
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_fill")
-    private Boolean needFill;
+    this.needFill = builder.needFill;
     /**
      * 题目标题
-     * <p> 示例值：第一题
+     *
+     * <p>示例值：第一题
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文本框题目对应的输入提示
-     * <p> 示例值：请输入
+     *
+     * <p>示例值：请输入
      */
-    @SerializedName("placeholder")
-    private String placeholder;
+    this.placeholder = builder.placeholder;
     /**
      * 选项配置，单选多选时使用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private Options[] options;
+    this.options = builder.options;
     /**
      * 条件设置，满足某条件才显示某问题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
+    this.conditions = builder.conditions;
+  }
+
+  public static class Builder {
+    /**
+     * 问题类型
+     *
+     * <p>示例值：1
+     */
+    private Integer customType;
+
+    /**
+     * 自定义题目的key，用于设置显示条件
+     *
+     * <p>示例值：238281272
+     */
+    private String key;
+
+    /**
+     * 题目是否必填
+     *
+     * <p>示例值：false
+     */
+    private Boolean needFill;
+
+    /**
+     * 题目标题
+     *
+     * <p>示例值：第一题
+     */
+    private String title;
+
+    /**
+     * 文本框题目对应的输入提示
+     *
+     * <p>示例值：请输入
+     */
+    private String placeholder;
+
+    /**
+     * 选项配置，单选多选时使用
+     *
+     * <p>示例值：
+     */
+    private Options[] options;
+
+    /**
+     * 条件设置，满足某条件才显示某问题
+     *
+     * <p>示例值：
+     */
     private Conditions[] conditions;
 
-    // builder 开始
-    public CustomList() {
+    /**
+     * 问题类型
+     *
+     * <p>示例值：1
+     *
+     * @param customType
+     * @return
+     */
+    public Builder customType(Integer customType) {
+      this.customType = customType;
+      return this;
     }
 
-    public CustomList(Builder builder) {
-        /**
-         * 问题类型
-         * <p> 示例值：1
-         */
-        this.customType = builder.customType;
-        /**
-         * 自定义题目的key，用于设置显示条件
-         * <p> 示例值：238281272
-         */
-        this.key = builder.key;
-        /**
-         * 题目是否必填
-         * <p> 示例值：false
-         */
-        this.needFill = builder.needFill;
-        /**
-         * 题目标题
-         * <p> 示例值：第一题
-         */
-        this.title = builder.title;
-        /**
-         * 文本框题目对应的输入提示
-         * <p> 示例值：请输入
-         */
-        this.placeholder = builder.placeholder;
-        /**
-         * 选项配置，单选多选时使用
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 条件设置，满足某条件才显示某问题
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
+    /**
+     * 问题类型
+     *
+     * <p>示例值：1
+     *
+     * @param customType {@link com.lark.oapi.service.vc.v1.enums.CustomListCustomTypeEnum}
+     * @return
+     */
+    public Builder customType(
+        com.lark.oapi.service.vc.v1.enums.CustomListCustomTypeEnum customType) {
+      this.customType = customType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义题目的key，用于设置显示条件
+     *
+     * <p>示例值：238281272
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Integer getCustomType() {
-        return this.customType;
+    /**
+     * 题目是否必填
+     *
+     * <p>示例值：false
+     *
+     * @param needFill
+     * @return
+     */
+    public Builder needFill(Boolean needFill) {
+      this.needFill = needFill;
+      return this;
     }
 
-    public void setCustomType(Integer customType) {
-        this.customType = customType;
+    /**
+     * 题目标题
+     *
+     * <p>示例值：第一题
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getKey() {
-        return this.key;
+    /**
+     * 文本框题目对应的输入提示
+     *
+     * <p>示例值：请输入
+     *
+     * @param placeholder
+     * @return
+     */
+    public Builder placeholder(String placeholder) {
+      this.placeholder = placeholder;
+      return this;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    /**
+     * 选项配置，单选多选时使用
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(Options[] options) {
+      this.options = options;
+      return this;
     }
 
-    public Boolean getNeedFill() {
-        return this.needFill;
+    /**
+     * 条件设置，满足某条件才显示某问题
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(Conditions[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public void setNeedFill(Boolean needFill) {
-        this.needFill = needFill;
+    public CustomList build() {
+      return new CustomList(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPlaceholder() {
-        return this.placeholder;
-    }
-
-    public void setPlaceholder(String placeholder) {
-        this.placeholder = placeholder;
-    }
-
-    public Options[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(Options[] options) {
-        this.options = options;
-    }
-
-    public Conditions[] getConditions() {
-        return this.conditions;
-    }
-
-    public void setConditions(Conditions[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public static class Builder {
-        /**
-         * 问题类型
-         * <p> 示例值：1
-         */
-        private Integer customType;
-        /**
-         * 自定义题目的key，用于设置显示条件
-         * <p> 示例值：238281272
-         */
-        private String key;
-        /**
-         * 题目是否必填
-         * <p> 示例值：false
-         */
-        private Boolean needFill;
-        /**
-         * 题目标题
-         * <p> 示例值：第一题
-         */
-        private String title;
-        /**
-         * 文本框题目对应的输入提示
-         * <p> 示例值：请输入
-         */
-        private String placeholder;
-        /**
-         * 选项配置，单选多选时使用
-         * <p> 示例值：
-         */
-        private Options[] options;
-        /**
-         * 条件设置，满足某条件才显示某问题
-         * <p> 示例值：
-         */
-        private Conditions[] conditions;
-
-        /**
-         * 问题类型
-         * <p> 示例值：1
-         *
-         * @param customType
-         * @return
-         */
-        public Builder customType(Integer customType) {
-            this.customType = customType;
-            return this;
-        }
-
-        /**
-         * 问题类型
-         * <p> 示例值：1
-         *
-         * @param customType {@link com.lark.oapi.service.vc.v1.enums.CustomListCustomTypeEnum}
-         * @return
-         */
-        public Builder customType(com.lark.oapi.service.vc.v1.enums.CustomListCustomTypeEnum customType) {
-            this.customType = customType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 自定义题目的key，用于设置显示条件
-         * <p> 示例值：238281272
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 题目是否必填
-         * <p> 示例值：false
-         *
-         * @param needFill
-         * @return
-         */
-        public Builder needFill(Boolean needFill) {
-            this.needFill = needFill;
-            return this;
-        }
-
-
-        /**
-         * 题目标题
-         * <p> 示例值：第一题
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文本框题目对应的输入提示
-         * <p> 示例值：请输入
-         *
-         * @param placeholder
-         * @return
-         */
-        public Builder placeholder(String placeholder) {
-            this.placeholder = placeholder;
-            return this;
-        }
-
-
-        /**
-         * 选项配置，单选多选时使用
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(Options[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 条件设置，满足某条件才显示某问题
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(Conditions[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        public CustomList build() {
-            return new CustomList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

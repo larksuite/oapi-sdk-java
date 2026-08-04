@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectFilter {
+  /**
+   * 模糊查询关键词
+   *
+   * <p>示例值：示例文本
+   */
+  @SerializedName("quick_query")
+  private String quickQuery;
+
+  /**
+   * 对象类型
+   *
+   * <p>示例值：custom
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getQuickQuery() {
+    return this.quickQuery;
+  }
+
+  public void setQuickQuery(String quickQuery) {
+    this.quickQuery = quickQuery;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public ObjectFilter() {}
+
+  public ObjectFilter(Builder builder) {
     /**
      * 模糊查询关键词
-     * <p> 示例值：示例文本
+     *
+     * <p>示例值：示例文本
      */
-    @SerializedName("quick_query")
-    private String quickQuery;
+    this.quickQuery = builder.quickQuery;
     /**
      * 对象类型
-     * <p> 示例值：custom
+     *
+     * <p>示例值：custom
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 模糊查询关键词
+     *
+     * <p>示例值：示例文本
+     */
+    private String quickQuery;
+
+    /**
+     * 对象类型
+     *
+     * <p>示例值：custom
+     */
     private String type;
 
-    // builder 开始
-    public ObjectFilter() {
+    /**
+     * 模糊查询关键词
+     *
+     * <p>示例值：示例文本
+     *
+     * @param quickQuery
+     * @return
+     */
+    public Builder quickQuery(String quickQuery) {
+      this.quickQuery = quickQuery;
+      return this;
     }
 
-    public ObjectFilter(Builder builder) {
-        /**
-         * 模糊查询关键词
-         * <p> 示例值：示例文本
-         */
-        this.quickQuery = builder.quickQuery;
-        /**
-         * 对象类型
-         * <p> 示例值：custom
-         */
-        this.type = builder.type;
+    /**
+     * 对象类型
+     *
+     * <p>示例值：custom
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectFilter build() {
+      return new ObjectFilter(this);
     }
+  }
 
-    public String getQuickQuery() {
-        return this.quickQuery;
-    }
-
-    public void setQuickQuery(String quickQuery) {
-        this.quickQuery = quickQuery;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 模糊查询关键词
-         * <p> 示例值：示例文本
-         */
-        private String quickQuery;
-        /**
-         * 对象类型
-         * <p> 示例值：custom
-         */
-        private String type;
-
-        /**
-         * 模糊查询关键词
-         * <p> 示例值：示例文本
-         *
-         * @param quickQuery
-         * @return
-         */
-        public Builder quickQuery(String quickQuery) {
-            this.quickQuery = quickQuery;
-            return this;
-        }
-
-
-        /**
-         * 对象类型
-         * <p> 示例值：custom
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public ObjectFilter build() {
-            return new ObjectFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

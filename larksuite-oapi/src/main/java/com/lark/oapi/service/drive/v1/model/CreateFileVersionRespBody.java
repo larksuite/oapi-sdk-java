@@ -13,160 +13,166 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileVersionRespBody {
-    /**
-     * 版本文档标题，最大长度 1024 个Unicode 码点。通常情况下，一个英文或中文字符对应一个码点，但是某些特殊符号可能会对应多个码点。例如，家庭组合「👨‍👩‍👧」这个表情符号对应5个码点。
-     * <p> 示例值：文档标题
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 版本文档版本号
-     * <p> 示例值：version1
-     */
-    @SerializedName("version")
-    private String version;
-    /**
-     * 源文档token
-     * <p> 示例值：doxcnMycg4ryxQofSeoKkJuXYOb
-     */
-    @SerializedName("parent_token")
-    private String parentToken;
-    /**
-     * 版本文档所有者id
-     * <p> 示例值：694699009591869450
-     */
-    @SerializedName("owner_id")
-    private String ownerId;
-    /**
-     * 版本文档创建者id
-     * <p> 示例值：694699009591869451
-     */
-    @SerializedName("creator_id")
-    private String creatorId;
-    /**
-     * 版本文档创建时间
-     * <p> 示例值：1660708537
-     */
-    @SerializedName("create_time")
-    private String createTime;
-    /**
-     * 版本文档更新时间
-     * <p> 示例值：1660708537
-     */
-    @SerializedName("update_time")
-    private String updateTime;
-    /**
-     * 版本文档状态
-     * <p> 示例值：0，1，2
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * 版本文档类型
-     * <p> 示例值：docx
-     */
-    @SerializedName("obj_type")
-    private String objType;
-    /**
-     * 源文档类型
-     * <p> 示例值：docx
-     */
-    @SerializedName("parent_type")
-    private String parentType;
+  /**
+   * 版本文档的标题
+   *
+   * <p>示例值：项目文档 第 1 版
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 版本文档的版本标识
+   *
+   * <p>示例值：fnJfyX
+   */
+  @SerializedName("version")
+  private String version;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 版本文档对应的源文档的 token
+   *
+   * <p>示例值：doxbcyvqZlSc9WlHvQMlSJabcdf
+   */
+  @SerializedName("parent_token")
+  private String parentToken;
 
-    public String getVersion() {
-        return this.version;
-    }
+  /**
+   * 版本文档的所有者的 ID
+   *
+   * <p>示例值：694699009591869450
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  /**
+   * 版本文档的创建者的 ID
+   *
+   * <p>示例值：694699009591869451
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
 
-    public String getParentToken() {
-        return this.parentToken;
-    }
+  /**
+   * 版本文档的创建时间，Unix 时间戳，单位为秒
+   *
+   * <p>示例值：1660708537
+   */
+  @SerializedName("create_time")
+  private String createTime;
 
-    public void setParentToken(String parentToken) {
-        this.parentToken = parentToken;
-    }
+  /**
+   * 版本文档的更新时间。创建文档版本时，不会返回
+   *
+   * <p>示例值：1660708537
+   */
+  @SerializedName("update_time")
+  private String updateTime;
 
-    public String getOwnerId() {
-        return this.ownerId;
-    }
+  /**
+   * 版本文档的状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private String status;
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
+  /**
+   * 版本文档的类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("obj_type")
+  private String objType;
 
-    public String getCreatorId() {
-        return this.creatorId;
-    }
+  /**
+   * 源文档的类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("parent_type")
+  private String parentType;
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+  public String getVersion() {
+    return this.version;
+  }
 
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
+  public String getParentToken() {
+    return this.parentToken;
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
+  public void setParentToken(String parentToken) {
+    this.parentToken = parentToken;
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  public String getOwnerId() {
+    return this.ownerId;
+  }
 
-    public String getObjType() {
-        return this.objType;
-    }
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
 
-    public void setObjType(String objType) {
-        this.objType = objType;
-    }
+  public String getCreatorId() {
+    return this.creatorId;
+  }
 
-    public String getParentType() {
-        return this.parentType;
-    }
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
 
-    public void setParentType(String parentType) {
-        this.parentType = parentType;
-    }
+  public String getCreateTime() {
+    return this.createTime;
+  }
 
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getParentType() {
+    return this.parentType;
+  }
+
+  public void setParentType(String parentType) {
+    this.parentType = parentType;
+  }
 }

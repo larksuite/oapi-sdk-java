@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员
- */
+/** 不传入代表全部返回。传入则按照这种应用状态返回。所有者类型，可选值： 0：飞书科技 1：飞书合作伙伴 2：企业内成员 */
 public enum ListApplicationOwnerTypeEnum {
-    FEISHUTECHNOLOGY(0), // 飞书科技
-    FEISHUTHIRDPARTY(1), // 飞书合作伙伴
-    ENTERPRISEMEMBER(2), // 企业内成员
-    ;
-    private Integer value;
+  FEISHUTECHNOLOGY(0), // 飞书科技
+  FEISHUTHIRDPARTY(1), // 飞书合作伙伴
+  ENTERPRISEMEMBER(2), // 企业内成员
+  ;
+  private Integer value;
 
-    ListApplicationOwnerTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ListApplicationOwnerTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

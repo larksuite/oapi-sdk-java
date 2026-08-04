@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddSheet {
+  /**
+   * 工作表标题
+   *
+   * <p>示例值：abc
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 工作表位置
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("index")
+  private Integer index;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Integer getIndex() {
+    return this.index;
+  }
+
+  public void setIndex(Integer index) {
+    this.index = index;
+  }
+
+  // builder 开始
+  public AddSheet() {}
+
+  public AddSheet(Builder builder) {
     /**
      * 工作表标题
-     * <p> 示例值：abc
+     *
+     * <p>示例值：abc
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 工作表位置
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("index")
+    this.index = builder.index;
+  }
+
+  public static class Builder {
+    /**
+     * 工作表标题
+     *
+     * <p>示例值：abc
+     */
+    private String title;
+
+    /**
+     * 工作表位置
+     *
+     * <p>示例值：0
+     */
     private Integer index;
 
-    // builder 开始
-    public AddSheet() {
+    /**
+     * 工作表标题
+     *
+     * <p>示例值：abc
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public AddSheet(Builder builder) {
-        /**
-         * 工作表标题
-         * <p> 示例值：abc
-         */
-        this.title = builder.title;
-        /**
-         * 工作表位置
-         * <p> 示例值：0
-         */
-        this.index = builder.index;
+    /**
+     * 工作表位置
+     *
+     * <p>示例值：0
+     *
+     * @param index
+     * @return
+     */
+    public Builder index(Integer index) {
+      this.index = index;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AddSheet build() {
+      return new AddSheet(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public static class Builder {
-        /**
-         * 工作表标题
-         * <p> 示例值：abc
-         */
-        private String title;
-        /**
-         * 工作表位置
-         * <p> 示例值：0
-         */
-        private Integer index;
-
-        /**
-         * 工作表标题
-         * <p> 示例值：abc
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 工作表位置
-         * <p> 示例值：0
-         *
-         * @param index
-         * @return
-         */
-        public Builder index(Integer index) {
-            this.index = index;
-            return this;
-        }
-
-
-        public AddSheet build() {
-            return new AddSheet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

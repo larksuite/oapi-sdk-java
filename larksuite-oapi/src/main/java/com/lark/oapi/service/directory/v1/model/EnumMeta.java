@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class EnumMeta {
+  /**
+   * 枚举类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 选项id有序列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_ids")
+  private String[] optionIds;
+
+  /**
+   * 选项值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_values")
+  private Map<String, EnumOption> optionValues;
+
+  /**
+   * 默认选项
+   *
+   * <p>示例值：C-123123123
+   */
+  @SerializedName("default_option_id")
+  private String defaultOptionId;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String[] getOptionIds() {
+    return this.optionIds;
+  }
+
+  public void setOptionIds(String[] optionIds) {
+    this.optionIds = optionIds;
+  }
+
+  public Map<String, EnumOption> getOptionValues() {
+    return this.optionValues;
+  }
+
+  public void setOptionValues(Map<String, EnumOption> optionValues) {
+    this.optionValues = optionValues;
+  }
+
+  public String getDefaultOptionId() {
+    return this.defaultOptionId;
+  }
+
+  public void setDefaultOptionId(String defaultOptionId) {
+    this.defaultOptionId = defaultOptionId;
+  }
+
+  // builder 开始
+  public EnumMeta() {}
+
+  public EnumMeta(Builder builder) {
     /**
      * 枚举类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 选项id有序列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_ids")
-    private String[] optionIds;
+    this.optionIds = builder.optionIds;
     /**
      * 选项值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_values")
-    private Map<String, EnumOption> optionValues;
+    this.optionValues = builder.optionValues;
     /**
      * 默认选项
-     * <p> 示例值：C-123123123
+     *
+     * <p>示例值：C-123123123
      */
-    @SerializedName("default_option_id")
+    this.defaultOptionId = builder.defaultOptionId;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举类型
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 选项id有序列表
+     *
+     * <p>示例值：
+     */
+    private String[] optionIds;
+
+    /**
+     * 选项值
+     *
+     * <p>示例值：
+     */
+    private Map<String, EnumOption> optionValues;
+
+    /**
+     * 默认选项
+     *
+     * <p>示例值：C-123123123
+     */
     private String defaultOptionId;
 
-    // builder 开始
-    public EnumMeta() {
+    /**
+     * 枚举类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public EnumMeta(Builder builder) {
-        /**
-         * 枚举类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 选项id有序列表
-         * <p> 示例值：
-         */
-        this.optionIds = builder.optionIds;
-        /**
-         * 选项值
-         * <p> 示例值：
-         */
-        this.optionValues = builder.optionValues;
-        /**
-         * 默认选项
-         * <p> 示例值：C-123123123
-         */
-        this.defaultOptionId = builder.defaultOptionId;
+    /**
+     * 选项id有序列表
+     *
+     * <p>示例值：
+     *
+     * @param optionIds
+     * @return
+     */
+    public Builder optionIds(String[] optionIds) {
+      this.optionIds = optionIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项值
+     *
+     * <p>示例值：
+     *
+     * @param optionValues
+     * @return
+     */
+    public Builder optionValues(Map<String, EnumOption> optionValues) {
+      this.optionValues = optionValues;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 默认选项
+     *
+     * <p>示例值：C-123123123
+     *
+     * @param defaultOptionId
+     * @return
+     */
+    public Builder defaultOptionId(String defaultOptionId) {
+      this.defaultOptionId = defaultOptionId;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public EnumMeta build() {
+      return new EnumMeta(this);
     }
+  }
 
-    public String[] getOptionIds() {
-        return this.optionIds;
-    }
-
-    public void setOptionIds(String[] optionIds) {
-        this.optionIds = optionIds;
-    }
-
-    public Map<String, EnumOption> getOptionValues() {
-        return this.optionValues;
-    }
-
-    public void setOptionValues(Map<String, EnumOption> optionValues) {
-        this.optionValues = optionValues;
-    }
-
-    public String getDefaultOptionId() {
-        return this.defaultOptionId;
-    }
-
-    public void setDefaultOptionId(String defaultOptionId) {
-        this.defaultOptionId = defaultOptionId;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 选项id有序列表
-         * <p> 示例值：
-         */
-        private String[] optionIds;
-        /**
-         * 选项值
-         * <p> 示例值：
-         */
-        private Map<String, EnumOption> optionValues;
-        /**
-         * 默认选项
-         * <p> 示例值：C-123123123
-         */
-        private String defaultOptionId;
-
-        /**
-         * 枚举类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 选项id有序列表
-         * <p> 示例值：
-         *
-         * @param optionIds
-         * @return
-         */
-        public Builder optionIds(String[] optionIds) {
-            this.optionIds = optionIds;
-            return this;
-        }
-
-
-        /**
-         * 选项值
-         * <p> 示例值：
-         *
-         * @param optionValues
-         * @return
-         */
-        public Builder optionValues(Map<String, EnumOption> optionValues) {
-            this.optionValues = optionValues;
-            return this;
-        }
-
-
-        /**
-         * 默认选项
-         * <p> 示例值：C-123123123
-         *
-         * @param defaultOptionId
-         * @return
-         */
-        public Builder defaultOptionId(String defaultOptionId) {
-            this.defaultOptionId = defaultOptionId;
-            return this;
-        }
-
-
-        public EnumMeta build() {
-            return new EnumMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

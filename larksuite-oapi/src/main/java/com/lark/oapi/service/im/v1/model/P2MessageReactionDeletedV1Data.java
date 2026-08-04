@@ -13,104 +13,108 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2MessageReactionDeletedV1Data {
-    /**
-     * 消息的 open_message_id
-     * <p> 示例值：om_dc1326***************51dba21dcf
-     */
-    @SerializedName("message_id")
-    private String messageId;
-    /**
-     * 表情回复的资源类型
-     * <p> 示例值：
-     */
-    @SerializedName("reaction_type")
-    private Emoji reactionType;
-    /**
-     * 操作人类型;;注意事项：;- 如果操作人类型是"user"，则会返回 ==user_id==;- 如果操作人类型是"app"，则会返回 ==app_id==
-     * <p> 示例值：app/user
-     */
-    @SerializedName("operator_type")
-    private String operatorType;
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-     */
-    @SerializedName("user_id")
-    private UserId userId;
-    /**
-     * 应用 ID
-     * <p> 示例值：cli_9f53******712544
-     */
-    @SerializedName("app_id")
-    private String appId;
-    /**
-     * 表情回复被添加时的时间戳（单位：ms）
-     * <p> 示例值：1627641418803
-     */
-    @SerializedName("action_time")
-    private String actionTime;
+  /**
+   * 消息
+   * ID。调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，可通过
+   * message_id 获取消息内容。
+   *
+   * <p>示例值：om_dc1326***************51dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
 
-    public String getMessageId() {
-        return this.messageId;
-    }
+  /**
+   * 表情回复的资源类型。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reaction_type")
+  private Emoji reactionType;
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
+  /**
+   * 操作人类型。可能值有：;;- user：用户。此时 user_id 参数有返回值。;- app：应用。此时 app_id 参数有返回值。
+   *
+   * <p>示例值：app/user
+   */
+  @SerializedName("operator_type")
+  private String operatorType;
 
-    public Emoji getReactionType() {
-        return this.reactionType;
-    }
+  /**
+   * 用户
+   * ID。调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，可通过用户
+   * ID 获取用户信息。
+   *
+   * <p>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+   */
+  @SerializedName("user_id")
+  private UserId userId;
 
-    public void setReactionType(Emoji reactionType) {
-        this.reactionType = reactionType;
-    }
+  /**
+   * 应用
+   * ID。调用[获取应用信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get)接口，可通过
+   * app_id 获取应用信息。
+   *
+   * <p>示例值：cli_9f53******712544
+   */
+  @SerializedName("app_id")
+  private String appId;
 
-    public String getOperatorType() {
-        return this.operatorType;
-    }
+  /**
+   * 删除表情回复的时间戳。单位：ms
+   *
+   * <p>示例值：1627641418803
+   */
+  @SerializedName("action_time")
+  private String actionTime;
 
-    public void setOperatorType(String operatorType) {
-        this.operatorType = operatorType;
-    }
+  public String getMessageId() {
+    return this.messageId;
+  }
 
-    public UserId getUserId() {
-        return this.userId;
-    }
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
+  public Emoji getReactionType() {
+    return this.reactionType;
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
+  public void setReactionType(Emoji reactionType) {
+    this.reactionType = reactionType;
+  }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
+  public String getOperatorType() {
+    return this.operatorType;
+  }
 
-    public String getActionTime() {
-        return this.actionTime;
-    }
+  public void setOperatorType(String operatorType) {
+    this.operatorType = operatorType;
+  }
 
-    public void setActionTime(String actionTime) {
-        this.actionTime = actionTime;
-    }
+  public UserId getUserId() {
+    return this.userId;
+  }
 
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getActionTime() {
+    return this.actionTime;
+  }
+
+  public void setActionTime(String actionTime) {
+    this.actionTime = actionTime;
+  }
 }

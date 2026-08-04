@@ -13,112 +13,97 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonalProfileForUpdate {
+  /**
+   * 资料类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：personal_profile;- custom_api_name：profile_type
+   *
+   * <p>示例值：profile_type_1_101_101011
+   */
+  @SerializedName("personal_profile_type")
+  private String personalProfileType;
+
+  /** 示例值： */
+  @SerializedName("files")
+  private File[] files;
+
+  public String getPersonalProfileType() {
+    return this.personalProfileType;
+  }
+
+  public void setPersonalProfileType(String personalProfileType) {
+    this.personalProfileType = personalProfileType;
+  }
+
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public PersonalProfileForUpdate() {}
+
+  public PersonalProfileForUpdate(Builder builder) {
     /**
-     * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-     * <p> 示例值：1
+     * 资料类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：personal_profile;- custom_api_name：profile_type
+     *
+     * <p>示例值：profile_type_1_101_101011
      */
-    @SerializedName("personal_profile_type")
+    this.personalProfileType = builder.personalProfileType;
+    /** 示例值： */
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 资料类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：personal_profile;- custom_api_name：profile_type
+     *
+     * <p>示例值：profile_type_1_101_101011
+     */
     private String personalProfileType;
-    /**
-     * 资料文件列表
-     * <p> 示例值：
-     */
-    @SerializedName("files")
+
+    /** 示例值： */
     private File[] files;
 
-    // builder 开始
-    public PersonalProfileForUpdate() {
+    /**
+     * 资料类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：personal_profile;- custom_api_name：profile_type
+     *
+     * <p>示例值：profile_type_1_101_101011
+     *
+     * @param personalProfileType
+     * @return
+     */
+    public Builder personalProfileType(String personalProfileType) {
+      this.personalProfileType = personalProfileType;
+      return this;
     }
 
-    public PersonalProfileForUpdate(Builder builder) {
-        /**
-         * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-         * <p> 示例值：1
-         */
-        this.personalProfileType = builder.personalProfileType;
-        /**
-         * 资料文件列表
-         * <p> 示例值：
-         */
-        this.files = builder.files;
+    /**
+     * 示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PersonalProfileForUpdate build() {
+      return new PersonalProfileForUpdate(this);
     }
+  }
 
-    public String getPersonalProfileType() {
-        return this.personalProfileType;
-    }
-
-    public void setPersonalProfileType(String personalProfileType) {
-        this.personalProfileType = personalProfileType;
-    }
-
-    public File[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-         * <p> 示例值：1
-         */
-        private String personalProfileType;
-        /**
-         * 资料文件列表
-         * <p> 示例值：
-         */
-        private File[] files;
-
-        /**
-         * 资料类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可：- object_api_name = "personal_profile" - custom_api_name = "profile_type"
-         * <p> 示例值：1
-         *
-         * @param personalProfileType
-         * @return
-         */
-        public Builder personalProfileType(String personalProfileType) {
-            this.personalProfileType = personalProfileType;
-            return this;
-        }
-
-
-        /**
-         * 资料文件列表
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(File[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public PersonalProfileForUpdate build() {
-            return new PersonalProfileForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

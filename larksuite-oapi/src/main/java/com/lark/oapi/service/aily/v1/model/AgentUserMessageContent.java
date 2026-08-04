@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentUserMessageContent {
+  /**
+   * 内容类型;- 目前仅支持text
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 内容
+   *
+   * <p>示例值：你好！有什么可以帮您
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public AgentUserMessageContent() {}
+
+  public AgentUserMessageContent(Builder builder) {
     /**
-     * 类型
-     * <p> 示例值：text
+     * 内容类型;- 目前仅支持text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 内容
-     * <p> 示例值：你好！有什么可以帮您
+     *
+     * <p>示例值：你好！有什么可以帮您
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 内容类型;- 目前仅支持text
+     *
+     * <p>示例值：text
+     */
+    private String type;
+
+    /**
+     * 内容
+     *
+     * <p>示例值：你好！有什么可以帮您
+     */
     private String text;
 
-    // builder 开始
-    public AgentUserMessageContent() {
+    /**
+     * 内容类型;- 目前仅支持text
+     *
+     * <p>示例值：text
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public AgentUserMessageContent(Builder builder) {
-        /**
-         * 类型
-         * <p> 示例值：text
-         */
-        this.type = builder.type;
-        /**
-         * 内容
-         * <p> 示例值：你好！有什么可以帮您
-         */
-        this.text = builder.text;
+    /**
+     * 内容
+     *
+     * <p>示例值：你好！有什么可以帮您
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AgentUserMessageContent build() {
+      return new AgentUserMessageContent(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 类型
-         * <p> 示例值：text
-         */
-        private String type;
-        /**
-         * 内容
-         * <p> 示例值：你好！有什么可以帮您
-         */
-        private String text;
-
-        /**
-         * 类型
-         * <p> 示例值：text
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 内容
-         * <p> 示例值：你好！有什么可以帮您
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public AgentUserMessageContent build() {
-            return new AgentUserMessageContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

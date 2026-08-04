@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteEmployeeTypeReq {
+  /**
+   * 需要删除的人员类型ID;-
+   * 可通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+   *
+   * <p>示例值：434343434
+   */
+  @Path
+  @SerializedName("employee_type_id")
+  private String employeeTypeId;
+
+  public String getEmployeeTypeId() {
+    return this.employeeTypeId;
+  }
+
+  public void setEmployeeTypeId(String employeeTypeId) {
+    this.employeeTypeId = employeeTypeId;
+  }
+
+  // builder 开始
+  public DeleteEmployeeTypeReq() {}
+
+  public DeleteEmployeeTypeReq(Builder builder) {
     /**
-     * 需要删除的人员类型ID
-     * <p> 示例值：434343434
+     * 需要删除的人员类型ID;-
+     * 可通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：434343434
      */
-    @Path
-    @SerializedName("employee_type_id")
-    private String employeeTypeId;
+    this.employeeTypeId = builder.employeeTypeId;
+  }
 
-    // builder 开始
-    public DeleteEmployeeTypeReq() {
+  public static class Builder {
+
+    private String employeeTypeId; // 需要删除的人员类型ID;-
+
+    // 可通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+
+    /**
+     * 需要删除的人员类型ID;-
+     * 可通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：434343434
+     *
+     * @param employeeTypeId
+     * @return
+     */
+    public Builder employeeTypeId(String employeeTypeId) {
+      this.employeeTypeId = employeeTypeId;
+      return this;
     }
 
-    public DeleteEmployeeTypeReq(Builder builder) {
-        /**
-         * 需要删除的人员类型ID
-         * <p> 示例值：434343434
-         */
-        this.employeeTypeId = builder.employeeTypeId;
+    public DeleteEmployeeTypeReq build() {
+      return new DeleteEmployeeTypeReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeTypeId() {
-        return this.employeeTypeId;
-    }
-
-    public void setEmployeeTypeId(String employeeTypeId) {
-        this.employeeTypeId = employeeTypeId;
-    }
-
-    public static class Builder {
-
-        private String employeeTypeId; // 需要删除的人员类型ID
-
-        /**
-         * 需要删除的人员类型ID
-         * <p> 示例值：434343434
-         *
-         * @param employeeTypeId
-         * @return
-         */
-        public Builder employeeTypeId(String employeeTypeId) {
-            this.employeeTypeId = employeeTypeId;
-            return this;
-        }
-
-
-        public DeleteEmployeeTypeReq build() {
-            return new DeleteEmployeeTypeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

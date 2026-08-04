@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractCurrency {
+  /**
+   * 币种名称
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_name")
+  private String currencyName;
+
+  /**
+   * 币种符号
+   *
+   * <p>示例值：¥
+   */
+  @SerializedName("currency_text")
+  private String currencyText;
+
+  public String getCurrencyName() {
+    return this.currencyName;
+  }
+
+  public void setCurrencyName(String currencyName) {
+    this.currencyName = currencyName;
+  }
+
+  public String getCurrencyText() {
+    return this.currencyText;
+  }
+
+  public void setCurrencyText(String currencyText) {
+    this.currencyText = currencyText;
+  }
+
+  // builder 开始
+  public ExtractCurrency() {}
+
+  public ExtractCurrency(Builder builder) {
     /**
      * 币种名称
-     * <p> 示例值：CNY
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_name")
-    private String currencyName;
+    this.currencyName = builder.currencyName;
     /**
      * 币种符号
-     * <p> 示例值：¥
+     *
+     * <p>示例值：¥
      */
-    @SerializedName("currency_text")
+    this.currencyText = builder.currencyText;
+  }
+
+  public static class Builder {
+    /**
+     * 币种名称
+     *
+     * <p>示例值：CNY
+     */
+    private String currencyName;
+
+    /**
+     * 币种符号
+     *
+     * <p>示例值：¥
+     */
     private String currencyText;
 
-    // builder 开始
-    public ExtractCurrency() {
+    /**
+     * 币种名称
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyName
+     * @return
+     */
+    public Builder currencyName(String currencyName) {
+      this.currencyName = currencyName;
+      return this;
     }
 
-    public ExtractCurrency(Builder builder) {
-        /**
-         * 币种名称
-         * <p> 示例值：CNY
-         */
-        this.currencyName = builder.currencyName;
-        /**
-         * 币种符号
-         * <p> 示例值：¥
-         */
-        this.currencyText = builder.currencyText;
+    /**
+     * 币种符号
+     *
+     * <p>示例值：¥
+     *
+     * @param currencyText
+     * @return
+     */
+    public Builder currencyText(String currencyText) {
+      this.currencyText = currencyText;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ExtractCurrency build() {
+      return new ExtractCurrency(this);
     }
+  }
 
-    public String getCurrencyName() {
-        return this.currencyName;
-    }
-
-    public void setCurrencyName(String currencyName) {
-        this.currencyName = currencyName;
-    }
-
-    public String getCurrencyText() {
-        return this.currencyText;
-    }
-
-    public void setCurrencyText(String currencyText) {
-        this.currencyText = currencyText;
-    }
-
-    public static class Builder {
-        /**
-         * 币种名称
-         * <p> 示例值：CNY
-         */
-        private String currencyName;
-        /**
-         * 币种符号
-         * <p> 示例值：¥
-         */
-        private String currencyText;
-
-        /**
-         * 币种名称
-         * <p> 示例值：CNY
-         *
-         * @param currencyName
-         * @return
-         */
-        public Builder currencyName(String currencyName) {
-            this.currencyName = currencyName;
-            return this;
-        }
-
-
-        /**
-         * 币种符号
-         * <p> 示例值：¥
-         *
-         * @param currencyText
-         * @return
-         */
-        public Builder currencyText(String currencyText) {
-            this.currencyText = currencyText;
-            return this;
-        }
-
-
-        public ExtractCurrency build() {
-            return new ExtractCurrency(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

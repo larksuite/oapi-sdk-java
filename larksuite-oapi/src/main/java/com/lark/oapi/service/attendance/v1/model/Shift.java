@@ -13,778 +13,867 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Shift {
+  /**
+   * 班次Id
+   *
+   * <p>示例值：6919358778597097404
+   */
+  @SerializedName("shift_id")
+  private String shiftId;
+
+  /**
+   * 班次名称
+   *
+   * <p>示例值：早班
+   */
+  @SerializedName("shift_name")
+  private String shiftName;
+
+  /**
+   * 打卡次数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("punch_times")
+  private Integer punchTimes;
+
+  /**
+   * 排班组子负责人id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_shift_leader_ids")
+  private String[] subShiftLeaderIds;
+
+  /**
+   * 是否弹性打卡
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_flexible")
+  private Boolean isFlexible;
+
+  /**
+   * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+   *
+   * <p>示例值：60
+   */
+  @SerializedName("flexible_minutes")
+  private Integer flexibleMinutes;
+
+  /**
+   * 弹性打卡时间设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("flexible_rule")
+  private FlexibleRule[] flexibleRule;
+
+  /**
+   * 不需要打下班卡
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("no_need_off")
+  private Boolean noNeedOff;
+
+  /**
+   * 打卡规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("punch_time_rule")
+  private PunchTimeRule[] punchTimeRule;
+
+  /**
+   * 晚走晚到规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("late_off_late_on_rule")
+  private LateOffLateOnRule[] lateOffLateOnRule;
+
+  /**
+   * 休息规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rest_time_rule")
+  private RestRule[] restTimeRule;
+
+  /**
+   * 打卡规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overtime_rule")
+  private OvertimeRule[] overtimeRule;
+
+  /**
+   * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("day_type")
+  private Integer dayType;
+
+  /**
+   * 班外休息规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overtime_rest_time_rule")
+  private RestRule[] overtimeRestTimeRule;
+
+  /**
+   * 晚到多久记为严重迟到（优先级比原有字段高）
+   *
+   * <p>示例值：40
+   */
+  @SerializedName("late_minutes_as_serious_late")
+  private Integer lateMinutesAsSeriousLate;
+
+  /**
+   * 半天分割规则（仅飞书人事企业版可用）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shift_middle_time_rule")
+  private ShiftMiddleTimeRule shiftMiddleTimeRule;
+
+  /**
+   * 应出勤配置（灰度中，暂未开放）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shift_attendance_time_config")
+  private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
+
+  /**
+   * 晚走次日晚到配置规则，
+   *
+   * <p>示例值：
+   */
+  @SerializedName("late_off_late_on_setting")
+  private LateOffLateOnSetting lateOffLateOnSetting;
+
+  /**
+   * 班次id(更新班次时需要传递)，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+   * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+   *
+   * <p>示例值：6919358778597097404
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 休息弹性设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rest_time_flexible_configs")
+  private RestTimeFlexibleConfig[] restTimeFlexibleConfigs;
+
+  public String getShiftId() {
+    return this.shiftId;
+  }
+
+  public void setShiftId(String shiftId) {
+    this.shiftId = shiftId;
+  }
+
+  public String getShiftName() {
+    return this.shiftName;
+  }
+
+  public void setShiftName(String shiftName) {
+    this.shiftName = shiftName;
+  }
+
+  public Integer getPunchTimes() {
+    return this.punchTimes;
+  }
+
+  public void setPunchTimes(Integer punchTimes) {
+    this.punchTimes = punchTimes;
+  }
+
+  public String[] getSubShiftLeaderIds() {
+    return this.subShiftLeaderIds;
+  }
+
+  public void setSubShiftLeaderIds(String[] subShiftLeaderIds) {
+    this.subShiftLeaderIds = subShiftLeaderIds;
+  }
+
+  public Boolean getIsFlexible() {
+    return this.isFlexible;
+  }
+
+  public void setIsFlexible(Boolean isFlexible) {
+    this.isFlexible = isFlexible;
+  }
+
+  public Integer getFlexibleMinutes() {
+    return this.flexibleMinutes;
+  }
+
+  public void setFlexibleMinutes(Integer flexibleMinutes) {
+    this.flexibleMinutes = flexibleMinutes;
+  }
+
+  public FlexibleRule[] getFlexibleRule() {
+    return this.flexibleRule;
+  }
+
+  public void setFlexibleRule(FlexibleRule[] flexibleRule) {
+    this.flexibleRule = flexibleRule;
+  }
+
+  public Boolean getNoNeedOff() {
+    return this.noNeedOff;
+  }
+
+  public void setNoNeedOff(Boolean noNeedOff) {
+    this.noNeedOff = noNeedOff;
+  }
+
+  public PunchTimeRule[] getPunchTimeRule() {
+    return this.punchTimeRule;
+  }
+
+  public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
+    this.punchTimeRule = punchTimeRule;
+  }
+
+  public LateOffLateOnRule[] getLateOffLateOnRule() {
+    return this.lateOffLateOnRule;
+  }
+
+  public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+    this.lateOffLateOnRule = lateOffLateOnRule;
+  }
+
+  public RestRule[] getRestTimeRule() {
+    return this.restTimeRule;
+  }
+
+  public void setRestTimeRule(RestRule[] restTimeRule) {
+    this.restTimeRule = restTimeRule;
+  }
+
+  public OvertimeRule[] getOvertimeRule() {
+    return this.overtimeRule;
+  }
+
+  public void setOvertimeRule(OvertimeRule[] overtimeRule) {
+    this.overtimeRule = overtimeRule;
+  }
+
+  public Integer getDayType() {
+    return this.dayType;
+  }
+
+  public void setDayType(Integer dayType) {
+    this.dayType = dayType;
+  }
+
+  public RestRule[] getOvertimeRestTimeRule() {
+    return this.overtimeRestTimeRule;
+  }
+
+  public void setOvertimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
+    this.overtimeRestTimeRule = overtimeRestTimeRule;
+  }
+
+  public Integer getLateMinutesAsSeriousLate() {
+    return this.lateMinutesAsSeriousLate;
+  }
+
+  public void setLateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
+    this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+  }
+
+  public ShiftMiddleTimeRule getShiftMiddleTimeRule() {
+    return this.shiftMiddleTimeRule;
+  }
+
+  public void setShiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
+    this.shiftMiddleTimeRule = shiftMiddleTimeRule;
+  }
+
+  public ShiftAttendanceTimeConfig getShiftAttendanceTimeConfig() {
+    return this.shiftAttendanceTimeConfig;
+  }
+
+  public void setShiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
+    this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
+  }
+
+  public LateOffLateOnSetting getLateOffLateOnSetting() {
+    return this.lateOffLateOnSetting;
+  }
+
+  public void setLateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
+    this.lateOffLateOnSetting = lateOffLateOnSetting;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public RestTimeFlexibleConfig[] getRestTimeFlexibleConfigs() {
+    return this.restTimeFlexibleConfigs;
+  }
+
+  public void setRestTimeFlexibleConfigs(RestTimeFlexibleConfig[] restTimeFlexibleConfigs) {
+    this.restTimeFlexibleConfigs = restTimeFlexibleConfigs;
+  }
+
+  // builder 开始
+  public Shift() {}
+
+  public Shift(Builder builder) {
     /**
-     * 班次 ID
-     * <p> 示例值：6919358778597097404
+     * 班次Id
+     *
+     * <p>示例值：6919358778597097404
      */
-    @SerializedName("shift_id")
-    private String shiftId;
+    this.shiftId = builder.shiftId;
     /**
      * 班次名称
-     * <p> 示例值：早班
+     *
+     * <p>示例值：早班
      */
-    @SerializedName("shift_name")
-    private String shiftName;
+    this.shiftName = builder.shiftName;
     /**
      * 打卡次数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("punch_times")
-    private Integer punchTimes;
+    this.punchTimes = builder.punchTimes;
     /**
      * 排班组子负责人id列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_shift_leader_ids")
-    private String[] subShiftLeaderIds;
+    this.subShiftLeaderIds = builder.subShiftLeaderIds;
     /**
      * 是否弹性打卡
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_flexible")
-    private Boolean isFlexible;
+    this.isFlexible = builder.isFlexible;
     /**
      * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
-     * <p> 示例值：60
+     *
+     * <p>示例值：60
      */
-    @SerializedName("flexible_minutes")
-    private Integer flexibleMinutes;
+    this.flexibleMinutes = builder.flexibleMinutes;
     /**
      * 弹性打卡时间设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("flexible_rule")
-    private FlexibleRule[] flexibleRule;
+    this.flexibleRule = builder.flexibleRule;
     /**
      * 不需要打下班卡
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("no_need_off")
-    private Boolean noNeedOff;
+    this.noNeedOff = builder.noNeedOff;
     /**
      * 打卡规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("punch_time_rule")
-    private PunchTimeRule[] punchTimeRule;
+    this.punchTimeRule = builder.punchTimeRule;
     /**
      * 晚走晚到规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("late_off_late_on_rule")
-    private LateOffLateOnRule[] lateOffLateOnRule;
+    this.lateOffLateOnRule = builder.lateOffLateOnRule;
     /**
      * 休息规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rest_time_rule")
-    private RestRule[] restTimeRule;
+    this.restTimeRule = builder.restTimeRule;
     /**
      * 打卡规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overtime_rule")
-    private OvertimeRule[] overtimeRule;
+    this.overtimeRule = builder.overtimeRule;
     /**
-     * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-     * <p> 示例值：1
+     * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("day_type")
-    private Integer dayType;
+    this.dayType = builder.dayType;
     /**
      * 班外休息规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overtime_rest_time_rule")
-    private RestRule[] overtimeRestTimeRule;
+    this.overtimeRestTimeRule = builder.overtimeRestTimeRule;
     /**
      * 晚到多久记为严重迟到（优先级比原有字段高）
-     * <p> 示例值：40
+     *
+     * <p>示例值：40
      */
-    @SerializedName("late_minutes_as_serious_late")
-    private Integer lateMinutesAsSeriousLate;
+    this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
     /**
-     * 半天分割规则
-     * <p> 示例值：
+     * 半天分割规则（仅飞书人事企业版可用）
+     *
+     * <p>示例值：
      */
-    @SerializedName("shift_middle_time_rule")
-    private ShiftMiddleTimeRule shiftMiddleTimeRule;
+    this.shiftMiddleTimeRule = builder.shiftMiddleTimeRule;
     /**
-     * 应出勤配置
-     * <p> 示例值：
+     * 应出勤配置（灰度中，暂未开放）
+     *
+     * <p>示例值：
      */
-    @SerializedName("shift_attendance_time_config")
-    private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
+    this.shiftAttendanceTimeConfig = builder.shiftAttendanceTimeConfig;
     /**
-     * 晚走次日晚到配置规则
-     * <p> 示例值：
+     * 晚走次日晚到配置规则，
+     *
+     * <p>示例值：
      */
-    @SerializedName("late_off_late_on_setting")
-    private LateOffLateOnSetting lateOffLateOnSetting;
+    this.lateOffLateOnSetting = builder.lateOffLateOnSetting;
     /**
-     * 班次id(更新班次时需要传递)
-     * <p> 示例值：6919358778597097404
+     * 班次id(更新班次时需要传递)，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     *
+     * <p>示例值：6919358778597097404
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 休息弹性设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rest_time_flexible_configs")
+    this.restTimeFlexibleConfigs = builder.restTimeFlexibleConfigs;
+  }
+
+  public static class Builder {
+    /**
+     * 班次Id
+     *
+     * <p>示例值：6919358778597097404
+     */
+    private String shiftId;
+
+    /**
+     * 班次名称
+     *
+     * <p>示例值：早班
+     */
+    private String shiftName;
+
+    /**
+     * 打卡次数
+     *
+     * <p>示例值：1
+     */
+    private Integer punchTimes;
+
+    /**
+     * 排班组子负责人id列表
+     *
+     * <p>示例值：
+     */
+    private String[] subShiftLeaderIds;
+
+    /**
+     * 是否弹性打卡
+     *
+     * <p>示例值：false
+     */
+    private Boolean isFlexible;
+
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     *
+     * <p>示例值：60
+     */
+    private Integer flexibleMinutes;
+
+    /**
+     * 弹性打卡时间设置
+     *
+     * <p>示例值：
+     */
+    private FlexibleRule[] flexibleRule;
+
+    /**
+     * 不需要打下班卡
+     *
+     * <p>示例值：true
+     */
+    private Boolean noNeedOff;
+
+    /**
+     * 打卡规则
+     *
+     * <p>示例值：
+     */
+    private PunchTimeRule[] punchTimeRule;
+
+    /**
+     * 晚走晚到规则
+     *
+     * <p>示例值：
+     */
+    private LateOffLateOnRule[] lateOffLateOnRule;
+
+    /**
+     * 休息规则
+     *
+     * <p>示例值：
+     */
+    private RestRule[] restTimeRule;
+
+    /**
+     * 打卡规则
+     *
+     * <p>示例值：
+     */
+    private OvertimeRule[] overtimeRule;
+
+    /**
+     * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1
+     *
+     * <p>示例值：1
+     */
+    private Integer dayType;
+
+    /**
+     * 班外休息规则
+     *
+     * <p>示例值：
+     */
+    private RestRule[] overtimeRestTimeRule;
+
+    /**
+     * 晚到多久记为严重迟到（优先级比原有字段高）
+     *
+     * <p>示例值：40
+     */
+    private Integer lateMinutesAsSeriousLate;
+
+    /**
+     * 半天分割规则（仅飞书人事企业版可用）
+     *
+     * <p>示例值：
+     */
+    private ShiftMiddleTimeRule shiftMiddleTimeRule;
+
+    /**
+     * 应出勤配置（灰度中，暂未开放）
+     *
+     * <p>示例值：
+     */
+    private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
+
+    /**
+     * 晚走次日晚到配置规则，
+     *
+     * <p>示例值：
+     */
+    private LateOffLateOnSetting lateOffLateOnSetting;
+
+    /**
+     * 班次id(更新班次时需要传递)，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     *
+     * <p>示例值：6919358778597097404
+     */
+    private String id;
+
+    /**
+     * 休息弹性设置
+     *
+     * <p>示例值：
+     */
     private RestTimeFlexibleConfig[] restTimeFlexibleConfigs;
 
-    // builder 开始
-    public Shift() {
+    /**
+     * 班次Id
+     *
+     * <p>示例值：6919358778597097404
+     *
+     * @param shiftId
+     * @return
+     */
+    public Builder shiftId(String shiftId) {
+      this.shiftId = shiftId;
+      return this;
     }
 
-    public Shift(Builder builder) {
-        /**
-         * 班次 ID
-         * <p> 示例值：6919358778597097404
-         */
-        this.shiftId = builder.shiftId;
-        /**
-         * 班次名称
-         * <p> 示例值：早班
-         */
-        this.shiftName = builder.shiftName;
-        /**
-         * 打卡次数
-         * <p> 示例值：1
-         */
-        this.punchTimes = builder.punchTimes;
-        /**
-         * 排班组子负责人id列表
-         * <p> 示例值：
-         */
-        this.subShiftLeaderIds = builder.subShiftLeaderIds;
-        /**
-         * 是否弹性打卡
-         * <p> 示例值：false
-         */
-        this.isFlexible = builder.isFlexible;
-        /**
-         * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
-         * <p> 示例值：60
-         */
-        this.flexibleMinutes = builder.flexibleMinutes;
-        /**
-         * 弹性打卡时间设置
-         * <p> 示例值：
-         */
-        this.flexibleRule = builder.flexibleRule;
-        /**
-         * 不需要打下班卡
-         * <p> 示例值：true
-         */
-        this.noNeedOff = builder.noNeedOff;
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         */
-        this.punchTimeRule = builder.punchTimeRule;
-        /**
-         * 晚走晚到规则
-         * <p> 示例值：
-         */
-        this.lateOffLateOnRule = builder.lateOffLateOnRule;
-        /**
-         * 休息规则
-         * <p> 示例值：
-         */
-        this.restTimeRule = builder.restTimeRule;
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         */
-        this.overtimeRule = builder.overtimeRule;
-        /**
-         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：1
-         */
-        this.dayType = builder.dayType;
-        /**
-         * 班外休息规则
-         * <p> 示例值：
-         */
-        this.overtimeRestTimeRule = builder.overtimeRestTimeRule;
-        /**
-         * 晚到多久记为严重迟到（优先级比原有字段高）
-         * <p> 示例值：40
-         */
-        this.lateMinutesAsSeriousLate = builder.lateMinutesAsSeriousLate;
-        /**
-         * 半天分割规则
-         * <p> 示例值：
-         */
-        this.shiftMiddleTimeRule = builder.shiftMiddleTimeRule;
-        /**
-         * 应出勤配置
-         * <p> 示例值：
-         */
-        this.shiftAttendanceTimeConfig = builder.shiftAttendanceTimeConfig;
-        /**
-         * 晚走次日晚到配置规则
-         * <p> 示例值：
-         */
-        this.lateOffLateOnSetting = builder.lateOffLateOnSetting;
-        /**
-         * 班次id(更新班次时需要传递)
-         * <p> 示例值：6919358778597097404
-         */
-        this.id = builder.id;
-        /**
-         * 休息弹性设置
-         * <p> 示例值：
-         */
-        this.restTimeFlexibleConfigs = builder.restTimeFlexibleConfigs;
+    /**
+     * 班次名称
+     *
+     * <p>示例值：早班
+     *
+     * @param shiftName
+     * @return
+     */
+    public Builder shiftName(String shiftName) {
+      this.shiftName = shiftName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 打卡次数
+     *
+     * <p>示例值：1
+     *
+     * @param punchTimes
+     * @return
+     */
+    public Builder punchTimes(Integer punchTimes) {
+      this.punchTimes = punchTimes;
+      return this;
     }
 
-    public String getShiftId() {
-        return this.shiftId;
+    /**
+     * 排班组子负责人id列表
+     *
+     * <p>示例值：
+     *
+     * @param subShiftLeaderIds
+     * @return
+     */
+    public Builder subShiftLeaderIds(String[] subShiftLeaderIds) {
+      this.subShiftLeaderIds = subShiftLeaderIds;
+      return this;
     }
 
-    public void setShiftId(String shiftId) {
-        this.shiftId = shiftId;
+    /**
+     * 是否弹性打卡
+     *
+     * <p>示例值：false
+     *
+     * @param isFlexible
+     * @return
+     */
+    public Builder isFlexible(Boolean isFlexible) {
+      this.isFlexible = isFlexible;
+      return this;
     }
 
-    public String getShiftName() {
-        return this.shiftName;
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     *
+     * <p>示例值：60
+     *
+     * @param flexibleMinutes
+     * @return
+     */
+    public Builder flexibleMinutes(Integer flexibleMinutes) {
+      this.flexibleMinutes = flexibleMinutes;
+      return this;
     }
 
-    public void setShiftName(String shiftName) {
-        this.shiftName = shiftName;
+    /**
+     * 弹性打卡时间设置
+     *
+     * <p>示例值：
+     *
+     * @param flexibleRule
+     * @return
+     */
+    public Builder flexibleRule(FlexibleRule[] flexibleRule) {
+      this.flexibleRule = flexibleRule;
+      return this;
     }
 
-    public Integer getPunchTimes() {
-        return this.punchTimes;
+    /**
+     * 不需要打下班卡
+     *
+     * <p>示例值：true
+     *
+     * @param noNeedOff
+     * @return
+     */
+    public Builder noNeedOff(Boolean noNeedOff) {
+      this.noNeedOff = noNeedOff;
+      return this;
     }
 
-    public void setPunchTimes(Integer punchTimes) {
-        this.punchTimes = punchTimes;
+    /**
+     * 打卡规则
+     *
+     * <p>示例值：
+     *
+     * @param punchTimeRule
+     * @return
+     */
+    public Builder punchTimeRule(PunchTimeRule[] punchTimeRule) {
+      this.punchTimeRule = punchTimeRule;
+      return this;
     }
 
-    public String[] getSubShiftLeaderIds() {
-        return this.subShiftLeaderIds;
+    /**
+     * 晚走晚到规则
+     *
+     * <p>示例值：
+     *
+     * @param lateOffLateOnRule
+     * @return
+     */
+    public Builder lateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+      this.lateOffLateOnRule = lateOffLateOnRule;
+      return this;
     }
 
-    public void setSubShiftLeaderIds(String[] subShiftLeaderIds) {
-        this.subShiftLeaderIds = subShiftLeaderIds;
+    /**
+     * 休息规则
+     *
+     * <p>示例值：
+     *
+     * @param restTimeRule
+     * @return
+     */
+    public Builder restTimeRule(RestRule[] restTimeRule) {
+      this.restTimeRule = restTimeRule;
+      return this;
     }
 
-    public Boolean getIsFlexible() {
-        return this.isFlexible;
+    /**
+     * 打卡规则
+     *
+     * <p>示例值：
+     *
+     * @param overtimeRule
+     * @return
+     */
+    public Builder overtimeRule(OvertimeRule[] overtimeRule) {
+      this.overtimeRule = overtimeRule;
+      return this;
     }
 
-    public void setIsFlexible(Boolean isFlexible) {
-        this.isFlexible = isFlexible;
+    /**
+     * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1
+     *
+     * <p>示例值：1
+     *
+     * @param dayType
+     * @return
+     */
+    public Builder dayType(Integer dayType) {
+      this.dayType = dayType;
+      return this;
     }
 
-    public Integer getFlexibleMinutes() {
-        return this.flexibleMinutes;
+    /**
+     * 班外休息规则
+     *
+     * <p>示例值：
+     *
+     * @param overtimeRestTimeRule
+     * @return
+     */
+    public Builder overtimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
+      this.overtimeRestTimeRule = overtimeRestTimeRule;
+      return this;
     }
 
-    public void setFlexibleMinutes(Integer flexibleMinutes) {
-        this.flexibleMinutes = flexibleMinutes;
+    /**
+     * 晚到多久记为严重迟到（优先级比原有字段高）
+     *
+     * <p>示例值：40
+     *
+     * @param lateMinutesAsSeriousLate
+     * @return
+     */
+    public Builder lateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
+      this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
+      return this;
     }
 
-    public FlexibleRule[] getFlexibleRule() {
-        return this.flexibleRule;
+    /**
+     * 半天分割规则（仅飞书人事企业版可用）
+     *
+     * <p>示例值：
+     *
+     * @param shiftMiddleTimeRule
+     * @return
+     */
+    public Builder shiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
+      this.shiftMiddleTimeRule = shiftMiddleTimeRule;
+      return this;
     }
 
-    public void setFlexibleRule(FlexibleRule[] flexibleRule) {
-        this.flexibleRule = flexibleRule;
+    /**
+     * 应出勤配置（灰度中，暂未开放）
+     *
+     * <p>示例值：
+     *
+     * @param shiftAttendanceTimeConfig
+     * @return
+     */
+    public Builder shiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
+      this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
+      return this;
     }
 
-    public Boolean getNoNeedOff() {
-        return this.noNeedOff;
+    /**
+     * 晚走次日晚到配置规则，
+     *
+     * <p>示例值：
+     *
+     * @param lateOffLateOnSetting
+     * @return
+     */
+    public Builder lateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
+      this.lateOffLateOnSetting = lateOffLateOnSetting;
+      return this;
     }
 
-    public void setNoNeedOff(Boolean noNeedOff) {
-        this.noNeedOff = noNeedOff;
+    /**
+     * 班次id(更新班次时需要传递)，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     *
+     * <p>示例值：6919358778597097404
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PunchTimeRule[] getPunchTimeRule() {
-        return this.punchTimeRule;
+    /**
+     * 休息弹性设置
+     *
+     * <p>示例值：
+     *
+     * @param restTimeFlexibleConfigs
+     * @return
+     */
+    public Builder restTimeFlexibleConfigs(RestTimeFlexibleConfig[] restTimeFlexibleConfigs) {
+      this.restTimeFlexibleConfigs = restTimeFlexibleConfigs;
+      return this;
     }
 
-    public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
-        this.punchTimeRule = punchTimeRule;
+    public Shift build() {
+      return new Shift(this);
     }
-
-    public LateOffLateOnRule[] getLateOffLateOnRule() {
-        return this.lateOffLateOnRule;
-    }
-
-    public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-        this.lateOffLateOnRule = lateOffLateOnRule;
-    }
-
-    public RestRule[] getRestTimeRule() {
-        return this.restTimeRule;
-    }
-
-    public void setRestTimeRule(RestRule[] restTimeRule) {
-        this.restTimeRule = restTimeRule;
-    }
-
-    public OvertimeRule[] getOvertimeRule() {
-        return this.overtimeRule;
-    }
-
-    public void setOvertimeRule(OvertimeRule[] overtimeRule) {
-        this.overtimeRule = overtimeRule;
-    }
-
-    public Integer getDayType() {
-        return this.dayType;
-    }
-
-    public void setDayType(Integer dayType) {
-        this.dayType = dayType;
-    }
-
-    public RestRule[] getOvertimeRestTimeRule() {
-        return this.overtimeRestTimeRule;
-    }
-
-    public void setOvertimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
-        this.overtimeRestTimeRule = overtimeRestTimeRule;
-    }
-
-    public Integer getLateMinutesAsSeriousLate() {
-        return this.lateMinutesAsSeriousLate;
-    }
-
-    public void setLateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
-        this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
-    }
-
-    public ShiftMiddleTimeRule getShiftMiddleTimeRule() {
-        return this.shiftMiddleTimeRule;
-    }
-
-    public void setShiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
-        this.shiftMiddleTimeRule = shiftMiddleTimeRule;
-    }
-
-    public ShiftAttendanceTimeConfig getShiftAttendanceTimeConfig() {
-        return this.shiftAttendanceTimeConfig;
-    }
-
-    public void setShiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
-        this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
-    }
-
-    public LateOffLateOnSetting getLateOffLateOnSetting() {
-        return this.lateOffLateOnSetting;
-    }
-
-    public void setLateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
-        this.lateOffLateOnSetting = lateOffLateOnSetting;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public RestTimeFlexibleConfig[] getRestTimeFlexibleConfigs() {
-        return this.restTimeFlexibleConfigs;
-    }
-
-    public void setRestTimeFlexibleConfigs(RestTimeFlexibleConfig[] restTimeFlexibleConfigs) {
-        this.restTimeFlexibleConfigs = restTimeFlexibleConfigs;
-    }
-
-    public static class Builder {
-        /**
-         * 班次 ID
-         * <p> 示例值：6919358778597097404
-         */
-        private String shiftId;
-        /**
-         * 班次名称
-         * <p> 示例值：早班
-         */
-        private String shiftName;
-        /**
-         * 打卡次数
-         * <p> 示例值：1
-         */
-        private Integer punchTimes;
-        /**
-         * 排班组子负责人id列表
-         * <p> 示例值：
-         */
-        private String[] subShiftLeaderIds;
-        /**
-         * 是否弹性打卡
-         * <p> 示例值：false
-         */
-        private Boolean isFlexible;
-        /**
-         * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
-         * <p> 示例值：60
-         */
-        private Integer flexibleMinutes;
-        /**
-         * 弹性打卡时间设置
-         * <p> 示例值：
-         */
-        private FlexibleRule[] flexibleRule;
-        /**
-         * 不需要打下班卡
-         * <p> 示例值：true
-         */
-        private Boolean noNeedOff;
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         */
-        private PunchTimeRule[] punchTimeRule;
-        /**
-         * 晚走晚到规则
-         * <p> 示例值：
-         */
-        private LateOffLateOnRule[] lateOffLateOnRule;
-        /**
-         * 休息规则
-         * <p> 示例值：
-         */
-        private RestRule[] restTimeRule;
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         */
-        private OvertimeRule[] overtimeRule;
-        /**
-         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：1
-         */
-        private Integer dayType;
-        /**
-         * 班外休息规则
-         * <p> 示例值：
-         */
-        private RestRule[] overtimeRestTimeRule;
-        /**
-         * 晚到多久记为严重迟到（优先级比原有字段高）
-         * <p> 示例值：40
-         */
-        private Integer lateMinutesAsSeriousLate;
-        /**
-         * 半天分割规则
-         * <p> 示例值：
-         */
-        private ShiftMiddleTimeRule shiftMiddleTimeRule;
-        /**
-         * 应出勤配置
-         * <p> 示例值：
-         */
-        private ShiftAttendanceTimeConfig shiftAttendanceTimeConfig;
-        /**
-         * 晚走次日晚到配置规则
-         * <p> 示例值：
-         */
-        private LateOffLateOnSetting lateOffLateOnSetting;
-        /**
-         * 班次id(更新班次时需要传递)
-         * <p> 示例值：6919358778597097404
-         */
-        private String id;
-        /**
-         * 休息弹性设置
-         * <p> 示例值：
-         */
-        private RestTimeFlexibleConfig[] restTimeFlexibleConfigs;
-
-        /**
-         * 班次 ID
-         * <p> 示例值：6919358778597097404
-         *
-         * @param shiftId
-         * @return
-         */
-        public Builder shiftId(String shiftId) {
-            this.shiftId = shiftId;
-            return this;
-        }
-
-
-        /**
-         * 班次名称
-         * <p> 示例值：早班
-         *
-         * @param shiftName
-         * @return
-         */
-        public Builder shiftName(String shiftName) {
-            this.shiftName = shiftName;
-            return this;
-        }
-
-
-        /**
-         * 打卡次数
-         * <p> 示例值：1
-         *
-         * @param punchTimes
-         * @return
-         */
-        public Builder punchTimes(Integer punchTimes) {
-            this.punchTimes = punchTimes;
-            return this;
-        }
-
-
-        /**
-         * 排班组子负责人id列表
-         * <p> 示例值：
-         *
-         * @param subShiftLeaderIds
-         * @return
-         */
-        public Builder subShiftLeaderIds(String[] subShiftLeaderIds) {
-            this.subShiftLeaderIds = subShiftLeaderIds;
-            return this;
-        }
-
-
-        /**
-         * 是否弹性打卡
-         * <p> 示例值：false
-         *
-         * @param isFlexible
-         * @return
-         */
-        public Builder isFlexible(Boolean isFlexible) {
-            this.isFlexible = isFlexible;
-            return this;
-        }
-
-
-        /**
-         * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
-         * <p> 示例值：60
-         *
-         * @param flexibleMinutes
-         * @return
-         */
-        public Builder flexibleMinutes(Integer flexibleMinutes) {
-            this.flexibleMinutes = flexibleMinutes;
-            return this;
-        }
-
-
-        /**
-         * 弹性打卡时间设置
-         * <p> 示例值：
-         *
-         * @param flexibleRule
-         * @return
-         */
-        public Builder flexibleRule(FlexibleRule[] flexibleRule) {
-            this.flexibleRule = flexibleRule;
-            return this;
-        }
-
-
-        /**
-         * 不需要打下班卡
-         * <p> 示例值：true
-         *
-         * @param noNeedOff
-         * @return
-         */
-        public Builder noNeedOff(Boolean noNeedOff) {
-            this.noNeedOff = noNeedOff;
-            return this;
-        }
-
-
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         *
-         * @param punchTimeRule
-         * @return
-         */
-        public Builder punchTimeRule(PunchTimeRule[] punchTimeRule) {
-            this.punchTimeRule = punchTimeRule;
-            return this;
-        }
-
-
-        /**
-         * 晚走晚到规则
-         * <p> 示例值：
-         *
-         * @param lateOffLateOnRule
-         * @return
-         */
-        public Builder lateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-            this.lateOffLateOnRule = lateOffLateOnRule;
-            return this;
-        }
-
-
-        /**
-         * 休息规则
-         * <p> 示例值：
-         *
-         * @param restTimeRule
-         * @return
-         */
-        public Builder restTimeRule(RestRule[] restTimeRule) {
-            this.restTimeRule = restTimeRule;
-            return this;
-        }
-
-
-        /**
-         * 打卡规则
-         * <p> 示例值：
-         *
-         * @param overtimeRule
-         * @return
-         */
-        public Builder overtimeRule(OvertimeRule[] overtimeRule) {
-            this.overtimeRule = overtimeRule;
-            return this;
-        }
-
-
-        /**
-         * 日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日”  可选值：1：工作日 2：休息日     示例值：（默认值）1
-         * <p> 示例值：1
-         *
-         * @param dayType
-         * @return
-         */
-        public Builder dayType(Integer dayType) {
-            this.dayType = dayType;
-            return this;
-        }
-
-
-        /**
-         * 班外休息规则
-         * <p> 示例值：
-         *
-         * @param overtimeRestTimeRule
-         * @return
-         */
-        public Builder overtimeRestTimeRule(RestRule[] overtimeRestTimeRule) {
-            this.overtimeRestTimeRule = overtimeRestTimeRule;
-            return this;
-        }
-
-
-        /**
-         * 晚到多久记为严重迟到（优先级比原有字段高）
-         * <p> 示例值：40
-         *
-         * @param lateMinutesAsSeriousLate
-         * @return
-         */
-        public Builder lateMinutesAsSeriousLate(Integer lateMinutesAsSeriousLate) {
-            this.lateMinutesAsSeriousLate = lateMinutesAsSeriousLate;
-            return this;
-        }
-
-
-        /**
-         * 半天分割规则
-         * <p> 示例值：
-         *
-         * @param shiftMiddleTimeRule
-         * @return
-         */
-        public Builder shiftMiddleTimeRule(ShiftMiddleTimeRule shiftMiddleTimeRule) {
-            this.shiftMiddleTimeRule = shiftMiddleTimeRule;
-            return this;
-        }
-
-
-        /**
-         * 应出勤配置
-         * <p> 示例值：
-         *
-         * @param shiftAttendanceTimeConfig
-         * @return
-         */
-        public Builder shiftAttendanceTimeConfig(ShiftAttendanceTimeConfig shiftAttendanceTimeConfig) {
-            this.shiftAttendanceTimeConfig = shiftAttendanceTimeConfig;
-            return this;
-        }
-
-
-        /**
-         * 晚走次日晚到配置规则
-         * <p> 示例值：
-         *
-         * @param lateOffLateOnSetting
-         * @return
-         */
-        public Builder lateOffLateOnSetting(LateOffLateOnSetting lateOffLateOnSetting) {
-            this.lateOffLateOnSetting = lateOffLateOnSetting;
-            return this;
-        }
-
-
-        /**
-         * 班次id(更新班次时需要传递)
-         * <p> 示例值：6919358778597097404
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 休息弹性设置
-         * <p> 示例值：
-         *
-         * @param restTimeFlexibleConfigs
-         * @return
-         */
-        public Builder restTimeFlexibleConfigs(RestTimeFlexibleConfig[] restTimeFlexibleConfigs) {
-            this.restTimeFlexibleConfigs = restTimeFlexibleConfigs;
-            return this;
-        }
-
-
-        public Shift build() {
-            return new Shift(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

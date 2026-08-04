@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Tag {
+  /**
+   * 标签键
+   *
+   * <p>示例值：leave_category
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 标签值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public Tag() {}
+
+  public Tag(Builder builder) {
     /**
      * 标签键
-     * <p> 示例值：leave_category
+     *
+     * <p>示例值：leave_category
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 标签值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 标签键
+     *
+     * <p>示例值：leave_category
+     */
+    private String key;
+
+    /**
+     * 标签值列表
+     *
+     * <p>示例值：
+     */
     private String[] values;
 
-    // builder 开始
-    public Tag() {
+    /**
+     * 标签键
+     *
+     * <p>示例值：leave_category
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Tag(Builder builder) {
-        /**
-         * 标签键
-         * <p> 示例值：leave_category
-         */
-        this.key = builder.key;
-        /**
-         * 标签值列表
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    /**
+     * 标签值列表
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Tag build() {
+      return new Tag(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 标签键
-         * <p> 示例值：leave_category
-         */
-        private String key;
-        /**
-         * 标签值列表
-         * <p> 示例值：
-         */
-        private String[] values;
-
-        /**
-         * 标签键
-         * <p> 示例值：leave_category
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 标签值列表
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public Tag build() {
-            return new Tag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

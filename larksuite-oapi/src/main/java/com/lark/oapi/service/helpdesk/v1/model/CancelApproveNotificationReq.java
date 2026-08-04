@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class CancelApproveNotificationReq {
+  /**
+   * 唯一ID
+   *
+   * <p>示例值：6981801914270744596
+   */
+  @Path
+  @SerializedName("notification_id")
+  private String notificationId;
+
+  public String getNotificationId() {
+    return this.notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
+
+  // builder 开始
+  public CancelApproveNotificationReq() {}
+
+  public CancelApproveNotificationReq(Builder builder) {
     /**
      * 唯一ID
-     * <p> 示例值：6981801914270744596
+     *
+     * <p>示例值：6981801914270744596
      */
-    @Path
-    @SerializedName("notification_id")
-    private String notificationId;
+    this.notificationId = builder.notificationId;
+  }
 
-    // builder 开始
-    public CancelApproveNotificationReq() {
+  public static class Builder {
+
+    private String notificationId; // 唯一ID
+
+    /**
+     * 唯一ID
+     *
+     * <p>示例值：6981801914270744596
+     *
+     * @param notificationId
+     * @return
+     */
+    public Builder notificationId(String notificationId) {
+      this.notificationId = notificationId;
+      return this;
     }
 
-    public CancelApproveNotificationReq(Builder builder) {
-        /**
-         * 唯一ID
-         * <p> 示例值：6981801914270744596
-         */
-        this.notificationId = builder.notificationId;
+    public CancelApproveNotificationReq build() {
+      return new CancelApproveNotificationReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getNotificationId() {
-        return this.notificationId;
-    }
-
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public static class Builder {
-
-        private String notificationId; // 唯一ID
-
-        /**
-         * 唯一ID
-         * <p> 示例值：6981801914270744596
-         *
-         * @param notificationId
-         * @return
-         */
-        public Builder notificationId(String notificationId) {
-            this.notificationId = notificationId;
-            return this;
-        }
-
-
-        public CancelApproveNotificationReq build() {
-            return new CancelApproveNotificationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

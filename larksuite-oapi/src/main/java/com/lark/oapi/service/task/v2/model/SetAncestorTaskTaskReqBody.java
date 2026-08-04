@@ -13,146 +13,135 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SetAncestorTaskTaskReqBody {
+  /**
+   * 父任务的guid，可从任务详情字段获取， 未设置时作用为转独立任务
+   *
+   * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+   */
+  @SerializedName("ancestor_guid")
+  private String ancestorGuid;
+
+  /** 示例值： */
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 操作人的id
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("target_user_id")
+  private String targetUserId;
+
+  public String getAncestorGuid() {
+    return this.ancestorGuid;
+  }
+
+  public void setAncestorGuid(String ancestorGuid) {
+    this.ancestorGuid = ancestorGuid;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getTargetUserId() {
+    return this.targetUserId;
+  }
+
+  public void setTargetUserId(String targetUserId) {
+    this.targetUserId = targetUserId;
+  }
+
+  // builder 开始
+  public SetAncestorTaskTaskReqBody() {}
+
+  public SetAncestorTaskTaskReqBody(Builder builder) {
     /**
-     * 父任务的guid
-     * <p> 示例值：123
+     * 父任务的guid，可从任务详情字段获取， 未设置时作用为转独立任务
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
      */
-    @SerializedName("ancestor_guid")
-    private String ancestorGuid;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.ancestorGuid = builder.ancestorGuid;
+    /** 示例值： */
+    this.userIdType = builder.userIdType;
     /**
      * 操作人的id
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("target_user_id")
+    this.targetUserId = builder.targetUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 父任务的guid，可从任务详情字段获取， 未设置时作用为转独立任务
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     */
+    private String ancestorGuid;
+
+    /** 示例值： */
+    private String userIdType;
+
+    /**
+     * 操作人的id
+     *
+     * <p>示例值：123
+     */
     private String targetUserId;
 
-    // builder 开始
-    public SetAncestorTaskTaskReqBody() {
+    /**
+     * 父任务的guid，可从任务详情字段获取， 未设置时作用为转独立任务
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * @param ancestorGuid
+     * @return
+     */
+    public Builder ancestorGuid(String ancestorGuid) {
+      this.ancestorGuid = ancestorGuid;
+      return this;
     }
 
-    public SetAncestorTaskTaskReqBody(Builder builder) {
-        /**
-         * 父任务的guid
-         * <p> 示例值：123
-         */
-        this.ancestorGuid = builder.ancestorGuid;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 操作人的id
-         * <p> 示例值：123
-         */
-        this.targetUserId = builder.targetUserId;
+    /**
+     * 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作人的id
+     *
+     * <p>示例值：123
+     *
+     * @param targetUserId
+     * @return
+     */
+    public Builder targetUserId(String targetUserId) {
+      this.targetUserId = targetUserId;
+      return this;
     }
 
-    public String getAncestorGuid() {
-        return this.ancestorGuid;
+    public SetAncestorTaskTaskReqBody build() {
+      return new SetAncestorTaskTaskReqBody(this);
     }
+  }
 
-    public void setAncestorGuid(String ancestorGuid) {
-        this.ancestorGuid = ancestorGuid;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTargetUserId() {
-        return this.targetUserId;
-    }
-
-    public void setTargetUserId(String targetUserId) {
-        this.targetUserId = targetUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 父任务的guid
-         * <p> 示例值：123
-         */
-        private String ancestorGuid;
-        /**
-         * <p> 示例值：
-         */
-        private String userIdType;
-        /**
-         * 操作人的id
-         * <p> 示例值：123
-         */
-        private String targetUserId;
-
-        /**
-         * 父任务的guid
-         * <p> 示例值：123
-         *
-         * @param ancestorGuid
-         * @return
-         */
-        public Builder ancestorGuid(String ancestorGuid) {
-            this.ancestorGuid = ancestorGuid;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 操作人的id
-         * <p> 示例值：123
-         *
-         * @param targetUserId
-         * @return
-         */
-        public Builder targetUserId(String targetUserId) {
-            this.targetUserId = targetUserId;
-            return this;
-        }
-
-
-        public SetAncestorTaskTaskReqBody build() {
-            return new SetAncestorTaskTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

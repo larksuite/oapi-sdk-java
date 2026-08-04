@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessCommentInfoUpdatedV2Data {
-    /**
-     * 流程运行实例id
-     * <p> 示例值：7546513162022012460
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 流程下评论的唯一id
-     * <p> 示例值：7546513162022012460
-     */
-    @SerializedName("comment_id")
-    private String commentId;
-    /**
-     * 评论事件的类型
-     * <p> 示例值：1
-     */
-    @SerializedName("type")
-    private Integer type;
+  /**
+   * 流程运行实例id
+   *
+   * <p>示例值：7546513162022012460
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 流程下评论的唯一id
+   *
+   * <p>示例值：7546513162022012460
+   */
+  @SerializedName("comment_id")
+  private String commentId;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 评论事件的类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
 
-    public String getCommentId() {
-        return this.commentId;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public Integer getType() {
-        return this.type;
-    }
+  public String getCommentId() {
+    return this.commentId;
+  }
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
 
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
 }

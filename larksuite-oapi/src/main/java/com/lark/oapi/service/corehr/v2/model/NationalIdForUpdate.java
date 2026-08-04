@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NationalIdForUpdate {
+  /**
+   * 国家 / 地区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 国家证件类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_id_type_id")
+  private String nationalIdTypeId;
+
+  /**
+   * 证件号码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_id_number")
+  private String nationalIdNumber;
+
+  /**
+   * 证件签发日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：
+   */
+  @SerializedName("issue_date")
+  private String issueDate;
+
+  /**
+   * 证件到期日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 证件签发机构
+   *
+   * <p>示例值：
+   */
+  @SerializedName("issued_by")
+  private String issuedBy;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * ID
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 序列号
+   *
+   * <p>示例值：A123456
+   */
+  @SerializedName("series")
+  private String series;
+
+  /**
+   * 是否长期有效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("effective_for_a_long_time")
+  private Boolean effectiveForALongTime;
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public String getNationalIdTypeId() {
+    return this.nationalIdTypeId;
+  }
+
+  public void setNationalIdTypeId(String nationalIdTypeId) {
+    this.nationalIdTypeId = nationalIdTypeId;
+  }
+
+  public String getNationalIdNumber() {
+    return this.nationalIdNumber;
+  }
+
+  public void setNationalIdNumber(String nationalIdNumber) {
+    this.nationalIdNumber = nationalIdNumber;
+  }
+
+  public String getIssueDate() {
+    return this.issueDate;
+  }
+
+  public void setIssueDate(String issueDate) {
+    this.issueDate = issueDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getIssuedBy() {
+    return this.issuedBy;
+  }
+
+  public void setIssuedBy(String issuedBy) {
+    this.issuedBy = issuedBy;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getSeries() {
+    return this.series;
+  }
+
+  public void setSeries(String series) {
+    this.series = series;
+  }
+
+  public Boolean getEffectiveForALongTime() {
+    return this.effectiveForALongTime;
+  }
+
+  public void setEffectiveForALongTime(Boolean effectiveForALongTime) {
+    this.effectiveForALongTime = effectiveForALongTime;
+  }
+
+  // builder 开始
+  public NationalIdForUpdate() {}
+
+  public NationalIdForUpdate(Builder builder) {
     /**
      * 国家 / 地区
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 国家证件类型
-     * <p> 示例值：6863330041896371725
+     *
+     * <p>示例值：
      */
-    @SerializedName("national_id_type_id")
-    private String nationalIdTypeId;
+    this.nationalIdTypeId = builder.nationalIdTypeId;
     /**
      * 证件号码
-     * <p> 示例值：1231131333
+     *
+     * <p>示例值：
      */
-    @SerializedName("national_id_number")
-    private String nationalIdNumber;
+    this.nationalIdNumber = builder.nationalIdNumber;
     /**
-     * 证件签发日期
-     * <p> 示例值：2020-04-01
+     * 证件签发日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
      */
-    @SerializedName("issue_date")
-    private String issueDate;
+    this.issueDate = builder.issueDate;
     /**
-     * 证件到期日期
-     * <p> 示例值：2020-05-21
+     * 证件到期日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * 证件签发机构
-     * <p> 示例值：北京市公安局
+     *
+     * <p>示例值：
      */
-    @SerializedName("issued_by")
-    private String issuedBy;
+    this.issuedBy = builder.issuedBy;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * ID
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 序列号
-     * <p> 示例值：A123456
+     *
+     * <p>示例值：A123456
      */
-    @SerializedName("series")
-    private String series;
+    this.series = builder.series;
     /**
      * 是否长期有效
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("effective_for_a_long_time")
+    this.effectiveForALongTime = builder.effectiveForALongTime;
+  }
+
+  public static class Builder {
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：
+     */
+    private String countryRegionId;
+
+    /**
+     * 国家证件类型
+     *
+     * <p>示例值：
+     */
+    private String nationalIdTypeId;
+
+    /**
+     * 证件号码
+     *
+     * <p>示例值：
+     */
+    private String nationalIdNumber;
+
+    /**
+     * 证件签发日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
+     */
+    private String issueDate;
+
+    /**
+     * 证件到期日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
+     */
+    private String expirationDate;
+
+    /**
+     * 证件签发机构
+     *
+     * <p>示例值：
+     */
+    private String issuedBy;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * ID
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String wkId;
+
+    /**
+     * 序列号
+     *
+     * <p>示例值：A123456
+     */
+    private String series;
+
+    /**
+     * 是否长期有效
+     *
+     * <p>示例值：
+     */
     private Boolean effectiveForALongTime;
 
-    // builder 开始
-    public NationalIdForUpdate() {
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public NationalIdForUpdate(Builder builder) {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 国家证件类型
-         * <p> 示例值：6863330041896371725
-         */
-        this.nationalIdTypeId = builder.nationalIdTypeId;
-        /**
-         * 证件号码
-         * <p> 示例值：1231131333
-         */
-        this.nationalIdNumber = builder.nationalIdNumber;
-        /**
-         * 证件签发日期
-         * <p> 示例值：2020-04-01
-         */
-        this.issueDate = builder.issueDate;
-        /**
-         * 证件到期日期
-         * <p> 示例值：2020-05-21
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 证件签发机构
-         * <p> 示例值：北京市公安局
-         */
-        this.issuedBy = builder.issuedBy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 序列号
-         * <p> 示例值：A123456
-         */
-        this.series = builder.series;
-        /**
-         * 是否长期有效
-         * <p> 示例值：
-         */
-        this.effectiveForALongTime = builder.effectiveForALongTime;
+    /**
+     * 国家证件类型
+     *
+     * <p>示例值：
+     *
+     * @param nationalIdTypeId
+     * @return
+     */
+    public Builder nationalIdTypeId(String nationalIdTypeId) {
+      this.nationalIdTypeId = nationalIdTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证件号码
+     *
+     * <p>示例值：
+     *
+     * @param nationalIdNumber
+     * @return
+     */
+    public Builder nationalIdNumber(String nationalIdNumber) {
+      this.nationalIdNumber = nationalIdNumber;
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * 证件签发日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
+     *
+     * @param issueDate
+     * @return
+     */
+    public Builder issueDate(String issueDate) {
+      this.issueDate = issueDate;
+      return this;
     }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    /**
+     * 证件到期日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public String getNationalIdTypeId() {
-        return this.nationalIdTypeId;
+    /**
+     * 证件签发机构
+     *
+     * <p>示例值：
+     *
+     * @param issuedBy
+     * @return
+     */
+    public Builder issuedBy(String issuedBy) {
+      this.issuedBy = issuedBy;
+      return this;
     }
 
-    public void setNationalIdTypeId(String nationalIdTypeId) {
-        this.nationalIdTypeId = nationalIdTypeId;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getNationalIdNumber() {
-        return this.nationalIdNumber;
+    /**
+     * ID
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public void setNationalIdNumber(String nationalIdNumber) {
-        this.nationalIdNumber = nationalIdNumber;
+    /**
+     * 序列号
+     *
+     * <p>示例值：A123456
+     *
+     * @param series
+     * @return
+     */
+    public Builder series(String series) {
+      this.series = series;
+      return this;
     }
 
-    public String getIssueDate() {
-        return this.issueDate;
+    /**
+     * 是否长期有效
+     *
+     * <p>示例值：
+     *
+     * @param effectiveForALongTime
+     * @return
+     */
+    public Builder effectiveForALongTime(Boolean effectiveForALongTime) {
+      this.effectiveForALongTime = effectiveForALongTime;
+      return this;
     }
 
-    public void setIssueDate(String issueDate) {
-        this.issueDate = issueDate;
+    public NationalIdForUpdate build() {
+      return new NationalIdForUpdate(this);
     }
+  }
 
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getIssuedBy() {
-        return this.issuedBy;
-    }
-
-    public void setIssuedBy(String issuedBy) {
-        this.issuedBy = issuedBy;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public String getSeries() {
-        return this.series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
-    }
-
-    public Boolean getEffectiveForALongTime() {
-        return this.effectiveForALongTime;
-    }
-
-    public void setEffectiveForALongTime(Boolean effectiveForALongTime) {
-        this.effectiveForALongTime = effectiveForALongTime;
-    }
-
-    public static class Builder {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegionId;
-        /**
-         * 国家证件类型
-         * <p> 示例值：6863330041896371725
-         */
-        private String nationalIdTypeId;
-        /**
-         * 证件号码
-         * <p> 示例值：1231131333
-         */
-        private String nationalIdNumber;
-        /**
-         * 证件签发日期
-         * <p> 示例值：2020-04-01
-         */
-        private String issueDate;
-        /**
-         * 证件到期日期
-         * <p> 示例值：2020-05-21
-         */
-        private String expirationDate;
-        /**
-         * 证件签发机构
-         * <p> 示例值：北京市公安局
-         */
-        private String issuedBy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         */
-        private String wkId;
-        /**
-         * 序列号
-         * <p> 示例值：A123456
-         */
-        private String series;
-        /**
-         * 是否长期有效
-         * <p> 示例值：
-         */
-        private Boolean effectiveForALongTime;
-
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 国家证件类型
-         * <p> 示例值：6863330041896371725
-         *
-         * @param nationalIdTypeId
-         * @return
-         */
-        public Builder nationalIdTypeId(String nationalIdTypeId) {
-            this.nationalIdTypeId = nationalIdTypeId;
-            return this;
-        }
-
-
-        /**
-         * 证件号码
-         * <p> 示例值：1231131333
-         *
-         * @param nationalIdNumber
-         * @return
-         */
-        public Builder nationalIdNumber(String nationalIdNumber) {
-            this.nationalIdNumber = nationalIdNumber;
-            return this;
-        }
-
-
-        /**
-         * 证件签发日期
-         * <p> 示例值：2020-04-01
-         *
-         * @param issueDate
-         * @return
-         */
-        public Builder issueDate(String issueDate) {
-            this.issueDate = issueDate;
-            return this;
-        }
-
-
-        /**
-         * 证件到期日期
-         * <p> 示例值：2020-05-21
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 证件签发机构
-         * <p> 示例值：北京市公安局
-         *
-         * @param issuedBy
-         * @return
-         */
-        public Builder issuedBy(String issuedBy) {
-            this.issuedBy = issuedBy;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 序列号
-         * <p> 示例值：A123456
-         *
-         * @param series
-         * @return
-         */
-        public Builder series(String series) {
-            this.series = series;
-            return this;
-        }
-
-
-        /**
-         * 是否长期有效
-         * <p> 示例值：
-         *
-         * @param effectiveForALongTime
-         * @return
-         */
-        public Builder effectiveForALongTime(Boolean effectiveForALongTime) {
-            this.effectiveForALongTime = effectiveForALongTime;
-            return this;
-        }
-
-
-        public NationalIdForUpdate build() {
-            return new NationalIdForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

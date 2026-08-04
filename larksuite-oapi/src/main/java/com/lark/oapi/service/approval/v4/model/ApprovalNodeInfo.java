@@ -13,346 +13,373 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalNodeInfo {
+  /**
+   * 节点名称
+   *
+   * <p>示例值：Approval
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 是否为发起人自选节点。取值为 true 表示发起审批时需要提交人自选审批人。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_approver")
+  private Boolean needApprover;
+
+  /**
+   * 节点 ID
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b64
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  /**
+   * 节点自定义 ID，如果没有设置则不返回
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b64
+   */
+  @SerializedName("custom_node_id")
+  private String customNodeId;
+
+  /**
+   * 审批方式
+   *
+   * <p>示例值：AND
+   */
+  @SerializedName("node_type")
+  private String nodeType;
+
+  /**
+   * 选择方式是否支持多选。流程的开始、结束节点该值无意义。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("approver_chosen_multi")
+  private Boolean approverChosenMulti;
+
+  /**
+   * 提交人自选审批人的范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver_chosen_range")
+  private ApproverChosenRange[] approverChosenRange;
+
+  /**
+   * 审批同意时是否需要手写签名。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("require_signature")
+  private Boolean requireSignature;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getNeedApprover() {
+    return this.needApprover;
+  }
+
+  public void setNeedApprover(Boolean needApprover) {
+    this.needApprover = needApprover;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getCustomNodeId() {
+    return this.customNodeId;
+  }
+
+  public void setCustomNodeId(String customNodeId) {
+    this.customNodeId = customNodeId;
+  }
+
+  public String getNodeType() {
+    return this.nodeType;
+  }
+
+  public void setNodeType(String nodeType) {
+    this.nodeType = nodeType;
+  }
+
+  public Boolean getApproverChosenMulti() {
+    return this.approverChosenMulti;
+  }
+
+  public void setApproverChosenMulti(Boolean approverChosenMulti) {
+    this.approverChosenMulti = approverChosenMulti;
+  }
+
+  public ApproverChosenRange[] getApproverChosenRange() {
+    return this.approverChosenRange;
+  }
+
+  public void setApproverChosenRange(ApproverChosenRange[] approverChosenRange) {
+    this.approverChosenRange = approverChosenRange;
+  }
+
+  public Boolean getRequireSignature() {
+    return this.requireSignature;
+  }
+
+  public void setRequireSignature(Boolean requireSignature) {
+    this.requireSignature = requireSignature;
+  }
+
+  // builder 开始
+  public ApprovalNodeInfo() {}
+
+  public ApprovalNodeInfo(Builder builder) {
     /**
      * 节点名称
-     * <p> 示例值：Approval
+     *
+     * <p>示例值：Approval
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 是否发起人自选节点 true - 发起审批时需要提交审批人
-     * <p> 示例值：true
+     * 是否为发起人自选节点。取值为 true 表示发起审批时需要提交人自选审批人。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_approver")
-    private Boolean needApprover;
+    this.needApprover = builder.needApprover;
     /**
      * 节点 ID
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
      */
-    @SerializedName("node_id")
-    private String nodeId;
+    this.nodeId = builder.nodeId;
     /**
      * 节点自定义 ID，如果没有设置则不返回
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
      */
-    @SerializedName("custom_node_id")
-    private String customNodeId;
+    this.customNodeId = builder.customNodeId;
     /**
      * 审批方式
-     * <p> 示例值：AND
+     *
+     * <p>示例值：AND
      */
-    @SerializedName("node_type")
+    this.nodeType = builder.nodeType;
+    /**
+     * 选择方式是否支持多选。流程的开始、结束节点该值无意义。
+     *
+     * <p>示例值：true
+     */
+    this.approverChosenMulti = builder.approverChosenMulti;
+    /**
+     * 提交人自选审批人的范围
+     *
+     * <p>示例值：
+     */
+    this.approverChosenRange = builder.approverChosenRange;
+    /**
+     * 审批同意时是否需要手写签名。
+     *
+     * <p>示例值：false
+     */
+    this.requireSignature = builder.requireSignature;
+  }
+
+  public static class Builder {
+    /**
+     * 节点名称
+     *
+     * <p>示例值：Approval
+     */
+    private String name;
+
+    /**
+     * 是否为发起人自选节点。取值为 true 表示发起审批时需要提交人自选审批人。
+     *
+     * <p>示例值：true
+     */
+    private Boolean needApprover;
+
+    /**
+     * 节点 ID
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     */
+    private String nodeId;
+
+    /**
+     * 节点自定义 ID，如果没有设置则不返回
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     */
+    private String customNodeId;
+
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     */
     private String nodeType;
+
     /**
-     * 是否支持多选：true-支持，发起、结束节点该值无意义
-     * <p> 示例值：true
+     * 选择方式是否支持多选。流程的开始、结束节点该值无意义。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("approver_chosen_multi")
     private Boolean approverChosenMulti;
+
     /**
-     * 自选范围
-     * <p> 示例值：
+     * 提交人自选审批人的范围
+     *
+     * <p>示例值：
      */
-    @SerializedName("approver_chosen_range")
     private ApproverChosenRange[] approverChosenRange;
+
     /**
-     * 是否签名
-     * <p> 示例值：false
+     * 审批同意时是否需要手写签名。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("require_signature")
     private Boolean requireSignature;
 
-    // builder 开始
-    public ApprovalNodeInfo() {
+    /**
+     * 节点名称
+     *
+     * <p>示例值：Approval
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public ApprovalNodeInfo(Builder builder) {
-        /**
-         * 节点名称
-         * <p> 示例值：Approval
-         */
-        this.name = builder.name;
-        /**
-         * 是否发起人自选节点 true - 发起审批时需要提交审批人
-         * <p> 示例值：true
-         */
-        this.needApprover = builder.needApprover;
-        /**
-         * 节点 ID
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * 节点自定义 ID，如果没有设置则不返回
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.customNodeId = builder.customNodeId;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        this.nodeType = builder.nodeType;
-        /**
-         * 是否支持多选：true-支持，发起、结束节点该值无意义
-         * <p> 示例值：true
-         */
-        this.approverChosenMulti = builder.approverChosenMulti;
-        /**
-         * 自选范围
-         * <p> 示例值：
-         */
-        this.approverChosenRange = builder.approverChosenRange;
-        /**
-         * 是否签名
-         * <p> 示例值：false
-         */
-        this.requireSignature = builder.requireSignature;
+    /**
+     * 是否为发起人自选节点。取值为 true 表示发起审批时需要提交人自选审批人。
+     *
+     * <p>示例值：true
+     *
+     * @param needApprover
+     * @return
+     */
+    public Builder needApprover(Boolean needApprover) {
+      this.needApprover = needApprover;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 节点 ID
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 节点自定义 ID，如果没有设置则不返回
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param customNodeId
+     * @return
+     */
+    public Builder customNodeId(String customNodeId) {
+      this.customNodeId = customNodeId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param nodeType
+     * @return
+     */
+    public Builder nodeType(String nodeType) {
+      this.nodeType = nodeType;
+      return this;
     }
 
-    public Boolean getNeedApprover() {
-        return this.needApprover;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param nodeType {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeInfoNodeTypeEnum}
+     * @return
+     */
+    public Builder nodeType(
+        com.lark.oapi.service.approval.v4.enums.ApprovalNodeInfoNodeTypeEnum nodeType) {
+      this.nodeType = nodeType.getValue();
+      return this;
     }
 
-    public void setNeedApprover(Boolean needApprover) {
-        this.needApprover = needApprover;
+    /**
+     * 选择方式是否支持多选。流程的开始、结束节点该值无意义。
+     *
+     * <p>示例值：true
+     *
+     * @param approverChosenMulti
+     * @return
+     */
+    public Builder approverChosenMulti(Boolean approverChosenMulti) {
+      this.approverChosenMulti = approverChosenMulti;
+      return this;
     }
 
-    public String getNodeId() {
-        return this.nodeId;
+    /**
+     * 提交人自选审批人的范围
+     *
+     * <p>示例值：
+     *
+     * @param approverChosenRange
+     * @return
+     */
+    public Builder approverChosenRange(ApproverChosenRange[] approverChosenRange) {
+      this.approverChosenRange = approverChosenRange;
+      return this;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    /**
+     * 审批同意时是否需要手写签名。
+     *
+     * <p>示例值：false
+     *
+     * @param requireSignature
+     * @return
+     */
+    public Builder requireSignature(Boolean requireSignature) {
+      this.requireSignature = requireSignature;
+      return this;
     }
 
-    public String getCustomNodeId() {
-        return this.customNodeId;
+    public ApprovalNodeInfo build() {
+      return new ApprovalNodeInfo(this);
     }
+  }
 
-    public void setCustomNodeId(String customNodeId) {
-        this.customNodeId = customNodeId;
-    }
-
-    public String getNodeType() {
-        return this.nodeType;
-    }
-
-    public void setNodeType(String nodeType) {
-        this.nodeType = nodeType;
-    }
-
-    public Boolean getApproverChosenMulti() {
-        return this.approverChosenMulti;
-    }
-
-    public void setApproverChosenMulti(Boolean approverChosenMulti) {
-        this.approverChosenMulti = approverChosenMulti;
-    }
-
-    public ApproverChosenRange[] getApproverChosenRange() {
-        return this.approverChosenRange;
-    }
-
-    public void setApproverChosenRange(ApproverChosenRange[] approverChosenRange) {
-        this.approverChosenRange = approverChosenRange;
-    }
-
-    public Boolean getRequireSignature() {
-        return this.requireSignature;
-    }
-
-    public void setRequireSignature(Boolean requireSignature) {
-        this.requireSignature = requireSignature;
-    }
-
-    public static class Builder {
-        /**
-         * 节点名称
-         * <p> 示例值：Approval
-         */
-        private String name;
-        /**
-         * 是否发起人自选节点 true - 发起审批时需要提交审批人
-         * <p> 示例值：true
-         */
-        private Boolean needApprover;
-        /**
-         * 节点 ID
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        private String nodeId;
-        /**
-         * 节点自定义 ID，如果没有设置则不返回
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        private String customNodeId;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        private String nodeType;
-        /**
-         * 是否支持多选：true-支持，发起、结束节点该值无意义
-         * <p> 示例值：true
-         */
-        private Boolean approverChosenMulti;
-        /**
-         * 自选范围
-         * <p> 示例值：
-         */
-        private ApproverChosenRange[] approverChosenRange;
-        /**
-         * 是否签名
-         * <p> 示例值：false
-         */
-        private Boolean requireSignature;
-
-        /**
-         * 节点名称
-         * <p> 示例值：Approval
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否发起人自选节点 true - 发起审批时需要提交审批人
-         * <p> 示例值：true
-         *
-         * @param needApprover
-         * @return
-         */
-        public Builder needApprover(Boolean needApprover) {
-            this.needApprover = needApprover;
-            return this;
-        }
-
-
-        /**
-         * 节点 ID
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        /**
-         * 节点自定义 ID，如果没有设置则不返回
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
-         * @param customNodeId
-         * @return
-         */
-        public Builder customNodeId(String customNodeId) {
-            this.customNodeId = customNodeId;
-            return this;
-        }
-
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param nodeType
-         * @return
-         */
-        public Builder nodeType(String nodeType) {
-            this.nodeType = nodeType;
-            return this;
-        }
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param nodeType {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeInfoNodeTypeEnum}
-         * @return
-         */
-        public Builder nodeType(com.lark.oapi.service.approval.v4.enums.ApprovalNodeInfoNodeTypeEnum nodeType) {
-            this.nodeType = nodeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否支持多选：true-支持，发起、结束节点该值无意义
-         * <p> 示例值：true
-         *
-         * @param approverChosenMulti
-         * @return
-         */
-        public Builder approverChosenMulti(Boolean approverChosenMulti) {
-            this.approverChosenMulti = approverChosenMulti;
-            return this;
-        }
-
-
-        /**
-         * 自选范围
-         * <p> 示例值：
-         *
-         * @param approverChosenRange
-         * @return
-         */
-        public Builder approverChosenRange(ApproverChosenRange[] approverChosenRange) {
-            this.approverChosenRange = approverChosenRange;
-            return this;
-        }
-
-
-        /**
-         * 是否签名
-         * <p> 示例值：false
-         *
-         * @param requireSignature
-         * @return
-         */
-        public Builder requireSignature(Boolean requireSignature) {
-            this.requireSignature = requireSignature;
-            return this;
-        }
-
-
-        public ApprovalNodeInfo build() {
-            return new ApprovalNodeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

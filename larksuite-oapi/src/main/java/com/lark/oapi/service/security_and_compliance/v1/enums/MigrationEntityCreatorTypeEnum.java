@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 创建者的类型
- */
+/** 创建者的类型 */
 public enum MigrationEntityCreatorTypeEnum {
-    USER("user"), // 用户
-    APP("app"), // 应用
-    ;
-    private String value;
+  USER("user"), // 用户
+  APP("app"), // 应用
+  ;
+  private String value;
 
-    MigrationEntityCreatorTypeEnum(String value) {
-        this.value = value;
-    }
+  MigrationEntityCreatorTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

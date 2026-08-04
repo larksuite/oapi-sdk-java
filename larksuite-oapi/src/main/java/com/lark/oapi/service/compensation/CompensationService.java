@@ -18,20 +18,21 @@ import com.lark.oapi.service.compensation.v1.V1;
 import com.lark.oapi.service.compensation.v1.model.*;
 
 public class CompensationService {
-    private final V1 v1;
+  private final V1 v1;
 
-    public CompensationService(Config config) {
-        this.v1 = new V1(config);
-    }
+  public CompensationService(Config config) {
+    this.v1 = new V1(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public abstract static class P2ArchiveChangedV1Handler implements IEventHandler<P2ArchiveChangedV1> {
-        @Override
-        public P2ArchiveChangedV1 getEvent() {
-            return new P2ArchiveChangedV1();
-        }
+  public abstract static class P2ArchiveChangedV1Handler
+      implements IEventHandler<P2ArchiveChangedV1> {
+    @Override
+    public P2ArchiveChangedV1 getEvent() {
+      return new P2ArchiveChangedV1();
     }
+  }
 }

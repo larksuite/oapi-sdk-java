@@ -13,149 +13,159 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class UnsubscriptionCalendarEventReq {
+  /**
+   * 应用身份下指定操作用户的日历日程数据
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @Query
+  @SerializedName("op_user_id")
+  private String opUserId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getOpUserId() {
+    return this.opUserId;
+  }
+
+  public void setOpUserId(String opUserId) {
+    this.opUserId = opUserId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 日历 ID。关于日历 ID 可参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  // builder 开始
+  public UnsubscriptionCalendarEventReq() {}
+
+  public UnsubscriptionCalendarEventReq(Builder builder) {
     /**
      * 应用身份下指定操作用户的日历日程数据
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @Query
-    @SerializedName("op_user_id")
-    private String opUserId;
+    this.opUserId = builder.opUserId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
+  }
 
-    // builder 开始
-    public UnsubscriptionCalendarEventReq() {
+  public static class Builder {
+    private String opUserId; // 应用身份下指定操作用户的日历日程数据
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 应用身份下指定操作用户的日历日程数据
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param opUserId
+     * @return
+     */
+    public Builder opUserId(String opUserId) {
+      this.opUserId = opUserId;
+      return this;
     }
 
-    public UnsubscriptionCalendarEventReq(Builder builder) {
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.opUserId = builder.opUserId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.UnsubscriptionCalendarEventUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.UnsubscriptionCalendarEventUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getOpUserId() {
-        return this.opUserId;
+    private String calendarId; // 日历 ID。关于日历 ID 可参见[日历 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+
+    /**
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public void setOpUserId(String opUserId) {
-        this.opUserId = opUserId;
+    public UnsubscriptionCalendarEventReq build() {
+      return new UnsubscriptionCalendarEventReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public static class Builder {
-        private String opUserId; // 应用身份下指定操作用户的日历日程数据
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param opUserId
-         * @return
-         */
-        public Builder opUserId(String opUserId) {
-            this.opUserId = opUserId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.UnsubscriptionCalendarEventUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UnsubscriptionCalendarEventUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        public UnsubscriptionCalendarEventReq build() {
-            return new UnsubscriptionCalendarEventReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

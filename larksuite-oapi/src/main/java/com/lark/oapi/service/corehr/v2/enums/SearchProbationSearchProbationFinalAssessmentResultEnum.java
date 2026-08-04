@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 试用期最终考核结果
- */
+/** 试用期最终考核结果（需要启用考核功能，首次开启使用需要咨询客户成功经理开启apaas功能） */
 public enum SearchProbationSearchProbationFinalAssessmentResultEnum {
-    APPROVED("approved"), // 通过
-    REJECTED("rejected"), // 不通过
-    ;
-    private String value;
+  APPROVED("approved"), // 通过
+  REJECTED("rejected"), // 不通过
+  ;
+  private String value;
 
-    SearchProbationSearchProbationFinalAssessmentResultEnum(String value) {
-        this.value = value;
-    }
+  SearchProbationSearchProbationFinalAssessmentResultEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

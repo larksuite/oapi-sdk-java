@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class UpdateTicketReq {
+  /**
+   * 工单ID
+   *
+   * <p>示例值：6945345902185807891
+   */
+  @Path
+  @SerializedName("ticket_id")
+  private String ticketId;
+
+  public String getTicketId() {
+    return this.ticketId;
+  }
+
+  public void setTicketId(String ticketId) {
+    this.ticketId = ticketId;
+  }
+
+  @Body private UpdateTicketReqBody body;
+
+  public UpdateTicketReqBody getUpdateTicketReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateTicketReqBody(UpdateTicketReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateTicketReq() {}
+
+  public UpdateTicketReq(Builder builder) {
     /**
      * 工单ID
-     * <p> 示例值：6945345902185807891
+     *
+     * <p>示例值：6945345902185807891
      */
-    @Path
-    @SerializedName("ticket_id")
-    private String ticketId;
-    @Body
+    this.ticketId = builder.ticketId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String ticketId; // 工单ID
+
+    /**
+     * 工单ID
+     *
+     * <p>示例值：6945345902185807891
+     *
+     * @param ticketId
+     * @return
+     */
+    public Builder ticketId(String ticketId) {
+      this.ticketId = ticketId;
+      return this;
+    }
+
     private UpdateTicketReqBody body;
 
-    // builder 开始
-    public UpdateTicketReq() {
-    }
-
-    public UpdateTicketReq(Builder builder) {
-        /**
-         * 工单ID
-         * <p> 示例值：6945345902185807891
-         */
-        this.ticketId = builder.ticketId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTicketId() {
-        return this.ticketId;
-    }
-
-    public void setTicketId(String ticketId) {
-        this.ticketId = ticketId;
-    }
-
     public UpdateTicketReqBody getUpdateTicketReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateTicketReqBody(UpdateTicketReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateTicketReqBody(UpdateTicketReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String ticketId; // 工单ID
-        private UpdateTicketReqBody body;
-
-        /**
-         * 工单ID
-         * <p> 示例值：6945345902185807891
-         *
-         * @param ticketId
-         * @return
-         */
-        public Builder ticketId(String ticketId) {
-            this.ticketId = ticketId;
-            return this;
-        }
-
-        public UpdateTicketReqBody getUpdateTicketReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateTicketReqBody(UpdateTicketReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateTicketReq build() {
-            return new UpdateTicketReq(this);
-        }
+    public UpdateTicketReq build() {
+      return new UpdateTicketReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

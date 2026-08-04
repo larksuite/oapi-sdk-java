@@ -13,146 +13,150 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmitOffboardingRespBody {
-    /**
-     * 离职记录 id
-     * <p> 示例值：7095671727698478604
-     */
-    @SerializedName("offboarding_id")
-    private String offboardingId;
-    /**
-     * 雇员 id
-     * <p> 示例值：6982509313466189342
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 离职原因
-     * <p> 示例值：reason_for_offboarding_option8
-     */
-    @SerializedName("offboarding_reason_unique_identifier")
-    private String offboardingReasonUniqueIdentifier;
-    /**
-     * 离职日期
-     * <p> 示例值：2022-05-18
-     */
-    @SerializedName("offboarding_date")
-    private String offboardingDate;
-    /**
-     * 离职原因说明
-     * <p> 示例值：离职原因说明
-     */
-    @SerializedName("offboarding_reason_explanation")
-    private String offboardingReasonExplanation;
-    /**
-     * 是否加入离职屏蔽名单
-     * <p> 示例值：false
-     */
-    @SerializedName("add_block_list")
-    private Boolean addBlockList;
-    /**
-     * 屏蔽原因
-     * <p> 示例值：红线
-     */
-    @SerializedName("block_reason")
-    private String blockReason;
-    /**
-     * 屏蔽原因说明
-     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-     */
-    @SerializedName("block_reason_explanation")
-    private String blockReasonExplanation;
-    /**
-     * 创建时间
-     * <p> 示例值：2022-05-09 17:50:17
-     */
-    @SerializedName("created_time")
-    private String createdTime;
+  /**
+   * 离职记录 id
+   *
+   * <p>示例值：7095671727698478604
+   */
+  @SerializedName("offboarding_id")
+  private String offboardingId;
 
-    public String getOffboardingId() {
-        return this.offboardingId;
-    }
+  /**
+   * 雇员 id
+   *
+   * <p>示例值：6982509313466189342
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setOffboardingId(String offboardingId) {
-        this.offboardingId = offboardingId;
-    }
+  /**
+   * 离职原因，可通过接口;[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取
+   *
+   * <p>示例值：reason_for_offboarding_option8
+   */
+  @SerializedName("offboarding_reason_unique_identifier")
+  private String offboardingReasonUniqueIdentifier;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 离职日期
+   *
+   * <p>示例值：2022-05-18
+   */
+  @SerializedName("offboarding_date")
+  private String offboardingDate;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 离职原因说明
+   *
+   * <p>示例值：离职原因说明
+   */
+  @SerializedName("offboarding_reason_explanation")
+  private String offboardingReasonExplanation;
 
-    public String getOffboardingReasonUniqueIdentifier() {
-        return this.offboardingReasonUniqueIdentifier;
-    }
+  /**
+   * 是否加入离职屏蔽名单
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("add_block_list")
+  private Boolean addBlockList;
 
-    public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-        this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-    }
+  /**
+   * 屏蔽原因
+   *
+   * <p>示例值：红线
+   */
+  @SerializedName("block_reason")
+  private String blockReason;
 
-    public String getOffboardingDate() {
-        return this.offboardingDate;
-    }
+  /**
+   * 屏蔽原因说明
+   *
+   * <p>示例值：xx 年 xx 月 xx 日因 xx 原因红线
+   */
+  @SerializedName("block_reason_explanation")
+  private String blockReasonExplanation;
 
-    public void setOffboardingDate(String offboardingDate) {
-        this.offboardingDate = offboardingDate;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：2022-05-09 17:50:17
+   */
+  @SerializedName("created_time")
+  private String createdTime;
 
-    public String getOffboardingReasonExplanation() {
-        return this.offboardingReasonExplanation;
-    }
+  public String getOffboardingId() {
+    return this.offboardingId;
+  }
 
-    public void setOffboardingReasonExplanation(String offboardingReasonExplanation) {
-        this.offboardingReasonExplanation = offboardingReasonExplanation;
-    }
+  public void setOffboardingId(String offboardingId) {
+    this.offboardingId = offboardingId;
+  }
 
-    public Boolean getAddBlockList() {
-        return this.addBlockList;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setAddBlockList(Boolean addBlockList) {
-        this.addBlockList = addBlockList;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public String getBlockReason() {
-        return this.blockReason;
-    }
+  public String getOffboardingReasonUniqueIdentifier() {
+    return this.offboardingReasonUniqueIdentifier;
+  }
 
-    public void setBlockReason(String blockReason) {
-        this.blockReason = blockReason;
-    }
+  public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
+    this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+  }
 
-    public String getBlockReasonExplanation() {
-        return this.blockReasonExplanation;
-    }
+  public String getOffboardingDate() {
+    return this.offboardingDate;
+  }
 
-    public void setBlockReasonExplanation(String blockReasonExplanation) {
-        this.blockReasonExplanation = blockReasonExplanation;
-    }
+  public void setOffboardingDate(String offboardingDate) {
+    this.offboardingDate = offboardingDate;
+  }
 
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
+  public String getOffboardingReasonExplanation() {
+    return this.offboardingReasonExplanation;
+  }
 
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
+  public void setOffboardingReasonExplanation(String offboardingReasonExplanation) {
+    this.offboardingReasonExplanation = offboardingReasonExplanation;
+  }
 
+  public Boolean getAddBlockList() {
+    return this.addBlockList;
+  }
+
+  public void setAddBlockList(Boolean addBlockList) {
+    this.addBlockList = addBlockList;
+  }
+
+  public String getBlockReason() {
+    return this.blockReason;
+  }
+
+  public void setBlockReason(String blockReason) {
+    this.blockReason = blockReason;
+  }
+
+  public String getBlockReasonExplanation() {
+    return this.blockReasonExplanation;
+  }
+
+  public void setBlockReasonExplanation(String blockReasonExplanation) {
+    this.blockReasonExplanation = blockReasonExplanation;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
 }

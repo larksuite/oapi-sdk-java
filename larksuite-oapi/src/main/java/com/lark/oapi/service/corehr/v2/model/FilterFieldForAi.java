@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterFieldForAi {
+  /**
+   * 接口名称
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 筛选条件选项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private PreHireField[] options;
+
+  /**
+   * 选项列表来源
+   *
+   * <p>示例值：local
+   */
+  @SerializedName("option_src")
+  private String optionSrc;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public PreHireField[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(PreHireField[] options) {
+    this.options = options;
+  }
+
+  public String getOptionSrc() {
+    return this.optionSrc;
+  }
+
+  public void setOptionSrc(String optionSrc) {
+    this.optionSrc = optionSrc;
+  }
+
+  // builder 开始
+  public FilterFieldForAi() {}
+
+  public FilterFieldForAi(Builder builder) {
     /**
      * 接口名称
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 筛选条件选项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private PreHireField[] options;
+    this.options = builder.options;
     /**
      * 选项列表来源
-     * <p> 示例值：local
+     *
+     * <p>示例值：local
      */
-    @SerializedName("option_src")
+    this.optionSrc = builder.optionSrc;
+  }
+
+  public static class Builder {
+    /**
+     * 接口名称
+     *
+     * <p>示例值：example
+     */
+    private String apiName;
+
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 筛选条件选项列表
+     *
+     * <p>示例值：
+     */
+    private PreHireField[] options;
+
+    /**
+     * 选项列表来源
+     *
+     * <p>示例值：local
+     */
     private String optionSrc;
 
-    // builder 开始
-    public FilterFieldForAi() {
+    /**
+     * 接口名称
+     *
+     * <p>示例值：example
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public FilterFieldForAi(Builder builder) {
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 筛选条件选项列表
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 选项列表来源
-         * <p> 示例值：local
-         */
-        this.optionSrc = builder.optionSrc;
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选条件选项列表
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(PreHireField[] options) {
+      this.options = options;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 选项列表来源
+     *
+     * <p>示例值：local
+     *
+     * @param optionSrc
+     * @return
+     */
+    public Builder optionSrc(String optionSrc) {
+      this.optionSrc = optionSrc;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public FilterFieldForAi build() {
+      return new FilterFieldForAi(this);
     }
+  }
 
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public PreHireField[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(PreHireField[] options) {
-        this.options = options;
-    }
-
-    public String getOptionSrc() {
-        return this.optionSrc;
-    }
-
-    public void setOptionSrc(String optionSrc) {
-        this.optionSrc = optionSrc;
-    }
-
-    public static class Builder {
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         */
-        private String apiName;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 筛选条件选项列表
-         * <p> 示例值：
-         */
-        private PreHireField[] options;
-        /**
-         * 选项列表来源
-         * <p> 示例值：local
-         */
-        private String optionSrc;
-
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件选项列表
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(PreHireField[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 选项列表来源
-         * <p> 示例值：local
-         *
-         * @param optionSrc
-         * @return
-         */
-        public Builder optionSrc(String optionSrc) {
-            this.optionSrc = optionSrc;
-            return this;
-        }
-
-
-        public FilterFieldForAi build() {
-            return new FilterFieldForAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

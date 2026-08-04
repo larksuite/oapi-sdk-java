@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationDepartmentId {
+  /**
+   * 部门ID
+   *
+   * <p>示例值：902c7141
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门open ID
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  // builder 开始
+  public CollaborationDepartmentId() {}
+
+  public CollaborationDepartmentId(Builder builder) {
     /**
      * 部门ID
-     * <p> 示例值：902c7141
+     *
+     * <p>示例值：902c7141
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 部门open ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_department_id")
+    this.openDepartmentId = builder.openDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：902c7141
+     */
+    private String departmentId;
+
+    /**
+     * 部门open ID
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     private String openDepartmentId;
 
-    // builder 开始
-    public CollaborationDepartmentId() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：902c7141
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public CollaborationDepartmentId(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：902c7141
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openDepartmentId = builder.openDepartmentId;
+    /**
+     * 部门open ID
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CollaborationDepartmentId build() {
+      return new CollaborationDepartmentId(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
-    }
-
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：902c7141
-         */
-        private String departmentId;
-        /**
-         * 部门open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openDepartmentId;
-
-        /**
-         * 部门ID
-         * <p> 示例值：902c7141
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        public CollaborationDepartmentId build() {
-            return new CollaborationDepartmentId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

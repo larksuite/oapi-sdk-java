@@ -13,220 +13,233 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewDataPermission {
+  /**
+   * 评估人 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private User userId;
+
+  /**
+   * 绩效评估周期 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 绩效评估项目 ID，详细信息请参考获取项目配置
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("review_template_id")
+  private String reviewTemplateId;
+
+  /**
+   * 本周期内各环节内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stages")
+  private ReviewDataPermissionStage[] stages;
+
+  public User getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(User userId) {
+    this.userId = userId;
+  }
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public String getReviewTemplateId() {
+    return this.reviewTemplateId;
+  }
+
+  public void setReviewTemplateId(String reviewTemplateId) {
+    this.reviewTemplateId = reviewTemplateId;
+  }
+
+  public ReviewDataPermissionStage[] getStages() {
+    return this.stages;
+  }
+
+  public void setStages(ReviewDataPermissionStage[] stages) {
+    this.stages = stages;
+  }
+
+  // builder 开始
+  public ReviewDataPermission() {}
+
+  public ReviewDataPermission(Builder builder) {
     /**
-     * <p> 示例值：
+     * 评估人 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private User userId;
+    this.userId = builder.userId;
     /**
      * 绩效评估周期 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("semester_id")
-    private String semesterId;
+    this.semesterId = builder.semesterId;
     /**
      * 绩效评估项目 ID，详细信息请参考获取项目配置
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("review_template_id")
-    private String reviewTemplateId;
+    this.reviewTemplateId = builder.reviewTemplateId;
     /**
      * 本周期内各环节内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stages")
+    this.stages = builder.stages;
+  }
+
+  public static class Builder {
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     */
+    private User userId;
+
+    /**
+     * 绩效评估周期 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String semesterId;
+
+    /**
+     * 绩效评估项目 ID，详细信息请参考获取项目配置
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String activityId;
+
+    /**
+     * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String reviewTemplateId;
+
+    /**
+     * 本周期内各环节内容
+     *
+     * <p>示例值：
+     */
     private ReviewDataPermissionStage[] stages;
 
-    // builder 开始
-    public ReviewDataPermission() {
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(User userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ReviewDataPermission(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 绩效评估项目 ID，详细信息请参考获取项目配置
-         * <p> 示例值：7343513161666707459
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
-         * <p> 示例值：7343513161666707459
-         */
-        this.reviewTemplateId = builder.reviewTemplateId;
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         */
-        this.stages = builder.stages;
+    /**
+     * 绩效评估周期 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 绩效评估项目 ID，详细信息请参考获取项目配置
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public User getUserId() {
-        return this.userId;
+    /**
+     * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param reviewTemplateId
+     * @return
+     */
+    public Builder reviewTemplateId(String reviewTemplateId) {
+      this.reviewTemplateId = reviewTemplateId;
+      return this;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    /**
+     * 本周期内各环节内容
+     *
+     * <p>示例值：
+     *
+     * @param stages
+     * @return
+     */
+    public Builder stages(ReviewDataPermissionStage[] stages) {
+      this.stages = stages;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    public ReviewDataPermission build() {
+      return new ReviewDataPermission(this);
     }
+  }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public String getActivityId() {
-        return this.activityId;
-    }
-
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
-    public String getReviewTemplateId() {
-        return this.reviewTemplateId;
-    }
-
-    public void setReviewTemplateId(String reviewTemplateId) {
-        this.reviewTemplateId = reviewTemplateId;
-    }
-
-    public ReviewDataPermissionStage[] getStages() {
-        return this.stages;
-    }
-
-    public void setStages(ReviewDataPermissionStage[] stages) {
-        this.stages = stages;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private User userId;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String semesterId;
-        /**
-         * 绩效评估项目 ID，详细信息请参考获取项目配置
-         * <p> 示例值：7343513161666707459
-         */
-        private String activityId;
-        /**
-         * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
-         * <p> 示例值：7343513161666707459
-         */
-        private String reviewTemplateId;
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         */
-        private ReviewDataPermissionStage[] stages;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(User userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估项目 ID，详细信息请参考获取项目配置
-         * <p> 示例值：7343513161666707459
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 被评估人在该周期对应的后台评估模板 ID，详细信息请参考获取评估模版配置
-         * <p> 示例值：7343513161666707459
-         *
-         * @param reviewTemplateId
-         * @return
-         */
-        public Builder reviewTemplateId(String reviewTemplateId) {
-            this.reviewTemplateId = reviewTemplateId;
-            return this;
-        }
-
-
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         *
-         * @param stages
-         * @return
-         */
-        public Builder stages(ReviewDataPermissionStage[] stages) {
-            this.stages = stages;
-            return this;
-        }
-
-
-        public ReviewDataPermission build() {
-            return new ReviewDataPermission(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

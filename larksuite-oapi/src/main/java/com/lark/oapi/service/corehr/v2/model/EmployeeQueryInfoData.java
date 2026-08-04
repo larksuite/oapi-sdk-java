@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeQueryInfoData {
+  /**
+   * 对象数据
+   *
+   * <p>示例值：{emp:xxx}
+   */
+  @SerializedName("entity_str_map")
+  private String entityStrMap;
+
+  /**
+   * 行权限
+   *
+   * <p>示例值：{emp:[1,2]}
+   */
+  @SerializedName("row_permission_deny_map")
+  private String rowPermissionDenyMap;
+
+  /**
+   * 列权限
+   *
+   * <p>示例值：{1:{emp:{work_location, onboarding_location]}}
+   */
+  @SerializedName("col_permission_deny_map")
+  private String colPermissionDenyMap;
+
+  public String getEntityStrMap() {
+    return this.entityStrMap;
+  }
+
+  public void setEntityStrMap(String entityStrMap) {
+    this.entityStrMap = entityStrMap;
+  }
+
+  public String getRowPermissionDenyMap() {
+    return this.rowPermissionDenyMap;
+  }
+
+  public void setRowPermissionDenyMap(String rowPermissionDenyMap) {
+    this.rowPermissionDenyMap = rowPermissionDenyMap;
+  }
+
+  public String getColPermissionDenyMap() {
+    return this.colPermissionDenyMap;
+  }
+
+  public void setColPermissionDenyMap(String colPermissionDenyMap) {
+    this.colPermissionDenyMap = colPermissionDenyMap;
+  }
+
+  // builder 开始
+  public EmployeeQueryInfoData() {}
+
+  public EmployeeQueryInfoData(Builder builder) {
     /**
      * 对象数据
-     * <p> 示例值：{emp:xxx}
+     *
+     * <p>示例值：{emp:xxx}
      */
-    @SerializedName("entity_str_map")
-    private String entityStrMap;
+    this.entityStrMap = builder.entityStrMap;
     /**
      * 行权限
-     * <p> 示例值：{emp:[1,2]}
+     *
+     * <p>示例值：{emp:[1,2]}
      */
-    @SerializedName("row_permission_deny_map")
-    private String rowPermissionDenyMap;
+    this.rowPermissionDenyMap = builder.rowPermissionDenyMap;
     /**
      * 列权限
-     * <p> 示例值：{1:{emp:{work_location, onboarding_location]}}
+     *
+     * <p>示例值：{1:{emp:{work_location, onboarding_location]}}
      */
-    @SerializedName("col_permission_deny_map")
+    this.colPermissionDenyMap = builder.colPermissionDenyMap;
+  }
+
+  public static class Builder {
+    /**
+     * 对象数据
+     *
+     * <p>示例值：{emp:xxx}
+     */
+    private String entityStrMap;
+
+    /**
+     * 行权限
+     *
+     * <p>示例值：{emp:[1,2]}
+     */
+    private String rowPermissionDenyMap;
+
+    /**
+     * 列权限
+     *
+     * <p>示例值：{1:{emp:{work_location, onboarding_location]}}
+     */
     private String colPermissionDenyMap;
 
-    // builder 开始
-    public EmployeeQueryInfoData() {
+    /**
+     * 对象数据
+     *
+     * <p>示例值：{emp:xxx}
+     *
+     * @param entityStrMap
+     * @return
+     */
+    public Builder entityStrMap(String entityStrMap) {
+      this.entityStrMap = entityStrMap;
+      return this;
     }
 
-    public EmployeeQueryInfoData(Builder builder) {
-        /**
-         * 对象数据
-         * <p> 示例值：{emp:xxx}
-         */
-        this.entityStrMap = builder.entityStrMap;
-        /**
-         * 行权限
-         * <p> 示例值：{emp:[1,2]}
-         */
-        this.rowPermissionDenyMap = builder.rowPermissionDenyMap;
-        /**
-         * 列权限
-         * <p> 示例值：{1:{emp:{work_location, onboarding_location]}}
-         */
-        this.colPermissionDenyMap = builder.colPermissionDenyMap;
+    /**
+     * 行权限
+     *
+     * <p>示例值：{emp:[1,2]}
+     *
+     * @param rowPermissionDenyMap
+     * @return
+     */
+    public Builder rowPermissionDenyMap(String rowPermissionDenyMap) {
+      this.rowPermissionDenyMap = rowPermissionDenyMap;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 列权限
+     *
+     * <p>示例值：{1:{emp:{work_location, onboarding_location]}}
+     *
+     * @param colPermissionDenyMap
+     * @return
+     */
+    public Builder colPermissionDenyMap(String colPermissionDenyMap) {
+      this.colPermissionDenyMap = colPermissionDenyMap;
+      return this;
     }
 
-    public String getEntityStrMap() {
-        return this.entityStrMap;
+    public EmployeeQueryInfoData build() {
+      return new EmployeeQueryInfoData(this);
     }
+  }
 
-    public void setEntityStrMap(String entityStrMap) {
-        this.entityStrMap = entityStrMap;
-    }
-
-    public String getRowPermissionDenyMap() {
-        return this.rowPermissionDenyMap;
-    }
-
-    public void setRowPermissionDenyMap(String rowPermissionDenyMap) {
-        this.rowPermissionDenyMap = rowPermissionDenyMap;
-    }
-
-    public String getColPermissionDenyMap() {
-        return this.colPermissionDenyMap;
-    }
-
-    public void setColPermissionDenyMap(String colPermissionDenyMap) {
-        this.colPermissionDenyMap = colPermissionDenyMap;
-    }
-
-    public static class Builder {
-        /**
-         * 对象数据
-         * <p> 示例值：{emp:xxx}
-         */
-        private String entityStrMap;
-        /**
-         * 行权限
-         * <p> 示例值：{emp:[1,2]}
-         */
-        private String rowPermissionDenyMap;
-        /**
-         * 列权限
-         * <p> 示例值：{1:{emp:{work_location, onboarding_location]}}
-         */
-        private String colPermissionDenyMap;
-
-        /**
-         * 对象数据
-         * <p> 示例值：{emp:xxx}
-         *
-         * @param entityStrMap
-         * @return
-         */
-        public Builder entityStrMap(String entityStrMap) {
-            this.entityStrMap = entityStrMap;
-            return this;
-        }
-
-
-        /**
-         * 行权限
-         * <p> 示例值：{emp:[1,2]}
-         *
-         * @param rowPermissionDenyMap
-         * @return
-         */
-        public Builder rowPermissionDenyMap(String rowPermissionDenyMap) {
-            this.rowPermissionDenyMap = rowPermissionDenyMap;
-            return this;
-        }
-
-
-        /**
-         * 列权限
-         * <p> 示例值：{1:{emp:{work_location, onboarding_location]}}
-         *
-         * @param colPermissionDenyMap
-         * @return
-         */
-        public Builder colPermissionDenyMap(String colPermissionDenyMap) {
-            this.colPermissionDenyMap = colPermissionDenyMap;
-            return this;
-        }
-
-
-        public EmployeeQueryInfoData build() {
-            return new EmployeeQueryInfoData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

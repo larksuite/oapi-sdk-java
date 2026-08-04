@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class District {
+  /**
+   * 区域的唯一标识
+   *
+   * <p>示例值：2038349
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：Beijing
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 层级
+   *
+   * <p>示例值：Province
+   */
+  @SerializedName("level")
+  private String level;
+
+  /**
+   * 是否有子区域
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_sub_district")
+  private Boolean hasSubDistrict;
+
+  /**
+   * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_districts")
+  private DistrictBaseInfo[] parentDistricts;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  public Boolean getHasSubDistrict() {
+    return this.hasSubDistrict;
+  }
+
+  public void setHasSubDistrict(Boolean hasSubDistrict) {
+    this.hasSubDistrict = hasSubDistrict;
+  }
+
+  public DistrictBaseInfo[] getParentDistricts() {
+    return this.parentDistricts;
+  }
+
+  public void setParentDistricts(DistrictBaseInfo[] parentDistricts) {
+    this.parentDistricts = parentDistricts;
+  }
+
+  // builder 开始
+  public District() {}
+
+  public District(Builder builder) {
     /**
      * 区域的唯一标识
-     * <p> 示例值：2038349
+     *
+     * <p>示例值：2038349
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：Beijing
+     *
+     * <p>示例值：Beijing
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 层级
-     * <p> 示例值：Province
+     *
+     * <p>示例值：Province
      */
-    @SerializedName("level")
-    private String level;
+    this.level = builder.level;
     /**
      * 是否有子区域
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("has_sub_district")
-    private Boolean hasSubDistrict;
+    this.hasSubDistrict = builder.hasSubDistrict;
     /**
      * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_districts")
+    this.parentDistricts = builder.parentDistricts;
+  }
+
+  public static class Builder {
+    /**
+     * 区域的唯一标识
+     *
+     * <p>示例值：2038349
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：Beijing
+     */
+    private String name;
+
+    /**
+     * 层级
+     *
+     * <p>示例值：Province
+     */
+    private String level;
+
+    /**
+     * 是否有子区域
+     *
+     * <p>示例值：false
+     */
+    private Boolean hasSubDistrict;
+
+    /**
+     * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
+     *
+     * <p>示例值：
+     */
     private DistrictBaseInfo[] parentDistricts;
 
-    // builder 开始
-    public District() {
+    /**
+     * 区域的唯一标识
+     *
+     * <p>示例值：2038349
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public District(Builder builder) {
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：2038349
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：Beijing
-         */
-        this.name = builder.name;
-        /**
-         * 层级
-         * <p> 示例值：Province
-         */
-        this.level = builder.level;
-        /**
-         * 是否有子区域
-         * <p> 示例值：false
-         */
-        this.hasSubDistrict = builder.hasSubDistrict;
-        /**
-         * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
-         * <p> 示例值：
-         */
-        this.parentDistricts = builder.parentDistricts;
+    /**
+     * 名称
+     *
+     * <p>示例值：Beijing
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 层级
+     *
+     * <p>示例值：Province
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(String level) {
+      this.level = level;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否有子区域
+     *
+     * <p>示例值：false
+     *
+     * @param hasSubDistrict
+     * @return
+     */
+    public Builder hasSubDistrict(Boolean hasSubDistrict) {
+      this.hasSubDistrict = hasSubDistrict;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
+     *
+     * <p>示例值：
+     *
+     * @param parentDistricts
+     * @return
+     */
+    public Builder parentDistricts(DistrictBaseInfo[] parentDistricts) {
+      this.parentDistricts = parentDistricts;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public District build() {
+      return new District(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public Boolean getHasSubDistrict() {
-        return this.hasSubDistrict;
-    }
-
-    public void setHasSubDistrict(Boolean hasSubDistrict) {
-        this.hasSubDistrict = hasSubDistrict;
-    }
-
-    public DistrictBaseInfo[] getParentDistricts() {
-        return this.parentDistricts;
-    }
-
-    public void setParentDistricts(DistrictBaseInfo[] parentDistricts) {
-        this.parentDistricts = parentDistricts;
-    }
-
-    public static class Builder {
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：2038349
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：Beijing
-         */
-        private String name;
-        /**
-         * 层级
-         * <p> 示例值：Province
-         */
-        private String level;
-        /**
-         * 是否有子区域
-         * <p> 示例值：false
-         */
-        private Boolean hasSubDistrict;
-        /**
-         * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
-         * <p> 示例值：
-         */
-        private DistrictBaseInfo[] parentDistricts;
-
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：2038349
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：Beijing
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 层级
-         * <p> 示例值：Province
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(String level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 是否有子区域
-         * <p> 示例值：false
-         *
-         * @param hasSubDistrict
-         * @return
-         */
-        public Builder hasSubDistrict(Boolean hasSubDistrict) {
-            this.hasSubDistrict = hasSubDistrict;
-            return this;
-        }
-
-
-        /**
-         * 父区域列表，顺序由叶子节点到根节点，不包含叶子节点本身，仅遍历方式为leaf_level时返回
-         * <p> 示例值：
-         *
-         * @param parentDistricts
-         * @return
-         */
-        public Builder parentDistricts(DistrictBaseInfo[] parentDistricts) {
-            this.parentDistricts = parentDistricts;
-            return this;
-        }
-
-
-        public District build() {
-            return new District(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

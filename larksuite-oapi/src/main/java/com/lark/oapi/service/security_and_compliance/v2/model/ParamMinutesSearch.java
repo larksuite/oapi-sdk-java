@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMinutesSearch {
+  /**
+   * 过滤所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * 创建时间晚于(包含); 时间格式: RFC3339
+   *
+   * <p>示例值：2022-10-01T00:00:00+08:00
+   */
+  @SerializedName("start_time_gte")
+  private String startTimeGte;
+
+  /**
+   * 创建时间早于(不包含); 时间格式: RFC3339
+   *
+   * <p>示例值：2022-10-01T00:00:00+08:00
+   */
+  @SerializedName("start_time_lt")
+  private String startTimeLt;
+
+  /**
+   * 更新时间晚于(包含); 时间格式: RFC3339
+   *
+   * <p>示例值：2022-10-01T00:00:00+08:00
+   */
+  @SerializedName("update_time_gte")
+  private String updateTimeGte;
+
+  /**
+   * 更新时间早于(不包含); 时间格式: RFC3339
+   *
+   * <p>示例值：2022-10-01T00:00:00+08:00
+   */
+  @SerializedName("update_time_lt")
+  private String updateTimeLt;
+
+  /**
+   * 过滤参会者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_ids")
+  private String[] participantIds;
+
+  /**
+   * 搜索语句
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("query")
+  private String query;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public String getStartTimeGte() {
+    return this.startTimeGte;
+  }
+
+  public void setStartTimeGte(String startTimeGte) {
+    this.startTimeGte = startTimeGte;
+  }
+
+  public String getStartTimeLt() {
+    return this.startTimeLt;
+  }
+
+  public void setStartTimeLt(String startTimeLt) {
+    this.startTimeLt = startTimeLt;
+  }
+
+  public String getUpdateTimeGte() {
+    return this.updateTimeGte;
+  }
+
+  public void setUpdateTimeGte(String updateTimeGte) {
+    this.updateTimeGte = updateTimeGte;
+  }
+
+  public String getUpdateTimeLt() {
+    return this.updateTimeLt;
+  }
+
+  public void setUpdateTimeLt(String updateTimeLt) {
+    this.updateTimeLt = updateTimeLt;
+  }
+
+  public String[] getParticipantIds() {
+    return this.participantIds;
+  }
+
+  public void setParticipantIds(String[] participantIds) {
+    this.participantIds = participantIds;
+  }
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  // builder 开始
+  public ParamMinutesSearch() {}
+
+  public ParamMinutesSearch(Builder builder) {
     /**
      * 过滤所有者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
-    private String[] ownerIds;
+    this.ownerIds = builder.ownerIds;
     /**
      * 创建时间晚于(包含); 时间格式: RFC3339
-     * <p> 示例值：2022-10-01T00:00:00+08:00
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
      */
-    @SerializedName("start_time_gte")
-    private String startTimeGte;
+    this.startTimeGte = builder.startTimeGte;
     /**
      * 创建时间早于(不包含); 时间格式: RFC3339
-     * <p> 示例值：2022-10-01T00:00:00+08:00
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
      */
-    @SerializedName("start_time_lt")
-    private String startTimeLt;
+    this.startTimeLt = builder.startTimeLt;
     /**
      * 更新时间晚于(包含); 时间格式: RFC3339
-     * <p> 示例值：2022-10-01T00:00:00+08:00
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
      */
-    @SerializedName("update_time_gte")
-    private String updateTimeGte;
+    this.updateTimeGte = builder.updateTimeGte;
     /**
      * 更新时间早于(不包含); 时间格式: RFC3339
-     * <p> 示例值：2022-10-01T00:00:00+08:00
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
      */
-    @SerializedName("update_time_lt")
-    private String updateTimeLt;
+    this.updateTimeLt = builder.updateTimeLt;
     /**
      * 过滤参会者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant_ids")
-    private String[] participantIds;
+    this.participantIds = builder.participantIds;
     /**
      * 搜索语句
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("query")
+    this.query = builder.query;
+  }
+
+  public static class Builder {
+    /**
+     * 过滤所有者
+     *
+     * <p>示例值：
+     */
+    private String[] ownerIds;
+
+    /**
+     * 创建时间晚于(包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     */
+    private String startTimeGte;
+
+    /**
+     * 创建时间早于(不包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     */
+    private String startTimeLt;
+
+    /**
+     * 更新时间晚于(包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     */
+    private String updateTimeGte;
+
+    /**
+     * 更新时间早于(不包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     */
+    private String updateTimeLt;
+
+    /**
+     * 过滤参会者
+     *
+     * <p>示例值：
+     */
+    private String[] participantIds;
+
+    /**
+     * 搜索语句
+     *
+     * <p>示例值：test
+     */
     private String query;
 
-    // builder 开始
-    public ParamMinutesSearch() {
+    /**
+     * 过滤所有者
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public ParamMinutesSearch(Builder builder) {
-        /**
-         * 过滤所有者
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * 创建时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        this.startTimeGte = builder.startTimeGte;
-        /**
-         * 创建时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        this.startTimeLt = builder.startTimeLt;
-        /**
-         * 更新时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        this.updateTimeGte = builder.updateTimeGte;
-        /**
-         * 更新时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        this.updateTimeLt = builder.updateTimeLt;
-        /**
-         * 过滤参会者
-         * <p> 示例值：
-         */
-        this.participantIds = builder.participantIds;
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         */
-        this.query = builder.query;
+    /**
+     * 创建时间晚于(包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     *
+     * @param startTimeGte
+     * @return
+     */
+    public Builder startTimeGte(String startTimeGte) {
+      this.startTimeGte = startTimeGte;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建时间早于(不包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     *
+     * @param startTimeLt
+     * @return
+     */
+    public Builder startTimeLt(String startTimeLt) {
+      this.startTimeLt = startTimeLt;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    /**
+     * 更新时间晚于(包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     *
+     * @param updateTimeGte
+     * @return
+     */
+    public Builder updateTimeGte(String updateTimeGte) {
+      this.updateTimeGte = updateTimeGte;
+      return this;
     }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
+    /**
+     * 更新时间早于(不包含); 时间格式: RFC3339
+     *
+     * <p>示例值：2022-10-01T00:00:00+08:00
+     *
+     * @param updateTimeLt
+     * @return
+     */
+    public Builder updateTimeLt(String updateTimeLt) {
+      this.updateTimeLt = updateTimeLt;
+      return this;
     }
 
-    public String getStartTimeGte() {
-        return this.startTimeGte;
+    /**
+     * 过滤参会者
+     *
+     * <p>示例值：
+     *
+     * @param participantIds
+     * @return
+     */
+    public Builder participantIds(String[] participantIds) {
+      this.participantIds = participantIds;
+      return this;
     }
 
-    public void setStartTimeGte(String startTimeGte) {
-        this.startTimeGte = startTimeGte;
+    /**
+     * 搜索语句
+     *
+     * <p>示例值：test
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public String getStartTimeLt() {
-        return this.startTimeLt;
+    public ParamMinutesSearch build() {
+      return new ParamMinutesSearch(this);
     }
+  }
 
-    public void setStartTimeLt(String startTimeLt) {
-        this.startTimeLt = startTimeLt;
-    }
-
-    public String getUpdateTimeGte() {
-        return this.updateTimeGte;
-    }
-
-    public void setUpdateTimeGte(String updateTimeGte) {
-        this.updateTimeGte = updateTimeGte;
-    }
-
-    public String getUpdateTimeLt() {
-        return this.updateTimeLt;
-    }
-
-    public void setUpdateTimeLt(String updateTimeLt) {
-        this.updateTimeLt = updateTimeLt;
-    }
-
-    public String[] getParticipantIds() {
-        return this.participantIds;
-    }
-
-    public void setParticipantIds(String[] participantIds) {
-        this.participantIds = participantIds;
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public static class Builder {
-        /**
-         * 过滤所有者
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * 创建时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        private String startTimeGte;
-        /**
-         * 创建时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        private String startTimeLt;
-        /**
-         * 更新时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        private String updateTimeGte;
-        /**
-         * 更新时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         */
-        private String updateTimeLt;
-        /**
-         * 过滤参会者
-         * <p> 示例值：
-         */
-        private String[] participantIds;
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         */
-        private String query;
-
-        /**
-         * 过滤所有者
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * 创建时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         *
-         * @param startTimeGte
-         * @return
-         */
-        public Builder startTimeGte(String startTimeGte) {
-            this.startTimeGte = startTimeGte;
-            return this;
-        }
-
-
-        /**
-         * 创建时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         *
-         * @param startTimeLt
-         * @return
-         */
-        public Builder startTimeLt(String startTimeLt) {
-            this.startTimeLt = startTimeLt;
-            return this;
-        }
-
-
-        /**
-         * 更新时间晚于(包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         *
-         * @param updateTimeGte
-         * @return
-         */
-        public Builder updateTimeGte(String updateTimeGte) {
-            this.updateTimeGte = updateTimeGte;
-            return this;
-        }
-
-
-        /**
-         * 更新时间早于(不包含); 时间格式: RFC3339
-         * <p> 示例值：2022-10-01T00:00:00+08:00
-         *
-         * @param updateTimeLt
-         * @return
-         */
-        public Builder updateTimeLt(String updateTimeLt) {
-            this.updateTimeLt = updateTimeLt;
-            return this;
-        }
-
-
-        /**
-         * 过滤参会者
-         * <p> 示例值：
-         *
-         * @param participantIds
-         * @return
-         */
-        public Builder participantIds(String[] participantIds) {
-            this.participantIds = participantIds;
-            return this;
-        }
-
-
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        public ParamMinutesSearch build() {
-            return new ParamMinutesSearch(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

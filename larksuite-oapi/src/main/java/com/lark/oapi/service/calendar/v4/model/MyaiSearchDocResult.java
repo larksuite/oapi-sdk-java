@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyaiSearchDocResult {
+  /**
+   * 返回的文档列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_items")
+  private MyaiDocDetail[] docItems;
+
+  /**
+   * 返回给AI的信息
+   *
+   * <p>示例值：以下是返回的文档内容
+   */
+  @SerializedName("message")
+  private String message;
+
+  public MyaiDocDetail[] getDocItems() {
+    return this.docItems;
+  }
+
+  public void setDocItems(MyaiDocDetail[] docItems) {
+    this.docItems = docItems;
+  }
+
+  public String getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  // builder 开始
+  public MyaiSearchDocResult() {}
+
+  public MyaiSearchDocResult(Builder builder) {
     /**
      * 返回的文档列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_items")
-    private MyaiDocDetail[] docItems;
+    this.docItems = builder.docItems;
     /**
      * 返回给AI的信息
-     * <p> 示例值：以下是返回的文档内容
+     *
+     * <p>示例值：以下是返回的文档内容
      */
-    @SerializedName("message")
+    this.message = builder.message;
+  }
+
+  public static class Builder {
+    /**
+     * 返回的文档列表
+     *
+     * <p>示例值：
+     */
+    private MyaiDocDetail[] docItems;
+
+    /**
+     * 返回给AI的信息
+     *
+     * <p>示例值：以下是返回的文档内容
+     */
     private String message;
 
-    // builder 开始
-    public MyaiSearchDocResult() {
+    /**
+     * 返回的文档列表
+     *
+     * <p>示例值：
+     *
+     * @param docItems
+     * @return
+     */
+    public Builder docItems(MyaiDocDetail[] docItems) {
+      this.docItems = docItems;
+      return this;
     }
 
-    public MyaiSearchDocResult(Builder builder) {
-        /**
-         * 返回的文档列表
-         * <p> 示例值：
-         */
-        this.docItems = builder.docItems;
-        /**
-         * 返回给AI的信息
-         * <p> 示例值：以下是返回的文档内容
-         */
-        this.message = builder.message;
+    /**
+     * 返回给AI的信息
+     *
+     * <p>示例值：以下是返回的文档内容
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(String message) {
+      this.message = message;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyaiSearchDocResult build() {
+      return new MyaiSearchDocResult(this);
     }
+  }
 
-    public MyaiDocDetail[] getDocItems() {
-        return this.docItems;
-    }
-
-    public void setDocItems(MyaiDocDetail[] docItems) {
-        this.docItems = docItems;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public static class Builder {
-        /**
-         * 返回的文档列表
-         * <p> 示例值：
-         */
-        private MyaiDocDetail[] docItems;
-        /**
-         * 返回给AI的信息
-         * <p> 示例值：以下是返回的文档内容
-         */
-        private String message;
-
-        /**
-         * 返回的文档列表
-         * <p> 示例值：
-         *
-         * @param docItems
-         * @return
-         */
-        public Builder docItems(MyaiDocDetail[] docItems) {
-            this.docItems = docItems;
-            return this;
-        }
-
-
-        /**
-         * 返回给AI的信息
-         * <p> 示例值：以下是返回的文档内容
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(String message) {
-            this.message = message;
-            return this;
-        }
-
-
-        public MyaiSearchDocResult build() {
-            return new MyaiSearchDocResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

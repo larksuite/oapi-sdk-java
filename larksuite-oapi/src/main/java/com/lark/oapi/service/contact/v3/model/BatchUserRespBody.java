@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUserRespBody {
-    /**
-     * 查询到的用户信息，其中异常的用户ID不返回结果。
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private User[] items;
+  /**
+   * 查询到的用户信息。;;**说明**：如有不在应用通讯录权限范围内的用户，则不会返回相应的信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private User[] items;
 
-    public User[] getItems() {
-        return this.items;
-    }
+  public User[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(User[] items) {
-        this.items = items;
-    }
-
+  public void setItems(User[] items) {
+    this.items = items;
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySocialArchiveAdjustRecordRespBody {
-    /**
-     * 待增/减员记录
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private SocialArchiveAdjustRecord[] records;
+  /**
+   * 增/减员记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private SocialArchiveAdjustRecord[] records;
 
-    public SocialArchiveAdjustRecord[] getRecords() {
-        return this.records;
-    }
+  public SocialArchiveAdjustRecord[] getRecords() {
+    return this.records;
+  }
 
-    public void setRecords(SocialArchiveAdjustRecord[] records) {
-        this.records = records;
-    }
-
+  public void setRecords(SocialArchiveAdjustRecord[] records) {
+    this.records = records;
+  }
 }

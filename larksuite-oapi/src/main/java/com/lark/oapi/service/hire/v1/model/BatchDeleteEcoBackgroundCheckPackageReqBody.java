@@ -13,148 +13,152 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteEcoBackgroundCheckPackageReqBody {
+  /**
+   * 背调账号
+   * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：6995842370159937061
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  /**
+   * 要删除的套餐 ID 列表。删除套餐不影响已安排的背调
+   *
+   * <p>示例值：
+   */
+  @SerializedName("package_id_list")
+  private String[] packageIdList;
+
+  /**
+   * 要删除的附加调查项 ID 列表。删除附加调查项不影响已安排的背调
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_item_id_list")
+  private String[] additionalItemIdList;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public String[] getPackageIdList() {
+    return this.packageIdList;
+  }
+
+  public void setPackageIdList(String[] packageIdList) {
+    this.packageIdList = packageIdList;
+  }
+
+  public String[] getAdditionalItemIdList() {
+    return this.additionalItemIdList;
+  }
+
+  public void setAdditionalItemIdList(String[] additionalItemIdList) {
+    this.additionalItemIdList = additionalItemIdList;
+  }
+
+  // builder 开始
+  public BatchDeleteEcoBackgroundCheckPackageReqBody() {}
+
+  public BatchDeleteEcoBackgroundCheckPackageReqBody(Builder builder) {
     /**
-     * 背调账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：xd_bc_001
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
      */
-    @SerializedName("account_id")
+    this.accountId = builder.accountId;
+    /**
+     * 要删除的套餐 ID 列表。删除套餐不影响已安排的背调
+     *
+     * <p>示例值：
+     */
+    this.packageIdList = builder.packageIdList;
+    /**
+     * 要删除的附加调查项 ID 列表。删除附加调查项不影响已安排的背调
+     *
+     * <p>示例值：
+     */
+    this.additionalItemIdList = builder.additionalItemIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
+     */
     private String accountId;
+
     /**
-     * 要删除的套餐 ID 列表，删除套餐不影响已安排的背调
-     * <p> 示例值：6996920667635566881
+     * 要删除的套餐 ID 列表。删除套餐不影响已安排的背调
+     *
+     * <p>示例值：
      */
-    @SerializedName("package_id_list")
     private String[] packageIdList;
+
     /**
-     * 要删除的附加调查项 ID 列表，删除附加调查项不影响已安排的背调
-     * <p> 示例值：6996920667635566881
+     * 要删除的附加调查项 ID 列表。删除附加调查项不影响已安排的背调
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_item_id_list")
     private String[] additionalItemIdList;
 
-    // builder 开始
-    public BatchDeleteEcoBackgroundCheckPackageReqBody() {
+    /**
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public BatchDeleteEcoBackgroundCheckPackageReqBody(Builder builder) {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：xd_bc_001
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 要删除的套餐 ID 列表，删除套餐不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         */
-        this.packageIdList = builder.packageIdList;
-        /**
-         * 要删除的附加调查项 ID 列表，删除附加调查项不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         */
-        this.additionalItemIdList = builder.additionalItemIdList;
+    /**
+     * 要删除的套餐 ID 列表。删除套餐不影响已安排的背调
+     *
+     * <p>示例值：
+     *
+     * @param packageIdList
+     * @return
+     */
+    public Builder packageIdList(String[] packageIdList) {
+      this.packageIdList = packageIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 要删除的附加调查项 ID 列表。删除附加调查项不影响已安排的背调
+     *
+     * <p>示例值：
+     *
+     * @param additionalItemIdList
+     * @return
+     */
+    public Builder additionalItemIdList(String[] additionalItemIdList) {
+      this.additionalItemIdList = additionalItemIdList;
+      return this;
     }
 
-    public String getAccountId() {
-        return this.accountId;
+    public BatchDeleteEcoBackgroundCheckPackageReqBody build() {
+      return new BatchDeleteEcoBackgroundCheckPackageReqBody(this);
     }
+  }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String[] getPackageIdList() {
-        return this.packageIdList;
-    }
-
-    public void setPackageIdList(String[] packageIdList) {
-        this.packageIdList = packageIdList;
-    }
-
-    public String[] getAdditionalItemIdList() {
-        return this.additionalItemIdList;
-    }
-
-    public void setAdditionalItemIdList(String[] additionalItemIdList) {
-        this.additionalItemIdList = additionalItemIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：xd_bc_001
-         */
-        private String accountId;
-        /**
-         * 要删除的套餐 ID 列表，删除套餐不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         */
-        private String[] packageIdList;
-        /**
-         * 要删除的附加调查项 ID 列表，删除附加调查项不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         */
-        private String[] additionalItemIdList;
-
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：xd_bc_001
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        /**
-         * 要删除的套餐 ID 列表，删除套餐不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         *
-         * @param packageIdList
-         * @return
-         */
-        public Builder packageIdList(String[] packageIdList) {
-            this.packageIdList = packageIdList;
-            return this;
-        }
-
-
-        /**
-         * 要删除的附加调查项 ID 列表，删除附加调查项不影响已安排的背调
-         * <p> 示例值：6996920667635566881
-         *
-         * @param additionalItemIdList
-         * @return
-         */
-        public Builder additionalItemIdList(String[] additionalItemIdList) {
-            this.additionalItemIdList = additionalItemIdList;
-            return this;
-        }
-
-
-        public BatchDeleteEcoBackgroundCheckPackageReqBody build() {
-            return new BatchDeleteEcoBackgroundCheckPackageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

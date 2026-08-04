@@ -13,87 +13,82 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMinutesExport {
+  /**
+   * 细节级别
+   *
+   * <p>示例值：
+   */
+  @SerializedName("detail_level")
+  private String detailLevel;
+
+  public String getDetailLevel() {
+    return this.detailLevel;
+  }
+
+  public void setDetailLevel(String detailLevel) {
+    this.detailLevel = detailLevel;
+  }
+
+  // builder 开始
+  public ParamMinutesExport() {}
+
+  public ParamMinutesExport(Builder builder) {
     /**
      * 细节级别
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("detail_level")
+    this.detailLevel = builder.detailLevel;
+  }
+
+  public static class Builder {
+    /**
+     * 细节级别
+     *
+     * <p>示例值：
+     */
     private String detailLevel;
 
-    // builder 开始
-    public ParamMinutesExport() {
+    /**
+     * 细节级别
+     *
+     * <p>示例值：
+     *
+     * @param detailLevel
+     * @return
+     */
+    public Builder detailLevel(String detailLevel) {
+      this.detailLevel = detailLevel;
+      return this;
     }
 
-    public ParamMinutesExport(Builder builder) {
-        /**
-         * 细节级别
-         * <p> 示例值：
-         */
-        this.detailLevel = builder.detailLevel;
+    /**
+     * 细节级别
+     *
+     * <p>示例值：
+     *
+     * @param detailLevel {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum}
+     * @return
+     */
+    public Builder detailLevel(
+        com.lark.oapi.service.security_and_compliance.v2.enums
+                .ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum
+            detailLevel) {
+      this.detailLevel = detailLevel.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ParamMinutesExport build() {
+      return new ParamMinutesExport(this);
     }
+  }
 
-    public String getDetailLevel() {
-        return this.detailLevel;
-    }
-
-    public void setDetailLevel(String detailLevel) {
-        this.detailLevel = detailLevel;
-    }
-
-    public static class Builder {
-        /**
-         * 细节级别
-         * <p> 示例值：
-         */
-        private String detailLevel;
-
-        /**
-         * 细节级别
-         * <p> 示例值：
-         *
-         * @param detailLevel
-         * @return
-         */
-        public Builder detailLevel(String detailLevel) {
-            this.detailLevel = detailLevel;
-            return this;
-        }
-
-        /**
-         * 细节级别
-         * <p> 示例值：
-         *
-         * @param detailLevel {@link com.lark.oapi.service.security_and_compliance.v2.enums.ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum}
-         * @return
-         */
-        public Builder detailLevel(com.lark.oapi.service.security_and_compliance.v2.enums.ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum detailLevel) {
-            this.detailLevel = detailLevel.getValue();
-            return this;
-        }
-
-
-        public ParamMinutesExport build() {
-            return new ParamMinutesExport(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

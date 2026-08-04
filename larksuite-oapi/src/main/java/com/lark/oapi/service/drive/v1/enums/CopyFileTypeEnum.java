@@ -14,24 +14,26 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
+ * 被复制的源文件的类型。必须与 `file_token`
+ * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
  */
 public enum CopyFileTypeEnum {
-    FILE("file"), // 文件类型
-    DOC("doc"), // 云文档类型
-    SHEET("sheet"), // 电子表格类型
-    BITABLE("bitable"), // 多维表格类型
-    DOCX("docx"), // 新版云文档类型
-    MINDNOTE("mindnote"), // 思维笔记类型
-    SLIDES("slides"), // 幻灯片类型
-    ;
-    private String value;
+  FILE("file"), // 文件类型
+  DOC(
+      "doc"), // 旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。
+  SHEET("sheet"), // 电子表格类型
+  BITABLE("bitable"), // 多维表格类型
+  DOCX("docx"), // 新版文档类型
+  MINDNOTE("mindnote"), // 思维笔记类型
+  SLIDES("slides"), // 幻灯片类型
+  ;
+  private String value;
 
-    CopyFileTypeEnum(String value) {
-        this.value = value;
-    }
+  CopyFileTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

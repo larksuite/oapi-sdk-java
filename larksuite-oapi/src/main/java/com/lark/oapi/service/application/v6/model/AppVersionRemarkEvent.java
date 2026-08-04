@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppVersionRemarkEvent {
+  /**
+   * 备注说明
+   *
+   * <p>示例值：备注说明
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 更新说明
+   *
+   * <p>示例值：更新说明
+   */
+  @SerializedName("update_remark")
+  private String updateRemark;
+
+  /**
+   * 可见性名单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visibility")
+  private AppVisibilityEvent visibility;
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getUpdateRemark() {
+    return this.updateRemark;
+  }
+
+  public void setUpdateRemark(String updateRemark) {
+    this.updateRemark = updateRemark;
+  }
+
+  public AppVisibilityEvent getVisibility() {
+    return this.visibility;
+  }
+
+  public void setVisibility(AppVisibilityEvent visibility) {
+    this.visibility = visibility;
+  }
+
+  // builder 开始
+  public AppVersionRemarkEvent() {}
+
+  public AppVersionRemarkEvent(Builder builder) {
     /**
      * 备注说明
-     * <p> 示例值：备注说明
+     *
+     * <p>示例值：备注说明
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 更新说明
-     * <p> 示例值：更新说明
+     *
+     * <p>示例值：更新说明
      */
-    @SerializedName("update_remark")
-    private String updateRemark;
+    this.updateRemark = builder.updateRemark;
     /**
      * 可见性名单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visibility")
+    this.visibility = builder.visibility;
+  }
+
+  public static class Builder {
+    /**
+     * 备注说明
+     *
+     * <p>示例值：备注说明
+     */
+    private String remark;
+
+    /**
+     * 更新说明
+     *
+     * <p>示例值：更新说明
+     */
+    private String updateRemark;
+
+    /**
+     * 可见性名单
+     *
+     * <p>示例值：
+     */
     private AppVisibilityEvent visibility;
 
-    // builder 开始
-    public AppVersionRemarkEvent() {
+    /**
+     * 备注说明
+     *
+     * <p>示例值：备注说明
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public AppVersionRemarkEvent(Builder builder) {
-        /**
-         * 备注说明
-         * <p> 示例值：备注说明
-         */
-        this.remark = builder.remark;
-        /**
-         * 更新说明
-         * <p> 示例值：更新说明
-         */
-        this.updateRemark = builder.updateRemark;
-        /**
-         * 可见性名单
-         * <p> 示例值：
-         */
-        this.visibility = builder.visibility;
+    /**
+     * 更新说明
+     *
+     * <p>示例值：更新说明
+     *
+     * @param updateRemark
+     * @return
+     */
+    public Builder updateRemark(String updateRemark) {
+      this.updateRemark = updateRemark;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 可见性名单
+     *
+     * <p>示例值：
+     *
+     * @param visibility
+     * @return
+     */
+    public Builder visibility(AppVisibilityEvent visibility) {
+      this.visibility = visibility;
+      return this;
     }
 
-    public String getRemark() {
-        return this.remark;
+    public AppVersionRemarkEvent build() {
+      return new AppVersionRemarkEvent(this);
     }
+  }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getUpdateRemark() {
-        return this.updateRemark;
-    }
-
-    public void setUpdateRemark(String updateRemark) {
-        this.updateRemark = updateRemark;
-    }
-
-    public AppVisibilityEvent getVisibility() {
-        return this.visibility;
-    }
-
-    public void setVisibility(AppVisibilityEvent visibility) {
-        this.visibility = visibility;
-    }
-
-    public static class Builder {
-        /**
-         * 备注说明
-         * <p> 示例值：备注说明
-         */
-        private String remark;
-        /**
-         * 更新说明
-         * <p> 示例值：更新说明
-         */
-        private String updateRemark;
-        /**
-         * 可见性名单
-         * <p> 示例值：
-         */
-        private AppVisibilityEvent visibility;
-
-        /**
-         * 备注说明
-         * <p> 示例值：备注说明
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 更新说明
-         * <p> 示例值：更新说明
-         *
-         * @param updateRemark
-         * @return
-         */
-        public Builder updateRemark(String updateRemark) {
-            this.updateRemark = updateRemark;
-            return this;
-        }
-
-
-        /**
-         * 可见性名单
-         * <p> 示例值：
-         *
-         * @param visibility
-         * @return
-         */
-        public Builder visibility(AppVisibilityEvent visibility) {
-            this.visibility = visibility;
-            return this;
-        }
-
-
-        public AppVersionRemarkEvent build() {
-            return new AppVersionRemarkEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

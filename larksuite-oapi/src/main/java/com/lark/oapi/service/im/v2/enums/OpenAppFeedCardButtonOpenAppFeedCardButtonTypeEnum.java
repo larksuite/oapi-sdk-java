@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 按钮类型
- */
+/** 按钮类型 */
 public enum OpenAppFeedCardButtonOpenAppFeedCardButtonTypeEnum {
-    DEFAULT("default"), // 默认
-    PRIMARY("primary"), // 主要
-    SUCCESS("success"), // 成功
-    ;
-    private String value;
+  DEFAULT("default"), // 默认
+  PRIMARY("primary"), // 主要
+  SUCCESS("success"), // 成功
+  ;
+  private String value;
 
-    OpenAppFeedCardButtonOpenAppFeedCardButtonTypeEnum(String value) {
-        this.value = value;
-    }
+  OpenAppFeedCardButtonOpenAppFeedCardButtonTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

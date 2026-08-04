@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateField {
+  /**
+   * 模板字段值类型枚举
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_type")
+  private Enum fieldType;
+
+  /**
+   * 双语描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private I18n[] label;
+
+  /**
+   * 【无需关注】通用字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("common_info")
+  private SignatureTemplateCommonFieldInfo commonInfo;
+
+  /**
+   * 【无需关注】组合字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("combination_info")
+  private SignatureTemplateCombinationFieldInfo combinationInfo;
+
+  /**
+   * 【无需关注】子模板配置信息列表对应的string，避免循环引用问题
+   *
+   * <p>示例值：无需关注
+   */
+  @SerializedName("children")
+  private String children;
+
+  /**
+   * 弃用，无需关注
+   *
+   * <p>示例值：
+   */
+  @SerializedName("combination_info_v2")
+  private SignatureTemplateCombinationFieldInfoV2 combinationInfoV2;
+
+  public Enum getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Enum fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public I18n[] getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(I18n[] label) {
+    this.label = label;
+  }
+
+  public SignatureTemplateCommonFieldInfo getCommonInfo() {
+    return this.commonInfo;
+  }
+
+  public void setCommonInfo(SignatureTemplateCommonFieldInfo commonInfo) {
+    this.commonInfo = commonInfo;
+  }
+
+  public SignatureTemplateCombinationFieldInfo getCombinationInfo() {
+    return this.combinationInfo;
+  }
+
+  public void setCombinationInfo(SignatureTemplateCombinationFieldInfo combinationInfo) {
+    this.combinationInfo = combinationInfo;
+  }
+
+  public String getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(String children) {
+    this.children = children;
+  }
+
+  public SignatureTemplateCombinationFieldInfoV2 getCombinationInfoV2() {
+    return this.combinationInfoV2;
+  }
+
+  public void setCombinationInfoV2(SignatureTemplateCombinationFieldInfoV2 combinationInfoV2) {
+    this.combinationInfoV2 = combinationInfoV2;
+  }
+
+  // builder 开始
+  public SignatureTemplateField() {}
+
+  public SignatureTemplateField(Builder builder) {
     /**
      * 模板字段值类型枚举
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_type")
-    private Enum fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 双语描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
+    this.label = builder.label;
+    /**
+     * 【无需关注】通用字段信息
+     *
+     * <p>示例值：
+     */
+    this.commonInfo = builder.commonInfo;
+    /**
+     * 【无需关注】组合字段信息
+     *
+     * <p>示例值：
+     */
+    this.combinationInfo = builder.combinationInfo;
+    /**
+     * 【无需关注】子模板配置信息列表对应的string，避免循环引用问题
+     *
+     * <p>示例值：无需关注
+     */
+    this.children = builder.children;
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：
+     */
+    this.combinationInfoV2 = builder.combinationInfoV2;
+  }
+
+  public static class Builder {
+    /**
+     * 模板字段值类型枚举
+     *
+     * <p>示例值：
+     */
+    private Enum fieldType;
+
+    /**
+     * 双语描述
+     *
+     * <p>示例值：
+     */
     private I18n[] label;
+
     /**
-     * 通用字段信息
-     * <p> 示例值：
+     * 【无需关注】通用字段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("common_info")
     private SignatureTemplateCommonFieldInfo commonInfo;
+
     /**
-     * 组合字段信息
-     * <p> 示例值：
+     * 【无需关注】组合字段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("combination_info")
     private SignatureTemplateCombinationFieldInfo combinationInfo;
+
     /**
-     * 子模板配置信息列表对应的string，避免循环引用问题
-     * <p> 示例值：[]
+     * 【无需关注】子模板配置信息列表对应的string，避免循环引用问题
+     *
+     * <p>示例值：无需关注
      */
-    @SerializedName("children")
     private String children;
+
     /**
-     * 组合字段信息v2
-     * <p> 示例值：
+     * 弃用，无需关注
+     *
+     * <p>示例值：
      */
-    @SerializedName("combination_info_v2")
     private SignatureTemplateCombinationFieldInfoV2 combinationInfoV2;
 
-    // builder 开始
-    public SignatureTemplateField() {
+    /**
+     * 模板字段值类型枚举
+     *
+     * <p>示例值：
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Enum fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public SignatureTemplateField(Builder builder) {
-        /**
-         * 模板字段值类型枚举
-         * <p> 示例值：
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 双语描述
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 通用字段信息
-         * <p> 示例值：
-         */
-        this.commonInfo = builder.commonInfo;
-        /**
-         * 组合字段信息
-         * <p> 示例值：
-         */
-        this.combinationInfo = builder.combinationInfo;
-        /**
-         * 子模板配置信息列表对应的string，避免循环引用问题
-         * <p> 示例值：[]
-         */
-        this.children = builder.children;
-        /**
-         * 组合字段信息v2
-         * <p> 示例值：
-         */
-        this.combinationInfoV2 = builder.combinationInfoV2;
+    /**
+     * 双语描述
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(I18n[] label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 【无需关注】通用字段信息
+     *
+     * <p>示例值：
+     *
+     * @param commonInfo
+     * @return
+     */
+    public Builder commonInfo(SignatureTemplateCommonFieldInfo commonInfo) {
+      this.commonInfo = commonInfo;
+      return this;
     }
 
-    public Enum getFieldType() {
-        return this.fieldType;
+    /**
+     * 【无需关注】组合字段信息
+     *
+     * <p>示例值：
+     *
+     * @param combinationInfo
+     * @return
+     */
+    public Builder combinationInfo(SignatureTemplateCombinationFieldInfo combinationInfo) {
+      this.combinationInfo = combinationInfo;
+      return this;
     }
 
-    public void setFieldType(Enum fieldType) {
-        this.fieldType = fieldType;
+    /**
+     * 【无需关注】子模板配置信息列表对应的string，避免循环引用问题
+     *
+     * <p>示例值：无需关注
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(String children) {
+      this.children = children;
+      return this;
     }
 
-    public I18n[] getLabel() {
-        return this.label;
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：
+     *
+     * @param combinationInfoV2
+     * @return
+     */
+    public Builder combinationInfoV2(SignatureTemplateCombinationFieldInfoV2 combinationInfoV2) {
+      this.combinationInfoV2 = combinationInfoV2;
+      return this;
     }
 
-    public void setLabel(I18n[] label) {
-        this.label = label;
+    public SignatureTemplateField build() {
+      return new SignatureTemplateField(this);
     }
+  }
 
-    public SignatureTemplateCommonFieldInfo getCommonInfo() {
-        return this.commonInfo;
-    }
-
-    public void setCommonInfo(SignatureTemplateCommonFieldInfo commonInfo) {
-        this.commonInfo = commonInfo;
-    }
-
-    public SignatureTemplateCombinationFieldInfo getCombinationInfo() {
-        return this.combinationInfo;
-    }
-
-    public void setCombinationInfo(SignatureTemplateCombinationFieldInfo combinationInfo) {
-        this.combinationInfo = combinationInfo;
-    }
-
-    public String getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(String children) {
-        this.children = children;
-    }
-
-    public SignatureTemplateCombinationFieldInfoV2 getCombinationInfoV2() {
-        return this.combinationInfoV2;
-    }
-
-    public void setCombinationInfoV2(SignatureTemplateCombinationFieldInfoV2 combinationInfoV2) {
-        this.combinationInfoV2 = combinationInfoV2;
-    }
-
-    public static class Builder {
-        /**
-         * 模板字段值类型枚举
-         * <p> 示例值：
-         */
-        private Enum fieldType;
-        /**
-         * 双语描述
-         * <p> 示例值：
-         */
-        private I18n[] label;
-        /**
-         * 通用字段信息
-         * <p> 示例值：
-         */
-        private SignatureTemplateCommonFieldInfo commonInfo;
-        /**
-         * 组合字段信息
-         * <p> 示例值：
-         */
-        private SignatureTemplateCombinationFieldInfo combinationInfo;
-        /**
-         * 子模板配置信息列表对应的string，避免循环引用问题
-         * <p> 示例值：[]
-         */
-        private String children;
-        /**
-         * 组合字段信息v2
-         * <p> 示例值：
-         */
-        private SignatureTemplateCombinationFieldInfoV2 combinationInfoV2;
-
-        /**
-         * 模板字段值类型枚举
-         * <p> 示例值：
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Enum fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 双语描述
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(I18n[] label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 通用字段信息
-         * <p> 示例值：
-         *
-         * @param commonInfo
-         * @return
-         */
-        public Builder commonInfo(SignatureTemplateCommonFieldInfo commonInfo) {
-            this.commonInfo = commonInfo;
-            return this;
-        }
-
-
-        /**
-         * 组合字段信息
-         * <p> 示例值：
-         *
-         * @param combinationInfo
-         * @return
-         */
-        public Builder combinationInfo(SignatureTemplateCombinationFieldInfo combinationInfo) {
-            this.combinationInfo = combinationInfo;
-            return this;
-        }
-
-
-        /**
-         * 子模板配置信息列表对应的string，避免循环引用问题
-         * <p> 示例值：[]
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(String children) {
-            this.children = children;
-            return this;
-        }
-
-
-        /**
-         * 组合字段信息v2
-         * <p> 示例值：
-         *
-         * @param combinationInfoV2
-         * @return
-         */
-        public Builder combinationInfoV2(SignatureTemplateCombinationFieldInfoV2 combinationInfoV2) {
-            this.combinationInfoV2 = combinationInfoV2;
-            return this;
-        }
-
-
-        public SignatureTemplateField build() {
-            return new SignatureTemplateField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

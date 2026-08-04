@@ -13,704 +13,811 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentTimeline {
+  /**
+   * 部门 ID
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门版本 ID(默认返回)
+   *
+   * <p>示例值：7238516215202170412
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_type")
+  private Enum subType;
+
+  /**
+   * 上级部门 ID
+   *
+   * <p>示例值：4719456877659520111
+   */
+  @SerializedName("parent_department_id")
+  private String parentDepartmentId;
+
+  /**
+   * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+   *
+   * <p>示例值：6893013238632416777
+   */
+  @SerializedName("manager")
+  private String manager;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：D00000456
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2020-05-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 失效时间
+   *
+   * <p>示例值：2020-05-02
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 树形排序，代表同层级的部门排序序号;- 数据类型为字符串，实际按数值大小排序，数值越小，同层级部门展示越靠前；仅对同一父部门下的直接子部门生效;- 数值生成规则：; -
+   * 编号长度由同层级部门数量动态决定：同层级部门≤10 个为 6 位编号，10~20 个为 7 位编号，超过 100 个统一为 16 位编号，以此类推; -
+   * 新建部门时系统自动赋值：同层级下一个新部门编号，会在上一个部门编号基础上按固定数值自动累加；例如 6 位编号每次固定加 1000，7 位编号每次固定加 10000; -
+   * 重排触发：当同层级部门数量超出当前编号长度可容纳范围，或多次拖拽排序无法正常插入位置时，会触发同层级编号全局重新编排；所有部门编号会按新的长度和累加规则重新生成，数值可能出现明显变大; -
+   * 当同一父部门下的子部门数量超过 1000 个时，系统在维护排序编号时可能出现异常问题。;- 更新时机：; - 创建部门场景tree_order不会实时生成，10分钟内更新完毕; -
+   * 在页面拖动部门排序时tree_order可以实时生成; -
+   * 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕（list_order由部门上级路径的所有tree_order用“-”拼接生成）
+   *
+   * <p>示例值：001000
+   */
+  @SerializedName("tree_order")
+  private String treeOrder;
+
+  /**
+   * 列表排序，代表所有部门的混排序号，为该部门上级路径上所有tree_order用“-”拼接。;- 该字段在新建/更新场景非立即更新，10分钟后会延迟更新;-
+   * 由于list_order变更会导致[部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)产生大量事件，因此事件接口不会针对该字段同步变更事件，如果有需求订阅请联系[Oncall](https://applink.feishu.cn/TLJpeNdW)单独开启。;-
+   * 同层部门（相同上级）数量超过1000时，该字段不再更新
+   *
+   * <p>示例值：001000-001000
+   */
+  @SerializedName("list_order")
+  private String listOrder;
+
+  /**
+   * 是否根部门(默认返回)
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_root")
+  private Boolean isRoot;
+
+  /**
+   * 是否保密（该功能暂不支持，可以忽略）
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_confidential")
+  private Boolean isConfidential;
+
+  /**
+   * 是否使用职务
+   *
+   * <p>示例值：
+   */
+  @SerializedName("staffing_model")
+  private Enum staffingModel;
+
+  /**
+   * 成本中心id
+   *
+   * <p>示例值：7142384817131652652
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public Enum getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(Enum subType) {
+    this.subType = subType;
+  }
+
+  public String getParentDepartmentId() {
+    return this.parentDepartmentId;
+  }
+
+  public void setParentDepartmentId(String parentDepartmentId) {
+    this.parentDepartmentId = parentDepartmentId;
+  }
+
+  public String getManager() {
+    return this.manager;
+  }
+
+  public void setManager(String manager) {
+    this.manager = manager;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getTreeOrder() {
+    return this.treeOrder;
+  }
+
+  public void setTreeOrder(String treeOrder) {
+    this.treeOrder = treeOrder;
+  }
+
+  public String getListOrder() {
+    return this.listOrder;
+  }
+
+  public void setListOrder(String listOrder) {
+    this.listOrder = listOrder;
+  }
+
+  public Boolean getIsRoot() {
+    return this.isRoot;
+  }
+
+  public void setIsRoot(Boolean isRoot) {
+    this.isRoot = isRoot;
+  }
+
+  public Boolean getIsConfidential() {
+    return this.isConfidential;
+  }
+
+  public void setIsConfidential(Boolean isConfidential) {
+    this.isConfidential = isConfidential;
+  }
+
+  public Enum getStaffingModel() {
+    return this.staffingModel;
+  }
+
+  public void setStaffingModel(Enum staffingModel) {
+    this.staffingModel = staffingModel;
+  }
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  // builder 开始
+  public DepartmentTimeline() {}
+
+  public DepartmentTimeline(Builder builder) {
     /**
      * 部门 ID
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 部门版本 ID
-     * <p> 示例值：7238516215202170412
+     * 部门版本 ID(默认返回)
+     *
+     * <p>示例值：7238516215202170412
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_type")
-    private Enum subType;
+    this.subType = builder.subType;
     /**
      * 上级部门 ID
-     * <p> 示例值：4719456877659520111
+     *
+     * <p>示例值：4719456877659520111
      */
-    @SerializedName("parent_department_id")
-    private String parentDepartmentId;
+    this.parentDepartmentId = builder.parentDepartmentId;
     /**
      * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-     * <p> 示例值：6893013238632416777
+     *
+     * <p>示例值：6893013238632416777
      */
-    @SerializedName("manager")
-    private String manager;
+    this.manager = builder.manager;
     /**
      * 编码
-     * <p> 示例值：D00000456
+     *
+     * <p>示例值：D00000456
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 生效日期
-     * <p> 示例值：2020-05-01
+     *
+     * <p>示例值：2020-05-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 失效时间
-     * <p> 示例值：2020-05-02
+     *
+     * <p>示例值：2020-05-02
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
-     * 树形排序，代表同层级的部门排序序号
-     * <p> 示例值：001000
+     * 树形排序，代表同层级的部门排序序号;- 数据类型为字符串，实际按数值大小排序，数值越小，同层级部门展示越靠前；仅对同一父部门下的直接子部门生效;- 数值生成规则：; -
+     * 编号长度由同层级部门数量动态决定：同层级部门≤10 个为 6 位编号，10~20 个为 7 位编号，超过 100 个统一为 16 位编号，以此类推; -
+     * 新建部门时系统自动赋值：同层级下一个新部门编号，会在上一个部门编号基础上按固定数值自动累加；例如 6 位编号每次固定加 1000，7 位编号每次固定加 10000; -
+     * 重排触发：当同层级部门数量超出当前编号长度可容纳范围，或多次拖拽排序无法正常插入位置时，会触发同层级编号全局重新编排；所有部门编号会按新的长度和累加规则重新生成，数值可能出现明显变大;
+     * - 当同一父部门下的子部门数量超过 1000 个时，系统在维护排序编号时可能出现异常问题。;- 更新时机：; - 创建部门场景tree_order不会实时生成，10分钟内更新完毕; -
+     * 在页面拖动部门排序时tree_order可以实时生成; -
+     * 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕（list_order由部门上级路径的所有tree_order用“-”拼接生成）
+     *
+     * <p>示例值：001000
      */
-    @SerializedName("tree_order")
-    private String treeOrder;
+    this.treeOrder = builder.treeOrder;
     /**
-     * 列表排序，代表所有部门的混排序号
-     * <p> 示例值：001000-001000
+     * 列表排序，代表所有部门的混排序号，为该部门上级路径上所有tree_order用“-”拼接。;- 该字段在新建/更新场景非立即更新，10分钟后会延迟更新;-
+     * 由于list_order变更会导致[部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)产生大量事件，因此事件接口不会针对该字段同步变更事件，如果有需求订阅请联系[Oncall](https://applink.feishu.cn/TLJpeNdW)单独开启。;-
+     * 同层部门（相同上级）数量超过1000时，该字段不再更新
+     *
+     * <p>示例值：001000-001000
      */
-    @SerializedName("list_order")
-    private String listOrder;
+    this.listOrder = builder.listOrder;
     /**
-     * 是否根部门
-     * <p> 示例值：false
+     * 是否根部门(默认返回)
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_root")
-    private Boolean isRoot;
+    this.isRoot = builder.isRoot;
     /**
-     * 是否保密
-     * <p> 示例值：false
+     * 是否保密（该功能暂不支持，可以忽略）
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_confidential")
-    private Boolean isConfidential;
+    this.isConfidential = builder.isConfidential;
     /**
      * 是否使用职务
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("staffing_model")
-    private Enum staffingModel;
+    this.staffingModel = builder.staffingModel;
     /**
      * 成本中心id
-     * <p> 示例值：7142384817131652652
+     *
+     * <p>示例值：7142384817131652652
      */
-    @SerializedName("cost_center_id")
+    this.costCenterId = builder.costCenterId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String id;
+
+    /**
+     * 部门版本 ID(默认返回)
+     *
+     * <p>示例值：7238516215202170412
+     */
+    private String versionId;
+
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+     *
+     * <p>示例值：
+     */
+    private Enum subType;
+
+    /**
+     * 上级部门 ID
+     *
+     * <p>示例值：4719456877659520111
+     */
+    private String parentDepartmentId;
+
+    /**
+     * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+     *
+     * <p>示例值：6893013238632416777
+     */
+    private String manager;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：D00000456
+     */
+    private String code;
+
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2020-05-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData[] customFields;
+
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2020-05-02
+     */
+    private String expirationDate;
+
+    /**
+     * 树形排序，代表同层级的部门排序序号;- 数据类型为字符串，实际按数值大小排序，数值越小，同层级部门展示越靠前；仅对同一父部门下的直接子部门生效;- 数值生成规则：; -
+     * 编号长度由同层级部门数量动态决定：同层级部门≤10 个为 6 位编号，10~20 个为 7 位编号，超过 100 个统一为 16 位编号，以此类推; -
+     * 新建部门时系统自动赋值：同层级下一个新部门编号，会在上一个部门编号基础上按固定数值自动累加；例如 6 位编号每次固定加 1000，7 位编号每次固定加 10000; -
+     * 重排触发：当同层级部门数量超出当前编号长度可容纳范围，或多次拖拽排序无法正常插入位置时，会触发同层级编号全局重新编排；所有部门编号会按新的长度和累加规则重新生成，数值可能出现明显变大;
+     * - 当同一父部门下的子部门数量超过 1000 个时，系统在维护排序编号时可能出现异常问题。;- 更新时机：; - 创建部门场景tree_order不会实时生成，10分钟内更新完毕; -
+     * 在页面拖动部门排序时tree_order可以实时生成; -
+     * 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕（list_order由部门上级路径的所有tree_order用“-”拼接生成）
+     *
+     * <p>示例值：001000
+     */
+    private String treeOrder;
+
+    /**
+     * 列表排序，代表所有部门的混排序号，为该部门上级路径上所有tree_order用“-”拼接。;- 该字段在新建/更新场景非立即更新，10分钟后会延迟更新;-
+     * 由于list_order变更会导致[部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)产生大量事件，因此事件接口不会针对该字段同步变更事件，如果有需求订阅请联系[Oncall](https://applink.feishu.cn/TLJpeNdW)单独开启。;-
+     * 同层部门（相同上级）数量超过1000时，该字段不再更新
+     *
+     * <p>示例值：001000-001000
+     */
+    private String listOrder;
+
+    /**
+     * 是否根部门(默认返回)
+     *
+     * <p>示例值：false
+     */
+    private Boolean isRoot;
+
+    /**
+     * 是否保密（该功能暂不支持，可以忽略）
+     *
+     * <p>示例值：false
+     */
+    private Boolean isConfidential;
+
+    /**
+     * 是否使用职务
+     *
+     * <p>示例值：
+     */
+    private Enum staffingModel;
+
+    /**
+     * 成本中心id
+     *
+     * <p>示例值：7142384817131652652
+     */
     private String costCenterId;
 
-    // builder 开始
-    public DepartmentTimeline() {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DepartmentTimeline(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 部门版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
-        /**
-         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-         * <p> 示例值：6893013238632416777
-         */
-        this.manager = builder.manager;
-        /**
-         * 编码
-         * <p> 示例值：D00000456
-         */
-        this.code = builder.code;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：001000
-         */
-        this.treeOrder = builder.treeOrder;
-        /**
-         * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：001000-001000
-         */
-        this.listOrder = builder.listOrder;
-        /**
-         * 是否根部门
-         * <p> 示例值：false
-         */
-        this.isRoot = builder.isRoot;
-        /**
-         * 是否保密
-         * <p> 示例值：false
-         */
-        this.isConfidential = builder.isConfidential;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        this.staffingModel = builder.staffingModel;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        this.costCenterId = builder.costCenterId;
+    /**
+     * 部门版本 ID(默认返回)
+     *
+     * <p>示例值：7238516215202170412
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(Enum subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 上级部门 ID
+     *
+     * <p>示例值：4719456877659520111
+     *
+     * @param parentDepartmentId
+     * @return
+     */
+    public Builder parentDepartmentId(String parentDepartmentId) {
+      this.parentDepartmentId = parentDepartmentId;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
+     *
+     * <p>示例值：6893013238632416777
+     *
+     * @param manager
+     * @return
+     */
+    public Builder manager(String manager) {
+      this.manager = manager;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    /**
+     * 编码
+     *
+     * <p>示例值：D00000456
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public I18n[] getNames() {
-        return this.names;
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2020-05-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setNames(I18n[] names) {
-        this.names = names;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public Enum getSubType() {
-        return this.subType;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public void setSubType(Enum subType) {
-        this.subType = subType;
+    /**
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getParentDepartmentId() {
-        return this.parentDepartmentId;
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2020-05-02
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public void setParentDepartmentId(String parentDepartmentId) {
-        this.parentDepartmentId = parentDepartmentId;
+    /**
+     * 树形排序，代表同层级的部门排序序号;- 数据类型为字符串，实际按数值大小排序，数值越小，同层级部门展示越靠前；仅对同一父部门下的直接子部门生效;- 数值生成规则：; -
+     * 编号长度由同层级部门数量动态决定：同层级部门≤10 个为 6 位编号，10~20 个为 7 位编号，超过 100 个统一为 16 位编号，以此类推; -
+     * 新建部门时系统自动赋值：同层级下一个新部门编号，会在上一个部门编号基础上按固定数值自动累加；例如 6 位编号每次固定加 1000，7 位编号每次固定加 10000; -
+     * 重排触发：当同层级部门数量超出当前编号长度可容纳范围，或多次拖拽排序无法正常插入位置时，会触发同层级编号全局重新编排；所有部门编号会按新的长度和累加规则重新生成，数值可能出现明显变大;
+     * - 当同一父部门下的子部门数量超过 1000 个时，系统在维护排序编号时可能出现异常问题。;- 更新时机：; - 创建部门场景tree_order不会实时生成，10分钟内更新完毕; -
+     * 在页面拖动部门排序时tree_order可以实时生成; -
+     * 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕（list_order由部门上级路径的所有tree_order用“-”拼接生成）
+     *
+     * <p>示例值：001000
+     *
+     * @param treeOrder
+     * @return
+     */
+    public Builder treeOrder(String treeOrder) {
+      this.treeOrder = treeOrder;
+      return this;
     }
 
-    public String getManager() {
-        return this.manager;
+    /**
+     * 列表排序，代表所有部门的混排序号，为该部门上级路径上所有tree_order用“-”拼接。;- 该字段在新建/更新场景非立即更新，10分钟后会延迟更新;-
+     * 由于list_order变更会导致[部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)产生大量事件，因此事件接口不会针对该字段同步变更事件，如果有需求订阅请联系[Oncall](https://applink.feishu.cn/TLJpeNdW)单独开启。;-
+     * 同层部门（相同上级）数量超过1000时，该字段不再更新
+     *
+     * <p>示例值：001000-001000
+     *
+     * @param listOrder
+     * @return
+     */
+    public Builder listOrder(String listOrder) {
+      this.listOrder = listOrder;
+      return this;
     }
 
-    public void setManager(String manager) {
-        this.manager = manager;
+    /**
+     * 是否根部门(默认返回)
+     *
+     * <p>示例值：false
+     *
+     * @param isRoot
+     * @return
+     */
+    public Builder isRoot(Boolean isRoot) {
+      this.isRoot = isRoot;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 是否保密（该功能暂不支持，可以忽略）
+     *
+     * <p>示例值：false
+     *
+     * @param isConfidential
+     * @return
+     */
+    public Builder isConfidential(Boolean isConfidential) {
+      this.isConfidential = isConfidential;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 是否使用职务
+     *
+     * <p>示例值：
+     *
+     * @param staffingModel
+     * @return
+     */
+    public Builder staffingModel(Enum staffingModel) {
+      this.staffingModel = staffingModel;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 成本中心id
+     *
+     * <p>示例值：7142384817131652652
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public DepartmentTimeline build() {
+      return new DepartmentTimeline(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getTreeOrder() {
-        return this.treeOrder;
-    }
-
-    public void setTreeOrder(String treeOrder) {
-        this.treeOrder = treeOrder;
-    }
-
-    public String getListOrder() {
-        return this.listOrder;
-    }
-
-    public void setListOrder(String listOrder) {
-        this.listOrder = listOrder;
-    }
-
-    public Boolean getIsRoot() {
-        return this.isRoot;
-    }
-
-    public void setIsRoot(Boolean isRoot) {
-        this.isRoot = isRoot;
-    }
-
-    public Boolean getIsConfidential() {
-        return this.isConfidential;
-    }
-
-    public void setIsConfidential(Boolean isConfidential) {
-        this.isConfidential = isConfidential;
-    }
-
-    public Enum getStaffingModel() {
-        return this.staffingModel;
-    }
-
-    public void setStaffingModel(Enum staffingModel) {
-        this.staffingModel = staffingModel;
-    }
-
-    public String getCostCenterId() {
-        return this.costCenterId;
-    }
-
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String id;
-        /**
-         * 部门版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        private String versionId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum subType;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
-        private String parentDepartmentId;
-        /**
-         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-         * <p> 示例值：6893013238632416777
-         */
-        private String manager;
-        /**
-         * 编码
-         * <p> 示例值：D00000456
-         */
-        private String code;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        private String effectiveDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
-        private String expirationDate;
-        /**
-         * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：001000
-         */
-        private String treeOrder;
-        /**
-         * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：001000-001000
-         */
-        private String listOrder;
-        /**
-         * 是否根部门
-         * <p> 示例值：false
-         */
-        private Boolean isRoot;
-        /**
-         * 是否保密
-         * <p> 示例值：false
-         */
-        private Boolean isConfidential;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        private Enum staffingModel;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        private String costCenterId;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门版本 ID
-         * <p> 示例值：7238516215202170412
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 部门名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 部门类型，枚举值可通过文档【飞书人事枚举常量】部门子类型（department_sub_type）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(Enum subType) {
-            this.subType = subType;
-            return this;
-        }
-
-
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         *
-         * @param parentDepartmentId
-         * @return
-         */
-        public Builder parentDepartmentId(String parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门负责人雇佣 ID，枚举值及详细信息可通过【查询员工信息】接口查询获得
-         * <p> 示例值：6893013238632416777
-         *
-         * @param manager
-         * @return
-         */
-        public Builder manager(String manager) {
-            this.manager = manager;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：D00000456
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 树形排序，代表同层级的部门排序序号
-         * <p> 示例值：001000
-         *
-         * @param treeOrder
-         * @return
-         */
-        public Builder treeOrder(String treeOrder) {
-            this.treeOrder = treeOrder;
-            return this;
-        }
-
-
-        /**
-         * 列表排序，代表所有部门的混排序号
-         * <p> 示例值：001000-001000
-         *
-         * @param listOrder
-         * @return
-         */
-        public Builder listOrder(String listOrder) {
-            this.listOrder = listOrder;
-            return this;
-        }
-
-
-        /**
-         * 是否根部门
-         * <p> 示例值：false
-         *
-         * @param isRoot
-         * @return
-         */
-        public Builder isRoot(Boolean isRoot) {
-            this.isRoot = isRoot;
-            return this;
-        }
-
-
-        /**
-         * 是否保密
-         * <p> 示例值：false
-         *
-         * @param isConfidential
-         * @return
-         */
-        public Builder isConfidential(Boolean isConfidential) {
-            this.isConfidential = isConfidential;
-            return this;
-        }
-
-
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         *
-         * @param staffingModel
-         * @return
-         */
-        public Builder staffingModel(Enum staffingModel) {
-            this.staffingModel = staffingModel;
-            return this;
-        }
-
-
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        public DepartmentTimeline build() {
-            return new DepartmentTimeline(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

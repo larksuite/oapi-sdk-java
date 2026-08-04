@@ -13,222 +13,252 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResumeSource {
+  /**
+   * 简历来源 ID
+   *
+   * <p>示例值：10000
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 简历来源中文名称
+   *
+   * <p>示例值：内推
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 简历来源英文名称
+   *
+   * <p>示例值：referral
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 来源类型;;**可选值有**：;<md-enum>;<md-enum-item key="10000" >内推</md-enum-item>;<md-enum-item
+   * key="10001" >猎头</md-enum-item>;<md-enum-item key="10002" >内部来源</md-enum-item>;<md-enum-item
+   * key="10003" >第三方招聘网站</md-enum-item>;<md-enum-item key="10004"
+   * >社交媒体</md-enum-item>;<md-enum-item key="10005" >线下来源</md-enum-item>;<md-enum-item key="10006"
+   * >其他</md-enum-item>;<md-enum-item key="10007" >外部推荐</md-enum-item>;<md-enum-item key="10008"
+   * >员工转岗</md-enum-item>;<md-enum-item key="10009" >实习生转正</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：10001
+   */
+  @SerializedName("resume_source_type")
+  private String resumeSourceType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public String getResumeSourceType() {
+    return this.resumeSourceType;
+  }
+
+  public void setResumeSourceType(String resumeSourceType) {
+    this.resumeSourceType = resumeSourceType;
+  }
+
+  // builder 开始
+  public ResumeSource() {}
+
+  public ResumeSource(Builder builder) {
     /**
-     * 来源 ID
-     * <p> 示例值：1111
+     * 简历来源 ID
+     *
+     * <p>示例值：10000
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 中文名
-     * <p> 示例值：内推
+     * 简历来源中文名称
+     *
+     * <p>示例值：内推
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
-     * 英文名
-     * <p> 示例值：referral
+     * 简历来源英文名称
+     *
+     * <p>示例值：referral
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 启用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
-     * 来源类型
-     * <p> 示例值：10001
+     * 来源类型;;**可选值有**：;<md-enum>;<md-enum-item key="10000" >内推</md-enum-item>;<md-enum-item
+     * key="10001" >猎头</md-enum-item>;<md-enum-item key="10002" >内部来源</md-enum-item>;<md-enum-item
+     * key="10003" >第三方招聘网站</md-enum-item>;<md-enum-item key="10004"
+     * >社交媒体</md-enum-item>;<md-enum-item key="10005" >线下来源</md-enum-item>;<md-enum-item key="10006"
+     * >其他</md-enum-item>;<md-enum-item key="10007" >外部推荐</md-enum-item>;<md-enum-item key="10008"
+     * >员工转岗</md-enum-item>;<md-enum-item key="10009" >实习生转正</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：10001
      */
-    @SerializedName("resume_source_type")
+    this.resumeSourceType = builder.resumeSourceType;
+  }
+
+  public static class Builder {
+    /**
+     * 简历来源 ID
+     *
+     * <p>示例值：10000
+     */
+    private String id;
+
+    /**
+     * 简历来源中文名称
+     *
+     * <p>示例值：内推
+     */
+    private String zhName;
+
+    /**
+     * 简历来源英文名称
+     *
+     * <p>示例值：referral
+     */
+    private String enName;
+
+    /**
+     * 启用状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 来源类型;;**可选值有**：;<md-enum>;<md-enum-item key="10000" >内推</md-enum-item>;<md-enum-item
+     * key="10001" >猎头</md-enum-item>;<md-enum-item key="10002" >内部来源</md-enum-item>;<md-enum-item
+     * key="10003" >第三方招聘网站</md-enum-item>;<md-enum-item key="10004"
+     * >社交媒体</md-enum-item>;<md-enum-item key="10005" >线下来源</md-enum-item>;<md-enum-item key="10006"
+     * >其他</md-enum-item>;<md-enum-item key="10007" >外部推荐</md-enum-item>;<md-enum-item key="10008"
+     * >员工转岗</md-enum-item>;<md-enum-item key="10009" >实习生转正</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：10001
+     */
     private String resumeSourceType;
 
-    // builder 开始
-    public ResumeSource() {
+    /**
+     * 简历来源 ID
+     *
+     * <p>示例值：10000
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ResumeSource(Builder builder) {
-        /**
-         * 来源 ID
-         * <p> 示例值：1111
-         */
-        this.id = builder.id;
-        /**
-         * 中文名
-         * <p> 示例值：内推
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名
-         * <p> 示例值：referral
-         */
-        this.enName = builder.enName;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 来源类型
-         * <p> 示例值：10001
-         */
-        this.resumeSourceType = builder.resumeSourceType;
+    /**
+     * 简历来源中文名称
+     *
+     * <p>示例值：内推
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 简历来源英文名称
+     *
+     * <p>示例值：referral
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 来源类型;;**可选值有**：;<md-enum>;<md-enum-item key="10000" >内推</md-enum-item>;<md-enum-item
+     * key="10001" >猎头</md-enum-item>;<md-enum-item key="10002" >内部来源</md-enum-item>;<md-enum-item
+     * key="10003" >第三方招聘网站</md-enum-item>;<md-enum-item key="10004"
+     * >社交媒体</md-enum-item>;<md-enum-item key="10005" >线下来源</md-enum-item>;<md-enum-item key="10006"
+     * >其他</md-enum-item>;<md-enum-item key="10007" >外部推荐</md-enum-item>;<md-enum-item key="10008"
+     * >员工转岗</md-enum-item>;<md-enum-item key="10009" >实习生转正</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：10001
+     *
+     * @param resumeSourceType
+     * @return
+     */
+    public Builder resumeSourceType(String resumeSourceType) {
+      this.resumeSourceType = resumeSourceType;
+      return this;
     }
 
-    public String getZhName() {
-        return this.zhName;
+    public ResumeSource build() {
+      return new ResumeSource(this);
     }
+  }
 
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public String getResumeSourceType() {
-        return this.resumeSourceType;
-    }
-
-    public void setResumeSourceType(String resumeSourceType) {
-        this.resumeSourceType = resumeSourceType;
-    }
-
-    public static class Builder {
-        /**
-         * 来源 ID
-         * <p> 示例值：1111
-         */
-        private String id;
-        /**
-         * 中文名
-         * <p> 示例值：内推
-         */
-        private String zhName;
-        /**
-         * 英文名
-         * <p> 示例值：referral
-         */
-        private String enName;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 来源类型
-         * <p> 示例值：10001
-         */
-        private String resumeSourceType;
-
-        /**
-         * 来源 ID
-         * <p> 示例值：1111
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 中文名
-         * <p> 示例值：内推
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：referral
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 来源类型
-         * <p> 示例值：10001
-         *
-         * @param resumeSourceType
-         * @return
-         */
-        public Builder resumeSourceType(String resumeSourceType) {
-            this.resumeSourceType = resumeSourceType;
-            return this;
-        }
-
-
-        public ResumeSource build() {
-            return new ResumeSource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

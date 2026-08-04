@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Member {
+  /**
+   * 表示member的id
+   *
+   * <p>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 成员的类型
+   *
+   * <p>示例值：chat
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 成员角色
+   *
+   * <p>示例值：editor
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 成员名称
+   *
+   * <p>示例值：张明德（明德）
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public Member() {}
+
+  public Member(Builder builder) {
     /**
      * 表示member的id
-     * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+     *
+     * <p>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 成员的类型
-     * <p> 示例值：user
+     *
+     * <p>示例值：chat
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 成员角色
-     * <p> 示例值：editor
+     *
+     * <p>示例值：editor
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 成员名称
-     * <p> 示例值：张明德（明德）
+     *
+     * <p>示例值：张明德（明德）
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 表示member的id
+     *
+     * <p>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+     */
+    private String id;
+
+    /**
+     * 成员的类型
+     *
+     * <p>示例值：chat
+     */
+    private String type;
+
+    /**
+     * 成员角色
+     *
+     * <p>示例值：editor
+     */
+    private String role;
+
+    /**
+     * 成员名称
+     *
+     * <p>示例值：张明德（明德）
+     */
     private String name;
 
-    // builder 开始
-    public Member() {
+    /**
+     * 表示member的id
+     *
+     * <p>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Member(Builder builder) {
-        /**
-         * 表示member的id
-         * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         */
-        this.id = builder.id;
-        /**
-         * 成员的类型
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 成员角色
-         * <p> 示例值：editor
-         */
-        this.role = builder.role;
-        /**
-         * 成员名称
-         * <p> 示例值：张明德（明德）
-         */
-        this.name = builder.name;
+    /**
+     * 成员的类型
+     *
+     * <p>示例值：chat
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成员角色
+     *
+     * <p>示例值：editor
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 成员名称
+     *
+     * <p>示例值：张明德（明德）
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Member build() {
+      return new Member(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getRole() {
-        return this.role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 表示member的id
-         * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         */
-        private String id;
-        /**
-         * 成员的类型
-         * <p> 示例值：user
-         */
-        private String type;
-        /**
-         * 成员角色
-         * <p> 示例值：editor
-         */
-        private String role;
-        /**
-         * 成员名称
-         * <p> 示例值：张明德（明德）
-         */
-        private String name;
-
-        /**
-         * 表示member的id
-         * <p> 示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 成员的类型
-         * <p> 示例值：user
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 成员角色
-         * <p> 示例值：editor
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 成员名称
-         * <p> 示例值：张明德（明德）
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public Member build() {
-            return new Member(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

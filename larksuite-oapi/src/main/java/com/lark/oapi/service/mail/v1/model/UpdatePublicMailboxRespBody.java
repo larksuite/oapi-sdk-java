@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdatePublicMailboxRespBody {
-    /**
-     * The unique ID of a public mailbox
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     */
-    @SerializedName("public_mailbox_id")
-    private String publicMailboxId;
-    /**
-     * The public mailbox's email address
-     * <p> 示例值：test_public_mailbox@xxx.xx
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * The public mailbox's display name
-     * <p> 示例值：test public mailbox
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 数据驻留地
-     * <p> 示例值：cn
-     */
-    @SerializedName("geo")
-    private String geo;
+  /**
+   * 公共邮箱唯一标识
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("public_mailbox_id")
+  private String publicMailboxId;
 
-    public String getPublicMailboxId() {
-        return this.publicMailboxId;
-    }
+  /**
+   * 公共邮箱地址
+   *
+   * <p>示例值：test_public_mailbox@xxx.xx
+   */
+  @SerializedName("email")
+  private String email;
 
-    public void setPublicMailboxId(String publicMailboxId) {
-        this.publicMailboxId = publicMailboxId;
-    }
+  /**
+   * 公共邮箱名称
+   *
+   * <p>示例值：test public mailbox
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getEmail() {
-        return this.email;
-    }
+  /**
+   * 数据驻留地
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo")
+  private String geo;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getPublicMailboxId() {
+    return this.publicMailboxId;
+  }
 
-    public String getName() {
-        return this.name;
-    }
+  public void setPublicMailboxId(String publicMailboxId) {
+    this.publicMailboxId = publicMailboxId;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getEmail() {
+    return this.email;
+  }
 
-    public String getGeo() {
-        return this.geo;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setGeo(String geo) {
-        this.geo = geo;
-    }
+  public String getName() {
+    return this.name;
+  }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getGeo() {
+    return this.geo;
+  }
+
+  public void setGeo(String geo) {
+    this.geo = geo;
+  }
 }

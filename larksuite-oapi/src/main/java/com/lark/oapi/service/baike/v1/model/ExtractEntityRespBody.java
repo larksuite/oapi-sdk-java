@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractEntityRespBody {
-    /**
-     * 文本中可能的成为百科词条的词汇
-     * <p> 示例值：
-     */
-    @SerializedName("entity_word")
-    private EntityWord[] entityWord;
+  /**
+   * 文本中可能的成为词条的词汇
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entity_word")
+  private EntityWord[] entityWord;
 
-    public EntityWord[] getEntityWord() {
-        return this.entityWord;
-    }
+  public EntityWord[] getEntityWord() {
+    return this.entityWord;
+  }
 
-    public void setEntityWord(EntityWord[] entityWord) {
-        this.entityWord = entityWord;
-    }
-
+  public void setEntityWord(EntityWord[] entityWord) {
+    this.entityWord = entityWord;
+  }
 }

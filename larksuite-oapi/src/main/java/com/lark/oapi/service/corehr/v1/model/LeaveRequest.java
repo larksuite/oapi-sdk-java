@@ -13,1185 +13,1341 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveRequest {
+  /**
+   * 请假记录ID
+   *
+   * <p>示例值：7536864851379078665
+   */
+  @SerializedName("leave_request_id")
+  private String leaveRequestId;
+
+  /**
+   * 员工ID，ID 类型与 user_id_type 一致
+   *
+   * <p>示例值：7360983350600173082
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 员工姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_name")
+  private I18n[] employmentName;
+
+  /**
+   * 假期类型ID
+   *
+   * <p>示例值：7452717067026138635
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 假期类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_type_name")
+  private I18n[] leaveTypeName;
+
+  /**
+   * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""; -
+   * 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+   *
+   * <p>示例值：2024-11-28
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""; -
+   * 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+   *
+   * <p>示例值：2024-11-28
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 假期时长
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leave_duration")
+  private String leaveDuration;
+
+  /**
+   * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("leave_duration_unit")
+  private Integer leaveDurationUnit;
+
+  /**
+   * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;-
+   * 8：已取消;- 9：已撤回
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("leave_request_status")
+  private Integer leaveRequestStatus;
+
+  /**
+   * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
+   *
+   * <p>示例值：manual
+   */
+  @SerializedName("grant_source")
+  private String grantSource;
+
+  /**
+   * 返岗时间，格式为秒级时间戳
+   *
+   * <p>示例值：1662134400
+   */
+  @SerializedName("return_time")
+  private String returnTime;
+
+  /**
+   * 发起时间，格式为秒级时间戳
+   *
+   * <p>示例值：1659080476
+   */
+  @SerializedName("submitted_at")
+  private String submittedAt;
+
+  /**
+   * 发起人，ID 类型与 user_id_type 一致
+   *
+   * <p>示例值：7109664941775241244
+   */
+  @SerializedName("submitted_by")
+  private String submittedBy;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：备注
+   */
+  @SerializedName("notes")
+  private String notes;
+
+  /**
+   * （暂未开放）审批通过日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-09-09
+   */
+  @SerializedName("approval_date")
+  private String approvalDate;
+
+  /**
+   * （暂未开放）是否带薪
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_deducted")
+  private Boolean isDeducted;
+
+  /**
+   * 请假详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details")
+  private LeaveRequestDetail[] details;
+
+  /**
+   * （暂未开放）假期类型枚举
+   *
+   * <p>示例值：Annual Leave
+   */
+  @SerializedName("leave_type_code")
+  private String leaveTypeCode;
+
+  /**
+   * （暂未开放）实际结束日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-08-02
+   */
+  @SerializedName("actual_end_date")
+  private String actualEndDate;
+
+  /**
+   * （暂未开放）预估结束日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-08-02
+   */
+  @SerializedName("estimated_end_date")
+  private String estimatedEndDate;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * （暂未开放）请假记录数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  /**
+   * 请假申请流程ID。注意：导入的请假不会返回leave_process_id。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_process_id")
+  private String[] leaveProcessId;
+
+  /**
+   * 请假更正流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_correct_process_id")
+  private String[] leaveCorrectProcessId;
+
+  /**
+   * 请假取消流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_cancel_process_id")
+  private String[] leaveCancelProcessId;
+
+  /**
+   * 请假返岗流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_return_process_id")
+  private String[] leaveReturnProcessId;
+
+  /**
+   * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("wd_paid_type")
+  private Integer wdPaidType;
+
+  /**
+   * 请假更正流程信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_correct_process_info")
+  private LeaveProcessInfo[] leaveCorrectProcessInfo;
+
+  /**
+   * workday扩展字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workday_extend_infos")
+  private LeaveExtendItem[] workdayExtendInfos;
+
+  /**
+   * （暂未开放）请假标签配置
+   *
+   * <p>示例值：{"tag_list":[{"key":"leave_type","values":["Annual
+   * Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+   */
+  @SerializedName("leave_tag_conf")
+  private LeaveTagConf leaveTagConf;
+
+  public String getLeaveRequestId() {
+    return this.leaveRequestId;
+  }
+
+  public void setLeaveRequestId(String leaveRequestId) {
+    this.leaveRequestId = leaveRequestId;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public I18n[] getEmploymentName() {
+    return this.employmentName;
+  }
+
+  public void setEmploymentName(I18n[] employmentName) {
+    this.employmentName = employmentName;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public I18n[] getLeaveTypeName() {
+    return this.leaveTypeName;
+  }
+
+  public void setLeaveTypeName(I18n[] leaveTypeName) {
+    this.leaveTypeName = leaveTypeName;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getLeaveDuration() {
+    return this.leaveDuration;
+  }
+
+  public void setLeaveDuration(String leaveDuration) {
+    this.leaveDuration = leaveDuration;
+  }
+
+  public Integer getLeaveDurationUnit() {
+    return this.leaveDurationUnit;
+  }
+
+  public void setLeaveDurationUnit(Integer leaveDurationUnit) {
+    this.leaveDurationUnit = leaveDurationUnit;
+  }
+
+  public Integer getLeaveRequestStatus() {
+    return this.leaveRequestStatus;
+  }
+
+  public void setLeaveRequestStatus(Integer leaveRequestStatus) {
+    this.leaveRequestStatus = leaveRequestStatus;
+  }
+
+  public String getGrantSource() {
+    return this.grantSource;
+  }
+
+  public void setGrantSource(String grantSource) {
+    this.grantSource = grantSource;
+  }
+
+  public String getReturnTime() {
+    return this.returnTime;
+  }
+
+  public void setReturnTime(String returnTime) {
+    this.returnTime = returnTime;
+  }
+
+  public String getSubmittedAt() {
+    return this.submittedAt;
+  }
+
+  public void setSubmittedAt(String submittedAt) {
+    this.submittedAt = submittedAt;
+  }
+
+  public String getSubmittedBy() {
+    return this.submittedBy;
+  }
+
+  public void setSubmittedBy(String submittedBy) {
+    this.submittedBy = submittedBy;
+  }
+
+  public String getNotes() {
+    return this.notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
+
+  public String getApprovalDate() {
+    return this.approvalDate;
+  }
+
+  public void setApprovalDate(String approvalDate) {
+    this.approvalDate = approvalDate;
+  }
+
+  public Boolean getIsDeducted() {
+    return this.isDeducted;
+  }
+
+  public void setIsDeducted(Boolean isDeducted) {
+    this.isDeducted = isDeducted;
+  }
+
+  public LeaveRequestDetail[] getDetails() {
+    return this.details;
+  }
+
+  public void setDetails(LeaveRequestDetail[] details) {
+    this.details = details;
+  }
+
+  public String getLeaveTypeCode() {
+    return this.leaveTypeCode;
+  }
+
+  public void setLeaveTypeCode(String leaveTypeCode) {
+    this.leaveTypeCode = leaveTypeCode;
+  }
+
+  public String getActualEndDate() {
+    return this.actualEndDate;
+  }
+
+  public void setActualEndDate(String actualEndDate) {
+    this.actualEndDate = actualEndDate;
+  }
+
+  public String getEstimatedEndDate() {
+    return this.estimatedEndDate;
+  }
+
+  public void setEstimatedEndDate(String estimatedEndDate) {
+    this.estimatedEndDate = estimatedEndDate;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  public String[] getLeaveProcessId() {
+    return this.leaveProcessId;
+  }
+
+  public void setLeaveProcessId(String[] leaveProcessId) {
+    this.leaveProcessId = leaveProcessId;
+  }
+
+  public String[] getLeaveCorrectProcessId() {
+    return this.leaveCorrectProcessId;
+  }
+
+  public void setLeaveCorrectProcessId(String[] leaveCorrectProcessId) {
+    this.leaveCorrectProcessId = leaveCorrectProcessId;
+  }
+
+  public String[] getLeaveCancelProcessId() {
+    return this.leaveCancelProcessId;
+  }
+
+  public void setLeaveCancelProcessId(String[] leaveCancelProcessId) {
+    this.leaveCancelProcessId = leaveCancelProcessId;
+  }
+
+  public String[] getLeaveReturnProcessId() {
+    return this.leaveReturnProcessId;
+  }
+
+  public void setLeaveReturnProcessId(String[] leaveReturnProcessId) {
+    this.leaveReturnProcessId = leaveReturnProcessId;
+  }
+
+  public Integer getWdPaidType() {
+    return this.wdPaidType;
+  }
+
+  public void setWdPaidType(Integer wdPaidType) {
+    this.wdPaidType = wdPaidType;
+  }
+
+  public LeaveProcessInfo[] getLeaveCorrectProcessInfo() {
+    return this.leaveCorrectProcessInfo;
+  }
+
+  public void setLeaveCorrectProcessInfo(LeaveProcessInfo[] leaveCorrectProcessInfo) {
+    this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
+  }
+
+  public LeaveExtendItem[] getWorkdayExtendInfos() {
+    return this.workdayExtendInfos;
+  }
+
+  public void setWorkdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
+    this.workdayExtendInfos = workdayExtendInfos;
+  }
+
+  public LeaveTagConf getLeaveTagConf() {
+    return this.leaveTagConf;
+  }
+
+  public void setLeaveTagConf(LeaveTagConf leaveTagConf) {
+    this.leaveTagConf = leaveTagConf;
+  }
+
+  // builder 开始
+  public LeaveRequest() {}
+
+  public LeaveRequest(Builder builder) {
     /**
      * 请假记录ID
-     * <p> 示例值：4718803945687580505
+     *
+     * <p>示例值：7536864851379078665
      */
-    @SerializedName("leave_request_id")
-    private String leaveRequestId;
+    this.leaveRequestId = builder.leaveRequestId;
     /**
-     * 雇佣信息ID
-     * <p> 示例值：4718803945687580505
+     * 员工ID，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7360983350600173082
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 员工姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_name")
-    private I18n[] employmentName;
+    this.employmentName = builder.employmentName;
     /**
      * 假期类型ID
-     * <p> 示例值：0
+     *
+     * <p>示例值：7452717067026138635
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 假期类型名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_type_name")
-    private I18n[] leaveTypeName;
+    this.leaveTypeName = builder.leaveTypeName;
     /**
-     * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-     * <p> 示例值：2022-07-06 morning
+     * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-     * <p> 示例值：2023-01-05
+     * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 假期时长
-     * <p> 示例值：2
+     *
+     * <p>示例值：1
      */
-    @SerializedName("leave_duration")
-    private String leaveDuration;
+    this.leaveDuration = builder.leaveDuration;
     /**
      * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("leave_duration_unit")
-    private Integer leaveDurationUnit;
+    this.leaveDurationUnit = builder.leaveDurationUnit;
     /**
-     * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;- 8：已取消;- 9：已撤回
-     * <p> 示例值：2
+     * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;-
+     * 8：已取消;- 9：已撤回
+     *
+     * <p>示例值：2
      */
-    @SerializedName("leave_request_status")
-    private Integer leaveRequestStatus;
+    this.leaveRequestStatus = builder.leaveRequestStatus;
     /**
      * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
-     * <p> 示例值：manual
+     *
+     * <p>示例值：manual
      */
-    @SerializedName("grant_source")
-    private String grantSource;
+    this.grantSource = builder.grantSource;
     /**
-     * 返岗时间
-     * <p> 示例值：1662134400
+     * 返岗时间，格式为秒级时间戳
+     *
+     * <p>示例值：1662134400
      */
-    @SerializedName("return_time")
-    private String returnTime;
+    this.returnTime = builder.returnTime;
     /**
-     * 发起时间
-     * <p> 示例值：1659080476
+     * 发起时间，格式为秒级时间戳
+     *
+     * <p>示例值：1659080476
      */
-    @SerializedName("submitted_at")
-    private String submittedAt;
+    this.submittedAt = builder.submittedAt;
     /**
-     * 发起人
-     * <p> 示例值：7109664941775241244
+     * 发起人，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7109664941775241244
      */
-    @SerializedName("submitted_by")
-    private String submittedBy;
+    this.submittedBy = builder.submittedBy;
     /**
      * 备注
-     * <p> 示例值：备注
+     *
+     * <p>示例值：备注
      */
-    @SerializedName("notes")
-    private String notes;
+    this.notes = builder.notes;
     /**
-     * 审批通过日期
-     * <p> 示例值：2022-09-09
+     * （暂未开放）审批通过日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-09-09
      */
-    @SerializedName("approval_date")
-    private String approvalDate;
+    this.approvalDate = builder.approvalDate;
     /**
-     * 是否带薪
-     * <p> 示例值：false
+     * （暂未开放）是否带薪
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_deducted")
-    private Boolean isDeducted;
+    this.isDeducted = builder.isDeducted;
     /**
      * 请假详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("details")
-    private LeaveRequestDetail[] details;
+    this.details = builder.details;
     /**
-     * 假期类型枚举
-     * <p> 示例值：Annual Leave
+     * （暂未开放）假期类型枚举
+     *
+     * <p>示例值：Annual Leave
      */
-    @SerializedName("leave_type_code")
-    private String leaveTypeCode;
+    this.leaveTypeCode = builder.leaveTypeCode;
     /**
-     * 实际结束日期
-     * <p> 示例值：2022-08-02
+     * （暂未开放）实际结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
      */
-    @SerializedName("actual_end_date")
-    private String actualEndDate;
+    this.actualEndDate = builder.actualEndDate;
     /**
-     * 预估结束日期
-     * <p> 示例值：2022-08-02
+     * （暂未开放）预估结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
      */
-    @SerializedName("estimated_end_date")
-    private String estimatedEndDate;
+    this.estimatedEndDate = builder.estimatedEndDate;
     /**
      * 时区
-     * <p> 示例值：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @SerializedName("time_zone")
-    private String timeZone;
+    this.timeZone = builder.timeZone;
     /**
-     * 请假记录数据来源
-     * <p> 示例值：1
+     * （暂未开放）请假记录数据来源
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
-    private Integer dataSource;
+    this.dataSource = builder.dataSource;
     /**
-     * 请假申请流程ID
-     * <p> 示例值：
+     * 请假申请流程ID。注意：导入的请假不会返回leave_process_id。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_process_id")
-    private String[] leaveProcessId;
+    this.leaveProcessId = builder.leaveProcessId;
     /**
-     * 请假更正流程ID
-     * <p> 示例值：
+     * 请假更正流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_correct_process_id")
-    private String[] leaveCorrectProcessId;
+    this.leaveCorrectProcessId = builder.leaveCorrectProcessId;
     /**
-     * 请假取消流程ID
-     * <p> 示例值：
+     * 请假取消流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_cancel_process_id")
-    private String[] leaveCancelProcessId;
+    this.leaveCancelProcessId = builder.leaveCancelProcessId;
     /**
-     * 请假返岗流程ID
-     * <p> 示例值：
+     * 请假返岗流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_return_process_id")
-    private String[] leaveReturnProcessId;
+    this.leaveReturnProcessId = builder.leaveReturnProcessId;
     /**
-     * workDay算薪类型
-     * <p> 示例值：1
+     * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+     *
+     * <p>示例值：1
      */
-    @SerializedName("wd_paid_type")
-    private Integer wdPaidType;
+    this.wdPaidType = builder.wdPaidType;
     /**
      * 请假更正流程信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_correct_process_info")
-    private LeaveProcessInfo[] leaveCorrectProcessInfo;
+    this.leaveCorrectProcessInfo = builder.leaveCorrectProcessInfo;
     /**
      * workday扩展字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("workday_extend_infos")
-    private LeaveExtendItem[] workdayExtendInfos;
+    this.workdayExtendInfos = builder.workdayExtendInfos;
     /**
-     * 请假标签配置
-     * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+     * （暂未开放）请假标签配置
+     *
+     * <p>示例值：{"tag_list":[{"key":"leave_type","values":["Annual
+     * Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
      */
-    @SerializedName("leave_tag_conf")
+    this.leaveTagConf = builder.leaveTagConf;
+  }
+
+  public static class Builder {
+    /**
+     * 请假记录ID
+     *
+     * <p>示例值：7536864851379078665
+     */
+    private String leaveRequestId;
+
+    /**
+     * 员工ID，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7360983350600173082
+     */
+    private String employmentId;
+
+    /**
+     * 员工姓名
+     *
+     * <p>示例值：
+     */
+    private I18n[] employmentName;
+
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7452717067026138635
+     */
+    private String leaveTypeId;
+
+    /**
+     * 假期类型名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] leaveTypeName;
+
+    /**
+     * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
+     */
+    private String startTime;
+
+    /**
+     * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
+     */
+    private String endTime;
+
+    /**
+     * 假期时长
+     *
+     * <p>示例值：1
+     */
+    private String leaveDuration;
+
+    /**
+     * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+     *
+     * <p>示例值：2
+     */
+    private Integer leaveDurationUnit;
+
+    /**
+     * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;-
+     * 8：已取消;- 9：已撤回
+     *
+     * <p>示例值：2
+     */
+    private Integer leaveRequestStatus;
+
+    /**
+     * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
+     *
+     * <p>示例值：manual
+     */
+    private String grantSource;
+
+    /**
+     * 返岗时间，格式为秒级时间戳
+     *
+     * <p>示例值：1662134400
+     */
+    private String returnTime;
+
+    /**
+     * 发起时间，格式为秒级时间戳
+     *
+     * <p>示例值：1659080476
+     */
+    private String submittedAt;
+
+    /**
+     * 发起人，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7109664941775241244
+     */
+    private String submittedBy;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：备注
+     */
+    private String notes;
+
+    /**
+     * （暂未开放）审批通过日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-09-09
+     */
+    private String approvalDate;
+
+    /**
+     * （暂未开放）是否带薪
+     *
+     * <p>示例值：false
+     */
+    private Boolean isDeducted;
+
+    /**
+     * 请假详情
+     *
+     * <p>示例值：
+     */
+    private LeaveRequestDetail[] details;
+
+    /**
+     * （暂未开放）假期类型枚举
+     *
+     * <p>示例值：Annual Leave
+     */
+    private String leaveTypeCode;
+
+    /**
+     * （暂未开放）实际结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
+     */
+    private String actualEndDate;
+
+    /**
+     * （暂未开放）预估结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
+     */
+    private String estimatedEndDate;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     */
+    private String timeZone;
+
+    /**
+     * （暂未开放）请假记录数据来源
+     *
+     * <p>示例值：1
+     */
+    private Integer dataSource;
+
+    /**
+     * 请假申请流程ID。注意：导入的请假不会返回leave_process_id。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     */
+    private String[] leaveProcessId;
+
+    /**
+     * 请假更正流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     */
+    private String[] leaveCorrectProcessId;
+
+    /**
+     * 请假取消流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     */
+    private String[] leaveCancelProcessId;
+
+    /**
+     * 请假返岗流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     */
+    private String[] leaveReturnProcessId;
+
+    /**
+     * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+     *
+     * <p>示例值：1
+     */
+    private Integer wdPaidType;
+
+    /**
+     * 请假更正流程信息
+     *
+     * <p>示例值：
+     */
+    private LeaveProcessInfo[] leaveCorrectProcessInfo;
+
+    /**
+     * workday扩展字段信息
+     *
+     * <p>示例值：
+     */
+    private LeaveExtendItem[] workdayExtendInfos;
+
+    /**
+     * （暂未开放）请假标签配置
+     *
+     * <p>示例值：{"tag_list":[{"key":"leave_type","values":["Annual
+     * Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+     */
     private LeaveTagConf leaveTagConf;
 
-    // builder 开始
-    public LeaveRequest() {
-    }
-
-    public LeaveRequest(Builder builder) {
-        /**
-         * 请假记录ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.leaveRequestId = builder.leaveRequestId;
-        /**
-         * 雇佣信息ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 员工姓名
-         * <p> 示例值：
-         */
-        this.employmentName = builder.employmentName;
-        /**
-         * 假期类型ID
-         * <p> 示例值：0
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 假期类型名称
-         * <p> 示例值：
-         */
-        this.leaveTypeName = builder.leaveTypeName;
-        /**
-         * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2022-07-06 morning
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2023-01-05
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 假期时长
-         * <p> 示例值：2
-         */
-        this.leaveDuration = builder.leaveDuration;
-        /**
-         * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-         * <p> 示例值：2
-         */
-        this.leaveDurationUnit = builder.leaveDurationUnit;
-        /**
-         * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;- 8：已取消;- 9：已撤回
-         * <p> 示例值：2
-         */
-        this.leaveRequestStatus = builder.leaveRequestStatus;
-        /**
-         * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
-         * <p> 示例值：manual
-         */
-        this.grantSource = builder.grantSource;
-        /**
-         * 返岗时间
-         * <p> 示例值：1662134400
-         */
-        this.returnTime = builder.returnTime;
-        /**
-         * 发起时间
-         * <p> 示例值：1659080476
-         */
-        this.submittedAt = builder.submittedAt;
-        /**
-         * 发起人
-         * <p> 示例值：7109664941775241244
-         */
-        this.submittedBy = builder.submittedBy;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.notes = builder.notes;
-        /**
-         * 审批通过日期
-         * <p> 示例值：2022-09-09
-         */
-        this.approvalDate = builder.approvalDate;
-        /**
-         * 是否带薪
-         * <p> 示例值：false
-         */
-        this.isDeducted = builder.isDeducted;
-        /**
-         * 请假详情
-         * <p> 示例值：
-         */
-        this.details = builder.details;
-        /**
-         * 假期类型枚举
-         * <p> 示例值：Annual Leave
-         */
-        this.leaveTypeCode = builder.leaveTypeCode;
-        /**
-         * 实际结束日期
-         * <p> 示例值：2022-08-02
-         */
-        this.actualEndDate = builder.actualEndDate;
-        /**
-         * 预估结束日期
-         * <p> 示例值：2022-08-02
-         */
-        this.estimatedEndDate = builder.estimatedEndDate;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 请假记录数据来源
-         * <p> 示例值：1
-         */
-        this.dataSource = builder.dataSource;
-        /**
-         * 请假申请流程ID
-         * <p> 示例值：
-         */
-        this.leaveProcessId = builder.leaveProcessId;
-        /**
-         * 请假更正流程ID
-         * <p> 示例值：
-         */
-        this.leaveCorrectProcessId = builder.leaveCorrectProcessId;
-        /**
-         * 请假取消流程ID
-         * <p> 示例值：
-         */
-        this.leaveCancelProcessId = builder.leaveCancelProcessId;
-        /**
-         * 请假返岗流程ID
-         * <p> 示例值：
-         */
-        this.leaveReturnProcessId = builder.leaveReturnProcessId;
-        /**
-         * workDay算薪类型
-         * <p> 示例值：1
-         */
-        this.wdPaidType = builder.wdPaidType;
-        /**
-         * 请假更正流程信息
-         * <p> 示例值：
-         */
-        this.leaveCorrectProcessInfo = builder.leaveCorrectProcessInfo;
-        /**
-         * workday扩展字段信息
-         * <p> 示例值：
-         */
-        this.workdayExtendInfos = builder.workdayExtendInfos;
-        /**
-         * 请假标签配置
-         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
-         */
-        this.leaveTagConf = builder.leaveTagConf;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLeaveRequestId() {
-        return this.leaveRequestId;
-    }
-
-    public void setLeaveRequestId(String leaveRequestId) {
-        this.leaveRequestId = leaveRequestId;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public I18n[] getEmploymentName() {
-        return this.employmentName;
-    }
-
-    public void setEmploymentName(I18n[] employmentName) {
-        this.employmentName = employmentName;
-    }
-
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
-    }
-
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
-    }
-
-    public I18n[] getLeaveTypeName() {
-        return this.leaveTypeName;
-    }
-
-    public void setLeaveTypeName(I18n[] leaveTypeName) {
-        this.leaveTypeName = leaveTypeName;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getLeaveDuration() {
-        return this.leaveDuration;
-    }
-
-    public void setLeaveDuration(String leaveDuration) {
-        this.leaveDuration = leaveDuration;
-    }
-
-    public Integer getLeaveDurationUnit() {
-        return this.leaveDurationUnit;
-    }
-
-    public void setLeaveDurationUnit(Integer leaveDurationUnit) {
-        this.leaveDurationUnit = leaveDurationUnit;
-    }
-
-    public Integer getLeaveRequestStatus() {
-        return this.leaveRequestStatus;
-    }
-
-    public void setLeaveRequestStatus(Integer leaveRequestStatus) {
-        this.leaveRequestStatus = leaveRequestStatus;
-    }
-
-    public String getGrantSource() {
-        return this.grantSource;
-    }
-
-    public void setGrantSource(String grantSource) {
-        this.grantSource = grantSource;
-    }
-
-    public String getReturnTime() {
-        return this.returnTime;
-    }
-
-    public void setReturnTime(String returnTime) {
-        this.returnTime = returnTime;
-    }
-
-    public String getSubmittedAt() {
-        return this.submittedAt;
-    }
-
-    public void setSubmittedAt(String submittedAt) {
-        this.submittedAt = submittedAt;
-    }
-
-    public String getSubmittedBy() {
-        return this.submittedBy;
-    }
-
-    public void setSubmittedBy(String submittedBy) {
-        this.submittedBy = submittedBy;
-    }
-
-    public String getNotes() {
-        return this.notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public String getApprovalDate() {
-        return this.approvalDate;
-    }
-
-    public void setApprovalDate(String approvalDate) {
-        this.approvalDate = approvalDate;
-    }
-
-    public Boolean getIsDeducted() {
-        return this.isDeducted;
-    }
-
-    public void setIsDeducted(Boolean isDeducted) {
-        this.isDeducted = isDeducted;
-    }
-
-    public LeaveRequestDetail[] getDetails() {
-        return this.details;
-    }
-
-    public void setDetails(LeaveRequestDetail[] details) {
-        this.details = details;
-    }
-
-    public String getLeaveTypeCode() {
-        return this.leaveTypeCode;
-    }
-
-    public void setLeaveTypeCode(String leaveTypeCode) {
-        this.leaveTypeCode = leaveTypeCode;
-    }
-
-    public String getActualEndDate() {
-        return this.actualEndDate;
-    }
-
-    public void setActualEndDate(String actualEndDate) {
-        this.actualEndDate = actualEndDate;
-    }
-
-    public String getEstimatedEndDate() {
-        return this.estimatedEndDate;
-    }
-
-    public void setEstimatedEndDate(String estimatedEndDate) {
-        this.estimatedEndDate = estimatedEndDate;
-    }
-
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public String[] getLeaveProcessId() {
-        return this.leaveProcessId;
-    }
-
-    public void setLeaveProcessId(String[] leaveProcessId) {
-        this.leaveProcessId = leaveProcessId;
-    }
-
-    public String[] getLeaveCorrectProcessId() {
-        return this.leaveCorrectProcessId;
-    }
-
-    public void setLeaveCorrectProcessId(String[] leaveCorrectProcessId) {
-        this.leaveCorrectProcessId = leaveCorrectProcessId;
-    }
-
-    public String[] getLeaveCancelProcessId() {
-        return this.leaveCancelProcessId;
-    }
-
-    public void setLeaveCancelProcessId(String[] leaveCancelProcessId) {
-        this.leaveCancelProcessId = leaveCancelProcessId;
-    }
-
-    public String[] getLeaveReturnProcessId() {
-        return this.leaveReturnProcessId;
-    }
-
-    public void setLeaveReturnProcessId(String[] leaveReturnProcessId) {
-        this.leaveReturnProcessId = leaveReturnProcessId;
-    }
-
-    public Integer getWdPaidType() {
-        return this.wdPaidType;
-    }
-
-    public void setWdPaidType(Integer wdPaidType) {
-        this.wdPaidType = wdPaidType;
-    }
-
-    public LeaveProcessInfo[] getLeaveCorrectProcessInfo() {
-        return this.leaveCorrectProcessInfo;
-    }
-
-    public void setLeaveCorrectProcessInfo(LeaveProcessInfo[] leaveCorrectProcessInfo) {
-        this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
-    }
-
-    public LeaveExtendItem[] getWorkdayExtendInfos() {
-        return this.workdayExtendInfos;
-    }
-
-    public void setWorkdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
-        this.workdayExtendInfos = workdayExtendInfos;
-    }
-
-    public LeaveTagConf getLeaveTagConf() {
-        return this.leaveTagConf;
-    }
-
-    public void setLeaveTagConf(LeaveTagConf leaveTagConf) {
-        this.leaveTagConf = leaveTagConf;
-    }
-
-    public static class Builder {
-        /**
-         * 请假记录ID
-         * <p> 示例值：4718803945687580505
-         */
-        private String leaveRequestId;
-        /**
-         * 雇佣信息ID
-         * <p> 示例值：4718803945687580505
-         */
-        private String employmentId;
-        /**
-         * 员工姓名
-         * <p> 示例值：
-         */
-        private I18n[] employmentName;
-        /**
-         * 假期类型ID
-         * <p> 示例值：0
-         */
-        private String leaveTypeId;
-        /**
-         * 假期类型名称
-         * <p> 示例值：
-         */
-        private I18n[] leaveTypeName;
-        /**
-         * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2022-07-06 morning
-         */
-        private String startTime;
-        /**
-         * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2023-01-05
-         */
-        private String endTime;
-        /**
-         * 假期时长
-         * <p> 示例值：2
-         */
-        private String leaveDuration;
-        /**
-         * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-         * <p> 示例值：2
-         */
-        private Integer leaveDurationUnit;
-        /**
-         * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;- 8：已取消;- 9：已撤回
-         * <p> 示例值：2
-         */
-        private Integer leaveRequestStatus;
-        /**
-         * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
-         * <p> 示例值：manual
-         */
-        private String grantSource;
-        /**
-         * 返岗时间
-         * <p> 示例值：1662134400
-         */
-        private String returnTime;
-        /**
-         * 发起时间
-         * <p> 示例值：1659080476
-         */
-        private String submittedAt;
-        /**
-         * 发起人
-         * <p> 示例值：7109664941775241244
-         */
-        private String submittedBy;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        private String notes;
-        /**
-         * 审批通过日期
-         * <p> 示例值：2022-09-09
-         */
-        private String approvalDate;
-        /**
-         * 是否带薪
-         * <p> 示例值：false
-         */
-        private Boolean isDeducted;
-        /**
-         * 请假详情
-         * <p> 示例值：
-         */
-        private LeaveRequestDetail[] details;
-        /**
-         * 假期类型枚举
-         * <p> 示例值：Annual Leave
-         */
-        private String leaveTypeCode;
-        /**
-         * 实际结束日期
-         * <p> 示例值：2022-08-02
-         */
-        private String actualEndDate;
-        /**
-         * 预估结束日期
-         * <p> 示例值：2022-08-02
-         */
-        private String estimatedEndDate;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timeZone;
-        /**
-         * 请假记录数据来源
-         * <p> 示例值：1
-         */
-        private Integer dataSource;
-        /**
-         * 请假申请流程ID
-         * <p> 示例值：
-         */
-        private String[] leaveProcessId;
-        /**
-         * 请假更正流程ID
-         * <p> 示例值：
-         */
-        private String[] leaveCorrectProcessId;
-        /**
-         * 请假取消流程ID
-         * <p> 示例值：
-         */
-        private String[] leaveCancelProcessId;
-        /**
-         * 请假返岗流程ID
-         * <p> 示例值：
-         */
-        private String[] leaveReturnProcessId;
-        /**
-         * workDay算薪类型
-         * <p> 示例值：1
-         */
-        private Integer wdPaidType;
-        /**
-         * 请假更正流程信息
-         * <p> 示例值：
-         */
-        private LeaveProcessInfo[] leaveCorrectProcessInfo;
-        /**
-         * workday扩展字段信息
-         * <p> 示例值：
-         */
-        private LeaveExtendItem[] workdayExtendInfos;
-        /**
-         * 请假标签配置
-         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
-         */
-        private LeaveTagConf leaveTagConf;
-
-        /**
-         * 请假记录ID
-         * <p> 示例值：4718803945687580505
-         *
-         * @param leaveRequestId
-         * @return
-         */
-        public Builder leaveRequestId(String leaveRequestId) {
-            this.leaveRequestId = leaveRequestId;
-            return this;
-        }
-
-
-        /**
-         * 雇佣信息ID
-         * <p> 示例值：4718803945687580505
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 员工姓名
-         * <p> 示例值：
-         *
-         * @param employmentName
-         * @return
-         */
-        public Builder employmentName(I18n[] employmentName) {
-            this.employmentName = employmentName;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：0
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型名称
-         * <p> 示例值：
-         *
-         * @param leaveTypeName
-         * @return
-         */
-        public Builder leaveTypeName(I18n[] leaveTypeName) {
-            this.leaveTypeName = leaveTypeName;
-            return this;
-        }
-
-
-        /**
-         * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2022-07-06 morning
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning""
-         * <p> 示例值：2023-01-05
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 假期时长
-         * <p> 示例值：2
-         *
-         * @param leaveDuration
-         * @return
-         */
-        public Builder leaveDuration(String leaveDuration) {
-            this.leaveDuration = leaveDuration;
-            return this;
-        }
-
-
-        /**
-         * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
-         * <p> 示例值：2
-         *
-         * @param leaveDurationUnit
-         * @return
-         */
-        public Builder leaveDurationUnit(Integer leaveDurationUnit) {
-            this.leaveDurationUnit = leaveDurationUnit;
-            return this;
-        }
-
-
-        /**
-         * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;- 8：已取消;- 9：已撤回
-         * <p> 示例值：2
-         *
-         * @param leaveRequestStatus
-         * @return
-         */
-        public Builder leaveRequestStatus(Integer leaveRequestStatus) {
-            this.leaveRequestStatus = leaveRequestStatus;
-            return this;
-        }
-
-
-        /**
-         * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
-         * <p> 示例值：manual
-         *
-         * @param grantSource
-         * @return
-         */
-        public Builder grantSource(String grantSource) {
-            this.grantSource = grantSource;
-            return this;
-        }
-
-
-        /**
-         * 返岗时间
-         * <p> 示例值：1662134400
-         *
-         * @param returnTime
-         * @return
-         */
-        public Builder returnTime(String returnTime) {
-            this.returnTime = returnTime;
-            return this;
-        }
-
-
-        /**
-         * 发起时间
-         * <p> 示例值：1659080476
-         *
-         * @param submittedAt
-         * @return
-         */
-        public Builder submittedAt(String submittedAt) {
-            this.submittedAt = submittedAt;
-            return this;
-        }
-
-
-        /**
-         * 发起人
-         * <p> 示例值：7109664941775241244
-         *
-         * @param submittedBy
-         * @return
-         */
-        public Builder submittedBy(String submittedBy) {
-            this.submittedBy = submittedBy;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：备注
-         *
-         * @param notes
-         * @return
-         */
-        public Builder notes(String notes) {
-            this.notes = notes;
-            return this;
-        }
-
-
-        /**
-         * 审批通过日期
-         * <p> 示例值：2022-09-09
-         *
-         * @param approvalDate
-         * @return
-         */
-        public Builder approvalDate(String approvalDate) {
-            this.approvalDate = approvalDate;
-            return this;
-        }
-
-
-        /**
-         * 是否带薪
-         * <p> 示例值：false
-         *
-         * @param isDeducted
-         * @return
-         */
-        public Builder isDeducted(Boolean isDeducted) {
-            this.isDeducted = isDeducted;
-            return this;
-        }
-
-
-        /**
-         * 请假详情
-         * <p> 示例值：
-         *
-         * @param details
-         * @return
-         */
-        public Builder details(LeaveRequestDetail[] details) {
-            this.details = details;
-            return this;
-        }
-
-
-        /**
-         * 假期类型枚举
-         * <p> 示例值：Annual Leave
-         *
-         * @param leaveTypeCode
-         * @return
-         */
-        public Builder leaveTypeCode(String leaveTypeCode) {
-            this.leaveTypeCode = leaveTypeCode;
-            return this;
-        }
-
-
-        /**
-         * 实际结束日期
-         * <p> 示例值：2022-08-02
-         *
-         * @param actualEndDate
-         * @return
-         */
-        public Builder actualEndDate(String actualEndDate) {
-            this.actualEndDate = actualEndDate;
-            return this;
-        }
-
-
-        /**
-         * 预估结束日期
-         * <p> 示例值：2022-08-02
-         *
-         * @param estimatedEndDate
-         * @return
-         */
-        public Builder estimatedEndDate(String estimatedEndDate) {
-            this.estimatedEndDate = estimatedEndDate;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 请假记录数据来源
-         * <p> 示例值：1
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        /**
-         * 请假申请流程ID
-         * <p> 示例值：
-         *
-         * @param leaveProcessId
-         * @return
-         */
-        public Builder leaveProcessId(String[] leaveProcessId) {
-            this.leaveProcessId = leaveProcessId;
-            return this;
-        }
-
-
-        /**
-         * 请假更正流程ID
-         * <p> 示例值：
-         *
-         * @param leaveCorrectProcessId
-         * @return
-         */
-        public Builder leaveCorrectProcessId(String[] leaveCorrectProcessId) {
-            this.leaveCorrectProcessId = leaveCorrectProcessId;
-            return this;
-        }
-
-
-        /**
-         * 请假取消流程ID
-         * <p> 示例值：
-         *
-         * @param leaveCancelProcessId
-         * @return
-         */
-        public Builder leaveCancelProcessId(String[] leaveCancelProcessId) {
-            this.leaveCancelProcessId = leaveCancelProcessId;
-            return this;
-        }
-
-
-        /**
-         * 请假返岗流程ID
-         * <p> 示例值：
-         *
-         * @param leaveReturnProcessId
-         * @return
-         */
-        public Builder leaveReturnProcessId(String[] leaveReturnProcessId) {
-            this.leaveReturnProcessId = leaveReturnProcessId;
-            return this;
-        }
-
-
-        /**
-         * workDay算薪类型
-         * <p> 示例值：1
-         *
-         * @param wdPaidType
-         * @return
-         */
-        public Builder wdPaidType(Integer wdPaidType) {
-            this.wdPaidType = wdPaidType;
-            return this;
-        }
-
-
-        /**
-         * 请假更正流程信息
-         * <p> 示例值：
-         *
-         * @param leaveCorrectProcessInfo
-         * @return
-         */
-        public Builder leaveCorrectProcessInfo(LeaveProcessInfo[] leaveCorrectProcessInfo) {
-            this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
-            return this;
-        }
-
-
-        /**
-         * workday扩展字段信息
-         * <p> 示例值：
-         *
-         * @param workdayExtendInfos
-         * @return
-         */
-        public Builder workdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
-            this.workdayExtendInfos = workdayExtendInfos;
-            return this;
-        }
-
-
-        /**
-         * 请假标签配置
-         * <p> 示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
-         *
-         * @param leaveTagConf
-         * @return
-         */
-        public Builder leaveTagConf(LeaveTagConf leaveTagConf) {
-            this.leaveTagConf = leaveTagConf;
-            return this;
-        }
-
-
-        public LeaveRequest build() {
-            return new LeaveRequest(this);
-        }
-    }
+    /**
+     * 请假记录ID
+     *
+     * <p>示例值：7536864851379078665
+     *
+     * @param leaveRequestId
+     * @return
+     */
+    public Builder leaveRequestId(String leaveRequestId) {
+      this.leaveRequestId = leaveRequestId;
+      return this;
+    }
+
+    /**
+     * 员工ID，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7360983350600173082
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
+    }
+
+    /**
+     * 员工姓名
+     *
+     * <p>示例值：
+     *
+     * @param employmentName
+     * @return
+     */
+    public Builder employmentName(I18n[] employmentName) {
+      this.employmentName = employmentName;
+      return this;
+    }
+
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7452717067026138635
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
+    }
+
+    /**
+     * 假期类型名称
+     *
+     * <p>示例值：
+     *
+     * @param leaveTypeName
+     * @return
+     */
+    public Builder leaveTypeName(I18n[] leaveTypeName) {
+      this.leaveTypeName = leaveTypeName;
+      return this;
+    }
+
+    /**
+     * 假期开始时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
+    }
+
+    /**
+     * 假期结束时间，格式可能为：;; - 字符串日期：如 "2022-09-09";; - 字符串日期加 morning/afternoon：如 "2022-09-09 morning"";
+     * - 小时假如需返回精准到小时的时间格式，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW) 开通
+     *
+     * <p>示例值：2024-11-28
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
+    }
+
+    /**
+     * 假期时长
+     *
+     * <p>示例值：1
+     *
+     * @param leaveDuration
+     * @return
+     */
+    public Builder leaveDuration(String leaveDuration) {
+      this.leaveDuration = leaveDuration;
+      return this;
+    }
+
+    /**
+     * 假期时长单位;;可选值有：;;- 1: 天;;- 2: 小时
+     *
+     * <p>示例值：2
+     *
+     * @param leaveDurationUnit
+     * @return
+     */
+    public Builder leaveDurationUnit(Integer leaveDurationUnit) {
+      this.leaveDurationUnit = leaveDurationUnit;
+      return this;
+    }
+
+    /**
+     * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;- 4：审批中（取消休假）;- 5：审批中（返岗）;- 6：已返岗;- 7：已拒绝;-
+     * 8：已取消;- 9：已撤回
+     *
+     * <p>示例值：2
+     *
+     * @param leaveRequestStatus
+     * @return
+     */
+    public Builder leaveRequestStatus(Integer leaveRequestStatus) {
+      this.leaveRequestStatus = leaveRequestStatus;
+      return this;
+    }
+
+    /**
+     * 数据来源;;可选值有：;;- "manual"：手动创建;;- "system"：系统创建"
+     *
+     * <p>示例值：manual
+     *
+     * @param grantSource
+     * @return
+     */
+    public Builder grantSource(String grantSource) {
+      this.grantSource = grantSource;
+      return this;
+    }
+
+    /**
+     * 返岗时间，格式为秒级时间戳
+     *
+     * <p>示例值：1662134400
+     *
+     * @param returnTime
+     * @return
+     */
+    public Builder returnTime(String returnTime) {
+      this.returnTime = returnTime;
+      return this;
+    }
+
+    /**
+     * 发起时间，格式为秒级时间戳
+     *
+     * <p>示例值：1659080476
+     *
+     * @param submittedAt
+     * @return
+     */
+    public Builder submittedAt(String submittedAt) {
+      this.submittedAt = submittedAt;
+      return this;
+    }
+
+    /**
+     * 发起人，ID 类型与 user_id_type 一致
+     *
+     * <p>示例值：7109664941775241244
+     *
+     * @param submittedBy
+     * @return
+     */
+    public Builder submittedBy(String submittedBy) {
+      this.submittedBy = submittedBy;
+      return this;
+    }
+
+    /**
+     * 备注
+     *
+     * <p>示例值：备注
+     *
+     * @param notes
+     * @return
+     */
+    public Builder notes(String notes) {
+      this.notes = notes;
+      return this;
+    }
+
+    /**
+     * （暂未开放）审批通过日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-09-09
+     *
+     * @param approvalDate
+     * @return
+     */
+    public Builder approvalDate(String approvalDate) {
+      this.approvalDate = approvalDate;
+      return this;
+    }
+
+    /**
+     * （暂未开放）是否带薪
+     *
+     * <p>示例值：false
+     *
+     * @param isDeducted
+     * @return
+     */
+    public Builder isDeducted(Boolean isDeducted) {
+      this.isDeducted = isDeducted;
+      return this;
+    }
+
+    /**
+     * 请假详情
+     *
+     * <p>示例值：
+     *
+     * @param details
+     * @return
+     */
+    public Builder details(LeaveRequestDetail[] details) {
+      this.details = details;
+      return this;
+    }
+
+    /**
+     * （暂未开放）假期类型枚举
+     *
+     * <p>示例值：Annual Leave
+     *
+     * @param leaveTypeCode
+     * @return
+     */
+    public Builder leaveTypeCode(String leaveTypeCode) {
+      this.leaveTypeCode = leaveTypeCode;
+      return this;
+    }
+
+    /**
+     * （暂未开放）实际结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
+     *
+     * @param actualEndDate
+     * @return
+     */
+    public Builder actualEndDate(String actualEndDate) {
+      this.actualEndDate = actualEndDate;
+      return this;
+    }
+
+    /**
+     * （暂未开放）预估结束日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-08-02
+     *
+     * @param estimatedEndDate
+     * @return
+     */
+    public Builder estimatedEndDate(String estimatedEndDate) {
+      this.estimatedEndDate = estimatedEndDate;
+      return this;
+    }
+
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
+    }
+
+    /**
+     * （暂未开放）请假记录数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
+    }
+
+    /**
+     * 请假申请流程ID。注意：导入的请假不会返回leave_process_id。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     *
+     * @param leaveProcessId
+     * @return
+     */
+    public Builder leaveProcessId(String[] leaveProcessId) {
+      this.leaveProcessId = leaveProcessId;
+      return this;
+    }
+
+    /**
+     * 请假更正流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     *
+     * @param leaveCorrectProcessId
+     * @return
+     */
+    public Builder leaveCorrectProcessId(String[] leaveCorrectProcessId) {
+      this.leaveCorrectProcessId = leaveCorrectProcessId;
+      return this;
+    }
+
+    /**
+     * 请假取消流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     *
+     * @param leaveCancelProcessId
+     * @return
+     */
+    public Builder leaveCancelProcessId(String[] leaveCancelProcessId) {
+      this.leaveCancelProcessId = leaveCancelProcessId;
+      return this;
+    }
+
+    /**
+     * 请假返岗流程ID。可用于[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+     *
+     * <p>示例值：
+     *
+     * @param leaveReturnProcessId
+     * @return
+     */
+    public Builder leaveReturnProcessId(String[] leaveReturnProcessId) {
+      this.leaveReturnProcessId = leaveReturnProcessId;
+      return this;
+    }
+
+    /**
+     * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+     *
+     * <p>示例值：1
+     *
+     * @param wdPaidType
+     * @return
+     */
+    public Builder wdPaidType(Integer wdPaidType) {
+      this.wdPaidType = wdPaidType;
+      return this;
+    }
+
+    /**
+     * 请假更正流程信息
+     *
+     * <p>示例值：
+     *
+     * @param leaveCorrectProcessInfo
+     * @return
+     */
+    public Builder leaveCorrectProcessInfo(LeaveProcessInfo[] leaveCorrectProcessInfo) {
+      this.leaveCorrectProcessInfo = leaveCorrectProcessInfo;
+      return this;
+    }
+
+    /**
+     * workday扩展字段信息
+     *
+     * <p>示例值：
+     *
+     * @param workdayExtendInfos
+     * @return
+     */
+    public Builder workdayExtendInfos(LeaveExtendItem[] workdayExtendInfos) {
+      this.workdayExtendInfos = workdayExtendInfos;
+      return this;
+    }
+
+    /**
+     * （暂未开放）请假标签配置
+     *
+     * <p>示例值：{"tag_list":[{"key":"leave_type","values":["Annual
+     * Leave"]},{"key":"leave_term","values":["Short Leave"]}]}
+     *
+     * @param leaveTagConf
+     * @return
+     */
+    public Builder leaveTagConf(LeaveTagConf leaveTagConf) {
+      this.leaveTagConf = leaveTagConf;
+      return this;
+    }
+
+    public LeaveRequest build() {
+      return new LeaveRequest(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

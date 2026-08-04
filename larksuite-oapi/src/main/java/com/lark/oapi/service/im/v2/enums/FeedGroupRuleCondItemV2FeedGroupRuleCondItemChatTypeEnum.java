@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 会话类型
- */
+/** 会话类型 */
 public enum FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum {
-    P2P("p2p"), // 单聊
-    GROUP("group"), // 群组
-    THREAD_GROUP("thread_group"), // 话题群
-    HELPDESK("helpdesk"), // 服务台
-    BOT("bot"), // 机器人
-    MUTE("mute"), // 免打扰
-    FLAG("flag"), // 标记
-    CROSS_TENANT("cross_tenant"), // 外部
-    ANY("any"), // 全部
-    ;
-    private String value;
+  P2P("p2p"), // 单聊
+  GROUP("group"), // 群组
+  THREAD_GROUP("thread_group"), // 话题群
+  HELPDESK("helpdesk"), // 服务台
+  BOT("bot"), // 机器人
+  MUTE("mute"), // 免打扰
+  FLAG("flag"), // 标记
+  CROSS_TENANT("cross_tenant"), // 外部
+  ANY("any"), // 全部
+  ;
+  private String value;
 
-    FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

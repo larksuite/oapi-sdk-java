@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentListForAgentRecord {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 员工字段数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data")
+  private EmploymentColumnValueForAgent[] data;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public EmploymentColumnValueForAgent[] getData() {
+    return this.data;
+  }
+
+  public void setData(EmploymentColumnValueForAgent[] data) {
+    this.data = data;
+  }
+
+  // builder 开始
+  public EmploymentListForAgentRecord() {}
+
+  public EmploymentListForAgentRecord(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 员工字段数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data")
+    this.data = builder.data;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String employmentId;
+
+    /**
+     * 员工字段数据
+     *
+     * <p>示例值：
+     */
     private EmploymentColumnValueForAgent[] data;
 
-    // builder 开始
-    public EmploymentListForAgentRecord() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmploymentListForAgentRecord(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 员工字段数据
-         * <p> 示例值：
-         */
-        this.data = builder.data;
+    /**
+     * 员工字段数据
+     *
+     * <p>示例值：
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(EmploymentColumnValueForAgent[] data) {
+      this.data = data;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmploymentListForAgentRecord build() {
+      return new EmploymentListForAgentRecord(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public EmploymentColumnValueForAgent[] getData() {
-        return this.data;
-    }
-
-    public void setData(EmploymentColumnValueForAgent[] data) {
-        this.data = data;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String employmentId;
-        /**
-         * 员工字段数据
-         * <p> 示例值：
-         */
-        private EmploymentColumnValueForAgent[] data;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 员工字段数据
-         * <p> 示例值：
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(EmploymentColumnValueForAgent[] data) {
-            this.data = data;
-            return this;
-        }
-
-
-        public EmploymentListForAgentRecord build() {
-            return new EmploymentListForAgentRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

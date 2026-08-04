@@ -60,15 +60,15 @@ import com.lark.oapi.service.corehr.v2.resource.ProbationAssessment;
 import com.lark.oapi.service.corehr.v2.resource.Process;
 import com.lark.oapi.service.corehr.v2.resource.ProcessApprover;
 import com.lark.oapi.service.corehr.v2.resource.ProcessCc;
+import com.lark.oapi.service.corehr.v2.resource.ProcessCommentInfo;
 import com.lark.oapi.service.corehr.v2.resource.ProcessExtra;
 import com.lark.oapi.service.corehr.v2.resource.ProcessFormVariableData;
 import com.lark.oapi.service.corehr.v2.resource.ProcessNode;
 import com.lark.oapi.service.corehr.v2.resource.ProcessQueryFlowDataTemplate;
-import com.lark.oapi.service.corehr.v2.resource.ProcessStatus;
-import com.lark.oapi.service.corehr.v2.resource.ProcessTransfer;
-import com.lark.oapi.service.corehr.v2.resource.ProcessCommentInfo;
 import com.lark.oapi.service.corehr.v2.resource.ProcessRevoke;
 import com.lark.oapi.service.corehr.v2.resource.ProcessStart;
+import com.lark.oapi.service.corehr.v2.resource.ProcessStatus;
+import com.lark.oapi.service.corehr.v2.resource.ProcessTransfer;
 import com.lark.oapi.service.corehr.v2.resource.ProcessWithdraw;
 import com.lark.oapi.service.corehr.v2.resource.ReportDetailRow;
 import com.lark.oapi.service.corehr.v2.resource.SignatureFile;
@@ -80,391 +80,395 @@ import com.lark.oapi.service.corehr.v2.resource.WorkforcePlanDetail;
 import com.lark.oapi.service.corehr.v2.resource.WorkforcePlanDetailRow;
 
 public class V2 {
-    private final ApprovalGroups approvalGroups; // approval_groups
-    private final Approver approver; // approver
-    private final BasicInfoBank basicInfoBank; // basic_info.bank
-    private final BasicInfoBankBranch basicInfoBankBranch; // basic_info.bank_branch
-    private final BasicInfoCity basicInfoCity; // basic_info.city
-    private final BasicInfoCountryRegion basicInfoCountryRegion; // basic_info.country_region
-    private final BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision; // basic_info.country_region_subdivision
-    private final BasicInfoCurrency basicInfoCurrency; // basic_info.currency
-    private final BasicInfoDistrict basicInfoDistrict; // basic_info.district
-    private final BasicInfoLanguage basicInfoLanguage; // basic_info.language
-    private final BasicInfoNationality basicInfoNationality; // basic_info.nationality
-    private final BasicInfoTimeZone basicInfoTimeZone; // basic_info.time_zone
-    private final Bp bp; // bp
-    private final Company company; // company
-    private final Contract contract; // contract
-    private final CostAllocation costAllocation; // cost_allocation
-    private final CostCenter costCenter; // cost_center
-    private final CostCenterVersion costCenterVersion; // cost_center.version
-    private final CustomOrg customOrg; // custom_org
-    private final DefaultCostCenter defaultCostCenter; // default_cost_center
-    private final Department department; // department
-    private final Draft draft; // draft
-    private final Employee employee; // employee
-    private final EmployeeCustomOrg employeeCustomOrg; // employee.custom_org
-    private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
-    private final EmployeesBp employeesBp; // employees.bp
-    private final EmployeesInternationalAssignment employeesInternationalAssignment; // employees.international_assignment
-    private final EmployeesJobData employeesJobData; // employees.job_data
-    private final Enum enum_; // enum
-    private final Job job; // job
-    private final JobChange jobChange; // job_change
-    private final JobFamily jobFamily; // job_family
-    private final JobGrade jobGrade; // job_grade
-    private final JobLevel jobLevel; // job_level
-    private final Location location; // location
-    private final LocationAddress locationAddress; // location.address
-    private final Offboarding offboarding; // offboarding
-    private final Pathway pathway; // pathway
-    private final Person person; // person
-    private final Position position; // position
-    private final PreHire preHire; // 待入职
-    private final Probation probation; // probation
-    private final ProbationAssessment probationAssessment; // probation.assessment
-    private final Process process; // process
-    private final ProcessApprover processApprover; // process.approver
-    private final ProcessCc processCc; // process.cc
-    private final ProcessExtra processExtra; // process.extra
-    private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
-    private final ProcessNode processNode; // process.node
-    private final ProcessQueryFlowDataTemplate processQueryFlowDataTemplate; // process.query_flow_data_template
-    private final ProcessStatus processStatus; // process.status
-    private final ProcessTransfer processTransfer; // process.transfer
-    private final ProcessCommentInfo processCommentInfo; // process_comment_info
-    private final ProcessRevoke processRevoke; // process_revoke
-    private final ProcessStart processStart; // process_start
-    private final ProcessWithdraw processWithdraw; // process_withdraw
-    private final ReportDetailRow reportDetailRow; // report_detail_row
-    private final SignatureFile signatureFile; // signature_file
-    private final SignatureNode signatureNode; // signature_node
-    private final SignatureTemplate signatureTemplate; // signature_template
-    private final SignatureTemplateInfoWithThumbnail signatureTemplateInfoWithThumbnail; // signature_template_info_with_thumbnail
-    private final WorkforcePlan workforcePlan; // workforce_plan
-    private final WorkforcePlanDetail workforcePlanDetail; // workforce_plan_detail
-    private final WorkforcePlanDetailRow workforcePlanDetailRow; // workforce_plan_detail_row
-
-    public V2(Config config) {
-        this.approvalGroups = new ApprovalGroups(config);
-        this.approver = new Approver(config);
-        this.basicInfoBank = new BasicInfoBank(config);
-        this.basicInfoBankBranch = new BasicInfoBankBranch(config);
-        this.basicInfoCity = new BasicInfoCity(config);
-        this.basicInfoCountryRegion = new BasicInfoCountryRegion(config);
-        this.basicInfoCountryRegionSubdivision = new BasicInfoCountryRegionSubdivision(config);
-        this.basicInfoCurrency = new BasicInfoCurrency(config);
-        this.basicInfoDistrict = new BasicInfoDistrict(config);
-        this.basicInfoLanguage = new BasicInfoLanguage(config);
-        this.basicInfoNationality = new BasicInfoNationality(config);
-        this.basicInfoTimeZone = new BasicInfoTimeZone(config);
-        this.bp = new Bp(config);
-        this.company = new Company(config);
-        this.contract = new Contract(config);
-        this.costAllocation = new CostAllocation(config);
-        this.costCenter = new CostCenter(config);
-        this.costCenterVersion = new CostCenterVersion(config);
-        this.customOrg = new CustomOrg(config);
-        this.defaultCostCenter = new DefaultCostCenter(config);
-        this.department = new Department(config);
-        this.draft = new Draft(config);
-        this.employee = new Employee(config);
-        this.employeeCustomOrg = new EmployeeCustomOrg(config);
-        this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
-        this.employeesBp = new EmployeesBp(config);
-        this.employeesInternationalAssignment = new EmployeesInternationalAssignment(config);
-        this.employeesJobData = new EmployeesJobData(config);
-        this.enum_ = new Enum(config);
-        this.job = new Job(config);
-        this.jobChange = new JobChange(config);
-        this.jobFamily = new JobFamily(config);
-        this.jobGrade = new JobGrade(config);
-        this.jobLevel = new JobLevel(config);
-        this.location = new Location(config);
-        this.locationAddress = new LocationAddress(config);
-        this.offboarding = new Offboarding(config);
-        this.pathway = new Pathway(config);
-        this.person = new Person(config);
-        this.position = new Position(config);
-        this.preHire = new PreHire(config);
-        this.probation = new Probation(config);
-        this.probationAssessment = new ProbationAssessment(config);
-        this.process = new Process(config);
-        this.processApprover = new ProcessApprover(config);
-        this.processCc = new ProcessCc(config);
-        this.processExtra = new ProcessExtra(config);
-        this.processFormVariableData = new ProcessFormVariableData(config);
-        this.processNode = new ProcessNode(config);
-        this.processQueryFlowDataTemplate = new ProcessQueryFlowDataTemplate(config);
-        this.processStatus = new ProcessStatus(config);
-        this.processTransfer = new ProcessTransfer(config);
-        this.processCommentInfo = new ProcessCommentInfo(config);
-        this.processRevoke = new ProcessRevoke(config);
-        this.processStart = new ProcessStart(config);
-        this.processWithdraw = new ProcessWithdraw(config);
-        this.reportDetailRow = new ReportDetailRow(config);
-        this.signatureFile = new SignatureFile(config);
-        this.signatureNode = new SignatureNode(config);
-        this.signatureTemplate = new SignatureTemplate(config);
-        this.signatureTemplateInfoWithThumbnail = new SignatureTemplateInfoWithThumbnail(config);
-        this.workforcePlan = new WorkforcePlan(config);
-        this.workforcePlanDetail = new WorkforcePlanDetail(config);
-        this.workforcePlanDetailRow = new WorkforcePlanDetailRow(config);
-    }
-
-    public ApprovalGroups approvalGroups() {
-        return approvalGroups;
-    }
-
-    public Approver approver() {
-        return approver;
-    }
-
-    public BasicInfoBank basicInfoBank() {
-        return basicInfoBank;
-    }
-
-    public BasicInfoBankBranch basicInfoBankBranch() {
-        return basicInfoBankBranch;
-    }
-
-    public BasicInfoCity basicInfoCity() {
-        return basicInfoCity;
-    }
-
-    public BasicInfoCountryRegion basicInfoCountryRegion() {
-        return basicInfoCountryRegion;
-    }
-
-    public BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision() {
-        return basicInfoCountryRegionSubdivision;
-    }
-
-    public BasicInfoCurrency basicInfoCurrency() {
-        return basicInfoCurrency;
-    }
-
-    public BasicInfoDistrict basicInfoDistrict() {
-        return basicInfoDistrict;
-    }
-
-    public BasicInfoLanguage basicInfoLanguage() {
-        return basicInfoLanguage;
-    }
-
-    public BasicInfoNationality basicInfoNationality() {
-        return basicInfoNationality;
-    }
-
-    public BasicInfoTimeZone basicInfoTimeZone() {
-        return basicInfoTimeZone;
-    }
-
-    public Bp bp() {
-        return bp;
-    }
-
-    public Company company() {
-        return company;
-    }
-
-    public Contract contract() {
-        return contract;
-    }
-
-    public CostAllocation costAllocation() {
-        return costAllocation;
-    }
-
-    public CostCenter costCenter() {
-        return costCenter;
-    }
-
-    public CostCenterVersion costCenterVersion() {
-        return costCenterVersion;
-    }
-
-    public CustomOrg customOrg() {
-        return customOrg;
-    }
-
-    public DefaultCostCenter defaultCostCenter() {
-        return defaultCostCenter;
-    }
-
-    public Department department() {
-        return department;
-    }
-
-    public Draft draft() {
-        return draft;
-    }
-
-    public Employee employee() {
-        return employee;
-    }
-
-    public EmployeeCustomOrg employeeCustomOrg() {
-        return employeeCustomOrg;
-    }
-
-    public EmployeesAdditionalJob employeesAdditionalJob() {
-        return employeesAdditionalJob;
-    }
-
-    public EmployeesBp employeesBp() {
-        return employeesBp;
-    }
-
-    public EmployeesInternationalAssignment employeesInternationalAssignment() {
-        return employeesInternationalAssignment;
-    }
-
-    public EmployeesJobData employeesJobData() {
-        return employeesJobData;
-    }
-
-    public Enum enum_() {
-        return enum_;
-    }
-
-    public Job job() {
-        return job;
-    }
-
-    public JobChange jobChange() {
-        return jobChange;
-    }
-
-    public JobFamily jobFamily() {
-        return jobFamily;
-    }
-
-    public JobGrade jobGrade() {
-        return jobGrade;
-    }
-
-    public JobLevel jobLevel() {
-        return jobLevel;
-    }
-
-    public Location location() {
-        return location;
-    }
-
-    public LocationAddress locationAddress() {
-        return locationAddress;
-    }
-
-    public Offboarding offboarding() {
-        return offboarding;
-    }
-
-    public Pathway pathway() {
-        return pathway;
-    }
-
-    public Person person() {
-        return person;
-    }
-
-    public Position position() {
-        return position;
-    }
-
-    public PreHire preHire() {
-        return preHire;
-    }
-
-    public Probation probation() {
-        return probation;
-    }
-
-    public ProbationAssessment probationAssessment() {
-        return probationAssessment;
-    }
-
-    public Process process() {
-        return process;
-    }
-
-    public ProcessApprover processApprover() {
-        return processApprover;
-    }
-
-    public ProcessCc processCc() {
-        return processCc;
-    }
-
-    public ProcessExtra processExtra() {
-        return processExtra;
-    }
-
-    public ProcessFormVariableData processFormVariableData() {
-        return processFormVariableData;
-    }
-
-    public ProcessNode processNode() {
-        return processNode;
-    }
-
-    public ProcessQueryFlowDataTemplate processQueryFlowDataTemplate() {
-        return processQueryFlowDataTemplate;
-    }
-
-    public ProcessStatus processStatus() {
-        return processStatus;
-    }
-
-    public ProcessTransfer processTransfer() {
-        return processTransfer;
-    }
-
-    public ProcessCommentInfo processCommentInfo() {
-        return processCommentInfo;
-    }
-
-    public ProcessRevoke processRevoke() {
-        return processRevoke;
-    }
-
-    public ProcessStart processStart() {
-        return processStart;
-    }
-
-    public ProcessWithdraw processWithdraw() {
-        return processWithdraw;
-    }
-
-    public ReportDetailRow reportDetailRow() {
-        return reportDetailRow;
-    }
-
-    public SignatureFile signatureFile() {
-        return signatureFile;
-    }
-
-    public SignatureNode signatureNode() {
-        return signatureNode;
-    }
-
-    public SignatureTemplate signatureTemplate() {
-        return signatureTemplate;
-    }
-
-    public SignatureTemplateInfoWithThumbnail signatureTemplateInfoWithThumbnail() {
-        return signatureTemplateInfoWithThumbnail;
-    }
-
-    public WorkforcePlan workforcePlan() {
-        return workforcePlan;
-    }
-
-    public WorkforcePlanDetail workforcePlanDetail() {
-        return workforcePlanDetail;
-    }
-
-    public WorkforcePlanDetailRow workforcePlanDetailRow() {
-        return workforcePlanDetailRow;
-    }
+  private final ApprovalGroups approvalGroups; // approval_groups
+  private final Approver approver; // approver
+  private final BasicInfoBank basicInfoBank; // basic_info.bank
+  private final BasicInfoBankBranch basicInfoBankBranch; // basic_info.bank_branch
+  private final BasicInfoCity basicInfoCity; // basic_info.city
+  private final BasicInfoCountryRegion basicInfoCountryRegion; // basic_info.country_region
+  private final BasicInfoCountryRegionSubdivision
+      basicInfoCountryRegionSubdivision; // basic_info.country_region_subdivision
+  private final BasicInfoCurrency basicInfoCurrency; // basic_info.currency
+  private final BasicInfoDistrict basicInfoDistrict; // basic_info.district
+  private final BasicInfoLanguage basicInfoLanguage; // basic_info.language
+  private final BasicInfoNationality basicInfoNationality; // basic_info.nationality
+  private final BasicInfoTimeZone basicInfoTimeZone; // basic_info.time_zone
+  private final Bp bp; // bp
+  private final Company company; // company
+  private final Contract contract; // contract
+  private final CostAllocation costAllocation; // cost_allocation
+  private final CostCenter costCenter; // cost_center
+  private final CostCenterVersion costCenterVersion; // cost_center.version
+  private final CustomOrg customOrg; // custom_org
+  private final DefaultCostCenter defaultCostCenter; // default_cost_center
+  private final Department department; // department
+  private final Draft draft; // draft
+  private final Employee employee; // employee
+  private final EmployeeCustomOrg employeeCustomOrg; // employee.custom_org
+  private final EmployeesAdditionalJob employeesAdditionalJob; // employees.additional_job
+  private final EmployeesBp employeesBp; // employees.bp
+  private final EmployeesInternationalAssignment
+      employeesInternationalAssignment; // employees.international_assignment
+  private final EmployeesJobData employeesJobData; // employees.job_data
+  private final Enum enum_; // enum
+  private final Job job; // job
+  private final JobChange jobChange; // job_change
+  private final JobFamily jobFamily; // job_family
+  private final JobGrade jobGrade; // job_grade
+  private final JobLevel jobLevel; // job_level
+  private final Location location; // location
+  private final LocationAddress locationAddress; // location.address
+  private final Offboarding offboarding; // offboarding
+  private final Pathway pathway; // pathway
+  private final Person person; // person
+  private final Position position; // position
+  private final PreHire preHire; // pre_hire
+  private final Probation probation; // probation
+  private final ProbationAssessment probationAssessment; // probation.assessment
+  private final Process process; // process
+  private final ProcessApprover processApprover; // process.approver
+  private final ProcessCc processCc; // process.cc
+  private final ProcessExtra processExtra; // process.extra
+  private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
+  private final ProcessNode processNode; // process.node
+  private final ProcessQueryFlowDataTemplate
+      processQueryFlowDataTemplate; // process.query_flow_data_template
+  private final ProcessStatus processStatus; // process.status
+  private final ProcessTransfer processTransfer; // process.transfer
+  private final ProcessCommentInfo processCommentInfo; // process_comment_info
+  private final ProcessRevoke processRevoke; // process_revoke
+  private final ProcessStart processStart; // process_start
+  private final ProcessWithdraw processWithdraw; // process_withdraw
+  private final ReportDetailRow reportDetailRow; // report_detail_row
+  private final SignatureFile signatureFile; // signature_file
+  private final SignatureNode signatureNode; // signature_node
+  private final SignatureTemplate signatureTemplate; // signature_template
+  private final SignatureTemplateInfoWithThumbnail
+      signatureTemplateInfoWithThumbnail; // signature_template_info_with_thumbnail
+  private final WorkforcePlan workforcePlan; // workforce_plan
+  private final WorkforcePlanDetail workforcePlanDetail; // workforce_plan_detail
+  private final WorkforcePlanDetailRow workforcePlanDetailRow; // workforce_plan_detail_row
+
+  public V2(Config config) {
+    this.approvalGroups = new ApprovalGroups(config);
+    this.approver = new Approver(config);
+    this.basicInfoBank = new BasicInfoBank(config);
+    this.basicInfoBankBranch = new BasicInfoBankBranch(config);
+    this.basicInfoCity = new BasicInfoCity(config);
+    this.basicInfoCountryRegion = new BasicInfoCountryRegion(config);
+    this.basicInfoCountryRegionSubdivision = new BasicInfoCountryRegionSubdivision(config);
+    this.basicInfoCurrency = new BasicInfoCurrency(config);
+    this.basicInfoDistrict = new BasicInfoDistrict(config);
+    this.basicInfoLanguage = new BasicInfoLanguage(config);
+    this.basicInfoNationality = new BasicInfoNationality(config);
+    this.basicInfoTimeZone = new BasicInfoTimeZone(config);
+    this.bp = new Bp(config);
+    this.company = new Company(config);
+    this.contract = new Contract(config);
+    this.costAllocation = new CostAllocation(config);
+    this.costCenter = new CostCenter(config);
+    this.costCenterVersion = new CostCenterVersion(config);
+    this.customOrg = new CustomOrg(config);
+    this.defaultCostCenter = new DefaultCostCenter(config);
+    this.department = new Department(config);
+    this.draft = new Draft(config);
+    this.employee = new Employee(config);
+    this.employeeCustomOrg = new EmployeeCustomOrg(config);
+    this.employeesAdditionalJob = new EmployeesAdditionalJob(config);
+    this.employeesBp = new EmployeesBp(config);
+    this.employeesInternationalAssignment = new EmployeesInternationalAssignment(config);
+    this.employeesJobData = new EmployeesJobData(config);
+    this.enum_ = new Enum(config);
+    this.job = new Job(config);
+    this.jobChange = new JobChange(config);
+    this.jobFamily = new JobFamily(config);
+    this.jobGrade = new JobGrade(config);
+    this.jobLevel = new JobLevel(config);
+    this.location = new Location(config);
+    this.locationAddress = new LocationAddress(config);
+    this.offboarding = new Offboarding(config);
+    this.pathway = new Pathway(config);
+    this.person = new Person(config);
+    this.position = new Position(config);
+    this.preHire = new PreHire(config);
+    this.probation = new Probation(config);
+    this.probationAssessment = new ProbationAssessment(config);
+    this.process = new Process(config);
+    this.processApprover = new ProcessApprover(config);
+    this.processCc = new ProcessCc(config);
+    this.processExtra = new ProcessExtra(config);
+    this.processFormVariableData = new ProcessFormVariableData(config);
+    this.processNode = new ProcessNode(config);
+    this.processQueryFlowDataTemplate = new ProcessQueryFlowDataTemplate(config);
+    this.processStatus = new ProcessStatus(config);
+    this.processTransfer = new ProcessTransfer(config);
+    this.processCommentInfo = new ProcessCommentInfo(config);
+    this.processRevoke = new ProcessRevoke(config);
+    this.processStart = new ProcessStart(config);
+    this.processWithdraw = new ProcessWithdraw(config);
+    this.reportDetailRow = new ReportDetailRow(config);
+    this.signatureFile = new SignatureFile(config);
+    this.signatureNode = new SignatureNode(config);
+    this.signatureTemplate = new SignatureTemplate(config);
+    this.signatureTemplateInfoWithThumbnail = new SignatureTemplateInfoWithThumbnail(config);
+    this.workforcePlan = new WorkforcePlan(config);
+    this.workforcePlanDetail = new WorkforcePlanDetail(config);
+    this.workforcePlanDetailRow = new WorkforcePlanDetailRow(config);
+  }
+
+  public ApprovalGroups approvalGroups() {
+    return approvalGroups;
+  }
+
+  public Approver approver() {
+    return approver;
+  }
+
+  public BasicInfoBank basicInfoBank() {
+    return basicInfoBank;
+  }
+
+  public BasicInfoBankBranch basicInfoBankBranch() {
+    return basicInfoBankBranch;
+  }
+
+  public BasicInfoCity basicInfoCity() {
+    return basicInfoCity;
+  }
+
+  public BasicInfoCountryRegion basicInfoCountryRegion() {
+    return basicInfoCountryRegion;
+  }
+
+  public BasicInfoCountryRegionSubdivision basicInfoCountryRegionSubdivision() {
+    return basicInfoCountryRegionSubdivision;
+  }
+
+  public BasicInfoCurrency basicInfoCurrency() {
+    return basicInfoCurrency;
+  }
+
+  public BasicInfoDistrict basicInfoDistrict() {
+    return basicInfoDistrict;
+  }
+
+  public BasicInfoLanguage basicInfoLanguage() {
+    return basicInfoLanguage;
+  }
+
+  public BasicInfoNationality basicInfoNationality() {
+    return basicInfoNationality;
+  }
+
+  public BasicInfoTimeZone basicInfoTimeZone() {
+    return basicInfoTimeZone;
+  }
+
+  public Bp bp() {
+    return bp;
+  }
+
+  public Company company() {
+    return company;
+  }
+
+  public Contract contract() {
+    return contract;
+  }
+
+  public CostAllocation costAllocation() {
+    return costAllocation;
+  }
+
+  public CostCenter costCenter() {
+    return costCenter;
+  }
+
+  public CostCenterVersion costCenterVersion() {
+    return costCenterVersion;
+  }
+
+  public CustomOrg customOrg() {
+    return customOrg;
+  }
+
+  public DefaultCostCenter defaultCostCenter() {
+    return defaultCostCenter;
+  }
+
+  public Department department() {
+    return department;
+  }
+
+  public Draft draft() {
+    return draft;
+  }
+
+  public Employee employee() {
+    return employee;
+  }
+
+  public EmployeeCustomOrg employeeCustomOrg() {
+    return employeeCustomOrg;
+  }
+
+  public EmployeesAdditionalJob employeesAdditionalJob() {
+    return employeesAdditionalJob;
+  }
+
+  public EmployeesBp employeesBp() {
+    return employeesBp;
+  }
+
+  public EmployeesInternationalAssignment employeesInternationalAssignment() {
+    return employeesInternationalAssignment;
+  }
+
+  public EmployeesJobData employeesJobData() {
+    return employeesJobData;
+  }
+
+  public Enum enum_() {
+    return enum_;
+  }
+
+  public Job job() {
+    return job;
+  }
+
+  public JobChange jobChange() {
+    return jobChange;
+  }
+
+  public JobFamily jobFamily() {
+    return jobFamily;
+  }
+
+  public JobGrade jobGrade() {
+    return jobGrade;
+  }
+
+  public JobLevel jobLevel() {
+    return jobLevel;
+  }
+
+  public Location location() {
+    return location;
+  }
+
+  public LocationAddress locationAddress() {
+    return locationAddress;
+  }
+
+  public Offboarding offboarding() {
+    return offboarding;
+  }
+
+  public Pathway pathway() {
+    return pathway;
+  }
+
+  public Person person() {
+    return person;
+  }
+
+  public Position position() {
+    return position;
+  }
+
+  public PreHire preHire() {
+    return preHire;
+  }
+
+  public Probation probation() {
+    return probation;
+  }
+
+  public ProbationAssessment probationAssessment() {
+    return probationAssessment;
+  }
+
+  public Process process() {
+    return process;
+  }
+
+  public ProcessApprover processApprover() {
+    return processApprover;
+  }
+
+  public ProcessCc processCc() {
+    return processCc;
+  }
+
+  public ProcessExtra processExtra() {
+    return processExtra;
+  }
+
+  public ProcessFormVariableData processFormVariableData() {
+    return processFormVariableData;
+  }
+
+  public ProcessNode processNode() {
+    return processNode;
+  }
+
+  public ProcessQueryFlowDataTemplate processQueryFlowDataTemplate() {
+    return processQueryFlowDataTemplate;
+  }
+
+  public ProcessStatus processStatus() {
+    return processStatus;
+  }
+
+  public ProcessTransfer processTransfer() {
+    return processTransfer;
+  }
+
+  public ProcessCommentInfo processCommentInfo() {
+    return processCommentInfo;
+  }
+
+  public ProcessRevoke processRevoke() {
+    return processRevoke;
+  }
+
+  public ProcessStart processStart() {
+    return processStart;
+  }
+
+  public ProcessWithdraw processWithdraw() {
+    return processWithdraw;
+  }
+
+  public ReportDetailRow reportDetailRow() {
+    return reportDetailRow;
+  }
+
+  public SignatureFile signatureFile() {
+    return signatureFile;
+  }
+
+  public SignatureNode signatureNode() {
+    return signatureNode;
+  }
+
+  public SignatureTemplate signatureTemplate() {
+    return signatureTemplate;
+  }
+
+  public SignatureTemplateInfoWithThumbnail signatureTemplateInfoWithThumbnail() {
+    return signatureTemplateInfoWithThumbnail;
+  }
+
+  public WorkforcePlan workforcePlan() {
+    return workforcePlan;
+  }
+
+  public WorkforcePlanDetail workforcePlanDetail() {
+    return workforcePlanDetail;
+  }
+
+  public WorkforcePlanDetailRow workforcePlanDetailRow() {
+    return workforcePlanDetailRow;
+  }
 }

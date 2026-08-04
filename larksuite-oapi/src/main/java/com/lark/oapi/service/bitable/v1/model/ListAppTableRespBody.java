@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAppTableRespBody {
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 总数
-     * <p> 示例值：
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 数据表信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private AppTable[] items;
+  /**
+   * 是否有下一页数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 下一页分页的token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 总数
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 数据表信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private AppTable[] items;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public AppTable[] getItems() {
-        return this.items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setItems(AppTable[] items) {
-        this.items = items;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  public AppTable[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(AppTable[] items) {
+    this.items = items;
+  }
 }

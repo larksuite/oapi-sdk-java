@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UsageOverviewItem {
+  /**
+   * 应用使用pv
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_view")
+  private String pageView;
+
+  /**
+   * 应用使用uv
+   *
+   * <p>示例值：
+   */
+  @SerializedName("unique_visitor")
+  private String uniqueVisitor;
+
+  /**
+   * 部门号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getPageView() {
+    return this.pageView;
+  }
+
+  public void setPageView(String pageView) {
+    this.pageView = pageView;
+  }
+
+  public String getUniqueVisitor() {
+    return this.uniqueVisitor;
+  }
+
+  public void setUniqueVisitor(String uniqueVisitor) {
+    this.uniqueVisitor = uniqueVisitor;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public UsageOverviewItem() {}
+
+  public UsageOverviewItem(Builder builder) {
     /**
      * 应用使用pv
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_view")
-    private String pageView;
+    this.pageView = builder.pageView;
     /**
      * 应用使用uv
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("unique_visitor")
-    private String uniqueVisitor;
+    this.uniqueVisitor = builder.uniqueVisitor;
     /**
      * 部门号
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 应用使用pv
+     *
+     * <p>示例值：
+     */
+    private String pageView;
+
+    /**
+     * 应用使用uv
+     *
+     * <p>示例值：
+     */
+    private String uniqueVisitor;
+
+    /**
+     * 部门号
+     *
+     * <p>示例值：
+     */
     private String departmentId;
 
-    // builder 开始
-    public UsageOverviewItem() {
+    /**
+     * 应用使用pv
+     *
+     * <p>示例值：
+     *
+     * @param pageView
+     * @return
+     */
+    public Builder pageView(String pageView) {
+      this.pageView = pageView;
+      return this;
     }
 
-    public UsageOverviewItem(Builder builder) {
-        /**
-         * 应用使用pv
-         * <p> 示例值：
-         */
-        this.pageView = builder.pageView;
-        /**
-         * 应用使用uv
-         * <p> 示例值：
-         */
-        this.uniqueVisitor = builder.uniqueVisitor;
-        /**
-         * 部门号
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
+    /**
+     * 应用使用uv
+     *
+     * <p>示例值：
+     *
+     * @param uniqueVisitor
+     * @return
+     */
+    public Builder uniqueVisitor(String uniqueVisitor) {
+      this.uniqueVisitor = uniqueVisitor;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门号
+     *
+     * <p>示例值：
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getPageView() {
-        return this.pageView;
+    public UsageOverviewItem build() {
+      return new UsageOverviewItem(this);
     }
+  }
 
-    public void setPageView(String pageView) {
-        this.pageView = pageView;
-    }
-
-    public String getUniqueVisitor() {
-        return this.uniqueVisitor;
-    }
-
-    public void setUniqueVisitor(String uniqueVisitor) {
-        this.uniqueVisitor = uniqueVisitor;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 应用使用pv
-         * <p> 示例值：
-         */
-        private String pageView;
-        /**
-         * 应用使用uv
-         * <p> 示例值：
-         */
-        private String uniqueVisitor;
-        /**
-         * 部门号
-         * <p> 示例值：
-         */
-        private String departmentId;
-
-        /**
-         * 应用使用pv
-         * <p> 示例值：
-         *
-         * @param pageView
-         * @return
-         */
-        public Builder pageView(String pageView) {
-            this.pageView = pageView;
-            return this;
-        }
-
-
-        /**
-         * 应用使用uv
-         * <p> 示例值：
-         *
-         * @param uniqueVisitor
-         * @return
-         */
-        public Builder uniqueVisitor(String uniqueVisitor) {
-            this.uniqueVisitor = uniqueVisitor;
-            return this;
-        }
-
-
-        /**
-         * 部门号
-         * <p> 示例值：
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public UsageOverviewItem build() {
-            return new UsageOverviewItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

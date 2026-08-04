@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Enums {
+  /**
+   * 枚举名称
+   *
+   * <p>示例值：overtime_date_type
+   */
+  @SerializedName("enum_apiname")
+  private String enumApiname;
+
+  /**
+   * 枚举值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_items")
+  private EnumField[] enumItems;
+
+  public String getEnumApiname() {
+    return this.enumApiname;
+  }
+
+  public void setEnumApiname(String enumApiname) {
+    this.enumApiname = enumApiname;
+  }
+
+  public EnumField[] getEnumItems() {
+    return this.enumItems;
+  }
+
+  public void setEnumItems(EnumField[] enumItems) {
+    this.enumItems = enumItems;
+  }
+
+  // builder 开始
+  public Enums() {}
+
+  public Enums(Builder builder) {
     /**
      * 枚举名称
-     * <p> 示例值：overtime_date_type
+     *
+     * <p>示例值：overtime_date_type
      */
-    @SerializedName("enum_apiname")
-    private String enumApiname;
+    this.enumApiname = builder.enumApiname;
     /**
      * 枚举值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_items")
+    this.enumItems = builder.enumItems;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举名称
+     *
+     * <p>示例值：overtime_date_type
+     */
+    private String enumApiname;
+
+    /**
+     * 枚举值
+     *
+     * <p>示例值：
+     */
     private EnumField[] enumItems;
 
-    // builder 开始
-    public Enums() {
+    /**
+     * 枚举名称
+     *
+     * <p>示例值：overtime_date_type
+     *
+     * @param enumApiname
+     * @return
+     */
+    public Builder enumApiname(String enumApiname) {
+      this.enumApiname = enumApiname;
+      return this;
     }
 
-    public Enums(Builder builder) {
-        /**
-         * 枚举名称
-         * <p> 示例值：overtime_date_type
-         */
-        this.enumApiname = builder.enumApiname;
-        /**
-         * 枚举值
-         * <p> 示例值：
-         */
-        this.enumItems = builder.enumItems;
+    /**
+     * 枚举值
+     *
+     * <p>示例值：
+     *
+     * @param enumItems
+     * @return
+     */
+    public Builder enumItems(EnumField[] enumItems) {
+      this.enumItems = enumItems;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Enums build() {
+      return new Enums(this);
     }
+  }
 
-    public String getEnumApiname() {
-        return this.enumApiname;
-    }
-
-    public void setEnumApiname(String enumApiname) {
-        this.enumApiname = enumApiname;
-    }
-
-    public EnumField[] getEnumItems() {
-        return this.enumItems;
-    }
-
-    public void setEnumItems(EnumField[] enumItems) {
-        this.enumItems = enumItems;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举名称
-         * <p> 示例值：overtime_date_type
-         */
-        private String enumApiname;
-        /**
-         * 枚举值
-         * <p> 示例值：
-         */
-        private EnumField[] enumItems;
-
-        /**
-         * 枚举名称
-         * <p> 示例值：overtime_date_type
-         *
-         * @param enumApiname
-         * @return
-         */
-        public Builder enumApiname(String enumApiname) {
-            this.enumApiname = enumApiname;
-            return this;
-        }
-
-
-        /**
-         * 枚举值
-         * <p> 示例值：
-         *
-         * @param enumItems
-         * @return
-         */
-        public Builder enumItems(EnumField[] enumItems) {
-            this.enumItems = enumItems;
-            return this;
-        }
-
-
-        public Enums build() {
-            return new Enums(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

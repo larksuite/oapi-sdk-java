@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAilySessionRunReqBody {
+  /**
+   * 为 Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取
+   *
+   * <p>示例值：spring_449d72db2f__c
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 指定技能 ID（`skill_xxx`），可以在 Aily 技能配置页面的浏览器地址里获取;;> 指定技能后、能够节省意图匹配的耗时
+   *
+   * <p>示例值：skill_6cc6166178ca
+   */
+  @SerializedName("skill_id")
+  private String skillId;
+
+  /**
+   * 指定技能 ID 时可以同时指定技能输入;;> 备注：常用于工作流技能内指定自定义参数，`skill_input` 需要配合 `skill_id` 同时传递才能生效
+   *
+   * <p>示例值：{\"key\": \"value\"}
+   */
+  @SerializedName("skill_input")
+  private String skillInput;
+
+  /**
+   * 其他扩展的参数（JSON String）;;> 备注：`metadata` 传递的参数，可以在后续 `GetRun` 调用中原样读取获得
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("metadata")
+  private String metadata;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getSkillId() {
+    return this.skillId;
+  }
+
+  public void setSkillId(String skillId) {
+    this.skillId = skillId;
+  }
+
+  public String getSkillInput() {
+    return this.skillInput;
+  }
+
+  public void setSkillInput(String skillInput) {
+    this.skillInput = skillInput;
+  }
+
+  public String getMetadata() {
+    return this.metadata;
+  }
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+  // builder 开始
+  public CreateAilySessionRunReqBody() {}
+
+  public CreateAilySessionRunReqBody(Builder builder) {
     /**
-     * 应用 ID
-     * <p> 示例值：spring_xxx__c
+     * 为 Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取
+     *
+     * <p>示例值：spring_449d72db2f__c
      */
-    @SerializedName("app_id")
+    this.appId = builder.appId;
+    /**
+     * 指定技能 ID（`skill_xxx`），可以在 Aily 技能配置页面的浏览器地址里获取;;> 指定技能后、能够节省意图匹配的耗时
+     *
+     * <p>示例值：skill_6cc6166178ca
+     */
+    this.skillId = builder.skillId;
+    /**
+     * 指定技能 ID 时可以同时指定技能输入;;> 备注：常用于工作流技能内指定自定义参数，`skill_input` 需要配合 `skill_id` 同时传递才能生效
+     *
+     * <p>示例值：{\"key\": \"value\"}
+     */
+    this.skillInput = builder.skillInput;
+    /**
+     * 其他扩展的参数（JSON String）;;> 备注：`metadata` 传递的参数，可以在后续 `GetRun` 调用中原样读取获得
+     *
+     * <p>示例值：{}
+     */
+    this.metadata = builder.metadata;
+  }
+
+  public static class Builder {
+    /**
+     * 为 Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取
+     *
+     * <p>示例值：spring_449d72db2f__c
+     */
     private String appId;
+
     /**
-     * 技能 ID
-     * <p> 示例值：skill_6cc6166178ca
+     * 指定技能 ID（`skill_xxx`），可以在 Aily 技能配置页面的浏览器地址里获取;;> 指定技能后、能够节省意图匹配的耗时
+     *
+     * <p>示例值：skill_6cc6166178ca
      */
-    @SerializedName("skill_id")
     private String skillId;
+
     /**
-     * 指定技能 ID 时可以同时指定技能输入
-     * <p> 示例值：{"key": "value"}
+     * 指定技能 ID 时可以同时指定技能输入;;> 备注：常用于工作流技能内指定自定义参数，`skill_input` 需要配合 `skill_id` 同时传递才能生效
+     *
+     * <p>示例值：{\"key\": \"value\"}
      */
-    @SerializedName("skill_input")
     private String skillInput;
+
     /**
-     * 其他透传信息
-     * <p> 示例值：{}
+     * 其他扩展的参数（JSON String）;;> 备注：`metadata` 传递的参数，可以在后续 `GetRun` 调用中原样读取获得
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("metadata")
     private String metadata;
 
-    // builder 开始
-    public CreateAilySessionRunReqBody() {
+    /**
+     * 为 Aily 应用 ID（`spring_xxx__c`），可以在 Aily 应用开发页面的浏览器地址里获取
+     *
+     * <p>示例值：spring_449d72db2f__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public CreateAilySessionRunReqBody(Builder builder) {
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        this.appId = builder.appId;
-        /**
-         * 技能 ID
-         * <p> 示例值：skill_6cc6166178ca
-         */
-        this.skillId = builder.skillId;
-        /**
-         * 指定技能 ID 时可以同时指定技能输入
-         * <p> 示例值：{"key": "value"}
-         */
-        this.skillInput = builder.skillInput;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
+    /**
+     * 指定技能 ID（`skill_xxx`），可以在 Aily 技能配置页面的浏览器地址里获取;;> 指定技能后、能够节省意图匹配的耗时
+     *
+     * <p>示例值：skill_6cc6166178ca
+     *
+     * @param skillId
+     * @return
+     */
+    public Builder skillId(String skillId) {
+      this.skillId = skillId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指定技能 ID 时可以同时指定技能输入;;> 备注：常用于工作流技能内指定自定义参数，`skill_input` 需要配合 `skill_id` 同时传递才能生效
+     *
+     * <p>示例值：{\"key\": \"value\"}
+     *
+     * @param skillInput
+     * @return
+     */
+    public Builder skillInput(String skillInput) {
+      this.skillInput = skillInput;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * 其他扩展的参数（JSON String）;;> 备注：`metadata` 传递的参数，可以在后续 `GetRun` 调用中原样读取获得
+     *
+     * <p>示例值：{}
+     *
+     * @param metadata
+     * @return
+     */
+    public Builder metadata(String metadata) {
+      this.metadata = metadata;
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public CreateAilySessionRunReqBody build() {
+      return new CreateAilySessionRunReqBody(this);
     }
+  }
 
-    public String getSkillId() {
-        return this.skillId;
-    }
-
-    public void setSkillId(String skillId) {
-        this.skillId = skillId;
-    }
-
-    public String getSkillInput() {
-        return this.skillInput;
-    }
-
-    public void setSkillInput(String skillInput) {
-        this.skillInput = skillInput;
-    }
-
-    public String getMetadata() {
-        return this.metadata;
-    }
-
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
-    }
-
-    public static class Builder {
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        private String appId;
-        /**
-         * 技能 ID
-         * <p> 示例值：skill_6cc6166178ca
-         */
-        private String skillId;
-        /**
-         * 指定技能 ID 时可以同时指定技能输入
-         * <p> 示例值：{"key": "value"}
-         */
-        private String skillInput;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        private String metadata;
-
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 技能 ID
-         * <p> 示例值：skill_6cc6166178ca
-         *
-         * @param skillId
-         * @return
-         */
-        public Builder skillId(String skillId) {
-            this.skillId = skillId;
-            return this;
-        }
-
-
-        /**
-         * 指定技能 ID 时可以同时指定技能输入
-         * <p> 示例值：{"key": "value"}
-         *
-         * @param skillInput
-         * @return
-         */
-        public Builder skillInput(String skillInput) {
-            this.skillInput = skillInput;
-            return this;
-        }
-
-
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         *
-         * @param metadata
-         * @return
-         */
-        public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
-        }
-
-
-        public CreateAilySessionRunReqBody build() {
-            return new CreateAilySessionRunReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

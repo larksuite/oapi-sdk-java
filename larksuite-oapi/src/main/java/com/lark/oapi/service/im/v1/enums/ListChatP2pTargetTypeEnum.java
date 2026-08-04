@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 单聊对端类型;仅 chat_mode=p2p 时返回
- */
+/** 单聊对端类型;仅 chat_mode=p2p 时返回 */
 public enum ListChatP2pTargetTypeEnum {
-    USER("user"), // 用户
-    BOT("bot"), // 机器人
-    ;
-    private String value;
+  USER("user"), // 用户
+  BOT("bot"), // 机器人
+  ;
+  private String value;
 
-    ListChatP2pTargetTypeEnum(String value) {
-        this.value = value;
-    }
+  ListChatP2pTargetTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

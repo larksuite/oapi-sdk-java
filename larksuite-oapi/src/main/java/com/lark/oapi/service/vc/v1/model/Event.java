@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Event {
+  /**
+   * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
+   *
+   * <p>示例值：evt_20240520143000_123456
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
+   *
+   * <p>示例值：meeting.created
+   */
+  @SerializedName("event_type")
+  private String eventType;
+
+  /**
+   * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
+   *
+   * <p>示例值：2024-05-20T14:30:00+08:00
+   */
+  @SerializedName("event_time")
+  private String eventTime;
+
+  /**
+   * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
+   *
+   * <p>示例值：
+   */
+  @SerializedName("payload")
+  private MeetingActivityItem payload;
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
+
+  public String getEventTime() {
+    return this.eventTime;
+  }
+
+  public void setEventTime(String eventTime) {
+    this.eventTime = eventTime;
+  }
+
+  public MeetingActivityItem getPayload() {
+    return this.payload;
+  }
+
+  public void setPayload(MeetingActivityItem payload) {
+    this.payload = payload;
+  }
+
+  // builder 开始
+  public Event() {}
+
+  public Event(Builder builder) {
     /**
      * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
-     * <p> 示例值：evt_20240520143000_123456
+     *
+     * <p>示例值：evt_20240520143000_123456
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
-     * <p> 示例值：meeting.created
+     *
+     * <p>示例值：meeting.created
      */
-    @SerializedName("event_type")
-    private String eventType;
+    this.eventType = builder.eventType;
     /**
      * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
-     * <p> 示例值：2024-05-20T14:30:00+08:00
+     *
+     * <p>示例值：2024-05-20T14:30:00+08:00
      */
-    @SerializedName("event_time")
-    private String eventTime;
+    this.eventTime = builder.eventTime;
     /**
      * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("payload")
+    this.payload = builder.payload;
+  }
+
+  public static class Builder {
+    /**
+     * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
+     *
+     * <p>示例值：evt_20240520143000_123456
+     */
+    private String eventId;
+
+    /**
+     * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
+     *
+     * <p>示例值：meeting.created
+     */
+    private String eventType;
+
+    /**
+     * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
+     *
+     * <p>示例值：2024-05-20T14:30:00+08:00
+     */
+    private String eventTime;
+
+    /**
+     * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
+     *
+     * <p>示例值：
+     */
     private MeetingActivityItem payload;
 
-    // builder 开始
-    public Event() {
+    /**
+     * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
+     *
+     * <p>示例值：evt_20240520143000_123456
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public Event(Builder builder) {
-        /**
-         * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
-         * <p> 示例值：evt_20240520143000_123456
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
-         * <p> 示例值：meeting.created
-         */
-        this.eventType = builder.eventType;
-        /**
-         * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
-         * <p> 示例值：2024-05-20T14:30:00+08:00
-         */
-        this.eventTime = builder.eventTime;
-        /**
-         * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
-         * <p> 示例值：
-         */
-        this.payload = builder.payload;
+    /**
+     * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
+     *
+     * <p>示例值：meeting.created
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(String eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
+     *
+     * <p>示例值：2024-05-20T14:30:00+08:00
+     *
+     * @param eventTime
+     * @return
+     */
+    public Builder eventTime(String eventTime) {
+      this.eventTime = eventTime;
+      return this;
     }
 
-    public String getEventId() {
-        return this.eventId;
+    /**
+     * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
+     *
+     * <p>示例值：
+     *
+     * @param payload
+     * @return
+     */
+    public Builder payload(MeetingActivityItem payload) {
+      this.payload = payload;
+      return this;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public Event build() {
+      return new Event(this);
     }
+  }
 
-    public String getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public String getEventTime() {
-        return this.eventTime;
-    }
-
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public MeetingActivityItem getPayload() {
-        return this.payload;
-    }
-
-    public void setPayload(MeetingActivityItem payload) {
-        this.payload = payload;
-    }
-
-    public static class Builder {
-        /**
-         * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
-         * <p> 示例值：evt_20240520143000_123456
-         */
-        private String eventId;
-        /**
-         * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
-         * <p> 示例值：meeting.created
-         */
-        private String eventType;
-        /**
-         * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
-         * <p> 示例值：2024-05-20T14:30:00+08:00
-         */
-        private String eventTime;
-        /**
-         * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
-         * <p> 示例值：
-         */
-        private MeetingActivityItem payload;
-
-        /**
-         * 事件唯一标识，用于幂等校验和事件追踪。可通过事件创建接口获取
-         * <p> 示例值：evt_20240520143000_123456
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 事件类型，用于区分不同业务场景的事件，如会议创建、参会人变更、会议结束等
-         * <p> 示例值：meeting.created
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-
-        /**
-         * 事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）
-         * <p> 示例值：2024-05-20T14:30:00+08:00
-         *
-         * @param eventTime
-         * @return
-         */
-        public Builder eventTime(String eventTime) {
-            this.eventTime = eventTime;
-            return this;
-        }
-
-
-        /**
-         * 事件负载，包含与事件类型对应的业务数据，采用 JSON 格式序列化后的字符串
-         * <p> 示例值：
-         *
-         * @param payload
-         * @return
-         */
-        public Builder payload(MeetingActivityItem payload) {
-            this.payload = payload;
-            return this;
-        }
-
-
-        public Event build() {
-            return new Event(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchSystemStatusReqBody {
+  /**
+   * 系统状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("system_status")
+  private SystemStatus systemStatus;
+
+  /**
+   * 需要更新的字段
+   *
+   * <p>示例值：['TITLE']
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public SystemStatus getSystemStatus() {
+    return this.systemStatus;
+  }
+
+  public void setSystemStatus(SystemStatus systemStatus) {
+    this.systemStatus = systemStatus;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public PatchSystemStatusReqBody() {}
+
+  public PatchSystemStatusReqBody(Builder builder) {
     /**
      * 系统状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("system_status")
-    private SystemStatus systemStatus;
+    this.systemStatus = builder.systemStatus;
     /**
      * 需要更新的字段
-     * <p> 示例值：['TITLE']
+     *
+     * <p>示例值：['TITLE']
      */
-    @SerializedName("update_fields")
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 系统状态
+     *
+     * <p>示例值：
+     */
+    private SystemStatus systemStatus;
+
+    /**
+     * 需要更新的字段
+     *
+     * <p>示例值：['TITLE']
+     */
     private String[] updateFields;
 
-    // builder 开始
-    public PatchSystemStatusReqBody() {
+    /**
+     * 系统状态
+     *
+     * <p>示例值：
+     *
+     * @param systemStatus
+     * @return
+     */
+    public Builder systemStatus(SystemStatus systemStatus) {
+      this.systemStatus = systemStatus;
+      return this;
     }
 
-    public PatchSystemStatusReqBody(Builder builder) {
-        /**
-         * 系统状态
-         * <p> 示例值：
-         */
-        this.systemStatus = builder.systemStatus;
-        /**
-         * 需要更新的字段
-         * <p> 示例值：['TITLE']
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 需要更新的字段
+     *
+     * <p>示例值：['TITLE']
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchSystemStatusReqBody build() {
+      return new PatchSystemStatusReqBody(this);
     }
+  }
 
-    public SystemStatus getSystemStatus() {
-        return this.systemStatus;
-    }
-
-    public void setSystemStatus(SystemStatus systemStatus) {
-        this.systemStatus = systemStatus;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 系统状态
-         * <p> 示例值：
-         */
-        private SystemStatus systemStatus;
-        /**
-         * 需要更新的字段
-         * <p> 示例值：['TITLE']
-         */
-        private String[] updateFields;
-
-        /**
-         * 系统状态
-         * <p> 示例值：
-         *
-         * @param systemStatus
-         * @return
-         */
-        public Builder systemStatus(SystemStatus systemStatus) {
-            this.systemStatus = systemStatus;
-            return this;
-        }
-
-
-        /**
-         * 需要更新的字段
-         * <p> 示例值：['TITLE']
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public PatchSystemStatusReqBody build() {
-            return new PatchSystemStatusReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

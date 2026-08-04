@@ -13,260 +13,287 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireContractInfo {
+  /**
+   * 合同开始日期
+   *
+   * <p>示例值：2022-10-08
+   */
+  @SerializedName("contract_start_date")
+  private String contractStartDate;
+
+  /**
+   * 合同结束日期
+   *
+   * <p>示例值：2025-10-07
+   */
+  @SerializedName("contract_end_date")
+  private String contractEndDate;
+
+  /**
+   * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+   * "contract_type"
+   *
+   * <p>示例值：labor_contract
+   */
+  @SerializedName("contract_type")
+  private String contractType;
+
+  /**
+   * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+   * "duration_type"
+   *
+   * <p>示例值：fixed_term
+   */
+  @SerializedName("duration_type")
+  private String durationType;
+
+  /**
+   * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+   * "duration_type"
+   *
+   * <p>示例值：renewed
+   */
+  @SerializedName("signing_type")
+  private String signingType;
+
+  /**
+   * 合同文件
+   *
+   * <p>示例值：\["6977976687350924833","6890452208593372141"\]
+   */
+  @SerializedName("contract_file_ids")
+  private String[] contractFileIds;
+
+  public String getContractStartDate() {
+    return this.contractStartDate;
+  }
+
+  public void setContractStartDate(String contractStartDate) {
+    this.contractStartDate = contractStartDate;
+  }
+
+  public String getContractEndDate() {
+    return this.contractEndDate;
+  }
+
+  public void setContractEndDate(String contractEndDate) {
+    this.contractEndDate = contractEndDate;
+  }
+
+  public String getContractType() {
+    return this.contractType;
+  }
+
+  public void setContractType(String contractType) {
+    this.contractType = contractType;
+  }
+
+  public String getDurationType() {
+    return this.durationType;
+  }
+
+  public void setDurationType(String durationType) {
+    this.durationType = durationType;
+  }
+
+  public String getSigningType() {
+    return this.signingType;
+  }
+
+  public void setSigningType(String signingType) {
+    this.signingType = signingType;
+  }
+
+  public String[] getContractFileIds() {
+    return this.contractFileIds;
+  }
+
+  public void setContractFileIds(String[] contractFileIds) {
+    this.contractFileIds = contractFileIds;
+  }
+
+  // builder 开始
+  public PreHireContractInfo() {}
+
+  public PreHireContractInfo(Builder builder) {
     /**
      * 合同开始日期
-     * <p> 示例值：2022-10-08
+     *
+     * <p>示例值：2022-10-08
      */
-    @SerializedName("contract_start_date")
-    private String contractStartDate;
+    this.contractStartDate = builder.contractStartDate;
     /**
      * 合同结束日期
-     * <p> 示例值：2025-10-07
+     *
+     * <p>示例值：2025-10-07
      */
-    @SerializedName("contract_end_date")
-    private String contractEndDate;
+    this.contractEndDate = builder.contractEndDate;
     /**
-     * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "contract_type"
-     * <p> 示例值：labor_contract
+     * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "contract_type"
+     *
+     * <p>示例值：labor_contract
      */
-    @SerializedName("contract_type")
-    private String contractType;
+    this.contractType = builder.contractType;
     /**
-     * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-     * <p> 示例值：fixed_term
+     * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：fixed_term
      */
-    @SerializedName("duration_type")
-    private String durationType;
+    this.durationType = builder.durationType;
     /**
-     * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-     * <p> 示例值：renewed
+     * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：renewed
      */
-    @SerializedName("signing_type")
-    private String signingType;
+    this.signingType = builder.signingType;
     /**
      * 合同文件
-     * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
+     *
+     * <p>示例值：\["6977976687350924833","6890452208593372141"\]
      */
-    @SerializedName("contract_file_ids")
+    this.contractFileIds = builder.contractFileIds;
+  }
+
+  public static class Builder {
+    /**
+     * 合同开始日期
+     *
+     * <p>示例值：2022-10-08
+     */
+    private String contractStartDate;
+
+    /**
+     * 合同结束日期
+     *
+     * <p>示例值：2025-10-07
+     */
+    private String contractEndDate;
+
+    /**
+     * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "contract_type"
+     *
+     * <p>示例值：labor_contract
+     */
+    private String contractType;
+
+    /**
+     * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：fixed_term
+     */
+    private String durationType;
+
+    /**
+     * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：renewed
+     */
+    private String signingType;
+
+    /**
+     * 合同文件
+     *
+     * <p>示例值：\["6977976687350924833","6890452208593372141"\]
+     */
     private String[] contractFileIds;
 
-    // builder 开始
-    public PreHireContractInfo() {
+    /**
+     * 合同开始日期
+     *
+     * <p>示例值：2022-10-08
+     *
+     * @param contractStartDate
+     * @return
+     */
+    public Builder contractStartDate(String contractStartDate) {
+      this.contractStartDate = contractStartDate;
+      return this;
     }
 
-    public PreHireContractInfo(Builder builder) {
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         */
-        this.contractStartDate = builder.contractStartDate;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         */
-        this.contractEndDate = builder.contractEndDate;
-        /**
-         * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         */
-        this.contractType = builder.contractType;
-        /**
-         * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         */
-        this.durationType = builder.durationType;
-        /**
-         * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：renewed
-         */
-        this.signingType = builder.signingType;
-        /**
-         * 合同文件
-         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
-         */
-        this.contractFileIds = builder.contractFileIds;
+    /**
+     * 合同结束日期
+     *
+     * <p>示例值：2025-10-07
+     *
+     * @param contractEndDate
+     * @return
+     */
+    public Builder contractEndDate(String contractEndDate) {
+      this.contractEndDate = contractEndDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "contract_type"
+     *
+     * <p>示例值：labor_contract
+     *
+     * @param contractType
+     * @return
+     */
+    public Builder contractType(String contractType) {
+      this.contractType = contractType;
+      return this;
     }
 
-    public String getContractStartDate() {
-        return this.contractStartDate;
+    /**
+     * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：fixed_term
+     *
+     * @param durationType
+     * @return
+     */
+    public Builder durationType(String durationType) {
+      this.durationType = durationType;
+      return this;
     }
 
-    public void setContractStartDate(String contractStartDate) {
-        this.contractStartDate = contractStartDate;
+    /**
+     * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name =
+     * "duration_type"
+     *
+     * <p>示例值：renewed
+     *
+     * @param signingType
+     * @return
+     */
+    public Builder signingType(String signingType) {
+      this.signingType = signingType;
+      return this;
     }
 
-    public String getContractEndDate() {
-        return this.contractEndDate;
+    /**
+     * 合同文件
+     *
+     * <p>示例值：\["6977976687350924833","6890452208593372141"\]
+     *
+     * @param contractFileIds
+     * @return
+     */
+    public Builder contractFileIds(String[] contractFileIds) {
+      this.contractFileIds = contractFileIds;
+      return this;
     }
 
-    public void setContractEndDate(String contractEndDate) {
-        this.contractEndDate = contractEndDate;
+    public PreHireContractInfo build() {
+      return new PreHireContractInfo(this);
     }
+  }
 
-    public String getContractType() {
-        return this.contractType;
-    }
-
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
-
-    public String getDurationType() {
-        return this.durationType;
-    }
-
-    public void setDurationType(String durationType) {
-        this.durationType = durationType;
-    }
-
-    public String getSigningType() {
-        return this.signingType;
-    }
-
-    public void setSigningType(String signingType) {
-        this.signingType = signingType;
-    }
-
-    public String[] getContractFileIds() {
-        return this.contractFileIds;
-    }
-
-    public void setContractFileIds(String[] contractFileIds) {
-        this.contractFileIds = contractFileIds;
-    }
-
-    public static class Builder {
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         */
-        private String contractStartDate;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         */
-        private String contractEndDate;
-        /**
-         * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         */
-        private String contractType;
-        /**
-         * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         */
-        private String durationType;
-        /**
-         * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：renewed
-         */
-        private String signingType;
-        /**
-         * 合同文件
-         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
-         */
-        private String[] contractFileIds;
-
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         *
-         * @param contractStartDate
-         * @return
-         */
-        public Builder contractStartDate(String contractStartDate) {
-            this.contractStartDate = contractStartDate;
-            return this;
-        }
-
-
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         *
-         * @param contractEndDate
-         * @return
-         */
-        public Builder contractEndDate(String contractEndDate) {
-            this.contractEndDate = contractEndDate;
-            return this;
-        }
-
-
-        /**
-         * -| 合同类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         *
-         * @param contractType
-         * @return
-         */
-        public Builder contractType(String contractType) {
-            this.contractType = contractType;
-            return this;
-        }
-
-
-        /**
-         * -| 期限类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         *
-         * @param durationType
-         * @return
-         */
-        public Builder durationType(String durationType) {
-            this.durationType = durationType;
-            return this;
-        }
-
-
-        /**
-         * -| 签订类型，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name = "pre_hire" - custom_api_name = "duration_type"
-         * <p> 示例值：renewed
-         *
-         * @param signingType
-         * @return
-         */
-        public Builder signingType(String signingType) {
-            this.signingType = signingType;
-            return this;
-        }
-
-
-        /**
-         * 合同文件
-         * <p> 示例值：\["6977976687350924833","6890452208593372141"\]
-         *
-         * @param contractFileIds
-         * @return
-         */
-        public Builder contractFileIds(String[] contractFileIds) {
-            this.contractFileIds = contractFileIds;
-            return this;
-        }
-
-
-        public PreHireContractInfo build() {
-            return new PreHireContractInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

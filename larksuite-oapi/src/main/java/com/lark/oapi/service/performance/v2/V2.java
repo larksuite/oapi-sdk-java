@@ -32,103 +32,104 @@ import com.lark.oapi.service.performance.v2.resource.UserGroupUserRel;
 import com.lark.oapi.service.performance.v2.resource.UserInfo;
 
 public class V2 {
-    private final Activity activity; // activity
-    private final AdditionalInformation additionalInformation; // additional_information
-    private final AdditionalInformationsBatch additionalInformationsBatch; // additional_informations.batch
-    private final Indicator indicator; // indicator
-    private final MetricDetail metricDetail; // metric_detail
-    private final MetricField metricField; // metric_field
-    private final MetricLib metricLib; // metric_lib
-    private final MetricTag metricTag; // metric_tag
-    private final MetricTemplate metricTemplate; // metric_template
-    private final Question question; // question
-    private final ReviewData reviewData; // review_data
-    private final ReviewTemplate reviewTemplate; // review_template
-    private final Reviewee reviewee; // reviewee
-    private final StageTask stageTask; // stage_task
-    private final UserGroupUserRel userGroupUserRel; // user_group_user_rel
-    private final UserInfo userInfo; // user_info
+  private final Activity activity; // activity
+  private final AdditionalInformation additionalInformation; // additional_information
+  private final AdditionalInformationsBatch
+      additionalInformationsBatch; // additional_informations.batch
+  private final Indicator indicator; // indicator
+  private final MetricDetail metricDetail; // metric_detail
+  private final MetricField metricField; // metric_field
+  private final MetricLib metricLib; // metric_lib
+  private final MetricTag metricTag; // metric_tag
+  private final MetricTemplate metricTemplate; // metric_template
+  private final Question question; // question
+  private final ReviewData reviewData; // review_data
+  private final ReviewTemplate reviewTemplate; // review_template
+  private final Reviewee reviewee; // reviewee
+  private final StageTask stageTask; // stage_task
+  private final UserGroupUserRel userGroupUserRel; // user_group_user_rel
+  private final UserInfo userInfo; // user_info
 
-    public V2(Config config) {
-        this.activity = new Activity(config);
-        this.additionalInformation = new AdditionalInformation(config);
-        this.additionalInformationsBatch = new AdditionalInformationsBatch(config);
-        this.indicator = new Indicator(config);
-        this.metricDetail = new MetricDetail(config);
-        this.metricField = new MetricField(config);
-        this.metricLib = new MetricLib(config);
-        this.metricTag = new MetricTag(config);
-        this.metricTemplate = new MetricTemplate(config);
-        this.question = new Question(config);
-        this.reviewData = new ReviewData(config);
-        this.reviewTemplate = new ReviewTemplate(config);
-        this.reviewee = new Reviewee(config);
-        this.stageTask = new StageTask(config);
-        this.userGroupUserRel = new UserGroupUserRel(config);
-        this.userInfo = new UserInfo(config);
-    }
+  public V2(Config config) {
+    this.activity = new Activity(config);
+    this.additionalInformation = new AdditionalInformation(config);
+    this.additionalInformationsBatch = new AdditionalInformationsBatch(config);
+    this.indicator = new Indicator(config);
+    this.metricDetail = new MetricDetail(config);
+    this.metricField = new MetricField(config);
+    this.metricLib = new MetricLib(config);
+    this.metricTag = new MetricTag(config);
+    this.metricTemplate = new MetricTemplate(config);
+    this.question = new Question(config);
+    this.reviewData = new ReviewData(config);
+    this.reviewTemplate = new ReviewTemplate(config);
+    this.reviewee = new Reviewee(config);
+    this.stageTask = new StageTask(config);
+    this.userGroupUserRel = new UserGroupUserRel(config);
+    this.userInfo = new UserInfo(config);
+  }
 
-    public Activity activity() {
-        return activity;
-    }
+  public Activity activity() {
+    return activity;
+  }
 
-    public AdditionalInformation additionalInformation() {
-        return additionalInformation;
-    }
+  public AdditionalInformation additionalInformation() {
+    return additionalInformation;
+  }
 
-    public AdditionalInformationsBatch additionalInformationsBatch() {
-        return additionalInformationsBatch;
-    }
+  public AdditionalInformationsBatch additionalInformationsBatch() {
+    return additionalInformationsBatch;
+  }
 
-    public Indicator indicator() {
-        return indicator;
-    }
+  public Indicator indicator() {
+    return indicator;
+  }
 
-    public MetricDetail metricDetail() {
-        return metricDetail;
-    }
+  public MetricDetail metricDetail() {
+    return metricDetail;
+  }
 
-    public MetricField metricField() {
-        return metricField;
-    }
+  public MetricField metricField() {
+    return metricField;
+  }
 
-    public MetricLib metricLib() {
-        return metricLib;
-    }
+  public MetricLib metricLib() {
+    return metricLib;
+  }
 
-    public MetricTag metricTag() {
-        return metricTag;
-    }
+  public MetricTag metricTag() {
+    return metricTag;
+  }
 
-    public MetricTemplate metricTemplate() {
-        return metricTemplate;
-    }
+  public MetricTemplate metricTemplate() {
+    return metricTemplate;
+  }
 
-    public Question question() {
-        return question;
-    }
+  public Question question() {
+    return question;
+  }
 
-    public ReviewData reviewData() {
-        return reviewData;
-    }
+  public ReviewData reviewData() {
+    return reviewData;
+  }
 
-    public ReviewTemplate reviewTemplate() {
-        return reviewTemplate;
-    }
+  public ReviewTemplate reviewTemplate() {
+    return reviewTemplate;
+  }
 
-    public Reviewee reviewee() {
-        return reviewee;
-    }
+  public Reviewee reviewee() {
+    return reviewee;
+  }
 
-    public StageTask stageTask() {
-        return stageTask;
-    }
+  public StageTask stageTask() {
+    return stageTask;
+  }
 
-    public UserGroupUserRel userGroupUserRel() {
-        return userGroupUserRel;
-    }
+  public UserGroupUserRel userGroupUserRel() {
+    return userGroupUserRel;
+  }
 
-    public UserInfo userInfo() {
-        return userInfo;
-    }
+  public UserInfo userInfo() {
+    return userInfo;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 发放状态
- */
+/** 发放状态 */
 public enum LumpSumPaymentDetailForUpdateIssuanceStatusEnum {
-    TO_BE_ISSUED("to_be_issued"), // 应发放
-    NOT_ISSUED("not_issued"), // 不发放
-    ;
-    private String value;
+  TO_BE_ISSUED("to_be_issued"), // 应发放
+  NOT_ISSUED("not_issued"), // 不发放
+  ;
+  private String value;
 
-    LumpSumPaymentDetailForUpdateIssuanceStatusEnum(String value) {
-        this.value = value;
-    }
+  LumpSumPaymentDetailForUpdateIssuanceStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

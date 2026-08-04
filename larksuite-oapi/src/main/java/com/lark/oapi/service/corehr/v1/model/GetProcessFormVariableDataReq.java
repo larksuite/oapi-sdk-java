@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetProcessFormVariableDataReq {
+  /**
+   * 流程实例 ID
+   *
+   * <p>示例值：123456987
+   */
+  @Path
+  @SerializedName("process_id")
+  private String processId;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  // builder 开始
+  public GetProcessFormVariableDataReq() {}
+
+  public GetProcessFormVariableDataReq(Builder builder) {
     /**
-     * 流程ID
-     * <p> 示例值：123456987
+     * 流程实例 ID
+     *
+     * <p>示例值：123456987
      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
+  }
 
-    // builder 开始
-    public GetProcessFormVariableDataReq() {
+  public static class Builder {
+
+    private String processId; // 流程实例 ID
+
+    /**
+     * 流程实例 ID
+     *
+     * <p>示例值：123456987
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public GetProcessFormVariableDataReq(Builder builder) {
-        /**
-         * 流程ID
-         * <p> 示例值：123456987
-         */
-        this.processId = builder.processId;
+    public GetProcessFormVariableDataReq build() {
+      return new GetProcessFormVariableDataReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public static class Builder {
-
-        private String processId; // 流程ID
-
-        /**
-         * 流程ID
-         * <p> 示例值：123456987
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        public GetProcessFormVariableDataReq build() {
-            return new GetProcessFormVariableDataReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,778 +13,863 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BankAccount {
+  /**
+   * 银行名称
+   *
+   * <p>示例值：中国农业银行
+   */
+  @SerializedName("bank_name")
+  private String bankName;
+
+  /**
+   * 银行账号
+   *
+   * <p>示例值：6231200000001223
+   */
+  @SerializedName("bank_account_number")
+  private String bankAccountNumber;
+
+  /**
+   * 开户人姓名
+   *
+   * <p>示例值：孟十五
+   */
+  @SerializedName("account_holder")
+  private String accountHolder;
+
+  /**
+   * 银行枚举（该字段待作废，请勿使用）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank")
+  private Enum bank;
+
+  /**
+   * 银行识别码（该字段待作废，请勿使用）
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("bank_identification_code")
+  private String bankIdentificationCode;
+
+  /**
+   * 支行名称
+   *
+   * <p>示例值：中国农业银行支行
+   */
+  @SerializedName("branch_name")
+  private String branchName;
+
+  /**
+   * 银行 ID（该字段待作废，请勿使用）
+   *
+   * <p>示例值：8
+   */
+  @SerializedName("bank_id")
+  private String bankId;
+
+  /**
+   * 支行 ID（该字段待作废，请勿使用）
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("branch_id")
+  private String branchId;
+
+  /**
+   * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+   *
+   * <p>示例值：MDBH00000001
+   */
+  @SerializedName("bank_id_v2")
+  private String bankIdV2;
+
+  /**
+   * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+   *
+   * <p>示例值：MDBK00000017
+   */
+  @SerializedName("branch_id_v2")
+  private String branchIdV2;
+
+  /**
+   * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_account_usage")
+  private Enum[] bankAccountUsage;
+
+  /**
+   * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_account_type")
+  private Enum bankAccountType;
+
+  /**
+   * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+   *
+   * <p>示例值：balance
+   */
+  @SerializedName("payment_type")
+  private Enum paymentType;
+
+  /**
+   * 分配比例
+   *
+   * <p>示例值：70.21
+   */
+  @SerializedName("payment_rate")
+  private String paymentRate;
+
+  /**
+   * 分配金额
+   *
+   * <p>示例值：5000
+   */
+  @SerializedName("payment_amount")
+  private String paymentAmount;
+
+  /**
+   * 分配优先级
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("priority")
+  private Integer priority;
+
+  /**
+   * 货币id
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 国际银行账号
+   *
+   * <p>示例值：CH56 0483 5012 3456 7800 9
+   */
+  @SerializedName("IBAN")
+  private String iBAN;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public String getBankName() {
+    return this.bankName;
+  }
+
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
+  }
+
+  public String getBankAccountNumber() {
+    return this.bankAccountNumber;
+  }
+
+  public void setBankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+  }
+
+  public String getAccountHolder() {
+    return this.accountHolder;
+  }
+
+  public void setAccountHolder(String accountHolder) {
+    this.accountHolder = accountHolder;
+  }
+
+  public Enum getBank() {
+    return this.bank;
+  }
+
+  public void setBank(Enum bank) {
+    this.bank = bank;
+  }
+
+  public String getBankIdentificationCode() {
+    return this.bankIdentificationCode;
+  }
+
+  public void setBankIdentificationCode(String bankIdentificationCode) {
+    this.bankIdentificationCode = bankIdentificationCode;
+  }
+
+  public String getBranchName() {
+    return this.branchName;
+  }
+
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
+  }
+
+  public String getBankId() {
+    return this.bankId;
+  }
+
+  public void setBankId(String bankId) {
+    this.bankId = bankId;
+  }
+
+  public String getBranchId() {
+    return this.branchId;
+  }
+
+  public void setBranchId(String branchId) {
+    this.branchId = branchId;
+  }
+
+  public String getBankIdV2() {
+    return this.bankIdV2;
+  }
+
+  public void setBankIdV2(String bankIdV2) {
+    this.bankIdV2 = bankIdV2;
+  }
+
+  public String getBranchIdV2() {
+    return this.branchIdV2;
+  }
+
+  public void setBranchIdV2(String branchIdV2) {
+    this.branchIdV2 = branchIdV2;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public Enum[] getBankAccountUsage() {
+    return this.bankAccountUsage;
+  }
+
+  public void setBankAccountUsage(Enum[] bankAccountUsage) {
+    this.bankAccountUsage = bankAccountUsage;
+  }
+
+  public Enum getBankAccountType() {
+    return this.bankAccountType;
+  }
+
+  public void setBankAccountType(Enum bankAccountType) {
+    this.bankAccountType = bankAccountType;
+  }
+
+  public Enum getPaymentType() {
+    return this.paymentType;
+  }
+
+  public void setPaymentType(Enum paymentType) {
+    this.paymentType = paymentType;
+  }
+
+  public String getPaymentRate() {
+    return this.paymentRate;
+  }
+
+  public void setPaymentRate(String paymentRate) {
+    this.paymentRate = paymentRate;
+  }
+
+  public String getPaymentAmount() {
+    return this.paymentAmount;
+  }
+
+  public void setPaymentAmount(String paymentAmount) {
+    this.paymentAmount = paymentAmount;
+  }
+
+  public Integer getPriority() {
+    return this.priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public String getIBAN() {
+    return this.iBAN;
+  }
+
+  public void setIBAN(String iBAN) {
+    this.iBAN = iBAN;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public BankAccount() {}
+
+  public BankAccount(Builder builder) {
     /**
      * 银行名称
-     * <p> 示例值：中国农业银行
+     *
+     * <p>示例值：中国农业银行
      */
-    @SerializedName("bank_name")
-    private String bankName;
+    this.bankName = builder.bankName;
     /**
      * 银行账号
-     * <p> 示例值：6231200000001223
+     *
+     * <p>示例值：6231200000001223
      */
-    @SerializedName("bank_account_number")
-    private String bankAccountNumber;
+    this.bankAccountNumber = builder.bankAccountNumber;
     /**
      * 开户人姓名
-     * <p> 示例值：孟十五
+     *
+     * <p>示例值：孟十五
      */
-    @SerializedName("account_holder")
-    private String accountHolder;
+    this.accountHolder = builder.accountHolder;
     /**
      * 银行枚举（该字段待作废，请勿使用）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank")
-    private Enum bank;
+    this.bank = builder.bank;
     /**
      * 银行识别码（该字段待作废，请勿使用）
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("bank_identification_code")
-    private String bankIdentificationCode;
+    this.bankIdentificationCode = builder.bankIdentificationCode;
     /**
      * 支行名称
-     * <p> 示例值：中国农业银行支行
+     *
+     * <p>示例值：中国农业银行支行
      */
-    @SerializedName("branch_name")
-    private String branchName;
+    this.branchName = builder.branchName;
     /**
      * 银行 ID（该字段待作废，请勿使用）
-     * <p> 示例值：8
+     *
+     * <p>示例值：8
      */
-    @SerializedName("bank_id")
-    private String bankId;
+    this.bankId = builder.bankId;
     /**
      * 支行 ID（该字段待作废，请勿使用）
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("branch_id")
-    private String branchId;
+    this.branchId = builder.branchId;
     /**
      * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-     * <p> 示例值：MDBH00000001
+     *
+     * <p>示例值：MDBH00000001
      */
-    @SerializedName("bank_id_v2")
-    private String bankIdV2;
+    this.bankIdV2 = builder.bankIdV2;
     /**
      * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
-     * <p> 示例值：MDBK00000017
+     *
+     * <p>示例值：MDBK00000017
      */
-    @SerializedName("branch_id_v2")
-    private String branchIdV2;
+    this.branchIdV2 = builder.branchIdV2;
     /**
      * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_account_usage")
-    private Enum[] bankAccountUsage;
+    this.bankAccountUsage = builder.bankAccountUsage;
     /**
      * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_account_type")
-    private Enum bankAccountType;
+    this.bankAccountType = builder.bankAccountType;
     /**
      * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
-     * <p> 示例值：balance
+     *
+     * <p>示例值：balance
      */
-    @SerializedName("payment_type")
-    private Enum paymentType;
+    this.paymentType = builder.paymentType;
     /**
      * 分配比例
-     * <p> 示例值：70.21
+     *
+     * <p>示例值：70.21
      */
-    @SerializedName("payment_rate")
-    private String paymentRate;
+    this.paymentRate = builder.paymentRate;
     /**
      * 分配金额
-     * <p> 示例值：5000
+     *
+     * <p>示例值：5000
      */
-    @SerializedName("payment_amount")
-    private String paymentAmount;
+    this.paymentAmount = builder.paymentAmount;
     /**
      * 分配优先级
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("priority")
-    private Integer priority;
+    this.priority = builder.priority;
     /**
      * 货币id
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
     /**
      * 国际银行账号
-     * <p> 示例值：CH56 0483 5012 3456 7800 9
+     *
+     * <p>示例值：CH56 0483 5012 3456 7800 9
      */
-    @SerializedName("IBAN")
-    private String iBAN;
+    this.iBAN = builder.iBAN;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 银行名称
+     *
+     * <p>示例值：中国农业银行
+     */
+    private String bankName;
+
+    /**
+     * 银行账号
+     *
+     * <p>示例值：6231200000001223
+     */
+    private String bankAccountNumber;
+
+    /**
+     * 开户人姓名
+     *
+     * <p>示例值：孟十五
+     */
+    private String accountHolder;
+
+    /**
+     * 银行枚举（该字段待作废，请勿使用）
+     *
+     * <p>示例值：
+     */
+    private Enum bank;
+
+    /**
+     * 银行识别码（该字段待作废，请勿使用）
+     *
+     * <p>示例值：1234
+     */
+    private String bankIdentificationCode;
+
+    /**
+     * 支行名称
+     *
+     * <p>示例值：中国农业银行支行
+     */
+    private String branchName;
+
+    /**
+     * 银行 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：8
+     */
+    private String bankId;
+
+    /**
+     * 支行 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：12
+     */
+    private String branchId;
+
+    /**
+     * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+     *
+     * <p>示例值：MDBH00000001
+     */
+    private String bankIdV2;
+
+    /**
+     * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+     *
+     * <p>示例值：MDBK00000017
+     */
+    private String branchIdV2;
+
+    /**
+     * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+     *
+     * <p>示例值：12
+     */
+    private String countryRegionId;
+
+    /**
+     * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
+     *
+     * <p>示例值：
+     */
+    private Enum[] bankAccountUsage;
+
+    /**
+     * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
+     *
+     * <p>示例值：
+     */
+    private Enum bankAccountType;
+
+    /**
+     * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+     *
+     * <p>示例值：balance
+     */
+    private Enum paymentType;
+
+    /**
+     * 分配比例
+     *
+     * <p>示例值：70.21
+     */
+    private String paymentRate;
+
+    /**
+     * 分配金额
+     *
+     * <p>示例值：5000
+     */
+    private String paymentAmount;
+
+    /**
+     * 分配优先级
+     *
+     * <p>示例值：1
+     */
+    private Integer priority;
+
+    /**
+     * 货币id
+     *
+     * <p>示例值：12
+     */
+    private String currencyId;
+
+    /**
+     * 国际银行账号
+     *
+     * <p>示例值：CH56 0483 5012 3456 7800 9
+     */
+    private String iBAN;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public BankAccount() {
+    /**
+     * 银行名称
+     *
+     * <p>示例值：中国农业银行
+     *
+     * @param bankName
+     * @return
+     */
+    public Builder bankName(String bankName) {
+      this.bankName = bankName;
+      return this;
     }
 
-    public BankAccount(Builder builder) {
-        /**
-         * 银行名称
-         * <p> 示例值：中国农业银行
-         */
-        this.bankName = builder.bankName;
-        /**
-         * 银行账号
-         * <p> 示例值：6231200000001223
-         */
-        this.bankAccountNumber = builder.bankAccountNumber;
-        /**
-         * 开户人姓名
-         * <p> 示例值：孟十五
-         */
-        this.accountHolder = builder.accountHolder;
-        /**
-         * 银行枚举（该字段待作废，请勿使用）
-         * <p> 示例值：
-         */
-        this.bank = builder.bank;
-        /**
-         * 银行识别码（该字段待作废，请勿使用）
-         * <p> 示例值：1234
-         */
-        this.bankIdentificationCode = builder.bankIdentificationCode;
-        /**
-         * 支行名称
-         * <p> 示例值：中国农业银行支行
-         */
-        this.branchName = builder.branchName;
-        /**
-         * 银行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：8
-         */
-        this.bankId = builder.bankId;
-        /**
-         * 支行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：12
-         */
-        this.branchId = builder.branchId;
-        /**
-         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-         * <p> 示例值：MDBH00000001
-         */
-        this.bankIdV2 = builder.bankIdV2;
-        /**
-         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
-         * <p> 示例值：MDBK00000017
-         */
-        this.branchIdV2 = builder.branchIdV2;
-        /**
-         * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.bankAccountUsage = builder.bankAccountUsage;
-        /**
-         * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.bankAccountType = builder.bankAccountType;
-        /**
-         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
-         * <p> 示例值：balance
-         */
-        this.paymentType = builder.paymentType;
-        /**
-         * 分配比例
-         * <p> 示例值：70.21
-         */
-        this.paymentRate = builder.paymentRate;
-        /**
-         * 分配金额
-         * <p> 示例值：5000
-         */
-        this.paymentAmount = builder.paymentAmount;
-        /**
-         * 分配优先级
-         * <p> 示例值：1
-         */
-        this.priority = builder.priority;
-        /**
-         * 货币id
-         * <p> 示例值：12
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 国际银行账号
-         * <p> 示例值：CH56 0483 5012 3456 7800 9
-         */
-        this.iBAN = builder.iBAN;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 银行账号
+     *
+     * <p>示例值：6231200000001223
+     *
+     * @param bankAccountNumber
+     * @return
+     */
+    public Builder bankAccountNumber(String bankAccountNumber) {
+      this.bankAccountNumber = bankAccountNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开户人姓名
+     *
+     * <p>示例值：孟十五
+     *
+     * @param accountHolder
+     * @return
+     */
+    public Builder accountHolder(String accountHolder) {
+      this.accountHolder = accountHolder;
+      return this;
     }
 
-    public String getBankName() {
-        return this.bankName;
+    /**
+     * 银行枚举（该字段待作废，请勿使用）
+     *
+     * <p>示例值：
+     *
+     * @param bank
+     * @return
+     */
+    public Builder bank(Enum bank) {
+      this.bank = bank;
+      return this;
     }
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
+    /**
+     * 银行识别码（该字段待作废，请勿使用）
+     *
+     * <p>示例值：1234
+     *
+     * @param bankIdentificationCode
+     * @return
+     */
+    public Builder bankIdentificationCode(String bankIdentificationCode) {
+      this.bankIdentificationCode = bankIdentificationCode;
+      return this;
     }
 
-    public String getBankAccountNumber() {
-        return this.bankAccountNumber;
+    /**
+     * 支行名称
+     *
+     * <p>示例值：中国农业银行支行
+     *
+     * @param branchName
+     * @return
+     */
+    public Builder branchName(String branchName) {
+      this.branchName = branchName;
+      return this;
     }
 
-    public void setBankAccountNumber(String bankAccountNumber) {
-        this.bankAccountNumber = bankAccountNumber;
+    /**
+     * 银行 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：8
+     *
+     * @param bankId
+     * @return
+     */
+    public Builder bankId(String bankId) {
+      this.bankId = bankId;
+      return this;
     }
 
-    public String getAccountHolder() {
-        return this.accountHolder;
+    /**
+     * 支行 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：12
+     *
+     * @param branchId
+     * @return
+     */
+    public Builder branchId(String branchId) {
+      this.branchId = branchId;
+      return this;
     }
 
-    public void setAccountHolder(String accountHolder) {
-        this.accountHolder = accountHolder;
+    /**
+     * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
+     *
+     * <p>示例值：MDBH00000001
+     *
+     * @param bankIdV2
+     * @return
+     */
+    public Builder bankIdV2(String bankIdV2) {
+      this.bankIdV2 = bankIdV2;
+      return this;
     }
 
-    public Enum getBank() {
-        return this.bank;
+    /**
+     * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
+     *
+     * <p>示例值：MDBK00000017
+     *
+     * @param branchIdV2
+     * @return
+     */
+    public Builder branchIdV2(String branchIdV2) {
+      this.branchIdV2 = branchIdV2;
+      return this;
     }
 
-    public void setBank(Enum bank) {
-        this.bank = bank;
+    /**
+     * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
+     *
+     * <p>示例值：12
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getBankIdentificationCode() {
-        return this.bankIdentificationCode;
+    /**
+     * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param bankAccountUsage
+     * @return
+     */
+    public Builder bankAccountUsage(Enum[] bankAccountUsage) {
+      this.bankAccountUsage = bankAccountUsage;
+      return this;
     }
 
-    public void setBankIdentificationCode(String bankIdentificationCode) {
-        this.bankIdentificationCode = bankIdentificationCode;
+    /**
+     * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param bankAccountType
+     * @return
+     */
+    public Builder bankAccountType(Enum bankAccountType) {
+      this.bankAccountType = bankAccountType;
+      return this;
     }
 
-    public String getBranchName() {
-        return this.branchName;
+    /**
+     * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
+     *
+     * <p>示例值：balance
+     *
+     * @param paymentType
+     * @return
+     */
+    public Builder paymentType(Enum paymentType) {
+      this.paymentType = paymentType;
+      return this;
     }
 
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
+    /**
+     * 分配比例
+     *
+     * <p>示例值：70.21
+     *
+     * @param paymentRate
+     * @return
+     */
+    public Builder paymentRate(String paymentRate) {
+      this.paymentRate = paymentRate;
+      return this;
     }
 
-    public String getBankId() {
-        return this.bankId;
+    /**
+     * 分配金额
+     *
+     * <p>示例值：5000
+     *
+     * @param paymentAmount
+     * @return
+     */
+    public Builder paymentAmount(String paymentAmount) {
+      this.paymentAmount = paymentAmount;
+      return this;
     }
 
-    public void setBankId(String bankId) {
-        this.bankId = bankId;
+    /**
+     * 分配优先级
+     *
+     * <p>示例值：1
+     *
+     * @param priority
+     * @return
+     */
+    public Builder priority(Integer priority) {
+      this.priority = priority;
+      return this;
     }
 
-    public String getBranchId() {
-        return this.branchId;
+    /**
+     * 货币id
+     *
+     * <p>示例值：12
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public void setBranchId(String branchId) {
-        this.branchId = branchId;
+    /**
+     * 国际银行账号
+     *
+     * <p>示例值：CH56 0483 5012 3456 7800 9
+     *
+     * @param iBAN
+     * @return
+     */
+    public Builder iBAN(String iBAN) {
+      this.iBAN = iBAN;
+      return this;
     }
 
-    public String getBankIdV2() {
-        return this.bankIdV2;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setBankIdV2(String bankIdV2) {
-        this.bankIdV2 = bankIdV2;
+    public BankAccount build() {
+      return new BankAccount(this);
     }
-
-    public String getBranchIdV2() {
-        return this.branchIdV2;
-    }
-
-    public void setBranchIdV2(String branchIdV2) {
-        this.branchIdV2 = branchIdV2;
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public Enum[] getBankAccountUsage() {
-        return this.bankAccountUsage;
-    }
-
-    public void setBankAccountUsage(Enum[] bankAccountUsage) {
-        this.bankAccountUsage = bankAccountUsage;
-    }
-
-    public Enum getBankAccountType() {
-        return this.bankAccountType;
-    }
-
-    public void setBankAccountType(Enum bankAccountType) {
-        this.bankAccountType = bankAccountType;
-    }
-
-    public Enum getPaymentType() {
-        return this.paymentType;
-    }
-
-    public void setPaymentType(Enum paymentType) {
-        this.paymentType = paymentType;
-    }
-
-    public String getPaymentRate() {
-        return this.paymentRate;
-    }
-
-    public void setPaymentRate(String paymentRate) {
-        this.paymentRate = paymentRate;
-    }
-
-    public String getPaymentAmount() {
-        return this.paymentAmount;
-    }
-
-    public void setPaymentAmount(String paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
-
-    public Integer getPriority() {
-        return this.priority;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-
-    public String getCurrencyId() {
-        return this.currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public String getIBAN() {
-        return this.iBAN;
-    }
-
-    public void setIBAN(String iBAN) {
-        this.iBAN = iBAN;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 银行名称
-         * <p> 示例值：中国农业银行
-         */
-        private String bankName;
-        /**
-         * 银行账号
-         * <p> 示例值：6231200000001223
-         */
-        private String bankAccountNumber;
-        /**
-         * 开户人姓名
-         * <p> 示例值：孟十五
-         */
-        private String accountHolder;
-        /**
-         * 银行枚举（该字段待作废，请勿使用）
-         * <p> 示例值：
-         */
-        private Enum bank;
-        /**
-         * 银行识别码（该字段待作废，请勿使用）
-         * <p> 示例值：1234
-         */
-        private String bankIdentificationCode;
-        /**
-         * 支行名称
-         * <p> 示例值：中国农业银行支行
-         */
-        private String branchName;
-        /**
-         * 银行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：8
-         */
-        private String bankId;
-        /**
-         * 支行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：12
-         */
-        private String branchId;
-        /**
-         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-         * <p> 示例值：MDBH00000001
-         */
-        private String bankIdV2;
-        /**
-         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
-         * <p> 示例值：MDBK00000017
-         */
-        private String branchIdV2;
-        /**
-         * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        private String countryRegionId;
-        /**
-         * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum[] bankAccountUsage;
-        /**
-         * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum bankAccountType;
-        /**
-         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
-         * <p> 示例值：balance
-         */
-        private Enum paymentType;
-        /**
-         * 分配比例
-         * <p> 示例值：70.21
-         */
-        private String paymentRate;
-        /**
-         * 分配金额
-         * <p> 示例值：5000
-         */
-        private String paymentAmount;
-        /**
-         * 分配优先级
-         * <p> 示例值：1
-         */
-        private Integer priority;
-        /**
-         * 货币id
-         * <p> 示例值：12
-         */
-        private String currencyId;
-        /**
-         * 国际银行账号
-         * <p> 示例值：CH56 0483 5012 3456 7800 9
-         */
-        private String iBAN;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 银行名称
-         * <p> 示例值：中国农业银行
-         *
-         * @param bankName
-         * @return
-         */
-        public Builder bankName(String bankName) {
-            this.bankName = bankName;
-            return this;
-        }
-
-
-        /**
-         * 银行账号
-         * <p> 示例值：6231200000001223
-         *
-         * @param bankAccountNumber
-         * @return
-         */
-        public Builder bankAccountNumber(String bankAccountNumber) {
-            this.bankAccountNumber = bankAccountNumber;
-            return this;
-        }
-
-
-        /**
-         * 开户人姓名
-         * <p> 示例值：孟十五
-         *
-         * @param accountHolder
-         * @return
-         */
-        public Builder accountHolder(String accountHolder) {
-            this.accountHolder = accountHolder;
-            return this;
-        }
-
-
-        /**
-         * 银行枚举（该字段待作废，请勿使用）
-         * <p> 示例值：
-         *
-         * @param bank
-         * @return
-         */
-        public Builder bank(Enum bank) {
-            this.bank = bank;
-            return this;
-        }
-
-
-        /**
-         * 银行识别码（该字段待作废，请勿使用）
-         * <p> 示例值：1234
-         *
-         * @param bankIdentificationCode
-         * @return
-         */
-        public Builder bankIdentificationCode(String bankIdentificationCode) {
-            this.bankIdentificationCode = bankIdentificationCode;
-            return this;
-        }
-
-
-        /**
-         * 支行名称
-         * <p> 示例值：中国农业银行支行
-         *
-         * @param branchName
-         * @return
-         */
-        public Builder branchName(String branchName) {
-            this.branchName = branchName;
-            return this;
-        }
-
-
-        /**
-         * 银行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：8
-         *
-         * @param bankId
-         * @return
-         */
-        public Builder bankId(String bankId) {
-            this.bankId = bankId;
-            return this;
-        }
-
-
-        /**
-         * 支行 ID（该字段待作废，请勿使用）
-         * <p> 示例值：12
-         *
-         * @param branchId
-         * @return
-         */
-        public Builder branchId(String branchId) {
-            this.branchId = branchId;
-            return this;
-        }
-
-
-        /**
-         * 银行 ID，详细信息可通过【查询银行信息】接口查询获得
-         * <p> 示例值：MDBH00000001
-         *
-         * @param bankIdV2
-         * @return
-         */
-        public Builder bankIdV2(String bankIdV2) {
-            this.bankIdV2 = bankIdV2;
-            return this;
-        }
-
-
-        /**
-         * 支行 ID，要求必须为填入银行的支行，详细信息可通过【查询支行信息】接口查询获得
-         * <p> 示例值：MDBK00000017
-         *
-         * @param branchIdV2
-         * @return
-         */
-        public Builder branchIdV2(String branchIdV2) {
-            this.branchIdV2 = branchIdV2;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区 ID，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 银行卡用途，枚举值可通过文档【飞书人事枚举常量】银行卡用途（Bank Account Usage）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param bankAccountUsage
-         * @return
-         */
-        public Builder bankAccountUsage(Enum[] bankAccountUsage) {
-            this.bankAccountUsage = bankAccountUsage;
-            return this;
-        }
-
-
-        /**
-         * 银行卡类型，枚举值可通过文档【飞书人事枚举常量】银行卡类型（Bank Account Type）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param bankAccountType
-         * @return
-         */
-        public Builder bankAccountType(Enum bankAccountType) {
-            this.bankAccountType = bankAccountType;
-            return this;
-        }
-
-
-        /**
-         * 分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得
-         * <p> 示例值：balance
-         *
-         * @param paymentType
-         * @return
-         */
-        public Builder paymentType(Enum paymentType) {
-            this.paymentType = paymentType;
-            return this;
-        }
-
-
-        /**
-         * 分配比例
-         * <p> 示例值：70.21
-         *
-         * @param paymentRate
-         * @return
-         */
-        public Builder paymentRate(String paymentRate) {
-            this.paymentRate = paymentRate;
-            return this;
-        }
-
-
-        /**
-         * 分配金额
-         * <p> 示例值：5000
-         *
-         * @param paymentAmount
-         * @return
-         */
-        public Builder paymentAmount(String paymentAmount) {
-            this.paymentAmount = paymentAmount;
-            return this;
-        }
-
-
-        /**
-         * 分配优先级
-         * <p> 示例值：1
-         *
-         * @param priority
-         * @return
-         */
-        public Builder priority(Integer priority) {
-            this.priority = priority;
-            return this;
-        }
-
-
-        /**
-         * 货币id
-         * <p> 示例值：12
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 国际银行账号
-         * <p> 示例值：CH56 0483 5012 3456 7800 9
-         *
-         * @param iBAN
-         * @return
-         */
-        public Builder iBAN(String iBAN) {
-            this.iBAN = iBAN;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public BankAccount build() {
-            return new BankAccount(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

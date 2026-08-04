@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserEditDocsRecord {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("docs")
+  /** 示例值： */
+  @SerializedName("docs")
+  private Docs docs;
+
+  /** 示例值： */
+  @SerializedName("latest_edit_time")
+  private String latestEditTime;
+
+  public Docs getDocs() {
+    return this.docs;
+  }
+
+  public void setDocs(Docs docs) {
+    this.docs = docs;
+  }
+
+  public String getLatestEditTime() {
+    return this.latestEditTime;
+  }
+
+  public void setLatestEditTime(String latestEditTime) {
+    this.latestEditTime = latestEditTime;
+  }
+
+  // builder 开始
+  public UserEditDocsRecord() {}
+
+  public UserEditDocsRecord(Builder builder) {
+    /** 示例值： */
+    this.docs = builder.docs;
+    /** 示例值： */
+    this.latestEditTime = builder.latestEditTime;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Docs docs;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("latest_edit_time")
+
+    /** 示例值： */
     private String latestEditTime;
 
-    // builder 开始
-    public UserEditDocsRecord() {
+    /**
+     * 示例值：
+     *
+     * @param docs
+     * @return
+     */
+    public Builder docs(Docs docs) {
+      this.docs = docs;
+      return this;
     }
 
-    public UserEditDocsRecord(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.docs = builder.docs;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.latestEditTime = builder.latestEditTime;
+    /**
+     * 示例值：
+     *
+     * @param latestEditTime
+     * @return
+     */
+    public Builder latestEditTime(String latestEditTime) {
+      this.latestEditTime = latestEditTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserEditDocsRecord build() {
+      return new UserEditDocsRecord(this);
     }
+  }
 
-    public Docs getDocs() {
-        return this.docs;
-    }
-
-    public void setDocs(Docs docs) {
-        this.docs = docs;
-    }
-
-    public String getLatestEditTime() {
-        return this.latestEditTime;
-    }
-
-    public void setLatestEditTime(String latestEditTime) {
-        this.latestEditTime = latestEditTime;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Docs docs;
-        /**
-         * <p> 示例值：
-         */
-        private String latestEditTime;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param docs
-         * @return
-         */
-        public Builder docs(Docs docs) {
-            this.docs = docs;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param latestEditTime
-         * @return
-         */
-        public Builder latestEditTime(String latestEditTime) {
-            this.latestEditTime = latestEditTime;
-            return this;
-        }
-
-
-        public UserEditDocsRecord build() {
-            return new UserEditDocsRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

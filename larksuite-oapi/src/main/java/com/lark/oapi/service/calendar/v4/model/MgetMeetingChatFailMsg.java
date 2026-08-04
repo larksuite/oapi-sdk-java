@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetMeetingChatFailMsg {
+  /**
+   * 日程id
+   *
+   * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 失败信息
+   *
+   * <p>示例值：No Permission
+   */
+  @SerializedName("fail_msg")
+  private String failMsg;
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public String getFailMsg() {
+    return this.failMsg;
+  }
+
+  public void setFailMsg(String failMsg) {
+    this.failMsg = failMsg;
+  }
+
+  // builder 开始
+  public MgetMeetingChatFailMsg() {}
+
+  public MgetMeetingChatFailMsg(Builder builder) {
     /**
      * 日程id
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * 失败信息
-     * <p> 示例值：No Permission
+     *
+     * <p>示例值：No Permission
      */
-    @SerializedName("fail_msg")
+    this.failMsg = builder.failMsg;
+  }
+
+  public static class Builder {
+    /**
+     * 日程id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     */
+    private String eventId;
+
+    /**
+     * 失败信息
+     *
+     * <p>示例值：No Permission
+     */
     private String failMsg;
 
-    // builder 开始
-    public MgetMeetingChatFailMsg() {
+    /**
+     * 日程id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public MgetMeetingChatFailMsg(Builder builder) {
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         */
-        this.failMsg = builder.failMsg;
+    /**
+     * 失败信息
+     *
+     * <p>示例值：No Permission
+     *
+     * @param failMsg
+     * @return
+     */
+    public Builder failMsg(String failMsg) {
+      this.failMsg = failMsg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MgetMeetingChatFailMsg build() {
+      return new MgetMeetingChatFailMsg(this);
     }
+  }
 
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public String getFailMsg() {
-        return this.failMsg;
-    }
-
-    public void setFailMsg(String failMsg) {
-        this.failMsg = failMsg;
-    }
-
-    public static class Builder {
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        private String eventId;
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         */
-        private String failMsg;
-
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         *
-         * @param failMsg
-         * @return
-         */
-        public Builder failMsg(String failMsg) {
-            this.failMsg = failMsg;
-            return this;
-        }
-
-
-        public MgetMeetingChatFailMsg build() {
-            return new MgetMeetingChatFailMsg(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

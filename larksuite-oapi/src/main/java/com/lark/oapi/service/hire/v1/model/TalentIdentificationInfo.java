@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentIdentificationInfo {
+  /**
+   * 证件类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("identification_type")
+  private Integer identificationType;
+
+  /**
+   * 证件号
+   *
+   * <p>示例值：511699199x1x111234
+   */
+  @SerializedName("identification_number")
+  private String identificationNumber;
+
+  public Integer getIdentificationType() {
+    return this.identificationType;
+  }
+
+  public void setIdentificationType(Integer identificationType) {
+    this.identificationType = identificationType;
+  }
+
+  public String getIdentificationNumber() {
+    return this.identificationNumber;
+  }
+
+  public void setIdentificationNumber(String identificationNumber) {
+    this.identificationNumber = identificationNumber;
+  }
+
+  // builder 开始
+  public TalentIdentificationInfo() {}
+
+  public TalentIdentificationInfo(Builder builder) {
     /**
      * 证件类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("identification_type")
-    private Integer identificationType;
+    this.identificationType = builder.identificationType;
     /**
      * 证件号
-     * <p> 示例值：511699199x1x111234
+     *
+     * <p>示例值：511699199x1x111234
      */
-    @SerializedName("identification_number")
+    this.identificationNumber = builder.identificationNumber;
+  }
+
+  public static class Builder {
+    /**
+     * 证件类型
+     *
+     * <p>示例值：1
+     */
+    private Integer identificationType;
+
+    /**
+     * 证件号
+     *
+     * <p>示例值：511699199x1x111234
+     */
     private String identificationNumber;
 
-    // builder 开始
-    public TalentIdentificationInfo() {
+    /**
+     * 证件类型
+     *
+     * <p>示例值：1
+     *
+     * @param identificationType
+     * @return
+     */
+    public Builder identificationType(Integer identificationType) {
+      this.identificationType = identificationType;
+      return this;
     }
 
-    public TalentIdentificationInfo(Builder builder) {
-        /**
-         * 证件类型
-         * <p> 示例值：1
-         */
-        this.identificationType = builder.identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：511699199x1x111234
-         */
-        this.identificationNumber = builder.identificationNumber;
+    /**
+     * 证件号
+     *
+     * <p>示例值：511699199x1x111234
+     *
+     * @param identificationNumber
+     * @return
+     */
+    public Builder identificationNumber(String identificationNumber) {
+      this.identificationNumber = identificationNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TalentIdentificationInfo build() {
+      return new TalentIdentificationInfo(this);
     }
+  }
 
-    public Integer getIdentificationType() {
-        return this.identificationType;
-    }
-
-    public void setIdentificationType(Integer identificationType) {
-        this.identificationType = identificationType;
-    }
-
-    public String getIdentificationNumber() {
-        return this.identificationNumber;
-    }
-
-    public void setIdentificationNumber(String identificationNumber) {
-        this.identificationNumber = identificationNumber;
-    }
-
-    public static class Builder {
-        /**
-         * 证件类型
-         * <p> 示例值：1
-         */
-        private Integer identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：511699199x1x111234
-         */
-        private String identificationNumber;
-
-        /**
-         * 证件类型
-         * <p> 示例值：1
-         *
-         * @param identificationType
-         * @return
-         */
-        public Builder identificationType(Integer identificationType) {
-            this.identificationType = identificationType;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：511699199x1x111234
-         *
-         * @param identificationNumber
-         * @return
-         */
-        public Builder identificationNumber(String identificationNumber) {
-            this.identificationNumber = identificationNumber;
-            return this;
-        }
-
-
-        public TalentIdentificationInfo build() {
-            return new TalentIdentificationInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,30 +13,28 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
- */
+/** 变更事件来源 */
 public enum SocialArchiveEventDetailSourceTypeEnum {
-    NEW_JOIN("new_join"), // 增员
-    INTERN_TO_OFFICIAL("intern_to_official"), // 实习生转正
-    EMPLOYEE_TYPE_CHANGE("employee_type_change"), // 雇员类型变更
-    DISMISSION("dismission"), // 离职
-    JOB_CHANGE("job_change"), // 异动
-    IMPORT_INCREASE("import_increase"), // 增员导入
-    IMPORT_ADJUST("import_adjust"), // 调整导入
-    MANUAL_EDIT("manual_edit"), // 手动编辑
-    MANUAL_ADJUST("manual_adjust"), // 手动调整
-    MANUAL_DELETE("manual_delete"), // 手动删除
-    TO_ATTRITION_IMPORT("to_attrition_import"), // 待减员导入新增
-    PLAN_SYNC_ARC("plan_sync_arc"), // 方案同步档案
-    ;
-    private String value;
+  NEW_JOIN("new_join"), // 增员
+  INTERN_TO_OFFICIAL("intern_to_official"), // 实习生转正
+  EMPLOYEE_TYPE_CHANGE("employee_type_change"), // 雇员类型变更
+  DISMISSION("dismission"), // 离职
+  JOB_CHANGE("job_change"), // 异动
+  IMPORT_INCREASE("import_increase"), // 增员导入
+  IMPORT_ADJUST("import_adjust"), // 调整导入
+  MANUAL_EDIT("manual_edit"), // 手动编辑
+  MANUAL_ADJUST("manual_adjust"), // 手动调整
+  MANUAL_DELETE("manual_delete"), // 手动删除
+  TO_ATTRITION_IMPORT("to_attrition_import"), // 待减员导入新增
+  PLAN_SYNC_ARC("plan_sync_arc"), // 方案同步档案
+  ;
+  private String value;
 
-    SocialArchiveEventDetailSourceTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveEventDetailSourceTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

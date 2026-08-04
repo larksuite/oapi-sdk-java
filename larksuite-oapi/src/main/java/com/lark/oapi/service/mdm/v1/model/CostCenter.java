@@ -13,482 +13,531 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenter {
+  /**
+   * 成本中心唯一ID
+   *
+   * <p>示例值：U1404779844306214912
+   */
+  @SerializedName("cost_center_uid")
+  private String costCenterUid;
+
+  /**
+   * 成本中心编码
+   *
+   * <p>示例值：1002000100
+   */
+  @SerializedName("cost_center_code")
+  private String costCenterCode;
+
+  /**
+   * 成本中心名称多语言配置
+   *
+   * <p>示例值：总经理办公室
+   */
+  @SerializedName("i18n_cost_center_name")
+  private I18nStruct[] i18nCostCenterName;
+
+  /**
+   * 负责人union id，详细说明参见[union
+   * id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
+   *
+   * <p>示例值：8763419
+   */
+  @SerializedName("responsible_user_union_id")
+  private String responsibleUserUnionId;
+
+  /**
+   * 控制范围编码
+   *
+   * <p>示例值：HL01
+   */
+  @SerializedName("co_area_code")
+  private String coAreaCode;
+
+  /**
+   * 公司编码
+   *
+   * <p>示例值：1001
+   */
+  @SerializedName("company_code")
+  private String companyCode;
+
+  /**
+   * 利润中心编码
+   *
+   * <p>示例值：100101
+   */
+  @SerializedName("profit_center_code")
+  private String profitCenterCode;
+
+  /**
+   * 业务范围
+   *
+   * <p>示例值：FIC
+   */
+  @SerializedName("business_area")
+  private String businessArea;
+
+  /**
+   * 费用类型
+   *
+   * <p>示例值：Administration
+   */
+  @SerializedName("fee_type")
+  private String feeType;
+
+  /**
+   * 有效期至（yyyy-MM-dd）
+   *
+   * <p>示例值：9999-12-31
+   */
+  @SerializedName("valid_to")
+  private String validTo;
+
+  /**
+   * 成本中心名称
+   *
+   * <p>示例值：总经理办公室
+   */
+  @SerializedName("cost_center_name")
+  private String costCenterName;
+
+  /**
+   * 公司编码列表
+   *
+   * <p>示例值：s1001
+   */
+  @SerializedName("company_code_list")
+  private String[] companyCodeList;
+
+  public String getCostCenterUid() {
+    return this.costCenterUid;
+  }
+
+  public void setCostCenterUid(String costCenterUid) {
+    this.costCenterUid = costCenterUid;
+  }
+
+  public String getCostCenterCode() {
+    return this.costCenterCode;
+  }
+
+  public void setCostCenterCode(String costCenterCode) {
+    this.costCenterCode = costCenterCode;
+  }
+
+  public I18nStruct[] getI18nCostCenterName() {
+    return this.i18nCostCenterName;
+  }
+
+  public void setI18nCostCenterName(I18nStruct[] i18nCostCenterName) {
+    this.i18nCostCenterName = i18nCostCenterName;
+  }
+
+  public String getResponsibleUserUnionId() {
+    return this.responsibleUserUnionId;
+  }
+
+  public void setResponsibleUserUnionId(String responsibleUserUnionId) {
+    this.responsibleUserUnionId = responsibleUserUnionId;
+  }
+
+  public String getCoAreaCode() {
+    return this.coAreaCode;
+  }
+
+  public void setCoAreaCode(String coAreaCode) {
+    this.coAreaCode = coAreaCode;
+  }
+
+  public String getCompanyCode() {
+    return this.companyCode;
+  }
+
+  public void setCompanyCode(String companyCode) {
+    this.companyCode = companyCode;
+  }
+
+  public String getProfitCenterCode() {
+    return this.profitCenterCode;
+  }
+
+  public void setProfitCenterCode(String profitCenterCode) {
+    this.profitCenterCode = profitCenterCode;
+  }
+
+  public String getBusinessArea() {
+    return this.businessArea;
+  }
+
+  public void setBusinessArea(String businessArea) {
+    this.businessArea = businessArea;
+  }
+
+  public String getFeeType() {
+    return this.feeType;
+  }
+
+  public void setFeeType(String feeType) {
+    this.feeType = feeType;
+  }
+
+  public String getValidTo() {
+    return this.validTo;
+  }
+
+  public void setValidTo(String validTo) {
+    this.validTo = validTo;
+  }
+
+  public String getCostCenterName() {
+    return this.costCenterName;
+  }
+
+  public void setCostCenterName(String costCenterName) {
+    this.costCenterName = costCenterName;
+  }
+
+  public String[] getCompanyCodeList() {
+    return this.companyCodeList;
+  }
+
+  public void setCompanyCodeList(String[] companyCodeList) {
+    this.companyCodeList = companyCodeList;
+  }
+
+  // builder 开始
+  public CostCenter() {}
+
+  public CostCenter(Builder builder) {
     /**
      * 成本中心唯一ID
-     * <p> 示例值：U1404779844306214912
+     *
+     * <p>示例值：U1404779844306214912
      */
-    @SerializedName("cost_center_uid")
-    private String costCenterUid;
+    this.costCenterUid = builder.costCenterUid;
     /**
      * 成本中心编码
-     * <p> 示例值：1002000100
+     *
+     * <p>示例值：1002000100
      */
-    @SerializedName("cost_center_code")
-    private String costCenterCode;
+    this.costCenterCode = builder.costCenterCode;
     /**
      * 成本中心名称多语言配置
-     * <p> 示例值：总经理办公室
+     *
+     * <p>示例值：总经理办公室
      */
-    @SerializedName("i18n_cost_center_name")
-    private I18nStruct[] i18nCostCenterName;
+    this.i18nCostCenterName = builder.i18nCostCenterName;
     /**
-     * 负责人union id，详细说明参见[union id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
-     * <p> 示例值：8763419
+     * 负责人union id，详细说明参见[union
+     * id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
+     *
+     * <p>示例值：8763419
      */
-    @SerializedName("responsible_user_union_id")
-    private String responsibleUserUnionId;
+    this.responsibleUserUnionId = builder.responsibleUserUnionId;
     /**
      * 控制范围编码
-     * <p> 示例值：HL01
+     *
+     * <p>示例值：HL01
      */
-    @SerializedName("co_area_code")
-    private String coAreaCode;
+    this.coAreaCode = builder.coAreaCode;
     /**
-     * 公司唯一ID
-     * <p> 示例值：U1404700185187065856
+     * 公司编码
+     *
+     * <p>示例值：1001
      */
-    @SerializedName("company_code")
-    private String companyCode;
+    this.companyCode = builder.companyCode;
     /**
      * 利润中心编码
-     * <p> 示例值：100101
+     *
+     * <p>示例值：100101
      */
-    @SerializedName("profit_center_code")
-    private String profitCenterCode;
+    this.profitCenterCode = builder.profitCenterCode;
     /**
      * 业务范围
-     * <p> 示例值：FIC
+     *
+     * <p>示例值：FIC
      */
-    @SerializedName("business_area")
-    private String businessArea;
+    this.businessArea = builder.businessArea;
     /**
      * 费用类型
-     * <p> 示例值：Administration
+     *
+     * <p>示例值：Administration
      */
-    @SerializedName("fee_type")
-    private String feeType;
+    this.feeType = builder.feeType;
     /**
      * 有效期至（yyyy-MM-dd）
-     * <p> 示例值：9999-12-31
+     *
+     * <p>示例值：9999-12-31
      */
-    @SerializedName("valid_to")
-    private String validTo;
+    this.validTo = builder.validTo;
     /**
      * 成本中心名称
-     * <p> 示例值：总经理办公室
+     *
+     * <p>示例值：总经理办公室
      */
-    @SerializedName("cost_center_name")
-    private String costCenterName;
+    this.costCenterName = builder.costCenterName;
     /**
      * 公司编码列表
-     * <p> 示例值：s1001
+     *
+     * <p>示例值：s1001
      */
-    @SerializedName("company_code_list")
+    this.companyCodeList = builder.companyCodeList;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心唯一ID
+     *
+     * <p>示例值：U1404779844306214912
+     */
+    private String costCenterUid;
+
+    /**
+     * 成本中心编码
+     *
+     * <p>示例值：1002000100
+     */
+    private String costCenterCode;
+
+    /**
+     * 成本中心名称多语言配置
+     *
+     * <p>示例值：总经理办公室
+     */
+    private I18nStruct[] i18nCostCenterName;
+
+    /**
+     * 负责人union id，详细说明参见[union
+     * id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
+     *
+     * <p>示例值：8763419
+     */
+    private String responsibleUserUnionId;
+
+    /**
+     * 控制范围编码
+     *
+     * <p>示例值：HL01
+     */
+    private String coAreaCode;
+
+    /**
+     * 公司编码
+     *
+     * <p>示例值：1001
+     */
+    private String companyCode;
+
+    /**
+     * 利润中心编码
+     *
+     * <p>示例值：100101
+     */
+    private String profitCenterCode;
+
+    /**
+     * 业务范围
+     *
+     * <p>示例值：FIC
+     */
+    private String businessArea;
+
+    /**
+     * 费用类型
+     *
+     * <p>示例值：Administration
+     */
+    private String feeType;
+
+    /**
+     * 有效期至（yyyy-MM-dd）
+     *
+     * <p>示例值：9999-12-31
+     */
+    private String validTo;
+
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：总经理办公室
+     */
+    private String costCenterName;
+
+    /**
+     * 公司编码列表
+     *
+     * <p>示例值：s1001
+     */
     private String[] companyCodeList;
 
-    // builder 开始
-    public CostCenter() {
+    /**
+     * 成本中心唯一ID
+     *
+     * <p>示例值：U1404779844306214912
+     *
+     * @param costCenterUid
+     * @return
+     */
+    public Builder costCenterUid(String costCenterUid) {
+      this.costCenterUid = costCenterUid;
+      return this;
     }
 
-    public CostCenter(Builder builder) {
-        /**
-         * 成本中心唯一ID
-         * <p> 示例值：U1404779844306214912
-         */
-        this.costCenterUid = builder.costCenterUid;
-        /**
-         * 成本中心编码
-         * <p> 示例值：1002000100
-         */
-        this.costCenterCode = builder.costCenterCode;
-        /**
-         * 成本中心名称多语言配置
-         * <p> 示例值：总经理办公室
-         */
-        this.i18nCostCenterName = builder.i18nCostCenterName;
-        /**
-         * 负责人union id，详细说明参见[union id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
-         * <p> 示例值：8763419
-         */
-        this.responsibleUserUnionId = builder.responsibleUserUnionId;
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL01
-         */
-        this.coAreaCode = builder.coAreaCode;
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700185187065856
-         */
-        this.companyCode = builder.companyCode;
-        /**
-         * 利润中心编码
-         * <p> 示例值：100101
-         */
-        this.profitCenterCode = builder.profitCenterCode;
-        /**
-         * 业务范围
-         * <p> 示例值：FIC
-         */
-        this.businessArea = builder.businessArea;
-        /**
-         * 费用类型
-         * <p> 示例值：Administration
-         */
-        this.feeType = builder.feeType;
-        /**
-         * 有效期至（yyyy-MM-dd）
-         * <p> 示例值：9999-12-31
-         */
-        this.validTo = builder.validTo;
-        /**
-         * 成本中心名称
-         * <p> 示例值：总经理办公室
-         */
-        this.costCenterName = builder.costCenterName;
-        /**
-         * 公司编码列表
-         * <p> 示例值：s1001
-         */
-        this.companyCodeList = builder.companyCodeList;
+    /**
+     * 成本中心编码
+     *
+     * <p>示例值：1002000100
+     *
+     * @param costCenterCode
+     * @return
+     */
+    public Builder costCenterCode(String costCenterCode) {
+      this.costCenterCode = costCenterCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本中心名称多语言配置
+     *
+     * <p>示例值：总经理办公室
+     *
+     * @param i18nCostCenterName
+     * @return
+     */
+    public Builder i18nCostCenterName(I18nStruct[] i18nCostCenterName) {
+      this.i18nCostCenterName = i18nCostCenterName;
+      return this;
     }
 
-    public String getCostCenterUid() {
-        return this.costCenterUid;
+    /**
+     * 负责人union id，详细说明参见[union
+     * id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
+     *
+     * <p>示例值：8763419
+     *
+     * @param responsibleUserUnionId
+     * @return
+     */
+    public Builder responsibleUserUnionId(String responsibleUserUnionId) {
+      this.responsibleUserUnionId = responsibleUserUnionId;
+      return this;
     }
 
-    public void setCostCenterUid(String costCenterUid) {
-        this.costCenterUid = costCenterUid;
+    /**
+     * 控制范围编码
+     *
+     * <p>示例值：HL01
+     *
+     * @param coAreaCode
+     * @return
+     */
+    public Builder coAreaCode(String coAreaCode) {
+      this.coAreaCode = coAreaCode;
+      return this;
     }
 
-    public String getCostCenterCode() {
-        return this.costCenterCode;
+    /**
+     * 公司编码
+     *
+     * <p>示例值：1001
+     *
+     * @param companyCode
+     * @return
+     */
+    public Builder companyCode(String companyCode) {
+      this.companyCode = companyCode;
+      return this;
     }
 
-    public void setCostCenterCode(String costCenterCode) {
-        this.costCenterCode = costCenterCode;
+    /**
+     * 利润中心编码
+     *
+     * <p>示例值：100101
+     *
+     * @param profitCenterCode
+     * @return
+     */
+    public Builder profitCenterCode(String profitCenterCode) {
+      this.profitCenterCode = profitCenterCode;
+      return this;
     }
 
-    public I18nStruct[] getI18nCostCenterName() {
-        return this.i18nCostCenterName;
+    /**
+     * 业务范围
+     *
+     * <p>示例值：FIC
+     *
+     * @param businessArea
+     * @return
+     */
+    public Builder businessArea(String businessArea) {
+      this.businessArea = businessArea;
+      return this;
     }
 
-    public void setI18nCostCenterName(I18nStruct[] i18nCostCenterName) {
-        this.i18nCostCenterName = i18nCostCenterName;
+    /**
+     * 费用类型
+     *
+     * <p>示例值：Administration
+     *
+     * @param feeType
+     * @return
+     */
+    public Builder feeType(String feeType) {
+      this.feeType = feeType;
+      return this;
     }
 
-    public String getResponsibleUserUnionId() {
-        return this.responsibleUserUnionId;
+    /**
+     * 有效期至（yyyy-MM-dd）
+     *
+     * <p>示例值：9999-12-31
+     *
+     * @param validTo
+     * @return
+     */
+    public Builder validTo(String validTo) {
+      this.validTo = validTo;
+      return this;
     }
 
-    public void setResponsibleUserUnionId(String responsibleUserUnionId) {
-        this.responsibleUserUnionId = responsibleUserUnionId;
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：总经理办公室
+     *
+     * @param costCenterName
+     * @return
+     */
+    public Builder costCenterName(String costCenterName) {
+      this.costCenterName = costCenterName;
+      return this;
     }
 
-    public String getCoAreaCode() {
-        return this.coAreaCode;
+    /**
+     * 公司编码列表
+     *
+     * <p>示例值：s1001
+     *
+     * @param companyCodeList
+     * @return
+     */
+    public Builder companyCodeList(String[] companyCodeList) {
+      this.companyCodeList = companyCodeList;
+      return this;
     }
 
-    public void setCoAreaCode(String coAreaCode) {
-        this.coAreaCode = coAreaCode;
+    public CostCenter build() {
+      return new CostCenter(this);
     }
+  }
 
-    public String getCompanyCode() {
-        return this.companyCode;
-    }
-
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
-    }
-
-    public String getProfitCenterCode() {
-        return this.profitCenterCode;
-    }
-
-    public void setProfitCenterCode(String profitCenterCode) {
-        this.profitCenterCode = profitCenterCode;
-    }
-
-    public String getBusinessArea() {
-        return this.businessArea;
-    }
-
-    public void setBusinessArea(String businessArea) {
-        this.businessArea = businessArea;
-    }
-
-    public String getFeeType() {
-        return this.feeType;
-    }
-
-    public void setFeeType(String feeType) {
-        this.feeType = feeType;
-    }
-
-    public String getValidTo() {
-        return this.validTo;
-    }
-
-    public void setValidTo(String validTo) {
-        this.validTo = validTo;
-    }
-
-    public String getCostCenterName() {
-        return this.costCenterName;
-    }
-
-    public void setCostCenterName(String costCenterName) {
-        this.costCenterName = costCenterName;
-    }
-
-    public String[] getCompanyCodeList() {
-        return this.companyCodeList;
-    }
-
-    public void setCompanyCodeList(String[] companyCodeList) {
-        this.companyCodeList = companyCodeList;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心唯一ID
-         * <p> 示例值：U1404779844306214912
-         */
-        private String costCenterUid;
-        /**
-         * 成本中心编码
-         * <p> 示例值：1002000100
-         */
-        private String costCenterCode;
-        /**
-         * 成本中心名称多语言配置
-         * <p> 示例值：总经理办公室
-         */
-        private I18nStruct[] i18nCostCenterName;
-        /**
-         * 负责人union id，详细说明参见[union id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
-         * <p> 示例值：8763419
-         */
-        private String responsibleUserUnionId;
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL01
-         */
-        private String coAreaCode;
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700185187065856
-         */
-        private String companyCode;
-        /**
-         * 利润中心编码
-         * <p> 示例值：100101
-         */
-        private String profitCenterCode;
-        /**
-         * 业务范围
-         * <p> 示例值：FIC
-         */
-        private String businessArea;
-        /**
-         * 费用类型
-         * <p> 示例值：Administration
-         */
-        private String feeType;
-        /**
-         * 有效期至（yyyy-MM-dd）
-         * <p> 示例值：9999-12-31
-         */
-        private String validTo;
-        /**
-         * 成本中心名称
-         * <p> 示例值：总经理办公室
-         */
-        private String costCenterName;
-        /**
-         * 公司编码列表
-         * <p> 示例值：s1001
-         */
-        private String[] companyCodeList;
-
-        /**
-         * 成本中心唯一ID
-         * <p> 示例值：U1404779844306214912
-         *
-         * @param costCenterUid
-         * @return
-         */
-        public Builder costCenterUid(String costCenterUid) {
-            this.costCenterUid = costCenterUid;
-            return this;
-        }
-
-
-        /**
-         * 成本中心编码
-         * <p> 示例值：1002000100
-         *
-         * @param costCenterCode
-         * @return
-         */
-        public Builder costCenterCode(String costCenterCode) {
-            this.costCenterCode = costCenterCode;
-            return this;
-        }
-
-
-        /**
-         * 成本中心名称多语言配置
-         * <p> 示例值：总经理办公室
-         *
-         * @param i18nCostCenterName
-         * @return
-         */
-        public Builder i18nCostCenterName(I18nStruct[] i18nCostCenterName) {
-            this.i18nCostCenterName = i18nCostCenterName;
-            return this;
-        }
-
-
-        /**
-         * 负责人union id，详细说明参见[union id说明](https://open.feishu.cn/document/home/user-identity-introduction/union-id)
-         * <p> 示例值：8763419
-         *
-         * @param responsibleUserUnionId
-         * @return
-         */
-        public Builder responsibleUserUnionId(String responsibleUserUnionId) {
-            this.responsibleUserUnionId = responsibleUserUnionId;
-            return this;
-        }
-
-
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL01
-         *
-         * @param coAreaCode
-         * @return
-         */
-        public Builder coAreaCode(String coAreaCode) {
-            this.coAreaCode = coAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700185187065856
-         *
-         * @param companyCode
-         * @return
-         */
-        public Builder companyCode(String companyCode) {
-            this.companyCode = companyCode;
-            return this;
-        }
-
-
-        /**
-         * 利润中心编码
-         * <p> 示例值：100101
-         *
-         * @param profitCenterCode
-         * @return
-         */
-        public Builder profitCenterCode(String profitCenterCode) {
-            this.profitCenterCode = profitCenterCode;
-            return this;
-        }
-
-
-        /**
-         * 业务范围
-         * <p> 示例值：FIC
-         *
-         * @param businessArea
-         * @return
-         */
-        public Builder businessArea(String businessArea) {
-            this.businessArea = businessArea;
-            return this;
-        }
-
-
-        /**
-         * 费用类型
-         * <p> 示例值：Administration
-         *
-         * @param feeType
-         * @return
-         */
-        public Builder feeType(String feeType) {
-            this.feeType = feeType;
-            return this;
-        }
-
-
-        /**
-         * 有效期至（yyyy-MM-dd）
-         * <p> 示例值：9999-12-31
-         *
-         * @param validTo
-         * @return
-         */
-        public Builder validTo(String validTo) {
-            this.validTo = validTo;
-            return this;
-        }
-
-
-        /**
-         * 成本中心名称
-         * <p> 示例值：总经理办公室
-         *
-         * @param costCenterName
-         * @return
-         */
-        public Builder costCenterName(String costCenterName) {
-            this.costCenterName = costCenterName;
-            return this;
-        }
-
-
-        /**
-         * 公司编码列表
-         * <p> 示例值：s1001
-         *
-         * @param companyCodeList
-         * @return
-         */
-        public Builder companyCodeList(String[] companyCodeList) {
-            this.companyCodeList = companyCodeList;
-            return this;
-        }
-
-
-        public CostCenter build() {
-            return new CostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

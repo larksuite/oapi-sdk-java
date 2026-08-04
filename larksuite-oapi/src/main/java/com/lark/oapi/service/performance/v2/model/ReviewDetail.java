@@ -13,716 +13,811 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewDetail {
+  /**
+   * 评估题 ID，指评估内容中的每个评估项或填写项
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 评估人 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewer_user_id")
+  private User reviewerUserId;
+
+  /**
+   * 该评估题的最后提交时间，毫秒级时间戳
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("submit_time")
+  private String submitTime;
+
+  /**
+   * 评估项 ID（不包含子评估项），option_id 或 score
+   * 有值的时候有值，详细信息请参考[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 评估等级 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("option_id")
+  private String optionId;
+
+  /**
+   * 评分
+   *
+   * <p>示例值：1.1
+   */
+  @SerializedName("score")
+  private String score;
+
+  /**
+   * 填写项填写的文本
+   *
+   * <p>示例值：qwert
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 标签填写题
+   * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("tag_based_question_id")
+  private String tagBasedQuestionId;
+
+  /**
+   * 标签填写项的内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag_text_item_data")
+  private TagText[] tagTextItemData;
+
+  /**
+   * 绩效系数值
+   *
+   * <p>示例值：1.1
+   */
+  @SerializedName("perf_coefficient_value")
+  private String perfCoefficientValue;
+
+  /**
+   * 子评估项内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_indicator_data")
+  private SubIndicator[] subIndicatorData;
+
+  /**
+   * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objective_data")
+  private ObjectiveData[] objectiveData;
+
+  /**
+   * 评估的指标，当评估内容是对指标评估时有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("metric_data")
+  private MetricData[] metricData;
+
+  /**
+   * 终评环节填写内容的来源（仅终评环节的数据有值）
+   *
+   * <p>示例值：review
+   */
+  @SerializedName("leader_review_data_source")
+  private String leaderReviewDataSource;
+
+  /**
+   * 工作/总结类型的文本内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multi_texts")
+  private String[] multiTexts;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+   */
+  @SerializedName("richtext")
+  private String richtext;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multi_richtexts")
+  private String[] multiRichtexts;
+
+  /**
+   * 该评估题是否是首要评估项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_principal_review_item")
+  private Boolean isPrincipalReviewItem;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public User getReviewerUserId() {
+    return this.reviewerUserId;
+  }
+
+  public void setReviewerUserId(User reviewerUserId) {
+    this.reviewerUserId = reviewerUserId;
+  }
+
+  public String getSubmitTime() {
+    return this.submitTime;
+  }
+
+  public void setSubmitTime(String submitTime) {
+    this.submitTime = submitTime;
+  }
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public String getOptionId() {
+    return this.optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = optionId;
+  }
+
+  public String getScore() {
+    return this.score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getTagBasedQuestionId() {
+    return this.tagBasedQuestionId;
+  }
+
+  public void setTagBasedQuestionId(String tagBasedQuestionId) {
+    this.tagBasedQuestionId = tagBasedQuestionId;
+  }
+
+  public TagText[] getTagTextItemData() {
+    return this.tagTextItemData;
+  }
+
+  public void setTagTextItemData(TagText[] tagTextItemData) {
+    this.tagTextItemData = tagTextItemData;
+  }
+
+  public String getPerfCoefficientValue() {
+    return this.perfCoefficientValue;
+  }
+
+  public void setPerfCoefficientValue(String perfCoefficientValue) {
+    this.perfCoefficientValue = perfCoefficientValue;
+  }
+
+  public SubIndicator[] getSubIndicatorData() {
+    return this.subIndicatorData;
+  }
+
+  public void setSubIndicatorData(SubIndicator[] subIndicatorData) {
+    this.subIndicatorData = subIndicatorData;
+  }
+
+  public ObjectiveData[] getObjectiveData() {
+    return this.objectiveData;
+  }
+
+  public void setObjectiveData(ObjectiveData[] objectiveData) {
+    this.objectiveData = objectiveData;
+  }
+
+  public MetricData[] getMetricData() {
+    return this.metricData;
+  }
+
+  public void setMetricData(MetricData[] metricData) {
+    this.metricData = metricData;
+  }
+
+  public String getLeaderReviewDataSource() {
+    return this.leaderReviewDataSource;
+  }
+
+  public void setLeaderReviewDataSource(String leaderReviewDataSource) {
+    this.leaderReviewDataSource = leaderReviewDataSource;
+  }
+
+  public String[] getMultiTexts() {
+    return this.multiTexts;
+  }
+
+  public void setMultiTexts(String[] multiTexts) {
+    this.multiTexts = multiTexts;
+  }
+
+  public String getRichtext() {
+    return this.richtext;
+  }
+
+  public void setRichtext(String richtext) {
+    this.richtext = richtext;
+  }
+
+  public String[] getMultiRichtexts() {
+    return this.multiRichtexts;
+  }
+
+  public void setMultiRichtexts(String[] multiRichtexts) {
+    this.multiRichtexts = multiRichtexts;
+  }
+
+  public Boolean getIsPrincipalReviewItem() {
+    return this.isPrincipalReviewItem;
+  }
+
+  public void setIsPrincipalReviewItem(Boolean isPrincipalReviewItem) {
+    this.isPrincipalReviewItem = isPrincipalReviewItem;
+  }
+
+  // builder 开始
+  public ReviewDetail() {}
+
+  public ReviewDetail(Builder builder) {
     /**
      * 评估题 ID，指评估内容中的每个评估项或填写项
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
-     * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-     * <p> 示例值：
+     * 评估人 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewer_user_id")
-    private User reviewerUserId;
+    this.reviewerUserId = builder.reviewerUserId;
     /**
-     * 该评估题的最后提交时间
-     * <p> 示例值：7343513161666707459
+     * 该评估题的最后提交时间，毫秒级时间戳
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("submit_time")
-    private String submitTime;
+    this.submitTime = builder.submitTime;
     /**
-     * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值
-     * <p> 示例值：7343513161666707459
+     * 评估项 ID（不包含子评估项），option_id 或 score
+     * 有值的时候有值，详细信息请参考[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.indicatorId = builder.indicatorId;
     /**
      * 评估等级 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("option_id")
-    private String optionId;
+    this.optionId = builder.optionId;
     /**
      * 评分
-     * <p> 示例值：1.1
+     *
+     * <p>示例值：1.1
      */
-    @SerializedName("score")
-    private String score;
+    this.score = builder.score;
     /**
      * 填写项填写的文本
-     * <p> 示例值：qwert
+     *
+     * <p>示例值：qwert
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
-     * 标签填写题的 ID
-     * <p> 示例值：7343513161666707459
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("tag_based_question_id")
-    private String tagBasedQuestionId;
+    this.tagBasedQuestionId = builder.tagBasedQuestionId;
     /**
      * 标签填写项的内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag_text_item_data")
-    private TagText[] tagTextItemData;
+    this.tagTextItemData = builder.tagTextItemData;
     /**
      * 绩效系数值
-     * <p> 示例值：1.1
+     *
+     * <p>示例值：1.1
      */
-    @SerializedName("perf_coefficient_value")
-    private String perfCoefficientValue;
+    this.perfCoefficientValue = builder.perfCoefficientValue;
     /**
      * 子评估项内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_indicator_data")
-    private SubIndicator[] subIndicatorData;
+    this.subIndicatorData = builder.subIndicatorData;
     /**
      * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objective_data")
-    private ObjectiveData[] objectiveData;
+    this.objectiveData = builder.objectiveData;
     /**
      * 评估的指标，当评估内容是对指标评估时有值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("metric_data")
-    private MetricData[] metricData;
+    this.metricData = builder.metricData;
     /**
      * 终评环节填写内容的来源（仅终评环节的数据有值）
-     * <p> 示例值：review
+     *
+     * <p>示例值：review
      */
-    @SerializedName("leader_review_data_source")
-    private String leaderReviewDataSource;
+    this.leaderReviewDataSource = builder.leaderReviewDataSource;
     /**
      * 工作/总结类型的文本内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("multi_texts")
-    private String[] multiTexts;
+    this.multiTexts = builder.multiTexts;
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
      */
-    @SerializedName("richtext")
-    private String richtext;
+    this.richtext = builder.richtext;
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：
      */
-    @SerializedName("multi_richtexts")
-    private String[] multiRichtexts;
+    this.multiRichtexts = builder.multiRichtexts;
     /**
      * 该评估题是否是首要评估项
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_principal_review_item")
+    this.isPrincipalReviewItem = builder.isPrincipalReviewItem;
+  }
+
+  public static class Builder {
+    /**
+     * 评估题 ID，指评估内容中的每个评估项或填写项
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String fieldId;
+
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     */
+    private User reviewerUserId;
+
+    /**
+     * 该评估题的最后提交时间，毫秒级时间戳
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String submitTime;
+
+    /**
+     * 评估项 ID（不包含子评估项），option_id 或 score
+     * 有值的时候有值，详细信息请参考[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String indicatorId;
+
+    /**
+     * 评估等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String optionId;
+
+    /**
+     * 评分
+     *
+     * <p>示例值：1.1
+     */
+    private String score;
+
+    /**
+     * 填写项填写的文本
+     *
+     * <p>示例值：qwert
+     */
+    private String text;
+
+    /**
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String tagBasedQuestionId;
+
+    /**
+     * 标签填写项的内容
+     *
+     * <p>示例值：
+     */
+    private TagText[] tagTextItemData;
+
+    /**
+     * 绩效系数值
+     *
+     * <p>示例值：1.1
+     */
+    private String perfCoefficientValue;
+
+    /**
+     * 子评估项内容
+     *
+     * <p>示例值：
+     */
+    private SubIndicator[] subIndicatorData;
+
+    /**
+     * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
+     *
+     * <p>示例值：
+     */
+    private ObjectiveData[] objectiveData;
+
+    /**
+     * 评估的指标，当评估内容是对指标评估时有值
+     *
+     * <p>示例值：
+     */
+    private MetricData[] metricData;
+
+    /**
+     * 终评环节填写内容的来源（仅终评环节的数据有值）
+     *
+     * <p>示例值：review
+     */
+    private String leaderReviewDataSource;
+
+    /**
+     * 工作/总结类型的文本内容
+     *
+     * <p>示例值：
+     */
+    private String[] multiTexts;
+
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     */
+    private String richtext;
+
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：
+     */
+    private String[] multiRichtexts;
+
+    /**
+     * 该评估题是否是首要评估项
+     *
+     * <p>示例值：true
+     */
     private Boolean isPrincipalReviewItem;
 
-    // builder 开始
-    public ReviewDetail() {
+    /**
+     * 评估题 ID，指评估内容中的每个评估项或填写项
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public ReviewDetail(Builder builder) {
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-         * <p> 示例值：
-         */
-        this.reviewerUserId = builder.reviewerUserId;
-        /**
-         * 该评估题的最后提交时间
-         * <p> 示例值：7343513161666707459
-         */
-        this.submitTime = builder.submitTime;
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 评估等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.optionId = builder.optionId;
-        /**
-         * 评分
-         * <p> 示例值：1.1
-         */
-        this.score = builder.score;
-        /**
-         * 填写项填写的文本
-         * <p> 示例值：qwert
-         */
-        this.text = builder.text;
-        /**
-         * 标签填写题的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.tagBasedQuestionId = builder.tagBasedQuestionId;
-        /**
-         * 标签填写项的内容
-         * <p> 示例值：
-         */
-        this.tagTextItemData = builder.tagTextItemData;
-        /**
-         * 绩效系数值
-         * <p> 示例值：1.1
-         */
-        this.perfCoefficientValue = builder.perfCoefficientValue;
-        /**
-         * 子评估项内容
-         * <p> 示例值：
-         */
-        this.subIndicatorData = builder.subIndicatorData;
-        /**
-         * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
-         * <p> 示例值：
-         */
-        this.objectiveData = builder.objectiveData;
-        /**
-         * 评估的指标，当评估内容是对指标评估时有值
-         * <p> 示例值：
-         */
-        this.metricData = builder.metricData;
-        /**
-         * 终评环节填写内容的来源（仅终评环节的数据有值）
-         * <p> 示例值：review
-         */
-        this.leaderReviewDataSource = builder.leaderReviewDataSource;
-        /**
-         * 工作/总结类型的文本内容
-         * <p> 示例值：
-         */
-        this.multiTexts = builder.multiTexts;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        this.richtext = builder.richtext;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：
-         */
-        this.multiRichtexts = builder.multiRichtexts;
-        /**
-         * 该评估题是否是首要评估项
-         * <p> 示例值：true
-         */
-        this.isPrincipalReviewItem = builder.isPrincipalReviewItem;
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     *
+     * @param reviewerUserId
+     * @return
+     */
+    public Builder reviewerUserId(User reviewerUserId) {
+      this.reviewerUserId = reviewerUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该评估题的最后提交时间，毫秒级时间戳
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param submitTime
+     * @return
+     */
+    public Builder submitTime(String submitTime) {
+      this.submitTime = submitTime;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 评估项 ID（不包含子评估项），option_id 或 score
+     * 有值的时候有值，详细信息请参考[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 评估等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param optionId
+     * @return
+     */
+    public Builder optionId(String optionId) {
+      this.optionId = optionId;
+      return this;
     }
 
-    public User getReviewerUserId() {
-        return this.reviewerUserId;
+    /**
+     * 评分
+     *
+     * <p>示例值：1.1
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(String score) {
+      this.score = score;
+      return this;
     }
 
-    public void setReviewerUserId(User reviewerUserId) {
-        this.reviewerUserId = reviewerUserId;
+    /**
+     * 填写项填写的文本
+     *
+     * <p>示例值：qwert
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public String getSubmitTime() {
-        return this.submitTime;
+    /**
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param tagBasedQuestionId
+     * @return
+     */
+    public Builder tagBasedQuestionId(String tagBasedQuestionId) {
+      this.tagBasedQuestionId = tagBasedQuestionId;
+      return this;
     }
 
-    public void setSubmitTime(String submitTime) {
-        this.submitTime = submitTime;
+    /**
+     * 标签填写项的内容
+     *
+     * <p>示例值：
+     *
+     * @param tagTextItemData
+     * @return
+     */
+    public Builder tagTextItemData(TagText[] tagTextItemData) {
+      this.tagTextItemData = tagTextItemData;
+      return this;
     }
 
-    public String getIndicatorId() {
-        return this.indicatorId;
+    /**
+     * 绩效系数值
+     *
+     * <p>示例值：1.1
+     *
+     * @param perfCoefficientValue
+     * @return
+     */
+    public Builder perfCoefficientValue(String perfCoefficientValue) {
+      this.perfCoefficientValue = perfCoefficientValue;
+      return this;
     }
 
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
+    /**
+     * 子评估项内容
+     *
+     * <p>示例值：
+     *
+     * @param subIndicatorData
+     * @return
+     */
+    public Builder subIndicatorData(SubIndicator[] subIndicatorData) {
+      this.subIndicatorData = subIndicatorData;
+      return this;
     }
 
-    public String getOptionId() {
-        return this.optionId;
+    /**
+     * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
+     *
+     * <p>示例值：
+     *
+     * @param objectiveData
+     * @return
+     */
+    public Builder objectiveData(ObjectiveData[] objectiveData) {
+      this.objectiveData = objectiveData;
+      return this;
     }
 
-    public void setOptionId(String optionId) {
-        this.optionId = optionId;
+    /**
+     * 评估的指标，当评估内容是对指标评估时有值
+     *
+     * <p>示例值：
+     *
+     * @param metricData
+     * @return
+     */
+    public Builder metricData(MetricData[] metricData) {
+      this.metricData = metricData;
+      return this;
     }
 
-    public String getScore() {
-        return this.score;
+    /**
+     * 终评环节填写内容的来源（仅终评环节的数据有值）
+     *
+     * <p>示例值：review
+     *
+     * @param leaderReviewDataSource
+     * @return
+     */
+    public Builder leaderReviewDataSource(String leaderReviewDataSource) {
+      this.leaderReviewDataSource = leaderReviewDataSource;
+      return this;
     }
 
-    public void setScore(String score) {
-        this.score = score;
+    /**
+     * 终评环节填写内容的来源（仅终评环节的数据有值）
+     *
+     * <p>示例值：review
+     *
+     * @param leaderReviewDataSource {@link
+     *     com.lark.oapi.service.performance.v2.enums.ReviewDetailLeaderReviewDataSourceEnum}
+     * @return
+     */
+    public Builder leaderReviewDataSource(
+        com.lark.oapi.service.performance.v2.enums.ReviewDetailLeaderReviewDataSourceEnum
+            leaderReviewDataSource) {
+      this.leaderReviewDataSource = leaderReviewDataSource.getValue();
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 工作/总结类型的文本内容
+     *
+     * <p>示例值：
+     *
+     * @param multiTexts
+     * @return
+     */
+    public Builder multiTexts(String[] multiTexts) {
+      this.multiTexts = multiTexts;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     *
+     * @param richtext
+     * @return
+     */
+    public Builder richtext(String richtext) {
+      this.richtext = richtext;
+      return this;
     }
 
-    public String getTagBasedQuestionId() {
-        return this.tagBasedQuestionId;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：
+     *
+     * @param multiRichtexts
+     * @return
+     */
+    public Builder multiRichtexts(String[] multiRichtexts) {
+      this.multiRichtexts = multiRichtexts;
+      return this;
     }
 
-    public void setTagBasedQuestionId(String tagBasedQuestionId) {
-        this.tagBasedQuestionId = tagBasedQuestionId;
+    /**
+     * 该评估题是否是首要评估项
+     *
+     * <p>示例值：true
+     *
+     * @param isPrincipalReviewItem
+     * @return
+     */
+    public Builder isPrincipalReviewItem(Boolean isPrincipalReviewItem) {
+      this.isPrincipalReviewItem = isPrincipalReviewItem;
+      return this;
     }
 
-    public TagText[] getTagTextItemData() {
-        return this.tagTextItemData;
+    public ReviewDetail build() {
+      return new ReviewDetail(this);
     }
+  }
 
-    public void setTagTextItemData(TagText[] tagTextItemData) {
-        this.tagTextItemData = tagTextItemData;
-    }
-
-    public String getPerfCoefficientValue() {
-        return this.perfCoefficientValue;
-    }
-
-    public void setPerfCoefficientValue(String perfCoefficientValue) {
-        this.perfCoefficientValue = perfCoefficientValue;
-    }
-
-    public SubIndicator[] getSubIndicatorData() {
-        return this.subIndicatorData;
-    }
-
-    public void setSubIndicatorData(SubIndicator[] subIndicatorData) {
-        this.subIndicatorData = subIndicatorData;
-    }
-
-    public ObjectiveData[] getObjectiveData() {
-        return this.objectiveData;
-    }
-
-    public void setObjectiveData(ObjectiveData[] objectiveData) {
-        this.objectiveData = objectiveData;
-    }
-
-    public MetricData[] getMetricData() {
-        return this.metricData;
-    }
-
-    public void setMetricData(MetricData[] metricData) {
-        this.metricData = metricData;
-    }
-
-    public String getLeaderReviewDataSource() {
-        return this.leaderReviewDataSource;
-    }
-
-    public void setLeaderReviewDataSource(String leaderReviewDataSource) {
-        this.leaderReviewDataSource = leaderReviewDataSource;
-    }
-
-    public String[] getMultiTexts() {
-        return this.multiTexts;
-    }
-
-    public void setMultiTexts(String[] multiTexts) {
-        this.multiTexts = multiTexts;
-    }
-
-    public String getRichtext() {
-        return this.richtext;
-    }
-
-    public void setRichtext(String richtext) {
-        this.richtext = richtext;
-    }
-
-    public String[] getMultiRichtexts() {
-        return this.multiRichtexts;
-    }
-
-    public void setMultiRichtexts(String[] multiRichtexts) {
-        this.multiRichtexts = multiRichtexts;
-    }
-
-    public Boolean getIsPrincipalReviewItem() {
-        return this.isPrincipalReviewItem;
-    }
-
-    public void setIsPrincipalReviewItem(Boolean isPrincipalReviewItem) {
-        this.isPrincipalReviewItem = isPrincipalReviewItem;
-    }
-
-    public static class Builder {
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         */
-        private String fieldId;
-        /**
-         * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-         * <p> 示例值：
-         */
-        private User reviewerUserId;
-        /**
-         * 该评估题的最后提交时间
-         * <p> 示例值：7343513161666707459
-         */
-        private String submitTime;
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值
-         * <p> 示例值：7343513161666707459
-         */
-        private String indicatorId;
-        /**
-         * 评估等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String optionId;
-        /**
-         * 评分
-         * <p> 示例值：1.1
-         */
-        private String score;
-        /**
-         * 填写项填写的文本
-         * <p> 示例值：qwert
-         */
-        private String text;
-        /**
-         * 标签填写题的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String tagBasedQuestionId;
-        /**
-         * 标签填写项的内容
-         * <p> 示例值：
-         */
-        private TagText[] tagTextItemData;
-        /**
-         * 绩效系数值
-         * <p> 示例值：1.1
-         */
-        private String perfCoefficientValue;
-        /**
-         * 子评估项内容
-         * <p> 示例值：
-         */
-        private SubIndicator[] subIndicatorData;
-        /**
-         * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
-         * <p> 示例值：
-         */
-        private ObjectiveData[] objectiveData;
-        /**
-         * 评估的指标，当评估内容是对指标评估时有值
-         * <p> 示例值：
-         */
-        private MetricData[] metricData;
-        /**
-         * 终评环节填写内容的来源（仅终评环节的数据有值）
-         * <p> 示例值：review
-         */
-        private String leaderReviewDataSource;
-        /**
-         * 工作/总结类型的文本内容
-         * <p> 示例值：
-         */
-        private String[] multiTexts;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        private String richtext;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：
-         */
-        private String[] multiRichtexts;
-        /**
-         * 该评估题是否是首要评估项
-         * <p> 示例值：true
-         */
-        private Boolean isPrincipalReviewItem;
-
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 评估人 ID。如果开启了 360 匿名评估，并且是对全部查看者匿名，则不返回该值
-         * <p> 示例值：
-         *
-         * @param reviewerUserId
-         * @return
-         */
-        public Builder reviewerUserId(User reviewerUserId) {
-            this.reviewerUserId = reviewerUserId;
-            return this;
-        }
-
-
-        /**
-         * 该评估题的最后提交时间
-         * <p> 示例值：7343513161666707459
-         *
-         * @param submitTime
-         * @return
-         */
-        public Builder submitTime(String submitTime) {
-            this.submitTime = submitTime;
-            return this;
-        }
-
-
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值
-         * <p> 示例值：7343513161666707459
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 评估等级 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param optionId
-         * @return
-         */
-        public Builder optionId(String optionId) {
-            this.optionId = optionId;
-            return this;
-        }
-
-
-        /**
-         * 评分
-         * <p> 示例值：1.1
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(String score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 填写项填写的文本
-         * <p> 示例值：qwert
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 标签填写题的 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param tagBasedQuestionId
-         * @return
-         */
-        public Builder tagBasedQuestionId(String tagBasedQuestionId) {
-            this.tagBasedQuestionId = tagBasedQuestionId;
-            return this;
-        }
-
-
-        /**
-         * 标签填写项的内容
-         * <p> 示例值：
-         *
-         * @param tagTextItemData
-         * @return
-         */
-        public Builder tagTextItemData(TagText[] tagTextItemData) {
-            this.tagTextItemData = tagTextItemData;
-            return this;
-        }
-
-
-        /**
-         * 绩效系数值
-         * <p> 示例值：1.1
-         *
-         * @param perfCoefficientValue
-         * @return
-         */
-        public Builder perfCoefficientValue(String perfCoefficientValue) {
-            this.perfCoefficientValue = perfCoefficientValue;
-            return this;
-        }
-
-
-        /**
-         * 子评估项内容
-         * <p> 示例值：
-         *
-         * @param subIndicatorData
-         * @return
-         */
-        public Builder subIndicatorData(SubIndicator[] subIndicatorData) {
-            this.subIndicatorData = subIndicatorData;
-            return this;
-        }
-
-
-        /**
-         * 评估的目标数据，当评估内容是对目标（O）或关键举措（KR）评估时有值
-         * <p> 示例值：
-         *
-         * @param objectiveData
-         * @return
-         */
-        public Builder objectiveData(ObjectiveData[] objectiveData) {
-            this.objectiveData = objectiveData;
-            return this;
-        }
-
-
-        /**
-         * 评估的指标，当评估内容是对指标评估时有值
-         * <p> 示例值：
-         *
-         * @param metricData
-         * @return
-         */
-        public Builder metricData(MetricData[] metricData) {
-            this.metricData = metricData;
-            return this;
-        }
-
-
-        /**
-         * 终评环节填写内容的来源（仅终评环节的数据有值）
-         * <p> 示例值：review
-         *
-         * @param leaderReviewDataSource
-         * @return
-         */
-        public Builder leaderReviewDataSource(String leaderReviewDataSource) {
-            this.leaderReviewDataSource = leaderReviewDataSource;
-            return this;
-        }
-
-        /**
-         * 终评环节填写内容的来源（仅终评环节的数据有值）
-         * <p> 示例值：review
-         *
-         * @param leaderReviewDataSource {@link com.lark.oapi.service.performance.v2.enums.ReviewDetailLeaderReviewDataSourceEnum}
-         * @return
-         */
-        public Builder leaderReviewDataSource(com.lark.oapi.service.performance.v2.enums.ReviewDetailLeaderReviewDataSourceEnum leaderReviewDataSource) {
-            this.leaderReviewDataSource = leaderReviewDataSource.getValue();
-            return this;
-        }
-
-
-        /**
-         * 工作/总结类型的文本内容
-         * <p> 示例值：
-         *
-         * @param multiTexts
-         * @return
-         */
-        public Builder multiTexts(String[] multiTexts) {
-            this.multiTexts = multiTexts;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         *
-         * @param richtext
-         * @return
-         */
-        public Builder richtext(String richtext) {
-            this.richtext = richtext;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：
-         *
-         * @param multiRichtexts
-         * @return
-         */
-        public Builder multiRichtexts(String[] multiRichtexts) {
-            this.multiRichtexts = multiRichtexts;
-            return this;
-        }
-
-
-        /**
-         * 该评估题是否是首要评估项
-         * <p> 示例值：true
-         *
-         * @param isPrincipalReviewItem
-         * @return
-         */
-        public Builder isPrincipalReviewItem(Boolean isPrincipalReviewItem) {
-            this.isPrincipalReviewItem = isPrincipalReviewItem;
-            return this;
-        }
-
-
-        public ReviewDetail build() {
-            return new ReviewDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

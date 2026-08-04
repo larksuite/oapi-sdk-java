@@ -13,126 +13,108 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.payroll.v1.enums.*;
 
 public class QueryDatasourceRecordReq {
+  /** 示例值： */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  @Body private QueryDatasourceRecordReqBody body;
+
+  public QueryDatasourceRecordReqBody getQueryDatasourceRecordReqBody() {
+    return this.body;
+  }
+
+  public void setQueryDatasourceRecordReqBody(QueryDatasourceRecordReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryDatasourceRecordReq() {}
+
+  public QueryDatasourceRecordReq(Builder builder) {
+    /** 示例值： */
+    this.pageSize = builder.pageSize;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Integer pageSize; //
+    private String pageToken; //
+
     /**
-     * <p> 示例值：
+     * 示例值：
+     *
+     * @param pageSize
+     * @return
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
     /**
-     * <p> 示例值：
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    @Body
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
     private QueryDatasourceRecordReqBody body;
 
-    // builder 开始
-    public QueryDatasourceRecordReq() {
-    }
-
-    public QueryDatasourceRecordReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public QueryDatasourceRecordReqBody getQueryDatasourceRecordReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQueryDatasourceRecordReqBody(QueryDatasourceRecordReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryDatasourceRecordReqBody(QueryDatasourceRecordReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Integer pageSize; //
-        private String pageToken; //
-        private QueryDatasourceRecordReqBody body;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        public QueryDatasourceRecordReqBody getQueryDatasourceRecordReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryDatasourceRecordReqBody(QueryDatasourceRecordReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryDatasourceRecordReq build() {
-            return new QueryDatasourceRecordReq(this);
-        }
+    public QueryDatasourceRecordReq build() {
+      return new QueryDatasourceRecordReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

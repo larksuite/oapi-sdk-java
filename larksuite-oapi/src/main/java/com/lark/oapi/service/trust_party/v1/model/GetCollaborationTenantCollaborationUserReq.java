@@ -13,150 +13,160 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.trust_party.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.trust_party.v1.enums.*;
 
 public class GetCollaborationTenantCollaborationUserReq {
+  /**
+   * 用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("target_user_id_type")
+  private String targetUserIdType;
+
+  public String getTargetUserIdType() {
+    return this.targetUserIdType;
+  }
+
+  public void setTargetUserIdType(String targetUserIdType) {
+    this.targetUserIdType = targetUserIdType;
+  }
+
+  /**
+   * 对方关联组织的tenant
+   * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  /**
+   * 请求的关联组织用户ID，需要与target_user_id_type中填写的类型保持一致
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_user_id")
+  private String targetUserId;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  public String getTargetUserId() {
+    return this.targetUserId;
+  }
+
+  public void setTargetUserId(String targetUserId) {
+    this.targetUserId = targetUserId;
+  }
+
+  // builder 开始
+  public GetCollaborationTenantCollaborationUserReq() {}
+
+  public GetCollaborationTenantCollaborationUserReq(Builder builder) {
     /**
-     * 用户ID类型
-     * <p> 示例值：user_id
+     * 用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("target_user_id_type")
-    private String targetUserIdType;
+    this.targetUserIdType = builder.targetUserIdType;
     /**
-     * 对方关联组织的租户key
-     * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
     /**
-     * 请求的关联组织用户ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * 请求的关联组织用户ID，需要与target_user_id_type中填写的类型保持一致
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_user_id")
-    private String targetUserId;
+    this.targetUserId = builder.targetUserId;
+  }
 
-    // builder 开始
-    public GetCollaborationTenantCollaborationUserReq() {
+  public static class Builder {
+    private String
+        targetUserIdType; // 用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID
+
+    /**
+     * 用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID
+     *
+     * <p>示例值：user_id
+     *
+     * @param targetUserIdType
+     * @return
+     */
+    public Builder targetUserIdType(String targetUserIdType) {
+      this.targetUserIdType = targetUserIdType;
+      return this;
     }
 
-    public GetCollaborationTenantCollaborationUserReq(Builder builder) {
-        /**
-         * 用户ID类型
-         * <p> 示例值：user_id
-         */
-        this.targetUserIdType = builder.targetUserIdType;
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetTenantKey = builder.targetTenantKey;
-        /**
-         * 请求的关联组织用户ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetUserId = builder.targetUserId;
+    /**
+     * 用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID
+     *
+     * <p>示例值：user_id
+     *
+     * @param targetUserIdType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationUserGetCollaborationTenantCollaborationUserTargetUserIDTypeEnum}
+     * @return
+     */
+    public Builder targetUserIdType(
+        com.lark.oapi.service.trust_party.v1.enums
+                .GetCollaborationTenantCollaborationUserGetCollaborationTenantCollaborationUserTargetUserIDTypeEnum
+            targetUserIdType) {
+      this.targetUserIdType = targetUserIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String targetTenantKey; // 对方关联组织的tenant
+    // key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+    private String targetUserId; // 请求的关联组织用户ID，需要与target_user_id_type中填写的类型保持一致
+
+    /**
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public String getTargetUserIdType() {
-        return this.targetUserIdType;
+    /**
+     * 请求的关联组织用户ID，需要与target_user_id_type中填写的类型保持一致
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetUserId
+     * @return
+     */
+    public Builder targetUserId(String targetUserId) {
+      this.targetUserId = targetUserId;
+      return this;
     }
 
-    public void setTargetUserIdType(String targetUserIdType) {
-        this.targetUserIdType = targetUserIdType;
+    public GetCollaborationTenantCollaborationUserReq build() {
+      return new GetCollaborationTenantCollaborationUserReq(this);
     }
+  }
 
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
-    }
-
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
-    }
-
-    public String getTargetUserId() {
-        return this.targetUserId;
-    }
-
-    public void setTargetUserId(String targetUserId) {
-        this.targetUserId = targetUserId;
-    }
-
-    public static class Builder {
-        private String targetUserIdType; // 用户ID类型
-        private String targetTenantKey; // 对方关联组织的租户key
-        private String targetUserId; // 请求的关联组织用户ID
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：user_id
-         *
-         * @param targetUserIdType
-         * @return
-         */
-        public Builder targetUserIdType(String targetUserIdType) {
-            this.targetUserIdType = targetUserIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：user_id
-         *
-         * @param targetUserIdType {@link com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationUserTargetUserIdTypeEnum}
-         * @return
-         */
-        public Builder targetUserIdType(com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationUserTargetUserIdTypeEnum targetUserIdType) {
-            this.targetUserIdType = targetUserIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-
-        /**
-         * 请求的关联组织用户ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetUserId
-         * @return
-         */
-        public Builder targetUserId(String targetUserId) {
-            this.targetUserId = targetUserId;
-            return this;
-        }
-
-
-        public GetCollaborationTenantCollaborationUserReq build() {
-            return new GetCollaborationTenantCollaborationUserReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

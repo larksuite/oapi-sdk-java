@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 图标类型
- */
+/** 图标类型 */
 public enum ChatPinIconChatPinIconTypeEnum {
-    DEFAULT("0"), // 使用默认值填充
-    CUSTOM("1"), // 通过传入icon_key实现自定义图标
-    ;
-    private String value;
+  DEFAULT("0"), // 使用默认值填充
+  CUSTOM("1"), // 通过传入icon_key实现自定义图标
+  ;
+  private String value;
 
-    ChatPinIconChatPinIconTypeEnum(String value) {
-        this.value = value;
-    }
+  ChatPinIconChatPinIconTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

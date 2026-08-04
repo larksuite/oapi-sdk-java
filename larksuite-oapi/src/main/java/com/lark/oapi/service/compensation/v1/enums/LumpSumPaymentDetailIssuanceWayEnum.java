@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 发放方式
- */
+/** 发放方式 */
 public enum LumpSumPaymentDetailIssuanceWayEnum {
-    WITH_SALARY("with_salary"), // 随工资发放
-    WITH_CASH("with_cash"), // 现金发放
-    WITH_YEAR_END_BONUS("with_year_end_bonus"), // 随年终奖发放
-    ;
-    private String value;
+  WITH_SALARY("with_salary"), // 随工资发放
+  WITH_CASH("with_cash"), // 现金发放
+  WITH_YEAR_END_BONUS("with_year_end_bonus"), // 随年终奖发放
+  ;
+  private String value;
 
-    LumpSumPaymentDetailIssuanceWayEnum(String value) {
-        this.value = value;
-    }
+  LumpSumPaymentDetailIssuanceWayEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

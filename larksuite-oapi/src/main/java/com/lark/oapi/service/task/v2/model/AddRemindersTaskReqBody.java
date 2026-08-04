@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddRemindersTaskReqBody {
+  /**
+   * 要添加的reminder的列表，目前1个任务只支持一个提醒。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reminders")
+  private Reminder[] reminders;
+
+  public Reminder[] getReminders() {
+    return this.reminders;
+  }
+
+  public void setReminders(Reminder[] reminders) {
+    this.reminders = reminders;
+  }
+
+  // builder 开始
+  public AddRemindersTaskReqBody() {}
+
+  public AddRemindersTaskReqBody(Builder builder) {
     /**
-     * 要添加的reminder的列表
-     * <p> 示例值：
+     * 要添加的reminder的列表，目前1个任务只支持一个提醒。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reminders")
+    this.reminders = builder.reminders;
+  }
+
+  public static class Builder {
+    /**
+     * 要添加的reminder的列表，目前1个任务只支持一个提醒。
+     *
+     * <p>示例值：
+     */
     private Reminder[] reminders;
 
-    // builder 开始
-    public AddRemindersTaskReqBody() {
+    /**
+     * 要添加的reminder的列表，目前1个任务只支持一个提醒。
+     *
+     * <p>示例值：
+     *
+     * @param reminders
+     * @return
+     */
+    public Builder reminders(Reminder[] reminders) {
+      this.reminders = reminders;
+      return this;
     }
 
-    public AddRemindersTaskReqBody(Builder builder) {
-        /**
-         * 要添加的reminder的列表
-         * <p> 示例值：
-         */
-        this.reminders = builder.reminders;
+    public AddRemindersTaskReqBody build() {
+      return new AddRemindersTaskReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Reminder[] getReminders() {
-        return this.reminders;
-    }
-
-    public void setReminders(Reminder[] reminders) {
-        this.reminders = reminders;
-    }
-
-    public static class Builder {
-        /**
-         * 要添加的reminder的列表
-         * <p> 示例值：
-         */
-        private Reminder[] reminders;
-
-        /**
-         * 要添加的reminder的列表
-         * <p> 示例值：
-         *
-         * @param reminders
-         * @return
-         */
-        public Builder reminders(Reminder[] reminders) {
-            this.reminders = reminders;
-            return this;
-        }
-
-
-        public AddRemindersTaskReqBody build() {
-            return new AddRemindersTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

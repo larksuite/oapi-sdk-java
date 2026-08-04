@@ -13,98 +13,97 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v7.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v7.enums.*;
 
 public class PatchApplicationBaseReq {
+  /**
+   * 应用的app_id [如何获取应用的 App
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private PatchApplicationBaseReqBody body;
+
+  public PatchApplicationBaseReqBody getPatchApplicationBaseReqBody() {
+    return this.body;
+  }
+
+  public void setPatchApplicationBaseReqBody(PatchApplicationBaseReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchApplicationBaseReq() {}
+
+  public PatchApplicationBaseReq(Builder builder) {
     /**
-     * 应用ID
-     * <p> 示例值：cli_a306c5476fb8d00c
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appId; // 应用的app_id [如何获取应用的 App
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+
+    /**
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private PatchApplicationBaseReqBody body;
 
-    // builder 开始
-    public PatchApplicationBaseReq() {
-    }
-
-    public PatchApplicationBaseReq(Builder builder) {
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public PatchApplicationBaseReqBody getPatchApplicationBaseReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchApplicationBaseReqBody(PatchApplicationBaseReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchApplicationBaseReqBody(PatchApplicationBaseReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 应用ID
-        private PatchApplicationBaseReqBody body;
-
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public PatchApplicationBaseReqBody getPatchApplicationBaseReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchApplicationBaseReqBody(PatchApplicationBaseReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchApplicationBaseReq build() {
-            return new PatchApplicationBaseReq(this);
-        }
+    public PatchApplicationBaseReq build() {
+      return new PatchApplicationBaseReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenterParentInfo {
+  /**
+   * cost_center_id
+   *
+   * <p>示例值：cost_center_id_xxx
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * cost_center_name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_name")
+  private I18n[] costCenterName;
+
+  /**
+   * parent_cost_center_id
+   *
+   * <p>示例值：parent_cost_center_id_xxx
+   */
+  @SerializedName("parent_cost_center_id")
+  private String parentCostCenterId;
+
+  /**
+   * active
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public I18n[] getCostCenterName() {
+    return this.costCenterName;
+  }
+
+  public void setCostCenterName(I18n[] costCenterName) {
+    this.costCenterName = costCenterName;
+  }
+
+  public String getParentCostCenterId() {
+    return this.parentCostCenterId;
+  }
+
+  public void setParentCostCenterId(String parentCostCenterId) {
+    this.parentCostCenterId = parentCostCenterId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public CostCenterParentInfo() {}
+
+  public CostCenterParentInfo(Builder builder) {
     /**
      * cost_center_id
-     * <p> 示例值：cost_center_id_xxx
+     *
+     * <p>示例值：cost_center_id_xxx
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * cost_center_name
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_name")
-    private I18n[] costCenterName;
+    this.costCenterName = builder.costCenterName;
     /**
      * parent_cost_center_id
-     * <p> 示例值：parent_cost_center_id_xxx
+     *
+     * <p>示例值：parent_cost_center_id_xxx
      */
-    @SerializedName("parent_cost_center_id")
-    private String parentCostCenterId;
+    this.parentCostCenterId = builder.parentCostCenterId;
     /**
      * active
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * cost_center_id
+     *
+     * <p>示例值：cost_center_id_xxx
+     */
+    private String costCenterId;
+
+    /**
+     * cost_center_name
+     *
+     * <p>示例值：
+     */
+    private I18n[] costCenterName;
+
+    /**
+     * parent_cost_center_id
+     *
+     * <p>示例值：parent_cost_center_id_xxx
+     */
+    private String parentCostCenterId;
+
+    /**
+     * active
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public CostCenterParentInfo() {
+    /**
+     * cost_center_id
+     *
+     * <p>示例值：cost_center_id_xxx
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public CostCenterParentInfo(Builder builder) {
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * cost_center_name
-         * <p> 示例值：
-         */
-        this.costCenterName = builder.costCenterName;
-        /**
-         * parent_cost_center_id
-         * <p> 示例值：parent_cost_center_id_xxx
-         */
-        this.parentCostCenterId = builder.parentCostCenterId;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * cost_center_name
+     *
+     * <p>示例值：
+     *
+     * @param costCenterName
+     * @return
+     */
+    public Builder costCenterName(I18n[] costCenterName) {
+      this.costCenterName = costCenterName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * parent_cost_center_id
+     *
+     * <p>示例值：parent_cost_center_id_xxx
+     *
+     * @param parentCostCenterId
+     * @return
+     */
+    public Builder parentCostCenterId(String parentCostCenterId) {
+      this.parentCostCenterId = parentCostCenterId;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    /**
+     * active
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
+    public CostCenterParentInfo build() {
+      return new CostCenterParentInfo(this);
     }
+  }
 
-    public I18n[] getCostCenterName() {
-        return this.costCenterName;
-    }
-
-    public void setCostCenterName(I18n[] costCenterName) {
-        this.costCenterName = costCenterName;
-    }
-
-    public String getParentCostCenterId() {
-        return this.parentCostCenterId;
-    }
-
-    public void setParentCostCenterId(String parentCostCenterId) {
-        this.parentCostCenterId = parentCostCenterId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         */
-        private String costCenterId;
-        /**
-         * cost_center_name
-         * <p> 示例值：
-         */
-        private I18n[] costCenterName;
-        /**
-         * parent_cost_center_id
-         * <p> 示例值：parent_cost_center_id_xxx
-         */
-        private String parentCostCenterId;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * cost_center_name
-         * <p> 示例值：
-         *
-         * @param costCenterName
-         * @return
-         */
-        public Builder costCenterName(I18n[] costCenterName) {
-            this.costCenterName = costCenterName;
-            return this;
-        }
-
-
-        /**
-         * parent_cost_center_id
-         * <p> 示例值：parent_cost_center_id_xxx
-         *
-         * @param parentCostCenterId
-         * @return
-         */
-        public Builder parentCostCenterId(String parentCostCenterId) {
-            this.parentCostCenterId = parentCostCenterId;
-            return this;
-        }
-
-
-        /**
-         * active
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public CostCenterParentInfo build() {
-            return new CostCenterParentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

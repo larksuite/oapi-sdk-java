@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Operator {
+  /**
+   * 操作人id
+   *
+   * <p>示例值：eeasfds
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 操作来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Operator() {}
+
+  public Operator(Builder builder) {
     /**
      * 操作人id
-     * <p> 示例值：eeasfds
+     *
+     * <p>示例值：eeasfds
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 操作来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人id
+     *
+     * <p>示例值：eeasfds
+     */
+    private String id;
+
+    /**
+     * 操作来源
+     *
+     * <p>示例值：
+     */
     private Integer type;
 
-    // builder 开始
-    public Operator() {
+    /**
+     * 操作人id
+     *
+     * <p>示例值：eeasfds
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Operator(Builder builder) {
-        /**
-         * 操作人id
-         * <p> 示例值：eeasfds
-         */
-        this.id = builder.id;
-        /**
-         * 操作来源
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 操作来源
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Operator build() {
+      return new Operator(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人id
-         * <p> 示例值：eeasfds
-         */
-        private String id;
-        /**
-         * 操作来源
-         * <p> 示例值：
-         */
-        private Integer type;
-
-        /**
-         * 操作人id
-         * <p> 示例值：eeasfds
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 操作来源
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public Operator build() {
-            return new Operator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractTime {
+  /**
+   * 开始时间
+   *
+   * <p>示例值：2020-07-01
+   */
+  @SerializedName("time_start")
+  private String timeStart;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：2022-06-30
+   */
+  @SerializedName("time_end")
+  private String timeEnd;
+
+  /**
+   * 原文中抽取出的开始时间
+   *
+   * <p>示例值：2020年07月1日
+   */
+  @SerializedName("original_time_start")
+  private String originalTimeStart;
+
+  /**
+   * 原文中抽取出的结束时间
+   *
+   * <p>示例值：2022年6月30日
+   */
+  @SerializedName("original_time_end")
+  private String originalTimeEnd;
+
+  /**
+   * 原文中关于开始时间的描述
+   *
+   * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+   */
+  @SerializedName("text_start")
+  private String textStart;
+
+  /**
+   * 原文中关于结束时间的描述
+   *
+   * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+   */
+  @SerializedName("text_end")
+  private String textEnd;
+
+  /**
+   * 合同持续时长
+   *
+   * <p>示例值：
+   */
+  @SerializedName("initial_term")
+  private ExtractTerm initialTerm;
+
+  /**
+   * 原文中关于持续时间的描述
+   *
+   * <p>示例值：2年
+   */
+  @SerializedName("text_initial_term")
+  private String textInitialTerm;
+
+  public String getTimeStart() {
+    return this.timeStart;
+  }
+
+  public void setTimeStart(String timeStart) {
+    this.timeStart = timeStart;
+  }
+
+  public String getTimeEnd() {
+    return this.timeEnd;
+  }
+
+  public void setTimeEnd(String timeEnd) {
+    this.timeEnd = timeEnd;
+  }
+
+  public String getOriginalTimeStart() {
+    return this.originalTimeStart;
+  }
+
+  public void setOriginalTimeStart(String originalTimeStart) {
+    this.originalTimeStart = originalTimeStart;
+  }
+
+  public String getOriginalTimeEnd() {
+    return this.originalTimeEnd;
+  }
+
+  public void setOriginalTimeEnd(String originalTimeEnd) {
+    this.originalTimeEnd = originalTimeEnd;
+  }
+
+  public String getTextStart() {
+    return this.textStart;
+  }
+
+  public void setTextStart(String textStart) {
+    this.textStart = textStart;
+  }
+
+  public String getTextEnd() {
+    return this.textEnd;
+  }
+
+  public void setTextEnd(String textEnd) {
+    this.textEnd = textEnd;
+  }
+
+  public ExtractTerm getInitialTerm() {
+    return this.initialTerm;
+  }
+
+  public void setInitialTerm(ExtractTerm initialTerm) {
+    this.initialTerm = initialTerm;
+  }
+
+  public String getTextInitialTerm() {
+    return this.textInitialTerm;
+  }
+
+  public void setTextInitialTerm(String textInitialTerm) {
+    this.textInitialTerm = textInitialTerm;
+  }
+
+  // builder 开始
+  public ExtractTime() {}
+
+  public ExtractTime(Builder builder) {
     /**
      * 开始时间
-     * <p> 示例值：2020-07-01
+     *
+     * <p>示例值：2020-07-01
      */
-    @SerializedName("time_start")
-    private String timeStart;
+    this.timeStart = builder.timeStart;
     /**
      * 结束时间
-     * <p> 示例值：2022-06-30
+     *
+     * <p>示例值：2022-06-30
      */
-    @SerializedName("time_end")
-    private String timeEnd;
+    this.timeEnd = builder.timeEnd;
     /**
      * 原文中抽取出的开始时间
-     * <p> 示例值：2020年07月1日
+     *
+     * <p>示例值：2020年07月1日
      */
-    @SerializedName("original_time_start")
-    private String originalTimeStart;
+    this.originalTimeStart = builder.originalTimeStart;
     /**
      * 原文中抽取出的结束时间
-     * <p> 示例值：2022年6月30日
+     *
+     * <p>示例值：2022年6月30日
      */
-    @SerializedName("original_time_end")
-    private String originalTimeEnd;
+    this.originalTimeEnd = builder.originalTimeEnd;
     /**
      * 原文中关于开始时间的描述
-     * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
      */
-    @SerializedName("text_start")
-    private String textStart;
+    this.textStart = builder.textStart;
     /**
      * 原文中关于结束时间的描述
-     * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
      */
-    @SerializedName("text_end")
-    private String textEnd;
+    this.textEnd = builder.textEnd;
     /**
      * 合同持续时长
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("initial_term")
-    private ExtractTerm initialTerm;
+    this.initialTerm = builder.initialTerm;
     /**
      * 原文中关于持续时间的描述
-     * <p> 示例值：2年
+     *
+     * <p>示例值：2年
      */
-    @SerializedName("text_initial_term")
+    this.textInitialTerm = builder.textInitialTerm;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：2020-07-01
+     */
+    private String timeStart;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：2022-06-30
+     */
+    private String timeEnd;
+
+    /**
+     * 原文中抽取出的开始时间
+     *
+     * <p>示例值：2020年07月1日
+     */
+    private String originalTimeStart;
+
+    /**
+     * 原文中抽取出的结束时间
+     *
+     * <p>示例值：2022年6月30日
+     */
+    private String originalTimeEnd;
+
+    /**
+     * 原文中关于开始时间的描述
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     */
+    private String textStart;
+
+    /**
+     * 原文中关于结束时间的描述
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     */
+    private String textEnd;
+
+    /**
+     * 合同持续时长
+     *
+     * <p>示例值：
+     */
+    private ExtractTerm initialTerm;
+
+    /**
+     * 原文中关于持续时间的描述
+     *
+     * <p>示例值：2年
+     */
     private String textInitialTerm;
 
-    // builder 开始
-    public ExtractTime() {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：2020-07-01
+     *
+     * @param timeStart
+     * @return
+     */
+    public Builder timeStart(String timeStart) {
+      this.timeStart = timeStart;
+      return this;
     }
 
-    public ExtractTime(Builder builder) {
-        /**
-         * 开始时间
-         * <p> 示例值：2020-07-01
-         */
-        this.timeStart = builder.timeStart;
-        /**
-         * 结束时间
-         * <p> 示例值：2022-06-30
-         */
-        this.timeEnd = builder.timeEnd;
-        /**
-         * 原文中抽取出的开始时间
-         * <p> 示例值：2020年07月1日
-         */
-        this.originalTimeStart = builder.originalTimeStart;
-        /**
-         * 原文中抽取出的结束时间
-         * <p> 示例值：2022年6月30日
-         */
-        this.originalTimeEnd = builder.originalTimeEnd;
-        /**
-         * 原文中关于开始时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         */
-        this.textStart = builder.textStart;
-        /**
-         * 原文中关于结束时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         */
-        this.textEnd = builder.textEnd;
-        /**
-         * 合同持续时长
-         * <p> 示例值：
-         */
-        this.initialTerm = builder.initialTerm;
-        /**
-         * 原文中关于持续时间的描述
-         * <p> 示例值：2年
-         */
-        this.textInitialTerm = builder.textInitialTerm;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：2022-06-30
+     *
+     * @param timeEnd
+     * @return
+     */
+    public Builder timeEnd(String timeEnd) {
+      this.timeEnd = timeEnd;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 原文中抽取出的开始时间
+     *
+     * <p>示例值：2020年07月1日
+     *
+     * @param originalTimeStart
+     * @return
+     */
+    public Builder originalTimeStart(String originalTimeStart) {
+      this.originalTimeStart = originalTimeStart;
+      return this;
     }
 
-    public String getTimeStart() {
-        return this.timeStart;
+    /**
+     * 原文中抽取出的结束时间
+     *
+     * <p>示例值：2022年6月30日
+     *
+     * @param originalTimeEnd
+     * @return
+     */
+    public Builder originalTimeEnd(String originalTimeEnd) {
+      this.originalTimeEnd = originalTimeEnd;
+      return this;
     }
 
-    public void setTimeStart(String timeStart) {
-        this.timeStart = timeStart;
+    /**
+     * 原文中关于开始时间的描述
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     *
+     * @param textStart
+     * @return
+     */
+    public Builder textStart(String textStart) {
+      this.textStart = textStart;
+      return this;
     }
 
-    public String getTimeEnd() {
-        return this.timeEnd;
+    /**
+     * 原文中关于结束时间的描述
+     *
+     * <p>示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
+     *
+     * @param textEnd
+     * @return
+     */
+    public Builder textEnd(String textEnd) {
+      this.textEnd = textEnd;
+      return this;
     }
 
-    public void setTimeEnd(String timeEnd) {
-        this.timeEnd = timeEnd;
+    /**
+     * 合同持续时长
+     *
+     * <p>示例值：
+     *
+     * @param initialTerm
+     * @return
+     */
+    public Builder initialTerm(ExtractTerm initialTerm) {
+      this.initialTerm = initialTerm;
+      return this;
     }
 
-    public String getOriginalTimeStart() {
-        return this.originalTimeStart;
+    /**
+     * 原文中关于持续时间的描述
+     *
+     * <p>示例值：2年
+     *
+     * @param textInitialTerm
+     * @return
+     */
+    public Builder textInitialTerm(String textInitialTerm) {
+      this.textInitialTerm = textInitialTerm;
+      return this;
     }
 
-    public void setOriginalTimeStart(String originalTimeStart) {
-        this.originalTimeStart = originalTimeStart;
+    public ExtractTime build() {
+      return new ExtractTime(this);
     }
+  }
 
-    public String getOriginalTimeEnd() {
-        return this.originalTimeEnd;
-    }
-
-    public void setOriginalTimeEnd(String originalTimeEnd) {
-        this.originalTimeEnd = originalTimeEnd;
-    }
-
-    public String getTextStart() {
-        return this.textStart;
-    }
-
-    public void setTextStart(String textStart) {
-        this.textStart = textStart;
-    }
-
-    public String getTextEnd() {
-        return this.textEnd;
-    }
-
-    public void setTextEnd(String textEnd) {
-        this.textEnd = textEnd;
-    }
-
-    public ExtractTerm getInitialTerm() {
-        return this.initialTerm;
-    }
-
-    public void setInitialTerm(ExtractTerm initialTerm) {
-        this.initialTerm = initialTerm;
-    }
-
-    public String getTextInitialTerm() {
-        return this.textInitialTerm;
-    }
-
-    public void setTextInitialTerm(String textInitialTerm) {
-        this.textInitialTerm = textInitialTerm;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间
-         * <p> 示例值：2020-07-01
-         */
-        private String timeStart;
-        /**
-         * 结束时间
-         * <p> 示例值：2022-06-30
-         */
-        private String timeEnd;
-        /**
-         * 原文中抽取出的开始时间
-         * <p> 示例值：2020年07月1日
-         */
-        private String originalTimeStart;
-        /**
-         * 原文中抽取出的结束时间
-         * <p> 示例值：2022年6月30日
-         */
-        private String originalTimeEnd;
-        /**
-         * 原文中关于开始时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         */
-        private String textStart;
-        /**
-         * 原文中关于结束时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         */
-        private String textEnd;
-        /**
-         * 合同持续时长
-         * <p> 示例值：
-         */
-        private ExtractTerm initialTerm;
-        /**
-         * 原文中关于持续时间的描述
-         * <p> 示例值：2年
-         */
-        private String textInitialTerm;
-
-        /**
-         * 开始时间
-         * <p> 示例值：2020-07-01
-         *
-         * @param timeStart
-         * @return
-         */
-        public Builder timeStart(String timeStart) {
-            this.timeStart = timeStart;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：2022-06-30
-         *
-         * @param timeEnd
-         * @return
-         */
-        public Builder timeEnd(String timeEnd) {
-            this.timeEnd = timeEnd;
-            return this;
-        }
-
-
-        /**
-         * 原文中抽取出的开始时间
-         * <p> 示例值：2020年07月1日
-         *
-         * @param originalTimeStart
-         * @return
-         */
-        public Builder originalTimeStart(String originalTimeStart) {
-            this.originalTimeStart = originalTimeStart;
-            return this;
-        }
-
-
-        /**
-         * 原文中抽取出的结束时间
-         * <p> 示例值：2022年6月30日
-         *
-         * @param originalTimeEnd
-         * @return
-         */
-        public Builder originalTimeEnd(String originalTimeEnd) {
-            this.originalTimeEnd = originalTimeEnd;
-            return this;
-        }
-
-
-        /**
-         * 原文中关于开始时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         *
-         * @param textStart
-         * @return
-         */
-        public Builder textStart(String textStart) {
-            this.textStart = textStart;
-            return this;
-        }
-
-
-        /**
-         * 原文中关于结束时间的描述
-         * <p> 示例值：本协议自有效期自【2020】年【07】月【1】日至【2022】年【6】月【30】日，有效期2年。
-         *
-         * @param textEnd
-         * @return
-         */
-        public Builder textEnd(String textEnd) {
-            this.textEnd = textEnd;
-            return this;
-        }
-
-
-        /**
-         * 合同持续时长
-         * <p> 示例值：
-         *
-         * @param initialTerm
-         * @return
-         */
-        public Builder initialTerm(ExtractTerm initialTerm) {
-            this.initialTerm = initialTerm;
-            return this;
-        }
-
-
-        /**
-         * 原文中关于持续时间的描述
-         * <p> 示例值：2年
-         *
-         * @param textInitialTerm
-         * @return
-         */
-        public Builder textInitialTerm(String textInitialTerm) {
-            this.textInitialTerm = textInitialTerm;
-            return this;
-        }
-
-
-        public ExtractTime build() {
-            return new ExtractTime(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

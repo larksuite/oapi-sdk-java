@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMessageSearch {
+  /**
+   * 用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * 消息创建时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time_range")
+  private TimeRange createTimeRange;
+
+  /**
+   * 会话类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_type")
+  private Integer[] chatType;
+
+  /**
+   * 会话ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  /**
+   * 消息查询条件
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 场景上下文个数
+   *
+   * <p>示例值：30
+   */
+  @SerializedName("message_context_radius")
+  private Integer messageContextRadius;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public TimeRange getCreateTimeRange() {
+    return this.createTimeRange;
+  }
+
+  public void setCreateTimeRange(TimeRange createTimeRange) {
+    this.createTimeRange = createTimeRange;
+  }
+
+  public Integer[] getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(Integer[] chatType) {
+    this.chatType = chatType;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public Integer getMessageContextRadius() {
+    return this.messageContextRadius;
+  }
+
+  public void setMessageContextRadius(Integer messageContextRadius) {
+    this.messageContextRadius = messageContextRadius;
+  }
+
+  // builder 开始
+  public ParamMessageSearch() {}
+
+  public ParamMessageSearch(Builder builder) {
     /**
      * 用户列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
-    private String[] ownerIds;
+    this.ownerIds = builder.ownerIds;
     /**
      * 消息创建时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time_range")
-    private TimeRange createTimeRange;
+    this.createTimeRange = builder.createTimeRange;
     /**
      * 会话类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_type")
-    private Integer[] chatType;
+    this.chatType = builder.chatType;
     /**
      * 会话ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
-    private String[] chatIds;
+    this.chatIds = builder.chatIds;
     /**
      * 消息查询条件
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
      * 场景上下文个数
-     * <p> 示例值：30
+     *
+     * <p>示例值：30
      */
-    @SerializedName("message_context_radius")
+    this.messageContextRadius = builder.messageContextRadius;
+  }
+
+  public static class Builder {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     */
+    private String[] ownerIds;
+
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     */
+    private TimeRange createTimeRange;
+
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     */
+    private Integer[] chatType;
+
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     */
+    private String[] chatIds;
+
+    /**
+     * 消息查询条件
+     *
+     * <p>示例值：test
+     */
+    private String query;
+
+    /**
+     * 场景上下文个数
+     *
+     * <p>示例值：30
+     */
     private Integer messageContextRadius;
 
-    // builder 开始
-    public ParamMessageSearch() {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public ParamMessageSearch(Builder builder) {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        this.createTimeRange = builder.createTimeRange;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * 消息查询条件
-         * <p> 示例值：test
-         */
-        this.query = builder.query;
-        /**
-         * 场景上下文个数
-         * <p> 示例值：30
-         */
-        this.messageContextRadius = builder.messageContextRadius;
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     *
+     * @param createTimeRange
+     * @return
+     */
+    public Builder createTimeRange(TimeRange createTimeRange) {
+      this.createTimeRange = createTimeRange;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(Integer[] chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
+    /**
+     * 消息查询条件
+     *
+     * <p>示例值：test
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public TimeRange getCreateTimeRange() {
-        return this.createTimeRange;
+    /**
+     * 场景上下文个数
+     *
+     * <p>示例值：30
+     *
+     * @param messageContextRadius
+     * @return
+     */
+    public Builder messageContextRadius(Integer messageContextRadius) {
+      this.messageContextRadius = messageContextRadius;
+      return this;
     }
 
-    public void setCreateTimeRange(TimeRange createTimeRange) {
-        this.createTimeRange = createTimeRange;
+    public ParamMessageSearch build() {
+      return new ParamMessageSearch(this);
     }
+  }
 
-    public Integer[] getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(Integer[] chatType) {
-        this.chatType = chatType;
-    }
-
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public Integer getMessageContextRadius() {
-        return this.messageContextRadius;
-    }
-
-    public void setMessageContextRadius(Integer messageContextRadius) {
-        this.messageContextRadius = messageContextRadius;
-    }
-
-    public static class Builder {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        private TimeRange createTimeRange;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        private Integer[] chatType;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-        /**
-         * 消息查询条件
-         * <p> 示例值：test
-         */
-        private String query;
-        /**
-         * 场景上下文个数
-         * <p> 示例值：30
-         */
-        private Integer messageContextRadius;
-
-        /**
-         * 用户列表
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         *
-         * @param createTimeRange
-         * @return
-         */
-        public Builder createTimeRange(TimeRange createTimeRange) {
-            this.createTimeRange = createTimeRange;
-            return this;
-        }
-
-
-        /**
-         * 会话类型
-         * <p> 示例值：
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(Integer[] chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-
-        /**
-         * 会话ID
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        /**
-         * 消息查询条件
-         * <p> 示例值：test
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 场景上下文个数
-         * <p> 示例值：30
-         *
-         * @param messageContextRadius
-         * @return
-         */
-        public Builder messageContextRadius(Integer messageContextRadius) {
-            this.messageContextRadius = messageContextRadius;
-            return this;
-        }
-
-
-        public ParamMessageSearch build() {
-            return new ParamMessageSearch(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 封面策略
- */
+/** 封面策略 */
 public enum CoverOptionPolicyEnum {
-    EQUAL(0), // 等比
-    ALLOWUPSIZE(1), // 允许放大
-    ALLOWDOWNSIZE(2), // 允许缩小
-    NEAR(3), // 就近
-    ALLOWUPDEFAULT(4), // 允许放大默认
-    ALLOWDOWNDEFAULT(5), // 允许缩小默认
-    ;
-    private Integer value;
+  EQUAL(0), // 等比
+  ALLOWUPSIZE(1), // 允许放大
+  ALLOWDOWNSIZE(2), // 允许缩小
+  NEAR(3), // 就近
+  ALLOWUPDEFAULT(4), // 允许放大默认
+  ALLOWDOWNDEFAULT(5), // 允许缩小默认
+  ;
+  private Integer value;
 
-    CoverOptionPolicyEnum(Integer value) {
-        this.value = value;
-    }
+  CoverOptionPolicyEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

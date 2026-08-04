@@ -13,111 +13,118 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteEcoExamPaperReqBody {
+  /**
+   * 笔试账号
+   * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：7147998241542539527
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  /**
+   * 试卷 ID
+   * 列表。为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的
+   * ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paper_id_list")
+  private String[] paperIdList;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public String[] getPaperIdList() {
+    return this.paperIdList;
+  }
+
+  public void setPaperIdList(String[] paperIdList) {
+    this.paperIdList = paperIdList;
+  }
+
+  // builder 开始
+  public BatchDeleteEcoExamPaperReqBody() {}
+
+  public BatchDeleteEcoExamPaperReqBody(Builder builder) {
     /**
-     * 背调账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：7147998241542539527
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
      */
-    @SerializedName("account_id")
+    this.accountId = builder.accountId;
+    /**
+     * 试卷 ID
+     * 列表。为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的
+     * ID
+     *
+     * <p>示例值：
+     */
+    this.paperIdList = builder.paperIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
+     */
     private String accountId;
+
     /**
-     * 试卷 ID 列表
-     * <p> 示例值：
+     * 试卷 ID
+     * 列表。为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的
+     * ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("paper_id_list")
     private String[] paperIdList;
 
-    // builder 开始
-    public BatchDeleteEcoExamPaperReqBody() {
+    /**
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public BatchDeleteEcoExamPaperReqBody(Builder builder) {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 试卷 ID 列表
-         * <p> 示例值：
-         */
-        this.paperIdList = builder.paperIdList;
+    /**
+     * 试卷 ID
+     * 列表。为通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)传入的
+     * ID
+     *
+     * <p>示例值：
+     *
+     * @param paperIdList
+     * @return
+     */
+    public Builder paperIdList(String[] paperIdList) {
+      this.paperIdList = paperIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchDeleteEcoExamPaperReqBody build() {
+      return new BatchDeleteEcoExamPaperReqBody(this);
     }
+  }
 
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String[] getPaperIdList() {
-        return this.paperIdList;
-    }
-
-    public void setPaperIdList(String[] paperIdList) {
-        this.paperIdList = paperIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         */
-        private String accountId;
-        /**
-         * 试卷 ID 列表
-         * <p> 示例值：
-         */
-        private String[] paperIdList;
-
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        /**
-         * 试卷 ID 列表
-         * <p> 示例值：
-         *
-         * @param paperIdList
-         * @return
-         */
-        public Builder paperIdList(String[] paperIdList) {
-            this.paperIdList = paperIdList;
-            return this;
-        }
-
-
-        public BatchDeleteEcoExamPaperReqBody build() {
-            return new BatchDeleteEcoExamPaperReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatPinIcon {
+  /**
+   * 图标类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("chat_pin_icon_type")
+  private String chatPinIconType;
+
+  /**
+   * 图标key
+   *
+   * <p>示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
+   */
+  @SerializedName("icon_key")
+  private String iconKey;
+
+  public String getChatPinIconType() {
+    return this.chatPinIconType;
+  }
+
+  public void setChatPinIconType(String chatPinIconType) {
+    this.chatPinIconType = chatPinIconType;
+  }
+
+  public String getIconKey() {
+    return this.iconKey;
+  }
+
+  public void setIconKey(String iconKey) {
+    this.iconKey = iconKey;
+  }
+
+  // builder 开始
+  public ChatPinIcon() {}
+
+  public ChatPinIcon(Builder builder) {
     /**
      * 图标类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("chat_pin_icon_type")
-    private String chatPinIconType;
+    this.chatPinIconType = builder.chatPinIconType;
     /**
      * 图标key
-     * <p> 示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
+     *
+     * <p>示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
      */
-    @SerializedName("icon_key")
+    this.iconKey = builder.iconKey;
+  }
+
+  public static class Builder {
+    /**
+     * 图标类型
+     *
+     * <p>示例值：0
+     */
+    private String chatPinIconType;
+
+    /**
+     * 图标key
+     *
+     * <p>示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
+     */
     private String iconKey;
 
-    // builder 开始
-    public ChatPinIcon() {
+    /**
+     * 图标类型
+     *
+     * <p>示例值：0
+     *
+     * @param chatPinIconType
+     * @return
+     */
+    public Builder chatPinIconType(String chatPinIconType) {
+      this.chatPinIconType = chatPinIconType;
+      return this;
     }
 
-    public ChatPinIcon(Builder builder) {
-        /**
-         * 图标类型
-         * <p> 示例值：0
-         */
-        this.chatPinIconType = builder.chatPinIconType;
-        /**
-         * 图标key
-         * <p> 示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
-         */
-        this.iconKey = builder.iconKey;
+    /**
+     * 图标类型
+     *
+     * <p>示例值：0
+     *
+     * @param chatPinIconType {@link
+     *     com.lark.oapi.service.im.v2.enums.ChatPinIconChatPinIconTypeEnum}
+     * @return
+     */
+    public Builder chatPinIconType(
+        com.lark.oapi.service.im.v2.enums.ChatPinIconChatPinIconTypeEnum chatPinIconType) {
+      this.chatPinIconType = chatPinIconType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图标key
+     *
+     * <p>示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
+     *
+     * @param iconKey
+     * @return
+     */
+    public Builder iconKey(String iconKey) {
+      this.iconKey = iconKey;
+      return this;
     }
 
-    public String getChatPinIconType() {
-        return this.chatPinIconType;
+    public ChatPinIcon build() {
+      return new ChatPinIcon(this);
     }
+  }
 
-    public void setChatPinIconType(String chatPinIconType) {
-        this.chatPinIconType = chatPinIconType;
-    }
-
-    public String getIconKey() {
-        return this.iconKey;
-    }
-
-    public void setIconKey(String iconKey) {
-        this.iconKey = iconKey;
-    }
-
-    public static class Builder {
-        /**
-         * 图标类型
-         * <p> 示例值：0
-         */
-        private String chatPinIconType;
-        /**
-         * 图标key
-         * <p> 示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
-         */
-        private String iconKey;
-
-        /**
-         * 图标类型
-         * <p> 示例值：0
-         *
-         * @param chatPinIconType
-         * @return
-         */
-        public Builder chatPinIconType(String chatPinIconType) {
-            this.chatPinIconType = chatPinIconType;
-            return this;
-        }
-
-        /**
-         * 图标类型
-         * <p> 示例值：0
-         *
-         * @param chatPinIconType {@link com.lark.oapi.service.im.v2.enums.ChatPinIconChatPinIconTypeEnum}
-         * @return
-         */
-        public Builder chatPinIconType(com.lark.oapi.service.im.v2.enums.ChatPinIconChatPinIconTypeEnum chatPinIconType) {
-            this.chatPinIconType = chatPinIconType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 图标key
-         * <p> 示例值：img_v3_0237_9cba8614-abab-47c3-bb0e-318564d9d7ej
-         *
-         * @param iconKey
-         * @return
-         */
-        public Builder iconKey(String iconKey) {
-            this.iconKey = iconKey;
-            return this;
-        }
-
-
-        public ChatPinIcon build() {
-            return new ChatPinIcon(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

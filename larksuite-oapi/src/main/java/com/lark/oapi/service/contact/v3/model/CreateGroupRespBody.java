@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateGroupRespBody {
-    /**
-     * 用户组ID
-     * <p> 示例值：g122817
-     */
-    @SerializedName("group_id")
-    private String groupId;
+  /**
+   * 用户组 ID。后续可使用该 ID 更新、删除、查询用户组。
+   *
+   * <p>示例值：g122817
+   */
+  @SerializedName("group_id")
+  private String groupId;
 
-    public String getGroupId() {
-        return this.groupId;
-    }
+  public String getGroupId() {
+    return this.groupId;
+  }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
 }

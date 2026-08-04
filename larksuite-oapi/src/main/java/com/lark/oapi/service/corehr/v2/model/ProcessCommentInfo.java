@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessCommentInfo {
+  /**
+   * 评论人ID
+   *
+   * <p>示例值：7355397217231831060
+   */
+  @SerializedName("commentor_id")
+  private String commentorId;
+
+  /**
+   * 评论人姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("commentor_name")
+  private DataengineI18n commentorName;
+
+  /**
+   * 评论时间,Unix毫秒时间戳
+   *
+   * <p>示例值：1694769814036
+   */
+  @SerializedName("comment_time")
+  private String commentTime;
+
+  /**
+   * 评论内容
+   *
+   * <p>示例值：评论内容
+   */
+  @SerializedName("comment_msg")
+  private String commentMsg;
+
+  /**
+   * 在评论中被提及（@）到的人的id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("at_user_ids")
+  private String[] atUserIds;
+
+  /**
+   * 评论中附件数量
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("file_count")
+  private Integer fileCount;
+
+  /**
+   * 评论中图片数量
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("image_count")
+  private Integer imageCount;
+
+  /**
+   * 一条评论的唯一id
+   *
+   * <p>示例值：7355397217231831060
+   */
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getCommentorId() {
+    return this.commentorId;
+  }
+
+  public void setCommentorId(String commentorId) {
+    this.commentorId = commentorId;
+  }
+
+  public DataengineI18n getCommentorName() {
+    return this.commentorName;
+  }
+
+  public void setCommentorName(DataengineI18n commentorName) {
+    this.commentorName = commentorName;
+  }
+
+  public String getCommentTime() {
+    return this.commentTime;
+  }
+
+  public void setCommentTime(String commentTime) {
+    this.commentTime = commentTime;
+  }
+
+  public String getCommentMsg() {
+    return this.commentMsg;
+  }
+
+  public void setCommentMsg(String commentMsg) {
+    this.commentMsg = commentMsg;
+  }
+
+  public String[] getAtUserIds() {
+    return this.atUserIds;
+  }
+
+  public void setAtUserIds(String[] atUserIds) {
+    this.atUserIds = atUserIds;
+  }
+
+  public Integer getFileCount() {
+    return this.fileCount;
+  }
+
+  public void setFileCount(Integer fileCount) {
+    this.fileCount = fileCount;
+  }
+
+  public Integer getImageCount() {
+    return this.imageCount;
+  }
+
+  public void setImageCount(Integer imageCount) {
+    this.imageCount = imageCount;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  // builder 开始
+  public ProcessCommentInfo() {}
+
+  public ProcessCommentInfo(Builder builder) {
     /**
-     * 评论人id
-     * <p> 示例值：7355397217231831060
+     * 评论人ID
+     *
+     * <p>示例值：7355397217231831060
      */
-    @SerializedName("commentor_id")
-    private String commentorId;
+    this.commentorId = builder.commentorId;
     /**
      * 评论人姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("commentor_name")
-    private DataengineI18n commentorName;
+    this.commentorName = builder.commentorName;
     /**
      * 评论时间,Unix毫秒时间戳
-     * <p> 示例值：1694769814036
+     *
+     * <p>示例值：1694769814036
      */
-    @SerializedName("comment_time")
-    private String commentTime;
+    this.commentTime = builder.commentTime;
     /**
      * 评论内容
-     * <p> 示例值：评论内容
+     *
+     * <p>示例值：评论内容
      */
-    @SerializedName("comment_msg")
-    private String commentMsg;
+    this.commentMsg = builder.commentMsg;
     /**
      * 在评论中被提及（@）到的人的id列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("at_user_ids")
-    private String[] atUserIds;
+    this.atUserIds = builder.atUserIds;
     /**
      * 评论中附件数量
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("file_count")
-    private Integer fileCount;
+    this.fileCount = builder.fileCount;
     /**
      * 评论中图片数量
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("image_count")
-    private Integer imageCount;
+    this.imageCount = builder.imageCount;
     /**
      * 一条评论的唯一id
-     * <p> 示例值：7355397217231831060
+     *
+     * <p>示例值：7355397217231831060
      */
-    @SerializedName("comment_id")
+    this.commentId = builder.commentId;
+  }
+
+  public static class Builder {
+    /**
+     * 评论人ID
+     *
+     * <p>示例值：7355397217231831060
+     */
+    private String commentorId;
+
+    /**
+     * 评论人姓名
+     *
+     * <p>示例值：
+     */
+    private DataengineI18n commentorName;
+
+    /**
+     * 评论时间,Unix毫秒时间戳
+     *
+     * <p>示例值：1694769814036
+     */
+    private String commentTime;
+
+    /**
+     * 评论内容
+     *
+     * <p>示例值：评论内容
+     */
+    private String commentMsg;
+
+    /**
+     * 在评论中被提及（@）到的人的id列表
+     *
+     * <p>示例值：
+     */
+    private String[] atUserIds;
+
+    /**
+     * 评论中附件数量
+     *
+     * <p>示例值：10
+     */
+    private Integer fileCount;
+
+    /**
+     * 评论中图片数量
+     *
+     * <p>示例值：10
+     */
+    private Integer imageCount;
+
+    /**
+     * 一条评论的唯一id
+     *
+     * <p>示例值：7355397217231831060
+     */
     private String commentId;
 
-    // builder 开始
-    public ProcessCommentInfo() {
+    /**
+     * 评论人ID
+     *
+     * <p>示例值：7355397217231831060
+     *
+     * @param commentorId
+     * @return
+     */
+    public Builder commentorId(String commentorId) {
+      this.commentorId = commentorId;
+      return this;
     }
 
-    public ProcessCommentInfo(Builder builder) {
-        /**
-         * 评论人id
-         * <p> 示例值：7355397217231831060
-         */
-        this.commentorId = builder.commentorId;
-        /**
-         * 评论人姓名
-         * <p> 示例值：
-         */
-        this.commentorName = builder.commentorName;
-        /**
-         * 评论时间,Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        this.commentTime = builder.commentTime;
-        /**
-         * 评论内容
-         * <p> 示例值：评论内容
-         */
-        this.commentMsg = builder.commentMsg;
-        /**
-         * 在评论中被提及（@）到的人的id列表
-         * <p> 示例值：
-         */
-        this.atUserIds = builder.atUserIds;
-        /**
-         * 评论中附件数量
-         * <p> 示例值：10
-         */
-        this.fileCount = builder.fileCount;
-        /**
-         * 评论中图片数量
-         * <p> 示例值：10
-         */
-        this.imageCount = builder.imageCount;
-        /**
-         * 一条评论的唯一id
-         * <p> 示例值：7355397217231831060
-         */
-        this.commentId = builder.commentId;
+    /**
+     * 评论人姓名
+     *
+     * <p>示例值：
+     *
+     * @param commentorName
+     * @return
+     */
+    public Builder commentorName(DataengineI18n commentorName) {
+      this.commentorName = commentorName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评论时间,Unix毫秒时间戳
+     *
+     * <p>示例值：1694769814036
+     *
+     * @param commentTime
+     * @return
+     */
+    public Builder commentTime(String commentTime) {
+      this.commentTime = commentTime;
+      return this;
     }
 
-    public String getCommentorId() {
-        return this.commentorId;
+    /**
+     * 评论内容
+     *
+     * <p>示例值：评论内容
+     *
+     * @param commentMsg
+     * @return
+     */
+    public Builder commentMsg(String commentMsg) {
+      this.commentMsg = commentMsg;
+      return this;
     }
 
-    public void setCommentorId(String commentorId) {
-        this.commentorId = commentorId;
+    /**
+     * 在评论中被提及（@）到的人的id列表
+     *
+     * <p>示例值：
+     *
+     * @param atUserIds
+     * @return
+     */
+    public Builder atUserIds(String[] atUserIds) {
+      this.atUserIds = atUserIds;
+      return this;
     }
 
-    public DataengineI18n getCommentorName() {
-        return this.commentorName;
+    /**
+     * 评论中附件数量
+     *
+     * <p>示例值：10
+     *
+     * @param fileCount
+     * @return
+     */
+    public Builder fileCount(Integer fileCount) {
+      this.fileCount = fileCount;
+      return this;
     }
 
-    public void setCommentorName(DataengineI18n commentorName) {
-        this.commentorName = commentorName;
+    /**
+     * 评论中图片数量
+     *
+     * <p>示例值：10
+     *
+     * @param imageCount
+     * @return
+     */
+    public Builder imageCount(Integer imageCount) {
+      this.imageCount = imageCount;
+      return this;
     }
 
-    public String getCommentTime() {
-        return this.commentTime;
+    /**
+     * 一条评论的唯一id
+     *
+     * <p>示例值：7355397217231831060
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
     }
 
-    public void setCommentTime(String commentTime) {
-        this.commentTime = commentTime;
+    public ProcessCommentInfo build() {
+      return new ProcessCommentInfo(this);
     }
+  }
 
-    public String getCommentMsg() {
-        return this.commentMsg;
-    }
-
-    public void setCommentMsg(String commentMsg) {
-        this.commentMsg = commentMsg;
-    }
-
-    public String[] getAtUserIds() {
-        return this.atUserIds;
-    }
-
-    public void setAtUserIds(String[] atUserIds) {
-        this.atUserIds = atUserIds;
-    }
-
-    public Integer getFileCount() {
-        return this.fileCount;
-    }
-
-    public void setFileCount(Integer fileCount) {
-        this.fileCount = fileCount;
-    }
-
-    public Integer getImageCount() {
-        return this.imageCount;
-    }
-
-    public void setImageCount(Integer imageCount) {
-        this.imageCount = imageCount;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
-    public static class Builder {
-        /**
-         * 评论人id
-         * <p> 示例值：7355397217231831060
-         */
-        private String commentorId;
-        /**
-         * 评论人姓名
-         * <p> 示例值：
-         */
-        private DataengineI18n commentorName;
-        /**
-         * 评论时间,Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        private String commentTime;
-        /**
-         * 评论内容
-         * <p> 示例值：评论内容
-         */
-        private String commentMsg;
-        /**
-         * 在评论中被提及（@）到的人的id列表
-         * <p> 示例值：
-         */
-        private String[] atUserIds;
-        /**
-         * 评论中附件数量
-         * <p> 示例值：10
-         */
-        private Integer fileCount;
-        /**
-         * 评论中图片数量
-         * <p> 示例值：10
-         */
-        private Integer imageCount;
-        /**
-         * 一条评论的唯一id
-         * <p> 示例值：7355397217231831060
-         */
-        private String commentId;
-
-        /**
-         * 评论人id
-         * <p> 示例值：7355397217231831060
-         *
-         * @param commentorId
-         * @return
-         */
-        public Builder commentorId(String commentorId) {
-            this.commentorId = commentorId;
-            return this;
-        }
-
-
-        /**
-         * 评论人姓名
-         * <p> 示例值：
-         *
-         * @param commentorName
-         * @return
-         */
-        public Builder commentorName(DataengineI18n commentorName) {
-            this.commentorName = commentorName;
-            return this;
-        }
-
-
-        /**
-         * 评论时间,Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         *
-         * @param commentTime
-         * @return
-         */
-        public Builder commentTime(String commentTime) {
-            this.commentTime = commentTime;
-            return this;
-        }
-
-
-        /**
-         * 评论内容
-         * <p> 示例值：评论内容
-         *
-         * @param commentMsg
-         * @return
-         */
-        public Builder commentMsg(String commentMsg) {
-            this.commentMsg = commentMsg;
-            return this;
-        }
-
-
-        /**
-         * 在评论中被提及（@）到的人的id列表
-         * <p> 示例值：
-         *
-         * @param atUserIds
-         * @return
-         */
-        public Builder atUserIds(String[] atUserIds) {
-            this.atUserIds = atUserIds;
-            return this;
-        }
-
-
-        /**
-         * 评论中附件数量
-         * <p> 示例值：10
-         *
-         * @param fileCount
-         * @return
-         */
-        public Builder fileCount(Integer fileCount) {
-            this.fileCount = fileCount;
-            return this;
-        }
-
-
-        /**
-         * 评论中图片数量
-         * <p> 示例值：10
-         *
-         * @param imageCount
-         * @return
-         */
-        public Builder imageCount(Integer imageCount) {
-            this.imageCount = imageCount;
-            return this;
-        }
-
-
-        /**
-         * 一条评论的唯一id
-         * <p> 示例值：7355397217231831060
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-
-        public ProcessCommentInfo build() {
-            return new ProcessCommentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

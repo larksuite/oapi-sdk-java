@@ -13,151 +13,152 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.compensation.v1.enums.*;
 
 public class ListItemReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：5234233214
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 薪酬项类型（不传则认为查询所有类型薪酬项）
+   *
+   * <p>示例值：bonus
+   */
+  @Query
+  @SerializedName("item_type")
+  private String itemType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getItemType() {
+    return this.itemType;
+  }
+
+  public void setItemType(String itemType) {
+    this.itemType = itemType;
+  }
+
+  // builder 开始
+  public ListItemReq() {}
+
+  public ListItemReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：5234233214
+     *
+     * <p>示例值：5234233214
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 薪酬项类型（不传则认为查询所有类型薪酬项）
-     * <p> 示例值：bonus
+     *
+     * <p>示例值：bonus
      */
-    @Query
-    @SerializedName("item_type")
-    private String itemType;
+    this.itemType = builder.itemType;
+  }
 
-    // builder 开始
-    public ListItemReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String itemType; // 薪酬项类型（不传则认为查询所有类型薪酬项）
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListItemReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：5234233214
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 薪酬项类型（不传则认为查询所有类型薪酬项）
-         * <p> 示例值：bonus
-         */
-        this.itemType = builder.itemType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：5234233214
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 薪酬项类型（不传则认为查询所有类型薪酬项）
+     *
+     * <p>示例值：bonus
+     *
+     * @param itemType
+     * @return
+     */
+    public Builder itemType(String itemType) {
+      this.itemType = itemType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 薪酬项类型（不传则认为查询所有类型薪酬项）
+     *
+     * <p>示例值：bonus
+     *
+     * @param itemType {@link com.lark.oapi.service.compensation.v1.enums.ListItemItemTypeEnum}
+     * @return
+     */
+    public Builder itemType(
+        com.lark.oapi.service.compensation.v1.enums.ListItemItemTypeEnum itemType) {
+      this.itemType = itemType.getValue();
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public ListItemReq build() {
+      return new ListItemReq(this);
     }
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getItemType() {
-        return this.itemType;
-    }
-
-    public void setItemType(String itemType) {
-        this.itemType = itemType;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String itemType; // 薪酬项类型（不传则认为查询所有类型薪酬项）
-
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：5234233214
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 薪酬项类型（不传则认为查询所有类型薪酬项）
-         * <p> 示例值：bonus
-         *
-         * @param itemType
-         * @return
-         */
-        public Builder itemType(String itemType) {
-            this.itemType = itemType;
-            return this;
-        }
-
-        /**
-         * 薪酬项类型（不传则认为查询所有类型薪酬项）
-         * <p> 示例值：bonus
-         *
-         * @param itemType {@link com.lark.oapi.service.compensation.v1.enums.ListItemItemTypeEnum}
-         * @return
-         */
-        public Builder itemType(com.lark.oapi.service.compensation.v1.enums.ListItemItemTypeEnum itemType) {
-            this.itemType = itemType.getValue();
-            return this;
-        }
-
-
-        public ListItemReq build() {
-            return new ListItemReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

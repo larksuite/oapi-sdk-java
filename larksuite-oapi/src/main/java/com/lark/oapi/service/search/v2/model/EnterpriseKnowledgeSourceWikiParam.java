@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceWikiParam {
+  /**
+   * 是否搜索知识库文档。默认为**否**。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * 圈选条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private KnowledgeSourceWikiFilter filter;
+
+  /**
+   * 排除条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reject")
+  private KnowledgeSourceWikiReject reject;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public KnowledgeSourceWikiFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(KnowledgeSourceWikiFilter filter) {
+    this.filter = filter;
+  }
+
+  public KnowledgeSourceWikiReject getReject() {
+    return this.reject;
+  }
+
+  public void setReject(KnowledgeSourceWikiReject reject) {
+    this.reject = reject;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceWikiParam() {}
+
+  public EnterpriseKnowledgeSourceWikiParam(Builder builder) {
     /**
-     * searchable
-     * <p> 示例值：false
+     * 是否搜索知识库文档。默认为**否**。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("searchable")
+    this.searchable = builder.searchable;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
+     */
+    this.filter = builder.filter;
+    /**
+     * 排除条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
+     */
+    this.reject = builder.reject;
+  }
+
+  public static class Builder {
+    /**
+     * 是否搜索知识库文档。默认为**否**。
+     *
+     * <p>示例值：true
+     */
     private Boolean searchable;
+
     /**
-     * filter
-     * <p> 示例值：
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
     private KnowledgeSourceWikiFilter filter;
+
     /**
-     * reject
-     * <p> 示例值：
+     * 排除条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reject")
     private KnowledgeSourceWikiReject reject;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceWikiParam() {
+    /**
+     * 是否搜索知识库文档。默认为**否**。
+     *
+     * <p>示例值：true
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceWikiParam(Builder builder) {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * reject
-         * <p> 示例值：
-         */
-        this.reject = builder.reject;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(KnowledgeSourceWikiFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 排除条件。不填写时，默认搜索**权限范围内所有**知识库文档。
+     *
+     * <p>示例值：
+     *
+     * @param reject
+     * @return
+     */
+    public Builder reject(KnowledgeSourceWikiReject reject) {
+      this.reject = reject;
+      return this;
     }
 
-    public Boolean getSearchable() {
-        return this.searchable;
+    public EnterpriseKnowledgeSourceWikiParam build() {
+      return new EnterpriseKnowledgeSourceWikiParam(this);
     }
+  }
 
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public KnowledgeSourceWikiFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(KnowledgeSourceWikiFilter filter) {
-        this.filter = filter;
-    }
-
-    public KnowledgeSourceWikiReject getReject() {
-        return this.reject;
-    }
-
-    public void setReject(KnowledgeSourceWikiReject reject) {
-        this.reject = reject;
-    }
-
-    public static class Builder {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        private KnowledgeSourceWikiFilter filter;
-        /**
-         * reject
-         * <p> 示例值：
-         */
-        private KnowledgeSourceWikiReject reject;
-
-        /**
-         * searchable
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * filter
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(KnowledgeSourceWikiFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * reject
-         * <p> 示例值：
-         *
-         * @param reject
-         * @return
-         */
-        public Builder reject(KnowledgeSourceWikiReject reject) {
-            this.reject = reject;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceWikiParam build() {
-            return new EnterpriseKnowledgeSourceWikiParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

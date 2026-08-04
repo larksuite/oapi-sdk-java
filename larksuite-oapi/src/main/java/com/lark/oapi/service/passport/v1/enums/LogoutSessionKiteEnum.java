@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.passport.v1.enums;
 
-/**
- * 登出的方式
- */
+/** 登出的方式 */
 public enum LogoutSessionKiteEnum {
-    USERID(1), // UserID
-    IDPCREDENTIALID(2), // IdpCredentialID
-    SESSIONUUID(3), // Session 标识符
-    ;
-    private Integer value;
+  USERID(1), // UserID，使用开放平台的维度登出
+  IDPCREDENTIALID(2), // IdpCredentialID，使用 idp 侧的唯一标识登出
+  SESSIONUUID(3), // Session 标识符，基于session uuid 登出
+  ;
+  private Integer value;
 
-    LogoutSessionKiteEnum(Integer value) {
-        this.value = value;
-    }
+  LogoutSessionKiteEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

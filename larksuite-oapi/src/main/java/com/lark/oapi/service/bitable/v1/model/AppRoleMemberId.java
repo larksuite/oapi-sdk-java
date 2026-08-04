@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRoleMemberId {
+  /**
+   * 协作者 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 协作者的 ID，需与 type 的类型需一致。获取 ID 方式参考 type 参数描述。
+   *
+   * <p>示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public AppRoleMemberId() {}
+
+  public AppRoleMemberId(Builder builder) {
     /**
      * 协作者 ID 类型
-     * <p> 示例值：
+     *
+     * <p>示例值：open_id
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 协作者 ID
-     * <p> 示例值：
+     * 协作者的 ID，需与 type 的类型需一致。获取 ID 方式参考 type 参数描述。
+     *
+     * <p>示例值：ou_35990a9d9052051a2fae9b2f1afabcef
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 协作者 ID 类型
+     *
+     * <p>示例值：open_id
+     */
+    private String type;
+
+    /**
+     * 协作者的 ID，需与 type 的类型需一致。获取 ID 方式参考 type 参数描述。
+     *
+     * <p>示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     */
     private String id;
 
-    // builder 开始
-    public AppRoleMemberId() {
+    /**
+     * 协作者 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public AppRoleMemberId(Builder builder) {
-        /**
-         * 协作者 ID 类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 协作者 ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
+    /**
+     * 协作者 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 协作者的 ID，需与 type 的类型需一致。获取 ID 方式参考 type 参数描述。
+     *
+     * <p>示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public AppRoleMemberId build() {
+      return new AppRoleMemberId(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 协作者 ID 类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 协作者 ID
-         * <p> 示例值：
-         */
-        private String id;
-
-        /**
-         * 协作者 ID 类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 协作者 ID 类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 协作者 ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public AppRoleMemberId build() {
-            return new AppRoleMemberId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

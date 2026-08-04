@@ -13,140 +13,155 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.sheets.v3.enums.*;
 
 public class DeleteSpreadsheetSheetFloatImageReq {
+  /**
+   * 电子表格的
+   * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+   * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+   * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list);
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @Path
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  /**
+   * 电子表格工作表的
+   * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+   * ID。
+   *
+   * <p>示例值：0beg12
+   */
+  @Path
+  @SerializedName("sheet_id")
+  private String sheetId;
+
+  /**
+   * 工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。
+   *
+   * <p>示例值：ye06SS14ph
+   */
+  @Path
+  @SerializedName("float_image_id")
+  private String floatImageId;
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
+  }
+
+  public String getFloatImageId() {
+    return this.floatImageId;
+  }
+
+  public void setFloatImageId(String floatImageId) {
+    this.floatImageId = floatImageId;
+  }
+
+  // builder 开始
+  public DeleteSpreadsheetSheetFloatImageReq() {}
+
+  public DeleteSpreadsheetSheetFloatImageReq(Builder builder) {
     /**
-     * 表格 token
-     * <p> 示例值：shtcnmBA*****yGehy8
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list);
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
+    this.spreadsheetToken = builder.spreadsheetToken;
     /**
-     * 子表 id
-     * <p> 示例值：0b**12
+     * 电子表格工作表的
+     * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+     * ID。
+     *
+     * <p>示例值：0beg12
      */
-    @Path
-    @SerializedName("sheet_id")
-    private String sheetId;
+    this.sheetId = builder.sheetId;
     /**
-     * 浮动图片 id
-     * <p> 示例值：ye06SS14ph
+     * 工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。
+     *
+     * <p>示例值：ye06SS14ph
      */
-    @Path
-    @SerializedName("float_image_id")
-    private String floatImageId;
+    this.floatImageId = builder.floatImageId;
+  }
 
-    // builder 开始
-    public DeleteSpreadsheetSheetFloatImageReq() {
+  public static class Builder {
+
+    private String spreadsheetToken; // 电子表格的
+    // token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list);
+    private String sheetId; // 电子表格工作表的
+    // ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。
+    private String
+        floatImageId; // 工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。
+
+    /**
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list);
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
     }
 
-    public DeleteSpreadsheetSheetFloatImageReq(Builder builder) {
-        /**
-         * 表格 token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        /**
-         * 子表 id
-         * <p> 示例值：0b**12
-         */
-        this.sheetId = builder.sheetId;
-        /**
-         * 浮动图片 id
-         * <p> 示例值：ye06SS14ph
-         */
-        this.floatImageId = builder.floatImageId;
+    /**
+     * 电子表格工作表的
+     * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+     * ID。
+     *
+     * <p>示例值：0beg12
+     *
+     * @param sheetId
+     * @return
+     */
+    public Builder sheetId(String sheetId) {
+      this.sheetId = sheetId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。
+     *
+     * <p>示例值：ye06SS14ph
+     *
+     * @param floatImageId
+     * @return
+     */
+    public Builder floatImageId(String floatImageId) {
+      this.floatImageId = floatImageId;
+      return this;
     }
 
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
+    public DeleteSpreadsheetSheetFloatImageReq build() {
+      return new DeleteSpreadsheetSheetFloatImageReq(this);
     }
+  }
 
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
-    }
-
-    public String getSheetId() {
-        return this.sheetId;
-    }
-
-    public void setSheetId(String sheetId) {
-        this.sheetId = sheetId;
-    }
-
-    public String getFloatImageId() {
-        return this.floatImageId;
-    }
-
-    public void setFloatImageId(String floatImageId) {
-        this.floatImageId = floatImageId;
-    }
-
-    public static class Builder {
-
-        private String spreadsheetToken; // 表格 token
-        private String sheetId; // 子表 id
-        private String floatImageId; // 浮动图片 id
-
-        /**
-         * 表格 token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-
-        /**
-         * 子表 id
-         * <p> 示例值：0b**12
-         *
-         * @param sheetId
-         * @return
-         */
-        public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
-        }
-
-
-        /**
-         * 浮动图片 id
-         * <p> 示例值：ye06SS14ph
-         *
-         * @param floatImageId
-         * @return
-         */
-        public Builder floatImageId(String floatImageId) {
-            this.floatImageId = floatImageId;
-            return this;
-        }
-
-
-        public DeleteSpreadsheetSheetFloatImageReq build() {
-            return new DeleteSpreadsheetSheetFloatImageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

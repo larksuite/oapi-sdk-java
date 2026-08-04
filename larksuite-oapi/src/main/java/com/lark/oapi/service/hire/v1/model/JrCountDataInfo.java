@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JrCountDataInfo {
+  /**
+   * Offer 沟通中的数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offer_count")
+  private Integer offerCount;
+
+  /**
+   * 待入职中的数量
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("pre_hire_count")
+  private Integer preHireCount;
+
+  /**
+   * 已完成的数量
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("complete_count")
+  private Integer completeCount;
+
+  public Integer getOfferCount() {
+    return this.offerCount;
+  }
+
+  public void setOfferCount(Integer offerCount) {
+    this.offerCount = offerCount;
+  }
+
+  public Integer getPreHireCount() {
+    return this.preHireCount;
+  }
+
+  public void setPreHireCount(Integer preHireCount) {
+    this.preHireCount = preHireCount;
+  }
+
+  public Integer getCompleteCount() {
+    return this.completeCount;
+  }
+
+  public void setCompleteCount(Integer completeCount) {
+    this.completeCount = completeCount;
+  }
+
+  // builder 开始
+  public JrCountDataInfo() {}
+
+  public JrCountDataInfo(Builder builder) {
     /**
-     * 为 Offer 沟通中的数量
-     * <p> 示例值：1
+     * Offer 沟通中的数量
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offer_count")
-    private Integer offerCount;
+    this.offerCount = builder.offerCount;
     /**
      * 待入职中的数量
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("pre_hire_count")
-    private Integer preHireCount;
+    this.preHireCount = builder.preHireCount;
     /**
      * 已完成的数量
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("complete_count")
+    this.completeCount = builder.completeCount;
+  }
+
+  public static class Builder {
+    /**
+     * Offer 沟通中的数量
+     *
+     * <p>示例值：1
+     */
+    private Integer offerCount;
+
+    /**
+     * 待入职中的数量
+     *
+     * <p>示例值：2
+     */
+    private Integer preHireCount;
+
+    /**
+     * 已完成的数量
+     *
+     * <p>示例值：3
+     */
     private Integer completeCount;
 
-    // builder 开始
-    public JrCountDataInfo() {
+    /**
+     * Offer 沟通中的数量
+     *
+     * <p>示例值：1
+     *
+     * @param offerCount
+     * @return
+     */
+    public Builder offerCount(Integer offerCount) {
+      this.offerCount = offerCount;
+      return this;
     }
 
-    public JrCountDataInfo(Builder builder) {
-        /**
-         * 为 Offer 沟通中的数量
-         * <p> 示例值：1
-         */
-        this.offerCount = builder.offerCount;
-        /**
-         * 待入职中的数量
-         * <p> 示例值：2
-         */
-        this.preHireCount = builder.preHireCount;
-        /**
-         * 已完成的数量
-         * <p> 示例值：3
-         */
-        this.completeCount = builder.completeCount;
+    /**
+     * 待入职中的数量
+     *
+     * <p>示例值：2
+     *
+     * @param preHireCount
+     * @return
+     */
+    public Builder preHireCount(Integer preHireCount) {
+      this.preHireCount = preHireCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 已完成的数量
+     *
+     * <p>示例值：3
+     *
+     * @param completeCount
+     * @return
+     */
+    public Builder completeCount(Integer completeCount) {
+      this.completeCount = completeCount;
+      return this;
     }
 
-    public Integer getOfferCount() {
-        return this.offerCount;
+    public JrCountDataInfo build() {
+      return new JrCountDataInfo(this);
     }
+  }
 
-    public void setOfferCount(Integer offerCount) {
-        this.offerCount = offerCount;
-    }
-
-    public Integer getPreHireCount() {
-        return this.preHireCount;
-    }
-
-    public void setPreHireCount(Integer preHireCount) {
-        this.preHireCount = preHireCount;
-    }
-
-    public Integer getCompleteCount() {
-        return this.completeCount;
-    }
-
-    public void setCompleteCount(Integer completeCount) {
-        this.completeCount = completeCount;
-    }
-
-    public static class Builder {
-        /**
-         * 为 Offer 沟通中的数量
-         * <p> 示例值：1
-         */
-        private Integer offerCount;
-        /**
-         * 待入职中的数量
-         * <p> 示例值：2
-         */
-        private Integer preHireCount;
-        /**
-         * 已完成的数量
-         * <p> 示例值：3
-         */
-        private Integer completeCount;
-
-        /**
-         * 为 Offer 沟通中的数量
-         * <p> 示例值：1
-         *
-         * @param offerCount
-         * @return
-         */
-        public Builder offerCount(Integer offerCount) {
-            this.offerCount = offerCount;
-            return this;
-        }
-
-
-        /**
-         * 待入职中的数量
-         * <p> 示例值：2
-         *
-         * @param preHireCount
-         * @return
-         */
-        public Builder preHireCount(Integer preHireCount) {
-            this.preHireCount = preHireCount;
-            return this;
-        }
-
-
-        /**
-         * 已完成的数量
-         * <p> 示例值：3
-         *
-         * @param completeCount
-         * @return
-         */
-        public Builder completeCount(Integer completeCount) {
-            this.completeCount = completeCount;
-            return this;
-        }
-
-
-        public JrCountDataInfo build() {
-            return new JrCountDataInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AttendanceRule {
+  /**
+   * 规则 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  /**
+   * 规则名称
+   *
+   * <p>示例值：默认考勤规则
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 轮班类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("shift_rotation_type")
+  private Integer shiftRotationType;
+
+  /**
+   * 是否需要拍照
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_photo")
+  private Boolean needPhoto;
+
+  /**
+   * 是否允许外勤
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_field")
+  private Boolean allowField;
+
+  /**
+   * 是否允许补卡
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_remedy")
+  private Boolean allowRemedy;
+
+  /**
+   * 是否允许电脑打卡
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_pc")
+  private Boolean allowPc;
+
+  /**
+   * 是否需要风险校验
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_risk")
+  private Boolean needRisk;
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getShiftRotationType() {
+    return this.shiftRotationType;
+  }
+
+  public void setShiftRotationType(Integer shiftRotationType) {
+    this.shiftRotationType = shiftRotationType;
+  }
+
+  public Boolean getNeedPhoto() {
+    return this.needPhoto;
+  }
+
+  public void setNeedPhoto(Boolean needPhoto) {
+    this.needPhoto = needPhoto;
+  }
+
+  public Boolean getAllowField() {
+    return this.allowField;
+  }
+
+  public void setAllowField(Boolean allowField) {
+    this.allowField = allowField;
+  }
+
+  public Boolean getAllowRemedy() {
+    return this.allowRemedy;
+  }
+
+  public void setAllowRemedy(Boolean allowRemedy) {
+    this.allowRemedy = allowRemedy;
+  }
+
+  public Boolean getAllowPc() {
+    return this.allowPc;
+  }
+
+  public void setAllowPc(Boolean allowPc) {
+    this.allowPc = allowPc;
+  }
+
+  public Boolean getNeedRisk() {
+    return this.needRisk;
+  }
+
+  public void setNeedRisk(Boolean needRisk) {
+    this.needRisk = needRisk;
+  }
+
+  // builder 开始
+  public AttendanceRule() {}
+
+  public AttendanceRule(Builder builder) {
     /**
      * 规则 ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("rule_id")
-    private String ruleId;
+    this.ruleId = builder.ruleId;
     /**
      * 规则名称
-     * <p> 示例值：默认考勤规则
+     *
+     * <p>示例值：默认考勤规则
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 轮班类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("shift_rotation_type")
-    private Integer shiftRotationType;
+    this.shiftRotationType = builder.shiftRotationType;
     /**
      * 是否需要拍照
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_photo")
-    private Boolean needPhoto;
+    this.needPhoto = builder.needPhoto;
     /**
      * 是否允许外勤
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_field")
-    private Boolean allowField;
+    this.allowField = builder.allowField;
     /**
      * 是否允许补卡
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_remedy")
-    private Boolean allowRemedy;
+    this.allowRemedy = builder.allowRemedy;
     /**
      * 是否允许电脑打卡
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_pc")
-    private Boolean allowPc;
+    this.allowPc = builder.allowPc;
     /**
      * 是否需要风险校验
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_risk")
+    this.needRisk = builder.needRisk;
+  }
+
+  public static class Builder {
+    /**
+     * 规则 ID
+     *
+     * <p>示例值：123456
+     */
+    private String ruleId;
+
+    /**
+     * 规则名称
+     *
+     * <p>示例值：默认考勤规则
+     */
+    private String name;
+
+    /**
+     * 轮班类型
+     *
+     * <p>示例值：1
+     */
+    private Integer shiftRotationType;
+
+    /**
+     * 是否需要拍照
+     *
+     * <p>示例值：false
+     */
+    private Boolean needPhoto;
+
+    /**
+     * 是否允许外勤
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowField;
+
+    /**
+     * 是否允许补卡
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowRemedy;
+
+    /**
+     * 是否允许电脑打卡
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowPc;
+
+    /**
+     * 是否需要风险校验
+     *
+     * <p>示例值：false
+     */
     private Boolean needRisk;
 
-    // builder 开始
-    public AttendanceRule() {
+    /**
+     * 规则 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
     }
 
-    public AttendanceRule(Builder builder) {
-        /**
-         * 规则 ID
-         * <p> 示例值：123456
-         */
-        this.ruleId = builder.ruleId;
-        /**
-         * 规则名称
-         * <p> 示例值：默认考勤规则
-         */
-        this.name = builder.name;
-        /**
-         * 轮班类型
-         * <p> 示例值：1
-         */
-        this.shiftRotationType = builder.shiftRotationType;
-        /**
-         * 是否需要拍照
-         * <p> 示例值：false
-         */
-        this.needPhoto = builder.needPhoto;
-        /**
-         * 是否允许外勤
-         * <p> 示例值：true
-         */
-        this.allowField = builder.allowField;
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         */
-        this.allowRemedy = builder.allowRemedy;
-        /**
-         * 是否允许电脑打卡
-         * <p> 示例值：true
-         */
-        this.allowPc = builder.allowPc;
-        /**
-         * 是否需要风险校验
-         * <p> 示例值：false
-         */
-        this.needRisk = builder.needRisk;
+    /**
+     * 规则名称
+     *
+     * <p>示例值：默认考勤规则
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 轮班类型
+     *
+     * <p>示例值：1
+     *
+     * @param shiftRotationType
+     * @return
+     */
+    public Builder shiftRotationType(Integer shiftRotationType) {
+      this.shiftRotationType = shiftRotationType;
+      return this;
     }
 
-    public String getRuleId() {
-        return this.ruleId;
+    /**
+     * 是否需要拍照
+     *
+     * <p>示例值：false
+     *
+     * @param needPhoto
+     * @return
+     */
+    public Builder needPhoto(Boolean needPhoto) {
+      this.needPhoto = needPhoto;
+      return this;
     }
 
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
+    /**
+     * 是否允许外勤
+     *
+     * <p>示例值：true
+     *
+     * @param allowField
+     * @return
+     */
+    public Builder allowField(Boolean allowField) {
+      this.allowField = allowField;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 是否允许补卡
+     *
+     * <p>示例值：true
+     *
+     * @param allowRemedy
+     * @return
+     */
+    public Builder allowRemedy(Boolean allowRemedy) {
+      this.allowRemedy = allowRemedy;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 是否允许电脑打卡
+     *
+     * <p>示例值：true
+     *
+     * @param allowPc
+     * @return
+     */
+    public Builder allowPc(Boolean allowPc) {
+      this.allowPc = allowPc;
+      return this;
     }
 
-    public Integer getShiftRotationType() {
-        return this.shiftRotationType;
+    /**
+     * 是否需要风险校验
+     *
+     * <p>示例值：false
+     *
+     * @param needRisk
+     * @return
+     */
+    public Builder needRisk(Boolean needRisk) {
+      this.needRisk = needRisk;
+      return this;
     }
 
-    public void setShiftRotationType(Integer shiftRotationType) {
-        this.shiftRotationType = shiftRotationType;
+    public AttendanceRule build() {
+      return new AttendanceRule(this);
     }
+  }
 
-    public Boolean getNeedPhoto() {
-        return this.needPhoto;
-    }
-
-    public void setNeedPhoto(Boolean needPhoto) {
-        this.needPhoto = needPhoto;
-    }
-
-    public Boolean getAllowField() {
-        return this.allowField;
-    }
-
-    public void setAllowField(Boolean allowField) {
-        this.allowField = allowField;
-    }
-
-    public Boolean getAllowRemedy() {
-        return this.allowRemedy;
-    }
-
-    public void setAllowRemedy(Boolean allowRemedy) {
-        this.allowRemedy = allowRemedy;
-    }
-
-    public Boolean getAllowPc() {
-        return this.allowPc;
-    }
-
-    public void setAllowPc(Boolean allowPc) {
-        this.allowPc = allowPc;
-    }
-
-    public Boolean getNeedRisk() {
-        return this.needRisk;
-    }
-
-    public void setNeedRisk(Boolean needRisk) {
-        this.needRisk = needRisk;
-    }
-
-    public static class Builder {
-        /**
-         * 规则 ID
-         * <p> 示例值：123456
-         */
-        private String ruleId;
-        /**
-         * 规则名称
-         * <p> 示例值：默认考勤规则
-         */
-        private String name;
-        /**
-         * 轮班类型
-         * <p> 示例值：1
-         */
-        private Integer shiftRotationType;
-        /**
-         * 是否需要拍照
-         * <p> 示例值：false
-         */
-        private Boolean needPhoto;
-        /**
-         * 是否允许外勤
-         * <p> 示例值：true
-         */
-        private Boolean allowField;
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         */
-        private Boolean allowRemedy;
-        /**
-         * 是否允许电脑打卡
-         * <p> 示例值：true
-         */
-        private Boolean allowPc;
-        /**
-         * 是否需要风险校验
-         * <p> 示例值：false
-         */
-        private Boolean needRisk;
-
-        /**
-         * 规则 ID
-         * <p> 示例值：123456
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-
-        /**
-         * 规则名称
-         * <p> 示例值：默认考勤规则
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 轮班类型
-         * <p> 示例值：1
-         *
-         * @param shiftRotationType
-         * @return
-         */
-        public Builder shiftRotationType(Integer shiftRotationType) {
-            this.shiftRotationType = shiftRotationType;
-            return this;
-        }
-
-
-        /**
-         * 是否需要拍照
-         * <p> 示例值：false
-         *
-         * @param needPhoto
-         * @return
-         */
-        public Builder needPhoto(Boolean needPhoto) {
-            this.needPhoto = needPhoto;
-            return this;
-        }
-
-
-        /**
-         * 是否允许外勤
-         * <p> 示例值：true
-         *
-         * @param allowField
-         * @return
-         */
-        public Builder allowField(Boolean allowField) {
-            this.allowField = allowField;
-            return this;
-        }
-
-
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         *
-         * @param allowRemedy
-         * @return
-         */
-        public Builder allowRemedy(Boolean allowRemedy) {
-            this.allowRemedy = allowRemedy;
-            return this;
-        }
-
-
-        /**
-         * 是否允许电脑打卡
-         * <p> 示例值：true
-         *
-         * @param allowPc
-         * @return
-         */
-        public Builder allowPc(Boolean allowPc) {
-            this.allowPc = allowPc;
-            return this;
-        }
-
-
-        /**
-         * 是否需要风险校验
-         * <p> 示例值：false
-         *
-         * @param needRisk
-         * @return
-         */
-        public Builder needRisk(Boolean needRisk) {
-            this.needRisk = needRisk;
-            return this;
-        }
-
-
-        public AttendanceRule build() {
-            return new AttendanceRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

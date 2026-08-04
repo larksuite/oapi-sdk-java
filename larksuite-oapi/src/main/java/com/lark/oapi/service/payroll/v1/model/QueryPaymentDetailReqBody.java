@@ -13,334 +13,395 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryPaymentDetailReqBody {
+  /**
+   * 页码，第一页从 1 开始
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("page_index")
+  private Integer pageIndex;
+
+  /**
+   * 每页大小，范围为：[1, 100]
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 算薪项 ID
+   * 列表，调用[批量查询算薪项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list)接口后，可以从返回结果中获取到算薪项
+   * ID。;1. 当前参数传空时，接口会返回发薪明细中所有的算薪项；;2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("acct_item_ids")
+  private String[] acctItemIds;
+
+  /**
+   * 员工的飞书人事雇佣 ID
+   * 列表，__该参数为必填__，调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口后，可以从返回结果中获取到飞书人事雇佣
+   * ID。;;注：调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口时，查询入参
+   * user_id_type 应为 people_corehr_id。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_ids")
+  private String[] employeeIds;
+
+  /**
+   * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("pay_period_start_date")
+  private String payPeriodStartDate;
+
+  /**
+   * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。;1.
+   * pay_period_start_date 不得晚于 pay_period_end_date 。;2. [pay_period_start_date,
+   * pay_period_end_date] 最大间隔为 12 个月。
+   *
+   * <p>示例值：2024-01-31
+   */
+  @SerializedName("pay_period_end_date")
+  private String payPeriodEndDate;
+
+  /**
+   * 发薪活动 ID
+   * 列表，调用[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)接口后，可以从返回结果中获取到发薪活动
+   * ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activity_ids")
+  private String[] activityIds;
+
+  /**
+   * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("include_segment_data")
+  private Boolean includeSegmentData;
+
+  public Integer getPageIndex() {
+    return this.pageIndex;
+  }
+
+  public void setPageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String[] getAcctItemIds() {
+    return this.acctItemIds;
+  }
+
+  public void setAcctItemIds(String[] acctItemIds) {
+    this.acctItemIds = acctItemIds;
+  }
+
+  public String[] getEmployeeIds() {
+    return this.employeeIds;
+  }
+
+  public void setEmployeeIds(String[] employeeIds) {
+    this.employeeIds = employeeIds;
+  }
+
+  public String getPayPeriodStartDate() {
+    return this.payPeriodStartDate;
+  }
+
+  public void setPayPeriodStartDate(String payPeriodStartDate) {
+    this.payPeriodStartDate = payPeriodStartDate;
+  }
+
+  public String getPayPeriodEndDate() {
+    return this.payPeriodEndDate;
+  }
+
+  public void setPayPeriodEndDate(String payPeriodEndDate) {
+    this.payPeriodEndDate = payPeriodEndDate;
+  }
+
+  public String[] getActivityIds() {
+    return this.activityIds;
+  }
+
+  public void setActivityIds(String[] activityIds) {
+    this.activityIds = activityIds;
+  }
+
+  public Boolean getIncludeSegmentData() {
+    return this.includeSegmentData;
+  }
+
+  public void setIncludeSegmentData(Boolean includeSegmentData) {
+    this.includeSegmentData = includeSegmentData;
+  }
+
+  // builder 开始
+  public QueryPaymentDetailReqBody() {}
+
+  public QueryPaymentDetailReqBody(Builder builder) {
     /**
      * 页码，第一页从 1 开始
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("page_index")
-    private Integer pageIndex;
+    this.pageIndex = builder.pageIndex;
     /**
      * 每页大小，范围为：[1, 100]
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-     * <p> 示例值：
+     * 算薪项 ID
+     * 列表，调用[批量查询算薪项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list)接口后，可以从返回结果中获取到算薪项
+     * ID。;1. 当前参数传空时，接口会返回发薪明细中所有的算薪项；;2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+     *
+     * <p>示例值：
      */
-    @SerializedName("acct_item_ids")
-    private String[] acctItemIds;
+    this.acctItemIds = builder.acctItemIds;
     /**
-     * 员工的飞书人事雇佣 ID 列表。
-     * <p> 示例值：
+     * 员工的飞书人事雇佣 ID
+     * 列表，__该参数为必填__，调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口后，可以从返回结果中获取到飞书人事雇佣
+     * ID。;;注：调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口时，查询入参
+     * user_id_type 应为 people_corehr_id。
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_ids")
-    private String[] employeeIds;
+    this.employeeIds = builder.employeeIds;
     /**
      * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-     * <p> 示例值：2024-01-01
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("pay_period_start_date")
-    private String payPeriodStartDate;
+    this.payPeriodStartDate = builder.payPeriodStartDate;
     /**
-     * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间，pay_period_start_date 不得晚于 pay_period_end_date ，且 [pay_period_start_date, pay_period_end_date] 最大间隔为 12 个月。
-     * <p> 示例值：2024-01-31
+     * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。;1.
+     * pay_period_start_date 不得晚于 pay_period_end_date 。;2. [pay_period_start_date,
+     * pay_period_end_date] 最大间隔为 12 个月。
+     *
+     * <p>示例值：2024-01-31
      */
-    @SerializedName("pay_period_end_date")
-    private String payPeriodEndDate;
+    this.payPeriodEndDate = builder.payPeriodEndDate;
     /**
-     * 发薪活动 ID 列表
-     * <p> 示例值：
+     * 发薪活动 ID
+     * 列表，调用[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)接口后，可以从返回结果中获取到发薪活动
+     * ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("activity_ids")
-    private String[] activityIds;
+    this.activityIds = builder.activityIds;
     /**
      * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("include_segment_data")
+    this.includeSegmentData = builder.includeSegmentData;
+  }
+
+  public static class Builder {
+    /**
+     * 页码，第一页从 1 开始
+     *
+     * <p>示例值：100
+     */
+    private Integer pageIndex;
+
+    /**
+     * 每页大小，范围为：[1, 100]
+     *
+     * <p>示例值：
+     */
+    private Integer pageSize;
+
+    /**
+     * 算薪项 ID
+     * 列表，调用[批量查询算薪项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list)接口后，可以从返回结果中获取到算薪项
+     * ID。;1. 当前参数传空时，接口会返回发薪明细中所有的算薪项；;2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+     *
+     * <p>示例值：
+     */
+    private String[] acctItemIds;
+
+    /**
+     * 员工的飞书人事雇佣 ID
+     * 列表，__该参数为必填__，调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口后，可以从返回结果中获取到飞书人事雇佣
+     * ID。;;注：调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口时，查询入参
+     * user_id_type 应为 people_corehr_id。
+     *
+     * <p>示例值：
+     */
+    private String[] employeeIds;
+
+    /**
+     * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+     *
+     * <p>示例值：2024-01-01
+     */
+    private String payPeriodStartDate;
+
+    /**
+     * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。;1.
+     * pay_period_start_date 不得晚于 pay_period_end_date 。;2. [pay_period_start_date,
+     * pay_period_end_date] 最大间隔为 12 个月。
+     *
+     * <p>示例值：2024-01-31
+     */
+    private String payPeriodEndDate;
+
+    /**
+     * 发薪活动 ID
+     * 列表，调用[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)接口后，可以从返回结果中获取到发薪活动
+     * ID。
+     *
+     * <p>示例值：
+     */
+    private String[] activityIds;
+
+    /**
+     * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
+     *
+     * <p>示例值：false
+     */
     private Boolean includeSegmentData;
 
-    // builder 开始
-    public QueryPaymentDetailReqBody() {
+    /**
+     * 页码，第一页从 1 开始
+     *
+     * <p>示例值：100
+     *
+     * @param pageIndex
+     * @return
+     */
+    public Builder pageIndex(Integer pageIndex) {
+      this.pageIndex = pageIndex;
+      return this;
     }
 
-    public QueryPaymentDetailReqBody(Builder builder) {
-        /**
-         * 页码，第一页从 1 开始
-         * <p> 示例值：100
-         */
-        this.pageIndex = builder.pageIndex;
-        /**
-         * 每页大小，范围为：[1, 100]
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-         * <p> 示例值：
-         */
-        this.acctItemIds = builder.acctItemIds;
-        /**
-         * 员工的飞书人事雇佣 ID 列表。
-         * <p> 示例值：
-         */
-        this.employeeIds = builder.employeeIds;
-        /**
-         * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-         * <p> 示例值：2024-01-01
-         */
-        this.payPeriodStartDate = builder.payPeriodStartDate;
-        /**
-         * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间，pay_period_start_date 不得晚于 pay_period_end_date ，且 [pay_period_start_date, pay_period_end_date] 最大间隔为 12 个月。
-         * <p> 示例值：2024-01-31
-         */
-        this.payPeriodEndDate = builder.payPeriodEndDate;
-        /**
-         * 发薪活动 ID 列表
-         * <p> 示例值：
-         */
-        this.activityIds = builder.activityIds;
-        /**
-         * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-         * <p> 示例值：
-         */
-        this.includeSegmentData = builder.includeSegmentData;
+    /**
+     * 每页大小，范围为：[1, 100]
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 算薪项 ID
+     * 列表，调用[批量查询算薪项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/acct_item/list)接口后，可以从返回结果中获取到算薪项
+     * ID。;1. 当前参数传空时，接口会返回发薪明细中所有的算薪项；;2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
+     *
+     * <p>示例值：
+     *
+     * @param acctItemIds
+     * @return
+     */
+    public Builder acctItemIds(String[] acctItemIds) {
+      this.acctItemIds = acctItemIds;
+      return this;
     }
 
-    public Integer getPageIndex() {
-        return this.pageIndex;
+    /**
+     * 员工的飞书人事雇佣 ID
+     * 列表，__该参数为必填__，调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口后，可以从返回结果中获取到飞书人事雇佣
+     * ID。;;注：调用[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口时，查询入参
+     * user_id_type 应为 people_corehr_id。
+     *
+     * <p>示例值：
+     *
+     * @param employeeIds
+     * @return
+     */
+    public Builder employeeIds(String[] employeeIds) {
+      this.employeeIds = employeeIds;
+      return this;
     }
 
-    public void setPageIndex(Integer pageIndex) {
-        this.pageIndex = pageIndex;
+    /**
+     * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param payPeriodStartDate
+     * @return
+     */
+    public Builder payPeriodStartDate(String payPeriodStartDate) {
+      this.payPeriodStartDate = payPeriodStartDate;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。;1.
+     * pay_period_start_date 不得晚于 pay_period_end_date 。;2. [pay_period_start_date,
+     * pay_period_end_date] 最大间隔为 12 个月。
+     *
+     * <p>示例值：2024-01-31
+     *
+     * @param payPeriodEndDate
+     * @return
+     */
+    public Builder payPeriodEndDate(String payPeriodEndDate) {
+      this.payPeriodEndDate = payPeriodEndDate;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 发薪活动 ID
+     * 列表，调用[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)接口后，可以从返回结果中获取到发薪活动
+     * ID。
+     *
+     * <p>示例值：
+     *
+     * @param activityIds
+     * @return
+     */
+    public Builder activityIds(String[] activityIds) {
+      this.activityIds = activityIds;
+      return this;
     }
 
-    public String[] getAcctItemIds() {
-        return this.acctItemIds;
+    /**
+     * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
+     *
+     * <p>示例值：false
+     *
+     * @param includeSegmentData
+     * @return
+     */
+    public Builder includeSegmentData(Boolean includeSegmentData) {
+      this.includeSegmentData = includeSegmentData;
+      return this;
     }
 
-    public void setAcctItemIds(String[] acctItemIds) {
-        this.acctItemIds = acctItemIds;
+    public QueryPaymentDetailReqBody build() {
+      return new QueryPaymentDetailReqBody(this);
     }
+  }
 
-    public String[] getEmployeeIds() {
-        return this.employeeIds;
-    }
-
-    public void setEmployeeIds(String[] employeeIds) {
-        this.employeeIds = employeeIds;
-    }
-
-    public String getPayPeriodStartDate() {
-        return this.payPeriodStartDate;
-    }
-
-    public void setPayPeriodStartDate(String payPeriodStartDate) {
-        this.payPeriodStartDate = payPeriodStartDate;
-    }
-
-    public String getPayPeriodEndDate() {
-        return this.payPeriodEndDate;
-    }
-
-    public void setPayPeriodEndDate(String payPeriodEndDate) {
-        this.payPeriodEndDate = payPeriodEndDate;
-    }
-
-    public String[] getActivityIds() {
-        return this.activityIds;
-    }
-
-    public void setActivityIds(String[] activityIds) {
-        this.activityIds = activityIds;
-    }
-
-    public Boolean getIncludeSegmentData() {
-        return this.includeSegmentData;
-    }
-
-    public void setIncludeSegmentData(Boolean includeSegmentData) {
-        this.includeSegmentData = includeSegmentData;
-    }
-
-    public static class Builder {
-        /**
-         * 页码，第一页从 1 开始
-         * <p> 示例值：100
-         */
-        private Integer pageIndex;
-        /**
-         * 每页大小，范围为：[1, 100]
-         * <p> 示例值：
-         */
-        private Integer pageSize;
-        /**
-         * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-         * <p> 示例值：
-         */
-        private String[] acctItemIds;
-        /**
-         * 员工的飞书人事雇佣 ID 列表。
-         * <p> 示例值：
-         */
-        private String[] employeeIds;
-        /**
-         * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-         * <p> 示例值：2024-01-01
-         */
-        private String payPeriodStartDate;
-        /**
-         * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间，pay_period_start_date 不得晚于 pay_period_end_date ，且 [pay_period_start_date, pay_period_end_date] 最大间隔为 12 个月。
-         * <p> 示例值：2024-01-31
-         */
-        private String payPeriodEndDate;
-        /**
-         * 发薪活动 ID 列表
-         * <p> 示例值：
-         */
-        private String[] activityIds;
-        /**
-         * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-         * <p> 示例值：
-         */
-        private Boolean includeSegmentData;
-
-        /**
-         * 页码，第一页从 1 开始
-         * <p> 示例值：100
-         *
-         * @param pageIndex
-         * @return
-         */
-        public Builder pageIndex(Integer pageIndex) {
-            this.pageIndex = pageIndex;
-            return this;
-        }
-
-
-        /**
-         * 每页大小，范围为：[1, 100]
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 算薪项 ID 列表。当前参数传空时，接口会返回发薪明细中所有的算薪项；当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。
-         * <p> 示例值：
-         *
-         * @param acctItemIds
-         * @return
-         */
-        public Builder acctItemIds(String[] acctItemIds) {
-            this.acctItemIds = acctItemIds;
-            return this;
-        }
-
-
-        /**
-         * 员工的飞书人事雇佣 ID 列表。
-         * <p> 示例值：
-         *
-         * @param employeeIds
-         * @return
-         */
-        public Builder employeeIds(String[] employeeIds) {
-            this.employeeIds = employeeIds;
-            return this;
-        }
-
-
-        /**
-         * 发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。
-         * <p> 示例值：2024-01-01
-         *
-         * @param payPeriodStartDate
-         * @return
-         */
-        public Builder payPeriodStartDate(String payPeriodStartDate) {
-            this.payPeriodStartDate = payPeriodStartDate;
-            return this;
-        }
-
-
-        /**
-         * 发薪日结束时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间，pay_period_start_date 不得晚于 pay_period_end_date ，且 [pay_period_start_date, pay_period_end_date] 最大间隔为 12 个月。
-         * <p> 示例值：2024-01-31
-         *
-         * @param payPeriodEndDate
-         * @return
-         */
-        public Builder payPeriodEndDate(String payPeriodEndDate) {
-            this.payPeriodEndDate = payPeriodEndDate;
-            return this;
-        }
-
-
-        /**
-         * 发薪活动 ID 列表
-         * <p> 示例值：
-         *
-         * @param activityIds
-         * @return
-         */
-        public Builder activityIds(String[] activityIds) {
-            this.activityIds = activityIds;
-            return this;
-        }
-
-
-        /**
-         * 是否需要查询算薪明细的分段信息，如果不传该参数或传 false ，那么只返回发薪活动明细数据；如果该参数传了 true，那么同时返回发薪明细对应的算薪明细分段数据。
-         * <p> 示例值：
-         *
-         * @param includeSegmentData
-         * @return
-         */
-        public Builder includeSegmentData(Boolean includeSegmentData) {
-            this.includeSegmentData = includeSegmentData;
-            return this;
-        }
-
-
-        public QueryPaymentDetailReqBody build() {
-            return new QueryPaymentDetailReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

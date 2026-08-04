@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingPassport {
+  /**
+   * 国家 / 地区
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("country_region")
+  private String countryRegion;
+
+  /**
+   * Passport 类型
+   *
+   * <p>示例值：6863330041896371725
+   */
+  @SerializedName("national_id_type")
+  private String nationalIdType;
+
+  /**
+   * Passport 号码
+   *
+   * <p>示例值：1231131333
+   */
+  @SerializedName("passport_number")
+  private String passportNumber;
+
+  /**
+   * Passport 签发日期
+   *
+   * <p>示例值：2020-04-01
+   */
+  @SerializedName("issued_date")
+  private String issuedDate;
+
+  /**
+   * Passport 到期日期
+   *
+   * <p>示例值：2020-05-21
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * Passport 签发机构
+   *
+   * <p>示例值：北京市公安局
+   */
+  @SerializedName("issued_by")
+  private String issuedBy;
+
+  public String getCountryRegion() {
+    return this.countryRegion;
+  }
+
+  public void setCountryRegion(String countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
+  public String getNationalIdType() {
+    return this.nationalIdType;
+  }
+
+  public void setNationalIdType(String nationalIdType) {
+    this.nationalIdType = nationalIdType;
+  }
+
+  public String getPassportNumber() {
+    return this.passportNumber;
+  }
+
+  public void setPassportNumber(String passportNumber) {
+    this.passportNumber = passportNumber;
+  }
+
+  public String getIssuedDate() {
+    return this.issuedDate;
+  }
+
+  public void setIssuedDate(String issuedDate) {
+    this.issuedDate = issuedDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getIssuedBy() {
+    return this.issuedBy;
+  }
+
+  public void setIssuedBy(String issuedBy) {
+    this.issuedBy = issuedBy;
+  }
+
+  // builder 开始
+  public ProfileSettingPassport() {}
+
+  public ProfileSettingPassport(Builder builder) {
     /**
      * 国家 / 地区
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("country_region")
-    private String countryRegion;
+    this.countryRegion = builder.countryRegion;
     /**
      * Passport 类型
-     * <p> 示例值：6863330041896371725
+     *
+     * <p>示例值：6863330041896371725
      */
-    @SerializedName("national_id_type")
-    private String nationalIdType;
+    this.nationalIdType = builder.nationalIdType;
     /**
      * Passport 号码
-     * <p> 示例值：1231131333
+     *
+     * <p>示例值：1231131333
      */
-    @SerializedName("passport_number")
-    private String passportNumber;
+    this.passportNumber = builder.passportNumber;
     /**
      * Passport 签发日期
-     * <p> 示例值：2020-04-01
+     *
+     * <p>示例值：2020-04-01
      */
-    @SerializedName("issued_date")
-    private String issuedDate;
+    this.issuedDate = builder.issuedDate;
     /**
      * Passport 到期日期
-     * <p> 示例值：2020-05-21
+     *
+     * <p>示例值：2020-05-21
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * Passport 签发机构
-     * <p> 示例值：北京市公安局
+     *
+     * <p>示例值：北京市公安局
      */
-    @SerializedName("issued_by")
+    this.issuedBy = builder.issuedBy;
+  }
+
+  public static class Builder {
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String countryRegion;
+
+    /**
+     * Passport 类型
+     *
+     * <p>示例值：6863330041896371725
+     */
+    private String nationalIdType;
+
+    /**
+     * Passport 号码
+     *
+     * <p>示例值：1231131333
+     */
+    private String passportNumber;
+
+    /**
+     * Passport 签发日期
+     *
+     * <p>示例值：2020-04-01
+     */
+    private String issuedDate;
+
+    /**
+     * Passport 到期日期
+     *
+     * <p>示例值：2020-05-21
+     */
+    private String expirationDate;
+
+    /**
+     * Passport 签发机构
+     *
+     * <p>示例值：北京市公安局
+     */
     private String issuedBy;
 
-    // builder 开始
-    public ProfileSettingPassport() {
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param countryRegion
+     * @return
+     */
+    public Builder countryRegion(String countryRegion) {
+      this.countryRegion = countryRegion;
+      return this;
     }
 
-    public ProfileSettingPassport(Builder builder) {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegion = builder.countryRegion;
-        /**
-         * Passport 类型
-         * <p> 示例值：6863330041896371725
-         */
-        this.nationalIdType = builder.nationalIdType;
-        /**
-         * Passport 号码
-         * <p> 示例值：1231131333
-         */
-        this.passportNumber = builder.passportNumber;
-        /**
-         * Passport 签发日期
-         * <p> 示例值：2020-04-01
-         */
-        this.issuedDate = builder.issuedDate;
-        /**
-         * Passport 到期日期
-         * <p> 示例值：2020-05-21
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * Passport 签发机构
-         * <p> 示例值：北京市公安局
-         */
-        this.issuedBy = builder.issuedBy;
+    /**
+     * Passport 类型
+     *
+     * <p>示例值：6863330041896371725
+     *
+     * @param nationalIdType
+     * @return
+     */
+    public Builder nationalIdType(String nationalIdType) {
+      this.nationalIdType = nationalIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Passport 号码
+     *
+     * <p>示例值：1231131333
+     *
+     * @param passportNumber
+     * @return
+     */
+    public Builder passportNumber(String passportNumber) {
+      this.passportNumber = passportNumber;
+      return this;
     }
 
-    public String getCountryRegion() {
-        return this.countryRegion;
+    /**
+     * Passport 签发日期
+     *
+     * <p>示例值：2020-04-01
+     *
+     * @param issuedDate
+     * @return
+     */
+    public Builder issuedDate(String issuedDate) {
+      this.issuedDate = issuedDate;
+      return this;
     }
 
-    public void setCountryRegion(String countryRegion) {
-        this.countryRegion = countryRegion;
+    /**
+     * Passport 到期日期
+     *
+     * <p>示例值：2020-05-21
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public String getNationalIdType() {
-        return this.nationalIdType;
+    /**
+     * Passport 签发机构
+     *
+     * <p>示例值：北京市公安局
+     *
+     * @param issuedBy
+     * @return
+     */
+    public Builder issuedBy(String issuedBy) {
+      this.issuedBy = issuedBy;
+      return this;
     }
 
-    public void setNationalIdType(String nationalIdType) {
-        this.nationalIdType = nationalIdType;
+    public ProfileSettingPassport build() {
+      return new ProfileSettingPassport(this);
     }
+  }
 
-    public String getPassportNumber() {
-        return this.passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
-    }
-
-    public String getIssuedDate() {
-        return this.issuedDate;
-    }
-
-    public void setIssuedDate(String issuedDate) {
-        this.issuedDate = issuedDate;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getIssuedBy() {
-        return this.issuedBy;
-    }
-
-    public void setIssuedBy(String issuedBy) {
-        this.issuedBy = issuedBy;
-    }
-
-    public static class Builder {
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegion;
-        /**
-         * Passport 类型
-         * <p> 示例值：6863330041896371725
-         */
-        private String nationalIdType;
-        /**
-         * Passport 号码
-         * <p> 示例值：1231131333
-         */
-        private String passportNumber;
-        /**
-         * Passport 签发日期
-         * <p> 示例值：2020-04-01
-         */
-        private String issuedDate;
-        /**
-         * Passport 到期日期
-         * <p> 示例值：2020-05-21
-         */
-        private String expirationDate;
-        /**
-         * Passport 签发机构
-         * <p> 示例值：北京市公安局
-         */
-        private String issuedBy;
-
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegion
-         * @return
-         */
-        public Builder countryRegion(String countryRegion) {
-            this.countryRegion = countryRegion;
-            return this;
-        }
-
-
-        /**
-         * Passport 类型
-         * <p> 示例值：6863330041896371725
-         *
-         * @param nationalIdType
-         * @return
-         */
-        public Builder nationalIdType(String nationalIdType) {
-            this.nationalIdType = nationalIdType;
-            return this;
-        }
-
-
-        /**
-         * Passport 号码
-         * <p> 示例值：1231131333
-         *
-         * @param passportNumber
-         * @return
-         */
-        public Builder passportNumber(String passportNumber) {
-            this.passportNumber = passportNumber;
-            return this;
-        }
-
-
-        /**
-         * Passport 签发日期
-         * <p> 示例值：2020-04-01
-         *
-         * @param issuedDate
-         * @return
-         */
-        public Builder issuedDate(String issuedDate) {
-            this.issuedDate = issuedDate;
-            return this;
-        }
-
-
-        /**
-         * Passport 到期日期
-         * <p> 示例值：2020-05-21
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * Passport 签发机构
-         * <p> 示例值：北京市公安局
-         *
-         * @param issuedBy
-         * @return
-         */
-        public Builder issuedBy(String issuedBy) {
-            this.issuedBy = issuedBy;
-            return this;
-        }
-
-
-        public ProfileSettingPassport build() {
-            return new ProfileSettingPassport(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

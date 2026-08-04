@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.ehr.v1.enums;
 
-/**
- * 自定义字段类型
- */
+/** 自定义字段类型 */
 public enum CustomFieldsTypeEnum {
-    TEXT("text"), // 文本xxx
-    DATE("date"), // 2020-01-01
-    OPTION("option"), // {"key": "option_xxxx", "value": "选项一"}
-    FILE("file"), // [{"id": "token_value", "name": "file_name", "size": 10240, "mime_type": "png"}]
-    ;
-    private String value;
+  TEXT("text"), // 文本类型
+  DATE("date"), // 日期类型，如 2020-01-01
+  OPTION("option"), // 枚举类型
+  FILE("file"), // 附件类型
+  ;
+  private String value;
 
-    CustomFieldsTypeEnum(String value) {
-        this.value = value;
-    }
+  CustomFieldsTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

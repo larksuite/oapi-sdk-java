@@ -13,48 +13,46 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateProcessQueryFlowDataTemplateRespBody {
-    /**
-     * 流程参数模板
-     * <p> 示例值：
-     */
-    @SerializedName("field_values")
-    private ProcessFormVariableV2[] fieldValues;
-    /**
-     * 错误信息
-     * <p> 示例值：variableAPIName [new_emergency_contact.phone.xf] is invalid, not found drill down apiName [xf]
-     */
-    @SerializedName("error_info")
-    private String errorInfo;
+  /**
+   * 流程参数模板
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_values")
+  private ProcessFormVariableV2[] fieldValues;
 
-    public ProcessFormVariableV2[] getFieldValues() {
-        return this.fieldValues;
-    }
+  /**
+   * 错误信息。说明如下：;1. "variableAPIName [custome3adb7eb040] is invalid, record type cannot assign value,
+   * must assign record's drill down apiName"，表示custome3adb7eb040 这个 Record 类型变量未传下钻变量值;2.
+   * "variableAPIName [custome3adb7eb040.custom_field_3__c] is invalid, not found drill down apiName
+   * [custom_field_3__c]", 表示 custom_field_3__c 这个下钻变量未找到。请检查 ApiName 是否正确，或重新发布流程后重试;3.
+   * "variableAPIName [customc17e5b301ef] is invalid, not found root apiName [customc17e5b301ef]"，表示
+   * customc17e5b301ef 这个变量未找到。请检查 ApiName 是否正确，或重新发布流程后重试;4. "variableAPIName
+   * [customc17e5b301ea.custom1dddafc864a] is invalid, [customc17e5b301ea] cannot drill down"，表示
+   * customc17e5b301ea 不是Record 类型变量，不可下钻
+   *
+   * <p>示例值：variableAPIName [new_emergency_contact.phone.xf] is invalid, not found drill down
+   * apiName [xf]
+   */
+  @SerializedName("error_info")
+  private String errorInfo;
 
-    public void setFieldValues(ProcessFormVariableV2[] fieldValues) {
-        this.fieldValues = fieldValues;
-    }
+  public ProcessFormVariableV2[] getFieldValues() {
+    return this.fieldValues;
+  }
 
-    public String getErrorInfo() {
-        return this.errorInfo;
-    }
+  public void setFieldValues(ProcessFormVariableV2[] fieldValues) {
+    this.fieldValues = fieldValues;
+  }
 
-    public void setErrorInfo(String errorInfo) {
-        this.errorInfo = errorInfo;
-    }
+  public String getErrorInfo() {
+    return this.errorInfo;
+  }
 
+  public void setErrorInfo(String errorInfo) {
+    this.errorInfo = errorInfo;
+  }
 }

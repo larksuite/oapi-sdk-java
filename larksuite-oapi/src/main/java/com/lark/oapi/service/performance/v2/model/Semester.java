@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Semester {
+  /**
+   * 周期 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 周期类型
+   *
+   * <p>示例值：Q1
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 周期类型分组
+   *
+   * <p>示例值：Quarter
+   */
+  @SerializedName("type_group")
+  private String typeGroup;
+
+  /**
+   * 周期年份
+   *
+   * <p>示例值：2024
+   */
+  @SerializedName("year")
+  private Integer year;
+
+  /**
+   * 周期开始时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 周期结束时间，毫秒时间戳
+   *
+   * <p>示例值：1640966399999
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 周期创建时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getTypeGroup() {
+    return this.typeGroup;
+  }
+
+  public void setTypeGroup(String typeGroup) {
+    this.typeGroup = typeGroup;
+  }
+
+  public Integer getYear() {
+    return this.year;
+  }
+
+  public void setYear(Integer year) {
+    this.year = year;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public Semester() {}
+
+  public Semester(Builder builder) {
     /**
      * 周期 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 周期名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 周期类型
-     * <p> 示例值：Q1
+     *
+     * <p>示例值：Q1
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 周期类型分组
-     * <p> 示例值：Quarter
+     *
+     * <p>示例值：Quarter
      */
-    @SerializedName("type_group")
-    private String typeGroup;
+    this.typeGroup = builder.typeGroup;
     /**
      * 周期年份
-     * <p> 示例值：2024
+     *
+     * <p>示例值：2024
      */
-    @SerializedName("year")
-    private Integer year;
+    this.year = builder.year;
     /**
      * 周期开始时间，毫秒时间戳
-     * <p> 示例值：1625068800000
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 周期结束时间，毫秒时间戳
-     * <p> 示例值：1640966399999
+     *
+     * <p>示例值：1640966399999
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 周期创建时间，毫秒时间戳
-     * <p> 示例值：1625068800000
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 周期 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 周期类型
+     *
+     * <p>示例值：Q1
+     */
+    private String type;
+
+    /**
+     * 周期类型分组
+     *
+     * <p>示例值：Quarter
+     */
+    private String typeGroup;
+
+    /**
+     * 周期年份
+     *
+     * <p>示例值：2024
+     */
+    private Integer year;
+
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    private String startTime;
+
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1640966399999
+     */
+    private String endTime;
+
+    /**
+     * 周期创建时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
     private String createTime;
 
-    // builder 开始
-    public Semester() {
+    /**
+     * 周期 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Semester(Builder builder) {
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 周期名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 周期类型
-         * <p> 示例值：Q1
-         */
-        this.type = builder.type;
-        /**
-         * 周期类型分组
-         * <p> 示例值：Quarter
-         */
-        this.typeGroup = builder.typeGroup;
-        /**
-         * 周期年份
-         * <p> 示例值：2024
-         */
-        this.year = builder.year;
-        /**
-         * 周期开始时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 周期结束时间，毫秒时间戳
-         * <p> 示例值：1640966399999
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 周期创建时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期类型
+     *
+     * <p>示例值：Q1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 周期类型分组
+     *
+     * <p>示例值：Quarter
+     *
+     * @param typeGroup
+     * @return
+     */
+    public Builder typeGroup(String typeGroup) {
+      this.typeGroup = typeGroup;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 周期年份
+     *
+     * <p>示例值：2024
+     *
+     * @param year
+     * @return
+     */
+    public Builder year(Integer year) {
+      this.year = year;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1640966399999
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 周期创建时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Semester build() {
+      return new Semester(this);
     }
+  }
 
-    public String getTypeGroup() {
-        return this.typeGroup;
-    }
-
-    public void setTypeGroup(String typeGroup) {
-        this.typeGroup = typeGroup;
-    }
-
-    public Integer getYear() {
-        return this.year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String id;
-        /**
-         * 周期名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 周期类型
-         * <p> 示例值：Q1
-         */
-        private String type;
-        /**
-         * 周期类型分组
-         * <p> 示例值：Quarter
-         */
-        private String typeGroup;
-        /**
-         * 周期年份
-         * <p> 示例值：2024
-         */
-        private Integer year;
-        /**
-         * 周期开始时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         */
-        private String startTime;
-        /**
-         * 周期结束时间，毫秒时间戳
-         * <p> 示例值：1640966399999
-         */
-        private String endTime;
-        /**
-         * 周期创建时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         */
-        private String createTime;
-
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 周期名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 周期类型
-         * <p> 示例值：Q1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 周期类型分组
-         * <p> 示例值：Quarter
-         *
-         * @param typeGroup
-         * @return
-         */
-        public Builder typeGroup(String typeGroup) {
-            this.typeGroup = typeGroup;
-            return this;
-        }
-
-
-        /**
-         * 周期年份
-         * <p> 示例值：2024
-         *
-         * @param year
-         * @return
-         */
-        public Builder year(Integer year) {
-            this.year = year;
-            return this;
-        }
-
-
-        /**
-         * 周期开始时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 周期结束时间，毫秒时间戳
-         * <p> 示例值：1640966399999
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 周期创建时间，毫秒时间戳
-         * <p> 示例值：1625068800000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public Semester build() {
-            return new Semester(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

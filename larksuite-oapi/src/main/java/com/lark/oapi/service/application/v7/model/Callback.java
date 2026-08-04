@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Callback {
+  /**
+   * 回调类型
+   *
+   * <p>示例值：webhook
+   */
+  @SerializedName("callback_type")
+  private String callbackType;
+
+  /**
+   * 回调地址
+   *
+   * <p>示例值：https://open.feishu.cn/
+   */
+  @SerializedName("request_url")
+  private String requestUrl;
+
+  /**
+   * 订阅的回调列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscribed_callbacks")
+  private String[] subscribedCallbacks;
+
+  public String getCallbackType() {
+    return this.callbackType;
+  }
+
+  public void setCallbackType(String callbackType) {
+    this.callbackType = callbackType;
+  }
+
+  public String getRequestUrl() {
+    return this.requestUrl;
+  }
+
+  public void setRequestUrl(String requestUrl) {
+    this.requestUrl = requestUrl;
+  }
+
+  public String[] getSubscribedCallbacks() {
+    return this.subscribedCallbacks;
+  }
+
+  public void setSubscribedCallbacks(String[] subscribedCallbacks) {
+    this.subscribedCallbacks = subscribedCallbacks;
+  }
+
+  // builder 开始
+  public Callback() {}
+
+  public Callback(Builder builder) {
     /**
      * 回调类型
-     * <p> 示例值：webhook
+     *
+     * <p>示例值：webhook
      */
-    @SerializedName("callback_type")
-    private String callbackType;
+    this.callbackType = builder.callbackType;
     /**
      * 回调地址
-     * <p> 示例值：https://open.feishu.cn/
+     *
+     * <p>示例值：https://open.feishu.cn/
      */
-    @SerializedName("request_url")
-    private String requestUrl;
+    this.requestUrl = builder.requestUrl;
     /**
      * 订阅的回调列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subscribed_callbacks")
+    this.subscribedCallbacks = builder.subscribedCallbacks;
+  }
+
+  public static class Builder {
+    /**
+     * 回调类型
+     *
+     * <p>示例值：webhook
+     */
+    private String callbackType;
+
+    /**
+     * 回调地址
+     *
+     * <p>示例值：https://open.feishu.cn/
+     */
+    private String requestUrl;
+
+    /**
+     * 订阅的回调列表
+     *
+     * <p>示例值：
+     */
     private String[] subscribedCallbacks;
 
-    // builder 开始
-    public Callback() {
+    /**
+     * 回调类型
+     *
+     * <p>示例值：webhook
+     *
+     * @param callbackType
+     * @return
+     */
+    public Builder callbackType(String callbackType) {
+      this.callbackType = callbackType;
+      return this;
     }
 
-    public Callback(Builder builder) {
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         */
-        this.callbackType = builder.callbackType;
-        /**
-         * 回调地址
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        this.requestUrl = builder.requestUrl;
-        /**
-         * 订阅的回调列表
-         * <p> 示例值：
-         */
-        this.subscribedCallbacks = builder.subscribedCallbacks;
+    /**
+     * 回调地址
+     *
+     * <p>示例值：https://open.feishu.cn/
+     *
+     * @param requestUrl
+     * @return
+     */
+    public Builder requestUrl(String requestUrl) {
+      this.requestUrl = requestUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 订阅的回调列表
+     *
+     * <p>示例值：
+     *
+     * @param subscribedCallbacks
+     * @return
+     */
+    public Builder subscribedCallbacks(String[] subscribedCallbacks) {
+      this.subscribedCallbacks = subscribedCallbacks;
+      return this;
     }
 
-    public String getCallbackType() {
-        return this.callbackType;
+    public Callback build() {
+      return new Callback(this);
     }
+  }
 
-    public void setCallbackType(String callbackType) {
-        this.callbackType = callbackType;
-    }
-
-    public String getRequestUrl() {
-        return this.requestUrl;
-    }
-
-    public void setRequestUrl(String requestUrl) {
-        this.requestUrl = requestUrl;
-    }
-
-    public String[] getSubscribedCallbacks() {
-        return this.subscribedCallbacks;
-    }
-
-    public void setSubscribedCallbacks(String[] subscribedCallbacks) {
-        this.subscribedCallbacks = subscribedCallbacks;
-    }
-
-    public static class Builder {
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         */
-        private String callbackType;
-        /**
-         * 回调地址
-         * <p> 示例值：https://open.feishu.cn/
-         */
-        private String requestUrl;
-        /**
-         * 订阅的回调列表
-         * <p> 示例值：
-         */
-        private String[] subscribedCallbacks;
-
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         *
-         * @param callbackType
-         * @return
-         */
-        public Builder callbackType(String callbackType) {
-            this.callbackType = callbackType;
-            return this;
-        }
-
-
-        /**
-         * 回调地址
-         * <p> 示例值：https://open.feishu.cn/
-         *
-         * @param requestUrl
-         * @return
-         */
-        public Builder requestUrl(String requestUrl) {
-            this.requestUrl = requestUrl;
-            return this;
-        }
-
-
-        /**
-         * 订阅的回调列表
-         * <p> 示例值：
-         *
-         * @param subscribedCallbacks
-         * @return
-         */
-        public Builder subscribedCallbacks(String[] subscribedCallbacks) {
-            this.subscribedCallbacks = subscribedCallbacks;
-            return this;
-        }
-
-
-        public Callback build() {
-            return new Callback(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaikeImage {
+  /**
+   * 通过文件接口上传图片后，获得的图片 token
+   *
+   * <p>示例值：boxbcEcmKiD***vgqWTpvdc7jc
+   */
+  @SerializedName("token")
+  private String token;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  // builder 开始
+  public BaikeImage() {}
+
+  public BaikeImage(Builder builder) {
     /**
-     * 通过文件接口上传后的图片 token
-     * <p> 示例值：
+     * 通过文件接口上传图片后，获得的图片 token
+     *
+     * <p>示例值：boxbcEcmKiD***vgqWTpvdc7jc
      */
-    @SerializedName("token")
+    this.token = builder.token;
+  }
+
+  public static class Builder {
+    /**
+     * 通过文件接口上传图片后，获得的图片 token
+     *
+     * <p>示例值：boxbcEcmKiD***vgqWTpvdc7jc
+     */
     private String token;
 
-    // builder 开始
-    public BaikeImage() {
+    /**
+     * 通过文件接口上传图片后，获得的图片 token
+     *
+     * <p>示例值：boxbcEcmKiD***vgqWTpvdc7jc
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public BaikeImage(Builder builder) {
-        /**
-         * 通过文件接口上传后的图片 token
-         * <p> 示例值：
-         */
-        this.token = builder.token;
+    public BaikeImage build() {
+      return new BaikeImage(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public static class Builder {
-        /**
-         * 通过文件接口上传后的图片 token
-         * <p> 示例值：
-         */
-        private String token;
-
-        /**
-         * 通过文件接口上传后的图片 token
-         * <p> 示例值：
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        public BaikeImage build() {
-            return new BaikeImage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

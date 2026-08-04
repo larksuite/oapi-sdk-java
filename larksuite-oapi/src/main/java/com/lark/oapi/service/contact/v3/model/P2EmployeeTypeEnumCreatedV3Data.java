@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EmployeeTypeEnumCreatedV3Data {
-    /**
-     * 新枚举类型
-     * <p> 示例值：
-     */
-    @SerializedName("new_enum")
-    private EmployeeTypeEnum newEnum;
+  /**
+   * 更新后的人员类型信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("new_enum")
+  private EmployeeTypeEnum newEnum;
 
-    public EmployeeTypeEnum getNewEnum() {
-        return this.newEnum;
-    }
+  public EmployeeTypeEnum getNewEnum() {
+    return this.newEnum;
+  }
 
-    public void setNewEnum(EmployeeTypeEnum newEnum) {
-        this.newEnum = newEnum;
-    }
-
+  public void setNewEnum(EmployeeTypeEnum newEnum) {
+    this.newEnum = newEnum;
+  }
 }

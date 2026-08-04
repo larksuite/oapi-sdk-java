@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableRecordValue {
+  /**
+   * 注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private FormFieldVariableRecordValueExample values;
+
+  public FormFieldVariableRecordValueExample getValues() {
+    return this.values;
+  }
+
+  public void setValues(FormFieldVariableRecordValueExample values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public FormFieldVariableRecordValue() {}
+
+  public FormFieldVariableRecordValue(Builder builder) {
     /**
-     * 注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）
-     * <p> 示例值：
+     * 注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。
+     *
+     * <p>示例值：
+     */
     private FormFieldVariableRecordValueExample values;
 
-    // builder 开始
-    public FormFieldVariableRecordValue() {
+    /**
+     * 注：该参数实际为 Map 数据类型，Key 是变量唯一标识，Value 是变量值。
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(FormFieldVariableRecordValueExample values) {
+      this.values = values;
+      return this;
     }
 
-    public FormFieldVariableRecordValue(Builder builder) {
-        /**
-         * 注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    public FormFieldVariableRecordValue build() {
+      return new FormFieldVariableRecordValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FormFieldVariableRecordValueExample getValues() {
-        return this.values;
-    }
-
-    public void setValues(FormFieldVariableRecordValueExample values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）
-         * <p> 示例值：
-         */
-        private FormFieldVariableRecordValueExample values;
-
-        /**
-         * 注意：这个值是一个map，key是变量唯一标识，value是变量值（平台限制，没法录入Map类型，这里用object示意一下）
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(FormFieldVariableRecordValueExample values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public FormFieldVariableRecordValue build() {
-            return new FormFieldVariableRecordValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,71 +13,62 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class SearchRoomLevelReq {
+  /**
+   * 用于查询指定会议室层级的自定义会议室层级ID
+   *
+   * <p>示例值：1000,1001
+   */
+  @Query
+  @SerializedName("custom_level_ids")
+  private String customLevelIds;
+
+  public String getCustomLevelIds() {
+    return this.customLevelIds;
+  }
+
+  public void setCustomLevelIds(String customLevelIds) {
+    this.customLevelIds = customLevelIds;
+  }
+
+  // builder 开始
+  public SearchRoomLevelReq() {}
+
+  public SearchRoomLevelReq(Builder builder) {
     /**
      * 用于查询指定会议室层级的自定义会议室层级ID
-     * <p> 示例值：1000,1001
+     *
+     * <p>示例值：1000,1001
      */
-    @Query
-    @SerializedName("custom_level_ids")
-    private String customLevelIds;
+    this.customLevelIds = builder.customLevelIds;
+  }
 
-    // builder 开始
-    public SearchRoomLevelReq() {
+  public static class Builder {
+    private String customLevelIds; // 用于查询指定会议室层级的自定义会议室层级ID
+
+    /**
+     * 用于查询指定会议室层级的自定义会议室层级ID
+     *
+     * <p>示例值：1000,1001
+     *
+     * @param customLevelIds
+     * @return
+     */
+    public Builder customLevelIds(String customLevelIds) {
+      this.customLevelIds = customLevelIds;
+      return this;
     }
 
-    public SearchRoomLevelReq(Builder builder) {
-        /**
-         * 用于查询指定会议室层级的自定义会议室层级ID
-         * <p> 示例值：1000,1001
-         */
-        this.customLevelIds = builder.customLevelIds;
+    public SearchRoomLevelReq build() {
+      return new SearchRoomLevelReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCustomLevelIds() {
-        return this.customLevelIds;
-    }
-
-    public void setCustomLevelIds(String customLevelIds) {
-        this.customLevelIds = customLevelIds;
-    }
-
-    public static class Builder {
-        private String customLevelIds; // 用于查询指定会议室层级的自定义会议室层级ID
-
-        /**
-         * 用于查询指定会议室层级的自定义会议室层级ID
-         * <p> 示例值：1000,1001
-         *
-         * @param customLevelIds
-         * @return
-         */
-        public Builder customLevelIds(String customLevelIds) {
-            this.customLevelIds = customLevelIds;
-            return this;
-        }
-
-
-        public SearchRoomLevelReq build() {
-            return new SearchRoomLevelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

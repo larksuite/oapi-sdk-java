@@ -13,62 +13,86 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchOffboardingRespBody {
-    /**
-     * 查询的员工离职信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Offboarding[] items;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 查询的员工离职信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Offboarding[] items;
 
-    public Offboarding[] getItems() {
-        return this.items;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：eyJldV9uYyI6IlswLFwiNjk2MTI4Njg0NjA5Mzc4ODY4MC03MjExMDM0ODcxMjA3OTUzOTc1XCJdIn0=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(Offboarding[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 总数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 是否禁止导出
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reject_export")
+  private Boolean rejectExport;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public Offboarding[] getItems() {
+    return this.items;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setItems(Offboarding[] items) {
+    this.items = items;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public Integer getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  public Boolean getRejectExport() {
+    return this.rejectExport;
+  }
+
+  public void setRejectExport(Boolean rejectExport) {
+    this.rejectExport = rejectExport;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppTableViewReqBody {
+  /**
+   * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+   *
+   * <p>示例值：表格视图 1
+   */
+  @SerializedName("view_name")
+  private String viewName;
+
+  /**
+   * 视图属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("property")
+  private AppTableViewProperty property;
+
+  public String getViewName() {
+    return this.viewName;
+  }
+
+  public void setViewName(String viewName) {
+    this.viewName = viewName;
+  }
+
+  public AppTableViewProperty getProperty() {
+    return this.property;
+  }
+
+  public void setProperty(AppTableViewProperty property) {
+    this.property = property;
+  }
+
+  // builder 开始
+  public PatchAppTableViewReqBody() {}
+
+  public PatchAppTableViewReqBody(Builder builder) {
     /**
-     * 视图名称
-     * <p> 示例值：grid
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
      */
-    @SerializedName("view_name")
-    private String viewName;
+    this.viewName = builder.viewName;
     /**
      * 视图属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("property")
+    this.property = builder.property;
+  }
+
+  public static class Builder {
+    /**
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
+     */
+    private String viewName;
+
+    /**
+     * 视图属性
+     *
+     * <p>示例值：
+     */
     private AppTableViewProperty property;
 
-    // builder 开始
-    public PatchAppTableViewReqBody() {
+    /**
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
+     *
+     * @param viewName
+     * @return
+     */
+    public Builder viewName(String viewName) {
+      this.viewName = viewName;
+      return this;
     }
 
-    public PatchAppTableViewReqBody(Builder builder) {
-        /**
-         * 视图名称
-         * <p> 示例值：grid
-         */
-        this.viewName = builder.viewName;
-        /**
-         * 视图属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
+    /**
+     * 视图属性
+     *
+     * <p>示例值：
+     *
+     * @param property
+     * @return
+     */
+    public Builder property(AppTableViewProperty property) {
+      this.property = property;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchAppTableViewReqBody build() {
+      return new PatchAppTableViewReqBody(this);
     }
+  }
 
-    public String getViewName() {
-        return this.viewName;
-    }
-
-    public void setViewName(String viewName) {
-        this.viewName = viewName;
-    }
-
-    public AppTableViewProperty getProperty() {
-        return this.property;
-    }
-
-    public void setProperty(AppTableViewProperty property) {
-        this.property = property;
-    }
-
-    public static class Builder {
-        /**
-         * 视图名称
-         * <p> 示例值：grid
-         */
-        private String viewName;
-        /**
-         * 视图属性
-         * <p> 示例值：
-         */
-        private AppTableViewProperty property;
-
-        /**
-         * 视图名称
-         * <p> 示例值：grid
-         *
-         * @param viewName
-         * @return
-         */
-        public Builder viewName(String viewName) {
-            this.viewName = viewName;
-            return this;
-        }
-
-
-        /**
-         * 视图属性
-         * <p> 示例值：
-         *
-         * @param property
-         * @return
-         */
-        public Builder property(AppTableViewProperty property) {
-            this.property = property;
-            return this;
-        }
-
-
-        public PatchAppTableViewReqBody build() {
-            return new PatchAppTableViewReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

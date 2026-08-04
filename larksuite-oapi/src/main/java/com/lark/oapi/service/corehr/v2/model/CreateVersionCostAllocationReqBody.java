@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateVersionCostAllocationReqBody {
+  /**
+   * 员工雇佣
+   * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+   * employment_id。
+   *
+   * <p>示例值：6862995757234914821
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 成本分摊
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocation")
+  private EmploymentCostAllocation costAllocation;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public EmploymentCostAllocation getCostAllocation() {
+    return this.costAllocation;
+  }
+
+  public void setCostAllocation(EmploymentCostAllocation costAllocation) {
+    this.costAllocation = costAllocation;
+  }
+
+  // builder 开始
+  public CreateVersionCostAllocationReqBody() {}
+
+  public CreateVersionCostAllocationReqBody(Builder builder) {
     /**
-     * 员工雇佣 ID
-     * <p> 示例值：6862995757234914821
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 成本分摊
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_allocation")
+    this.costAllocation = builder.costAllocation;
+  }
+
+  public static class Builder {
+    /**
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
+     */
+    private String employmentId;
+
+    /**
+     * 成本分摊
+     *
+     * <p>示例值：
+     */
     private EmploymentCostAllocation costAllocation;
 
-    // builder 开始
-    public CreateVersionCostAllocationReqBody() {
+    /**
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public CreateVersionCostAllocationReqBody(Builder builder) {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        this.costAllocation = builder.costAllocation;
+    /**
+     * 成本分摊
+     *
+     * <p>示例值：
+     *
+     * @param costAllocation
+     * @return
+     */
+    public Builder costAllocation(EmploymentCostAllocation costAllocation) {
+      this.costAllocation = costAllocation;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateVersionCostAllocationReqBody build() {
+      return new CreateVersionCostAllocationReqBody(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public EmploymentCostAllocation getCostAllocation() {
-        return this.costAllocation;
-    }
-
-    public void setCostAllocation(EmploymentCostAllocation costAllocation) {
-        this.costAllocation = costAllocation;
-    }
-
-    public static class Builder {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         */
-        private String employmentId;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        private EmploymentCostAllocation costAllocation;
-
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         *
-         * @param costAllocation
-         * @return
-         */
-        public Builder costAllocation(EmploymentCostAllocation costAllocation) {
-            this.costAllocation = costAllocation;
-            return this;
-        }
-
-
-        public CreateVersionCostAllocationReqBody build() {
-            return new CreateVersionCostAllocationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

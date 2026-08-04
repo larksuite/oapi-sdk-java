@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateCoverRequest {
+  /**
+   * 封面信息，该值为 null 时表示移除封面
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cover")
+  private DocumentCover cover;
+
+  public DocumentCover getCover() {
+    return this.cover;
+  }
+
+  public void setCover(DocumentCover cover) {
+    this.cover = cover;
+  }
+
+  // builder 开始
+  public UpdateCoverRequest() {}
+
+  public UpdateCoverRequest(Builder builder) {
     /**
      * 封面信息，该值为 null 时表示移除封面
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cover")
+    this.cover = builder.cover;
+  }
+
+  public static class Builder {
+    /**
+     * 封面信息，该值为 null 时表示移除封面
+     *
+     * <p>示例值：
+     */
     private DocumentCover cover;
 
-    // builder 开始
-    public UpdateCoverRequest() {
+    /**
+     * 封面信息，该值为 null 时表示移除封面
+     *
+     * <p>示例值：
+     *
+     * @param cover
+     * @return
+     */
+    public Builder cover(DocumentCover cover) {
+      this.cover = cover;
+      return this;
     }
 
-    public UpdateCoverRequest(Builder builder) {
-        /**
-         * 封面信息，该值为 null 时表示移除封面
-         * <p> 示例值：
-         */
-        this.cover = builder.cover;
+    public UpdateCoverRequest build() {
+      return new UpdateCoverRequest(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public DocumentCover getCover() {
-        return this.cover;
-    }
-
-    public void setCover(DocumentCover cover) {
-        this.cover = cover;
-    }
-
-    public static class Builder {
-        /**
-         * 封面信息，该值为 null 时表示移除封面
-         * <p> 示例值：
-         */
-        private DocumentCover cover;
-
-        /**
-         * 封面信息，该值为 null 时表示移除封面
-         * <p> 示例值：
-         *
-         * @param cover
-         * @return
-         */
-        public Builder cover(DocumentCover cover) {
-            this.cover = cover;
-            return this;
-        }
-
-
-        public UpdateCoverRequest build() {
-            return new UpdateCoverRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

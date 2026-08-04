@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- *
- */
+/** */
 public enum QueryAdditionalInformationUserIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户
-    PEOPLE_ADMIN_ID("people_admin_id"), // 以people_admin_id来识别用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以user_id来识别用户
+  UNION_ID("union_id"), // 以union_id来识别用户
+  OPEN_ID("open_id"), // 以open_id来识别用户
+  PEOPLE_ADMIN_ID("people_admin_id"), // 以people_admin_id来识别用户
+  ;
+  private String value;
 
-    QueryAdditionalInformationUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  QueryAdditionalInformationUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 群消息模式
- */
+/** 群消息形式 */
 public enum UpdateChatUpdateChatGroupMessageTypeEnum {
-    CHAT("chat"), // 普通模式
-    THREAD("thread"), // 话题模式
-    ;
-    private String value;
+  CHAT("chat"), // 对话消息
+  THREAD("thread"), // 话题消息
+  ;
+  private String value;
 
-    UpdateChatUpdateChatGroupMessageTypeEnum(String value) {
-        this.value = value;
-    }
+  UpdateChatUpdateChatGroupMessageTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

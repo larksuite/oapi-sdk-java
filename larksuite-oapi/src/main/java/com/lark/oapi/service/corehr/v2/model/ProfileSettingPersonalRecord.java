@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingPersonalRecord {
+  /**
+   * 资料类型;;-
+   * 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+   * ; - object_api_name = "personal_profile" ; - custom_api_name = "profile_type";- 仅
+   * 【飞书人事-档案配置-资料附件】存在的字段编码可用
+   *
+   * <p>示例值：profile_type_1
+   */
+  @SerializedName("profile_type")
+  private String profileType;
+
+  /**
+   * 文件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private ProfileSettingFile[] files;
+
+  public String getProfileType() {
+    return this.profileType;
+  }
+
+  public void setProfileType(String profileType) {
+    this.profileType = profileType;
+  }
+
+  public ProfileSettingFile[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(ProfileSettingFile[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public ProfileSettingPersonalRecord() {}
+
+  public ProfileSettingPersonalRecord(Builder builder) {
     /**
-     * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-     * <p> 示例值：profile_type_1
+     * 资料类型;;-
+     * 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ; - object_api_name = "personal_profile" ; - custom_api_name = "profile_type";- 仅
+     * 【飞书人事-档案配置-资料附件】存在的字段编码可用
+     *
+     * <p>示例值：profile_type_1
      */
-    @SerializedName("profile_type")
-    private String profileType;
+    this.profileType = builder.profileType;
     /**
      * 文件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 资料类型;;-
+     * 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ; - object_api_name = "personal_profile" ; - custom_api_name = "profile_type";- 仅
+     * 【飞书人事-档案配置-资料附件】存在的字段编码可用
+     *
+     * <p>示例值：profile_type_1
+     */
+    private String profileType;
+
+    /**
+     * 文件列表
+     *
+     * <p>示例值：
+     */
     private ProfileSettingFile[] files;
 
-    // builder 开始
-    public ProfileSettingPersonalRecord() {
+    /**
+     * 资料类型;;-
+     * 枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ; - object_api_name = "personal_profile" ; - custom_api_name = "profile_type";- 仅
+     * 【飞书人事-档案配置-资料附件】存在的字段编码可用
+     *
+     * <p>示例值：profile_type_1
+     *
+     * @param profileType
+     * @return
+     */
+    public Builder profileType(String profileType) {
+      this.profileType = profileType;
+      return this;
     }
 
-    public ProfileSettingPersonalRecord(Builder builder) {
-        /**
-         * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-         * <p> 示例值：profile_type_1
-         */
-        this.profileType = builder.profileType;
-        /**
-         * 文件列表
-         * <p> 示例值：
-         */
-        this.files = builder.files;
+    /**
+     * 文件列表
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(ProfileSettingFile[] files) {
+      this.files = files;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProfileSettingPersonalRecord build() {
+      return new ProfileSettingPersonalRecord(this);
     }
+  }
 
-    public String getProfileType() {
-        return this.profileType;
-    }
-
-    public void setProfileType(String profileType) {
-        this.profileType = profileType;
-    }
-
-    public ProfileSettingFile[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(ProfileSettingFile[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-         * <p> 示例值：profile_type_1
-         */
-        private String profileType;
-        /**
-         * 文件列表
-         * <p> 示例值：
-         */
-        private ProfileSettingFile[] files;
-
-        /**
-         * 资料类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "personal_profile" custom_api_name = "profile_type"
-         * <p> 示例值：profile_type_1
-         *
-         * @param profileType
-         * @return
-         */
-        public Builder profileType(String profileType) {
-            this.profileType = profileType;
-            return this;
-        }
-
-
-        /**
-         * 文件列表
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(ProfileSettingFile[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public ProfileSettingPersonalRecord build() {
-            return new ProfileSettingPersonalRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,111 +13,118 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobRequirementCustomizedData {
+  /**
+   * 自定义字段
+   * ID，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取
+   *
+   * <p>示例值：1213213123123
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 自定义字段 value;- 单选：`"1"`;- 多选：`"[\"1\", \"2\"]"`;- 单行：`"单行文本"`;- 多行：`"多行文本"`;- 数字：`"1"`;-
+   * 月份选择：`"1627379423000"`;- 年份选择：`"1627379423000"`;- 日期选择：`"1627379423000"`;-
+   * 时间段：`"[\"1577808000000\", \"1612108800000\"]"`
+   *
+   * <p>示例值：简单文本
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public JobRequirementCustomizedData() {}
+
+  public JobRequirementCustomizedData(Builder builder) {
     /**
-     * 自定义字段 ID
-     * <p> 示例值：1213213123123
+     * 自定义字段
+     * ID，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取
+     *
+     * <p>示例值：1213213123123
      */
-    @SerializedName("object_id")
+    this.objectId = builder.objectId;
+    /**
+     * 自定义字段 value;- 单选：`"1"`;- 多选：`"[\"1\", \"2\"]"`;- 单行：`"单行文本"`;- 多行：`"多行文本"`;- 数字：`"1"`;-
+     * 月份选择：`"1627379423000"`;- 年份选择：`"1627379423000"`;- 日期选择：`"1627379423000"`;-
+     * 时间段：`"[\"1577808000000\", \"1612108800000\"]"`
+     *
+     * <p>示例值：简单文本
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段
+     * ID，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取
+     *
+     * <p>示例值：1213213123123
+     */
     private String objectId;
+
     /**
-     * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
-     * <p> 示例值：测试
+     * 自定义字段 value;- 单选：`"1"`;- 多选：`"[\"1\", \"2\"]"`;- 单行：`"单行文本"`;- 多行：`"多行文本"`;- 数字：`"1"`;-
+     * 月份选择：`"1627379423000"`;- 年份选择：`"1627379423000"`;- 日期选择：`"1627379423000"`;-
+     * 时间段：`"[\"1577808000000\", \"1612108800000\"]"`
+     *
+     * <p>示例值：简单文本
      */
-    @SerializedName("value")
     private String value;
 
-    // builder 开始
-    public JobRequirementCustomizedData() {
+    /**
+     * 自定义字段
+     * ID，可通过[获取招聘需求模板](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement_schema/list)获取
+     *
+     * <p>示例值：1213213123123
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public JobRequirementCustomizedData(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：1213213123123
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
-         * <p> 示例值：测试
-         */
-        this.value = builder.value;
+    /**
+     * 自定义字段 value;- 单选：`"1"`;- 多选：`"[\"1\", \"2\"]"`;- 单行：`"单行文本"`;- 多行：`"多行文本"`;- 数字：`"1"`;-
+     * 月份选择：`"1627379423000"`;- 年份选择：`"1627379423000"`;- 日期选择：`"1627379423000"`;-
+     * 时间段：`"[\"1577808000000\", \"1612108800000\"]"`
+     *
+     * <p>示例值：简单文本
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public JobRequirementCustomizedData build() {
+      return new JobRequirementCustomizedData(this);
     }
+  }
 
-    public String getObjectId() {
-        return this.objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：1213213123123
-         */
-        private String objectId;
-        /**
-         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
-         * <p> 示例值：测试
-         */
-        private String value;
-
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：1213213123123
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段 value，1. 对于自定义字段，若字段类型为单行文本/多行文本，传值格式为"这是一个文本"；2. 若字段类型为单选，传值内容为选项的 ID，格式为"6890840516938696974"；;3. 若字段类型为多选，传值内容为选项的ID 列表，格式为"[\"6890840516938696974\", \"6890840516938696975\" ]"；;4. 若字段类型为时间段，传值格式为"[\"1609430400000\", \"1612108800000\" ]"，单位是毫米级时间戳；;5. 若字段类型为年份选择，传值格式为"1609430400000"，单位是毫秒级时间戳；;6. 若字段类型为月份选择，传值格式为"1625068800000"，单位是毫秒级时间戳；;7. 若字段类型为数字，传值格式为"1";
-         * <p> 示例值：测试
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public JobRequirementCustomizedData build() {
-            return new JobRequirementCustomizedData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

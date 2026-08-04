@@ -13,90 +13,89 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ArchiveChangedV1Data {
-    /**
-     * 档案变更类型。add新增、modify更正、delete删除
-     * <p> 示例值：add
-     */
-    @SerializedName("operate_type")
-    private String operateType;
-    /**
-     * 员工 ID。查询员工薪资档案时指定user_id_type为people_corehr_id来识别用户
-     * <p> 示例值：7185121880616011308
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 生效时间
-     * <p> 示例值：2024-10-23
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 调前档案时间轴版本TID。更正、删除场景下有值
-     * <p> 示例值：7026250586485114406
-     */
-    @SerializedName("before_tid")
-    private String beforeTid;
-    /**
-     * 调后档案时间轴版本TID。新增、更正场景下有值
-     * <p> 示例值：7026250586485123406
-     */
-    @SerializedName("after_tid")
-    private String afterTid;
+  /**
+   * 档案变更类型。add新增、modify更正、delete删除
+   *
+   * <p>示例值：add
+   */
+  @SerializedName("operate_type")
+  private String operateType;
 
-    public String getOperateType() {
-        return this.operateType;
-    }
+  /**
+   * 员工 ID。;-
+   * 调用[【批量查询员工薪资档案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)接口返回员工薪资档案，需指定user_id_type为people_corehr_id来识别用户
+   *
+   * <p>示例值：7185121880616011308
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setOperateType(String operateType) {
-        this.operateType = operateType;
-    }
+  /**
+   * 生效时间;- 示例值："2022-05-10"
+   *
+   * <p>示例值：2024-10-23
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 调前档案时间轴版本Tid。更正、删除场景下有值;-
+   * 调用[【批量查询员工薪资档案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)接口返回员工薪资档案
+   *
+   * <p>示例值：7026250586485114406
+   */
+  @SerializedName("before_tid")
+  private String beforeTid;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 调后档案时间轴版本Tid。新增、更正场景下有值;-
+   * 调用[【批量查询员工薪资档案】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/archive/query)接口返回员工薪资档案
+   *
+   * <p>示例值：7026250586485123406
+   */
+  @SerializedName("after_tid")
+  private String afterTid;
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  public String getOperateType() {
+    return this.operateType;
+  }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  public void setOperateType(String operateType) {
+    this.operateType = operateType;
+  }
 
-    public String getBeforeTid() {
-        return this.beforeTid;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setBeforeTid(String beforeTid) {
-        this.beforeTid = beforeTid;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public String getAfterTid() {
-        return this.afterTid;
-    }
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
 
-    public void setAfterTid(String afterTid) {
-        this.afterTid = afterTid;
-    }
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
 
+  public String getBeforeTid() {
+    return this.beforeTid;
+  }
+
+  public void setBeforeTid(String beforeTid) {
+    this.beforeTid = beforeTid;
+  }
+
+  public String getAfterTid() {
+    return this.afterTid;
+  }
+
+  public void setAfterTid(String afterTid) {
+    this.afterTid = afterTid;
+  }
 }

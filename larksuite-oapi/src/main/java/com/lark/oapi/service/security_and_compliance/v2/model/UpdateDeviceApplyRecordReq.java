@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 
 public class UpdateDeviceApplyRecordReq {
+  /**
+   * 设备申报记录ID
+   *
+   * <p>示例值：7088763625288187923
+   */
+  @Path
+  @SerializedName("device_apply_record_id")
+  private String deviceApplyRecordId;
+
+  public String getDeviceApplyRecordId() {
+    return this.deviceApplyRecordId;
+  }
+
+  public void setDeviceApplyRecordId(String deviceApplyRecordId) {
+    this.deviceApplyRecordId = deviceApplyRecordId;
+  }
+
+  @Body private UpdateDeviceApplyRecordReqBody body;
+
+  public UpdateDeviceApplyRecordReqBody getUpdateDeviceApplyRecordReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateDeviceApplyRecordReqBody(UpdateDeviceApplyRecordReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateDeviceApplyRecordReq() {}
+
+  public UpdateDeviceApplyRecordReq(Builder builder) {
     /**
      * 设备申报记录ID
-     * <p> 示例值：7088763625288187923
+     *
+     * <p>示例值：7088763625288187923
      */
-    @Path
-    @SerializedName("device_apply_record_id")
-    private String deviceApplyRecordId;
-    @Body
+    this.deviceApplyRecordId = builder.deviceApplyRecordId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String deviceApplyRecordId; // 设备申报记录ID
+
+    /**
+     * 设备申报记录ID
+     *
+     * <p>示例值：7088763625288187923
+     *
+     * @param deviceApplyRecordId
+     * @return
+     */
+    public Builder deviceApplyRecordId(String deviceApplyRecordId) {
+      this.deviceApplyRecordId = deviceApplyRecordId;
+      return this;
+    }
+
     private UpdateDeviceApplyRecordReqBody body;
 
-    // builder 开始
-    public UpdateDeviceApplyRecordReq() {
-    }
-
-    public UpdateDeviceApplyRecordReq(Builder builder) {
-        /**
-         * 设备申报记录ID
-         * <p> 示例值：7088763625288187923
-         */
-        this.deviceApplyRecordId = builder.deviceApplyRecordId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDeviceApplyRecordId() {
-        return this.deviceApplyRecordId;
-    }
-
-    public void setDeviceApplyRecordId(String deviceApplyRecordId) {
-        this.deviceApplyRecordId = deviceApplyRecordId;
-    }
-
     public UpdateDeviceApplyRecordReqBody getUpdateDeviceApplyRecordReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateDeviceApplyRecordReqBody(UpdateDeviceApplyRecordReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateDeviceApplyRecordReqBody(UpdateDeviceApplyRecordReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String deviceApplyRecordId; // 设备申报记录ID
-        private UpdateDeviceApplyRecordReqBody body;
-
-        /**
-         * 设备申报记录ID
-         * <p> 示例值：7088763625288187923
-         *
-         * @param deviceApplyRecordId
-         * @return
-         */
-        public Builder deviceApplyRecordId(String deviceApplyRecordId) {
-            this.deviceApplyRecordId = deviceApplyRecordId;
-            return this;
-        }
-
-        public UpdateDeviceApplyRecordReqBody getUpdateDeviceApplyRecordReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateDeviceApplyRecordReqBody(UpdateDeviceApplyRecordReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateDeviceApplyRecordReq build() {
-            return new UpdateDeviceApplyRecordReq(this);
-        }
+    public UpdateDeviceApplyRecordReq build() {
+      return new UpdateDeviceApplyRecordReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

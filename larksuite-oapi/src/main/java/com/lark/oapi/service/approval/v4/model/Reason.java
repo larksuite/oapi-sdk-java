@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Reason {
+  /**
+   * 原因说明
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 附件集合
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private File[] files;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public Reason() {}
+
+  public Reason(Builder builder) {
     /**
      * 原因说明
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 附件集合
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 原因说明
+     *
+     * <p>示例值：
+     */
+    private String text;
+
+    /**
+     * 附件集合
+     *
+     * <p>示例值：
+     */
     private File[] files;
 
-    // builder 开始
-    public Reason() {
+    /**
+     * 原因说明
+     *
+     * <p>示例值：
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public Reason(Builder builder) {
-        /**
-         * 原因说明
-         * <p> 示例值：
-         */
-        this.text = builder.text;
-        /**
-         * 附件集合
-         * <p> 示例值：
-         */
-        this.files = builder.files;
+    /**
+     * 附件集合
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Reason build() {
+      return new Reason(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public File[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 原因说明
-         * <p> 示例值：
-         */
-        private String text;
-        /**
-         * 附件集合
-         * <p> 示例值：
-         */
-        private File[] files;
-
-        /**
-         * 原因说明
-         * <p> 示例值：
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 附件集合
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(File[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public Reason build() {
-            return new Reason(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

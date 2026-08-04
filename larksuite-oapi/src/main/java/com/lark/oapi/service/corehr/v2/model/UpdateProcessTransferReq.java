@@ -13,142 +13,151 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class UpdateProcessTransferReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+   * process_ids 字段获取
+   *
+   * <p>示例值：7410664363763172908
+   */
+  @Path
+  @SerializedName("process_id")
+  private String processId;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  @Body private ProcessTransfer body;
+
+  public ProcessTransfer getProcessTransfer() {
+    return this.body;
+  }
+
+  public void setProcessTransfer(ProcessTransfer body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateProcessTransferReq() {}
+
+  public UpdateProcessTransferReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 流程实例id
-     * <p> 示例值：7410664363763172908
+     * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+     * process_ids 字段获取
+     *
+     * <p>示例值：7410664363763172908
      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
-    @Body
+    this.processId = builder.processId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferOpenApproverTransferUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .UpdateProcessTransferOpenApproverTransferUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String
+        processId; // 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的 process_ids 字段获取
+
+    /**
+     * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+     * process_ids 字段获取
+     *
+     * <p>示例值：7410664363763172908
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
+    }
+
     private ProcessTransfer body;
 
-    // builder 开始
-    public UpdateProcessTransferReq() {
-    }
-
-    public UpdateProcessTransferReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 流程实例id
-         * <p> 示例值：7410664363763172908
-         */
-        this.processId = builder.processId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
     public ProcessTransfer getProcessTransfer() {
-        return this.body;
+      return this.body;
     }
 
-    public void setProcessTransfer(ProcessTransfer body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder processTransfer(ProcessTransfer body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String processId; // 流程实例id
-        private ProcessTransfer body;
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferOpenApproverTransferUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessTransferOpenApproverTransferUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 流程实例id
-         * <p> 示例值：7410664363763172908
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-        public ProcessTransfer getProcessTransfer() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder processTransfer(ProcessTransfer body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateProcessTransferReq build() {
-            return new UpdateProcessTransferReq(this);
-        }
+    public UpdateProcessTransferReq build() {
+      return new UpdateProcessTransferReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

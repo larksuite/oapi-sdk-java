@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 谁可以编辑群信息
- */
+/** 谁可以编辑群信息;;**默认值**：all_members */
 public enum CreateChatEditPermissiontypeEnum {
-    ONLY_OWNER("only_owner"), // 仅群主和管理员
-    ALL_MEMBERS("all_members"), // 所有成员
-    ;
-    private String value;
+  ONLY_OWNER("only_owner"), // 仅群主和管理员
+  ALL_MEMBERS("all_members"), // 所有成员
+  ;
+  private String value;
 
-    CreateChatEditPermissiontypeEnum(String value) {
-        this.value = value;
-    }
+  CreateChatEditPermissiontypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

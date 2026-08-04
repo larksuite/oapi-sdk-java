@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 子类型
- */
+/** 子类型 */
 public enum ProjectProjectSubTypeEnum {
-    TABLE("Table"), // 视图表格
-    CARD("Card"), // 详情卡片
-    UNDEFINED("Undefined"), // 未定义
-    ;
-    private String value;
+  TABLE("Table"), // 视图表格
+  CARD("Card"), // 详情卡片
+  UNDEFINED("Undefined"), // 未定义
+  ;
+  private String value;
 
-    ProjectProjectSubTypeEnum(String value) {
-        this.value = value;
-    }
+  ProjectProjectSubTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

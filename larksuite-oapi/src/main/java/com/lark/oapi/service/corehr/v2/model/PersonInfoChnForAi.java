@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonInfoChnForAi {
+  /**
+   * 籍贯
+   *
+   * <p>示例值：
+   */
+  @SerializedName("native_region")
+  private PreHireField nativeRegion;
+
+  /**
+   * 户口类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hukou_type")
+  private PreHireField hukouType;
+
+  /**
+   * 政治面貌
+   *
+   * <p>示例值：
+   */
+  @SerializedName("political_affiliation")
+  private PreHireField politicalAffiliation;
+
+  /**
+   * 户口所在地
+   *
+   * <p>示例值：北京市
+   */
+  @SerializedName("hukou_location")
+  private String hukouLocation;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public PreHireField getNativeRegion() {
+    return this.nativeRegion;
+  }
+
+  public void setNativeRegion(PreHireField nativeRegion) {
+    this.nativeRegion = nativeRegion;
+  }
+
+  public PreHireField getHukouType() {
+    return this.hukouType;
+  }
+
+  public void setHukouType(PreHireField hukouType) {
+    this.hukouType = hukouType;
+  }
+
+  public PreHireField getPoliticalAffiliation() {
+    return this.politicalAffiliation;
+  }
+
+  public void setPoliticalAffiliation(PreHireField politicalAffiliation) {
+    this.politicalAffiliation = politicalAffiliation;
+  }
+
+  public String getHukouLocation() {
+    return this.hukouLocation;
+  }
+
+  public void setHukouLocation(String hukouLocation) {
+    this.hukouLocation = hukouLocation;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public PersonInfoChnForAi() {}
+
+  public PersonInfoChnForAi(Builder builder) {
     /**
      * 籍贯
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("native_region")
-    private PreHireField nativeRegion;
+    this.nativeRegion = builder.nativeRegion;
     /**
      * 户口类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hukou_type")
-    private PreHireField hukouType;
+    this.hukouType = builder.hukouType;
     /**
      * 政治面貌
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("political_affiliation")
-    private PreHireField politicalAffiliation;
+    this.politicalAffiliation = builder.politicalAffiliation;
     /**
      * 户口所在地
-     * <p> 示例值：北京市
+     *
+     * <p>示例值：北京市
      */
-    @SerializedName("hukou_location")
-    private String hukouLocation;
+    this.hukouLocation = builder.hukouLocation;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 籍贯
+     *
+     * <p>示例值：
+     */
+    private PreHireField nativeRegion;
+
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField hukouType;
+
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：
+     */
+    private PreHireField politicalAffiliation;
+
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：北京市
+     */
+    private String hukouLocation;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public PersonInfoChnForAi() {
+    /**
+     * 籍贯
+     *
+     * <p>示例值：
+     *
+     * @param nativeRegion
+     * @return
+     */
+    public Builder nativeRegion(PreHireField nativeRegion) {
+      this.nativeRegion = nativeRegion;
+      return this;
     }
 
-    public PersonInfoChnForAi(Builder builder) {
-        /**
-         * 籍贯
-         * <p> 示例值：
-         */
-        this.nativeRegion = builder.nativeRegion;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        this.hukouType = builder.hukouType;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        this.politicalAffiliation = builder.politicalAffiliation;
-        /**
-         * 户口所在地
-         * <p> 示例值：北京市
-         */
-        this.hukouLocation = builder.hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     *
+     * @param hukouType
+     * @return
+     */
+    public Builder hukouType(PreHireField hukouType) {
+      this.hukouType = hukouType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：
+     *
+     * @param politicalAffiliation
+     * @return
+     */
+    public Builder politicalAffiliation(PreHireField politicalAffiliation) {
+      this.politicalAffiliation = politicalAffiliation;
+      return this;
     }
 
-    public PreHireField getNativeRegion() {
-        return this.nativeRegion;
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：北京市
+     *
+     * @param hukouLocation
+     * @return
+     */
+    public Builder hukouLocation(String hukouLocation) {
+      this.hukouLocation = hukouLocation;
+      return this;
     }
 
-    public void setNativeRegion(PreHireField nativeRegion) {
-        this.nativeRegion = nativeRegion;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public PreHireField getHukouType() {
-        return this.hukouType;
+    public PersonInfoChnForAi build() {
+      return new PersonInfoChnForAi(this);
     }
+  }
 
-    public void setHukouType(PreHireField hukouType) {
-        this.hukouType = hukouType;
-    }
-
-    public PreHireField getPoliticalAffiliation() {
-        return this.politicalAffiliation;
-    }
-
-    public void setPoliticalAffiliation(PreHireField politicalAffiliation) {
-        this.politicalAffiliation = politicalAffiliation;
-    }
-
-    public String getHukouLocation() {
-        return this.hukouLocation;
-    }
-
-    public void setHukouLocation(String hukouLocation) {
-        this.hukouLocation = hukouLocation;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 籍贯
-         * <p> 示例值：
-         */
-        private PreHireField nativeRegion;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        private PreHireField hukouType;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        private PreHireField politicalAffiliation;
-        /**
-         * 户口所在地
-         * <p> 示例值：北京市
-         */
-        private String hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 籍贯
-         * <p> 示例值：
-         *
-         * @param nativeRegion
-         * @return
-         */
-        public Builder nativeRegion(PreHireField nativeRegion) {
-            this.nativeRegion = nativeRegion;
-            return this;
-        }
-
-
-        /**
-         * 户口类型
-         * <p> 示例值：
-         *
-         * @param hukouType
-         * @return
-         */
-        public Builder hukouType(PreHireField hukouType) {
-            this.hukouType = hukouType;
-            return this;
-        }
-
-
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         *
-         * @param politicalAffiliation
-         * @return
-         */
-        public Builder politicalAffiliation(PreHireField politicalAffiliation) {
-            this.politicalAffiliation = politicalAffiliation;
-            return this;
-        }
-
-
-        /**
-         * 户口所在地
-         * <p> 示例值：北京市
-         *
-         * @param hukouLocation
-         * @return
-         */
-        public Builder hukouLocation(String hukouLocation) {
-            this.hukouLocation = hukouLocation;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public PersonInfoChnForAi build() {
-            return new PersonInfoChnForAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

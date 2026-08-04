@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiInstanceDetailExtra {
+  /**
+   * 审批实例ID
+   *
+   * <p>示例值：281946120421094712
+   */
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  // builder 开始
+  public MyAiInstanceDetailExtra() {}
+
+  public MyAiInstanceDetailExtra(Builder builder) {
     /**
      * 审批实例ID
-     * <p> 示例值：281946120421094712
+     *
+     * <p>示例值：281946120421094712
      */
-    @SerializedName("instance_id")
+    this.instanceId = builder.instanceId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例ID
+     *
+     * <p>示例值：281946120421094712
+     */
     private String instanceId;
 
-    // builder 开始
-    public MyAiInstanceDetailExtra() {
+    /**
+     * 审批实例ID
+     *
+     * <p>示例值：281946120421094712
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public MyAiInstanceDetailExtra(Builder builder) {
-        /**
-         * 审批实例ID
-         * <p> 示例值：281946120421094712
-         */
-        this.instanceId = builder.instanceId;
+    public MyAiInstanceDetailExtra build() {
+      return new MyAiInstanceDetailExtra(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getInstanceId() {
-        return this.instanceId;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例ID
-         * <p> 示例值：281946120421094712
-         */
-        private String instanceId;
-
-        /**
-         * 审批实例ID
-         * <p> 示例值：281946120421094712
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        public MyAiInstanceDetailExtra build() {
-            return new MyAiInstanceDetailExtra(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,247 +13,390 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RulemanagerTimeCodeInfo {
+  /**
+   * time_code_id
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("time_code_id")
+  private String timeCodeId;
+
+  /**
+   * time_code_group_id
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("time_code_group_id")
+  private String timeCodeGroupId;
+
+  /**
+   * 录入方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_input_way")
+  private Integer timeInputWay;
+
+  /**
+   * 单位类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("unit_type")
+  private Integer unitType;
+
+  /**
+   * 步长
+   *
+   * <p>示例值：30.00
+   */
+  @SerializedName("step")
+  private String step;
+
+  /**
+   * 默认时长
+   *
+   * <p>示例值：0.00
+   */
+  @SerializedName("default_duration")
+  private String defaultDuration;
+
+  /**
+   * 多语言展示名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display_names")
+  private I18nResource[] displayNames;
+
+  /**
+   * 多语言展示标签
+   *
+   * <p>示例值：
+   */
+  @SerializedName("labels")
+  private I18nResource[] labels;
+
+  public String getTimeCodeId() {
+    return this.timeCodeId;
+  }
+
+  public void setTimeCodeId(String timeCodeId) {
+    this.timeCodeId = timeCodeId;
+  }
+
+  public String getTimeCodeGroupId() {
+    return this.timeCodeGroupId;
+  }
+
+  public void setTimeCodeGroupId(String timeCodeGroupId) {
+    this.timeCodeGroupId = timeCodeGroupId;
+  }
+
+  public Integer getTimeInputWay() {
+    return this.timeInputWay;
+  }
+
+  public void setTimeInputWay(Integer timeInputWay) {
+    this.timeInputWay = timeInputWay;
+  }
+
+  public Integer getUnitType() {
+    return this.unitType;
+  }
+
+  public void setUnitType(Integer unitType) {
+    this.unitType = unitType;
+  }
+
+  public String getStep() {
+    return this.step;
+  }
+
+  public void setStep(String step) {
+    this.step = step;
+  }
+
+  public String getDefaultDuration() {
+    return this.defaultDuration;
+  }
+
+  public void setDefaultDuration(String defaultDuration) {
+    this.defaultDuration = defaultDuration;
+  }
+
+  public I18nResource[] getDisplayNames() {
+    return this.displayNames;
+  }
+
+  public void setDisplayNames(I18nResource[] displayNames) {
+    this.displayNames = displayNames;
+  }
+
+  public I18nResource[] getLabels() {
+    return this.labels;
+  }
+
+  public void setLabels(I18nResource[] labels) {
+    this.labels = labels;
+  }
+
+  // builder 开始
+  public RulemanagerTimeCodeInfo() {}
+
+  public RulemanagerTimeCodeInfo(Builder builder) {
+    /**
+     * time_code_id
+     *
+     * <p>示例值：12345
+     */
+    this.timeCodeId = builder.timeCodeId;
+    /**
+     * time_code_group_id
+     *
+     * <p>示例值：12345
+     */
+    this.timeCodeGroupId = builder.timeCodeGroupId;
     /**
      * 录入方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_input_way")
-    private Integer timeInputWay;
+    this.timeInputWay = builder.timeInputWay;
     /**
      * 单位类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("unit_type")
-    private Integer unitType;
+    this.unitType = builder.unitType;
     /**
      * 步长
-     * <p> 示例值：30.00
+     *
+     * <p>示例值：30.00
      */
-    @SerializedName("step")
-    private String step;
+    this.step = builder.step;
     /**
      * 默认时长
-     * <p> 示例值：0.00
+     *
+     * <p>示例值：0.00
      */
-    @SerializedName("default_duration")
-    private String defaultDuration;
+    this.defaultDuration = builder.defaultDuration;
     /**
      * 多语言展示名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("display_names")
-    private RulemanagerTimeCodeDisplayName[] displayNames;
+    this.displayNames = builder.displayNames;
+    /**
+     * 多语言展示标签
+     *
+     * <p>示例值：
+     */
+    this.labels = builder.labels;
+  }
 
-    // builder 开始
-    public RulemanagerTimeCodeInfo() {
+  public static class Builder {
+    /**
+     * time_code_id
+     *
+     * <p>示例值：12345
+     */
+    private String timeCodeId;
+
+    /**
+     * time_code_group_id
+     *
+     * <p>示例值：12345
+     */
+    private String timeCodeGroupId;
+
+    /**
+     * 录入方式
+     *
+     * <p>示例值：
+     */
+    private Integer timeInputWay;
+
+    /**
+     * 单位类型
+     *
+     * <p>示例值：
+     */
+    private Integer unitType;
+
+    /**
+     * 步长
+     *
+     * <p>示例值：30.00
+     */
+    private String step;
+
+    /**
+     * 默认时长
+     *
+     * <p>示例值：0.00
+     */
+    private String defaultDuration;
+
+    /**
+     * 多语言展示名称
+     *
+     * <p>示例值：
+     */
+    private I18nResource[] displayNames;
+
+    /**
+     * 多语言展示标签
+     *
+     * <p>示例值：
+     */
+    private I18nResource[] labels;
+
+    /**
+     * time_code_id
+     *
+     * <p>示例值：12345
+     *
+     * @param timeCodeId
+     * @return
+     */
+    public Builder timeCodeId(String timeCodeId) {
+      this.timeCodeId = timeCodeId;
+      return this;
     }
 
-    public RulemanagerTimeCodeInfo(Builder builder) {
-        /**
-         * 录入方式
-         * <p> 示例值：
-         */
-        this.timeInputWay = builder.timeInputWay;
-        /**
-         * 单位类型
-         * <p> 示例值：
-         */
-        this.unitType = builder.unitType;
-        /**
-         * 步长
-         * <p> 示例值：30.00
-         */
-        this.step = builder.step;
-        /**
-         * 默认时长
-         * <p> 示例值：0.00
-         */
-        this.defaultDuration = builder.defaultDuration;
-        /**
-         * 多语言展示名称
-         * <p> 示例值：
-         */
-        this.displayNames = builder.displayNames;
+    /**
+     * time_code_group_id
+     *
+     * <p>示例值：12345
+     *
+     * @param timeCodeGroupId
+     * @return
+     */
+    public Builder timeCodeGroupId(String timeCodeGroupId) {
+      this.timeCodeGroupId = timeCodeGroupId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 录入方式
+     *
+     * <p>示例值：
+     *
+     * @param timeInputWay
+     * @return
+     */
+    public Builder timeInputWay(Integer timeInputWay) {
+      this.timeInputWay = timeInputWay;
+      return this;
     }
 
-    public Integer getTimeInputWay() {
-        return this.timeInputWay;
+    /**
+     * 录入方式
+     *
+     * <p>示例值：
+     *
+     * @param timeInputWay {@link
+     *     com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoTimeInputWayEnum}
+     * @return
+     */
+    public Builder timeInputWay(
+        com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoTimeInputWayEnum
+            timeInputWay) {
+      this.timeInputWay = timeInputWay.getValue();
+      return this;
     }
 
-    public void setTimeInputWay(Integer timeInputWay) {
-        this.timeInputWay = timeInputWay;
+    /**
+     * 单位类型
+     *
+     * <p>示例值：
+     *
+     * @param unitType
+     * @return
+     */
+    public Builder unitType(Integer unitType) {
+      this.unitType = unitType;
+      return this;
     }
 
-    public Integer getUnitType() {
-        return this.unitType;
+    /**
+     * 单位类型
+     *
+     * <p>示例值：
+     *
+     * @param unitType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoUnitTypeEnum}
+     * @return
+     */
+    public Builder unitType(
+        com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoUnitTypeEnum unitType) {
+      this.unitType = unitType.getValue();
+      return this;
     }
 
-    public void setUnitType(Integer unitType) {
-        this.unitType = unitType;
+    /**
+     * 步长
+     *
+     * <p>示例值：30.00
+     *
+     * @param step
+     * @return
+     */
+    public Builder step(String step) {
+      this.step = step;
+      return this;
     }
 
-    public String getStep() {
-        return this.step;
+    /**
+     * 默认时长
+     *
+     * <p>示例值：0.00
+     *
+     * @param defaultDuration
+     * @return
+     */
+    public Builder defaultDuration(String defaultDuration) {
+      this.defaultDuration = defaultDuration;
+      return this;
     }
 
-    public void setStep(String step) {
-        this.step = step;
+    /**
+     * 多语言展示名称
+     *
+     * <p>示例值：
+     *
+     * @param displayNames
+     * @return
+     */
+    public Builder displayNames(I18nResource[] displayNames) {
+      this.displayNames = displayNames;
+      return this;
     }
 
-    public String getDefaultDuration() {
-        return this.defaultDuration;
+    /**
+     * 多语言展示标签
+     *
+     * <p>示例值：
+     *
+     * @param labels
+     * @return
+     */
+    public Builder labels(I18nResource[] labels) {
+      this.labels = labels;
+      return this;
     }
 
-    public void setDefaultDuration(String defaultDuration) {
-        this.defaultDuration = defaultDuration;
+    public RulemanagerTimeCodeInfo build() {
+      return new RulemanagerTimeCodeInfo(this);
     }
+  }
 
-    public RulemanagerTimeCodeDisplayName[] getDisplayNames() {
-        return this.displayNames;
-    }
-
-    public void setDisplayNames(RulemanagerTimeCodeDisplayName[] displayNames) {
-        this.displayNames = displayNames;
-    }
-
-    public static class Builder {
-        /**
-         * 录入方式
-         * <p> 示例值：
-         */
-        private Integer timeInputWay;
-        /**
-         * 单位类型
-         * <p> 示例值：
-         */
-        private Integer unitType;
-        /**
-         * 步长
-         * <p> 示例值：30.00
-         */
-        private String step;
-        /**
-         * 默认时长
-         * <p> 示例值：0.00
-         */
-        private String defaultDuration;
-        /**
-         * 多语言展示名称
-         * <p> 示例值：
-         */
-        private RulemanagerTimeCodeDisplayName[] displayNames;
-
-        /**
-         * 录入方式
-         * <p> 示例值：
-         *
-         * @param timeInputWay
-         * @return
-         */
-        public Builder timeInputWay(Integer timeInputWay) {
-            this.timeInputWay = timeInputWay;
-            return this;
-        }
-
-        /**
-         * 录入方式
-         * <p> 示例值：
-         *
-         * @param timeInputWay {@link com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoTimeInputWayEnum}
-         * @return
-         */
-        public Builder timeInputWay(com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoTimeInputWayEnum timeInputWay) {
-            this.timeInputWay = timeInputWay.getValue();
-            return this;
-        }
-
-
-        /**
-         * 单位类型
-         * <p> 示例值：
-         *
-         * @param unitType
-         * @return
-         */
-        public Builder unitType(Integer unitType) {
-            this.unitType = unitType;
-            return this;
-        }
-
-        /**
-         * 单位类型
-         * <p> 示例值：
-         *
-         * @param unitType {@link com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoUnitTypeEnum}
-         * @return
-         */
-        public Builder unitType(com.lark.oapi.service.attendance.v1.enums.RulemanagerTimeCodeInfoUnitTypeEnum unitType) {
-            this.unitType = unitType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 步长
-         * <p> 示例值：30.00
-         *
-         * @param step
-         * @return
-         */
-        public Builder step(String step) {
-            this.step = step;
-            return this;
-        }
-
-
-        /**
-         * 默认时长
-         * <p> 示例值：0.00
-         *
-         * @param defaultDuration
-         * @return
-         */
-        public Builder defaultDuration(String defaultDuration) {
-            this.defaultDuration = defaultDuration;
-            return this;
-        }
-
-
-        /**
-         * 多语言展示名称
-         * <p> 示例值：
-         *
-         * @param displayNames
-         * @return
-         */
-        public Builder displayNames(RulemanagerTimeCodeDisplayName[] displayNames) {
-            this.displayNames = displayNames;
-            return this;
-        }
-
-
-        public RulemanagerTimeCodeInfo build() {
-            return new RulemanagerTimeCodeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

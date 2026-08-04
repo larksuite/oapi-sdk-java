@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableTextValue {
+  /**
+   * 文本类型变量的值
+   *
+   * <p>示例值：文本
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FormFieldVariableTextValue() {}
+
+  public FormFieldVariableTextValue(Builder builder) {
     /**
      * 文本类型变量的值
-     * <p> 示例值：
+     *
+     * <p>示例值：文本
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 文本类型变量的值
+     *
+     * <p>示例值：文本
+     */
     private String value;
 
-    // builder 开始
-    public FormFieldVariableTextValue() {
+    /**
+     * 文本类型变量的值
+     *
+     * <p>示例值：文本
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public FormFieldVariableTextValue(Builder builder) {
-        /**
-         * 文本类型变量的值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    public FormFieldVariableTextValue build() {
+      return new FormFieldVariableTextValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 文本类型变量的值
-         * <p> 示例值：
-         */
-        private String value;
-
-        /**
-         * 文本类型变量的值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FormFieldVariableTextValue build() {
-            return new FormFieldVariableTextValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

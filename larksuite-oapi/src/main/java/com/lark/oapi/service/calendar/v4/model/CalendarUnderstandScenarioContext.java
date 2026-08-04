@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarUnderstandScenarioContext {
+  /**
+   * 会话所处的业务场景
+   *
+   * <p>示例值：IM
+   */
+  @SerializedName("scenario")
+  private String scenario;
+
+  /**
+   * 会话所处的业务模式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("work_mode")
+  private Integer workMode;
+
+  /**
+   * 透传数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private CalendarUnderstandExtra extra;
+
+  /**
+   * 系统信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("system_info")
+  private SystemInfo systemInfo;
+
+  public String getScenario() {
+    return this.scenario;
+  }
+
+  public void setScenario(String scenario) {
+    this.scenario = scenario;
+  }
+
+  public Integer getWorkMode() {
+    return this.workMode;
+  }
+
+  public void setWorkMode(Integer workMode) {
+    this.workMode = workMode;
+  }
+
+  public CalendarUnderstandExtra getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(CalendarUnderstandExtra extra) {
+    this.extra = extra;
+  }
+
+  public SystemInfo getSystemInfo() {
+    return this.systemInfo;
+  }
+
+  public void setSystemInfo(SystemInfo systemInfo) {
+    this.systemInfo = systemInfo;
+  }
+
+  // builder 开始
+  public CalendarUnderstandScenarioContext() {}
+
+  public CalendarUnderstandScenarioContext(Builder builder) {
     /**
      * 会话所处的业务场景
-     * <p> 示例值：IM
+     *
+     * <p>示例值：IM
      */
-    @SerializedName("scenario")
-    private String scenario;
+    this.scenario = builder.scenario;
     /**
      * 会话所处的业务模式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("work_mode")
-    private Integer workMode;
+    this.workMode = builder.workMode;
     /**
      * 透传数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
-    private CalendarUnderstandExtra extra;
+    this.extra = builder.extra;
     /**
      * 系统信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("system_info")
+    this.systemInfo = builder.systemInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 会话所处的业务场景
+     *
+     * <p>示例值：IM
+     */
+    private String scenario;
+
+    /**
+     * 会话所处的业务模式
+     *
+     * <p>示例值：1
+     */
+    private Integer workMode;
+
+    /**
+     * 透传数据
+     *
+     * <p>示例值：
+     */
+    private CalendarUnderstandExtra extra;
+
+    /**
+     * 系统信息
+     *
+     * <p>示例值：
+     */
     private SystemInfo systemInfo;
 
-    // builder 开始
-    public CalendarUnderstandScenarioContext() {
+    /**
+     * 会话所处的业务场景
+     *
+     * <p>示例值：IM
+     *
+     * @param scenario
+     * @return
+     */
+    public Builder scenario(String scenario) {
+      this.scenario = scenario;
+      return this;
     }
 
-    public CalendarUnderstandScenarioContext(Builder builder) {
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
-        this.scenario = builder.scenario;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
-        this.workMode = builder.workMode;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-        /**
-         * 系统信息
-         * <p> 示例值：
-         */
-        this.systemInfo = builder.systemInfo;
+    /**
+     * 会话所处的业务模式
+     *
+     * <p>示例值：1
+     *
+     * @param workMode
+     * @return
+     */
+    public Builder workMode(Integer workMode) {
+      this.workMode = workMode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 透传数据
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(CalendarUnderstandExtra extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getScenario() {
-        return this.scenario;
+    /**
+     * 系统信息
+     *
+     * <p>示例值：
+     *
+     * @param systemInfo
+     * @return
+     */
+    public Builder systemInfo(SystemInfo systemInfo) {
+      this.systemInfo = systemInfo;
+      return this;
     }
 
-    public void setScenario(String scenario) {
-        this.scenario = scenario;
+    public CalendarUnderstandScenarioContext build() {
+      return new CalendarUnderstandScenarioContext(this);
     }
+  }
 
-    public Integer getWorkMode() {
-        return this.workMode;
-    }
-
-    public void setWorkMode(Integer workMode) {
-        this.workMode = workMode;
-    }
-
-    public CalendarUnderstandExtra getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(CalendarUnderstandExtra extra) {
-        this.extra = extra;
-    }
-
-    public SystemInfo getSystemInfo() {
-        return this.systemInfo;
-    }
-
-    public void setSystemInfo(SystemInfo systemInfo) {
-        this.systemInfo = systemInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
-        private String scenario;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
-        private Integer workMode;
-        /**
-         * 透传数据
-         * <p> 示例值：
-         */
-        private CalendarUnderstandExtra extra;
-        /**
-         * 系统信息
-         * <p> 示例值：
-         */
-        private SystemInfo systemInfo;
-
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         *
-         * @param scenario
-         * @return
-         */
-        public Builder scenario(String scenario) {
-            this.scenario = scenario;
-            return this;
-        }
-
-
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         *
-         * @param workMode
-         * @return
-         */
-        public Builder workMode(Integer workMode) {
-            this.workMode = workMode;
-            return this;
-        }
-
-
-        /**
-         * 透传数据
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(CalendarUnderstandExtra extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 系统信息
-         * <p> 示例值：
-         *
-         * @param systemInfo
-         * @return
-         */
-        public Builder systemInfo(SystemInfo systemInfo) {
-            this.systemInfo = systemInfo;
-            return this;
-        }
-
-
-        public CalendarUnderstandScenarioContext build() {
-            return new CalendarUnderstandScenarioContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

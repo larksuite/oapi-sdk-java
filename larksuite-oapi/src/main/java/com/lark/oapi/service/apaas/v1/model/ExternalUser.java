@@ -13,72 +13,51 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalUser {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
+  /** 示例值： */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public ExternalUser() {}
+
+  public ExternalUser(Builder builder) {
+    /** 示例值： */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String userId;
 
-    // builder 开始
-    public ExternalUser() {
+    /**
+     * 示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ExternalUser(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    public ExternalUser build() {
+      return new ExternalUser(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public ExternalUser build() {
-            return new ExternalUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDataFieldView {
+  /**
+   * 变更前数据
+   *
+   * <p>示例值：L1
+   */
+  @SerializedName("before_value")
+  private String beforeValue;
+
+  /**
+   * 变更后数据
+   *
+   * <p>示例值：L2
+   */
+  @SerializedName("after_value")
+  private String afterValue;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：职级
+   */
+  @SerializedName("label")
+  private String label;
+
+  /**
+   * 值类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("value_type")
+  private String valueType;
+
+  /**
+   * 字段路径
+   *
+   * <p>示例值：employment.work_location
+   */
+  @SerializedName("field_path")
+  private String fieldPath;
+
+  public String getBeforeValue() {
+    return this.beforeValue;
+  }
+
+  public void setBeforeValue(String beforeValue) {
+    this.beforeValue = beforeValue;
+  }
+
+  public String getAfterValue() {
+    return this.afterValue;
+  }
+
+  public void setAfterValue(String afterValue) {
+    this.afterValue = afterValue;
+  }
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public String getValueType() {
+    return this.valueType;
+  }
+
+  public void setValueType(String valueType) {
+    this.valueType = valueType;
+  }
+
+  public String getFieldPath() {
+    return this.fieldPath;
+  }
+
+  public void setFieldPath(String fieldPath) {
+    this.fieldPath = fieldPath;
+  }
+
+  // builder 开始
+  public JobDataFieldView() {}
+
+  public JobDataFieldView(Builder builder) {
     /**
      * 变更前数据
-     * <p> 示例值：L1
+     *
+     * <p>示例值：L1
      */
-    @SerializedName("before_value")
-    private String beforeValue;
+    this.beforeValue = builder.beforeValue;
     /**
      * 变更后数据
-     * <p> 示例值：L2
+     *
+     * <p>示例值：L2
      */
-    @SerializedName("after_value")
-    private String afterValue;
+    this.afterValue = builder.afterValue;
     /**
      * 字段名称
-     * <p> 示例值：职级
+     *
+     * <p>示例值：职级
      */
-    @SerializedName("label")
-    private String label;
+    this.label = builder.label;
     /**
      * 值类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("value_type")
-    private String valueType;
+    this.valueType = builder.valueType;
     /**
      * 字段路径
-     * <p> 示例值：employment.work_location
+     *
+     * <p>示例值：employment.work_location
      */
-    @SerializedName("field_path")
+    this.fieldPath = builder.fieldPath;
+  }
+
+  public static class Builder {
+    /**
+     * 变更前数据
+     *
+     * <p>示例值：L1
+     */
+    private String beforeValue;
+
+    /**
+     * 变更后数据
+     *
+     * <p>示例值：L2
+     */
+    private String afterValue;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：职级
+     */
+    private String label;
+
+    /**
+     * 值类型
+     *
+     * <p>示例值：text
+     */
+    private String valueType;
+
+    /**
+     * 字段路径
+     *
+     * <p>示例值：employment.work_location
+     */
     private String fieldPath;
 
-    // builder 开始
-    public JobDataFieldView() {
+    /**
+     * 变更前数据
+     *
+     * <p>示例值：L1
+     *
+     * @param beforeValue
+     * @return
+     */
+    public Builder beforeValue(String beforeValue) {
+      this.beforeValue = beforeValue;
+      return this;
     }
 
-    public JobDataFieldView(Builder builder) {
-        /**
-         * 变更前数据
-         * <p> 示例值：L1
-         */
-        this.beforeValue = builder.beforeValue;
-        /**
-         * 变更后数据
-         * <p> 示例值：L2
-         */
-        this.afterValue = builder.afterValue;
-        /**
-         * 字段名称
-         * <p> 示例值：职级
-         */
-        this.label = builder.label;
-        /**
-         * 值类型
-         * <p> 示例值：text
-         */
-        this.valueType = builder.valueType;
-        /**
-         * 字段路径
-         * <p> 示例值：employment.work_location
-         */
-        this.fieldPath = builder.fieldPath;
+    /**
+     * 变更后数据
+     *
+     * <p>示例值：L2
+     *
+     * @param afterValue
+     * @return
+     */
+    public Builder afterValue(String afterValue) {
+      this.afterValue = afterValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：职级
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(String label) {
+      this.label = label;
+      return this;
     }
 
-    public String getBeforeValue() {
-        return this.beforeValue;
+    /**
+     * 值类型
+     *
+     * <p>示例值：text
+     *
+     * @param valueType
+     * @return
+     */
+    public Builder valueType(String valueType) {
+      this.valueType = valueType;
+      return this;
     }
 
-    public void setBeforeValue(String beforeValue) {
-        this.beforeValue = beforeValue;
+    /**
+     * 字段路径
+     *
+     * <p>示例值：employment.work_location
+     *
+     * @param fieldPath
+     * @return
+     */
+    public Builder fieldPath(String fieldPath) {
+      this.fieldPath = fieldPath;
+      return this;
     }
 
-    public String getAfterValue() {
-        return this.afterValue;
+    public JobDataFieldView build() {
+      return new JobDataFieldView(this);
     }
+  }
 
-    public void setAfterValue(String afterValue) {
-        this.afterValue = afterValue;
-    }
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getValueType() {
-        return this.valueType;
-    }
-
-    public void setValueType(String valueType) {
-        this.valueType = valueType;
-    }
-
-    public String getFieldPath() {
-        return this.fieldPath;
-    }
-
-    public void setFieldPath(String fieldPath) {
-        this.fieldPath = fieldPath;
-    }
-
-    public static class Builder {
-        /**
-         * 变更前数据
-         * <p> 示例值：L1
-         */
-        private String beforeValue;
-        /**
-         * 变更后数据
-         * <p> 示例值：L2
-         */
-        private String afterValue;
-        /**
-         * 字段名称
-         * <p> 示例值：职级
-         */
-        private String label;
-        /**
-         * 值类型
-         * <p> 示例值：text
-         */
-        private String valueType;
-        /**
-         * 字段路径
-         * <p> 示例值：employment.work_location
-         */
-        private String fieldPath;
-
-        /**
-         * 变更前数据
-         * <p> 示例值：L1
-         *
-         * @param beforeValue
-         * @return
-         */
-        public Builder beforeValue(String beforeValue) {
-            this.beforeValue = beforeValue;
-            return this;
-        }
-
-
-        /**
-         * 变更后数据
-         * <p> 示例值：L2
-         *
-         * @param afterValue
-         * @return
-         */
-        public Builder afterValue(String afterValue) {
-            this.afterValue = afterValue;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：职级
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(String label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 值类型
-         * <p> 示例值：text
-         *
-         * @param valueType
-         * @return
-         */
-        public Builder valueType(String valueType) {
-            this.valueType = valueType;
-            return this;
-        }
-
-
-        /**
-         * 字段路径
-         * <p> 示例值：employment.work_location
-         *
-         * @param fieldPath
-         * @return
-         */
-        public Builder fieldPath(String fieldPath) {
-            this.fieldPath = fieldPath;
-            return this;
-        }
-
-
-        public JobDataFieldView build() {
-            return new JobDataFieldView(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

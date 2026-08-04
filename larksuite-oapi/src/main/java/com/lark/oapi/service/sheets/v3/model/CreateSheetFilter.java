@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateSheetFilter {
+  /**
+   * 设置筛选的应用范围。支持以下五种写法，了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;;-
+   * `sheetId`：填写实际的工作表 ID，表示将筛选应用于整表;- `sheetId!{开始行索引}:{结束行索引}` ：填写工作表 ID 和行数区间，表示将筛选应用于整行;-
+   * `sheetId!{开始列索引}:{结束列索引}`：填写工作表 ID 和列的区间，表示将筛选应用于整列;- `sheetId!{开始单元格}:{结束单元格}`：填写工作表 ID
+   * 和单元格区间，表示将筛选应用于单元格选定的区域中;- `sheetId!{开始单元格}:{结束列索引}`：填写工作表 ID、起始单元格和结束列，表示省略结束行，使用表格的最后行作为结束行
+   *
+   * <p>示例值：8fe9d6!A1:H14
+   */
+  @SerializedName("range")
+  private String range;
+
+  /**
+   * 设置应用筛选条件的列。
+   *
+   * <p>示例值：E
+   */
+  @SerializedName("col")
+  private String col;
+
+  /**
+   * 设置筛选条件。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("condition")
+  private Condition condition;
+
+  public String getRange() {
+    return this.range;
+  }
+
+  public void setRange(String range) {
+    this.range = range;
+  }
+
+  public String getCol() {
+    return this.col;
+  }
+
+  public void setCol(String col) {
+    this.col = col;
+  }
+
+  public Condition getCondition() {
+    return this.condition;
+  }
+
+  public void setCondition(Condition condition) {
+    this.condition = condition;
+  }
+
+  // builder 开始
+  public CreateSheetFilter() {}
+
+  public CreateSheetFilter(Builder builder) {
     /**
-     * 筛选应用范围
-     * <p> 示例值：xxxxxx!C1:H14
+     * 设置筛选的应用范围。支持以下五种写法，了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;;-
+     * `sheetId`：填写实际的工作表 ID，表示将筛选应用于整表;- `sheetId!{开始行索引}:{结束行索引}` ：填写工作表 ID 和行数区间，表示将筛选应用于整行;-
+     * `sheetId!{开始列索引}:{结束列索引}`：填写工作表 ID 和列的区间，表示将筛选应用于整列;- `sheetId!{开始单元格}:{结束单元格}`：填写工作表 ID
+     * 和单元格区间，表示将筛选应用于单元格选定的区域中;- `sheetId!{开始单元格}:{结束列索引}`：填写工作表 ID、起始单元格和结束列，表示省略结束行，使用表格的最后行作为结束行
+     *
+     * <p>示例值：8fe9d6!A1:H14
      */
-    @SerializedName("range")
+    this.range = builder.range;
+    /**
+     * 设置应用筛选条件的列。
+     *
+     * <p>示例值：E
+     */
+    this.col = builder.col;
+    /**
+     * 设置筛选条件。
+     *
+     * <p>示例值：
+     */
+    this.condition = builder.condition;
+  }
+
+  public static class Builder {
+    /**
+     * 设置筛选的应用范围。支持以下五种写法，了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;;-
+     * `sheetId`：填写实际的工作表 ID，表示将筛选应用于整表;- `sheetId!{开始行索引}:{结束行索引}` ：填写工作表 ID 和行数区间，表示将筛选应用于整行;-
+     * `sheetId!{开始列索引}:{结束列索引}`：填写工作表 ID 和列的区间，表示将筛选应用于整列;- `sheetId!{开始单元格}:{结束单元格}`：填写工作表 ID
+     * 和单元格区间，表示将筛选应用于单元格选定的区域中;- `sheetId!{开始单元格}:{结束列索引}`：填写工作表 ID、起始单元格和结束列，表示省略结束行，使用表格的最后行作为结束行
+     *
+     * <p>示例值：8fe9d6!A1:H14
+     */
     private String range;
+
     /**
-     * 设置筛选条件的列
-     * <p> 示例值：E
+     * 设置应用筛选条件的列。
+     *
+     * <p>示例值：E
      */
-    @SerializedName("col")
     private String col;
+
     /**
-     * 筛选的条件
-     * <p> 示例值：
+     * 设置筛选条件。
+     *
+     * <p>示例值：
      */
-    @SerializedName("condition")
     private Condition condition;
 
-    // builder 开始
-    public CreateSheetFilter() {
+    /**
+     * 设置筛选的应用范围。支持以下五种写法，了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;;-
+     * `sheetId`：填写实际的工作表 ID，表示将筛选应用于整表;- `sheetId!{开始行索引}:{结束行索引}` ：填写工作表 ID 和行数区间，表示将筛选应用于整行;-
+     * `sheetId!{开始列索引}:{结束列索引}`：填写工作表 ID 和列的区间，表示将筛选应用于整列;- `sheetId!{开始单元格}:{结束单元格}`：填写工作表 ID
+     * 和单元格区间，表示将筛选应用于单元格选定的区域中;- `sheetId!{开始单元格}:{结束列索引}`：填写工作表 ID、起始单元格和结束列，表示省略结束行，使用表格的最后行作为结束行
+     *
+     * <p>示例值：8fe9d6!A1:H14
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(String range) {
+      this.range = range;
+      return this;
     }
 
-    public CreateSheetFilter(Builder builder) {
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!C1:H14
-         */
-        this.range = builder.range;
-        /**
-         * 设置筛选条件的列
-         * <p> 示例值：E
-         */
-        this.col = builder.col;
-        /**
-         * 筛选的条件
-         * <p> 示例值：
-         */
-        this.condition = builder.condition;
+    /**
+     * 设置应用筛选条件的列。
+     *
+     * <p>示例值：E
+     *
+     * @param col
+     * @return
+     */
+    public Builder col(String col) {
+      this.col = col;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设置筛选条件。
+     *
+     * <p>示例值：
+     *
+     * @param condition
+     * @return
+     */
+    public Builder condition(Condition condition) {
+      this.condition = condition;
+      return this;
     }
 
-    public String getRange() {
-        return this.range;
+    public CreateSheetFilter build() {
+      return new CreateSheetFilter(this);
     }
+  }
 
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public String getCol() {
-        return this.col;
-    }
-
-    public void setCol(String col) {
-        this.col = col;
-    }
-
-    public Condition getCondition() {
-        return this.condition;
-    }
-
-    public void setCondition(Condition condition) {
-        this.condition = condition;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!C1:H14
-         */
-        private String range;
-        /**
-         * 设置筛选条件的列
-         * <p> 示例值：E
-         */
-        private String col;
-        /**
-         * 筛选的条件
-         * <p> 示例值：
-         */
-        private Condition condition;
-
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!C1:H14
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(String range) {
-            this.range = range;
-            return this;
-        }
-
-
-        /**
-         * 设置筛选条件的列
-         * <p> 示例值：E
-         *
-         * @param col
-         * @return
-         */
-        public Builder col(String col) {
-            this.col = col;
-            return this;
-        }
-
-
-        /**
-         * 筛选的条件
-         * <p> 示例值：
-         *
-         * @param condition
-         * @return
-         */
-        public Builder condition(Condition condition) {
-            this.condition = condition;
-            return this;
-        }
-
-
-        public CreateSheetFilter build() {
-            return new CreateSheetFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

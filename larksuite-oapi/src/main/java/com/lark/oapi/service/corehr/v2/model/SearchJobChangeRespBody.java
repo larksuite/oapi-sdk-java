@@ -13,62 +13,86 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchJobChangeRespBody {
-    /**
-     * 员工异动列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private JobChange[] items;
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页页码
-     * <p> 示例值：6891251722631890445
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 员工异动列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private JobChange[] items;
 
-    public JobChange[] getItems() {
-        return this.items;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setItems(JobChange[] items) {
-        this.items = items;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：6891251722631890445
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 异动总数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 是否禁止导出
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reject_export")
+  private Boolean rejectExport;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public JobChange[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(JobChange[] items) {
+    this.items = items;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  public Boolean getRejectExport() {
+    return this.rejectExport;
+  }
+
+  public void setRejectExport(Boolean rejectExport) {
+    this.rejectExport = rejectExport;
+  }
 }

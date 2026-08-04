@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadCompleteAppStorageReqBody {
+  /**
+   * 上传请求 ID，可通过`分片上传文件 - 创建上传`请求获取。
+   *
+   * <p>示例值：upload_abc123xyz456
+   */
+  @SerializedName("upload_id")
+  private String uploadId;
+
+  public String getUploadId() {
+    return this.uploadId;
+  }
+
+  public void setUploadId(String uploadId) {
+    this.uploadId = uploadId;
+  }
+
+  // builder 开始
+  public UploadCompleteAppStorageReqBody() {}
+
+  public UploadCompleteAppStorageReqBody(Builder builder) {
     /**
-     * 上传请求 ID
-     * <p> 示例值：upload_abc123xyz456
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传`请求获取。
+     *
+     * <p>示例值：upload_abc123xyz456
      */
-    @SerializedName("upload_id")
+    this.uploadId = builder.uploadId;
+  }
+
+  public static class Builder {
+    /**
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传`请求获取。
+     *
+     * <p>示例值：upload_abc123xyz456
+     */
     private String uploadId;
 
-    // builder 开始
-    public UploadCompleteAppStorageReqBody() {
+    /**
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传`请求获取。
+     *
+     * <p>示例值：upload_abc123xyz456
+     *
+     * @param uploadId
+     * @return
+     */
+    public Builder uploadId(String uploadId) {
+      this.uploadId = uploadId;
+      return this;
     }
 
-    public UploadCompleteAppStorageReqBody(Builder builder) {
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         */
-        this.uploadId = builder.uploadId;
+    public UploadCompleteAppStorageReqBody build() {
+      return new UploadCompleteAppStorageReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUploadId() {
-        return this.uploadId;
-    }
-
-    public void setUploadId(String uploadId) {
-        this.uploadId = uploadId;
-    }
-
-    public static class Builder {
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         */
-        private String uploadId;
-
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         *
-         * @param uploadId
-         * @return
-         */
-        public Builder uploadId(String uploadId) {
-            this.uploadId = uploadId;
-            return this;
-        }
-
-
-        public UploadCompleteAppStorageReqBody build() {
-            return new UploadCompleteAppStorageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryExternalOfferReqBody {
+  /**
+   * 外部 Offer ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external_offer_id_list")
+  private String[] externalOfferIdList;
+
+  public String[] getExternalOfferIdList() {
+    return this.externalOfferIdList;
+  }
+
+  public void setExternalOfferIdList(String[] externalOfferIdList) {
+    this.externalOfferIdList = externalOfferIdList;
+  }
+
+  // builder 开始
+  public BatchQueryExternalOfferReqBody() {}
+
+  public BatchQueryExternalOfferReqBody(Builder builder) {
     /**
-     * 外部 Offer ID列表,当传递此值时,以此值为准
-     * <p> 示例值：
+     * 外部 Offer ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("external_offer_id_list")
+    this.externalOfferIdList = builder.externalOfferIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 外部 Offer ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
+     */
     private String[] externalOfferIdList;
 
-    // builder 开始
-    public BatchQueryExternalOfferReqBody() {
+    /**
+     * 外部 Offer ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
+     *
+     * @param externalOfferIdList
+     * @return
+     */
+    public Builder externalOfferIdList(String[] externalOfferIdList) {
+      this.externalOfferIdList = externalOfferIdList;
+      return this;
     }
 
-    public BatchQueryExternalOfferReqBody(Builder builder) {
-        /**
-         * 外部 Offer ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         */
-        this.externalOfferIdList = builder.externalOfferIdList;
+    public BatchQueryExternalOfferReqBody build() {
+      return new BatchQueryExternalOfferReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getExternalOfferIdList() {
-        return this.externalOfferIdList;
-    }
-
-    public void setExternalOfferIdList(String[] externalOfferIdList) {
-        this.externalOfferIdList = externalOfferIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 外部 Offer ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         */
-        private String[] externalOfferIdList;
-
-        /**
-         * 外部 Offer ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         *
-         * @param externalOfferIdList
-         * @return
-         */
-        public Builder externalOfferIdList(String[] externalOfferIdList) {
-            this.externalOfferIdList = externalOfferIdList;
-            return this;
-        }
-
-
-        public BatchQueryExternalOfferReqBody build() {
-            return new BatchQueryExternalOfferReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

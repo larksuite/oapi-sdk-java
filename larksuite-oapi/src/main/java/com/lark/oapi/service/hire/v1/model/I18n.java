@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
+  /**
+   * 中文名称
+   *
+   * <p>示例值：985
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 英文名称
+   *
+   * <p>示例值：985
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public I18n() {}
+
+  public I18n(Builder builder) {
     /**
-     * 中文
-     * <p> 示例值：测试
+     * 中文名称
+     *
+     * <p>示例值：985
      */
-    @SerializedName("zh_cn")
+    this.zhCn = builder.zhCn;
+    /**
+     * 英文名称
+     *
+     * <p>示例值：985
+     */
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * 中文名称
+     *
+     * <p>示例值：985
+     */
     private String zhCn;
+
     /**
-     * 英文
-     * <p> 示例值：test
+     * 英文名称
+     *
+     * <p>示例值：985
      */
-    @SerializedName("en_us")
     private String enUs;
 
-    // builder 开始
-    public I18n() {
+    /**
+     * 中文名称
+     *
+     * <p>示例值：985
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public I18n(Builder builder) {
-        /**
-         * 中文
-         * <p> 示例值：测试
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文
-         * <p> 示例值：test
-         */
-        this.enUs = builder.enUs;
+    /**
+     * 英文名称
+     *
+     * <p>示例值：985
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18n build() {
+      return new I18n(this);
     }
+  }
 
-    public String getZhCn() {
-        return this.zhCn;
-    }
-
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * 中文
-         * <p> 示例值：测试
-         */
-        private String zhCn;
-        /**
-         * 英文
-         * <p> 示例值：test
-         */
-        private String enUs;
-
-        /**
-         * 中文
-         * <p> 示例值：测试
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 英文
-         * <p> 示例值：test
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public I18n build() {
-            return new I18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

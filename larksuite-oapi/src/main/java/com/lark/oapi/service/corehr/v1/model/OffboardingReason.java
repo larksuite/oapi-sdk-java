@@ -13,260 +13,277 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OffboardingReason {
+  /**
+   * 离职原因唯一标识，可用于开放平台[操作员工离职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit)、[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)等接口入参中的离职原因。
+   *
+   * <p>示例值：reason_for_offboarding_option8
+   */
+  @SerializedName("offboarding_reason_unique_identifier")
+  private String offboardingReasonUniqueIdentifier;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 是否启用，可选项有：;;- true;- false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 当前离职原因的父级原因唯一标识
+   *
+   * <p>示例值：offboarding_reason_1
+   */
+  @SerializedName("parent_offboarding_reason_unique_identifier")
+  private String parentOffboardingReasonUniqueIdentifier;
+
+  /**
+   * 创建时间，格式："YYYY-MM-DD HH-mm-ss"
+   *
+   * <p>示例值：2021-08-20 20:28:23
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 更新时间，格式："YYYY-MM-DD HH-mm-ss"
+   *
+   * <p>示例值：2022-01-07 17:21:06
+   */
+  @SerializedName("updated_time")
+  private String updatedTime;
+
+  public String getOffboardingReasonUniqueIdentifier() {
+    return this.offboardingReasonUniqueIdentifier;
+  }
+
+  public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
+    this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getParentOffboardingReasonUniqueIdentifier() {
+    return this.parentOffboardingReasonUniqueIdentifier;
+  }
+
+  public void setParentOffboardingReasonUniqueIdentifier(
+      String parentOffboardingReasonUniqueIdentifier) {
+    this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getUpdatedTime() {
+    return this.updatedTime;
+  }
+
+  public void setUpdatedTime(String updatedTime) {
+    this.updatedTime = updatedTime;
+  }
+
+  // builder 开始
+  public OffboardingReason() {}
+
+  public OffboardingReason(Builder builder) {
     /**
-     * 离职原因唯一标识
-     * <p> 示例值：reason_for_offboarding_option8
+     * 离职原因唯一标识，可用于开放平台[操作员工离职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit)、[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)等接口入参中的离职原因。
+     *
+     * <p>示例值：reason_for_offboarding_option8
      */
-    @SerializedName("offboarding_reason_unique_identifier")
-    private String offboardingReasonUniqueIdentifier;
+    this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
-     * 是否启用，true为启用
-     * <p> 示例值：true
+     * 是否启用，可选项有：;;- true;- false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 当前离职原因的父级原因唯一标识
-     * <p> 示例值：offboarding_reason_1
+     *
+     * <p>示例值：offboarding_reason_1
      */
-    @SerializedName("parent_offboarding_reason_unique_identifier")
+    this.parentOffboardingReasonUniqueIdentifier = builder.parentOffboardingReasonUniqueIdentifier;
+    /**
+     * 创建时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2021-08-20 20:28:23
+     */
+    this.createdTime = builder.createdTime;
+    /**
+     * 更新时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2022-01-07 17:21:06
+     */
+    this.updatedTime = builder.updatedTime;
+  }
+
+  public static class Builder {
+    /**
+     * 离职原因唯一标识，可用于开放平台[操作员工离职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit)、[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)等接口入参中的离职原因。
+     *
+     * <p>示例值：reason_for_offboarding_option8
+     */
+    private String offboardingReasonUniqueIdentifier;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 是否启用，可选项有：;;- true;- false
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 当前离职原因的父级原因唯一标识
+     *
+     * <p>示例值：offboarding_reason_1
+     */
     private String parentOffboardingReasonUniqueIdentifier;
+
     /**
-     * 创建时间
-     * <p> 示例值：2021-08-20 20:28:23
+     * 创建时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2021-08-20 20:28:23
      */
-    @SerializedName("created_time")
     private String createdTime;
+
     /**
-     * 更新时间
-     * <p> 示例值：2022-01-07 17:21:06
+     * 更新时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2022-01-07 17:21:06
      */
-    @SerializedName("updated_time")
     private String updatedTime;
 
-    // builder 开始
-    public OffboardingReason() {
+    /**
+     * 离职原因唯一标识，可用于开放平台[操作员工离职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit)、[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)等接口入参中的离职原因。
+     *
+     * <p>示例值：reason_for_offboarding_option8
+     *
+     * @param offboardingReasonUniqueIdentifier
+     * @return
+     */
+    public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
+      this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+      return this;
     }
 
-    public OffboardingReason(Builder builder) {
-        /**
-         * 离职原因唯一标识
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用，true为启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 当前离职原因的父级原因唯一标识
-         * <p> 示例值：offboarding_reason_1
-         */
-        this.parentOffboardingReasonUniqueIdentifier = builder.parentOffboardingReasonUniqueIdentifier;
-        /**
-         * 创建时间
-         * <p> 示例值：2021-08-20 20:28:23
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2022-01-07 17:21:06
-         */
-        this.updatedTime = builder.updatedTime;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用，可选项有：;;- true;- false
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getOffboardingReasonUniqueIdentifier() {
-        return this.offboardingReasonUniqueIdentifier;
+    /**
+     * 当前离职原因的父级原因唯一标识
+     *
+     * <p>示例值：offboarding_reason_1
+     *
+     * @param parentOffboardingReasonUniqueIdentifier
+     * @return
+     */
+    public Builder parentOffboardingReasonUniqueIdentifier(
+        String parentOffboardingReasonUniqueIdentifier) {
+      this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
+      return this;
     }
 
-    public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-        this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+    /**
+     * 创建时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2021-08-20 20:28:23
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 更新时间，格式："YYYY-MM-DD HH-mm-ss"
+     *
+     * <p>示例值：2022-01-07 17:21:06
+     *
+     * @param updatedTime
+     * @return
+     */
+    public Builder updatedTime(String updatedTime) {
+      this.updatedTime = updatedTime;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    public OffboardingReason build() {
+      return new OffboardingReason(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getParentOffboardingReasonUniqueIdentifier() {
-        return this.parentOffboardingReasonUniqueIdentifier;
-    }
-
-    public void setParentOffboardingReasonUniqueIdentifier(String parentOffboardingReasonUniqueIdentifier) {
-        this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getUpdatedTime() {
-        return this.updatedTime;
-    }
-
-    public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public static class Builder {
-        /**
-         * 离职原因唯一标识
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        private String offboardingReasonUniqueIdentifier;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 是否启用，true为启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 当前离职原因的父级原因唯一标识
-         * <p> 示例值：offboarding_reason_1
-         */
-        private String parentOffboardingReasonUniqueIdentifier;
-        /**
-         * 创建时间
-         * <p> 示例值：2021-08-20 20:28:23
-         */
-        private String createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：2022-01-07 17:21:06
-         */
-        private String updatedTime;
-
-        /**
-         * 离职原因唯一标识
-         * <p> 示例值：reason_for_offboarding_option8
-         *
-         * @param offboardingReasonUniqueIdentifier
-         * @return
-         */
-        public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-            this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用，true为启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 当前离职原因的父级原因唯一标识
-         * <p> 示例值：offboarding_reason_1
-         *
-         * @param parentOffboardingReasonUniqueIdentifier
-         * @return
-         */
-        public Builder parentOffboardingReasonUniqueIdentifier(String parentOffboardingReasonUniqueIdentifier) {
-            this.parentOffboardingReasonUniqueIdentifier = parentOffboardingReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：2021-08-20 20:28:23
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：2022-01-07 17:21:06
-         *
-         * @param updatedTime
-         * @return
-         */
-        public Builder updatedTime(String updatedTime) {
-            this.updatedTime = updatedTime;
-            return this;
-        }
-
-
-        public OffboardingReason build() {
-            return new OffboardingReason(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

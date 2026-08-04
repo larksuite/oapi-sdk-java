@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyKnowledgeDocs {
+  /**
+   * 标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 飞书云文档类型。
+   *
+   * <p>示例值：wiki
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 飞书云文档标识
+   *
+   * <p>示例值：HJ92bMoEWaGitvs2Hudc6abcdef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：https://xxx.feishu.cn/base/HJ92bMoEWaGitvs2Hudc6abcdef
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public AilyKnowledgeDocs() {}
+
+  public AilyKnowledgeDocs(Builder builder) {
     /**
      * 标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 飞书云文档类型
-     * <p> 示例值：docx
+     * 飞书云文档类型。
+     *
+     * <p>示例值：wiki
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 飞书云文档标识
-     * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
+     *
+     * <p>示例值：HJ92bMoEWaGitvs2Hudc6abcdef
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 链接
-     * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
+     *
+     * <p>示例值：https://xxx.feishu.cn/base/HJ92bMoEWaGitvs2Hudc6abcdef
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 标题
+     *
+     * <p>示例值：title
+     */
+    private String title;
+
+    /**
+     * 飞书云文档类型。
+     *
+     * <p>示例值：wiki
+     */
+    private String type;
+
+    /**
+     * 飞书云文档标识
+     *
+     * <p>示例值：HJ92bMoEWaGitvs2Hudc6abcdef
+     */
+    private String token;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：https://xxx.feishu.cn/base/HJ92bMoEWaGitvs2Hudc6abcdef
+     */
     private String url;
 
-    // builder 开始
-    public AilyKnowledgeDocs() {
+    /**
+     * 标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public AilyKnowledgeDocs(Builder builder) {
-        /**
-         * 标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 飞书云文档类型
-         * <p> 示例值：docx
-         */
-        this.type = builder.type;
-        /**
-         * 飞书云文档标识
-         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
-         */
-        this.token = builder.token;
-        /**
-         * 链接
-         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
-         */
-        this.url = builder.url;
+    /**
+     * 飞书云文档类型。
+     *
+     * <p>示例值：wiki
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 飞书云文档类型。
+     *
+     * <p>示例值：wiki
+     *
+     * @param type {@link com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 飞书云文档标识
+     *
+     * <p>示例值：HJ92bMoEWaGitvs2Hudc6abcdef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 链接
+     *
+     * <p>示例值：https://xxx.feishu.cn/base/HJ92bMoEWaGitvs2Hudc6abcdef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public AilyKnowledgeDocs build() {
+      return new AilyKnowledgeDocs(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 飞书云文档类型
-         * <p> 示例值：docx
-         */
-        private String type;
-        /**
-         * 飞书云文档标识
-         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
-         */
-        private String token;
-        /**
-         * 链接
-         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
-         */
-        private String url;
-
-        /**
-         * 标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 飞书云文档类型
-         * <p> 示例值：docx
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 飞书云文档类型
-         * <p> 示例值：docx
-         *
-         * @param type {@link com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.aily.v1.enums.AilyKnowledgeDocsTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 飞书云文档标识
-         * <p> 示例值：NWicfaD1Rlp2utdR0zycOabcdef
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：https://feishu.cn/docx/NWicfaD1Rlp2utdR0zycOabcdef
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public AilyKnowledgeDocs build() {
-            return new AilyKnowledgeDocs(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

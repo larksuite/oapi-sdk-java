@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NoticePeriodDetail {
+  /**
+   * ID
+   *
+   * <p>示例值：4698019107896524633
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 数值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("value")
+  private Integer value;
+
+  /**
+   * 单位
+   *
+   * <p>示例值：月
+   */
+  @SerializedName("value_unit")
+  private String valueUnit;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public Integer getValue() {
+    return this.value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  public String getValueUnit() {
+    return this.valueUnit;
+  }
+
+  public void setValueUnit(String valueUnit) {
+    this.valueUnit = valueUnit;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public NoticePeriodDetail() {}
+
+  public NoticePeriodDetail(Builder builder) {
     /**
      * ID
-     * <p> 示例值：4698019107896524633
+     *
+     * <p>示例值：4698019107896524633
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 数值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("value")
-    private Integer value;
+    this.value = builder.value;
     /**
      * 单位
-     * <p> 示例值：月
+     *
+     * <p>示例值：月
      */
-    @SerializedName("value_unit")
-    private String valueUnit;
+    this.valueUnit = builder.valueUnit;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：4698019107896524633
+     */
+    private String wkId;
+
+    /**
+     * 数值
+     *
+     * <p>示例值：1
+     */
+    private Integer value;
+
+    /**
+     * 单位
+     *
+     * <p>示例值：月
+     */
+    private String valueUnit;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public NoticePeriodDetail() {
+    /**
+     * ID
+     *
+     * <p>示例值：4698019107896524633
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public NoticePeriodDetail(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：4698019107896524633
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 数值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-        /**
-         * 单位
-         * <p> 示例值：月
-         */
-        this.valueUnit = builder.valueUnit;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 数值
+     *
+     * <p>示例值：1
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(Integer value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 单位
+     *
+     * <p>示例值：月
+     *
+     * @param valueUnit
+     * @return
+     */
+    public Builder valueUnit(String valueUnit) {
+      this.valueUnit = valueUnit;
+      return this;
     }
 
-    public String getWkId() {
-        return this.wkId;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
+    public NoticePeriodDetail build() {
+      return new NoticePeriodDetail(this);
     }
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
-    public String getValueUnit() {
-        return this.valueUnit;
-    }
-
-    public void setValueUnit(String valueUnit) {
-        this.valueUnit = valueUnit;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：4698019107896524633
-         */
-        private String wkId;
-        /**
-         * 数值
-         * <p> 示例值：1
-         */
-        private Integer value;
-        /**
-         * 单位
-         * <p> 示例值：月
-         */
-        private String valueUnit;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * ID
-         * <p> 示例值：4698019107896524633
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 数值
-         * <p> 示例值：1
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(Integer value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 单位
-         * <p> 示例值：月
-         *
-         * @param valueUnit
-         * @return
-         */
-        public Builder valueUnit(String valueUnit) {
-            this.valueUnit = valueUnit;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public NoticePeriodDetail build() {
-            return new NoticePeriodDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,249 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Template {
+  /**
+   * 环节模板 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 环节类型;;枚举值： ;- `summarize_key_outputs`: 工作总结环节;- `review`: 评估型环节;-
+   * `communication_and_open_result`: 结果沟通环节;- `view_result`: 绩效结果查看环节;- `calibration`: 校准环节;-
+   * `reconsideration`: 结果复议环节
+   *
+   * <p>示例值：leader_review
+   */
+  @SerializedName("stage_type")
+  private String stageType;
+
+  /**
+   * 评估型环节的执行人角色;;枚举值：;- `reviewee`: 被评估人;- `invited_reviewer`: 360°评估人;- `solid_line_leader`:
+   * 实线上级;- `dotted_line_leader`: 虚线上级;- `secondary_solid_line_leader`: 第二实线上级;-
+   * `direct_project_leader`: 项目直属上级;- `custom_review_role`:自定义评估角色
+   *
+   * <p>示例值：reviewee
+   */
+  @SerializedName("review_stage_role")
+  private String reviewStageRole;
+
+  /**
+   * 评估型环节评估模式
+   *
+   * <p>示例值：cooperate,independent
+   */
+  @SerializedName("review_stage_data_write_mode")
+  private String reviewStageDataWriteMode;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getStageType() {
+    return this.stageType;
+  }
+
+  public void setStageType(String stageType) {
+    this.stageType = stageType;
+  }
+
+  public String getReviewStageRole() {
+    return this.reviewStageRole;
+  }
+
+  public void setReviewStageRole(String reviewStageRole) {
+    this.reviewStageRole = reviewStageRole;
+  }
+
+  public String getReviewStageDataWriteMode() {
+    return this.reviewStageDataWriteMode;
+  }
+
+  public void setReviewStageDataWriteMode(String reviewStageDataWriteMode) {
+    this.reviewStageDataWriteMode = reviewStageDataWriteMode;
+  }
+
+  // builder 开始
+  public Template() {}
+
+  public Template(Builder builder) {
     /**
      * 环节模板 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
-     * 环节模板对应的环节名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 环节类型
-     * <p> 示例值：leader_review
+     * 环节类型;;枚举值： ;- `summarize_key_outputs`: 工作总结环节;- `review`: 评估型环节;-
+     * `communication_and_open_result`: 结果沟通环节;- `view_result`: 绩效结果查看环节;- `calibration`: 校准环节;-
+     * `reconsideration`: 结果复议环节
+     *
+     * <p>示例值：leader_review
      */
-    @SerializedName("stage_type")
-    private String stageType;
+    this.stageType = builder.stageType;
     /**
-     * 环节执行角色
-     * <p> 示例值：reviewee
+     * 评估型环节的执行人角色;;枚举值：;- `reviewee`: 被评估人;- `invited_reviewer`: 360°评估人;- `solid_line_leader`:
+     * 实线上级;- `dotted_line_leader`: 虚线上级;- `secondary_solid_line_leader`: 第二实线上级;-
+     * `direct_project_leader`: 项目直属上级;- `custom_review_role`:自定义评估角色
+     *
+     * <p>示例值：reviewee
      */
-    @SerializedName("review_stage_role")
-    private String reviewStageRole;
+    this.reviewStageRole = builder.reviewStageRole;
     /**
      * 评估型环节评估模式
-     * <p> 示例值：cooperate,independent
+     *
+     * <p>示例值：cooperate,independent
      */
-    @SerializedName("review_stage_data_write_mode")
+    this.reviewStageDataWriteMode = builder.reviewStageDataWriteMode;
+  }
+
+  public static class Builder {
+    /**
+     * 环节模板 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String templateId;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 环节类型;;枚举值： ;- `summarize_key_outputs`: 工作总结环节;- `review`: 评估型环节;-
+     * `communication_and_open_result`: 结果沟通环节;- `view_result`: 绩效结果查看环节;- `calibration`: 校准环节;-
+     * `reconsideration`: 结果复议环节
+     *
+     * <p>示例值：leader_review
+     */
+    private String stageType;
+
+    /**
+     * 评估型环节的执行人角色;;枚举值：;- `reviewee`: 被评估人;- `invited_reviewer`: 360°评估人;- `solid_line_leader`:
+     * 实线上级;- `dotted_line_leader`: 虚线上级;- `secondary_solid_line_leader`: 第二实线上级;-
+     * `direct_project_leader`: 项目直属上级;- `custom_review_role`:自定义评估角色
+     *
+     * <p>示例值：reviewee
+     */
+    private String reviewStageRole;
+
+    /**
+     * 评估型环节评估模式
+     *
+     * <p>示例值：cooperate,independent
+     */
     private String reviewStageDataWriteMode;
 
-    // builder 开始
-    public Template() {
+    /**
+     * 环节模板 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public Template(Builder builder) {
-        /**
-         * 环节模板 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 环节模板对应的环节名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 环节执行角色
-         * <p> 示例值：reviewee
-         */
-        this.reviewStageRole = builder.reviewStageRole;
-        /**
-         * 评估型环节评估模式
-         * <p> 示例值：cooperate,independent
-         */
-        this.reviewStageDataWriteMode = builder.reviewStageDataWriteMode;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节类型;;枚举值： ;- `summarize_key_outputs`: 工作总结环节;- `review`: 评估型环节;-
+     * `communication_and_open_result`: 结果沟通环节;- `view_result`: 绩效结果查看环节;- `calibration`: 校准环节;-
+     * `reconsideration`: 结果复议环节
+     *
+     * <p>示例值：leader_review
+     *
+     * @param stageType
+     * @return
+     */
+    public Builder stageType(String stageType) {
+      this.stageType = stageType;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 评估型环节的执行人角色;;枚举值：;- `reviewee`: 被评估人;- `invited_reviewer`: 360°评估人;- `solid_line_leader`:
+     * 实线上级;- `dotted_line_leader`: 虚线上级;- `secondary_solid_line_leader`: 第二实线上级;-
+     * `direct_project_leader`: 项目直属上级;- `custom_review_role`:自定义评估角色
+     *
+     * <p>示例值：reviewee
+     *
+     * @param reviewStageRole
+     * @return
+     */
+    public Builder reviewStageRole(String reviewStageRole) {
+      this.reviewStageRole = reviewStageRole;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 评估型环节评估模式
+     *
+     * <p>示例值：cooperate,independent
+     *
+     * @param reviewStageDataWriteMode
+     * @return
+     */
+    public Builder reviewStageDataWriteMode(String reviewStageDataWriteMode) {
+      this.reviewStageDataWriteMode = reviewStageDataWriteMode;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    public Template build() {
+      return new Template(this);
     }
+  }
 
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getStageType() {
-        return this.stageType;
-    }
-
-    public void setStageType(String stageType) {
-        this.stageType = stageType;
-    }
-
-    public String getReviewStageRole() {
-        return this.reviewStageRole;
-    }
-
-    public void setReviewStageRole(String reviewStageRole) {
-        this.reviewStageRole = reviewStageRole;
-    }
-
-    public String getReviewStageDataWriteMode() {
-        return this.reviewStageDataWriteMode;
-    }
-
-    public void setReviewStageDataWriteMode(String reviewStageDataWriteMode) {
-        this.reviewStageDataWriteMode = reviewStageDataWriteMode;
-    }
-
-    public static class Builder {
-        /**
-         * 环节模板 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String templateId;
-        /**
-         * 环节模板对应的环节名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        private String stageType;
-        /**
-         * 环节执行角色
-         * <p> 示例值：reviewee
-         */
-        private String reviewStageRole;
-        /**
-         * 评估型环节评估模式
-         * <p> 示例值：cooperate,independent
-         */
-        private String reviewStageDataWriteMode;
-
-        /**
-         * 环节模板 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 环节模板对应的环节名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         *
-         * @param stageType
-         * @return
-         */
-        public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
-        }
-
-
-        /**
-         * 环节执行角色
-         * <p> 示例值：reviewee
-         *
-         * @param reviewStageRole
-         * @return
-         */
-        public Builder reviewStageRole(String reviewStageRole) {
-            this.reviewStageRole = reviewStageRole;
-            return this;
-        }
-
-
-        /**
-         * 评估型环节评估模式
-         * <p> 示例值：cooperate,independent
-         *
-         * @param reviewStageDataWriteMode
-         * @return
-         */
-        public Builder reviewStageDataWriteMode(String reviewStageDataWriteMode) {
-            this.reviewStageDataWriteMode = reviewStageDataWriteMode;
-            return this;
-        }
-
-
-        public Template build() {
-            return new Template(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

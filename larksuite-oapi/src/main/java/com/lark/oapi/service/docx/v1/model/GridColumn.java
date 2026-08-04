@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GridColumn {
+  /**
+   * 当前分栏列占整个分栏的比例，单位 %
+   *
+   * <p>示例值：50
+   */
+  @SerializedName("width_ratio")
+  private Integer widthRatio;
+
+  public Integer getWidthRatio() {
+    return this.widthRatio;
+  }
+
+  public void setWidthRatio(Integer widthRatio) {
+    this.widthRatio = widthRatio;
+  }
+
+  // builder 开始
+  public GridColumn() {}
+
+  public GridColumn(Builder builder) {
     /**
-     * 当前分栏列占整个分栏的比例
-     * <p> 示例值：50
+     * 当前分栏列占整个分栏的比例，单位 %
+     *
+     * <p>示例值：50
      */
-    @SerializedName("width_ratio")
+    this.widthRatio = builder.widthRatio;
+  }
+
+  public static class Builder {
+    /**
+     * 当前分栏列占整个分栏的比例，单位 %
+     *
+     * <p>示例值：50
+     */
     private Integer widthRatio;
 
-    // builder 开始
-    public GridColumn() {
+    /**
+     * 当前分栏列占整个分栏的比例，单位 %
+     *
+     * <p>示例值：50
+     *
+     * @param widthRatio
+     * @return
+     */
+    public Builder widthRatio(Integer widthRatio) {
+      this.widthRatio = widthRatio;
+      return this;
     }
 
-    public GridColumn(Builder builder) {
-        /**
-         * 当前分栏列占整个分栏的比例
-         * <p> 示例值：50
-         */
-        this.widthRatio = builder.widthRatio;
+    public GridColumn build() {
+      return new GridColumn(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getWidthRatio() {
-        return this.widthRatio;
-    }
-
-    public void setWidthRatio(Integer widthRatio) {
-        this.widthRatio = widthRatio;
-    }
-
-    public static class Builder {
-        /**
-         * 当前分栏列占整个分栏的比例
-         * <p> 示例值：50
-         */
-        private Integer widthRatio;
-
-        /**
-         * 当前分栏列占整个分栏的比例
-         * <p> 示例值：50
-         *
-         * @param widthRatio
-         * @return
-         */
-        public Builder widthRatio(Integer widthRatio) {
-            this.widthRatio = widthRatio;
-            return this;
-        }
-
-
-        public GridColumn build() {
-            return new GridColumn(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

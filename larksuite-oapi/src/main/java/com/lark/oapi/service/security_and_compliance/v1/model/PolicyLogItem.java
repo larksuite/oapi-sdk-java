@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PolicyLogItem {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 操作
+   *
+   * <p>示例值：Access
+   */
+  @SerializedName("action")
+  private String action;
+
+  /**
+   * 场景
+   *
+   * <p>示例值：飞书
+   */
+  @SerializedName("resource")
+  private String resource;
+
+  /**
+   * 命中时间
+   *
+   * <p>示例值：1668700799000
+   */
+  @SerializedName("event_time")
+  private String eventTime;
+
+  /**
+   * 条件
+   *
+   * <p>示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
+   */
+  @SerializedName("condition")
+  private String condition;
+
+  /**
+   * 策略信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("policy_infos")
+  private PolicyEntity[] policyInfos;
+
+  /**
+   * 系统执行动作
+   *
+   * <p>示例值：DENY_WITHOUT_APPROVAL
+   */
+  @SerializedName("system_action")
+  private String systemAction;
+
+  /**
+   * 命中的内容信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hit_contents")
+  private HitContent[] hitContents;
+
+  /**
+   * 证据详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("proof_details")
+  private ProofContentDetail[] proofDetails;
+
+  /**
+   * 命中的检测规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("detect_rules")
+  private DetectRule[] detectRules;
+
+  /**
+   * 管控场景的资源属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resource_attributes")
+  private ResourceAttribute[] resourceAttributes;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getAction() {
+    return this.action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public String getResource() {
+    return this.resource;
+  }
+
+  public void setResource(String resource) {
+    this.resource = resource;
+  }
+
+  public String getEventTime() {
+    return this.eventTime;
+  }
+
+  public void setEventTime(String eventTime) {
+    this.eventTime = eventTime;
+  }
+
+  public String getCondition() {
+    return this.condition;
+  }
+
+  public void setCondition(String condition) {
+    this.condition = condition;
+  }
+
+  public PolicyEntity[] getPolicyInfos() {
+    return this.policyInfos;
+  }
+
+  public void setPolicyInfos(PolicyEntity[] policyInfos) {
+    this.policyInfos = policyInfos;
+  }
+
+  public String getSystemAction() {
+    return this.systemAction;
+  }
+
+  public void setSystemAction(String systemAction) {
+    this.systemAction = systemAction;
+  }
+
+  public HitContent[] getHitContents() {
+    return this.hitContents;
+  }
+
+  public void setHitContents(HitContent[] hitContents) {
+    this.hitContents = hitContents;
+  }
+
+  public ProofContentDetail[] getProofDetails() {
+    return this.proofDetails;
+  }
+
+  public void setProofDetails(ProofContentDetail[] proofDetails) {
+    this.proofDetails = proofDetails;
+  }
+
+  public DetectRule[] getDetectRules() {
+    return this.detectRules;
+  }
+
+  public void setDetectRules(DetectRule[] detectRules) {
+    this.detectRules = detectRules;
+  }
+
+  public ResourceAttribute[] getResourceAttributes() {
+    return this.resourceAttributes;
+  }
+
+  public void setResourceAttributes(ResourceAttribute[] resourceAttributes) {
+    this.resourceAttributes = resourceAttributes;
+  }
+
+  // builder 开始
+  public PolicyLogItem() {}
+
+  public PolicyLogItem(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
      * 操作
-     * <p> 示例值：Access
+     *
+     * <p>示例值：Access
      */
-    @SerializedName("action")
-    private String action;
+    this.action = builder.action;
     /**
      * 场景
-     * <p> 示例值：飞书
+     *
+     * <p>示例值：飞书
      */
-    @SerializedName("resource")
-    private String resource;
+    this.resource = builder.resource;
     /**
      * 命中时间
-     * <p> 示例值：1668700799000
+     *
+     * <p>示例值：1668700799000
      */
-    @SerializedName("event_time")
-    private String eventTime;
+    this.eventTime = builder.eventTime;
     /**
      * 条件
-     * <p> 示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
+     *
+     * <p>示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
      */
-    @SerializedName("condition")
-    private String condition;
+    this.condition = builder.condition;
     /**
      * 策略信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("policy_infos")
-    private PolicyEntity[] policyInfos;
+    this.policyInfos = builder.policyInfos;
     /**
      * 系统执行动作
-     * <p> 示例值：DENY_WITHOUT_APPROVAL
+     *
+     * <p>示例值：DENY_WITHOUT_APPROVAL
      */
-    @SerializedName("system_action")
-    private String systemAction;
+    this.systemAction = builder.systemAction;
     /**
      * 命中的内容信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hit_contents")
-    private HitContent[] hitContents;
+    this.hitContents = builder.hitContents;
     /**
      * 证据详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("proof_details")
-    private ProofContentDetail[] proofDetails;
+    this.proofDetails = builder.proofDetails;
     /**
      * 命中的检测规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("detect_rules")
-    private DetectRule[] detectRules;
+    this.detectRules = builder.detectRules;
     /**
      * 管控场景的资源属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resource_attributes")
+    this.resourceAttributes = builder.resourceAttributes;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 用户名
+     *
+     * <p>示例值：张三
+     */
+    private String userName;
+
+    /**
+     * 操作
+     *
+     * <p>示例值：Access
+     */
+    private String action;
+
+    /**
+     * 场景
+     *
+     * <p>示例值：飞书
+     */
+    private String resource;
+
+    /**
+     * 命中时间
+     *
+     * <p>示例值：1668700799000
+     */
+    private String eventTime;
+
+    /**
+     * 条件
+     *
+     * <p>示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
+     */
+    private String condition;
+
+    /**
+     * 策略信息
+     *
+     * <p>示例值：
+     */
+    private PolicyEntity[] policyInfos;
+
+    /**
+     * 系统执行动作
+     *
+     * <p>示例值：DENY_WITHOUT_APPROVAL
+     */
+    private String systemAction;
+
+    /**
+     * 命中的内容信息
+     *
+     * <p>示例值：
+     */
+    private HitContent[] hitContents;
+
+    /**
+     * 证据详情
+     *
+     * <p>示例值：
+     */
+    private ProofContentDetail[] proofDetails;
+
+    /**
+     * 命中的检测规则
+     *
+     * <p>示例值：
+     */
+    private DetectRule[] detectRules;
+
+    /**
+     * 管控场景的资源属性
+     *
+     * <p>示例值：
+     */
     private ResourceAttribute[] resourceAttributes;
 
-    // builder 开始
-    public PolicyLogItem() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public PolicyLogItem(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
-        /**
-         * 操作
-         * <p> 示例值：Access
-         */
-        this.action = builder.action;
-        /**
-         * 场景
-         * <p> 示例值：飞书
-         */
-        this.resource = builder.resource;
-        /**
-         * 命中时间
-         * <p> 示例值：1668700799000
-         */
-        this.eventTime = builder.eventTime;
-        /**
-         * 条件
-         * <p> 示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
-         */
-        this.condition = builder.condition;
-        /**
-         * 策略信息
-         * <p> 示例值：
-         */
-        this.policyInfos = builder.policyInfos;
-        /**
-         * 系统执行动作
-         * <p> 示例值：DENY_WITHOUT_APPROVAL
-         */
-        this.systemAction = builder.systemAction;
-        /**
-         * 命中的内容信息
-         * <p> 示例值：
-         */
-        this.hitContents = builder.hitContents;
-        /**
-         * 证据详情
-         * <p> 示例值：
-         */
-        this.proofDetails = builder.proofDetails;
-        /**
-         * 命中的检测规则
-         * <p> 示例值：
-         */
-        this.detectRules = builder.detectRules;
-        /**
-         * 管控场景的资源属性
-         * <p> 示例值：
-         */
-        this.resourceAttributes = builder.resourceAttributes;
+    /**
+     * 用户名
+     *
+     * <p>示例值：张三
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作
+     *
+     * <p>示例值：Access
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String action) {
+      this.action = action;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 场景
+     *
+     * <p>示例值：飞书
+     *
+     * @param resource
+     * @return
+     */
+    public Builder resource(String resource) {
+      this.resource = resource;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 命中时间
+     *
+     * <p>示例值：1668700799000
+     *
+     * @param eventTime
+     * @return
+     */
+    public Builder eventTime(String eventTime) {
+      this.eventTime = eventTime;
+      return this;
     }
 
-    public String getUserName() {
-        return this.userName;
+    /**
+     * 条件
+     *
+     * <p>示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
+     *
+     * @param condition
+     * @return
+     */
+    public Builder condition(String condition) {
+      this.condition = condition;
+      return this;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    /**
+     * 策略信息
+     *
+     * <p>示例值：
+     *
+     * @param policyInfos
+     * @return
+     */
+    public Builder policyInfos(PolicyEntity[] policyInfos) {
+      this.policyInfos = policyInfos;
+      return this;
     }
 
-    public String getAction() {
-        return this.action;
+    /**
+     * 系统执行动作
+     *
+     * <p>示例值：DENY_WITHOUT_APPROVAL
+     *
+     * @param systemAction
+     * @return
+     */
+    public Builder systemAction(String systemAction) {
+      this.systemAction = systemAction;
+      return this;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    /**
+     * 命中的内容信息
+     *
+     * <p>示例值：
+     *
+     * @param hitContents
+     * @return
+     */
+    public Builder hitContents(HitContent[] hitContents) {
+      this.hitContents = hitContents;
+      return this;
     }
 
-    public String getResource() {
-        return this.resource;
+    /**
+     * 证据详情
+     *
+     * <p>示例值：
+     *
+     * @param proofDetails
+     * @return
+     */
+    public Builder proofDetails(ProofContentDetail[] proofDetails) {
+      this.proofDetails = proofDetails;
+      return this;
     }
 
-    public void setResource(String resource) {
-        this.resource = resource;
+    /**
+     * 命中的检测规则
+     *
+     * <p>示例值：
+     *
+     * @param detectRules
+     * @return
+     */
+    public Builder detectRules(DetectRule[] detectRules) {
+      this.detectRules = detectRules;
+      return this;
     }
 
-    public String getEventTime() {
-        return this.eventTime;
+    /**
+     * 管控场景的资源属性
+     *
+     * <p>示例值：
+     *
+     * @param resourceAttributes
+     * @return
+     */
+    public Builder resourceAttributes(ResourceAttribute[] resourceAttributes) {
+      this.resourceAttributes = resourceAttributes;
+      return this;
     }
 
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
+    public PolicyLogItem build() {
+      return new PolicyLogItem(this);
     }
+  }
 
-    public String getCondition() {
-        return this.condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public PolicyEntity[] getPolicyInfos() {
-        return this.policyInfos;
-    }
-
-    public void setPolicyInfos(PolicyEntity[] policyInfos) {
-        this.policyInfos = policyInfos;
-    }
-
-    public String getSystemAction() {
-        return this.systemAction;
-    }
-
-    public void setSystemAction(String systemAction) {
-        this.systemAction = systemAction;
-    }
-
-    public HitContent[] getHitContents() {
-        return this.hitContents;
-    }
-
-    public void setHitContents(HitContent[] hitContents) {
-        this.hitContents = hitContents;
-    }
-
-    public ProofContentDetail[] getProofDetails() {
-        return this.proofDetails;
-    }
-
-    public void setProofDetails(ProofContentDetail[] proofDetails) {
-        this.proofDetails = proofDetails;
-    }
-
-    public DetectRule[] getDetectRules() {
-        return this.detectRules;
-    }
-
-    public void setDetectRules(DetectRule[] detectRules) {
-        this.detectRules = detectRules;
-    }
-
-    public ResourceAttribute[] getResourceAttributes() {
-        return this.resourceAttributes;
-    }
-
-    public void setResourceAttributes(ResourceAttribute[] resourceAttributes) {
-        this.resourceAttributes = resourceAttributes;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 用户名
-         * <p> 示例值：张三
-         */
-        private String userName;
-        /**
-         * 操作
-         * <p> 示例值：Access
-         */
-        private String action;
-        /**
-         * 场景
-         * <p> 示例值：飞书
-         */
-        private String resource;
-        /**
-         * 命中时间
-         * <p> 示例值：1668700799000
-         */
-        private String eventTime;
-        /**
-         * 条件
-         * <p> 示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
-         */
-        private String condition;
-        /**
-         * 策略信息
-         * <p> 示例值：
-         */
-        private PolicyEntity[] policyInfos;
-        /**
-         * 系统执行动作
-         * <p> 示例值：DENY_WITHOUT_APPROVAL
-         */
-        private String systemAction;
-        /**
-         * 命中的内容信息
-         * <p> 示例值：
-         */
-        private HitContent[] hitContents;
-        /**
-         * 证据详情
-         * <p> 示例值：
-         */
-        private ProofContentDetail[] proofDetails;
-        /**
-         * 命中的检测规则
-         * <p> 示例值：
-         */
-        private DetectRule[] detectRules;
-        /**
-         * 管控场景的资源属性
-         * <p> 示例值：
-         */
-        private ResourceAttribute[] resourceAttributes;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户名
-         * <p> 示例值：张三
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 操作
-         * <p> 示例值：Access
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String action) {
-            this.action = action;
-            return this;
-        }
-
-
-        /**
-         * 场景
-         * <p> 示例值：飞书
-         *
-         * @param resource
-         * @return
-         */
-        public Builder resource(String resource) {
-            this.resource = resource;
-            return this;
-        }
-
-
-        /**
-         * 命中时间
-         * <p> 示例值：1668700799000
-         *
-         * @param eventTime
-         * @return
-         */
-        public Builder eventTime(String eventTime) {
-            this.eventTime = eventTime;
-            return this;
-        }
-
-
-        /**
-         * 条件
-         * <p> 示例值：{\"DEVICE_OWNERSHIP\":\"Unknown\",\"DEVICE_TERMINAL\":\"Web\",\"LSA_CLIENT_BIND_STATUS\":\"Unknown\",\"USER_ID\":7564320266201861655,\"DEVICE_CREDIBILITY\":\"Unknown\",\"DEVICE_OS\":\"macOS\"}
-         *
-         * @param condition
-         * @return
-         */
-        public Builder condition(String condition) {
-            this.condition = condition;
-            return this;
-        }
-
-
-        /**
-         * 策略信息
-         * <p> 示例值：
-         *
-         * @param policyInfos
-         * @return
-         */
-        public Builder policyInfos(PolicyEntity[] policyInfos) {
-            this.policyInfos = policyInfos;
-            return this;
-        }
-
-
-        /**
-         * 系统执行动作
-         * <p> 示例值：DENY_WITHOUT_APPROVAL
-         *
-         * @param systemAction
-         * @return
-         */
-        public Builder systemAction(String systemAction) {
-            this.systemAction = systemAction;
-            return this;
-        }
-
-
-        /**
-         * 命中的内容信息
-         * <p> 示例值：
-         *
-         * @param hitContents
-         * @return
-         */
-        public Builder hitContents(HitContent[] hitContents) {
-            this.hitContents = hitContents;
-            return this;
-        }
-
-
-        /**
-         * 证据详情
-         * <p> 示例值：
-         *
-         * @param proofDetails
-         * @return
-         */
-        public Builder proofDetails(ProofContentDetail[] proofDetails) {
-            this.proofDetails = proofDetails;
-            return this;
-        }
-
-
-        /**
-         * 命中的检测规则
-         * <p> 示例值：
-         *
-         * @param detectRules
-         * @return
-         */
-        public Builder detectRules(DetectRule[] detectRules) {
-            this.detectRules = detectRules;
-            return this;
-        }
-
-
-        /**
-         * 管控场景的资源属性
-         * <p> 示例值：
-         *
-         * @param resourceAttributes
-         * @return
-         */
-        public Builder resourceAttributes(ResourceAttribute[] resourceAttributes) {
-            this.resourceAttributes = resourceAttributes;
-            return this;
-        }
-
-
-        public PolicyLogItem build() {
-            return new PolicyLogItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnumObject {
+  /**
+   * 枚举对象ID
+   *
+   * <p>示例值：7188920315914207276
+   */
+  @SerializedName("enum_value_id")
+  private String enumValueId;
+
+  /**
+   * 枚举对象
+   *
+   * <p>示例值：company
+   */
+  @SerializedName("enum_key")
+  private String enumKey;
+
+  public String getEnumValueId() {
+    return this.enumValueId;
+  }
+
+  public void setEnumValueId(String enumValueId) {
+    this.enumValueId = enumValueId;
+  }
+
+  public String getEnumKey() {
+    return this.enumKey;
+  }
+
+  public void setEnumKey(String enumKey) {
+    this.enumKey = enumKey;
+  }
+
+  // builder 开始
+  public EnumObject() {}
+
+  public EnumObject(Builder builder) {
     /**
      * 枚举对象ID
-     * <p> 示例值：7188920315914207276
+     *
+     * <p>示例值：7188920315914207276
      */
-    @SerializedName("enum_value_id")
-    private String enumValueId;
+    this.enumValueId = builder.enumValueId;
     /**
      * 枚举对象
-     * <p> 示例值：company
+     *
+     * <p>示例值：company
      */
-    @SerializedName("enum_key")
+    this.enumKey = builder.enumKey;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举对象ID
+     *
+     * <p>示例值：7188920315914207276
+     */
+    private String enumValueId;
+
+    /**
+     * 枚举对象
+     *
+     * <p>示例值：company
+     */
     private String enumKey;
 
-    // builder 开始
-    public EnumObject() {
+    /**
+     * 枚举对象ID
+     *
+     * <p>示例值：7188920315914207276
+     *
+     * @param enumValueId
+     * @return
+     */
+    public Builder enumValueId(String enumValueId) {
+      this.enumValueId = enumValueId;
+      return this;
     }
 
-    public EnumObject(Builder builder) {
-        /**
-         * 枚举对象ID
-         * <p> 示例值：7188920315914207276
-         */
-        this.enumValueId = builder.enumValueId;
-        /**
-         * 枚举对象
-         * <p> 示例值：company
-         */
-        this.enumKey = builder.enumKey;
+    /**
+     * 枚举对象
+     *
+     * <p>示例值：company
+     *
+     * @param enumKey
+     * @return
+     */
+    public Builder enumKey(String enumKey) {
+      this.enumKey = enumKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnumObject build() {
+      return new EnumObject(this);
     }
+  }
 
-    public String getEnumValueId() {
-        return this.enumValueId;
-    }
-
-    public void setEnumValueId(String enumValueId) {
-        this.enumValueId = enumValueId;
-    }
-
-    public String getEnumKey() {
-        return this.enumKey;
-    }
-
-    public void setEnumKey(String enumKey) {
-        this.enumKey = enumKey;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举对象ID
-         * <p> 示例值：7188920315914207276
-         */
-        private String enumValueId;
-        /**
-         * 枚举对象
-         * <p> 示例值：company
-         */
-        private String enumKey;
-
-        /**
-         * 枚举对象ID
-         * <p> 示例值：7188920315914207276
-         *
-         * @param enumValueId
-         * @return
-         */
-        public Builder enumValueId(String enumValueId) {
-            this.enumValueId = enumValueId;
-            return this;
-        }
-
-
-        /**
-         * 枚举对象
-         * <p> 示例值：company
-         *
-         * @param enumKey
-         * @return
-         */
-        public Builder enumKey(String enumKey) {
-            this.enumKey = enumKey;
-            return this;
-        }
-
-
-        public EnumObject build() {
-            return new EnumObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

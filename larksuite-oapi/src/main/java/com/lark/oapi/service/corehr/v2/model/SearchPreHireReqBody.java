@@ -13,728 +13,850 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchPreHireReqBody {
+  /**
+   * 待入职人员工号列表，如果不填写，则不根据工号过滤待入职数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("worker_ids")
+  private String[] workerIds;
+
+  /**
+   * 待入职人员 ID 列表，如果不填写，则搜索全部待入职。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pre_hire_ids")
+  private String[] preHireIds;
+
+  /**
+   * 个人信息 ID
+   * 列表，可以通过[【事件】更新个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_ids")
+  private String[] personIds;
+
+  /**
+   * 入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("onboarding_date_start")
+  private String onboardingDateStart;
+
+  /**
+   * 入职日期（搜索的结束时间），需要与入职日期（onboarding_date_start）一同使用，不填写则不根据入职日期过滤。
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("onboarding_date_end")
+  private String onboardingDateEnd;
+
+  /**
+   * 待入职数据更新时间（搜索的起始时间），需要与更新时间（updated_date_end）一同使用，不填写则不根据数据更新时间过滤。
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("updated_date_start")
+  private String updatedDateStart;
+
+  /**
+   * 待入职数据更新时间（搜索的结束时间），需要与更新时间（updated_date_start）一同使用，不填写则不根据数据更新时间过滤。
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("updated_date_end")
+  private String updatedDateEnd;
+
+  /**
+   * 入职地点 ID
+   * 列表，可通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_location_ids")
+  private String[] onboardingLocationIds;
+
+  /**
+   * 入职状态，不填写则搜索全部入职状态的数据。
+   *
+   * <p>示例值：preboarding
+   */
+  @SerializedName("onboarding_status")
+  private String onboardingStatus;
+
+  /**
+   * 部门 ID 列表，ID类型与查询参数
+   * department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取;;ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 直接上级的雇佣 ID
+   * 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;;ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("direct_manager_ids")
+  private String[] directManagerIds;
+
+  /**
+   * 人员类型 ID
+   * 列表，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type_ids")
+  private String[] employeeTypeIds;
+
+  /**
+   * 人员子类型 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_subtype_ids")
+  private String[] employeeSubtypeIds;
+
+  /**
+   * 序列 ID
+   * 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_ids")
+  private String[] jobFamilyIds;
+
+  /**
+   * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索，不填写则搜索全部数据。
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("key_word")
+  private String keyWord;
+
+  /**
+   * 是否外部人员
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("condition_worker")
+  private Boolean conditionWorker;
+
+  /**
+   * 是否离职重聘，不填写则搜索全部数据。
+   *
+   * <p>示例值：to_be_confirmed
+   */
+  @SerializedName("rehire")
+  private String rehire;
+
+  /**
+   * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：; - person_info
+   * 字段：person_info.gender，person_info.age; - employment_info 字段：employment_info.department; -
+   * onboarding_info 字段：onboarding_info.onboarding_date; - probation_info
+   * 字段：probation_info.probation_period; - contract_info 字段：contract_info.contract_type;-
+   * 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+   *
+   * <p>示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getWorkerIds() {
+    return this.workerIds;
+  }
+
+  public void setWorkerIds(String[] workerIds) {
+    this.workerIds = workerIds;
+  }
+
+  public String[] getPreHireIds() {
+    return this.preHireIds;
+  }
+
+  public void setPreHireIds(String[] preHireIds) {
+    this.preHireIds = preHireIds;
+  }
+
+  public String[] getPersonIds() {
+    return this.personIds;
+  }
+
+  public void setPersonIds(String[] personIds) {
+    this.personIds = personIds;
+  }
+
+  public String getOnboardingDateStart() {
+    return this.onboardingDateStart;
+  }
+
+  public void setOnboardingDateStart(String onboardingDateStart) {
+    this.onboardingDateStart = onboardingDateStart;
+  }
+
+  public String getOnboardingDateEnd() {
+    return this.onboardingDateEnd;
+  }
+
+  public void setOnboardingDateEnd(String onboardingDateEnd) {
+    this.onboardingDateEnd = onboardingDateEnd;
+  }
+
+  public String getUpdatedDateStart() {
+    return this.updatedDateStart;
+  }
+
+  public void setUpdatedDateStart(String updatedDateStart) {
+    this.updatedDateStart = updatedDateStart;
+  }
+
+  public String getUpdatedDateEnd() {
+    return this.updatedDateEnd;
+  }
+
+  public void setUpdatedDateEnd(String updatedDateEnd) {
+    this.updatedDateEnd = updatedDateEnd;
+  }
+
+  public String[] getOnboardingLocationIds() {
+    return this.onboardingLocationIds;
+  }
+
+  public void setOnboardingLocationIds(String[] onboardingLocationIds) {
+    this.onboardingLocationIds = onboardingLocationIds;
+  }
+
+  public String getOnboardingStatus() {
+    return this.onboardingStatus;
+  }
+
+  public void setOnboardingStatus(String onboardingStatus) {
+    this.onboardingStatus = onboardingStatus;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String[] getDirectManagerIds() {
+    return this.directManagerIds;
+  }
+
+  public void setDirectManagerIds(String[] directManagerIds) {
+    this.directManagerIds = directManagerIds;
+  }
+
+  public String[] getEmployeeTypeIds() {
+    return this.employeeTypeIds;
+  }
+
+  public void setEmployeeTypeIds(String[] employeeTypeIds) {
+    this.employeeTypeIds = employeeTypeIds;
+  }
+
+  public String[] getEmployeeSubtypeIds() {
+    return this.employeeSubtypeIds;
+  }
+
+  public void setEmployeeSubtypeIds(String[] employeeSubtypeIds) {
+    this.employeeSubtypeIds = employeeSubtypeIds;
+  }
+
+  public String[] getJobFamilyIds() {
+    return this.jobFamilyIds;
+  }
+
+  public void setJobFamilyIds(String[] jobFamilyIds) {
+    this.jobFamilyIds = jobFamilyIds;
+  }
+
+  public String getKeyWord() {
+    return this.keyWord;
+  }
+
+  public void setKeyWord(String keyWord) {
+    this.keyWord = keyWord;
+  }
+
+  public Boolean getConditionWorker() {
+    return this.conditionWorker;
+  }
+
+  public void setConditionWorker(Boolean conditionWorker) {
+    this.conditionWorker = conditionWorker;
+  }
+
+  public String getRehire() {
+    return this.rehire;
+  }
+
+  public void setRehire(String rehire) {
+    this.rehire = rehire;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public SearchPreHireReqBody() {}
+
+  public SearchPreHireReqBody(Builder builder) {
     /**
-     * 待入职人员工号列表
-     * <p> 示例值：
+     * 待入职人员工号列表，如果不填写，则不根据工号过滤待入职数据。
+     *
+     * <p>示例值：
      */
-    @SerializedName("worker_ids")
-    private String[] workerIds;
+    this.workerIds = builder.workerIds;
     /**
-     * 待入职人员 ID 列表
-     * <p> 示例值：
+     * 待入职人员 ID 列表，如果不填写，则搜索全部待入职。
+     *
+     * <p>示例值：
      */
-    @SerializedName("pre_hire_ids")
-    private String[] preHireIds;
+    this.preHireIds = builder.preHireIds;
     /**
-     * 个人信息 ID 列表
-     * <p> 示例值：
+     * 个人信息 ID
+     * 列表，可以通过[【事件】更新个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_ids")
-    private String[] personIds;
+    this.personIds = builder.personIds;
     /**
-     * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2006-01-02
+     * 入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("onboarding_date_start")
-    private String onboardingDateStart;
+    this.onboardingDateStart = builder.onboardingDateStart;
     /**
-     * 入职日期-搜索范围结束
-     * <p> 示例值：2006-01-02
+     * 入职日期（搜索的结束时间），需要与入职日期（onboarding_date_start）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("onboarding_date_end")
-    private String onboardingDateEnd;
+    this.onboardingDateEnd = builder.onboardingDateEnd;
     /**
-     * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2006-01-02
+     * 待入职数据更新时间（搜索的起始时间），需要与更新时间（updated_date_end）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("updated_date_start")
-    private String updatedDateStart;
+    this.updatedDateStart = builder.updatedDateStart;
     /**
-     * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
-     * <p> 示例值：2006-01-02
+     * 待入职数据更新时间（搜索的结束时间），需要与更新时间（updated_date_start）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("updated_date_end")
-    private String updatedDateEnd;
+    this.updatedDateEnd = builder.updatedDateEnd;
     /**
-     * 入职地点 ID 列表
-     * <p> 示例值：
+     * 入职地点 ID
+     * 列表，可通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboarding_location_ids")
-    private String[] onboardingLocationIds;
+    this.onboardingLocationIds = builder.onboardingLocationIds;
     /**
-     * 入职状态
-     * <p> 示例值：待入职(preboarding)
+     * 入职状态，不填写则搜索全部入职状态的数据。
+     *
+     * <p>示例值：preboarding
      */
-    @SerializedName("onboarding_status")
-    private String onboardingStatus;
+    this.onboardingStatus = builder.onboardingStatus;
     /**
-     * 部门 ID 列表
-     * <p> 示例值：
+     * 部门 ID 列表，ID类型与查询参数
+     * department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取;;ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
+    this.departmentIds = builder.departmentIds;
     /**
-     * 直接上级的雇佣 ID 列表
-     * <p> 示例值：
+     * 直接上级的雇佣 ID
+     * 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;;ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("direct_manager_ids")
-    private String[] directManagerIds;
+    this.directManagerIds = builder.directManagerIds;
     /**
-     * 人员类型 ID 列表
-     * <p> 示例值：
+     * 人员类型 ID
+     * 列表，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type_ids")
-    private String[] employeeTypeIds;
+    this.employeeTypeIds = builder.employeeTypeIds;
     /**
      * 人员子类型 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_subtype_ids")
-    private String[] employeeSubtypeIds;
+    this.employeeSubtypeIds = builder.employeeSubtypeIds;
     /**
-     * 序列 ID 列表
-     * <p> 示例值：
+     * 序列 ID
+     * 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_ids")
-    private String[] jobFamilyIds;
+    this.jobFamilyIds = builder.jobFamilyIds;
     /**
-     * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索
-     * <p> 示例值：张三
+     * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索，不填写则搜索全部数据。
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("key_word")
-    private String keyWord;
+    this.keyWord = builder.keyWord;
     /**
      * 是否外部人员
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("condition_worker")
+    this.conditionWorker = builder.conditionWorker;
+    /**
+     * 是否离职重聘，不填写则搜索全部数据。
+     *
+     * <p>示例值：to_be_confirmed
+     */
+    this.rehire = builder.rehire;
+    /**
+     * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：; - person_info
+     * 字段：person_info.gender，person_info.age; - employment_info 字段：employment_info.department; -
+     * onboarding_info 字段：onboarding_info.onboarding_date; - probation_info
+     * 字段：probation_info.probation_period; - contract_info 字段：contract_info.contract_type;-
+     * 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+     *
+     * <p>示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 待入职人员工号列表，如果不填写，则不根据工号过滤待入职数据。
+     *
+     * <p>示例值：
+     */
+    private String[] workerIds;
+
+    /**
+     * 待入职人员 ID 列表，如果不填写，则搜索全部待入职。
+     *
+     * <p>示例值：
+     */
+    private String[] preHireIds;
+
+    /**
+     * 个人信息 ID
+     * 列表，可以通过[【事件】更新个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated)获取
+     *
+     * <p>示例值：
+     */
+    private String[] personIds;
+
+    /**
+     * 入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String onboardingDateStart;
+
+    /**
+     * 入职日期（搜索的结束时间），需要与入职日期（onboarding_date_start）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String onboardingDateEnd;
+
+    /**
+     * 待入职数据更新时间（搜索的起始时间），需要与更新时间（updated_date_end）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String updatedDateStart;
+
+    /**
+     * 待入职数据更新时间（搜索的结束时间），需要与更新时间（updated_date_start）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String updatedDateEnd;
+
+    /**
+     * 入职地点 ID
+     * 列表，可通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String[] onboardingLocationIds;
+
+    /**
+     * 入职状态，不填写则搜索全部入职状态的数据。
+     *
+     * <p>示例值：preboarding
+     */
+    private String onboardingStatus;
+
+    /**
+     * 部门 ID 列表，ID类型与查询参数
+     * department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取;;ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。
+     *
+     * <p>示例值：
+     */
+    private String[] departmentIds;
+
+    /**
+     * 直接上级的雇佣 ID
+     * 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;;ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。
+     *
+     * <p>示例值：
+     */
+    private String[] directManagerIds;
+
+    /**
+     * 人员类型 ID
+     * 列表，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：
+     */
+    private String[] employeeTypeIds;
+
+    /**
+     * 人员子类型 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] employeeSubtypeIds;
+
+    /**
+     * 序列 ID
+     * 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String[] jobFamilyIds;
+
+    /**
+     * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索，不填写则搜索全部数据。
+     *
+     * <p>示例值：张三
+     */
+    private String keyWord;
+
+    /**
+     * 是否外部人员
+     *
+     * <p>示例值：true
+     */
     private Boolean conditionWorker;
+
     /**
-     * 是否离职重聘
-     * <p> 示例值：张三
+     * 是否离职重聘，不填写则搜索全部数据。
+     *
+     * <p>示例值：to_be_confirmed
      */
-    @SerializedName("rehire")
     private String rehire;
+
     /**
-     * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-     * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+     * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：; - person_info
+     * 字段：person_info.gender，person_info.age; - employment_info 字段：employment_info.department; -
+     * onboarding_info 字段：onboarding_info.onboarding_date; - probation_info
+     * 字段：probation_info.probation_period; - contract_info 字段：contract_info.contract_type;-
+     * 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+     *
+     * <p>示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public SearchPreHireReqBody() {
+    /**
+     * 待入职人员工号列表，如果不填写，则不根据工号过滤待入职数据。
+     *
+     * <p>示例值：
+     *
+     * @param workerIds
+     * @return
+     */
+    public Builder workerIds(String[] workerIds) {
+      this.workerIds = workerIds;
+      return this;
     }
 
-    public SearchPreHireReqBody(Builder builder) {
-        /**
-         * 待入职人员工号列表
-         * <p> 示例值：
-         */
-        this.workerIds = builder.workerIds;
-        /**
-         * 待入职人员 ID 列表
-         * <p> 示例值：
-         */
-        this.preHireIds = builder.preHireIds;
-        /**
-         * 个人信息 ID 列表
-         * <p> 示例值：
-         */
-        this.personIds = builder.personIds;
-        /**
-         * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        this.onboardingDateStart = builder.onboardingDateStart;
-        /**
-         * 入职日期-搜索范围结束
-         * <p> 示例值：2006-01-02
-         */
-        this.onboardingDateEnd = builder.onboardingDateEnd;
-        /**
-         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        this.updatedDateStart = builder.updatedDateStart;
-        /**
-         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        this.updatedDateEnd = builder.updatedDateEnd;
-        /**
-         * 入职地点 ID 列表
-         * <p> 示例值：
-         */
-        this.onboardingLocationIds = builder.onboardingLocationIds;
-        /**
-         * 入职状态
-         * <p> 示例值：待入职(preboarding)
-         */
-        this.onboardingStatus = builder.onboardingStatus;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 直接上级的雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.directManagerIds = builder.directManagerIds;
-        /**
-         * 人员类型 ID 列表
-         * <p> 示例值：
-         */
-        this.employeeTypeIds = builder.employeeTypeIds;
-        /**
-         * 人员子类型 ID 列表
-         * <p> 示例值：
-         */
-        this.employeeSubtypeIds = builder.employeeSubtypeIds;
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        this.jobFamilyIds = builder.jobFamilyIds;
-        /**
-         * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索
-         * <p> 示例值：张三
-         */
-        this.keyWord = builder.keyWord;
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         */
-        this.conditionWorker = builder.conditionWorker;
-        /**
-         * 是否离职重聘
-         * <p> 示例值：张三
-         */
-        this.rehire = builder.rehire;
-        /**
-         * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-         * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-         */
-        this.fields = builder.fields;
+    /**
+     * 待入职人员 ID 列表，如果不填写，则搜索全部待入职。
+     *
+     * <p>示例值：
+     *
+     * @param preHireIds
+     * @return
+     */
+    public Builder preHireIds(String[] preHireIds) {
+      this.preHireIds = preHireIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 个人信息 ID
+     * 列表，可以通过[【事件】更新个人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/events/updated)获取
+     *
+     * <p>示例值：
+     *
+     * @param personIds
+     * @return
+     */
+    public Builder personIds(String[] personIds) {
+      this.personIds = personIds;
+      return this;
     }
 
-    public String[] getWorkerIds() {
-        return this.workerIds;
+    /**
+     * 入职日期（搜索的起始时间），需要与入职日期（onboarding_date_end）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param onboardingDateStart
+     * @return
+     */
+    public Builder onboardingDateStart(String onboardingDateStart) {
+      this.onboardingDateStart = onboardingDateStart;
+      return this;
     }
 
-    public void setWorkerIds(String[] workerIds) {
-        this.workerIds = workerIds;
+    /**
+     * 入职日期（搜索的结束时间），需要与入职日期（onboarding_date_start）一同使用，不填写则不根据入职日期过滤。
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param onboardingDateEnd
+     * @return
+     */
+    public Builder onboardingDateEnd(String onboardingDateEnd) {
+      this.onboardingDateEnd = onboardingDateEnd;
+      return this;
     }
 
-    public String[] getPreHireIds() {
-        return this.preHireIds;
+    /**
+     * 待入职数据更新时间（搜索的起始时间），需要与更新时间（updated_date_end）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param updatedDateStart
+     * @return
+     */
+    public Builder updatedDateStart(String updatedDateStart) {
+      this.updatedDateStart = updatedDateStart;
+      return this;
     }
 
-    public void setPreHireIds(String[] preHireIds) {
-        this.preHireIds = preHireIds;
+    /**
+     * 待入职数据更新时间（搜索的结束时间），需要与更新时间（updated_date_start）一同使用，不填写则不根据数据更新时间过滤。
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param updatedDateEnd
+     * @return
+     */
+    public Builder updatedDateEnd(String updatedDateEnd) {
+      this.updatedDateEnd = updatedDateEnd;
+      return this;
     }
 
-    public String[] getPersonIds() {
-        return this.personIds;
+    /**
+     * 入职地点 ID
+     * 列表，可通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param onboardingLocationIds
+     * @return
+     */
+    public Builder onboardingLocationIds(String[] onboardingLocationIds) {
+      this.onboardingLocationIds = onboardingLocationIds;
+      return this;
     }
 
-    public void setPersonIds(String[] personIds) {
-        this.personIds = personIds;
+    /**
+     * 入职状态，不填写则搜索全部入职状态的数据。
+     *
+     * <p>示例值：preboarding
+     *
+     * @param onboardingStatus
+     * @return
+     */
+    public Builder onboardingStatus(String onboardingStatus) {
+      this.onboardingStatus = onboardingStatus;
+      return this;
     }
 
-    public String getOnboardingDateStart() {
-        return this.onboardingDateStart;
+    /**
+     * 入职状态，不填写则搜索全部入职状态的数据。
+     *
+     * <p>示例值：preboarding
+     *
+     * @param onboardingStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum}
+     * @return
+     */
+    public Builder onboardingStatus(
+        com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum
+            onboardingStatus) {
+      this.onboardingStatus = onboardingStatus.getValue();
+      return this;
     }
 
-    public void setOnboardingDateStart(String onboardingDateStart) {
-        this.onboardingDateStart = onboardingDateStart;
+    /**
+     * 部门 ID 列表，ID类型与查询参数
+     * department_id_type的取值保持一致，ID值可以通过[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口获取;;ID转换：支持根据department_id_type进行ID转换，返回department_id_type对应的类型的ID。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public String getOnboardingDateEnd() {
-        return this.onboardingDateEnd;
+    /**
+     * 直接上级的雇佣 ID
+     * 列表，ID类型与查询参数user_id_type的取值保持一致，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;;ID转换：支持根据user_id_type进行ID转换，返回user_id_type对应的类型的ID。
+     *
+     * <p>示例值：
+     *
+     * @param directManagerIds
+     * @return
+     */
+    public Builder directManagerIds(String[] directManagerIds) {
+      this.directManagerIds = directManagerIds;
+      return this;
     }
 
-    public void setOnboardingDateEnd(String onboardingDateEnd) {
-        this.onboardingDateEnd = onboardingDateEnd;
+    /**
+     * 人员类型 ID
+     * 列表，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：
+     *
+     * @param employeeTypeIds
+     * @return
+     */
+    public Builder employeeTypeIds(String[] employeeTypeIds) {
+      this.employeeTypeIds = employeeTypeIds;
+      return this;
     }
 
-    public String getUpdatedDateStart() {
-        return this.updatedDateStart;
+    /**
+     * 人员子类型 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param employeeSubtypeIds
+     * @return
+     */
+    public Builder employeeSubtypeIds(String[] employeeSubtypeIds) {
+      this.employeeSubtypeIds = employeeSubtypeIds;
+      return this;
     }
 
-    public void setUpdatedDateStart(String updatedDateStart) {
-        this.updatedDateStart = updatedDateStart;
+    /**
+     * 序列 ID
+     * 列表，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIds
+     * @return
+     */
+    public Builder jobFamilyIds(String[] jobFamilyIds) {
+      this.jobFamilyIds = jobFamilyIds;
+      return this;
     }
 
-    public String getUpdatedDateEnd() {
-        return this.updatedDateEnd;
+    /**
+     * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索，不填写则搜索全部数据。
+     *
+     * <p>示例值：张三
+     *
+     * @param keyWord
+     * @return
+     */
+    public Builder keyWord(String keyWord) {
+      this.keyWord = keyWord;
+      return this;
     }
 
-    public void setUpdatedDateEnd(String updatedDateEnd) {
-        this.updatedDateEnd = updatedDateEnd;
+    /**
+     * 是否外部人员
+     *
+     * <p>示例值：true
+     *
+     * @param conditionWorker
+     * @return
+     */
+    public Builder conditionWorker(Boolean conditionWorker) {
+      this.conditionWorker = conditionWorker;
+      return this;
     }
 
-    public String[] getOnboardingLocationIds() {
-        return this.onboardingLocationIds;
+    /**
+     * 是否离职重聘，不填写则搜索全部数据。
+     *
+     * <p>示例值：to_be_confirmed
+     *
+     * @param rehire
+     * @return
+     */
+    public Builder rehire(String rehire) {
+      this.rehire = rehire;
+      return this;
     }
 
-    public void setOnboardingLocationIds(String[] onboardingLocationIds) {
-        this.onboardingLocationIds = onboardingLocationIds;
+    /**
+     * 是否离职重聘，不填写则搜索全部数据。
+     *
+     * <p>示例值：to_be_confirmed
+     *
+     * @param rehire {@link
+     *     com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum}
+     * @return
+     */
+    public Builder rehire(
+        com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum rehire) {
+      this.rehire = rehire.getValue();
+      return this;
     }
 
-    public String getOnboardingStatus() {
-        return this.onboardingStatus;
+    /**
+     * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：; - person_info
+     * 字段：person_info.gender，person_info.age; - employment_info 字段：employment_info.department; -
+     * onboarding_info 字段：onboarding_info.onboarding_date; - probation_info
+     * 字段：probation_info.probation_period; - contract_info 字段：contract_info.contract_type;-
+     * 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
+     *
+     * <p>示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setOnboardingStatus(String onboardingStatus) {
-        this.onboardingStatus = onboardingStatus;
+    public SearchPreHireReqBody build() {
+      return new SearchPreHireReqBody(this);
     }
+  }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String[] getDirectManagerIds() {
-        return this.directManagerIds;
-    }
-
-    public void setDirectManagerIds(String[] directManagerIds) {
-        this.directManagerIds = directManagerIds;
-    }
-
-    public String[] getEmployeeTypeIds() {
-        return this.employeeTypeIds;
-    }
-
-    public void setEmployeeTypeIds(String[] employeeTypeIds) {
-        this.employeeTypeIds = employeeTypeIds;
-    }
-
-    public String[] getEmployeeSubtypeIds() {
-        return this.employeeSubtypeIds;
-    }
-
-    public void setEmployeeSubtypeIds(String[] employeeSubtypeIds) {
-        this.employeeSubtypeIds = employeeSubtypeIds;
-    }
-
-    public String[] getJobFamilyIds() {
-        return this.jobFamilyIds;
-    }
-
-    public void setJobFamilyIds(String[] jobFamilyIds) {
-        this.jobFamilyIds = jobFamilyIds;
-    }
-
-    public String getKeyWord() {
-        return this.keyWord;
-    }
-
-    public void setKeyWord(String keyWord) {
-        this.keyWord = keyWord;
-    }
-
-    public Boolean getConditionWorker() {
-        return this.conditionWorker;
-    }
-
-    public void setConditionWorker(Boolean conditionWorker) {
-        this.conditionWorker = conditionWorker;
-    }
-
-    public String getRehire() {
-        return this.rehire;
-    }
-
-    public void setRehire(String rehire) {
-        this.rehire = rehire;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 待入职人员工号列表
-         * <p> 示例值：
-         */
-        private String[] workerIds;
-        /**
-         * 待入职人员 ID 列表
-         * <p> 示例值：
-         */
-        private String[] preHireIds;
-        /**
-         * 个人信息 ID 列表
-         * <p> 示例值：
-         */
-        private String[] personIds;
-        /**
-         * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        private String onboardingDateStart;
-        /**
-         * 入职日期-搜索范围结束
-         * <p> 示例值：2006-01-02
-         */
-        private String onboardingDateEnd;
-        /**
-         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        private String updatedDateStart;
-        /**
-         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         */
-        private String updatedDateEnd;
-        /**
-         * 入职地点 ID 列表
-         * <p> 示例值：
-         */
-        private String[] onboardingLocationIds;
-        /**
-         * 入职状态
-         * <p> 示例值：待入职(preboarding)
-         */
-        private String onboardingStatus;
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 直接上级的雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] directManagerIds;
-        /**
-         * 人员类型 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employeeTypeIds;
-        /**
-         * 人员子类型 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employeeSubtypeIds;
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobFamilyIds;
-        /**
-         * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索
-         * <p> 示例值：张三
-         */
-        private String keyWord;
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         */
-        private Boolean conditionWorker;
-        /**
-         * 是否离职重聘
-         * <p> 示例值：张三
-         */
-        private String rehire;
-        /**
-         * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-         * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-         */
-        private String[] fields;
-
-        /**
-         * 待入职人员工号列表
-         * <p> 示例值：
-         *
-         * @param workerIds
-         * @return
-         */
-        public Builder workerIds(String[] workerIds) {
-            this.workerIds = workerIds;
-            return this;
-        }
-
-
-        /**
-         * 待入职人员 ID 列表
-         * <p> 示例值：
-         *
-         * @param preHireIds
-         * @return
-         */
-        public Builder preHireIds(String[] preHireIds) {
-            this.preHireIds = preHireIds;
-            return this;
-        }
-
-
-        /**
-         * 个人信息 ID 列表
-         * <p> 示例值：
-         *
-         * @param personIds
-         * @return
-         */
-        public Builder personIds(String[] personIds) {
-            this.personIds = personIds;
-            return this;
-        }
-
-
-        /**
-         * 入职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         *
-         * @param onboardingDateStart
-         * @return
-         */
-        public Builder onboardingDateStart(String onboardingDateStart) {
-            this.onboardingDateStart = onboardingDateStart;
-            return this;
-        }
-
-
-        /**
-         * 入职日期-搜索范围结束
-         * <p> 示例值：2006-01-02
-         *
-         * @param onboardingDateEnd
-         * @return
-         */
-        public Builder onboardingDateEnd(String onboardingDateEnd) {
-            this.onboardingDateEnd = onboardingDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 待入职数据更新时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         *
-         * @param updatedDateStart
-         * @return
-         */
-        public Builder updatedDateStart(String updatedDateStart) {
-            this.updatedDateStart = updatedDateStart;
-            return this;
-        }
-
-
-        /**
-         * 待入职数据更新时间-搜索范围结束，需要与搜索范围结束一同使用
-         * <p> 示例值：2006-01-02
-         *
-         * @param updatedDateEnd
-         * @return
-         */
-        public Builder updatedDateEnd(String updatedDateEnd) {
-            this.updatedDateEnd = updatedDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 入职地点 ID 列表
-         * <p> 示例值：
-         *
-         * @param onboardingLocationIds
-         * @return
-         */
-        public Builder onboardingLocationIds(String[] onboardingLocationIds) {
-            this.onboardingLocationIds = onboardingLocationIds;
-            return this;
-        }
-
-
-        /**
-         * 入职状态
-         * <p> 示例值：待入职(preboarding)
-         *
-         * @param onboardingStatus
-         * @return
-         */
-        public Builder onboardingStatus(String onboardingStatus) {
-            this.onboardingStatus = onboardingStatus;
-            return this;
-        }
-
-        /**
-         * 入职状态
-         * <p> 示例值：待入职(preboarding)
-         *
-         * @param onboardingStatus {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum}
-         * @return
-         */
-        public Builder onboardingStatus(com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireOnboardingStatusEnum onboardingStatus) {
-            this.onboardingStatus = onboardingStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 直接上级的雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param directManagerIds
-         * @return
-         */
-        public Builder directManagerIds(String[] directManagerIds) {
-            this.directManagerIds = directManagerIds;
-            return this;
-        }
-
-
-        /**
-         * 人员类型 ID 列表
-         * <p> 示例值：
-         *
-         * @param employeeTypeIds
-         * @return
-         */
-        public Builder employeeTypeIds(String[] employeeTypeIds) {
-            this.employeeTypeIds = employeeTypeIds;
-            return this;
-        }
-
-
-        /**
-         * 人员子类型 ID 列表
-         * <p> 示例值：
-         *
-         * @param employeeSubtypeIds
-         * @return
-         */
-        public Builder employeeSubtypeIds(String[] employeeSubtypeIds) {
-            this.employeeSubtypeIds = employeeSubtypeIds;
-            return this;
-        }
-
-
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobFamilyIds
-         * @return
-         */
-        public Builder jobFamilyIds(String[] jobFamilyIds) {
-            this.jobFamilyIds = jobFamilyIds;
-            return this;
-        }
-
-
-        /**
-         * 搜索关键字，支持对常用名模糊搜索 + 工号精确搜索
-         * <p> 示例值：张三
-         *
-         * @param keyWord
-         * @return
-         */
-        public Builder keyWord(String keyWord) {
-            this.keyWord = keyWord;
-            return this;
-        }
-
-
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         *
-         * @param conditionWorker
-         * @return
-         */
-        public Builder conditionWorker(Boolean conditionWorker) {
-            this.conditionWorker = conditionWorker;
-            return this;
-        }
-
-
-        /**
-         * 是否离职重聘
-         * <p> 示例值：张三
-         *
-         * @param rehire
-         * @return
-         */
-        public Builder rehire(String rehire) {
-            this.rehire = rehire;
-            return this;
-        }
-
-        /**
-         * 是否离职重聘
-         * <p> 示例值：张三
-         *
-         * @param rehire {@link com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum}
-         * @return
-         */
-        public Builder rehire(com.lark.oapi.service.corehr.v2.enums.SearchPreHireSearchPreHireRehireEnum rehire) {
-            this.rehire = rehire.getValue();
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，填写方式：;- 为空时只返回 pre_hire_id;- 不为空时按照传入的字段返回数据，格式如下：;    - person_info 字段：person_info.gender，person_info.age;    - employment_info 字段：employment_info.department;    - onboarding_info 字段：onboarding_info.onboarding_date;    - probation_info 字段：probation_info.probation_period;    - contract_info 字段：contract_info.contract_type;- 如果要返回所有下级，只用传上级结构体名称，例如 person_info;- 返回数据越多，查询接口性能越慢，请按需填写返回字段
-         * <p> 示例值：\["person_info","employment_info.department","probation_info.probation_period"\]
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public SearchPreHireReqBody build() {
-            return new SearchPreHireReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

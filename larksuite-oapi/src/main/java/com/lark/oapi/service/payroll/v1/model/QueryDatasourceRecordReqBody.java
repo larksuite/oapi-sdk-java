@@ -13,149 +13,177 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryDatasourceRecordReqBody {
+  /**
+   * 数据源code
+   *
+   * <p>示例值：test__c
+   */
+  @SerializedName("source_code")
+  private String sourceCode;
+
+  /**
+   * 指定查询的数据源字段code。;1. 如不传入此字段，默认返回所有数据源字段;2.
+   * 如果传入，除了返回指定字段外，系统会默认返回emplyment_id、payroll_period字段的值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("selected_fields")
+  private String[] selectedFields;
+
+  /**
+   * 查询条件列表，多个条件之间为And关系，支持的查询条件如下：;1. employment_id;- 非必传，最多传入100个，field_type=3（文本类型）。;-
+   * 该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取.;-
+   * 查询操作符只支持IsAnyOf（包含）;2. 时间范围条件必传，根据数据源的不同数据写入维度，支持的时间范围查询条件如下：;-
+   * 算薪期间维度。payroll_period字段，格式：2024-01，; 查询方式：IsAnyOf操作符枚举需要查的月份，最多可查2个月。;-
+   * 数据发生日期维度（灰度中）。occur_day字段，格式2024-01-02，;
+   * 查询方式：通过InDateRange操作符查询（日期范围查询），occur_day的时间范围不允许超过90天，;-
+   * 自定义数据周期维度（灰度中）。custom_start、custom_end字段，格式：2024-01-02。查询方式：两者都必传，通过InDateRange操作符查询（日期范围查询），时间范围不允许超过90天。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_filters")
+  private DatasourceRecordFieldFilter[] fieldFilters;
+
+  public String getSourceCode() {
+    return this.sourceCode;
+  }
+
+  public void setSourceCode(String sourceCode) {
+    this.sourceCode = sourceCode;
+  }
+
+  public String[] getSelectedFields() {
+    return this.selectedFields;
+  }
+
+  public void setSelectedFields(String[] selectedFields) {
+    this.selectedFields = selectedFields;
+  }
+
+  public DatasourceRecordFieldFilter[] getFieldFilters() {
+    return this.fieldFilters;
+  }
+
+  public void setFieldFilters(DatasourceRecordFieldFilter[] fieldFilters) {
+    this.fieldFilters = fieldFilters;
+  }
+
+  // builder 开始
+  public QueryDatasourceRecordReqBody() {}
+
+  public QueryDatasourceRecordReqBody(Builder builder) {
     /**
-     * 数据源编码
-     * <p> 示例值：test__c
+     * 数据源code
+     *
+     * <p>示例值：test__c
      */
-    @SerializedName("source_code")
+    this.sourceCode = builder.sourceCode;
+    /**
+     * 指定查询的数据源字段code。;1. 如不传入此字段，默认返回所有数据源字段;2.
+     * 如果传入，除了返回指定字段外，系统会默认返回emplyment_id、payroll_period字段的值。
+     *
+     * <p>示例值：
+     */
+    this.selectedFields = builder.selectedFields;
+    /**
+     * 查询条件列表，多个条件之间为And关系，支持的查询条件如下：;1. employment_id;- 非必传，最多传入100个，field_type=3（文本类型）。;-
+     * 该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取.;-
+     * 查询操作符只支持IsAnyOf（包含）;2. 时间范围条件必传，根据数据源的不同数据写入维度，支持的时间范围查询条件如下：;-
+     * 算薪期间维度。payroll_period字段，格式：2024-01，; 查询方式：IsAnyOf操作符枚举需要查的月份，最多可查2个月。;-
+     * 数据发生日期维度（灰度中）。occur_day字段，格式2024-01-02，;
+     * 查询方式：通过InDateRange操作符查询（日期范围查询），occur_day的时间范围不允许超过90天，;-
+     * 自定义数据周期维度（灰度中）。custom_start、custom_end字段，格式：2024-01-02。查询方式：两者都必传，通过InDateRange操作符查询（日期范围查询），时间范围不允许超过90天。
+     *
+     * <p>示例值：
+     */
+    this.fieldFilters = builder.fieldFilters;
+  }
+
+  public static class Builder {
+    /**
+     * 数据源code
+     *
+     * <p>示例值：test__c
+     */
     private String sourceCode;
+
     /**
-     * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-     * <p> 示例值：
+     * 指定查询的数据源字段code。;1. 如不传入此字段，默认返回所有数据源字段;2.
+     * 如果传入，除了返回指定字段外，系统会默认返回emplyment_id、payroll_period字段的值。
+     *
+     * <p>示例值：
      */
-    @SerializedName("selected_fields")
     private String[] selectedFields;
+
     /**
-     * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-     * <p> 示例值：
+     * 查询条件列表，多个条件之间为And关系，支持的查询条件如下：;1. employment_id;- 非必传，最多传入100个，field_type=3（文本类型）。;-
+     * 该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取.;-
+     * 查询操作符只支持IsAnyOf（包含）;2. 时间范围条件必传，根据数据源的不同数据写入维度，支持的时间范围查询条件如下：;-
+     * 算薪期间维度。payroll_period字段，格式：2024-01，; 查询方式：IsAnyOf操作符枚举需要查的月份，最多可查2个月。;-
+     * 数据发生日期维度（灰度中）。occur_day字段，格式2024-01-02，;
+     * 查询方式：通过InDateRange操作符查询（日期范围查询），occur_day的时间范围不允许超过90天，;-
+     * 自定义数据周期维度（灰度中）。custom_start、custom_end字段，格式：2024-01-02。查询方式：两者都必传，通过InDateRange操作符查询（日期范围查询），时间范围不允许超过90天。
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_filters")
     private DatasourceRecordFieldFilter[] fieldFilters;
 
-    // builder 开始
-    public QueryDatasourceRecordReqBody() {
+    /**
+     * 数据源code
+     *
+     * <p>示例值：test__c
+     *
+     * @param sourceCode
+     * @return
+     */
+    public Builder sourceCode(String sourceCode) {
+      this.sourceCode = sourceCode;
+      return this;
     }
 
-    public QueryDatasourceRecordReqBody(Builder builder) {
-        /**
-         * 数据源编码
-         * <p> 示例值：test__c
-         */
-        this.sourceCode = builder.sourceCode;
-        /**
-         * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-         * <p> 示例值：
-         */
-        this.selectedFields = builder.selectedFields;
-        /**
-         * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-         * <p> 示例值：
-         */
-        this.fieldFilters = builder.fieldFilters;
+    /**
+     * 指定查询的数据源字段code。;1. 如不传入此字段，默认返回所有数据源字段;2.
+     * 如果传入，除了返回指定字段外，系统会默认返回emplyment_id、payroll_period字段的值。
+     *
+     * <p>示例值：
+     *
+     * @param selectedFields
+     * @return
+     */
+    public Builder selectedFields(String[] selectedFields) {
+      this.selectedFields = selectedFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询条件列表，多个条件之间为And关系，支持的查询条件如下：;1. employment_id;- 非必传，最多传入100个，field_type=3（文本类型）。;-
+     * 该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取.;-
+     * 查询操作符只支持IsAnyOf（包含）;2. 时间范围条件必传，根据数据源的不同数据写入维度，支持的时间范围查询条件如下：;-
+     * 算薪期间维度。payroll_period字段，格式：2024-01，; 查询方式：IsAnyOf操作符枚举需要查的月份，最多可查2个月。;-
+     * 数据发生日期维度（灰度中）。occur_day字段，格式2024-01-02，;
+     * 查询方式：通过InDateRange操作符查询（日期范围查询），occur_day的时间范围不允许超过90天，;-
+     * 自定义数据周期维度（灰度中）。custom_start、custom_end字段，格式：2024-01-02。查询方式：两者都必传，通过InDateRange操作符查询（日期范围查询），时间范围不允许超过90天。
+     *
+     * <p>示例值：
+     *
+     * @param fieldFilters
+     * @return
+     */
+    public Builder fieldFilters(DatasourceRecordFieldFilter[] fieldFilters) {
+      this.fieldFilters = fieldFilters;
+      return this;
     }
 
-    public String getSourceCode() {
-        return this.sourceCode;
+    public QueryDatasourceRecordReqBody build() {
+      return new QueryDatasourceRecordReqBody(this);
     }
+  }
 
-    public void setSourceCode(String sourceCode) {
-        this.sourceCode = sourceCode;
-    }
-
-    public String[] getSelectedFields() {
-        return this.selectedFields;
-    }
-
-    public void setSelectedFields(String[] selectedFields) {
-        this.selectedFields = selectedFields;
-    }
-
-    public DatasourceRecordFieldFilter[] getFieldFilters() {
-        return this.fieldFilters;
-    }
-
-    public void setFieldFilters(DatasourceRecordFieldFilter[] fieldFilters) {
-        this.fieldFilters = fieldFilters;
-    }
-
-    public static class Builder {
-        /**
-         * 数据源编码
-         * <p> 示例值：test__c
-         */
-        private String sourceCode;
-        /**
-         * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-         * <p> 示例值：
-         */
-        private String[] selectedFields;
-        /**
-         * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-         * <p> 示例值：
-         */
-        private DatasourceRecordFieldFilter[] fieldFilters;
-
-        /**
-         * 数据源编码
-         * <p> 示例值：test__c
-         *
-         * @param sourceCode
-         * @return
-         */
-        public Builder sourceCode(String sourceCode) {
-            this.sourceCode = sourceCode;
-            return this;
-        }
-
-
-        /**
-         * 指定查询的数据源字段。如不传，默认返回所有数据源字段
-         * <p> 示例值：
-         *
-         * @param selectedFields
-         * @return
-         */
-        public Builder selectedFields(String[] selectedFields) {
-            this.selectedFields = selectedFields;
-            return this;
-        }
-
-
-        /**
-         * 查询过滤器列表，多个过滤器之间为And关系。本期员工月维度汇总类型数据源，只支持employment_id、payroll_period fieldKey的查询，其中payroll_period必传
-         * <p> 示例值：
-         *
-         * @param fieldFilters
-         * @return
-         */
-        public Builder fieldFilters(DatasourceRecordFieldFilter[] fieldFilters) {
-            this.fieldFilters = fieldFilters;
-            return this;
-        }
-
-
-        public QueryDatasourceRecordReqBody build() {
-            return new QueryDatasourceRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

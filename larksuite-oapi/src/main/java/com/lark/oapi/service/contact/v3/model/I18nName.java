@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nName {
+  /**
+   * 部门的中文名。
+   *
+   * <p>示例值：Demo名称
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 部门的日文名。
+   *
+   * <p>示例值：デモ名
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  /**
+   * 部门的英文名。
+   *
+   * <p>示例值：Demo Name
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public I18nName() {}
+
+  public I18nName(Builder builder) {
     /**
-     * 中文名
-     * <p> 示例值：中文名
+     * 部门的中文名。
+     *
+     * <p>示例值：Demo名称
      */
-    @SerializedName("zh_cn")
+    this.zhCn = builder.zhCn;
+    /**
+     * 部门的日文名。
+     *
+     * <p>示例值：デモ名
+     */
+    this.jaJp = builder.jaJp;
+    /**
+     * 部门的英文名。
+     *
+     * <p>示例值：Demo Name
+     */
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * 部门的中文名。
+     *
+     * <p>示例值：Demo名称
+     */
     private String zhCn;
+
     /**
-     * 日文名
-     * <p> 示例值：日本語名
+     * 部门的日文名。
+     *
+     * <p>示例值：デモ名
      */
-    @SerializedName("ja_jp")
     private String jaJp;
+
     /**
-     * 英文名
-     * <p> 示例值：English
+     * 部门的英文名。
+     *
+     * <p>示例值：Demo Name
      */
-    @SerializedName("en_us")
     private String enUs;
 
-    // builder 开始
-    public I18nName() {
+    /**
+     * 部门的中文名。
+     *
+     * <p>示例值：Demo名称
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public I18nName(Builder builder) {
-        /**
-         * 中文名
-         * <p> 示例值：中文名
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 日文名
-         * <p> 示例值：日本語名
-         */
-        this.jaJp = builder.jaJp;
-        /**
-         * 英文名
-         * <p> 示例值：English
-         */
-        this.enUs = builder.enUs;
+    /**
+     * 部门的日文名。
+     *
+     * <p>示例值：デモ名
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门的英文名。
+     *
+     * <p>示例值：Demo Name
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    public I18nName build() {
+      return new I18nName(this);
     }
+  }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getJaJp() {
-        return this.jaJp;
-    }
-
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * 中文名
-         * <p> 示例值：中文名
-         */
-        private String zhCn;
-        /**
-         * 日文名
-         * <p> 示例值：日本語名
-         */
-        private String jaJp;
-        /**
-         * 英文名
-         * <p> 示例值：English
-         */
-        private String enUs;
-
-        /**
-         * 中文名
-         * <p> 示例值：中文名
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 日文名
-         * <p> 示例值：日本語名
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：English
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public I18nName build() {
-            return new I18nName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

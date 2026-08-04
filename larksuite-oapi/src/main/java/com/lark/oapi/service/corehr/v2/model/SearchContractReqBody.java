@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchContractReqBody {
+  /**
+   * 雇佣 ID
+   * 列表，雇佣ID可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询；最多支持传入20个ID。;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_id_list")
+  private String[] employmentIdList;
+
+  /**
+   * 合同 ID
+   * 列表，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取；最多支持传入20个ID。;<md-alert
+   * type="tip" icon="none">注意：以上两个筛选条件如果都填写，则是 「与」 的关系；如果都不填写，默认返回所有的合同列表信息</md-alert>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contract_id_list")
+  private String[] contractIdList;
+
+  public String[] getEmploymentIdList() {
+    return this.employmentIdList;
+  }
+
+  public void setEmploymentIdList(String[] employmentIdList) {
+    this.employmentIdList = employmentIdList;
+  }
+
+  public String[] getContractIdList() {
+    return this.contractIdList;
+  }
+
+  public void setContractIdList(String[] contractIdList) {
+    this.contractIdList = contractIdList;
+  }
+
+  // builder 开始
+  public SearchContractReqBody() {}
+
+  public SearchContractReqBody(Builder builder) {
     /**
-     * 雇佣 ID 列表
-     * <p> 示例值：
+     * 雇佣 ID
+     * 列表，雇佣ID可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询；最多支持传入20个ID。;
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_id_list")
+    this.employmentIdList = builder.employmentIdList;
+    /**
+     * 合同 ID
+     * 列表，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取；最多支持传入20个ID。;<md-alert
+     * type="tip" icon="none">注意：以上两个筛选条件如果都填写，则是 「与」 的关系；如果都不填写，默认返回所有的合同列表信息</md-alert>
+     *
+     * <p>示例值：
+     */
+    this.contractIdList = builder.contractIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 雇佣 ID
+     * 列表，雇佣ID可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询；最多支持传入20个ID。;
+     *
+     * <p>示例值：
+     */
     private String[] employmentIdList;
+
     /**
-     * 合同ID列表
-     * <p> 示例值：
+     * 合同 ID
+     * 列表，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取；最多支持传入20个ID。;<md-alert
+     * type="tip" icon="none">注意：以上两个筛选条件如果都填写，则是 「与」 的关系；如果都不填写，默认返回所有的合同列表信息</md-alert>
+     *
+     * <p>示例值：
      */
-    @SerializedName("contract_id_list")
     private String[] contractIdList;
 
-    // builder 开始
-    public SearchContractReqBody() {
+    /**
+     * 雇佣 ID
+     * 列表，雇佣ID可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询；最多支持传入20个ID。;
+     *
+     * <p>示例值：
+     *
+     * @param employmentIdList
+     * @return
+     */
+    public Builder employmentIdList(String[] employmentIdList) {
+      this.employmentIdList = employmentIdList;
+      return this;
     }
 
-    public SearchContractReqBody(Builder builder) {
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.employmentIdList = builder.employmentIdList;
-        /**
-         * 合同ID列表
-         * <p> 示例值：
-         */
-        this.contractIdList = builder.contractIdList;
+    /**
+     * 合同 ID
+     * 列表，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取；最多支持传入20个ID。;<md-alert
+     * type="tip" icon="none">注意：以上两个筛选条件如果都填写，则是 「与」 的关系；如果都不填写，默认返回所有的合同列表信息</md-alert>
+     *
+     * <p>示例值：
+     *
+     * @param contractIdList
+     * @return
+     */
+    public Builder contractIdList(String[] contractIdList) {
+      this.contractIdList = contractIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchContractReqBody build() {
+      return new SearchContractReqBody(this);
     }
+  }
 
-    public String[] getEmploymentIdList() {
-        return this.employmentIdList;
-    }
-
-    public void setEmploymentIdList(String[] employmentIdList) {
-        this.employmentIdList = employmentIdList;
-    }
-
-    public String[] getContractIdList() {
-        return this.contractIdList;
-    }
-
-    public void setContractIdList(String[] contractIdList) {
-        this.contractIdList = contractIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employmentIdList;
-        /**
-         * 合同ID列表
-         * <p> 示例值：
-         */
-        private String[] contractIdList;
-
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param employmentIdList
-         * @return
-         */
-        public Builder employmentIdList(String[] employmentIdList) {
-            this.employmentIdList = employmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 合同ID列表
-         * <p> 示例值：
-         *
-         * @param contractIdList
-         * @return
-         */
-        public Builder contractIdList(String[] contractIdList) {
-            this.contractIdList = contractIdList;
-            return this;
-        }
-
-
-        public SearchContractReqBody build() {
-            return new SearchContractReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

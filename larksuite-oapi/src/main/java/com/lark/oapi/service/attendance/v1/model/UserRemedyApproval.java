@@ -13,420 +13,485 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserRemedyApproval {
-    /**
-     * 用户工号
-     * <p> 示例值：abd754f7
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 补卡状态
-     * <p> 示例值：2
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 补卡原因
-     * <p> 示例值：忘记打卡
-     */
-    @SerializedName("reason")
-    private String reason;
-    /**
-     * 补卡时间戳，精确到秒
-     * <p> 示例值：1611476284
-     */
-    @SerializedName("time")
-    private String time;
-    /**
-     * 补卡时考勤组时区
-     * <p> 示例值：Asia/Shanghai
-     */
-    @SerializedName("time_zone")
-    private String timeZone;
-    /**
-     * 补卡日期
-     * <p> 示例值：20210701
-     */
-    @SerializedName("remedy_date")
-    private Integer remedyDate;
-    /**
-     * 第几次上下班，可能值 0、1、2
-     * <p> 示例值：0
-     */
-    @SerializedName("punch_no")
-    private Integer punchNo;
-    /**
-     * 上班/下班，1 是上班，2 是下班
-     * <p> 示例值：1
-     */
-    @SerializedName("work_type")
-    private Integer workType;
+  /**
+   * 审批 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 换班原因
+   *
+   * <p>示例值：用户申请换班
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 审批通过时间
+   *
+   * <p>示例值：2026-05-11 10:00:00
+   */
+  @SerializedName("approve_pass_time")
+  private String approvePassTime;
+
+  /**
+   * 审批申请时间
+   *
+   * <p>示例值：2026-05-11 09:30:00
+   */
+  @SerializedName("approve_apply_time")
+  private String approveApplyTime;
+
+  /**
+   * 补卡时间
+   *
+   * <p>示例值：3600
+   */
+  @SerializedName("remedy_time")
+  private String remedyTime;
+
+  /**
+   * 第几次上班
+   *
+   * <p>示例值：7200
+   */
+  @SerializedName("clock_no")
+  private String clockNo;
+
+  /**
+   * 上下班类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("clock_type")
+  private Integer clockType;
+
+  /**
+   * 日期
+   *
+   * <p>示例值：/
+   */
+  @SerializedName("day")
+  private String day;
+
+  /**
+   * 补卡类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("remedy_type")
+  private Integer remedyType;
+
+  /**
+   * 审批状态
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getApprovePassTime() {
+    return this.approvePassTime;
+  }
+
+  public void setApprovePassTime(String approvePassTime) {
+    this.approvePassTime = approvePassTime;
+  }
+
+  public String getApproveApplyTime() {
+    return this.approveApplyTime;
+  }
+
+  public void setApproveApplyTime(String approveApplyTime) {
+    this.approveApplyTime = approveApplyTime;
+  }
+
+  public String getRemedyTime() {
+    return this.remedyTime;
+  }
+
+  public void setRemedyTime(String remedyTime) {
+    this.remedyTime = remedyTime;
+  }
+
+  public String getClockNo() {
+    return this.clockNo;
+  }
+
+  public void setClockNo(String clockNo) {
+    this.clockNo = clockNo;
+  }
+
+  public Integer getClockType() {
+    return this.clockType;
+  }
+
+  public void setClockType(Integer clockType) {
+    this.clockType = clockType;
+  }
+
+  public String getDay() {
+    return this.day;
+  }
+
+  public void setDay(String day) {
+    this.day = day;
+  }
+
+  public Integer getRemedyType() {
+    return this.remedyType;
+  }
+
+  public void setRemedyType(Integer remedyType) {
+    this.remedyType = remedyType;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  // builder 开始
+  public UserRemedyApproval() {}
+
+  public UserRemedyApproval(Builder builder) {
     /**
      * 审批 ID
-     * <p> 示例值：6737202939523236113
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("approval_id")
-    private String approvalId;
+    this.approvalId = builder.approvalId;
+    /**
+     * 换班原因
+     *
+     * <p>示例值：用户申请换班
+     */
+    this.reason = builder.reason;
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2026-05-11 10:00:00
+     */
+    this.approvePassTime = builder.approvePassTime;
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2026-05-11 09:30:00
+     */
+    this.approveApplyTime = builder.approveApplyTime;
     /**
      * 补卡时间
-     * <p> 示例值：2021-01-04 09:00:00
+     *
+     * <p>示例值：3600
      */
-    @SerializedName("remedy_time")
+    this.remedyTime = builder.remedyTime;
+    /**
+     * 第几次上班
+     *
+     * <p>示例值：7200
+     */
+    this.clockNo = builder.clockNo;
+    /**
+     * 上下班类型
+     *
+     * <p>示例值：1
+     */
+    this.clockType = builder.clockType;
+    /**
+     * 日期
+     *
+     * <p>示例值：/
+     */
+    this.day = builder.day;
+    /**
+     * 补卡类型
+     *
+     * <p>示例值：1
+     */
+    this.remedyType = builder.remedyType;
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    this.status = builder.status;
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
+    this.timeZone = builder.timeZone;
+  }
+
+  public static class Builder {
+    /**
+     * 审批 ID
+     *
+     * <p>示例值：123456
+     */
+    private String approvalId;
+
+    /**
+     * 换班原因
+     *
+     * <p>示例值：用户申请换班
+     */
+    private String reason;
+
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2026-05-11 10:00:00
+     */
+    private String approvePassTime;
+
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2026-05-11 09:30:00
+     */
+    private String approveApplyTime;
+
+    /**
+     * 补卡时间
+     *
+     * <p>示例值：3600
+     */
     private String remedyTime;
 
-    // builder 开始
-    public UserRemedyApproval() {
+    /**
+     * 第几次上班
+     *
+     * <p>示例值：7200
+     */
+    private String clockNo;
+
+    /**
+     * 上下班类型
+     *
+     * <p>示例值：1
+     */
+    private Integer clockType;
+
+    /**
+     * 日期
+     *
+     * <p>示例值：/
+     */
+    private String day;
+
+    /**
+     * 补卡类型
+     *
+     * <p>示例值：1
+     */
+    private Integer remedyType;
+
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    private Integer status;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
+    private String timeZone;
+
+    /**
+     * 审批 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public UserRemedyApproval(Builder builder) {
-        /**
-         * 用户工号
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 补卡状态
-         * <p> 示例值：2
-         */
-        this.status = builder.status;
-        /**
-         * 补卡原因
-         * <p> 示例值：忘记打卡
-         */
-        this.reason = builder.reason;
-        /**
-         * 补卡时间戳，精确到秒
-         * <p> 示例值：1611476284
-         */
-        this.time = builder.time;
-        /**
-         * 补卡时考勤组时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 补卡日期
-         * <p> 示例值：20210701
-         */
-        this.remedyDate = builder.remedyDate;
-        /**
-         * 第几次上下班，可能值 0、1、2
-         * <p> 示例值：0
-         */
-        this.punchNo = builder.punchNo;
-        /**
-         * 上班/下班，1 是上班，2 是下班
-         * <p> 示例值：1
-         */
-        this.workType = builder.workType;
-        /**
-         * 审批 ID
-         * <p> 示例值：6737202939523236113
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         * 补卡时间
-         * <p> 示例值：2021-01-04 09:00:00
-         */
-        this.remedyTime = builder.remedyTime;
+    /**
+     * 换班原因
+     *
+     * <p>示例值：用户申请换班
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2026-05-11 10:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
+    public Builder approvePassTime(String approvePassTime) {
+      this.approvePassTime = approvePassTime;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2026-05-11 09:30:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
+    public Builder approveApplyTime(String approveApplyTime) {
+      this.approveApplyTime = approveApplyTime;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 补卡时间
+     *
+     * <p>示例值：3600
+     *
+     * @param remedyTime
+     * @return
+     */
+    public Builder remedyTime(String remedyTime) {
+      this.remedyTime = remedyTime;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    /**
+     * 第几次上班
+     *
+     * <p>示例值：7200
+     *
+     * @param clockNo
+     * @return
+     */
+    public Builder clockNo(String clockNo) {
+      this.clockNo = clockNo;
+      return this;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    /**
+     * 上下班类型
+     *
+     * <p>示例值：1
+     *
+     * @param clockType
+     * @return
+     */
+    public Builder clockType(Integer clockType) {
+      this.clockType = clockType;
+      return this;
     }
 
-    public String getReason() {
-        return this.reason;
+    /**
+     * 日期
+     *
+     * <p>示例值：/
+     *
+     * @param day
+     * @return
+     */
+    public Builder day(String day) {
+      this.day = day;
+      return this;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    /**
+     * 补卡类型
+     *
+     * <p>示例值：1
+     *
+     * @param remedyType
+     * @return
+     */
+    public Builder remedyType(Integer remedyType) {
+      this.remedyType = remedyType;
+      return this;
     }
 
-    public String getTime() {
-        return this.time;
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
+    public UserRemedyApproval build() {
+      return new UserRemedyApproval(this);
     }
+  }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Integer getRemedyDate() {
-        return this.remedyDate;
-    }
-
-    public void setRemedyDate(Integer remedyDate) {
-        this.remedyDate = remedyDate;
-    }
-
-    public Integer getPunchNo() {
-        return this.punchNo;
-    }
-
-    public void setPunchNo(Integer punchNo) {
-        this.punchNo = punchNo;
-    }
-
-    public Integer getWorkType() {
-        return this.workType;
-    }
-
-    public void setWorkType(Integer workType) {
-        this.workType = workType;
-    }
-
-    public String getApprovalId() {
-        return this.approvalId;
-    }
-
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
-    }
-
-    public String getRemedyTime() {
-        return this.remedyTime;
-    }
-
-    public void setRemedyTime(String remedyTime) {
-        this.remedyTime = remedyTime;
-    }
-
-    public static class Builder {
-        /**
-         * 用户工号
-         * <p> 示例值：abd754f7
-         */
-        private String userId;
-        /**
-         * 补卡状态
-         * <p> 示例值：2
-         */
-        private Integer status;
-        /**
-         * 补卡原因
-         * <p> 示例值：忘记打卡
-         */
-        private String reason;
-        /**
-         * 补卡时间戳，精确到秒
-         * <p> 示例值：1611476284
-         */
-        private String time;
-        /**
-         * 补卡时考勤组时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timeZone;
-        /**
-         * 补卡日期
-         * <p> 示例值：20210701
-         */
-        private Integer remedyDate;
-        /**
-         * 第几次上下班，可能值 0、1、2
-         * <p> 示例值：0
-         */
-        private Integer punchNo;
-        /**
-         * 上班/下班，1 是上班，2 是下班
-         * <p> 示例值：1
-         */
-        private Integer workType;
-        /**
-         * 审批 ID
-         * <p> 示例值：6737202939523236113
-         */
-        private String approvalId;
-        /**
-         * 补卡时间
-         * <p> 示例值：2021-01-04 09:00:00
-         */
-        private String remedyTime;
-
-        /**
-         * 用户工号
-         * <p> 示例值：abd754f7
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 补卡状态
-         * <p> 示例值：2
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 补卡状态
-         * <p> 示例值：2
-         *
-         * @param status {@link com.lark.oapi.service.attendance.v1.enums.UserRemedyApprovalQueryUserRemedyApprovalStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.attendance.v1.enums.UserRemedyApprovalQueryUserRemedyApprovalStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 补卡原因
-         * <p> 示例值：忘记打卡
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 补卡时间戳，精确到秒
-         * <p> 示例值：1611476284
-         *
-         * @param time
-         * @return
-         */
-        public Builder time(String time) {
-            this.time = time;
-            return this;
-        }
-
-
-        /**
-         * 补卡时考勤组时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 补卡日期
-         * <p> 示例值：20210701
-         *
-         * @param remedyDate
-         * @return
-         */
-        public Builder remedyDate(Integer remedyDate) {
-            this.remedyDate = remedyDate;
-            return this;
-        }
-
-
-        /**
-         * 第几次上下班，可能值 0、1、2
-         * <p> 示例值：0
-         *
-         * @param punchNo
-         * @return
-         */
-        public Builder punchNo(Integer punchNo) {
-            this.punchNo = punchNo;
-            return this;
-        }
-
-
-        /**
-         * 上班/下班，1 是上班，2 是下班
-         * <p> 示例值：1
-         *
-         * @param workType
-         * @return
-         */
-        public Builder workType(Integer workType) {
-            this.workType = workType;
-            return this;
-        }
-
-
-        /**
-         * 审批 ID
-         * <p> 示例值：6737202939523236113
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        /**
-         * 补卡时间
-         * <p> 示例值：2021-01-04 09:00:00
-         *
-         * @param remedyTime
-         * @return
-         */
-        public Builder remedyTime(String remedyTime) {
-            this.remedyTime = remedyTime;
-            return this;
-        }
-
-
-        public UserRemedyApproval build() {
-            return new UserRemedyApproval(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

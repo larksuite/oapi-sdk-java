@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppReqBody {
+  /**
+   * 搜索关键词
+   *
+   * <p>示例值：测试应用
+   */
+  @SerializedName("query")
+  private String query;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  // builder 开始
+  public CreateAppReqBody() {}
+
+  public CreateAppReqBody(Builder builder) {
     /**
      * 搜索关键词
-     * <p> 示例值：测试应用
+     *
+     * <p>示例值：测试应用
      */
-    @SerializedName("query")
+    this.query = builder.query;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词
+     *
+     * <p>示例值：测试应用
+     */
     private String query;
 
-    // builder 开始
-    public CreateAppReqBody() {
+    /**
+     * 搜索关键词
+     *
+     * <p>示例值：测试应用
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public CreateAppReqBody(Builder builder) {
-        /**
-         * 搜索关键词
-         * <p> 示例值：测试应用
-         */
-        this.query = builder.query;
+    public CreateAppReqBody build() {
+      return new CreateAppReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词
-         * <p> 示例值：测试应用
-         */
-        private String query;
-
-        /**
-         * 搜索关键词
-         * <p> 示例值：测试应用
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        public CreateAppReqBody build() {
-            return new CreateAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

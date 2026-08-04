@@ -13,161 +13,167 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CodeDetail {
+  /**
+   * 语言ID
+   *
+   * <p>示例值：22
+   */
+  @SerializedName("language")
+  private String language;
+
+  /**
+   * 语言名字
+   *
+   * <p>示例值：Go
+   */
+  @SerializedName("language_name")
+  private String languageName;
+
+  /**
+   * 代码块内容
+   *
+   * <p>示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n fmt.Println("Hello,
+   * World!")\n}\n
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public String getLanguageName() {
+    return this.languageName;
+  }
+
+  public void setLanguageName(String languageName) {
+    this.languageName = languageName;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public CodeDetail() {}
+
+  public CodeDetail(Builder builder) {
     /**
      * 语言ID
-     * <p> 示例值：22
+     *
+     * <p>示例值：22
      */
-    @SerializedName("language")
-    private String language;
+    this.language = builder.language;
     /**
      * 语言名字
-     * <p> 示例值：Go
+     *
+     * <p>示例值：Go
      */
-    @SerializedName("language_name")
-    private String languageName;
+    this.languageName = builder.languageName;
     /**
      * 代码块内容
-     * <p> 示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}\n
+     *
+     * <p>示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n fmt.Println("Hello,
+     * World!")\n}\n
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 语言ID
+     *
+     * <p>示例值：22
+     */
+    private String language;
+
+    /**
+     * 语言名字
+     *
+     * <p>示例值：Go
+     */
+    private String languageName;
+
+    /**
+     * 代码块内容
+     *
+     * <p>示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n fmt.Println("Hello,
+     * World!")\n}\n
+     */
     private String content;
 
-    // builder 开始
-    public CodeDetail() {
+    /**
+     * 语言ID
+     *
+     * <p>示例值：22
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public CodeDetail(Builder builder) {
-        /**
-         * 语言ID
-         * <p> 示例值：22
-         */
-        this.language = builder.language;
-        /**
-         * 语言名字
-         * <p> 示例值：Go
-         */
-        this.languageName = builder.languageName;
-        /**
-         * 代码块内容
-         * <p> 示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}\n
-         */
-        this.content = builder.content;
+    /**
+     * 语言ID
+     *
+     * <p>示例值：22
+     *
+     * @param language {@link com.lark.oapi.service.document_ai.v1.enums.CodeDetailLanguageEnum}
+     * @return
+     */
+    public Builder language(
+        com.lark.oapi.service.document_ai.v1.enums.CodeDetailLanguageEnum language) {
+      this.language = language.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 语言名字
+     *
+     * <p>示例值：Go
+     *
+     * @param languageName
+     * @return
+     */
+    public Builder languageName(String languageName) {
+      this.languageName = languageName;
+      return this;
     }
 
-    public String getLanguage() {
-        return this.language;
+    /**
+     * 代码块内容
+     *
+     * <p>示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n fmt.Println("Hello,
+     * World!")\n}\n
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public CodeDetail build() {
+      return new CodeDetail(this);
     }
+  }
 
-    public String getLanguageName() {
-        return this.languageName;
-    }
-
-    public void setLanguageName(String languageName) {
-        this.languageName = languageName;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 语言ID
-         * <p> 示例值：22
-         */
-        private String language;
-        /**
-         * 语言名字
-         * <p> 示例值：Go
-         */
-        private String languageName;
-        /**
-         * 代码块内容
-         * <p> 示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}\n
-         */
-        private String content;
-
-        /**
-         * 语言ID
-         * <p> 示例值：22
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-        /**
-         * 语言ID
-         * <p> 示例值：22
-         *
-         * @param language {@link com.lark.oapi.service.document_ai.v1.enums.CodeDetailLanguageEnum}
-         * @return
-         */
-        public Builder language(com.lark.oapi.service.document_ai.v1.enums.CodeDetailLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
-        }
-
-
-        /**
-         * 语言名字
-         * <p> 示例值：Go
-         *
-         * @param languageName
-         * @return
-         */
-        public Builder languageName(String languageName) {
-            this.languageName = languageName;
-            return this;
-        }
-
-
-        /**
-         * 代码块内容
-         * <p> 示例值：//引用中代码块\npackage main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}\n
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public CodeDetail build() {
-            return new CodeDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

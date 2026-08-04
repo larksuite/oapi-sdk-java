@@ -13,231 +13,248 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextElement {
+  /**
+   * 元素类别
+   *
+   * <p>示例值：
+   */
+  @SerializedName("element_type")
+  private Integer elementType;
+
+  /**
+   * 文本元素信息（当前元素为文本类别时候需要填写当前字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element")
+  private RichTextElementText textElement;
+
+  /**
+   * 超链接类别信息（当前元素为链接类别时候需要有当前字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link_element")
+  private RichTextElementLink linkElement;
+
+  /**
+   * @用户类别信息（当前元素为@用户类别时候需要有当前字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mention_user_element")
+  private RichTextElementMentionUser mentionUserElement;
+
+  /**
+   * 文档类别信息（当前元素为文档类别时候需要有当前字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mention_doc_element")
+  private RichTextElementMentionDoc mentionDocElement;
+
+  public Integer getElementType() {
+    return this.elementType;
+  }
+
+  public void setElementType(Integer elementType) {
+    this.elementType = elementType;
+  }
+
+  public RichTextElementText getTextElement() {
+    return this.textElement;
+  }
+
+  public void setTextElement(RichTextElementText textElement) {
+    this.textElement = textElement;
+  }
+
+  public RichTextElementLink getLinkElement() {
+    return this.linkElement;
+  }
+
+  public void setLinkElement(RichTextElementLink linkElement) {
+    this.linkElement = linkElement;
+  }
+
+  public RichTextElementMentionUser getMentionUserElement() {
+    return this.mentionUserElement;
+  }
+
+  public void setMentionUserElement(RichTextElementMentionUser mentionUserElement) {
+    this.mentionUserElement = mentionUserElement;
+  }
+
+  public RichTextElementMentionDoc getMentionDocElement() {
+    return this.mentionDocElement;
+  }
+
+  public void setMentionDocElement(RichTextElementMentionDoc mentionDocElement) {
+    this.mentionDocElement = mentionDocElement;
+  }
+
+  // builder 开始
+  public RichTextElement() {}
+
+  public RichTextElement(Builder builder) {
     /**
      * 元素类别
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("element_type")
+    this.elementType = builder.elementType;
+    /**
+     * 文本元素信息（当前元素为文本类别时候需要填写当前字段）
+     *
+     * <p>示例值：
+     */
+    this.textElement = builder.textElement;
+    /**
+     * 超链接类别信息（当前元素为链接类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     */
+    this.linkElement = builder.linkElement;
+    /**
+     * @用户类别信息（当前元素为@用户类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     */
+    this.mentionUserElement = builder.mentionUserElement;
+    /**
+     * 文档类别信息（当前元素为文档类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     */
+    this.mentionDocElement = builder.mentionDocElement;
+  }
+
+  public static class Builder {
+    /**
+     * 元素类别
+     *
+     * <p>示例值：
+     */
     private Integer elementType;
+
     /**
-     * 文本类别信息
-     * <p> 示例值：
+     * 文本元素信息（当前元素为文本类别时候需要填写当前字段）
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element")
     private RichTextElementText textElement;
+
     /**
-     * 超链接类别信息
-     * <p> 示例值：
+     * 超链接类别信息（当前元素为链接类别时候需要有当前字段）
+     *
+     * <p>示例值：
      */
-    @SerializedName("link_element")
     private RichTextElementLink linkElement;
+
     /**
-     * @用户类别信息 <p> 示例值：
+     * @用户类别信息（当前元素为@用户类别时候需要有当前字段）
+     *
+     * <p>示例值：
      */
-    @SerializedName("mention_user_element")
     private RichTextElementMentionUser mentionUserElement;
+
     /**
-     * 文档类别信息
-     * <p> 示例值：
+     * 文档类别信息（当前元素为文档类别时候需要有当前字段）
+     *
+     * <p>示例值：
      */
-    @SerializedName("mention_doc_element")
     private RichTextElementMentionDoc mentionDocElement;
 
-    // builder 开始
-    public RichTextElement() {
+    /**
+     * 元素类别
+     *
+     * <p>示例值：
+     *
+     * @param elementType
+     * @return
+     */
+    public Builder elementType(Integer elementType) {
+      this.elementType = elementType;
+      return this;
     }
 
-    public RichTextElement(Builder builder) {
-        /**
-         * 元素类别
-         * <p> 示例值：
-         */
-        this.elementType = builder.elementType;
-        /**
-         * 文本类别信息
-         * <p> 示例值：
-         */
-        this.textElement = builder.textElement;
-        /**
-         * 超链接类别信息
-         * <p> 示例值：
-         */
-        this.linkElement = builder.linkElement;
-        /**
-         * @用户类别信息
-         * <p> 示例值：
-         */
-        this.mentionUserElement = builder.mentionUserElement;
-        /**
-         * 文档类别信息
-         * <p> 示例值：
-         */
-        this.mentionDocElement = builder.mentionDocElement;
+    /**
+     * 元素类别
+     *
+     * <p>示例值：
+     *
+     * @param elementType {@link
+     *     com.lark.oapi.service.board.v1.enums.RichTextElementRichTextElementTypeEnum}
+     * @return
+     */
+    public Builder elementType(
+        com.lark.oapi.service.board.v1.enums.RichTextElementRichTextElementTypeEnum elementType) {
+      this.elementType = elementType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文本元素信息（当前元素为文本类别时候需要填写当前字段）
+     *
+     * <p>示例值：
+     *
+     * @param textElement
+     * @return
+     */
+    public Builder textElement(RichTextElementText textElement) {
+      this.textElement = textElement;
+      return this;
     }
 
-    public Integer getElementType() {
-        return this.elementType;
+    /**
+     * 超链接类别信息（当前元素为链接类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     *
+     * @param linkElement
+     * @return
+     */
+    public Builder linkElement(RichTextElementLink linkElement) {
+      this.linkElement = linkElement;
+      return this;
     }
 
-    public void setElementType(Integer elementType) {
-        this.elementType = elementType;
+    /**
+     * @用户类别信息（当前元素为@用户类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     *
+     * @param mentionUserElement
+     * @return
+     */
+    public Builder mentionUserElement(RichTextElementMentionUser mentionUserElement) {
+      this.mentionUserElement = mentionUserElement;
+      return this;
     }
 
-    public RichTextElementText getTextElement() {
-        return this.textElement;
+    /**
+     * 文档类别信息（当前元素为文档类别时候需要有当前字段）
+     *
+     * <p>示例值：
+     *
+     * @param mentionDocElement
+     * @return
+     */
+    public Builder mentionDocElement(RichTextElementMentionDoc mentionDocElement) {
+      this.mentionDocElement = mentionDocElement;
+      return this;
     }
 
-    public void setTextElement(RichTextElementText textElement) {
-        this.textElement = textElement;
+    public RichTextElement build() {
+      return new RichTextElement(this);
     }
+  }
 
-    public RichTextElementLink getLinkElement() {
-        return this.linkElement;
-    }
-
-    public void setLinkElement(RichTextElementLink linkElement) {
-        this.linkElement = linkElement;
-    }
-
-    public RichTextElementMentionUser getMentionUserElement() {
-        return this.mentionUserElement;
-    }
-
-    public void setMentionUserElement(RichTextElementMentionUser mentionUserElement) {
-        this.mentionUserElement = mentionUserElement;
-    }
-
-    public RichTextElementMentionDoc getMentionDocElement() {
-        return this.mentionDocElement;
-    }
-
-    public void setMentionDocElement(RichTextElementMentionDoc mentionDocElement) {
-        this.mentionDocElement = mentionDocElement;
-    }
-
-    public static class Builder {
-        /**
-         * 元素类别
-         * <p> 示例值：
-         */
-        private Integer elementType;
-        /**
-         * 文本类别信息
-         * <p> 示例值：
-         */
-        private RichTextElementText textElement;
-        /**
-         * 超链接类别信息
-         * <p> 示例值：
-         */
-        private RichTextElementLink linkElement;
-        /**
-         * @用户类别信息 <p> 示例值：
-         */
-        private RichTextElementMentionUser mentionUserElement;
-        /**
-         * 文档类别信息
-         * <p> 示例值：
-         */
-        private RichTextElementMentionDoc mentionDocElement;
-
-        /**
-         * 元素类别
-         * <p> 示例值：
-         *
-         * @param elementType
-         * @return
-         */
-        public Builder elementType(Integer elementType) {
-            this.elementType = elementType;
-            return this;
-        }
-
-        /**
-         * 元素类别
-         * <p> 示例值：
-         *
-         * @param elementType {@link com.lark.oapi.service.board.v1.enums.RichTextElementRichTextElementTypeEnum}
-         * @return
-         */
-        public Builder elementType(com.lark.oapi.service.board.v1.enums.RichTextElementRichTextElementTypeEnum elementType) {
-            this.elementType = elementType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本类别信息
-         * <p> 示例值：
-         *
-         * @param textElement
-         * @return
-         */
-        public Builder textElement(RichTextElementText textElement) {
-            this.textElement = textElement;
-            return this;
-        }
-
-
-        /**
-         * 超链接类别信息
-         * <p> 示例值：
-         *
-         * @param linkElement
-         * @return
-         */
-        public Builder linkElement(RichTextElementLink linkElement) {
-            this.linkElement = linkElement;
-            return this;
-        }
-
-
-        /**
-         * @param mentionUserElement
-         * @return
-         * @用户类别信息 <p> 示例值：
-         */
-        public Builder mentionUserElement(RichTextElementMentionUser mentionUserElement) {
-            this.mentionUserElement = mentionUserElement;
-            return this;
-        }
-
-
-        /**
-         * 文档类别信息
-         * <p> 示例值：
-         *
-         * @param mentionDocElement
-         * @return
-         */
-        public Builder mentionDocElement(RichTextElementMentionDoc mentionDocElement) {
-            this.mentionDocElement = mentionDocElement;
-            return this;
-        }
-
-
-        public RichTextElement build() {
-            return new RichTextElement(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

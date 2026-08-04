@@ -13,383 +13,414 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Run {
+  /**
+   * 运行 ID
+   *
+   * <p>示例值：run_4dfrxvctjqzzj
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 运行的创建时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 应用 ID
+   *
+   * <p>示例值：spring_xxx__c
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 会话 ID
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @SerializedName("session_id")
+  private String sessionId;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：IN_PROGRESS
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 开始时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("started_at")
+  private String startedAt;
+
+  /**
+   * 结束时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("ended_at")
+  private String endedAt;
+
+  /**
+   * 失败时的错误信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("error")
+  private RunError error;
+
+  /**
+   * 其他透传信息
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("metadata")
+  private String metadata;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getSessionId() {
+    return this.sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getStartedAt() {
+    return this.startedAt;
+  }
+
+  public void setStartedAt(String startedAt) {
+    this.startedAt = startedAt;
+  }
+
+  public String getEndedAt() {
+    return this.endedAt;
+  }
+
+  public void setEndedAt(String endedAt) {
+    this.endedAt = endedAt;
+  }
+
+  public RunError getError() {
+    return this.error;
+  }
+
+  public void setError(RunError error) {
+    this.error = error;
+  }
+
+  public String getMetadata() {
+    return this.metadata;
+  }
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+  // builder 开始
+  public Run() {}
+
+  public Run(Builder builder) {
     /**
      * 运行 ID
-     * <p> 示例值：run_4dfrxvctjqzzj
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 运行的创建时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 应用 ID
-     * <p> 示例值：spring_xxx__c
+     *
+     * <p>示例值：spring_xxx__c
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
      * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @SerializedName("session_id")
-    private String sessionId;
+    this.sessionId = builder.sessionId;
     /**
      * 状态
-     * <p> 示例值：IN_PROGRESS
+     *
+     * <p>示例值：IN_PROGRESS
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 开始时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("started_at")
-    private String startedAt;
+    this.startedAt = builder.startedAt;
     /**
      * 结束时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("ended_at")
-    private String endedAt;
+    this.endedAt = builder.endedAt;
     /**
      * 失败时的错误信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("error")
-    private RunError error;
+    this.error = builder.error;
     /**
      * 其他透传信息
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("metadata")
+    this.metadata = builder.metadata;
+  }
+
+  public static class Builder {
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     */
+    private String id;
+
+    /**
+     * 运行的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
+    private String createdAt;
+
+    /**
+     * 应用 ID
+     *
+     * <p>示例值：spring_xxx__c
+     */
+    private String appId;
+
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     */
+    private String sessionId;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：IN_PROGRESS
+     */
+    private String status;
+
+    /**
+     * 开始时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
+    private String startedAt;
+
+    /**
+     * 结束时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
+    private String endedAt;
+
+    /**
+     * 失败时的错误信息
+     *
+     * <p>示例值：
+     */
+    private RunError error;
+
+    /**
+     * 其他透传信息
+     *
+     * <p>示例值：{}
+     */
     private String metadata;
 
-    // builder 开始
-    public Run() {
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Run(Builder builder) {
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        this.id = builder.id;
-        /**
-         * 运行的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        this.appId = builder.appId;
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.sessionId = builder.sessionId;
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         */
-        this.status = builder.status;
-        /**
-         * 开始时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.startedAt = builder.startedAt;
-        /**
-         * 结束时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.endedAt = builder.endedAt;
-        /**
-         * 失败时的错误信息
-         * <p> 示例值：
-         */
-        this.error = builder.error;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
+    /**
+     * 运行的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用 ID
+     *
+     * <p>示例值：spring_xxx__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param sessionId
+     * @return
+     */
+    public Builder sessionId(String sessionId) {
+      this.sessionId = sessionId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 状态
+     *
+     * <p>示例值：IN_PROGRESS
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getCreatedAt() {
-        return this.createdAt;
+    /**
+     * 状态
+     *
+     * <p>示例值：IN_PROGRESS
+     *
+     * @param status {@link com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    /**
+     * 开始时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param startedAt
+     * @return
+     */
+    public Builder startedAt(String startedAt) {
+      this.startedAt = startedAt;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * 结束时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param endedAt
+     * @return
+     */
+    public Builder endedAt(String endedAt) {
+      this.endedAt = endedAt;
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    /**
+     * 失败时的错误信息
+     *
+     * <p>示例值：
+     *
+     * @param error
+     * @return
+     */
+    public Builder error(RunError error) {
+      this.error = error;
+      return this;
     }
 
-    public String getSessionId() {
-        return this.sessionId;
+    /**
+     * 其他透传信息
+     *
+     * <p>示例值：{}
+     *
+     * @param metadata
+     * @return
+     */
+    public Builder metadata(String metadata) {
+      this.metadata = metadata;
+      return this;
     }
 
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
+    public Run build() {
+      return new Run(this);
     }
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStartedAt() {
-        return this.startedAt;
-    }
-
-    public void setStartedAt(String startedAt) {
-        this.startedAt = startedAt;
-    }
-
-    public String getEndedAt() {
-        return this.endedAt;
-    }
-
-    public void setEndedAt(String endedAt) {
-        this.endedAt = endedAt;
-    }
-
-    public RunError getError() {
-        return this.error;
-    }
-
-    public void setError(RunError error) {
-        this.error = error;
-    }
-
-    public String getMetadata() {
-        return this.metadata;
-    }
-
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
-    }
-
-    public static class Builder {
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        private String id;
-        /**
-         * 运行的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String createdAt;
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         */
-        private String appId;
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        private String sessionId;
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         */
-        private String status;
-        /**
-         * 开始时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String startedAt;
-        /**
-         * 结束时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String endedAt;
-        /**
-         * 失败时的错误信息
-         * <p> 示例值：
-         */
-        private RunError error;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        private String metadata;
-
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 运行的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 应用 ID
-         * <p> 示例值：spring_xxx__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param sessionId
-         * @return
-         */
-        public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         *
-         * @param status {@link com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.aily.v1.enums.RunRunStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 开始时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param startedAt
-         * @return
-         */
-        public Builder startedAt(String startedAt) {
-            this.startedAt = startedAt;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param endedAt
-         * @return
-         */
-        public Builder endedAt(String endedAt) {
-            this.endedAt = endedAt;
-            return this;
-        }
-
-
-        /**
-         * 失败时的错误信息
-         * <p> 示例值：
-         *
-         * @param error
-         * @return
-         */
-        public Builder error(RunError error) {
-            this.error = error;
-            return this;
-        }
-
-
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         *
-         * @param metadata
-         * @return
-         */
-        public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
-        }
-
-
-        public Run build() {
-            return new Run(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

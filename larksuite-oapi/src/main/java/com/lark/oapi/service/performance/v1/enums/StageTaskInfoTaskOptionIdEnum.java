@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.performance.v1.enums;
 
-/**
- * 归属分类ID
- */
+/** 任务分类 */
 public enum StageTaskInfoTaskOptionIdEnum {
-    VALUE_1(1), // 待完成
-    VALUE_2(2), // 已完成
-    VALUE_3(3), // 已逾期（此分类仅在租户系统设置为不允许逾期提交时存在）
-    ;
-    private Integer value;
+  VALUE_1(1), // 待完成
+  VALUE_2(2), // 已完成
+  VALUE_3(3), // 已逾期（此分类仅在租户系统设置为不允许逾期提交时存在）
+  ;
+  private Integer value;
 
-    StageTaskInfoTaskOptionIdEnum(Integer value) {
-        this.value = value;
-    }
+  StageTaskInfoTaskOptionIdEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

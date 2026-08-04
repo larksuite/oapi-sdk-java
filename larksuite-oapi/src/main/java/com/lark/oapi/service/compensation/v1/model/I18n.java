@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
+  /**
+   * 中文说明
+   *
+   * <p>示例值：2024年社保基数调整
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 英文说明
+   *
+   * <p>示例值：2024 Social Insurance Base Adjustment
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public I18n() {}
+
+  public I18n(Builder builder) {
     /**
-     * 中文名称
-     * <p> 示例值：中文名称
+     * 中文说明
+     *
+     * <p>示例值：2024年社保基数调整
      */
-    @SerializedName("zh_cn")
+    this.zhCn = builder.zhCn;
+    /**
+     * 英文说明
+     *
+     * <p>示例值：2024 Social Insurance Base Adjustment
+     */
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * 中文说明
+     *
+     * <p>示例值：2024年社保基数调整
+     */
     private String zhCn;
+
     /**
-     * 英文名称
-     * <p> 示例值：english_name
+     * 英文说明
+     *
+     * <p>示例值：2024 Social Insurance Base Adjustment
      */
-    @SerializedName("en_us")
     private String enUs;
 
-    // builder 开始
-    public I18n() {
+    /**
+     * 中文说明
+     *
+     * <p>示例值：2024年社保基数调整
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public I18n(Builder builder) {
-        /**
-         * 中文名称
-         * <p> 示例值：中文名称
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文名称
-         * <p> 示例值：english_name
-         */
-        this.enUs = builder.enUs;
+    /**
+     * 英文说明
+     *
+     * <p>示例值：2024 Social Insurance Base Adjustment
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18n build() {
+      return new I18n(this);
     }
+  }
 
-    public String getZhCn() {
-        return this.zhCn;
-    }
-
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * 中文名称
-         * <p> 示例值：中文名称
-         */
-        private String zhCn;
-        /**
-         * 英文名称
-         * <p> 示例值：english_name
-         */
-        private String enUs;
-
-        /**
-         * 中文名称
-         * <p> 示例值：中文名称
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 英文名称
-         * <p> 示例值：english_name
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public I18n build() {
-            return new I18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

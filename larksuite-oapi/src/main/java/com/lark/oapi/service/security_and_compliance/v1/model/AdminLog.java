@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AdminLog {
+  /**
+   * 日志唯一ID，用于定位一条具体的日志
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("unique_id")
+  private String uniqueId;
+
+  /**
+   * 管理员 open_id
+   *
+   * <p>示例值：ou_e7b25d9ee116ff0c2b3c4400e3bedc5c
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 目录编号，对应管理后台事件类型级联菜单的二级菜单（C1）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("category_name")
+  private String categoryName;
+
+  /**
+   * 事件编号，对应管理后台事件类型级联菜单的二级菜单（C2）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("event_name")
+  private String eventName;
+
+  /**
+   * IP地址
+   *
+   * <p>示例值：1.0.0.127
+   */
+  @SerializedName("ip_address")
+  private String ipAddress;
+
+  /**
+   * 日志行为发生时间戳
+   *
+   * <p>示例值：1692773562
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 日志事件详情
+   *
+   * <p>示例值：[{\"logKey\":\"detail\",\"logValue\":\"在管理员角色“某角色”中增加某某人\",\"logKStarlingKey\":\"Suite_Admin_AdminLog_Title_EventDetails\",\"logKI18nText\":\"事件详情\",\"logValueType\":null,\"logVStarlingKey\":null,\"logVI18nText\":null,\"priority\":0}]
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 操作状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operation_status")
+  private Integer operationStatus;
+
+  public String getUniqueId() {
+    return this.uniqueId;
+  }
+
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getCategoryName() {
+    return this.categoryName;
+  }
+
+  public void setCategoryName(String categoryName) {
+    this.categoryName = categoryName;
+  }
+
+  public String getEventName() {
+    return this.eventName;
+  }
+
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  public String getIpAddress() {
+    return this.ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Integer getOperationStatus() {
+    return this.operationStatus;
+  }
+
+  public void setOperationStatus(Integer operationStatus) {
+    this.operationStatus = operationStatus;
+  }
+
+  // builder 开始
+  public AdminLog() {}
+
+  public AdminLog(Builder builder) {
     /**
-     * 唯一id
-     * <p> 示例值：1
+     * 日志唯一ID，用于定位一条具体的日志
+     *
+     * <p>示例值：1
      */
-    @SerializedName("unique_id")
-    private String uniqueId;
+    this.uniqueId = builder.uniqueId;
     /**
-     * 管理员id
-     * <p> 示例值：1
+     * 管理员 open_id
+     *
+     * <p>示例值：ou_e7b25d9ee116ff0c2b3c4400e3bedc5c
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 一级类目
-     * <p> 示例值：1
+     * 目录编号，对应管理后台事件类型级联菜单的二级菜单（C1）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("category_name")
-    private String categoryName;
+    this.categoryName = builder.categoryName;
     /**
-     * 事件名称
-     * <p> 示例值：1
+     * 事件编号，对应管理后台事件类型级联菜单的二级菜单（C2）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("event_name")
-    private String eventName;
+    this.eventName = builder.eventName;
     /**
-     * ip地址
-     * <p> 示例值：1.0.0.127
+     * IP地址
+     *
+     * <p>示例值：1.0.0.127
      */
-    @SerializedName("ip_address")
-    private String ipAddress;
+    this.ipAddress = builder.ipAddress;
     /**
-     * 创建时间戳
-     * <p> 示例值：1692773562
+     * 日志行为发生时间戳
+     *
+     * <p>示例值：1692773562
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
-     * 事件详情
-     * <p> 示例值：content
+     * 日志事件详情
+     *
+     * <p>示例值：[{\"logKey\":\"detail\",\"logValue\":\"在管理员角色“某角色”中增加某某人\",\"logKStarlingKey\":\"Suite_Admin_AdminLog_Title_EventDetails\",\"logKI18nText\":\"事件详情\",\"logValueType\":null,\"logVStarlingKey\":null,\"logVI18nText\":null,\"priority\":0}]
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 操作状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operation_status")
+    this.operationStatus = builder.operationStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 日志唯一ID，用于定位一条具体的日志
+     *
+     * <p>示例值：1
+     */
+    private String uniqueId;
+
+    /**
+     * 管理员 open_id
+     *
+     * <p>示例值：ou_e7b25d9ee116ff0c2b3c4400e3bedc5c
+     */
+    private String userId;
+
+    /**
+     * 目录编号，对应管理后台事件类型级联菜单的二级菜单（C1）
+     *
+     * <p>示例值：1
+     */
+    private String categoryName;
+
+    /**
+     * 事件编号，对应管理后台事件类型级联菜单的二级菜单（C2）
+     *
+     * <p>示例值：1
+     */
+    private String eventName;
+
+    /**
+     * IP地址
+     *
+     * <p>示例值：1.0.0.127
+     */
+    private String ipAddress;
+
+    /**
+     * 日志行为发生时间戳
+     *
+     * <p>示例值：1692773562
+     */
+    private String createTime;
+
+    /**
+     * 日志事件详情
+     *
+     * <p>示例值：[{\"logKey\":\"detail\",\"logValue\":\"在管理员角色“某角色”中增加某某人\",\"logKStarlingKey\":\"Suite_Admin_AdminLog_Title_EventDetails\",\"logKI18nText\":\"事件详情\",\"logValueType\":null,\"logVStarlingKey\":null,\"logVI18nText\":null,\"priority\":0}]
+     */
+    private String content;
+
+    /**
+     * 操作状态
+     *
+     * <p>示例值：1
+     */
     private Integer operationStatus;
 
-    // builder 开始
-    public AdminLog() {
+    /**
+     * 日志唯一ID，用于定位一条具体的日志
+     *
+     * <p>示例值：1
+     *
+     * @param uniqueId
+     * @return
+     */
+    public Builder uniqueId(String uniqueId) {
+      this.uniqueId = uniqueId;
+      return this;
     }
 
-    public AdminLog(Builder builder) {
-        /**
-         * 唯一id
-         * <p> 示例值：1
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 管理员id
-         * <p> 示例值：1
-         */
-        this.userId = builder.userId;
-        /**
-         * 一级类目
-         * <p> 示例值：1
-         */
-        this.categoryName = builder.categoryName;
-        /**
-         * 事件名称
-         * <p> 示例值：1
-         */
-        this.eventName = builder.eventName;
-        /**
-         * ip地址
-         * <p> 示例值：1.0.0.127
-         */
-        this.ipAddress = builder.ipAddress;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1692773562
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 事件详情
-         * <p> 示例值：content
-         */
-        this.content = builder.content;
-        /**
-         * 操作状态
-         * <p> 示例值：1
-         */
-        this.operationStatus = builder.operationStatus;
+    /**
+     * 管理员 open_id
+     *
+     * <p>示例值：ou_e7b25d9ee116ff0c2b3c4400e3bedc5c
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目录编号，对应管理后台事件类型级联菜单的二级菜单（C1）
+     *
+     * <p>示例值：1
+     *
+     * @param categoryName
+     * @return
+     */
+    public Builder categoryName(String categoryName) {
+      this.categoryName = categoryName;
+      return this;
     }
 
-    public String getUniqueId() {
-        return this.uniqueId;
+    /**
+     * 事件编号，对应管理后台事件类型级联菜单的二级菜单（C2）
+     *
+     * <p>示例值：1
+     *
+     * @param eventName
+     * @return
+     */
+    public Builder eventName(String eventName) {
+      this.eventName = eventName;
+      return this;
     }
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
+    /**
+     * IP地址
+     *
+     * <p>示例值：1.0.0.127
+     *
+     * @param ipAddress
+     * @return
+     */
+    public Builder ipAddress(String ipAddress) {
+      this.ipAddress = ipAddress;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 日志行为发生时间戳
+     *
+     * <p>示例值：1692773562
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 日志事件详情
+     *
+     * <p>示例值：[{\"logKey\":\"detail\",\"logValue\":\"在管理员角色“某角色”中增加某某人\",\"logKStarlingKey\":\"Suite_Admin_AdminLog_Title_EventDetails\",\"logKI18nText\":\"事件详情\",\"logValueType\":null,\"logVStarlingKey\":null,\"logVI18nText\":null,\"priority\":0}]
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getCategoryName() {
-        return this.categoryName;
+    /**
+     * 操作状态
+     *
+     * <p>示例值：1
+     *
+     * @param operationStatus
+     * @return
+     */
+    public Builder operationStatus(Integer operationStatus) {
+      this.operationStatus = operationStatus;
+      return this;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public AdminLog build() {
+      return new AdminLog(this);
     }
+  }
 
-    public String getEventName() {
-        return this.eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public String getIpAddress() {
-        return this.ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getOperationStatus() {
-        return this.operationStatus;
-    }
-
-    public void setOperationStatus(Integer operationStatus) {
-        this.operationStatus = operationStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 唯一id
-         * <p> 示例值：1
-         */
-        private String uniqueId;
-        /**
-         * 管理员id
-         * <p> 示例值：1
-         */
-        private String userId;
-        /**
-         * 一级类目
-         * <p> 示例值：1
-         */
-        private String categoryName;
-        /**
-         * 事件名称
-         * <p> 示例值：1
-         */
-        private String eventName;
-        /**
-         * ip地址
-         * <p> 示例值：1.0.0.127
-         */
-        private String ipAddress;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1692773562
-         */
-        private String createTime;
-        /**
-         * 事件详情
-         * <p> 示例值：content
-         */
-        private String content;
-        /**
-         * 操作状态
-         * <p> 示例值：1
-         */
-        private Integer operationStatus;
-
-        /**
-         * 唯一id
-         * <p> 示例值：1
-         *
-         * @param uniqueId
-         * @return
-         */
-        public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
-        }
-
-
-        /**
-         * 管理员id
-         * <p> 示例值：1
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 一级类目
-         * <p> 示例值：1
-         *
-         * @param categoryName
-         * @return
-         */
-        public Builder categoryName(String categoryName) {
-            this.categoryName = categoryName;
-            return this;
-        }
-
-
-        /**
-         * 事件名称
-         * <p> 示例值：1
-         *
-         * @param eventName
-         * @return
-         */
-        public Builder eventName(String eventName) {
-            this.eventName = eventName;
-            return this;
-        }
-
-
-        /**
-         * ip地址
-         * <p> 示例值：1.0.0.127
-         *
-         * @param ipAddress
-         * @return
-         */
-        public Builder ipAddress(String ipAddress) {
-            this.ipAddress = ipAddress;
-            return this;
-        }
-
-
-        /**
-         * 创建时间戳
-         * <p> 示例值：1692773562
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 事件详情
-         * <p> 示例值：content
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 操作状态
-         * <p> 示例值：1
-         *
-         * @param operationStatus
-         * @return
-         */
-        public Builder operationStatus(Integer operationStatus) {
-            this.operationStatus = operationStatus;
-            return this;
-        }
-
-
-        public AdminLog build() {
-            return new AdminLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

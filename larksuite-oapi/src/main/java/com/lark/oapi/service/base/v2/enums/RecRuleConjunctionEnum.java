@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 多个筛选条件的关系
- */
+/** 多个筛选条件的关系 */
 public enum RecRuleConjunctionEnum {
-    AND("and"), // 与
-    OR("or"), // 或
-    ;
-    private String value;
+  AND("and"), // 与
+  OR("or"), // 或
+  ;
+  private String value;
 
-    RecRuleConjunctionEnum(String value) {
-        this.value = value;
-    }
+  RecRuleConjunctionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

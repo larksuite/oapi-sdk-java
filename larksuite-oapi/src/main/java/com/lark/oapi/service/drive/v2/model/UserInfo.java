@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserInfo {
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 头像url
+   *
+   * <p>示例值：https://xxx.feishu.cn/static-resource/v1/xxx
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活
+   * ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 雇员id
+   *
+   * <p>示例值：153dfegf
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  // builder 开始
+  public UserInfo() {}
+
+  public UserInfo(Builder builder) {
     /**
      * 用户姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
      * 头像url
-     * <p> 示例值：https://xxx.feishu.cn/static-resource/v1/xxx
+     *
+     * <p>示例值：https://xxx.feishu.cn/static-resource/v1/xxx
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
-     * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活 ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
-     * <p> 示例值：1
+     * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活
+     * ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 雇员id
-     * <p> 示例值：153dfegf
+     *
+     * <p>示例值：153dfegf
      */
-    @SerializedName("employee_id")
+    this.employeeId = builder.employeeId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     */
+    private String userName;
+
+    /**
+     * 头像url
+     *
+     * <p>示例值：https://xxx.feishu.cn/static-resource/v1/xxx
+     */
+    private String avatarUrl;
+
+    /**
+     * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活
+     * ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 雇员id
+     *
+     * <p>示例值：153dfegf
+     */
     private String employeeId;
 
-    // builder 开始
-    public UserInfo() {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public UserInfo(Builder builder) {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
-        /**
-         * 头像url
-         * <p> 示例值：https://xxx.feishu.cn/static-resource/v1/xxx
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活 ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 雇员id
-         * <p> 示例值：153dfegf
-         */
-        this.employeeId = builder.employeeId;
+    /**
+     * 头像url
+     *
+     * <p>示例值：https://xxx.feishu.cn/static-resource/v1/xxx
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活
+     * ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getUserName() {
-        return this.userName;
+    /**
+     * 雇员id
+     *
+     * <p>示例值：153dfegf
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public UserInfo build() {
+      return new UserInfo(this);
     }
+  }
 
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        private String userName;
-        /**
-         * 头像url
-         * <p> 示例值：https://xxx.feishu.cn/static-resource/v1/xxx
-         */
-        private String avatarUrl;
-        /**
-         * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活 ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 雇员id
-         * <p> 示例值：153dfegf
-         */
-        private String employeeId;
-
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 头像url
-         * <p> 示例值：https://xxx.feishu.cn/static-resource/v1/xxx
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 用户状态，用二进制的位表示，总共6bit（如111111），从左到右，每个标识位分别代表：未加入，主动退出，设置自定义头像，未激活 ，离职，冻结。如返回satus=2，其二进制为000010，表示该员工已离职
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 雇员id
-         * <p> 示例值：153dfegf
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        public UserInfo build() {
-            return new UserInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 转正方式
- */
+/** 转正方式 */
 public enum SubmitProbationSubmitProbationConversionModeEnum {
-    VALUE_1(1), // 直接转正
-    VALUE_2(2), // 发起转正
-    ;
-    private Integer value;
+  VALUE_1(1), // 直接转正
+  VALUE_2(2), // 发起转正
+  ;
+  private Integer value;
 
-    SubmitProbationSubmitProbationConversionModeEnum(Integer value) {
-        this.value = value;
-    }
+  SubmitProbationSubmitProbationConversionModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 席位类型，枚举值：1. 平台席位2. 应用席位
- */
+/** 席位类型，枚举值：per_user、per_user_per_app */
 public enum ListSeatActivitySeatTypeEnum {
-    PER_USER("per_user"), // 平台席位
-    PER_USER_PER_APP("per_user_per_app"), // 应用席位
-    ;
-    private String value;
+  PER_USER("per_user"), // 平台席位
+  PER_USER_PER_APP("per_user_per_app"), // 应用访问席位
+  ;
+  private String value;
 
-    ListSeatActivitySeatTypeEnum(String value) {
-        this.value = value;
-    }
+  ListSeatActivitySeatTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

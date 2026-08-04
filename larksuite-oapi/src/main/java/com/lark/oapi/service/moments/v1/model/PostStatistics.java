@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.moments.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PostStatistics {
+  /**
+   * 分享次数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("share_count")
+  private Integer shareCount;
+
+  public Integer getShareCount() {
+    return this.shareCount;
+  }
+
+  public void setShareCount(Integer shareCount) {
+    this.shareCount = shareCount;
+  }
+
+  // builder 开始
+  public PostStatistics() {}
+
+  public PostStatistics(Builder builder) {
     /**
      * 分享次数
-     * <p> 示例值：1
+     *
+     * <p>示例值：10
      */
-    @SerializedName("share_count")
+    this.shareCount = builder.shareCount;
+  }
+
+  public static class Builder {
+    /**
+     * 分享次数
+     *
+     * <p>示例值：10
+     */
     private Integer shareCount;
 
-    // builder 开始
-    public PostStatistics() {
+    /**
+     * 分享次数
+     *
+     * <p>示例值：10
+     *
+     * @param shareCount
+     * @return
+     */
+    public Builder shareCount(Integer shareCount) {
+      this.shareCount = shareCount;
+      return this;
     }
 
-    public PostStatistics(Builder builder) {
-        /**
-         * 分享次数
-         * <p> 示例值：1
-         */
-        this.shareCount = builder.shareCount;
+    public PostStatistics build() {
+      return new PostStatistics(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getShareCount() {
-        return this.shareCount;
-    }
-
-    public void setShareCount(Integer shareCount) {
-        this.shareCount = shareCount;
-    }
-
-    public static class Builder {
-        /**
-         * 分享次数
-         * <p> 示例值：1
-         */
-        private Integer shareCount;
-
-        /**
-         * 分享次数
-         * <p> 示例值：1
-         *
-         * @param shareCount
-         * @return
-         */
-        public Builder shareCount(Integer shareCount) {
-            this.shareCount = shareCount;
-            return this;
-        }
-
-
-        public PostStatistics build() {
-            return new PostStatistics(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

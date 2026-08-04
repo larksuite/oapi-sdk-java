@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class RemoveMembersTaskReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要移除成员的任务全局唯一ID
+   *
+   * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+   */
+  @Path
+  @SerializedName("task_guid")
+  private String taskGuid;
+
+  public String getTaskGuid() {
+    return this.taskGuid;
+  }
+
+  public void setTaskGuid(String taskGuid) {
+    this.taskGuid = taskGuid;
+  }
+
+  @Body private RemoveMembersTaskReqBody body;
+
+  public RemoveMembersTaskReqBody getRemoveMembersTaskReqBody() {
+    return this.body;
+  }
+
+  public void setRemoveMembersTaskReqBody(RemoveMembersTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RemoveMembersTaskReq() {}
+
+  public RemoveMembersTaskReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 要添加负责人的任务全局唯一ID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     * 要移除成员的任务全局唯一ID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
      */
-    @Path
-    @SerializedName("task_guid")
-    private String taskGuid;
-    @Body
+    this.taskGuid = builder.taskGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    private String taskGuid; // 要移除成员的任务全局唯一ID
+
+    /**
+     * 要移除成员的任务全局唯一ID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * @param taskGuid
+     * @return
+     */
+    public Builder taskGuid(String taskGuid) {
+      this.taskGuid = taskGuid;
+      return this;
+    }
+
     private RemoveMembersTaskReqBody body;
 
-    // builder 开始
-    public RemoveMembersTaskReq() {
-    }
-
-    public RemoveMembersTaskReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要添加负责人的任务全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.taskGuid = builder.taskGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTaskGuid() {
-        return this.taskGuid;
-    }
-
-    public void setTaskGuid(String taskGuid) {
-        this.taskGuid = taskGuid;
-    }
-
     public RemoveMembersTaskReqBody getRemoveMembersTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRemoveMembersTaskReqBody(RemoveMembersTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder removeMembersTaskReqBody(RemoveMembersTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String taskGuid; // 要添加负责人的任务全局唯一ID
-        private RemoveMembersTaskReqBody body;
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 要添加负责人的任务全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
-         * @param taskGuid
-         * @return
-         */
-        public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
-        }
-
-        public RemoveMembersTaskReqBody getRemoveMembersTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder removeMembersTaskReqBody(RemoveMembersTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RemoveMembersTaskReq build() {
-            return new RemoveMembersTaskReq(this);
-        }
+    public RemoveMembersTaskReq build() {
+      return new RemoveMembersTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

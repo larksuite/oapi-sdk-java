@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentPool {
+  /**
+   * 人才库 ID
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 人才库加入时间,毫秒级时间戳
+   *
+   * <p>示例值：1634801678103
+   */
+  @SerializedName("add_time")
+  private String addTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public String getAddTime() {
+    return this.addTime;
+  }
+
+  public void setAddTime(String addTime) {
+    this.addTime = addTime;
+  }
+
+  // builder 开始
+  public TalentPool() {}
+
+  public TalentPool(Builder builder) {
     /**
      * 人才库 ID
-     * <p> 示例值：6891560630172518670
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 人才库名称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 人才库描述
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 人才库加入时间,毫秒级时间戳
-     * <p> 示例值：1634801678103
+     *
+     * <p>示例值：1634801678103
      */
-    @SerializedName("add_time")
+    this.addTime = builder.addTime;
+  }
+
+  public static class Builder {
+    /**
+     * 人才库 ID
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String id;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 人才库加入时间,毫秒级时间戳
+     *
+     * <p>示例值：1634801678103
+     */
     private String addTime;
 
-    // builder 开始
-    public TalentPool() {
+    /**
+     * 人才库 ID
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentPool(Builder builder) {
-        /**
-         * 人才库 ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 人才库名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 人才库描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 人才库加入时间,毫秒级时间戳
-         * <p> 示例值：1634801678103
-         */
-        this.addTime = builder.addTime;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 人才库加入时间,毫秒级时间戳
+     *
+     * <p>示例值：1634801678103
+     *
+     * @param addTime
+     * @return
+     */
+    public Builder addTime(String addTime) {
+      this.addTime = addTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TalentPool build() {
+      return new TalentPool(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public String getAddTime() {
-        return this.addTime;
-    }
-
-    public void setAddTime(String addTime) {
-        this.addTime = addTime;
-    }
-
-    public static class Builder {
-        /**
-         * 人才库 ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 人才库名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 人才库描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 人才库加入时间,毫秒级时间戳
-         * <p> 示例值：1634801678103
-         */
-        private String addTime;
-
-        /**
-         * 人才库 ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 人才库名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 人才库描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 人才库加入时间,毫秒级时间戳
-         * <p> 示例值：1634801678103
-         *
-         * @param addTime
-         * @return
-         */
-        public Builder addTime(String addTime) {
-            this.addTime = addTime;
-            return this;
-        }
-
-
-        public TalentPool build() {
-            return new TalentPool(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenapiOption {
+  /**
+   * OpenAPI HTTP method
+   *
+   * <p>示例值：POST
+   */
+  @SerializedName("http_method")
+  private String httpMethod;
+
+  /**
+   * OpenAPI HTTP URL
+   *
+   * <p>示例值：/open-apis/message/v4/send
+   */
+  @SerializedName("url_pattern")
+  private String urlPattern;
+
+  /**
+   * 可访问性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("accessibility")
+  private Accessibility accessibility;
+
+  public String getHttpMethod() {
+    return this.httpMethod;
+  }
+
+  public void setHttpMethod(String httpMethod) {
+    this.httpMethod = httpMethod;
+  }
+
+  public String getUrlPattern() {
+    return this.urlPattern;
+  }
+
+  public void setUrlPattern(String urlPattern) {
+    this.urlPattern = urlPattern;
+  }
+
+  public Accessibility getAccessibility() {
+    return this.accessibility;
+  }
+
+  public void setAccessibility(Accessibility accessibility) {
+    this.accessibility = accessibility;
+  }
+
+  // builder 开始
+  public OpenapiOption() {}
+
+  public OpenapiOption(Builder builder) {
     /**
      * OpenAPI HTTP method
-     * <p> 示例值：GET
+     *
+     * <p>示例值：POST
      */
-    @SerializedName("http_method")
-    private String httpMethod;
+    this.httpMethod = builder.httpMethod;
     /**
      * OpenAPI HTTP URL
-     * <p> 示例值：/open-apis/contact/v3/users/:user_id
+     *
+     * <p>示例值：/open-apis/message/v4/send
      */
-    @SerializedName("url_pattern")
-    private String urlPattern;
+    this.urlPattern = builder.urlPattern;
     /**
      * 可访问性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("accessibility")
+    this.accessibility = builder.accessibility;
+  }
+
+  public static class Builder {
+    /**
+     * OpenAPI HTTP method
+     *
+     * <p>示例值：POST
+     */
+    private String httpMethod;
+
+    /**
+     * OpenAPI HTTP URL
+     *
+     * <p>示例值：/open-apis/message/v4/send
+     */
+    private String urlPattern;
+
+    /**
+     * 可访问性
+     *
+     * <p>示例值：
+     */
     private Accessibility accessibility;
 
-    // builder 开始
-    public OpenapiOption() {
+    /**
+     * OpenAPI HTTP method
+     *
+     * <p>示例值：POST
+     *
+     * @param httpMethod
+     * @return
+     */
+    public Builder httpMethod(String httpMethod) {
+      this.httpMethod = httpMethod;
+      return this;
     }
 
-    public OpenapiOption(Builder builder) {
-        /**
-         * OpenAPI HTTP method
-         * <p> 示例值：GET
-         */
-        this.httpMethod = builder.httpMethod;
-        /**
-         * OpenAPI HTTP URL
-         * <p> 示例值：/open-apis/contact/v3/users/:user_id
-         */
-        this.urlPattern = builder.urlPattern;
-        /**
-         * 可访问性
-         * <p> 示例值：
-         */
-        this.accessibility = builder.accessibility;
+    /**
+     * OpenAPI HTTP URL
+     *
+     * <p>示例值：/open-apis/message/v4/send
+     *
+     * @param urlPattern
+     * @return
+     */
+    public Builder urlPattern(String urlPattern) {
+      this.urlPattern = urlPattern;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 可访问性
+     *
+     * <p>示例值：
+     *
+     * @param accessibility
+     * @return
+     */
+    public Builder accessibility(Accessibility accessibility) {
+      this.accessibility = accessibility;
+      return this;
     }
 
-    public String getHttpMethod() {
-        return this.httpMethod;
+    public OpenapiOption build() {
+      return new OpenapiOption(this);
     }
+  }
 
-    public void setHttpMethod(String httpMethod) {
-        this.httpMethod = httpMethod;
-    }
-
-    public String getUrlPattern() {
-        return this.urlPattern;
-    }
-
-    public void setUrlPattern(String urlPattern) {
-        this.urlPattern = urlPattern;
-    }
-
-    public Accessibility getAccessibility() {
-        return this.accessibility;
-    }
-
-    public void setAccessibility(Accessibility accessibility) {
-        this.accessibility = accessibility;
-    }
-
-    public static class Builder {
-        /**
-         * OpenAPI HTTP method
-         * <p> 示例值：GET
-         */
-        private String httpMethod;
-        /**
-         * OpenAPI HTTP URL
-         * <p> 示例值：/open-apis/contact/v3/users/:user_id
-         */
-        private String urlPattern;
-        /**
-         * 可访问性
-         * <p> 示例值：
-         */
-        private Accessibility accessibility;
-
-        /**
-         * OpenAPI HTTP method
-         * <p> 示例值：GET
-         *
-         * @param httpMethod
-         * @return
-         */
-        public Builder httpMethod(String httpMethod) {
-            this.httpMethod = httpMethod;
-            return this;
-        }
-
-
-        /**
-         * OpenAPI HTTP URL
-         * <p> 示例值：/open-apis/contact/v3/users/:user_id
-         *
-         * @param urlPattern
-         * @return
-         */
-        public Builder urlPattern(String urlPattern) {
-            this.urlPattern = urlPattern;
-            return this;
-        }
-
-
-        /**
-         * 可访问性
-         * <p> 示例值：
-         *
-         * @param accessibility
-         * @return
-         */
-        public Builder accessibility(Accessibility accessibility) {
-            this.accessibility = accessibility;
-            return this;
-        }
-
-
-        public OpenapiOption build() {
-            return new OpenapiOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

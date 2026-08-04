@@ -13,117 +13,117 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class ListByFileIdSignatureNodeReq {
+  /**
+   * 电子签文件ID，可以通过[【批量获取电子签文件;】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)获取;
+   *
+   * <p>示例值：7149088311624091180
+   */
+  @Query
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListByFileIdSignatureNodeReq() {}
+
+  public ListByFileIdSignatureNodeReq(Builder builder) {
     /**
-     * 电子签文件id
-     * <p> 示例值：7149088311624091180
+     * 电子签文件ID，可以通过[【批量获取电子签文件;】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)获取;
+     *
+     * <p>示例值：7149088311624091180
      */
-    @Query
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListByFileIdSignatureNodeReq() {
+  public static class Builder {
+    private String
+        fileId; // 电子签文件ID，可以通过[【批量获取电子签文件;】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)获取;
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 电子签文件ID，可以通过[【批量获取电子签文件;】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)获取;
+     *
+     * <p>示例值：7149088311624091180
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public ListByFileIdSignatureNodeReq(Builder builder) {
-        /**
-         * 电子签文件id
-         * <p> 示例值：7149088311624091180
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ListByFileIdSignatureNodeListSignatureNodeByFileIdUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .ListByFileIdSignatureNodeListSignatureNodeByFileIdUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    public ListByFileIdSignatureNodeReq build() {
+      return new ListByFileIdSignatureNodeReq(this);
     }
+  }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String fileId; // 电子签文件id
-        private String userIdType; // 用户 ID 类型
-
-        /**
-         * 电子签文件id
-         * <p> 示例值：7149088311624091180
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.ListByFileIdSignatureNodeListSignatureNodeByFileIdUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListByFileIdSignatureNodeListSignatureNodeByFileIdUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public ListByFileIdSignatureNodeReq build() {
-            return new ListByFileIdSignatureNodeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

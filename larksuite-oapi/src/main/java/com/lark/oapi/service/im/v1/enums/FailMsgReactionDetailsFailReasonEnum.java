@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 获取表情失败的原因
- */
+/** 获取表情失败的原因 */
 public enum FailMsgReactionDetailsFailReasonEnum {
-    INVALID("invalid"), // 无效的消息ID
-    INVALID_PAGE_TOKEN("invalid_page_token"), // 该消息对应的page_token无效
-    NO_PERMISSION("no_permission"), // 操作者对该消息无权限
-    ;
-    private String value;
+  INVALID("invalid"), // 无效的消息ID
+  INVALID_PAGE_TOKEN("invalid_page_token"), // 该消息对应的page_token无效
+  NO_PERMISSION("no_permission"), // 操作者对该消息无权限
+  ;
+  private String value;
 
-    FailMsgReactionDetailsFailReasonEnum(String value) {
-        this.value = value;
-    }
+  FailMsgReactionDetailsFailReasonEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

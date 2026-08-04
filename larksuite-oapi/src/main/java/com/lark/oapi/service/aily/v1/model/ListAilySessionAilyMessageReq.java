@@ -13,203 +13,226 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class ListAilySessionAilyMessageReq {
+  /**
+   * 本次请求获取的消息记录条数，默认 20
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 过滤条件，按执行的唯一 ID 筛选
+   *
+   * <p>示例值：run_4dfrxvctjqzzj
+   */
+  @Query
+  @SerializedName("run_id")
+  private String runId;
+
+  /**
+   * 是否返回正在进行中（即流式输出中）的消息内容;;- 当设置为 `true` 时，返回的消息记录中、每个消息将额外包含一个 `status `字段（`IN_PROGRESS` |
+   * `COMPLETED`），此时 `content` 字段为当前时刻的消息内容;- 当设置为 `false` 时，返回的消息记录仅包含已完成的消息
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_partial_message")
+  private Boolean withPartialMessage;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getRunId() {
+    return this.runId;
+  }
+
+  public void setRunId(String runId) {
+    this.runId = runId;
+  }
+
+  public Boolean getWithPartialMessage() {
+    return this.withPartialMessage;
+  }
+
+  public void setWithPartialMessage(Boolean withPartialMessage) {
+    this.withPartialMessage = withPartialMessage;
+  }
+
+  /**
+   * 会话 ID；参考
+   * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @Path
+  @SerializedName("aily_session_id")
+  private String ailySessionId;
+
+  public String getAilySessionId() {
+    return this.ailySessionId;
+  }
+
+  public void setAilySessionId(String ailySessionId) {
+    this.ailySessionId = ailySessionId;
+  }
+
+  // builder 开始
+  public ListAilySessionAilyMessageReq() {}
+
+  public ListAilySessionAilyMessageReq(Builder builder) {
     /**
-     * 页面大小
-     * <p> 示例值：
+     * 本次请求获取的消息记录条数，默认 20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页偏移量
-     * <p> 示例值：
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 运行 ID
-     * <p> 示例值：run_4dfrxvctjqzzj
+     * 过滤条件，按执行的唯一 ID 筛选
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
      */
-    @Query
-    @SerializedName("run_id")
-    private String runId;
+    this.runId = builder.runId;
     /**
-     * 返回生成中的消息
-     * <p> 示例值：false
+     * 是否返回正在进行中（即流式输出中）的消息内容;;- 当设置为 `true` 时，返回的消息记录中、每个消息将额外包含一个 `status `字段（`IN_PROGRESS` |
+     * `COMPLETED`），此时 `content` 字段为当前时刻的消息内容;- 当设置为 `false` 时，返回的消息记录仅包含已完成的消息
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_partial_message")
-    private Boolean withPartialMessage;
+    this.withPartialMessage = builder.withPartialMessage;
     /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @Path
-    @SerializedName("aily_session_id")
-    private String ailySessionId;
+    this.ailySessionId = builder.ailySessionId;
+  }
 
-    // builder 开始
-    public ListAilySessionAilyMessageReq() {
+  public static class Builder {
+    private Integer pageSize; // 本次请求获取的消息记录条数，默认 20
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String runId; // 过滤条件，按执行的唯一 ID 筛选
+    private Boolean
+        withPartialMessage; // 是否返回正在进行中（即流式输出中）的消息内容;;- 当设置为 `true` 时，返回的消息记录中、每个消息将额外包含一个 `status
+
+    // `字段（`IN_PROGRESS` | `COMPLETED`），此时 `content` 字段为当前时刻的消息内容;- 当设置为
+    // `false` 时，返回的消息记录仅包含已完成的消息
+
+    /**
+     * 本次请求获取的消息记录条数，默认 20
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListAilySessionAilyMessageReq(Builder builder) {
-        /**
-         * 页面大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页偏移量
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        this.runId = builder.runId;
-        /**
-         * 返回生成中的消息
-         * <p> 示例值：false
-         */
-        this.withPartialMessage = builder.withPartialMessage;
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.ailySessionId = builder.ailySessionId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 过滤条件，按执行的唯一 ID 筛选
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     *
+     * @param runId
+     * @return
+     */
+    public Builder runId(String runId) {
+      this.runId = runId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 是否返回正在进行中（即流式输出中）的消息内容;;- 当设置为 `true` 时，返回的消息记录中、每个消息将额外包含一个 `status `字段（`IN_PROGRESS` |
+     * `COMPLETED`），此时 `content` 字段为当前时刻的消息内容;- 当设置为 `false` 时，返回的消息记录仅包含已完成的消息
+     *
+     * <p>示例值：false
+     *
+     * @param withPartialMessage
+     * @return
+     */
+    public Builder withPartialMessage(Boolean withPartialMessage) {
+      this.withPartialMessage = withPartialMessage;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    private String ailySessionId; // 会话 ID；参考
+
+    // [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+
+    /**
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param ailySessionId
+     * @return
+     */
+    public Builder ailySessionId(String ailySessionId) {
+      this.ailySessionId = ailySessionId;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListAilySessionAilyMessageReq build() {
+      return new ListAilySessionAilyMessageReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getRunId() {
-        return this.runId;
-    }
-
-    public void setRunId(String runId) {
-        this.runId = runId;
-    }
-
-    public Boolean getWithPartialMessage() {
-        return this.withPartialMessage;
-    }
-
-    public void setWithPartialMessage(Boolean withPartialMessage) {
-        this.withPartialMessage = withPartialMessage;
-    }
-
-    public String getAilySessionId() {
-        return this.ailySessionId;
-    }
-
-    public void setAilySessionId(String ailySessionId) {
-        this.ailySessionId = ailySessionId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 页面大小
-        private String pageToken; // 分页偏移量
-        private String runId; // 运行 ID
-        private Boolean withPartialMessage; // 返回生成中的消息
-        private String ailySessionId; // 会话 ID
-
-        /**
-         * 页面大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页偏移量
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         *
-         * @param runId
-         * @return
-         */
-        public Builder runId(String runId) {
-            this.runId = runId;
-            return this;
-        }
-
-        /**
-         * 返回生成中的消息
-         * <p> 示例值：false
-         *
-         * @param withPartialMessage
-         * @return
-         */
-        public Builder withPartialMessage(Boolean withPartialMessage) {
-            this.withPartialMessage = withPartialMessage;
-            return this;
-        }
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param ailySessionId
-         * @return
-         */
-        public Builder ailySessionId(String ailySessionId) {
-            this.ailySessionId = ailySessionId;
-            return this;
-        }
-
-
-        public ListAilySessionAilyMessageReq build() {
-            return new ListAilySessionAilyMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

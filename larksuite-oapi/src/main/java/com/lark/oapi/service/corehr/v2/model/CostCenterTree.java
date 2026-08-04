@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenterTree {
+  /**
+   * 成本中心 ID;-
+   * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)
+   * 获取详情
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 成本中心层级
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * 下级成本中心 ID 列表;-
+   * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private String[] children;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public String[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(String[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public CostCenterTree() {}
+
+  public CostCenterTree(Builder builder) {
     /**
-     * 成本中心 ID
-     * <p> 示例值：7140964208476371111
+     * 成本中心 ID;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)
+     * 获取详情
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 成本中心层级
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
-    private Integer level;
+    this.level = builder.level;
     /**
-     * 下级成本中心 ID 列表
-     * <p> 示例值：
+     * 下级成本中心 ID 列表;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心 ID;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)
+     * 获取详情
+     *
+     * <p>示例值：7140964208476371111
+     */
+    private String id;
+
+    /**
+     * 成本中心层级
+     *
+     * <p>示例值：1
+     */
+    private Integer level;
+
+    /**
+     * 下级成本中心 ID 列表;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详情
+     *
+     * <p>示例值：
+     */
     private String[] children;
 
-    // builder 开始
-    public CostCenterTree() {
+    /**
+     * 成本中心 ID;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)
+     * 获取详情
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CostCenterTree(Builder builder) {
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.id = builder.id;
-        /**
-         * 成本中心层级
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 下级成本中心 ID 列表
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 成本中心层级
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 下级成本中心 ID 列表;-
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(String[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public CostCenterTree build() {
+      return new CostCenterTree(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(String[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String id;
-        /**
-         * 成本中心层级
-         * <p> 示例值：1
-         */
-        private Integer level;
-        /**
-         * 下级成本中心 ID 列表
-         * <p> 示例值：
-         */
-        private String[] children;
-
-        /**
-         * 成本中心 ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 成本中心层级
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 下级成本中心 ID 列表
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(String[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public CostCenterTree build() {
-            return new CostCenterTree(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

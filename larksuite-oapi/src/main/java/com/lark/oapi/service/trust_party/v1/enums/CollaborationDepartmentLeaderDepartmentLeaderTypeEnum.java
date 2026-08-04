@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.trust_party.v1.enums;
 
-/**
- * 负责人类型
- */
+/** 负责人类型 */
 public enum CollaborationDepartmentLeaderDepartmentLeaderTypeEnum {
-    MAIN(1), // 主负责人
-    DEPUTY(2), // 副负责人
-    ;
-    private Integer value;
+  MAIN(1), // 主负责人
+  DEPUTY(2), // 副负责人
+  ;
+  private Integer value;
 
-    CollaborationDepartmentLeaderDepartmentLeaderTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CollaborationDepartmentLeaderDepartmentLeaderTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

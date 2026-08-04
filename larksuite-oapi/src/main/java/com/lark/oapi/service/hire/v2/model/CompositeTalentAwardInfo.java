@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompositeTalentAwardInfo {
+  /**
+   * 名称
+   *
+   * <p>示例值：最佳新人奖
+   */
+  @SerializedName("award_name")
+  private String awardName;
+
+  /**
+   * 获奖时间
+   *
+   * <p>示例值：1991
+   */
+  @SerializedName("award_time")
+  private String awardTime;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：最优秀的新人奖
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data_list")
+  private TalentCustomizedDataChild[] customizedDataList;
+
+  public String getAwardName() {
+    return this.awardName;
+  }
+
+  public void setAwardName(String awardName) {
+    this.awardName = awardName;
+  }
+
+  public String getAwardTime() {
+    return this.awardTime;
+  }
+
+  public void setAwardTime(String awardTime) {
+    this.awardTime = awardTime;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public TalentCustomizedDataChild[] getCustomizedDataList() {
+    return this.customizedDataList;
+  }
+
+  public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+    this.customizedDataList = customizedDataList;
+  }
+
+  // builder 开始
+  public CompositeTalentAwardInfo() {}
+
+  public CompositeTalentAwardInfo(Builder builder) {
     /**
      * 名称
-     * <p> 示例值：最佳新人奖
+     *
+     * <p>示例值：最佳新人奖
      */
-    @SerializedName("award_name")
-    private String awardName;
+    this.awardName = builder.awardName;
     /**
      * 获奖时间
-     * <p> 示例值：1991
+     *
+     * <p>示例值：1991
      */
-    @SerializedName("award_time")
-    private String awardTime;
+    this.awardTime = builder.awardTime;
     /**
      * 描述
-     * <p> 示例值：最优秀的新人奖
+     *
+     * <p>示例值：最优秀的新人奖
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data_list")
+    this.customizedDataList = builder.customizedDataList;
+  }
+
+  public static class Builder {
+    /**
+     * 名称
+     *
+     * <p>示例值：最佳新人奖
+     */
+    private String awardName;
+
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：1991
+     */
+    private String awardTime;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：最优秀的新人奖
+     */
+    private String description;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataChild[] customizedDataList;
 
-    // builder 开始
-    public CompositeTalentAwardInfo() {
+    /**
+     * 名称
+     *
+     * <p>示例值：最佳新人奖
+     *
+     * @param awardName
+     * @return
+     */
+    public Builder awardName(String awardName) {
+      this.awardName = awardName;
+      return this;
     }
 
-    public CompositeTalentAwardInfo(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：最佳新人奖
-         */
-        this.awardName = builder.awardName;
-        /**
-         * 获奖时间
-         * <p> 示例值：1991
-         */
-        this.awardTime = builder.awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
-        this.description = builder.description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：1991
+     *
+     * @param awardTime
+     * @return
+     */
+    public Builder awardTime(String awardTime) {
+      this.awardTime = awardTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：最优秀的新人奖
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAwardName() {
-        return this.awardName;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedDataList
+     * @return
+     */
+    public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+      this.customizedDataList = customizedDataList;
+      return this;
     }
 
-    public void setAwardName(String awardName) {
-        this.awardName = awardName;
+    public CompositeTalentAwardInfo build() {
+      return new CompositeTalentAwardInfo(this);
     }
+  }
 
-    public String getAwardTime() {
-        return this.awardTime;
-    }
-
-    public void setAwardTime(String awardTime) {
-        this.awardTime = awardTime;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public TalentCustomizedDataChild[] getCustomizedDataList() {
-        return this.customizedDataList;
-    }
-
-    public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-        this.customizedDataList = customizedDataList;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：最佳新人奖
-         */
-        private String awardName;
-        /**
-         * 获奖时间
-         * <p> 示例值：1991
-         */
-        private String awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
-        private String description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataChild[] customizedDataList;
-
-        /**
-         * 名称
-         * <p> 示例值：最佳新人奖
-         *
-         * @param awardName
-         * @return
-         */
-        public Builder awardName(String awardName) {
-            this.awardName = awardName;
-            return this;
-        }
-
-
-        /**
-         * 获奖时间
-         * <p> 示例值：1991
-         *
-         * @param awardTime
-         * @return
-         */
-        public Builder awardTime(String awardTime) {
-            this.awardTime = awardTime;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedDataList
-         * @return
-         */
-        public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
-        }
-
-
-        public CompositeTalentAwardInfo build() {
-            return new CompositeTalentAwardInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

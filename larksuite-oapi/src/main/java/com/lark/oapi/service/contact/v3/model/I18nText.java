@@ -13,115 +13,108 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nText {
+  /**
+   * 默认值
+   *
+   * <p>示例值：用户名
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_value")
+  private Map<String, String> i18nValue;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Map<String, String> getI18nValue() {
+    return this.i18nValue;
+  }
+
+  public void setI18nValue(Map<String, String> i18nValue) {
+    this.i18nValue = i18nValue;
+  }
+
+  // builder 开始
+  public I18nText() {}
+
+  public I18nText(Builder builder) {
     /**
      * 默认值
-     * <p> 示例值：用户名
+     *
+     * <p>示例值：用户名
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_value")
+    this.i18nValue = builder.i18nValue;
+  }
+
+  public static class Builder {
+    /**
+     * 默认值
+     *
+     * <p>示例值：用户名
+     */
+    private String value;
+
+    /**
+     * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
+     *
+     * <p>示例值：
+     */
     private Map<String, String> i18nValue;
 
-    // builder 开始
-    public I18nText() {
+    /**
+     * 默认值
+     *
+     * <p>示例值：用户名
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public I18nText(Builder builder) {
-        /**
-         * 默认值
-         * <p> 示例值：用户名
-         */
-        this.value = builder.value;
-        /**
-         * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
-         * <p> 示例值：
-         */
-        this.i18nValue = builder.i18nValue;
+    /**
+     * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
+     *
+     * <p>示例值：
+     *
+     * @param i18nValue
+     * @return
+     */
+    public Builder i18nValue(Map<String, String> i18nValue) {
+      this.i18nValue = i18nValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18nText build() {
+      return new I18nText(this);
     }
+  }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Map<String, String> getI18nValue() {
-        return this.i18nValue;
-    }
-
-    public void setI18nValue(Map<String, String> i18nValue) {
-        this.i18nValue = i18nValue;
-    }
-
-    public static class Builder {
-        /**
-         * 默认值
-         * <p> 示例值：用户名
-         */
-        private String value;
-        /**
-         * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nValue;
-
-        /**
-         * 默认值
-         * <p> 示例值：用户名
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 国际化值，key为语种(取值包括zh_cn,ja_jp,en_us等)
-         * <p> 示例值：
-         *
-         * @param i18nValue
-         * @return
-         */
-        public Builder i18nValue(Map<String, String> i18nValue) {
-            this.i18nValue = i18nValue;
-            return this;
-        }
-
-
-        public I18nText build() {
-            return new I18nText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

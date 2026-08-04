@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationState {
+  /**
+   * 省份/州Code码
+   *
+   * <p>示例值：ST_1
+   */
+  @SerializedName("state_code")
+  private String stateCode;
+
+  /**
+   * 国家Code码
+   *
+   * <p>示例值：CN_1
+   */
+  @SerializedName("country_code")
+  private String countryCode;
+
+  /**
+   * 国家名称信息聚合
+   *
+   * <p>示例值：
+   */
+  @SerializedName("state_name_info")
+  private LocationNameInfo stateNameInfo;
+
+  public String getStateCode() {
+    return this.stateCode;
+  }
+
+  public void setStateCode(String stateCode) {
+    this.stateCode = stateCode;
+  }
+
+  public String getCountryCode() {
+    return this.countryCode;
+  }
+
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
+
+  public LocationNameInfo getStateNameInfo() {
+    return this.stateNameInfo;
+  }
+
+  public void setStateNameInfo(LocationNameInfo stateNameInfo) {
+    this.stateNameInfo = stateNameInfo;
+  }
+
+  // builder 开始
+  public LocationState() {}
+
+  public LocationState(Builder builder) {
     /**
-     * 省份/州地址Code码
-     * <p> 示例值：ST_1
+     * 省份/州Code码
+     *
+     * <p>示例值：ST_1
      */
-    @SerializedName("state_code")
+    this.stateCode = builder.stateCode;
+    /**
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
+     */
+    this.countryCode = builder.countryCode;
+    /**
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
+     */
+    this.stateNameInfo = builder.stateNameInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 省份/州Code码
+     *
+     * <p>示例值：ST_1
+     */
     private String stateCode;
+
     /**
-     * 国家地址Code码
-     * <p> 示例值：CN_1
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
      */
-    @SerializedName("country_code")
     private String countryCode;
+
     /**
-     * 省份/州地址名称信息聚合
-     * <p> 示例值：
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
      */
-    @SerializedName("state_name_info")
     private LocationNameInfo stateNameInfo;
 
-    // builder 开始
-    public LocationState() {
+    /**
+     * 省份/州Code码
+     *
+     * <p>示例值：ST_1
+     *
+     * @param stateCode
+     * @return
+     */
+    public Builder stateCode(String stateCode) {
+      this.stateCode = stateCode;
+      return this;
     }
 
-    public LocationState(Builder builder) {
-        /**
-         * 省份/州地址Code码
-         * <p> 示例值：ST_1
-         */
-        this.stateCode = builder.stateCode;
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
-        this.countryCode = builder.countryCode;
-        /**
-         * 省份/州地址名称信息聚合
-         * <p> 示例值：
-         */
-        this.stateNameInfo = builder.stateNameInfo;
+    /**
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
+     *
+     * @param countryCode
+     * @return
+     */
+    public Builder countryCode(String countryCode) {
+      this.countryCode = countryCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
+     *
+     * @param stateNameInfo
+     * @return
+     */
+    public Builder stateNameInfo(LocationNameInfo stateNameInfo) {
+      this.stateNameInfo = stateNameInfo;
+      return this;
     }
 
-    public String getStateCode() {
-        return this.stateCode;
+    public LocationState build() {
+      return new LocationState(this);
     }
+  }
 
-    public void setStateCode(String stateCode) {
-        this.stateCode = stateCode;
-    }
-
-    public String getCountryCode() {
-        return this.countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public LocationNameInfo getStateNameInfo() {
-        return this.stateNameInfo;
-    }
-
-    public void setStateNameInfo(LocationNameInfo stateNameInfo) {
-        this.stateNameInfo = stateNameInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 省份/州地址Code码
-         * <p> 示例值：ST_1
-         */
-        private String stateCode;
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
-        private String countryCode;
-        /**
-         * 省份/州地址名称信息聚合
-         * <p> 示例值：
-         */
-        private LocationNameInfo stateNameInfo;
-
-        /**
-         * 省份/州地址Code码
-         * <p> 示例值：ST_1
-         *
-         * @param stateCode
-         * @return
-         */
-        public Builder stateCode(String stateCode) {
-            this.stateCode = stateCode;
-            return this;
-        }
-
-
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         *
-         * @param countryCode
-         * @return
-         */
-        public Builder countryCode(String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-
-        /**
-         * 省份/州地址名称信息聚合
-         * <p> 示例值：
-         *
-         * @param stateNameInfo
-         * @return
-         */
-        public Builder stateNameInfo(LocationNameInfo stateNameInfo) {
-            this.stateNameInfo = stateNameInfo;
-            return this;
-        }
-
-
-        public LocationState build() {
-            return new LocationState(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

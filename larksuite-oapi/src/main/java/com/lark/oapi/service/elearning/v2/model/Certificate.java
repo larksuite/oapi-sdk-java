@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Certificate {
+  /**
+   * ID
+   *
+   * <p>示例值：5e943ade0bb519d693a885e9
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 标题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 机构
+   *
+   * <p>示例值：
+   */
+  @SerializedName("organization")
+  private I18n[] organization;
+
+  /**
+   * 编号
+   *
+   * <p>示例值：CRS785901
+   */
+  @SerializedName("number")
+  private String number;
+
+  /**
+   * 证书时效，0 表示永久，非 0 表示 x 个月
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("effective_time")
+  private Integer effectiveTime;
+
+  /**
+   * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 证书的预览图片链接
+   *
+   * <p>示例值：https://a-boe.bytedance.net...
+   */
+  @SerializedName("cover_link")
+  private String coverLink;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public I18n[] getOrganization() {
+    return this.organization;
+  }
+
+  public void setOrganization(I18n[] organization) {
+    this.organization = organization;
+  }
+
+  public String getNumber() {
+    return this.number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  public Integer getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(Integer effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getCoverLink() {
+    return this.coverLink;
+  }
+
+  public void setCoverLink(String coverLink) {
+    this.coverLink = coverLink;
+  }
+
+  // builder 开始
+  public Certificate() {}
+
+  public Certificate(Builder builder) {
     /**
      * ID
-     * <p> 示例值：5e943ade0bb519d693a885e9
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 标题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
      * 机构
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("organization")
-    private I18n[] organization;
+    this.organization = builder.organization;
     /**
      * 编号
-     * <p> 示例值：CRS785901
+     *
+     * <p>示例值：CRS785901
      */
-    @SerializedName("number")
-    private String number;
+    this.number = builder.number;
     /**
      * 证书时效，0 表示永久，非 0 表示 x 个月
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("effective_time")
-    private Integer effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 证书的预览图片链接
-     * <p> 示例值：https://a-boe.bytedance.net...
+     *
+     * <p>示例值：https://a-boe.bytedance.net...
      */
-    @SerializedName("cover_link")
+    this.coverLink = builder.coverLink;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     */
+    private String id;
+
+    /**
+     * 标题
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 机构
+     *
+     * <p>示例值：
+     */
+    private I18n[] organization;
+
+    /**
+     * 编号
+     *
+     * <p>示例值：CRS785901
+     */
+    private String number;
+
+    /**
+     * 证书时效，0 表示永久，非 0 表示 x 个月
+     *
+     * <p>示例值：0
+     */
+    private Integer effectiveTime;
+
+    /**
+     * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 证书的预览图片链接
+     *
+     * <p>示例值：https://a-boe.bytedance.net...
+     */
     private String coverLink;
 
-    // builder 开始
-    public Certificate() {
+    /**
+     * ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Certificate(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        this.id = builder.id;
-        /**
-         * 标题
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 机构
-         * <p> 示例值：
-         */
-        this.organization = builder.organization;
-        /**
-         * 编号
-         * <p> 示例值：CRS785901
-         */
-        this.number = builder.number;
-        /**
-         * 证书时效，0 表示永久，非 0 表示 x 个月
-         * <p> 示例值：0
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 证书的预览图片链接
-         * <p> 示例值：https://a-boe.bytedance.net...
-         */
-        this.coverLink = builder.coverLink;
+    /**
+     * 标题
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 机构
+     *
+     * <p>示例值：
+     *
+     * @param organization
+     * @return
+     */
+    public Builder organization(I18n[] organization) {
+      this.organization = organization;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 编号
+     *
+     * <p>示例值：CRS785901
+     *
+     * @param number
+     * @return
+     */
+    public Builder number(String number) {
+      this.number = number;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 证书时效，0 表示永久，非 0 表示 x 个月
+     *
+     * <p>示例值：0
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(Integer effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public I18n[] getDescription() {
-        return this.description;
+    /**
+     * 证书的预览图片链接
+     *
+     * <p>示例值：https://a-boe.bytedance.net...
+     *
+     * @param coverLink
+     * @return
+     */
+    public Builder coverLink(String coverLink) {
+      this.coverLink = coverLink;
+      return this;
     }
 
-    public void setDescription(I18n[] description) {
-        this.description = description;
+    public Certificate build() {
+      return new Certificate(this);
     }
+  }
 
-    public I18n[] getOrganization() {
-        return this.organization;
-    }
-
-    public void setOrganization(I18n[] organization) {
-        this.organization = organization;
-    }
-
-    public String getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public Integer getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(Integer effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCoverLink() {
-        return this.coverLink;
-    }
-
-    public void setCoverLink(String coverLink) {
-        this.coverLink = coverLink;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        private String id;
-        /**
-         * 标题
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 机构
-         * <p> 示例值：
-         */
-        private I18n[] organization;
-        /**
-         * 编号
-         * <p> 示例值：CRS785901
-         */
-        private String number;
-        /**
-         * 证书时效，0 表示永久，非 0 表示 x 个月
-         * <p> 示例值：0
-         */
-        private Integer effectiveTime;
-        /**
-         * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 证书的预览图片链接
-         * <p> 示例值：https://a-boe.bytedance.net...
-         */
-        private String coverLink;
-
-        /**
-         * ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标题
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 机构
-         * <p> 示例值：
-         *
-         * @param organization
-         * @return
-         */
-        public Builder organization(I18n[] organization) {
-            this.organization = organization;
-            return this;
-        }
-
-
-        /**
-         * 编号
-         * <p> 示例值：CRS785901
-         *
-         * @param number
-         * @return
-         */
-        public Builder number(String number) {
-            this.number = number;
-            return this;
-        }
-
-
-        /**
-         * 证书时效，0 表示永久，非 0 表示 x 个月
-         * <p> 示例值：0
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(Integer effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 证书的预览图片链接
-         * <p> 示例值：https://a-boe.bytedance.net...
-         *
-         * @param coverLink
-         * @return
-         */
-        public Builder coverLink(String coverLink) {
-            this.coverLink = coverLink;
-            return this;
-        }
-
-
-        public Certificate build() {
-            return new Certificate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

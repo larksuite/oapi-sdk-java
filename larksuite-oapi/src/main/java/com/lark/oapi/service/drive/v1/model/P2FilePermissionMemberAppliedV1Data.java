@@ -13,160 +13,170 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2FilePermissionMemberAppliedV1Data {
-    /**
-     * 文件对应的类型
-     * <p> 示例值：docx
-     */
-    @SerializedName("file_type")
-    private String fileType;
-    /**
-     * 文件的 Token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 操作者 ID
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id")
-    private UserId operatorId;
-    /**
-     * 收到申请处理审批的用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("approver_id")
-    private UserId approverId;
-    /**
-     * 申请授权的用户 ID 列表
-     * <p> 示例值：ou_12345
-     */
-    @SerializedName("application_user_list")
-    private UserId[] applicationUserList;
-    /**
-     * 申请授权的群 ID 列表
-     * <p> 示例值：oc_12345
-     */
-    @SerializedName("application_chat_list")
-    private String[] applicationChatList;
-    /**
-     * 申请授权的组织架构 ID 列表
-     * <p> 示例值：od_12345
-     */
-    @SerializedName("application_department_list")
-    private String[] applicationDepartmentList;
-    /**
-     * 权限申请备注
-     * <p> 示例值：xxxxx
-     */
-    @SerializedName("application_remark")
-    private String applicationRemark;
-    /**
-     * 需要申请的权限
-     * <p> 示例值：view
-     */
-    @SerializedName("permission")
-    private String permission;
-    /**
-     * 订阅用户 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber_ids")
-    private UserId[] subscriberIds;
+  /**
+   * 文件对应的类型，与文件的 file_token 相匹配。;;**可选值有**：;<md-enum>;<md-enum-item key="doc"
+   * >旧版文档</md-enum-item>;<md-enum-item key="sheet" >电子表格</md-enum-item>;<md-enum-item key="bitable"
+   * >多维表格</md-enum-item>;<md-enum-item key="docx" >新版文档</md-enum-item>;<md-enum-item key="slides"
+   * >幻灯片</md-enum-item>;<md-enum-item key="file" >文件</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("file_type")
+  private String fileType;
 
-    public String getFileType() {
-        return this.fileType;
-    }
+  /**
+   * 文件的 token，获取方式见 [如何获取云文档资源相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   *
+   * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
+  /**
+   * 发起权限申请的操作人的 ID，可以是替操作人自己申请权限，也可以是替其他人申请权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /**
+   * 审批人 ID。即收到协作者权限申请、负责处理该申请的用户 ID，一般是文件的所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver_id")
+  private UserId approverId;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  /**
+   * 申请授权的用户 ID 列表
+   *
+   * <p>示例值：ou_12345
+   */
+  @SerializedName("application_user_list")
+  private UserId[] applicationUserList;
 
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
+  /**
+   * 申请授权的群 open_chat_id 列表
+   *
+   * <p>示例值：oc_12345
+   */
+  @SerializedName("application_chat_list")
+  private String[] applicationChatList;
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
+  /**
+   * 申请授权的组织架构 open_department_id 列表
+   *
+   * <p>示例值：od_12345
+   */
+  @SerializedName("application_department_list")
+  private String[] applicationDepartmentList;
 
-    public UserId getApproverId() {
-        return this.approverId;
-    }
+  /**
+   * 权限申请备注
+   *
+   * <p>示例值：xxxxx
+   */
+  @SerializedName("application_remark")
+  private String applicationRemark;
 
-    public void setApproverId(UserId approverId) {
-        this.approverId = approverId;
-    }
+  /**
+   * 申请的协作者权限
+   *
+   * <p>示例值：view
+   */
+  @SerializedName("permission")
+  private String permission;
 
-    public UserId[] getApplicationUserList() {
-        return this.applicationUserList;
-    }
+  /**
+   * 订阅用户 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber_ids")
+  private UserId[] subscriberIds;
 
-    public void setApplicationUserList(UserId[] applicationUserList) {
-        this.applicationUserList = applicationUserList;
-    }
+  public String getFileType() {
+    return this.fileType;
+  }
 
-    public String[] getApplicationChatList() {
-        return this.applicationChatList;
-    }
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
 
-    public void setApplicationChatList(String[] applicationChatList) {
-        this.applicationChatList = applicationChatList;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public String[] getApplicationDepartmentList() {
-        return this.applicationDepartmentList;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public void setApplicationDepartmentList(String[] applicationDepartmentList) {
-        this.applicationDepartmentList = applicationDepartmentList;
-    }
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
 
-    public String getApplicationRemark() {
-        return this.applicationRemark;
-    }
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
 
-    public void setApplicationRemark(String applicationRemark) {
-        this.applicationRemark = applicationRemark;
-    }
+  public UserId getApproverId() {
+    return this.approverId;
+  }
 
-    public String getPermission() {
-        return this.permission;
-    }
+  public void setApproverId(UserId approverId) {
+    this.approverId = approverId;
+  }
 
-    public void setPermission(String permission) {
-        this.permission = permission;
-    }
+  public UserId[] getApplicationUserList() {
+    return this.applicationUserList;
+  }
 
-    public UserId[] getSubscriberIds() {
-        return this.subscriberIds;
-    }
+  public void setApplicationUserList(UserId[] applicationUserList) {
+    this.applicationUserList = applicationUserList;
+  }
 
-    public void setSubscriberIds(UserId[] subscriberIds) {
-        this.subscriberIds = subscriberIds;
-    }
+  public String[] getApplicationChatList() {
+    return this.applicationChatList;
+  }
 
+  public void setApplicationChatList(String[] applicationChatList) {
+    this.applicationChatList = applicationChatList;
+  }
+
+  public String[] getApplicationDepartmentList() {
+    return this.applicationDepartmentList;
+  }
+
+  public void setApplicationDepartmentList(String[] applicationDepartmentList) {
+    this.applicationDepartmentList = applicationDepartmentList;
+  }
+
+  public String getApplicationRemark() {
+    return this.applicationRemark;
+  }
+
+  public void setApplicationRemark(String applicationRemark) {
+    this.applicationRemark = applicationRemark;
+  }
+
+  public String getPermission() {
+    return this.permission;
+  }
+
+  public void setPermission(String permission) {
+    this.permission = permission;
+  }
+
+  public UserId[] getSubscriberIds() {
+    return this.subscriberIds;
+  }
+
+  public void setSubscriberIds(UserId[] subscriberIds) {
+    this.subscriberIds = subscriberIds;
+  }
 }

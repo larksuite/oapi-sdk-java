@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCalendarEventAttendeeRespBody {
-    /**
-     * 新增参与人后的日程所有参与人列表
-     * <p> 示例值：
-     */
-    @SerializedName("attendees")
-    private CalendarEventAttendee[] attendees;
+  /**
+   * 添加参与人后，日程参与人列表信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendees")
+  private CalendarEventAttendee[] attendees;
 
-    public CalendarEventAttendee[] getAttendees() {
-        return this.attendees;
-    }
+  public CalendarEventAttendee[] getAttendees() {
+    return this.attendees;
+  }
 
-    public void setAttendees(CalendarEventAttendee[] attendees) {
-        this.attendees = attendees;
-    }
-
+  public void setAttendees(CalendarEventAttendee[] attendees) {
+    this.attendees = attendees;
+  }
 }

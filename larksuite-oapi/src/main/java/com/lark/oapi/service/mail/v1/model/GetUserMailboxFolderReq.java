@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetUserMailboxFolderReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
+   *
+   * <p>示例值：7620095646711680541
+   */
+  @Path
+  @SerializedName("folder_id")
+  private String folderId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getFolderId() {
+    return this.folderId;
+  }
+
+  public void setFolderId(String folderId) {
+    this.folderId = folderId;
+  }
+
+  // builder 开始
+  public GetUserMailboxFolderReq() {}
+
+  public GetUserMailboxFolderReq(Builder builder) {
     /**
-     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
-     * <p> 示例值：7620095646711680541
+     *
+     * <p>示例值：7620095646711680541
      */
-    @Path
-    @SerializedName("folder_id")
-    private String folderId;
+    this.folderId = builder.folderId;
+  }
 
-    // builder 开始
-    public GetUserMailboxFolderReq() {
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。
+    private String folderId; // 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public GetUserMailboxFolderReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
-         * <p> 示例值：7620095646711680541
-         */
-        this.folderId = builder.folderId;
+    /**
+     * 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
+     *
+     * <p>示例值：7620095646711680541
+     *
+     * @param folderId
+     * @return
+     */
+    public Builder folderId(String folderId) {
+      this.folderId = folderId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetUserMailboxFolderReq build() {
+      return new GetUserMailboxFolderReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getFolderId() {
-        return this.folderId;
-    }
-
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private String folderId; // 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。
-         * <p> 示例值：7620095646711680541
-         *
-         * @param folderId
-         * @return
-         */
-        public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
-        }
-
-
-        public GetUserMailboxFolderReq build() {
-            return new GetUserMailboxFolderReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChildrenFilter {
+  /**
+   * 条件逻辑连接词
+   *
+   * <p>示例值：and
+   */
+  @SerializedName("conjunction")
+  private String conjunction;
+
+  /**
+   * 筛选条件集合
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private Condition[] conditions;
+
+  public String getConjunction() {
+    return this.conjunction;
+  }
+
+  public void setConjunction(String conjunction) {
+    this.conjunction = conjunction;
+  }
+
+  public Condition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(Condition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  // builder 开始
+  public ChildrenFilter() {}
+
+  public ChildrenFilter(Builder builder) {
     /**
      * 条件逻辑连接词
-     * <p> 示例值：and
+     *
+     * <p>示例值：and
      */
-    @SerializedName("conjunction")
-    private String conjunction;
+    this.conjunction = builder.conjunction;
     /**
      * 筛选条件集合
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
+    this.conditions = builder.conditions;
+  }
+
+  public static class Builder {
+    /**
+     * 条件逻辑连接词
+     *
+     * <p>示例值：and
+     */
+    private String conjunction;
+
+    /**
+     * 筛选条件集合
+     *
+     * <p>示例值：
+     */
     private Condition[] conditions;
 
-    // builder 开始
-    public ChildrenFilter() {
+    /**
+     * 条件逻辑连接词
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction
+     * @return
+     */
+    public Builder conjunction(String conjunction) {
+      this.conjunction = conjunction;
+      return this;
     }
 
-    public ChildrenFilter(Builder builder) {
-        /**
-         * 条件逻辑连接词
-         * <p> 示例值：and
-         */
-        this.conjunction = builder.conjunction;
-        /**
-         * 筛选条件集合
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
+    /**
+     * 条件逻辑连接词
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction {@link
+     *     com.lark.oapi.service.bitable.v1.enums.ChildrenFilterConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.bitable.v1.enums.ChildrenFilterConjunctionEnum conjunction) {
+      this.conjunction = conjunction.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选条件集合
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(Condition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public String getConjunction() {
-        return this.conjunction;
+    public ChildrenFilter build() {
+      return new ChildrenFilter(this);
     }
+  }
 
-    public void setConjunction(String conjunction) {
-        this.conjunction = conjunction;
-    }
-
-    public Condition[] getConditions() {
-        return this.conditions;
-    }
-
-    public void setConditions(Condition[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public static class Builder {
-        /**
-         * 条件逻辑连接词
-         * <p> 示例值：and
-         */
-        private String conjunction;
-        /**
-         * 筛选条件集合
-         * <p> 示例值：
-         */
-        private Condition[] conditions;
-
-        /**
-         * 条件逻辑连接词
-         * <p> 示例值：and
-         *
-         * @param conjunction
-         * @return
-         */
-        public Builder conjunction(String conjunction) {
-            this.conjunction = conjunction;
-            return this;
-        }
-
-        /**
-         * 条件逻辑连接词
-         * <p> 示例值：and
-         *
-         * @param conjunction {@link com.lark.oapi.service.bitable.v1.enums.ChildrenFilterConjunctionEnum}
-         * @return
-         */
-        public Builder conjunction(com.lark.oapi.service.bitable.v1.enums.ChildrenFilterConjunctionEnum conjunction) {
-            this.conjunction = conjunction.getValue();
-            return this;
-        }
-
-
-        /**
-         * 筛选条件集合
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(Condition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        public ChildrenFilter build() {
-            return new ChildrenFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

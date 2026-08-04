@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionDataPeriod {
+  /**
+   * 数据归属期开始日期
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 数据归属期结束日期
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  // builder 开始
+  public CollectionDataPeriod() {}
+
+  public CollectionDataPeriod(Builder builder) {
     /**
      * 数据归属期开始日期
-     * <p> 示例值：2022-01-01
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
      * 数据归属期结束日期
-     * <p> 示例值：2022-01-01
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("end_date")
+    this.endDate = builder.endDate;
+  }
+
+  public static class Builder {
+    /**
+     * 数据归属期开始日期
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String startDate;
+
+    /**
+     * 数据归属期结束日期
+     *
+     * <p>示例值：2022-01-01
+     */
     private String endDate;
 
-    // builder 开始
-    public CollectionDataPeriod() {
+    /**
+     * 数据归属期开始日期
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public CollectionDataPeriod(Builder builder) {
-        /**
-         * 数据归属期开始日期
-         * <p> 示例值：2022-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 数据归属期结束日期
-         * <p> 示例值：2022-01-01
-         */
-        this.endDate = builder.endDate;
+    /**
+     * 数据归属期结束日期
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CollectionDataPeriod build() {
+      return new CollectionDataPeriod(this);
     }
+  }
 
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public static class Builder {
-        /**
-         * 数据归属期开始日期
-         * <p> 示例值：2022-01-01
-         */
-        private String startDate;
-        /**
-         * 数据归属期结束日期
-         * <p> 示例值：2022-01-01
-         */
-        private String endDate;
-
-        /**
-         * 数据归属期开始日期
-         * <p> 示例值：2022-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 数据归属期结束日期
-         * <p> 示例值：2022-01-01
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        public CollectionDataPeriod build() {
-            return new CollectionDataPeriod(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

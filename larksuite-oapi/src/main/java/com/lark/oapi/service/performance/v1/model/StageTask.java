@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StageTask {
+  /**
+   * 用户 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：6765375796711327240
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 各分类的任务数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage_num_lists")
+  private StageTaskStatusNum[] stageNumLists;
+
+  /**
+   * 环节任务信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage_task_info_lists")
+  private StageTaskInfo[] stageTaskInfoLists;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public StageTaskStatusNum[] getStageNumLists() {
+    return this.stageNumLists;
+  }
+
+  public void setStageNumLists(StageTaskStatusNum[] stageNumLists) {
+    this.stageNumLists = stageNumLists;
+  }
+
+  public StageTaskInfo[] getStageTaskInfoLists() {
+    return this.stageTaskInfoLists;
+  }
+
+  public void setStageTaskInfoLists(StageTaskInfo[] stageTaskInfoLists) {
+    this.stageTaskInfoLists = stageTaskInfoLists;
+  }
+
+  // builder 开始
+  public StageTask() {}
+
+  public StageTask(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：6765375796711327240
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6765375796711327240
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 各分类的任务数
+     *
+     * <p>示例值：
+     */
+    this.stageNumLists = builder.stageNumLists;
+    /**
+     * 环节任务信息
+     *
+     * <p>示例值：
+     */
+    this.stageTaskInfoLists = builder.stageTaskInfoLists;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6765375796711327240
+     */
     private String userId;
+
     /**
-     * 状态数量列表
-     * <p> 示例值：
+     * 各分类的任务数
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage_num_lists")
     private StageTaskStatusNum[] stageNumLists;
+
     /**
-     * 任务信息列表
-     * <p> 示例值：
+     * 环节任务信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage_task_info_lists")
     private StageTaskInfo[] stageTaskInfoLists;
 
-    // builder 开始
-    public StageTask() {
+    /**
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6765375796711327240
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public StageTask(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：6765375796711327240
-         */
-        this.userId = builder.userId;
-        /**
-         * 状态数量列表
-         * <p> 示例值：
-         */
-        this.stageNumLists = builder.stageNumLists;
-        /**
-         * 任务信息列表
-         * <p> 示例值：
-         */
-        this.stageTaskInfoLists = builder.stageTaskInfoLists;
+    /**
+     * 各分类的任务数
+     *
+     * <p>示例值：
+     *
+     * @param stageNumLists
+     * @return
+     */
+    public Builder stageNumLists(StageTaskStatusNum[] stageNumLists) {
+      this.stageNumLists = stageNumLists;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节任务信息
+     *
+     * <p>示例值：
+     *
+     * @param stageTaskInfoLists
+     * @return
+     */
+    public Builder stageTaskInfoLists(StageTaskInfo[] stageTaskInfoLists) {
+      this.stageTaskInfoLists = stageTaskInfoLists;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public StageTask build() {
+      return new StageTask(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public StageTaskStatusNum[] getStageNumLists() {
-        return this.stageNumLists;
-    }
-
-    public void setStageNumLists(StageTaskStatusNum[] stageNumLists) {
-        this.stageNumLists = stageNumLists;
-    }
-
-    public StageTaskInfo[] getStageTaskInfoLists() {
-        return this.stageTaskInfoLists;
-    }
-
-    public void setStageTaskInfoLists(StageTaskInfo[] stageTaskInfoLists) {
-        this.stageTaskInfoLists = stageTaskInfoLists;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：6765375796711327240
-         */
-        private String userId;
-        /**
-         * 状态数量列表
-         * <p> 示例值：
-         */
-        private StageTaskStatusNum[] stageNumLists;
-        /**
-         * 任务信息列表
-         * <p> 示例值：
-         */
-        private StageTaskInfo[] stageTaskInfoLists;
-
-        /**
-         * 用户ID
-         * <p> 示例值：6765375796711327240
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 状态数量列表
-         * <p> 示例值：
-         *
-         * @param stageNumLists
-         * @return
-         */
-        public Builder stageNumLists(StageTaskStatusNum[] stageNumLists) {
-            this.stageNumLists = stageNumLists;
-            return this;
-        }
-
-
-        /**
-         * 任务信息列表
-         * <p> 示例值：
-         *
-         * @param stageTaskInfoLists
-         * @return
-         */
-        public Builder stageTaskInfoLists(StageTaskInfo[] stageTaskInfoLists) {
-            this.stageTaskInfoLists = stageTaskInfoLists;
-            return this;
-        }
-
-
-        public StageTask build() {
-            return new StageTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

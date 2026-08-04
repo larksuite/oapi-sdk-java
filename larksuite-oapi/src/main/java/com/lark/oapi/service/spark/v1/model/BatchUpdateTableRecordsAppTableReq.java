@@ -13,196 +13,235 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class BatchUpdateTableRecordsAppTableReq {
+  /**
+   * 访问的 database 环境，默认为 online（线上环境）
+   *
+   * <p>示例值：`online`、`dev`
+   */
+  @Query
+  @SerializedName("env")
+  private String env;
+
+  /**
+   * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+   * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+   * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+   * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+   * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+   * 了解更多：如何获取 Union ID？
+   *
+   * <p>示例值：miaoda_user_id
+   */
+  @Query
+  @SerializedName("user_identifier_type")
+  private String userIdentifierType;
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public String getUserIdentifierType() {
+    return this.userIdentifierType;
+  }
+
+  public void setUserIdentifierType(String userIdentifierType) {
+    this.userIdentifierType = userIdentifierType;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+   *
+   * <p>示例值：student_table
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  @Body private BatchUpdateTableRecordsAppTableReqBody body;
+
+  public BatchUpdateTableRecordsAppTableReqBody getBatchUpdateTableRecordsAppTableReqBody() {
+    return this.body;
+  }
+
+  public void setBatchUpdateTableRecordsAppTableReqBody(
+      BatchUpdateTableRecordsAppTableReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchUpdateTableRecordsAppTableReq() {}
+
+  public BatchUpdateTableRecordsAppTableReq(Builder builder) {
     /**
      * 访问的 database 环境，默认为 online（线上环境）
-     * <p> 示例值：online
+     *
+     * <p>示例值：`online`、`dev`
      */
-    @Query
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-     * <p> 示例值：miaoda_user_id
+     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+     * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+     * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+     * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+     * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+     * 了解更多：如何获取 Union ID？
+     *
+     * <p>示例值：miaoda_user_id
      */
-    @Query
-    @SerializedName("user_identifier_type")
-    private String userIdentifierType;
+    this.userIdentifierType = builder.userIdentifierType;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 数据表表名
-     * <p> 示例值：table_name_1
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
-    @Body
+    this.tableName = builder.tableName;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String env; // 访问的 database 环境，默认为 online（线上环境）
+    private String userIdentifierType; // 此次调用使用的用户 ID 类型，将使用指定的 ID
+
+    // 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+    // `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+    // `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID
+    // 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;-
+    // `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID
+    // 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union
+    // ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+    // 了解更多：如何获取 Union ID？
+
+    /**
+     * 访问的 database 环境，默认为 online（线上环境）
+     *
+     * <p>示例值：`online`、`dev`
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
+    }
+
+    /**
+     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+     * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+     * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+     * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+     * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+     * 了解更多：如何获取 Union ID？
+     *
+     * <p>示例值：miaoda_user_id
+     *
+     * @param userIdentifierType
+     * @return
+     */
+    public Builder userIdentifierType(String userIdentifierType) {
+      this.userIdentifierType = userIdentifierType;
+      return this;
+    }
+
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+    // app_4jcn5n11bpf5v 即为 app_id
+    private String tableName; // 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
+    /**
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
+    }
+
     private BatchUpdateTableRecordsAppTableReqBody body;
 
-    // builder 开始
-    public BatchUpdateTableRecordsAppTableReq() {
-    }
-
-    public BatchUpdateTableRecordsAppTableReq(Builder builder) {
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         */
-        this.env = builder.env;
-        /**
-         * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-         * <p> 示例值：miaoda_user_id
-         */
-        this.userIdentifierType = builder.userIdentifierType;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEnv() {
-        return this.env;
-    }
-
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public String getUserIdentifierType() {
-        return this.userIdentifierType;
-    }
-
-    public void setUserIdentifierType(String userIdentifierType) {
-        this.userIdentifierType = userIdentifierType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
     public BatchUpdateTableRecordsAppTableReqBody getBatchUpdateTableRecordsAppTableReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchUpdateTableRecordsAppTableReqBody(BatchUpdateTableRecordsAppTableReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchUpdateTableRecordsAppTableReqBody(
+        BatchUpdateTableRecordsAppTableReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String env; // 访问的 database 环境，默认为 online（线上环境）
-        private String userIdentifierType; // 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private String tableName; // 数据表表名
-        private BatchUpdateTableRecordsAppTableReqBody body;
-
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-        /**
-         * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-         * <p> 示例值：miaoda_user_id
-         *
-         * @param userIdentifierType
-         * @return
-         */
-        public Builder userIdentifierType(String userIdentifierType) {
-            this.userIdentifierType = userIdentifierType;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-        public BatchUpdateTableRecordsAppTableReqBody getBatchUpdateTableRecordsAppTableReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchUpdateTableRecordsAppTableReqBody(BatchUpdateTableRecordsAppTableReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchUpdateTableRecordsAppTableReq build() {
-            return new BatchUpdateTableRecordsAppTableReq(this);
-        }
+    public BatchUpdateTableRecordsAppTableReq build() {
+      return new BatchUpdateTableRecordsAppTableReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
- */
+/** 需要获取的邮件内容 */
 public enum BatchGetUserMailboxMessageMailMessageFormatTypeEnum {
-    FULL("full"), // 全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息
-    PLAIN_TEXT_FULL("plain_text_full"), // 全文，只返回纯文本正文内容，不返回HTML。返回内容包括标签、文件夹、主题、收发件人、纯文本等信息
-    METADATA("metadata"), // 邮件元数据信息，包括标签、文件夹、主题、收发件人、摘要等信息，不返回正文内容
-    ;
-    private String value;
+  FULL("full"), // 全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息
+  PLAIN_TEXT_FULL("plain_text_full"), // 全文，只返回纯文本正文内容，不返回HTML。返回内容包括标签、文件夹、主题、收发件人、纯文本等信息
+  METADATA("metadata"), // 邮件元数据信息，包括标签、文件夹、主题、收发件人、摘要等信息，不返回正文内容
+  ;
+  private String value;
 
-    BatchGetUserMailboxMessageMailMessageFormatTypeEnum(String value) {
-        this.value = value;
-    }
+  BatchGetUserMailboxMessageMailMessageFormatTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

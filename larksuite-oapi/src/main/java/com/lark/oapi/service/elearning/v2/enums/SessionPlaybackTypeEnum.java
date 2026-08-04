@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 回放类型
- */
+/** 回放类型 */
 public enum SessionPlaybackTypeEnum {
-    MINUTES(1), // 妙记视频回放
-    OTHER(2), // 其他回放
-    ;
-    private Integer value;
+  MINUTES(1), // 妙记视频回放
+  OTHER(2), // 其他回放
+  ;
+  private Integer value;
 
-    SessionPlaybackTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SessionPlaybackTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

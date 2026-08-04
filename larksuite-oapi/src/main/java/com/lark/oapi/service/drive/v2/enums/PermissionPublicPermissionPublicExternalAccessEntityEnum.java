@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 允许内容被分享到组织外
- */
+/** 允许内容被分享到组织外 */
 public enum PermissionPublicPermissionPublicExternalAccessEntityEnum {
-    OPEN("open"), // 打开
-    CLOSED("closed"), // 关闭
-    ALLOWSHAREPARTNERTENANT("allow_share_partner_tenant"), // 允许分享给关联组织
-    ;
-    private String value;
+  OPEN("open"), // 打开
+  CLOSED("closed"), // 关闭，即不允许内容被分享到组织外
+  ALLOWSHAREPARTNERTENANT("allow_share_partner_tenant"), // 允许分享给关联组织
+  ;
+  private String value;
 
-    PermissionPublicPermissionPublicExternalAccessEntityEnum(String value) {
-        this.value = value;
-    }
+  PermissionPublicPermissionPublicExternalAccessEntityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

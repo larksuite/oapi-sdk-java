@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GradeStandardValue {
+  /**
+   * 标准值
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("standard_value")
+  private String standardValue;
+
+  /**
+   * 适用项目
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reference_object")
+  private StandardReferenceObject referenceObject;
+
+  /**
+   * 上限
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("upper_limit")
+  private String upperLimit;
+
+  /**
+   * 下限
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("lower_limit")
+  private String lowerLimit;
+
+  public String getStandardValue() {
+    return this.standardValue;
+  }
+
+  public void setStandardValue(String standardValue) {
+    this.standardValue = standardValue;
+  }
+
+  public StandardReferenceObject getReferenceObject() {
+    return this.referenceObject;
+  }
+
+  public void setReferenceObject(StandardReferenceObject referenceObject) {
+    this.referenceObject = referenceObject;
+  }
+
+  public String getUpperLimit() {
+    return this.upperLimit;
+  }
+
+  public void setUpperLimit(String upperLimit) {
+    this.upperLimit = upperLimit;
+  }
+
+  public String getLowerLimit() {
+    return this.lowerLimit;
+  }
+
+  public void setLowerLimit(String lowerLimit) {
+    this.lowerLimit = lowerLimit;
+  }
+
+  // builder 开始
+  public GradeStandardValue() {}
+
+  public GradeStandardValue(Builder builder) {
     /**
      * 标准值
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("standard_value")
-    private String standardValue;
+    this.standardValue = builder.standardValue;
     /**
      * 适用项目
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reference_object")
-    private StandardReferenceObject referenceObject;
+    this.referenceObject = builder.referenceObject;
     /**
      * 上限
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("upper_limit")
-    private String upperLimit;
+    this.upperLimit = builder.upperLimit;
     /**
      * 下限
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("lower_limit")
+    this.lowerLimit = builder.lowerLimit;
+  }
+
+  public static class Builder {
+    /**
+     * 标准值
+     *
+     * <p>示例值：10
+     */
+    private String standardValue;
+
+    /**
+     * 适用项目
+     *
+     * <p>示例值：
+     */
+    private StandardReferenceObject referenceObject;
+
+    /**
+     * 上限
+     *
+     * <p>示例值：10
+     */
+    private String upperLimit;
+
+    /**
+     * 下限
+     *
+     * <p>示例值：1
+     */
     private String lowerLimit;
 
-    // builder 开始
-    public GradeStandardValue() {
+    /**
+     * 标准值
+     *
+     * <p>示例值：10
+     *
+     * @param standardValue
+     * @return
+     */
+    public Builder standardValue(String standardValue) {
+      this.standardValue = standardValue;
+      return this;
     }
 
-    public GradeStandardValue(Builder builder) {
-        /**
-         * 标准值
-         * <p> 示例值：10
-         */
-        this.standardValue = builder.standardValue;
-        /**
-         * 适用项目
-         * <p> 示例值：
-         */
-        this.referenceObject = builder.referenceObject;
-        /**
-         * 上限
-         * <p> 示例值：10
-         */
-        this.upperLimit = builder.upperLimit;
-        /**
-         * 下限
-         * <p> 示例值：1
-         */
-        this.lowerLimit = builder.lowerLimit;
+    /**
+     * 适用项目
+     *
+     * <p>示例值：
+     *
+     * @param referenceObject
+     * @return
+     */
+    public Builder referenceObject(StandardReferenceObject referenceObject) {
+      this.referenceObject = referenceObject;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上限
+     *
+     * <p>示例值：10
+     *
+     * @param upperLimit
+     * @return
+     */
+    public Builder upperLimit(String upperLimit) {
+      this.upperLimit = upperLimit;
+      return this;
     }
 
-    public String getStandardValue() {
-        return this.standardValue;
+    /**
+     * 下限
+     *
+     * <p>示例值：1
+     *
+     * @param lowerLimit
+     * @return
+     */
+    public Builder lowerLimit(String lowerLimit) {
+      this.lowerLimit = lowerLimit;
+      return this;
     }
 
-    public void setStandardValue(String standardValue) {
-        this.standardValue = standardValue;
+    public GradeStandardValue build() {
+      return new GradeStandardValue(this);
     }
+  }
 
-    public StandardReferenceObject getReferenceObject() {
-        return this.referenceObject;
-    }
-
-    public void setReferenceObject(StandardReferenceObject referenceObject) {
-        this.referenceObject = referenceObject;
-    }
-
-    public String getUpperLimit() {
-        return this.upperLimit;
-    }
-
-    public void setUpperLimit(String upperLimit) {
-        this.upperLimit = upperLimit;
-    }
-
-    public String getLowerLimit() {
-        return this.lowerLimit;
-    }
-
-    public void setLowerLimit(String lowerLimit) {
-        this.lowerLimit = lowerLimit;
-    }
-
-    public static class Builder {
-        /**
-         * 标准值
-         * <p> 示例值：10
-         */
-        private String standardValue;
-        /**
-         * 适用项目
-         * <p> 示例值：
-         */
-        private StandardReferenceObject referenceObject;
-        /**
-         * 上限
-         * <p> 示例值：10
-         */
-        private String upperLimit;
-        /**
-         * 下限
-         * <p> 示例值：1
-         */
-        private String lowerLimit;
-
-        /**
-         * 标准值
-         * <p> 示例值：10
-         *
-         * @param standardValue
-         * @return
-         */
-        public Builder standardValue(String standardValue) {
-            this.standardValue = standardValue;
-            return this;
-        }
-
-
-        /**
-         * 适用项目
-         * <p> 示例值：
-         *
-         * @param referenceObject
-         * @return
-         */
-        public Builder referenceObject(StandardReferenceObject referenceObject) {
-            this.referenceObject = referenceObject;
-            return this;
-        }
-
-
-        /**
-         * 上限
-         * <p> 示例值：10
-         *
-         * @param upperLimit
-         * @return
-         */
-        public Builder upperLimit(String upperLimit) {
-            this.upperLimit = upperLimit;
-            return this;
-        }
-
-
-        /**
-         * 下限
-         * <p> 示例值：1
-         *
-         * @param lowerLimit
-         * @return
-         */
-        public Builder lowerLimit(String lowerLimit) {
-            this.lowerLimit = lowerLimit;
-            return this;
-        }
-
-
-        public GradeStandardValue build() {
-            return new GradeStandardValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

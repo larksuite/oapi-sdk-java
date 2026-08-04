@@ -13,223 +13,245 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TasklistActivitySubscription {
+  /**
+   * 订阅guid
+   *
+   * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 订阅名称，如更新，不能为空，最大支持50个字符。
+   *
+   * <p>示例值：Roadmap订阅
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 订阅者列表。如更新，最大支持50个订阅者。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscribers")
+  private Member[] subscribers;
+
+  /**
+   * 要订阅的清单动态event keys列表。每个event key用一个数字表示。目前支持下列event key：;- 100: 任务添加入清单;- 101: 任务从清单被移除;- 103:
+   * 任务被完成;- 104: 任务恢复为未完成;- 109: 任务添加了负责人;- 110: 任务更新了负责人;- 111: 任务移除了负责人;- 119: 任务添加了附件;- 121:
+   * 任务中添加了新评论;- 122: 任务中对评论进行回复;- 129: 任务设置了新的开始时间;- 130: 任务设置了新的截止时间;- 131: 任务同时设置了新的开始/截止时间;-
+   * 132: 任务同时移除了开始/截止时间;;该字段可以设置为空数组（即不对任何event进行通知）；输入的`include_keys`的元素不能重复。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("include_keys")
+  private Integer[] includeKeys;
+
+  /**
+   * 该订阅是否停用
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("disabled")
+  private Boolean disabled;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Member[] getSubscribers() {
+    return this.subscribers;
+  }
+
+  public void setSubscribers(Member[] subscribers) {
+    this.subscribers = subscribers;
+  }
+
+  public Integer[] getIncludeKeys() {
+    return this.includeKeys;
+  }
+
+  public void setIncludeKeys(Integer[] includeKeys) {
+    this.includeKeys = includeKeys;
+  }
+
+  public Boolean getDisabled() {
+    return this.disabled;
+  }
+
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
+  }
+
+  // builder 开始
+  public TasklistActivitySubscription() {}
+
+  public TasklistActivitySubscription(Builder builder) {
     /**
      * 订阅guid
-     * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
      */
-    @SerializedName("guid")
+    this.guid = builder.guid;
+    /**
+     * 订阅名称，如更新，不能为空，最大支持50个字符。
+     *
+     * <p>示例值：Roadmap订阅
+     */
+    this.name = builder.name;
+    /**
+     * 订阅者列表。如更新，最大支持50个订阅者。
+     *
+     * <p>示例值：
+     */
+    this.subscribers = builder.subscribers;
+    /**
+     * 要订阅的清单动态event keys列表。每个event key用一个数字表示。目前支持下列event key：;- 100: 任务添加入清单;- 101: 任务从清单被移除;-
+     * 103: 任务被完成;- 104: 任务恢复为未完成;- 109: 任务添加了负责人;- 110: 任务更新了负责人;- 111: 任务移除了负责人;- 119: 任务添加了附件;-
+     * 121: 任务中添加了新评论;- 122: 任务中对评论进行回复;- 129: 任务设置了新的开始时间;- 130: 任务设置了新的截止时间;- 131:
+     * 任务同时设置了新的开始/截止时间;- 132: 任务同时移除了开始/截止时间;;该字段可以设置为空数组（即不对任何event进行通知）；输入的`include_keys`的元素不能重复。
+     *
+     * <p>示例值：
+     */
+    this.includeKeys = builder.includeKeys;
+    /**
+     * 该订阅是否停用
+     *
+     * <p>示例值：false
+     */
+    this.disabled = builder.disabled;
+  }
+
+  public static class Builder {
+    /**
+     * 订阅guid
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     */
     private String guid;
+
     /**
-     * 订阅名称
-     * <p> 示例值：Roadmap订阅
+     * 订阅名称，如更新，不能为空，最大支持50个字符。
+     *
+     * <p>示例值：Roadmap订阅
      */
-    @SerializedName("name")
     private String name;
+
     /**
-     * 订阅者
-     * <p> 示例值：
+     * 订阅者列表。如更新，最大支持50个订阅者。
+     *
+     * <p>示例值：
      */
-    @SerializedName("subscribers")
     private Member[] subscribers;
+
     /**
-     * 要订阅的清单动态类型
-     * <p> 示例值：
+     * 要订阅的清单动态event keys列表。每个event key用一个数字表示。目前支持下列event key：;- 100: 任务添加入清单;- 101: 任务从清单被移除;-
+     * 103: 任务被完成;- 104: 任务恢复为未完成;- 109: 任务添加了负责人;- 110: 任务更新了负责人;- 111: 任务移除了负责人;- 119: 任务添加了附件;-
+     * 121: 任务中添加了新评论;- 122: 任务中对评论进行回复;- 129: 任务设置了新的开始时间;- 130: 任务设置了新的截止时间;- 131:
+     * 任务同时设置了新的开始/截止时间;- 132: 任务同时移除了开始/截止时间;;该字段可以设置为空数组（即不对任何event进行通知）；输入的`include_keys`的元素不能重复。
+     *
+     * <p>示例值：
      */
-    @SerializedName("include_keys")
     private Integer[] includeKeys;
+
     /**
-     * 该订阅是否为停用
-     * <p> 示例值：false
+     * 该订阅是否停用
+     *
+     * <p>示例值：false
      */
-    @SerializedName("disabled")
     private Boolean disabled;
 
-    // builder 开始
-    public TasklistActivitySubscription() {
+    /**
+     * 订阅guid
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public TasklistActivitySubscription(Builder builder) {
-        /**
-         * 订阅guid
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         */
-        this.guid = builder.guid;
-        /**
-         * 订阅名称
-         * <p> 示例值：Roadmap订阅
-         */
-        this.name = builder.name;
-        /**
-         * 订阅者
-         * <p> 示例值：
-         */
-        this.subscribers = builder.subscribers;
-        /**
-         * 要订阅的清单动态类型
-         * <p> 示例值：
-         */
-        this.includeKeys = builder.includeKeys;
-        /**
-         * 该订阅是否为停用
-         * <p> 示例值：false
-         */
-        this.disabled = builder.disabled;
+    /**
+     * 订阅名称，如更新，不能为空，最大支持50个字符。
+     *
+     * <p>示例值：Roadmap订阅
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 订阅者列表。如更新，最大支持50个订阅者。
+     *
+     * <p>示例值：
+     *
+     * @param subscribers
+     * @return
+     */
+    public Builder subscribers(Member[] subscribers) {
+      this.subscribers = subscribers;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    /**
+     * 要订阅的清单动态event keys列表。每个event key用一个数字表示。目前支持下列event key：;- 100: 任务添加入清单;- 101: 任务从清单被移除;-
+     * 103: 任务被完成;- 104: 任务恢复为未完成;- 109: 任务添加了负责人;- 110: 任务更新了负责人;- 111: 任务移除了负责人;- 119: 任务添加了附件;-
+     * 121: 任务中添加了新评论;- 122: 任务中对评论进行回复;- 129: 任务设置了新的开始时间;- 130: 任务设置了新的截止时间;- 131:
+     * 任务同时设置了新的开始/截止时间;- 132: 任务同时移除了开始/截止时间;;该字段可以设置为空数组（即不对任何event进行通知）；输入的`include_keys`的元素不能重复。
+     *
+     * <p>示例值：
+     *
+     * @param includeKeys
+     * @return
+     */
+    public Builder includeKeys(Integer[] includeKeys) {
+      this.includeKeys = includeKeys;
+      return this;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    /**
+     * 该订阅是否停用
+     *
+     * <p>示例值：false
+     *
+     * @param disabled
+     * @return
+     */
+    public Builder disabled(Boolean disabled) {
+      this.disabled = disabled;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public TasklistActivitySubscription build() {
+      return new TasklistActivitySubscription(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Member[] getSubscribers() {
-        return this.subscribers;
-    }
-
-    public void setSubscribers(Member[] subscribers) {
-        this.subscribers = subscribers;
-    }
-
-    public Integer[] getIncludeKeys() {
-        return this.includeKeys;
-    }
-
-    public void setIncludeKeys(Integer[] includeKeys) {
-        this.includeKeys = includeKeys;
-    }
-
-    public Boolean getDisabled() {
-        return this.disabled;
-    }
-
-    public void setDisabled(Boolean disabled) {
-        this.disabled = disabled;
-    }
-
-    public static class Builder {
-        /**
-         * 订阅guid
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         */
-        private String guid;
-        /**
-         * 订阅名称
-         * <p> 示例值：Roadmap订阅
-         */
-        private String name;
-        /**
-         * 订阅者
-         * <p> 示例值：
-         */
-        private Member[] subscribers;
-        /**
-         * 要订阅的清单动态类型
-         * <p> 示例值：
-         */
-        private Integer[] includeKeys;
-        /**
-         * 该订阅是否为停用
-         * <p> 示例值：false
-         */
-        private Boolean disabled;
-
-        /**
-         * 订阅guid
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 订阅名称
-         * <p> 示例值：Roadmap订阅
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 订阅者
-         * <p> 示例值：
-         *
-         * @param subscribers
-         * @return
-         */
-        public Builder subscribers(Member[] subscribers) {
-            this.subscribers = subscribers;
-            return this;
-        }
-
-
-        /**
-         * 要订阅的清单动态类型
-         * <p> 示例值：
-         *
-         * @param includeKeys
-         * @return
-         */
-        public Builder includeKeys(Integer[] includeKeys) {
-            this.includeKeys = includeKeys;
-            return this;
-        }
-
-
-        /**
-         * 该订阅是否为停用
-         * <p> 示例值：false
-         *
-         * @param disabled
-         * @return
-         */
-        public Builder disabled(Boolean disabled) {
-            this.disabled = disabled;
-            return this;
-        }
-
-
-        public TasklistActivitySubscription build() {
-            return new TasklistActivitySubscription(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

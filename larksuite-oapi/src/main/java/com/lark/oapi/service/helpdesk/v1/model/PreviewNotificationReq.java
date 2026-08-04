@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class PreviewNotificationReq {
+  /**
+   * 创建推送接口成功后返回的唯一id
+   *
+   * <p>示例值：6985032626234982420
+   */
+  @Path
+  @SerializedName("notification_id")
+  private String notificationId;
+
+  public String getNotificationId() {
+    return this.notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
+
+  // builder 开始
+  public PreviewNotificationReq() {}
+
+  public PreviewNotificationReq(Builder builder) {
     /**
      * 创建推送接口成功后返回的唯一id
-     * <p> 示例值：6985032626234982420
+     *
+     * <p>示例值：6985032626234982420
      */
-    @Path
-    @SerializedName("notification_id")
-    private String notificationId;
+    this.notificationId = builder.notificationId;
+  }
 
-    // builder 开始
-    public PreviewNotificationReq() {
+  public static class Builder {
+
+    private String notificationId; // 创建推送接口成功后返回的唯一id
+
+    /**
+     * 创建推送接口成功后返回的唯一id
+     *
+     * <p>示例值：6985032626234982420
+     *
+     * @param notificationId
+     * @return
+     */
+    public Builder notificationId(String notificationId) {
+      this.notificationId = notificationId;
+      return this;
     }
 
-    public PreviewNotificationReq(Builder builder) {
-        /**
-         * 创建推送接口成功后返回的唯一id
-         * <p> 示例值：6985032626234982420
-         */
-        this.notificationId = builder.notificationId;
+    public PreviewNotificationReq build() {
+      return new PreviewNotificationReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getNotificationId() {
-        return this.notificationId;
-    }
-
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public static class Builder {
-
-        private String notificationId; // 创建推送接口成功后返回的唯一id
-
-        /**
-         * 创建推送接口成功后返回的唯一id
-         * <p> 示例值：6985032626234982420
-         *
-         * @param notificationId
-         * @return
-         */
-        public Builder notificationId(String notificationId) {
-            this.notificationId = notificationId;
-            return this;
-        }
-
-
-        public PreviewNotificationReq build() {
-            return new PreviewNotificationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

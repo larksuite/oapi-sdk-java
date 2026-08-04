@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChangeFieldPair {
+  /**
+   * 调整前
+   *
+   * <p>示例值：
+   */
+  @SerializedName("origin_value")
+  private CustomFieldData originValue;
+
+  /**
+   * 调整后
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_value")
+  private CustomFieldData targetValue;
+
+  public CustomFieldData getOriginValue() {
+    return this.originValue;
+  }
+
+  public void setOriginValue(CustomFieldData originValue) {
+    this.originValue = originValue;
+  }
+
+  public CustomFieldData getTargetValue() {
+    return this.targetValue;
+  }
+
+  public void setTargetValue(CustomFieldData targetValue) {
+    this.targetValue = targetValue;
+  }
+
+  // builder 开始
+  public ChangeFieldPair() {}
+
+  public ChangeFieldPair(Builder builder) {
     /**
      * 调整前
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("origin_value")
-    private CustomFieldData originValue;
+    this.originValue = builder.originValue;
     /**
      * 调整后
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_value")
+    this.targetValue = builder.targetValue;
+  }
+
+  public static class Builder {
+    /**
+     * 调整前
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData originValue;
+
+    /**
+     * 调整后
+     *
+     * <p>示例值：
+     */
     private CustomFieldData targetValue;
 
-    // builder 开始
-    public ChangeFieldPair() {
+    /**
+     * 调整前
+     *
+     * <p>示例值：
+     *
+     * @param originValue
+     * @return
+     */
+    public Builder originValue(CustomFieldData originValue) {
+      this.originValue = originValue;
+      return this;
     }
 
-    public ChangeFieldPair(Builder builder) {
-        /**
-         * 调整前
-         * <p> 示例值：
-         */
-        this.originValue = builder.originValue;
-        /**
-         * 调整后
-         * <p> 示例值：
-         */
-        this.targetValue = builder.targetValue;
+    /**
+     * 调整后
+     *
+     * <p>示例值：
+     *
+     * @param targetValue
+     * @return
+     */
+    public Builder targetValue(CustomFieldData targetValue) {
+      this.targetValue = targetValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ChangeFieldPair build() {
+      return new ChangeFieldPair(this);
     }
+  }
 
-    public CustomFieldData getOriginValue() {
-        return this.originValue;
-    }
-
-    public void setOriginValue(CustomFieldData originValue) {
-        this.originValue = originValue;
-    }
-
-    public CustomFieldData getTargetValue() {
-        return this.targetValue;
-    }
-
-    public void setTargetValue(CustomFieldData targetValue) {
-        this.targetValue = targetValue;
-    }
-
-    public static class Builder {
-        /**
-         * 调整前
-         * <p> 示例值：
-         */
-        private CustomFieldData originValue;
-        /**
-         * 调整后
-         * <p> 示例值：
-         */
-        private CustomFieldData targetValue;
-
-        /**
-         * 调整前
-         * <p> 示例值：
-         *
-         * @param originValue
-         * @return
-         */
-        public Builder originValue(CustomFieldData originValue) {
-            this.originValue = originValue;
-            return this;
-        }
-
-
-        /**
-         * 调整后
-         * <p> 示例值：
-         *
-         * @param targetValue
-         * @return
-         */
-        public Builder targetValue(CustomFieldData targetValue) {
-            this.targetValue = targetValue;
-            return this;
-        }
-
-
-        public ChangeFieldPair build() {
-            return new ChangeFieldPair(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

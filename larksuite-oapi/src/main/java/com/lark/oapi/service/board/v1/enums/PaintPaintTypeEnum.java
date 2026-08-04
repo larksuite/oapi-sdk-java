@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 画笔类型
- */
+/** 画笔类型 */
 public enum PaintPaintTypeEnum {
-    MARKER("marker"), // 马克笔
-    HIGHLIGHT("highlight"), // 高亮笔
-    ;
-    private String value;
+  MARKER("marker"), // 马克笔
+  HIGHLIGHT("highlight"), // 高亮笔
+  ;
+  private String value;
 
-    PaintPaintTypeEnum(String value) {
-        this.value = value;
-    }
+  PaintPaintTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

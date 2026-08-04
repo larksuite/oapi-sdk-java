@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class DeleteRoomReq {
+  /**
+   * 会议室ID
+   *
+   * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+   */
+  @Path
+  @SerializedName("room_id")
+  private String roomId;
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  // builder 开始
+  public DeleteRoomReq() {}
+
+  public DeleteRoomReq(Builder builder) {
     /**
      * 会议室ID
-     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
      */
-    @Path
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
+  }
 
-    // builder 开始
-    public DeleteRoomReq() {
+  public static class Builder {
+
+    private String roomId; // 会议室ID
+
+    /**
+     * 会议室ID
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public DeleteRoomReq(Builder builder) {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         */
-        this.roomId = builder.roomId;
+    public DeleteRoomReq build() {
+      return new DeleteRoomReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public static class Builder {
-
-        private String roomId; // 会议室ID
-
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        public DeleteRoomReq build() {
-            return new DeleteRoomReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

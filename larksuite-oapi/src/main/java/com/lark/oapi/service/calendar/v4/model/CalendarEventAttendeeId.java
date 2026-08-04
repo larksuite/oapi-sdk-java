@@ -13,272 +13,290 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventAttendeeId {
+  /**
+   * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 参与人ID
+   *
+   * <p>示例值：user_xxxxxx
+   */
+  @SerializedName("attendee_id")
+  private String attendeeId;
+
+  /**
+   * 用户 ID。当选择用户类型参与人（type 取值为 user）时，需要传入该参数。传入的用户 ID 类型需要和 user_id_type 的值保持一致。
+   *
+   * <p>示例值：ou_xxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * chat类型参与人的群组chat_id
+   *
+   * <p>示例值：oc_xxxxxxxxx
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * resource类型参与人的会议室room_id
+   *
+   * <p>示例值：omm_xxxxxxxx
+   */
+  @SerializedName("room_id")
+  private String roomId;
+
+  /**
+   * third_party类型参与人的邮箱
+   *
+   * <p>示例值：wangwu@email.com
+   */
+  @SerializedName("third_party_email")
+  private String thirdPartyEmail;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getAttendeeId() {
+    return this.attendeeId;
+  }
+
+  public void setAttendeeId(String attendeeId) {
+    this.attendeeId = attendeeId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  public String getThirdPartyEmail() {
+    return this.thirdPartyEmail;
+  }
+
+  public void setThirdPartyEmail(String thirdPartyEmail) {
+    this.thirdPartyEmail = thirdPartyEmail;
+  }
+
+  // builder 开始
+  public CalendarEventAttendeeId() {}
+
+  public CalendarEventAttendeeId(Builder builder) {
     /**
-     * 参与人类型，仅当新建参与人时可设置类型
-     * <p> 示例值：user
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 参与人ID
-     * <p> 示例值：user_xxxxxx
+     *
+     * <p>示例值：user_xxxxxx
      */
-    @SerializedName("attendee_id")
-    private String attendeeId;
+    this.attendeeId = builder.attendeeId;
     /**
-     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-     * <p> 示例值：ou_xxxxxxxx
+     * 用户 ID。当选择用户类型参与人（type 取值为 user）时，需要传入该参数。传入的用户 ID 类型需要和 user_id_type 的值保持一致。
+     *
+     * <p>示例值：ou_xxxxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * chat类型参与人的群组chat_id
-     * <p> 示例值：oc_xxxxxxxxx
+     *
+     * <p>示例值：oc_xxxxxxxxx
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * resource类型参与人的会议室room_id
-     * <p> 示例值：omm_xxxxxxxx
+     *
+     * <p>示例值：omm_xxxxxxxx
      */
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
     /**
      * third_party类型参与人的邮箱
-     * <p> 示例值：wangwu@email.com
+     *
+     * <p>示例值：wangwu@email.com
      */
-    @SerializedName("third_party_email")
+    this.thirdPartyEmail = builder.thirdPartyEmail;
+  }
+
+  public static class Builder {
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 参与人ID
+     *
+     * <p>示例值：user_xxxxxx
+     */
+    private String attendeeId;
+
+    /**
+     * 用户 ID。当选择用户类型参与人（type 取值为 user）时，需要传入该参数。传入的用户 ID 类型需要和 user_id_type 的值保持一致。
+     *
+     * <p>示例值：ou_xxxxxxxx
+     */
+    private String userId;
+
+    /**
+     * chat类型参与人的群组chat_id
+     *
+     * <p>示例值：oc_xxxxxxxxx
+     */
+    private String chatId;
+
+    /**
+     * resource类型参与人的会议室room_id
+     *
+     * <p>示例值：omm_xxxxxxxx
+     */
+    private String roomId;
+
+    /**
+     * third_party类型参与人的邮箱
+     *
+     * <p>示例值：wangwu@email.com
+     */
     private String thirdPartyEmail;
 
-    // builder 开始
-    public CalendarEventAttendeeId() {
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public CalendarEventAttendeeId(Builder builder) {
-        /**
-         * 参与人类型，仅当新建参与人时可设置类型
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 参与人ID
-         * <p> 示例值：user_xxxxxx
-         */
-        this.attendeeId = builder.attendeeId;
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * chat类型参与人的群组chat_id
-         * <p> 示例值：oc_xxxxxxxxx
-         */
-        this.chatId = builder.chatId;
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         */
-        this.roomId = builder.roomId;
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         */
-        this.thirdPartyEmail = builder.thirdPartyEmail;
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeIdEventAttendeeTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeIdEventAttendeeTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参与人ID
+     *
+     * <p>示例值：user_xxxxxx
+     *
+     * @param attendeeId
+     * @return
+     */
+    public Builder attendeeId(String attendeeId) {
+      this.attendeeId = attendeeId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 用户 ID。当选择用户类型参与人（type 取值为 user）时，需要传入该参数。传入的用户 ID 类型需要和 user_id_type 的值保持一致。
+     *
+     * <p>示例值：ou_xxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * chat类型参与人的群组chat_id
+     *
+     * <p>示例值：oc_xxxxxxxxx
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getAttendeeId() {
-        return this.attendeeId;
+    /**
+     * resource类型参与人的会议室room_id
+     *
+     * <p>示例值：omm_xxxxxxxx
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public void setAttendeeId(String attendeeId) {
-        this.attendeeId = attendeeId;
+    /**
+     * third_party类型参与人的邮箱
+     *
+     * <p>示例值：wangwu@email.com
+     *
+     * @param thirdPartyEmail
+     * @return
+     */
+    public Builder thirdPartyEmail(String thirdPartyEmail) {
+      this.thirdPartyEmail = thirdPartyEmail;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public CalendarEventAttendeeId build() {
+      return new CalendarEventAttendeeId(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public String getThirdPartyEmail() {
-        return this.thirdPartyEmail;
-    }
-
-    public void setThirdPartyEmail(String thirdPartyEmail) {
-        this.thirdPartyEmail = thirdPartyEmail;
-    }
-
-    public static class Builder {
-        /**
-         * 参与人类型，仅当新建参与人时可设置类型
-         * <p> 示例值：user
-         */
-        private String type;
-        /**
-         * 参与人ID
-         * <p> 示例值：user_xxxxxx
-         */
-        private String attendeeId;
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        private String userId;
-        /**
-         * chat类型参与人的群组chat_id
-         * <p> 示例值：oc_xxxxxxxxx
-         */
-        private String chatId;
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         */
-        private String roomId;
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         */
-        private String thirdPartyEmail;
-
-        /**
-         * 参与人类型，仅当新建参与人时可设置类型
-         * <p> 示例值：user
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 参与人类型，仅当新建参与人时可设置类型
-         * <p> 示例值：user
-         *
-         * @param type {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeIdEventAttendeeTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeIdEventAttendeeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参与人ID
-         * <p> 示例值：user_xxxxxx
-         *
-         * @param attendeeId
-         * @return
-         */
-        public Builder attendeeId(String attendeeId) {
-            this.attendeeId = attendeeId;
-            return this;
-        }
-
-
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
-         * <p> 示例值：ou_xxxxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * chat类型参与人的群组chat_id
-         * <p> 示例值：oc_xxxxxxxxx
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         *
-         * @param thirdPartyEmail
-         * @return
-         */
-        public Builder thirdPartyEmail(String thirdPartyEmail) {
-            this.thirdPartyEmail = thirdPartyEmail;
-            return this;
-        }
-
-
-        public CalendarEventAttendeeId build() {
-            return new CalendarEventAttendeeId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

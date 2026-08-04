@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDataDataView {
+  /**
+   * job data类别
+   *
+   * <p>示例值：入职
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * job data数据详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_data_data_views")
+  private JobDataFieldView[] jobDataDataViews;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public JobDataFieldView[] getJobDataDataViews() {
+    return this.jobDataDataViews;
+  }
+
+  public void setJobDataDataViews(JobDataFieldView[] jobDataDataViews) {
+    this.jobDataDataViews = jobDataDataViews;
+  }
+
+  // builder 开始
+  public JobDataDataView() {}
+
+  public JobDataDataView(Builder builder) {
     /**
      * job data类别
-     * <p> 示例值：入职
+     *
+     * <p>示例值：入职
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * job data数据详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_data_data_views")
+    this.jobDataDataViews = builder.jobDataDataViews;
+  }
+
+  public static class Builder {
+    /**
+     * job data类别
+     *
+     * <p>示例值：入职
+     */
+    private String type;
+
+    /**
+     * job data数据详情
+     *
+     * <p>示例值：
+     */
     private JobDataFieldView[] jobDataDataViews;
 
-    // builder 开始
-    public JobDataDataView() {
+    /**
+     * job data类别
+     *
+     * <p>示例值：入职
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public JobDataDataView(Builder builder) {
-        /**
-         * job data类别
-         * <p> 示例值：入职
-         */
-        this.type = builder.type;
-        /**
-         * job data数据详情
-         * <p> 示例值：
-         */
-        this.jobDataDataViews = builder.jobDataDataViews;
+    /**
+     * job data数据详情
+     *
+     * <p>示例值：
+     *
+     * @param jobDataDataViews
+     * @return
+     */
+    public Builder jobDataDataViews(JobDataFieldView[] jobDataDataViews) {
+      this.jobDataDataViews = jobDataDataViews;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public JobDataDataView build() {
+      return new JobDataDataView(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public JobDataFieldView[] getJobDataDataViews() {
-        return this.jobDataDataViews;
-    }
-
-    public void setJobDataDataViews(JobDataFieldView[] jobDataDataViews) {
-        this.jobDataDataViews = jobDataDataViews;
-    }
-
-    public static class Builder {
-        /**
-         * job data类别
-         * <p> 示例值：入职
-         */
-        private String type;
-        /**
-         * job data数据详情
-         * <p> 示例值：
-         */
-        private JobDataFieldView[] jobDataDataViews;
-
-        /**
-         * job data类别
-         * <p> 示例值：入职
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * job data数据详情
-         * <p> 示例值：
-         *
-         * @param jobDataDataViews
-         * @return
-         */
-        public Builder jobDataDataViews(JobDataFieldView[] jobDataDataViews) {
-            this.jobDataDataViews = jobDataDataViews;
-            return this;
-        }
-
-
-        public JobDataDataView build() {
-            return new JobDataDataView(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

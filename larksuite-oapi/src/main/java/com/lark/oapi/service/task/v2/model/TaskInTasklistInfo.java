@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskInTasklistInfo {
+  /**
+   * 任务所在清单的guid
+   *
+   * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+   */
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  /**
+   * 任务所在清单的自定义分组guid
+   *
+   * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+   */
+  @SerializedName("section_guid")
+  private String sectionGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  public String getSectionGuid() {
+    return this.sectionGuid;
+  }
+
+  public void setSectionGuid(String sectionGuid) {
+    this.sectionGuid = sectionGuid;
+  }
+
+  // builder 开始
+  public TaskInTasklistInfo() {}
+
+  public TaskInTasklistInfo(Builder builder) {
     /**
      * 任务所在清单的guid
-     * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
      */
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
+    this.tasklistGuid = builder.tasklistGuid;
     /**
      * 任务所在清单的自定义分组guid
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
      */
-    @SerializedName("section_guid")
+    this.sectionGuid = builder.sectionGuid;
+  }
+
+  public static class Builder {
+    /**
+     * 任务所在清单的guid
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     */
+    private String tasklistGuid;
+
+    /**
+     * 任务所在清单的自定义分组guid
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     */
     private String sectionGuid;
 
-    // builder 开始
-    public TaskInTasklistInfo() {
+    /**
+     * 任务所在清单的guid
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public TaskInTasklistInfo(Builder builder) {
-        /**
-         * 任务所在清单的guid
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        /**
-         * 任务所在清单的自定义分组guid
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.sectionGuid = builder.sectionGuid;
+    /**
+     * 任务所在清单的自定义分组guid
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * @param sectionGuid
+     * @return
+     */
+    public Builder sectionGuid(String sectionGuid) {
+      this.sectionGuid = sectionGuid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TaskInTasklistInfo build() {
+      return new TaskInTasklistInfo(this);
     }
+  }
 
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public String getSectionGuid() {
-        return this.sectionGuid;
-    }
-
-    public void setSectionGuid(String sectionGuid) {
-        this.sectionGuid = sectionGuid;
-    }
-
-    public static class Builder {
-        /**
-         * 任务所在清单的guid
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        private String tasklistGuid;
-        /**
-         * 任务所在清单的自定义分组guid
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        private String sectionGuid;
-
-        /**
-         * 任务所在清单的guid
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        /**
-         * 任务所在清单的自定义分组guid
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
-         * @param sectionGuid
-         * @return
-         */
-        public Builder sectionGuid(String sectionGuid) {
-            this.sectionGuid = sectionGuid;
-            return this;
-        }
-
-
-        public TaskInTasklistInfo build() {
-            return new TaskInTasklistInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

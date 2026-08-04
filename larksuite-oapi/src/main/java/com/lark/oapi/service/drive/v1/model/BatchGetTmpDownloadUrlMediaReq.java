@@ -13,105 +13,137 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class BatchGetTmpDownloadUrlMediaReq {
+  /**
+   * 素材文件的 token。获取方式如下所示：;*
+   * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+   * Block）或图片块（Image Block）的 token，即为素材 token。;*
+   * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+   * `fileToken`，即为素材的 token。;*
+   * 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的
+   * `file_token`，即为素材的 token。;;如需一次获取多个素材的下载链接，可多次传递本参数及素材的 token
+   * 值，格式如下：;;`https://{url}?file_tokens={token1}&file_tokens={token2}`;;其中：;- `file_tokens`
+   * 是参数名，可以多次传递;- `token1` 和 `token2` 为素材的实际 token 值;- 一次最多可传递 5 个素材的 token，但在 API 调试台仅支持传一个 token
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("file_tokens")
+  private String[] fileTokens;
+
+  /**
+   * 拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra
+   * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回
+   * 403 的 HTTP 状态码。
+   *
+   * <p>示例值：请参考 [extra
+   * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+   */
+  @Query
+  @SerializedName("extra")
+  private String extra;
+
+  public String[] getFileTokens() {
+    return this.fileTokens;
+  }
+
+  public void setFileTokens(String[] fileTokens) {
+    this.fileTokens = fileTokens;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public BatchGetTmpDownloadUrlMediaReq() {}
+
+  public BatchGetTmpDownloadUrlMediaReq(Builder builder) {
     /**
-     * 文件标识符列表
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     * 素材文件的 token。获取方式如下所示：;*
+     * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+     * Block）或图片块（Image Block）的 token，即为素材 token。;*
+     * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+     * `fileToken`，即为素材的 token。;*
+     * 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的
+     * `file_token`，即为素材的 token。;;如需一次获取多个素材的下载链接，可多次传递本参数及素材的 token
+     * 值，格式如下：;;`https://{url}?file_tokens={token1}&file_tokens={token2}`;;其中：;- `file_tokens`
+     * 是参数名，可以多次传递;- `token1` 和 `token2` 为素材的实际 token 值;- 一次最多可传递 5 个素材的 token，但在 API 调试台仅支持传一个
+     * token
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("file_tokens")
-    private String[] fileTokens;
+    this.fileTokens = builder.fileTokens;
     /**
-     * 拓展信息(可选)
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+     * 拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回
+     * 403 的 HTTP 状态码。
+     *
+     * <p>示例值：请参考 [extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
      */
-    @Query
-    @SerializedName("extra")
-    private String extra;
+    this.extra = builder.extra;
+  }
 
-    // builder 开始
-    public BatchGetTmpDownloadUrlMediaReq() {
+  public static class Builder {
+    private String[] fileTokens; // 素材文件的 token。获取方式如下所示：;*
+    // 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File Block）或图片块（Image Block）的 token，即为素材 token。;* 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ; `fileToken`，即为素材的 token。;* 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的 `file_token`，即为素材的 token。;;如需一次获取多个素材的下载链接，可多次传递本参数及素材的 token 值，格式如下：;;`https://{url}?file_tokens={token1}&file_tokens={token2}`;;其中：;- `file_tokens` 是参数名，可以多次传递;- `token1` 和 `token2` 为素材的实际 token 值;- 一次最多可传递 5 个素材的 token，但在 API 调试台仅支持传一个 token
+    private String extra; // 拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra
+
+    // 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回 403 的 HTTP 状态码。
+
+    /**
+     * 素材文件的 token。获取方式如下所示：;*
+     * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+     * Block）或图片块（Image Block）的 token，即为素材 token。;*
+     * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+     * `fileToken`，即为素材的 token。;*
+     * 多维表格：通过[列出记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/list)接口获取指定附件的
+     * `file_token`，即为素材的 token。;;如需一次获取多个素材的下载链接，可多次传递本参数及素材的 token
+     * 值，格式如下：;;`https://{url}?file_tokens={token1}&file_tokens={token2}`;;其中：;- `file_tokens`
+     * 是参数名，可以多次传递;- `token1` 和 `token2` 为素材的实际 token 值;- 一次最多可传递 5 个素材的 token，但在 API 调试台仅支持传一个
+     * token
+     *
+     * <p>示例值：
+     *
+     * @param fileTokens
+     * @return
+     */
+    public Builder fileTokens(String[] fileTokens) {
+      this.fileTokens = fileTokens;
+      return this;
     }
 
-    public BatchGetTmpDownloadUrlMediaReq(Builder builder) {
-        /**
-         * 文件标识符列表
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         */
-        this.fileTokens = builder.fileTokens;
-        /**
-         * 拓展信息(可选)
-         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         */
-        this.extra = builder.extra;
+    /**
+     * 拓展信息，如拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。未正确填写该参数的接口将返回
+     * 403 的 HTTP 状态码。
+     *
+     * <p>示例值：请参考 [extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchGetTmpDownloadUrlMediaReq build() {
+      return new BatchGetTmpDownloadUrlMediaReq(this);
     }
+  }
 
-    public String[] getFileTokens() {
-        return this.fileTokens;
-    }
-
-    public void setFileTokens(String[] fileTokens) {
-        this.fileTokens = fileTokens;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        private String[] fileTokens; // 文件标识符列表
-        private String extra; // 拓展信息(可选)
-
-        /**
-         * 文件标识符列表
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         *
-         * @param fileTokens
-         * @return
-         */
-        public Builder fileTokens(String[] fileTokens) {
-            this.fileTokens = fileTokens;
-            return this;
-        }
-
-
-        /**
-         * 拓展信息(可选)
-         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public BatchGetTmpDownloadUrlMediaReq build() {
-            return new BatchGetTmpDownloadUrlMediaReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

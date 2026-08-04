@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmissionSummaryStatsDetail {
+  /**
+   * 出勤类型名称
+   *
+   * <p>示例值：出勤
+   */
+  @SerializedName("label")
+  private String label;
+
+  /**
+   * 总时长（含单位）
+   *
+   * <p>示例值：5 小时
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public SubmissionSummaryStatsDetail() {}
+
+  public SubmissionSummaryStatsDetail(Builder builder) {
     /**
      * 出勤类型名称
-     * <p> 示例值：出勤
+     *
+     * <p>示例值：出勤
      */
-    @SerializedName("label")
-    private String label;
+    this.label = builder.label;
     /**
      * 总时长（含单位）
-     * <p> 示例值：5 小时
+     *
+     * <p>示例值：5 小时
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 出勤类型名称
+     *
+     * <p>示例值：出勤
+     */
+    private String label;
+
+    /**
+     * 总时长（含单位）
+     *
+     * <p>示例值：5 小时
+     */
     private String value;
 
-    // builder 开始
-    public SubmissionSummaryStatsDetail() {
+    /**
+     * 出勤类型名称
+     *
+     * <p>示例值：出勤
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(String label) {
+      this.label = label;
+      return this;
     }
 
-    public SubmissionSummaryStatsDetail(Builder builder) {
-        /**
-         * 出勤类型名称
-         * <p> 示例值：出勤
-         */
-        this.label = builder.label;
-        /**
-         * 总时长（含单位）
-         * <p> 示例值：5 小时
-         */
-        this.value = builder.value;
+    /**
+     * 总时长（含单位）
+     *
+     * <p>示例值：5 小时
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SubmissionSummaryStatsDetail build() {
+      return new SubmissionSummaryStatsDetail(this);
     }
+  }
 
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 出勤类型名称
-         * <p> 示例值：出勤
-         */
-        private String label;
-        /**
-         * 总时长（含单位）
-         * <p> 示例值：5 小时
-         */
-        private String value;
-
-        /**
-         * 出勤类型名称
-         * <p> 示例值：出勤
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(String label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 总时长（含单位）
-         * <p> 示例值：5 小时
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public SubmissionSummaryStatsDetail build() {
-            return new SubmissionSummaryStatsDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

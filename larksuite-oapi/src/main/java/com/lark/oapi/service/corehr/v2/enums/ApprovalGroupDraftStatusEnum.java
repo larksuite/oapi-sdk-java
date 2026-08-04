@@ -13,22 +13,21 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 组织架构调整任务状态
- */
+/** 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。 */
 public enum ApprovalGroupDraftStatusEnum {
-    EDIT("0"), // 编辑中
-    APPROVE("1"), // 审批中
-    FINISH("2"), // 已完成
-    WITHDREW("3"), // 已撤销
-    ;
-    private String value;
+  EDIT("0"), // 编辑中，;==（流程中的组织架构调整不会是该状态）== 该状态是指用户在『飞书人事-我的团队/人员管理-组织架构-发起调整』 中进行编辑时的状态。
+  APPROVE("1"), // 审批中，流程成功发起，并等待审批人审批。 可以通过『飞书人事-审批-我发起的』 / 『飞书人事-我的团队/人员管理-组织架构-调整记录』 找到审批单据。
+  FINISH("2"), // 已完成，;==该状态不代表调整的记录生效完成== ;由于记录可能是未来生效， 因此记录的状态需通过 人员异动变更事件 和 部门变更事件获取。; -
+  // 人员异动变更事件：[飞书人事-异动-事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/events/status_updated); - 部门变更事件: [飞书人事-组织管理-事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created); - 岗位变更事件: 【飞书人事-岗职务管理-岗位-事件】（岗位灰度内）
+  WITHDREW("3"), // 已撤销，用户主动撤销审批， 流程会进入已撤销状态。
+  ;
+  private String value;
 
-    ApprovalGroupDraftStatusEnum(String value) {
-        this.value = value;
-    }
+  ApprovalGroupDraftStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

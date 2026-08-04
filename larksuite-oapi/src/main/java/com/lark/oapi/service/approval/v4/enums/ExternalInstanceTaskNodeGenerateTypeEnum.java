@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 任务生成类型
- */
+/** 任务生成类型，保留字段，可不填， **但是不要填空字符串** */
 public enum ExternalInstanceTaskNodeGenerateTypeEnum {
-    EXTERNALCONSIGN("EXTERNAL_CONSIGN"), // 给代理人生成的任务
-    DEFAULT("DEFAULT"), // 默认情况，可不填， 但是不要填空字符串
-    ;
-    private String value;
+  EXTERNALCONSIGN("EXTERNAL_CONSIGN"), // 给代理人生成的任务
+  DEFAULT("DEFAULT"), // 系统生成的默认任务
+  ;
+  private String value;
 
-    ExternalInstanceTaskNodeGenerateTypeEnum(String value) {
-        this.value = value;
-    }
+  ExternalInstanceTaskNodeGenerateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

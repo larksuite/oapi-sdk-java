@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 审批实例状态
- */
+/** 审批实例状态 */
 public enum ManageableInstanceNodeStatusEnum {
-    PENDING("PENDING"), // 审批中
-    APPROVED("APPROVED"), // 通过
-    REJECTED("REJECTED"), // 拒绝
-    CANCELED("CANCELED"), // 撤回
-    DELETED("DELETED"), // 删除
-    ;
-    private String value;
+  PENDING("PENDING"), // 审批中
+  APPROVED("APPROVED"), // 通过
+  REJECTED("REJECTED"), // 拒绝
+  CANCELED("CANCELED"), // 撤回
+  DELETED("DELETED"), // 删除
+  ;
+  private String value;
 
-    ManageableInstanceNodeStatusEnum(String value) {
-        this.value = value;
-    }
+  ManageableInstanceNodeStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

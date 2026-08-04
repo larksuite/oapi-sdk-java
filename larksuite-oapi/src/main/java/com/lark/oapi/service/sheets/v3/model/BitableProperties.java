@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableProperties {
+  /**
+   * 多维表格token
+   *
+   * <p>示例值：basxxxxxxxxxxxxxxxx
+   */
+  @SerializedName("bitable_token")
+  private String bitableToken;
+
+  /**
+   * 数据表id
+   *
+   * <p>示例值：tblxxxxxxxxxx
+   */
+  @SerializedName("table_id")
+  private String tableId;
+
+  public String getBitableToken() {
+    return this.bitableToken;
+  }
+
+  public void setBitableToken(String bitableToken) {
+    this.bitableToken = bitableToken;
+  }
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  // builder 开始
+  public BitableProperties() {}
+
+  public BitableProperties(Builder builder) {
     /**
      * 多维表格token
-     * <p> 示例值：basxxxxxxxxxxxxxxxx
+     *
+     * <p>示例值：basxxxxxxxxxxxxxxxx
      */
-    @SerializedName("bitable_token")
-    private String bitableToken;
+    this.bitableToken = builder.bitableToken;
     /**
      * 数据表id
-     * <p> 示例值：tblxxxxxxxxxx
+     *
+     * <p>示例值：tblxxxxxxxxxx
      */
-    @SerializedName("table_id")
+    this.tableId = builder.tableId;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格token
+     *
+     * <p>示例值：basxxxxxxxxxxxxxxxx
+     */
+    private String bitableToken;
+
+    /**
+     * 数据表id
+     *
+     * <p>示例值：tblxxxxxxxxxx
+     */
     private String tableId;
 
-    // builder 开始
-    public BitableProperties() {
+    /**
+     * 多维表格token
+     *
+     * <p>示例值：basxxxxxxxxxxxxxxxx
+     *
+     * @param bitableToken
+     * @return
+     */
+    public Builder bitableToken(String bitableToken) {
+      this.bitableToken = bitableToken;
+      return this;
     }
 
-    public BitableProperties(Builder builder) {
-        /**
-         * 多维表格token
-         * <p> 示例值：basxxxxxxxxxxxxxxxx
-         */
-        this.bitableToken = builder.bitableToken;
-        /**
-         * 数据表id
-         * <p> 示例值：tblxxxxxxxxxx
-         */
-        this.tableId = builder.tableId;
+    /**
+     * 数据表id
+     *
+     * <p>示例值：tblxxxxxxxxxx
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BitableProperties build() {
+      return new BitableProperties(this);
     }
+  }
 
-    public String getBitableToken() {
-        return this.bitableToken;
-    }
-
-    public void setBitableToken(String bitableToken) {
-        this.bitableToken = bitableToken;
-    }
-
-    public String getTableId() {
-        return this.tableId;
-    }
-
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
-
-    public static class Builder {
-        /**
-         * 多维表格token
-         * <p> 示例值：basxxxxxxxxxxxxxxxx
-         */
-        private String bitableToken;
-        /**
-         * 数据表id
-         * <p> 示例值：tblxxxxxxxxxx
-         */
-        private String tableId;
-
-        /**
-         * 多维表格token
-         * <p> 示例值：basxxxxxxxxxxxxxxxx
-         *
-         * @param bitableToken
-         * @return
-         */
-        public Builder bitableToken(String bitableToken) {
-            this.bitableToken = bitableToken;
-            return this;
-        }
-
-
-        /**
-         * 数据表id
-         * <p> 示例值：tblxxxxxxxxxx
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        public BitableProperties build() {
-            return new BitableProperties(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

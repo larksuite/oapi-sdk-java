@@ -13,223 +13,269 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceCc {
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+   * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+   * Code。;-
+   * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+   * Code。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 发起当前操作的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 抄送人的用户 ID 列表，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("cc_user_ids")
+  private String[] ccUserIds;
+
+  /**
+   * 抄送留言
+   *
+   * <p>示例值：ok
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getCcUserIds() {
+    return this.ccUserIds;
+  }
+
+  public void setCcUserIds(String[] ccUserIds) {
+    this.ccUserIds = ccUserIds;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  // builder 开始
+  public InstanceCc() {}
+
+  public InstanceCc(Builder builder) {
     /**
-     * 审批定义 code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
-     * 审批实例 code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("instance_code")
-    private String instanceCode;
+    this.instanceCode = builder.instanceCode;
     /**
-     * 根据user_id_type填写发起抄送的人的用户id
-     * <p> 示例值：f7cb567e
+     * 发起当前操作的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 根据user_id_type填写被抄送人的 用户id 列表
-     * <p> 示例值：f7cb567e
+     * 抄送人的用户 ID 列表，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("cc_user_ids")
-    private String[] ccUserIds;
+    this.ccUserIds = builder.ccUserIds;
     /**
      * 抄送留言
-     * <p> 示例值：ok
+     *
+     * <p>示例值：ok
      */
-    @SerializedName("comment")
+    this.comment = builder.comment;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String approvalCode;
+
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String instanceCode;
+
+    /**
+     * 发起当前操作的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String userId;
+
+    /**
+     * 抄送人的用户 ID 列表，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String[] ccUserIds;
+
+    /**
+     * 抄送留言
+     *
+     * <p>示例值：ok
+     */
     private String comment;
 
-    // builder 开始
-    public InstanceCc() {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public InstanceCc(Builder builder) {
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 根据user_id_type填写发起抄送的人的用户id
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 根据user_id_type填写被抄送人的 用户id 列表
-         * <p> 示例值：f7cb567e
-         */
-        this.ccUserIds = builder.ccUserIds;
-        /**
-         * 抄送留言
-         * <p> 示例值：ok
-         */
-        this.comment = builder.comment;
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发起当前操作的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 抄送人的用户 ID 列表，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param ccUserIds
+     * @return
+     */
+    public Builder ccUserIds(String[] ccUserIds) {
+      this.ccUserIds = ccUserIds;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 抄送留言
+     *
+     * <p>示例值：ok
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    public InstanceCc build() {
+      return new InstanceCc(this);
     }
+  }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String[] getCcUserIds() {
-        return this.ccUserIds;
-    }
-
-    public void setCcUserIds(String[] ccUserIds) {
-        this.ccUserIds = ccUserIds;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String instanceCode;
-        /**
-         * 根据user_id_type填写发起抄送的人的用户id
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 根据user_id_type填写被抄送人的 用户id 列表
-         * <p> 示例值：f7cb567e
-         */
-        private String[] ccUserIds;
-        /**
-         * 抄送留言
-         * <p> 示例值：ok
-         */
-        private String comment;
-
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 根据user_id_type填写发起抄送的人的用户id
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 根据user_id_type填写被抄送人的 用户id 列表
-         * <p> 示例值：f7cb567e
-         *
-         * @param ccUserIds
-         * @return
-         */
-        public Builder ccUserIds(String[] ccUserIds) {
-            this.ccUserIds = ccUserIds;
-            return this;
-        }
-
-
-        /**
-         * 抄送留言
-         * <p> 示例值：ok
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        public InstanceCc build() {
-            return new InstanceCc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

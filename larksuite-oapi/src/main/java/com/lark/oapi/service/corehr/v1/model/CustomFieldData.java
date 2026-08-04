@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomFieldData {
+  /**
+   * 自定义字段
+   * apiname，即自定义字段的唯一标识。可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取
+   *
+   * <p>示例值：name
+   */
+  @SerializedName("custom_api_name")
+  private String customApiName;
+
+  /**
+   * 自定义字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private CustomName name;
+
+  /**
+   * 自定义字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02
+   * 15:04:05"）;;注意：;;1.枚举字段值可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+   * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name
+   *
+   * <p>示例值：231
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getCustomApiName() {
+    return this.customApiName;
+  }
+
+  public void setCustomApiName(String customApiName) {
+    this.customApiName = customApiName;
+  }
+
+  public CustomName getName() {
+    return this.name;
+  }
+
+  public void setName(CustomName name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public CustomFieldData() {}
+
+  public CustomFieldData(Builder builder) {
     /**
-     * 自定义字段 apiname，即自定义字段的唯一标识
-     * <p> 示例值：name
+     * 自定义字段
+     * apiname，即自定义字段的唯一标识。可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取
+     *
+     * <p>示例值：name
      */
-    @SerializedName("custom_api_name")
-    private String customApiName;
+    this.customApiName = builder.customApiName;
     /**
      * 自定义字段名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private CustomName name;
+    this.name = builder.name;
     /**
      * 自定义字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
-     * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-     * <p> 示例值："231"
+     * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02
+     * 15:04:05"）;;注意：;;1.枚举字段值可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name
+     *
+     * <p>示例值：231
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段
+     * apiname，即自定义字段的唯一标识。可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取
+     *
+     * <p>示例值：name
+     */
+    private String customApiName;
+
+    /**
+     * 自定义字段名称
+     *
+     * <p>示例值：
+     */
+    private CustomName name;
+
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02
+     * 15:04:05"）;;注意：;;1.枚举字段值可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name
+     *
+     * <p>示例值：231
+     */
     private String value;
 
-    // builder 开始
-    public CustomFieldData() {
+    /**
+     * 自定义字段
+     * apiname，即自定义字段的唯一标识。可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)获取
+     *
+     * <p>示例值：name
+     *
+     * @param customApiName
+     * @return
+     */
+    public Builder customApiName(String customApiName) {
+      this.customApiName = customApiName;
+      return this;
     }
 
-    public CustomFieldData(Builder builder) {
-        /**
-         * 自定义字段 apiname，即自定义字段的唯一标识
-         * <p> 示例值：name
-         */
-        this.customApiName = builder.customApiName;
-        /**
-         * 自定义字段名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 自定义字段类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-         * <p> 示例值："231"
-         */
-        this.value = builder.value;
+    /**
+     * 自定义字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(CustomName name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getCustomApiName() {
-        return this.customApiName;
+    /**
+     * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02
+     * 15:04:05"）;;注意：;;1.枚举字段值可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name
+     *
+     * <p>示例值：231
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public void setCustomApiName(String customApiName) {
-        this.customApiName = customApiName;
+    public CustomFieldData build() {
+      return new CustomFieldData(this);
     }
+  }
 
-    public CustomName getName() {
-        return this.name;
-    }
-
-    public void setName(CustomName name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 apiname，即自定义字段的唯一标识
-         * <p> 示例值：name
-         */
-        private String customApiName;
-        /**
-         * 自定义字段名称
-         * <p> 示例值：
-         */
-        private CustomName name;
-        /**
-         * 自定义字段类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-         * <p> 示例值："231"
-         */
-        private String value;
-
-        /**
-         * 自定义字段 apiname，即自定义字段的唯一标识
-         * <p> 示例值：name
-         *
-         * @param customApiName
-         * @return
-         */
-        public Builder customApiName(String customApiName) {
-            this.customApiName = customApiName;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(CustomName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）
-         * <p> 示例值："231"
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public CustomFieldData build() {
-            return new CustomFieldData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

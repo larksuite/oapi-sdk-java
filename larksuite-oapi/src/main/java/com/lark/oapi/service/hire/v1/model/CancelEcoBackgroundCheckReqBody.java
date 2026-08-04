@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CancelEcoBackgroundCheckReqBody {
+  /**
+   * 背调
+   * ID。可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取
+   *
+   * <p>示例值：6931286400470354183
+   */
+  @SerializedName("background_check_id")
+  private String backgroundCheckId;
+
+  public String getBackgroundCheckId() {
+    return this.backgroundCheckId;
+  }
+
+  public void setBackgroundCheckId(String backgroundCheckId) {
+    this.backgroundCheckId = backgroundCheckId;
+  }
+
+  // builder 开始
+  public CancelEcoBackgroundCheckReqBody() {}
+
+  public CancelEcoBackgroundCheckReqBody(Builder builder) {
     /**
-     * 背调 ID
-     * <p> 示例值：6931286400470354183
+     * 背调
+     * ID。可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取
+     *
+     * <p>示例值：6931286400470354183
      */
-    @SerializedName("background_check_id")
+    this.backgroundCheckId = builder.backgroundCheckId;
+  }
+
+  public static class Builder {
+    /**
+     * 背调
+     * ID。可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取
+     *
+     * <p>示例值：6931286400470354183
+     */
     private String backgroundCheckId;
 
-    // builder 开始
-    public CancelEcoBackgroundCheckReqBody() {
+    /**
+     * 背调
+     * ID。可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取
+     *
+     * <p>示例值：6931286400470354183
+     *
+     * @param backgroundCheckId
+     * @return
+     */
+    public Builder backgroundCheckId(String backgroundCheckId) {
+      this.backgroundCheckId = backgroundCheckId;
+      return this;
     }
 
-    public CancelEcoBackgroundCheckReqBody(Builder builder) {
-        /**
-         * 背调 ID
-         * <p> 示例值：6931286400470354183
-         */
-        this.backgroundCheckId = builder.backgroundCheckId;
+    public CancelEcoBackgroundCheckReqBody build() {
+      return new CancelEcoBackgroundCheckReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getBackgroundCheckId() {
-        return this.backgroundCheckId;
-    }
-
-    public void setBackgroundCheckId(String backgroundCheckId) {
-        this.backgroundCheckId = backgroundCheckId;
-    }
-
-    public static class Builder {
-        /**
-         * 背调 ID
-         * <p> 示例值：6931286400470354183
-         */
-        private String backgroundCheckId;
-
-        /**
-         * 背调 ID
-         * <p> 示例值：6931286400470354183
-         *
-         * @param backgroundCheckId
-         * @return
-         */
-        public Builder backgroundCheckId(String backgroundCheckId) {
-            this.backgroundCheckId = backgroundCheckId;
-            return this;
-        }
-
-
-        public CancelEcoBackgroundCheckReqBody build() {
-            return new CancelEcoBackgroundCheckReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

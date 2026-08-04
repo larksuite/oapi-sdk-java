@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class App {
+  /**
+   * 在MyAI场景下为开平应用ID,其他场景是IdentityID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 头像
+   *
+   * <p>示例值：sdfsdfsdf
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 租户下是否可用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usable")
+  private Boolean usable;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public Boolean getUsable() {
+    return this.usable;
+  }
+
+  public void setUsable(Boolean usable) {
+    this.usable = usable;
+  }
+
+  // builder 开始
+  public App() {}
+
+  public App(Builder builder) {
     /**
      * 在MyAI场景下为开平应用ID,其他场景是IdentityID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 头像
-     * <p> 示例值：sdfsdfsdf
+     *
+     * <p>示例值：sdfsdfsdf
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 租户下是否可用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("usable")
+    this.usable = builder.usable;
+  }
+
+  public static class Builder {
+    /**
+     * 在MyAI场景下为开平应用ID,其他场景是IdentityID
+     *
+     * <p>示例值：123
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 头像
+     *
+     * <p>示例值：sdfsdfsdf
+     */
+    private String avatar;
+
+    /**
+     * 租户下是否可用
+     *
+     * <p>示例值：
+     */
     private Boolean usable;
 
-    // builder 开始
-    public App() {
+    /**
+     * 在MyAI场景下为开平应用ID,其他场景是IdentityID
+     *
+     * <p>示例值：123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public App(Builder builder) {
-        /**
-         * 在MyAI场景下为开平应用ID,其他场景是IdentityID
-         * <p> 示例值：123
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 头像
-         * <p> 示例值：sdfsdfsdf
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         */
-        this.usable = builder.usable;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 头像
+     *
+     * <p>示例值：sdfsdfsdf
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 租户下是否可用
+     *
+     * <p>示例值：
+     *
+     * @param usable
+     * @return
+     */
+    public Builder usable(Boolean usable) {
+      this.usable = usable;
+      return this;
     }
 
-    public I18nText getDescription() {
-        return this.description;
+    public App build() {
+      return new App(this);
     }
+  }
 
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Boolean getUsable() {
-        return this.usable;
-    }
-
-    public void setUsable(Boolean usable) {
-        this.usable = usable;
-    }
-
-    public static class Builder {
-        /**
-         * 在MyAI场景下为开平应用ID,其他场景是IdentityID
-         * <p> 示例值：123
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 头像
-         * <p> 示例值：sdfsdfsdf
-         */
-        private String avatar;
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         */
-        private Boolean usable;
-
-        /**
-         * 在MyAI场景下为开平应用ID,其他场景是IdentityID
-         * <p> 示例值：123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 头像
-         * <p> 示例值：sdfsdfsdf
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         *
-         * @param usable
-         * @return
-         */
-        public Builder usable(Boolean usable) {
-            this.usable = usable;
-            return this;
-        }
-
-
-        public App build() {
-            return new App(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

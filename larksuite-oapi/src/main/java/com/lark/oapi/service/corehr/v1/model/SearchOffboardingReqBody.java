@@ -13,556 +13,725 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchOffboardingReqBody {
+  /**
+   * 雇佣 ID 列表，ID类型与查询参数 user_id_type取值一致：;;- 当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+   * 当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;-
+   * 当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;-
+   * 当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+   * ID。然后通过[ID
+   * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_ids")
+  private String[] employmentIds;
+
+  /**
+   * 离职审批发起时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的结束范围）一同使用。
+   *
+   * <p>示例值：1672578336
+   */
+  @SerializedName("apply_initiating_time_start")
+  private String applyInitiatingTimeStart;
+
+  /**
+   * 离职审批发起时间（搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的起始范围）一同使用。
+   *
+   * <p>示例值：1674133537
+   */
+  @SerializedName("apply_initiating_time_end")
+  private String applyInitiatingTimeEnd;
+
+  /**
+   * 离职审批结束时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的结束范围）一同使用。
+   *
+   * <p>示例值：1641007353
+   */
+  @SerializedName("apply_finished_time_start")
+  private String applyFinishedTimeStart;
+
+  /**
+   * 离职审批结束时间 （搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的起始范围）一同使用。
+   *
+   * <p>示例值：1641007353
+   */
+  @SerializedName("apply_finished_time_end")
+  private String applyFinishedTimeEnd;
+
+  /**
+   * 期望离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的结束范围）一同使用
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("expected_offboarding_date_start")
+  private String expectedOffboardingDateStart;
+
+  /**
+   * 期望离职日期（搜索的结束范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的起始范围）一同使用。
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("expected_offboarding_date_end")
+  private String expectedOffboardingDateEnd;
+
+  /**
+   * 离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与离职日期（搜索的结束范围）一同使用。
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("offboarding_date_start")
+  private String offboardingDateStart;
+
+  /**
+   * 离职日期（搜索的结束范围），该字段非必填，需要与离职日期（搜索的起始范围）一同使用。
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("offboarding_date_end")
+  private String offboardingDateEnd;
+
+  /**
+   * 离职状态，多个状态之间为「或」的关系。为空时默认搜索所有状态的离职信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("statuses")
+  private String[] statuses;
+
+  /**
+   * 离职原因列表 ,
+   * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取
+   * ，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;<br>
+   * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read" desc="按照离职原因搜索"
+   * support_app_types="custom,isv"
+   * tags="">按照离职原因搜索</md-perm>corehr:employment.offboarding_reason.search:read，确认已开通该权限。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reasons")
+  private String[] reasons;
+
+  /**
+   * 离职原因（员工）列表 ,
+   * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;
+   * <br>
+   * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read" desc="按照离职原因搜索"
+   * support_app_types="custom,isv" tags="">按照离职原因搜索</md-perm>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_reasons")
+  private String[] employeeReasons;
+
+  /**
+   * 离职人员部门，多个部门之间为「或」的关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 返回数据的字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("select_fields")
+  private String[] selectFields;
+
+  /**
+   * 筛选项json
+   *
+   * <p>示例值：abb
+   */
+  @SerializedName("filter_str")
+  private String filterStr;
+
+  public String[] getEmploymentIds() {
+    return this.employmentIds;
+  }
+
+  public void setEmploymentIds(String[] employmentIds) {
+    this.employmentIds = employmentIds;
+  }
+
+  public String getApplyInitiatingTimeStart() {
+    return this.applyInitiatingTimeStart;
+  }
+
+  public void setApplyInitiatingTimeStart(String applyInitiatingTimeStart) {
+    this.applyInitiatingTimeStart = applyInitiatingTimeStart;
+  }
+
+  public String getApplyInitiatingTimeEnd() {
+    return this.applyInitiatingTimeEnd;
+  }
+
+  public void setApplyInitiatingTimeEnd(String applyInitiatingTimeEnd) {
+    this.applyInitiatingTimeEnd = applyInitiatingTimeEnd;
+  }
+
+  public String getApplyFinishedTimeStart() {
+    return this.applyFinishedTimeStart;
+  }
+
+  public void setApplyFinishedTimeStart(String applyFinishedTimeStart) {
+    this.applyFinishedTimeStart = applyFinishedTimeStart;
+  }
+
+  public String getApplyFinishedTimeEnd() {
+    return this.applyFinishedTimeEnd;
+  }
+
+  public void setApplyFinishedTimeEnd(String applyFinishedTimeEnd) {
+    this.applyFinishedTimeEnd = applyFinishedTimeEnd;
+  }
+
+  public String getExpectedOffboardingDateStart() {
+    return this.expectedOffboardingDateStart;
+  }
+
+  public void setExpectedOffboardingDateStart(String expectedOffboardingDateStart) {
+    this.expectedOffboardingDateStart = expectedOffboardingDateStart;
+  }
+
+  public String getExpectedOffboardingDateEnd() {
+    return this.expectedOffboardingDateEnd;
+  }
+
+  public void setExpectedOffboardingDateEnd(String expectedOffboardingDateEnd) {
+    this.expectedOffboardingDateEnd = expectedOffboardingDateEnd;
+  }
+
+  public String getOffboardingDateStart() {
+    return this.offboardingDateStart;
+  }
+
+  public void setOffboardingDateStart(String offboardingDateStart) {
+    this.offboardingDateStart = offboardingDateStart;
+  }
+
+  public String getOffboardingDateEnd() {
+    return this.offboardingDateEnd;
+  }
+
+  public void setOffboardingDateEnd(String offboardingDateEnd) {
+    this.offboardingDateEnd = offboardingDateEnd;
+  }
+
+  public String[] getStatuses() {
+    return this.statuses;
+  }
+
+  public void setStatuses(String[] statuses) {
+    this.statuses = statuses;
+  }
+
+  public String[] getReasons() {
+    return this.reasons;
+  }
+
+  public void setReasons(String[] reasons) {
+    this.reasons = reasons;
+  }
+
+  public String[] getEmployeeReasons() {
+    return this.employeeReasons;
+  }
+
+  public void setEmployeeReasons(String[] employeeReasons) {
+    this.employeeReasons = employeeReasons;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String[] getSelectFields() {
+    return this.selectFields;
+  }
+
+  public void setSelectFields(String[] selectFields) {
+    this.selectFields = selectFields;
+  }
+
+  public String getFilterStr() {
+    return this.filterStr;
+  }
+
+  public void setFilterStr(String filterStr) {
+    this.filterStr = filterStr;
+  }
+
+  // builder 开始
+  public SearchOffboardingReqBody() {}
+
+  public SearchOffboardingReqBody(Builder builder) {
     /**
-     * 雇佣 ID 列表，为空默认查询所有离职人员
-     * <p> 示例值：
+     * 雇佣 ID 列表，ID类型与查询参数 user_id_type取值一致：;;- 当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;-
+     * 当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;-
+     * 当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_ids")
-    private String[] employmentIds;
+    this.employmentIds = builder.employmentIds;
     /**
-     * 离职审批发起时间-搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-01-01 11:22:33
+     * 离职审批发起时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1672578336
      */
-    @SerializedName("apply_initiating_time_start")
-    private String applyInitiatingTimeStart;
+    this.applyInitiatingTimeStart = builder.applyInitiatingTimeStart;
     /**
-     * 离职审批发起时间 - 搜索范围结束
-     * <p> 示例值：2022-01-01 11:22:33
+     * 离职审批发起时间（搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1674133537
      */
-    @SerializedName("apply_initiating_time_end")
-    private String applyInitiatingTimeEnd;
+    this.applyInitiatingTimeEnd = builder.applyInitiatingTimeEnd;
     /**
-     * 离职审批结束时间 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：1641007353
+     * 离职审批结束时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1641007353
      */
-    @SerializedName("apply_finished_time_start")
-    private String applyFinishedTimeStart;
+    this.applyFinishedTimeStart = builder.applyFinishedTimeStart;
     /**
-     * 离职审批结束时间 - 搜索范围结束
-     * <p> 示例值：1641007353
+     * 离职审批结束时间 （搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1641007353
      */
-    @SerializedName("apply_finished_time_end")
-    private String applyFinishedTimeEnd;
+    this.applyFinishedTimeEnd = builder.applyFinishedTimeEnd;
     /**
-     * 期望离职日期-搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-01-01
+     * 期望离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的结束范围）一同使用
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("expected_offboarding_date_start")
-    private String expectedOffboardingDateStart;
+    this.expectedOffboardingDateStart = builder.expectedOffboardingDateStart;
     /**
-     * 期望离职日期 - 搜索范围结束
-     * <p> 示例值：2022-01-01
+     * 期望离职日期（搜索的结束范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("expected_offboarding_date_end")
-    private String expectedOffboardingDateEnd;
+    this.expectedOffboardingDateEnd = builder.expectedOffboardingDateEnd;
     /**
-     * 离职日期-搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-01-01
+     * 离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与离职日期（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("offboarding_date_start")
-    private String offboardingDateStart;
+    this.offboardingDateStart = builder.offboardingDateStart;
     /**
-     * 离职日期 - 搜索范围结束
-     * <p> 示例值：2022-01-01
+     * 离职日期（搜索的结束范围），该字段非必填，需要与离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("offboarding_date_end")
-    private String offboardingDateEnd;
+    this.offboardingDateEnd = builder.offboardingDateEnd;
     /**
-     * 离职状态，多个状态之间为「或」的关系
-     * <p> 示例值：
+     * 离职状态，多个状态之间为「或」的关系。为空时默认搜索所有状态的离职信息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("statuses")
-    private String[] statuses;
+    this.statuses = builder.statuses;
     /**
-     * 离职原因列表 , 可以通过【查询员工离职原因列表】接口获取 ，查询时不返回下级原因相关的离职信息
-     * <p> 示例值：
+     * 离职原因列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取
+     * ，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;<br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv"
+     * tags="">按照离职原因搜索</md-perm>corehr:employment.offboarding_reason.search:read，确认已开通该权限。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reasons")
-    private String[] reasons;
+    this.reasons = builder.reasons;
     /**
-     * 离职原因（员工）列表 , 可以通过【查询员工离职原因列表】接口获取，查询时不返回下级原因相关的离职信息
-     * <p> 示例值：
+     * 离职原因（员工）列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;
+     * <br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv" tags="">按照离职原因搜索</md-perm>
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_reasons")
-    private String[] employeeReasons;
+    this.employeeReasons = builder.employeeReasons;
     /**
      * 离职人员部门，多个部门之间为「或」的关系
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
+    this.departmentIds = builder.departmentIds;
     /**
      * 返回数据的字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("select_fields")
+    this.selectFields = builder.selectFields;
+    /**
+     * 筛选项json
+     *
+     * <p>示例值：abb
+     */
+    this.filterStr = builder.filterStr;
+  }
+
+  public static class Builder {
+    /**
+     * 雇佣 ID 列表，ID类型与查询参数 user_id_type取值一致：;;- 当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;-
+     * 当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;-
+     * 当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：
+     */
+    private String[] employmentIds;
+
+    /**
+     * 离职审批发起时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1672578336
+     */
+    private String applyInitiatingTimeStart;
+
+    /**
+     * 离职审批发起时间（搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1674133537
+     */
+    private String applyInitiatingTimeEnd;
+
+    /**
+     * 离职审批结束时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1641007353
+     */
+    private String applyFinishedTimeStart;
+
+    /**
+     * 离职审批结束时间 （搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1641007353
+     */
+    private String applyFinishedTimeEnd;
+
+    /**
+     * 期望离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的结束范围）一同使用
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String expectedOffboardingDateStart;
+
+    /**
+     * 期望离职日期（搜索的结束范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String expectedOffboardingDateEnd;
+
+    /**
+     * 离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与离职日期（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String offboardingDateStart;
+
+    /**
+     * 离职日期（搜索的结束范围），该字段非必填，需要与离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String offboardingDateEnd;
+
+    /**
+     * 离职状态，多个状态之间为「或」的关系。为空时默认搜索所有状态的离职信息。
+     *
+     * <p>示例值：
+     */
+    private String[] statuses;
+
+    /**
+     * 离职原因列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取
+     * ，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;<br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv"
+     * tags="">按照离职原因搜索</md-perm>corehr:employment.offboarding_reason.search:read，确认已开通该权限。
+     *
+     * <p>示例值：
+     */
+    private String[] reasons;
+
+    /**
+     * 离职原因（员工）列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;
+     * <br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv" tags="">按照离职原因搜索</md-perm>
+     *
+     * <p>示例值：
+     */
+    private String[] employeeReasons;
+
+    /**
+     * 离职人员部门，多个部门之间为「或」的关系
+     *
+     * <p>示例值：
+     */
+    private String[] departmentIds;
+
+    /**
+     * 返回数据的字段列表
+     *
+     * <p>示例值：
+     */
     private String[] selectFields;
 
-    // builder 开始
-    public SearchOffboardingReqBody() {
+    /**
+     * 筛选项json
+     *
+     * <p>示例值：abb
+     */
+    private String filterStr;
+
+    /**
+     * 雇佣 ID 列表，ID类型与查询参数 user_id_type取值一致：;;- 当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;-
+     * 当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的 Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;-
+     * 当user_id_type取值为people_corehr_id时，先参考[如何获取自己的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：
+     *
+     * @param employmentIds
+     * @return
+     */
+    public Builder employmentIds(String[] employmentIds) {
+      this.employmentIds = employmentIds;
+      return this;
     }
 
-    public SearchOffboardingReqBody(Builder builder) {
-        /**
-         * 雇佣 ID 列表，为空默认查询所有离职人员
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 离职审批发起时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01 11:22:33
-         */
-        this.applyInitiatingTimeStart = builder.applyInitiatingTimeStart;
-        /**
-         * 离职审批发起时间 - 搜索范围结束
-         * <p> 示例值：2022-01-01 11:22:33
-         */
-        this.applyInitiatingTimeEnd = builder.applyInitiatingTimeEnd;
-        /**
-         * 离职审批结束时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1641007353
-         */
-        this.applyFinishedTimeStart = builder.applyFinishedTimeStart;
-        /**
-         * 离职审批结束时间 - 搜索范围结束
-         * <p> 示例值：1641007353
-         */
-        this.applyFinishedTimeEnd = builder.applyFinishedTimeEnd;
-        /**
-         * 期望离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        this.expectedOffboardingDateStart = builder.expectedOffboardingDateStart;
-        /**
-         * 期望离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        this.expectedOffboardingDateEnd = builder.expectedOffboardingDateEnd;
-        /**
-         * 离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        this.offboardingDateStart = builder.offboardingDateStart;
-        /**
-         * 离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        this.offboardingDateEnd = builder.offboardingDateEnd;
-        /**
-         * 离职状态，多个状态之间为「或」的关系
-         * <p> 示例值：
-         */
-        this.statuses = builder.statuses;
-        /**
-         * 离职原因列表 , 可以通过【查询员工离职原因列表】接口获取 ，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         */
-        this.reasons = builder.reasons;
-        /**
-         * 离职原因（员工）列表 , 可以通过【查询员工离职原因列表】接口获取，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         */
-        this.employeeReasons = builder.employeeReasons;
-        /**
-         * 离职人员部门，多个部门之间为「或」的关系
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.selectFields = builder.selectFields;
+    /**
+     * 离职审批发起时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1672578336
+     *
+     * @param applyInitiatingTimeStart
+     * @return
+     */
+    public Builder applyInitiatingTimeStart(String applyInitiatingTimeStart) {
+      this.applyInitiatingTimeStart = applyInitiatingTimeStart;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职审批发起时间（搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批发起时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1674133537
+     *
+     * @param applyInitiatingTimeEnd
+     * @return
+     */
+    public Builder applyInitiatingTimeEnd(String applyInitiatingTimeEnd) {
+      this.applyInitiatingTimeEnd = applyInitiatingTimeEnd;
+      return this;
     }
 
-    public String[] getEmploymentIds() {
-        return this.employmentIds;
+    /**
+     * 离职审批结束时间（搜索的起始范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：1641007353
+     *
+     * @param applyFinishedTimeStart
+     * @return
+     */
+    public Builder applyFinishedTimeStart(String applyFinishedTimeStart) {
+      this.applyFinishedTimeStart = applyFinishedTimeStart;
+      return this;
     }
 
-    public void setEmploymentIds(String[] employmentIds) {
-        this.employmentIds = employmentIds;
+    /**
+     * 离职审批结束时间 （搜索的结束范围），请按照秒级时间戳格式传入。该字段非必填，需要与离职审批结束时间（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：1641007353
+     *
+     * @param applyFinishedTimeEnd
+     * @return
+     */
+    public Builder applyFinishedTimeEnd(String applyFinishedTimeEnd) {
+      this.applyFinishedTimeEnd = applyFinishedTimeEnd;
+      return this;
     }
 
-    public String getApplyInitiatingTimeStart() {
-        return this.applyInitiatingTimeStart;
+    /**
+     * 期望离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的结束范围）一同使用
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param expectedOffboardingDateStart
+     * @return
+     */
+    public Builder expectedOffboardingDateStart(String expectedOffboardingDateStart) {
+      this.expectedOffboardingDateStart = expectedOffboardingDateStart;
+      return this;
     }
 
-    public void setApplyInitiatingTimeStart(String applyInitiatingTimeStart) {
-        this.applyInitiatingTimeStart = applyInitiatingTimeStart;
+    /**
+     * 期望离职日期（搜索的结束范围），请按日期格式传入。该字段非必填，需要与期望离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param expectedOffboardingDateEnd
+     * @return
+     */
+    public Builder expectedOffboardingDateEnd(String expectedOffboardingDateEnd) {
+      this.expectedOffboardingDateEnd = expectedOffboardingDateEnd;
+      return this;
     }
 
-    public String getApplyInitiatingTimeEnd() {
-        return this.applyInitiatingTimeEnd;
+    /**
+     * 离职日期（搜索的起始范围），请按日期格式传入。该字段非必填，需要与离职日期（搜索的结束范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param offboardingDateStart
+     * @return
+     */
+    public Builder offboardingDateStart(String offboardingDateStart) {
+      this.offboardingDateStart = offboardingDateStart;
+      return this;
     }
 
-    public void setApplyInitiatingTimeEnd(String applyInitiatingTimeEnd) {
-        this.applyInitiatingTimeEnd = applyInitiatingTimeEnd;
+    /**
+     * 离职日期（搜索的结束范围），该字段非必填，需要与离职日期（搜索的起始范围）一同使用。
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param offboardingDateEnd
+     * @return
+     */
+    public Builder offboardingDateEnd(String offboardingDateEnd) {
+      this.offboardingDateEnd = offboardingDateEnd;
+      return this;
     }
 
-    public String getApplyFinishedTimeStart() {
-        return this.applyFinishedTimeStart;
+    /**
+     * 离职状态，多个状态之间为「或」的关系。为空时默认搜索所有状态的离职信息。
+     *
+     * <p>示例值：
+     *
+     * @param statuses
+     * @return
+     */
+    public Builder statuses(String[] statuses) {
+      this.statuses = statuses;
+      return this;
     }
 
-    public void setApplyFinishedTimeStart(String applyFinishedTimeStart) {
-        this.applyFinishedTimeStart = applyFinishedTimeStart;
+    /**
+     * 离职原因列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取
+     * ，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;<br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv"
+     * tags="">按照离职原因搜索</md-perm>corehr:employment.offboarding_reason.search:read，确认已开通该权限。
+     *
+     * <p>示例值：
+     *
+     * @param reasons
+     * @return
+     */
+    public Builder reasons(String[] reasons) {
+      this.reasons = reasons;
+      return this;
     }
 
-    public String getApplyFinishedTimeEnd() {
-        return this.applyFinishedTimeEnd;
+    /**
+     * 离职原因（员工）列表 ,
+     * 可以通过[【查询员工离职原因列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)接口获取，查询时不返回下级原因相关的离职信息。为空时默认搜索所有离职数据。;;
+     * <br>
+     * <b>字段权限要求：</b>;<md-perm name="corehr:employment.offboarding_reason.search:read"
+     * desc="按照离职原因搜索" support_app_types="custom,isv" tags="">按照离职原因搜索</md-perm>
+     *
+     * <p>示例值：
+     *
+     * @param employeeReasons
+     * @return
+     */
+    public Builder employeeReasons(String[] employeeReasons) {
+      this.employeeReasons = employeeReasons;
+      return this;
     }
 
-    public void setApplyFinishedTimeEnd(String applyFinishedTimeEnd) {
-        this.applyFinishedTimeEnd = applyFinishedTimeEnd;
+    /**
+     * 离职人员部门，多个部门之间为「或」的关系
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public String getExpectedOffboardingDateStart() {
-        return this.expectedOffboardingDateStart;
+    /**
+     * 返回数据的字段列表
+     *
+     * <p>示例值：
+     *
+     * @param selectFields
+     * @return
+     */
+    public Builder selectFields(String[] selectFields) {
+      this.selectFields = selectFields;
+      return this;
     }
 
-    public void setExpectedOffboardingDateStart(String expectedOffboardingDateStart) {
-        this.expectedOffboardingDateStart = expectedOffboardingDateStart;
+    /**
+     * 筛选项json
+     *
+     * <p>示例值：abb
+     *
+     * @param filterStr
+     * @return
+     */
+    public Builder filterStr(String filterStr) {
+      this.filterStr = filterStr;
+      return this;
     }
 
-    public String getExpectedOffboardingDateEnd() {
-        return this.expectedOffboardingDateEnd;
+    public SearchOffboardingReqBody build() {
+      return new SearchOffboardingReqBody(this);
     }
+  }
 
-    public void setExpectedOffboardingDateEnd(String expectedOffboardingDateEnd) {
-        this.expectedOffboardingDateEnd = expectedOffboardingDateEnd;
-    }
-
-    public String getOffboardingDateStart() {
-        return this.offboardingDateStart;
-    }
-
-    public void setOffboardingDateStart(String offboardingDateStart) {
-        this.offboardingDateStart = offboardingDateStart;
-    }
-
-    public String getOffboardingDateEnd() {
-        return this.offboardingDateEnd;
-    }
-
-    public void setOffboardingDateEnd(String offboardingDateEnd) {
-        this.offboardingDateEnd = offboardingDateEnd;
-    }
-
-    public String[] getStatuses() {
-        return this.statuses;
-    }
-
-    public void setStatuses(String[] statuses) {
-        this.statuses = statuses;
-    }
-
-    public String[] getReasons() {
-        return this.reasons;
-    }
-
-    public void setReasons(String[] reasons) {
-        this.reasons = reasons;
-    }
-
-    public String[] getEmployeeReasons() {
-        return this.employeeReasons;
-    }
-
-    public void setEmployeeReasons(String[] employeeReasons) {
-        this.employeeReasons = employeeReasons;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String[] getSelectFields() {
-        return this.selectFields;
-    }
-
-    public void setSelectFields(String[] selectFields) {
-        this.selectFields = selectFields;
-    }
-
-    public static class Builder {
-        /**
-         * 雇佣 ID 列表，为空默认查询所有离职人员
-         * <p> 示例值：
-         */
-        private String[] employmentIds;
-        /**
-         * 离职审批发起时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01 11:22:33
-         */
-        private String applyInitiatingTimeStart;
-        /**
-         * 离职审批发起时间 - 搜索范围结束
-         * <p> 示例值：2022-01-01 11:22:33
-         */
-        private String applyInitiatingTimeEnd;
-        /**
-         * 离职审批结束时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1641007353
-         */
-        private String applyFinishedTimeStart;
-        /**
-         * 离职审批结束时间 - 搜索范围结束
-         * <p> 示例值：1641007353
-         */
-        private String applyFinishedTimeEnd;
-        /**
-         * 期望离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        private String expectedOffboardingDateStart;
-        /**
-         * 期望离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        private String expectedOffboardingDateEnd;
-        /**
-         * 离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        private String offboardingDateStart;
-        /**
-         * 离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        private String offboardingDateEnd;
-        /**
-         * 离职状态，多个状态之间为「或」的关系
-         * <p> 示例值：
-         */
-        private String[] statuses;
-        /**
-         * 离职原因列表 , 可以通过【查询员工离职原因列表】接口获取 ，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         */
-        private String[] reasons;
-        /**
-         * 离职原因（员工）列表 , 可以通过【查询员工离职原因列表】接口获取，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         */
-        private String[] employeeReasons;
-        /**
-         * 离职人员部门，多个部门之间为「或」的关系
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] selectFields;
-
-        /**
-         * 雇佣 ID 列表，为空默认查询所有离职人员
-         * <p> 示例值：
-         *
-         * @param employmentIds
-         * @return
-         */
-        public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
-        }
-
-
-        /**
-         * 离职审批发起时间-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01 11:22:33
-         *
-         * @param applyInitiatingTimeStart
-         * @return
-         */
-        public Builder applyInitiatingTimeStart(String applyInitiatingTimeStart) {
-            this.applyInitiatingTimeStart = applyInitiatingTimeStart;
-            return this;
-        }
-
-
-        /**
-         * 离职审批发起时间 - 搜索范围结束
-         * <p> 示例值：2022-01-01 11:22:33
-         *
-         * @param applyInitiatingTimeEnd
-         * @return
-         */
-        public Builder applyInitiatingTimeEnd(String applyInitiatingTimeEnd) {
-            this.applyInitiatingTimeEnd = applyInitiatingTimeEnd;
-            return this;
-        }
-
-
-        /**
-         * 离职审批结束时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1641007353
-         *
-         * @param applyFinishedTimeStart
-         * @return
-         */
-        public Builder applyFinishedTimeStart(String applyFinishedTimeStart) {
-            this.applyFinishedTimeStart = applyFinishedTimeStart;
-            return this;
-        }
-
-
-        /**
-         * 离职审批结束时间 - 搜索范围结束
-         * <p> 示例值：1641007353
-         *
-         * @param applyFinishedTimeEnd
-         * @return
-         */
-        public Builder applyFinishedTimeEnd(String applyFinishedTimeEnd) {
-            this.applyFinishedTimeEnd = applyFinishedTimeEnd;
-            return this;
-        }
-
-
-        /**
-         * 期望离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         *
-         * @param expectedOffboardingDateStart
-         * @return
-         */
-        public Builder expectedOffboardingDateStart(String expectedOffboardingDateStart) {
-            this.expectedOffboardingDateStart = expectedOffboardingDateStart;
-            return this;
-        }
-
-
-        /**
-         * 期望离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         *
-         * @param expectedOffboardingDateEnd
-         * @return
-         */
-        public Builder expectedOffboardingDateEnd(String expectedOffboardingDateEnd) {
-            this.expectedOffboardingDateEnd = expectedOffboardingDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 离职日期-搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         *
-         * @param offboardingDateStart
-         * @return
-         */
-        public Builder offboardingDateStart(String offboardingDateStart) {
-            this.offboardingDateStart = offboardingDateStart;
-            return this;
-        }
-
-
-        /**
-         * 离职日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         *
-         * @param offboardingDateEnd
-         * @return
-         */
-        public Builder offboardingDateEnd(String offboardingDateEnd) {
-            this.offboardingDateEnd = offboardingDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 离职状态，多个状态之间为「或」的关系
-         * <p> 示例值：
-         *
-         * @param statuses
-         * @return
-         */
-        public Builder statuses(String[] statuses) {
-            this.statuses = statuses;
-            return this;
-        }
-
-
-        /**
-         * 离职原因列表 , 可以通过【查询员工离职原因列表】接口获取 ，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         *
-         * @param reasons
-         * @return
-         */
-        public Builder reasons(String[] reasons) {
-            this.reasons = reasons;
-            return this;
-        }
-
-
-        /**
-         * 离职原因（员工）列表 , 可以通过【查询员工离职原因列表】接口获取，查询时不返回下级原因相关的离职信息
-         * <p> 示例值：
-         *
-         * @param employeeReasons
-         * @return
-         */
-        public Builder employeeReasons(String[] employeeReasons) {
-            this.employeeReasons = employeeReasons;
-            return this;
-        }
-
-
-        /**
-         * 离职人员部门，多个部门之间为「或」的关系
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         *
-         * @param selectFields
-         * @return
-         */
-        public Builder selectFields(String[] selectFields) {
-            this.selectFields = selectFields;
-            return this;
-        }
-
-
-        public SearchOffboardingReqBody build() {
-            return new SearchOffboardingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

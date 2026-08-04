@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMenuTopLevel {
+  /**
+   * 一级菜单 ID，后续删除、修改、排序等群菜单管理操作均需要使用菜单 ID。
+   *
+   * <p>示例值：7117116451961487361
+   */
+  @SerializedName("chat_menu_top_level_id")
+  private String chatMenuTopLevelId;
+
+  /**
+   * 一级菜单信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_menu_item")
+  private ChatMenuItem chatMenuItem;
+
+  /**
+   * 二级菜单列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private ChatMenuSecondLevel[] children;
+
+  public String getChatMenuTopLevelId() {
+    return this.chatMenuTopLevelId;
+  }
+
+  public void setChatMenuTopLevelId(String chatMenuTopLevelId) {
+    this.chatMenuTopLevelId = chatMenuTopLevelId;
+  }
+
+  public ChatMenuItem getChatMenuItem() {
+    return this.chatMenuItem;
+  }
+
+  public void setChatMenuItem(ChatMenuItem chatMenuItem) {
+    this.chatMenuItem = chatMenuItem;
+  }
+
+  public ChatMenuSecondLevel[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(ChatMenuSecondLevel[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public ChatMenuTopLevel() {}
+
+  public ChatMenuTopLevel(Builder builder) {
     /**
-     * 一级菜单ID
-     * <p> 示例值：7117116451961487361
+     * 一级菜单 ID，后续删除、修改、排序等群菜单管理操作均需要使用菜单 ID。
+     *
+     * <p>示例值：7117116451961487361
      */
-    @SerializedName("chat_menu_top_level_id")
-    private String chatMenuTopLevelId;
+    this.chatMenuTopLevelId = builder.chatMenuTopLevelId;
     /**
      * 一级菜单信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_menu_item")
-    private ChatMenuItem chatMenuItem;
+    this.chatMenuItem = builder.chatMenuItem;
     /**
      * 二级菜单列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 一级菜单 ID，后续删除、修改、排序等群菜单管理操作均需要使用菜单 ID。
+     *
+     * <p>示例值：7117116451961487361
+     */
+    private String chatMenuTopLevelId;
+
+    /**
+     * 一级菜单信息
+     *
+     * <p>示例值：
+     */
+    private ChatMenuItem chatMenuItem;
+
+    /**
+     * 二级菜单列表
+     *
+     * <p>示例值：
+     */
     private ChatMenuSecondLevel[] children;
 
-    // builder 开始
-    public ChatMenuTopLevel() {
+    /**
+     * 一级菜单 ID，后续删除、修改、排序等群菜单管理操作均需要使用菜单 ID。
+     *
+     * <p>示例值：7117116451961487361
+     *
+     * @param chatMenuTopLevelId
+     * @return
+     */
+    public Builder chatMenuTopLevelId(String chatMenuTopLevelId) {
+      this.chatMenuTopLevelId = chatMenuTopLevelId;
+      return this;
     }
 
-    public ChatMenuTopLevel(Builder builder) {
-        /**
-         * 一级菜单ID
-         * <p> 示例值：7117116451961487361
-         */
-        this.chatMenuTopLevelId = builder.chatMenuTopLevelId;
-        /**
-         * 一级菜单信息
-         * <p> 示例值：
-         */
-        this.chatMenuItem = builder.chatMenuItem;
-        /**
-         * 二级菜单列表
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 一级菜单信息
+     *
+     * <p>示例值：
+     *
+     * @param chatMenuItem
+     * @return
+     */
+    public Builder chatMenuItem(ChatMenuItem chatMenuItem) {
+      this.chatMenuItem = chatMenuItem;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 二级菜单列表
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(ChatMenuSecondLevel[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getChatMenuTopLevelId() {
-        return this.chatMenuTopLevelId;
+    public ChatMenuTopLevel build() {
+      return new ChatMenuTopLevel(this);
     }
+  }
 
-    public void setChatMenuTopLevelId(String chatMenuTopLevelId) {
-        this.chatMenuTopLevelId = chatMenuTopLevelId;
-    }
-
-    public ChatMenuItem getChatMenuItem() {
-        return this.chatMenuItem;
-    }
-
-    public void setChatMenuItem(ChatMenuItem chatMenuItem) {
-        this.chatMenuItem = chatMenuItem;
-    }
-
-    public ChatMenuSecondLevel[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(ChatMenuSecondLevel[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 一级菜单ID
-         * <p> 示例值：7117116451961487361
-         */
-        private String chatMenuTopLevelId;
-        /**
-         * 一级菜单信息
-         * <p> 示例值：
-         */
-        private ChatMenuItem chatMenuItem;
-        /**
-         * 二级菜单列表
-         * <p> 示例值：
-         */
-        private ChatMenuSecondLevel[] children;
-
-        /**
-         * 一级菜单ID
-         * <p> 示例值：7117116451961487361
-         *
-         * @param chatMenuTopLevelId
-         * @return
-         */
-        public Builder chatMenuTopLevelId(String chatMenuTopLevelId) {
-            this.chatMenuTopLevelId = chatMenuTopLevelId;
-            return this;
-        }
-
-
-        /**
-         * 一级菜单信息
-         * <p> 示例值：
-         *
-         * @param chatMenuItem
-         * @return
-         */
-        public Builder chatMenuItem(ChatMenuItem chatMenuItem) {
-            this.chatMenuItem = chatMenuItem;
-            return this;
-        }
-
-
-        /**
-         * 二级菜单列表
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(ChatMenuSecondLevel[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public ChatMenuTopLevel build() {
-            return new ChatMenuTopLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

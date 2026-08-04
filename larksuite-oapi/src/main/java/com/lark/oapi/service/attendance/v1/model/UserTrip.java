@@ -13,593 +13,653 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserTrip {
+  /**
+   * 审批实例id
+   *
+   * <p>示例值：6737202939523236113
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 09:00:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 19:00:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 出差理由
+   *
+   * <p>示例值：培训
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 12:00:00
+   */
+  @SerializedName("approve_pass_time")
+  private String approvePassTime;
+
+  /**
+   * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 11:00:00
+   */
+  @SerializedName("approve_apply_time")
+  private String approveApplyTime;
+
+  /**
+   * 唯一幂等键
+   *
+   * <p>示例值：1233432312
+   */
+  @SerializedName("idempotent_id")
+  private String idempotentId;
+
+  /**
+   * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("correct_process_id")
+  private String[] correctProcessId;
+
+  /**
+   * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cancel_process_id")
+  private String[] cancelProcessId;
+
+  /**
+   * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_id")
+  private String[] processId;
+
+  /**
+   * 出发地（只有一个）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departure")
+  private RegionPlace departure;
+
+  /**
+   * 目的地（可写多个）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("destinations")
+  private RegionPlace[] destinations;
+
+  /**
+   * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transportation")
+  private Integer[] transportation;
+
+  /**
+   * 出差类型(1:单程 2:往返)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("trip_type")
+  private Integer tripType;
+
+  /**
+   * 出差备注
+   *
+   * <p>示例值：出差备注
+   */
+  @SerializedName("remarks")
+  private String remarks;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getApprovePassTime() {
+    return this.approvePassTime;
+  }
+
+  public void setApprovePassTime(String approvePassTime) {
+    this.approvePassTime = approvePassTime;
+  }
+
+  public String getApproveApplyTime() {
+    return this.approveApplyTime;
+  }
+
+  public void setApproveApplyTime(String approveApplyTime) {
+    this.approveApplyTime = approveApplyTime;
+  }
+
+  public String getIdempotentId() {
+    return this.idempotentId;
+  }
+
+  public void setIdempotentId(String idempotentId) {
+    this.idempotentId = idempotentId;
+  }
+
+  public String[] getCorrectProcessId() {
+    return this.correctProcessId;
+  }
+
+  public void setCorrectProcessId(String[] correctProcessId) {
+    this.correctProcessId = correctProcessId;
+  }
+
+  public String[] getCancelProcessId() {
+    return this.cancelProcessId;
+  }
+
+  public void setCancelProcessId(String[] cancelProcessId) {
+    this.cancelProcessId = cancelProcessId;
+  }
+
+  public String[] getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String[] processId) {
+    this.processId = processId;
+  }
+
+  public RegionPlace getDeparture() {
+    return this.departure;
+  }
+
+  public void setDeparture(RegionPlace departure) {
+    this.departure = departure;
+  }
+
+  public RegionPlace[] getDestinations() {
+    return this.destinations;
+  }
+
+  public void setDestinations(RegionPlace[] destinations) {
+    this.destinations = destinations;
+  }
+
+  public Integer[] getTransportation() {
+    return this.transportation;
+  }
+
+  public void setTransportation(Integer[] transportation) {
+    this.transportation = transportation;
+  }
+
+  public Integer getTripType() {
+    return this.tripType;
+  }
+
+  public void setTripType(Integer tripType) {
+    this.tripType = tripType;
+  }
+
+  public String getRemarks() {
+    return this.remarks;
+  }
+
+  public void setRemarks(String remarks) {
+    this.remarks = remarks;
+  }
+
+  // builder 开始
+  public UserTrip() {}
+
+  public UserTrip(Builder builder) {
     /**
-     * 审批实例 ID
-     * <p> 示例值：6737202939523236113
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
      */
-    @SerializedName("approval_id")
-    private String approvalId;
+    this.approvalId = builder.approvalId;
     /**
      * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 09:00:00
+     *
+     * <p>示例值：2021-01-04 09:00:00
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 19:00:00
+     *
+     * <p>示例值：2021-01-04 19:00:00
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 出差理由
-     * <p> 示例值：培训
+     *
+     * <p>示例值：培训
      */
-    @SerializedName("reason")
-    private String reason;
+    this.reason = builder.reason;
     /**
      * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 12:00:00
+     *
+     * <p>示例值：2021-01-04 12:00:00
      */
-    @SerializedName("approve_pass_time")
-    private String approvePassTime;
+    this.approvePassTime = builder.approvePassTime;
     /**
      * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-     * <p> 示例值：2021-01-04 11:00:00
+     *
+     * <p>示例值：2021-01-04 11:00:00
      */
-    @SerializedName("approve_apply_time")
-    private String approveApplyTime;
+    this.approveApplyTime = builder.approveApplyTime;
     /**
      * 唯一幂等键
-     * <p> 示例值：1233432312
+     *
+     * <p>示例值：1233432312
      */
-    @SerializedName("idempotent_id")
-    private String idempotentId;
+    this.idempotentId = builder.idempotentId;
     /**
-     * 更正流程实例 ID
-     * <p> 示例值：
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("correct_process_id")
-    private String[] correctProcessId;
+    this.correctProcessId = builder.correctProcessId;
     /**
-     * 撤销流程实例 ID
-     * <p> 示例值：
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("cancel_process_id")
-    private String[] cancelProcessId;
+    this.cancelProcessId = builder.cancelProcessId;
     /**
-     * 发起流程实例 ID
-     * <p> 示例值：
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
      */
-    @SerializedName("process_id")
-    private String[] processId;
+    this.processId = builder.processId;
     /**
      * 出发地（只有一个）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("departure")
-    private RegionPlace departure;
+    this.departure = builder.departure;
     /**
      * 目的地（可写多个）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("destinations")
-    private RegionPlace[] destinations;
+    this.destinations = builder.destinations;
     /**
      * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("transportation")
-    private Integer[] transportation;
+    this.transportation = builder.transportation;
     /**
      * 出差类型(1:单程 2:往返)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("trip_type")
-    private Integer tripType;
+    this.tripType = builder.tripType;
     /**
      * 出差备注
-     * <p> 示例值：出差备注
+     *
+     * <p>示例值：出差备注
      */
-    @SerializedName("remarks")
+    this.remarks = builder.remarks;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     */
+    private String approvalId;
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     */
+    private String startTime;
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     */
+    private String endTime;
+
+    /**
+     * 出差理由
+     *
+     * <p>示例值：培训
+     */
+    private String reason;
+
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     */
+    private String approvePassTime;
+
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     */
+    private String approveApplyTime;
+
+    /**
+     * 唯一幂等键
+     *
+     * <p>示例值：1233432312
+     */
+    private String idempotentId;
+
+    /**
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    private String[] correctProcessId;
+
+    /**
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    private String[] cancelProcessId;
+
+    /**
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     */
+    private String[] processId;
+
+    /**
+     * 出发地（只有一个）
+     *
+     * <p>示例值：
+     */
+    private RegionPlace departure;
+
+    /**
+     * 目的地（可写多个）
+     *
+     * <p>示例值：
+     */
+    private RegionPlace[] destinations;
+
+    /**
+     * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+     *
+     * <p>示例值：
+     */
+    private Integer[] transportation;
+
+    /**
+     * 出差类型(1:单程 2:往返)
+     *
+     * <p>示例值：1
+     */
+    private Integer tripType;
+
+    /**
+     * 出差备注
+     *
+     * <p>示例值：出差备注
+     */
     private String remarks;
 
-    // builder 开始
-    public UserTrip() {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public UserTrip(Builder builder) {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 09:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 19:00:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 出差理由
-         * <p> 示例值：培训
-         */
-        this.reason = builder.reason;
-        /**
-         * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 12:00:00
-         */
-        this.approvePassTime = builder.approvePassTime;
-        /**
-         * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 11:00:00
-         */
-        this.approveApplyTime = builder.approveApplyTime;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
-        this.idempotentId = builder.idempotentId;
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         */
-        this.correctProcessId = builder.correctProcessId;
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         */
-        this.cancelProcessId = builder.cancelProcessId;
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         */
-        this.processId = builder.processId;
-        /**
-         * 出发地（只有一个）
-         * <p> 示例值：
-         */
-        this.departure = builder.departure;
-        /**
-         * 目的地（可写多个）
-         * <p> 示例值：
-         */
-        this.destinations = builder.destinations;
-        /**
-         * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
-         * <p> 示例值：
-         */
-        this.transportation = builder.transportation;
-        /**
-         * 出差类型(1:单程 2:往返)
-         * <p> 示例值：1
-         */
-        this.tripType = builder.tripType;
-        /**
-         * 出差备注
-         * <p> 示例值：出差备注
-         */
-        this.remarks = builder.remarks;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getApprovalId() {
-        return this.approvalId;
+    /**
+     * 出差理由
+     *
+     * <p>示例值：培训
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
+    public Builder approvePassTime(String approvePassTime) {
+      this.approvePassTime = approvePassTime;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
+    public Builder approveApplyTime(String approveApplyTime) {
+      this.approveApplyTime = approveApplyTime;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 唯一幂等键
+     *
+     * <p>示例值：1233432312
+     *
+     * @param idempotentId
+     * @return
+     */
+    public Builder idempotentId(String idempotentId) {
+      this.idempotentId = idempotentId;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 更正流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param correctProcessId
+     * @return
+     */
+    public Builder correctProcessId(String[] correctProcessId) {
+      this.correctProcessId = correctProcessId;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 撤销流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param cancelProcessId
+     * @return
+     */
+    public Builder cancelProcessId(String[] cancelProcessId) {
+      this.cancelProcessId = cancelProcessId;
+      return this;
     }
 
-    public String getReason() {
-        return this.reason;
+    /**
+     * 发起流程实例 ID。该字段由系统自动生成，在写入审批结果时，无需传入该参数。
+     *
+     * <p>示例值：
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String[] processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    /**
+     * 出发地（只有一个）
+     *
+     * <p>示例值：
+     *
+     * @param departure
+     * @return
+     */
+    public Builder departure(RegionPlace departure) {
+      this.departure = departure;
+      return this;
     }
 
-    public String getApprovePassTime() {
-        return this.approvePassTime;
+    /**
+     * 目的地（可写多个）
+     *
+     * <p>示例值：
+     *
+     * @param destinations
+     * @return
+     */
+    public Builder destinations(RegionPlace[] destinations) {
+      this.destinations = destinations;
+      return this;
     }
 
-    public void setApprovePassTime(String approvePassTime) {
-        this.approvePassTime = approvePassTime;
+    /**
+     * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+     *
+     * <p>示例值：
+     *
+     * @param transportation
+     * @return
+     */
+    public Builder transportation(Integer[] transportation) {
+      this.transportation = transportation;
+      return this;
     }
 
-    public String getApproveApplyTime() {
-        return this.approveApplyTime;
+    /**
+     * 出差类型(1:单程 2:往返)
+     *
+     * <p>示例值：1
+     *
+     * @param tripType
+     * @return
+     */
+    public Builder tripType(Integer tripType) {
+      this.tripType = tripType;
+      return this;
     }
 
-    public void setApproveApplyTime(String approveApplyTime) {
-        this.approveApplyTime = approveApplyTime;
+    /**
+     * 出差备注
+     *
+     * <p>示例值：出差备注
+     *
+     * @param remarks
+     * @return
+     */
+    public Builder remarks(String remarks) {
+      this.remarks = remarks;
+      return this;
     }
 
-    public String getIdempotentId() {
-        return this.idempotentId;
+    public UserTrip build() {
+      return new UserTrip(this);
     }
+  }
 
-    public void setIdempotentId(String idempotentId) {
-        this.idempotentId = idempotentId;
-    }
-
-    public String[] getCorrectProcessId() {
-        return this.correctProcessId;
-    }
-
-    public void setCorrectProcessId(String[] correctProcessId) {
-        this.correctProcessId = correctProcessId;
-    }
-
-    public String[] getCancelProcessId() {
-        return this.cancelProcessId;
-    }
-
-    public void setCancelProcessId(String[] cancelProcessId) {
-        this.cancelProcessId = cancelProcessId;
-    }
-
-    public String[] getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String[] processId) {
-        this.processId = processId;
-    }
-
-    public RegionPlace getDeparture() {
-        return this.departure;
-    }
-
-    public void setDeparture(RegionPlace departure) {
-        this.departure = departure;
-    }
-
-    public RegionPlace[] getDestinations() {
-        return this.destinations;
-    }
-
-    public void setDestinations(RegionPlace[] destinations) {
-        this.destinations = destinations;
-    }
-
-    public Integer[] getTransportation() {
-        return this.transportation;
-    }
-
-    public void setTransportation(Integer[] transportation) {
-        this.transportation = transportation;
-    }
-
-    public Integer getTripType() {
-        return this.tripType;
-    }
-
-    public void setTripType(Integer tripType) {
-        this.tripType = tripType;
-    }
-
-    public String getRemarks() {
-        return this.remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         */
-        private String approvalId;
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 09:00:00
-         */
-        private String startTime;
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 19:00:00
-         */
-        private String endTime;
-        /**
-         * 出差理由
-         * <p> 示例值：培训
-         */
-        private String reason;
-        /**
-         * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 12:00:00
-         */
-        private String approvePassTime;
-        /**
-         * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 11:00:00
-         */
-        private String approveApplyTime;
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         */
-        private String idempotentId;
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] correctProcessId;
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] cancelProcessId;
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         */
-        private String[] processId;
-        /**
-         * 出发地（只有一个）
-         * <p> 示例值：
-         */
-        private RegionPlace departure;
-        /**
-         * 目的地（可写多个）
-         * <p> 示例值：
-         */
-        private RegionPlace[] destinations;
-        /**
-         * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
-         * <p> 示例值：
-         */
-        private Integer[] transportation;
-        /**
-         * 出差类型(1:单程 2:往返)
-         * <p> 示例值：1
-         */
-        private Integer tripType;
-        /**
-         * 出差备注
-         * <p> 示例值：出差备注
-         */
-        private String remarks;
-
-        /**
-         * 审批实例 ID
-         * <p> 示例值：6737202939523236113
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        /**
-         * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 09:00:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 19:00:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 出差理由
-         * <p> 示例值：培训
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 12:00:00
-         *
-         * @param approvePassTime
-         * @return
-         */
-        public Builder approvePassTime(String approvePassTime) {
-            this.approvePassTime = approvePassTime;
-            return this;
-        }
-
-
-        /**
-         * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
-         * <p> 示例值：2021-01-04 11:00:00
-         *
-         * @param approveApplyTime
-         * @return
-         */
-        public Builder approveApplyTime(String approveApplyTime) {
-            this.approveApplyTime = approveApplyTime;
-            return this;
-        }
-
-
-        /**
-         * 唯一幂等键
-         * <p> 示例值：1233432312
-         *
-         * @param idempotentId
-         * @return
-         */
-        public Builder idempotentId(String idempotentId) {
-            this.idempotentId = idempotentId;
-            return this;
-        }
-
-
-        /**
-         * 更正流程实例 ID
-         * <p> 示例值：
-         *
-         * @param correctProcessId
-         * @return
-         */
-        public Builder correctProcessId(String[] correctProcessId) {
-            this.correctProcessId = correctProcessId;
-            return this;
-        }
-
-
-        /**
-         * 撤销流程实例 ID
-         * <p> 示例值：
-         *
-         * @param cancelProcessId
-         * @return
-         */
-        public Builder cancelProcessId(String[] cancelProcessId) {
-            this.cancelProcessId = cancelProcessId;
-            return this;
-        }
-
-
-        /**
-         * 发起流程实例 ID
-         * <p> 示例值：
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String[] processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 出发地（只有一个）
-         * <p> 示例值：
-         *
-         * @param departure
-         * @return
-         */
-        public Builder departure(RegionPlace departure) {
-            this.departure = departure;
-            return this;
-        }
-
-
-        /**
-         * 目的地（可写多个）
-         * <p> 示例值：
-         *
-         * @param destinations
-         * @return
-         */
-        public Builder destinations(RegionPlace[] destinations) {
-            this.destinations = destinations;
-            return this;
-        }
-
-
-        /**
-         * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
-         * <p> 示例值：
-         *
-         * @param transportation
-         * @return
-         */
-        public Builder transportation(Integer[] transportation) {
-            this.transportation = transportation;
-            return this;
-        }
-
-
-        /**
-         * 出差类型(1:单程 2:往返)
-         * <p> 示例值：1
-         *
-         * @param tripType
-         * @return
-         */
-        public Builder tripType(Integer tripType) {
-            this.tripType = tripType;
-            return this;
-        }
-
-
-        /**
-         * 出差备注
-         * <p> 示例值：出差备注
-         *
-         * @param remarks
-         * @return
-         */
-        public Builder remarks(String remarks) {
-            this.remarks = remarks;
-            return this;
-        }
-
-
-        public UserTrip build() {
-            return new UserTrip(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

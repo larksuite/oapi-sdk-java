@@ -13,187 +13,201 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class CreateMailgroupPermissionMemberReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门ID的类型
+   *
+   * <p>示例值：xxx
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 邮件组ID或者邮件组地址
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+   */
+  @Path
+  @SerializedName("mailgroup_id")
+  private String mailgroupId;
+
+  public String getMailgroupId() {
+    return this.mailgroupId;
+  }
+
+  public void setMailgroupId(String mailgroupId) {
+    this.mailgroupId = mailgroupId;
+  }
+
+  @Body private MailgroupPermissionMember body;
+
+  public MailgroupPermissionMember getMailgroupPermissionMember() {
+    return this.body;
+  }
+
+  public void setMailgroupPermissionMember(MailgroupPermissionMember body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateMailgroupPermissionMemberReq() {}
+
+  public CreateMailgroupPermissionMemberReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门ID的类型
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 邮件组ID或者邮件组地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
      */
-    @Path
-    @SerializedName("mailgroup_id")
-    private String mailgroupId;
-    @Body
+    this.mailgroupId = builder.mailgroupId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums
+                .CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：xxx
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：xxx
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.mail.v1.enums
+                .CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String mailgroupId; // 邮件组ID或者邮件组地址
+
+    /**
+     * 邮件组ID或者邮件组地址
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     *
+     * @param mailgroupId
+     * @return
+     */
+    public Builder mailgroupId(String mailgroupId) {
+      this.mailgroupId = mailgroupId;
+      return this;
+    }
+
     private MailgroupPermissionMember body;
 
-    // builder 开始
-    public CreateMailgroupPermissionMemberReq() {
-    }
-
-    public CreateMailgroupPermissionMemberReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：xxx
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 邮件组ID或者邮件组地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-         */
-        this.mailgroupId = builder.mailgroupId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getMailgroupId() {
-        return this.mailgroupId;
-    }
-
-    public void setMailgroupId(String mailgroupId) {
-        this.mailgroupId = mailgroupId;
-    }
-
     public MailgroupPermissionMember getMailgroupPermissionMember() {
-        return this.body;
+      return this.body;
     }
 
-    public void setMailgroupPermissionMember(MailgroupPermissionMember body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder mailgroupPermissionMember(MailgroupPermissionMember body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private String mailgroupId; // 邮件组ID或者邮件组地址
-        private MailgroupPermissionMember body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：xxx
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：xxx
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.CreateMailgroupPermissionMemberCreateMailGroupPermissionMemberDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 邮件组ID或者邮件组地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
-         *
-         * @param mailgroupId
-         * @return
-         */
-        public Builder mailgroupId(String mailgroupId) {
-            this.mailgroupId = mailgroupId;
-            return this;
-        }
-
-        public MailgroupPermissionMember getMailgroupPermissionMember() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder mailgroupPermissionMember(MailgroupPermissionMember body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateMailgroupPermissionMemberReq build() {
-            return new CreateMailgroupPermissionMemberReq(this);
-        }
+    public CreateMailgroupPermissionMemberReq build() {
+      return new CreateMailgroupPermissionMemberReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

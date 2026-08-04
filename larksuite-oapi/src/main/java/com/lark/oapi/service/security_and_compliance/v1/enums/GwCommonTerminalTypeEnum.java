@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 终端类型
- */
+/** 终端类型 */
 public enum GwCommonTerminalTypeEnum {
-    UNKNOWN("0"), // 未知
-    PC("1"), // PC端
-    WEB("2"), // Web端
-    ANDROID("3"), // Android端
-    IOS("4"), // iOS端
-    ;
-    private String value;
+  UNKNOWN("0"), // 未知
+  PC("1"), // PC端
+  WEB("2"), // Web端
+  ANDROID("3"), // Android端
+  IOS("4"), // iOS端
+  ;
+  private String value;
 
-    GwCommonTerminalTypeEnum(String value) {
-        this.value = value;
-    }
+  GwCommonTerminalTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

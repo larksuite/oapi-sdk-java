@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GenerateCaldavConfSettingRespBody {
-    /**
-     * caldav密码
-     * <p> 示例值：A67h23sd8
-     */
-    @SerializedName("password")
-    private String password;
-    /**
-     * caldav用户名
-     * <p> 示例值：ZhangSan
-     */
-    @SerializedName("user_name")
-    private String userName;
-    /**
-     * 服务器地址
-     * <p> 示例值：caldav.domain.com
-     */
-    @SerializedName("server_address")
-    private String serverAddress;
-    /**
-     * 设备名
-     * <p> 示例值：iPhone
-     */
-    @SerializedName("device_name")
-    private String deviceName;
+  /**
+   * CalDAV 密码。
+   *
+   * <p>示例值：A67h23sd8
+   */
+  @SerializedName("password")
+  private String password;
 
-    public String getPassword() {
-        return this.password;
-    }
+  /**
+   * CalDAV 用户名。
+   *
+   * <p>示例值：ZhangSan
+   */
+  @SerializedName("user_name")
+  private String userName;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  /**
+   * 服务器地址
+   *
+   * <p>示例值：caldav.domain.com
+   */
+  @SerializedName("server_address")
+  private String serverAddress;
 
-    public String getUserName() {
-        return this.userName;
-    }
+  /**
+   * 设备名。与你发送请求时传入的设备名一致。
+   *
+   * <p>示例值：iPhone
+   */
+  @SerializedName("device_name")
+  private String deviceName;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public String getPassword() {
+    return this.password;
+  }
 
-    public String getServerAddress() {
-        return this.serverAddress;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public void setServerAddress(String serverAddress) {
-        this.serverAddress = serverAddress;
-    }
+  public String getUserName() {
+    return this.userName;
+  }
 
-    public String getDeviceName() {
-        return this.deviceName;
-    }
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
+  public String getServerAddress() {
+    return this.serverAddress;
+  }
 
+  public void setServerAddress(String serverAddress) {
+    this.serverAddress = serverAddress;
+  }
+
+  public String getDeviceName() {
+    return this.deviceName;
+  }
+
+  public void setDeviceName(String deviceName) {
+    this.deviceName = deviceName;
+  }
 }

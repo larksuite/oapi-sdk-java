@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingHukou {
+  /**
+   * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+   * "hukou_type"
+   *
+   * <p>示例值：local_urban_residence
+   */
+  @SerializedName("hukou_type")
+  private String hukouType;
+
+  /**
+   * 户口所在地
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("hukou_location")
+  private String hukouLocation;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ProfileSettingCustomField[] customFields;
+
+  public String getHukouType() {
+    return this.hukouType;
+  }
+
+  public void setHukouType(String hukouType) {
+    this.hukouType = hukouType;
+  }
+
+  public String getHukouLocation() {
+    return this.hukouLocation;
+  }
+
+  public void setHukouLocation(String hukouLocation) {
+    this.hukouLocation = hukouLocation;
+  }
+
+  public ProfileSettingCustomField[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ProfileSettingCustomField[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public ProfileSettingHukou() {}
+
+  public ProfileSettingHukou(Builder builder) {
     /**
-     * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "hukou_type"
-     * <p> 示例值：local_urban_residence
+     * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "hukou_type"
+     *
+     * <p>示例值：local_urban_residence
      */
-    @SerializedName("hukou_type")
-    private String hukouType;
+    this.hukouType = builder.hukouType;
     /**
      * 户口所在地
-     * <p> 示例值：北京
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("hukou_location")
-    private String hukouLocation;
+    this.hukouLocation = builder.hukouLocation;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "hukou_type"
+     *
+     * <p>示例值：local_urban_residence
+     */
+    private String hukouType;
+
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：北京
+     */
+    private String hukouLocation;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ProfileSettingCustomField[] customFields;
 
-    // builder 开始
-    public ProfileSettingHukou() {
+    /**
+     * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "hukou_type"
+     *
+     * <p>示例值：local_urban_residence
+     *
+     * @param hukouType
+     * @return
+     */
+    public Builder hukouType(String hukouType) {
+      this.hukouType = hukouType;
+      return this;
     }
 
-    public ProfileSettingHukou(Builder builder) {
-        /**
-         * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "hukou_type"
-         * <p> 示例值：local_urban_residence
-         */
-        this.hukouType = builder.hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：北京
-         */
-        this.hukouLocation = builder.hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：北京
+     *
+     * @param hukouLocation
+     * @return
+     */
+    public Builder hukouLocation(String hukouLocation) {
+      this.hukouLocation = hukouLocation;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ProfileSettingCustomField[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getHukouType() {
-        return this.hukouType;
+    public ProfileSettingHukou build() {
+      return new ProfileSettingHukou(this);
     }
+  }
 
-    public void setHukouType(String hukouType) {
-        this.hukouType = hukouType;
-    }
-
-    public String getHukouLocation() {
-        return this.hukouLocation;
-    }
-
-    public void setHukouLocation(String hukouLocation) {
-        this.hukouLocation = hukouLocation;
-    }
-
-    public ProfileSettingCustomField[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ProfileSettingCustomField[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "hukou_type"
-         * <p> 示例值：local_urban_residence
-         */
-        private String hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：北京
-         */
-        private String hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomField[] customFields;
-
-        /**
-         * 户口类型，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "hukou_type"
-         * <p> 示例值：local_urban_residence
-         *
-         * @param hukouType
-         * @return
-         */
-        public Builder hukouType(String hukouType) {
-            this.hukouType = hukouType;
-            return this;
-        }
-
-
-        /**
-         * 户口所在地
-         * <p> 示例值：北京
-         *
-         * @param hukouLocation
-         * @return
-         */
-        public Builder hukouLocation(String hukouLocation) {
-            this.hukouLocation = hukouLocation;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ProfileSettingCustomField[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public ProfileSettingHukou build() {
-            return new ProfileSettingHukou(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

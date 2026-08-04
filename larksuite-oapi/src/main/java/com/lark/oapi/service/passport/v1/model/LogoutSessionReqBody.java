@@ -13,272 +13,293 @@
 
 package com.lark.oapi.service.passport.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.passport.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LogoutSessionReqBody {
+  /**
+   * idp 侧的唯一标识，logout_type = 2 时必填
+   *
+   * <p>示例值：user@xxx.xx
+   */
+  @SerializedName("idp_credential_id")
+  private String idpCredentialId;
+
+  /**
+   * 登出的方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("logout_type")
+  private Integer logoutType;
+
+  /**
+   * 登出的客户端类型，默认全部登出。可选值：;- 1：PC 端;- 2：Web 端;- 3：Android 端;- 4：iOS 端;- 5：服务端;- 6：旧版小程序端;- 8：其他移动端
+   *
+   * <p>示例值：
+   */
+  @SerializedName("terminal_type")
+  private Integer[] terminalType;
+
+  /**
+   * 开放平台的数据标识，用户 ID 类型与查询参数 user_id_type 一致，logout_type = 1 时必填
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 登出提示语，非必填，不传时默认提示：你已在其他客户端上退出了当前设备，请重新登录。;可选值：;- 34：您已修改登录密码，请重新登录;- 35：您的登录态已失效，请重新登录;-
+   * 36：您的密码已过期，请在登录页面通过忘记密码功能修改密码后重新登录
+   *
+   * <p>示例值：34
+   */
+  @SerializedName("logout_reason")
+  private Integer logoutReason;
+
+  /**
+   * 需要精确登出的 session 标识符，logout_type = 3 时必填
+   *
+   * <p>示例值：AAAAAAAAAANll6nQoIAAFA==
+   */
+  @SerializedName("sid")
+  private String sid;
+
+  public String getIdpCredentialId() {
+    return this.idpCredentialId;
+  }
+
+  public void setIdpCredentialId(String idpCredentialId) {
+    this.idpCredentialId = idpCredentialId;
+  }
+
+  public Integer getLogoutType() {
+    return this.logoutType;
+  }
+
+  public void setLogoutType(Integer logoutType) {
+    this.logoutType = logoutType;
+  }
+
+  public Integer[] getTerminalType() {
+    return this.terminalType;
+  }
+
+  public void setTerminalType(Integer[] terminalType) {
+    this.terminalType = terminalType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getLogoutReason() {
+    return this.logoutReason;
+  }
+
+  public void setLogoutReason(Integer logoutReason) {
+    this.logoutReason = logoutReason;
+  }
+
+  public String getSid() {
+    return this.sid;
+  }
+
+  public void setSid(String sid) {
+    this.sid = sid;
+  }
+
+  // builder 开始
+  public LogoutSessionReqBody() {}
+
+  public LogoutSessionReqBody(Builder builder) {
     /**
-     * idp 侧的唯一标识
-     * <p> 示例值：1
+     * idp 侧的唯一标识，logout_type = 2 时必填
+     *
+     * <p>示例值：user@xxx.xx
      */
-    @SerializedName("idp_credential_id")
-    private String idpCredentialId;
+    this.idpCredentialId = builder.idpCredentialId;
     /**
      * 登出的方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("logout_type")
+    this.logoutType = builder.logoutType;
+    /**
+     * 登出的客户端类型，默认全部登出。可选值：;- 1：PC 端;- 2：Web 端;- 3：Android 端;- 4：iOS 端;- 5：服务端;- 6：旧版小程序端;- 8：其他移动端
+     *
+     * <p>示例值：
+     */
+    this.terminalType = builder.terminalType;
+    /**
+     * 开放平台的数据标识，用户 ID 类型与查询参数 user_id_type 一致，logout_type = 1 时必填
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.userId = builder.userId;
+    /**
+     * 登出提示语，非必填，不传时默认提示：你已在其他客户端上退出了当前设备，请重新登录。;可选值：;- 34：您已修改登录密码，请重新登录;- 35：您的登录态已失效，请重新登录;-
+     * 36：您的密码已过期，请在登录页面通过忘记密码功能修改密码后重新登录
+     *
+     * <p>示例值：34
+     */
+    this.logoutReason = builder.logoutReason;
+    /**
+     * 需要精确登出的 session 标识符，logout_type = 3 时必填
+     *
+     * <p>示例值：AAAAAAAAAANll6nQoIAAFA==
+     */
+    this.sid = builder.sid;
+  }
+
+  public static class Builder {
+    /**
+     * idp 侧的唯一标识，logout_type = 2 时必填
+     *
+     * <p>示例值：user@xxx.xx
+     */
+    private String idpCredentialId;
+
+    /**
+     * 登出的方式
+     *
+     * <p>示例值：1
+     */
     private Integer logoutType;
+
     /**
-     * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-     * <p> 示例值：
+     * 登出的客户端类型，默认全部登出。可选值：;- 1：PC 端;- 2：Web 端;- 3：Android 端;- 4：iOS 端;- 5：服务端;- 6：旧版小程序端;- 8：其他移动端
+     *
+     * <p>示例值：
      */
-    @SerializedName("terminal_type")
     private Integer[] terminalType;
+
     /**
-     * user_id
-     * <p> 示例值：1
+     * 开放平台的数据标识，用户 ID 类型与查询参数 user_id_type 一致，logout_type = 1 时必填
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * 登出原因
-     * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
+     * 登出提示语，非必填，不传时默认提示：你已在其他客户端上退出了当前设备，请重新登录。;可选值：;- 34：您已修改登录密码，请重新登录;- 35：您的登录态已失效，请重新登录;-
+     * 36：您的密码已过期，请在登录页面通过忘记密码功能修改密码后重新登录
+     *
+     * <p>示例值：34
      */
-    @SerializedName("logout_reason")
     private Integer logoutReason;
+
     /**
-     * 需要精确登出的 session 标识符
-     * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
+     * 需要精确登出的 session 标识符，logout_type = 3 时必填
+     *
+     * <p>示例值：AAAAAAAAAANll6nQoIAAFA==
      */
-    @SerializedName("sid")
     private String sid;
 
-    // builder 开始
-    public LogoutSessionReqBody() {
+    /**
+     * idp 侧的唯一标识，logout_type = 2 时必填
+     *
+     * <p>示例值：user@xxx.xx
+     *
+     * @param idpCredentialId
+     * @return
+     */
+    public Builder idpCredentialId(String idpCredentialId) {
+      this.idpCredentialId = idpCredentialId;
+      return this;
     }
 
-    public LogoutSessionReqBody(Builder builder) {
-        /**
-         * idp 侧的唯一标识
-         * <p> 示例值：1
-         */
-        this.idpCredentialId = builder.idpCredentialId;
-        /**
-         * 登出的方式
-         * <p> 示例值：1
-         */
-        this.logoutType = builder.logoutType;
-        /**
-         * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-         * <p> 示例值：
-         */
-        this.terminalType = builder.terminalType;
-        /**
-         * user_id
-         * <p> 示例值：1
-         */
-        this.userId = builder.userId;
-        /**
-         * 登出原因
-         * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-         */
-        this.logoutReason = builder.logoutReason;
-        /**
-         * 需要精确登出的 session 标识符
-         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-         */
-        this.sid = builder.sid;
+    /**
+     * 登出的方式
+     *
+     * <p>示例值：1
+     *
+     * @param logoutType
+     * @return
+     */
+    public Builder logoutType(Integer logoutType) {
+      this.logoutType = logoutType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 登出的方式
+     *
+     * <p>示例值：1
+     *
+     * @param logoutType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum}
+     * @return
+     */
+    public Builder logoutType(
+        com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum logoutType) {
+      this.logoutType = logoutType.getValue();
+      return this;
     }
 
-    public String getIdpCredentialId() {
-        return this.idpCredentialId;
+    /**
+     * 登出的客户端类型，默认全部登出。可选值：;- 1：PC 端;- 2：Web 端;- 3：Android 端;- 4：iOS 端;- 5：服务端;- 6：旧版小程序端;- 8：其他移动端
+     *
+     * <p>示例值：
+     *
+     * @param terminalType
+     * @return
+     */
+    public Builder terminalType(Integer[] terminalType) {
+      this.terminalType = terminalType;
+      return this;
     }
 
-    public void setIdpCredentialId(String idpCredentialId) {
-        this.idpCredentialId = idpCredentialId;
+    /**
+     * 开放平台的数据标识，用户 ID 类型与查询参数 user_id_type 一致，logout_type = 1 时必填
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public Integer getLogoutType() {
-        return this.logoutType;
+    /**
+     * 登出提示语，非必填，不传时默认提示：你已在其他客户端上退出了当前设备，请重新登录。;可选值：;- 34：您已修改登录密码，请重新登录;- 35：您的登录态已失效，请重新登录;-
+     * 36：您的密码已过期，请在登录页面通过忘记密码功能修改密码后重新登录
+     *
+     * <p>示例值：34
+     *
+     * @param logoutReason
+     * @return
+     */
+    public Builder logoutReason(Integer logoutReason) {
+      this.logoutReason = logoutReason;
+      return this;
     }
 
-    public void setLogoutType(Integer logoutType) {
-        this.logoutType = logoutType;
+    /**
+     * 需要精确登出的 session 标识符，logout_type = 3 时必填
+     *
+     * <p>示例值：AAAAAAAAAANll6nQoIAAFA==
+     *
+     * @param sid
+     * @return
+     */
+    public Builder sid(String sid) {
+      this.sid = sid;
+      return this;
     }
 
-    public Integer[] getTerminalType() {
-        return this.terminalType;
+    public LogoutSessionReqBody build() {
+      return new LogoutSessionReqBody(this);
     }
+  }
 
-    public void setTerminalType(Integer[] terminalType) {
-        this.terminalType = terminalType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Integer getLogoutReason() {
-        return this.logoutReason;
-    }
-
-    public void setLogoutReason(Integer logoutReason) {
-        this.logoutReason = logoutReason;
-    }
-
-    public String getSid() {
-        return this.sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
-    }
-
-    public static class Builder {
-        /**
-         * idp 侧的唯一标识
-         * <p> 示例值：1
-         */
-        private String idpCredentialId;
-        /**
-         * 登出的方式
-         * <p> 示例值：1
-         */
-        private Integer logoutType;
-        /**
-         * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-         * <p> 示例值：
-         */
-        private Integer[] terminalType;
-        /**
-         * user_id
-         * <p> 示例值：1
-         */
-        private String userId;
-        /**
-         * 登出原因
-         * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-         */
-        private Integer logoutReason;
-        /**
-         * 需要精确登出的 session 标识符
-         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-         */
-        private String sid;
-
-        /**
-         * idp 侧的唯一标识
-         * <p> 示例值：1
-         *
-         * @param idpCredentialId
-         * @return
-         */
-        public Builder idpCredentialId(String idpCredentialId) {
-            this.idpCredentialId = idpCredentialId;
-            return this;
-        }
-
-
-        /**
-         * 登出的方式
-         * <p> 示例值：1
-         *
-         * @param logoutType
-         * @return
-         */
-        public Builder logoutType(Integer logoutType) {
-            this.logoutType = logoutType;
-            return this;
-        }
-
-        /**
-         * 登出的方式
-         * <p> 示例值：1
-         *
-         * @param logoutType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum}
-         * @return
-         */
-        public Builder logoutType(com.lark.oapi.service.passport.v1.enums.LogoutSessionKiteEnum logoutType) {
-            this.logoutType = logoutType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 登出的客户端类型，默认全部登出，1-桌面端，2-网页端，3-安卓移动端，4-Apple移动端 5-服务端 6-旧版小程序端 8-其他移动端
-         * <p> 示例值：
-         *
-         * @param terminalType
-         * @return
-         */
-        public Builder terminalType(Integer[] terminalType) {
-            this.terminalType = terminalType;
-            return this;
-        }
-
-
-        /**
-         * user_id
-         * <p> 示例值：1
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 登出原因
-         * <p> 示例值：34: 修改密码；35: 登陆态失效；36: 密码过期
-         *
-         * @param logoutReason
-         * @return
-         */
-        public Builder logoutReason(Integer logoutReason) {
-            this.logoutReason = logoutReason;
-            return this;
-        }
-
-
-        /**
-         * 需要精确登出的 session 标识符
-         * <p> 示例值：AAAAAAAAAANll6nQoIAAFA==
-         *
-         * @param sid
-         * @return
-         */
-        public Builder sid(String sid) {
-            this.sid = sid;
-            return this;
-        }
-
-
-        public LogoutSessionReqBody build() {
-            return new LogoutSessionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

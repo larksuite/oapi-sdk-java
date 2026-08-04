@@ -13,195 +13,223 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v6.enums.*;
 
 public class ContactsRangeSuggestApplicationAppVersionReq {
+  /**
+   * 返回值的部门ID的类型
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。;* 仅查询本应用信息时，可填应用自身App ID 或
+   * `me`。;;* 当值为其他应用的App ID时，必须申请以下权限：<md-perm name="admin:app.info:readonly" desc="获取应用信息"
+   * support_app_types="custom" tags="">获取应用信息</md-perm>
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 唯一标识应用版本的
+   * ID，可以调用[获取应用版本列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/list)接口获取。
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @Path
+  @SerializedName("version_id")
+  private String versionId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  // builder 开始
+  public ContactsRangeSuggestApplicationAppVersionReq() {}
+
+  public ContactsRangeSuggestApplicationAppVersionReq(Builder builder) {
     /**
      * 返回值的部门ID的类型
-     * <p> 示例值：department_id
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 应用 id
-     * <p> 示例值：cli_9f3ca975326b501b
+     * 应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。;* 仅查询本应用信息时，可填应用自身App ID 或
+     * `me`。;;* 当值为其他应用的App ID时，必须申请以下权限：<md-perm name="admin:app.info:readonly" desc="获取应用信息"
+     * support_app_types="custom" tags="">获取应用信息</md-perm>
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 唯一标识应用版本的 ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+     * 唯一标识应用版本的
+     * ID，可以调用[获取应用版本列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/list)接口获取。
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
+  }
 
-    // builder 开始
-    public ContactsRangeSuggestApplicationAppVersionReq() {
+  public static class Builder {
+    private String departmentIdType; // 返回值的部门ID的类型
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 返回值的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public ContactsRangeSuggestApplicationAppVersionReq(Builder builder) {
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用 id
-         * <p> 示例值：cli_9f3ca975326b501b
-         */
-        this.appId = builder.appId;
-        /**
-         * 唯一标识应用版本的 ID
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        this.versionId = builder.versionId;
+    /**
+     * 返回值的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.application.v6.enums
+                .ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.application.v6.enums
+                .ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    private String appId; // 应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。;*
+    // 仅查询本应用信息时，可填应用自身App ID 或 `me`。;;* 当值为其他应用的App ID时，必须申请以下权限：<md-perm
+    // name="admin:app.info:readonly" desc="获取应用信息" support_app_types="custom"
+    // tags="">获取应用信息</md-perm>
+    private String versionId; // 唯一标识应用版本的
+
+    // ID，可以调用[获取应用版本列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/list)接口获取。
+
+    /**
+     * 应用的 AppID，可以在[开发者后台](https://open.feishu.cn/app) > **凭证与基础信息**页查看。;* 仅查询本应用信息时，可填应用自身App ID 或
+     * `me`。;;* 当值为其他应用的App ID时，必须申请以下权限：<md-perm name="admin:app.info:readonly" desc="获取应用信息"
+     * support_app_types="custom" tags="">获取应用信息</md-perm>
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 唯一标识应用版本的
+     * ID，可以调用[获取应用版本列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/list)接口获取。
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public ContactsRangeSuggestApplicationAppVersionReq build() {
+      return new ContactsRangeSuggestApplicationAppVersionReq(this);
     }
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
-    public static class Builder {
-        private String departmentIdType; // 返回值的部门ID的类型
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appId; // 应用 id
-        private String versionId; // 唯一标识应用版本的 ID
-
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用 id
-         * <p> 示例值：cli_9f3ca975326b501b
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 唯一标识应用版本的 ID
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        public ContactsRangeSuggestApplicationAppVersionReq build() {
-            return new ContactsRangeSuggestApplicationAppVersionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

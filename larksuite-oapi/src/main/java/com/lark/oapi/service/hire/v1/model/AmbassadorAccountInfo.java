@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AmbassadorAccountInfo {
+  /**
+   * 账户 ID
+   *
+   * <p>示例值：6956490137551522092
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 账户名称
+   *
+   * <p>示例值：明日科技官网
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 账户手机区号
+   *
+   * <p>示例值：+86
+   */
+  @SerializedName("mobile_code")
+  private String mobileCode;
+
+  /**
+   * 账号手机号码
+   *
+   * <p>示例值：13907281732
+   */
+  @SerializedName("mobile_number")
+  private String mobileNumber;
+
+  /**
+   * 账号邮箱地址
+   *
+   * <p>示例值：xxx@bytedance.com
+   */
+  @SerializedName("email_address")
+  private String emailAddress;
+
+  /**
+   * 账号备注
+   *
+   * <p>示例值：该账号十分重要，变更请谨慎。
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 账号关联学校
+   *
+   * <p>示例值：四川大学
+   */
+  @SerializedName("related_school")
+  private String relatedSchool;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMobileCode() {
+    return this.mobileCode;
+  }
+
+  public void setMobileCode(String mobileCode) {
+    this.mobileCode = mobileCode;
+  }
+
+  public String getMobileNumber() {
+    return this.mobileNumber;
+  }
+
+  public void setMobileNumber(String mobileNumber) {
+    this.mobileNumber = mobileNumber;
+  }
+
+  public String getEmailAddress() {
+    return this.emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getRelatedSchool() {
+    return this.relatedSchool;
+  }
+
+  public void setRelatedSchool(String relatedSchool) {
+    this.relatedSchool = relatedSchool;
+  }
+
+  // builder 开始
+  public AmbassadorAccountInfo() {}
+
+  public AmbassadorAccountInfo(Builder builder) {
     /**
      * 账户 ID
-     * <p> 示例值：6956490137551522092
+     *
+     * <p>示例值：6956490137551522092
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 账户名称
-     * <p> 示例值：明日科技官网
+     *
+     * <p>示例值：明日科技官网
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 账户手机区号
-     * <p> 示例值：+86
+     *
+     * <p>示例值：+86
      */
-    @SerializedName("mobile_code")
-    private String mobileCode;
+    this.mobileCode = builder.mobileCode;
     /**
      * 账号手机号码
-     * <p> 示例值：13907281732
+     *
+     * <p>示例值：13907281732
      */
-    @SerializedName("mobile_number")
-    private String mobileNumber;
+    this.mobileNumber = builder.mobileNumber;
     /**
      * 账号邮箱地址
-     * <p> 示例值：xxx@bytedance.com
+     *
+     * <p>示例值：xxx@bytedance.com
      */
-    @SerializedName("email_address")
-    private String emailAddress;
+    this.emailAddress = builder.emailAddress;
     /**
      * 账号备注
-     * <p> 示例值：该账号十分重要，变更请谨慎。
+     *
+     * <p>示例值：该账号十分重要，变更请谨慎。
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 账号关联学校
-     * <p> 示例值：四川大学
+     *
+     * <p>示例值：四川大学
      */
-    @SerializedName("related_school")
+    this.relatedSchool = builder.relatedSchool;
+  }
+
+  public static class Builder {
+    /**
+     * 账户 ID
+     *
+     * <p>示例值：6956490137551522092
+     */
+    private String id;
+
+    /**
+     * 账户名称
+     *
+     * <p>示例值：明日科技官网
+     */
+    private String name;
+
+    /**
+     * 账户手机区号
+     *
+     * <p>示例值：+86
+     */
+    private String mobileCode;
+
+    /**
+     * 账号手机号码
+     *
+     * <p>示例值：13907281732
+     */
+    private String mobileNumber;
+
+    /**
+     * 账号邮箱地址
+     *
+     * <p>示例值：xxx@bytedance.com
+     */
+    private String emailAddress;
+
+    /**
+     * 账号备注
+     *
+     * <p>示例值：该账号十分重要，变更请谨慎。
+     */
+    private String remark;
+
+    /**
+     * 账号关联学校
+     *
+     * <p>示例值：四川大学
+     */
     private String relatedSchool;
 
-    // builder 开始
-    public AmbassadorAccountInfo() {
+    /**
+     * 账户 ID
+     *
+     * <p>示例值：6956490137551522092
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AmbassadorAccountInfo(Builder builder) {
-        /**
-         * 账户 ID
-         * <p> 示例值：6956490137551522092
-         */
-        this.id = builder.id;
-        /**
-         * 账户名称
-         * <p> 示例值：明日科技官网
-         */
-        this.name = builder.name;
-        /**
-         * 账户手机区号
-         * <p> 示例值：+86
-         */
-        this.mobileCode = builder.mobileCode;
-        /**
-         * 账号手机号码
-         * <p> 示例值：13907281732
-         */
-        this.mobileNumber = builder.mobileNumber;
-        /**
-         * 账号邮箱地址
-         * <p> 示例值：xxx@bytedance.com
-         */
-        this.emailAddress = builder.emailAddress;
-        /**
-         * 账号备注
-         * <p> 示例值：该账号十分重要，变更请谨慎。
-         */
-        this.remark = builder.remark;
-        /**
-         * 账号关联学校
-         * <p> 示例值：四川大学
-         */
-        this.relatedSchool = builder.relatedSchool;
+    /**
+     * 账户名称
+     *
+     * <p>示例值：明日科技官网
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 账户手机区号
+     *
+     * <p>示例值：+86
+     *
+     * @param mobileCode
+     * @return
+     */
+    public Builder mobileCode(String mobileCode) {
+      this.mobileCode = mobileCode;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 账号手机号码
+     *
+     * <p>示例值：13907281732
+     *
+     * @param mobileNumber
+     * @return
+     */
+    public Builder mobileNumber(String mobileNumber) {
+      this.mobileNumber = mobileNumber;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 账号邮箱地址
+     *
+     * <p>示例值：xxx@bytedance.com
+     *
+     * @param emailAddress
+     * @return
+     */
+    public Builder emailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 账号备注
+     *
+     * <p>示例值：该账号十分重要，变更请谨慎。
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 账号关联学校
+     *
+     * <p>示例值：四川大学
+     *
+     * @param relatedSchool
+     * @return
+     */
+    public Builder relatedSchool(String relatedSchool) {
+      this.relatedSchool = relatedSchool;
+      return this;
     }
 
-    public String getMobileCode() {
-        return this.mobileCode;
+    public AmbassadorAccountInfo build() {
+      return new AmbassadorAccountInfo(this);
     }
+  }
 
-    public void setMobileCode(String mobileCode) {
-        this.mobileCode = mobileCode;
-    }
-
-    public String getMobileNumber() {
-        return this.mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getEmailAddress() {
-        return this.emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getRelatedSchool() {
-        return this.relatedSchool;
-    }
-
-    public void setRelatedSchool(String relatedSchool) {
-        this.relatedSchool = relatedSchool;
-    }
-
-    public static class Builder {
-        /**
-         * 账户 ID
-         * <p> 示例值：6956490137551522092
-         */
-        private String id;
-        /**
-         * 账户名称
-         * <p> 示例值：明日科技官网
-         */
-        private String name;
-        /**
-         * 账户手机区号
-         * <p> 示例值：+86
-         */
-        private String mobileCode;
-        /**
-         * 账号手机号码
-         * <p> 示例值：13907281732
-         */
-        private String mobileNumber;
-        /**
-         * 账号邮箱地址
-         * <p> 示例值：xxx@bytedance.com
-         */
-        private String emailAddress;
-        /**
-         * 账号备注
-         * <p> 示例值：该账号十分重要，变更请谨慎。
-         */
-        private String remark;
-        /**
-         * 账号关联学校
-         * <p> 示例值：四川大学
-         */
-        private String relatedSchool;
-
-        /**
-         * 账户 ID
-         * <p> 示例值：6956490137551522092
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 账户名称
-         * <p> 示例值：明日科技官网
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 账户手机区号
-         * <p> 示例值：+86
-         *
-         * @param mobileCode
-         * @return
-         */
-        public Builder mobileCode(String mobileCode) {
-            this.mobileCode = mobileCode;
-            return this;
-        }
-
-
-        /**
-         * 账号手机号码
-         * <p> 示例值：13907281732
-         *
-         * @param mobileNumber
-         * @return
-         */
-        public Builder mobileNumber(String mobileNumber) {
-            this.mobileNumber = mobileNumber;
-            return this;
-        }
-
-
-        /**
-         * 账号邮箱地址
-         * <p> 示例值：xxx@bytedance.com
-         *
-         * @param emailAddress
-         * @return
-         */
-        public Builder emailAddress(String emailAddress) {
-            this.emailAddress = emailAddress;
-            return this;
-        }
-
-
-        /**
-         * 账号备注
-         * <p> 示例值：该账号十分重要，变更请谨慎。
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 账号关联学校
-         * <p> 示例值：四川大学
-         *
-         * @param relatedSchool
-         * @return
-         */
-        public Builder relatedSchool(String relatedSchool) {
-            this.relatedSchool = relatedSchool;
-            return this;
-        }
-
-
-        public AmbassadorAccountInfo build() {
-            return new AmbassadorAccountInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

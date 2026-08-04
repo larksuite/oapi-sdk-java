@@ -13,169 +13,229 @@
 
 package com.lark.oapi.service.corehr.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class WorkforcePlanDetailRow {
-    private static final Logger log = LoggerFactory.getLogger(WorkforcePlanDetailRow.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(WorkforcePlanDetailRow.class);
+  private final Config config;
 
-    public WorkforcePlanDetailRow(Config config) {
-        this.config = config;
+  public WorkforcePlanDetailRow(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 批量删除明细行，批量删除明细行后，可在【设置-编制规划设置-编制规划XXX-编辑数据】进行查看明细行是否被删除。
+   *
+   * <p>批量删除明细行说明：同批次操作场景下，禁止重复删除同一行。;;删除明细行的时候请注意：底层是将编制规划与预估在职人数清0，如果被删除行的预增人员、预减人员不为0，该行依旧会显示在页面上。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java</a>
+   * ;
+   */
+  public BatchDeleteWorkforcePlanDetailRowResp batchDelete(
+      BatchDeleteWorkforcePlanDetailRowReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，批量删除明细行
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java</a> ;
-     */
-    public BatchDeleteWorkforcePlanDetailRowResp batchDelete(BatchDeleteWorkforcePlanDetailRowReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        BatchDeleteWorkforcePlanDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteWorkforcePlanDetailRowResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    BatchDeleteWorkforcePlanDetailRowResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteWorkforcePlanDetailRowResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，批量删除明细行
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java</a> ;
-     */
-    public BatchDeleteWorkforcePlanDetailRowResp batchDelete(BatchDeleteWorkforcePlanDetailRowReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        BatchDeleteWorkforcePlanDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteWorkforcePlanDetailRowResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量删除明细行，批量删除明细行后，可在【设置-编制规划设置-编制规划XXX-编辑数据】进行查看明细行是否被删除。
+   *
+   * <p>批量删除明细行说明：同批次操作场景下，禁止重复删除同一行。;;删除明细行的时候请注意：底层是将编制规划与预估在职人数清0，如果被删除行的预增人员、预减人员不为0，该行依旧会显示在页面上。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchDelete&project=corehr&resource=workforce_plan_detail_row&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchDeleteWorkforcePlanDetailRowSample.java</a>
+   * ;
+   */
+  public BatchDeleteWorkforcePlanDetailRowResp batchDelete(BatchDeleteWorkforcePlanDetailRowReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    BatchDeleteWorkforcePlanDetailRowResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteWorkforcePlanDetailRowResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_detail_row/batchDelete",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，批量创建/更新明细行
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java</a> ;
-     */
-    public BatchSaveWorkforcePlanDetailRowResp batchSave(BatchSaveWorkforcePlanDetailRowReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        BatchSaveWorkforcePlanDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveWorkforcePlanDetailRowResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量创建/更新明细行，批量创建/更新明细行后，可在【设置-编制规划设置-编制规划XXX-编辑数据】进行查看。
+   *
+   * <p>批量创建/更新明细行说明：同批次操作场景下，禁止创建/更新重复行，与此同时，创建时若明细行已存在于系统中，则会在底层自动触发更新机制；建议不要录入编制规划值和预估在职人数均为零值的明细行，系统会对全0明细行进行过滤，从而在页面上不显示该行，可能会导致用户误以为该明细行不存在。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java</a>
+   * ;
+   */
+  public BatchSaveWorkforcePlanDetailRowResp batchSave(
+      BatchSaveWorkforcePlanDetailRowReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，批量创建/更新明细行
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java</a> ;
-     */
-    public BatchSaveWorkforcePlanDetailRowResp batchSave(BatchSaveWorkforcePlanDetailRowReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        BatchSaveWorkforcePlanDetailRowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveWorkforcePlanDetailRowResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    BatchSaveWorkforcePlanDetailRowResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveWorkforcePlanDetailRowResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量创建/更新明细行，批量创建/更新明细行后，可在【设置-编制规划设置-编制规划XXX-编辑数据】进行查看。
+   *
+   * <p>批量创建/更新明细行说明：同批次操作场景下，禁止创建/更新重复行，与此同时，创建时若明细行已存在于系统中，则会在底层自动触发更新机制；建议不要录入编制规划值和预估在职人数均为零值的明细行，系统会对全0明细行进行过滤，从而在页面上不显示该行，可能会导致用户误以为该明细行不存在。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batchSave&project=corehr&resource=workforce_plan_detail_row&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchSaveWorkforcePlanDetailRowSample.java</a>
+   * ;
+   */
+  public BatchSaveWorkforcePlanDetailRowResp batchSave(BatchSaveWorkforcePlanDetailRowReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    BatchSaveWorkforcePlanDetailRowResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchSaveWorkforcePlanDetailRowResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_detail_row/batchSave",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

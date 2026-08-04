@@ -13,174 +13,195 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.sheets.v3.enums.*;
 
 public class DeleteSpreadsheetSheetFilterViewConditionReq {
+  /**
+   * 电子表格的
+   * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+   * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+   * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @Path
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  /**
+   * 工作表
+   * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+   * 获取。
+   *
+   * <p>示例值：8fe9d6
+   */
+  @Path
+  @SerializedName("sheet_id")
+  private String sheetId;
+
+  /**
+   * 筛选视图
+   * ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。
+   *
+   * <p>示例值：pH9hbVcCXA
+   */
+  @Path
+  @SerializedName("filter_view_id")
+  private String filterViewId;
+
+  /**
+   * 要删除所有筛选条件的列，用字母表示。
+   *
+   * <p>示例值：E
+   */
+  @Path
+  @SerializedName("condition_id")
+  private String conditionId;
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
+  }
+
+  public String getFilterViewId() {
+    return this.filterViewId;
+  }
+
+  public void setFilterViewId(String filterViewId) {
+    this.filterViewId = filterViewId;
+  }
+
+  public String getConditionId() {
+    return this.conditionId;
+  }
+
+  public void setConditionId(String conditionId) {
+    this.conditionId = conditionId;
+  }
+
+  // builder 开始
+  public DeleteSpreadsheetSheetFilterViewConditionReq() {}
+
+  public DeleteSpreadsheetSheetFilterViewConditionReq(Builder builder) {
     /**
-     * 表格 token
-     * <p> 示例值：shtcnmBA*****yGehy8
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
+    this.spreadsheetToken = builder.spreadsheetToken;
     /**
-     * 子表 id
-     * <p> 示例值：0b**12
+     * 工作表
+     * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * 获取。
+     *
+     * <p>示例值：8fe9d6
      */
-    @Path
-    @SerializedName("sheet_id")
-    private String sheetId;
+    this.sheetId = builder.sheetId;
     /**
-     * 筛选视图 id
-     * <p> 示例值：pH9hbVcCXA
+     * 筛选视图
+     * ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。
+     *
+     * <p>示例值：pH9hbVcCXA
      */
-    @Path
-    @SerializedName("filter_view_id")
-    private String filterViewId;
+    this.filterViewId = builder.filterViewId;
     /**
-     * 筛选范围内的某列字母号
-     * <p> 示例值：E
+     * 要删除所有筛选条件的列，用字母表示。
+     *
+     * <p>示例值：E
      */
-    @Path
-    @SerializedName("condition_id")
-    private String conditionId;
+    this.conditionId = builder.conditionId;
+  }
 
-    // builder 开始
-    public DeleteSpreadsheetSheetFilterViewConditionReq() {
+  public static class Builder {
+
+    private String spreadsheetToken; // 电子表格的
+    // token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+    private String sheetId; // 工作表
+    // ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。
+    private String filterViewId; // 筛选视图
+    // ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。
+    private String conditionId; // 要删除所有筛选条件的列，用字母表示。
+
+    /**
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
     }
 
-    public DeleteSpreadsheetSheetFilterViewConditionReq(Builder builder) {
-        /**
-         * 表格 token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        /**
-         * 子表 id
-         * <p> 示例值：0b**12
-         */
-        this.sheetId = builder.sheetId;
-        /**
-         * 筛选视图 id
-         * <p> 示例值：pH9hbVcCXA
-         */
-        this.filterViewId = builder.filterViewId;
-        /**
-         * 筛选范围内的某列字母号
-         * <p> 示例值：E
-         */
-        this.conditionId = builder.conditionId;
+    /**
+     * 工作表
+     * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * 获取。
+     *
+     * <p>示例值：8fe9d6
+     *
+     * @param sheetId
+     * @return
+     */
+    public Builder sheetId(String sheetId) {
+      this.sheetId = sheetId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选视图
+     * ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。
+     *
+     * <p>示例值：pH9hbVcCXA
+     *
+     * @param filterViewId
+     * @return
+     */
+    public Builder filterViewId(String filterViewId) {
+      this.filterViewId = filterViewId;
+      return this;
     }
 
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
+    /**
+     * 要删除所有筛选条件的列，用字母表示。
+     *
+     * <p>示例值：E
+     *
+     * @param conditionId
+     * @return
+     */
+    public Builder conditionId(String conditionId) {
+      this.conditionId = conditionId;
+      return this;
     }
 
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
+    public DeleteSpreadsheetSheetFilterViewConditionReq build() {
+      return new DeleteSpreadsheetSheetFilterViewConditionReq(this);
     }
+  }
 
-    public String getSheetId() {
-        return this.sheetId;
-    }
-
-    public void setSheetId(String sheetId) {
-        this.sheetId = sheetId;
-    }
-
-    public String getFilterViewId() {
-        return this.filterViewId;
-    }
-
-    public void setFilterViewId(String filterViewId) {
-        this.filterViewId = filterViewId;
-    }
-
-    public String getConditionId() {
-        return this.conditionId;
-    }
-
-    public void setConditionId(String conditionId) {
-        this.conditionId = conditionId;
-    }
-
-    public static class Builder {
-
-        private String spreadsheetToken; // 表格 token
-        private String sheetId; // 子表 id
-        private String filterViewId; // 筛选视图 id
-        private String conditionId; // 筛选范围内的某列字母号
-
-        /**
-         * 表格 token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-
-        /**
-         * 子表 id
-         * <p> 示例值：0b**12
-         *
-         * @param sheetId
-         * @return
-         */
-        public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
-        }
-
-
-        /**
-         * 筛选视图 id
-         * <p> 示例值：pH9hbVcCXA
-         *
-         * @param filterViewId
-         * @return
-         */
-        public Builder filterViewId(String filterViewId) {
-            this.filterViewId = filterViewId;
-            return this;
-        }
-
-
-        /**
-         * 筛选范围内的某列字母号
-         * <p> 示例值：E
-         *
-         * @param conditionId
-         * @return
-         */
-        public Builder conditionId(String conditionId) {
-            this.conditionId = conditionId;
-            return this;
-        }
-
-
-        public DeleteSpreadsheetSheetFilterViewConditionReq build() {
-            return new DeleteSpreadsheetSheetFilterViewConditionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

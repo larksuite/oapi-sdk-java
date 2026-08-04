@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UserFieldContent {
+  /**
+   * 字段内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_content")
+  private Map<String, FieldContentEntity> fieldContent;
+
+  /**
+   * 字段可见性，仅包含可见字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visible_field")
+  private Map<String, Boolean> visibleField;
+
+  /**
+   * 应该从TenantView中选取的字段选取的字段 Position
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_field_position")
+  private Integer userFieldPosition;
+
+  public Map<String, FieldContentEntity> getFieldContent() {
+    return this.fieldContent;
+  }
+
+  public void setFieldContent(Map<String, FieldContentEntity> fieldContent) {
+    this.fieldContent = fieldContent;
+  }
+
+  public Map<String, Boolean> getVisibleField() {
+    return this.visibleField;
+  }
+
+  public void setVisibleField(Map<String, Boolean> visibleField) {
+    this.visibleField = visibleField;
+  }
+
+  public Integer getUserFieldPosition() {
+    return this.userFieldPosition;
+  }
+
+  public void setUserFieldPosition(Integer userFieldPosition) {
+    this.userFieldPosition = userFieldPosition;
+  }
+
+  // builder 开始
+  public UserFieldContent() {}
+
+  public UserFieldContent(Builder builder) {
     /**
      * 字段内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_content")
-    private Map<String, FieldContentEntity> fieldContent;
+    this.fieldContent = builder.fieldContent;
     /**
      * 字段可见性，仅包含可见字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visible_field")
-    private Map<String, Boolean> visibleField;
+    this.visibleField = builder.visibleField;
     /**
      * 应该从TenantView中选取的字段选取的字段 Position
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_field_position")
+    this.userFieldPosition = builder.userFieldPosition;
+  }
+
+  public static class Builder {
+    /**
+     * 字段内容
+     *
+     * <p>示例值：
+     */
+    private Map<String, FieldContentEntity> fieldContent;
+
+    /**
+     * 字段可见性，仅包含可见字段
+     *
+     * <p>示例值：
+     */
+    private Map<String, Boolean> visibleField;
+
+    /**
+     * 应该从TenantView中选取的字段选取的字段 Position
+     *
+     * <p>示例值：
+     */
     private Integer userFieldPosition;
 
-    // builder 开始
-    public UserFieldContent() {
+    /**
+     * 字段内容
+     *
+     * <p>示例值：
+     *
+     * @param fieldContent
+     * @return
+     */
+    public Builder fieldContent(Map<String, FieldContentEntity> fieldContent) {
+      this.fieldContent = fieldContent;
+      return this;
     }
 
-    public UserFieldContent(Builder builder) {
-        /**
-         * 字段内容
-         * <p> 示例值：
-         */
-        this.fieldContent = builder.fieldContent;
-        /**
-         * 字段可见性，仅包含可见字段
-         * <p> 示例值：
-         */
-        this.visibleField = builder.visibleField;
-        /**
-         * 应该从TenantView中选取的字段选取的字段 Position
-         * <p> 示例值：
-         */
-        this.userFieldPosition = builder.userFieldPosition;
+    /**
+     * 字段可见性，仅包含可见字段
+     *
+     * <p>示例值：
+     *
+     * @param visibleField
+     * @return
+     */
+    public Builder visibleField(Map<String, Boolean> visibleField) {
+      this.visibleField = visibleField;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应该从TenantView中选取的字段选取的字段 Position
+     *
+     * <p>示例值：
+     *
+     * @param userFieldPosition
+     * @return
+     */
+    public Builder userFieldPosition(Integer userFieldPosition) {
+      this.userFieldPosition = userFieldPosition;
+      return this;
     }
 
-    public Map<String, FieldContentEntity> getFieldContent() {
-        return this.fieldContent;
+    public UserFieldContent build() {
+      return new UserFieldContent(this);
     }
+  }
 
-    public void setFieldContent(Map<String, FieldContentEntity> fieldContent) {
-        this.fieldContent = fieldContent;
-    }
-
-    public Map<String, Boolean> getVisibleField() {
-        return this.visibleField;
-    }
-
-    public void setVisibleField(Map<String, Boolean> visibleField) {
-        this.visibleField = visibleField;
-    }
-
-    public Integer getUserFieldPosition() {
-        return this.userFieldPosition;
-    }
-
-    public void setUserFieldPosition(Integer userFieldPosition) {
-        this.userFieldPosition = userFieldPosition;
-    }
-
-    public static class Builder {
-        /**
-         * 字段内容
-         * <p> 示例值：
-         */
-        private Map<String, FieldContentEntity> fieldContent;
-        /**
-         * 字段可见性，仅包含可见字段
-         * <p> 示例值：
-         */
-        private Map<String, Boolean> visibleField;
-        /**
-         * 应该从TenantView中选取的字段选取的字段 Position
-         * <p> 示例值：
-         */
-        private Integer userFieldPosition;
-
-        /**
-         * 字段内容
-         * <p> 示例值：
-         *
-         * @param fieldContent
-         * @return
-         */
-        public Builder fieldContent(Map<String, FieldContentEntity> fieldContent) {
-            this.fieldContent = fieldContent;
-            return this;
-        }
-
-
-        /**
-         * 字段可见性，仅包含可见字段
-         * <p> 示例值：
-         *
-         * @param visibleField
-         * @return
-         */
-        public Builder visibleField(Map<String, Boolean> visibleField) {
-            this.visibleField = visibleField;
-            return this;
-        }
-
-
-        /**
-         * 应该从TenantView中选取的字段选取的字段 Position
-         * <p> 示例值：
-         *
-         * @param userFieldPosition
-         * @return
-         */
-        public Builder userFieldPosition(Integer userFieldPosition) {
-            this.userFieldPosition = userFieldPosition;
-            return this;
-        }
-
-
-        public UserFieldContent build() {
-            return new UserFieldContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

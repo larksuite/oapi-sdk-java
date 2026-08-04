@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeePersonForCountry {
+  /**
+   * 员工id
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * PersonForCountry 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_for_countries")
+  private PersonForCountry[] personForCountries;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public PersonForCountry[] getPersonForCountries() {
+    return this.personForCountries;
+  }
+
+  public void setPersonForCountries(PersonForCountry[] personForCountries) {
+    this.personForCountries = personForCountries;
+  }
+
+  // builder 开始
+  public EmployeePersonForCountry() {}
+
+  public EmployeePersonForCountry(Builder builder) {
     /**
      * 员工id
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * PersonForCountry 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_for_countries")
+    this.personForCountries = builder.personForCountries;
+  }
+
+  public static class Builder {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String employmentId;
+
+    /**
+     * PersonForCountry 列表
+     *
+     * <p>示例值：
+     */
     private PersonForCountry[] personForCountries;
 
-    // builder 开始
-    public EmployeePersonForCountry() {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeePersonForCountry(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * PersonForCountry 列表
-         * <p> 示例值：
-         */
-        this.personForCountries = builder.personForCountries;
+    /**
+     * PersonForCountry 列表
+     *
+     * <p>示例值：
+     *
+     * @param personForCountries
+     * @return
+     */
+    public Builder personForCountries(PersonForCountry[] personForCountries) {
+      this.personForCountries = personForCountries;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeePersonForCountry build() {
+      return new EmployeePersonForCountry(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public PersonForCountry[] getPersonForCountries() {
-        return this.personForCountries;
-    }
-
-    public void setPersonForCountries(PersonForCountry[] personForCountries) {
-        this.personForCountries = personForCountries;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        private String employmentId;
-        /**
-         * PersonForCountry 列表
-         * <p> 示例值：
-         */
-        private PersonForCountry[] personForCountries;
-
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * PersonForCountry 列表
-         * <p> 示例值：
-         *
-         * @param personForCountries
-         * @return
-         */
-        public Builder personForCountries(PersonForCountry[] personForCountries) {
-            this.personForCountries = personForCountries;
-            return this;
-        }
-
-
-        public EmployeePersonForCountry build() {
-            return new EmployeePersonForCountry(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

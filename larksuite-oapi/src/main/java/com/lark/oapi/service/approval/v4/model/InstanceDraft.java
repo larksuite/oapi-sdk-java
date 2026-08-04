@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceDraft {
+  /**
+   * 审批定义id
+   *
+   * <p>示例值：7545781352325070867
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  // builder 开始
+  public InstanceDraft() {}
+
+  public InstanceDraft(Builder builder) {
     /**
      * 审批定义id
-     * <p> 示例值：7545781352325070867
+     *
+     * <p>示例值：7545781352325070867
      */
-    @SerializedName("approval_id")
+    this.approvalId = builder.approvalId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义id
+     *
+     * <p>示例值：7545781352325070867
+     */
     private String approvalId;
 
-    // builder 开始
-    public InstanceDraft() {
+    /**
+     * 审批定义id
+     *
+     * <p>示例值：7545781352325070867
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public InstanceDraft(Builder builder) {
-        /**
-         * 审批定义id
-         * <p> 示例值：7545781352325070867
-         */
-        this.approvalId = builder.approvalId;
+    public InstanceDraft build() {
+      return new InstanceDraft(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApprovalId() {
-        return this.approvalId;
-    }
-
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义id
-         * <p> 示例值：7545781352325070867
-         */
-        private String approvalId;
-
-        /**
-         * 审批定义id
-         * <p> 示例值：7545781352325070867
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        public InstanceDraft build() {
-            return new InstanceDraft(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

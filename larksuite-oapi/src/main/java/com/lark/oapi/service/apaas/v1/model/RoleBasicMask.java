@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class RoleBasicMask {
+  /**
+   * 角色的API名称;;获取方式：角色由客户方创建，其中包含了apiName;;支持字母、数字、下划线等字符
+   *
+   * <p>示例值：role_7f60dacb16e
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 角色名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("name")
+  private Map<String, String> name;
+
+  /**
+   * 角色描述
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("description")
+  private Map<String, String> description;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getName() {
+    return this.name;
+  }
+
+  public void setName(Map<String, String> name) {
+    this.name = name;
+  }
+
+  public Map<String, String> getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Map<String, String> description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public RoleBasicMask() {}
+
+  public RoleBasicMask(Builder builder) {
     /**
-     * 角色的API名称
-     * <p> 示例值：role_7f60dacb16e
+     * 角色的API名称;;获取方式：角色由客户方创建，其中包含了apiName;;支持字母、数字、下划线等字符
+     *
+     * <p>示例值：role_7f60dacb16e
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 角色名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("name")
-    private Map<String, String> name;
+    this.name = builder.name;
     /**
      * 角色描述
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 角色的API名称;;获取方式：角色由客户方创建，其中包含了apiName;;支持字母、数字、下划线等字符
+     *
+     * <p>示例值：role_7f60dacb16e
+     */
+    private String apiName;
+
+    /**
+     * 角色名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> name;
+
+    /**
+     * 角色描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> description;
 
-    // builder 开始
-    public RoleBasicMask() {
+    /**
+     * 角色的API名称;;获取方式：角色由客户方创建，其中包含了apiName;;支持字母、数字、下划线等字符
+     *
+     * <p>示例值：role_7f60dacb16e
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public RoleBasicMask(Builder builder) {
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
+    /**
+     * 角色名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Map<String, String> name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 角色描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Map<String, String> description) {
+      this.description = description;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    public RoleBasicMask build() {
+      return new RoleBasicMask(this);
     }
+  }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public Map<String, String> getName() {
-        return this.name;
-    }
-
-    public void setName(Map<String, String> name) {
-        this.name = name;
-    }
-
-    public Map<String, String> getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(Map<String, String> description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         */
-        private String apiName;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        private Map<String, String> name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        private Map<String, String> description;
-
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 角色名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Map<String, String> name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 角色描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Map<String, String> description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public RoleBasicMask build() {
-            return new RoleBasicMask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

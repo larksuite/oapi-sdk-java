@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCustomizedOption {
+  /**
+   * 选项 ID
+   *
+   * <p>示例值：AA
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 选项名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public TalentCustomizedOption() {}
+
+  public TalentCustomizedOption(Builder builder) {
     /**
      * 选项 ID
-     * <p> 示例值：AA
+     *
+     * <p>示例值：AA
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 选项名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 选项 ID
+     *
+     * <p>示例值：AA
+     */
+    private String key;
+
+    /**
+     * 选项名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public TalentCustomizedOption() {
+    /**
+     * 选项 ID
+     *
+     * <p>示例值：AA
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public TalentCustomizedOption(Builder builder) {
-        /**
-         * 选项 ID
-         * <p> 示例值：AA
-         */
-        this.key = builder.key;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 选项名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TalentCustomizedOption build() {
+      return new TalentCustomizedOption(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 选项 ID
-         * <p> 示例值：AA
-         */
-        private String key;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 选项 ID
-         * <p> 示例值：AA
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 选项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public TalentCustomizedOption build() {
-            return new TalentCustomizedOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

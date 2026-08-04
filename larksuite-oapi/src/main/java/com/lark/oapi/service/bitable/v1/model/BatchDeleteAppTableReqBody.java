@@ -13,75 +13,81 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteAppTableReqBody {
+  /**
+   * 待删除的数据表的 ID。当前一次操作最多支持 50 个数据表。;;获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的
+   * `table_id`。;-
+   * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+   * `table_id`。;;
+   * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("table_ids")
+  private String[] tableIds;
+
+  public String[] getTableIds() {
+    return this.tableIds;
+  }
+
+  public void setTableIds(String[] tableIds) {
+    this.tableIds = tableIds;
+  }
+
+  // builder 开始
+  public BatchDeleteAppTableReqBody() {}
+
+  public BatchDeleteAppTableReqBody(Builder builder) {
     /**
-     * 删除的多条tableid列表
-     * <p> 示例值：["tblsRc9GRRXKqhvW"]
+     * 待删除的数据表的 ID。当前一次操作最多支持 50 个数据表。;;获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的
+     * `table_id`。;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`。;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：
      */
-    @SerializedName("table_ids")
+    this.tableIds = builder.tableIds;
+  }
+
+  public static class Builder {
+    /**
+     * 待删除的数据表的 ID。当前一次操作最多支持 50 个数据表。;;获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的
+     * `table_id`。;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`。;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：
+     */
     private String[] tableIds;
 
-    // builder 开始
-    public BatchDeleteAppTableReqBody() {
+    /**
+     * 待删除的数据表的 ID。当前一次操作最多支持 50 个数据表。;;获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的
+     * `table_id`。;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`。;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：
+     *
+     * @param tableIds
+     * @return
+     */
+    public Builder tableIds(String[] tableIds) {
+      this.tableIds = tableIds;
+      return this;
     }
 
-    public BatchDeleteAppTableReqBody(Builder builder) {
-        /**
-         * 删除的多条tableid列表
-         * <p> 示例值：["tblsRc9GRRXKqhvW"]
-         */
-        this.tableIds = builder.tableIds;
+    public BatchDeleteAppTableReqBody build() {
+      return new BatchDeleteAppTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getTableIds() {
-        return this.tableIds;
-    }
-
-    public void setTableIds(String[] tableIds) {
-        this.tableIds = tableIds;
-    }
-
-    public static class Builder {
-        /**
-         * 删除的多条tableid列表
-         * <p> 示例值：["tblsRc9GRRXKqhvW"]
-         */
-        private String[] tableIds;
-
-        /**
-         * 删除的多条tableid列表
-         * <p> 示例值：["tblsRc9GRRXKqhvW"]
-         *
-         * @param tableIds
-         * @return
-         */
-        public Builder tableIds(String[] tableIds) {
-            this.tableIds = tableIds;
-            return this;
-        }
-
-
-        public BatchDeleteAppTableReqBody build() {
-            return new BatchDeleteAppTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

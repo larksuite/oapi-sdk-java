@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchOptions {
+  /**
+   * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone
+   * 不做数据过滤，不做列鉴权
+   *
+   * <p>示例值：adminRole
+   */
+  @SerializedName("filter_permission_resource")
+  private String filterPermissionResource;
+
+  /**
+   * 废弃参数
+   *
+   * <p>示例值：adminRole
+   */
+  @SerializedName("admin_role_permission_scope")
+  private String adminRolePermissionScope;
+
+  /**
+   * 以管理员身份查询，必须额外传的权限场景Type
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("admin_role_permission_type")
+  private String adminRolePermissionType;
+
+  public String getFilterPermissionResource() {
+    return this.filterPermissionResource;
+  }
+
+  public void setFilterPermissionResource(String filterPermissionResource) {
+    this.filterPermissionResource = filterPermissionResource;
+  }
+
+  public String getAdminRolePermissionScope() {
+    return this.adminRolePermissionScope;
+  }
+
+  public void setAdminRolePermissionScope(String adminRolePermissionScope) {
+    this.adminRolePermissionScope = adminRolePermissionScope;
+  }
+
+  public String getAdminRolePermissionType() {
+    return this.adminRolePermissionType;
+  }
+
+  public void setAdminRolePermissionType(String adminRolePermissionType) {
+    this.adminRolePermissionType = adminRolePermissionType;
+  }
+
+  // builder 开始
+  public SearchOptions() {}
+
+  public SearchOptions(Builder builder) {
     /**
-     * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone 不做数据过滤，不做列鉴权
-     * <p> 示例值：adminRole
+     * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone
+     * 不做数据过滤，不做列鉴权
+     *
+     * <p>示例值：adminRole
      */
-    @SerializedName("filter_permission_resource")
-    private String filterPermissionResource;
+    this.filterPermissionResource = builder.filterPermissionResource;
     /**
      * 废弃参数
-     * <p> 示例值：adminRole
+     *
+     * <p>示例值：adminRole
      */
-    @SerializedName("admin_role_permission_scope")
-    private String adminRolePermissionScope;
+    this.adminRolePermissionScope = builder.adminRolePermissionScope;
     /**
      * 以管理员身份查询，必须额外传的权限场景Type
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("admin_role_permission_type")
+    this.adminRolePermissionType = builder.adminRolePermissionType;
+  }
+
+  public static class Builder {
+    /**
+     * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone
+     * 不做数据过滤，不做列鉴权
+     *
+     * <p>示例值：adminRole
+     */
+    private String filterPermissionResource;
+
+    /**
+     * 废弃参数
+     *
+     * <p>示例值：adminRole
+     */
+    private String adminRolePermissionScope;
+
+    /**
+     * 以管理员身份查询，必须额外传的权限场景Type
+     *
+     * <p>示例值：1
+     */
     private String adminRolePermissionType;
 
-    // builder 开始
-    public SearchOptions() {
+    /**
+     * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone
+     * 不做数据过滤，不做列鉴权
+     *
+     * <p>示例值：adminRole
+     *
+     * @param filterPermissionResource
+     * @return
+     */
+    public Builder filterPermissionResource(String filterPermissionResource) {
+      this.filterPermissionResource = filterPermissionResource;
+      return this;
     }
 
-    public SearchOptions(Builder builder) {
-        /**
-         * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone 不做数据过滤，不做列鉴权
-         * <p> 示例值：adminRole
-         */
-        this.filterPermissionResource = builder.filterPermissionResource;
-        /**
-         * 废弃参数
-         * <p> 示例值：adminRole
-         */
-        this.adminRolePermissionScope = builder.adminRolePermissionScope;
-        /**
-         * 以管理员身份查询，必须额外传的权限场景Type
-         * <p> 示例值：1
-         */
-        this.adminRolePermissionType = builder.adminRolePermissionType;
+    /**
+     * 废弃参数
+     *
+     * <p>示例值：adminRole
+     *
+     * @param adminRolePermissionScope
+     * @return
+     */
+    public Builder adminRolePermissionScope(String adminRolePermissionScope) {
+      this.adminRolePermissionScope = adminRolePermissionScope;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 以管理员身份查询，必须额外传的权限场景Type
+     *
+     * <p>示例值：1
+     *
+     * @param adminRolePermissionType
+     * @return
+     */
+    public Builder adminRolePermissionType(String adminRolePermissionType) {
+      this.adminRolePermissionType = adminRolePermissionType;
+      return this;
     }
 
-    public String getFilterPermissionResource() {
-        return this.filterPermissionResource;
+    public SearchOptions build() {
+      return new SearchOptions(this);
     }
+  }
 
-    public void setFilterPermissionResource(String filterPermissionResource) {
-        this.filterPermissionResource = filterPermissionResource;
-    }
-
-    public String getAdminRolePermissionScope() {
-        return this.adminRolePermissionScope;
-    }
-
-    public void setAdminRolePermissionScope(String adminRolePermissionScope) {
-        this.adminRolePermissionScope = adminRolePermissionScope;
-    }
-
-    public String getAdminRolePermissionType() {
-        return this.adminRolePermissionType;
-    }
-
-    public void setAdminRolePermissionType(String adminRolePermissionType) {
-        this.adminRolePermissionType = adminRolePermissionType;
-    }
-
-    public static class Builder {
-        /**
-         * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone 不做数据过滤，不做列鉴权
-         * <p> 示例值：adminRole
-         */
-        private String filterPermissionResource;
-        /**
-         * 废弃参数
-         * <p> 示例值：adminRole
-         */
-        private String adminRolePermissionScope;
-        /**
-         * 以管理员身份查询，必须额外传的权限场景Type
-         * <p> 示例值：1
-         */
-        private String adminRolePermissionType;
-
-        /**
-         * 不传默认走end User身份，直接走大搜的默认权限过滤，走authz的默认101兜底列鉴权。\nadminRole身份，配合权限场景Scope做数据过滤，无列鉴权\nnone 不做数据过滤，不做列鉴权
-         * <p> 示例值：adminRole
-         *
-         * @param filterPermissionResource
-         * @return
-         */
-        public Builder filterPermissionResource(String filterPermissionResource) {
-            this.filterPermissionResource = filterPermissionResource;
-            return this;
-        }
-
-
-        /**
-         * 废弃参数
-         * <p> 示例值：adminRole
-         *
-         * @param adminRolePermissionScope
-         * @return
-         */
-        public Builder adminRolePermissionScope(String adminRolePermissionScope) {
-            this.adminRolePermissionScope = adminRolePermissionScope;
-            return this;
-        }
-
-
-        /**
-         * 以管理员身份查询，必须额外传的权限场景Type
-         * <p> 示例值：1
-         *
-         * @param adminRolePermissionType
-         * @return
-         */
-        public Builder adminRolePermissionType(String adminRolePermissionType) {
-            this.adminRolePermissionType = adminRolePermissionType;
-            return this;
-        }
-
-
-        public SearchOptions build() {
-            return new SearchOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

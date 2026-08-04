@@ -13,87 +13,79 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CpstStandardType {
+  /**
+   * 薪资标准类型
+   *
+   * <p>示例值：standard_value
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  // builder 开始
+  public CpstStandardType() {}
+
+  public CpstStandardType(Builder builder) {
     /**
      * 薪资标准类型
-     * <p> 示例值：standard_value
+     *
+     * <p>示例值：standard_value
      */
-    @SerializedName("api_name")
+    this.apiName = builder.apiName;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资标准类型
+     *
+     * <p>示例值：standard_value
+     */
     private String apiName;
 
-    // builder 开始
-    public CpstStandardType() {
+    /**
+     * 薪资标准类型
+     *
+     * <p>示例值：standard_value
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public CpstStandardType(Builder builder) {
-        /**
-         * 薪资标准类型
-         * <p> 示例值：standard_value
-         */
-        this.apiName = builder.apiName;
+    /**
+     * 薪资标准类型
+     *
+     * <p>示例值：standard_value
+     *
+     * @param apiName {@link com.lark.oapi.service.corehr.v1.enums.CpstStandardTypeApiNameEnum}
+     * @return
+     */
+    public Builder apiName(
+        com.lark.oapi.service.corehr.v1.enums.CpstStandardTypeApiNameEnum apiName) {
+      this.apiName = apiName.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CpstStandardType build() {
+      return new CpstStandardType(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资标准类型
-         * <p> 示例值：standard_value
-         */
-        private String apiName;
-
-        /**
-         * 薪资标准类型
-         * <p> 示例值：standard_value
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-        /**
-         * 薪资标准类型
-         * <p> 示例值：standard_value
-         *
-         * @param apiName {@link com.lark.oapi.service.corehr.v1.enums.CpstStandardTypeApiNameEnum}
-         * @return
-         */
-        public Builder apiName(com.lark.oapi.service.corehr.v1.enums.CpstStandardTypeApiNameEnum apiName) {
-            this.apiName = apiName.getValue();
-            return this;
-        }
-
-
-        public CpstStandardType build() {
-            return new CpstStandardType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

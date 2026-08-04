@@ -13,337 +13,360 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ApiExportJobResult {
+  /**
+   * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_status")
+  private String jobStatus;
+
+  /**
+   * 任务处理失败原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_error_msg")
+  private String jobErrorMsg;
+
+  /**
+   * 实际导出文件格式 docx, pdf, xlsx
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_extension")
+  private String fileExtension;
+
+  /**
+   * 文件名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 导出文件大小，单位字节
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_size")
+  private String fileSize;
+
+  /**
+   * 导出文件 drive token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 透传额外信息, key统一分配, value 由各业务定义
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private Map<String, String> extra;
+
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getJobStatus() {
+    return this.jobStatus;
+  }
+
+  public void setJobStatus(String jobStatus) {
+    this.jobStatus = jobStatus;
+  }
+
+  public String getJobErrorMsg() {
+    return this.jobErrorMsg;
+  }
+
+  public void setJobErrorMsg(String jobErrorMsg) {
+    this.jobErrorMsg = jobErrorMsg;
+  }
+
+  public String getFileExtension() {
+    return this.fileExtension;
+  }
+
+  public void setFileExtension(String fileExtension) {
+    this.fileExtension = fileExtension;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(String fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public ApiExportJobResult() {}
+
+  public ApiExportJobResult(Builder builder) {
     /**
-     * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-     * <p> 示例值：
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_status")
-    private String jobStatus;
+    this.jobStatus = builder.jobStatus;
     /**
      * 任务处理失败原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_error_msg")
-    private String jobErrorMsg;
+    this.jobErrorMsg = builder.jobErrorMsg;
     /**
      * 实际导出文件格式 docx, pdf, xlsx
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_extension")
-    private String fileExtension;
+    this.fileExtension = builder.fileExtension;
     /**
      * 文件名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 导出文件大小，单位字节
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_size")
-    private String fileSize;
+    this.fileSize = builder.fileSize;
     /**
      * 导出文件 drive token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 透传额外信息, key统一分配, value 由各业务定义
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
-    private Map<String, String> extra;
+    this.extra = builder.extra;
     /**
      * 云文档类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
+     */
+    private String jobStatus;
+
+    /**
+     * 任务处理失败原因
+     *
+     * <p>示例值：
+     */
+    private String jobErrorMsg;
+
+    /**
+     * 实际导出文件格式 docx, pdf, xlsx
+     *
+     * <p>示例值：
+     */
+    private String fileExtension;
+
+    /**
+     * 文件名
+     *
+     * <p>示例值：
+     */
+    private String fileName;
+
+    /**
+     * 导出文件大小，单位字节
+     *
+     * <p>示例值：
+     */
+    private String fileSize;
+
+    /**
+     * 导出文件 drive token
+     *
+     * <p>示例值：
+     */
+    private String fileToken;
+
+    /**
+     * 透传额外信息, key统一分配, value 由各业务定义
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> extra;
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：
+     */
     private String type;
 
-    // builder 开始
-    public ApiExportJobResult() {
+    /**
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
+     *
+     * @param jobStatus
+     * @return
+     */
+    public Builder jobStatus(String jobStatus) {
+      this.jobStatus = jobStatus;
+      return this;
     }
 
-    public ApiExportJobResult(Builder builder) {
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         */
-        this.jobStatus = builder.jobStatus;
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         */
-        this.jobErrorMsg = builder.jobErrorMsg;
-        /**
-         * 实际导出文件格式 docx, pdf, xlsx
-         * <p> 示例值：
-         */
-        this.fileExtension = builder.fileExtension;
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 导出文件大小，单位字节
-         * <p> 示例值：
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 导出文件 drive token
-         * <p> 示例值：
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 透传额外信息, key统一分配, value 由各业务定义
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-        /**
-         * 云文档类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 任务处理失败原因
+     *
+     * <p>示例值：
+     *
+     * @param jobErrorMsg
+     * @return
+     */
+    public Builder jobErrorMsg(String jobErrorMsg) {
+      this.jobErrorMsg = jobErrorMsg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实际导出文件格式 docx, pdf, xlsx
+     *
+     * <p>示例值：
+     *
+     * @param fileExtension
+     * @return
+     */
+    public Builder fileExtension(String fileExtension) {
+      this.fileExtension = fileExtension;
+      return this;
     }
 
-    public String getJobStatus() {
-        return this.jobStatus;
+    /**
+     * 文件名
+     *
+     * <p>示例值：
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public void setJobStatus(String jobStatus) {
-        this.jobStatus = jobStatus;
+    /**
+     * 导出文件大小，单位字节
+     *
+     * <p>示例值：
+     *
+     * @param fileSize
+     * @return
+     */
+    public Builder fileSize(String fileSize) {
+      this.fileSize = fileSize;
+      return this;
     }
 
-    public String getJobErrorMsg() {
-        return this.jobErrorMsg;
+    /**
+     * 导出文件 drive token
+     *
+     * <p>示例值：
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setJobErrorMsg(String jobErrorMsg) {
-        this.jobErrorMsg = jobErrorMsg;
+    /**
+     * 透传额外信息, key统一分配, value 由各业务定义
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getFileExtension() {
-        return this.fileExtension;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
+    public ApiExportJobResult build() {
+      return new ApiExportJobResult(this);
     }
+  }
 
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(String fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         */
-        private String jobStatus;
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         */
-        private String jobErrorMsg;
-        /**
-         * 实际导出文件格式 docx, pdf, xlsx
-         * <p> 示例值：
-         */
-        private String fileExtension;
-        /**
-         * 文件名
-         * <p> 示例值：
-         */
-        private String fileName;
-        /**
-         * 导出文件大小，单位字节
-         * <p> 示例值：
-         */
-        private String fileSize;
-        /**
-         * 导出文件 drive token
-         * <p> 示例值：
-         */
-        private String fileToken;
-        /**
-         * 透传额外信息, key统一分配, value 由各业务定义
-         * <p> 示例值：
-         */
-        private Map<String, String> extra;
-        /**
-         * 云文档类型
-         * <p> 示例值：
-         */
-        private String type;
-
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         *
-         * @param jobStatus
-         * @return
-         */
-        public Builder jobStatus(String jobStatus) {
-            this.jobStatus = jobStatus;
-            return this;
-        }
-
-
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         *
-         * @param jobErrorMsg
-         * @return
-         */
-        public Builder jobErrorMsg(String jobErrorMsg) {
-            this.jobErrorMsg = jobErrorMsg;
-            return this;
-        }
-
-
-        /**
-         * 实际导出文件格式 docx, pdf, xlsx
-         * <p> 示例值：
-         *
-         * @param fileExtension
-         * @return
-         */
-        public Builder fileExtension(String fileExtension) {
-            this.fileExtension = fileExtension;
-            return this;
-        }
-
-
-        /**
-         * 文件名
-         * <p> 示例值：
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 导出文件大小，单位字节
-         * <p> 示例值：
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(String fileSize) {
-            this.fileSize = fileSize;
-            return this;
-        }
-
-
-        /**
-         * 导出文件 drive token
-         * <p> 示例值：
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 透传额外信息, key统一分配, value 由各业务定义
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 云文档类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public ApiExportJobResult build() {
-            return new ApiExportJobResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

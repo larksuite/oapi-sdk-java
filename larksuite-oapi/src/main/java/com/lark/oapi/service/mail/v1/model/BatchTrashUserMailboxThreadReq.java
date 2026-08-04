@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class BatchTrashUserMailboxThreadReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  @Body private BatchTrashUserMailboxThreadReqBody body;
+
+  public BatchTrashUserMailboxThreadReqBody getBatchTrashUserMailboxThreadReqBody() {
+    return this.body;
+  }
+
+  public void setBatchTrashUserMailboxThreadReqBody(BatchTrashUserMailboxThreadReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchTrashUserMailboxThreadReq() {}
+
+  public BatchTrashUserMailboxThreadReq(Builder builder) {
     /**
      * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：me
+     *
+     * <p>示例值：me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
-    @Body
+    this.userMailboxId = builder.userMailboxId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
     private BatchTrashUserMailboxThreadReqBody body;
 
-    // builder 开始
-    public BatchTrashUserMailboxThreadReq() {
-    }
-
-    public BatchTrashUserMailboxThreadReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
     public BatchTrashUserMailboxThreadReqBody getBatchTrashUserMailboxThreadReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchTrashUserMailboxThreadReqBody(BatchTrashUserMailboxThreadReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchTrashUserMailboxThreadReqBody(BatchTrashUserMailboxThreadReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private BatchTrashUserMailboxThreadReqBody body;
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        public BatchTrashUserMailboxThreadReqBody getBatchTrashUserMailboxThreadReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchTrashUserMailboxThreadReqBody(BatchTrashUserMailboxThreadReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchTrashUserMailboxThreadReq build() {
-            return new BatchTrashUserMailboxThreadReq(this);
-        }
+    public BatchTrashUserMailboxThreadReq build() {
+      return new BatchTrashUserMailboxThreadReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

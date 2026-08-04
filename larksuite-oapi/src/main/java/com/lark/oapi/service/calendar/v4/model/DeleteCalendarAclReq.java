@@ -13,106 +13,115 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class DeleteCalendarAclReq {
+  /**
+   * 需要删除访问控制的日历 ID。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+   * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+   * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+   * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 访问控制 ID。;;为日历创建访问控制时会返回访问控制
+   * ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。
+   *
+   * <p>示例值：user_xxxxxx
+   */
+  @Path
+  @SerializedName("acl_id")
+  private String aclId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getAclId() {
+    return this.aclId;
+  }
+
+  public void setAclId(String aclId) {
+    this.aclId = aclId;
+  }
+
+  // builder 开始
+  public DeleteCalendarAclReq() {}
+
+  public DeleteCalendarAclReq(Builder builder) {
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 需要删除访问控制的日历 ID。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+     * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+     * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-     * <p> 示例值：user_xxxxxx
+     * 访问控制 ID。;;为日历创建访问控制时会返回访问控制
+     * ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。
+     *
+     * <p>示例值：user_xxxxxx
      */
-    @Path
-    @SerializedName("acl_id")
-    private String aclId;
+    this.aclId = builder.aclId;
+  }
 
-    // builder 开始
-    public DeleteCalendarAclReq() {
+  public static class Builder {
+
+    private String calendarId; // 需要删除访问控制的日历 ID。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+    // [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);- [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+    private String aclId; // 访问控制 ID。;;为日历创建访问控制时会返回访问控制
+
+    // ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。
+
+    /**
+     * 需要删除访问控制的日历 ID。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+     * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+     * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public DeleteCalendarAclReq(Builder builder) {
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-         * <p> 示例值：user_xxxxxx
-         */
-        this.aclId = builder.aclId;
+    /**
+     * 访问控制 ID。;;为日历创建访问控制时会返回访问控制
+     * ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。
+     *
+     * <p>示例值：user_xxxxxx
+     *
+     * @param aclId
+     * @return
+     */
+    public Builder aclId(String aclId) {
+      this.aclId = aclId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteCalendarAclReq build() {
+      return new DeleteCalendarAclReq(this);
     }
+  }
 
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getAclId() {
-        return this.aclId;
-    }
-
-    public void setAclId(String aclId) {
-        this.aclId = aclId;
-    }
-
-    public static class Builder {
-
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-        private String aclId; // acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-         * <p> 示例值：user_xxxxxx
-         *
-         * @param aclId
-         * @return
-         */
-        public Builder aclId(String aclId) {
-            this.aclId = aclId;
-            return this;
-        }
-
-
-        public DeleteCalendarAclReq build() {
-            return new DeleteCalendarAclReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,81 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommonClientInfo {
+  /**
+   * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string
+   * LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional
+   * AppForm AppForm (gw.ctx="mw_app_form"); //$ depracated 应用形态 1-小程序\n4: optional string
+   * AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS
+   * (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
+   *
+   * <p>示例值：
+   */
+  @SerializedName("client_ip")
+  private String clientIp;
+
+  public String getClientIp() {
+    return this.clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
+  }
+
+  // builder 开始
+  public CommonClientInfo() {}
+
+  public CommonClientInfo(Builder builder) {
     /**
-     * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional AppForm AppForm (gw.ctx="mw_app_form");   //$ depracated 应用形态 1-小程序\n4: optional string AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
-     * <p> 示例值：
+     * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string
+     * LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional
+     * AppForm AppForm (gw.ctx="mw_app_form"); //$ depracated 应用形态 1-小程序\n4: optional string
+     * AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS
+     * (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
+     *
+     * <p>示例值：
      */
-    @SerializedName("client_ip")
+    this.clientIp = builder.clientIp;
+  }
+
+  public static class Builder {
+    /**
+     * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string
+     * LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional
+     * AppForm AppForm (gw.ctx="mw_app_form"); //$ depracated 应用形态 1-小程序\n4: optional string
+     * AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS
+     * (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
+     *
+     * <p>示例值：
+     */
     private String clientIp;
 
-    // builder 开始
-    public CommonClientInfo() {
+    /**
+     * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string
+     * LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional
+     * AppForm AppForm (gw.ctx="mw_app_form"); //$ depracated 应用形态 1-小程序\n4: optional string
+     * AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS
+     * (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
+     *
+     * <p>示例值：
+     *
+     * @param clientIp
+     * @return
+     */
+    public Builder clientIp(String clientIp) {
+      this.clientIp = clientIp;
+      return this;
     }
 
-    public CommonClientInfo(Builder builder) {
-        /**
-         * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional AppForm AppForm (gw.ctx="mw_app_form");   //$ depracated 应用形态 1-小程序\n4: optional string AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
-         * <p> 示例值：
-         */
-        this.clientIp = builder.clientIp;
+    public CommonClientInfo build() {
+      return new CommonClientInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientIp() {
-        return this.clientIp;
-    }
-
-    public void setClientIp(String clientIp) {
-        this.clientIp = clientIp;
-    }
-
-    public static class Builder {
-        /**
-         * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional AppForm AppForm (gw.ctx="mw_app_form");   //$ depracated 应用形态 1-小程序\n4: optional string AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
-         * <p> 示例值：
-         */
-        private String clientIp;
-
-        /**
-         * 1: optional string Platform (gw.ctx="mw_platform"); //$ depracated 请求的平台\n2: optional string LarkVersion (gw.ctx="mw_lark_version"); //$ depracated 如果是来自Feisu, 这里是飞书的Version\n3: optional AppForm AppForm (gw.ctx="mw_app_form");   //$ depracated 应用形态 1-小程序\n4: optional string AppVersion (gw.ctx="mw_app_version"); //$ depracated 应用版本\n5: optional string OS (gw.ctx="mw_os"); //$ depracated 操作系统\n$ 客户端IP
-         * <p> 示例值：
-         *
-         * @param clientIp
-         * @return
-         */
-        public Builder clientIp(String clientIp) {
-            this.clientIp = clientIp;
-            return this;
-        }
-
-
-        public CommonClientInfo build() {
-            return new CommonClientInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

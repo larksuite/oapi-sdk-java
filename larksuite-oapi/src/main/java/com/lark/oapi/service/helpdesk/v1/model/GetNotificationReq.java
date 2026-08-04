@@ -13,116 +13,117 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class GetNotificationReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 唯一ID
+   *
+   * <p>示例值：1624326025000
+   */
+  @Path
+  @SerializedName("notification_id")
+  private String notificationId;
+
+  public String getNotificationId() {
+    return this.notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
+
+  // builder 开始
+  public GetNotificationReq() {}
+
+  public GetNotificationReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 唯一ID
-     * <p> 示例值：1624326025000
+     *
+     * <p>示例值：1624326025000
      */
-    @Path
-    @SerializedName("notification_id")
-    private String notificationId;
+    this.notificationId = builder.notificationId;
+  }
 
-    // builder 开始
-    public GetNotificationReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetNotificationReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 唯一ID
-         * <p> 示例值：1624326025000
-         */
-        this.notificationId = builder.notificationId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.helpdesk.v1.enums.GetNotificationGetNotificationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.helpdesk.v1.enums.GetNotificationGetNotificationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String notificationId; // 唯一ID
+
+    /**
+     * 唯一ID
+     *
+     * <p>示例值：1624326025000
+     *
+     * @param notificationId
+     * @return
+     */
+    public Builder notificationId(String notificationId) {
+      this.notificationId = notificationId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetNotificationReq build() {
+      return new GetNotificationReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getNotificationId() {
-        return this.notificationId;
-    }
-
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String notificationId; // 唯一ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.GetNotificationGetNotificationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.GetNotificationGetNotificationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 唯一ID
-         * <p> 示例值：1624326025000
-         *
-         * @param notificationId
-         * @return
-         */
-        public Builder notificationId(String notificationId) {
-            this.notificationId = notificationId;
-            return this;
-        }
-
-
-        public GetNotificationReq build() {
-            return new GetNotificationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 标准明细类型
- */
+/** 标准明细类型 */
 public enum GradeStandardKindEnum {
-    VALUE_1(1), // 正式标准
-    VALUE_2(2), // 非正式标准
-    ;
-    private Integer value;
+  VALUE_1(1), // 正式标准
+  VALUE_2(2), // 非正式标准
+  ;
+  private Integer value;
 
-    GradeStandardKindEnum(Integer value) {
-        this.value = value;
-    }
+  GradeStandardKindEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 条件类型
- */
+/** 条件类型 */
 public enum FeedGroupRuleCondItemFeedGroupRuleCondItemTypeEnum {
-    KEYWORD("keyword"), // 会话名称关键词
-    CHATTER("chatter"), // 群成员
-    CHAT_TYPE("chat_type"), // 会话类型
-    ;
-    private String value;
+  KEYWORD("keyword"), // 会话名称关键词
+  CHATTER("chatter"), // 群成员
+  CHAT_TYPE("chat_type"), // 会话类型
+  ;
+  private String value;
 
-    FeedGroupRuleCondItemFeedGroupRuleCondItemTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupRuleCondItemFeedGroupRuleCondItemTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

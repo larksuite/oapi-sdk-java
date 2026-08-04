@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 该项失败的具体原因
- */
+/** 该项失败的具体原因 */
 public enum OpenFailedShortcutItemOpenShortcutFailedReasonEnum {
-    UNKNOWN(0), // 未定义，保留枚举位
-    NO_PERMISSION(1), // 当前用户对该置顶项无操作权限（例如目标群用户已不在其中）
-    INVALID_ITEM(2), // feed_card_id 不合法
-    HAS_PENDING_DELETE(3), // 关联的置顶项处于待删除状态
-    TYPE_NOT_SUPPORT(4), // 当前版本不支持该 type
-    INTERNAL_ERROR(5), // 服务内部错误
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未定义，保留枚举位
+  NO_PERMISSION(1), // 当前用户对该置顶项无操作权限（例如目标群用户已不在其中）
+  INVALID_ITEM(2), // feed_card_id 不合法
+  HAS_PENDING_DELETE(3), // 关联的置顶项处于待删除状态
+  TYPE_NOT_SUPPORT(4), // 当前版本不支持该 type
+  INTERNAL_ERROR(5), // 服务内部错误
+  ;
+  private Integer value;
 
-    OpenFailedShortcutItemOpenShortcutFailedReasonEnum(Integer value) {
-        this.value = value;
-    }
+  OpenFailedShortcutItemOpenShortcutFailedReasonEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

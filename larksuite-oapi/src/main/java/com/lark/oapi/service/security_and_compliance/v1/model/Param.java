@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Param {
+  /**
+   * key
+   *
+   * <p>示例值：token
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * value
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public Param() {}
+
+  public Param(Builder builder) {
     /**
      * key
-     * <p> 示例值：token
+     *
+     * <p>示例值：token
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * value
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * key
+     *
+     * <p>示例值：token
+     */
+    private String key;
+
+    /**
+     * value
+     *
+     * <p>示例值：12345
+     */
     private String value;
 
-    // builder 开始
-    public Param() {
+    /**
+     * key
+     *
+     * <p>示例值：token
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Param(Builder builder) {
-        /**
-         * key
-         * <p> 示例值：token
-         */
-        this.key = builder.key;
-        /**
-         * value
-         * <p> 示例值：12345
-         */
-        this.value = builder.value;
+    /**
+     * value
+     *
+     * <p>示例值：12345
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Param build() {
+      return new Param(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * key
-         * <p> 示例值：token
-         */
-        private String key;
-        /**
-         * value
-         * <p> 示例值：12345
-         */
-        private String value;
-
-        /**
-         * key
-         * <p> 示例值：token
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * value
-         * <p> 示例值：12345
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public Param build() {
-            return new Param(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

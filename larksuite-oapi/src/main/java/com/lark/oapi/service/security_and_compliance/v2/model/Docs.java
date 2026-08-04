@@ -13,242 +13,191 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Docs {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("obj_token")
+  /** 示例值： */
+  @SerializedName("obj_token")
+  private String objToken;
+
+  /** 示例值： */
+  @SerializedName("obj_type")
+  private Integer objType;
+
+  /** 示例值： */
+  @SerializedName("obj_status")
+  private Integer objStatus;
+
+  /** 示例值： */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /** 示例值： */
+  @SerializedName("edit_time")
+  private String editTime;
+
+  /** 示例值： */
+  @SerializedName("owner")
+  private User owner;
+
+  public String getObjToken() {
+    return this.objToken;
+  }
+
+  public void setObjToken(String objToken) {
+    this.objToken = objToken;
+  }
+
+  public Integer getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(Integer objType) {
+    this.objType = objType;
+  }
+
+  public Integer getObjStatus() {
+    return this.objStatus;
+  }
+
+  public void setObjStatus(Integer objStatus) {
+    this.objStatus = objStatus;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getEditTime() {
+    return this.editTime;
+  }
+
+  public void setEditTime(String editTime) {
+    this.editTime = editTime;
+  }
+
+  public User getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(User owner) {
+    this.owner = owner;
+  }
+
+  // builder 开始
+  public Docs() {}
+
+  public Docs(Builder builder) {
+    /** 示例值： */
+    this.objToken = builder.objToken;
+    /** 示例值： */
+    this.objType = builder.objType;
+    /** 示例值： */
+    this.objStatus = builder.objStatus;
+    /** 示例值： */
+    this.createTime = builder.createTime;
+    /** 示例值： */
+    this.editTime = builder.editTime;
+    /** 示例值： */
+    this.owner = builder.owner;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String objToken;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("obj_type")
+
+    /** 示例值： */
     private Integer objType;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("obj_status")
+
+    /** 示例值： */
     private Integer objStatus;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("create_time")
+
+    /** 示例值： */
     private String createTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("edit_time")
+
+    /** 示例值： */
     private String editTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("owner")
+
+    /** 示例值： */
     private User owner;
 
-    // builder 开始
-    public Docs() {
+    /**
+     * 示例值：
+     *
+     * @param objToken
+     * @return
+     */
+    public Builder objToken(String objToken) {
+      this.objToken = objToken;
+      return this;
     }
 
-    public Docs(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.objToken = builder.objToken;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.objType = builder.objType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.objStatus = builder.objStatus;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.editTime = builder.editTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
+    /**
+     * 示例值：
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(Integer objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param objStatus
+     * @return
+     */
+    public Builder objStatus(Integer objStatus) {
+      this.objStatus = objStatus;
+      return this;
     }
 
-    public String getObjToken() {
-        return this.objToken;
+    /**
+     * 示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setObjToken(String objToken) {
-        this.objToken = objToken;
+    /**
+     * 示例值：
+     *
+     * @param editTime
+     * @return
+     */
+    public Builder editTime(String editTime) {
+      this.editTime = editTime;
+      return this;
     }
 
-    public Integer getObjType() {
-        return this.objType;
+    /**
+     * 示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(User owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public void setObjType(Integer objType) {
-        this.objType = objType;
+    public Docs build() {
+      return new Docs(this);
     }
+  }
 
-    public Integer getObjStatus() {
-        return this.objStatus;
-    }
-
-    public void setObjStatus(Integer objStatus) {
-        this.objStatus = objStatus;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getEditTime() {
-        return this.editTime;
-    }
-
-    public void setEditTime(String editTime) {
-        this.editTime = editTime;
-    }
-
-    public User getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String objToken;
-        /**
-         * <p> 示例值：
-         */
-        private Integer objType;
-        /**
-         * <p> 示例值：
-         */
-        private Integer objStatus;
-        /**
-         * <p> 示例值：
-         */
-        private String createTime;
-        /**
-         * <p> 示例值：
-         */
-        private String editTime;
-        /**
-         * <p> 示例值：
-         */
-        private User owner;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param objToken
-         * @return
-         */
-        public Builder objToken(String objToken) {
-            this.objToken = objToken;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(Integer objType) {
-            this.objType = objType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param objStatus
-         * @return
-         */
-        public Builder objStatus(Integer objStatus) {
-            this.objStatus = objStatus;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param editTime
-         * @return
-         */
-        public Builder editTime(String editTime) {
-            this.editTime = editTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(User owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        public Docs build() {
-            return new Docs(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

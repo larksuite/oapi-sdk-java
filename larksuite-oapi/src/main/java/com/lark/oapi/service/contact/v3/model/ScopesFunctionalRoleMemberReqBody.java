@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScopesFunctionalRoleMemberReqBody {
+  /**
+   * 角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private String[] members;
+
+  /**
+   * 设置角色成员可管理的部门范围（部门 ID 列表），以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 department_id_type
+   * 的取值保持一致。;;部门 API 提供了多种获取部门 ID
+   * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+   * API 进行查询。;;**注意**：不支持为角色成员设置根部门（部门 ID 为 0）的管理范围。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departments")
+  private String[] departments;
+
+  public String[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(String[] members) {
+    this.members = members;
+  }
+
+  public String[] getDepartments() {
+    return this.departments;
+  }
+
+  public void setDepartments(String[] departments) {
+    this.departments = departments;
+  }
+
+  // builder 开始
+  public ScopesFunctionalRoleMemberReqBody() {}
+
+  public ScopesFunctionalRoleMemberReqBody(Builder builder) {
     /**
-     * 角色修改的角色成员列表（一批用户的UserID列表)
-     * <p> 示例值：
+     * 角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
+    this.members = builder.members;
+    /**
+     * 设置角色成员可管理的部门范围（部门 ID 列表），以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 department_id_type
+     * 的取值保持一致。;;部门 API 提供了多种获取部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。;;**注意**：不支持为角色成员设置根部门（部门 ID 为 0）的管理范围。
+     *
+     * <p>示例值：
+     */
+    this.departments = builder.departments;
+  }
+
+  public static class Builder {
+    /**
+     * 角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
+     */
     private String[] members;
+
     /**
-     * 角色内用户的管理范围
-     * <p> 示例值：
+     * 设置角色成员可管理的部门范围（部门 ID 列表），以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 department_id_type
+     * 的取值保持一致。;;部门 API 提供了多种获取部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。;;**注意**：不支持为角色成员设置根部门（部门 ID 为 0）的管理范围。
+     *
+     * <p>示例值：
      */
-    @SerializedName("departments")
     private String[] departments;
 
-    // builder 开始
-    public ScopesFunctionalRoleMemberReqBody() {
+    /**
+     * 角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(String[] members) {
+      this.members = members;
+      return this;
     }
 
-    public ScopesFunctionalRoleMemberReqBody(Builder builder) {
-        /**
-         * 角色修改的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 角色内用户的管理范围
-         * <p> 示例值：
-         */
-        this.departments = builder.departments;
+    /**
+     * 设置角色成员可管理的部门范围（部门 ID 列表），以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 department_id_type
+     * 的取值保持一致。;;部门 API 提供了多种获取部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。;;**注意**：不支持为角色成员设置根部门（部门 ID 为 0）的管理范围。
+     *
+     * <p>示例值：
+     *
+     * @param departments
+     * @return
+     */
+    public Builder departments(String[] departments) {
+      this.departments = departments;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ScopesFunctionalRoleMemberReqBody build() {
+      return new ScopesFunctionalRoleMemberReqBody(this);
     }
+  }
 
-    public String[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(String[] members) {
-        this.members = members;
-    }
-
-    public String[] getDepartments() {
-        return this.departments;
-    }
-
-    public void setDepartments(String[] departments) {
-        this.departments = departments;
-    }
-
-    public static class Builder {
-        /**
-         * 角色修改的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         */
-        private String[] members;
-        /**
-         * 角色内用户的管理范围
-         * <p> 示例值：
-         */
-        private String[] departments;
-
-        /**
-         * 角色修改的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(String[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 角色内用户的管理范围
-         * <p> 示例值：
-         *
-         * @param departments
-         * @return
-         */
-        public Builder departments(String[] departments) {
-            this.departments = departments;
-            return this;
-        }
-
-
-        public ScopesFunctionalRoleMemberReqBody build() {
-            return new ScopesFunctionalRoleMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

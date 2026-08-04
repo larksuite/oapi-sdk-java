@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShortcutInfo {
+  /**
+   * 快捷方式指向的源文件类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("target_type")
+  private String targetType;
+
+  /**
+   * 快捷方式指向的原文件 Token
+   *
+   * <p>示例值：docxaO1UuPz8VwnpPx5a9abcef
+   */
+  @SerializedName("target_token")
+  private String targetToken;
+
+  public String getTargetType() {
+    return this.targetType;
+  }
+
+  public void setTargetType(String targetType) {
+    this.targetType = targetType;
+  }
+
+  public String getTargetToken() {
+    return this.targetToken;
+  }
+
+  public void setTargetToken(String targetToken) {
+    this.targetToken = targetToken;
+  }
+
+  // builder 开始
+  public ShortcutInfo() {}
+
+  public ShortcutInfo(Builder builder) {
     /**
-     * 快捷方式指向的原文件类型
-     * <p> 示例值：doc
+     * 快捷方式指向的源文件类型
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("target_type")
+    this.targetType = builder.targetType;
+    /**
+     * 快捷方式指向的原文件 Token
+     *
+     * <p>示例值：docxaO1UuPz8VwnpPx5a9abcef
+     */
+    this.targetToken = builder.targetToken;
+  }
+
+  public static class Builder {
+    /**
+     * 快捷方式指向的源文件类型
+     *
+     * <p>示例值：docx
+     */
     private String targetType;
+
     /**
-     * 快捷方式指向的原文件token
-     * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
+     * 快捷方式指向的原文件 Token
+     *
+     * <p>示例值：docxaO1UuPz8VwnpPx5a9abcef
      */
-    @SerializedName("target_token")
     private String targetToken;
 
-    // builder 开始
-    public ShortcutInfo() {
+    /**
+     * 快捷方式指向的源文件类型
+     *
+     * <p>示例值：docx
+     *
+     * @param targetType
+     * @return
+     */
+    public Builder targetType(String targetType) {
+      this.targetType = targetType;
+      return this;
     }
 
-    public ShortcutInfo(Builder builder) {
-        /**
-         * 快捷方式指向的原文件类型
-         * <p> 示例值：doc
-         */
-        this.targetType = builder.targetType;
-        /**
-         * 快捷方式指向的原文件token
-         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
-         */
-        this.targetToken = builder.targetToken;
+    /**
+     * 快捷方式指向的原文件 Token
+     *
+     * <p>示例值：docxaO1UuPz8VwnpPx5a9abcef
+     *
+     * @param targetToken
+     * @return
+     */
+    public Builder targetToken(String targetToken) {
+      this.targetToken = targetToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ShortcutInfo build() {
+      return new ShortcutInfo(this);
     }
+  }
 
-    public String getTargetType() {
-        return this.targetType;
-    }
-
-    public void setTargetType(String targetType) {
-        this.targetType = targetType;
-    }
-
-    public String getTargetToken() {
-        return this.targetToken;
-    }
-
-    public void setTargetToken(String targetToken) {
-        this.targetToken = targetToken;
-    }
-
-    public static class Builder {
-        /**
-         * 快捷方式指向的原文件类型
-         * <p> 示例值：doc
-         */
-        private String targetType;
-        /**
-         * 快捷方式指向的原文件token
-         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
-         */
-        private String targetToken;
-
-        /**
-         * 快捷方式指向的原文件类型
-         * <p> 示例值：doc
-         *
-         * @param targetType
-         * @return
-         */
-        public Builder targetType(String targetType) {
-            this.targetType = targetType;
-            return this;
-        }
-
-
-        /**
-         * 快捷方式指向的原文件token
-         * <p> 示例值：doccn4dTWHr5K1Ibg2wKCh3arMg
-         *
-         * @param targetToken
-         * @return
-         */
-        public Builder targetToken(String targetToken) {
-            this.targetToken = targetToken;
-            return this;
-        }
-
-
-        public ShortcutInfo build() {
-            return new ShortcutInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

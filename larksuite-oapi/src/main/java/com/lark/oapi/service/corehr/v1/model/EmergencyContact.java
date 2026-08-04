@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmergencyContact {
+  /**
+   * 紧急联系人姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private PersonName name;
+
+  /**
+   * 关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("relationship")
+  private Enum relationship;
+
+  /**
+   * 紧急联系人电话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone_ist")
+  private Phone[] phoneIst;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("legal_name")
+  private String legalName;
+
+  public PersonName getName() {
+    return this.name;
+  }
+
+  public void setName(PersonName name) {
+    this.name = name;
+  }
+
+  public Enum getRelationship() {
+    return this.relationship;
+  }
+
+  public void setRelationship(Enum relationship) {
+    this.relationship = relationship;
+  }
+
+  public Phone[] getPhoneIst() {
+    return this.phoneIst;
+  }
+
+  public void setPhoneIst(Phone[] phoneIst) {
+    this.phoneIst = phoneIst;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(String legalName) {
+    this.legalName = legalName;
+  }
+
+  // builder 开始
+  public EmergencyContact() {}
+
+  public EmergencyContact(Builder builder) {
     /**
      * 紧急联系人姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private PersonName name;
+    this.name = builder.name;
     /**
-     * 紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得
-     * <p> 示例值：
+     * 关系
+     *
+     * <p>示例值：
      */
-    @SerializedName("relationship")
-    private Enum relationship;
+    this.relationship = builder.relationship;
     /**
      * 紧急联系人电话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone_ist")
-    private Phone[] phoneIst;
+    this.phoneIst = builder.phoneIst;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 法定姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("legal_name")
+    this.legalName = builder.legalName;
+  }
+
+  public static class Builder {
+    /**
+     * 紧急联系人姓名
+     *
+     * <p>示例值：
+     */
+    private PersonName name;
+
+    /**
+     * 关系
+     *
+     * <p>示例值：
+     */
+    private Enum relationship;
+
+    /**
+     * 紧急联系人电话
+     *
+     * <p>示例值：
+     */
+    private Phone[] phoneIst;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     */
     private String legalName;
 
-    // builder 开始
-    public EmergencyContact() {
+    /**
+     * 紧急联系人姓名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(PersonName name) {
+      this.name = name;
+      return this;
     }
 
-    public EmergencyContact(Builder builder) {
-        /**
-         * 紧急联系人姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得
-         * <p> 示例值：
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 紧急联系人电话
-         * <p> 示例值：
-         */
-        this.phoneIst = builder.phoneIst;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        this.legalName = builder.legalName;
+    /**
+     * 关系
+     *
+     * <p>示例值：
+     *
+     * @param relationship
+     * @return
+     */
+    public Builder relationship(Enum relationship) {
+      this.relationship = relationship;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 紧急联系人电话
+     *
+     * <p>示例值：
+     *
+     * @param phoneIst
+     * @return
+     */
+    public Builder phoneIst(Phone[] phoneIst) {
+      this.phoneIst = phoneIst;
+      return this;
     }
 
-    public PersonName getName() {
-        return this.name;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setName(PersonName name) {
-        this.name = name;
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(String legalName) {
+      this.legalName = legalName;
+      return this;
     }
 
-    public Enum getRelationship() {
-        return this.relationship;
+    public EmergencyContact build() {
+      return new EmergencyContact(this);
     }
+  }
 
-    public void setRelationship(Enum relationship) {
-        this.relationship = relationship;
-    }
-
-    public Phone[] getPhoneIst() {
-        return this.phoneIst;
-    }
-
-    public void setPhoneIst(Phone[] phoneIst) {
-        this.phoneIst = phoneIst;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getLegalName() {
-        return this.legalName;
-    }
-
-    public void setLegalName(String legalName) {
-        this.legalName = legalName;
-    }
-
-    public static class Builder {
-        /**
-         * 紧急联系人姓名
-         * <p> 示例值：
-         */
-        private PersonName name;
-        /**
-         * 紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得
-         * <p> 示例值：
-         */
-        private Enum relationship;
-        /**
-         * 紧急联系人电话
-         * <p> 示例值：
-         */
-        private Phone[] phoneIst;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        private String legalName;
-
-        /**
-         * 紧急联系人姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(PersonName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 紧急联系人与本人亲属关系，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)亲属关系（relationship）枚举定义获得
-         * <p> 示例值：
-         *
-         * @param relationship
-         * @return
-         */
-        public Builder relationship(Enum relationship) {
-            this.relationship = relationship;
-            return this;
-        }
-
-
-        /**
-         * 紧急联系人电话
-         * <p> 示例值：
-         *
-         * @param phoneIst
-         * @return
-         */
-        public Builder phoneIst(Phone[] phoneIst) {
-            this.phoneIst = phoneIst;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(String legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        public EmergencyContact build() {
-            return new EmergencyContact(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

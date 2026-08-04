@@ -13,173 +13,137 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileRiskDetectionRecordResult {
-    /**
-     * 检测状态
-     * <p> 示例值：FINISHED
-     */
-    @SerializedName("status")
+  /** 示例值：FINISHED */
+  @SerializedName("status")
+  private String status;
+
+  /** 示例值：RISK */
+  @SerializedName("risk_tag")
+  private String riskTag;
+
+  /** 示例值：true */
+  @SerializedName("need_bot_notify")
+  private Boolean needBotNotify;
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getRiskTag() {
+    return this.riskTag;
+  }
+
+  public void setRiskTag(String riskTag) {
+    this.riskTag = riskTag;
+  }
+
+  public Boolean getNeedBotNotify() {
+    return this.needBotNotify;
+  }
+
+  public void setNeedBotNotify(Boolean needBotNotify) {
+    this.needBotNotify = needBotNotify;
+  }
+
+  // builder 开始
+  public FileRiskDetectionRecordResult() {}
+
+  public FileRiskDetectionRecordResult(Builder builder) {
+    /** 示例值：FINISHED */
+    this.status = builder.status;
+    /** 示例值：RISK */
+    this.riskTag = builder.riskTag;
+    /** 示例值：true */
+    this.needBotNotify = builder.needBotNotify;
+  }
+
+  public static class Builder {
+    /** 示例值：FINISHED */
     private String status;
-    /**
-     * 风险类型
-     * <p> 示例值：RISK
-     */
-    @SerializedName("risk_tag")
+
+    /** 示例值：RISK */
     private String riskTag;
-    /**
-     * 是否需要机器人通知
-     * <p> 示例值：true
-     */
-    @SerializedName("need_bot_notify")
+
+    /** 示例值：true */
     private Boolean needBotNotify;
 
-    // builder 开始
-    public FileRiskDetectionRecordResult() {
+    /**
+     * 示例值：FINISHED
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public FileRiskDetectionRecordResult(Builder builder) {
-        /**
-         * 检测状态
-         * <p> 示例值：FINISHED
-         */
-        this.status = builder.status;
-        /**
-         * 风险类型
-         * <p> 示例值：RISK
-         */
-        this.riskTag = builder.riskTag;
-        /**
-         * 是否需要机器人通知
-         * <p> 示例值：true
-         */
-        this.needBotNotify = builder.needBotNotify;
+    /**
+     * 示例值：FINISHED
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum
+            status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：RISK
+     *
+     * @param riskTag
+     * @return
+     */
+    public Builder riskTag(String riskTag) {
+      this.riskTag = riskTag;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 示例值：RISK
+     *
+     * @param riskTag {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum}
+     * @return
+     */
+    public Builder riskTag(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum
+            riskTag) {
+      this.riskTag = riskTag.getValue();
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 示例值：true
+     *
+     * @param needBotNotify
+     * @return
+     */
+    public Builder needBotNotify(Boolean needBotNotify) {
+      this.needBotNotify = needBotNotify;
+      return this;
     }
 
-    public String getRiskTag() {
-        return this.riskTag;
+    public FileRiskDetectionRecordResult build() {
+      return new FileRiskDetectionRecordResult(this);
     }
+  }
 
-    public void setRiskTag(String riskTag) {
-        this.riskTag = riskTag;
-    }
-
-    public Boolean getNeedBotNotify() {
-        return this.needBotNotify;
-    }
-
-    public void setNeedBotNotify(Boolean needBotNotify) {
-        this.needBotNotify = needBotNotify;
-    }
-
-    public static class Builder {
-        /**
-         * 检测状态
-         * <p> 示例值：FINISHED
-         */
-        private String status;
-        /**
-         * 风险类型
-         * <p> 示例值：RISK
-         */
-        private String riskTag;
-        /**
-         * 是否需要机器人通知
-         * <p> 示例值：true
-         */
-        private Boolean needBotNotify;
-
-        /**
-         * 检测状态
-         * <p> 示例值：FINISHED
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 检测状态
-         * <p> 示例值：FINISHED
-         *
-         * @param status {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 风险类型
-         * <p> 示例值：RISK
-         *
-         * @param riskTag
-         * @return
-         */
-        public Builder riskTag(String riskTag) {
-            this.riskTag = riskTag;
-            return this;
-        }
-
-        /**
-         * 风险类型
-         * <p> 示例值：RISK
-         *
-         * @param riskTag {@link com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum}
-         * @return
-         */
-        public Builder riskTag(com.lark.oapi.service.security_and_compliance.v1.enums.FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum riskTag) {
-            this.riskTag = riskTag.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否需要机器人通知
-         * <p> 示例值：true
-         *
-         * @param needBotNotify
-         * @return
-         */
-        public Builder needBotNotify(Boolean needBotNotify) {
-            this.needBotNotify = needBotNotify;
-            return this;
-        }
-
-
-        public FileRiskDetectionRecordResult build() {
-            return new FileRiskDetectionRecordResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

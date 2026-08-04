@@ -13,284 +13,311 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentChange {
+  /**
+   * 关联的部门调整记录 ID。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("department_change_id")
+  private String departmentChangeId;
+
+  /**
+   * 部门 ID，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+   *
+   * <p>示例值：6966236933198579208
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为 td_xxx
+   * 的过程部门 ID，生效后(数据写入成功，非部门生效状态)将返回正式的people_corehr_department_id
+   *
+   * <p>示例值：6966236933196579208
+   */
+  @SerializedName("draft_department_id")
+  private String draftDepartmentId;
+
+  /**
+   * 调整类型
+   *
+   * <p>示例值：Create
+   */
+  @SerializedName("department_change_type")
+  private String departmentChangeType;
+
+  /**
+   * 调整状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("department_change_status")
+  private Integer departmentChangeStatus;
+
+  /**
+   * 调整详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reorganization_info")
+  private ReorganizationInfo reorganizationInfo;
+
+  public String getDepartmentChangeId() {
+    return this.departmentChangeId;
+  }
+
+  public void setDepartmentChangeId(String departmentChangeId) {
+    this.departmentChangeId = departmentChangeId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDraftDepartmentId() {
+    return this.draftDepartmentId;
+  }
+
+  public void setDraftDepartmentId(String draftDepartmentId) {
+    this.draftDepartmentId = draftDepartmentId;
+  }
+
+  public String getDepartmentChangeType() {
+    return this.departmentChangeType;
+  }
+
+  public void setDepartmentChangeType(String departmentChangeType) {
+    this.departmentChangeType = departmentChangeType;
+  }
+
+  public Integer getDepartmentChangeStatus() {
+    return this.departmentChangeStatus;
+  }
+
+  public void setDepartmentChangeStatus(Integer departmentChangeStatus) {
+    this.departmentChangeStatus = departmentChangeStatus;
+  }
+
+  public ReorganizationInfo getReorganizationInfo() {
+    return this.reorganizationInfo;
+  }
+
+  public void setReorganizationInfo(ReorganizationInfo reorganizationInfo) {
+    this.reorganizationInfo = reorganizationInfo;
+  }
+
+  // builder 开始
+  public DepartmentChange() {}
+
+  public DepartmentChange(Builder builder) {
     /**
-     * 部门调整记录 ID
-     * <p> 示例值：6991776076699549697
+     * 关联的部门调整记录 ID。
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("department_change_id")
-    private String departmentChangeId;
+    this.departmentChangeId = builder.departmentChangeId;
     /**
-     * 部门 ID
-     * <p> 示例值：6966236933198579208
+     * 部门 ID，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6966236933198579208
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-     * <p> 示例值：6966236933198579208
+     * 调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后(数据写入成功，非部门生效状态)将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6966236933196579208
      */
-    @SerializedName("draft_department_id")
-    private String draftDepartmentId;
+    this.draftDepartmentId = builder.draftDepartmentId;
     /**
      * 调整类型
-     * <p> 示例值：Create
+     *
+     * <p>示例值：Create
      */
-    @SerializedName("department_change_type")
-    private String departmentChangeType;
+    this.departmentChangeType = builder.departmentChangeType;
     /**
      * 调整状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("department_change_status")
-    private Integer departmentChangeStatus;
+    this.departmentChangeStatus = builder.departmentChangeStatus;
     /**
      * 调整详细信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reorganization_info")
+    this.reorganizationInfo = builder.reorganizationInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 关联的部门调整记录 ID。
+     *
+     * <p>示例值：6991776076699549697
+     */
+    private String departmentChangeId;
+
+    /**
+     * 部门 ID，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6966236933198579208
+     */
+    private String departmentId;
+
+    /**
+     * 调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后(数据写入成功，非部门生效状态)将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6966236933196579208
+     */
+    private String draftDepartmentId;
+
+    /**
+     * 调整类型
+     *
+     * <p>示例值：Create
+     */
+    private String departmentChangeType;
+
+    /**
+     * 调整状态
+     *
+     * <p>示例值：0
+     */
+    private Integer departmentChangeStatus;
+
+    /**
+     * 调整详细信息
+     *
+     * <p>示例值：
+     */
     private ReorganizationInfo reorganizationInfo;
 
-    // builder 开始
-    public DepartmentChange() {
+    /**
+     * 关联的部门调整记录 ID。
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param departmentChangeId
+     * @return
+     */
+    public Builder departmentChangeId(String departmentChangeId) {
+      this.departmentChangeId = departmentChangeId;
+      return this;
     }
 
-    public DepartmentChange(Builder builder) {
-        /**
-         * 部门调整记录 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.departmentChangeId = builder.departmentChangeId;
-        /**
-         * 部门 ID
-         * <p> 示例值：6966236933198579208
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
-        this.draftDepartmentId = builder.draftDepartmentId;
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         */
-        this.departmentChangeType = builder.departmentChangeType;
-        /**
-         * 调整状态
-         * <p> 示例值：0
-         */
-        this.departmentChangeStatus = builder.departmentChangeStatus;
-        /**
-         * 调整详细信息
-         * <p> 示例值：
-         */
-        this.reorganizationInfo = builder.reorganizationInfo;
+    /**
+     * 部门 ID，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6966236933198579208
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后(数据写入成功，非部门生效状态)将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6966236933196579208
+     *
+     * @param draftDepartmentId
+     * @return
+     */
+    public Builder draftDepartmentId(String draftDepartmentId) {
+      this.draftDepartmentId = draftDepartmentId;
+      return this;
     }
 
-    public String getDepartmentChangeId() {
-        return this.departmentChangeId;
+    /**
+     * 调整类型
+     *
+     * <p>示例值：Create
+     *
+     * @param departmentChangeType
+     * @return
+     */
+    public Builder departmentChangeType(String departmentChangeType) {
+      this.departmentChangeType = departmentChangeType;
+      return this;
     }
 
-    public void setDepartmentChangeId(String departmentChangeId) {
-        this.departmentChangeId = departmentChangeId;
+    /**
+     * 调整类型
+     *
+     * <p>示例值：Create
+     *
+     * @param departmentChangeType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeTypeEnum}
+     * @return
+     */
+    public Builder departmentChangeType(
+        com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeTypeEnum
+            departmentChangeType) {
+      this.departmentChangeType = departmentChangeType.getValue();
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 调整状态
+     *
+     * <p>示例值：0
+     *
+     * @param departmentChangeStatus
+     * @return
+     */
+    public Builder departmentChangeStatus(Integer departmentChangeStatus) {
+      this.departmentChangeStatus = departmentChangeStatus;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 调整状态
+     *
+     * <p>示例值：0
+     *
+     * @param departmentChangeStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeStatusEnum}
+     * @return
+     */
+    public Builder departmentChangeStatus(
+        com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeStatusEnum
+            departmentChangeStatus) {
+      this.departmentChangeStatus = departmentChangeStatus.getValue();
+      return this;
     }
 
-    public String getDraftDepartmentId() {
-        return this.draftDepartmentId;
+    /**
+     * 调整详细信息
+     *
+     * <p>示例值：
+     *
+     * @param reorganizationInfo
+     * @return
+     */
+    public Builder reorganizationInfo(ReorganizationInfo reorganizationInfo) {
+      this.reorganizationInfo = reorganizationInfo;
+      return this;
     }
 
-    public void setDraftDepartmentId(String draftDepartmentId) {
-        this.draftDepartmentId = draftDepartmentId;
+    public DepartmentChange build() {
+      return new DepartmentChange(this);
     }
+  }
 
-    public String getDepartmentChangeType() {
-        return this.departmentChangeType;
-    }
-
-    public void setDepartmentChangeType(String departmentChangeType) {
-        this.departmentChangeType = departmentChangeType;
-    }
-
-    public Integer getDepartmentChangeStatus() {
-        return this.departmentChangeStatus;
-    }
-
-    public void setDepartmentChangeStatus(Integer departmentChangeStatus) {
-        this.departmentChangeStatus = departmentChangeStatus;
-    }
-
-    public ReorganizationInfo getReorganizationInfo() {
-        return this.reorganizationInfo;
-    }
-
-    public void setReorganizationInfo(ReorganizationInfo reorganizationInfo) {
-        this.reorganizationInfo = reorganizationInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 部门调整记录 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String departmentChangeId;
-        /**
-         * 部门 ID
-         * <p> 示例值：6966236933198579208
-         */
-        private String departmentId;
-        /**
-         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
-        private String draftDepartmentId;
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         */
-        private String departmentChangeType;
-        /**
-         * 调整状态
-         * <p> 示例值：0
-         */
-        private Integer departmentChangeStatus;
-        /**
-         * 调整详细信息
-         * <p> 示例值：
-         */
-        private ReorganizationInfo reorganizationInfo;
-
-        /**
-         * 部门调整记录 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param departmentChangeId
-         * @return
-         */
-        public Builder departmentChangeId(String departmentChangeId) {
-            this.departmentChangeId = departmentChangeId;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID
-         * <p> 示例值：6966236933198579208
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 调整部门 ID ，调整审批未生效前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         *
-         * @param draftDepartmentId
-         * @return
-         */
-        public Builder draftDepartmentId(String draftDepartmentId) {
-            this.draftDepartmentId = draftDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         *
-         * @param departmentChangeType
-         * @return
-         */
-        public Builder departmentChangeType(String departmentChangeType) {
-            this.departmentChangeType = departmentChangeType;
-            return this;
-        }
-
-        /**
-         * 调整类型
-         * <p> 示例值：Create
-         *
-         * @param departmentChangeType {@link com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeTypeEnum}
-         * @return
-         */
-        public Builder departmentChangeType(com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeTypeEnum departmentChangeType) {
-            this.departmentChangeType = departmentChangeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 调整状态
-         * <p> 示例值：0
-         *
-         * @param departmentChangeStatus
-         * @return
-         */
-        public Builder departmentChangeStatus(Integer departmentChangeStatus) {
-            this.departmentChangeStatus = departmentChangeStatus;
-            return this;
-        }
-
-        /**
-         * 调整状态
-         * <p> 示例值：0
-         *
-         * @param departmentChangeStatus {@link com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeStatusEnum}
-         * @return
-         */
-        public Builder departmentChangeStatus(com.lark.oapi.service.corehr.v2.enums.DepartmentChangeDepartmentChangeStatusEnum departmentChangeStatus) {
-            this.departmentChangeStatus = departmentChangeStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 调整详细信息
-         * <p> 示例值：
-         *
-         * @param reorganizationInfo
-         * @return
-         */
-        public Builder reorganizationInfo(ReorganizationInfo reorganizationInfo) {
-            this.reorganizationInfo = reorganizationInfo;
-            return this;
-        }
-
-
-        public DepartmentChange build() {
-            return new DepartmentChange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

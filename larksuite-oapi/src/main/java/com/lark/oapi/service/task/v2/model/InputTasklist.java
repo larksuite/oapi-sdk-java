@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InputTasklist {
+  /**
+   * 清单名称，必填。最多100个字符。
+   *
+   * <p>示例值：年会工作任务清单
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 幂等token，如果提供则实现幂等行为
+   *
+   * <p>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+   */
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 清单的成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private Member owner;
+
+  /**
+   * 是否归档清单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("archive_tasklist")
+  private Boolean archiveTasklist;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  public Member getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(Member owner) {
+    this.owner = owner;
+  }
+
+  public Boolean getArchiveTasklist() {
+    return this.archiveTasklist;
+  }
+
+  public void setArchiveTasklist(Boolean archiveTasklist) {
+    this.archiveTasklist = archiveTasklist;
+  }
+
+  // builder 开始
+  public InputTasklist() {}
+
+  public InputTasklist(Builder builder) {
     /**
-     * 清单名称
-     * <p> 示例值：年会工作任务清单
+     * 清单名称，必填。最多100个字符。
+     *
+     * <p>示例值：年会工作任务清单
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 幂等token，如果提供则实现幂等行为
-     * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+     *
+     * <p>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
      */
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 清单的成员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
-    private Member[] members;
+    this.members = builder.members;
     /**
      * 清单所有者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private Member owner;
+    this.owner = builder.owner;
     /**
      * 是否归档清单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("archive_tasklist")
+    this.archiveTasklist = builder.archiveTasklist;
+  }
+
+  public static class Builder {
+    /**
+     * 清单名称，必填。最多100个字符。
+     *
+     * <p>示例值：年会工作任务清单
+     */
+    private String name;
+
+    /**
+     * 幂等token，如果提供则实现幂等行为
+     *
+     * <p>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+     */
+    private String clientToken;
+
+    /**
+     * 清单的成员列表
+     *
+     * <p>示例值：
+     */
+    private Member[] members;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member owner;
+
+    /**
+     * 是否归档清单
+     *
+     * <p>示例值：
+     */
     private Boolean archiveTasklist;
 
-    // builder 开始
-    public InputTasklist() {
+    /**
+     * 清单名称，必填。最多100个字符。
+     *
+     * <p>示例值：年会工作任务清单
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public InputTasklist(Builder builder) {
-        /**
-         * 清单名称
-         * <p> 示例值：年会工作任务清单
-         */
-        this.name = builder.name;
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 清单的成员列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 清单所有者
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * 是否归档清单
-         * <p> 示例值：
-         */
-        this.archiveTasklist = builder.archiveTasklist;
+    /**
+     * 幂等token，如果提供则实现幂等行为
+     *
+     * <p>示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 清单的成员列表
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(Member owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 是否归档清单
+     *
+     * <p>示例值：
+     *
+     * @param archiveTasklist
+     * @return
+     */
+    public Builder archiveTasklist(Boolean archiveTasklist) {
+      this.archiveTasklist = archiveTasklist;
+      return this;
     }
 
-    public String getClientToken() {
-        return this.clientToken;
+    public InputTasklist build() {
+      return new InputTasklist(this);
     }
+  }
 
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public Member getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(Member owner) {
-        this.owner = owner;
-    }
-
-    public Boolean getArchiveTasklist() {
-        return this.archiveTasklist;
-    }
-
-    public void setArchiveTasklist(Boolean archiveTasklist) {
-        this.archiveTasklist = archiveTasklist;
-    }
-
-    public static class Builder {
-        /**
-         * 清单名称
-         * <p> 示例值：年会工作任务清单
-         */
-        private String name;
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         */
-        private String clientToken;
-        /**
-         * 清单的成员列表
-         * <p> 示例值：
-         */
-        private Member[] members;
-        /**
-         * 清单所有者
-         * <p> 示例值：
-         */
-        private Member owner;
-        /**
-         * 是否归档清单
-         * <p> 示例值：
-         */
-        private Boolean archiveTasklist;
-
-        /**
-         * 清单名称
-         * <p> 示例值：年会工作任务清单
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：daa2237f-8310-4707-a83b-52c8a81e0fb7
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-
-        /**
-         * 清单的成员列表
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 清单所有者
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(Member owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 是否归档清单
-         * <p> 示例值：
-         *
-         * @param archiveTasklist
-         * @return
-         */
-        public Builder archiveTasklist(Boolean archiveTasklist) {
-            this.archiveTasklist = archiveTasklist;
-            return this;
-        }
-
-
-        public InputTasklist build() {
-            return new InputTasklist(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

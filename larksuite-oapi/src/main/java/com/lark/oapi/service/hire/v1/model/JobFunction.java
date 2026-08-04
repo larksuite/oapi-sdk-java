@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobFunction {
+  /**
+   * 职能分类 ID
+   *
+   * <p>示例值：7010952553315895596
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 职能名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 父级职能分类 ID
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  // builder 开始
+  public JobFunction() {}
+
+  public JobFunction(Builder builder) {
     /**
      * 职能分类 ID
-     * <p> 示例值：7010952553315895596
+     *
+     * <p>示例值：7010952553315895596
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 职能名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 启用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
      * 父级职能分类 ID
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("parent_id")
+    this.parentId = builder.parentId;
+  }
+
+  public static class Builder {
+    /**
+     * 职能分类 ID
+     *
+     * <p>示例值：7010952553315895596
+     */
+    private String id;
+
+    /**
+     * 职能名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 启用状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 父级职能分类 ID
+     *
+     * <p>示例值：0
+     */
     private String parentId;
 
-    // builder 开始
-    public JobFunction() {
+    /**
+     * 职能分类 ID
+     *
+     * <p>示例值：7010952553315895596
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobFunction(Builder builder) {
-        /**
-         * 职能分类 ID
-         * <p> 示例值：7010952553315895596
-         */
-        this.id = builder.id;
-        /**
-         * 职能名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 父级职能分类 ID
-         * <p> 示例值：0
-         */
-        this.parentId = builder.parentId;
+    /**
+     * 职能名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 父级职能分类 ID
+     *
+     * <p>示例值：0
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public JobFunction build() {
+      return new JobFunction(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public static class Builder {
-        /**
-         * 职能分类 ID
-         * <p> 示例值：7010952553315895596
-         */
-        private String id;
-        /**
-         * 职能名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 父级职能分类 ID
-         * <p> 示例值：0
-         */
-        private String parentId;
-
-        /**
-         * 职能分类 ID
-         * <p> 示例值：7010952553315895596
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 职能名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 启用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 父级职能分类 ID
-         * <p> 示例值：0
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        public JobFunction build() {
-            return new JobFunction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

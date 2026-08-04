@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 谁可以加急
- */
+/** 谁可以加急 */
 public enum UpdateChatUrgentSettingTypeEnum {
-    ONLY_OWNER("only_owner"), // 仅群主和管理员
-    ALL_MEMBERS("all_members"), // 所有成员
-    ;
-    private String value;
+  ONLY_OWNER("only_owner"), // 仅群主和管理员
+  ALL_MEMBERS("all_members"), // 所有成员
+  ;
+  private String value;
 
-    UpdateChatUrgentSettingTypeEnum(String value) {
-        this.value = value;
-    }
+  UpdateChatUrgentSettingTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

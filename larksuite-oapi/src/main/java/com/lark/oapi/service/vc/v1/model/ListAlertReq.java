@@ -13,253 +13,265 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class ListAlertReq {
+  /**
+   * 开始时间（unix时间，单位秒）
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间（unix时间，单位秒）
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 查询对象类型，不填返回所有
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("query_type")
+  private Integer queryType;
+
+  /**
+   * 查询对象ID，会议室ID或企业会议室连接器ID
+   *
+   * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+   */
+  @Query
+  @SerializedName("query_value")
+  private String queryValue;
+
+  /**
+   * 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getQueryType() {
+    return this.queryType;
+  }
+
+  public void setQueryType(Integer queryType) {
+    this.queryType = queryType;
+  }
+
+  public String getQueryValue() {
+    return this.queryValue;
+  }
+
+  public void setQueryValue(String queryValue) {
+    this.queryValue = queryValue;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  // builder 开始
+  public ListAlertReq() {}
+
+  public ListAlertReq(Builder builder) {
     /**
-     * 开始时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     * 开始时间（unix时间，单位秒）
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 结束时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     * 结束时间（unix时间，单位秒）
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 查询对象类型，不填返回所有
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("query_type")
-    private Integer queryType;
+    this.queryType = builder.queryType;
     /**
-     * 查询对象ID
-     * <p> 示例值：6911188411932033028
+     * 查询对象ID，会议室ID或企业会议室连接器ID
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
      */
-    @Query
-    @SerializedName("query_value")
-    private String queryValue;
+    this.queryValue = builder.queryValue;
     /**
      * 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
+  }
 
-    // builder 开始
-    public ListAlertReq() {
+  public static class Builder {
+    private String startTime; // 开始时间（unix时间，单位秒）
+    private String endTime; // 结束时间（unix时间，单位秒）
+    private Integer queryType; // 查询对象类型，不填返回所有
+    private String queryValue; // 查询对象ID，会议室ID或企业会议室连接器ID
+    private Integer pageSize; // 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果
+
+    /**
+     * 开始时间（unix时间，单位秒）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public ListAlertReq(Builder builder) {
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 查询对象类型，不填返回所有
-         * <p> 示例值：1
-         */
-        this.queryType = builder.queryType;
-        /**
-         * 查询对象ID
-         * <p> 示例值：6911188411932033028
-         */
-        this.queryValue = builder.queryValue;
-        /**
-         * 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：100
-         */
-        this.pageToken = builder.pageToken;
+    /**
+     * 结束时间（unix时间，单位秒）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询对象类型，不填返回所有
+     *
+     * <p>示例值：1
+     *
+     * @param queryType
+     * @return
+     */
+    public Builder queryType(Integer queryType) {
+      this.queryType = queryType;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 查询对象类型，不填返回所有
+     *
+     * <p>示例值：1
+     *
+     * @param queryType {@link
+     *     com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum}
+     * @return
+     */
+    public Builder queryType(
+        com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum queryType) {
+      this.queryType = queryType.getValue();
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 查询对象ID，会议室ID或企业会议室连接器ID
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9b
+     *
+     * @param queryValue
+     * @return
+     */
+    public Builder queryValue(String queryValue) {
+      this.queryValue = queryValue;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：100
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public Integer getQueryType() {
-        return this.queryType;
+    public ListAlertReq build() {
+      return new ListAlertReq(this);
     }
+  }
 
-    public void setQueryType(Integer queryType) {
-        this.queryType = queryType;
-    }
-
-    public String getQueryValue() {
-        return this.queryValue;
-    }
-
-    public void setQueryValue(String queryValue) {
-        this.queryValue = queryValue;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public static class Builder {
-        private String startTime; // 开始时间（unix时间，单位sec）
-        private String endTime; // 结束时间（unix时间，单位sec）
-        private Integer queryType; // 查询对象类型，不填返回所有
-        private String queryValue; // 查询对象ID
-        private Integer pageSize; // 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 查询对象类型，不填返回所有
-         * <p> 示例值：1
-         *
-         * @param queryType
-         * @return
-         */
-        public Builder queryType(Integer queryType) {
-            this.queryType = queryType;
-            return this;
-        }
-
-        /**
-         * 查询对象类型，不填返回所有
-         * <p> 示例值：1
-         *
-         * @param queryType {@link com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum}
-         * @return
-         */
-        public Builder queryType(com.lark.oapi.service.vc.v1.enums.ListAlertGetAlertHistoryQueryTypeEnum queryType) {
-            this.queryType = queryType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 查询对象ID
-         * <p> 示例值：6911188411932033028
-         *
-         * @param queryValue
-         * @return
-         */
-        public Builder queryValue(String queryValue) {
-            this.queryValue = queryValue;
-            return this;
-        }
-
-
-        /**
-         * 请求期望返回的告警记录数量，不足则返回全部，该值默认为 100，最大为 1000
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：100
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        public ListAlertReq build() {
-            return new ListAlertReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,169 +13,228 @@
 
 package com.lark.oapi.service.performance.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.performance.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.performance.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class AdditionalInformation {
-    private static final Logger log = LoggerFactory.getLogger(AdditionalInformation.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(AdditionalInformation.class);
+  private final Config config;
 
-    public AdditionalInformation(Config config) {
-        this.config = config;
+  public AdditionalInformation(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 批量导入补充信息，批量导入被评估人的补充信息作为绩效评估的参考，如补充信息的事项、时间以及具体描述等。该接口支持创建和更新补充信息。
+   *
+   * <p>## 注意事项;该接口执行创建或者更新的判断逻辑如下（按顺序判断）：;;1. 若请求参数 `additional_informations` 中 `item_ids`
+   * 传入系统中已有的补充信息 ID 时，将更新对应的补充消息数据。;2. 若请求参数 `additional_informations` 中 `external_ids`
+   * 传入系统中已有的外部系统补充信息 ID 时，将更新对应的补充消息数据。;3. 若请求参数 `additional_informations` 中
+   * `reviewee_user_id`、`item `、`time `、`detailed_description`
+   * 的参数组合在系统中已存在内容一致的补充消息时，将更新对应的补充消息数据。;4. 以上情况都不符合时，创建新的补充消息数据。; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java</a>
+   * ;
+   */
+  public ImportAdditionalInformationResp import_(
+      ImportAdditionalInformationReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/performance/v2/additional_informations/import",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，可批量导入被评估人的补充信息作为评估参考（包括新增和更新场景）
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java</a> ;
-     */
-    public ImportAdditionalInformationResp import_(ImportAdditionalInformationReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/performance/v2/additional_informations/import"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        ImportAdditionalInformationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ImportAdditionalInformationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/performance/v2/additional_informations/import"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ImportAdditionalInformationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ImportAdditionalInformationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/performance/v2/additional_informations/import",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，可批量导入被评估人的补充信息作为评估参考（包括新增和更新场景）
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java</a> ;
-     */
-    public ImportAdditionalInformationResp import_(ImportAdditionalInformationReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/performance/v2/additional_informations/import"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ImportAdditionalInformationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ImportAdditionalInformationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/performance/v2/additional_informations/import"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量导入补充信息，批量导入被评估人的补充信息作为绩效评估的参考，如补充信息的事项、时间以及具体描述等。该接口支持创建和更新补充信息。
+   *
+   * <p>## 注意事项;该接口执行创建或者更新的判断逻辑如下（按顺序判断）：;;1. 若请求参数 `additional_informations` 中 `item_ids`
+   * 传入系统中已有的补充信息 ID 时，将更新对应的补充消息数据。;2. 若请求参数 `additional_informations` 中 `external_ids`
+   * 传入系统中已有的外部系统补充信息 ID 时，将更新对应的补充消息数据。;3. 若请求参数 `additional_informations` 中
+   * `reviewee_user_id`、`item `、`time `、`detailed_description`
+   * 的参数组合在系统中已存在内容一致的补充消息时，将更新对应的补充消息数据。;4. 以上情况都不符合时，创建新的补充消息数据。; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=import&project=performance&resource=additional_information&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/ImportAdditionalInformationSample.java</a>
+   * ;
+   */
+  public ImportAdditionalInformationResp import_(ImportAdditionalInformationReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/performance/v2/additional_informations/import",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    ImportAdditionalInformationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ImportAdditionalInformationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/performance/v2/additional_informations/import",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，可批量查询被评估人的补充信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java</a> ;
-     */
-    public QueryAdditionalInformationResp query(QueryAdditionalInformationReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/performance/v2/additional_informations/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        QueryAdditionalInformationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryAdditionalInformationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/performance/v2/additional_informations/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询补充信息，批量查询被评估人的补充信息，如补充信息的事项、时间以及具体描述等。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java</a>
+   * ;
+   */
+  public QueryAdditionalInformationResp query(
+      QueryAdditionalInformationReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，可批量查询被评估人的补充信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java</a> ;
-     */
-    public QueryAdditionalInformationResp query(QueryAdditionalInformationReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/performance/v2/additional_informations/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/performance/v2/additional_informations/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        QueryAdditionalInformationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryAdditionalInformationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/performance/v2/additional_informations/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    QueryAdditionalInformationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryAdditionalInformationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/performance/v2/additional_informations/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量查询补充信息，批量查询被评估人的补充信息，如补充信息的事项、时间以及具体描述等。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=performance&resource=additional_information&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/performancev2/QueryAdditionalInformationSample.java</a>
+   * ;
+   */
+  public QueryAdditionalInformationResp query(QueryAdditionalInformationReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/performance/v2/additional_informations/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    QueryAdditionalInformationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryAdditionalInformationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/performance/v2/additional_informations/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

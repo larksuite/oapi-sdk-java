@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCountryRegionRespBody {
-    /**
-     * 国家/地区目录列表
-     * <p> 示例值：
-     */
-    @SerializedName("data")
-    private CountryRegion[] data;
-    /**
-     * 总数
-     * <p> 示例值：0
-     */
-    @SerializedName("total")
-    private String total;
-    /**
-     * 下一次分页参数
-     * <p> 示例值：token
-     */
-    @SerializedName("next_page_token")
-    private String nextPageToken;
+  /**
+   * 国家/地区目录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data")
+  private CountryRegion[] data;
 
-    public CountryRegion[] getData() {
-        return this.data;
-    }
+  /**
+   * 总数
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("total")
+  private String total;
 
-    public void setData(CountryRegion[] data) {
-        this.data = data;
-    }
+  /**
+   * 下一次分页参数
+   *
+   * <p>示例值：token
+   */
+  @SerializedName("next_page_token")
+  private String nextPageToken;
 
-    public String getTotal() {
-        return this.total;
-    }
+  public CountryRegion[] getData() {
+    return this.data;
+  }
 
-    public void setTotal(String total) {
-        this.total = total;
-    }
+  public void setData(CountryRegion[] data) {
+    this.data = data;
+  }
 
-    public String getNextPageToken() {
-        return this.nextPageToken;
-    }
+  public String getTotal() {
+    return this.total;
+  }
 
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
-    }
+  public void setTotal(String total) {
+    this.total = total;
+  }
 
+  public String getNextPageToken() {
+    return this.nextPageToken;
+  }
+
+  public void setNextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+  }
 }

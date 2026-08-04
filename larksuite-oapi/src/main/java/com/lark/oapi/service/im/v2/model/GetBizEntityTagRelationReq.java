@@ -13,151 +13,151 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v2.enums.*;
 
 public class GetBizEntityTagRelationReq {
+  /**
+   * 业务类型
+   *
+   * <p>示例值：chat
+   */
+  @Query
+  @SerializedName("tag_biz_type")
+  private String tagBizType;
+
+  /**
+   * 业务实体id
+   *
+   * <p>示例值：71616xxxx
+   */
+  @Query
+  @SerializedName("biz_entity_id")
+  private String bizEntityId;
+
+  /**
+   * 机器人id
+   *
+   * <p>示例值：71616xxxx
+   */
+  @Query
+  @SerializedName("bot_id")
+  private String botId;
+
+  public String getTagBizType() {
+    return this.tagBizType;
+  }
+
+  public void setTagBizType(String tagBizType) {
+    this.tagBizType = tagBizType;
+  }
+
+  public String getBizEntityId() {
+    return this.bizEntityId;
+  }
+
+  public void setBizEntityId(String bizEntityId) {
+    this.bizEntityId = bizEntityId;
+  }
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  // builder 开始
+  public GetBizEntityTagRelationReq() {}
+
+  public GetBizEntityTagRelationReq(Builder builder) {
     /**
      * 业务类型
-     * <p> 示例值：chat
+     *
+     * <p>示例值：chat
      */
-    @Query
-    @SerializedName("tag_biz_type")
-    private String tagBizType;
+    this.tagBizType = builder.tagBizType;
     /**
      * 业务实体id
-     * <p> 示例值：71616xxxx
+     *
+     * <p>示例值：71616xxxx
      */
-    @Query
-    @SerializedName("biz_entity_id")
-    private String bizEntityId;
+    this.bizEntityId = builder.bizEntityId;
     /**
      * 机器人id
-     * <p> 示例值：71616xxxx
+     *
+     * <p>示例值：71616xxxx
      */
-    @Query
-    @SerializedName("bot_id")
-    private String botId;
+    this.botId = builder.botId;
+  }
 
-    // builder 开始
-    public GetBizEntityTagRelationReq() {
+  public static class Builder {
+    private String tagBizType; // 业务类型
+    private String bizEntityId; // 业务实体id
+    private String botId; // 机器人id
+
+    /**
+     * 业务类型
+     *
+     * <p>示例值：chat
+     *
+     * @param tagBizType
+     * @return
+     */
+    public Builder tagBizType(String tagBizType) {
+      this.tagBizType = tagBizType;
+      return this;
     }
 
-    public GetBizEntityTagRelationReq(Builder builder) {
-        /**
-         * 业务类型
-         * <p> 示例值：chat
-         */
-        this.tagBizType = builder.tagBizType;
-        /**
-         * 业务实体id
-         * <p> 示例值：71616xxxx
-         */
-        this.bizEntityId = builder.bizEntityId;
-        /**
-         * 机器人id
-         * <p> 示例值：71616xxxx
-         */
-        this.botId = builder.botId;
+    /**
+     * 业务类型
+     *
+     * <p>示例值：chat
+     *
+     * @param tagBizType {@link
+     *     com.lark.oapi.service.im.v2.enums.GetBizEntityTagRelationTagBizTypeEnum}
+     * @return
+     */
+    public Builder tagBizType(
+        com.lark.oapi.service.im.v2.enums.GetBizEntityTagRelationTagBizTypeEnum tagBizType) {
+      this.tagBizType = tagBizType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 业务实体id
+     *
+     * <p>示例值：71616xxxx
+     *
+     * @param bizEntityId
+     * @return
+     */
+    public Builder bizEntityId(String bizEntityId) {
+      this.bizEntityId = bizEntityId;
+      return this;
     }
 
-    public String getTagBizType() {
-        return this.tagBizType;
+    /**
+     * 机器人id
+     *
+     * <p>示例值：71616xxxx
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public void setTagBizType(String tagBizType) {
-        this.tagBizType = tagBizType;
+    public GetBizEntityTagRelationReq build() {
+      return new GetBizEntityTagRelationReq(this);
     }
+  }
 
-    public String getBizEntityId() {
-        return this.bizEntityId;
-    }
-
-    public void setBizEntityId(String bizEntityId) {
-        this.bizEntityId = bizEntityId;
-    }
-
-    public String getBotId() {
-        return this.botId;
-    }
-
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
-    public static class Builder {
-        private String tagBizType; // 业务类型
-        private String bizEntityId; // 业务实体id
-        private String botId; // 机器人id
-
-        /**
-         * 业务类型
-         * <p> 示例值：chat
-         *
-         * @param tagBizType
-         * @return
-         */
-        public Builder tagBizType(String tagBizType) {
-            this.tagBizType = tagBizType;
-            return this;
-        }
-
-        /**
-         * 业务类型
-         * <p> 示例值：chat
-         *
-         * @param tagBizType {@link com.lark.oapi.service.im.v2.enums.GetBizEntityTagRelationTagBizTypeEnum}
-         * @return
-         */
-        public Builder tagBizType(com.lark.oapi.service.im.v2.enums.GetBizEntityTagRelationTagBizTypeEnum tagBizType) {
-            this.tagBizType = tagBizType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 业务实体id
-         * <p> 示例值：71616xxxx
-         *
-         * @param bizEntityId
-         * @return
-         */
-        public Builder bizEntityId(String bizEntityId) {
-            this.bizEntityId = bizEntityId;
-            return this;
-        }
-
-
-        /**
-         * 机器人id
-         * <p> 示例值：71616xxxx
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        public GetBizEntityTagRelationReq build() {
-            return new GetBizEntityTagRelationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

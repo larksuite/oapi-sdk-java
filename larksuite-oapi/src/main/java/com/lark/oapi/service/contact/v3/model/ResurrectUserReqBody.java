@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResurrectUserReqBody {
+  /**
+   * 用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。;;**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departments")
+  private UserDepartmentInfo[] departments;
+
+  /**
+   * 如果用户正常状态时分配了[席位](https://www.feishu.cn/hc/zh-CN/articles/548377434838)，则可以通过该参数指定恢复后分配的席位
+   * ID。待分配席位 ID
+   * 获取方式参见[获取企业席位信息接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。;;**注意**：;-
+   * 该字段需开通 **分配用户席位** 权限。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscription_ids")
+  private String[] subscriptionIds;
+
+  public UserDepartmentInfo[] getDepartments() {
+    return this.departments;
+  }
+
+  public void setDepartments(UserDepartmentInfo[] departments) {
+    this.departments = departments;
+  }
+
+  public String[] getSubscriptionIds() {
+    return this.subscriptionIds;
+  }
+
+  public void setSubscriptionIds(String[] subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+  }
+
+  // builder 开始
+  public ResurrectUserReqBody() {}
+
+  public ResurrectUserReqBody(Builder builder) {
     /**
-     * 指定恢复后用户所在部门
-     * <p> 示例值：
+     * 用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。;;**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。
+     *
+     * <p>示例值：
      */
-    @SerializedName("departments")
+    this.departments = builder.departments;
+    /**
+     * 如果用户正常状态时分配了[席位](https://www.feishu.cn/hc/zh-CN/articles/548377434838)，则可以通过该参数指定恢复后分配的席位
+     * ID。待分配席位 ID
+     * 获取方式参见[获取企业席位信息接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。;;**注意**：;-
+     * 该字段需开通 **分配用户席位** 权限。
+     *
+     * <p>示例值：
+     */
+    this.subscriptionIds = builder.subscriptionIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。;;**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。
+     *
+     * <p>示例值：
+     */
     private UserDepartmentInfo[] departments;
+
     /**
-     * 指定恢复后分配的席位
-     * <p> 示例值：
+     * 如果用户正常状态时分配了[席位](https://www.feishu.cn/hc/zh-CN/articles/548377434838)，则可以通过该参数指定恢复后分配的席位
+     * ID。待分配席位 ID
+     * 获取方式参见[获取企业席位信息接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。;;**注意**：;-
+     * 该字段需开通 **分配用户席位** 权限。
+     *
+     * <p>示例值：
      */
-    @SerializedName("subscription_ids")
     private String[] subscriptionIds;
 
-    // builder 开始
-    public ResurrectUserReqBody() {
+    /**
+     * 用户排序信息。用户可能存在多个部门中，且有不同的排序，该参数用于设置用户部门排序。;;**说明**：如果请求时不传入 departments 参数，则用户将恢复至根部门。
+     *
+     * <p>示例值：
+     *
+     * @param departments
+     * @return
+     */
+    public Builder departments(UserDepartmentInfo[] departments) {
+      this.departments = departments;
+      return this;
     }
 
-    public ResurrectUserReqBody(Builder builder) {
-        /**
-         * 指定恢复后用户所在部门
-         * <p> 示例值：
-         */
-        this.departments = builder.departments;
-        /**
-         * 指定恢复后分配的席位
-         * <p> 示例值：
-         */
-        this.subscriptionIds = builder.subscriptionIds;
+    /**
+     * 如果用户正常状态时分配了[席位](https://www.feishu.cn/hc/zh-CN/articles/548377434838)，则可以通过该参数指定恢复后分配的席位
+     * ID。待分配席位 ID
+     * 获取方式参见[获取企业席位信息接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。;;**注意**：;-
+     * 该字段需开通 **分配用户席位** 权限。
+     *
+     * <p>示例值：
+     *
+     * @param subscriptionIds
+     * @return
+     */
+    public Builder subscriptionIds(String[] subscriptionIds) {
+      this.subscriptionIds = subscriptionIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ResurrectUserReqBody build() {
+      return new ResurrectUserReqBody(this);
     }
+  }
 
-    public UserDepartmentInfo[] getDepartments() {
-        return this.departments;
-    }
-
-    public void setDepartments(UserDepartmentInfo[] departments) {
-        this.departments = departments;
-    }
-
-    public String[] getSubscriptionIds() {
-        return this.subscriptionIds;
-    }
-
-    public void setSubscriptionIds(String[] subscriptionIds) {
-        this.subscriptionIds = subscriptionIds;
-    }
-
-    public static class Builder {
-        /**
-         * 指定恢复后用户所在部门
-         * <p> 示例值：
-         */
-        private UserDepartmentInfo[] departments;
-        /**
-         * 指定恢复后分配的席位
-         * <p> 示例值：
-         */
-        private String[] subscriptionIds;
-
-        /**
-         * 指定恢复后用户所在部门
-         * <p> 示例值：
-         *
-         * @param departments
-         * @return
-         */
-        public Builder departments(UserDepartmentInfo[] departments) {
-            this.departments = departments;
-            return this;
-        }
-
-
-        /**
-         * 指定恢复后分配的席位
-         * <p> 示例值：
-         *
-         * @param subscriptionIds
-         * @return
-         */
-        public Builder subscriptionIds(String[] subscriptionIds) {
-            this.subscriptionIds = subscriptionIds;
-            return this;
-        }
-
-
-        public ResurrectUserReqBody build() {
-            return new ResurrectUserReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

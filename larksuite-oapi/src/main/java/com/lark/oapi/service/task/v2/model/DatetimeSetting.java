@@ -13,75 +13,81 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DatetimeSetting {
+  /**
+   * 日期时间格式，支持;<md-enum>;<md-enum-item key="yyyy-mm-dd"
+   * >以短横分隔的年月日，例如2023-08-24</md-enum-item>;<md-enum-item key="yyyy/mm/dd"
+   * >以斜杠分隔的年月日，例如2023/08/04</md-enum-item>;<md-enum-item key="mm/dd/yyyy"
+   * >以斜杠分隔的月日年，例如08/24/2023</md-enum-item>;<md-enum-item key="dd/mm/yyyy"
+   * >以斜杠分隔的日月年，例如24/08/2023</md-enum-item>;</md-enum>;;默认为"yyyy-mm-dd"。;;注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+   *
+   * <p>示例值：yyyy/mm/dd
+   */
+  @SerializedName("format")
+  private String format;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  // builder 开始
+  public DatetimeSetting() {}
+
+  public DatetimeSetting(Builder builder) {
     /**
-     * 日期显示格式
-     * <p> 示例值：yyyy/mm/dd
+     * 日期时间格式，支持;<md-enum>;<md-enum-item key="yyyy-mm-dd"
+     * >以短横分隔的年月日，例如2023-08-24</md-enum-item>;<md-enum-item key="yyyy/mm/dd"
+     * >以斜杠分隔的年月日，例如2023/08/04</md-enum-item>;<md-enum-item key="mm/dd/yyyy"
+     * >以斜杠分隔的月日年，例如08/24/2023</md-enum-item>;<md-enum-item key="dd/mm/yyyy"
+     * >以斜杠分隔的日月年，例如24/08/2023</md-enum-item>;</md-enum>;;默认为"yyyy-mm-dd"。;;注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：yyyy/mm/dd
      */
-    @SerializedName("format")
+    this.format = builder.format;
+  }
+
+  public static class Builder {
+    /**
+     * 日期时间格式，支持;<md-enum>;<md-enum-item key="yyyy-mm-dd"
+     * >以短横分隔的年月日，例如2023-08-24</md-enum-item>;<md-enum-item key="yyyy/mm/dd"
+     * >以斜杠分隔的年月日，例如2023/08/04</md-enum-item>;<md-enum-item key="mm/dd/yyyy"
+     * >以斜杠分隔的月日年，例如08/24/2023</md-enum-item>;<md-enum-item key="dd/mm/yyyy"
+     * >以斜杠分隔的日月年，例如24/08/2023</md-enum-item>;</md-enum>;;默认为"yyyy-mm-dd"。;;注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：yyyy/mm/dd
+     */
     private String format;
 
-    // builder 开始
-    public DatetimeSetting() {
+    /**
+     * 日期时间格式，支持;<md-enum>;<md-enum-item key="yyyy-mm-dd"
+     * >以短横分隔的年月日，例如2023-08-24</md-enum-item>;<md-enum-item key="yyyy/mm/dd"
+     * >以斜杠分隔的年月日，例如2023/08/04</md-enum-item>;<md-enum-item key="mm/dd/yyyy"
+     * >以斜杠分隔的月日年，例如08/24/2023</md-enum-item>;<md-enum-item key="dd/mm/yyyy"
+     * >以斜杠分隔的日月年，例如24/08/2023</md-enum-item>;</md-enum>;;默认为"yyyy-mm-dd"。;;注意本设置仅影响App中的时间日期类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：yyyy/mm/dd
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public DatetimeSetting(Builder builder) {
-        /**
-         * 日期显示格式
-         * <p> 示例值：yyyy/mm/dd
-         */
-        this.format = builder.format;
+    public DatetimeSetting build() {
+      return new DatetimeSetting(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFormat() {
-        return this.format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public static class Builder {
-        /**
-         * 日期显示格式
-         * <p> 示例值：yyyy/mm/dd
-         */
-        private String format;
-
-        /**
-         * 日期显示格式
-         * <p> 示例值：yyyy/mm/dd
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-
-        public DatetimeSetting build() {
-            return new DatetimeSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

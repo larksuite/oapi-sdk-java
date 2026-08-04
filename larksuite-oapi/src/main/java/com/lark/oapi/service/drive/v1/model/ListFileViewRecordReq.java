@@ -13,227 +13,255 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class ListFileViewRecordReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：1674037112--7189934631754563585
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 返回的访问者 ID 的类型。;;**当值为`user_id`时，字段权限要求**：;<md-perm name="contact:user.employee_id:readonly"
+   * desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm>
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("viewer_id_type")
+  private String viewerIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getViewerIdType() {
+    return this.viewerIdType;
+  }
+
+  public void setViewerIdType(String viewerIdType) {
+    this.viewerIdType = viewerIdType;
+  }
+
+  /**
+   * 文件
+   * token。获取方式参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+   *
+   * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public ListFileViewRecordReq() {}
+
+  public ListFileViewRecordReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：1674037112--7189934631754563585
+     *
+     * <p>示例值：1674037112--7189934631754563585
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 文档类型
-     * <p> 示例值：docx
+     * 文件类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
-     * 此次调用中使用的访问者 ID 的类型
-     * <p> 示例值：open_id
+     * 返回的访问者 ID 的类型。;;**当值为`user_id`时，字段权限要求**：;<md-perm name="contact:user.employee_id:readonly"
+     * desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm>
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("viewer_id_type")
-    private String viewerIdType;
+    this.viewerIdType = builder.viewerIdType;
     /**
-     * 文档 token
-     * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+     * 文件
+     * token。获取方式参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+     *
+     * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public ListFileViewRecordReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String fileType; // 文件类型
+    private String viewerIdType; // 返回的访问者 ID 的类型。;;**当值为`user_id`时，字段权限要求**：;<md-perm
+
+    // name="contact:user.employee_id:readonly" desc="获取用户 user ID"
+    // support_app_types="custom" tags="">获取用户 user ID</md-perm>
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListFileViewRecordReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1674037112--7189934631754563585
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 此次调用中使用的访问者 ID 的类型
-         * <p> 示例值：open_id
-         */
-        this.viewerIdType = builder.viewerIdType;
-        /**
-         * 文档 token
-         * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
-         */
-        this.fileToken = builder.fileToken;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1674037112--7189934631754563585
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 文件类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 返回的访问者 ID 的类型。;;**当值为`user_id`时，字段权限要求**：;<md-perm name="contact:user.employee_id:readonly"
+     * desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm>
+     *
+     * <p>示例值：open_id
+     *
+     * @param viewerIdType
+     * @return
+     */
+    public Builder viewerIdType(String viewerIdType) {
+      this.viewerIdType = viewerIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 返回的访问者 ID 的类型。;;**当值为`user_id`时，字段权限要求**：;<md-perm name="contact:user.employee_id:readonly"
+     * desc="获取用户 user ID" support_app_types="custom" tags="">获取用户 user ID</md-perm>
+     *
+     * <p>示例值：open_id
+     *
+     * @param viewerIdType {@link
+     *     com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum}
+     * @return
+     */
+    public Builder viewerIdType(
+        com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum viewerIdType) {
+      this.viewerIdType = viewerIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    private String fileToken; // 文件
+
+    // token。获取方式参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+
+    /**
+     * 文件
+     * token。获取方式参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+     *
+     * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    public ListFileViewRecordReq build() {
+      return new ListFileViewRecordReq(this);
     }
+  }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getViewerIdType() {
-        return this.viewerIdType;
-    }
-
-    public void setViewerIdType(String viewerIdType) {
-        this.viewerIdType = viewerIdType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String fileType; // 文档类型
-        private String viewerIdType; // 此次调用中使用的访问者 ID 的类型
-        private String fileToken; // 文档 token
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1674037112--7189934631754563585
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的访问者 ID 的类型
-         * <p> 示例值：open_id
-         *
-         * @param viewerIdType
-         * @return
-         */
-        public Builder viewerIdType(String viewerIdType) {
-            this.viewerIdType = viewerIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的访问者 ID 的类型
-         * <p> 示例值：open_id
-         *
-         * @param viewerIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum}
-         * @return
-         */
-        public Builder viewerIdType(com.lark.oapi.service.drive.v1.enums.ListFileViewRecordViewerIdTypeEnum viewerIdType) {
-            this.viewerIdType = viewerIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 文档 token
-         * <p> 示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public ListFileViewRecordReq build() {
-            return new ListFileViewRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

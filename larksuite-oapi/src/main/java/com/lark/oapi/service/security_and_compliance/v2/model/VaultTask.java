@@ -13,404 +13,387 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VaultTask {
+  /**
+   * 任务id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /** 示例值： */
+  @SerializedName("status")
+  private String status;
+
+  /** 示例值： */
+  @SerializedName("fail_reason")
+  private String failReason;
+
+  /** 示例值： */
+  @SerializedName("expire_time")
+  private String expireTime;
+
+  /**
+   * 压缩包解压密码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extract_key")
+  private String extractKey;
+
+  /** 示例值： */
+  @SerializedName("files")
+  private VaultTaskFile[] files;
+
+  /** 示例值： */
+  @SerializedName("creator")
+  private User creator;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getFailReason() {
+    return this.failReason;
+  }
+
+  public void setFailReason(String failReason) {
+    this.failReason = failReason;
+  }
+
+  public String getExpireTime() {
+    return this.expireTime;
+  }
+
+  public void setExpireTime(String expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  public String getExtractKey() {
+    return this.extractKey;
+  }
+
+  public void setExtractKey(String extractKey) {
+    this.extractKey = extractKey;
+  }
+
+  public VaultTaskFile[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(VaultTaskFile[] files) {
+    this.files = files;
+  }
+
+  public User getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(User creator) {
+    this.creator = creator;
+  }
+
+  // builder 开始
+  public VaultTask() {}
+
+  public VaultTask(Builder builder) {
     /**
      * 任务id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 创建时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_time")
-    private String updateTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("fail_reason")
-    private String failReason;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("expire_time")
-    private String expireTime;
+    this.updateTime = builder.updateTime;
+    /** 示例值： */
+    this.status = builder.status;
+    /** 示例值： */
+    this.failReason = builder.failReason;
+    /** 示例值： */
+    this.expireTime = builder.expireTime;
     /**
      * 压缩包解压密码
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("extract_key")
+    this.extractKey = builder.extractKey;
+    /** 示例值： */
+    this.files = builder.files;
+    /** 示例值： */
+    this.creator = builder.creator;
+  }
+
+  public static class Builder {
+    /**
+     * 任务id
+     *
+     * <p>示例值：
+     */
+    private String taskId;
+
+    /**
+     * 任务名
+     *
+     * <p>示例值：
+     */
+    private String name;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：
+     */
+    private String updateTime;
+
+    /** 示例值： */
+    private String status;
+
+    /** 示例值： */
+    private String failReason;
+
+    /** 示例值： */
+    private String expireTime;
+
+    /**
+     * 压缩包解压密码
+     *
+     * <p>示例值：
+     */
     private String extractKey;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("files")
+
+    /** 示例值： */
     private VaultTaskFile[] files;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("creator")
+
+    /** 示例值： */
     private User creator;
 
-    // builder 开始
-    public VaultTask() {
+    /**
+     * 任务id
+     *
+     * <p>示例值：
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public VaultTask(Builder builder) {
-        /**
-         * 任务id
-         * <p> 示例值：
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.failReason = builder.failReason;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * 压缩包解压密码
-         * <p> 示例值：
-         */
-        this.extractKey = builder.extractKey;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
+    /**
+     * 任务名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建时间
+     *
+     * <p>示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    /**
+     * 示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 示例值：
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.VaultTaskExportTaskStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.security_and_compliance.v2.enums.VaultTaskExportTaskStatusEnum
+            status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 示例值：
+     *
+     * @param failReason
+     * @return
+     */
+    public Builder failReason(String failReason) {
+      this.failReason = failReason;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 示例值：
+     *
+     * @param expireTime
+     * @return
+     */
+    public Builder expireTime(String expireTime) {
+      this.expireTime = expireTime;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 压缩包解压密码
+     *
+     * <p>示例值：
+     *
+     * @param extractKey
+     * @return
+     */
+    public Builder extractKey(String extractKey) {
+      this.extractKey = extractKey;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(VaultTaskFile[] files) {
+      this.files = files;
+      return this;
     }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(User creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    public VaultTask build() {
+      return new VaultTask(this);
     }
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getFailReason() {
-        return this.failReason;
-    }
-
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public String getExpireTime() {
-        return this.expireTime;
-    }
-
-    public void setExpireTime(String expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public String getExtractKey() {
-        return this.extractKey;
-    }
-
-    public void setExtractKey(String extractKey) {
-        this.extractKey = extractKey;
-    }
-
-    public VaultTaskFile[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(VaultTaskFile[] files) {
-        this.files = files;
-    }
-
-    public User getCreator() {
-        return this.creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
-    public static class Builder {
-        /**
-         * 任务id
-         * <p> 示例值：
-         */
-        private String taskId;
-        /**
-         * 任务名
-         * <p> 示例值：
-         */
-        private String name;
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：
-         */
-        private String updateTime;
-        /**
-         * <p> 示例值：
-         */
-        private String status;
-        /**
-         * <p> 示例值：
-         */
-        private String failReason;
-        /**
-         * <p> 示例值：
-         */
-        private String expireTime;
-        /**
-         * 压缩包解压密码
-         * <p> 示例值：
-         */
-        private String extractKey;
-        /**
-         * <p> 示例值：
-         */
-        private VaultTaskFile[] files;
-        /**
-         * <p> 示例值：
-         */
-        private User creator;
-
-        /**
-         * 任务id
-         * <p> 示例值：
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param status {@link com.lark.oapi.service.security_and_compliance.v2.enums.VaultTaskExportTaskStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.security_and_compliance.v2.enums.VaultTaskExportTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param failReason
-         * @return
-         */
-        public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param expireTime
-         * @return
-         */
-        public Builder expireTime(String expireTime) {
-            this.expireTime = expireTime;
-            return this;
-        }
-
-
-        /**
-         * 压缩包解压密码
-         * <p> 示例值：
-         *
-         * @param extractKey
-         * @return
-         */
-        public Builder extractKey(String extractKey) {
-            this.extractKey = extractKey;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(VaultTaskFile[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(User creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        public VaultTask build() {
-            return new VaultTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

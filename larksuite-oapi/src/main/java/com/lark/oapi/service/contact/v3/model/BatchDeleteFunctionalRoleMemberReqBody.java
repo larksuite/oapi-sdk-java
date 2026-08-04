@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteFunctionalRoleMemberReqBody {
+  /**
+   * 待删除角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private String[] members;
+
+  public String[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(String[] members) {
+    this.members = members;
+  }
+
+  // builder 开始
+  public BatchDeleteFunctionalRoleMemberReqBody() {}
+
+  public BatchDeleteFunctionalRoleMemberReqBody(Builder builder) {
     /**
-     * 角色删除的角色成员列表（一批用户的UserID列表)
-     * <p> 示例值：
+     * 待删除角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
+    this.members = builder.members;
+  }
+
+  public static class Builder {
+    /**
+     * 待删除角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
+     */
     private String[] members;
 
-    // builder 开始
-    public BatchDeleteFunctionalRoleMemberReqBody() {
+    /**
+     * 待删除角色成员的用户 ID 列表，以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(String[] members) {
+      this.members = members;
+      return this;
     }
 
-    public BatchDeleteFunctionalRoleMemberReqBody(Builder builder) {
-        /**
-         * 角色删除的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         */
-        this.members = builder.members;
+    public BatchDeleteFunctionalRoleMemberReqBody build() {
+      return new BatchDeleteFunctionalRoleMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(String[] members) {
-        this.members = members;
-    }
-
-    public static class Builder {
-        /**
-         * 角色删除的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         */
-        private String[] members;
-
-        /**
-         * 角色删除的角色成员列表（一批用户的UserID列表)
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(String[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        public BatchDeleteFunctionalRoleMemberReqBody build() {
-            return new BatchDeleteFunctionalRoleMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

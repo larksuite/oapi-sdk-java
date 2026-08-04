@@ -13,334 +13,401 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceParam {
+  /**
+   * 云空间文档
+   *
+   * <p>示例值：
+   */
+  @SerializedName("space")
+  private EnterpriseKnowledgeSourceSpaceParam space;
+
+  /**
+   * 知识库文档
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wiki")
+  private EnterpriseKnowledgeSourceWikiParam wiki;
+
+  /**
+   * 消息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message")
+  private EnterpriseKnowledgeSourceMessageParam message;
+
+  /**
+   * 服务台 FAQ
+   *
+   * <p>示例值：
+   */
+  @SerializedName("helpdesk_faq")
+  private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
+
+  /**
+   * Lingo 企业词典
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lingo")
+  private EnterpriseKnowledgeSourceLingoParam lingo;
+
+  /**
+   * 文档评论
+   *
+   * <p>示例值：
+   */
+  @SerializedName("comment")
+  private EnterpriseKnowledgeSourceCommentParam comment;
+
+  /**
+   * 飞书妙记
+   *
+   * <p>示例值：
+   */
+  @SerializedName("minutes")
+  private EnterpriseKnowledgeSourceMinutesParam minutes;
+
+  /**
+   * 邮件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mail")
+  private EnterpriseKnowledgeSourceMailParam mail;
+
+  /**
+   * 审批流程搜索配置，用于控制是否在企业知识搜索范围内包含审批流程相关内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approval")
+  private EnterpriseKnowledgeSourceApprovalParam approval;
+
+  public EnterpriseKnowledgeSourceSpaceParam getSpace() {
+    return this.space;
+  }
+
+  public void setSpace(EnterpriseKnowledgeSourceSpaceParam space) {
+    this.space = space;
+  }
+
+  public EnterpriseKnowledgeSourceWikiParam getWiki() {
+    return this.wiki;
+  }
+
+  public void setWiki(EnterpriseKnowledgeSourceWikiParam wiki) {
+    this.wiki = wiki;
+  }
+
+  public EnterpriseKnowledgeSourceMessageParam getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(EnterpriseKnowledgeSourceMessageParam message) {
+    this.message = message;
+  }
+
+  public EnterpriseKnowledgeSourceHelpdeskParam getHelpdeskFaq() {
+    return this.helpdeskFaq;
+  }
+
+  public void setHelpdeskFaq(EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq) {
+    this.helpdeskFaq = helpdeskFaq;
+  }
+
+  public EnterpriseKnowledgeSourceLingoParam getLingo() {
+    return this.lingo;
+  }
+
+  public void setLingo(EnterpriseKnowledgeSourceLingoParam lingo) {
+    this.lingo = lingo;
+  }
+
+  public EnterpriseKnowledgeSourceCommentParam getComment() {
+    return this.comment;
+  }
+
+  public void setComment(EnterpriseKnowledgeSourceCommentParam comment) {
+    this.comment = comment;
+  }
+
+  public EnterpriseKnowledgeSourceMinutesParam getMinutes() {
+    return this.minutes;
+  }
+
+  public void setMinutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
+    this.minutes = minutes;
+  }
+
+  public EnterpriseKnowledgeSourceMailParam getMail() {
+    return this.mail;
+  }
+
+  public void setMail(EnterpriseKnowledgeSourceMailParam mail) {
+    this.mail = mail;
+  }
+
+  public EnterpriseKnowledgeSourceApprovalParam getApproval() {
+    return this.approval;
+  }
+
+  public void setApproval(EnterpriseKnowledgeSourceApprovalParam approval) {
+    this.approval = approval;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceParam() {}
+
+  public EnterpriseKnowledgeSourceParam(Builder builder) {
     /**
      * 云空间文档
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("space")
-    private EnterpriseKnowledgeSourceSpaceParam space;
+    this.space = builder.space;
     /**
      * 知识库文档
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("wiki")
-    private EnterpriseKnowledgeSourceWikiParam wiki;
+    this.wiki = builder.wiki;
     /**
      * 消息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message")
-    private EnterpriseKnowledgeSourceMessageParam message;
+    this.message = builder.message;
     /**
      * 服务台 FAQ
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("helpdesk_faq")
-    private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
+    this.helpdeskFaq = builder.helpdeskFaq;
     /**
-     * Lingo企业词典
-     * <p> 示例值：
+     * Lingo 企业词典
+     *
+     * <p>示例值：
      */
-    @SerializedName("lingo")
-    private EnterpriseKnowledgeSourceLingoParam lingo;
+    this.lingo = builder.lingo;
     /**
      * 文档评论
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("comment")
-    private EnterpriseKnowledgeSourceCommentParam comment;
+    this.comment = builder.comment;
     /**
      * 飞书妙记
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("minutes")
-    private EnterpriseKnowledgeSourceMinutesParam minutes;
+    this.minutes = builder.minutes;
     /**
      * 邮件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mail")
+    this.mail = builder.mail;
+    /**
+     * 审批流程搜索配置，用于控制是否在企业知识搜索范围内包含审批流程相关内容
+     *
+     * <p>示例值：
+     */
+    this.approval = builder.approval;
+  }
+
+  public static class Builder {
+    /**
+     * 云空间文档
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceSpaceParam space;
+
+    /**
+     * 知识库文档
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceWikiParam wiki;
+
+    /**
+     * 消息
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceMessageParam message;
+
+    /**
+     * 服务台 FAQ
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
+
+    /**
+     * Lingo 企业词典
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceLingoParam lingo;
+
+    /**
+     * 文档评论
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceCommentParam comment;
+
+    /**
+     * 飞书妙记
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceMinutesParam minutes;
+
+    /**
+     * 邮件
+     *
+     * <p>示例值：
+     */
     private EnterpriseKnowledgeSourceMailParam mail;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceParam() {
+    /**
+     * 审批流程搜索配置，用于控制是否在企业知识搜索范围内包含审批流程相关内容
+     *
+     * <p>示例值：
+     */
+    private EnterpriseKnowledgeSourceApprovalParam approval;
+
+    /**
+     * 云空间文档
+     *
+     * <p>示例值：
+     *
+     * @param space
+     * @return
+     */
+    public Builder space(EnterpriseKnowledgeSourceSpaceParam space) {
+      this.space = space;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceParam(Builder builder) {
-        /**
-         * 云空间文档
-         * <p> 示例值：
-         */
-        this.space = builder.space;
-        /**
-         * 知识库文档
-         * <p> 示例值：
-         */
-        this.wiki = builder.wiki;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
-        this.message = builder.message;
-        /**
-         * 服务台 FAQ
-         * <p> 示例值：
-         */
-        this.helpdeskFaq = builder.helpdeskFaq;
-        /**
-         * Lingo企业词典
-         * <p> 示例值：
-         */
-        this.lingo = builder.lingo;
-        /**
-         * 文档评论
-         * <p> 示例值：
-         */
-        this.comment = builder.comment;
-        /**
-         * 飞书妙记
-         * <p> 示例值：
-         */
-        this.minutes = builder.minutes;
-        /**
-         * 邮件
-         * <p> 示例值：
-         */
-        this.mail = builder.mail;
+    /**
+     * 知识库文档
+     *
+     * <p>示例值：
+     *
+     * @param wiki
+     * @return
+     */
+    public Builder wiki(EnterpriseKnowledgeSourceWikiParam wiki) {
+      this.wiki = wiki;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息
+     *
+     * <p>示例值：
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(EnterpriseKnowledgeSourceMessageParam message) {
+      this.message = message;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceSpaceParam getSpace() {
-        return this.space;
+    /**
+     * 服务台 FAQ
+     *
+     * <p>示例值：
+     *
+     * @param helpdeskFaq
+     * @return
+     */
+    public Builder helpdeskFaq(EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq) {
+      this.helpdeskFaq = helpdeskFaq;
+      return this;
     }
 
-    public void setSpace(EnterpriseKnowledgeSourceSpaceParam space) {
-        this.space = space;
+    /**
+     * Lingo 企业词典
+     *
+     * <p>示例值：
+     *
+     * @param lingo
+     * @return
+     */
+    public Builder lingo(EnterpriseKnowledgeSourceLingoParam lingo) {
+      this.lingo = lingo;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceWikiParam getWiki() {
-        return this.wiki;
+    /**
+     * 文档评论
+     *
+     * <p>示例值：
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(EnterpriseKnowledgeSourceCommentParam comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public void setWiki(EnterpriseKnowledgeSourceWikiParam wiki) {
-        this.wiki = wiki;
+    /**
+     * 飞书妙记
+     *
+     * <p>示例值：
+     *
+     * @param minutes
+     * @return
+     */
+    public Builder minutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
+      this.minutes = minutes;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceMessageParam getMessage() {
-        return this.message;
+    /**
+     * 邮件
+     *
+     * <p>示例值：
+     *
+     * @param mail
+     * @return
+     */
+    public Builder mail(EnterpriseKnowledgeSourceMailParam mail) {
+      this.mail = mail;
+      return this;
     }
 
-    public void setMessage(EnterpriseKnowledgeSourceMessageParam message) {
-        this.message = message;
+    /**
+     * 审批流程搜索配置，用于控制是否在企业知识搜索范围内包含审批流程相关内容
+     *
+     * <p>示例值：
+     *
+     * @param approval
+     * @return
+     */
+    public Builder approval(EnterpriseKnowledgeSourceApprovalParam approval) {
+      this.approval = approval;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceHelpdeskParam getHelpdeskFaq() {
-        return this.helpdeskFaq;
+    public EnterpriseKnowledgeSourceParam build() {
+      return new EnterpriseKnowledgeSourceParam(this);
     }
+  }
 
-    public void setHelpdeskFaq(EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq) {
-        this.helpdeskFaq = helpdeskFaq;
-    }
-
-    public EnterpriseKnowledgeSourceLingoParam getLingo() {
-        return this.lingo;
-    }
-
-    public void setLingo(EnterpriseKnowledgeSourceLingoParam lingo) {
-        this.lingo = lingo;
-    }
-
-    public EnterpriseKnowledgeSourceCommentParam getComment() {
-        return this.comment;
-    }
-
-    public void setComment(EnterpriseKnowledgeSourceCommentParam comment) {
-        this.comment = comment;
-    }
-
-    public EnterpriseKnowledgeSourceMinutesParam getMinutes() {
-        return this.minutes;
-    }
-
-    public void setMinutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
-        this.minutes = minutes;
-    }
-
-    public EnterpriseKnowledgeSourceMailParam getMail() {
-        return this.mail;
-    }
-
-    public void setMail(EnterpriseKnowledgeSourceMailParam mail) {
-        this.mail = mail;
-    }
-
-    public static class Builder {
-        /**
-         * 云空间文档
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceSpaceParam space;
-        /**
-         * 知识库文档
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceWikiParam wiki;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceMessageParam message;
-        /**
-         * 服务台 FAQ
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq;
-        /**
-         * Lingo企业词典
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceLingoParam lingo;
-        /**
-         * 文档评论
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceCommentParam comment;
-        /**
-         * 飞书妙记
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceMinutesParam minutes;
-        /**
-         * 邮件
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceMailParam mail;
-
-        /**
-         * 云空间文档
-         * <p> 示例值：
-         *
-         * @param space
-         * @return
-         */
-        public Builder space(EnterpriseKnowledgeSourceSpaceParam space) {
-            this.space = space;
-            return this;
-        }
-
-
-        /**
-         * 知识库文档
-         * <p> 示例值：
-         *
-         * @param wiki
-         * @return
-         */
-        public Builder wiki(EnterpriseKnowledgeSourceWikiParam wiki) {
-            this.wiki = wiki;
-            return this;
-        }
-
-
-        /**
-         * 消息
-         * <p> 示例值：
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(EnterpriseKnowledgeSourceMessageParam message) {
-            this.message = message;
-            return this;
-        }
-
-
-        /**
-         * 服务台 FAQ
-         * <p> 示例值：
-         *
-         * @param helpdeskFaq
-         * @return
-         */
-        public Builder helpdeskFaq(EnterpriseKnowledgeSourceHelpdeskParam helpdeskFaq) {
-            this.helpdeskFaq = helpdeskFaq;
-            return this;
-        }
-
-
-        /**
-         * Lingo企业词典
-         * <p> 示例值：
-         *
-         * @param lingo
-         * @return
-         */
-        public Builder lingo(EnterpriseKnowledgeSourceLingoParam lingo) {
-            this.lingo = lingo;
-            return this;
-        }
-
-
-        /**
-         * 文档评论
-         * <p> 示例值：
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(EnterpriseKnowledgeSourceCommentParam comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 飞书妙记
-         * <p> 示例值：
-         *
-         * @param minutes
-         * @return
-         */
-        public Builder minutes(EnterpriseKnowledgeSourceMinutesParam minutes) {
-            this.minutes = minutes;
-            return this;
-        }
-
-
-        /**
-         * 邮件
-         * <p> 示例值：
-         *
-         * @param mail
-         * @return
-         */
-        public Builder mail(EnterpriseKnowledgeSourceMailParam mail) {
-            this.mail = mail;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceParam build() {
-            return new EnterpriseKnowledgeSourceParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

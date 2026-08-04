@@ -13,25 +13,28 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 组织类型
- */
+/** 组织类型 */
 public enum OrgroleAssignmentOrgOrgTypeEnum {
-    DEPARTMENT("department"), // 部门
-    LOCATION("location"), // 地点
-    CUSTOM_ORG_01("custom_org_01"), // 自定义组织
-    CUSTOM_ORG_02("custom_org_02"), // 自定义组织
-    CUSTOM_ORG_03("custom_org_03"), // 自定义组织
-    CUSTOM_ORG_04("custom_org_04"), // 自定义组织
-    CUSTOM_ORG_05("custom_org_05"), // 自定义组织
-    ;
-    private String value;
+  DEPARTMENT("department"), // 部门
+  LOCATION("location"), // 地点
+  CUSTOM_ORG_01("custom_org_01"), // 自定义组织
+  CUSTOM_ORG_02("custom_org_02"), // 自定义组织
+  CUSTOM_ORG_03("custom_org_03"), // 自定义组织
+  CUSTOM_ORG_04("custom_org_04"), // 自定义组织
+  CUSTOM_ORG_05("custom_org_05"), // 自定义组织
+  CUSTOM_ORG_06("custom_org_06"), // 自定义组织
+  CUSTOM_ORG_07("custom_org_07"), // 自定义组织
+  CUSTOM_ORG_08("custom_org_08"), // 自定义组织
+  CUSTOM_ORG_09("custom_org_09"), // 自定义组织
+  CUSTOM_ORG_10("custom_org_10"), // 自定义组织
+  ;
+  private String value;
 
-    OrgroleAssignmentOrgOrgTypeEnum(String value) {
-        this.value = value;
-    }
+  OrgroleAssignmentOrgOrgTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

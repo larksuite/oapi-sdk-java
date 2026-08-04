@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Rating {
+  /**
+   * 评分的图标，默认为 "star"。枚举值如下所示：;;- star：星星;- heart：爱心;- thumbsup：赞;- fire：火;- smile：笑脸;-
+   * lightning：闪电;- flower：花;- number：数字
+   *
+   * <p>示例值：star
+   */
+  @SerializedName("symbol")
+  private String symbol;
+
+  public String getSymbol() {
+    return this.symbol;
+  }
+
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
+
+  // builder 开始
+  public Rating() {}
+
+  public Rating(Builder builder) {
     /**
-     * 评分字段的符号展示
-     * <p> 示例值：star
+     * 评分的图标，默认为 "star"。枚举值如下所示：;;- star：星星;- heart：爱心;- thumbsup：赞;- fire：火;- smile：笑脸;-
+     * lightning：闪电;- flower：花;- number：数字
+     *
+     * <p>示例值：star
      */
-    @SerializedName("symbol")
+    this.symbol = builder.symbol;
+  }
+
+  public static class Builder {
+    /**
+     * 评分的图标，默认为 "star"。枚举值如下所示：;;- star：星星;- heart：爱心;- thumbsup：赞;- fire：火;- smile：笑脸;-
+     * lightning：闪电;- flower：花;- number：数字
+     *
+     * <p>示例值：star
+     */
     private String symbol;
 
-    // builder 开始
-    public Rating() {
+    /**
+     * 评分的图标，默认为 "star"。枚举值如下所示：;;- star：星星;- heart：爱心;- thumbsup：赞;- fire：火;- smile：笑脸;-
+     * lightning：闪电;- flower：花;- number：数字
+     *
+     * <p>示例值：star
+     *
+     * @param symbol
+     * @return
+     */
+    public Builder symbol(String symbol) {
+      this.symbol = symbol;
+      return this;
     }
 
-    public Rating(Builder builder) {
-        /**
-         * 评分字段的符号展示
-         * <p> 示例值：star
-         */
-        this.symbol = builder.symbol;
+    public Rating build() {
+      return new Rating(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSymbol() {
-        return this.symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public static class Builder {
-        /**
-         * 评分字段的符号展示
-         * <p> 示例值：star
-         */
-        private String symbol;
-
-        /**
-         * 评分字段的符号展示
-         * <p> 示例值：star
-         *
-         * @param symbol
-         * @return
-         */
-        public Builder symbol(String symbol) {
-            this.symbol = symbol;
-            return this;
-        }
-
-
-        public Rating build() {
-            return new Rating(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenAppFeedCardButtons {
+  /**
+   * 按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：;;- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。;-
+   * 在原有按钮的字段配置上做更新，会更新该按钮。;- 清空原有按钮的字段配置，会删除该按钮。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("buttons")
+  private OpenAppFeedCardButton[] buttons;
+
+  public OpenAppFeedCardButton[] getButtons() {
+    return this.buttons;
+  }
+
+  public void setButtons(OpenAppFeedCardButton[] buttons) {
+    this.buttons = buttons;
+  }
+
+  // builder 开始
+  public OpenAppFeedCardButtons() {}
+
+  public OpenAppFeedCardButtons(Builder builder) {
     /**
-     * 按钮组合
-     * <p> 示例值：
+     * 按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：;;- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。;-
+     * 在原有按钮的字段配置上做更新，会更新该按钮。;- 清空原有按钮的字段配置，会删除该按钮。
+     *
+     * <p>示例值：
      */
-    @SerializedName("buttons")
+    this.buttons = builder.buttons;
+  }
+
+  public static class Builder {
+    /**
+     * 按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：;;- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。;-
+     * 在原有按钮的字段配置上做更新，会更新该按钮。;- 清空原有按钮的字段配置，会删除该按钮。
+     *
+     * <p>示例值：
+     */
     private OpenAppFeedCardButton[] buttons;
 
-    // builder 开始
-    public OpenAppFeedCardButtons() {
+    /**
+     * 按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：;;- 在保持原有按钮的字段配置的前提下，新增一个按钮配置会添加一个按钮。;-
+     * 在原有按钮的字段配置上做更新，会更新该按钮。;- 清空原有按钮的字段配置，会删除该按钮。
+     *
+     * <p>示例值：
+     *
+     * @param buttons
+     * @return
+     */
+    public Builder buttons(OpenAppFeedCardButton[] buttons) {
+      this.buttons = buttons;
+      return this;
     }
 
-    public OpenAppFeedCardButtons(Builder builder) {
-        /**
-         * 按钮组合
-         * <p> 示例值：
-         */
-        this.buttons = builder.buttons;
+    public OpenAppFeedCardButtons build() {
+      return new OpenAppFeedCardButtons(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public OpenAppFeedCardButton[] getButtons() {
-        return this.buttons;
-    }
-
-    public void setButtons(OpenAppFeedCardButton[] buttons) {
-        this.buttons = buttons;
-    }
-
-    public static class Builder {
-        /**
-         * 按钮组合
-         * <p> 示例值：
-         */
-        private OpenAppFeedCardButton[] buttons;
-
-        /**
-         * 按钮组合
-         * <p> 示例值：
-         *
-         * @param buttons
-         * @return
-         */
-        public Builder buttons(OpenAppFeedCardButton[] buttons) {
-            this.buttons = buttons;
-            return this;
-        }
-
-
-        public OpenAppFeedCardButtons build() {
-            return new OpenAppFeedCardButtons(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

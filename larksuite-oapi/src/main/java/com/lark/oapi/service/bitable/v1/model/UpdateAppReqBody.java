@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAppReqBody {
+  /**
+   * 新的多维表格名称，不传则不更新名称。
+   *
+   * <p>示例值：新的多维表格名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 多维表格是否开启高级权限。不传则不更新设置。可选值：;- true：开启高级权限;- false：关闭高级权限
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_advanced")
+  private Boolean isAdvanced;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getIsAdvanced() {
+    return this.isAdvanced;
+  }
+
+  public void setIsAdvanced(Boolean isAdvanced) {
+    this.isAdvanced = isAdvanced;
+  }
+
+  // builder 开始
+  public UpdateAppReqBody() {}
+
+  public UpdateAppReqBody(Builder builder) {
     /**
-     * 新的多维表格名字
-     * <p> 示例值：新的多维表格名字
+     * 新的多维表格名称，不传则不更新名称。
+     *
+     * <p>示例值：新的多维表格名称
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 多维表格是否开启高级权限。不传则不更新设置。可选值：;- true：开启高级权限;- false：关闭高级权限
+     *
+     * <p>示例值：true
+     */
+    this.isAdvanced = builder.isAdvanced;
+  }
+
+  public static class Builder {
+    /**
+     * 新的多维表格名称，不传则不更新名称。
+     *
+     * <p>示例值：新的多维表格名称
+     */
     private String name;
+
     /**
-     * 多维表格是否开启高级权限
-     * <p> 示例值：true
+     * 多维表格是否开启高级权限。不传则不更新设置。可选值：;- true：开启高级权限;- false：关闭高级权限
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_advanced")
     private Boolean isAdvanced;
 
-    // builder 开始
-    public UpdateAppReqBody() {
+    /**
+     * 新的多维表格名称，不传则不更新名称。
+     *
+     * <p>示例值：新的多维表格名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public UpdateAppReqBody(Builder builder) {
-        /**
-         * 新的多维表格名字
-         * <p> 示例值：新的多维表格名字
-         */
-        this.name = builder.name;
-        /**
-         * 多维表格是否开启高级权限
-         * <p> 示例值：true
-         */
-        this.isAdvanced = builder.isAdvanced;
+    /**
+     * 多维表格是否开启高级权限。不传则不更新设置。可选值：;- true：开启高级权限;- false：关闭高级权限
+     *
+     * <p>示例值：true
+     *
+     * @param isAdvanced
+     * @return
+     */
+    public Builder isAdvanced(Boolean isAdvanced) {
+      this.isAdvanced = isAdvanced;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateAppReqBody build() {
+      return new UpdateAppReqBody(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getIsAdvanced() {
-        return this.isAdvanced;
-    }
-
-    public void setIsAdvanced(Boolean isAdvanced) {
-        this.isAdvanced = isAdvanced;
-    }
-
-    public static class Builder {
-        /**
-         * 新的多维表格名字
-         * <p> 示例值：新的多维表格名字
-         */
-        private String name;
-        /**
-         * 多维表格是否开启高级权限
-         * <p> 示例值：true
-         */
-        private Boolean isAdvanced;
-
-        /**
-         * 新的多维表格名字
-         * <p> 示例值：新的多维表格名字
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 多维表格是否开启高级权限
-         * <p> 示例值：true
-         *
-         * @param isAdvanced
-         * @return
-         */
-        public Builder isAdvanced(Boolean isAdvanced) {
-            this.isAdvanced = isAdvanced;
-            return this;
-        }
-
-
-        public UpdateAppReqBody build() {
-            return new UpdateAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

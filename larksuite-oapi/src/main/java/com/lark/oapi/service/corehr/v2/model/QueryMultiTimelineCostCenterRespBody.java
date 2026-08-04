@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineCostCenterRespBody {
-    /**
-     * 成本中心信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private CostCenterTimeline[] items;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 成本中心信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private CostCenterTimeline[] items;
 
-    public CostCenterTimeline[] getItems() {
-        return this.items;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(CostCenterTimeline[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public CostCenterTimeline[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(CostCenterTimeline[] items) {
+    this.items = items;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

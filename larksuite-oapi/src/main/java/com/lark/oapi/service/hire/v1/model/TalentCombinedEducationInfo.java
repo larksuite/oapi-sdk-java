@@ -13,370 +13,400 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCombinedEducationInfo {
+  /**
+   * 教育经历 ID，无效字段，请勿使用
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 学历
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("degree")
+  private Integer degree;
+
+  /**
+   * 学校
+   *
+   * <p>示例值：香港大学
+   */
+  @SerializedName("school")
+  private String school;
+
+  /**
+   * 专业
+   *
+   * <p>示例值：考古
+   */
+  @SerializedName("field_of_study")
+  private String fieldOfStudy;
+
+  /**
+   * 教育经历开始时间，毫秒时间戳
+   *
+   * <p>示例值：1655644087000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 教育经历结束时间，毫秒时间戳
+   *
+   * <p>示例值：1687180087000
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 学历类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("education_type")
+  private Integer educationType;
+
+  /**
+   * 成绩排名
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("academic_ranking")
+  private Integer academicRanking;
+
+  /**
+   * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private TalentCustomizedDataObjectValue[] customizedData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getDegree() {
+    return this.degree;
+  }
+
+  public void setDegree(Integer degree) {
+    this.degree = degree;
+  }
+
+  public String getSchool() {
+    return this.school;
+  }
+
+  public void setSchool(String school) {
+    this.school = school;
+  }
+
+  public String getFieldOfStudy() {
+    return this.fieldOfStudy;
+  }
+
+  public void setFieldOfStudy(String fieldOfStudy) {
+    this.fieldOfStudy = fieldOfStudy;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getEducationType() {
+    return this.educationType;
+  }
+
+  public void setEducationType(Integer educationType) {
+    this.educationType = educationType;
+  }
+
+  public Integer getAcademicRanking() {
+    return this.academicRanking;
+  }
+
+  public void setAcademicRanking(Integer academicRanking) {
+    this.academicRanking = academicRanking;
+  }
+
+  public TalentCustomizedDataObjectValue[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public TalentCombinedEducationInfo() {}
+
+  public TalentCombinedEducationInfo(Builder builder) {
     /**
-     * ID
-     * <p> 示例值：6891560630172518670
+     * 教育经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 学历
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("degree")
-    private Integer degree;
+    this.degree = builder.degree;
     /**
      * 学校
-     * <p> 示例值：湘港大学
+     *
+     * <p>示例值：香港大学
      */
-    @SerializedName("school")
-    private String school;
+    this.school = builder.school;
     /**
      * 专业
-     * <p> 示例值：考古
+     *
+     * <p>示例值：考古
      */
-    @SerializedName("field_of_study")
-    private String fieldOfStudy;
+    this.fieldOfStudy = builder.fieldOfStudy;
     /**
-     * 开始时间
-     * <p> 示例值：293016767159
+     * 教育经历开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 结束时间
-     * <p> 示例值：293016767159
+     * 教育经历结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 学历类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("education_type")
-    private Integer educationType;
+    this.educationType = builder.educationType;
     /**
      * 成绩排名
-     * <p> 示例值：5
+     *
+     * <p>示例值：5
      */
-    @SerializedName("academic_ranking")
-    private Integer academicRanking;
+    this.academicRanking = builder.academicRanking;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 教育经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String id;
+
+    /**
+     * 学历
+     *
+     * <p>示例值：1
+     */
+    private Integer degree;
+
+    /**
+     * 学校
+     *
+     * <p>示例值：香港大学
+     */
+    private String school;
+
+    /**
+     * 专业
+     *
+     * <p>示例值：考古
+     */
+    private String fieldOfStudy;
+
+    /**
+     * 教育经历开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
+     */
+    private String startTime;
+
+    /**
+     * 教育经历结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     */
+    private String endTime;
+
+    /**
+     * 学历类型
+     *
+     * <p>示例值：1
+     */
+    private Integer educationType;
+
+    /**
+     * 成绩排名
+     *
+     * <p>示例值：5
+     */
+    private Integer academicRanking;
+
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    // builder 开始
-    public TalentCombinedEducationInfo() {
+    /**
+     * 教育经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentCombinedEducationInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 学历
-         * <p> 示例值：1
-         */
-        this.degree = builder.degree;
-        /**
-         * 学校
-         * <p> 示例值：湘港大学
-         */
-        this.school = builder.school;
-        /**
-         * 专业
-         * <p> 示例值：考古
-         */
-        this.fieldOfStudy = builder.fieldOfStudy;
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 学历类型
-         * <p> 示例值：1
-         */
-        this.educationType = builder.educationType;
-        /**
-         * 成绩排名
-         * <p> 示例值：5
-         */
-        this.academicRanking = builder.academicRanking;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 学历
+     *
+     * <p>示例值：1
+     *
+     * @param degree
+     * @return
+     */
+    public Builder degree(Integer degree) {
+      this.degree = degree;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 学校
+     *
+     * <p>示例值：香港大学
+     *
+     * @param school
+     * @return
+     */
+    public Builder school(String school) {
+      this.school = school;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 专业
+     *
+     * <p>示例值：考古
+     *
+     * @param fieldOfStudy
+     * @return
+     */
+    public Builder fieldOfStudy(String fieldOfStudy) {
+      this.fieldOfStudy = fieldOfStudy;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 教育经历开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public Integer getDegree() {
-        return this.degree;
+    /**
+     * 教育经历结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setDegree(Integer degree) {
-        this.degree = degree;
+    /**
+     * 学历类型
+     *
+     * <p>示例值：1
+     *
+     * @param educationType
+     * @return
+     */
+    public Builder educationType(Integer educationType) {
+      this.educationType = educationType;
+      return this;
     }
 
-    public String getSchool() {
-        return this.school;
+    /**
+     * 成绩排名
+     *
+     * <p>示例值：5
+     *
+     * @param academicRanking
+     * @return
+     */
+    public Builder academicRanking(Integer academicRanking) {
+      this.academicRanking = academicRanking;
+      return this;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public String getFieldOfStudy() {
-        return this.fieldOfStudy;
+    public TalentCombinedEducationInfo build() {
+      return new TalentCombinedEducationInfo(this);
     }
+  }
 
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getEducationType() {
-        return this.educationType;
-    }
-
-    public void setEducationType(Integer educationType) {
-        this.educationType = educationType;
-    }
-
-    public Integer getAcademicRanking() {
-        return this.academicRanking;
-    }
-
-    public void setAcademicRanking(Integer academicRanking) {
-        this.academicRanking = academicRanking;
-    }
-
-    public TalentCustomizedDataObjectValue[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 学历
-         * <p> 示例值：1
-         */
-        private Integer degree;
-        /**
-         * 学校
-         * <p> 示例值：湘港大学
-         */
-        private String school;
-        /**
-         * 专业
-         * <p> 示例值：考古
-         */
-        private String fieldOfStudy;
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         */
-        private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         */
-        private String endTime;
-        /**
-         * 学历类型
-         * <p> 示例值：1
-         */
-        private Integer educationType;
-        /**
-         * 成绩排名
-         * <p> 示例值：5
-         */
-        private Integer academicRanking;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataObjectValue[] customizedData;
-
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 学历
-         * <p> 示例值：1
-         *
-         * @param degree
-         * @return
-         */
-        public Builder degree(Integer degree) {
-            this.degree = degree;
-            return this;
-        }
-
-
-        /**
-         * 学校
-         * <p> 示例值：湘港大学
-         *
-         * @param school
-         * @return
-         */
-        public Builder school(String school) {
-            this.school = school;
-            return this;
-        }
-
-
-        /**
-         * 专业
-         * <p> 示例值：考古
-         *
-         * @param fieldOfStudy
-         * @return
-         */
-        public Builder fieldOfStudy(String fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 学历类型
-         * <p> 示例值：1
-         *
-         * @param educationType
-         * @return
-         */
-        public Builder educationType(Integer educationType) {
-            this.educationType = educationType;
-            return this;
-        }
-
-
-        /**
-         * 成绩排名
-         * <p> 示例值：5
-         *
-         * @param academicRanking
-         * @return
-         */
-        public Builder academicRanking(Integer academicRanking) {
-            this.academicRanking = academicRanking;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public TalentCombinedEducationInfo build() {
-            return new TalentCombinedEducationInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

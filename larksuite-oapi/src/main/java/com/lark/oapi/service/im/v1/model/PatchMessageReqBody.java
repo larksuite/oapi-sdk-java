@@ -13,75 +13,89 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchMessageReqBody {
+  /**
+   * 消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON
+   * 结构序列化后的字符串。; - 要使用卡片 JSON，参考[卡片 JSON
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+   * - 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，参考下文请求体示例。;;**注意**：;;-
+   * 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+   *
+   * <p>示例值：{"elements":[{"tag":"div","text":{"content":"This is the plain
+   * text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the
+   * title","tag":"plain_text"}}}
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public PatchMessageReqBody() {}
+
+  public PatchMessageReqBody(Builder builder) {
     /**
-     * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-     * <p> 示例值：参考链接
+     * 消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON
+     * 结构序列化后的字符串。; - 要使用卡片 JSON，参考[卡片 JSON
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * - 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，参考下文请求体示例。;;**注意**：;;-
+     * 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{"elements":[{"tag":"div","text":{"content":"This is the plain
+     * text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the
+     * title","tag":"plain_text"}}}
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON
+     * 结构序列化后的字符串。; - 要使用卡片 JSON，参考[卡片 JSON
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * - 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，参考下文请求体示例。;;**注意**：;;-
+     * 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{"elements":[{"tag":"div","text":{"content":"This is the plain
+     * text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the
+     * title","tag":"plain_text"}}}
+     */
     private String content;
 
-    // builder 开始
-    public PatchMessageReqBody() {
+    /**
+     * 消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON
+     * 结构序列化后的字符串。; - 要使用卡片 JSON，参考[卡片 JSON
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * - 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，参考下文请求体示例。;;**注意**：;;-
+     * 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{"elements":[{"tag":"div","text":{"content":"This is the plain
+     * text","tag":"plain_text"}}],"header":{"template":"blue","title":{"content":"This is the
+     * title","tag":"plain_text"}}}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public PatchMessageReqBody(Builder builder) {
-        /**
-         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-         * <p> 示例值：参考链接
-         */
-        this.content = builder.content;
+    public PatchMessageReqBody build() {
+      return new PatchMessageReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-         * <p> 示例值：参考链接
-         */
-        private String content;
-
-        /**
-         * 消息内容 json 格式，[发送消息 content 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
-         * <p> 示例值：参考链接
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public PatchMessageReqBody build() {
-            return new PatchMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

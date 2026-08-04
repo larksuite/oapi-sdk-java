@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommentAtInfo {
+  /**
+   * 被艾特人的 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：579fd9c4
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 被艾特人的姓名
+   *
+   * <p>示例值：张敏
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 被艾特人在评论中的位置，从 0 开始。用于偏移覆盖。例如：;;- 取值为 0 时的效果：@username 示例文本;- 取值为 2 时的效果：示例 @username 文本;- 取值为 4
+   * 时的效果：示例文本 @username; ;**注意**：该参数生效方式是覆盖生效，因此你需要先通过 content
+   * 参数设置用户名称的文本内容，然后再通过该参数将实际生效的@效果覆盖到用户名称的文本内容上。
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offset")
+  private String offset;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(String offset) {
+    this.offset = offset;
+  }
+
+  // builder 开始
+  public CommentAtInfo() {}
+
+  public CommentAtInfo(Builder builder) {
     /**
-     * 被艾特人的ID
-     * <p> 示例值：579fd9c4
+     * 被艾特人的 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：579fd9c4
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 被艾特人的姓名
-     * <p> 示例值：张某
+     *
+     * <p>示例值：张敏
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 被艾特人在评论中的位置，从0开始
-     * <p> 示例值：1
+     * 被艾特人在评论中的位置，从 0 开始。用于偏移覆盖。例如：;;- 取值为 0 时的效果：@username 示例文本;- 取值为 2 时的效果：示例 @username 文本;- 取值为
+     * 4 时的效果：示例文本 @username; ;**注意**：该参数生效方式是覆盖生效，因此你需要先通过 content
+     * 参数设置用户名称的文本内容，然后再通过该参数将实际生效的@效果覆盖到用户名称的文本内容上。
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offset")
+    this.offset = builder.offset;
+  }
+
+  public static class Builder {
+    /**
+     * 被艾特人的 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：579fd9c4
+     */
+    private String userId;
+
+    /**
+     * 被艾特人的姓名
+     *
+     * <p>示例值：张敏
+     */
+    private String name;
+
+    /**
+     * 被艾特人在评论中的位置，从 0 开始。用于偏移覆盖。例如：;;- 取值为 0 时的效果：@username 示例文本;- 取值为 2 时的效果：示例 @username 文本;- 取值为
+     * 4 时的效果：示例文本 @username; ;**注意**：该参数生效方式是覆盖生效，因此你需要先通过 content
+     * 参数设置用户名称的文本内容，然后再通过该参数将实际生效的@效果覆盖到用户名称的文本内容上。
+     *
+     * <p>示例值：0
+     */
     private String offset;
 
-    // builder 开始
-    public CommentAtInfo() {
+    /**
+     * 被艾特人的 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：579fd9c4
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public CommentAtInfo(Builder builder) {
-        /**
-         * 被艾特人的ID
-         * <p> 示例值：579fd9c4
-         */
-        this.userId = builder.userId;
-        /**
-         * 被艾特人的姓名
-         * <p> 示例值：张某
-         */
-        this.name = builder.name;
-        /**
-         * 被艾特人在评论中的位置，从0开始
-         * <p> 示例值：1
-         */
-        this.offset = builder.offset;
+    /**
+     * 被艾特人的姓名
+     *
+     * <p>示例值：张敏
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 被艾特人在评论中的位置，从 0 开始。用于偏移覆盖。例如：;;- 取值为 0 时的效果：@username 示例文本;- 取值为 2 时的效果：示例 @username 文本;- 取值为
+     * 4 时的效果：示例文本 @username; ;**注意**：该参数生效方式是覆盖生效，因此你需要先通过 content
+     * 参数设置用户名称的文本内容，然后再通过该参数将实际生效的@效果覆盖到用户名称的文本内容上。
+     *
+     * <p>示例值：0
+     *
+     * @param offset
+     * @return
+     */
+    public Builder offset(String offset) {
+      this.offset = offset;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public CommentAtInfo build() {
+      return new CommentAtInfo(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getOffset() {
-        return this.offset;
-    }
-
-    public void setOffset(String offset) {
-        this.offset = offset;
-    }
-
-    public static class Builder {
-        /**
-         * 被艾特人的ID
-         * <p> 示例值：579fd9c4
-         */
-        private String userId;
-        /**
-         * 被艾特人的姓名
-         * <p> 示例值：张某
-         */
-        private String name;
-        /**
-         * 被艾特人在评论中的位置，从0开始
-         * <p> 示例值：1
-         */
-        private String offset;
-
-        /**
-         * 被艾特人的ID
-         * <p> 示例值：579fd9c4
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 被艾特人的姓名
-         * <p> 示例值：张某
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 被艾特人在评论中的位置，从0开始
-         * <p> 示例值：1
-         *
-         * @param offset
-         * @return
-         */
-        public Builder offset(String offset) {
-            this.offset = offset;
-            return this;
-        }
-
-
-        public CommentAtInfo build() {
-            return new CommentAtInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,235 +13,248 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class OfferApplicationReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 此次调用中使用的「职级 ID」的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("job_level_id_type")
+  private String jobLevelIdType;
+
+  /**
+   * 此次调用中使用的「序列 ID」的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("job_family_id_type")
+  private String jobFamilyIdType;
+
+  /**
+   * 此次调用中使用的「人员类型 ID」的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("employee_type_id_type")
+  private String employeeTypeIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getJobLevelIdType() {
+    return this.jobLevelIdType;
+  }
+
+  public void setJobLevelIdType(String jobLevelIdType) {
+    this.jobLevelIdType = jobLevelIdType;
+  }
+
+  public String getJobFamilyIdType() {
+    return this.jobFamilyIdType;
+  }
+
+  public void setJobFamilyIdType(String jobFamilyIdType) {
+    this.jobFamilyIdType = jobFamilyIdType;
+  }
+
+  public String getEmployeeTypeIdType() {
+    return this.employeeTypeIdType;
+  }
+
+  public void setEmployeeTypeIdType(String employeeTypeIdType) {
+    this.employeeTypeIdType = employeeTypeIdType;
+  }
+
+  /**
+   * 投递ID
+   *
+   * <p>示例值：12312312312
+   */
+  @Path
+  @SerializedName("application_id")
+  private String applicationId;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  // builder 开始
+  public OfferApplicationReq() {}
+
+  public OfferApplicationReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("job_level_id_type")
-    private String jobLevelIdType;
+    this.jobLevelIdType = builder.jobLevelIdType;
     /**
      * 此次调用中使用的「序列 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("job_family_id_type")
-    private String jobFamilyIdType;
+    this.jobFamilyIdType = builder.jobFamilyIdType;
     /**
      * 此次调用中使用的「人员类型 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("employee_type_id_type")
-    private String employeeTypeIdType;
+    this.employeeTypeIdType = builder.employeeTypeIdType;
     /**
      * 投递ID
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：12312312312
      */
-    @Path
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
+  }
 
-    // builder 开始
-    public OfferApplicationReq() {
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 的类型
+    private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
+    private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
+    private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public OfferApplicationReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
-        /**
-         * 此次调用中使用的「序列 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobFamilyIdType = builder.jobFamilyIdType;
-        /**
-         * 此次调用中使用的「人员类型 ID」的类型
-         * <p> 示例值：
-         */
-        this.employeeTypeIdType = builder.employeeTypeIdType;
-        /**
-         * 投递ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
+    /**
+     * 此次调用中使用的部门 ID 的类型
+     *
+     * <p>示例值：
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelIdType
+     * @return
+     */
+    public Builder jobLevelIdType(String jobLevelIdType) {
+      this.jobLevelIdType = jobLevelIdType;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 此次调用中使用的「序列 ID」的类型
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIdType
+     * @return
+     */
+    public Builder jobFamilyIdType(String jobFamilyIdType) {
+      this.jobFamilyIdType = jobFamilyIdType;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 此次调用中使用的「人员类型 ID」的类型
+     *
+     * <p>示例值：
+     *
+     * @param employeeTypeIdType
+     * @return
+     */
+    public Builder employeeTypeIdType(String employeeTypeIdType) {
+      this.employeeTypeIdType = employeeTypeIdType;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    private String applicationId; // 投递ID
+
+    /**
+     * 投递ID
+     *
+     * <p>示例值：12312312312
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    public OfferApplicationReq build() {
+      return new OfferApplicationReq(this);
     }
+  }
 
-    public String getJobLevelIdType() {
-        return this.jobLevelIdType;
-    }
-
-    public void setJobLevelIdType(String jobLevelIdType) {
-        this.jobLevelIdType = jobLevelIdType;
-    }
-
-    public String getJobFamilyIdType() {
-        return this.jobFamilyIdType;
-    }
-
-    public void setJobFamilyIdType(String jobFamilyIdType) {
-        this.jobFamilyIdType = jobFamilyIdType;
-    }
-
-    public String getEmployeeTypeIdType() {
-        return this.employeeTypeIdType;
-    }
-
-    public void setEmployeeTypeIdType(String employeeTypeIdType) {
-        this.employeeTypeIdType = employeeTypeIdType;
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
-        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
-        private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
-        private String employeeTypeIdType; // 此次调用中使用的「人员类型 ID」的类型
-        private String applicationId; // 投递ID
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobLevelIdType
-         * @return
-         */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的「序列 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobFamilyIdType
-         * @return
-         */
-        public Builder jobFamilyIdType(String jobFamilyIdType) {
-            this.jobFamilyIdType = jobFamilyIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的「人员类型 ID」的类型
-         * <p> 示例值：
-         *
-         * @param employeeTypeIdType
-         * @return
-         */
-        public Builder employeeTypeIdType(String employeeTypeIdType) {
-            this.employeeTypeIdType = employeeTypeIdType;
-            return this;
-        }
-
-        /**
-         * 投递ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        public OfferApplicationReq build() {
-            return new OfferApplicationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

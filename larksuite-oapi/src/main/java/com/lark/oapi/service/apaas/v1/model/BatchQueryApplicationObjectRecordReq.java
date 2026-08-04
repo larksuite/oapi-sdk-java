@@ -13,131 +13,131 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class BatchQueryApplicationObjectRecordReq {
+  /**
+   * 命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 目标对象的唯一标识符
+   *
+   * <p>示例值：_user
+   */
+  @Path
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  @Body private BatchQueryApplicationObjectRecordReqBody body;
+
+  public BatchQueryApplicationObjectRecordReqBody getBatchQueryApplicationObjectRecordReqBody() {
+    return this.body;
+  }
+
+  public void setBatchQueryApplicationObjectRecordReqBody(
+      BatchQueryApplicationObjectRecordReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchQueryApplicationObjectRecordReq() {}
+
+  public BatchQueryApplicationObjectRecordReq(Builder builder) {
     /**
      * 命名空间
-     * <p> 示例值：package_test__c
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 目标对象的唯一标识符
-     * <p> 示例值：_user
+     *
+     * <p>示例值：_user
      */
-    @Path
-    @SerializedName("object_api_name")
-    private String objectApiName;
-    @Body
+    this.objectApiName = builder.objectApiName;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String namespace; // 命名空间
+    private String objectApiName; // 目标对象的唯一标识符
+
+    /**
+     * 命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
+    }
+
+    /**
+     * 目标对象的唯一标识符
+     *
+     * <p>示例值：_user
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
+    }
+
     private BatchQueryApplicationObjectRecordReqBody body;
 
-    // builder 开始
-    public BatchQueryApplicationObjectRecordReq() {
-    }
-
-    public BatchQueryApplicationObjectRecordReq(Builder builder) {
-        /**
-         * 命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 目标对象的唯一标识符
-         * <p> 示例值：_user
-         */
-        this.objectApiName = builder.objectApiName;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
     public BatchQueryApplicationObjectRecordReqBody getBatchQueryApplicationObjectRecordReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchQueryApplicationObjectRecordReqBody(BatchQueryApplicationObjectRecordReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchQueryApplicationObjectRecordReqBody(
+        BatchQueryApplicationObjectRecordReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String namespace; // 命名空间
-        private String objectApiName; // 目标对象的唯一标识符
-        private BatchQueryApplicationObjectRecordReqBody body;
-
-        /**
-         * 命名空间
-         * <p> 示例值：package_test__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-        /**
-         * 目标对象的唯一标识符
-         * <p> 示例值：_user
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-        public BatchQueryApplicationObjectRecordReqBody getBatchQueryApplicationObjectRecordReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchQueryApplicationObjectRecordReqBody(BatchQueryApplicationObjectRecordReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchQueryApplicationObjectRecordReq build() {
-            return new BatchQueryApplicationObjectRecordReq(this);
-        }
+    public BatchQueryApplicationObjectRecordReq build() {
+      return new BatchQueryApplicationObjectRecordReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

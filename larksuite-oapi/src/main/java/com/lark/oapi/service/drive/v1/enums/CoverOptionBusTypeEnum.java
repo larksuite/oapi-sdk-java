@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 封面业务类型
- */
+/** 封面业务类型 */
 public enum CoverOptionBusTypeEnum {
-    COVER(1), // 封面 1280x1280
-    ICON(2), // 图标 120x120
-    SMALL_GRAPH(3), // 小图 480x480
-    GRID(4), // 网格图 360x360
-    MIDDLE(5), // 中图 720x720
-    BIG(6), // 大图 850x850
-    ;
-    private Integer value;
+  COVER(1), // 封面 1280x1280
+  ICON(2), // 图标 120x120
+  SMALL_GRAPH(3), // 小图 480x480
+  GRID(4), // 网格图 360x360
+  MIDDLE(5), // 中图 720x720
+  BIG(6), // 大图 850x850
+  ;
+  private Integer value;
 
-    CoverOptionBusTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CoverOptionBusTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

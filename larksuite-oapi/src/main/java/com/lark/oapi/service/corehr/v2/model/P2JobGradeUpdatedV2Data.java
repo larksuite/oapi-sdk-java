@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobGradeUpdatedV2Data {
-    /**
-     * 职等ID
-     * <p> 示例值：7043711774159341101
-     */
-    @SerializedName("job_grade_id")
-    private String jobGradeId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
+  /**
+   * 职等ID。;-
+   * 调用[【批量查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口返回职等详细信息
+   *
+   * <p>示例值：7043711774159341101
+   */
+  @SerializedName("job_grade_id")
+  private String jobGradeId;
 
-    public String getJobGradeId() {
-        return this.jobGradeId;
-    }
+  /**
+   * 变更字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setJobGradeId(String jobGradeId) {
-        this.jobGradeId = jobGradeId;
-    }
+  public String getJobGradeId() {
+    return this.jobGradeId;
+  }
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public void setJobGradeId(String jobGradeId) {
+    this.jobGradeId = jobGradeId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 }

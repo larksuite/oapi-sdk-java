@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemStatusSyncSetting {
+  /**
+   * 是否默认开启
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_open_by_default")
+  private Boolean isOpenByDefault;
+
+  /**
+   * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：出差期间自动开启
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_title")
+  private SystemStatusSyncI18nName i18nTitle;
+
+  /**
+   * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：出差审批通过后，将自动开启并优先展示该状态。
+   */
+  @SerializedName("explain")
+  private String explain;
+
+  /**
+   * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_explain")
+  private SystemStatusSyncI18nExplain i18nExplain;
+
+  public Boolean getIsOpenByDefault() {
+    return this.isOpenByDefault;
+  }
+
+  public void setIsOpenByDefault(Boolean isOpenByDefault) {
+    this.isOpenByDefault = isOpenByDefault;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public SystemStatusSyncI18nName getI18nTitle() {
+    return this.i18nTitle;
+  }
+
+  public void setI18nTitle(SystemStatusSyncI18nName i18nTitle) {
+    this.i18nTitle = i18nTitle;
+  }
+
+  public String getExplain() {
+    return this.explain;
+  }
+
+  public void setExplain(String explain) {
+    this.explain = explain;
+  }
+
+  public SystemStatusSyncI18nExplain getI18nExplain() {
+    return this.i18nExplain;
+  }
+
+  public void setI18nExplain(SystemStatusSyncI18nExplain i18nExplain) {
+    this.i18nExplain = i18nExplain;
+  }
+
+  // builder 开始
+  public SystemStatusSyncSetting() {}
+
+  public SystemStatusSyncSetting(Builder builder) {
     /**
      * 是否默认开启
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_open_by_default")
-    private Boolean isOpenByDefault;
+    this.isOpenByDefault = builder.isOpenByDefault;
     /**
      * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：出差期间自动开启
+     *
+     * <p>示例值：出差期间自动开启
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_title")
-    private SystemStatusSyncI18nName i18nTitle;
+    this.i18nTitle = builder.i18nTitle;
     /**
      * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：出差审批通过后，将自动开启并优先展示该状态。
+     *
+     * <p>示例值：出差审批通过后，将自动开启并优先展示该状态。
      */
-    @SerializedName("explain")
-    private String explain;
+    this.explain = builder.explain;
     /**
      * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_explain")
+    this.i18nExplain = builder.i18nExplain;
+  }
+
+  public static class Builder {
+    /**
+     * 是否默认开启
+     *
+     * <p>示例值：true
+     */
+    private Boolean isOpenByDefault;
+
+    /**
+     * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差期间自动开启
+     */
+    private String title;
+
+    /**
+     * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     */
+    private SystemStatusSyncI18nName i18nTitle;
+
+    /**
+     * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差审批通过后，将自动开启并优先展示该状态。
+     */
+    private String explain;
+
+    /**
+     * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     */
     private SystemStatusSyncI18nExplain i18nExplain;
 
-    // builder 开始
-    public SystemStatusSyncSetting() {
+    /**
+     * 是否默认开启
+     *
+     * <p>示例值：true
+     *
+     * @param isOpenByDefault
+     * @return
+     */
+    public Builder isOpenByDefault(Boolean isOpenByDefault) {
+      this.isOpenByDefault = isOpenByDefault;
+      return this;
     }
 
-    public SystemStatusSyncSetting(Builder builder) {
-        /**
-         * 是否默认开启
-         * <p> 示例值：true
-         */
-        this.isOpenByDefault = builder.isOpenByDefault;
-        /**
-         * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差期间自动开启
-         */
-        this.title = builder.title;
-        /**
-         * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        this.i18nTitle = builder.i18nTitle;
-        /**
-         * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差审批通过后，将自动开启并优先展示该状态。
-         */
-        this.explain = builder.explain;
-        /**
-         * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        this.i18nExplain = builder.i18nExplain;
+    /**
+     * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差期间自动开启
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     *
+     * @param i18nTitle
+     * @return
+     */
+    public Builder i18nTitle(SystemStatusSyncI18nName i18nTitle) {
+      this.i18nTitle = i18nTitle;
+      return this;
     }
 
-    public Boolean getIsOpenByDefault() {
-        return this.isOpenByDefault;
+    /**
+     * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差审批通过后，将自动开启并优先展示该状态。
+     *
+     * @param explain
+     * @return
+     */
+    public Builder explain(String explain) {
+      this.explain = explain;
+      return this;
     }
 
-    public void setIsOpenByDefault(Boolean isOpenByDefault) {
-        this.isOpenByDefault = isOpenByDefault;
+    /**
+     * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     *
+     * @param i18nExplain
+     * @return
+     */
+    public Builder i18nExplain(SystemStatusSyncI18nExplain i18nExplain) {
+      this.i18nExplain = i18nExplain;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    public SystemStatusSyncSetting build() {
+      return new SystemStatusSyncSetting(this);
     }
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public SystemStatusSyncI18nName getI18nTitle() {
-        return this.i18nTitle;
-    }
-
-    public void setI18nTitle(SystemStatusSyncI18nName i18nTitle) {
-        this.i18nTitle = i18nTitle;
-    }
-
-    public String getExplain() {
-        return this.explain;
-    }
-
-    public void setExplain(String explain) {
-        this.explain = explain;
-    }
-
-    public SystemStatusSyncI18nExplain getI18nExplain() {
-        return this.i18nExplain;
-    }
-
-    public void setI18nExplain(SystemStatusSyncI18nExplain i18nExplain) {
-        this.i18nExplain = i18nExplain;
-    }
-
-    public static class Builder {
-        /**
-         * 是否默认开启
-         * <p> 示例值：true
-         */
-        private Boolean isOpenByDefault;
-        /**
-         * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差期间自动开启
-         */
-        private String title;
-        /**
-         * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        private SystemStatusSyncI18nName i18nTitle;
-        /**
-         * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差审批通过后，将自动开启并优先展示该状态。
-         */
-        private String explain;
-        /**
-         * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        private SystemStatusSyncI18nExplain i18nExplain;
-
-        /**
-         * 是否默认开启
-         * <p> 示例值：true
-         *
-         * @param isOpenByDefault
-         * @return
-         */
-        public Builder isOpenByDefault(Boolean isOpenByDefault) {
-            this.isOpenByDefault = isOpenByDefault;
-            return this;
-        }
-
-
-        /**
-         * 同步设置名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差期间自动开启
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 同步设置国际化名称，名称字符数要在1到30范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         *
-         * @param i18nTitle
-         * @return
-         */
-        public Builder i18nTitle(SystemStatusSyncI18nName i18nTitle) {
-            this.i18nTitle = i18nTitle;
-            return this;
-        }
-
-
-        /**
-         * 同步设置解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差审批通过后，将自动开启并优先展示该状态。
-         *
-         * @param explain
-         * @return
-         */
-        public Builder explain(String explain) {
-            this.explain = explain;
-            return this;
-        }
-
-
-        /**
-         * 同步设置国际化解释文案，解释字符数要在1到60范围内。;;**注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         *
-         * @param i18nExplain
-         * @return
-         */
-        public Builder i18nExplain(SystemStatusSyncI18nExplain i18nExplain) {
-            this.i18nExplain = i18nExplain;
-            return this;
-        }
-
-
-        public SystemStatusSyncSetting build() {
-            return new SystemStatusSyncSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

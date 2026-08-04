@@ -13,34 +13,32 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 节点图形类型，目前创建节点仅支持创建图片、文本、基础图形等类型
- */
+/** 节点图形类型 */
 public enum WhiteboardNodeNodeTypeEnum {
-    IMAGE("image"), // 图片
-    TEXTSHAPE("text_shape"), // 文本
-    GROUP("group"), // 组合
-    COMPOSITESHAPE("composite_shape"), // 基础图形
-    SVG("svg"), // svg 图形
-    CONNECTOR("connector"), // 连线
-    TABLE("table"), // 表格
-    LIFELINE("life_line"), // 对象生命线
-    ACTIVATION("activation"), // 控制焦点
-    SECTION("section"), // 分区
-    TABLEUML("table_uml"), // 类图
-    TABLEER("table_er"), // 实体关系图
-    STICKYNOTE("sticky_note"), // 便签
-    MINDMAP("mind_map"), // 思维导图
-    PAINT("paint"), // 画笔
-    COMBINEDFRAGMENT("combined_fragment"), // 组合片段
-    ;
-    private String value;
+  IMAGE("image"), // 图片属性
+  TEXTSHAPE("text_shape"), // 文本
+  GROUP("group"), // 组合
+  COMPOSITESHAPE("composite_shape"), // 基础图形
+  SVG("svg"), // svg 图形
+  CONNECTOR("connector"), // 连线
+  TABLE("table"), // 表格
+  LIFELINE("life_line"), // 对象生命线
+  ACTIVATION("activation"), // 控制焦点
+  SECTION("section"), // 分区
+  TABLEUML("table_uml"), // 类图
+  TABLEER("table_er"), // 实体关系图
+  STICKYNOTE("sticky_note"), // 便签
+  MINDMAP("mind_map"), // 思维导图
+  PAINT("paint"), // 画笔
+  COMBINEDFRAGMENT("combined_fragment"), // 组合片段
+  ;
+  private String value;
 
-    WhiteboardNodeNodeTypeEnum(String value) {
-        this.value = value;
-    }
+  WhiteboardNodeNodeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

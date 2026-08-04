@@ -13,198 +13,207 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ManageableDefinition {
+  /**
+   * 审批定义 code 示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
+   *
+   * <p>示例值：请假
+   */
+  @SerializedName("approval_name")
+  private String approvalName;
+
+  /**
+   * 审批定义状态
+   *
+   * <p>示例值：ACTIVE
+   */
+  @SerializedName("approval_status")
+  private String approvalStatus;
+
+  /**
+   * 有数据管理权限的审批流程管理员ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approval_admin_ids")
+  private String[] approvalAdminIds;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getApprovalName() {
+    return this.approvalName;
+  }
+
+  public void setApprovalName(String approvalName) {
+    this.approvalName = approvalName;
+  }
+
+  public String getApprovalStatus() {
+    return this.approvalStatus;
+  }
+
+  public void setApprovalStatus(String approvalStatus) {
+    this.approvalStatus = approvalStatus;
+  }
+
+  public String[] getApprovalAdminIds() {
+    return this.approvalAdminIds;
+  }
+
+  public void setApprovalAdminIds(String[] approvalAdminIds) {
+    this.approvalAdminIds = approvalAdminIds;
+  }
+
+  // builder 开始
+  public ManageableDefinition() {}
+
+  public ManageableDefinition(Builder builder) {
     /**
-     * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 code 示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
      * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-     * <p> 示例值：请假
+     *
+     * <p>示例值：请假
      */
-    @SerializedName("approval_name")
-    private String approvalName;
+    this.approvalName = builder.approvalName;
     /**
      * 审批定义状态
-     * <p> 示例值：ACTIVE
+     *
+     * <p>示例值：ACTIVE
      */
-    @SerializedName("approval_status")
-    private String approvalStatus;
+    this.approvalStatus = builder.approvalStatus;
     /**
      * 有数据管理权限的审批流程管理员ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approval_admin_ids")
+    this.approvalAdminIds = builder.approvalAdminIds;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义 code 示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String approvalCode;
+
+    /**
+     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
+     *
+     * <p>示例值：请假
+     */
+    private String approvalName;
+
+    /**
+     * 审批定义状态
+     *
+     * <p>示例值：ACTIVE
+     */
+    private String approvalStatus;
+
+    /**
+     * 有数据管理权限的审批流程管理员ID
+     *
+     * <p>示例值：
+     */
     private String[] approvalAdminIds;
 
-    // builder 开始
-    public ManageableDefinition() {
+    /**
+     * 审批定义 code 示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public ManageableDefinition(Builder builder) {
-        /**
-         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-         * <p> 示例值：请假
-         */
-        this.approvalName = builder.approvalName;
-        /**
-         * 审批定义状态
-         * <p> 示例值：ACTIVE
-         */
-        this.approvalStatus = builder.approvalStatus;
-        /**
-         * 有数据管理权限的审批流程管理员ID
-         * <p> 示例值：
-         */
-        this.approvalAdminIds = builder.approvalAdminIds;
+    /**
+     * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
+     *
+     * <p>示例值：请假
+     *
+     * @param approvalName
+     * @return
+     */
+    public Builder approvalName(String approvalName) {
+      this.approvalName = approvalName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批定义状态
+     *
+     * <p>示例值：ACTIVE
+     *
+     * @param approvalStatus
+     * @return
+     */
+    public Builder approvalStatus(String approvalStatus) {
+      this.approvalStatus = approvalStatus;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 审批定义状态
+     *
+     * <p>示例值：ACTIVE
+     *
+     * @param approvalStatus {@link
+     *     com.lark.oapi.service.approval.v4.enums.ManageableDefinitionApprovalStatusEnum}
+     * @return
+     */
+    public Builder approvalStatus(
+        com.lark.oapi.service.approval.v4.enums.ManageableDefinitionApprovalStatusEnum
+            approvalStatus) {
+      this.approvalStatus = approvalStatus.getValue();
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 有数据管理权限的审批流程管理员ID
+     *
+     * <p>示例值：
+     *
+     * @param approvalAdminIds
+     * @return
+     */
+    public Builder approvalAdminIds(String[] approvalAdminIds) {
+      this.approvalAdminIds = approvalAdminIds;
+      return this;
     }
 
-    public String getApprovalName() {
-        return this.approvalName;
+    public ManageableDefinition build() {
+      return new ManageableDefinition(this);
     }
+  }
 
-    public void setApprovalName(String approvalName) {
-        this.approvalName = approvalName;
-    }
-
-    public String getApprovalStatus() {
-        return this.approvalStatus;
-    }
-
-    public void setApprovalStatus(String approvalStatus) {
-        this.approvalStatus = approvalStatus;
-    }
-
-    public String[] getApprovalAdminIds() {
-        return this.approvalAdminIds;
-    }
-
-    public void setApprovalAdminIds(String[] approvalAdminIds) {
-        this.approvalAdminIds = approvalAdminIds;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String approvalCode;
-        /**
-         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-         * <p> 示例值：请假
-         */
-        private String approvalName;
-        /**
-         * 审批定义状态
-         * <p> 示例值：ACTIVE
-         */
-        private String approvalStatus;
-        /**
-         * 有数据管理权限的审批流程管理员ID
-         * <p> 示例值：
-         */
-        private String[] approvalAdminIds;
-
-        /**
-         * 审批定义 code  示例值："7C468A54-8745-2245-9675-08B7C63E7A85"
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批名称，根据传入的local字段返回对应的国际化文案，未设置国际化文案时该字段为空
-         * <p> 示例值：请假
-         *
-         * @param approvalName
-         * @return
-         */
-        public Builder approvalName(String approvalName) {
-            this.approvalName = approvalName;
-            return this;
-        }
-
-
-        /**
-         * 审批定义状态
-         * <p> 示例值：ACTIVE
-         *
-         * @param approvalStatus
-         * @return
-         */
-        public Builder approvalStatus(String approvalStatus) {
-            this.approvalStatus = approvalStatus;
-            return this;
-        }
-
-        /**
-         * 审批定义状态
-         * <p> 示例值：ACTIVE
-         *
-         * @param approvalStatus {@link com.lark.oapi.service.approval.v4.enums.ManageableDefinitionApprovalStatusEnum}
-         * @return
-         */
-        public Builder approvalStatus(com.lark.oapi.service.approval.v4.enums.ManageableDefinitionApprovalStatusEnum approvalStatus) {
-            this.approvalStatus = approvalStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 有数据管理权限的审批流程管理员ID
-         * <p> 示例值：
-         *
-         * @param approvalAdminIds
-         * @return
-         */
-        public Builder approvalAdminIds(String[] approvalAdminIds) {
-            this.approvalAdminIds = approvalAdminIds;
-            return this;
-        }
-
-
-        public ManageableDefinition build() {
-            return new ManageableDefinition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

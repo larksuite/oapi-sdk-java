@@ -13,104 +13,120 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EcoExamCreatedV1Data {
-    /**
-     * 笔试 ID，招聘系统内唯一
-     * <p> 示例值：7147998241542539527
-     */
-    @SerializedName("exam_id")
-    private String examId;
-    /**
-     * 账号 ID，招聘系统内唯一
-     * <p> 示例值：7147998241542539527
-     */
-    @SerializedName("account_id")
-    private String accountId;
-    /**
-     * 试卷 ID
-     * <p> 示例值：paper001
-     */
-    @SerializedName("paper_id")
-    private String paperId;
-    /**
-     * 候选人信息
-     * <p> 示例值：
-     */
-    @SerializedName("candidate_info")
-    private EcoExamCreateEventCandidateInfo candidateInfo;
-    /**
-     * 人才ID
-     * <p> 示例值：7579072355659172140
-     */
-    @SerializedName("talent_id")
-    private String talentId;
-    /**
-     * 投递ID
-     * <p> 示例值：7576566753091537196
-     */
-    @SerializedName("application_id")
-    private String applicationId;
+  /**
+   * 笔试 ID，招聘系统内唯一
+   *
+   * <p>示例值：7147998241542539527
+   */
+  @SerializedName("exam_id")
+  private String examId;
 
-    public String getExamId() {
-        return this.examId;
-    }
+  /**
+   * 账号
+   * ID，招聘系统内唯一，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：7147998241542539527
+   */
+  @SerializedName("account_id")
+  private String accountId;
 
-    public void setExamId(String examId) {
-        this.examId = examId;
-    }
+  /**
+   * 试卷
+   * ID，通过[创建试卷列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam_paper/create)接口传入
+   *
+   * <p>示例值：paper001
+   */
+  @SerializedName("paper_id")
+  private String paperId;
 
-    public String getAccountId() {
-        return this.accountId;
-    }
+  /**
+   * 候选人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("candidate_info")
+  private EcoExamCreateEventCandidateInfo candidateInfo;
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+  /**
+   * 人才ID
+   *
+   * <p>示例值：7579072355659172140
+   */
+  @SerializedName("talent_id")
+  private String talentId;
 
-    public String getPaperId() {
-        return this.paperId;
-    }
+  /**
+   * 投递ID
+   *
+   * <p>示例值：7576566753091537196
+   */
+  @SerializedName("application_id")
+  private String applicationId;
 
-    public void setPaperId(String paperId) {
-        this.paperId = paperId;
-    }
+  /**
+   * 职位信息。字段可能不返回，调用方需按可选字段处理。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_info")
+  private EcoExamCreateEventJobInfo jobInfo;
 
-    public EcoExamCreateEventCandidateInfo getCandidateInfo() {
-        return this.candidateInfo;
-    }
+  public String getExamId() {
+    return this.examId;
+  }
 
-    public void setCandidateInfo(EcoExamCreateEventCandidateInfo candidateInfo) {
-        this.candidateInfo = candidateInfo;
-    }
+  public void setExamId(String examId) {
+    this.examId = examId;
+  }
 
-    public String getTalentId() {
-        return this.talentId;
-    }
+  public String getAccountId() {
+    return this.accountId;
+  }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
-    public String getApplicationId() {
-        return this.applicationId;
-    }
+  public String getPaperId() {
+    return this.paperId;
+  }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
+  public void setPaperId(String paperId) {
+    this.paperId = paperId;
+  }
 
+  public EcoExamCreateEventCandidateInfo getCandidateInfo() {
+    return this.candidateInfo;
+  }
+
+  public void setCandidateInfo(EcoExamCreateEventCandidateInfo candidateInfo) {
+    this.candidateInfo = candidateInfo;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public EcoExamCreateEventJobInfo getJobInfo() {
+    return this.jobInfo;
+  }
+
+  public void setJobInfo(EcoExamCreateEventJobInfo jobInfo) {
+    this.jobInfo = jobInfo;
+  }
 }

@@ -13,223 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldMeta {
+  /**
+   * 字段唯一标识
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("field_api_name")
+  private String fieldApiName;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_name")
+  private I18n[] fieldName;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 是否是自定义字段
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_custom_field")
+  private Boolean isCustomField;
+
+  /**
+   * 是否支持筛选
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_filterable")
+  private Boolean isFilterable;
+
+  /**
+   * field_setting
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_setting")
+  private CommonSchemaConfig fieldSetting;
+
+  public String getFieldApiName() {
+    return this.fieldApiName;
+  }
+
+  public void setFieldApiName(String fieldApiName) {
+    this.fieldApiName = fieldApiName;
+  }
+
+  public I18n[] getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(I18n[] fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public Boolean getIsCustomField() {
+    return this.isCustomField;
+  }
+
+  public void setIsCustomField(Boolean isCustomField) {
+    this.isCustomField = isCustomField;
+  }
+
+  public Boolean getIsFilterable() {
+    return this.isFilterable;
+  }
+
+  public void setIsFilterable(Boolean isFilterable) {
+    this.isFilterable = isFilterable;
+  }
+
+  public CommonSchemaConfig getFieldSetting() {
+    return this.fieldSetting;
+  }
+
+  public void setFieldSetting(CommonSchemaConfig fieldSetting) {
+    this.fieldSetting = fieldSetting;
+  }
+
+  // builder 开始
+  public FieldMeta() {}
+
+  public FieldMeta(Builder builder) {
     /**
      * 字段唯一标识
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("field_api_name")
-    private String fieldApiName;
+    this.fieldApiName = builder.fieldApiName;
     /**
      * 字段名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_name")
-    private I18n[] fieldName;
+    this.fieldName = builder.fieldName;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 是否是自定义字段
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_custom_field")
-    private Boolean isCustomField;
+    this.isCustomField = builder.isCustomField;
     /**
      * 是否支持筛选
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_filterable")
+    this.isFilterable = builder.isFilterable;
+    /**
+     * field_setting
+     *
+     * <p>示例值：
+     */
+    this.fieldSetting = builder.fieldSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：example
+     */
+    private String fieldApiName;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] fieldName;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 是否是自定义字段
+     *
+     * <p>示例值：true
+     */
+    private Boolean isCustomField;
+
+    /**
+     * 是否支持筛选
+     *
+     * <p>示例值：true
+     */
     private Boolean isFilterable;
 
-    // builder 开始
-    public FieldMeta() {
+    /**
+     * field_setting
+     *
+     * <p>示例值：
+     */
+    private CommonSchemaConfig fieldSetting;
+
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：example
+     *
+     * @param fieldApiName
+     * @return
+     */
+    public Builder fieldApiName(String fieldApiName) {
+      this.fieldApiName = fieldApiName;
+      return this;
     }
 
-    public FieldMeta(Builder builder) {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：example
-         */
-        this.fieldApiName = builder.fieldApiName;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 是否是自定义字段
-         * <p> 示例值：true
-         */
-        this.isCustomField = builder.isCustomField;
-        /**
-         * 是否支持筛选
-         * <p> 示例值：true
-         */
-        this.isFilterable = builder.isFilterable;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(I18n[] fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public String getFieldApiName() {
-        return this.fieldApiName;
+    /**
+     * 是否是自定义字段
+     *
+     * <p>示例值：true
+     *
+     * @param isCustomField
+     * @return
+     */
+    public Builder isCustomField(Boolean isCustomField) {
+      this.isCustomField = isCustomField;
+      return this;
     }
 
-    public void setFieldApiName(String fieldApiName) {
-        this.fieldApiName = fieldApiName;
+    /**
+     * 是否支持筛选
+     *
+     * <p>示例值：true
+     *
+     * @param isFilterable
+     * @return
+     */
+    public Builder isFilterable(Boolean isFilterable) {
+      this.isFilterable = isFilterable;
+      return this;
     }
 
-    public I18n[] getFieldName() {
-        return this.fieldName;
+    /**
+     * field_setting
+     *
+     * <p>示例值：
+     *
+     * @param fieldSetting
+     * @return
+     */
+    public Builder fieldSetting(CommonSchemaConfig fieldSetting) {
+      this.fieldSetting = fieldSetting;
+      return this;
     }
 
-    public void setFieldName(I18n[] fieldName) {
-        this.fieldName = fieldName;
+    public FieldMeta build() {
+      return new FieldMeta(this);
     }
+  }
 
-    public Integer getFieldType() {
-        return this.fieldType;
-    }
-
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
-    }
-
-    public Boolean getIsCustomField() {
-        return this.isCustomField;
-    }
-
-    public void setIsCustomField(Boolean isCustomField) {
-        this.isCustomField = isCustomField;
-    }
-
-    public Boolean getIsFilterable() {
-        return this.isFilterable;
-    }
-
-    public void setIsFilterable(Boolean isFilterable) {
-        this.isFilterable = isFilterable;
-    }
-
-    public static class Builder {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：example
-         */
-        private String fieldApiName;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        private I18n[] fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 是否是自定义字段
-         * <p> 示例值：true
-         */
-        private Boolean isCustomField;
-        /**
-         * 是否支持筛选
-         * <p> 示例值：true
-         */
-        private Boolean isFilterable;
-
-        /**
-         * 字段唯一标识
-         * <p> 示例值：example
-         *
-         * @param fieldApiName
-         * @return
-         */
-        public Builder fieldApiName(String fieldApiName) {
-            this.fieldApiName = fieldApiName;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(I18n[] fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 是否是自定义字段
-         * <p> 示例值：true
-         *
-         * @param isCustomField
-         * @return
-         */
-        public Builder isCustomField(Boolean isCustomField) {
-            this.isCustomField = isCustomField;
-            return this;
-        }
-
-
-        /**
-         * 是否支持筛选
-         * <p> 示例值：true
-         *
-         * @param isFilterable
-         * @return
-         */
-        public Builder isFilterable(Boolean isFilterable) {
-            this.isFilterable = isFilterable;
-            return this;
-        }
-
-
-        public FieldMeta build() {
-            return new FieldMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

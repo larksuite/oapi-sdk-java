@@ -13,34 +13,23 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateExternalApprovalRespBody {
-    /**
-     * 审批定义code，审批生成的唯一标识，用于三方审批实例同步时使用
-     * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-     */
-    @SerializedName("approval_code")
-    private String approvalCode;
+  /**
+   * 审批定义 Code。;;**注意**：在传入已存在的审批定义 Code 进行更新操作的场景中，该参数返回的 Code 可能与传入的 Code 不同。如果不同，请继续使用你传入的
+   * Code，而不是该参数返回的 Code。;;
+   *
+   * <p>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
 
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
-
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
 }

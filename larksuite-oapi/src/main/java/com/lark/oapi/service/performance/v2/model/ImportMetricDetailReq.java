@@ -13,142 +13,143 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.performance.v2.enums.*;
 
 public class ImportMetricDetailReq {
+  /**
+   * 根据 client_token 是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private ImportMetricDetailReqBody body;
+
+  public ImportMetricDetailReqBody getImportMetricDetailReqBody() {
+    return this.body;
+  }
+
+  public void setImportMetricDetailReqBody(ImportMetricDetailReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ImportMetricDetailReq() {}
+
+  public ImportMetricDetailReq(Builder builder) {
     /**
      * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.performance.v2.enums.ImportMetricDetailUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.performance.v2.enums.ImportMetricDetailUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private ImportMetricDetailReqBody body;
 
-    // builder 开始
-    public ImportMetricDetailReq() {
-    }
-
-    public ImportMetricDetailReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public ImportMetricDetailReqBody getImportMetricDetailReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setImportMetricDetailReqBody(ImportMetricDetailReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder importMetricDetailReqBody(ImportMetricDetailReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private String userIdType; // 用户ID类型
-        private ImportMetricDetailReqBody body;
-
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.performance.v2.enums.ImportMetricDetailUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.performance.v2.enums.ImportMetricDetailUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public ImportMetricDetailReqBody getImportMetricDetailReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder importMetricDetailReqBody(ImportMetricDetailReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ImportMetricDetailReq build() {
-            return new ImportMetricDetailReq(this);
-        }
+    public ImportMetricDetailReq build() {
+      return new ImportMetricDetailReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

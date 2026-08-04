@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchPeriodRespBody {
-    /**
-     * 周期规则id
-     * <p> 示例值：6969864184272078374
-     */
-    @SerializedName("period_id")
-    private String periodId;
-    /**
-     * 周期显示状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
+  /**
+   * 周期规则id
+   *
+   * <p>示例值：6969864184272078374
+   */
+  @SerializedName("period_id")
+  private String periodId;
 
-    public String getPeriodId() {
-        return this.periodId;
-    }
+  /**
+   * 周期显示状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setPeriodId(String periodId) {
-        this.periodId = periodId;
-    }
+  public String getPeriodId() {
+    return this.periodId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setPeriodId(String periodId) {
+    this.periodId = periodId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 }

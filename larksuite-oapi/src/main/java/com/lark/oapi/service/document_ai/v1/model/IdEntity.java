@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IdEntity {
+  /**
+   * 识别的字段种类
+   *
+   * <p>示例值：identity_name
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 识别出字段的文本信息
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public IdEntity() {}
+
+  public IdEntity(Builder builder) {
     /**
      * 识别的字段种类
-     * <p> 示例值：identity_name
+     *
+     * <p>示例值：identity_name
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 识别出字段的文本信息
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 识别的字段种类
+     *
+     * <p>示例值：identity_name
+     */
+    private String type;
+
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：张三
+     */
     private String value;
 
-    // builder 开始
-    public IdEntity() {
+    /**
+     * 识别的字段种类
+     *
+     * <p>示例值：identity_name
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public IdEntity(Builder builder) {
-        /**
-         * 识别的字段种类
-         * <p> 示例值：identity_name
-         */
-        this.type = builder.type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：张三
-         */
-        this.value = builder.value;
+    /**
+     * 识别的字段种类
+     *
+     * <p>示例值：identity_name
+     *
+     * @param type {@link com.lark.oapi.service.document_ai.v1.enums.IdEntityIDEntityTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.document_ai.v1.enums.IdEntityIDEntityTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：张三
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public IdEntity build() {
+      return new IdEntity(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 识别的字段种类
-         * <p> 示例值：identity_name
-         */
-        private String type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：张三
-         */
-        private String value;
-
-        /**
-         * 识别的字段种类
-         * <p> 示例值：identity_name
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 识别的字段种类
-         * <p> 示例值：identity_name
-         *
-         * @param type {@link com.lark.oapi.service.document_ai.v1.enums.IdEntityIDEntityTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.document_ai.v1.enums.IdEntityIDEntityTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：张三
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public IdEntity build() {
-            return new IdEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

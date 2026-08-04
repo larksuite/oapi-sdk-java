@@ -13,235 +13,247 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CellStyle {
+  /**
+   * 字体样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("font_style")
+  private CellFontStyle fontStyle;
+
+  /**
+   * 边框颜色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("border_style")
+  private BorderStyle borderStyle;
+
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("alignment_style")
+  private AlignmentStyle alignmentStyle;
+
+  /**
+   * 文本换行
+   *
+   * <p>示例值：Overflow
+   */
+  @SerializedName("wrap_strategy")
+  private String wrapStrategy;
+
+  /**
+   * 数字格式
+   *
+   * <p>示例值：yyyy/MM/dd
+   */
+  @SerializedName("format")
+  private String format;
+
+  public CellFontStyle getFontStyle() {
+    return this.fontStyle;
+  }
+
+  public void setFontStyle(CellFontStyle fontStyle) {
+    this.fontStyle = fontStyle;
+  }
+
+  public BorderStyle getBorderStyle() {
+    return this.borderStyle;
+  }
+
+  public void setBorderStyle(BorderStyle borderStyle) {
+    this.borderStyle = borderStyle;
+  }
+
+  public AlignmentStyle getAlignmentStyle() {
+    return this.alignmentStyle;
+  }
+
+  public void setAlignmentStyle(AlignmentStyle alignmentStyle) {
+    this.alignmentStyle = alignmentStyle;
+  }
+
+  public String getWrapStrategy() {
+    return this.wrapStrategy;
+  }
+
+  public void setWrapStrategy(String wrapStrategy) {
+    this.wrapStrategy = wrapStrategy;
+  }
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  // builder 开始
+  public CellStyle() {}
+
+  public CellStyle(Builder builder) {
     /**
      * 字体样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("font_style")
-    private CellFontStyle fontStyle;
+    this.fontStyle = builder.fontStyle;
     /**
      * 边框颜色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("border_style")
-    private BorderStyle borderStyle;
+    this.borderStyle = builder.borderStyle;
     /**
      * 对齐方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("alignment_style")
-    private AlignmentStyle alignmentStyle;
+    this.alignmentStyle = builder.alignmentStyle;
     /**
      * 文本换行
-     * <p> 示例值：Overflow
+     *
+     * <p>示例值：Overflow
      */
-    @SerializedName("wrap_strategy")
-    private String wrapStrategy;
+    this.wrapStrategy = builder.wrapStrategy;
     /**
      * 数字格式
-     * <p> 示例值：yyyy/MM/dd
+     *
+     * <p>示例值：yyyy/MM/dd
      */
-    @SerializedName("format")
+    this.format = builder.format;
+  }
+
+  public static class Builder {
+    /**
+     * 字体样式
+     *
+     * <p>示例值：
+     */
+    private CellFontStyle fontStyle;
+
+    /**
+     * 边框颜色
+     *
+     * <p>示例值：
+     */
+    private BorderStyle borderStyle;
+
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：
+     */
+    private AlignmentStyle alignmentStyle;
+
+    /**
+     * 文本换行
+     *
+     * <p>示例值：Overflow
+     */
+    private String wrapStrategy;
+
+    /**
+     * 数字格式
+     *
+     * <p>示例值：yyyy/MM/dd
+     */
     private String format;
 
-    // builder 开始
-    public CellStyle() {
+    /**
+     * 字体样式
+     *
+     * <p>示例值：
+     *
+     * @param fontStyle
+     * @return
+     */
+    public Builder fontStyle(CellFontStyle fontStyle) {
+      this.fontStyle = fontStyle;
+      return this;
     }
 
-    public CellStyle(Builder builder) {
-        /**
-         * 字体样式
-         * <p> 示例值：
-         */
-        this.fontStyle = builder.fontStyle;
-        /**
-         * 边框颜色
-         * <p> 示例值：
-         */
-        this.borderStyle = builder.borderStyle;
-        /**
-         * 对齐方式
-         * <p> 示例值：
-         */
-        this.alignmentStyle = builder.alignmentStyle;
-        /**
-         * 文本换行
-         * <p> 示例值：Overflow
-         */
-        this.wrapStrategy = builder.wrapStrategy;
-        /**
-         * 数字格式
-         * <p> 示例值：yyyy/MM/dd
-         */
-        this.format = builder.format;
+    /**
+     * 边框颜色
+     *
+     * <p>示例值：
+     *
+     * @param borderStyle
+     * @return
+     */
+    public Builder borderStyle(BorderStyle borderStyle) {
+      this.borderStyle = borderStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：
+     *
+     * @param alignmentStyle
+     * @return
+     */
+    public Builder alignmentStyle(AlignmentStyle alignmentStyle) {
+      this.alignmentStyle = alignmentStyle;
+      return this;
     }
 
-    public CellFontStyle getFontStyle() {
-        return this.fontStyle;
+    /**
+     * 文本换行
+     *
+     * <p>示例值：Overflow
+     *
+     * @param wrapStrategy
+     * @return
+     */
+    public Builder wrapStrategy(String wrapStrategy) {
+      this.wrapStrategy = wrapStrategy;
+      return this;
     }
 
-    public void setFontStyle(CellFontStyle fontStyle) {
-        this.fontStyle = fontStyle;
+    /**
+     * 文本换行
+     *
+     * <p>示例值：Overflow
+     *
+     * @param wrapStrategy {@link com.lark.oapi.service.sheets.v3.enums.CellStyleWrapStrategyEnum}
+     * @return
+     */
+    public Builder wrapStrategy(
+        com.lark.oapi.service.sheets.v3.enums.CellStyleWrapStrategyEnum wrapStrategy) {
+      this.wrapStrategy = wrapStrategy.getValue();
+      return this;
     }
 
-    public BorderStyle getBorderStyle() {
-        return this.borderStyle;
+    /**
+     * 数字格式
+     *
+     * <p>示例值：yyyy/MM/dd
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public void setBorderStyle(BorderStyle borderStyle) {
-        this.borderStyle = borderStyle;
+    public CellStyle build() {
+      return new CellStyle(this);
     }
+  }
 
-    public AlignmentStyle getAlignmentStyle() {
-        return this.alignmentStyle;
-    }
-
-    public void setAlignmentStyle(AlignmentStyle alignmentStyle) {
-        this.alignmentStyle = alignmentStyle;
-    }
-
-    public String getWrapStrategy() {
-        return this.wrapStrategy;
-    }
-
-    public void setWrapStrategy(String wrapStrategy) {
-        this.wrapStrategy = wrapStrategy;
-    }
-
-    public String getFormat() {
-        return this.format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public static class Builder {
-        /**
-         * 字体样式
-         * <p> 示例值：
-         */
-        private CellFontStyle fontStyle;
-        /**
-         * 边框颜色
-         * <p> 示例值：
-         */
-        private BorderStyle borderStyle;
-        /**
-         * 对齐方式
-         * <p> 示例值：
-         */
-        private AlignmentStyle alignmentStyle;
-        /**
-         * 文本换行
-         * <p> 示例值：Overflow
-         */
-        private String wrapStrategy;
-        /**
-         * 数字格式
-         * <p> 示例值：yyyy/MM/dd
-         */
-        private String format;
-
-        /**
-         * 字体样式
-         * <p> 示例值：
-         *
-         * @param fontStyle
-         * @return
-         */
-        public Builder fontStyle(CellFontStyle fontStyle) {
-            this.fontStyle = fontStyle;
-            return this;
-        }
-
-
-        /**
-         * 边框颜色
-         * <p> 示例值：
-         *
-         * @param borderStyle
-         * @return
-         */
-        public Builder borderStyle(BorderStyle borderStyle) {
-            this.borderStyle = borderStyle;
-            return this;
-        }
-
-
-        /**
-         * 对齐方式
-         * <p> 示例值：
-         *
-         * @param alignmentStyle
-         * @return
-         */
-        public Builder alignmentStyle(AlignmentStyle alignmentStyle) {
-            this.alignmentStyle = alignmentStyle;
-            return this;
-        }
-
-
-        /**
-         * 文本换行
-         * <p> 示例值：Overflow
-         *
-         * @param wrapStrategy
-         * @return
-         */
-        public Builder wrapStrategy(String wrapStrategy) {
-            this.wrapStrategy = wrapStrategy;
-            return this;
-        }
-
-        /**
-         * 文本换行
-         * <p> 示例值：Overflow
-         *
-         * @param wrapStrategy {@link com.lark.oapi.service.sheets.v3.enums.CellStyleWrapStrategyEnum}
-         * @return
-         */
-        public Builder wrapStrategy(com.lark.oapi.service.sheets.v3.enums.CellStyleWrapStrategyEnum wrapStrategy) {
-            this.wrapStrategy = wrapStrategy.getValue();
-            return this;
-        }
-
-
-        /**
-         * 数字格式
-         * <p> 示例值：yyyy/MM/dd
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-
-        public CellStyle build() {
-            return new CellStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

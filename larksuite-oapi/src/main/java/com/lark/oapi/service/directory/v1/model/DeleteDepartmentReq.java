@@ -13,194 +13,207 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class DeleteDepartmentReq {
+  /**
+   * 此次调用中使用的部门ID的类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * adminRole鉴权
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("is_admin_role")
+  private Boolean isAdminRole;
+
+  /**
+   * 员工ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("employee_id_type")
+  private String employeeIdType;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public Boolean getIsAdminRole() {
+    return this.isAdminRole;
+  }
+
+  public void setIsAdminRole(Boolean isAdminRole) {
+    this.isAdminRole = isAdminRole;
+  }
+
+  public String getEmployeeIdType() {
+    return this.employeeIdType;
+  }
+
+  public void setEmployeeIdType(String employeeIdType) {
+    this.employeeIdType = employeeIdType;
+  }
+
+  /**
+   * 部门ID，与department_id_type类型保持一致
+   *
+   * <p>示例值：weasdqwe
+   */
+  @Path
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public DeleteDepartmentReq() {}
+
+  public DeleteDepartmentReq(Builder builder) {
     /**
      * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * adminRole鉴权
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("is_admin_role")
-    private Boolean isAdminRole;
+    this.isAdminRole = builder.isAdminRole;
     /**
      * 员工ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("employee_id_type")
-    private String employeeIdType;
+    this.employeeIdType = builder.employeeIdType;
     /**
-     * 部门ID
-     * <p> 示例值：weasdqwe
+     * 部门ID，与department_id_type类型保持一致
+     *
+     * <p>示例值：weasdqwe
      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
+  }
 
-    // builder 开始
-    public DeleteDepartmentReq() {
+  public static class Builder {
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+    private Boolean isAdminRole; // adminRole鉴权
+    private String employeeIdType; // 员工ID类型
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public DeleteDepartmentReq(Builder builder) {
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         */
-        this.isAdminRole = builder.isAdminRole;
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         */
-        this.employeeIdType = builder.employeeIdType;
-        /**
-         * 部门ID
-         * <p> 示例值：weasdqwe
-         */
-        this.departmentId = builder.departmentId;
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.DeleteDepartmentDepartmentIdTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.directory.v1.enums.DeleteDepartmentDepartmentIdTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * adminRole鉴权
+     *
+     * <p>示例值：
+     *
+     * @param isAdminRole
+     * @return
+     */
+    public Builder isAdminRole(Boolean isAdminRole) {
+      this.isAdminRole = isAdminRole;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    /**
+     * 员工ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param employeeIdType
+     * @return
+     */
+    public Builder employeeIdType(String employeeIdType) {
+      this.employeeIdType = employeeIdType;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    /**
+     * 员工ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param employeeIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.DeleteDepartmentEmployeeIdTypeEnum}
+     * @return
+     */
+    public Builder employeeIdType(
+        com.lark.oapi.service.directory.v1.enums.DeleteDepartmentEmployeeIdTypeEnum
+            employeeIdType) {
+      this.employeeIdType = employeeIdType.getValue();
+      return this;
     }
 
-    public Boolean getIsAdminRole() {
-        return this.isAdminRole;
+    private String departmentId; // 部门ID，与department_id_type类型保持一致
+
+    /**
+     * 部门ID，与department_id_type类型保持一致
+     *
+     * <p>示例值：weasdqwe
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setIsAdminRole(Boolean isAdminRole) {
-        this.isAdminRole = isAdminRole;
+    public DeleteDepartmentReq build() {
+      return new DeleteDepartmentReq(this);
     }
+  }
 
-    public String getEmployeeIdType() {
-        return this.employeeIdType;
-    }
-
-    public void setEmployeeIdType(String employeeIdType) {
-        this.employeeIdType = employeeIdType;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private Boolean isAdminRole; // adminRole鉴权
-        private String employeeIdType; // 员工ID类型
-        private String departmentId; // 部门ID
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.directory.v1.enums.DeleteDepartmentDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.directory.v1.enums.DeleteDepartmentDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         *
-         * @param isAdminRole
-         * @return
-         */
-        public Builder isAdminRole(Boolean isAdminRole) {
-            this.isAdminRole = isAdminRole;
-            return this;
-        }
-
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         *
-         * @param employeeIdType
-         * @return
-         */
-        public Builder employeeIdType(String employeeIdType) {
-            this.employeeIdType = employeeIdType;
-            return this;
-        }
-
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         *
-         * @param employeeIdType {@link com.lark.oapi.service.directory.v1.enums.DeleteDepartmentEmployeeIdTypeEnum}
-         * @return
-         */
-        public Builder employeeIdType(com.lark.oapi.service.directory.v1.enums.DeleteDepartmentEmployeeIdTypeEnum employeeIdType) {
-            this.employeeIdType = employeeIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 部门ID
-         * <p> 示例值：weasdqwe
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public DeleteDepartmentReq build() {
-            return new DeleteDepartmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

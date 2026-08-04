@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 申请来源
- */
+/** 申请来源 */
 public enum LumpSumPaymentApplySourceEnum {
-    OFFER_SALARY(1), // Offer薪酬创建
-    IMPORT(2), // 导入
-    BEE(3), // 调级调薪创建
-    REPORT(4), // 填报创建
-    OPEN_API(5), // 开放平台创建
-    RECRUITMENT(6), // 招聘内推创建
-    BONUS_RULE(7), // 自动化规则创建
-    ;
-    private Integer value;
+  OFFER_SALARY(1), // Offer薪酬创建
+  IMPORT(2), // 导入
+  BEE(3), // 调级调薪创建
+  REPORT(4), // 填报创建
+  OPEN_API(5), // 开放平台创建
+  RECRUITMENT(6), // 招聘内推创建
+  BONUS_RULE(7), // 自动化规则创建
+  ;
+  private Integer value;
 
-    LumpSumPaymentApplySourceEnum(Integer value) {
-        this.value = value;
-    }
+  LumpSumPaymentApplySourceEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

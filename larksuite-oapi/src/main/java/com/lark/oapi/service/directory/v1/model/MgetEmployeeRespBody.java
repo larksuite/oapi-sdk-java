@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetEmployeeRespBody {
-    /**
-     * 员工信息
-     * <p> 示例值：
-     */
-    @SerializedName("employees")
-    private EmployeeEntity[] employees;
-    /**
-     * 字段异常信息
-     * <p> 示例值：
-     */
-    @SerializedName("abnormals")
-    private AbnormalRecord[] abnormals;
+  /**
+   * 员工信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employees")
+  private EmployeeEntity[] employees;
 
-    public EmployeeEntity[] getEmployees() {
-        return this.employees;
-    }
+  /**
+   * 字段异常信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("abnormals")
+  private AbnormalRecord[] abnormals;
 
-    public void setEmployees(EmployeeEntity[] employees) {
-        this.employees = employees;
-    }
+  public EmployeeEntity[] getEmployees() {
+    return this.employees;
+  }
 
-    public AbnormalRecord[] getAbnormals() {
-        return this.abnormals;
-    }
+  public void setEmployees(EmployeeEntity[] employees) {
+    this.employees = employees;
+  }
 
-    public void setAbnormals(AbnormalRecord[] abnormals) {
-        this.abnormals = abnormals;
-    }
+  public AbnormalRecord[] getAbnormals() {
+    return this.abnormals;
+  }
 
+  public void setAbnormals(AbnormalRecord[] abnormals) {
+    this.abnormals = abnormals;
+  }
 }

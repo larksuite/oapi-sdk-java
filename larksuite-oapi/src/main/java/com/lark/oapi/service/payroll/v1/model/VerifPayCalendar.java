@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifPayCalendar {
+  /**
+   * id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 中文名称
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 英文名称
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 算薪日历来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("calendar_source")
+  private Integer calendarSource;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Integer getCalendarSource() {
+    return this.calendarSource;
+  }
+
+  public void setCalendarSource(Integer calendarSource) {
+    this.calendarSource = calendarSource;
+  }
+
+  // builder 开始
+  public VerifPayCalendar() {}
+
+  public VerifPayCalendar(Builder builder) {
     /**
      * id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 中文名称
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 英文名称
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 算薪日历来源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("calendar_source")
+    this.calendarSource = builder.calendarSource;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 中文名称
+     *
+     * <p>示例值：1
+     */
+    private String zhName;
+
+    /**
+     * 英文名称
+     *
+     * <p>示例值：1
+     */
+    private String enName;
+
+    /**
+     * 算薪日历来源
+     *
+     * <p>示例值：1
+     */
     private Integer calendarSource;
 
-    // builder 开始
-    public VerifPayCalendar() {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public VerifPayCalendar(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 中文名称
-         * <p> 示例值：1
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：1
-         */
-        this.enName = builder.enName;
-        /**
-         * 算薪日历来源
-         * <p> 示例值：1
-         */
-        this.calendarSource = builder.calendarSource;
+    /**
+     * 中文名称
+     *
+     * <p>示例值：1
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名称
+     *
+     * <p>示例值：1
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 算薪日历来源
+     *
+     * <p>示例值：1
+     *
+     * @param calendarSource
+     * @return
+     */
+    public Builder calendarSource(Integer calendarSource) {
+      this.calendarSource = calendarSource;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public VerifPayCalendar build() {
+      return new VerifPayCalendar(this);
     }
+  }
 
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Integer getCalendarSource() {
-        return this.calendarSource;
-    }
-
-    public void setCalendarSource(Integer calendarSource) {
-        this.calendarSource = calendarSource;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 中文名称
-         * <p> 示例值：1
-         */
-        private String zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：1
-         */
-        private String enName;
-        /**
-         * 算薪日历来源
-         * <p> 示例值：1
-         */
-        private Integer calendarSource;
-
-        /**
-         * id
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 中文名称
-         * <p> 示例值：1
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名称
-         * <p> 示例值：1
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 算薪日历来源
-         * <p> 示例值：1
-         *
-         * @param calendarSource
-         * @return
-         */
-        public Builder calendarSource(Integer calendarSource) {
-            this.calendarSource = calendarSource;
-            return this;
-        }
-
-
-        public VerifPayCalendar build() {
-            return new VerifPayCalendar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

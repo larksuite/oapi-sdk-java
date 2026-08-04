@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAppVisibilityAppReqBody {
+  /**
+   * 仅 Scope = Range 时生效，授权用户 open_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("users")
+  private String[] users;
+
+  /**
+   * 仅 Scope = Range 时生效，授权部门 department_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departments")
+  private String[] departments;
+
+  /**
+   * 仅 Scope= Range 时生效，授权群聊 chat_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chats")
+  private String[] chats;
+
+  /**
+   * 申请访问配置（含审批人，仅支持单个用户 open_id）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("apply_config")
+  private ApplyConfig applyConfig;
+
+  /**
+   * 访问 Share URL 是否需要登录
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("require_login")
+  private Boolean requireLogin;
+
+  /**
+   * 可见范围类型：Public / Tenant / Range;;Public: 互联网公开可见;;Tenant: 组织内可见;;Range: 部分人员/部门/租户可见
+   *
+   * <p>示例值：Range
+   */
+  @SerializedName("scope")
+  private String scope;
+
+  public String[] getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(String[] users) {
+    this.users = users;
+  }
+
+  public String[] getDepartments() {
+    return this.departments;
+  }
+
+  public void setDepartments(String[] departments) {
+    this.departments = departments;
+  }
+
+  public String[] getChats() {
+    return this.chats;
+  }
+
+  public void setChats(String[] chats) {
+    this.chats = chats;
+  }
+
+  public ApplyConfig getApplyConfig() {
+    return this.applyConfig;
+  }
+
+  public void setApplyConfig(ApplyConfig applyConfig) {
+    this.applyConfig = applyConfig;
+  }
+
+  public Boolean getRequireLogin() {
+    return this.requireLogin;
+  }
+
+  public void setRequireLogin(Boolean requireLogin) {
+    this.requireLogin = requireLogin;
+  }
+
+  public String getScope() {
+    return this.scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
+
+  // builder 开始
+  public UpdateAppVisibilityAppReqBody() {}
+
+  public UpdateAppVisibilityAppReqBody(Builder builder) {
     /**
-     * Users 仅 Scope=Range 时生效，授权用户 open_id 列表
-     * <p> 示例值：
+     * 仅 Scope = Range 时生效，授权用户 open_id 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("users")
+    this.users = builder.users;
+    /**
+     * 仅 Scope = Range 时生效，授权部门 department_id 列表
+     *
+     * <p>示例值：
+     */
+    this.departments = builder.departments;
+    /**
+     * 仅 Scope= Range 时生效，授权群聊 chat_id 列表
+     *
+     * <p>示例值：
+     */
+    this.chats = builder.chats;
+    /**
+     * 申请访问配置（含审批人，仅支持单个用户 open_id）
+     *
+     * <p>示例值：
+     */
+    this.applyConfig = builder.applyConfig;
+    /**
+     * 访问 Share URL 是否需要登录
+     *
+     * <p>示例值：true
+     */
+    this.requireLogin = builder.requireLogin;
+    /**
+     * 可见范围类型：Public / Tenant / Range;;Public: 互联网公开可见;;Tenant: 组织内可见;;Range: 部分人员/部门/租户可见
+     *
+     * <p>示例值：Range
+     */
+    this.scope = builder.scope;
+  }
+
+  public static class Builder {
+    /**
+     * 仅 Scope = Range 时生效，授权用户 open_id 列表
+     *
+     * <p>示例值：
+     */
     private String[] users;
+
     /**
-     * Departments 仅 Scope=Range 时生效，授权部门 department_id 列表
-     * <p> 示例值：
+     * 仅 Scope = Range 时生效，授权部门 department_id 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("departments")
     private String[] departments;
+
     /**
-     * Chats 仅 Scope=Range 时生效，授权群聊 chat_id 列表
-     * <p> 示例值：
+     * 仅 Scope= Range 时生效，授权群聊 chat_id 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("chats")
     private String[] chats;
+
     /**
-     * ApplyConfig 申请访问配置（含审批人，仅支持单个用户 open_id）
-     * <p> 示例值：
+     * 申请访问配置（含审批人，仅支持单个用户 open_id）
+     *
+     * <p>示例值：
      */
-    @SerializedName("apply_config")
     private ApplyConfig applyConfig;
+
     /**
-     * 访问 share URL 是否需要登录
-     * <p> 示例值：
+     * 访问 Share URL 是否需要登录
+     *
+     * <p>示例值：true
      */
-    @SerializedName("require_login")
     private Boolean requireLogin;
+
     /**
-     * Scope 可见范围类型：All/ Tenant / Range
-     * <p> 示例值：
+     * 可见范围类型：Public / Tenant / Range;;Public: 互联网公开可见;;Tenant: 组织内可见;;Range: 部分人员/部门/租户可见
+     *
+     * <p>示例值：Range
      */
-    @SerializedName("scope")
     private String scope;
 
-    // builder 开始
-    public UpdateAppVisibilityAppReqBody() {
+    /**
+     * 仅 Scope = Range 时生效，授权用户 open_id 列表
+     *
+     * <p>示例值：
+     *
+     * @param users
+     * @return
+     */
+    public Builder users(String[] users) {
+      this.users = users;
+      return this;
     }
 
-    public UpdateAppVisibilityAppReqBody(Builder builder) {
-        /**
-         * Users 仅 Scope=Range 时生效，授权用户 open_id 列表
-         * <p> 示例值：
-         */
-        this.users = builder.users;
-        /**
-         * Departments 仅 Scope=Range 时生效，授权部门 department_id 列表
-         * <p> 示例值：
-         */
-        this.departments = builder.departments;
-        /**
-         * Chats 仅 Scope=Range 时生效，授权群聊 chat_id 列表
-         * <p> 示例值：
-         */
-        this.chats = builder.chats;
-        /**
-         * ApplyConfig 申请访问配置（含审批人，仅支持单个用户 open_id）
-         * <p> 示例值：
-         */
-        this.applyConfig = builder.applyConfig;
-        /**
-         * 访问 share URL 是否需要登录
-         * <p> 示例值：
-         */
-        this.requireLogin = builder.requireLogin;
-        /**
-         * Scope 可见范围类型：All/ Tenant / Range
-         * <p> 示例值：
-         */
-        this.scope = builder.scope;
+    /**
+     * 仅 Scope = Range 时生效，授权部门 department_id 列表
+     *
+     * <p>示例值：
+     *
+     * @param departments
+     * @return
+     */
+    public Builder departments(String[] departments) {
+      this.departments = departments;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 仅 Scope= Range 时生效，授权群聊 chat_id 列表
+     *
+     * <p>示例值：
+     *
+     * @param chats
+     * @return
+     */
+    public Builder chats(String[] chats) {
+      this.chats = chats;
+      return this;
     }
 
-    public String[] getUsers() {
-        return this.users;
+    /**
+     * 申请访问配置（含审批人，仅支持单个用户 open_id）
+     *
+     * <p>示例值：
+     *
+     * @param applyConfig
+     * @return
+     */
+    public Builder applyConfig(ApplyConfig applyConfig) {
+      this.applyConfig = applyConfig;
+      return this;
     }
 
-    public void setUsers(String[] users) {
-        this.users = users;
+    /**
+     * 访问 Share URL 是否需要登录
+     *
+     * <p>示例值：true
+     *
+     * @param requireLogin
+     * @return
+     */
+    public Builder requireLogin(Boolean requireLogin) {
+      this.requireLogin = requireLogin;
+      return this;
     }
 
-    public String[] getDepartments() {
-        return this.departments;
+    /**
+     * 可见范围类型：Public / Tenant / Range;;Public: 互联网公开可见;;Tenant: 组织内可见;;Range: 部分人员/部门/租户可见
+     *
+     * <p>示例值：Range
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(String scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public void setDepartments(String[] departments) {
-        this.departments = departments;
+    public UpdateAppVisibilityAppReqBody build() {
+      return new UpdateAppVisibilityAppReqBody(this);
     }
+  }
 
-    public String[] getChats() {
-        return this.chats;
-    }
-
-    public void setChats(String[] chats) {
-        this.chats = chats;
-    }
-
-    public ApplyConfig getApplyConfig() {
-        return this.applyConfig;
-    }
-
-    public void setApplyConfig(ApplyConfig applyConfig) {
-        this.applyConfig = applyConfig;
-    }
-
-    public Boolean getRequireLogin() {
-        return this.requireLogin;
-    }
-
-    public void setRequireLogin(Boolean requireLogin) {
-        this.requireLogin = requireLogin;
-    }
-
-    public String getScope() {
-        return this.scope;
-    }
-
-    public void setScope(String scope) {
-        this.scope = scope;
-    }
-
-    public static class Builder {
-        /**
-         * Users 仅 Scope=Range 时生效，授权用户 open_id 列表
-         * <p> 示例值：
-         */
-        private String[] users;
-        /**
-         * Departments 仅 Scope=Range 时生效，授权部门 department_id 列表
-         * <p> 示例值：
-         */
-        private String[] departments;
-        /**
-         * Chats 仅 Scope=Range 时生效，授权群聊 chat_id 列表
-         * <p> 示例值：
-         */
-        private String[] chats;
-        /**
-         * ApplyConfig 申请访问配置（含审批人，仅支持单个用户 open_id）
-         * <p> 示例值：
-         */
-        private ApplyConfig applyConfig;
-        /**
-         * 访问 share URL 是否需要登录
-         * <p> 示例值：
-         */
-        private Boolean requireLogin;
-        /**
-         * Scope 可见范围类型：All/ Tenant / Range
-         * <p> 示例值：
-         */
-        private String scope;
-
-        /**
-         * Users 仅 Scope=Range 时生效，授权用户 open_id 列表
-         * <p> 示例值：
-         *
-         * @param users
-         * @return
-         */
-        public Builder users(String[] users) {
-            this.users = users;
-            return this;
-        }
-
-
-        /**
-         * Departments 仅 Scope=Range 时生效，授权部门 department_id 列表
-         * <p> 示例值：
-         *
-         * @param departments
-         * @return
-         */
-        public Builder departments(String[] departments) {
-            this.departments = departments;
-            return this;
-        }
-
-
-        /**
-         * Chats 仅 Scope=Range 时生效，授权群聊 chat_id 列表
-         * <p> 示例值：
-         *
-         * @param chats
-         * @return
-         */
-        public Builder chats(String[] chats) {
-            this.chats = chats;
-            return this;
-        }
-
-
-        /**
-         * ApplyConfig 申请访问配置（含审批人，仅支持单个用户 open_id）
-         * <p> 示例值：
-         *
-         * @param applyConfig
-         * @return
-         */
-        public Builder applyConfig(ApplyConfig applyConfig) {
-            this.applyConfig = applyConfig;
-            return this;
-        }
-
-
-        /**
-         * 访问 share URL 是否需要登录
-         * <p> 示例值：
-         *
-         * @param requireLogin
-         * @return
-         */
-        public Builder requireLogin(Boolean requireLogin) {
-            this.requireLogin = requireLogin;
-            return this;
-        }
-
-
-        /**
-         * Scope 可见范围类型：All/ Tenant / Range
-         * <p> 示例值：
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(String scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        public UpdateAppVisibilityAppReqBody build() {
-            return new UpdateAppVisibilityAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

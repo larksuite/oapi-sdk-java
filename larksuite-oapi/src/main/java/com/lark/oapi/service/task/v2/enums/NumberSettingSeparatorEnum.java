@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 分隔符样式
- */
+/** 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。 */
 public enum NumberSettingSeparatorEnum {
-    NONE("none"), // 无分隔符
-    THOUSAND("thousand"), // 千分位分隔符
-    ;
-    private String value;
+  NONE("none"), // 无分隔符
+  THOUSAND("thousand"), // 千分位分隔符
+  ;
+  private String value;
 
-    NumberSettingSeparatorEnum(String value) {
-        this.value = value;
-    }
+  NumberSettingSeparatorEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

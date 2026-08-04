@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationTenant {
+  /**
+   * 关联租户ID
+   *
+   * <p>示例值：130426ba5b8f174f
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 目标组织的名称
+   *
+   * <p>示例值：name
+   */
+  @SerializedName("tenant_name")
+  private String tenantName;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_tenant_name")
+  private I18nName i18nTenantName;
+
+  /**
+   * 目标组织的简称
+   *
+   * <p>示例值：tenant_short_name
+   */
+  @SerializedName("tenant_short_name")
+  private String tenantShortName;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_tenant_short_name")
+  private I18nName i18nTenantShortName;
+
+  /**
+   * 关联时间
+   *
+   * <p>示例值：1642041636
+   */
+  @SerializedName("connect_time")
+  private Integer connectTime;
+
+  /**
+   * 标签
+   *
+   * <p>示例值：协作
+   */
+  @SerializedName("tenant_tag")
+  private String tenantTag;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_tenant_tag")
+  private I18nName i18nTenantTag;
+
+  /**
+   * 组织icon信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private AvatarInfo avatar;
+
+  /**
+   * 组织品牌
+   *
+   * <p>示例值：飞书
+   */
+  @SerializedName("brand")
+  private String brand;
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getTenantName() {
+    return this.tenantName;
+  }
+
+  public void setTenantName(String tenantName) {
+    this.tenantName = tenantName;
+  }
+
+  public I18nName getI18nTenantName() {
+    return this.i18nTenantName;
+  }
+
+  public void setI18nTenantName(I18nName i18nTenantName) {
+    this.i18nTenantName = i18nTenantName;
+  }
+
+  public String getTenantShortName() {
+    return this.tenantShortName;
+  }
+
+  public void setTenantShortName(String tenantShortName) {
+    this.tenantShortName = tenantShortName;
+  }
+
+  public I18nName getI18nTenantShortName() {
+    return this.i18nTenantShortName;
+  }
+
+  public void setI18nTenantShortName(I18nName i18nTenantShortName) {
+    this.i18nTenantShortName = i18nTenantShortName;
+  }
+
+  public Integer getConnectTime() {
+    return this.connectTime;
+  }
+
+  public void setConnectTime(Integer connectTime) {
+    this.connectTime = connectTime;
+  }
+
+  public String getTenantTag() {
+    return this.tenantTag;
+  }
+
+  public void setTenantTag(String tenantTag) {
+    this.tenantTag = tenantTag;
+  }
+
+  public I18nName getI18nTenantTag() {
+    return this.i18nTenantTag;
+  }
+
+  public void setI18nTenantTag(I18nName i18nTenantTag) {
+    this.i18nTenantTag = i18nTenantTag;
+  }
+
+  public AvatarInfo getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(AvatarInfo avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getBrand() {
+    return this.brand;
+  }
+
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
+  // builder 开始
+  public CollaborationTenant() {}
+
+  public CollaborationTenant(Builder builder) {
     /**
      * 关联租户ID
-     * <p> 示例值：130426ba5b8f174f
+     *
+     * <p>示例值：130426ba5b8f174f
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
-     * 目标租户的租户名称
-     * <p> 示例值：name
+     * 目标组织的名称
+     *
+     * <p>示例值：name
      */
-    @SerializedName("tenant_name")
-    private String tenantName;
+    this.tenantName = builder.tenantName;
     /**
-     * 目标租户的租户i18n名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_tenant_name")
-    private I18nName i18nTenantName;
+    this.i18nTenantName = builder.i18nTenantName;
     /**
-     * 目标租户的租户简称
-     * <p> 示例值：tenant_short_name
+     * 目标组织的简称
+     *
+     * <p>示例值：tenant_short_name
      */
-    @SerializedName("tenant_short_name")
-    private String tenantShortName;
+    this.tenantShortName = builder.tenantShortName;
     /**
-     * 目标租户的租户i18n简称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_tenant_short_name")
-    private I18nName i18nTenantShortName;
+    this.i18nTenantShortName = builder.i18nTenantShortName;
     /**
      * 关联时间
-     * <p> 示例值：1642041636
+     *
+     * <p>示例值：1642041636
      */
-    @SerializedName("connect_time")
-    private Integer connectTime;
+    this.connectTime = builder.connectTime;
     /**
      * 标签
-     * <p> 示例值：协作
+     *
+     * <p>示例值：协作
      */
-    @SerializedName("tenant_tag")
+    this.tenantTag = builder.tenantTag;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    this.i18nTenantTag = builder.i18nTenantTag;
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     */
+    this.avatar = builder.avatar;
+    /**
+     * 组织品牌
+     *
+     * <p>示例值：飞书
+     */
+    this.brand = builder.brand;
+  }
+
+  public static class Builder {
+    /**
+     * 关联租户ID
+     *
+     * <p>示例值：130426ba5b8f174f
+     */
+    private String tenantKey;
+
+    /**
+     * 目标组织的名称
+     *
+     * <p>示例值：name
+     */
+    private String tenantName;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nTenantName;
+
+    /**
+     * 目标组织的简称
+     *
+     * <p>示例值：tenant_short_name
+     */
+    private String tenantShortName;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nTenantShortName;
+
+    /**
+     * 关联时间
+     *
+     * <p>示例值：1642041636
+     */
+    private Integer connectTime;
+
+    /**
+     * 标签
+     *
+     * <p>示例值：协作
+     */
     private String tenantTag;
+
     /**
-     * i18n标签
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_tenant_tag")
     private I18nName i18nTenantTag;
+
     /**
-     * 租户icon信息
-     * <p> 示例值：
+     * 组织icon信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
     private AvatarInfo avatar;
+
     /**
-     * 租户品牌
-     * <p> 示例值：飞书
+     * 组织品牌
+     *
+     * <p>示例值：飞书
      */
-    @SerializedName("brand")
     private String brand;
 
-    // builder 开始
-    public CollaborationTenant() {
+    /**
+     * 关联租户ID
+     *
+     * <p>示例值：130426ba5b8f174f
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public CollaborationTenant(Builder builder) {
-        /**
-         * 关联租户ID
-         * <p> 示例值：130426ba5b8f174f
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 目标租户的租户名称
-         * <p> 示例值：name
-         */
-        this.tenantName = builder.tenantName;
-        /**
-         * 目标租户的租户i18n名称
-         * <p> 示例值：
-         */
-        this.i18nTenantName = builder.i18nTenantName;
-        /**
-         * 目标租户的租户简称
-         * <p> 示例值：tenant_short_name
-         */
-        this.tenantShortName = builder.tenantShortName;
-        /**
-         * 目标租户的租户i18n简称
-         * <p> 示例值：
-         */
-        this.i18nTenantShortName = builder.i18nTenantShortName;
-        /**
-         * 关联时间
-         * <p> 示例值：1642041636
-         */
-        this.connectTime = builder.connectTime;
-        /**
-         * 标签
-         * <p> 示例值：协作
-         */
-        this.tenantTag = builder.tenantTag;
-        /**
-         * i18n标签
-         * <p> 示例值：
-         */
-        this.i18nTenantTag = builder.i18nTenantTag;
-        /**
-         * 租户icon信息
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 租户品牌
-         * <p> 示例值：飞书
-         */
-        this.brand = builder.brand;
+    /**
+     * 目标组织的名称
+     *
+     * <p>示例值：name
+     *
+     * @param tenantName
+     * @return
+     */
+    public Builder tenantName(String tenantName) {
+      this.tenantName = tenantName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nTenantName
+     * @return
+     */
+    public Builder i18nTenantName(I18nName i18nTenantName) {
+      this.i18nTenantName = i18nTenantName;
+      return this;
     }
 
-    public String getTenantKey() {
-        return this.tenantKey;
+    /**
+     * 目标组织的简称
+     *
+     * <p>示例值：tenant_short_name
+     *
+     * @param tenantShortName
+     * @return
+     */
+    public Builder tenantShortName(String tenantShortName) {
+      this.tenantShortName = tenantShortName;
+      return this;
     }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nTenantShortName
+     * @return
+     */
+    public Builder i18nTenantShortName(I18nName i18nTenantShortName) {
+      this.i18nTenantShortName = i18nTenantShortName;
+      return this;
     }
 
-    public String getTenantName() {
-        return this.tenantName;
+    /**
+     * 关联时间
+     *
+     * <p>示例值：1642041636
+     *
+     * @param connectTime
+     * @return
+     */
+    public Builder connectTime(Integer connectTime) {
+      this.connectTime = connectTime;
+      return this;
     }
 
-    public void setTenantName(String tenantName) {
-        this.tenantName = tenantName;
+    /**
+     * 标签
+     *
+     * <p>示例值：协作
+     *
+     * @param tenantTag
+     * @return
+     */
+    public Builder tenantTag(String tenantTag) {
+      this.tenantTag = tenantTag;
+      return this;
     }
 
-    public I18nName getI18nTenantName() {
-        return this.i18nTenantName;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nTenantTag
+     * @return
+     */
+    public Builder i18nTenantTag(I18nName i18nTenantTag) {
+      this.i18nTenantTag = i18nTenantTag;
+      return this;
     }
 
-    public void setI18nTenantName(I18nName i18nTenantName) {
-        this.i18nTenantName = i18nTenantName;
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(AvatarInfo avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public String getTenantShortName() {
-        return this.tenantShortName;
+    /**
+     * 组织品牌
+     *
+     * <p>示例值：飞书
+     *
+     * @param brand
+     * @return
+     */
+    public Builder brand(String brand) {
+      this.brand = brand;
+      return this;
     }
 
-    public void setTenantShortName(String tenantShortName) {
-        this.tenantShortName = tenantShortName;
+    public CollaborationTenant build() {
+      return new CollaborationTenant(this);
     }
+  }
 
-    public I18nName getI18nTenantShortName() {
-        return this.i18nTenantShortName;
-    }
-
-    public void setI18nTenantShortName(I18nName i18nTenantShortName) {
-        this.i18nTenantShortName = i18nTenantShortName;
-    }
-
-    public Integer getConnectTime() {
-        return this.connectTime;
-    }
-
-    public void setConnectTime(Integer connectTime) {
-        this.connectTime = connectTime;
-    }
-
-    public String getTenantTag() {
-        return this.tenantTag;
-    }
-
-    public void setTenantTag(String tenantTag) {
-        this.tenantTag = tenantTag;
-    }
-
-    public I18nName getI18nTenantTag() {
-        return this.i18nTenantTag;
-    }
-
-    public void setI18nTenantTag(I18nName i18nTenantTag) {
-        this.i18nTenantTag = i18nTenantTag;
-    }
-
-    public AvatarInfo getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(AvatarInfo avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getBrand() {
-        return this.brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public static class Builder {
-        /**
-         * 关联租户ID
-         * <p> 示例值：130426ba5b8f174f
-         */
-        private String tenantKey;
-        /**
-         * 目标租户的租户名称
-         * <p> 示例值：name
-         */
-        private String tenantName;
-        /**
-         * 目标租户的租户i18n名称
-         * <p> 示例值：
-         */
-        private I18nName i18nTenantName;
-        /**
-         * 目标租户的租户简称
-         * <p> 示例值：tenant_short_name
-         */
-        private String tenantShortName;
-        /**
-         * 目标租户的租户i18n简称
-         * <p> 示例值：
-         */
-        private I18nName i18nTenantShortName;
-        /**
-         * 关联时间
-         * <p> 示例值：1642041636
-         */
-        private Integer connectTime;
-        /**
-         * 标签
-         * <p> 示例值：协作
-         */
-        private String tenantTag;
-        /**
-         * i18n标签
-         * <p> 示例值：
-         */
-        private I18nName i18nTenantTag;
-        /**
-         * 租户icon信息
-         * <p> 示例值：
-         */
-        private AvatarInfo avatar;
-        /**
-         * 租户品牌
-         * <p> 示例值：飞书
-         */
-        private String brand;
-
-        /**
-         * 关联租户ID
-         * <p> 示例值：130426ba5b8f174f
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 目标租户的租户名称
-         * <p> 示例值：name
-         *
-         * @param tenantName
-         * @return
-         */
-        public Builder tenantName(String tenantName) {
-            this.tenantName = tenantName;
-            return this;
-        }
-
-
-        /**
-         * 目标租户的租户i18n名称
-         * <p> 示例值：
-         *
-         * @param i18nTenantName
-         * @return
-         */
-        public Builder i18nTenantName(I18nName i18nTenantName) {
-            this.i18nTenantName = i18nTenantName;
-            return this;
-        }
-
-
-        /**
-         * 目标租户的租户简称
-         * <p> 示例值：tenant_short_name
-         *
-         * @param tenantShortName
-         * @return
-         */
-        public Builder tenantShortName(String tenantShortName) {
-            this.tenantShortName = tenantShortName;
-            return this;
-        }
-
-
-        /**
-         * 目标租户的租户i18n简称
-         * <p> 示例值：
-         *
-         * @param i18nTenantShortName
-         * @return
-         */
-        public Builder i18nTenantShortName(I18nName i18nTenantShortName) {
-            this.i18nTenantShortName = i18nTenantShortName;
-            return this;
-        }
-
-
-        /**
-         * 关联时间
-         * <p> 示例值：1642041636
-         *
-         * @param connectTime
-         * @return
-         */
-        public Builder connectTime(Integer connectTime) {
-            this.connectTime = connectTime;
-            return this;
-        }
-
-
-        /**
-         * 标签
-         * <p> 示例值：协作
-         *
-         * @param tenantTag
-         * @return
-         */
-        public Builder tenantTag(String tenantTag) {
-            this.tenantTag = tenantTag;
-            return this;
-        }
-
-
-        /**
-         * i18n标签
-         * <p> 示例值：
-         *
-         * @param i18nTenantTag
-         * @return
-         */
-        public Builder i18nTenantTag(I18nName i18nTenantTag) {
-            this.i18nTenantTag = i18nTenantTag;
-            return this;
-        }
-
-
-        /**
-         * 租户icon信息
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(AvatarInfo avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 租户品牌
-         * <p> 示例值：飞书
-         *
-         * @param brand
-         * @return
-         */
-        public Builder brand(String brand) {
-            this.brand = brand;
-            return this;
-        }
-
-
-        public CollaborationTenant build() {
-            return new CollaborationTenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

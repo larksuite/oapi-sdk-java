@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 试用期考核结果
- */
+/** 试用期考核结果 */
 public enum AssessmentForCreateAssessmentForCreateAssessmentResultEnum {
-    APPROVED("approved"), // 通过
-    REJECTED("rejected"), // 不通过
-    ;
-    private String value;
+  APPROVED("approved"), // 通过
+  REJECTED("rejected"), // 不通过
+  ;
+  private String value;
 
-    AssessmentForCreateAssessmentForCreateAssessmentResultEnum(String value) {
-        this.value = value;
-    }
+  AssessmentForCreateAssessmentForCreateAssessmentResultEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

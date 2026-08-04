@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommonSchemaOption {
+  /**
+   * 枚举常量集 API
+   * name，即一组选项集合的唯一标识。系统预置的枚举常量集可在[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)文档中查询到
+   *
+   * <p>示例值：custom_enum_option_33
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private Name name;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private Name description;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_open")
+  private Boolean isOpen;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Name getName() {
+    return this.name;
+  }
+
+  public void setName(Name name) {
+    this.name = name;
+  }
+
+  public Name getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Name description) {
+    this.description = description;
+  }
+
+  public Boolean getIsOpen() {
+    return this.isOpen;
+  }
+
+  public void setIsOpen(Boolean isOpen) {
+    this.isOpen = isOpen;
+  }
+
+  // builder 开始
+  public CommonSchemaOption() {}
+
+  public CommonSchemaOption(Builder builder) {
     /**
-     * 选项 api_name，即选项的唯一标识
-     * <p> 示例值：custom_field_33
+     * 枚举常量集 API
+     * name，即一组选项集合的唯一标识。系统预置的枚举常量集可在[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)文档中查询到
+     *
+     * <p>示例值：custom_enum_option_33
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 选项名称
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private Name name;
+    this.name = builder.name;
     /**
-     * 选项描述
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private Name description;
+    this.description = builder.description;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_open")
+    this.isOpen = builder.isOpen;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举常量集 API
+     * name，即一组选项集合的唯一标识。系统预置的枚举常量集可在[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)文档中查询到
+     *
+     * <p>示例值：custom_enum_option_33
+     */
+    private String apiName;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name name;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name description;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
     private Boolean isOpen;
 
-    // builder 开始
-    public CommonSchemaOption() {
+    /**
+     * 枚举常量集 API
+     * name，即一组选项集合的唯一标识。系统预置的枚举常量集可在[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)文档中查询到
+     *
+     * <p>示例值：custom_enum_option_33
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public CommonSchemaOption(Builder builder) {
-        /**
-         * 选项 api_name，即选项的唯一标识
-         * <p> 示例值：custom_field_33
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 选项描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.isOpen = builder.isOpen;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Name name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Name description) {
+      this.description = description;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isOpen
+     * @return
+     */
+    public Builder isOpen(Boolean isOpen) {
+      this.isOpen = isOpen;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public CommonSchemaOption build() {
+      return new CommonSchemaOption(this);
     }
+  }
 
-    public Name getName() {
-        return this.name;
-    }
-
-    public void setName(Name name) {
-        this.name = name;
-    }
-
-    public Name getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(Name description) {
-        this.description = description;
-    }
-
-    public Boolean getIsOpen() {
-        return this.isOpen;
-    }
-
-    public void setIsOpen(Boolean isOpen) {
-        this.isOpen = isOpen;
-    }
-
-    public static class Builder {
-        /**
-         * 选项 api_name，即选项的唯一标识
-         * <p> 示例值：custom_field_33
-         */
-        private String apiName;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        private Name name;
-        /**
-         * 选项描述
-         * <p> 示例值：
-         */
-        private Name description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean isOpen;
-
-        /**
-         * 选项 api_name，即选项的唯一标识
-         * <p> 示例值：custom_field_33
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 选项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Name description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param isOpen
-         * @return
-         */
-        public Builder isOpen(Boolean isOpen) {
-            this.isOpen = isOpen;
-            return this;
-        }
-
-
-        public CommonSchemaOption build() {
-            return new CommonSchemaOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

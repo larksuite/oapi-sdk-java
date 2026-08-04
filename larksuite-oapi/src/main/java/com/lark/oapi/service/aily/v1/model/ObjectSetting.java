@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectSetting {
+  /**
+   * 数据表展示字段
+   *
+   * <p>示例值："_id"
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 字段顺序
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_orders")
+  private String[] fieldOrders;
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public String[] getFieldOrders() {
+    return this.fieldOrders;
+  }
+
+  public void setFieldOrders(String[] fieldOrders) {
+    this.fieldOrders = fieldOrders;
+  }
+
+  // builder 开始
+  public ObjectSetting() {}
+
+  public ObjectSetting(Builder builder) {
     /**
      * 数据表展示字段
-     * <p> 示例值："_id"
+     *
+     * <p>示例值："_id"
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
      * 字段顺序
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_orders")
+    this.fieldOrders = builder.fieldOrders;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表展示字段
+     *
+     * <p>示例值："_id"
+     */
+    private String displayName;
+
+    /**
+     * 字段顺序
+     *
+     * <p>示例值：
+     */
     private String[] fieldOrders;
 
-    // builder 开始
-    public ObjectSetting() {
+    /**
+     * 数据表展示字段
+     *
+     * <p>示例值："_id"
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public ObjectSetting(Builder builder) {
-        /**
-         * 数据表展示字段
-         * <p> 示例值："_id"
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 字段顺序
-         * <p> 示例值：
-         */
-        this.fieldOrders = builder.fieldOrders;
+    /**
+     * 字段顺序
+     *
+     * <p>示例值：
+     *
+     * @param fieldOrders
+     * @return
+     */
+    public Builder fieldOrders(String[] fieldOrders) {
+      this.fieldOrders = fieldOrders;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectSetting build() {
+      return new ObjectSetting(this);
     }
+  }
 
-    public String getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String[] getFieldOrders() {
-        return this.fieldOrders;
-    }
-
-    public void setFieldOrders(String[] fieldOrders) {
-        this.fieldOrders = fieldOrders;
-    }
-
-    public static class Builder {
-        /**
-         * 数据表展示字段
-         * <p> 示例值："_id"
-         */
-        private String displayName;
-        /**
-         * 字段顺序
-         * <p> 示例值：
-         */
-        private String[] fieldOrders;
-
-        /**
-         * 数据表展示字段
-         * <p> 示例值："_id"
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 字段顺序
-         * <p> 示例值：
-         *
-         * @param fieldOrders
-         * @return
-         */
-        public Builder fieldOrders(String[] fieldOrders) {
-            this.fieldOrders = fieldOrders;
-            return this;
-        }
-
-
-        public ObjectSetting build() {
-            return new ObjectSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,74 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class UnsubscribeApprovalReq {
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @Path
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  // builder 开始
+  public UnsubscribeApprovalReq() {}
+
+  public UnsubscribeApprovalReq(Builder builder) {
     /**
-     * 审批定义唯一标识
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @Path
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
+  }
 
-    // builder 开始
-    public UnsubscribeApprovalReq() {
+  public static class Builder {
+
+    private String approvalCode; // 审批定义 Code。获取方式：;;-
+
+    // 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public UnsubscribeApprovalReq(Builder builder) {
-        /**
-         * 审批定义唯一标识
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
+    public UnsubscribeApprovalReq build() {
+      return new UnsubscribeApprovalReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
-
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
-
-    public static class Builder {
-
-        private String approvalCode; // 审批定义唯一标识
-
-        /**
-         * 审批定义唯一标识
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        public UnsubscribeApprovalReq build() {
-            return new UnsubscribeApprovalReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

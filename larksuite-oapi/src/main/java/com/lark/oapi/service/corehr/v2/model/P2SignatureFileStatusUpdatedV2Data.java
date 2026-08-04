@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2SignatureFileStatusUpdatedV2Data {
-    /**
-     * 发生状态变更的电子签文件id
-     * <p> 示例值：123124341
-     */
-    @SerializedName("signature_file_id")
-    private String signatureFileId;
-    /**
-     * 变更前的电子签文件状态
-     * <p> 示例值：pending_review
-     */
-    @SerializedName("before_status")
-    private String beforeStatus;
-    /**
-     * 变更后的电子签文件状态
-     * <p> 示例值：reviewing
-     */
-    @SerializedName("after_status")
-    private String afterStatus;
-    /**
-     * 业务id, 由接入业务自行维护,可以通过该流程id获取该流程下的签署文件信息list
-     * <p> 示例值：1c339287-7c6a-43b3-b924-d56118185dcc
-     */
-    @SerializedName("biz_process_id")
-    private String bizProcessId;
+  /**
+   * 发生状态变更的电子签文件id，[【查询电子签文件详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/query)
+   *
+   * <p>示例值：123124341
+   */
+  @SerializedName("signature_file_id")
+  private String signatureFileId;
 
-    public String getSignatureFileId() {
-        return this.signatureFileId;
-    }
+  /**
+   * 变更前的电子签文件状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+   *
+   * <p>示例值：pending_review
+   */
+  @SerializedName("before_status")
+  private String beforeStatus;
 
-    public void setSignatureFileId(String signatureFileId) {
-        this.signatureFileId = signatureFileId;
-    }
+  /**
+   * 变更后的电子签文件状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+   *
+   * <p>示例值：reviewing
+   */
+  @SerializedName("after_status")
+  private String afterStatus;
 
-    public String getBeforeStatus() {
-        return this.beforeStatus;
-    }
+  /**
+   * 业务id, 由接入业务自行维护,可以通过该流程id获取该流程下的签署文件信息list
+   *
+   * <p>示例值：1c339287-7c6a-43b3-b924-d56118185dcc
+   */
+  @SerializedName("biz_process_id")
+  private String bizProcessId;
 
-    public void setBeforeStatus(String beforeStatus) {
-        this.beforeStatus = beforeStatus;
-    }
+  public String getSignatureFileId() {
+    return this.signatureFileId;
+  }
 
-    public String getAfterStatus() {
-        return this.afterStatus;
-    }
+  public void setSignatureFileId(String signatureFileId) {
+    this.signatureFileId = signatureFileId;
+  }
 
-    public void setAfterStatus(String afterStatus) {
-        this.afterStatus = afterStatus;
-    }
+  public String getBeforeStatus() {
+    return this.beforeStatus;
+  }
 
-    public String getBizProcessId() {
-        return this.bizProcessId;
-    }
+  public void setBeforeStatus(String beforeStatus) {
+    this.beforeStatus = beforeStatus;
+  }
 
-    public void setBizProcessId(String bizProcessId) {
-        this.bizProcessId = bizProcessId;
-    }
+  public String getAfterStatus() {
+    return this.afterStatus;
+  }
 
+  public void setAfterStatus(String afterStatus) {
+    this.afterStatus = afterStatus;
+  }
+
+  public String getBizProcessId() {
+    return this.bizProcessId;
+  }
+
+  public void setBizProcessId(String bizProcessId) {
+    this.bizProcessId = bizProcessId;
+  }
 }

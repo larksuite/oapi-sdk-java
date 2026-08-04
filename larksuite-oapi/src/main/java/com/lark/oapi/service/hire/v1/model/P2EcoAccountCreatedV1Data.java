@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EcoAccountCreatedV1Data {
-    /**
-     * 账号类型
-     * <p> 示例值：1
-     */
-    @SerializedName("scope")
-    private Integer scope;
-    /**
-     * 账号 ID，招聘系统内唯一
-     * <p> 示例值：6931286400470354183
-     */
-    @SerializedName("account_id")
-    private String accountId;
-    /**
-     * 账号名称
-     * <p> 示例值：背调账号 001
-     */
-    @SerializedName("account_name")
-    private String accountName;
-    /**
-     * 账号适用范围，1-社招，2-校招
-     * <p> 示例值：
-     */
-    @SerializedName("usage_list")
-    private Integer[] usageList;
-    /**
-     * 自定义字段键值对
-     * <p> 示例值：
-     */
-    @SerializedName("custom_field_list")
-    private EcoAccountCustomFieldEventData[] customFieldList;
+  /**
+   * 账号类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("scope")
+  private Integer scope;
 
-    public Integer getScope() {
-        return this.scope;
-    }
+  /**
+   * 账号 ID，招聘系统内唯一
+   *
+   * <p>示例值：6931286400470354183
+   */
+  @SerializedName("account_id")
+  private String accountId;
 
-    public void setScope(Integer scope) {
-        this.scope = scope;
-    }
+  /**
+   * 账号名称
+   *
+   * <p>示例值：背调账号 001
+   */
+  @SerializedName("account_name")
+  private String accountName;
 
-    public String getAccountId() {
-        return this.accountId;
-    }
+  /**
+   * 账号适用范围;**可选值有**：;* `1`：社招;* `2`：校招
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usage_list")
+  private Integer[] usageList;
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+  /**
+   * 自定义字段键值对
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_list")
+  private EcoAccountCustomFieldEventData[] customFieldList;
 
-    public String getAccountName() {
-        return this.accountName;
-    }
+  public Integer getScope() {
+    return this.scope;
+  }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
+  public void setScope(Integer scope) {
+    this.scope = scope;
+  }
 
-    public Integer[] getUsageList() {
-        return this.usageList;
-    }
+  public String getAccountId() {
+    return this.accountId;
+  }
 
-    public void setUsageList(Integer[] usageList) {
-        this.usageList = usageList;
-    }
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
-    public EcoAccountCustomFieldEventData[] getCustomFieldList() {
-        return this.customFieldList;
-    }
+  public String getAccountName() {
+    return this.accountName;
+  }
 
-    public void setCustomFieldList(EcoAccountCustomFieldEventData[] customFieldList) {
-        this.customFieldList = customFieldList;
-    }
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
 
+  public Integer[] getUsageList() {
+    return this.usageList;
+  }
+
+  public void setUsageList(Integer[] usageList) {
+    this.usageList = usageList;
+  }
+
+  public EcoAccountCustomFieldEventData[] getCustomFieldList() {
+    return this.customFieldList;
+  }
+
+  public void setCustomFieldList(EcoAccountCustomFieldEventData[] customFieldList) {
+    this.customFieldList = customFieldList;
+  }
 }

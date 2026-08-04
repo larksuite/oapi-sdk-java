@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Shadow {
+  /**
+   * 阴影颜色
+   *
+   * <p>示例值：#000000
+   */
+  @SerializedName("color")
+  private String color;
+
+  /**
+   * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("blur")
+  private Integer blur;
+
+  /**
+   * x轴偏移量
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offset_x")
+  private Integer offsetX;
+
+  /**
+   * y轴偏移量
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offset_y")
+  private Integer offsetY;
+
+  /**
+   * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("opacity")
+  private Double opacity;
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public Integer getBlur() {
+    return this.blur;
+  }
+
+  public void setBlur(Integer blur) {
+    this.blur = blur;
+  }
+
+  public Integer getOffsetX() {
+    return this.offsetX;
+  }
+
+  public void setOffsetX(Integer offsetX) {
+    this.offsetX = offsetX;
+  }
+
+  public Integer getOffsetY() {
+    return this.offsetY;
+  }
+
+  public void setOffsetY(Integer offsetY) {
+    this.offsetY = offsetY;
+  }
+
+  public Double getOpacity() {
+    return this.opacity;
+  }
+
+  public void setOpacity(Double opacity) {
+    this.opacity = opacity;
+  }
+
+  // builder 开始
+  public Shadow() {}
+
+  public Shadow(Builder builder) {
     /**
      * 阴影颜色
-     * <p> 示例值：#000000
+     *
+     * <p>示例值：#000000
      */
-    @SerializedName("color")
-    private String color;
+    this.color = builder.color;
     /**
      * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("blur")
-    private Integer blur;
+    this.blur = builder.blur;
     /**
      * x轴偏移量
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offset_x")
-    private Integer offsetX;
+    this.offsetX = builder.offsetX;
     /**
      * y轴偏移量
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offset_y")
-    private Integer offsetY;
+    this.offsetY = builder.offsetY;
     /**
      * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
-     * <p> 示例值：0.5
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("opacity")
+    this.opacity = builder.opacity;
+  }
+
+  public static class Builder {
+    /**
+     * 阴影颜色
+     *
+     * <p>示例值：#000000
+     */
+    private String color;
+
+    /**
+     * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
+     *
+     * <p>示例值：1
+     */
+    private Integer blur;
+
+    /**
+     * x轴偏移量
+     *
+     * <p>示例值：0
+     */
+    private Integer offsetX;
+
+    /**
+     * y轴偏移量
+     *
+     * <p>示例值：0
+     */
+    private Integer offsetY;
+
+    /**
+     * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
+     *
+     * <p>示例值：0.5
+     */
     private Double opacity;
 
-    // builder 开始
-    public Shadow() {
+    /**
+     * 阴影颜色
+     *
+     * <p>示例值：#000000
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public Shadow(Builder builder) {
-        /**
-         * 阴影颜色
-         * <p> 示例值：#000000
-         */
-        this.color = builder.color;
-        /**
-         * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
-         * <p> 示例值：1
-         */
-        this.blur = builder.blur;
-        /**
-         * x轴偏移量
-         * <p> 示例值：0
-         */
-        this.offsetX = builder.offsetX;
-        /**
-         * y轴偏移量
-         * <p> 示例值：0
-         */
-        this.offsetY = builder.offsetY;
-        /**
-         * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
-         * <p> 示例值：0.5
-         */
-        this.opacity = builder.opacity;
+    /**
+     * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
+     *
+     * <p>示例值：1
+     *
+     * @param blur
+     * @return
+     */
+    public Builder blur(Integer blur) {
+      this.blur = blur;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * x轴偏移量
+     *
+     * <p>示例值：0
+     *
+     * @param offsetX
+     * @return
+     */
+    public Builder offsetX(Integer offsetX) {
+      this.offsetX = offsetX;
+      return this;
     }
 
-    public String getColor() {
-        return this.color;
+    /**
+     * y轴偏移量
+     *
+     * <p>示例值：0
+     *
+     * @param offsetY
+     * @return
+     */
+    public Builder offsetY(Integer offsetY) {
+      this.offsetY = offsetY;
+      return this;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    /**
+     * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
+     *
+     * <p>示例值：0.5
+     *
+     * @param opacity
+     * @return
+     */
+    public Builder opacity(Double opacity) {
+      this.opacity = opacity;
+      return this;
     }
 
-    public Integer getBlur() {
-        return this.blur;
+    public Shadow build() {
+      return new Shadow(this);
     }
+  }
 
-    public void setBlur(Integer blur) {
-        this.blur = blur;
-    }
-
-    public Integer getOffsetX() {
-        return this.offsetX;
-    }
-
-    public void setOffsetX(Integer offsetX) {
-        this.offsetX = offsetX;
-    }
-
-    public Integer getOffsetY() {
-        return this.offsetY;
-    }
-
-    public void setOffsetY(Integer offsetY) {
-        this.offsetY = offsetY;
-    }
-
-    public Double getOpacity() {
-        return this.opacity;
-    }
-
-    public void setOpacity(Double opacity) {
-        this.opacity = opacity;
-    }
-
-    public static class Builder {
-        /**
-         * 阴影颜色
-         * <p> 示例值：#000000
-         */
-        private String color;
-        /**
-         * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
-         * <p> 示例值：1
-         */
-        private Integer blur;
-        /**
-         * x轴偏移量
-         * <p> 示例值：0
-         */
-        private Integer offsetX;
-        /**
-         * y轴偏移量
-         * <p> 示例值：0
-         */
-        private Integer offsetY;
-        /**
-         * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
-         * <p> 示例值：0.5
-         */
-        private Double opacity;
-
-        /**
-         * 阴影颜色
-         * <p> 示例值：#000000
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        /**
-         * 模糊效果，参数为数字，数值越大模糊程度越强，0 表示无模糊。
-         * <p> 示例值：1
-         *
-         * @param blur
-         * @return
-         */
-        public Builder blur(Integer blur) {
-            this.blur = blur;
-            return this;
-        }
-
-
-        /**
-         * x轴偏移量
-         * <p> 示例值：0
-         *
-         * @param offsetX
-         * @return
-         */
-        public Builder offsetX(Integer offsetX) {
-            this.offsetX = offsetX;
-            return this;
-        }
-
-
-        /**
-         * y轴偏移量
-         * <p> 示例值：0
-         *
-         * @param offsetY
-         * @return
-         */
-        public Builder offsetY(Integer offsetY) {
-            this.offsetY = offsetY;
-            return this;
-        }
-
-
-        /**
-         * 透明效果，参数为 0-1 数字，数值越小越透明，0 表示完全透明，1 表示完全不透明。
-         * <p> 示例值：0.5
-         *
-         * @param opacity
-         * @return
-         */
-        public Builder opacity(Double opacity) {
-            this.opacity = opacity;
-            return this;
-        }
-
-
-        public Shadow build() {
-            return new Shadow(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LookupName {
+  /**
+   * LookupID
+   *
+   * <p>示例值："8172302"
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * Lookup名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nV2 name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nV2 getName() {
+    return this.name;
+  }
+
+  public void setName(I18nV2 name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public LookupName() {}
+
+  public LookupName(Builder builder) {
     /**
      * LookupID
-     * <p> 示例值："8172302"
+     *
+     * <p>示例值："8172302"
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * Lookup名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * LookupID
+     *
+     * <p>示例值："8172302"
+     */
+    private String id;
+
+    /**
+     * Lookup名称
+     *
+     * <p>示例值：
+     */
     private I18nV2 name;
 
-    // builder 开始
-    public LookupName() {
+    /**
+     * LookupID
+     *
+     * <p>示例值："8172302"
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LookupName(Builder builder) {
-        /**
-         * LookupID
-         * <p> 示例值："8172302"
-         */
-        this.id = builder.id;
-        /**
-         * Lookup名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * Lookup名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nV2 name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public LookupName build() {
+      return new LookupName(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18nV2 getName() {
-        return this.name;
-    }
-
-    public void setName(I18nV2 name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * LookupID
-         * <p> 示例值："8172302"
-         */
-        private String id;
-        /**
-         * Lookup名称
-         * <p> 示例值：
-         */
-        private I18nV2 name;
-
-        /**
-         * LookupID
-         * <p> 示例值："8172302"
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * Lookup名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nV2 name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public LookupName build() {
-            return new LookupName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

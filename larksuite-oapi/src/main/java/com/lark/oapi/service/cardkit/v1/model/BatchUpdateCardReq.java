@@ -13,98 +13,97 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.cardkit.v1.enums.*;
 
 public class BatchUpdateCardReq {
+  /**
+   * 卡片实体
+   * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+   *
+   * <p>示例值：7355439197428236291
+   */
+  @Path
+  @SerializedName("card_id")
+  private String cardId;
+
+  public String getCardId() {
+    return this.cardId;
+  }
+
+  public void setCardId(String cardId) {
+    this.cardId = cardId;
+  }
+
+  @Body private BatchUpdateCardReqBody body;
+
+  public BatchUpdateCardReqBody getBatchUpdateCardReqBody() {
+    return this.body;
+  }
+
+  public void setBatchUpdateCardReqBody(BatchUpdateCardReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchUpdateCardReq() {}
+
+  public BatchUpdateCardReq(Builder builder) {
     /**
-     * 卡片ID
-     * <p> 示例值：7355439197428236291
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+     *
+     * <p>示例值：7355439197428236291
      */
-    @Path
-    @SerializedName("card_id")
-    private String cardId;
-    @Body
+    this.cardId = builder.cardId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String cardId; // 卡片实体
+
+    // ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+
+    /**
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+     *
+     * <p>示例值：7355439197428236291
+     *
+     * @param cardId
+     * @return
+     */
+    public Builder cardId(String cardId) {
+      this.cardId = cardId;
+      return this;
+    }
+
     private BatchUpdateCardReqBody body;
 
-    // builder 开始
-    public BatchUpdateCardReq() {
-    }
-
-    public BatchUpdateCardReq(Builder builder) {
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         */
-        this.cardId = builder.cardId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCardId() {
-        return this.cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
-
     public BatchUpdateCardReqBody getBatchUpdateCardReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchUpdateCardReqBody(BatchUpdateCardReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchUpdateCardReqBody(BatchUpdateCardReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String cardId; // 卡片ID
-        private BatchUpdateCardReqBody body;
-
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         *
-         * @param cardId
-         * @return
-         */
-        public Builder cardId(String cardId) {
-            this.cardId = cardId;
-            return this;
-        }
-
-        public BatchUpdateCardReqBody getBatchUpdateCardReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchUpdateCardReqBody(BatchUpdateCardReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchUpdateCardReq build() {
-            return new BatchUpdateCardReq(this);
-        }
+    public BatchUpdateCardReq build() {
+      return new BatchUpdateCardReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

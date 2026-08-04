@@ -13,259 +13,285 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentOperationLog {
+  /**
+   * 投递
+   * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 人才 ID，详情可参考：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+   *
+   * <p>示例值：6843547872837273223
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private IdNameObject operator;
+
+  /**
+   * 操作类型，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+   * `操作类型枚举定义`
+   *
+   * <p>示例值："3001"
+   */
+  @SerializedName("operation_type")
+  private Integer operationType;
+
+  /**
+   * 操作时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("operation_time")
+  private String operationTime;
+
+  /**
+   * 操作人类型;;;**注意**：当前只会返回类型为 `1`：员工 的操作记录
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator_type")
+  private Integer operatorType;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public IdNameObject getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(IdNameObject operator) {
+    this.operator = operator;
+  }
+
+  public Integer getOperationType() {
+    return this.operationType;
+  }
+
+  public void setOperationType(Integer operationType) {
+    this.operationType = operationType;
+  }
+
+  public String getOperationTime() {
+    return this.operationTime;
+  }
+
+  public void setOperationTime(String operationTime) {
+    this.operationTime = operationTime;
+  }
+
+  public Integer getOperatorType() {
+    return this.operatorType;
+  }
+
+  public void setOperatorType(Integer operatorType) {
+    this.operatorType = operatorType;
+  }
+
+  // builder 开始
+  public TalentOperationLog() {}
+
+  public TalentOperationLog(Builder builder) {
     /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("application_id")
+    this.applicationId = builder.applicationId;
+    /**
+     * 人才
+     * ID，详情可参考：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6843547872837273223
+     */
+    this.talentId = builder.talentId;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    this.operator = builder.operator;
+    /**
+     * 操作类型，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值："3001"
+     */
+    this.operationType = builder.operationType;
+    /**
+     * 操作时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    this.operationTime = builder.operationTime;
+    /**
+     * 操作人类型;;;**注意**：当前只会返回类型为 `1`：员工 的操作记录
+     *
+     * <p>示例值：1
+     */
+    this.operatorType = builder.operatorType;
+  }
+
+  public static class Builder {
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6949805467799537964
+     */
     private String applicationId;
+
     /**
-     * 候选人 ID
-     * <p> 示例值：6843547872837273223
+     * 人才
+     * ID，详情可参考：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6843547872837273223
      */
-    @SerializedName("talent_id")
     private String talentId;
+
     /**
-     * 操作人
-     * <p> 示例值：
+     * 阶段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
     private IdNameObject operator;
+
     /**
-     * 操作类型
-     * <p> 示例值："3001"
+     * 操作类型，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值："3001"
      */
-    @SerializedName("operation_type")
     private Integer operationType;
+
     /**
-     * 操作时间
-     * <p> 示例值：1618500278663
+     * 操作时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("operation_time")
     private String operationTime;
+
     /**
-     * 操作人类型
-     * <p> 示例值：1
+     * 操作人类型;;;**注意**：当前只会返回类型为 `1`：员工 的操作记录
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operator_type")
     private Integer operatorType;
 
-    // builder 开始
-    public TalentOperationLog() {
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public TalentOperationLog(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：6843547872837273223
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 操作类型
-         * <p> 示例值："3001"
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：1618500278663
-         */
-        this.operationTime = builder.operationTime;
-        /**
-         * 操作人类型
-         * <p> 示例值：1
-         */
-        this.operatorType = builder.operatorType;
+    /**
+     * 人才
+     * ID，详情可参考：[获取人才信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+     *
+     * <p>示例值：6843547872837273223
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(IdNameObject operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 操作类型，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值："3001"
+     *
+     * @param operationType
+     * @return
+     */
+    public Builder operationType(Integer operationType) {
+      this.operationType = operationType;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 操作时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param operationTime
+     * @return
+     */
+    public Builder operationTime(String operationTime) {
+      this.operationTime = operationTime;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 操作人类型;;;**注意**：当前只会返回类型为 `1`：员工 的操作记录
+     *
+     * <p>示例值：1
+     *
+     * @param operatorType
+     * @return
+     */
+    public Builder operatorType(Integer operatorType) {
+      this.operatorType = operatorType;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    public TalentOperationLog build() {
+      return new TalentOperationLog(this);
     }
+  }
 
-    public IdNameObject getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(IdNameObject operator) {
-        this.operator = operator;
-    }
-
-    public Integer getOperationType() {
-        return this.operationType;
-    }
-
-    public void setOperationType(Integer operationType) {
-        this.operationType = operationType;
-    }
-
-    public String getOperationTime() {
-        return this.operationTime;
-    }
-
-    public void setOperationTime(String operationTime) {
-        this.operationTime = operationTime;
-    }
-
-    public Integer getOperatorType() {
-        return this.operatorType;
-    }
-
-    public void setOperatorType(Integer operatorType) {
-        this.operatorType = operatorType;
-    }
-
-    public static class Builder {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String applicationId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：6843547872837273223
-         */
-        private String talentId;
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        private IdNameObject operator;
-        /**
-         * 操作类型
-         * <p> 示例值："3001"
-         */
-        private Integer operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：1618500278663
-         */
-        private String operationTime;
-        /**
-         * 操作人类型
-         * <p> 示例值：1
-         */
-        private Integer operatorType;
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 候选人 ID
-         * <p> 示例值：6843547872837273223
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 操作人
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(IdNameObject operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值："3001"
-         *
-         * @param operationType
-         * @return
-         */
-        public Builder operationType(Integer operationType) {
-            this.operationType = operationType;
-            return this;
-        }
-
-
-        /**
-         * 操作时间
-         * <p> 示例值：1618500278663
-         *
-         * @param operationTime
-         * @return
-         */
-        public Builder operationTime(String operationTime) {
-            this.operationTime = operationTime;
-            return this;
-        }
-
-
-        /**
-         * 操作人类型
-         * <p> 示例值：1
-         *
-         * @param operatorType
-         * @return
-         */
-        public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
-        }
-
-
-        public TalentOperationLog build() {
-            return new TalentOperationLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

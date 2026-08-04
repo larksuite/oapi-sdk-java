@@ -13,104 +13,103 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TalentTagSubscriptionV1Data {
-    /**
-     * 人才 ID
-     * <p> 示例值：6890840517010000141
-     */
-    @SerializedName("talent_id")
-    private String talentId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6890840517010000141
-     */
-    @SerializedName("application_id")
-    private String applicationId;
-    /**
-     * 变更类型
-     * <p> 示例值：1
-     */
-    @SerializedName("type")
-    private Integer type;
-    /**
-     * 标签
-     * <p> 示例值：
-     */
-    @SerializedName("tag")
-    private TalentTag tag;
-    /**
-     * 锁定状态
-     * <p> 示例值：1
-     */
-    @SerializedName("lock_status")
-    private Integer lockStatus;
-    /**
-     * 投递阶段
-     * <p> 示例值：1
-     */
-    @SerializedName("application_stage")
-    private ApplicationStageInfo applicationStage;
+  /**
+   * 人才 ID，详情可参考[获取人才详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/hire-v2/talent/get)
+   *
+   * <p>示例值：6890840517010000141
+   */
+  @SerializedName("talent_id")
+  private String talentId;
 
-    public String getTalentId() {
-        return this.talentId;
-    }
+  /**
+   * 投递
+   * ID，详情可参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6890840517010000141
+   */
+  @SerializedName("application_id")
+  private String applicationId;
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
+  /**
+   * 变更类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
 
-    public String getApplicationId() {
-        return this.applicationId;
-    }
+  /**
+   * 人才标签
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag")
+  private TalentTag tag;
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
+  /**
+   * 锁定状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("lock_status")
+  private Integer lockStatus;
 
-    public Integer getType() {
-        return this.type;
-    }
+  /**
+   * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("application_stage")
+  private ApplicationStageInfo applicationStage;
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+  public String getTalentId() {
+    return this.talentId;
+  }
 
-    public TalentTag getTag() {
-        return this.tag;
-    }
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
 
-    public void setTag(TalentTag tag) {
-        this.tag = tag;
-    }
+  public String getApplicationId() {
+    return this.applicationId;
+  }
 
-    public Integer getLockStatus() {
-        return this.lockStatus;
-    }
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
 
-    public void setLockStatus(Integer lockStatus) {
-        this.lockStatus = lockStatus;
-    }
+  public Integer getType() {
+    return this.type;
+  }
 
-    public ApplicationStageInfo getApplicationStage() {
-        return this.applicationStage;
-    }
+  public void setType(Integer type) {
+    this.type = type;
+  }
 
-    public void setApplicationStage(ApplicationStageInfo applicationStage) {
-        this.applicationStage = applicationStage;
-    }
+  public TalentTag getTag() {
+    return this.tag;
+  }
 
+  public void setTag(TalentTag tag) {
+    this.tag = tag;
+  }
+
+  public Integer getLockStatus() {
+    return this.lockStatus;
+  }
+
+  public void setLockStatus(Integer lockStatus) {
+    this.lockStatus = lockStatus;
+  }
+
+  public ApplicationStageInfo getApplicationStage() {
+    return this.applicationStage;
+  }
+
+  public void setApplicationStage(ApplicationStageInfo applicationStage) {
+    this.applicationStage = applicationStage;
+  }
 }

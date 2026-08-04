@@ -13,112 +13,138 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchTaskReqBody {
+  /**
+   * 要更新的任务数据，只需要设置出现在`update_fields`中的字段即可。如果`update_fields`设置了要变更一个字段名，但是`task`里没设置新的值，则表示将该字段清空。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task")
+  private InputTask task;
+
+  /**
+   * 设置需要修改的字段;<md-enum>;<md-enum-item key="summary" >任务标题</md-enum-item>;<md-enum-item
+   * key="description" >任务描述</md-enum-item>;<md-enum-item key="start"
+   * >任务开始时间</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+   * key="completed_at" >任务完成时间</md-enum-item>;<md-enum-item key="extra"
+   * >任务附属自定义数据</md-enum-item>;<md-enum-item key="custom_complete"
+   * >任务自定义完成规则</md-enum-item>;<md-enum-item key="repeat_rule" >任务重复规则</md-enum-item>;<md-enum-item
+   * key="mode" >任务完成模式</md-enum-item>;<md-enum-item key="is_milestone"
+   * >是否是里程碑任务;</md-enum-item>;<md-enum-item key=custom_fields" >自定义字段值;</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public InputTask getTask() {
+    return this.task;
+  }
+
+  public void setTask(InputTask task) {
+    this.task = task;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public PatchTaskReqBody() {}
+
+  public PatchTaskReqBody(Builder builder) {
     /**
-     * 要更新的任务数据，只需要写明要更新的字段
-     * <p> 示例值：
+     * 要更新的任务数据，只需要设置出现在`update_fields`中的字段即可。如果`update_fields`设置了要变更一个字段名，但是`task`里没设置新的值，则表示将该字段清空。
+     *
+     * <p>示例值：
      */
-    @SerializedName("task")
+    this.task = builder.task;
+    /**
+     * 设置需要修改的字段;<md-enum>;<md-enum-item key="summary" >任务标题</md-enum-item>;<md-enum-item
+     * key="description" >任务描述</md-enum-item>;<md-enum-item key="start"
+     * >任务开始时间</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="completed_at" >任务完成时间</md-enum-item>;<md-enum-item key="extra"
+     * >任务附属自定义数据</md-enum-item>;<md-enum-item key="custom_complete"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="repeat_rule"
+     * >任务重复规则</md-enum-item>;<md-enum-item key="mode" >任务完成模式</md-enum-item>;<md-enum-item
+     * key="is_milestone" >是否是里程碑任务;</md-enum-item>;<md-enum-item key=custom_fields"
+     * >自定义字段值;</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
+     */
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的任务数据，只需要设置出现在`update_fields`中的字段即可。如果`update_fields`设置了要变更一个字段名，但是`task`里没设置新的值，则表示将该字段清空。
+     *
+     * <p>示例值：
+     */
     private InputTask task;
+
     /**
-     * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-     * <p> 示例值：
+     * 设置需要修改的字段;<md-enum>;<md-enum-item key="summary" >任务标题</md-enum-item>;<md-enum-item
+     * key="description" >任务描述</md-enum-item>;<md-enum-item key="start"
+     * >任务开始时间</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="completed_at" >任务完成时间</md-enum-item>;<md-enum-item key="extra"
+     * >任务附属自定义数据</md-enum-item>;<md-enum-item key="custom_complete"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="repeat_rule"
+     * >任务重复规则</md-enum-item>;<md-enum-item key="mode" >任务完成模式</md-enum-item>;<md-enum-item
+     * key="is_milestone" >是否是里程碑任务;</md-enum-item>;<md-enum-item key=custom_fields"
+     * >自定义字段值;</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_fields")
     private String[] updateFields;
 
-    // builder 开始
-    public PatchTaskReqBody() {
+    /**
+     * 要更新的任务数据，只需要设置出现在`update_fields`中的字段即可。如果`update_fields`设置了要变更一个字段名，但是`task`里没设置新的值，则表示将该字段清空。
+     *
+     * <p>示例值：
+     *
+     * @param task
+     * @return
+     */
+    public Builder task(InputTask task) {
+      this.task = task;
+      return this;
     }
 
-    public PatchTaskReqBody(Builder builder) {
-        /**
-         * 要更新的任务数据，只需要写明要更新的字段
-         * <p> 示例值：
-         */
-        this.task = builder.task;
-        /**
-         * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 设置需要修改的字段;<md-enum>;<md-enum-item key="summary" >任务标题</md-enum-item>;<md-enum-item
+     * key="description" >任务描述</md-enum-item>;<md-enum-item key="start"
+     * >任务开始时间</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="completed_at" >任务完成时间</md-enum-item>;<md-enum-item key="extra"
+     * >任务附属自定义数据</md-enum-item>;<md-enum-item key="custom_complete"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="repeat_rule"
+     * >任务重复规则</md-enum-item>;<md-enum-item key="mode" >任务完成模式</md-enum-item>;<md-enum-item
+     * key="is_milestone" >是否是里程碑任务;</md-enum-item>;<md-enum-item key=custom_fields"
+     * >自定义字段值;</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchTaskReqBody build() {
+      return new PatchTaskReqBody(this);
     }
+  }
 
-    public InputTask getTask() {
-        return this.task;
-    }
-
-    public void setTask(InputTask task) {
-        this.task = task;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新的任务数据，只需要写明要更新的字段
-         * <p> 示例值：
-         */
-        private InputTask task;
-        /**
-         * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-         * <p> 示例值：
-         */
-        private String[] updateFields;
-
-        /**
-         * 要更新的任务数据，只需要写明要更新的字段
-         * <p> 示例值：
-         *
-         * @param task
-         * @return
-         */
-        public Builder task(InputTask task) {
-            this.task = task;
-            return this;
-        }
-
-
-        /**
-         * 要更新的字段名称。支持summary, description, due, start, completed_at, extra, repeat_rule, custom_complete, mode, is_milestone, custom_fields。
-         * <p> 示例值：
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public PatchTaskReqBody build() {
-            return new PatchTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

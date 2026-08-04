@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.block.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Message {
+  /**
+   * 协同数据内容
+   *
+   * <p>示例值：{"id":"7094066727704592403","token":"test_123456789"}
+   */
+  @SerializedName("body")
+  private String body;
+
+  /**
+   * 版本号(自增)
+   *
+   * <p>示例值：1637565292196
+   */
+  @SerializedName("version")
+  private String version;
+
+  /**
+   * entity实体ID
+   *
+   * <p>示例值：8116040162664047375
+   */
+  @SerializedName("block_id")
+  private String blockId;
+
+  /**
+   * 业务来源
+   *
+   * <p>示例值：read_block
+   */
+  @SerializedName("resource")
+  private String resource;
+
+  /**
+   * 推送用户列表
+   *
+   * <p>示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+   */
+  @SerializedName("open_ids")
+  private String[] openIds;
+
+  public String getBody() {
+    return this.body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  public String getResource() {
+    return this.resource;
+  }
+
+  public void setResource(String resource) {
+    this.resource = resource;
+  }
+
+  public String[] getOpenIds() {
+    return this.openIds;
+  }
+
+  public void setOpenIds(String[] openIds) {
+    this.openIds = openIds;
+  }
+
+  // builder 开始
+  public Message() {}
+
+  public Message(Builder builder) {
     /**
      * 协同数据内容
-     * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     *
+     * <p>示例值：{"id":"7094066727704592403","token":"test_123456789"}
      */
-    @SerializedName("body")
-    private String body;
+    this.body = builder.body;
     /**
      * 版本号(自增)
-     * <p> 示例值：1637565292196
+     *
+     * <p>示例值：1637565292196
      */
-    @SerializedName("version")
-    private String version;
+    this.version = builder.version;
     /**
      * entity实体ID
-     * <p> 示例值：8116040162664047375
+     *
+     * <p>示例值：8116040162664047375
      */
-    @SerializedName("block_id")
-    private String blockId;
+    this.blockId = builder.blockId;
     /**
      * 业务来源
-     * <p> 示例值：read_block
+     *
+     * <p>示例值：read_block
      */
-    @SerializedName("resource")
-    private String resource;
+    this.resource = builder.resource;
     /**
      * 推送用户列表
-     * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     *
+     * <p>示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
      */
-    @SerializedName("open_ids")
+    this.openIds = builder.openIds;
+  }
+
+  public static class Builder {
+    /**
+     * 协同数据内容
+     *
+     * <p>示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     */
+    private String body;
+
+    /**
+     * 版本号(自增)
+     *
+     * <p>示例值：1637565292196
+     */
+    private String version;
+
+    /**
+     * entity实体ID
+     *
+     * <p>示例值：8116040162664047375
+     */
+    private String blockId;
+
+    /**
+     * 业务来源
+     *
+     * <p>示例值：read_block
+     */
+    private String resource;
+
+    /**
+     * 推送用户列表
+     *
+     * <p>示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     */
     private String[] openIds;
 
-    // builder 开始
-    public Message() {
+    /**
+     * 协同数据内容
+     *
+     * <p>示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     *
+     * @param body
+     * @return
+     */
+    public Builder body(String body) {
+      this.body = body;
+      return this;
     }
 
-    public Message(Builder builder) {
-        /**
-         * 协同数据内容
-         * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
-         */
-        this.body = builder.body;
-        /**
-         * 版本号(自增)
-         * <p> 示例值：1637565292196
-         */
-        this.version = builder.version;
-        /**
-         * entity实体ID
-         * <p> 示例值：8116040162664047375
-         */
-        this.blockId = builder.blockId;
-        /**
-         * 业务来源
-         * <p> 示例值：read_block
-         */
-        this.resource = builder.resource;
-        /**
-         * 推送用户列表
-         * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
-         */
-        this.openIds = builder.openIds;
+    /**
+     * 版本号(自增)
+     *
+     * <p>示例值：1637565292196
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * entity实体ID
+     *
+     * <p>示例值：8116040162664047375
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public String getBody() {
-        return this.body;
+    /**
+     * 业务来源
+     *
+     * <p>示例值：read_block
+     *
+     * @param resource
+     * @return
+     */
+    public Builder resource(String resource) {
+      this.resource = resource;
+      return this;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    /**
+     * 推送用户列表
+     *
+     * <p>示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     *
+     * @param openIds
+     * @return
+     */
+    public Builder openIds(String[] openIds) {
+      this.openIds = openIds;
+      return this;
     }
 
-    public String getVersion() {
-        return this.version;
+    public Message build() {
+      return new Message(this);
     }
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getBlockId() {
-        return this.blockId;
-    }
-
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
-    }
-
-    public String getResource() {
-        return this.resource;
-    }
-
-    public void setResource(String resource) {
-        this.resource = resource;
-    }
-
-    public String[] getOpenIds() {
-        return this.openIds;
-    }
-
-    public void setOpenIds(String[] openIds) {
-        this.openIds = openIds;
-    }
-
-    public static class Builder {
-        /**
-         * 协同数据内容
-         * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
-         */
-        private String body;
-        /**
-         * 版本号(自增)
-         * <p> 示例值：1637565292196
-         */
-        private String version;
-        /**
-         * entity实体ID
-         * <p> 示例值：8116040162664047375
-         */
-        private String blockId;
-        /**
-         * 业务来源
-         * <p> 示例值：read_block
-         */
-        private String resource;
-        /**
-         * 推送用户列表
-         * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
-         */
-        private String[] openIds;
-
-        /**
-         * 协同数据内容
-         * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
-         *
-         * @param body
-         * @return
-         */
-        public Builder body(String body) {
-            this.body = body;
-            return this;
-        }
-
-
-        /**
-         * 版本号(自增)
-         * <p> 示例值：1637565292196
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        /**
-         * entity实体ID
-         * <p> 示例值：8116040162664047375
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        /**
-         * 业务来源
-         * <p> 示例值：read_block
-         *
-         * @param resource
-         * @return
-         */
-        public Builder resource(String resource) {
-            this.resource = resource;
-            return this;
-        }
-
-
-        /**
-         * 推送用户列表
-         * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
-         *
-         * @param openIds
-         * @return
-         */
-        public Builder openIds(String[] openIds) {
-            this.openIds = openIds;
-            return this;
-        }
-
-
-        public Message build() {
-            return new Message(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

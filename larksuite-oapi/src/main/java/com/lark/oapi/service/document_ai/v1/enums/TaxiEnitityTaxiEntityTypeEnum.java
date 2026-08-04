@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum TaxiEnitityTaxiEntityTypeEnum {
-    CARNUMBER("car_number"), // 车号
-    STARTTIME("start_time"), // 上车时间
-    ENDTIME("end_time"), // 下车时间
-    DISTANCE("distance"), // 里程
-    STARTDATE("start_date"), // 日期
-    TOTALAMOUNT("total_amount"), // 出租车价格
-    ;
-    private String value;
+  CARNUMBER("car_number"), // 车号
+  STARTTIME("start_time"), // 上车时间
+  ENDTIME("end_time"), // 下车时间
+  DISTANCE("distance"), // 里程
+  STARTDATE("start_date"), // 日期
+  TOTALAMOUNT("total_amount"), // 出租车价格
+  ;
+  private String value;
 
-    TaxiEnitityTaxiEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  TaxiEnitityTaxiEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

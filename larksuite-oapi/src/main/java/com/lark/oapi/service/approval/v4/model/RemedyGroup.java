@@ -13,310 +13,247 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemedyGroup {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("type")
+  /** 示例值： */
+  @SerializedName("type")
+  private String type;
+
+  /** 示例值： */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /** 示例值： */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /** 示例值： */
+  @SerializedName("start_time")
+  private Integer startTime;
+
+  /** 示例值： */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  /** 示例值： */
+  @SerializedName("remedy_time")
+  private Integer remedyTime;
+
+  /** 示例值： */
+  @SerializedName("remedy_reason")
+  private String remedyReason;
+
+  /** 示例值： */
+  @SerializedName("status")
+  private String status;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public Integer getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Integer startTime) {
+    this.startTime = startTime;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getRemedyTime() {
+    return this.remedyTime;
+  }
+
+  public void setRemedyTime(Integer remedyTime) {
+    this.remedyTime = remedyTime;
+  }
+
+  public String getRemedyReason() {
+    return this.remedyReason;
+  }
+
+  public void setRemedyReason(String remedyReason) {
+    this.remedyReason = remedyReason;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public RemedyGroup() {}
+
+  public RemedyGroup(Builder builder) {
+    /** 示例值： */
+    this.type = builder.type;
+    /** 示例值： */
+    this.instanceCode = builder.instanceCode;
+    /** 示例值： */
+    this.employeeId = builder.employeeId;
+    /** 示例值： */
+    this.startTime = builder.startTime;
+    /** 示例值： */
+    this.endTime = builder.endTime;
+    /** 示例值： */
+    this.remedyTime = builder.remedyTime;
+    /** 示例值： */
+    this.remedyReason = builder.remedyReason;
+    /** 示例值： */
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String type;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("instance_code")
+
+    /** 示例值： */
     private String instanceCode;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("employee_id")
+
+    /** 示例值： */
     private String employeeId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("start_time")
+
+    /** 示例值： */
     private Integer startTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("end_time")
+
+    /** 示例值： */
     private Integer endTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("remedy_time")
+
+    /** 示例值： */
     private Integer remedyTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("remedy_reason")
+
+    /** 示例值： */
     private String remedyReason;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("status")
+
+    /** 示例值： */
     private String status;
 
-    // builder 开始
-    public RemedyGroup() {
+    /**
+     * 示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public RemedyGroup(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.remedyTime = builder.remedyTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.remedyReason = builder.remedyReason;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.status = builder.status;
+    /**
+     * 示例值：
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Integer startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 示例值：
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 示例值：
+     *
+     * @param remedyTime
+     * @return
+     */
+    public Builder remedyTime(Integer remedyTime) {
+      this.remedyTime = remedyTime;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    /**
+     * 示例值：
+     *
+     * @param remedyReason
+     * @return
+     */
+    public Builder remedyReason(String remedyReason) {
+      this.remedyReason = remedyReason;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public RemedyGroup build() {
+      return new RemedyGroup(this);
     }
+  }
 
-    public Integer getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getRemedyTime() {
-        return this.remedyTime;
-    }
-
-    public void setRemedyTime(Integer remedyTime) {
-        this.remedyTime = remedyTime;
-    }
-
-    public String getRemedyReason() {
-        return this.remedyReason;
-    }
-
-    public void setRemedyReason(String remedyReason) {
-        this.remedyReason = remedyReason;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * <p> 示例值：
-         */
-        private String instanceCode;
-        /**
-         * <p> 示例值：
-         */
-        private String employeeId;
-        /**
-         * <p> 示例值：
-         */
-        private Integer startTime;
-        /**
-         * <p> 示例值：
-         */
-        private Integer endTime;
-        /**
-         * <p> 示例值：
-         */
-        private Integer remedyTime;
-        /**
-         * <p> 示例值：
-         */
-        private String remedyReason;
-        /**
-         * <p> 示例值：
-         */
-        private String status;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Integer startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param remedyTime
-         * @return
-         */
-        public Builder remedyTime(Integer remedyTime) {
-            this.remedyTime = remedyTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param remedyReason
-         * @return
-         */
-        public Builder remedyReason(String remedyReason) {
-            this.remedyReason = remedyReason;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public RemedyGroup build() {
-            return new RemedyGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,136 +13,137 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaSortOptions {
+  /**
+   * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("priority")
+  private Integer priority;
+
+  /**
+   * 排序的顺序。默认为 desc
+   *
+   * <p>示例值：asc
+   */
+  @SerializedName("order")
+  private String order;
+
+  public Integer getPriority() {
+    return this.priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  // builder 开始
+  public SchemaSortOptions() {}
+
+  public SchemaSortOptions(Builder builder) {
     /**
      * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("priority")
-    private Integer priority;
+    this.priority = builder.priority;
     /**
      * 排序的顺序。默认为 desc
-     * <p> 示例值：asc
+     *
+     * <p>示例值：asc
      */
-    @SerializedName("order")
+    this.order = builder.order;
+  }
+
+  public static class Builder {
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     *
+     * <p>示例值：0
+     */
+    private Integer priority;
+
+    /**
+     * 排序的顺序。默认为 desc
+     *
+     * <p>示例值：asc
+     */
     private String order;
 
-    // builder 开始
-    public SchemaSortOptions() {
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     *
+     * <p>示例值：0
+     *
+     * @param priority
+     * @return
+     */
+    public Builder priority(Integer priority) {
+      this.priority = priority;
+      return this;
     }
 
-    public SchemaSortOptions(Builder builder) {
-        /**
-         * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
-         * <p> 示例值：0
-         */
-        this.priority = builder.priority;
-        /**
-         * 排序的顺序。默认为 desc
-         * <p> 示例值：asc
-         */
-        this.order = builder.order;
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     *
+     * <p>示例值：0
+     *
+     * @param priority {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum}
+     * @return
+     */
+    public Builder priority(
+        com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum priority) {
+      this.priority = priority.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 排序的顺序。默认为 desc
+     *
+     * <p>示例值：asc
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public Integer getPriority() {
-        return this.priority;
+    /**
+     * 排序的顺序。默认为 desc
+     *
+     * <p>示例值：asc
+     *
+     * @param order {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum}
+     * @return
+     */
+    public Builder order(
+        com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum order) {
+      this.order = order.getValue();
+      return this;
     }
 
-    public void setPriority(Integer priority) {
-        this.priority = priority;
+    public SchemaSortOptions build() {
+      return new SchemaSortOptions(this);
     }
+  }
 
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public static class Builder {
-        /**
-         * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
-         * <p> 示例值：0
-         */
-        private Integer priority;
-        /**
-         * 排序的顺序。默认为 desc
-         * <p> 示例值：asc
-         */
-        private String order;
-
-        /**
-         * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
-         * <p> 示例值：0
-         *
-         * @param priority
-         * @return
-         */
-        public Builder priority(Integer priority) {
-            this.priority = priority;
-            return this;
-        }
-
-        /**
-         * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
-         * <p> 示例值：0
-         *
-         * @param priority {@link com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum}
-         * @return
-         */
-        public Builder priority(com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum priority) {
-            this.priority = priority.getValue();
-            return this;
-        }
-
-
-        /**
-         * 排序的顺序。默认为 desc
-         * <p> 示例值：asc
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-        /**
-         * 排序的顺序。默认为 desc
-         * <p> 示例值：asc
-         *
-         * @param order {@link com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum}
-         * @return
-         */
-        public Builder order(com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum order) {
-            this.order = order.getValue();
-            return this;
-        }
-
-
-        public SchemaSortOptions build() {
-            return new SchemaSortOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

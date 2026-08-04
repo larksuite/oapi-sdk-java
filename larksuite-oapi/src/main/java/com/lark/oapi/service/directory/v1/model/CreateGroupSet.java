@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateGroupSet {
+  /**
+   * 外部ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 用户组分组的类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 用户组分组的来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source")
+  private Integer source;
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Integer getSource() {
+    return this.source;
+  }
+
+  public void setSource(Integer source) {
+    this.source = source;
+  }
+
+  // builder 开始
+  public CreateGroupSet() {}
+
+  public CreateGroupSet(Builder builder) {
     /**
      * 外部ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 用户组分组的类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 用户组分组的来源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source")
+    this.source = builder.source;
+  }
+
+  public static class Builder {
+    /**
+     * 外部ID
+     *
+     * <p>示例值：123456
+     */
+    private String externalId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 用户组分组的类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 用户组分组的来源
+     *
+     * <p>示例值：1
+     */
     private Integer source;
 
-    // builder 开始
-    public CreateGroupSet() {
+    /**
+     * 外部ID
+     *
+     * <p>示例值：123456
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public CreateGroupSet(Builder builder) {
-        /**
-         * 外部ID
-         * <p> 示例值：123456
-         */
-        this.externalId = builder.externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户组分组的类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 用户组分组的来源
-         * <p> 示例值：1
-         */
-        this.source = builder.source;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户组分组的类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 用户组分组的来源
+     *
+     * <p>示例值：1
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Integer source) {
+      this.source = source;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    public CreateGroupSet build() {
+      return new CreateGroupSet(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getSource() {
-        return this.source;
-    }
-
-    public void setSource(Integer source) {
-        this.source = source;
-    }
-
-    public static class Builder {
-        /**
-         * 外部ID
-         * <p> 示例值：123456
-         */
-        private String externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 用户组分组的类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 用户组分组的来源
-         * <p> 示例值：1
-         */
-        private Integer source;
-
-        /**
-         * 外部ID
-         * <p> 示例值：123456
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户组分组的类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 用户组分组的来源
-         * <p> 示例值：1
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Integer source) {
-            this.source = source;
-            return this;
-        }
-
-
-        public CreateGroupSet build() {
-            return new CreateGroupSet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

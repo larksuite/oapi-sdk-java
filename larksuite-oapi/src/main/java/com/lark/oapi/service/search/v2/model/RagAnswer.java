@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RagAnswer {
+  /**
+   * 提问query的答案
+   *
+   * <p>示例值：answer
+   */
+  @SerializedName("answer")
+  private String answer;
+
+  /**
+   * 思考过程
+   *
+   * <p>示例值：thinking
+   */
+  @SerializedName("reasoning_content")
+  private String reasoningContent;
+
+  /**
+   * 参考资料
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passages")
+  private Passage[] passages;
+
+  public String getAnswer() {
+    return this.answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  public String getReasoningContent() {
+    return this.reasoningContent;
+  }
+
+  public void setReasoningContent(String reasoningContent) {
+    this.reasoningContent = reasoningContent;
+  }
+
+  public Passage[] getPassages() {
+    return this.passages;
+  }
+
+  public void setPassages(Passage[] passages) {
+    this.passages = passages;
+  }
+
+  // builder 开始
+  public RagAnswer() {}
+
+  public RagAnswer(Builder builder) {
     /**
      * 提问query的答案
-     * <p> 示例值：answer
+     *
+     * <p>示例值：answer
      */
-    @SerializedName("answer")
-    private String answer;
+    this.answer = builder.answer;
     /**
      * 思考过程
-     * <p> 示例值：thinking
+     *
+     * <p>示例值：thinking
      */
-    @SerializedName("reasoning_content")
-    private String reasoningContent;
+    this.reasoningContent = builder.reasoningContent;
     /**
      * 参考资料
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("passages")
+    this.passages = builder.passages;
+  }
+
+  public static class Builder {
+    /**
+     * 提问query的答案
+     *
+     * <p>示例值：answer
+     */
+    private String answer;
+
+    /**
+     * 思考过程
+     *
+     * <p>示例值：thinking
+     */
+    private String reasoningContent;
+
+    /**
+     * 参考资料
+     *
+     * <p>示例值：
+     */
     private Passage[] passages;
 
-    // builder 开始
-    public RagAnswer() {
+    /**
+     * 提问query的答案
+     *
+     * <p>示例值：answer
+     *
+     * @param answer
+     * @return
+     */
+    public Builder answer(String answer) {
+      this.answer = answer;
+      return this;
     }
 
-    public RagAnswer(Builder builder) {
-        /**
-         * 提问query的答案
-         * <p> 示例值：answer
-         */
-        this.answer = builder.answer;
-        /**
-         * 思考过程
-         * <p> 示例值：thinking
-         */
-        this.reasoningContent = builder.reasoningContent;
-        /**
-         * 参考资料
-         * <p> 示例值：
-         */
-        this.passages = builder.passages;
+    /**
+     * 思考过程
+     *
+     * <p>示例值：thinking
+     *
+     * @param reasoningContent
+     * @return
+     */
+    public Builder reasoningContent(String reasoningContent) {
+      this.reasoningContent = reasoningContent;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参考资料
+     *
+     * <p>示例值：
+     *
+     * @param passages
+     * @return
+     */
+    public Builder passages(Passage[] passages) {
+      this.passages = passages;
+      return this;
     }
 
-    public String getAnswer() {
-        return this.answer;
+    public RagAnswer build() {
+      return new RagAnswer(this);
     }
+  }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getReasoningContent() {
-        return this.reasoningContent;
-    }
-
-    public void setReasoningContent(String reasoningContent) {
-        this.reasoningContent = reasoningContent;
-    }
-
-    public Passage[] getPassages() {
-        return this.passages;
-    }
-
-    public void setPassages(Passage[] passages) {
-        this.passages = passages;
-    }
-
-    public static class Builder {
-        /**
-         * 提问query的答案
-         * <p> 示例值：answer
-         */
-        private String answer;
-        /**
-         * 思考过程
-         * <p> 示例值：thinking
-         */
-        private String reasoningContent;
-        /**
-         * 参考资料
-         * <p> 示例值：
-         */
-        private Passage[] passages;
-
-        /**
-         * 提问query的答案
-         * <p> 示例值：answer
-         *
-         * @param answer
-         * @return
-         */
-        public Builder answer(String answer) {
-            this.answer = answer;
-            return this;
-        }
-
-
-        /**
-         * 思考过程
-         * <p> 示例值：thinking
-         *
-         * @param reasoningContent
-         * @return
-         */
-        public Builder reasoningContent(String reasoningContent) {
-            this.reasoningContent = reasoningContent;
-            return this;
-        }
-
-
-        /**
-         * 参考资料
-         * <p> 示例值：
-         *
-         * @param passages
-         * @return
-         */
-        public Builder passages(Passage[] passages) {
-            this.passages = passages;
-            return this;
-        }
-
-
-        public RagAnswer build() {
-            return new RagAnswer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

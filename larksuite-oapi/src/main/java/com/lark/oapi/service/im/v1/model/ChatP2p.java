@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatP2p {
+  /**
+   * 单聊第一个用户ID
+   *
+   * <p>示例值：ou_9204a37300b3700d61effaa439f34295
+   */
+  @SerializedName("chatter_id1")
+  private String chatterId1;
+
+  /**
+   * 单聊第二个用户ID
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("chatter_id2")
+  private String chatterId2;
+
+  /**
+   * 群组ID
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  public String getChatterId1() {
+    return this.chatterId1;
+  }
+
+  public void setChatterId1(String chatterId1) {
+    this.chatterId1 = chatterId1;
+  }
+
+  public String getChatterId2() {
+    return this.chatterId2;
+  }
+
+  public void setChatterId2(String chatterId2) {
+    this.chatterId2 = chatterId2;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  // builder 开始
+  public ChatP2p() {}
+
+  public ChatP2p(Builder builder) {
     /**
      * 单聊第一个用户ID
-     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+     *
+     * <p>示例值：ou_9204a37300b3700d61effaa439f34295
      */
-    @SerializedName("chatter_id1")
-    private String chatterId1;
+    this.chatterId1 = builder.chatterId1;
     /**
      * 单聊第二个用户ID
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @SerializedName("chatter_id2")
-    private String chatterId2;
+    this.chatterId2 = builder.chatterId2;
     /**
      * 群组ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("chat_id")
+    this.chatId = builder.chatId;
+  }
+
+  public static class Builder {
+    /**
+     * 单聊第一个用户ID
+     *
+     * <p>示例值：ou_9204a37300b3700d61effaa439f34295
+     */
+    private String chatterId1;
+
+    /**
+     * 单聊第二个用户ID
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    private String chatterId2;
+
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     private String chatId;
 
-    // builder 开始
-    public ChatP2p() {
+    /**
+     * 单聊第一个用户ID
+     *
+     * <p>示例值：ou_9204a37300b3700d61effaa439f34295
+     *
+     * @param chatterId1
+     * @return
+     */
+    public Builder chatterId1(String chatterId1) {
+      this.chatterId1 = chatterId1;
+      return this;
     }
 
-    public ChatP2p(Builder builder) {
-        /**
-         * 单聊第一个用户ID
-         * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-         */
-        this.chatterId1 = builder.chatterId1;
-        /**
-         * 单聊第二个用户ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.chatterId2 = builder.chatterId2;
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
+    /**
+     * 单聊第二个用户ID
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param chatterId2
+     * @return
+     */
+    public Builder chatterId2(String chatterId2) {
+      this.chatterId2 = chatterId2;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getChatterId1() {
-        return this.chatterId1;
+    public ChatP2p build() {
+      return new ChatP2p(this);
     }
+  }
 
-    public void setChatterId1(String chatterId1) {
-        this.chatterId1 = chatterId1;
-    }
-
-    public String getChatterId2() {
-        return this.chatterId2;
-    }
-
-    public void setChatterId2(String chatterId2) {
-        this.chatterId2 = chatterId2;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public static class Builder {
-        /**
-         * 单聊第一个用户ID
-         * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-         */
-        private String chatterId1;
-        /**
-         * 单聊第二个用户ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        private String chatterId2;
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String chatId;
-
-        /**
-         * 单聊第一个用户ID
-         * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
-         *
-         * @param chatterId1
-         * @return
-         */
-        public Builder chatterId1(String chatterId1) {
-            this.chatterId1 = chatterId1;
-            return this;
-        }
-
-
-        /**
-         * 单聊第二个用户ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param chatterId2
-         * @return
-         */
-        public Builder chatterId2(String chatterId2) {
-            this.chatterId2 = chatterId2;
-            return this;
-        }
-
-
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        public ChatP2p build() {
-            return new ChatP2p(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

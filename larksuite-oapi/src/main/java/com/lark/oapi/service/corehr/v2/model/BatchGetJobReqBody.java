@@ -13,149 +13,173 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetJobReqBody {
+  /**
+   * 职务 ID 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_ids")
+  private String[] jobIds;
+
+  /**
+   * 职务 Code 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_codes")
+  private String[] jobCodes;
+
+  /**
+   * 需要查询的字段列表，默认返回id。可选以下预置字段及自定义字段：;可选值有：;- "job_name"：名称;- "code"：编码;- "active"：启用状态;-
+   * "description"：描述;- "job_title"：职务头衔;- "pathway"：通道ID;- "working_hours_type"：工时制度;-
+   * "job_level"：关联的职级;- "job_family"：关联的序列;- "effective_date"：当前版本生效日期;-
+   * "expiration_date"：当前版本失效日期;- "created_time"：创建时间;- "updated_time"：更新时间;- "created_by"：创建人;-
+   * "updated_by"：更新人;-
+   * "custom_fields"：自定义字段(需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   * ,比如:"shifouleixing_7795__c";;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getJobIds() {
+    return this.jobIds;
+  }
+
+  public void setJobIds(String[] jobIds) {
+    this.jobIds = jobIds;
+  }
+
+  public String[] getJobCodes() {
+    return this.jobCodes;
+  }
+
+  public void setJobCodes(String[] jobCodes) {
+    this.jobCodes = jobCodes;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public BatchGetJobReqBody() {}
+
+  public BatchGetJobReqBody(Builder builder) {
     /**
-     * 职务 ID 列表
-     * <p> 示例值：
+     * 职务 ID 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_ids")
+    this.jobIds = builder.jobIds;
+    /**
+     * 职务 Code 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
+     */
+    this.jobCodes = builder.jobCodes;
+    /**
+     * 需要查询的字段列表，默认返回id。可选以下预置字段及自定义字段：;可选值有：;- "job_name"：名称;- "code"：编码;- "active"：启用状态;-
+     * "description"：描述;- "job_title"：职务头衔;- "pathway"：通道ID;- "working_hours_type"：工时制度;-
+     * "job_level"：关联的职级;- "job_family"：关联的序列;- "effective_date"：当前版本生效日期;-
+     * "expiration_date"：当前版本失效日期;- "created_time"：创建时间;- "updated_time"：更新时间;- "created_by"：创建人;-
+     * "updated_by"：更新人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 职务 ID 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
+     */
     private String[] jobIds;
+
     /**
-     * 职务 Code 列表
-     * <p> 示例值：
+     * 职务 Code 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_codes")
     private String[] jobCodes;
+
     /**
-     * 返回数据的字段列表
-     * <p> 示例值：
+     * 需要查询的字段列表，默认返回id。可选以下预置字段及自定义字段：;可选值有：;- "job_name"：名称;- "code"：编码;- "active"：启用状态;-
+     * "description"：描述;- "job_title"：职务头衔;- "pathway"：通道ID;- "working_hours_type"：工时制度;-
+     * "job_level"：关联的职级;- "job_family"：关联的序列;- "effective_date"：当前版本生效日期;-
+     * "expiration_date"：当前版本失效日期;- "created_time"：创建时间;- "updated_time"：更新时间;- "created_by"：创建人;-
+     * "updated_by"：更新人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public BatchGetJobReqBody() {
+    /**
+     * 职务 ID 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
+     *
+     * @param jobIds
+     * @return
+     */
+    public Builder jobIds(String[] jobIds) {
+      this.jobIds = jobIds;
+      return this;
     }
 
-    public BatchGetJobReqBody(Builder builder) {
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         */
-        this.jobIds = builder.jobIds;
-        /**
-         * 职务 Code 列表
-         * <p> 示例值：
-         */
-        this.jobCodes = builder.jobCodes;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 职务 Code 列表。职务ID列表和职务 Code 列表至少有一项有值，否则接口将调用失败。
+     *
+     * <p>示例值：
+     *
+     * @param jobCodes
+     * @return
+     */
+    public Builder jobCodes(String[] jobCodes) {
+      this.jobCodes = jobCodes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要查询的字段列表，默认返回id。可选以下预置字段及自定义字段：;可选值有：;- "job_name"：名称;- "code"：编码;- "active"：启用状态;-
+     * "description"：描述;- "job_title"：职务头衔;- "pathway"：通道ID;- "working_hours_type"：工时制度;-
+     * "job_level"：关联的职级;- "job_family"：关联的序列;- "effective_date"：当前版本生效日期;-
+     * "expiration_date"：当前版本失效日期;- "created_time"：创建时间;- "updated_time"：更新时间;- "created_by"：创建人;-
+     * "updated_by"：更新人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String[] getJobIds() {
-        return this.jobIds;
+    public BatchGetJobReqBody build() {
+      return new BatchGetJobReqBody(this);
     }
+  }
 
-    public void setJobIds(String[] jobIds) {
-        this.jobIds = jobIds;
-    }
-
-    public String[] getJobCodes() {
-        return this.jobCodes;
-    }
-
-    public void setJobCodes(String[] jobCodes) {
-        this.jobCodes = jobCodes;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobIds;
-        /**
-         * 职务 Code 列表
-         * <p> 示例值：
-         */
-        private String[] jobCodes;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobIds
-         * @return
-         */
-        public Builder jobIds(String[] jobIds) {
-            this.jobIds = jobIds;
-            return this;
-        }
-
-
-        /**
-         * 职务 Code 列表
-         * <p> 示例值：
-         *
-         * @param jobCodes
-         * @return
-         */
-        public Builder jobCodes(String[] jobCodes) {
-            this.jobCodes = jobCodes;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public BatchGetJobReqBody build() {
-            return new BatchGetJobReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,67 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class DeleteAttachmentReq {
+  /**
+   * 要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建,
+   * 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。
+   *
+   * <p>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+   */
+  @Path
+  @SerializedName("attachment_guid")
+  private String attachmentGuid;
+
+  public String getAttachmentGuid() {
+    return this.attachmentGuid;
+  }
+
+  public void setAttachmentGuid(String attachmentGuid) {
+    this.attachmentGuid = attachmentGuid;
+  }
+
+  // builder 开始
+  public DeleteAttachmentReq() {}
+
+  public DeleteAttachmentReq(Builder builder) {
     /**
-     * 要删除附件的GUID
-     * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+     * 要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建,
+     * 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。
+     *
+     * <p>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
      */
-    @Path
-    @SerializedName("attachment_guid")
-    private String attachmentGuid;
+    this.attachmentGuid = builder.attachmentGuid;
+  }
 
-    // builder 开始
-    public DeleteAttachmentReq() {
+  public static class Builder {
+
+    private String
+        attachmentGuid; // 要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建, 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。
+
+    /**
+     * 要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建,
+     * 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。
+     *
+     * <p>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
+     *
+     * @param attachmentGuid
+     * @return
+     */
+    public Builder attachmentGuid(String attachmentGuid) {
+      this.attachmentGuid = attachmentGuid;
+      return this;
     }
 
-    public DeleteAttachmentReq(Builder builder) {
-        /**
-         * 要删除附件的GUID
-         * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-         */
-        this.attachmentGuid = builder.attachmentGuid;
+    public DeleteAttachmentReq build() {
+      return new DeleteAttachmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAttachmentGuid() {
-        return this.attachmentGuid;
-    }
-
-    public void setAttachmentGuid(String attachmentGuid) {
-        this.attachmentGuid = attachmentGuid;
-    }
-
-    public static class Builder {
-
-        private String attachmentGuid; // 要删除附件的GUID
-
-        /**
-         * 要删除附件的GUID
-         * <p> 示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837
-         *
-         * @param attachmentGuid
-         * @return
-         */
-        public Builder attachmentGuid(String attachmentGuid) {
-            this.attachmentGuid = attachmentGuid;
-            return this;
-        }
-
-
-        public DeleteAttachmentReq build() {
-            return new DeleteAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

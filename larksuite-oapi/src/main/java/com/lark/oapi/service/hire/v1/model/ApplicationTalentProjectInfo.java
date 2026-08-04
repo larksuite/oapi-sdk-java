@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationTalentProjectInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 角色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("link")
+  private String link;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1735664461000
+   */
+  @SerializedName("start_time")
+  private Long startTime;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1735664461000
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public Long getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public ApplicationTalentProjectInfo() {}
+
+  public ApplicationTalentProjectInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名字
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 角色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 链接
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("link")
-    private String link;
+    this.link = builder.link;
     /**
      * 描述
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 开始时间
-     * <p> 示例值：1735664461000
+     *
+     * <p>示例值：1735664461000
      */
-    @SerializedName("start_time")
-    private Long startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间
-     * <p> 示例值：1735664461000
+     *
+     * <p>示例值：1735664461000
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：1
+     */
+    private String name;
+
+    /**
+     * 角色
+     *
+     * <p>示例值：1
+     */
+    private String role;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：1
+     */
+    private String link;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：1
+     */
+    private String desc;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1735664461000
+     */
+    private Long startTime;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1735664461000
+     */
     private Long endTime;
 
-    // builder 开始
-    public ApplicationTalentProjectInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationTalentProjectInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 名字
-         * <p> 示例值：1
-         */
-        this.name = builder.name;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
-        this.role = builder.role;
-        /**
-         * 链接
-         * <p> 示例值：1
-         */
-        this.link = builder.link;
-        /**
-         * 描述
-         * <p> 示例值：1
-         */
-        this.desc = builder.desc;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 名字
+     *
+     * <p>示例值：1
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 角色
+     *
+     * <p>示例值：1
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 链接
+     *
+     * <p>示例值：1
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 描述
+     *
+     * <p>示例值：1
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1735664461000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Long startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1735664461000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getRole() {
-        return this.role;
+    public ApplicationTalentProjectInfo build() {
+      return new ApplicationTalentProjectInfo(this);
     }
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Long getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    public Long getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 名字
-         * <p> 示例值：1
-         */
-        private String name;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
-        private String role;
-        /**
-         * 链接
-         * <p> 示例值：1
-         */
-        private String link;
-        /**
-         * 描述
-         * <p> 示例值：1
-         */
-        private String desc;
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         */
-        private Long startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         */
-        private Long endTime;
-
-        /**
-         * ID
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：1
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 角色
-         * <p> 示例值：1
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：1
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：1
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1735664461000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Long startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1735664461000
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public ApplicationTalentProjectInfo build() {
-            return new ApplicationTalentProjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

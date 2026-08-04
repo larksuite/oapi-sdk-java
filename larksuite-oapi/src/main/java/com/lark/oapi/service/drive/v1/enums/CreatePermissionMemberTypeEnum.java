@@ -14,24 +14,25 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 协作者类型
+ * 协作者类型。;;**注意**：当 `member_type` 参数为 `wikispaceid` 时，该参数必填，且必须在
+ * `wiki_space_member`、`wiki_space_viewer`、`wiki_space_editor` 中选择。;;**默认值**：""
  */
 public enum CreatePermissionMemberTypeEnum {
-    USER("user"), // 用户
-    CHAT("chat"), // 群组
-    DEPARTMENT("department"), // 组织架构
-    GROUP("group"), // 用户组
-    WIKI_SPACE_MEMBER("wiki_space_member"), // 知识库成员
-    WIKI_SPACE_VIEWER("wiki_space_viewer"), // 知识库可阅读成员
-    WIKI_SPACE_EDITOR("wiki_space_editor"), // 知识库可编辑成员
-    ;
-    private String value;
+  USER("user"), // 用户
+  CHAT("chat"), // 群组
+  DEPARTMENT("department"), // 组织架构
+  GROUP("group"), // 用户组
+  WIKI_SPACE_MEMBER("wiki_space_member"), // 知识库成员。在知识库启用了成员分组功能后不支持该参数
+  WIKI_SPACE_VIEWER("wiki_space_viewer"), // 知识库可阅读成员。仅在知识库启用了成员分组功能后才支持该参数
+  WIKI_SPACE_EDITOR("wiki_space_editor"), // 知识库可编辑成员。仅在知识库启用了成员分组功能后才支持该参数
+  ;
+  private String value;
 
-    CreatePermissionMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  CreatePermissionMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

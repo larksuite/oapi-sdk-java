@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VaultTask {
+  /**
+   * 任务id
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务名
+   *
+   * <p>示例值：任务名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 任务文件总大小
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("size")
+  private String size;
+
+  /**
+   * 任务有效天数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("valid_days")
+  private Integer validDays;
+
+  /**
+   * 任务创建时间戳
+   *
+   * <p>示例值：2025
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 文件包解压密码
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("extract_key")
+  private String extractKey;
+
+  /**
+   * 任务创建者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator")
+  private SimpleUser creator;
+
+  /**
+   * 导出任务文件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private VaultExportFile[] files;
+
+  /**
+   * 导出任务状态信息
+   *
+   * <p>示例值：stop
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSize() {
+    return this.size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  public Integer getValidDays() {
+    return this.validDays;
+  }
+
+  public void setValidDays(Integer validDays) {
+    this.validDays = validDays;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getExtractKey() {
+    return this.extractKey;
+  }
+
+  public void setExtractKey(String extractKey) {
+    this.extractKey = extractKey;
+  }
+
+  public SimpleUser getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(SimpleUser creator) {
+    this.creator = creator;
+  }
+
+  public VaultExportFile[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(VaultExportFile[] files) {
+    this.files = files;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public VaultTask() {}
+
+  public VaultTask(Builder builder) {
     /**
      * 任务id
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务名
-     * <p> 示例值：任务名称
+     *
+     * <p>示例值：任务名称
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 任务文件总大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("size")
-    private String size;
+    this.size = builder.size;
     /**
      * 任务有效天数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("valid_days")
-    private Integer validDays;
+    this.validDays = builder.validDays;
     /**
      * 任务创建时间戳
-     * <p> 示例值：2025
+     *
+     * <p>示例值：2025
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 文件包解压密码
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("extract_key")
-    private String extractKey;
+    this.extractKey = builder.extractKey;
     /**
      * 任务创建者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator")
-    private SimpleUser creator;
+    this.creator = builder.creator;
     /**
      * 导出任务文件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
-    private VaultExportFile[] files;
+    this.files = builder.files;
     /**
      * 导出任务状态信息
-     * <p> 示例值：stop
+     *
+     * <p>示例值：stop
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 任务id
+     *
+     * <p>示例值：123
+     */
+    private String taskId;
+
+    /**
+     * 任务名
+     *
+     * <p>示例值：任务名称
+     */
+    private String name;
+
+    /**
+     * 任务文件总大小
+     *
+     * <p>示例值：10
+     */
+    private String size;
+
+    /**
+     * 任务有效天数
+     *
+     * <p>示例值：1
+     */
+    private Integer validDays;
+
+    /**
+     * 任务创建时间戳
+     *
+     * <p>示例值：2025
+     */
+    private String createTime;
+
+    /**
+     * 文件包解压密码
+     *
+     * <p>示例值：123
+     */
+    private String extractKey;
+
+    /**
+     * 任务创建者
+     *
+     * <p>示例值：
+     */
+    private SimpleUser creator;
+
+    /**
+     * 导出任务文件列表
+     *
+     * <p>示例值：
+     */
+    private VaultExportFile[] files;
+
+    /**
+     * 导出任务状态信息
+     *
+     * <p>示例值：stop
+     */
     private String status;
 
-    // builder 开始
-    public VaultTask() {
+    /**
+     * 任务id
+     *
+     * <p>示例值：123
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public VaultTask(Builder builder) {
-        /**
-         * 任务id
-         * <p> 示例值：123
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务名
-         * <p> 示例值：任务名称
-         */
-        this.name = builder.name;
-        /**
-         * 任务文件总大小
-         * <p> 示例值：10
-         */
-        this.size = builder.size;
-        /**
-         * 任务有效天数
-         * <p> 示例值：1
-         */
-        this.validDays = builder.validDays;
-        /**
-         * 任务创建时间戳
-         * <p> 示例值：2025
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 文件包解压密码
-         * <p> 示例值：123
-         */
-        this.extractKey = builder.extractKey;
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 导出任务文件列表
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-        /**
-         * 导出任务状态信息
-         * <p> 示例值：stop
-         */
-        this.status = builder.status;
+    /**
+     * 任务名
+     *
+     * <p>示例值：任务名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务文件总大小
+     *
+     * <p>示例值：10
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(String size) {
+      this.size = size;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 任务有效天数
+     *
+     * <p>示例值：1
+     *
+     * @param validDays
+     * @return
+     */
+    public Builder validDays(Integer validDays) {
+      this.validDays = validDays;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    /**
+     * 任务创建时间戳
+     *
+     * <p>示例值：2025
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 文件包解压密码
+     *
+     * <p>示例值：123
+     *
+     * @param extractKey
+     * @return
+     */
+    public Builder extractKey(String extractKey) {
+      this.extractKey = extractKey;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 任务创建者
+     *
+     * <p>示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(SimpleUser creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public String getSize() {
-        return this.size;
+    /**
+     * 导出任务文件列表
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(VaultExportFile[] files) {
+      this.files = files;
+      return this;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    /**
+     * 导出任务状态信息
+     *
+     * <p>示例值：stop
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public Integer getValidDays() {
-        return this.validDays;
+    public VaultTask build() {
+      return new VaultTask(this);
     }
+  }
 
-    public void setValidDays(Integer validDays) {
-        this.validDays = validDays;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getExtractKey() {
-        return this.extractKey;
-    }
-
-    public void setExtractKey(String extractKey) {
-        this.extractKey = extractKey;
-    }
-
-    public SimpleUser getCreator() {
-        return this.creator;
-    }
-
-    public void setCreator(SimpleUser creator) {
-        this.creator = creator;
-    }
-
-    public VaultExportFile[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(VaultExportFile[] files) {
-        this.files = files;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 任务id
-         * <p> 示例值：123
-         */
-        private String taskId;
-        /**
-         * 任务名
-         * <p> 示例值：任务名称
-         */
-        private String name;
-        /**
-         * 任务文件总大小
-         * <p> 示例值：10
-         */
-        private String size;
-        /**
-         * 任务有效天数
-         * <p> 示例值：1
-         */
-        private Integer validDays;
-        /**
-         * 任务创建时间戳
-         * <p> 示例值：2025
-         */
-        private String createTime;
-        /**
-         * 文件包解压密码
-         * <p> 示例值：123
-         */
-        private String extractKey;
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         */
-        private SimpleUser creator;
-        /**
-         * 导出任务文件列表
-         * <p> 示例值：
-         */
-        private VaultExportFile[] files;
-        /**
-         * 导出任务状态信息
-         * <p> 示例值：stop
-         */
-        private String status;
-
-        /**
-         * 任务id
-         * <p> 示例值：123
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务名
-         * <p> 示例值：任务名称
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 任务文件总大小
-         * <p> 示例值：10
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(String size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 任务有效天数
-         * <p> 示例值：1
-         *
-         * @param validDays
-         * @return
-         */
-        public Builder validDays(Integer validDays) {
-            this.validDays = validDays;
-            return this;
-        }
-
-
-        /**
-         * 任务创建时间戳
-         * <p> 示例值：2025
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 文件包解压密码
-         * <p> 示例值：123
-         *
-         * @param extractKey
-         * @return
-         */
-        public Builder extractKey(String extractKey) {
-            this.extractKey = extractKey;
-            return this;
-        }
-
-
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(SimpleUser creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * 导出任务文件列表
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(VaultExportFile[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        /**
-         * 导出任务状态信息
-         * <p> 示例值：stop
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public VaultTask build() {
-            return new VaultTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

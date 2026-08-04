@@ -13,269 +13,288 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class TasksTasklistReq {
+  /**
+   * 每页返回的任务数量
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 只查看特定完成状态的任务，填写“true”表示返回已经完成的任务；“false”表示只返回未完成的任务；不填写表示不按完成状态过滤。
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("completed")
+  private Boolean completed;
+
+  /**
+   * 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
+   *
+   * <p>示例值：1675742789470
+   */
+  @Query
+  @SerializedName("created_from")
+  private String createdFrom;
+
+  /**
+   * 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
+   *
+   * <p>示例值：1675742789470
+   */
+  @Query
+  @SerializedName("created_to")
+  private String createdTo;
+
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getCompleted() {
+    return this.completed;
+  }
+
+  public void setCompleted(Boolean completed) {
+    this.completed = completed;
+  }
+
+  public String getCreatedFrom() {
+    return this.createdFrom;
+  }
+
+  public void setCreatedFrom(String createdFrom) {
+    this.createdFrom = createdFrom;
+  }
+
+  public String getCreatedTo() {
+    return this.createdTo;
+  }
+
+  public void setCreatedTo(String createdTo) {
+    this.createdTo = createdTo;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要获取任务的清单全局唯一ID
+   *
+   * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+   */
+  @Path
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  // builder 开始
+  public TasksTasklistReq() {}
+
+  public TasksTasklistReq(Builder builder) {
     /**
      * 每页返回的任务数量
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 只查看特定完成状态的任务，不填写表示不按完成状态过滤
-     * <p> 示例值：true
+     * 只查看特定完成状态的任务，填写“true”表示返回已经完成的任务；“false”表示只返回未完成的任务；不填写表示不按完成状态过滤。
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("completed")
-    private Boolean completed;
+    this.completed = builder.completed;
     /**
      * 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @Query
-    @SerializedName("created_from")
-    private String createdFrom;
+    this.createdFrom = builder.createdFrom;
     /**
      * 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @Query
-    @SerializedName("created_to")
-    private String createdTo;
+    this.createdTo = builder.createdTo;
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 要获取任务的清单全局唯一ID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
+    this.tasklistGuid = builder.tasklistGuid;
+  }
 
-    // builder 开始
-    public TasksTasklistReq() {
+  public static class Builder {
+    private Integer pageSize; // 每页返回的任务数量
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Boolean completed; // 只查看特定完成状态的任务，填写“true”表示返回已经完成的任务；“false”表示只返回未完成的任务；不填写表示不按完成状态过滤。
+    private String createdFrom; // 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
+    private String createdTo; // 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 每页返回的任务数量
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public TasksTasklistReq(Builder builder) {
-        /**
-         * 每页返回的任务数量
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 只查看特定完成状态的任务，不填写表示不按完成状态过滤
-         * <p> 示例值：true
-         */
-        this.completed = builder.completed;
-        /**
-         * 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
-         * <p> 示例值：1675742789470
-         */
-        this.createdFrom = builder.createdFrom;
-        /**
-         * 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
-         * <p> 示例值：1675742789470
-         */
-        this.createdTo = builder.createdTo;
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要获取任务的清单全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.tasklistGuid = builder.tasklistGuid;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 只查看特定完成状态的任务，填写“true”表示返回已经完成的任务；“false”表示只返回未完成的任务；不填写表示不按完成状态过滤。
+     *
+     * <p>示例值：true
+     *
+     * @param completed
+     * @return
+     */
+    public Builder completed(Boolean completed) {
+      this.completed = completed;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param createdFrom
+     * @return
+     */
+    public Builder createdFrom(String createdFrom) {
+      this.createdFrom = createdFrom;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param createdTo
+     * @return
+     */
+    public Builder createdTo(String createdTo) {
+      this.createdTo = createdTo;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    private String tasklistGuid; // 要获取任务的清单全局唯一ID
+
+    /**
+     * 要获取任务的清单全局唯一ID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public Boolean getCompleted() {
-        return this.completed;
+    public TasksTasklistReq build() {
+      return new TasksTasklistReq(this);
     }
+  }
 
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-
-    public String getCreatedFrom() {
-        return this.createdFrom;
-    }
-
-    public void setCreatedFrom(String createdFrom) {
-        this.createdFrom = createdFrom;
-    }
-
-    public String getCreatedTo() {
-        return this.createdTo;
-    }
-
-    public void setCreatedTo(String createdTo) {
-        this.createdTo = createdTo;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 每页返回的任务数量
-        private String pageToken; // 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-        private Boolean completed; // 只查看特定完成状态的任务，不填写表示不按完成状态过滤
-        private String createdFrom; // 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
-        private String createdTo; // 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String tasklistGuid; // 要获取任务的清单全局唯一ID
-
-        /**
-         * 每页返回的任务数量
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 只查看特定完成状态的任务，不填写表示不按完成状态过滤
-         * <p> 示例值：true
-         *
-         * @param completed
-         * @return
-         */
-        public Builder completed(Boolean completed) {
-            this.completed = completed;
-            return this;
-        }
-
-        /**
-         * 任务创建的起始时间戳（ms），闭区间，不填写默认为首个任务的创建时间戳
-         * <p> 示例值：1675742789470
-         *
-         * @param createdFrom
-         * @return
-         */
-        public Builder createdFrom(String createdFrom) {
-            this.createdFrom = createdFrom;
-            return this;
-        }
-
-        /**
-         * 任务创建的结束时间戳（ms），闭区间，不填写默认为最后创建任务的创建时间戳
-         * <p> 示例值：1675742789470
-         *
-         * @param createdTo
-         * @return
-         */
-        public Builder createdTo(String createdTo) {
-            this.createdTo = createdTo;
-            return this;
-        }
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 要获取任务的清单全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        public TasksTasklistReq build() {
-            return new TasksTasklistReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

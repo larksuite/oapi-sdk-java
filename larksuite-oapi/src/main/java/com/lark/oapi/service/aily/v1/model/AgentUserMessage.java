@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentUserMessage {
+  /**
+   * 用户消息，元素最多100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private AgentUserMessageContent[] content;
+
+  /**
+   * 附件id，通过调用[上传附件](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("agent_attachment_ids")
+  private String[] agentAttachmentIds;
+
+  public AgentUserMessageContent[] getContent() {
+    return this.content;
+  }
+
+  public void setContent(AgentUserMessageContent[] content) {
+    this.content = content;
+  }
+
+  public String[] getAgentAttachmentIds() {
+    return this.agentAttachmentIds;
+  }
+
+  public void setAgentAttachmentIds(String[] agentAttachmentIds) {
+    this.agentAttachmentIds = agentAttachmentIds;
+  }
+
+  // builder 开始
+  public AgentUserMessage() {}
+
+  public AgentUserMessage(Builder builder) {
     /**
-     * Agent回复内容
-     * <p> 示例值：
+     * 用户消息，元素最多100
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
+    this.content = builder.content;
+    /**
+     * 附件id，通过调用[上传附件](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create)接口获取
+     *
+     * <p>示例值：
+     */
+    this.agentAttachmentIds = builder.agentAttachmentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户消息，元素最多100
+     *
+     * <p>示例值：
+     */
     private AgentUserMessageContent[] content;
+
     /**
-     * 附件id
-     * <p> 示例值：
+     * 附件id，通过调用[上传附件](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("agent_attachment_ids")
     private String[] agentAttachmentIds;
 
-    // builder 开始
-    public AgentUserMessage() {
+    /**
+     * 用户消息，元素最多100
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(AgentUserMessageContent[] content) {
+      this.content = content;
+      return this;
     }
 
-    public AgentUserMessage(Builder builder) {
-        /**
-         * Agent回复内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 附件id
-         * <p> 示例值：
-         */
-        this.agentAttachmentIds = builder.agentAttachmentIds;
+    /**
+     * 附件id，通过调用[上传附件](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param agentAttachmentIds
+     * @return
+     */
+    public Builder agentAttachmentIds(String[] agentAttachmentIds) {
+      this.agentAttachmentIds = agentAttachmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AgentUserMessage build() {
+      return new AgentUserMessage(this);
     }
+  }
 
-    public AgentUserMessageContent[] getContent() {
-        return this.content;
-    }
-
-    public void setContent(AgentUserMessageContent[] content) {
-        this.content = content;
-    }
-
-    public String[] getAgentAttachmentIds() {
-        return this.agentAttachmentIds;
-    }
-
-    public void setAgentAttachmentIds(String[] agentAttachmentIds) {
-        this.agentAttachmentIds = agentAttachmentIds;
-    }
-
-    public static class Builder {
-        /**
-         * Agent回复内容
-         * <p> 示例值：
-         */
-        private AgentUserMessageContent[] content;
-        /**
-         * 附件id
-         * <p> 示例值：
-         */
-        private String[] agentAttachmentIds;
-
-        /**
-         * Agent回复内容
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(AgentUserMessageContent[] content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 附件id
-         * <p> 示例值：
-         *
-         * @param agentAttachmentIds
-         * @return
-         */
-        public Builder agentAttachmentIds(String[] agentAttachmentIds) {
-            this.agentAttachmentIds = agentAttachmentIds;
-            return this;
-        }
-
-
-        public AgentUserMessage build() {
-            return new AgentUserMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

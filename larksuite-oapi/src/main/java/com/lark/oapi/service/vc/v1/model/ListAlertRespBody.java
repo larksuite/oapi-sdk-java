@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAlertRespBody {
-    /**
-     * 是否还有数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页分页的token，下次请求时传入
-     * <p> 示例值：50
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 告警记录
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Alert[] items;
+  /**
+   * 是否还有数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 下一页分页的token，下次请求时传入
+   *
+   * <p>示例值：50
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 告警记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Alert[] items;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public Alert[] getItems() {
-        return this.items;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setItems(Alert[] items) {
-        this.items = items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Alert[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(Alert[] items) {
+    this.items = items;
+  }
 }

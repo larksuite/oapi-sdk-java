@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMailId {
+  /**
+   * 邮件ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mail_ids")
+  private String[] mailIds;
+
+  public String[] getMailIds() {
+    return this.mailIds;
+  }
+
+  public void setMailIds(String[] mailIds) {
+    this.mailIds = mailIds;
+  }
+
+  // builder 开始
+  public ParamMailId() {}
+
+  public ParamMailId(Builder builder) {
     /**
      * 邮件ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mail_ids")
+    this.mailIds = builder.mailIds;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件ID列表
+     *
+     * <p>示例值：
+     */
     private String[] mailIds;
 
-    // builder 开始
-    public ParamMailId() {
+    /**
+     * 邮件ID列表
+     *
+     * <p>示例值：
+     *
+     * @param mailIds
+     * @return
+     */
+    public Builder mailIds(String[] mailIds) {
+      this.mailIds = mailIds;
+      return this;
     }
 
-    public ParamMailId(Builder builder) {
-        /**
-         * 邮件ID列表
-         * <p> 示例值：
-         */
-        this.mailIds = builder.mailIds;
+    public ParamMailId build() {
+      return new ParamMailId(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getMailIds() {
-        return this.mailIds;
-    }
-
-    public void setMailIds(String[] mailIds) {
-        this.mailIds = mailIds;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件ID列表
-         * <p> 示例值：
-         */
-        private String[] mailIds;
-
-        /**
-         * 邮件ID列表
-         * <p> 示例值：
-         *
-         * @param mailIds
-         * @return
-         */
-        public Builder mailIds(String[] mailIds) {
-            this.mailIds = mailIds;
-            return this;
-        }
-
-
-        public ParamMailId build() {
-            return new ParamMailId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

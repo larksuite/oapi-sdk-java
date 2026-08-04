@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RevokeJobChangeRespBody {
-    /**
-     * 撤销结果
-     * <p> 示例值：true
-     */
-    @SerializedName("result")
-    private Boolean result;
-    /**
-     * 撤销信息
-     * <p> 示例值：成功
-     */
-    @SerializedName("message")
-    private String message;
+  /**
+   * 撤销结果
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("result")
+  private Boolean result;
 
-    public Boolean getResult() {
-        return this.result;
-    }
+  /**
+   * 撤销信息
+   *
+   * <p>示例值：成功
+   */
+  @SerializedName("message")
+  private String message;
 
-    public void setResult(Boolean result) {
-        this.result = result;
-    }
+  public Boolean getResult() {
+    return this.result;
+  }
 
-    public String getMessage() {
-        return this.message;
-    }
+  public void setResult(Boolean result) {
+    this.result = result;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  public String getMessage() {
+    return this.message;
+  }
 
+  public void setMessage(String message) {
+    this.message = message;
+  }
 }

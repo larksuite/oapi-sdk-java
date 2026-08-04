@@ -13,109 +13,113 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v2.enums.*;
 
 public class BotTimeSentiveFeedCardReq {
+  /**
+   * 此次调用中使用的用户ID的类型 可选值有: - open_id: 以open_id来识别用户 - user_id: 以user_id来识别用户 - union_id:
+   * 以union_id来识别用户
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private BotTimeSentiveFeedCardReqBody body;
+
+  public BotTimeSentiveFeedCardReqBody getBotTimeSentiveFeedCardReqBody() {
+    return this.body;
+  }
+
+  public void setBotTimeSentiveFeedCardReqBody(BotTimeSentiveFeedCardReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BotTimeSentiveFeedCardReq() {}
+
+  public BotTimeSentiveFeedCardReq(Builder builder) {
     /**
-     * 此次调用中使用的用户ID的类型 可选值有:     - open_id: 以open_id来识别用户     - user_id: 以user_id来识别用户     - union_id: 以union_id来识别用户
-     * <p> 示例值：open_id
+     * 此次调用中使用的用户ID的类型 可选值有: - open_id: 以open_id来识别用户 - user_id: 以user_id来识别用户 - union_id:
+     * 以union_id来识别用户
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        userIdType; // 此次调用中使用的用户ID的类型 可选值有: - open_id: 以open_id来识别用户 - user_id: 以user_id来识别用户 -
+
+    // union_id: 以union_id来识别用户
+
+    /**
+     * 此次调用中使用的用户ID的类型 可选值有: - open_id: 以open_id来识别用户 - user_id: 以user_id来识别用户 - union_id:
+     * 以union_id来识别用户
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型 可选值有: - open_id: 以open_id来识别用户 - user_id: 以user_id来识别用户 - union_id:
+     * 以union_id来识别用户
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.im.v2.enums.BotTimeSentiveFeedCardUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v2.enums.BotTimeSentiveFeedCardUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private BotTimeSentiveFeedCardReqBody body;
 
-    // builder 开始
-    public BotTimeSentiveFeedCardReq() {
-    }
-
-    public BotTimeSentiveFeedCardReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型 可选值有:     - open_id: 以open_id来识别用户     - user_id: 以user_id来识别用户     - union_id: 以union_id来识别用户
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public BotTimeSentiveFeedCardReqBody getBotTimeSentiveFeedCardReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBotTimeSentiveFeedCardReqBody(BotTimeSentiveFeedCardReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder botTimeSentiveFeedCardReqBody(BotTimeSentiveFeedCardReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型 可选值有:     - open_id: 以open_id来识别用户     - user_id: 以user_id来识别用户     - union_id: 以union_id来识别用户
-        private BotTimeSentiveFeedCardReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型 可选值有:     - open_id: 以open_id来识别用户     - user_id: 以user_id来识别用户     - union_id: 以union_id来识别用户
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型 可选值有:     - open_id: 以open_id来识别用户     - user_id: 以user_id来识别用户     - union_id: 以union_id来识别用户
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.im.v2.enums.BotTimeSentiveFeedCardUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.im.v2.enums.BotTimeSentiveFeedCardUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public BotTimeSentiveFeedCardReqBody getBotTimeSentiveFeedCardReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder botTimeSentiveFeedCardReqBody(BotTimeSentiveFeedCardReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BotTimeSentiveFeedCardReq build() {
-            return new BotTimeSentiveFeedCardReq(this);
-        }
+    public BotTimeSentiveFeedCardReq build() {
+      return new BotTimeSentiveFeedCardReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

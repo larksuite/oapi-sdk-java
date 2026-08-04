@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetJobLevelReqBody {
+  /**
+   * 职级 ID 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+   * ID获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level_ids")
+  private String[] jobLevelIds;
+
+  /**
+   * 职级 Code 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+   * Code获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级Code;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level_codes")
+  private String[] jobLevelCodes;
+
+  public String[] getJobLevelIds() {
+    return this.jobLevelIds;
+  }
+
+  public void setJobLevelIds(String[] jobLevelIds) {
+    this.jobLevelIds = jobLevelIds;
+  }
+
+  public String[] getJobLevelCodes() {
+    return this.jobLevelCodes;
+  }
+
+  public void setJobLevelCodes(String[] jobLevelCodes) {
+    this.jobLevelCodes = jobLevelCodes;
+  }
+
+  // builder 开始
+  public BatchGetJobLevelReqBody() {}
+
+  public BatchGetJobLevelReqBody(Builder builder) {
     /**
-     * 职级 ID 列表
-     * <p> 示例值：
+     * 职级 ID 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level_ids")
+    this.jobLevelIds = builder.jobLevelIds;
+    /**
+     * 职级 Code 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级Code;
+     *
+     * <p>示例值：
+     */
+    this.jobLevelCodes = builder.jobLevelCodes;
+  }
+
+  public static class Builder {
+    /**
+     * 职级 ID 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：
+     */
     private String[] jobLevelIds;
+
     /**
-     * 职级 Code 列表
-     * <p> 示例值：
+     * 职级 Code 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级Code;
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level_codes")
     private String[] jobLevelCodes;
 
-    // builder 开始
-    public BatchGetJobLevelReqBody() {
+    /**
+     * 职级 ID 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelIds
+     * @return
+     */
+    public Builder jobLevelIds(String[] jobLevelIds) {
+      this.jobLevelIds = jobLevelIds;
+      return this;
     }
 
-    public BatchGetJobLevelReqBody(Builder builder) {
-        /**
-         * 职级 ID 列表
-         * <p> 示例值：
-         */
-        this.jobLevelIds = builder.jobLevelIds;
-        /**
-         * 职级 Code 列表
-         * <p> 示例值：
-         */
-        this.jobLevelCodes = builder.jobLevelCodes;
+    /**
+     * 职级 Code 列表;- 职级 ID 列表和职级 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/events/created)[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级Code;
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelCodes
+     * @return
+     */
+    public Builder jobLevelCodes(String[] jobLevelCodes) {
+      this.jobLevelCodes = jobLevelCodes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchGetJobLevelReqBody build() {
+      return new BatchGetJobLevelReqBody(this);
     }
+  }
 
-    public String[] getJobLevelIds() {
-        return this.jobLevelIds;
-    }
-
-    public void setJobLevelIds(String[] jobLevelIds) {
-        this.jobLevelIds = jobLevelIds;
-    }
-
-    public String[] getJobLevelCodes() {
-        return this.jobLevelCodes;
-    }
-
-    public void setJobLevelCodes(String[] jobLevelCodes) {
-        this.jobLevelCodes = jobLevelCodes;
-    }
-
-    public static class Builder {
-        /**
-         * 职级 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobLevelIds;
-        /**
-         * 职级 Code 列表
-         * <p> 示例值：
-         */
-        private String[] jobLevelCodes;
-
-        /**
-         * 职级 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobLevelIds
-         * @return
-         */
-        public Builder jobLevelIds(String[] jobLevelIds) {
-            this.jobLevelIds = jobLevelIds;
-            return this;
-        }
-
-
-        /**
-         * 职级 Code 列表
-         * <p> 示例值：
-         *
-         * @param jobLevelCodes
-         * @return
-         */
-        public Builder jobLevelCodes(String[] jobLevelCodes) {
-            this.jobLevelCodes = jobLevelCodes;
-            return this;
-        }
-
-
-        public BatchGetJobLevelReqBody build() {
-            return new BatchGetJobLevelReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

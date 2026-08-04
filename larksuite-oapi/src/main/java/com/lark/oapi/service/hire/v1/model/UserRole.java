@@ -13,259 +13,283 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserRole {
+  /**
+   * 用户 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：7326856229396906012
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 角色 ID，可通过接口
+   * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+   * 获取
+   *
+   * <p>示例值：101
+   */
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 修改时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 角色名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role_name")
+  private I18n roleName;
+
+  /**
+   * 角色描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role_description")
+  private I18n roleDescription;
+
+  /**
+   * 业务管理范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("business_management_scopes")
+  private UserBusinessManagementScope[] businessManagementScopes;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public I18n getRoleName() {
+    return this.roleName;
+  }
+
+  public void setRoleName(I18n roleName) {
+    this.roleName = roleName;
+  }
+
+  public I18n getRoleDescription() {
+    return this.roleDescription;
+  }
+
+  public void setRoleDescription(I18n roleDescription) {
+    this.roleDescription = roleDescription;
+  }
+
+  public UserBusinessManagementScope[] getBusinessManagementScopes() {
+    return this.businessManagementScopes;
+  }
+
+  public void setBusinessManagementScopes(UserBusinessManagementScope[] businessManagementScopes) {
+    this.businessManagementScopes = businessManagementScopes;
+  }
+
+  // builder 开始
+  public UserRole() {}
+
+  public UserRole(Builder builder) {
     /**
-     * 用户 ID
-     * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：7326856229396906012
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 角色 ID
-     * <p> 示例值：101
+     * 角色 ID，可通过接口
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+     * 获取
+     *
+     * <p>示例值：101
      */
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
     /**
-     * 修改时间
-     * <p> 示例值：1618500278663
+     * 修改时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("modify_time")
-    private String modifyTime;
+    this.modifyTime = builder.modifyTime;
     /**
      * 角色名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("role_name")
-    private I18n roleName;
+    this.roleName = builder.roleName;
     /**
      * 角色描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("role_description")
-    private I18n roleDescription;
+    this.roleDescription = builder.roleDescription;
     /**
      * 业务管理范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("business_management_scopes")
+    this.businessManagementScopes = builder.businessManagementScopes;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：7326856229396906012
+     */
+    private String userId;
+
+    /**
+     * 角色 ID，可通过接口
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+     * 获取
+     *
+     * <p>示例值：101
+     */
+    private String roleId;
+
+    /**
+     * 修改时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    private String modifyTime;
+
+    /**
+     * 角色名称
+     *
+     * <p>示例值：
+     */
+    private I18n roleName;
+
+    /**
+     * 角色描述
+     *
+     * <p>示例值：
+     */
+    private I18n roleDescription;
+
+    /**
+     * 业务管理范围
+     *
+     * <p>示例值：
+     */
     private UserBusinessManagementScope[] businessManagementScopes;
 
-    // builder 开始
-    public UserRole() {
+    /**
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：7326856229396906012
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserRole(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-         */
-        this.userId = builder.userId;
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 修改时间
-         * <p> 示例值：1618500278663
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.roleName = builder.roleName;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.roleDescription = builder.roleDescription;
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         */
-        this.businessManagementScopes = builder.businessManagementScopes;
+    /**
+     * 角色 ID，可通过接口
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+     * 获取
+     *
+     * <p>示例值：101
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 修改时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 角色名称
+     *
+     * <p>示例值：
+     *
+     * @param roleName
+     * @return
+     */
+    public Builder roleName(I18n roleName) {
+      this.roleName = roleName;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 角色描述
+     *
+     * <p>示例值：
+     *
+     * @param roleDescription
+     * @return
+     */
+    public Builder roleDescription(I18n roleDescription) {
+      this.roleDescription = roleDescription;
+      return this;
     }
 
-    public String getRoleId() {
-        return this.roleId;
+    /**
+     * 业务管理范围
+     *
+     * <p>示例值：
+     *
+     * @param businessManagementScopes
+     * @return
+     */
+    public Builder businessManagementScopes(
+        UserBusinessManagementScope[] businessManagementScopes) {
+      this.businessManagementScopes = businessManagementScopes;
+      return this;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
+    public UserRole build() {
+      return new UserRole(this);
     }
+  }
 
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public I18n getRoleName() {
-        return this.roleName;
-    }
-
-    public void setRoleName(I18n roleName) {
-        this.roleName = roleName;
-    }
-
-    public I18n getRoleDescription() {
-        return this.roleDescription;
-    }
-
-    public void setRoleDescription(I18n roleDescription) {
-        this.roleDescription = roleDescription;
-    }
-
-    public UserBusinessManagementScope[] getBusinessManagementScopes() {
-        return this.businessManagementScopes;
-    }
-
-    public void setBusinessManagementScopes(UserBusinessManagementScope[] businessManagementScopes) {
-        this.businessManagementScopes = businessManagementScopes;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-         */
-        private String userId;
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         */
-        private String roleId;
-        /**
-         * 修改时间
-         * <p> 示例值：1618500278663
-         */
-        private String modifyTime;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        private I18n roleName;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        private I18n roleDescription;
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         */
-        private UserBusinessManagementScope[] businessManagementScopes;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_49772cf5d2d19ebb5059de777a4dd487
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * 修改时间
-         * <p> 示例值：1618500278663
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 角色名称
-         * <p> 示例值：
-         *
-         * @param roleName
-         * @return
-         */
-        public Builder roleName(I18n roleName) {
-            this.roleName = roleName;
-            return this;
-        }
-
-
-        /**
-         * 角色描述
-         * <p> 示例值：
-         *
-         * @param roleDescription
-         * @return
-         */
-        public Builder roleDescription(I18n roleDescription) {
-            this.roleDescription = roleDescription;
-            return this;
-        }
-
-
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         *
-         * @param businessManagementScopes
-         * @return
-         */
-        public Builder businessManagementScopes(UserBusinessManagementScope[] businessManagementScopes) {
-            this.businessManagementScopes = businessManagementScopes;
-            return this;
-        }
-
-
-        public UserRole build() {
-            return new UserRole(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,1308 +13,1476 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Task {
+  /**
+   * 任务guid，任务的唯一ID
+   *
+   * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 任务标题。如更新标题，不可将任务标题设为空。标题最大支持3000个UTF-8 字符。
+   *
+   * <p>示例值：进行销售年中总结
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  /**
+   * 任务描述。描述最大支持3000个UTF-8字符。
+   *
+   * <p>示例值：进行销售年中总结
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 任务截止时间。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+   * 如何使用开始时间和截止时间？”章节。
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("due")
+  private Due due;
+
+  /**
+   * 任务的提醒配置列表。目前每个任务最多有1个。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reminders")
+  private Reminder[] reminders;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator")
+  private Member creator;
+
+  /**
+   * 任务成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  /**
+   * 任务完成的时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("completed_at")
+  private String completedAt;
+
+  /**
+   * 任务的附件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachments")
+  private Attachment[] attachments;
+
+  /**
+   * 任务关联的第三方平台来源信息。创建时设置后就不可更改。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("origin")
+  private Origin origin;
+
+  /**
+   * 任务附带的自定义数据。
+   *
+   * <p>示例值：dGVzdA==
+   */
+  @SerializedName("extra")
+  private String extra;
+
+  /**
+   * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tasklists")
+  private TaskInTasklistInfo[] tasklists;
+
+  /**
+   * 如果设置，则该任务为“重复任务”。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“如何使用重复任务？”章节。
+   *
+   * <p>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+   */
+  @SerializedName("repeat_rule")
+  private String repeatRule;
+
+  /**
+   * 如果当前任务为某个任务的子任务，返回父任务的guid
+   *
+   * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+   */
+  @SerializedName("parent_task_guid")
+  private String parentTaskGuid;
+
+  /**
+   * 任务的模式。1 - 会签任务；2 - 或签任务
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("mode")
+  private Integer mode;
+
+  /**
+   * 任务创建的来源
+   *
+   * <p>示例值：6
+   */
+  @SerializedName("source")
+  private Integer source;
+
+  /**
+   * 任务自定义完成配置。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“
+   * 如何使用任务自定义完成？”章节。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_complete")
+  private CustomComplete customComplete;
+
+  /**
+   * 任务界面上的代码
+   *
+   * <p>示例值：t6272302
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务创建时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 任务最后一次更新的时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 任务的状态，支持"todo"和"done"两种状态
+   *
+   * <p>示例值：todo
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 任务的分享链接
+   *
+   * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 任务的开始时间(ms)。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+   * 如何使用开始时间和截止时间？”章节。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start")
+  private Start start;
+
+  /**
+   * 该任务的子任务的个数。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("subtask_count")
+  private Integer subtaskCount;
+
+  /**
+   * 是否是里程碑任务
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_milestone")
+  private Boolean isMilestone;
+
+  /**
+   * 任务的自定义字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldValue[] customFields;
+
+  /**
+   * 任务依赖
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dependencies")
+  private TaskDependency[] dependencies;
+
+  /**
+   * 任务执行者相关信息，如会签任务各执行者完成时间等
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assignee_related")
+  private TaskAssignee[] assigneeRelated;
+
+  /**
+   * 正数协议任务提醒
+   *
+   * <p>示例值：
+   */
+  @SerializedName("positive_reminders")
+  private Reminder[] positiveReminders;
+
+  /**
+   * Agent task status
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("agent_task_status")
+  private Integer agentTaskStatus;
+
+  /**
+   * 智能体任务执行情况
+   *
+   * <p>示例值：1/4
+   */
+  @SerializedName("agent_task_progress")
+  private String agentTaskProgress;
+
+  /**
+   * 智能体文本类交付物
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_deliveries")
+  private String[] textDeliveries;
+
+  /**
+   * 智能体附件类交付物
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_deliveries")
+  private Attachment[] attachmentDeliveries;
+
+  /**
+   * 重复任务的下一个任务
+   *
+   * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
+  @SerializedName("next_task_guid")
+  private String nextTaskGuid;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Due getDue() {
+    return this.due;
+  }
+
+  public void setDue(Due due) {
+    this.due = due;
+  }
+
+  public Reminder[] getReminders() {
+    return this.reminders;
+  }
+
+  public void setReminders(Reminder[] reminders) {
+    this.reminders = reminders;
+  }
+
+  public Member getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(Member creator) {
+    this.creator = creator;
+  }
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  public String getCompletedAt() {
+    return this.completedAt;
+  }
+
+  public void setCompletedAt(String completedAt) {
+    this.completedAt = completedAt;
+  }
+
+  public Attachment[] getAttachments() {
+    return this.attachments;
+  }
+
+  public void setAttachments(Attachment[] attachments) {
+    this.attachments = attachments;
+  }
+
+  public Origin getOrigin() {
+    return this.origin;
+  }
+
+  public void setOrigin(Origin origin) {
+    this.origin = origin;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  public TaskInTasklistInfo[] getTasklists() {
+    return this.tasklists;
+  }
+
+  public void setTasklists(TaskInTasklistInfo[] tasklists) {
+    this.tasklists = tasklists;
+  }
+
+  public String getRepeatRule() {
+    return this.repeatRule;
+  }
+
+  public void setRepeatRule(String repeatRule) {
+    this.repeatRule = repeatRule;
+  }
+
+  public String getParentTaskGuid() {
+    return this.parentTaskGuid;
+  }
+
+  public void setParentTaskGuid(String parentTaskGuid) {
+    this.parentTaskGuid = parentTaskGuid;
+  }
+
+  public Integer getMode() {
+    return this.mode;
+  }
+
+  public void setMode(Integer mode) {
+    this.mode = mode;
+  }
+
+  public Integer getSource() {
+    return this.source;
+  }
+
+  public void setSource(Integer source) {
+    this.source = source;
+  }
+
+  public CustomComplete getCustomComplete() {
+    return this.customComplete;
+  }
+
+  public void setCustomComplete(CustomComplete customComplete) {
+    this.customComplete = customComplete;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public Start getStart() {
+    return this.start;
+  }
+
+  public void setStart(Start start) {
+    this.start = start;
+  }
+
+  public Integer getSubtaskCount() {
+    return this.subtaskCount;
+  }
+
+  public void setSubtaskCount(Integer subtaskCount) {
+    this.subtaskCount = subtaskCount;
+  }
+
+  public Boolean getIsMilestone() {
+    return this.isMilestone;
+  }
+
+  public void setIsMilestone(Boolean isMilestone) {
+    this.isMilestone = isMilestone;
+  }
+
+  public CustomFieldValue[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldValue[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public TaskDependency[] getDependencies() {
+    return this.dependencies;
+  }
+
+  public void setDependencies(TaskDependency[] dependencies) {
+    this.dependencies = dependencies;
+  }
+
+  public TaskAssignee[] getAssigneeRelated() {
+    return this.assigneeRelated;
+  }
+
+  public void setAssigneeRelated(TaskAssignee[] assigneeRelated) {
+    this.assigneeRelated = assigneeRelated;
+  }
+
+  public Reminder[] getPositiveReminders() {
+    return this.positiveReminders;
+  }
+
+  public void setPositiveReminders(Reminder[] positiveReminders) {
+    this.positiveReminders = positiveReminders;
+  }
+
+  public Integer getAgentTaskStatus() {
+    return this.agentTaskStatus;
+  }
+
+  public void setAgentTaskStatus(Integer agentTaskStatus) {
+    this.agentTaskStatus = agentTaskStatus;
+  }
+
+  public String getAgentTaskProgress() {
+    return this.agentTaskProgress;
+  }
+
+  public void setAgentTaskProgress(String agentTaskProgress) {
+    this.agentTaskProgress = agentTaskProgress;
+  }
+
+  public String[] getTextDeliveries() {
+    return this.textDeliveries;
+  }
+
+  public void setTextDeliveries(String[] textDeliveries) {
+    this.textDeliveries = textDeliveries;
+  }
+
+  public Attachment[] getAttachmentDeliveries() {
+    return this.attachmentDeliveries;
+  }
+
+  public void setAttachmentDeliveries(Attachment[] attachmentDeliveries) {
+    this.attachmentDeliveries = attachmentDeliveries;
+  }
+
+  public String getNextTaskGuid() {
+    return this.nextTaskGuid;
+  }
+
+  public void setNextTaskGuid(String nextTaskGuid) {
+    this.nextTaskGuid = nextTaskGuid;
+  }
+
+  // builder 开始
+  public Task() {}
+
+  public Task(Builder builder) {
     /**
      * 任务guid，任务的唯一ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
-     * 任务标题
-     * <p> 示例值：进行销售年中总结
+     * 任务标题。如更新标题，不可将任务标题设为空。标题最大支持3000个UTF-8 字符。
+     *
+     * <p>示例值：进行销售年中总结
      */
-    @SerializedName("summary")
-    private String summary;
+    this.summary = builder.summary;
     /**
-     * 任务描述
-     * <p> 示例值：进行销售年中总结
+     * 任务描述。描述最大支持3000个UTF-8字符。
+     *
+     * <p>示例值：进行销售年中总结
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
-     * 任务截止时间
-     * <p> 示例值：1675742789470
+     * 任务截止时间。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("due")
-    private Due due;
+    this.due = builder.due;
     /**
      * 任务的提醒配置列表。目前每个任务最多有1个。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reminders")
-    private Reminder[] reminders;
+    this.reminders = builder.reminders;
     /**
-     * 任务创建者
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator")
-    private Member creator;
+    this.creator = builder.creator;
     /**
      * 任务成员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
-    private Member[] members;
+    this.members = builder.members;
     /**
      * 任务完成的时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("completed_at")
-    private String completedAt;
+    this.completedAt = builder.completedAt;
     /**
      * 任务的附件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachments")
-    private Attachment[] attachments;
+    this.attachments = builder.attachments;
     /**
-     * 任务关联的第三方平台来源信息。创建是设置后就不可更改。
-     * <p> 示例值：
+     * 任务关联的第三方平台来源信息。创建时设置后就不可更改。
+     *
+     * <p>示例值：
      */
-    @SerializedName("origin")
-    private Origin origin;
+    this.origin = builder.origin;
     /**
      * 任务附带的自定义数据。
-     * <p> 示例值：dGVzdA==
+     *
+     * <p>示例值：dGVzdA==
      */
-    @SerializedName("extra")
-    private String extra;
+    this.extra = builder.extra;
     /**
      * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tasklists")
-    private TaskInTasklistInfo[] tasklists;
+    this.tasklists = builder.tasklists;
     /**
-     * 如果任务为重复任务，返回重复任务的配置
-     * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+     * 如果设置，则该任务为“重复任务”。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“如何使用重复任务？”章节。
+     *
+     * <p>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
      */
-    @SerializedName("repeat_rule")
-    private String repeatRule;
+    this.repeatRule = builder.repeatRule;
     /**
      * 如果当前任务为某个任务的子任务，返回父任务的guid
-     * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
      */
-    @SerializedName("parent_task_guid")
-    private String parentTaskGuid;
+    this.parentTaskGuid = builder.parentTaskGuid;
     /**
      * 任务的模式。1 - 会签任务；2 - 或签任务
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("mode")
-    private Integer mode;
+    this.mode = builder.mode;
     /**
      * 任务创建的来源
-     * <p> 示例值：6
+     *
+     * <p>示例值：6
      */
-    @SerializedName("source")
-    private Integer source;
+    this.source = builder.source;
     /**
-     * 任务的自定义完成配置
-     * <p> 示例值：
+     * 任务自定义完成配置。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“
+     * 如何使用任务自定义完成？”章节。
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_complete")
-    private CustomComplete customComplete;
+    this.customComplete = builder.customComplete;
     /**
      * 任务界面上的代码
-     * <p> 示例值：t6272302
+     *
+     * <p>示例值：t6272302
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务创建时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 任务最后一次更新的时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("updated_at")
-    private String updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 任务的状态，支持"todo"和"done"两种状态
-     * <p> 示例值：todo
+     *
+     * <p>示例值：todo
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 任务的分享链接
-     * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
-     * 任务的开始时间
-     * <p> 示例值：
+     * 任务的开始时间(ms)。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：
      */
-    @SerializedName("start")
-    private Start start;
+    this.start = builder.start;
     /**
      * 该任务的子任务的个数。
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("subtask_count")
-    private Integer subtaskCount;
+    this.subtaskCount = builder.subtaskCount;
     /**
      * 是否是里程碑任务
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_milestone")
-    private Boolean isMilestone;
+    this.isMilestone = builder.isMilestone;
     /**
      * 任务的自定义字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldValue[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 任务依赖
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dependencies")
-    private TaskDependency[] dependencies;
+    this.dependencies = builder.dependencies;
     /**
      * 任务执行者相关信息，如会签任务各执行者完成时间等
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assignee_related")
-    private TaskAssignee[] assigneeRelated;
+    this.assigneeRelated = builder.assigneeRelated;
     /**
      * 正数协议任务提醒
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("positive_reminders")
-    private Reminder[] positiveReminders;
+    this.positiveReminders = builder.positiveReminders;
     /**
-     * 智能体任务状态
-     * <p> 示例值：1
+     * Agent task status
+     *
+     * <p>示例值：1
      */
-    @SerializedName("agent_task_status")
-    private Integer agentTaskStatus;
+    this.agentTaskStatus = builder.agentTaskStatus;
     /**
-     * 智能体任务进度
-     * <p> 示例值：1/4
+     * 智能体任务执行情况
+     *
+     * <p>示例值：1/4
      */
-    @SerializedName("agent_task_progress")
-    private String agentTaskProgress;
+    this.agentTaskProgress = builder.agentTaskProgress;
     /**
      * 智能体文本类交付物
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_deliveries")
-    private String[] textDeliveries;
+    this.textDeliveries = builder.textDeliveries;
     /**
      * 智能体附件类交付物
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_deliveries")
-    private Attachment[] attachmentDeliveries;
+    this.attachmentDeliveries = builder.attachmentDeliveries;
     /**
      * 重复任务的下一个任务
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    @SerializedName("next_task_guid")
+    this.nextTaskGuid = builder.nextTaskGuid;
+  }
+
+  public static class Builder {
+    /**
+     * 任务guid，任务的唯一ID
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
+    private String guid;
+
+    /**
+     * 任务标题。如更新标题，不可将任务标题设为空。标题最大支持3000个UTF-8 字符。
+     *
+     * <p>示例值：进行销售年中总结
+     */
+    private String summary;
+
+    /**
+     * 任务描述。描述最大支持3000个UTF-8字符。
+     *
+     * <p>示例值：进行销售年中总结
+     */
+    private String description;
+
+    /**
+     * 任务截止时间。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：1675742789470
+     */
+    private Due due;
+
+    /**
+     * 任务的提醒配置列表。目前每个任务最多有1个。
+     *
+     * <p>示例值：
+     */
+    private Reminder[] reminders;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member creator;
+
+    /**
+     * 任务成员列表
+     *
+     * <p>示例值：
+     */
+    private Member[] members;
+
+    /**
+     * 任务完成的时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String completedAt;
+
+    /**
+     * 任务的附件列表
+     *
+     * <p>示例值：
+     */
+    private Attachment[] attachments;
+
+    /**
+     * 任务关联的第三方平台来源信息。创建时设置后就不可更改。
+     *
+     * <p>示例值：
+     */
+    private Origin origin;
+
+    /**
+     * 任务附带的自定义数据。
+     *
+     * <p>示例值：dGVzdA==
+     */
+    private String extra;
+
+    /**
+     * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
+     *
+     * <p>示例值：
+     */
+    private TaskInTasklistInfo[] tasklists;
+
+    /**
+     * 如果设置，则该任务为“重复任务”。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“如何使用重复任务？”章节。
+     *
+     * <p>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+     */
+    private String repeatRule;
+
+    /**
+     * 如果当前任务为某个任务的子任务，返回父任务的guid
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     */
+    private String parentTaskGuid;
+
+    /**
+     * 任务的模式。1 - 会签任务；2 - 或签任务
+     *
+     * <p>示例值：2
+     */
+    private Integer mode;
+
+    /**
+     * 任务创建的来源
+     *
+     * <p>示例值：6
+     */
+    private Integer source;
+
+    /**
+     * 任务自定义完成配置。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“
+     * 如何使用任务自定义完成？”章节。
+     *
+     * <p>示例值：
+     */
+    private CustomComplete customComplete;
+
+    /**
+     * 任务界面上的代码
+     *
+     * <p>示例值：t6272302
+     */
+    private String taskId;
+
+    /**
+     * 任务创建时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String createdAt;
+
+    /**
+     * 任务最后一次更新的时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String updatedAt;
+
+    /**
+     * 任务的状态，支持"todo"和"done"两种状态
+     *
+     * <p>示例值：todo
+     */
+    private String status;
+
+    /**
+     * 任务的分享链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
+     */
+    private String url;
+
+    /**
+     * 任务的开始时间(ms)。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：
+     */
+    private Start start;
+
+    /**
+     * 该任务的子任务的个数。
+     *
+     * <p>示例值：1
+     */
+    private Integer subtaskCount;
+
+    /**
+     * 是否是里程碑任务
+     *
+     * <p>示例值：false
+     */
+    private Boolean isMilestone;
+
+    /**
+     * 任务的自定义字段值
+     *
+     * <p>示例值：
+     */
+    private CustomFieldValue[] customFields;
+
+    /**
+     * 任务依赖
+     *
+     * <p>示例值：
+     */
+    private TaskDependency[] dependencies;
+
+    /**
+     * 任务执行者相关信息，如会签任务各执行者完成时间等
+     *
+     * <p>示例值：
+     */
+    private TaskAssignee[] assigneeRelated;
+
+    /**
+     * 正数协议任务提醒
+     *
+     * <p>示例值：
+     */
+    private Reminder[] positiveReminders;
+
+    /**
+     * Agent task status
+     *
+     * <p>示例值：1
+     */
+    private Integer agentTaskStatus;
+
+    /**
+     * 智能体任务执行情况
+     *
+     * <p>示例值：1/4
+     */
+    private String agentTaskProgress;
+
+    /**
+     * 智能体文本类交付物
+     *
+     * <p>示例值：
+     */
+    private String[] textDeliveries;
+
+    /**
+     * 智能体附件类交付物
+     *
+     * <p>示例值：
+     */
+    private Attachment[] attachmentDeliveries;
+
+    /**
+     * 重复任务的下一个任务
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     private String nextTaskGuid;
 
-    // builder 开始
-    public Task() {
-    }
-
-    public Task(Builder builder) {
-        /**
-         * 任务guid，任务的唯一ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.guid = builder.guid;
-        /**
-         * 任务标题
-         * <p> 示例值：进行销售年中总结
-         */
-        this.summary = builder.summary;
-        /**
-         * 任务描述
-         * <p> 示例值：进行销售年中总结
-         */
-        this.description = builder.description;
-        /**
-         * 任务截止时间
-         * <p> 示例值：1675742789470
-         */
-        this.due = builder.due;
-        /**
-         * 任务的提醒配置列表。目前每个任务最多有1个。
-         * <p> 示例值：
-         */
-        this.reminders = builder.reminders;
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 任务成员列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 任务完成的时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.completedAt = builder.completedAt;
-        /**
-         * 任务的附件列表
-         * <p> 示例值：
-         */
-        this.attachments = builder.attachments;
-        /**
-         * 任务关联的第三方平台来源信息。创建是设置后就不可更改。
-         * <p> 示例值：
-         */
-        this.origin = builder.origin;
-        /**
-         * 任务附带的自定义数据。
-         * <p> 示例值：dGVzdA==
-         */
-        this.extra = builder.extra;
-        /**
-         * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
-         * <p> 示例值：
-         */
-        this.tasklists = builder.tasklists;
-        /**
-         * 如果任务为重复任务，返回重复任务的配置
-         * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         */
-        this.repeatRule = builder.repeatRule;
-        /**
-         * 如果当前任务为某个任务的子任务，返回父任务的guid
-         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-         */
-        this.parentTaskGuid = builder.parentTaskGuid;
-        /**
-         * 任务的模式。1 - 会签任务；2 - 或签任务
-         * <p> 示例值：2
-         */
-        this.mode = builder.mode;
-        /**
-         * 任务创建的来源
-         * <p> 示例值：6
-         */
-        this.source = builder.source;
-        /**
-         * 任务的自定义完成配置
-         * <p> 示例值：
-         */
-        this.customComplete = builder.customComplete;
-        /**
-         * 任务界面上的代码
-         * <p> 示例值：t6272302
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 任务最后一次更新的时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 任务的状态，支持"todo"和"done"两种状态
-         * <p> 示例值：todo
-         */
-        this.status = builder.status;
-        /**
-         * 任务的分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
-         */
-        this.url = builder.url;
-        /**
-         * 任务的开始时间
-         * <p> 示例值：
-         */
-        this.start = builder.start;
-        /**
-         * 该任务的子任务的个数。
-         * <p> 示例值：1
-         */
-        this.subtaskCount = builder.subtaskCount;
-        /**
-         * 是否是里程碑任务
-         * <p> 示例值：false
-         */
-        this.isMilestone = builder.isMilestone;
-        /**
-         * 任务的自定义字段值
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 任务依赖
-         * <p> 示例值：
-         */
-        this.dependencies = builder.dependencies;
-        /**
-         * 任务执行者相关信息，如会签任务各执行者完成时间等
-         * <p> 示例值：
-         */
-        this.assigneeRelated = builder.assigneeRelated;
-        /**
-         * 正数协议任务提醒
-         * <p> 示例值：
-         */
-        this.positiveReminders = builder.positiveReminders;
-        /**
-         * 智能体任务状态
-         * <p> 示例值：1
-         */
-        this.agentTaskStatus = builder.agentTaskStatus;
-        /**
-         * 智能体任务进度
-         * <p> 示例值：1/4
-         */
-        this.agentTaskProgress = builder.agentTaskProgress;
-        /**
-         * 智能体文本类交付物
-         * <p> 示例值：
-         */
-        this.textDeliveries = builder.textDeliveries;
-        /**
-         * 智能体附件类交付物
-         * <p> 示例值：
-         */
-        this.attachmentDeliveries = builder.attachmentDeliveries;
-        /**
-         * 重复任务的下一个任务
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.nextTaskGuid = builder.nextTaskGuid;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getGuid() {
-        return this.guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Due getDue() {
-        return this.due;
-    }
-
-    public void setDue(Due due) {
-        this.due = due;
-    }
-
-    public Reminder[] getReminders() {
-        return this.reminders;
-    }
-
-    public void setReminders(Reminder[] reminders) {
-        this.reminders = reminders;
-    }
-
-    public Member getCreator() {
-        return this.creator;
-    }
-
-    public void setCreator(Member creator) {
-        this.creator = creator;
-    }
-
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public String getCompletedAt() {
-        return this.completedAt;
-    }
-
-    public void setCompletedAt(String completedAt) {
-        this.completedAt = completedAt;
-    }
-
-    public Attachment[] getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(Attachment[] attachments) {
-        this.attachments = attachments;
-    }
-
-    public Origin getOrigin() {
-        return this.origin;
-    }
-
-    public void setOrigin(Origin origin) {
-        this.origin = origin;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public TaskInTasklistInfo[] getTasklists() {
-        return this.tasklists;
-    }
-
-    public void setTasklists(TaskInTasklistInfo[] tasklists) {
-        this.tasklists = tasklists;
-    }
-
-    public String getRepeatRule() {
-        return this.repeatRule;
-    }
-
-    public void setRepeatRule(String repeatRule) {
-        this.repeatRule = repeatRule;
-    }
-
-    public String getParentTaskGuid() {
-        return this.parentTaskGuid;
-    }
-
-    public void setParentTaskGuid(String parentTaskGuid) {
-        this.parentTaskGuid = parentTaskGuid;
-    }
-
-    public Integer getMode() {
-        return this.mode;
-    }
-
-    public void setMode(Integer mode) {
-        this.mode = mode;
-    }
-
-    public Integer getSource() {
-        return this.source;
-    }
-
-    public void setSource(Integer source) {
-        this.source = source;
-    }
-
-    public CustomComplete getCustomComplete() {
-        return this.customComplete;
-    }
-
-    public void setCustomComplete(CustomComplete customComplete) {
-        this.customComplete = customComplete;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Start getStart() {
-        return this.start;
-    }
-
-    public void setStart(Start start) {
-        this.start = start;
-    }
-
-    public Integer getSubtaskCount() {
-        return this.subtaskCount;
-    }
-
-    public void setSubtaskCount(Integer subtaskCount) {
-        this.subtaskCount = subtaskCount;
-    }
-
-    public Boolean getIsMilestone() {
-        return this.isMilestone;
-    }
-
-    public void setIsMilestone(Boolean isMilestone) {
-        this.isMilestone = isMilestone;
-    }
-
-    public CustomFieldValue[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldValue[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public TaskDependency[] getDependencies() {
-        return this.dependencies;
-    }
-
-    public void setDependencies(TaskDependency[] dependencies) {
-        this.dependencies = dependencies;
-    }
-
-    public TaskAssignee[] getAssigneeRelated() {
-        return this.assigneeRelated;
-    }
-
-    public void setAssigneeRelated(TaskAssignee[] assigneeRelated) {
-        this.assigneeRelated = assigneeRelated;
-    }
-
-    public Reminder[] getPositiveReminders() {
-        return this.positiveReminders;
-    }
-
-    public void setPositiveReminders(Reminder[] positiveReminders) {
-        this.positiveReminders = positiveReminders;
-    }
-
-    public Integer getAgentTaskStatus() {
-        return this.agentTaskStatus;
-    }
-
-    public void setAgentTaskStatus(Integer agentTaskStatus) {
-        this.agentTaskStatus = agentTaskStatus;
-    }
-
-    public String getAgentTaskProgress() {
-        return this.agentTaskProgress;
-    }
-
-    public void setAgentTaskProgress(String agentTaskProgress) {
-        this.agentTaskProgress = agentTaskProgress;
-    }
-
-    public String[] getTextDeliveries() {
-        return this.textDeliveries;
-    }
-
-    public void setTextDeliveries(String[] textDeliveries) {
-        this.textDeliveries = textDeliveries;
-    }
-
-    public Attachment[] getAttachmentDeliveries() {
-        return this.attachmentDeliveries;
-    }
-
-    public void setAttachmentDeliveries(Attachment[] attachmentDeliveries) {
-        this.attachmentDeliveries = attachmentDeliveries;
-    }
-
-    public String getNextTaskGuid() {
-        return this.nextTaskGuid;
-    }
-
-    public void setNextTaskGuid(String nextTaskGuid) {
-        this.nextTaskGuid = nextTaskGuid;
-    }
-
-    public static class Builder {
-        /**
-         * 任务guid，任务的唯一ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        private String guid;
-        /**
-         * 任务标题
-         * <p> 示例值：进行销售年中总结
-         */
-        private String summary;
-        /**
-         * 任务描述
-         * <p> 示例值：进行销售年中总结
-         */
-        private String description;
-        /**
-         * 任务截止时间
-         * <p> 示例值：1675742789470
-         */
-        private Due due;
-        /**
-         * 任务的提醒配置列表。目前每个任务最多有1个。
-         * <p> 示例值：
-         */
-        private Reminder[] reminders;
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         */
-        private Member creator;
-        /**
-         * 任务成员列表
-         * <p> 示例值：
-         */
-        private Member[] members;
-        /**
-         * 任务完成的时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String completedAt;
-        /**
-         * 任务的附件列表
-         * <p> 示例值：
-         */
-        private Attachment[] attachments;
-        /**
-         * 任务关联的第三方平台来源信息。创建是设置后就不可更改。
-         * <p> 示例值：
-         */
-        private Origin origin;
-        /**
-         * 任务附带的自定义数据。
-         * <p> 示例值：dGVzdA==
-         */
-        private String extra;
-        /**
-         * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
-         * <p> 示例值：
-         */
-        private TaskInTasklistInfo[] tasklists;
-        /**
-         * 如果任务为重复任务，返回重复任务的配置
-         * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         */
-        private String repeatRule;
-        /**
-         * 如果当前任务为某个任务的子任务，返回父任务的guid
-         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-         */
-        private String parentTaskGuid;
-        /**
-         * 任务的模式。1 - 会签任务；2 - 或签任务
-         * <p> 示例值：2
-         */
-        private Integer mode;
-        /**
-         * 任务创建的来源
-         * <p> 示例值：6
-         */
-        private Integer source;
-        /**
-         * 任务的自定义完成配置
-         * <p> 示例值：
-         */
-        private CustomComplete customComplete;
-        /**
-         * 任务界面上的代码
-         * <p> 示例值：t6272302
-         */
-        private String taskId;
-        /**
-         * 任务创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String createdAt;
-        /**
-         * 任务最后一次更新的时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String updatedAt;
-        /**
-         * 任务的状态，支持"todo"和"done"两种状态
-         * <p> 示例值：todo
-         */
-        private String status;
-        /**
-         * 任务的分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
-         */
-        private String url;
-        /**
-         * 任务的开始时间
-         * <p> 示例值：
-         */
-        private Start start;
-        /**
-         * 该任务的子任务的个数。
-         * <p> 示例值：1
-         */
-        private Integer subtaskCount;
-        /**
-         * 是否是里程碑任务
-         * <p> 示例值：false
-         */
-        private Boolean isMilestone;
-        /**
-         * 任务的自定义字段值
-         * <p> 示例值：
-         */
-        private CustomFieldValue[] customFields;
-        /**
-         * 任务依赖
-         * <p> 示例值：
-         */
-        private TaskDependency[] dependencies;
-        /**
-         * 任务执行者相关信息，如会签任务各执行者完成时间等
-         * <p> 示例值：
-         */
-        private TaskAssignee[] assigneeRelated;
-        /**
-         * 正数协议任务提醒
-         * <p> 示例值：
-         */
-        private Reminder[] positiveReminders;
-        /**
-         * 智能体任务状态
-         * <p> 示例值：1
-         */
-        private Integer agentTaskStatus;
-        /**
-         * 智能体任务进度
-         * <p> 示例值：1/4
-         */
-        private String agentTaskProgress;
-        /**
-         * 智能体文本类交付物
-         * <p> 示例值：
-         */
-        private String[] textDeliveries;
-        /**
-         * 智能体附件类交付物
-         * <p> 示例值：
-         */
-        private Attachment[] attachmentDeliveries;
-        /**
-         * 重复任务的下一个任务
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        private String nextTaskGuid;
-
-        /**
-         * 任务guid，任务的唯一ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 任务标题
-         * <p> 示例值：进行销售年中总结
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        /**
-         * 任务描述
-         * <p> 示例值：进行销售年中总结
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 任务截止时间
-         * <p> 示例值：1675742789470
-         *
-         * @param due
-         * @return
-         */
-        public Builder due(Due due) {
-            this.due = due;
-            return this;
-        }
-
-
-        /**
-         * 任务的提醒配置列表。目前每个任务最多有1个。
-         * <p> 示例值：
-         *
-         * @param reminders
-         * @return
-         */
-        public Builder reminders(Reminder[] reminders) {
-            this.reminders = reminders;
-            return this;
-        }
-
-
-        /**
-         * 任务创建者
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(Member creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * 任务成员列表
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 任务完成的时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param completedAt
-         * @return
-         */
-        public Builder completedAt(String completedAt) {
-            this.completedAt = completedAt;
-            return this;
-        }
-
-
-        /**
-         * 任务的附件列表
-         * <p> 示例值：
-         *
-         * @param attachments
-         * @return
-         */
-        public Builder attachments(Attachment[] attachments) {
-            this.attachments = attachments;
-            return this;
-        }
-
-
-        /**
-         * 任务关联的第三方平台来源信息。创建是设置后就不可更改。
-         * <p> 示例值：
-         *
-         * @param origin
-         * @return
-         */
-        public Builder origin(Origin origin) {
-            this.origin = origin;
-            return this;
-        }
-
-
-        /**
-         * 任务附带的自定义数据。
-         * <p> 示例值：dGVzdA==
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
-         * <p> 示例值：
-         *
-         * @param tasklists
-         * @return
-         */
-        public Builder tasklists(TaskInTasklistInfo[] tasklists) {
-            this.tasklists = tasklists;
-            return this;
-        }
-
-
-        /**
-         * 如果任务为重复任务，返回重复任务的配置
-         * <p> 示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
-         *
-         * @param repeatRule
-         * @return
-         */
-        public Builder repeatRule(String repeatRule) {
-            this.repeatRule = repeatRule;
-            return this;
-        }
-
-
-        /**
-         * 如果当前任务为某个任务的子任务，返回父任务的guid
-         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-         *
-         * @param parentTaskGuid
-         * @return
-         */
-        public Builder parentTaskGuid(String parentTaskGuid) {
-            this.parentTaskGuid = parentTaskGuid;
-            return this;
-        }
-
-
-        /**
-         * 任务的模式。1 - 会签任务；2 - 或签任务
-         * <p> 示例值：2
-         *
-         * @param mode
-         * @return
-         */
-        public Builder mode(Integer mode) {
-            this.mode = mode;
-            return this;
-        }
-
-
-        /**
-         * 任务创建的来源
-         * <p> 示例值：6
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Integer source) {
-            this.source = source;
-            return this;
-        }
-
-        /**
-         * 任务创建的来源
-         * <p> 示例值：6
-         *
-         * @param source {@link com.lark.oapi.service.task.v2.enums.TaskSourceEnum}
-         * @return
-         */
-        public Builder source(com.lark.oapi.service.task.v2.enums.TaskSourceEnum source) {
-            this.source = source.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务的自定义完成配置
-         * <p> 示例值：
-         *
-         * @param customComplete
-         * @return
-         */
-        public Builder customComplete(CustomComplete customComplete) {
-            this.customComplete = customComplete;
-            return this;
-        }
-
-
-        /**
-         * 任务界面上的代码
-         * <p> 示例值：t6272302
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 任务最后一次更新的时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 任务的状态，支持"todo"和"done"两种状态
-         * <p> 示例值：todo
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 任务的分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 任务的开始时间
-         * <p> 示例值：
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(Start start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 该任务的子任务的个数。
-         * <p> 示例值：1
-         *
-         * @param subtaskCount
-         * @return
-         */
-        public Builder subtaskCount(Integer subtaskCount) {
-            this.subtaskCount = subtaskCount;
-            return this;
-        }
-
-
-        /**
-         * 是否是里程碑任务
-         * <p> 示例值：false
-         *
-         * @param isMilestone
-         * @return
-         */
-        public Builder isMilestone(Boolean isMilestone) {
-            this.isMilestone = isMilestone;
-            return this;
-        }
-
-
-        /**
-         * 任务的自定义字段值
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldValue[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 任务依赖
-         * <p> 示例值：
-         *
-         * @param dependencies
-         * @return
-         */
-        public Builder dependencies(TaskDependency[] dependencies) {
-            this.dependencies = dependencies;
-            return this;
-        }
-
-
-        /**
-         * 任务执行者相关信息，如会签任务各执行者完成时间等
-         * <p> 示例值：
-         *
-         * @param assigneeRelated
-         * @return
-         */
-        public Builder assigneeRelated(TaskAssignee[] assigneeRelated) {
-            this.assigneeRelated = assigneeRelated;
-            return this;
-        }
-
-
-        /**
-         * 正数协议任务提醒
-         * <p> 示例值：
-         *
-         * @param positiveReminders
-         * @return
-         */
-        public Builder positiveReminders(Reminder[] positiveReminders) {
-            this.positiveReminders = positiveReminders;
-            return this;
-        }
-
-
-        /**
-         * 智能体任务状态
-         * <p> 示例值：1
-         *
-         * @param agentTaskStatus
-         * @return
-         */
-        public Builder agentTaskStatus(Integer agentTaskStatus) {
-            this.agentTaskStatus = agentTaskStatus;
-            return this;
-        }
-
-
-        /**
-         * 智能体任务进度
-         * <p> 示例值：1/4
-         *
-         * @param agentTaskProgress
-         * @return
-         */
-        public Builder agentTaskProgress(String agentTaskProgress) {
-            this.agentTaskProgress = agentTaskProgress;
-            return this;
-        }
-
-
-        /**
-         * 智能体文本类交付物
-         * <p> 示例值：
-         *
-         * @param textDeliveries
-         * @return
-         */
-        public Builder textDeliveries(String[] textDeliveries) {
-            this.textDeliveries = textDeliveries;
-            return this;
-        }
-
-
-        /**
-         * 智能体附件类交付物
-         * <p> 示例值：
-         *
-         * @param attachmentDeliveries
-         * @return
-         */
-        public Builder attachmentDeliveries(Attachment[] attachmentDeliveries) {
-            this.attachmentDeliveries = attachmentDeliveries;
-            return this;
-        }
-
-
-        /**
-         * 重复任务的下一个任务
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
-         * @param nextTaskGuid
-         * @return
-         */
-        public Builder nextTaskGuid(String nextTaskGuid) {
-            this.nextTaskGuid = nextTaskGuid;
-            return this;
-        }
-
-
-        public Task build() {
-            return new Task(this);
-        }
-    }
+    /**
+     * 任务guid，任务的唯一ID
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
+    }
+
+    /**
+     * 任务标题。如更新标题，不可将任务标题设为空。标题最大支持3000个UTF-8 字符。
+     *
+     * <p>示例值：进行销售年中总结
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
+    }
+
+    /**
+     * 任务描述。描述最大支持3000个UTF-8字符。
+     *
+     * <p>示例值：进行销售年中总结
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
+    }
+
+    /**
+     * 任务截止时间。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param due
+     * @return
+     */
+    public Builder due(Due due) {
+      this.due = due;
+      return this;
+    }
+
+    /**
+     * 任务的提醒配置列表。目前每个任务最多有1个。
+     *
+     * <p>示例值：
+     *
+     * @param reminders
+     * @return
+     */
+    public Builder reminders(Reminder[] reminders) {
+      this.reminders = reminders;
+      return this;
+    }
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(Member creator) {
+      this.creator = creator;
+      return this;
+    }
+
+    /**
+     * 任务成员列表
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
+    }
+
+    /**
+     * 任务完成的时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param completedAt
+     * @return
+     */
+    public Builder completedAt(String completedAt) {
+      this.completedAt = completedAt;
+      return this;
+    }
+
+    /**
+     * 任务的附件列表
+     *
+     * <p>示例值：
+     *
+     * @param attachments
+     * @return
+     */
+    public Builder attachments(Attachment[] attachments) {
+      this.attachments = attachments;
+      return this;
+    }
+
+    /**
+     * 任务关联的第三方平台来源信息。创建时设置后就不可更改。
+     *
+     * <p>示例值：
+     *
+     * @param origin
+     * @return
+     */
+    public Builder origin(Origin origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    /**
+     * 任务附带的自定义数据。
+     *
+     * <p>示例值：dGVzdA==
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
+    }
+
+    /**
+     * 任务所属清单的名字。调用者只能看到有权限访问的清单的列表。
+     *
+     * <p>示例值：
+     *
+     * @param tasklists
+     * @return
+     */
+    public Builder tasklists(TaskInTasklistInfo[] tasklists) {
+      this.tasklists = tasklists;
+      return this;
+    }
+
+    /**
+     * 如果设置，则该任务为“重复任务”。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“如何使用重复任务？”章节。
+     *
+     * <p>示例值：FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR
+     *
+     * @param repeatRule
+     * @return
+     */
+    public Builder repeatRule(String repeatRule) {
+      this.repeatRule = repeatRule;
+      return this;
+    }
+
+    /**
+     * 如果当前任务为某个任务的子任务，返回父任务的guid
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * @param parentTaskGuid
+     * @return
+     */
+    public Builder parentTaskGuid(String parentTaskGuid) {
+      this.parentTaskGuid = parentTaskGuid;
+      return this;
+    }
+
+    /**
+     * 任务的模式。1 - 会签任务；2 - 或签任务
+     *
+     * <p>示例值：2
+     *
+     * @param mode
+     * @return
+     */
+    public Builder mode(Integer mode) {
+      this.mode = mode;
+      return this;
+    }
+
+    /**
+     * 任务创建的来源
+     *
+     * <p>示例值：6
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Integer source) {
+      this.source = source;
+      return this;
+    }
+
+    /**
+     * 任务创建的来源
+     *
+     * <p>示例值：6
+     *
+     * @param source {@link com.lark.oapi.service.task.v2.enums.TaskSourceEnum}
+     * @return
+     */
+    public Builder source(com.lark.oapi.service.task.v2.enums.TaskSourceEnum source) {
+      this.source = source.getValue();
+      return this;
+    }
+
+    /**
+     * 任务自定义完成配置。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“
+     * 如何使用任务自定义完成？”章节。
+     *
+     * <p>示例值：
+     *
+     * @param customComplete
+     * @return
+     */
+    public Builder customComplete(CustomComplete customComplete) {
+      this.customComplete = customComplete;
+      return this;
+    }
+
+    /**
+     * 任务界面上的代码
+     *
+     * <p>示例值：t6272302
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
+    }
+
+    /**
+     * 任务创建时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
+    }
+
+    /**
+     * 任务最后一次更新的时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
+    }
+
+    /**
+     * 任务的状态，支持"todo"和"done"两种状态
+     *
+     * <p>示例值：todo
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * 任务的分享链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=70577c8f-91ab-4c91-b359-a21a751054e8&suite_entity_num=t192012
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
+    }
+
+    /**
+     * 任务的开始时间(ms)。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何使用开始时间和截止时间？”章节。
+     *
+     * <p>示例值：
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(Start start) {
+      this.start = start;
+      return this;
+    }
+
+    /**
+     * 该任务的子任务的个数。
+     *
+     * <p>示例值：1
+     *
+     * @param subtaskCount
+     * @return
+     */
+    public Builder subtaskCount(Integer subtaskCount) {
+      this.subtaskCount = subtaskCount;
+      return this;
+    }
+
+    /**
+     * 是否是里程碑任务
+     *
+     * <p>示例值：false
+     *
+     * @param isMilestone
+     * @return
+     */
+    public Builder isMilestone(Boolean isMilestone) {
+      this.isMilestone = isMilestone;
+      return this;
+    }
+
+    /**
+     * 任务的自定义字段值
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldValue[] customFields) {
+      this.customFields = customFields;
+      return this;
+    }
+
+    /**
+     * 任务依赖
+     *
+     * <p>示例值：
+     *
+     * @param dependencies
+     * @return
+     */
+    public Builder dependencies(TaskDependency[] dependencies) {
+      this.dependencies = dependencies;
+      return this;
+    }
+
+    /**
+     * 任务执行者相关信息，如会签任务各执行者完成时间等
+     *
+     * <p>示例值：
+     *
+     * @param assigneeRelated
+     * @return
+     */
+    public Builder assigneeRelated(TaskAssignee[] assigneeRelated) {
+      this.assigneeRelated = assigneeRelated;
+      return this;
+    }
+
+    /**
+     * 正数协议任务提醒
+     *
+     * <p>示例值：
+     *
+     * @param positiveReminders
+     * @return
+     */
+    public Builder positiveReminders(Reminder[] positiveReminders) {
+      this.positiveReminders = positiveReminders;
+      return this;
+    }
+
+    /**
+     * Agent task status
+     *
+     * <p>示例值：1
+     *
+     * @param agentTaskStatus
+     * @return
+     */
+    public Builder agentTaskStatus(Integer agentTaskStatus) {
+      this.agentTaskStatus = agentTaskStatus;
+      return this;
+    }
+
+    /**
+     * 智能体任务执行情况
+     *
+     * <p>示例值：1/4
+     *
+     * @param agentTaskProgress
+     * @return
+     */
+    public Builder agentTaskProgress(String agentTaskProgress) {
+      this.agentTaskProgress = agentTaskProgress;
+      return this;
+    }
+
+    /**
+     * 智能体文本类交付物
+     *
+     * <p>示例值：
+     *
+     * @param textDeliveries
+     * @return
+     */
+    public Builder textDeliveries(String[] textDeliveries) {
+      this.textDeliveries = textDeliveries;
+      return this;
+    }
+
+    /**
+     * 智能体附件类交付物
+     *
+     * <p>示例值：
+     *
+     * @param attachmentDeliveries
+     * @return
+     */
+    public Builder attachmentDeliveries(Attachment[] attachmentDeliveries) {
+      this.attachmentDeliveries = attachmentDeliveries;
+      return this;
+    }
+
+    /**
+     * 重复任务的下一个任务
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param nextTaskGuid
+     * @return
+     */
+    public Builder nextTaskGuid(String nextTaskGuid) {
+      this.nextTaskGuid = nextTaskGuid;
+      return this;
+    }
+
+    public Task build() {
+      return new Task(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

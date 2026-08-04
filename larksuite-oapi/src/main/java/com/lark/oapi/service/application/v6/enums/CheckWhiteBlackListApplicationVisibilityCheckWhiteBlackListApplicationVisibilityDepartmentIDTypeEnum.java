@@ -13,20 +13,20 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 此次请求传参中的department_id的类型
- */
-public enum CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum {
-    DEPARTMENT_ID("department_id"), // 以department_id来标识部门
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-    ;
-    private String value;
+/** 部门ID类型 */
+public enum
+    CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum {
+  DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
+  OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
+  ;
+  private String value;
 
-    CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum(String value) {
-        this.value = value;
-    }
+  CheckWhiteBlackListApplicationVisibilityCheckWhiteBlackListApplicationVisibilityDepartmentIDTypeEnum(
+      String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

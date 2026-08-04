@@ -13,274 +13,313 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class TransferOwnerPermissionMemberReq {
+  /**
+   * 云文档类型，需要与云文档的 token 相匹配。
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 是否需要通知新的文件所有者。仅当使用 <md-tag mode="inline" type="token-user">user_access_token</md-tag>
+   * 调用时有效。可选值：;- `true`：通知对方;- `false`：不通知
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("need_notification")
+  private Boolean needNotification;
+
+  /**
+   * 转移后是否需要移除原云文档所有者的权限。可选值：;- `true`：移除原所有者权限;- `false`：不移除原所有者权限
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("remove_old_owner")
+  private Boolean removeOldOwner;
+
+  /**
+   * 在个人文件夹下的云文档是否仍留在原所有者个人文件夹下。可选值：;- `true`：云文档留在原位置不变;-
+   * `false`：系统会将该内容移至新所有者的空间下;;**注意**：仅当云文档在个人文件夹下时参数生效。;;
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("stay_put")
+  private Boolean stayPut;
+
+  /**
+   * 为原云文档所有者保留的具体权限。可选值：;- `view`：可阅读角色;- `edit`：可编辑角色;- `full_access`：可管理角色;;;**注意**：仅当
+   * `remove_old_owner` 为 `false` 时，此参数才会生效。
+   *
+   * <p>示例值：view
+   */
+  @Query
+  @SerializedName("old_owner_perm")
+  private String oldOwnerPerm;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Boolean getNeedNotification() {
+    return this.needNotification;
+  }
+
+  public void setNeedNotification(Boolean needNotification) {
+    this.needNotification = needNotification;
+  }
+
+  public Boolean getRemoveOldOwner() {
+    return this.removeOldOwner;
+  }
+
+  public void setRemoveOldOwner(Boolean removeOldOwner) {
+    this.removeOldOwner = removeOldOwner;
+  }
+
+  public Boolean getStayPut() {
+    return this.stayPut;
+  }
+
+  public void setStayPut(Boolean stayPut) {
+    this.stayPut = stayPut;
+  }
+
+  public String getOldOwnerPerm() {
+    return this.oldOwnerPerm;
+  }
+
+  public void setOldOwnerPerm(String oldOwnerPerm) {
+    this.oldOwnerPerm = oldOwnerPerm;
+  }
+
+  /**
+   * 云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+   */
+  @Path
+  @SerializedName("token")
+  private String token;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  @Body private Owner body;
+
+  public Owner getOwner() {
+    return this.body;
+  }
+
+  public void setOwner(Owner body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public TransferOwnerPermissionMemberReq() {}
+
+  public TransferOwnerPermissionMemberReq(Builder builder) {
     /**
-     * 文件类型，需要与文件的 token 相匹配
-     * <p> 示例值：doc
+     * 云文档类型，需要与云文档的 token 相匹配。
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 是否需要通知新 Owner
-     * <p> 示例值：true
+     * 是否需要通知新的文件所有者。仅当使用 <md-tag mode="inline" type="token-user">user_access_token</md-tag>
+     * 调用时有效。可选值：;- `true`：通知对方;- `false`：不通知
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("need_notification")
-    private Boolean needNotification;
+    this.needNotification = builder.needNotification;
     /**
-     * 转移后是否需要移除原 Owner 的权限
-     * <p> 示例值：false
+     * 转移后是否需要移除原云文档所有者的权限。可选值：;- `true`：移除原所有者权限;- `false`：不移除原所有者权限
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("remove_old_owner")
-    private Boolean removeOldOwner;
+    this.removeOldOwner = builder.removeOldOwner;
     /**
-     * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
-     * <p> 示例值：false
+     * 在个人文件夹下的云文档是否仍留在原所有者个人文件夹下。可选值：;- `true`：云文档留在原位置不变;-
+     * `false`：系统会将该内容移至新所有者的空间下;;**注意**：仅当云文档在个人文件夹下时参数生效。;;
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("stay_put")
-    private Boolean stayPut;
+    this.stayPut = builder.stayPut;
     /**
-     * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
-     * <p> 示例值：view
+     * 为原云文档所有者保留的具体权限。可选值：;- `view`：可阅读角色;- `edit`：可编辑角色;- `full_access`：可管理角色;;;**注意**：仅当
+     * `remove_old_owner` 为 `false` 时，此参数才会生效。
+     *
+     * <p>示例值：view
      */
-    @Query
-    @SerializedName("old_owner_perm")
-    private String oldOwnerPerm;
+    this.oldOwnerPerm = builder.oldOwnerPerm;
     /**
-     * 文件的 token
-     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     * 云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
-    @Path
-    @SerializedName("token")
-    private String token;
-    @Body
+    this.token = builder.token;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String type; // 云文档类型，需要与云文档的 token 相匹配。
+    private Boolean needNotification; // 是否需要通知新的文件所有者。仅当使用 <md-tag mode="inline"
+    // type="token-user">user_access_token</md-tag> 调用时有效。可选值：;- `true`：通知对方;-
+    // `false`：不通知
+    private Boolean
+        removeOldOwner; // 转移后是否需要移除原云文档所有者的权限。可选值：;- `true`：移除原所有者权限;- `false`：不移除原所有者权限
+    private Boolean stayPut; // 在个人文件夹下的云文档是否仍留在原所有者个人文件夹下。可选值：;- `true`：云文档留在原位置不变;-
+    // `false`：系统会将该内容移至新所有者的空间下;;**注意**：仅当云文档在个人文件夹下时参数生效。;;
+    private String oldOwnerPerm; // 为原云文档所有者保留的具体权限。可选值：;- `view`：可阅读角色;- `edit`：可编辑角色;-
+
+    // `full_access`：可管理角色;;;**注意**：仅当 `remove_old_owner` 为 `false` 时，此参数才会生效。
+
+    /**
+     * 云文档类型，需要与云文档的 token 相匹配。
+     *
+     * <p>示例值：docx
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
+    }
+
+    /**
+     * 云文档类型，需要与云文档的 token 相匹配。
+     *
+     * <p>示例值：docx
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.drive.v1.enums.TransferOwnerPermissionMemberTokenTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.drive.v1.enums.TransferOwnerPermissionMemberTokenTypeEnum type) {
+      this.type = type.getValue();
+      return this;
+    }
+
+    /**
+     * 是否需要通知新的文件所有者。仅当使用 <md-tag mode="inline" type="token-user">user_access_token</md-tag>
+     * 调用时有效。可选值：;- `true`：通知对方;- `false`：不通知
+     *
+     * <p>示例值：true
+     *
+     * @param needNotification
+     * @return
+     */
+    public Builder needNotification(Boolean needNotification) {
+      this.needNotification = needNotification;
+      return this;
+    }
+
+    /**
+     * 转移后是否需要移除原云文档所有者的权限。可选值：;- `true`：移除原所有者权限;- `false`：不移除原所有者权限
+     *
+     * <p>示例值：false
+     *
+     * @param removeOldOwner
+     * @return
+     */
+    public Builder removeOldOwner(Boolean removeOldOwner) {
+      this.removeOldOwner = removeOldOwner;
+      return this;
+    }
+
+    /**
+     * 在个人文件夹下的云文档是否仍留在原所有者个人文件夹下。可选值：;- `true`：云文档留在原位置不变;-
+     * `false`：系统会将该内容移至新所有者的空间下;;**注意**：仅当云文档在个人文件夹下时参数生效。;;
+     *
+     * <p>示例值：false
+     *
+     * @param stayPut
+     * @return
+     */
+    public Builder stayPut(Boolean stayPut) {
+      this.stayPut = stayPut;
+      return this;
+    }
+
+    /**
+     * 为原云文档所有者保留的具体权限。可选值：;- `view`：可阅读角色;- `edit`：可编辑角色;- `full_access`：可管理角色;;;**注意**：仅当
+     * `remove_old_owner` 为 `false` 时，此参数才会生效。
+     *
+     * <p>示例值：view
+     *
+     * @param oldOwnerPerm
+     * @return
+     */
+    public Builder oldOwnerPerm(String oldOwnerPerm) {
+      this.oldOwnerPerm = oldOwnerPerm;
+      return this;
+    }
+
+    private String token; // 云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关
+
+    // token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+
+    /**
+     * 云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
+    }
+
     private Owner body;
 
-    // builder 开始
-    public TransferOwnerPermissionMemberReq() {
-    }
-
-    public TransferOwnerPermissionMemberReq(Builder builder) {
-        /**
-         * 文件类型，需要与文件的 token 相匹配
-         * <p> 示例值：doc
-         */
-        this.type = builder.type;
-        /**
-         * 是否需要通知新 Owner
-         * <p> 示例值：true
-         */
-        this.needNotification = builder.needNotification;
-        /**
-         * 转移后是否需要移除原 Owner 的权限
-         * <p> 示例值：false
-         */
-        this.removeOldOwner = builder.removeOldOwner;
-        /**
-         * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
-         * <p> 示例值：false
-         */
-        this.stayPut = builder.stayPut;
-        /**
-         * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
-         * <p> 示例值：view
-         */
-        this.oldOwnerPerm = builder.oldOwnerPerm;
-        /**
-         * 文件的 token
-         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-         */
-        this.token = builder.token;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Boolean getNeedNotification() {
-        return this.needNotification;
-    }
-
-    public void setNeedNotification(Boolean needNotification) {
-        this.needNotification = needNotification;
-    }
-
-    public Boolean getRemoveOldOwner() {
-        return this.removeOldOwner;
-    }
-
-    public void setRemoveOldOwner(Boolean removeOldOwner) {
-        this.removeOldOwner = removeOldOwner;
-    }
-
-    public Boolean getStayPut() {
-        return this.stayPut;
-    }
-
-    public void setStayPut(Boolean stayPut) {
-        this.stayPut = stayPut;
-    }
-
-    public String getOldOwnerPerm() {
-        return this.oldOwnerPerm;
-    }
-
-    public void setOldOwnerPerm(String oldOwnerPerm) {
-        this.oldOwnerPerm = oldOwnerPerm;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public Owner getOwner() {
-        return this.body;
+      return this.body;
     }
 
-    public void setOwner(Owner body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder owner(Owner body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String type; // 文件类型，需要与文件的 token 相匹配
-        private Boolean needNotification; // 是否需要通知新 Owner
-        private Boolean removeOldOwner; // 转移后是否需要移除原 Owner 的权限
-        private Boolean stayPut; // 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
-        private String oldOwnerPerm; // 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
-        private String token; // 文件的 token
-        private Owner body;
-
-        /**
-         * 文件类型，需要与文件的 token 相匹配
-         * <p> 示例值：doc
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 文件类型，需要与文件的 token 相匹配
-         * <p> 示例值：doc
-         *
-         * @param type {@link com.lark.oapi.service.drive.v1.enums.TransferOwnerPermissionMemberTokenTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.drive.v1.enums.TransferOwnerPermissionMemberTokenTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-        /**
-         * 是否需要通知新 Owner
-         * <p> 示例值：true
-         *
-         * @param needNotification
-         * @return
-         */
-        public Builder needNotification(Boolean needNotification) {
-            this.needNotification = needNotification;
-            return this;
-        }
-
-        /**
-         * 转移后是否需要移除原 Owner 的权限
-         * <p> 示例值：false
-         *
-         * @param removeOldOwner
-         * @return
-         */
-        public Builder removeOldOwner(Boolean removeOldOwner) {
-            this.removeOldOwner = removeOldOwner;
-            return this;
-        }
-
-        /**
-         * 仅当内容不在共享文件夹中，此参数才会生效。如果设为false，系统会将该内容移至新所有者的个人空间根文件夹。如果设为 true，则留在原位置。
-         * <p> 示例值：false
-         *
-         * @param stayPut
-         * @return
-         */
-        public Builder stayPut(Boolean stayPut) {
-            this.stayPut = stayPut;
-            return this;
-        }
-
-        /**
-         * 仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色
-         * <p> 示例值：view
-         *
-         * @param oldOwnerPerm
-         * @return
-         */
-        public Builder oldOwnerPerm(String oldOwnerPerm) {
-            this.oldOwnerPerm = oldOwnerPerm;
-            return this;
-        }
-
-        /**
-         * 文件的 token
-         * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-        public Owner getOwner() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder owner(Owner body) {
-            this.body = body;
-            return this;
-        }
-
-        public TransferOwnerPermissionMemberReq build() {
-            return new TransferOwnerPermissionMemberReq(this);
-        }
+    public TransferOwnerPermissionMemberReq build() {
+      return new TransferOwnerPermissionMemberReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,116 +13,120 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.minutes.v1.enums.*;
 
 public class GetMinuteStatisticsReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==
+   *
+   * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+   */
+  @Path
+  @SerializedName("minute_token")
+  private String minuteToken;
+
+  public String getMinuteToken() {
+    return this.minuteToken;
+  }
+
+  public void setMinuteToken(String minuteToken) {
+    this.minuteToken = minuteToken;
+  }
+
+  // builder 开始
+  public GetMinuteStatisticsReq() {}
+
+  public GetMinuteStatisticsReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 妙记唯一标识
-     * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+     * 妙记唯一标识。可从妙记的 URL
+     * 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
      */
-    @Path
-    @SerializedName("minute_token")
-    private String minuteToken;
+    this.minuteToken = builder.minuteToken;
+  }
 
-    // builder 开始
-    public GetMinuteStatisticsReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetMinuteStatisticsReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 妙记唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         */
-        this.minuteToken = builder.minuteToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.minutes.v1.enums.GetMinuteStatisticsUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.minutes.v1.enums.GetMinuteStatisticsUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String minuteToken; // 妙记唯一标识。可从妙记的 URL
+
+    // 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==
+
+    /**
+     * 妙记唯一标识。可从妙记的 URL
+     * 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+     *
+     * @param minuteToken
+     * @return
+     */
+    public Builder minuteToken(String minuteToken) {
+      this.minuteToken = minuteToken;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetMinuteStatisticsReq build() {
+      return new GetMinuteStatisticsReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getMinuteToken() {
-        return this.minuteToken;
-    }
-
-    public void setMinuteToken(String minuteToken) {
-        this.minuteToken = minuteToken;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String minuteToken; // 妙记唯一标识
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.minutes.v1.enums.GetMinuteStatisticsUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.minutes.v1.enums.GetMinuteStatisticsUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 妙记唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         *
-         * @param minuteToken
-         * @return
-         */
-        public Builder minuteToken(String minuteToken) {
-            this.minuteToken = minuteToken;
-            return this;
-        }
-
-
-        public GetMinuteStatisticsReq build() {
-            return new GetMinuteStatisticsReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

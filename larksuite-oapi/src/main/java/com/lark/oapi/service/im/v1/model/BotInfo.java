@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BotInfo {
+  /**
+   * 应用id
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public BotInfo() {}
+
+  public BotInfo(Builder builder) {
     /**
      * 应用id
-     * <p> 示例值：cli_a3f6710b3738d01c
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("app_id")
+    this.appId = builder.appId;
+  }
+
+  public static class Builder {
+    /**
+     * 应用id
+     *
+     * <p>示例值：cli_***
+     */
     private String appId;
 
-    // builder 开始
-    public BotInfo() {
+    /**
+     * 应用id
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public BotInfo(Builder builder) {
-        /**
-         * 应用id
-         * <p> 示例值：cli_a3f6710b3738d01c
-         */
-        this.appId = builder.appId;
+    public BotInfo build() {
+      return new BotInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        /**
-         * 应用id
-         * <p> 示例值：cli_a3f6710b3738d01c
-         */
-        private String appId;
-
-        /**
-         * 应用id
-         * <p> 示例值：cli_a3f6710b3738d01c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public BotInfo build() {
-            return new BotInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

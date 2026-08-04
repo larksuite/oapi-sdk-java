@@ -13,149 +13,151 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpsertUserVirtualOrgInfo {
+  /**
+   * 虚拟组织维度id
+   *
+   * <p>示例值：3e3cf96b
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户在部门内的排序信息， 第一个部门为主部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_order_in_departments")
+  private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+  /**
+   * 虚拟上级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leaders")
+  private String[] leaders;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
+    return this.employeeOrderInDepartments;
+  }
+
+  public void setEmployeeOrderInDepartments(
+      UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+    this.employeeOrderInDepartments = employeeOrderInDepartments;
+  }
+
+  public String[] getLeaders() {
+    return this.leaders;
+  }
+
+  public void setLeaders(String[] leaders) {
+    this.leaders = leaders;
+  }
+
+  // builder 开始
+  public UpsertUserVirtualOrgInfo() {}
+
+  public UpsertUserVirtualOrgInfo(Builder builder) {
     /**
      * 虚拟组织维度id
-     * <p> 示例值：3e3cf96b
+     *
+     * <p>示例值：3e3cf96b
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户在部门内的排序信息， 第一个部门为主部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_order_in_departments")
-    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+    this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
     /**
      * 虚拟上级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leaders")
+    this.leaders = builder.leaders;
+  }
+
+  public static class Builder {
+    /**
+     * 虚拟组织维度id
+     *
+     * <p>示例值：3e3cf96b
+     */
+    private String id;
+
+    /**
+     * 用户在部门内的排序信息， 第一个部门为主部门
+     *
+     * <p>示例值：
+     */
+    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+    /**
+     * 虚拟上级
+     *
+     * <p>示例值：
+     */
     private String[] leaders;
 
-    // builder 开始
-    public UpsertUserVirtualOrgInfo() {
+    /**
+     * 虚拟组织维度id
+     *
+     * <p>示例值：3e3cf96b
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpsertUserVirtualOrgInfo(Builder builder) {
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：3e3cf96b
-         */
-        this.id = builder.id;
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         */
-        this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         */
-        this.leaders = builder.leaders;
+    /**
+     * 用户在部门内的排序信息， 第一个部门为主部门
+     *
+     * <p>示例值：
+     *
+     * @param employeeOrderInDepartments
+     * @return
+     */
+    public Builder employeeOrderInDepartments(
+        UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+      this.employeeOrderInDepartments = employeeOrderInDepartments;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 虚拟上级
+     *
+     * <p>示例值：
+     *
+     * @param leaders
+     * @return
+     */
+    public Builder leaders(String[] leaders) {
+      this.leaders = leaders;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public UpsertUserVirtualOrgInfo build() {
+      return new UpsertUserVirtualOrgInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
-        return this.employeeOrderInDepartments;
-    }
-
-    public void setEmployeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-        this.employeeOrderInDepartments = employeeOrderInDepartments;
-    }
-
-    public String[] getLeaders() {
-        return this.leaders;
-    }
-
-    public void setLeaders(String[] leaders) {
-        this.leaders = leaders;
-    }
-
-    public static class Builder {
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：3e3cf96b
-         */
-        private String id;
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         */
-        private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         */
-        private String[] leaders;
-
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：3e3cf96b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         *
-         * @param employeeOrderInDepartments
-         * @return
-         */
-        public Builder employeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-            this.employeeOrderInDepartments = employeeOrderInDepartments;
-            return this;
-        }
-
-
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         *
-         * @param leaders
-         * @return
-         */
-        public Builder leaders(String[] leaders) {
-            this.leaders = leaders;
-            return this;
-        }
-
-
-        public UpsertUserVirtualOrgInfo build() {
-            return new UpsertUserVirtualOrgInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

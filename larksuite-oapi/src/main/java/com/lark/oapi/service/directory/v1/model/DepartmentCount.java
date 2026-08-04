@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentCount {
+  /**
+   * 递归成员数量;;单位：个
+   *
+   * <p>示例值：200
+   */
+  @SerializedName("recursive_members_count")
+  private String recursiveMembersCount;
+
+  /**
+   * 直属成员数量;;单位：个
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("direct_members_count")
+  private String directMembersCount;
+
+  /**
+   * 递归成员数量(不含leader);;单位：个
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("recursive_members_count_exclude_leaders")
+  private String recursiveMembersCountExcludeLeaders;
+
+  /**
+   * 递归子部门数量;;单位：个
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("recursive_departments_count")
+  private String recursiveDepartmentsCount;
+
+  /**
+   * 直属子部门数量;;单位：个
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("direct_departments_count")
+  private String directDepartmentsCount;
+
+  public String getRecursiveMembersCount() {
+    return this.recursiveMembersCount;
+  }
+
+  public void setRecursiveMembersCount(String recursiveMembersCount) {
+    this.recursiveMembersCount = recursiveMembersCount;
+  }
+
+  public String getDirectMembersCount() {
+    return this.directMembersCount;
+  }
+
+  public void setDirectMembersCount(String directMembersCount) {
+    this.directMembersCount = directMembersCount;
+  }
+
+  public String getRecursiveMembersCountExcludeLeaders() {
+    return this.recursiveMembersCountExcludeLeaders;
+  }
+
+  public void setRecursiveMembersCountExcludeLeaders(String recursiveMembersCountExcludeLeaders) {
+    this.recursiveMembersCountExcludeLeaders = recursiveMembersCountExcludeLeaders;
+  }
+
+  public String getRecursiveDepartmentsCount() {
+    return this.recursiveDepartmentsCount;
+  }
+
+  public void setRecursiveDepartmentsCount(String recursiveDepartmentsCount) {
+    this.recursiveDepartmentsCount = recursiveDepartmentsCount;
+  }
+
+  public String getDirectDepartmentsCount() {
+    return this.directDepartmentsCount;
+  }
+
+  public void setDirectDepartmentsCount(String directDepartmentsCount) {
+    this.directDepartmentsCount = directDepartmentsCount;
+  }
+
+  // builder 开始
+  public DepartmentCount() {}
+
+  public DepartmentCount(Builder builder) {
     /**
-     * 递归成员数量
-     * <p> 示例值：100
+     * 递归成员数量;;单位：个
+     *
+     * <p>示例值：200
      */
-    @SerializedName("recursive_members_count")
+    this.recursiveMembersCount = builder.recursiveMembersCount;
+    /**
+     * 直属成员数量;;单位：个
+     *
+     * <p>示例值：100
+     */
+    this.directMembersCount = builder.directMembersCount;
+    /**
+     * 递归成员数量(不含leader);;单位：个
+     *
+     * <p>示例值：100
+     */
+    this.recursiveMembersCountExcludeLeaders = builder.recursiveMembersCountExcludeLeaders;
+    /**
+     * 递归子部门数量;;单位：个
+     *
+     * <p>示例值：100
+     */
+    this.recursiveDepartmentsCount = builder.recursiveDepartmentsCount;
+    /**
+     * 直属子部门数量;;单位：个
+     *
+     * <p>示例值：100
+     */
+    this.directDepartmentsCount = builder.directDepartmentsCount;
+  }
+
+  public static class Builder {
+    /**
+     * 递归成员数量;;单位：个
+     *
+     * <p>示例值：200
+     */
     private String recursiveMembersCount;
+
     /**
-     * 直属成员数量
-     * <p> 示例值：100
+     * 直属成员数量;;单位：个
+     *
+     * <p>示例值：100
      */
-    @SerializedName("direct_members_count")
     private String directMembersCount;
+
     /**
-     * 递归成员数量(不含leader)
-     * <p> 示例值：100
+     * 递归成员数量(不含leader);;单位：个
+     *
+     * <p>示例值：100
      */
-    @SerializedName("recursive_members_count_exclude_leaders")
     private String recursiveMembersCountExcludeLeaders;
+
     /**
-     * 递归子部门数量
-     * <p> 示例值：100
+     * 递归子部门数量;;单位：个
+     *
+     * <p>示例值：100
      */
-    @SerializedName("recursive_departments_count")
     private String recursiveDepartmentsCount;
+
     /**
-     * 直属子部门数量
-     * <p> 示例值：100
+     * 直属子部门数量;;单位：个
+     *
+     * <p>示例值：100
      */
-    @SerializedName("direct_departments_count")
     private String directDepartmentsCount;
 
-    // builder 开始
-    public DepartmentCount() {
+    /**
+     * 递归成员数量;;单位：个
+     *
+     * <p>示例值：200
+     *
+     * @param recursiveMembersCount
+     * @return
+     */
+    public Builder recursiveMembersCount(String recursiveMembersCount) {
+      this.recursiveMembersCount = recursiveMembersCount;
+      return this;
     }
 
-    public DepartmentCount(Builder builder) {
-        /**
-         * 递归成员数量
-         * <p> 示例值：100
-         */
-        this.recursiveMembersCount = builder.recursiveMembersCount;
-        /**
-         * 直属成员数量
-         * <p> 示例值：100
-         */
-        this.directMembersCount = builder.directMembersCount;
-        /**
-         * 递归成员数量(不含leader)
-         * <p> 示例值：100
-         */
-        this.recursiveMembersCountExcludeLeaders = builder.recursiveMembersCountExcludeLeaders;
-        /**
-         * 递归子部门数量
-         * <p> 示例值：100
-         */
-        this.recursiveDepartmentsCount = builder.recursiveDepartmentsCount;
-        /**
-         * 直属子部门数量
-         * <p> 示例值：100
-         */
-        this.directDepartmentsCount = builder.directDepartmentsCount;
+    /**
+     * 直属成员数量;;单位：个
+     *
+     * <p>示例值：100
+     *
+     * @param directMembersCount
+     * @return
+     */
+    public Builder directMembersCount(String directMembersCount) {
+      this.directMembersCount = directMembersCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 递归成员数量(不含leader);;单位：个
+     *
+     * <p>示例值：100
+     *
+     * @param recursiveMembersCountExcludeLeaders
+     * @return
+     */
+    public Builder recursiveMembersCountExcludeLeaders(String recursiveMembersCountExcludeLeaders) {
+      this.recursiveMembersCountExcludeLeaders = recursiveMembersCountExcludeLeaders;
+      return this;
     }
 
-    public String getRecursiveMembersCount() {
-        return this.recursiveMembersCount;
+    /**
+     * 递归子部门数量;;单位：个
+     *
+     * <p>示例值：100
+     *
+     * @param recursiveDepartmentsCount
+     * @return
+     */
+    public Builder recursiveDepartmentsCount(String recursiveDepartmentsCount) {
+      this.recursiveDepartmentsCount = recursiveDepartmentsCount;
+      return this;
     }
 
-    public void setRecursiveMembersCount(String recursiveMembersCount) {
-        this.recursiveMembersCount = recursiveMembersCount;
+    /**
+     * 直属子部门数量;;单位：个
+     *
+     * <p>示例值：100
+     *
+     * @param directDepartmentsCount
+     * @return
+     */
+    public Builder directDepartmentsCount(String directDepartmentsCount) {
+      this.directDepartmentsCount = directDepartmentsCount;
+      return this;
     }
 
-    public String getDirectMembersCount() {
-        return this.directMembersCount;
+    public DepartmentCount build() {
+      return new DepartmentCount(this);
     }
+  }
 
-    public void setDirectMembersCount(String directMembersCount) {
-        this.directMembersCount = directMembersCount;
-    }
-
-    public String getRecursiveMembersCountExcludeLeaders() {
-        return this.recursiveMembersCountExcludeLeaders;
-    }
-
-    public void setRecursiveMembersCountExcludeLeaders(String recursiveMembersCountExcludeLeaders) {
-        this.recursiveMembersCountExcludeLeaders = recursiveMembersCountExcludeLeaders;
-    }
-
-    public String getRecursiveDepartmentsCount() {
-        return this.recursiveDepartmentsCount;
-    }
-
-    public void setRecursiveDepartmentsCount(String recursiveDepartmentsCount) {
-        this.recursiveDepartmentsCount = recursiveDepartmentsCount;
-    }
-
-    public String getDirectDepartmentsCount() {
-        return this.directDepartmentsCount;
-    }
-
-    public void setDirectDepartmentsCount(String directDepartmentsCount) {
-        this.directDepartmentsCount = directDepartmentsCount;
-    }
-
-    public static class Builder {
-        /**
-         * 递归成员数量
-         * <p> 示例值：100
-         */
-        private String recursiveMembersCount;
-        /**
-         * 直属成员数量
-         * <p> 示例值：100
-         */
-        private String directMembersCount;
-        /**
-         * 递归成员数量(不含leader)
-         * <p> 示例值：100
-         */
-        private String recursiveMembersCountExcludeLeaders;
-        /**
-         * 递归子部门数量
-         * <p> 示例值：100
-         */
-        private String recursiveDepartmentsCount;
-        /**
-         * 直属子部门数量
-         * <p> 示例值：100
-         */
-        private String directDepartmentsCount;
-
-        /**
-         * 递归成员数量
-         * <p> 示例值：100
-         *
-         * @param recursiveMembersCount
-         * @return
-         */
-        public Builder recursiveMembersCount(String recursiveMembersCount) {
-            this.recursiveMembersCount = recursiveMembersCount;
-            return this;
-        }
-
-
-        /**
-         * 直属成员数量
-         * <p> 示例值：100
-         *
-         * @param directMembersCount
-         * @return
-         */
-        public Builder directMembersCount(String directMembersCount) {
-            this.directMembersCount = directMembersCount;
-            return this;
-        }
-
-
-        /**
-         * 递归成员数量(不含leader)
-         * <p> 示例值：100
-         *
-         * @param recursiveMembersCountExcludeLeaders
-         * @return
-         */
-        public Builder recursiveMembersCountExcludeLeaders(String recursiveMembersCountExcludeLeaders) {
-            this.recursiveMembersCountExcludeLeaders = recursiveMembersCountExcludeLeaders;
-            return this;
-        }
-
-
-        /**
-         * 递归子部门数量
-         * <p> 示例值：100
-         *
-         * @param recursiveDepartmentsCount
-         * @return
-         */
-        public Builder recursiveDepartmentsCount(String recursiveDepartmentsCount) {
-            this.recursiveDepartmentsCount = recursiveDepartmentsCount;
-            return this;
-        }
-
-
-        /**
-         * 直属子部门数量
-         * <p> 示例值：100
-         *
-         * @param directDepartmentsCount
-         * @return
-         */
-        public Builder directDepartmentsCount(String directDepartmentsCount) {
-            this.directDepartmentsCount = directDepartmentsCount;
-            return this;
-        }
-
-
-        public DepartmentCount build() {
-            return new DepartmentCount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

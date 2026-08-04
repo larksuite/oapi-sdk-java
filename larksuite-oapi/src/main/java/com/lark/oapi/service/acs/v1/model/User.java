@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.acs.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class User {
+  /**
+   * 用户特征
+   *
+   * <p>示例值：
+   */
+  @SerializedName("feature")
+  private Feature feature;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public Feature getFeature() {
+    return this.feature;
+  }
+
+  public void setFeature(Feature feature) {
+    this.feature = feature;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public User() {}
+
+  public User(Builder builder) {
     /**
      * 用户特征
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("feature")
-    private Feature feature;
+    this.feature = builder.feature;
     /**
      * 用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户特征
+     *
+     * <p>示例值：
+     */
+    private Feature feature;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
     private String userId;
 
-    // builder 开始
-    public User() {
+    /**
+     * 用户特征
+     *
+     * <p>示例值：
+     *
+     * @param feature
+     * @return
+     */
+    public Builder feature(Feature feature) {
+      this.feature = feature;
+      return this;
     }
 
-    public User(Builder builder) {
-        /**
-         * 用户特征
-         * <p> 示例值：
-         */
-        this.feature = builder.feature;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public User build() {
+      return new User(this);
     }
+  }
 
-    public Feature getFeature() {
-        return this.feature;
-    }
-
-    public void setFeature(Feature feature) {
-        this.feature = feature;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户特征
-         * <p> 示例值：
-         */
-        private Feature feature;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String userId;
-
-        /**
-         * 用户特征
-         * <p> 示例值：
-         *
-         * @param feature
-         * @return
-         */
-        public Builder feature(Feature feature) {
-            this.feature = feature;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public User build() {
-            return new User(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

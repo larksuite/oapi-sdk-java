@@ -13,308 +13,322 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTalentReq {
+  /**
+   * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+   *
+   * <p>示例值：张三 and 产品经理
+   */
+  @Query
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 最早更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 排序规则
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("sort_by")
+  private Integer sortBy;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 请求控制参数
+   *
+   * <p>示例值：ignore_empty_error
+   */
+  @Query
+  @SerializedName("query_option")
+  private String queryOption;
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public Integer getSortBy() {
+    return this.sortBy;
+  }
+
+  public void setSortBy(Integer sortBy) {
+    this.sortBy = sortBy;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getQueryOption() {
+    return this.queryOption;
+  }
+
+  public void setQueryOption(String queryOption) {
+    this.queryOption = queryOption;
+  }
+
+  // builder 开始
+  public ListTalentReq() {}
+
+  public ListTalentReq(Builder builder) {
     /**
      * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
-     * <p> 示例值：张三 and 产品经理
+     *
+     * <p>示例值：张三 and 产品经理
      */
-    @Query
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
-     * 最早更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_start_time")
-    private String updateStartTime;
+    this.updateStartTime = builder.updateStartTime;
     /**
-     * 最晚更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_end_time")
-    private String updateEndTime;
+    this.updateEndTime = builder.updateEndTime;
     /**
-     * 分页大小, 不能超过 20
-     * <p> 示例值：10
+     * 分页大小
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 排序规则
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("sort_by")
-    private Integer sortBy;
+    this.sortBy = builder.sortBy;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 请求控制参数
-     * <p> 示例值：ignore_empty_error
+     *
+     * <p>示例值：ignore_empty_error
      */
-    @Query
-    @SerializedName("query_option")
-    private String queryOption;
+    this.queryOption = builder.queryOption;
+  }
 
-    // builder 开始
-    public ListTalentReq() {
+  public static class Builder {
+    private String keyword; // 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+    private String updateStartTime; // 最早更新时间，毫秒时间戳
+    private String updateEndTime; // 最晚更新时间，毫秒时间戳
+    private Integer pageSize; // 分页大小
+    private Integer sortBy; // 排序规则
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String userIdType; // 用户 ID 类型
+    private String queryOption; // 请求控制参数
+
+    /**
+     * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
+     *
+     * <p>示例值：张三 and 产品经理
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public ListTalentReq(Builder builder) {
-        /**
-         * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
-         * <p> 示例值：张三 and 产品经理
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateEndTime = builder.updateEndTime;
-        /**
-         * 分页大小, 不能超过 20
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 排序规则
-         * <p> 示例值：1
-         */
-        this.sortBy = builder.sortBy;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 请求控制参数
-         * <p> 示例值：ignore_empty_error
-         */
-        this.queryOption = builder.queryOption;
+    /**
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public String getKeyword() {
-        return this.keyword;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    /**
+     * 排序规则
+     *
+     * <p>示例值：1
+     *
+     * @param sortBy
+     * @return
+     */
+    public Builder sortBy(Integer sortBy) {
+      this.sortBy = sortBy;
+      return this;
     }
 
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
+    /**
+     * 请求控制参数
+     *
+     * <p>示例值：ignore_empty_error
+     *
+     * @param queryOption
+     * @return
+     */
+    public Builder queryOption(String queryOption) {
+      this.queryOption = queryOption;
+      return this;
     }
 
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
+    public ListTalentReq build() {
+      return new ListTalentReq(this);
     }
+  }
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getSortBy() {
-        return this.sortBy;
-    }
-
-    public void setSortBy(Integer sortBy) {
-        this.sortBy = sortBy;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getQueryOption() {
-        return this.queryOption;
-    }
-
-    public void setQueryOption(String queryOption) {
-        this.queryOption = queryOption;
-    }
-
-    public static class Builder {
-        private String keyword; // 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
-        private String updateStartTime; // 最早更新时间，毫秒级时间戳
-        private String updateEndTime; // 最晚更新时间，毫秒级时间戳
-        private Integer pageSize; // 分页大小, 不能超过 20
-        private Integer sortBy; // 排序规则
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String userIdType; // 用户 ID 类型
-        private String queryOption; // 请求控制参数
-
-        /**
-         * 搜索关键词，支持布尔语言（使用 and、or、not 连接关键词）
-         * <p> 示例值：张三 and 产品经理
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        /**
-         * 分页大小, 不能超过 20
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 排序规则
-         * <p> 示例值：1
-         *
-         * @param sortBy
-         * @return
-         */
-        public Builder sortBy(Integer sortBy) {
-            this.sortBy = sortBy;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 请求控制参数
-         * <p> 示例值：ignore_empty_error
-         *
-         * @param queryOption
-         * @return
-         */
-        public Builder queryOption(String queryOption) {
-            this.queryOption = queryOption;
-            return this;
-        }
-
-
-        public ListTalentReq build() {
-            return new ListTalentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

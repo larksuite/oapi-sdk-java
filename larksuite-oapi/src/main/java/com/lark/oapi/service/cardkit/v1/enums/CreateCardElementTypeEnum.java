@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.cardkit.v1.enums;
 
-/**
- * 添加组件的方式
- */
+/** 添加组件的方式。 */
 public enum CreateCardElementTypeEnum {
-    INSERT_BEFORE("insert_before"), // 在目标组件前插入
-    INSERT_AFTER("insert_after"), // 在目标组件后插入
-    APPEND("append"), // 在卡片或容器组件末尾添加
-    ;
-    private String value;
+  INSERT_BEFORE("insert_before"), // 在目标组件前插入
+  INSERT_AFTER("insert_after"), // 在目标组件后插入
+  APPEND("append"), // 在卡片或容器组件末尾添加
+  ;
+  private String value;
 
-    CreateCardElementTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateCardElementTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

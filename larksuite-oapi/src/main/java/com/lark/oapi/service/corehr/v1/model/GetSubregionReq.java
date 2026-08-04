@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetSubregionReq {
+  /**
+   * 城市/区域 ID
+   *
+   * <p>示例值：67489937334909845
+   */
+  @Path
+  @SerializedName("subregion_id")
+  private String subregionId;
+
+  public String getSubregionId() {
+    return this.subregionId;
+  }
+
+  public void setSubregionId(String subregionId) {
+    this.subregionId = subregionId;
+  }
+
+  // builder 开始
+  public GetSubregionReq() {}
+
+  public GetSubregionReq(Builder builder) {
     /**
      * 城市/区域 ID
-     * <p> 示例值：67489937334909845
+     *
+     * <p>示例值：67489937334909845
      */
-    @Path
-    @SerializedName("subregion_id")
-    private String subregionId;
+    this.subregionId = builder.subregionId;
+  }
 
-    // builder 开始
-    public GetSubregionReq() {
+  public static class Builder {
+
+    private String subregionId; // 城市/区域 ID
+
+    /**
+     * 城市/区域 ID
+     *
+     * <p>示例值：67489937334909845
+     *
+     * @param subregionId
+     * @return
+     */
+    public Builder subregionId(String subregionId) {
+      this.subregionId = subregionId;
+      return this;
     }
 
-    public GetSubregionReq(Builder builder) {
-        /**
-         * 城市/区域 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.subregionId = builder.subregionId;
+    public GetSubregionReq build() {
+      return new GetSubregionReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSubregionId() {
-        return this.subregionId;
-    }
-
-    public void setSubregionId(String subregionId) {
-        this.subregionId = subregionId;
-    }
-
-    public static class Builder {
-
-        private String subregionId; // 城市/区域 ID
-
-        /**
-         * 城市/区域 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param subregionId
-         * @return
-         */
-        public Builder subregionId(String subregionId) {
-            this.subregionId = subregionId;
-            return this;
-        }
-
-
-        public GetSubregionReq build() {
-            return new GetSubregionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

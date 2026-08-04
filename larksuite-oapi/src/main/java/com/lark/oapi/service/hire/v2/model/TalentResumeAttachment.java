@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentResumeAttachment {
+  /**
+   * ID
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附件名
+   *
+   * <p>示例值：1.pdf
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 附件MIME类型
+   *
+   * <p>示例值：application/pdf
+   */
+  @SerializedName("mime")
+  private String mime;
+
+  /**
+   * 创建时间戳
+   *
+   * <p>示例值：1734348840749
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMime() {
+    return this.mime;
+  }
+
+  public void setMime(String mime) {
+    this.mime = mime;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public TalentResumeAttachment() {}
+
+  public TalentResumeAttachment(Builder builder) {
     /**
      * ID
-     * <p> 示例值：6891560630172518670
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 附件名
-     * <p> 示例值：1.pdf
+     *
+     * <p>示例值：1.pdf
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 附件MIME类型
-     * <p> 示例值：application/pdf
+     *
+     * <p>示例值：application/pdf
      */
-    @SerializedName("mime")
-    private String mime;
+    this.mime = builder.mime;
     /**
      * 创建时间戳
-     * <p> 示例值：1734348840749
+     *
+     * <p>示例值：1734348840749
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String id;
+
+    /**
+     * 附件名
+     *
+     * <p>示例值：1.pdf
+     */
+    private String name;
+
+    /**
+     * 附件MIME类型
+     *
+     * <p>示例值：application/pdf
+     */
+    private String mime;
+
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1734348840749
+     */
     private String createTime;
 
-    // builder 开始
-    public TalentResumeAttachment() {
+    /**
+     * ID
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentResumeAttachment(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 附件名
-         * <p> 示例值：1.pdf
-         */
-        this.name = builder.name;
-        /**
-         * 附件MIME类型
-         * <p> 示例值：application/pdf
-         */
-        this.mime = builder.mime;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1734348840749
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 附件名
+     *
+     * <p>示例值：1.pdf
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件MIME类型
+     *
+     * <p>示例值：application/pdf
+     *
+     * @param mime
+     * @return
+     */
+    public Builder mime(String mime) {
+      this.mime = mime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1734348840749
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TalentResumeAttachment build() {
+      return new TalentResumeAttachment(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMime() {
-        return this.mime;
-    }
-
-    public void setMime(String mime) {
-        this.mime = mime;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 附件名
-         * <p> 示例值：1.pdf
-         */
-        private String name;
-        /**
-         * 附件MIME类型
-         * <p> 示例值：application/pdf
-         */
-        private String mime;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1734348840749
-         */
-        private String createTime;
-
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附件名
-         * <p> 示例值：1.pdf
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 附件MIME类型
-         * <p> 示例值：application/pdf
-         *
-         * @param mime
-         * @return
-         */
-        public Builder mime(String mime) {
-            this.mime = mime;
-            return this;
-        }
-
-
-        /**
-         * 创建时间戳
-         * <p> 示例值：1734348840749
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public TalentResumeAttachment build() {
-            return new TalentResumeAttachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

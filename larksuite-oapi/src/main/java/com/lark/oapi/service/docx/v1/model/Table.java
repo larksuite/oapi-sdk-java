@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Table {
+  /**
+   * 单元格数组，数组元素为 Table Cell Block 的 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cells")
+  private String[] cells;
+
+  /**
+   * 表格属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("property")
+  private TableProperty property;
+
+  public String[] getCells() {
+    return this.cells;
+  }
+
+  public void setCells(String[] cells) {
+    this.cells = cells;
+  }
+
+  public TableProperty getProperty() {
+    return this.property;
+  }
+
+  public void setProperty(TableProperty property) {
+    this.property = property;
+  }
+
+  // builder 开始
+  public Table() {}
+
+  public Table(Builder builder) {
     /**
      * 单元格数组，数组元素为 Table Cell Block 的 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cells")
-    private String[] cells;
+    this.cells = builder.cells;
     /**
      * 表格属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("property")
+    this.property = builder.property;
+  }
+
+  public static class Builder {
+    /**
+     * 单元格数组，数组元素为 Table Cell Block 的 ID
+     *
+     * <p>示例值：
+     */
+    private String[] cells;
+
+    /**
+     * 表格属性
+     *
+     * <p>示例值：
+     */
     private TableProperty property;
 
-    // builder 开始
-    public Table() {
+    /**
+     * 单元格数组，数组元素为 Table Cell Block 的 ID
+     *
+     * <p>示例值：
+     *
+     * @param cells
+     * @return
+     */
+    public Builder cells(String[] cells) {
+      this.cells = cells;
+      return this;
     }
 
-    public Table(Builder builder) {
-        /**
-         * 单元格数组，数组元素为 Table Cell Block 的 ID
-         * <p> 示例值：
-         */
-        this.cells = builder.cells;
-        /**
-         * 表格属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
+    /**
+     * 表格属性
+     *
+     * <p>示例值：
+     *
+     * @param property
+     * @return
+     */
+    public Builder property(TableProperty property) {
+      this.property = property;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Table build() {
+      return new Table(this);
     }
+  }
 
-    public String[] getCells() {
-        return this.cells;
-    }
-
-    public void setCells(String[] cells) {
-        this.cells = cells;
-    }
-
-    public TableProperty getProperty() {
-        return this.property;
-    }
-
-    public void setProperty(TableProperty property) {
-        this.property = property;
-    }
-
-    public static class Builder {
-        /**
-         * 单元格数组，数组元素为 Table Cell Block 的 ID
-         * <p> 示例值：
-         */
-        private String[] cells;
-        /**
-         * 表格属性
-         * <p> 示例值：
-         */
-        private TableProperty property;
-
-        /**
-         * 单元格数组，数组元素为 Table Cell Block 的 ID
-         * <p> 示例值：
-         *
-         * @param cells
-         * @return
-         */
-        public Builder cells(String[] cells) {
-            this.cells = cells;
-            return this;
-        }
-
-
-        /**
-         * 表格属性
-         * <p> 示例值：
-         *
-         * @param property
-         * @return
-         */
-        public Builder property(TableProperty property) {
-            this.property = property;
-            return this;
-        }
-
-
-        public Table build() {
-            return new Table(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

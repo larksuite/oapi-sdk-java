@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordResult {
+  /**
+   * 是否成功
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("success")
+  private Boolean success;
+
+  /**
+   * 记录 ID
+   *
+   * <p>示例值：1801464965461024
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 权限错误时的细分 code
+   *
+   * <p>示例值：
+   */
+  @SerializedName("errors")
+  private RecordResultError[] errors;
+
+  public Boolean getSuccess() {
+    return this.success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public RecordResultError[] getErrors() {
+    return this.errors;
+  }
+
+  public void setErrors(RecordResultError[] errors) {
+    this.errors = errors;
+  }
+
+  // builder 开始
+  public RecordResult() {}
+
+  public RecordResult(Builder builder) {
     /**
      * 是否成功
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("success")
-    private Boolean success;
+    this.success = builder.success;
     /**
      * 记录 ID
-     * <p> 示例值：1801464965461024
+     *
+     * <p>示例值：1801464965461024
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 权限错误时的细分 code
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("errors")
+    this.errors = builder.errors;
+  }
+
+  public static class Builder {
+    /**
+     * 是否成功
+     *
+     * <p>示例值：true
+     */
+    private Boolean success;
+
+    /**
+     * 记录 ID
+     *
+     * <p>示例值：1801464965461024
+     */
+    private String id;
+
+    /**
+     * 权限错误时的细分 code
+     *
+     * <p>示例值：
+     */
     private RecordResultError[] errors;
 
-    // builder 开始
-    public RecordResult() {
+    /**
+     * 是否成功
+     *
+     * <p>示例值：true
+     *
+     * @param success
+     * @return
+     */
+    public Builder success(Boolean success) {
+      this.success = success;
+      return this;
     }
 
-    public RecordResult(Builder builder) {
-        /**
-         * 是否成功
-         * <p> 示例值：true
-         */
-        this.success = builder.success;
-        /**
-         * 记录 ID
-         * <p> 示例值：1801464965461024
-         */
-        this.id = builder.id;
-        /**
-         * 权限错误时的细分 code
-         * <p> 示例值：
-         */
-        this.errors = builder.errors;
+    /**
+     * 记录 ID
+     *
+     * <p>示例值：1801464965461024
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 权限错误时的细分 code
+     *
+     * <p>示例值：
+     *
+     * @param errors
+     * @return
+     */
+    public Builder errors(RecordResultError[] errors) {
+      this.errors = errors;
+      return this;
     }
 
-    public Boolean getSuccess() {
-        return this.success;
+    public RecordResult build() {
+      return new RecordResult(this);
     }
+  }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public RecordResultError[] getErrors() {
-        return this.errors;
-    }
-
-    public void setErrors(RecordResultError[] errors) {
-        this.errors = errors;
-    }
-
-    public static class Builder {
-        /**
-         * 是否成功
-         * <p> 示例值：true
-         */
-        private Boolean success;
-        /**
-         * 记录 ID
-         * <p> 示例值：1801464965461024
-         */
-        private String id;
-        /**
-         * 权限错误时的细分 code
-         * <p> 示例值：
-         */
-        private RecordResultError[] errors;
-
-        /**
-         * 是否成功
-         * <p> 示例值：true
-         *
-         * @param success
-         * @return
-         */
-        public Builder success(Boolean success) {
-            this.success = success;
-            return this;
-        }
-
-
-        /**
-         * 记录 ID
-         * <p> 示例值：1801464965461024
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 权限错误时的细分 code
-         * <p> 示例值：
-         *
-         * @param errors
-         * @return
-         */
-        public Builder errors(RecordResultError[] errors) {
-            this.errors = errors;
-            return this;
-        }
-
-
-        public RecordResult build() {
-            return new RecordResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

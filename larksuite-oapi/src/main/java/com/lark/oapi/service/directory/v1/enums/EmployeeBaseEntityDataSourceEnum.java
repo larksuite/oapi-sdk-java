@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 数据来源
- */
+/** 数据来源 */
 public enum EmployeeBaseEntityDataSourceEnum {
-    FEISHU_ADMIN(1), // 管理后台
-    CORE_HR(2), // 人事企业版
-    DIR_SYNC_VISA_SCIM(3), // SCIM
-    ;
-    private Integer value;
+  FEISHU_ADMIN(1), // 管理后台
+  CORE_HR(2), // 人事企业版
+  DIR_SYNC_VISA_SCIM(3), // SCIM
+  ;
+  private Integer value;
 
-    EmployeeBaseEntityDataSourceEnum(Integer value) {
-        this.value = value;
-    }
+  EmployeeBaseEntityDataSourceEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

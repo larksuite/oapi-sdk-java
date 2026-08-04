@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuestionAssessment {
+  /**
+   * 所关联面试题的类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("question_type")
+  private Integer questionType;
+
+  /**
+   * 关联面试题的名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title")
+  private I18n title;
+
+  /**
+   * 关联面试题的描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 面试者作答内容
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 能力项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("abilities")
+  private Ability[] abilities;
+
+  public Integer getQuestionType() {
+    return this.questionType;
+  }
+
+  public void setQuestionType(Integer questionType) {
+    this.questionType = questionType;
+  }
+
+  public I18n getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(I18n title) {
+    this.title = title;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Ability[] getAbilities() {
+    return this.abilities;
+  }
+
+  public void setAbilities(Ability[] abilities) {
+    this.abilities = abilities;
+  }
+
+  // builder 开始
+  public QuestionAssessment() {}
+
+  public QuestionAssessment(Builder builder) {
     /**
      * 所关联面试题的类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("question_type")
-    private Integer questionType;
+    this.questionType = builder.questionType;
     /**
      * 关联面试题的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title")
-    private I18n title;
+    this.title = builder.title;
     /**
      * 关联面试题的描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 面试者作答内容
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 能力项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("abilities")
+    this.abilities = builder.abilities;
+  }
+
+  public static class Builder {
+    /**
+     * 所关联面试题的类型
+     *
+     * <p>示例值：1
+     */
+    private Integer questionType;
+
+    /**
+     * 关联面试题的名称
+     *
+     * <p>示例值：
+     */
+    private I18n title;
+
+    /**
+     * 关联面试题的描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 面试者作答内容
+     *
+     * <p>示例值：test
+     */
+    private String content;
+
+    /**
+     * 能力项列表
+     *
+     * <p>示例值：
+     */
     private Ability[] abilities;
 
-    // builder 开始
-    public QuestionAssessment() {
+    /**
+     * 所关联面试题的类型
+     *
+     * <p>示例值：1
+     *
+     * @param questionType
+     * @return
+     */
+    public Builder questionType(Integer questionType) {
+      this.questionType = questionType;
+      return this;
     }
 
-    public QuestionAssessment(Builder builder) {
-        /**
-         * 所关联面试题的类型
-         * <p> 示例值：1
-         */
-        this.questionType = builder.questionType;
-        /**
-         * 关联面试题的名称
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 关联面试题的描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 面试者作答内容
-         * <p> 示例值：test
-         */
-        this.content = builder.content;
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         */
-        this.abilities = builder.abilities;
+    /**
+     * 关联面试题的名称
+     *
+     * <p>示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(I18n title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联面试题的描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public Integer getQuestionType() {
-        return this.questionType;
+    /**
+     * 面试者作答内容
+     *
+     * <p>示例值：test
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setQuestionType(Integer questionType) {
-        this.questionType = questionType;
+    /**
+     * 能力项列表
+     *
+     * <p>示例值：
+     *
+     * @param abilities
+     * @return
+     */
+    public Builder abilities(Ability[] abilities) {
+      this.abilities = abilities;
+      return this;
     }
 
-    public I18n getTitle() {
-        return this.title;
+    public QuestionAssessment build() {
+      return new QuestionAssessment(this);
     }
+  }
 
-    public void setTitle(I18n title) {
-        this.title = title;
-    }
-
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Ability[] getAbilities() {
-        return this.abilities;
-    }
-
-    public void setAbilities(Ability[] abilities) {
-        this.abilities = abilities;
-    }
-
-    public static class Builder {
-        /**
-         * 所关联面试题的类型
-         * <p> 示例值：1
-         */
-        private Integer questionType;
-        /**
-         * 关联面试题的名称
-         * <p> 示例值：
-         */
-        private I18n title;
-        /**
-         * 关联面试题的描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 面试者作答内容
-         * <p> 示例值：test
-         */
-        private String content;
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         */
-        private Ability[] abilities;
-
-        /**
-         * 所关联面试题的类型
-         * <p> 示例值：1
-         *
-         * @param questionType
-         * @return
-         */
-        public Builder questionType(Integer questionType) {
-            this.questionType = questionType;
-            return this;
-        }
-
-
-        /**
-         * 关联面试题的名称
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(I18n title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 关联面试题的描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 面试者作答内容
-         * <p> 示例值：test
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         *
-         * @param abilities
-         * @return
-         */
-        public Builder abilities(Ability[] abilities) {
-            this.abilities = abilities;
-            return this;
-        }
-
-
-        public QuestionAssessment build() {
-            return new QuestionAssessment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

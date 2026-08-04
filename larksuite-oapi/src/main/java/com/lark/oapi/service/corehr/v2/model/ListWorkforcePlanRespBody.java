@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListWorkforcePlanRespBody {
-    /**
-     * 方案列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private WorkforcePlan[] items;
-    /**
-     * 方案总数
-     * <p> 示例值：100
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 分页标识
-     * <p> 示例值：34523459
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 编制规划方案列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private WorkforcePlan[] items;
 
-    public WorkforcePlan[] getItems() {
-        return this.items;
-    }
+  /**
+   * 满足条件的方案总数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setItems(WorkforcePlan[] items) {
-        this.items = items;
-    }
+  /**
+   * 分页标识
+   *
+   * <p>示例值：34523459
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public WorkforcePlan[] getItems() {
+    return this.items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setItems(WorkforcePlan[] items) {
+    this.items = items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

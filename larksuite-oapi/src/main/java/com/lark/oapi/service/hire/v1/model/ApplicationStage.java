@@ -13,370 +13,400 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationStage {
+  /**
+   * ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Long type;
+
+  /**
+   * 参数
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("args")
+  private String args;
+
+  /**
+   * 创建者ID
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 序列
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("seq")
+  private Long seq;
+
+  /**
+   * 发布名称
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("publish_name")
+  private String publishName;
+
+  /**
+   * 发布英文名
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("publish_en_name")
+  private String publishEnName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Long getType() {
+    return this.type;
+  }
+
+  public void setType(Long type) {
+    this.type = type;
+  }
+
+  public String getArgs() {
+    return this.args;
+  }
+
+  public void setArgs(String args) {
+    this.args = args;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public Long getSeq() {
+    return this.seq;
+  }
+
+  public void setSeq(Long seq) {
+    this.seq = seq;
+  }
+
+  public String getPublishName() {
+    return this.publishName;
+  }
+
+  public void setPublishName(String publishName) {
+    this.publishName = publishName;
+  }
+
+  public String getPublishEnName() {
+    return this.publishEnName;
+  }
+
+  public void setPublishEnName(String publishEnName) {
+    this.publishEnName = publishEnName;
+  }
+
+  // builder 开始
+  public ApplicationStage() {}
+
+  public ApplicationStage(Builder builder) {
     /**
      * ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名字
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 英文名
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Long type;
+    this.type = builder.type;
     /**
      * 参数
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("args")
-    private String args;
+    this.args = builder.args;
     /**
      * 创建者ID
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 序列
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("seq")
-    private Long seq;
+    this.seq = builder.seq;
     /**
      * 发布名称
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("publish_name")
-    private String publishName;
+    this.publishName = builder.publishName;
     /**
      * 发布英文名
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("publish_en_name")
+    this.publishEnName = builder.publishEnName;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：xx
+     */
+    private String name;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：xx
+     */
+    private String enName;
+
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     */
+    private Long type;
+
+    /**
+     * 参数
+     *
+     * <p>示例值：xx
+     */
+    private String args;
+
+    /**
+     * 创建者ID
+     *
+     * <p>示例值：xx
+     */
+    private String creatorId;
+
+    /**
+     * 序列
+     *
+     * <p>示例值：1
+     */
+    private Long seq;
+
+    /**
+     * 发布名称
+     *
+     * <p>示例值：xx
+     */
+    private String publishName;
+
+    /**
+     * 发布英文名
+     *
+     * <p>示例值：xx
+     */
     private String publishEnName;
 
-    // builder 开始
-    public ApplicationStage() {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationStage(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 名字
-         * <p> 示例值：xx
-         */
-        this.name = builder.name;
-        /**
-         * 英文名
-         * <p> 示例值：xx
-         */
-        this.enName = builder.enName;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 参数
-         * <p> 示例值：xx
-         */
-        this.args = builder.args;
-        /**
-         * 创建者ID
-         * <p> 示例值：xx
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 序列
-         * <p> 示例值：1
-         */
-        this.seq = builder.seq;
-        /**
-         * 发布名称
-         * <p> 示例值：xx
-         */
-        this.publishName = builder.publishName;
-        /**
-         * 发布英文名
-         * <p> 示例值：xx
-         */
-        this.publishEnName = builder.publishEnName;
+    /**
+     * 名字
+     *
+     * <p>示例值：xx
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名
+     *
+     * <p>示例值：xx
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Long type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 参数
+     *
+     * <p>示例值：xx
+     *
+     * @param args
+     * @return
+     */
+    public Builder args(String args) {
+      this.args = args;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 创建者ID
+     *
+     * <p>示例值：xx
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 序列
+     *
+     * <p>示例值：1
+     *
+     * @param seq
+     * @return
+     */
+    public Builder seq(Long seq) {
+      this.seq = seq;
+      return this;
     }
 
-    public String getEnName() {
-        return this.enName;
+    /**
+     * 发布名称
+     *
+     * <p>示例值：xx
+     *
+     * @param publishName
+     * @return
+     */
+    public Builder publishName(String publishName) {
+      this.publishName = publishName;
+      return this;
     }
 
-    public void setEnName(String enName) {
-        this.enName = enName;
+    /**
+     * 发布英文名
+     *
+     * <p>示例值：xx
+     *
+     * @param publishEnName
+     * @return
+     */
+    public Builder publishEnName(String publishEnName) {
+      this.publishEnName = publishEnName;
+      return this;
     }
 
-    public Long getType() {
-        return this.type;
+    public ApplicationStage build() {
+      return new ApplicationStage(this);
     }
+  }
 
-    public void setType(Long type) {
-        this.type = type;
-    }
-
-    public String getArgs() {
-        return this.args;
-    }
-
-    public void setArgs(String args) {
-        this.args = args;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public Long getSeq() {
-        return this.seq;
-    }
-
-    public void setSeq(Long seq) {
-        this.seq = seq;
-    }
-
-    public String getPublishName() {
-        return this.publishName;
-    }
-
-    public void setPublishName(String publishName) {
-        this.publishName = publishName;
-    }
-
-    public String getPublishEnName() {
-        return this.publishEnName;
-    }
-
-    public void setPublishEnName(String publishEnName) {
-        this.publishEnName = publishEnName;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 名字
-         * <p> 示例值：xx
-         */
-        private String name;
-        /**
-         * 英文名
-         * <p> 示例值：xx
-         */
-        private String enName;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        private Long type;
-        /**
-         * 参数
-         * <p> 示例值：xx
-         */
-        private String args;
-        /**
-         * 创建者ID
-         * <p> 示例值：xx
-         */
-        private String creatorId;
-        /**
-         * 序列
-         * <p> 示例值：1
-         */
-        private Long seq;
-        /**
-         * 发布名称
-         * <p> 示例值：xx
-         */
-        private String publishName;
-        /**
-         * 发布英文名
-         * <p> 示例值：xx
-         */
-        private String publishEnName;
-
-        /**
-         * ID
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：xx
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：xx
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Long type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 参数
-         * <p> 示例值：xx
-         *
-         * @param args
-         * @return
-         */
-        public Builder args(String args) {
-            this.args = args;
-            return this;
-        }
-
-
-        /**
-         * 创建者ID
-         * <p> 示例值：xx
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 序列
-         * <p> 示例值：1
-         *
-         * @param seq
-         * @return
-         */
-        public Builder seq(Long seq) {
-            this.seq = seq;
-            return this;
-        }
-
-
-        /**
-         * 发布名称
-         * <p> 示例值：xx
-         *
-         * @param publishName
-         * @return
-         */
-        public Builder publishName(String publishName) {
-            this.publishName = publishName;
-            return this;
-        }
-
-
-        /**
-         * 发布英文名
-         * <p> 示例值：xx
-         *
-         * @param publishEnName
-         * @return
-         */
-        public Builder publishEnName(String publishEnName) {
-            this.publishEnName = publishEnName;
-            return this;
-        }
-
-
-        public ApplicationStage build() {
-            return new ApplicationStage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

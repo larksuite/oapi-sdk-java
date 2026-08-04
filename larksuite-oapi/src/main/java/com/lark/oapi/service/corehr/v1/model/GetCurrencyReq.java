@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetCurrencyReq {
+  /**
+   * 货币 ID
+   *
+   * <p>示例值：67489937334909845
+   */
+  @Path
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  // builder 开始
+  public GetCurrencyReq() {}
+
+  public GetCurrencyReq(Builder builder) {
     /**
      * 货币 ID
-     * <p> 示例值：67489937334909845
+     *
+     * <p>示例值：67489937334909845
      */
-    @Path
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
+  }
 
-    // builder 开始
-    public GetCurrencyReq() {
+  public static class Builder {
+
+    private String currencyId; // 货币 ID
+
+    /**
+     * 货币 ID
+     *
+     * <p>示例值：67489937334909845
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public GetCurrencyReq(Builder builder) {
-        /**
-         * 货币 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.currencyId = builder.currencyId;
+    public GetCurrencyReq build() {
+      return new GetCurrencyReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCurrencyId() {
-        return this.currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public static class Builder {
-
-        private String currencyId; // 货币 ID
-
-        /**
-         * 货币 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        public GetCurrencyReq build() {
-            return new GetCurrencyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

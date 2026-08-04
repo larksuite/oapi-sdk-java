@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 标签类型
- */
+/** 标签类型 */
 public enum CreateTagLarkImDatasyncEntityTagTypeEnum {
-    TENANT("tenant"), // tenant类型标签
-    ;
-    private String value;
+  TENANT("tenant"), // tenant类型标签
+  ;
+  private String value;
 
-    CreateTagLarkImDatasyncEntityTagTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateTagLarkImDatasyncEntityTagTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

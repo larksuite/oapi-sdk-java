@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- *
- */
+/** */
 public enum TemplateInfoObjTemplatePublishFlagEnum {
-    OFFLINE("0"), // OFFLINE
-    ONLINE("1"), // ONLINE
-    ;
-    private String value;
+  OFFLINE("0"), // OFFLINE
+  ONLINE("1"), // ONLINE
+  ;
+  private String value;
 
-    TemplateInfoObjTemplatePublishFlagEnum(String value) {
-        this.value = value;
-    }
+  TemplateInfoObjTemplatePublishFlagEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

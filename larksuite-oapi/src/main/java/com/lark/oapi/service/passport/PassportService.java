@@ -13,25 +13,31 @@
 package com.lark.oapi.service.passport;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.passport.v1.V1;
 import com.lark.oapi.service.passport.v1.model.*;
+import com.lark.oapi.service.passport.v1.resource.Password;
 import com.lark.oapi.service.passport.v1.resource.Session;
 
 public class PassportService {
-    private final V1 v1;
-    private final Session session; // 登录态
+  private final V1 v1;
+  private final Password password; // password
+  private final Session session; // session
 
-    public PassportService(Config config) {
-        this.v1 = new V1(config);
-        this.session = new Session(config);
-    }
+  public PassportService(Config config) {
+    this.v1 = new V1(config);
+    this.password = new Password(config);
+    this.session = new Session(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Session session() {
-        return session;
-    }
+  public Password password() {
+    return password;
+  }
+
+  public Session session() {
+    return session;
+  }
 }

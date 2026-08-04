@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 文档类型
- */
+/** 文档类型 */
 public enum DocWikiTokenFilterTypeEnum {
-    DOC("DOC"), // 文档
-    SHEET("SHEET"), // 表格
-    BITABLE("BITABLE"), // 多维表格
-    MINDNOTE("MINDNOTE"), // 思维导图
-    FILE("FILE"), // 文件
-    WIKI("WIKI"), // 维基
-    DOCX("DOCX"), // 新版文档
-    FOLDER("FOLDER"), // space文件夹
-    CATALOG("CATALOG"), // wiki2.0文件夹
-    SLIDES("SLIDES"), // 新版本幻灯片
-    SHORTCUT("SHORTCUT"), // 快捷方式
-    ;
-    private String value;
+  DOC("DOC"), // 文档
+  SHEET("SHEET"), // 表格
+  BITABLE("BITABLE"), // 多维表格
+  MINDNOTE("MINDNOTE"), // 思维导图
+  FILE("FILE"), // 文件
+  WIKI("WIKI"), // 维基
+  DOCX("DOCX"), // 新版文档
+  FOLDER("FOLDER"), // space文件夹
+  CATALOG("CATALOG"), // wiki2.0文件夹
+  SLIDES("SLIDES"), // 新版本幻灯片
+  SHORTCUT("SHORTCUT"), // 快捷方式
+  ;
+  private String value;
 
-    DocWikiTokenFilterTypeEnum(String value) {
-        this.value = value;
-    }
+  DocWikiTokenFilterTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

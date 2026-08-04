@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskUrls {
+  /**
+   * 帮助服务台 URL
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("helpdesk")
+  private String helpdesk;
+
+  /**
+   * 移动端 URL
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * PC 端 URL
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("pc")
+  private String pc;
+
+  public String getHelpdesk() {
+    return this.helpdesk;
+  }
+
+  public void setHelpdesk(String helpdesk) {
+    this.helpdesk = helpdesk;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getPc() {
+    return this.pc;
+  }
+
+  public void setPc(String pc) {
+    this.pc = pc;
+  }
+
+  // builder 开始
+  public TaskUrls() {}
+
+  public TaskUrls(Builder builder) {
     /**
      * 帮助服务台 URL
-     * <p> 示例值：https://blabla
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("helpdesk")
-    private String helpdesk;
+    this.helpdesk = builder.helpdesk;
     /**
      * 移动端 URL
-     * <p> 示例值：https://blabla
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * PC 端 URL
-     * <p> 示例值：https://blabla
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("pc")
+    this.pc = builder.pc;
+  }
+
+  public static class Builder {
+    /**
+     * 帮助服务台 URL
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String helpdesk;
+
+    /**
+     * 移动端 URL
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String mobile;
+
+    /**
+     * PC 端 URL
+     *
+     * <p>示例值：https://www.example.com
+     */
     private String pc;
 
-    // builder 开始
-    public TaskUrls() {
+    /**
+     * 帮助服务台 URL
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param helpdesk
+     * @return
+     */
+    public Builder helpdesk(String helpdesk) {
+      this.helpdesk = helpdesk;
+      return this;
     }
 
-    public TaskUrls(Builder builder) {
-        /**
-         * 帮助服务台 URL
-         * <p> 示例值：https://blabla
-         */
-        this.helpdesk = builder.helpdesk;
-        /**
-         * 移动端 URL
-         * <p> 示例值：https://blabla
-         */
-        this.mobile = builder.mobile;
-        /**
-         * PC 端 URL
-         * <p> 示例值：https://blabla
-         */
-        this.pc = builder.pc;
+    /**
+     * 移动端 URL
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * PC 端 URL
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param pc
+     * @return
+     */
+    public Builder pc(String pc) {
+      this.pc = pc;
+      return this;
     }
 
-    public String getHelpdesk() {
-        return this.helpdesk;
+    public TaskUrls build() {
+      return new TaskUrls(this);
     }
+  }
 
-    public void setHelpdesk(String helpdesk) {
-        this.helpdesk = helpdesk;
-    }
-
-    public String getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getPc() {
-        return this.pc;
-    }
-
-    public void setPc(String pc) {
-        this.pc = pc;
-    }
-
-    public static class Builder {
-        /**
-         * 帮助服务台 URL
-         * <p> 示例值：https://blabla
-         */
-        private String helpdesk;
-        /**
-         * 移动端 URL
-         * <p> 示例值：https://blabla
-         */
-        private String mobile;
-        /**
-         * PC 端 URL
-         * <p> 示例值：https://blabla
-         */
-        private String pc;
-
-        /**
-         * 帮助服务台 URL
-         * <p> 示例值：https://blabla
-         *
-         * @param helpdesk
-         * @return
-         */
-        public Builder helpdesk(String helpdesk) {
-            this.helpdesk = helpdesk;
-            return this;
-        }
-
-
-        /**
-         * 移动端 URL
-         * <p> 示例值：https://blabla
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * PC 端 URL
-         * <p> 示例值：https://blabla
-         *
-         * @param pc
-         * @return
-         */
-        public Builder pc(String pc) {
-            this.pc = pc;
-            return this;
-        }
-
-
-        public TaskUrls build() {
-            return new TaskUrls(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

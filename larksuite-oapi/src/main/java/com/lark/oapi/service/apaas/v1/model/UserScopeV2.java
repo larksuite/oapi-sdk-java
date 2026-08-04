@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserScopeV2 {
+  /**
+   * 生效范围模式
+   *
+   * <p>示例值：all
+   */
+  @SerializedName("user_scope_mode")
+  private String userScopeMode;
+
+  /**
+   * 如果模式选的是user，则需要提供用户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_list")
+  private UserSimpleInfo[] userList;
+
+  /**
+   * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role_list")
+  private RoleApiNameSimpleInfo[] roleList;
+
+  public String getUserScopeMode() {
+    return this.userScopeMode;
+  }
+
+  public void setUserScopeMode(String userScopeMode) {
+    this.userScopeMode = userScopeMode;
+  }
+
+  public UserSimpleInfo[] getUserList() {
+    return this.userList;
+  }
+
+  public void setUserList(UserSimpleInfo[] userList) {
+    this.userList = userList;
+  }
+
+  public RoleApiNameSimpleInfo[] getRoleList() {
+    return this.roleList;
+  }
+
+  public void setRoleList(RoleApiNameSimpleInfo[] roleList) {
+    this.roleList = roleList;
+  }
+
+  // builder 开始
+  public UserScopeV2() {}
+
+  public UserScopeV2(Builder builder) {
     /**
      * 生效范围模式
-     * <p> 示例值：
+     *
+     * <p>示例值：all
      */
-    @SerializedName("user_scope_mode")
-    private String userScopeMode;
+    this.userScopeMode = builder.userScopeMode;
     /**
      * 如果模式选的是user，则需要提供用户信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_list")
-    private UserSimpleInfo[] userList;
+    this.userList = builder.userList;
     /**
      * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("role_list")
+    this.roleList = builder.roleList;
+  }
+
+  public static class Builder {
+    /**
+     * 生效范围模式
+     *
+     * <p>示例值：all
+     */
+    private String userScopeMode;
+
+    /**
+     * 如果模式选的是user，则需要提供用户信息
+     *
+     * <p>示例值：
+     */
+    private UserSimpleInfo[] userList;
+
+    /**
+     * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
+     *
+     * <p>示例值：
+     */
     private RoleApiNameSimpleInfo[] roleList;
 
-    // builder 开始
-    public UserScopeV2() {
+    /**
+     * 生效范围模式
+     *
+     * <p>示例值：all
+     *
+     * @param userScopeMode
+     * @return
+     */
+    public Builder userScopeMode(String userScopeMode) {
+      this.userScopeMode = userScopeMode;
+      return this;
     }
 
-    public UserScopeV2(Builder builder) {
-        /**
-         * 生效范围模式
-         * <p> 示例值：
-         */
-        this.userScopeMode = builder.userScopeMode;
-        /**
-         * 如果模式选的是user，则需要提供用户信息
-         * <p> 示例值：
-         */
-        this.userList = builder.userList;
-        /**
-         * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
-         * <p> 示例值：
-         */
-        this.roleList = builder.roleList;
+    /**
+     * 生效范围模式
+     *
+     * <p>示例值：all
+     *
+     * @param userScopeMode {@link
+     *     com.lark.oapi.service.apaas.v1.enums.UserScopeV2UserScopeModeEnum}
+     * @return
+     */
+    public Builder userScopeMode(
+        com.lark.oapi.service.apaas.v1.enums.UserScopeV2UserScopeModeEnum userScopeMode) {
+      this.userScopeMode = userScopeMode.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 如果模式选的是user，则需要提供用户信息
+     *
+     * <p>示例值：
+     *
+     * @param userList
+     * @return
+     */
+    public Builder userList(UserSimpleInfo[] userList) {
+      this.userList = userList;
+      return this;
     }
 
-    public String getUserScopeMode() {
-        return this.userScopeMode;
+    /**
+     * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
+     *
+     * <p>示例值：
+     *
+     * @param roleList
+     * @return
+     */
+    public Builder roleList(RoleApiNameSimpleInfo[] roleList) {
+      this.roleList = roleList;
+      return this;
     }
 
-    public void setUserScopeMode(String userScopeMode) {
-        this.userScopeMode = userScopeMode;
+    public UserScopeV2 build() {
+      return new UserScopeV2(this);
     }
+  }
 
-    public UserSimpleInfo[] getUserList() {
-        return this.userList;
-    }
-
-    public void setUserList(UserSimpleInfo[] userList) {
-        this.userList = userList;
-    }
-
-    public RoleApiNameSimpleInfo[] getRoleList() {
-        return this.roleList;
-    }
-
-    public void setRoleList(RoleApiNameSimpleInfo[] roleList) {
-        this.roleList = roleList;
-    }
-
-    public static class Builder {
-        /**
-         * 生效范围模式
-         * <p> 示例值：
-         */
-        private String userScopeMode;
-        /**
-         * 如果模式选的是user，则需要提供用户信息
-         * <p> 示例值：
-         */
-        private UserSimpleInfo[] userList;
-        /**
-         * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
-         * <p> 示例值：
-         */
-        private RoleApiNameSimpleInfo[] roleList;
-
-        /**
-         * 生效范围模式
-         * <p> 示例值：
-         *
-         * @param userScopeMode
-         * @return
-         */
-        public Builder userScopeMode(String userScopeMode) {
-            this.userScopeMode = userScopeMode;
-            return this;
-        }
-
-        /**
-         * 生效范围模式
-         * <p> 示例值：
-         *
-         * @param userScopeMode {@link com.lark.oapi.service.apaas.v1.enums.UserScopeV2UserScopeModeEnum}
-         * @return
-         */
-        public Builder userScopeMode(com.lark.oapi.service.apaas.v1.enums.UserScopeV2UserScopeModeEnum userScopeMode) {
-            this.userScopeMode = userScopeMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 如果模式选的是user，则需要提供用户信息
-         * <p> 示例值：
-         *
-         * @param userList
-         * @return
-         */
-        public Builder userList(UserSimpleInfo[] userList) {
-            this.userList = userList;
-            return this;
-        }
-
-
-        /**
-         * 如果模式选的是role，则需要提供角色信息，角色目前只支持一个角色
-         * <p> 示例值：
-         *
-         * @param roleList
-         * @return
-         */
-        public Builder roleList(RoleApiNameSimpleInfo[] roleList) {
-            this.roleList = roleList;
-            return this;
-        }
-
-
-        public UserScopeV2 build() {
-            return new UserScopeV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentStatus {
+  /**
+   * 是否被删除
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  // builder 开始
+  public DepartmentStatus() {}
+
+  public DepartmentStatus(Builder builder) {
     /**
      * 是否被删除
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_deleted")
+    this.isDeleted = builder.isDeleted;
+  }
+
+  public static class Builder {
+    /**
+     * 是否被删除
+     *
+     * <p>示例值：
+     */
     private Boolean isDeleted;
 
-    // builder 开始
-    public DepartmentStatus() {
+    /**
+     * 是否被删除
+     *
+     * <p>示例值：
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public DepartmentStatus(Builder builder) {
-        /**
-         * 是否被删除
-         * <p> 示例值：
-         */
-        this.isDeleted = builder.isDeleted;
+    public DepartmentStatus build() {
+      return new DepartmentStatus(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public static class Builder {
-        /**
-         * 是否被删除
-         * <p> 示例值：
-         */
-        private Boolean isDeleted;
-
-        /**
-         * 是否被删除
-         * <p> 示例值：
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        public DepartmentStatus build() {
-            return new DepartmentStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

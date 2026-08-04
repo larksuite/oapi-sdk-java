@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppRespBody {
-    /**
-     * 妙搭应用
-     * <p> 示例值：{"app_id":"app_7d2f8a4b1c9e6035","name":"智能客服助手V2","description":"提供7×24小时智能对话服务，支持多轮交互与工单自动流转","icon_url":"https://example.com/app-icons/customer-service-v2.png","created_at":"2026-05-18T10:00:00Z","updated_at":"2026-06-20T15:45:00Z"}
-     */
-    @SerializedName("app")
-    private App app;
+  /**
+   * 妙搭应用
+   *
+   * <p>示例值：{"app_id":"app_7d2f8a4b1c9e6035","name":"智能客服助手V2","description":"提供7×24小时智能对话服务，支持多轮交互与工单自动流转","icon_url":"https://example.com/app-icons/customer-service-v2.png","created_at":"2026-05-18T10:00:00Z","updated_at":"2026-06-20T15:45:00Z"}
+   */
+  @SerializedName("app")
+  private App app;
 
-    public App getApp() {
-        return this.app;
-    }
+  public App getApp() {
+    return this.app;
+  }
 
-    public void setApp(App app) {
-        this.app = app;
-    }
-
+  public void setApp(App app) {
+    this.app = app;
+  }
 }

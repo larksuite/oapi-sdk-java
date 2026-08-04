@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateChatButtonReqBody {
+  /**
+   * Bot id
+   *
+   * <p>示例值：6691086414609645828
+   */
+  @SerializedName("bot_id")
+  private String botId;
+
+  /**
+   * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 群 ID
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("buttons")
+  private OpenAppFeedCardButtons buttons;
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public OpenAppFeedCardButtons getButtons() {
+    return this.buttons;
+  }
+
+  public void setButtons(OpenAppFeedCardButtons buttons) {
+    this.buttons = buttons;
+  }
+
+  // builder 开始
+  public UpdateChatButtonReqBody() {}
+
+  public UpdateChatButtonReqBody(Builder builder) {
     /**
      * Bot id
-     * <p> 示例值：6691086414609645828
+     *
+     * <p>示例值：6691086414609645828
      */
-    @SerializedName("bot_id")
-    private String botId;
+    this.botId = builder.botId;
     /**
-     * 用户 ID 列表
-     * <p> 示例值：
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
-    private String[] userIds;
+    this.userIds = builder.userIds;
     /**
      * 群 ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
-     * 按钮
-     * <p> 示例值：
+     * 交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）
+     *
+     * <p>示例值：
      */
-    @SerializedName("buttons")
+    this.buttons = builder.buttons;
+  }
+
+  public static class Builder {
+    /**
+     * Bot id
+     *
+     * <p>示例值：6691086414609645828
+     */
+    private String botId;
+
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     */
+    private String[] userIds;
+
+    /**
+     * 群 ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    private String chatId;
+
+    /**
+     * 交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）
+     *
+     * <p>示例值：
+     */
     private OpenAppFeedCardButtons buttons;
 
-    // builder 开始
-    public UpdateChatButtonReqBody() {
+    /**
+     * Bot id
+     *
+     * <p>示例值：6691086414609645828
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public UpdateChatButtonReqBody(Builder builder) {
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         */
-        this.botId = builder.botId;
-        /**
-         * 用户 ID 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 群 ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 按钮
-         * <p> 示例值：
-         */
-        this.buttons = builder.buttons;
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群 ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getBotId() {
-        return this.botId;
+    /**
+     * 交互按钮（非必填字段，如未传入该字段，则不展示按钮；最多展示 2 个按钮）
+     *
+     * <p>示例值：
+     *
+     * @param buttons
+     * @return
+     */
+    public Builder buttons(OpenAppFeedCardButtons buttons) {
+      this.buttons = buttons;
+      return this;
     }
 
-    public void setBotId(String botId) {
-        this.botId = botId;
+    public UpdateChatButtonReqBody build() {
+      return new UpdateChatButtonReqBody(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public OpenAppFeedCardButtons getButtons() {
-        return this.buttons;
-    }
-
-    public void setButtons(OpenAppFeedCardButtons buttons) {
-        this.buttons = buttons;
-    }
-
-    public static class Builder {
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         */
-        private String botId;
-        /**
-         * 用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-        /**
-         * 群 ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String chatId;
-        /**
-         * 按钮
-         * <p> 示例值：
-         */
-        private OpenAppFeedCardButtons buttons;
-
-        /**
-         * Bot id
-         * <p> 示例值：6691086414609645828
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 群 ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 按钮
-         * <p> 示例值：
-         *
-         * @param buttons
-         * @return
-         */
-        public Builder buttons(OpenAppFeedCardButtons buttons) {
-            this.buttons = buttons;
-            return this;
-        }
-
-
-        public UpdateChatButtonReqBody build() {
-            return new UpdateChatButtonReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

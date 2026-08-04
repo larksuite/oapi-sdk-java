@@ -13,1024 +13,1143 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingInfo {
+  /**
+   * 9位会议号
+   *
+   * <p>示例值：705605196
+   */
+  @SerializedName("meeting_id")
+  private String meetingId;
+
+  /**
+   * 会议主题
+   *
+   * <p>示例值：讨论会
+   */
+  @SerializedName("meeting_topic")
+  private String meetingTopic;
+
+  /**
+   * 会议类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("meeting_type")
+  private Integer meetingType;
+
+  /**
+   * 组织者
+   *
+   * <p>示例值：kehan
+   */
+  @SerializedName("organizer")
+  private String organizer;
+
+  /**
+   * 部门
+   *
+   * <p>示例值：development
+   */
+  @SerializedName("department")
+  private String department;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：92f879
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 工号
+   *
+   * <p>示例值：202105149765
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 邮箱
+   *
+   * <p>示例值：xxxx@163.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 手机
+   *
+   * <p>示例值：021-673288
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 会议开始时间，格式见响应体示例
+   *
+   * <p>示例值：2022.12.23 11:16:59 (GMT+08:00)
+   */
+  @SerializedName("meeting_start_time")
+  private String meetingStartTime;
+
+  /**
+   * 会议结束时间，格式见响应体示例
+   *
+   * <p>示例值：2022.12.23 11:18:51 (GMT+08:00)
+   */
+  @SerializedName("meeting_end_time")
+  private String meetingEndTime;
+
+  /**
+   * 会议持续时间（秒），格式见响应体示例
+   *
+   * <p>示例值：00:01:52
+   */
+  @SerializedName("meeting_duration")
+  private String meetingDuration;
+
+  /**
+   * 参会人数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("number_of_participants")
+  private String numberOfParticipants;
+
+  /**
+   * 累计入会设备数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("number_of_devices")
+  private String numberOfDevices;
+
+  /**
+   * 音频
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("audio")
+  private Boolean audio;
+
+  /**
+   * 视频
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("video")
+  private Boolean video;
+
+  /**
+   * 共享
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("sharing")
+  private Boolean sharing;
+
+  /**
+   * 录制
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("recording")
+  private Boolean recording;
+
+  /**
+   * 电话
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("telephone")
+  private Boolean telephone;
+
+  /**
+   * 关联会议室列表，只有待召开的会议支持该字段。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reserved_rooms")
+  private ReservedRoom[] reservedRooms;
+
+  /**
+   * 是否有关联文档和纪要
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_related_document")
+  private Boolean hasRelatedDocument;
+
+  /**
+   * 是否使用AI纪要
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("ai_note")
+  private Boolean aiNote;
+
+  /**
+   * 是否为外部会议
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_external")
+  private Boolean isExternal;
+
+  /**
+   * 会议子类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("meeting_subtype")
+  private Integer meetingSubtype;
+
+  /**
+   * 唯一会议ID
+   *
+   * <p>示例值：7529416531681214468
+   */
+  @SerializedName("meeting_instance_id")
+  private String meetingInstanceId;
+
+  /**
+   * 网络研讨会观众人数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("number_of_webinar_viewers")
+  private String numberOfWebinarViewers;
+
+  public String getMeetingId() {
+    return this.meetingId;
+  }
+
+  public void setMeetingId(String meetingId) {
+    this.meetingId = meetingId;
+  }
+
+  public String getMeetingTopic() {
+    return this.meetingTopic;
+  }
+
+  public void setMeetingTopic(String meetingTopic) {
+    this.meetingTopic = meetingTopic;
+  }
+
+  public Integer getMeetingType() {
+    return this.meetingType;
+  }
+
+  public void setMeetingType(Integer meetingType) {
+    this.meetingType = meetingType;
+  }
+
+  public String getOrganizer() {
+    return this.organizer;
+  }
+
+  public void setOrganizer(String organizer) {
+    this.organizer = organizer;
+  }
+
+  public String getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getMeetingStartTime() {
+    return this.meetingStartTime;
+  }
+
+  public void setMeetingStartTime(String meetingStartTime) {
+    this.meetingStartTime = meetingStartTime;
+  }
+
+  public String getMeetingEndTime() {
+    return this.meetingEndTime;
+  }
+
+  public void setMeetingEndTime(String meetingEndTime) {
+    this.meetingEndTime = meetingEndTime;
+  }
+
+  public String getMeetingDuration() {
+    return this.meetingDuration;
+  }
+
+  public void setMeetingDuration(String meetingDuration) {
+    this.meetingDuration = meetingDuration;
+  }
+
+  public String getNumberOfParticipants() {
+    return this.numberOfParticipants;
+  }
+
+  public void setNumberOfParticipants(String numberOfParticipants) {
+    this.numberOfParticipants = numberOfParticipants;
+  }
+
+  public String getNumberOfDevices() {
+    return this.numberOfDevices;
+  }
+
+  public void setNumberOfDevices(String numberOfDevices) {
+    this.numberOfDevices = numberOfDevices;
+  }
+
+  public Boolean getAudio() {
+    return this.audio;
+  }
+
+  public void setAudio(Boolean audio) {
+    this.audio = audio;
+  }
+
+  public Boolean getVideo() {
+    return this.video;
+  }
+
+  public void setVideo(Boolean video) {
+    this.video = video;
+  }
+
+  public Boolean getSharing() {
+    return this.sharing;
+  }
+
+  public void setSharing(Boolean sharing) {
+    this.sharing = sharing;
+  }
+
+  public Boolean getRecording() {
+    return this.recording;
+  }
+
+  public void setRecording(Boolean recording) {
+    this.recording = recording;
+  }
+
+  public Boolean getTelephone() {
+    return this.telephone;
+  }
+
+  public void setTelephone(Boolean telephone) {
+    this.telephone = telephone;
+  }
+
+  public ReservedRoom[] getReservedRooms() {
+    return this.reservedRooms;
+  }
+
+  public void setReservedRooms(ReservedRoom[] reservedRooms) {
+    this.reservedRooms = reservedRooms;
+  }
+
+  public Boolean getHasRelatedDocument() {
+    return this.hasRelatedDocument;
+  }
+
+  public void setHasRelatedDocument(Boolean hasRelatedDocument) {
+    this.hasRelatedDocument = hasRelatedDocument;
+  }
+
+  public Boolean getAiNote() {
+    return this.aiNote;
+  }
+
+  public void setAiNote(Boolean aiNote) {
+    this.aiNote = aiNote;
+  }
+
+  public Boolean getIsExternal() {
+    return this.isExternal;
+  }
+
+  public void setIsExternal(Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+  public Integer getMeetingSubtype() {
+    return this.meetingSubtype;
+  }
+
+  public void setMeetingSubtype(Integer meetingSubtype) {
+    this.meetingSubtype = meetingSubtype;
+  }
+
+  public String getMeetingInstanceId() {
+    return this.meetingInstanceId;
+  }
+
+  public void setMeetingInstanceId(String meetingInstanceId) {
+    this.meetingInstanceId = meetingInstanceId;
+  }
+
+  public String getNumberOfWebinarViewers() {
+    return this.numberOfWebinarViewers;
+  }
+
+  public void setNumberOfWebinarViewers(String numberOfWebinarViewers) {
+    this.numberOfWebinarViewers = numberOfWebinarViewers;
+  }
+
+  // builder 开始
+  public MeetingInfo() {}
+
+  public MeetingInfo(Builder builder) {
     /**
      * 9位会议号
-     * <p> 示例值：705605196
+     *
+     * <p>示例值：705605196
      */
-    @SerializedName("meeting_id")
-    private String meetingId;
+    this.meetingId = builder.meetingId;
     /**
      * 会议主题
-     * <p> 示例值：讨论会
+     *
+     * <p>示例值：讨论会
      */
-    @SerializedName("meeting_topic")
-    private String meetingTopic;
+    this.meetingTopic = builder.meetingTopic;
     /**
      * 会议类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("meeting_type")
-    private Integer meetingType;
+    this.meetingType = builder.meetingType;
     /**
      * 组织者
-     * <p> 示例值：kehan
+     *
+     * <p>示例值：kehan
      */
-    @SerializedName("organizer")
-    private String organizer;
+    this.organizer = builder.organizer;
     /**
      * 部门
-     * <p> 示例值：development
+     *
+     * <p>示例值：development
      */
-    @SerializedName("department")
-    private String department;
+    this.department = builder.department;
     /**
      * 用户ID
-     * <p> 示例值：92f879
+     *
+     * <p>示例值：92f879
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 工号
-     * <p> 示例值：202105149765
+     *
+     * <p>示例值：202105149765
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 邮箱
-     * <p> 示例值：xxxx@163.com
+     *
+     * <p>示例值：xxxx@163.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 手机
-     * <p> 示例值：021-673288
+     *
+     * <p>示例值：021-673288
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
-     * 会议开始时间
-     * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
+     * 会议开始时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:16:59 (GMT+08:00)
      */
-    @SerializedName("meeting_start_time")
-    private String meetingStartTime;
+    this.meetingStartTime = builder.meetingStartTime;
     /**
-     * 会议结束时间
-     * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
+     * 会议结束时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:18:51 (GMT+08:00)
      */
-    @SerializedName("meeting_end_time")
-    private String meetingEndTime;
+    this.meetingEndTime = builder.meetingEndTime;
     /**
-     * 会议持续时间
-     * <p> 示例值：00:01:52
+     * 会议持续时间（秒），格式见响应体示例
+     *
+     * <p>示例值：00:01:52
      */
-    @SerializedName("meeting_duration")
-    private String meetingDuration;
+    this.meetingDuration = builder.meetingDuration;
     /**
-     * 参会人数（网络研讨会时，为嘉宾人数）
-     * <p> 示例值：1
+     * 参会人数
+     *
+     * <p>示例值：1
      */
-    @SerializedName("number_of_participants")
-    private String numberOfParticipants;
+    this.numberOfParticipants = builder.numberOfParticipants;
     /**
      * 累计入会设备数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("number_of_devices")
-    private String numberOfDevices;
+    this.numberOfDevices = builder.numberOfDevices;
     /**
      * 音频
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("audio")
-    private Boolean audio;
+    this.audio = builder.audio;
     /**
      * 视频
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("video")
-    private Boolean video;
+    this.video = builder.video;
     /**
      * 共享
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("sharing")
-    private Boolean sharing;
+    this.sharing = builder.sharing;
     /**
      * 录制
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("recording")
-    private Boolean recording;
+    this.recording = builder.recording;
     /**
      * 电话
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("telephone")
-    private Boolean telephone;
+    this.telephone = builder.telephone;
     /**
-     * 关联会议室列表
-     * <p> 示例值：
+     * 关联会议室列表，只有待召开的会议支持该字段。
+     *
+     * <p>示例值：
      */
-    @SerializedName("reserved_rooms")
-    private ReservedRoom[] reservedRooms;
+    this.reservedRooms = builder.reservedRooms;
     /**
      * 是否有关联文档和纪要
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("has_related_document")
-    private Boolean hasRelatedDocument;
+    this.hasRelatedDocument = builder.hasRelatedDocument;
     /**
      * 是否使用AI纪要
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("ai_note")
-    private Boolean aiNote;
+    this.aiNote = builder.aiNote;
     /**
      * 是否为外部会议
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_external")
-    private Boolean isExternal;
+    this.isExternal = builder.isExternal;
     /**
      * 会议子类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("meeting_subtype")
-    private Integer meetingSubtype;
+    this.meetingSubtype = builder.meetingSubtype;
     /**
      * 唯一会议ID
-     * <p> 示例值：7529416531681214468
+     *
+     * <p>示例值：7529416531681214468
      */
-    @SerializedName("meeting_instance_id")
-    private String meetingInstanceId;
+    this.meetingInstanceId = builder.meetingInstanceId;
     /**
      * 网络研讨会观众人数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("number_of_webinar_viewers")
+    this.numberOfWebinarViewers = builder.numberOfWebinarViewers;
+  }
+
+  public static class Builder {
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：705605196
+     */
+    private String meetingId;
+
+    /**
+     * 会议主题
+     *
+     * <p>示例值：讨论会
+     */
+    private String meetingTopic;
+
+    /**
+     * 会议类型
+     *
+     * <p>示例值：1
+     */
+    private Integer meetingType;
+
+    /**
+     * 组织者
+     *
+     * <p>示例值：kehan
+     */
+    private String organizer;
+
+    /**
+     * 部门
+     *
+     * <p>示例值：development
+     */
+    private String department;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：92f879
+     */
+    private String userId;
+
+    /**
+     * 工号
+     *
+     * <p>示例值：202105149765
+     */
+    private String employeeId;
+
+    /**
+     * 邮箱
+     *
+     * <p>示例值：xxxx@163.com
+     */
+    private String email;
+
+    /**
+     * 手机
+     *
+     * <p>示例值：021-673288
+     */
+    private String mobile;
+
+    /**
+     * 会议开始时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:16:59 (GMT+08:00)
+     */
+    private String meetingStartTime;
+
+    /**
+     * 会议结束时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:18:51 (GMT+08:00)
+     */
+    private String meetingEndTime;
+
+    /**
+     * 会议持续时间（秒），格式见响应体示例
+     *
+     * <p>示例值：00:01:52
+     */
+    private String meetingDuration;
+
+    /**
+     * 参会人数
+     *
+     * <p>示例值：1
+     */
+    private String numberOfParticipants;
+
+    /**
+     * 累计入会设备数
+     *
+     * <p>示例值：1
+     */
+    private String numberOfDevices;
+
+    /**
+     * 音频
+     *
+     * <p>示例值：true
+     */
+    private Boolean audio;
+
+    /**
+     * 视频
+     *
+     * <p>示例值：true
+     */
+    private Boolean video;
+
+    /**
+     * 共享
+     *
+     * <p>示例值：false
+     */
+    private Boolean sharing;
+
+    /**
+     * 录制
+     *
+     * <p>示例值：false
+     */
+    private Boolean recording;
+
+    /**
+     * 电话
+     *
+     * <p>示例值：false
+     */
+    private Boolean telephone;
+
+    /**
+     * 关联会议室列表，只有待召开的会议支持该字段。
+     *
+     * <p>示例值：
+     */
+    private ReservedRoom[] reservedRooms;
+
+    /**
+     * 是否有关联文档和纪要
+     *
+     * <p>示例值：false
+     */
+    private Boolean hasRelatedDocument;
+
+    /**
+     * 是否使用AI纪要
+     *
+     * <p>示例值：false
+     */
+    private Boolean aiNote;
+
+    /**
+     * 是否为外部会议
+     *
+     * <p>示例值：false
+     */
+    private Boolean isExternal;
+
+    /**
+     * 会议子类型
+     *
+     * <p>示例值：1
+     */
+    private Integer meetingSubtype;
+
+    /**
+     * 唯一会议ID
+     *
+     * <p>示例值：7529416531681214468
+     */
+    private String meetingInstanceId;
+
+    /**
+     * 网络研讨会观众人数
+     *
+     * <p>示例值：1
+     */
     private String numberOfWebinarViewers;
 
-    // builder 开始
-    public MeetingInfo() {
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：705605196
+     *
+     * @param meetingId
+     * @return
+     */
+    public Builder meetingId(String meetingId) {
+      this.meetingId = meetingId;
+      return this;
     }
 
-    public MeetingInfo(Builder builder) {
-        /**
-         * 9位会议号
-         * <p> 示例值：705605196
-         */
-        this.meetingId = builder.meetingId;
-        /**
-         * 会议主题
-         * <p> 示例值：讨论会
-         */
-        this.meetingTopic = builder.meetingTopic;
-        /**
-         * 会议类型
-         * <p> 示例值：1
-         */
-        this.meetingType = builder.meetingType;
-        /**
-         * 组织者
-         * <p> 示例值：kehan
-         */
-        this.organizer = builder.organizer;
-        /**
-         * 部门
-         * <p> 示例值：development
-         */
-        this.department = builder.department;
-        /**
-         * 用户ID
-         * <p> 示例值：92f879
-         */
-        this.userId = builder.userId;
-        /**
-         * 工号
-         * <p> 示例值：202105149765
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 邮箱
-         * <p> 示例值：xxxx@163.com
-         */
-        this.email = builder.email;
-        /**
-         * 手机
-         * <p> 示例值：021-673288
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 会议开始时间
-         * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         */
-        this.meetingStartTime = builder.meetingStartTime;
-        /**
-         * 会议结束时间
-         * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         */
-        this.meetingEndTime = builder.meetingEndTime;
-        /**
-         * 会议持续时间
-         * <p> 示例值：00:01:52
-         */
-        this.meetingDuration = builder.meetingDuration;
-        /**
-         * 参会人数（网络研讨会时，为嘉宾人数）
-         * <p> 示例值：1
-         */
-        this.numberOfParticipants = builder.numberOfParticipants;
-        /**
-         * 累计入会设备数
-         * <p> 示例值：1
-         */
-        this.numberOfDevices = builder.numberOfDevices;
-        /**
-         * 音频
-         * <p> 示例值：true
-         */
-        this.audio = builder.audio;
-        /**
-         * 视频
-         * <p> 示例值：true
-         */
-        this.video = builder.video;
-        /**
-         * 共享
-         * <p> 示例值：false
-         */
-        this.sharing = builder.sharing;
-        /**
-         * 录制
-         * <p> 示例值：false
-         */
-        this.recording = builder.recording;
-        /**
-         * 电话
-         * <p> 示例值：false
-         */
-        this.telephone = builder.telephone;
-        /**
-         * 关联会议室列表
-         * <p> 示例值：
-         */
-        this.reservedRooms = builder.reservedRooms;
-        /**
-         * 是否有关联文档和纪要
-         * <p> 示例值：false
-         */
-        this.hasRelatedDocument = builder.hasRelatedDocument;
-        /**
-         * 是否使用AI纪要
-         * <p> 示例值：false
-         */
-        this.aiNote = builder.aiNote;
-        /**
-         * 是否为外部会议
-         * <p> 示例值：false
-         */
-        this.isExternal = builder.isExternal;
-        /**
-         * 会议子类型
-         * <p> 示例值：1
-         */
-        this.meetingSubtype = builder.meetingSubtype;
-        /**
-         * 唯一会议ID
-         * <p> 示例值：7529416531681214468
-         */
-        this.meetingInstanceId = builder.meetingInstanceId;
-        /**
-         * 网络研讨会观众人数
-         * <p> 示例值：1
-         */
-        this.numberOfWebinarViewers = builder.numberOfWebinarViewers;
+    /**
+     * 会议主题
+     *
+     * <p>示例值：讨论会
+     *
+     * @param meetingTopic
+     * @return
+     */
+    public Builder meetingTopic(String meetingTopic) {
+      this.meetingTopic = meetingTopic;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingType
+     * @return
+     */
+    public Builder meetingType(Integer meetingType) {
+      this.meetingType = meetingType;
+      return this;
     }
 
-    public String getMeetingId() {
-        return this.meetingId;
+    /**
+     * 会议类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum}
+     * @return
+     */
+    public Builder meetingType(
+        com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum meetingType) {
+      this.meetingType = meetingType.getValue();
+      return this;
     }
 
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
+    /**
+     * 组织者
+     *
+     * <p>示例值：kehan
+     *
+     * @param organizer
+     * @return
+     */
+    public Builder organizer(String organizer) {
+      this.organizer = organizer;
+      return this;
     }
 
-    public String getMeetingTopic() {
-        return this.meetingTopic;
+    /**
+     * 部门
+     *
+     * <p>示例值：development
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(String department) {
+      this.department = department;
+      return this;
     }
 
-    public void setMeetingTopic(String meetingTopic) {
-        this.meetingTopic = meetingTopic;
+    /**
+     * 用户ID
+     *
+     * <p>示例值：92f879
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public Integer getMeetingType() {
-        return this.meetingType;
+    /**
+     * 工号
+     *
+     * <p>示例值：202105149765
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public void setMeetingType(Integer meetingType) {
-        this.meetingType = meetingType;
+    /**
+     * 邮箱
+     *
+     * <p>示例值：xxxx@163.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public String getOrganizer() {
-        return this.organizer;
+    /**
+     * 手机
+     *
+     * <p>示例值：021-673288
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public void setOrganizer(String organizer) {
-        this.organizer = organizer;
+    /**
+     * 会议开始时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:16:59 (GMT+08:00)
+     *
+     * @param meetingStartTime
+     * @return
+     */
+    public Builder meetingStartTime(String meetingStartTime) {
+      this.meetingStartTime = meetingStartTime;
+      return this;
     }
 
-    public String getDepartment() {
-        return this.department;
+    /**
+     * 会议结束时间，格式见响应体示例
+     *
+     * <p>示例值：2022.12.23 11:18:51 (GMT+08:00)
+     *
+     * @param meetingEndTime
+     * @return
+     */
+    public Builder meetingEndTime(String meetingEndTime) {
+      this.meetingEndTime = meetingEndTime;
+      return this;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    /**
+     * 会议持续时间（秒），格式见响应体示例
+     *
+     * <p>示例值：00:01:52
+     *
+     * @param meetingDuration
+     * @return
+     */
+    public Builder meetingDuration(String meetingDuration) {
+      this.meetingDuration = meetingDuration;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 参会人数
+     *
+     * <p>示例值：1
+     *
+     * @param numberOfParticipants
+     * @return
+     */
+    public Builder numberOfParticipants(String numberOfParticipants) {
+      this.numberOfParticipants = numberOfParticipants;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 累计入会设备数
+     *
+     * <p>示例值：1
+     *
+     * @param numberOfDevices
+     * @return
+     */
+    public Builder numberOfDevices(String numberOfDevices) {
+      this.numberOfDevices = numberOfDevices;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 音频
+     *
+     * <p>示例值：true
+     *
+     * @param audio
+     * @return
+     */
+    public Builder audio(Boolean audio) {
+      this.audio = audio;
+      return this;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    /**
+     * 视频
+     *
+     * <p>示例值：true
+     *
+     * @param video
+     * @return
+     */
+    public Builder video(Boolean video) {
+      this.video = video;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 共享
+     *
+     * <p>示例值：false
+     *
+     * @param sharing
+     * @return
+     */
+    public Builder sharing(Boolean sharing) {
+      this.sharing = sharing;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /**
+     * 录制
+     *
+     * <p>示例值：false
+     *
+     * @param recording
+     * @return
+     */
+    public Builder recording(Boolean recording) {
+      this.recording = recording;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    /**
+     * 电话
+     *
+     * <p>示例值：false
+     *
+     * @param telephone
+     * @return
+     */
+    public Builder telephone(Boolean telephone) {
+      this.telephone = telephone;
+      return this;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    /**
+     * 关联会议室列表，只有待召开的会议支持该字段。
+     *
+     * <p>示例值：
+     *
+     * @param reservedRooms
+     * @return
+     */
+    public Builder reservedRooms(ReservedRoom[] reservedRooms) {
+      this.reservedRooms = reservedRooms;
+      return this;
     }
 
-    public String getMeetingStartTime() {
-        return this.meetingStartTime;
+    /**
+     * 是否有关联文档和纪要
+     *
+     * <p>示例值：false
+     *
+     * @param hasRelatedDocument
+     * @return
+     */
+    public Builder hasRelatedDocument(Boolean hasRelatedDocument) {
+      this.hasRelatedDocument = hasRelatedDocument;
+      return this;
     }
 
-    public void setMeetingStartTime(String meetingStartTime) {
-        this.meetingStartTime = meetingStartTime;
+    /**
+     * 是否使用AI纪要
+     *
+     * <p>示例值：false
+     *
+     * @param aiNote
+     * @return
+     */
+    public Builder aiNote(Boolean aiNote) {
+      this.aiNote = aiNote;
+      return this;
     }
 
-    public String getMeetingEndTime() {
-        return this.meetingEndTime;
+    /**
+     * 是否为外部会议
+     *
+     * <p>示例值：false
+     *
+     * @param isExternal
+     * @return
+     */
+    public Builder isExternal(Boolean isExternal) {
+      this.isExternal = isExternal;
+      return this;
     }
 
-    public void setMeetingEndTime(String meetingEndTime) {
-        this.meetingEndTime = meetingEndTime;
+    /**
+     * 会议子类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingSubtype
+     * @return
+     */
+    public Builder meetingSubtype(Integer meetingSubtype) {
+      this.meetingSubtype = meetingSubtype;
+      return this;
     }
 
-    public String getMeetingDuration() {
-        return this.meetingDuration;
+    /**
+     * 会议子类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingSubtype {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum}
+     * @return
+     */
+    public Builder meetingSubtype(
+        com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum meetingSubtype) {
+      this.meetingSubtype = meetingSubtype.getValue();
+      return this;
     }
 
-    public void setMeetingDuration(String meetingDuration) {
-        this.meetingDuration = meetingDuration;
+    /**
+     * 唯一会议ID
+     *
+     * <p>示例值：7529416531681214468
+     *
+     * @param meetingInstanceId
+     * @return
+     */
+    public Builder meetingInstanceId(String meetingInstanceId) {
+      this.meetingInstanceId = meetingInstanceId;
+      return this;
     }
 
-    public String getNumberOfParticipants() {
-        return this.numberOfParticipants;
+    /**
+     * 网络研讨会观众人数
+     *
+     * <p>示例值：1
+     *
+     * @param numberOfWebinarViewers
+     * @return
+     */
+    public Builder numberOfWebinarViewers(String numberOfWebinarViewers) {
+      this.numberOfWebinarViewers = numberOfWebinarViewers;
+      return this;
     }
 
-    public void setNumberOfParticipants(String numberOfParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
+    public MeetingInfo build() {
+      return new MeetingInfo(this);
     }
-
-    public String getNumberOfDevices() {
-        return this.numberOfDevices;
-    }
-
-    public void setNumberOfDevices(String numberOfDevices) {
-        this.numberOfDevices = numberOfDevices;
-    }
-
-    public Boolean getAudio() {
-        return this.audio;
-    }
-
-    public void setAudio(Boolean audio) {
-        this.audio = audio;
-    }
-
-    public Boolean getVideo() {
-        return this.video;
-    }
-
-    public void setVideo(Boolean video) {
-        this.video = video;
-    }
-
-    public Boolean getSharing() {
-        return this.sharing;
-    }
-
-    public void setSharing(Boolean sharing) {
-        this.sharing = sharing;
-    }
-
-    public Boolean getRecording() {
-        return this.recording;
-    }
-
-    public void setRecording(Boolean recording) {
-        this.recording = recording;
-    }
-
-    public Boolean getTelephone() {
-        return this.telephone;
-    }
-
-    public void setTelephone(Boolean telephone) {
-        this.telephone = telephone;
-    }
-
-    public ReservedRoom[] getReservedRooms() {
-        return this.reservedRooms;
-    }
-
-    public void setReservedRooms(ReservedRoom[] reservedRooms) {
-        this.reservedRooms = reservedRooms;
-    }
-
-    public Boolean getHasRelatedDocument() {
-        return this.hasRelatedDocument;
-    }
-
-    public void setHasRelatedDocument(Boolean hasRelatedDocument) {
-        this.hasRelatedDocument = hasRelatedDocument;
-    }
-
-    public Boolean getAiNote() {
-        return this.aiNote;
-    }
-
-    public void setAiNote(Boolean aiNote) {
-        this.aiNote = aiNote;
-    }
-
-    public Boolean getIsExternal() {
-        return this.isExternal;
-    }
-
-    public void setIsExternal(Boolean isExternal) {
-        this.isExternal = isExternal;
-    }
-
-    public Integer getMeetingSubtype() {
-        return this.meetingSubtype;
-    }
-
-    public void setMeetingSubtype(Integer meetingSubtype) {
-        this.meetingSubtype = meetingSubtype;
-    }
-
-    public String getMeetingInstanceId() {
-        return this.meetingInstanceId;
-    }
-
-    public void setMeetingInstanceId(String meetingInstanceId) {
-        this.meetingInstanceId = meetingInstanceId;
-    }
-
-    public String getNumberOfWebinarViewers() {
-        return this.numberOfWebinarViewers;
-    }
-
-    public void setNumberOfWebinarViewers(String numberOfWebinarViewers) {
-        this.numberOfWebinarViewers = numberOfWebinarViewers;
-    }
-
-    public static class Builder {
-        /**
-         * 9位会议号
-         * <p> 示例值：705605196
-         */
-        private String meetingId;
-        /**
-         * 会议主题
-         * <p> 示例值：讨论会
-         */
-        private String meetingTopic;
-        /**
-         * 会议类型
-         * <p> 示例值：1
-         */
-        private Integer meetingType;
-        /**
-         * 组织者
-         * <p> 示例值：kehan
-         */
-        private String organizer;
-        /**
-         * 部门
-         * <p> 示例值：development
-         */
-        private String department;
-        /**
-         * 用户ID
-         * <p> 示例值：92f879
-         */
-        private String userId;
-        /**
-         * 工号
-         * <p> 示例值：202105149765
-         */
-        private String employeeId;
-        /**
-         * 邮箱
-         * <p> 示例值：xxxx@163.com
-         */
-        private String email;
-        /**
-         * 手机
-         * <p> 示例值：021-673288
-         */
-        private String mobile;
-        /**
-         * 会议开始时间
-         * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         */
-        private String meetingStartTime;
-        /**
-         * 会议结束时间
-         * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         */
-        private String meetingEndTime;
-        /**
-         * 会议持续时间
-         * <p> 示例值：00:01:52
-         */
-        private String meetingDuration;
-        /**
-         * 参会人数（网络研讨会时，为嘉宾人数）
-         * <p> 示例值：1
-         */
-        private String numberOfParticipants;
-        /**
-         * 累计入会设备数
-         * <p> 示例值：1
-         */
-        private String numberOfDevices;
-        /**
-         * 音频
-         * <p> 示例值：true
-         */
-        private Boolean audio;
-        /**
-         * 视频
-         * <p> 示例值：true
-         */
-        private Boolean video;
-        /**
-         * 共享
-         * <p> 示例值：false
-         */
-        private Boolean sharing;
-        /**
-         * 录制
-         * <p> 示例值：false
-         */
-        private Boolean recording;
-        /**
-         * 电话
-         * <p> 示例值：false
-         */
-        private Boolean telephone;
-        /**
-         * 关联会议室列表
-         * <p> 示例值：
-         */
-        private ReservedRoom[] reservedRooms;
-        /**
-         * 是否有关联文档和纪要
-         * <p> 示例值：false
-         */
-        private Boolean hasRelatedDocument;
-        /**
-         * 是否使用AI纪要
-         * <p> 示例值：false
-         */
-        private Boolean aiNote;
-        /**
-         * 是否为外部会议
-         * <p> 示例值：false
-         */
-        private Boolean isExternal;
-        /**
-         * 会议子类型
-         * <p> 示例值：1
-         */
-        private Integer meetingSubtype;
-        /**
-         * 唯一会议ID
-         * <p> 示例值：7529416531681214468
-         */
-        private String meetingInstanceId;
-        /**
-         * 网络研讨会观众人数
-         * <p> 示例值：1
-         */
-        private String numberOfWebinarViewers;
-
-        /**
-         * 9位会议号
-         * <p> 示例值：705605196
-         *
-         * @param meetingId
-         * @return
-         */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
-
-
-        /**
-         * 会议主题
-         * <p> 示例值：讨论会
-         *
-         * @param meetingTopic
-         * @return
-         */
-        public Builder meetingTopic(String meetingTopic) {
-            this.meetingTopic = meetingTopic;
-            return this;
-        }
-
-
-        /**
-         * 会议类型
-         * <p> 示例值：1
-         *
-         * @param meetingType
-         * @return
-         */
-        public Builder meetingType(Integer meetingType) {
-            this.meetingType = meetingType;
-            return this;
-        }
-
-        /**
-         * 会议类型
-         * <p> 示例值：1
-         *
-         * @param meetingType {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum}
-         * @return
-         */
-        public Builder meetingType(com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingTypeEnum meetingType) {
-            this.meetingType = meetingType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 组织者
-         * <p> 示例值：kehan
-         *
-         * @param organizer
-         * @return
-         */
-        public Builder organizer(String organizer) {
-            this.organizer = organizer;
-            return this;
-        }
-
-
-        /**
-         * 部门
-         * <p> 示例值：development
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(String department) {
-            this.department = department;
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：92f879
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 工号
-         * <p> 示例值：202105149765
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：xxxx@163.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 手机
-         * <p> 示例值：021-673288
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 会议开始时间
-         * <p> 示例值：2022.12.23 11:16:59 (GMT+08:00)
-         *
-         * @param meetingStartTime
-         * @return
-         */
-        public Builder meetingStartTime(String meetingStartTime) {
-            this.meetingStartTime = meetingStartTime;
-            return this;
-        }
-
-
-        /**
-         * 会议结束时间
-         * <p> 示例值：2022.12.23 11:18:51 (GMT+08:00)
-         *
-         * @param meetingEndTime
-         * @return
-         */
-        public Builder meetingEndTime(String meetingEndTime) {
-            this.meetingEndTime = meetingEndTime;
-            return this;
-        }
-
-
-        /**
-         * 会议持续时间
-         * <p> 示例值：00:01:52
-         *
-         * @param meetingDuration
-         * @return
-         */
-        public Builder meetingDuration(String meetingDuration) {
-            this.meetingDuration = meetingDuration;
-            return this;
-        }
-
-
-        /**
-         * 参会人数（网络研讨会时，为嘉宾人数）
-         * <p> 示例值：1
-         *
-         * @param numberOfParticipants
-         * @return
-         */
-        public Builder numberOfParticipants(String numberOfParticipants) {
-            this.numberOfParticipants = numberOfParticipants;
-            return this;
-        }
-
-
-        /**
-         * 累计入会设备数
-         * <p> 示例值：1
-         *
-         * @param numberOfDevices
-         * @return
-         */
-        public Builder numberOfDevices(String numberOfDevices) {
-            this.numberOfDevices = numberOfDevices;
-            return this;
-        }
-
-
-        /**
-         * 音频
-         * <p> 示例值：true
-         *
-         * @param audio
-         * @return
-         */
-        public Builder audio(Boolean audio) {
-            this.audio = audio;
-            return this;
-        }
-
-
-        /**
-         * 视频
-         * <p> 示例值：true
-         *
-         * @param video
-         * @return
-         */
-        public Builder video(Boolean video) {
-            this.video = video;
-            return this;
-        }
-
-
-        /**
-         * 共享
-         * <p> 示例值：false
-         *
-         * @param sharing
-         * @return
-         */
-        public Builder sharing(Boolean sharing) {
-            this.sharing = sharing;
-            return this;
-        }
-
-
-        /**
-         * 录制
-         * <p> 示例值：false
-         *
-         * @param recording
-         * @return
-         */
-        public Builder recording(Boolean recording) {
-            this.recording = recording;
-            return this;
-        }
-
-
-        /**
-         * 电话
-         * <p> 示例值：false
-         *
-         * @param telephone
-         * @return
-         */
-        public Builder telephone(Boolean telephone) {
-            this.telephone = telephone;
-            return this;
-        }
-
-
-        /**
-         * 关联会议室列表
-         * <p> 示例值：
-         *
-         * @param reservedRooms
-         * @return
-         */
-        public Builder reservedRooms(ReservedRoom[] reservedRooms) {
-            this.reservedRooms = reservedRooms;
-            return this;
-        }
-
-
-        /**
-         * 是否有关联文档和纪要
-         * <p> 示例值：false
-         *
-         * @param hasRelatedDocument
-         * @return
-         */
-        public Builder hasRelatedDocument(Boolean hasRelatedDocument) {
-            this.hasRelatedDocument = hasRelatedDocument;
-            return this;
-        }
-
-
-        /**
-         * 是否使用AI纪要
-         * <p> 示例值：false
-         *
-         * @param aiNote
-         * @return
-         */
-        public Builder aiNote(Boolean aiNote) {
-            this.aiNote = aiNote;
-            return this;
-        }
-
-
-        /**
-         * 是否为外部会议
-         * <p> 示例值：false
-         *
-         * @param isExternal
-         * @return
-         */
-        public Builder isExternal(Boolean isExternal) {
-            this.isExternal = isExternal;
-            return this;
-        }
-
-
-        /**
-         * 会议子类型
-         * <p> 示例值：1
-         *
-         * @param meetingSubtype
-         * @return
-         */
-        public Builder meetingSubtype(Integer meetingSubtype) {
-            this.meetingSubtype = meetingSubtype;
-            return this;
-        }
-
-        /**
-         * 会议子类型
-         * <p> 示例值：1
-         *
-         * @param meetingSubtype {@link com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum}
-         * @return
-         */
-        public Builder meetingSubtype(com.lark.oapi.service.vc.v1.enums.MeetingInfoMeetingSubtypeEnum meetingSubtype) {
-            this.meetingSubtype = meetingSubtype.getValue();
-            return this;
-        }
-
-
-        /**
-         * 唯一会议ID
-         * <p> 示例值：7529416531681214468
-         *
-         * @param meetingInstanceId
-         * @return
-         */
-        public Builder meetingInstanceId(String meetingInstanceId) {
-            this.meetingInstanceId = meetingInstanceId;
-            return this;
-        }
-
-
-        /**
-         * 网络研讨会观众人数
-         * <p> 示例值：1
-         *
-         * @param numberOfWebinarViewers
-         * @return
-         */
-        public Builder numberOfWebinarViewers(String numberOfWebinarViewers) {
-            this.numberOfWebinarViewers = numberOfWebinarViewers;
-            return this;
-        }
-
-
-        public MeetingInfo build() {
-            return new MeetingInfo(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

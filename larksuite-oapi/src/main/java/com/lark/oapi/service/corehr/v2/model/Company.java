@@ -13,741 +13,821 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Company {
+  /**
+   * 公司 ID
+   *
+   * <p>示例值：4692472714243080020
+   */
+  @SerializedName("company_id")
+  private String companyId;
+
+  /**
+   * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hiberarchy_common")
+  private HiberarchyCommon hiberarchyCommon;
+
+  /**
+   * 性质
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private Enum type;
+
+  /**
+   * 行业
+   *
+   * <p>示例值：
+   */
+  @SerializedName("industry_list")
+  private Enum[] industryList;
+
+  /**
+   * 法定代表人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_representative")
+  private I18n[] legalRepresentative;
+
+  /**
+   * 邮编
+   *
+   * <p>示例值：邮编
+   */
+  @SerializedName("post_code")
+  private String postCode;
+
+  /**
+   * 纳税人识别号
+   *
+   * <p>示例值：123456840
+   */
+  @SerializedName("tax_payer_id")
+  private String taxPayerId;
+
+  /**
+   * confidential
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("confidential")
+  private Boolean confidential;
+
+  /**
+   * 主体类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_type_list")
+  private Enum[] subTypeList;
+
+  /**
+   * 是否为分公司
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("branch_company")
+  private Boolean branchCompany;
+
+  /**
+   * 主要负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("primary_manager")
+  private I18n[] primaryManager;
+
+  /**
+   * 默认币种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency")
+  private Currency currency;
+
+  /**
+   * 电话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone")
+  private PhoneNumberAndAreaCode phone;
+
+  /**
+   * 传真
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fax")
+  private PhoneNumberAndAreaCode fax;
+
+  /**
+   * 完整注册地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("registered_office_address")
+  private I18n[] registeredOfficeAddress;
+
+  /**
+   * 完整办公地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("office_address")
+  private I18n[] officeAddress;
+
+  /**
+   * 注册地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("registered_office_address_info")
+  private Address registeredOfficeAddressInfo;
+
+  /**
+   * 办公地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("office_address_info")
+  private Address officeAddressInfo;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public String getCompanyId() {
+    return this.companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+  public HiberarchyCommon getHiberarchyCommon() {
+    return this.hiberarchyCommon;
+  }
+
+  public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+    this.hiberarchyCommon = hiberarchyCommon;
+  }
+
+  public Enum getType() {
+    return this.type;
+  }
+
+  public void setType(Enum type) {
+    this.type = type;
+  }
+
+  public Enum[] getIndustryList() {
+    return this.industryList;
+  }
+
+  public void setIndustryList(Enum[] industryList) {
+    this.industryList = industryList;
+  }
+
+  public I18n[] getLegalRepresentative() {
+    return this.legalRepresentative;
+  }
+
+  public void setLegalRepresentative(I18n[] legalRepresentative) {
+    this.legalRepresentative = legalRepresentative;
+  }
+
+  public String getPostCode() {
+    return this.postCode;
+  }
+
+  public void setPostCode(String postCode) {
+    this.postCode = postCode;
+  }
+
+  public String getTaxPayerId() {
+    return this.taxPayerId;
+  }
+
+  public void setTaxPayerId(String taxPayerId) {
+    this.taxPayerId = taxPayerId;
+  }
+
+  public Boolean getConfidential() {
+    return this.confidential;
+  }
+
+  public void setConfidential(Boolean confidential) {
+    this.confidential = confidential;
+  }
+
+  public Enum[] getSubTypeList() {
+    return this.subTypeList;
+  }
+
+  public void setSubTypeList(Enum[] subTypeList) {
+    this.subTypeList = subTypeList;
+  }
+
+  public Boolean getBranchCompany() {
+    return this.branchCompany;
+  }
+
+  public void setBranchCompany(Boolean branchCompany) {
+    this.branchCompany = branchCompany;
+  }
+
+  public I18n[] getPrimaryManager() {
+    return this.primaryManager;
+  }
+
+  public void setPrimaryManager(I18n[] primaryManager) {
+    this.primaryManager = primaryManager;
+  }
+
+  public Currency getCurrency() {
+    return this.currency;
+  }
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
+
+  public PhoneNumberAndAreaCode getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(PhoneNumberAndAreaCode phone) {
+    this.phone = phone;
+  }
+
+  public PhoneNumberAndAreaCode getFax() {
+    return this.fax;
+  }
+
+  public void setFax(PhoneNumberAndAreaCode fax) {
+    this.fax = fax;
+  }
+
+  public I18n[] getRegisteredOfficeAddress() {
+    return this.registeredOfficeAddress;
+  }
+
+  public void setRegisteredOfficeAddress(I18n[] registeredOfficeAddress) {
+    this.registeredOfficeAddress = registeredOfficeAddress;
+  }
+
+  public I18n[] getOfficeAddress() {
+    return this.officeAddress;
+  }
+
+  public void setOfficeAddress(I18n[] officeAddress) {
+    this.officeAddress = officeAddress;
+  }
+
+  public Address getRegisteredOfficeAddressInfo() {
+    return this.registeredOfficeAddressInfo;
+  }
+
+  public void setRegisteredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
+    this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
+  }
+
+  public Address getOfficeAddressInfo() {
+    return this.officeAddressInfo;
+  }
+
+  public void setOfficeAddressInfo(Address officeAddressInfo) {
+    this.officeAddressInfo = officeAddressInfo;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public Company() {}
+
+  public Company(Builder builder) {
     /**
      * 公司 ID
-     * <p> 示例值：4692472714243080020
+     *
+     * <p>示例值：4692472714243080020
      */
-    @SerializedName("company_id")
-    private String companyId;
+    this.companyId = builder.companyId;
     /**
-     * 公司基本信息
-     * <p> 示例值：
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("hiberarchy_common")
-    private HiberarchyCommon hiberarchyCommon;
+    this.hiberarchyCommon = builder.hiberarchyCommon;
     /**
      * 性质
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private Enum type;
+    this.type = builder.type;
     /**
      * 行业
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("industry_list")
-    private Enum[] industryList;
+    this.industryList = builder.industryList;
     /**
      * 法定代表人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("legal_representative")
-    private I18n[] legalRepresentative;
+    this.legalRepresentative = builder.legalRepresentative;
     /**
      * 邮编
-     * <p> 示例值：邮编
+     *
+     * <p>示例值：邮编
      */
-    @SerializedName("post_code")
-    private String postCode;
+    this.postCode = builder.postCode;
     /**
      * 纳税人识别号
-     * <p> 示例值：123456840
+     *
+     * <p>示例值：123456840
      */
-    @SerializedName("tax_payer_id")
-    private String taxPayerId;
+    this.taxPayerId = builder.taxPayerId;
     /**
      * confidential
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("confidential")
-    private Boolean confidential;
+    this.confidential = builder.confidential;
     /**
      * 主体类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_type_list")
-    private Enum[] subTypeList;
+    this.subTypeList = builder.subTypeList;
     /**
      * 是否为分公司
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("branch_company")
-    private Boolean branchCompany;
+    this.branchCompany = builder.branchCompany;
     /**
      * 主要负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("primary_manager")
-    private I18n[] primaryManager;
+    this.primaryManager = builder.primaryManager;
     /**
      * 默认币种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency")
-    private Currency currency;
+    this.currency = builder.currency;
     /**
      * 电话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone")
-    private PhoneNumberAndAreaCode phone;
+    this.phone = builder.phone;
     /**
      * 传真
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fax")
-    private PhoneNumberAndAreaCode fax;
+    this.fax = builder.fax;
     /**
      * 完整注册地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("registered_office_address")
-    private I18n[] registeredOfficeAddress;
+    this.registeredOfficeAddress = builder.registeredOfficeAddress;
     /**
      * 完整办公地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("office_address")
-    private I18n[] officeAddress;
+    this.officeAddress = builder.officeAddress;
     /**
      * 注册地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("registered_office_address_info")
-    private Address registeredOfficeAddressInfo;
+    this.registeredOfficeAddressInfo = builder.registeredOfficeAddressInfo;
     /**
      * 办公地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("office_address_info")
-    private Address officeAddressInfo;
+    this.officeAddressInfo = builder.officeAddressInfo;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 公司 ID
+     *
+     * <p>示例值：4692472714243080020
+     */
+    private String companyId;
+
+    /**
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
+     */
+    private HiberarchyCommon hiberarchyCommon;
+
+    /**
+     * 性质
+     *
+     * <p>示例值：
+     */
+    private Enum type;
+
+    /**
+     * 行业
+     *
+     * <p>示例值：
+     */
+    private Enum[] industryList;
+
+    /**
+     * 法定代表人
+     *
+     * <p>示例值：
+     */
+    private I18n[] legalRepresentative;
+
+    /**
+     * 邮编
+     *
+     * <p>示例值：邮编
+     */
+    private String postCode;
+
+    /**
+     * 纳税人识别号
+     *
+     * <p>示例值：123456840
+     */
+    private String taxPayerId;
+
+    /**
+     * confidential
+     *
+     * <p>示例值：true
+     */
+    private Boolean confidential;
+
+    /**
+     * 主体类型
+     *
+     * <p>示例值：
+     */
+    private Enum[] subTypeList;
+
+    /**
+     * 是否为分公司
+     *
+     * <p>示例值：true
+     */
+    private Boolean branchCompany;
+
+    /**
+     * 主要负责人
+     *
+     * <p>示例值：
+     */
+    private I18n[] primaryManager;
+
+    /**
+     * 默认币种
+     *
+     * <p>示例值：
+     */
+    private Currency currency;
+
+    /**
+     * 电话
+     *
+     * <p>示例值：
+     */
+    private PhoneNumberAndAreaCode phone;
+
+    /**
+     * 传真
+     *
+     * <p>示例值：
+     */
+    private PhoneNumberAndAreaCode fax;
+
+    /**
+     * 完整注册地址
+     *
+     * <p>示例值：
+     */
+    private I18n[] registeredOfficeAddress;
+
+    /**
+     * 完整办公地址
+     *
+     * <p>示例值：
+     */
+    private I18n[] officeAddress;
+
+    /**
+     * 注册地址
+     *
+     * <p>示例值：
+     */
+    private Address registeredOfficeAddressInfo;
+
+    /**
+     * 办公地址
+     *
+     * <p>示例值：
+     */
+    private Address officeAddressInfo;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public Company() {
+    /**
+     * 公司 ID
+     *
+     * <p>示例值：4692472714243080020
+     *
+     * @param companyId
+     * @return
+     */
+    public Builder companyId(String companyId) {
+      this.companyId = companyId;
+      return this;
     }
 
-    public Company(Builder builder) {
-        /**
-         * 公司 ID
-         * <p> 示例值：4692472714243080020
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 公司基本信息
-         * <p> 示例值：
-         */
-        this.hiberarchyCommon = builder.hiberarchyCommon;
-        /**
-         * 性质
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 行业
-         * <p> 示例值：
-         */
-        this.industryList = builder.industryList;
-        /**
-         * 法定代表人
-         * <p> 示例值：
-         */
-        this.legalRepresentative = builder.legalRepresentative;
-        /**
-         * 邮编
-         * <p> 示例值：邮编
-         */
-        this.postCode = builder.postCode;
-        /**
-         * 纳税人识别号
-         * <p> 示例值：123456840
-         */
-        this.taxPayerId = builder.taxPayerId;
-        /**
-         * confidential
-         * <p> 示例值：true
-         */
-        this.confidential = builder.confidential;
-        /**
-         * 主体类型
-         * <p> 示例值：
-         */
-        this.subTypeList = builder.subTypeList;
-        /**
-         * 是否为分公司
-         * <p> 示例值：true
-         */
-        this.branchCompany = builder.branchCompany;
-        /**
-         * 主要负责人
-         * <p> 示例值：
-         */
-        this.primaryManager = builder.primaryManager;
-        /**
-         * 默认币种
-         * <p> 示例值：
-         */
-        this.currency = builder.currency;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        this.phone = builder.phone;
-        /**
-         * 传真
-         * <p> 示例值：
-         */
-        this.fax = builder.fax;
-        /**
-         * 完整注册地址
-         * <p> 示例值：
-         */
-        this.registeredOfficeAddress = builder.registeredOfficeAddress;
-        /**
-         * 完整办公地址
-         * <p> 示例值：
-         */
-        this.officeAddress = builder.officeAddress;
-        /**
-         * 注册地址
-         * <p> 示例值：
-         */
-        this.registeredOfficeAddressInfo = builder.registeredOfficeAddressInfo;
-        /**
-         * 办公地址
-         * <p> 示例值：
-         */
-        this.officeAddressInfo = builder.officeAddressInfo;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
+     *
+     * @param hiberarchyCommon
+     * @return
+     */
+    public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+      this.hiberarchyCommon = hiberarchyCommon;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 性质
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Enum type) {
+      this.type = type;
+      return this;
     }
 
-    public String getCompanyId() {
-        return this.companyId;
+    /**
+     * 行业
+     *
+     * <p>示例值：
+     *
+     * @param industryList
+     * @return
+     */
+    public Builder industryList(Enum[] industryList) {
+      this.industryList = industryList;
+      return this;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    /**
+     * 法定代表人
+     *
+     * <p>示例值：
+     *
+     * @param legalRepresentative
+     * @return
+     */
+    public Builder legalRepresentative(I18n[] legalRepresentative) {
+      this.legalRepresentative = legalRepresentative;
+      return this;
     }
 
-    public HiberarchyCommon getHiberarchyCommon() {
-        return this.hiberarchyCommon;
+    /**
+     * 邮编
+     *
+     * <p>示例值：邮编
+     *
+     * @param postCode
+     * @return
+     */
+    public Builder postCode(String postCode) {
+      this.postCode = postCode;
+      return this;
     }
 
-    public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-        this.hiberarchyCommon = hiberarchyCommon;
+    /**
+     * 纳税人识别号
+     *
+     * <p>示例值：123456840
+     *
+     * @param taxPayerId
+     * @return
+     */
+    public Builder taxPayerId(String taxPayerId) {
+      this.taxPayerId = taxPayerId;
+      return this;
     }
 
-    public Enum getType() {
-        return this.type;
+    /**
+     * confidential
+     *
+     * <p>示例值：true
+     *
+     * @param confidential
+     * @return
+     */
+    public Builder confidential(Boolean confidential) {
+      this.confidential = confidential;
+      return this;
     }
 
-    public void setType(Enum type) {
-        this.type = type;
+    /**
+     * 主体类型
+     *
+     * <p>示例值：
+     *
+     * @param subTypeList
+     * @return
+     */
+    public Builder subTypeList(Enum[] subTypeList) {
+      this.subTypeList = subTypeList;
+      return this;
     }
 
-    public Enum[] getIndustryList() {
-        return this.industryList;
+    /**
+     * 是否为分公司
+     *
+     * <p>示例值：true
+     *
+     * @param branchCompany
+     * @return
+     */
+    public Builder branchCompany(Boolean branchCompany) {
+      this.branchCompany = branchCompany;
+      return this;
     }
 
-    public void setIndustryList(Enum[] industryList) {
-        this.industryList = industryList;
+    /**
+     * 主要负责人
+     *
+     * <p>示例值：
+     *
+     * @param primaryManager
+     * @return
+     */
+    public Builder primaryManager(I18n[] primaryManager) {
+      this.primaryManager = primaryManager;
+      return this;
     }
 
-    public I18n[] getLegalRepresentative() {
-        return this.legalRepresentative;
+    /**
+     * 默认币种
+     *
+     * <p>示例值：
+     *
+     * @param currency
+     * @return
+     */
+    public Builder currency(Currency currency) {
+      this.currency = currency;
+      return this;
     }
 
-    public void setLegalRepresentative(I18n[] legalRepresentative) {
-        this.legalRepresentative = legalRepresentative;
+    /**
+     * 电话
+     *
+     * <p>示例值：
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(PhoneNumberAndAreaCode phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public String getPostCode() {
-        return this.postCode;
+    /**
+     * 传真
+     *
+     * <p>示例值：
+     *
+     * @param fax
+     * @return
+     */
+    public Builder fax(PhoneNumberAndAreaCode fax) {
+      this.fax = fax;
+      return this;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    /**
+     * 完整注册地址
+     *
+     * <p>示例值：
+     *
+     * @param registeredOfficeAddress
+     * @return
+     */
+    public Builder registeredOfficeAddress(I18n[] registeredOfficeAddress) {
+      this.registeredOfficeAddress = registeredOfficeAddress;
+      return this;
     }
 
-    public String getTaxPayerId() {
-        return this.taxPayerId;
+    /**
+     * 完整办公地址
+     *
+     * <p>示例值：
+     *
+     * @param officeAddress
+     * @return
+     */
+    public Builder officeAddress(I18n[] officeAddress) {
+      this.officeAddress = officeAddress;
+      return this;
     }
 
-    public void setTaxPayerId(String taxPayerId) {
-        this.taxPayerId = taxPayerId;
+    /**
+     * 注册地址
+     *
+     * <p>示例值：
+     *
+     * @param registeredOfficeAddressInfo
+     * @return
+     */
+    public Builder registeredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
+      this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
+      return this;
     }
 
-    public Boolean getConfidential() {
-        return this.confidential;
+    /**
+     * 办公地址
+     *
+     * <p>示例值：
+     *
+     * @param officeAddressInfo
+     * @return
+     */
+    public Builder officeAddressInfo(Address officeAddressInfo) {
+      this.officeAddressInfo = officeAddressInfo;
+      return this;
     }
 
-    public void setConfidential(Boolean confidential) {
-        this.confidential = confidential;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public Enum[] getSubTypeList() {
-        return this.subTypeList;
+    public Company build() {
+      return new Company(this);
     }
+  }
 
-    public void setSubTypeList(Enum[] subTypeList) {
-        this.subTypeList = subTypeList;
-    }
-
-    public Boolean getBranchCompany() {
-        return this.branchCompany;
-    }
-
-    public void setBranchCompany(Boolean branchCompany) {
-        this.branchCompany = branchCompany;
-    }
-
-    public I18n[] getPrimaryManager() {
-        return this.primaryManager;
-    }
-
-    public void setPrimaryManager(I18n[] primaryManager) {
-        this.primaryManager = primaryManager;
-    }
-
-    public Currency getCurrency() {
-        return this.currency;
-    }
-
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
-
-    public PhoneNumberAndAreaCode getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(PhoneNumberAndAreaCode phone) {
-        this.phone = phone;
-    }
-
-    public PhoneNumberAndAreaCode getFax() {
-        return this.fax;
-    }
-
-    public void setFax(PhoneNumberAndAreaCode fax) {
-        this.fax = fax;
-    }
-
-    public I18n[] getRegisteredOfficeAddress() {
-        return this.registeredOfficeAddress;
-    }
-
-    public void setRegisteredOfficeAddress(I18n[] registeredOfficeAddress) {
-        this.registeredOfficeAddress = registeredOfficeAddress;
-    }
-
-    public I18n[] getOfficeAddress() {
-        return this.officeAddress;
-    }
-
-    public void setOfficeAddress(I18n[] officeAddress) {
-        this.officeAddress = officeAddress;
-    }
-
-    public Address getRegisteredOfficeAddressInfo() {
-        return this.registeredOfficeAddressInfo;
-    }
-
-    public void setRegisteredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
-        this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
-    }
-
-    public Address getOfficeAddressInfo() {
-        return this.officeAddressInfo;
-    }
-
-    public void setOfficeAddressInfo(Address officeAddressInfo) {
-        this.officeAddressInfo = officeAddressInfo;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 公司 ID
-         * <p> 示例值：4692472714243080020
-         */
-        private String companyId;
-        /**
-         * 公司基本信息
-         * <p> 示例值：
-         */
-        private HiberarchyCommon hiberarchyCommon;
-        /**
-         * 性质
-         * <p> 示例值：
-         */
-        private Enum type;
-        /**
-         * 行业
-         * <p> 示例值：
-         */
-        private Enum[] industryList;
-        /**
-         * 法定代表人
-         * <p> 示例值：
-         */
-        private I18n[] legalRepresentative;
-        /**
-         * 邮编
-         * <p> 示例值：邮编
-         */
-        private String postCode;
-        /**
-         * 纳税人识别号
-         * <p> 示例值：123456840
-         */
-        private String taxPayerId;
-        /**
-         * confidential
-         * <p> 示例值：true
-         */
-        private Boolean confidential;
-        /**
-         * 主体类型
-         * <p> 示例值：
-         */
-        private Enum[] subTypeList;
-        /**
-         * 是否为分公司
-         * <p> 示例值：true
-         */
-        private Boolean branchCompany;
-        /**
-         * 主要负责人
-         * <p> 示例值：
-         */
-        private I18n[] primaryManager;
-        /**
-         * 默认币种
-         * <p> 示例值：
-         */
-        private Currency currency;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        private PhoneNumberAndAreaCode phone;
-        /**
-         * 传真
-         * <p> 示例值：
-         */
-        private PhoneNumberAndAreaCode fax;
-        /**
-         * 完整注册地址
-         * <p> 示例值：
-         */
-        private I18n[] registeredOfficeAddress;
-        /**
-         * 完整办公地址
-         * <p> 示例值：
-         */
-        private I18n[] officeAddress;
-        /**
-         * 注册地址
-         * <p> 示例值：
-         */
-        private Address registeredOfficeAddressInfo;
-        /**
-         * 办公地址
-         * <p> 示例值：
-         */
-        private Address officeAddressInfo;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 公司 ID
-         * <p> 示例值：4692472714243080020
-         *
-         * @param companyId
-         * @return
-         */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
-
-
-        /**
-         * 公司基本信息
-         * <p> 示例值：
-         *
-         * @param hiberarchyCommon
-         * @return
-         */
-        public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-            this.hiberarchyCommon = hiberarchyCommon;
-            return this;
-        }
-
-
-        /**
-         * 性质
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Enum type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 行业
-         * <p> 示例值：
-         *
-         * @param industryList
-         * @return
-         */
-        public Builder industryList(Enum[] industryList) {
-            this.industryList = industryList;
-            return this;
-        }
-
-
-        /**
-         * 法定代表人
-         * <p> 示例值：
-         *
-         * @param legalRepresentative
-         * @return
-         */
-        public Builder legalRepresentative(I18n[] legalRepresentative) {
-            this.legalRepresentative = legalRepresentative;
-            return this;
-        }
-
-
-        /**
-         * 邮编
-         * <p> 示例值：邮编
-         *
-         * @param postCode
-         * @return
-         */
-        public Builder postCode(String postCode) {
-            this.postCode = postCode;
-            return this;
-        }
-
-
-        /**
-         * 纳税人识别号
-         * <p> 示例值：123456840
-         *
-         * @param taxPayerId
-         * @return
-         */
-        public Builder taxPayerId(String taxPayerId) {
-            this.taxPayerId = taxPayerId;
-            return this;
-        }
-
-
-        /**
-         * confidential
-         * <p> 示例值：true
-         *
-         * @param confidential
-         * @return
-         */
-        public Builder confidential(Boolean confidential) {
-            this.confidential = confidential;
-            return this;
-        }
-
-
-        /**
-         * 主体类型
-         * <p> 示例值：
-         *
-         * @param subTypeList
-         * @return
-         */
-        public Builder subTypeList(Enum[] subTypeList) {
-            this.subTypeList = subTypeList;
-            return this;
-        }
-
-
-        /**
-         * 是否为分公司
-         * <p> 示例值：true
-         *
-         * @param branchCompany
-         * @return
-         */
-        public Builder branchCompany(Boolean branchCompany) {
-            this.branchCompany = branchCompany;
-            return this;
-        }
-
-
-        /**
-         * 主要负责人
-         * <p> 示例值：
-         *
-         * @param primaryManager
-         * @return
-         */
-        public Builder primaryManager(I18n[] primaryManager) {
-            this.primaryManager = primaryManager;
-            return this;
-        }
-
-
-        /**
-         * 默认币种
-         * <p> 示例值：
-         *
-         * @param currency
-         * @return
-         */
-        public Builder currency(Currency currency) {
-            this.currency = currency;
-            return this;
-        }
-
-
-        /**
-         * 电话
-         * <p> 示例值：
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(PhoneNumberAndAreaCode phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 传真
-         * <p> 示例值：
-         *
-         * @param fax
-         * @return
-         */
-        public Builder fax(PhoneNumberAndAreaCode fax) {
-            this.fax = fax;
-            return this;
-        }
-
-
-        /**
-         * 完整注册地址
-         * <p> 示例值：
-         *
-         * @param registeredOfficeAddress
-         * @return
-         */
-        public Builder registeredOfficeAddress(I18n[] registeredOfficeAddress) {
-            this.registeredOfficeAddress = registeredOfficeAddress;
-            return this;
-        }
-
-
-        /**
-         * 完整办公地址
-         * <p> 示例值：
-         *
-         * @param officeAddress
-         * @return
-         */
-        public Builder officeAddress(I18n[] officeAddress) {
-            this.officeAddress = officeAddress;
-            return this;
-        }
-
-
-        /**
-         * 注册地址
-         * <p> 示例值：
-         *
-         * @param registeredOfficeAddressInfo
-         * @return
-         */
-        public Builder registeredOfficeAddressInfo(Address registeredOfficeAddressInfo) {
-            this.registeredOfficeAddressInfo = registeredOfficeAddressInfo;
-            return this;
-        }
-
-
-        /**
-         * 办公地址
-         * <p> 示例值：
-         *
-         * @param officeAddressInfo
-         * @return
-         */
-        public Builder officeAddressInfo(Address officeAddressInfo) {
-            this.officeAddressInfo = officeAddressInfo;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public Company build() {
-            return new Company(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

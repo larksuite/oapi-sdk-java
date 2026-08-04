@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.application.v5.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecommendApplicationRespBody {
-    /**
-     * 分页的token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 分页数量
-     * <p> 示例值：
-     */
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
-     * 总的数量
-     * <p> 示例值：7
-     */
-    @SerializedName("total_count")
-    private Integer totalCount;
-    /**
-     * 是否有更多数据
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 应用数据列表
-     * <p> 示例值：
-     */
-    @SerializedName("app_list")
-    private Application[] appList;
+  /**
+   * 分页的token
+   *
+   * <p>示例值：new-e11ee058b4a8ed2881da11ac7e37c4fc
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 分页数量
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 总的数量
+   *
+   * <p>示例值：7
+   */
+  @SerializedName("total_count")
+  private Integer totalCount;
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
+  /**
+   * 是否有更多数据
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
+  /**
+   * 应用数据列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app_list")
+  private Application[] appList;
 
-    public Integer getTotalCount() {
-        return this.totalCount;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
-    public Application[] getAppList() {
-        return this.appList;
-    }
+  public Integer getTotalCount() {
+    return this.totalCount;
+  }
 
-    public void setAppList(Application[] appList) {
-        this.appList = appList;
-    }
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public Application[] getAppList() {
+    return this.appList;
+  }
+
+  public void setAppList(Application[] appList) {
+    this.appList = appList;
+  }
 }

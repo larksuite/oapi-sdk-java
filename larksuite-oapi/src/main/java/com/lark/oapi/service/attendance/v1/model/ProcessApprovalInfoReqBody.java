@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessApprovalInfoReqBody {
+  /**
+   * 审批实例
+   * ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+   * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+   * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+   *
+   * <p>示例值：6737202939523236113
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 审批类型;- `leave`：请假;- `out`：外出;- `overtime`：加班;- `trip`：出差;- `remedy`：补卡
+   *
+   * <p>示例值：remedy
+   */
+  @SerializedName("approval_type")
+  private String approvalType;
+
+  /**
+   * 审批状态;- `1`：不通过;- `2`：通过;- `4`：撤销;;**注意**;- **请假、外出、加班、出差**只支持传**撤销**;- **补卡**支持传**不通过、通过和撤销**
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public String getApprovalType() {
+    return this.approvalType;
+  }
+
+  public void setApprovalType(String approvalType) {
+    this.approvalType = approvalType;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public ProcessApprovalInfoReqBody() {}
+
+  public ProcessApprovalInfoReqBody(Builder builder) {
     /**
-     * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
-     * <p> 示例值：6737202939523236113
+     * 审批实例
+     * ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+     * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+     * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     *
+     * <p>示例值：6737202939523236113
      */
-    @SerializedName("approval_id")
+    this.approvalId = builder.approvalId;
+    /**
+     * 审批类型;- `leave`：请假;- `out`：外出;- `overtime`：加班;- `trip`：出差;- `remedy`：补卡
+     *
+     * <p>示例值：remedy
+     */
+    this.approvalType = builder.approvalType;
+    /**
+     * 审批状态;- `1`：不通过;- `2`：通过;- `4`：撤销;;**注意**;- **请假、外出、加班、出差**只支持传**撤销**;- **补卡**支持传**不通过、通过和撤销**
+     *
+     * <p>示例值：4
+     */
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例
+     * ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+     * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+     * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     *
+     * <p>示例值：6737202939523236113
+     */
     private String approvalId;
+
     /**
-     * 审批类型，leave：请假，out：外出，overtime：加班，trip：出差，remedy：补卡
-     * <p> 示例值：remedy
+     * 审批类型;- `leave`：请假;- `out`：外出;- `overtime`：加班;- `trip`：出差;- `remedy`：补卡
+     *
+     * <p>示例值：remedy
      */
-    @SerializedName("approval_type")
     private String approvalType;
+
     /**
-     * 审批状态，1：不通过，2：通过，4：撤销
-     * <p> 示例值：4
+     * 审批状态;- `1`：不通过;- `2`：通过;- `4`：撤销;;**注意**;- **请假、外出、加班、出差**只支持传**撤销**;- **补卡**支持传**不通过、通过和撤销**
+     *
+     * <p>示例值：4
      */
-    @SerializedName("status")
     private Integer status;
 
-    // builder 开始
-    public ProcessApprovalInfoReqBody() {
+    /**
+     * 审批实例
+     * ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+     * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+     * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     *
+     * <p>示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public ProcessApprovalInfoReqBody(Builder builder) {
-        /**
-         * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
-         * <p> 示例值：6737202939523236113
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         * 审批类型，leave：请假，out：外出，overtime：加班，trip：出差，remedy：补卡
-         * <p> 示例值：remedy
-         */
-        this.approvalType = builder.approvalType;
-        /**
-         * 审批状态，1：不通过，2：通过，4：撤销
-         * <p> 示例值：4
-         */
-        this.status = builder.status;
+    /**
+     * 审批类型;- `leave`：请假;- `out`：外出;- `overtime`：加班;- `trip`：出差;- `remedy`：补卡
+     *
+     * <p>示例值：remedy
+     *
+     * @param approvalType
+     * @return
+     */
+    public Builder approvalType(String approvalType) {
+      this.approvalType = approvalType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批状态;- `1`：不通过;- `2`：通过;- `4`：撤销;;**注意**;- **请假、外出、加班、出差**只支持传**撤销**;- **补卡**支持传**不通过、通过和撤销**
+     *
+     * <p>示例值：4
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getApprovalId() {
-        return this.approvalId;
+    public ProcessApprovalInfoReqBody build() {
+      return new ProcessApprovalInfoReqBody(this);
     }
+  }
 
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
-    }
-
-    public String getApprovalType() {
-        return this.approvalType;
-    }
-
-    public void setApprovalType(String approvalType) {
-        this.approvalType = approvalType;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
-         * <p> 示例值：6737202939523236113
-         */
-        private String approvalId;
-        /**
-         * 审批类型，leave：请假，out：外出，overtime：加班，trip：出差，remedy：补卡
-         * <p> 示例值：remedy
-         */
-        private String approvalType;
-        /**
-         * 审批状态，1：不通过，2：通过，4：撤销
-         * <p> 示例值：4
-         */
-        private Integer status;
-
-        /**
-         * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
-         * <p> 示例值：6737202939523236113
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        /**
-         * 审批类型，leave：请假，out：外出，overtime：加班，trip：出差，remedy：补卡
-         * <p> 示例值：remedy
-         *
-         * @param approvalType
-         * @return
-         */
-        public Builder approvalType(String approvalType) {
-            this.approvalType = approvalType;
-            return this;
-        }
-
-
-        /**
-         * 审批状态，1：不通过，2：通过，4：撤销
-         * <p> 示例值：4
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public ProcessApprovalInfoReqBody build() {
-            return new ProcessApprovalInfoReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

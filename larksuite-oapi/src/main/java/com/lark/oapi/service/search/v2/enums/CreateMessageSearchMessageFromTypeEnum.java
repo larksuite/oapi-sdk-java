@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 消息来自类型(bot/user)
- */
+/** 消息来自类型(bot/user) */
 public enum CreateMessageSearchMessageFromTypeEnum {
-    BOT("bot"), // 机器人
-    USER("user"), // 用户
-    ;
-    private String value;
+  BOT("bot"), // 机器人
+  USER("user"), // 用户
+  ;
+  private String value;
 
-    CreateMessageSearchMessageFromTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateMessageSearchMessageFromTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

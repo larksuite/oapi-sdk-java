@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentPoolMemberOpReqItem {
+  /**
+   * 员工ID，通过查询过雇佣信息获取
+   *
+   * <p>示例值：7345313696725172304
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 出入池日期
+   *
+   * <p>示例值：2025-01-15
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 出入池原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private I18n[] reason;
+
+  /**
+   * 自定义字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public I18n[] getReason() {
+    return this.reason;
+  }
+
+  public void setReason(I18n[] reason) {
+    this.reason = reason;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public TalentPoolMemberOpReqItem() {}
+
+  public TalentPoolMemberOpReqItem(Builder builder) {
     /**
-     * 员工ID
-     * <p> 示例值：7345313696725172304
+     * 员工ID，通过查询过雇佣信息获取
+     *
+     * <p>示例值：7345313696725172304
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 出入池日期
-     * <p> 示例值：2025-01-15
+     *
+     * <p>示例值：2025-01-15
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
      * 出入池原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
-    private I18n[] reason;
+    this.reason = builder.reason;
     /**
      * 自定义字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID，通过查询过雇佣信息获取
+     *
+     * <p>示例值：7345313696725172304
+     */
+    private String employmentId;
+
+    /**
+     * 出入池日期
+     *
+     * <p>示例值：2025-01-15
+     */
+    private String date;
+
+    /**
+     * 出入池原因
+     *
+     * <p>示例值：
+     */
+    private I18n[] reason;
+
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] customFields;
 
-    // builder 开始
-    public TalentPoolMemberOpReqItem() {
+    /**
+     * 员工ID，通过查询过雇佣信息获取
+     *
+     * <p>示例值：7345313696725172304
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public TalentPoolMemberOpReqItem(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172304
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 出入池日期
-         * <p> 示例值：2025-01-15
-         */
-        this.date = builder.date;
-        /**
-         * 出入池原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 出入池日期
+     *
+     * <p>示例值：2025-01-15
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 出入池原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(I18n[] reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    public TalentPoolMemberOpReqItem build() {
+      return new TalentPoolMemberOpReqItem(this);
     }
+  }
 
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public I18n[] getReason() {
-        return this.reason;
-    }
-
-    public void setReason(I18n[] reason) {
-        this.reason = reason;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172304
-         */
-        private String employmentId;
-        /**
-         * 出入池日期
-         * <p> 示例值：2025-01-15
-         */
-        private String date;
-        /**
-         * 出入池原因
-         * <p> 示例值：
-         */
-        private I18n[] reason;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172304
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 出入池日期
-         * <p> 示例值：2025-01-15
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 出入池原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(I18n[] reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public TalentPoolMemberOpReqItem build() {
-            return new TalentPoolMemberOpReqItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,130 +13,131 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchContractReq {
+  /**
+   * 自定义值，根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：227988d7-66da-4afb-9943-32e73d5cda8b
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 合同ID，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取
+   *
+   * <p>示例值：7091849027838838316
+   */
+  @Path
+  @SerializedName("contract_id")
+  private String contractId;
+
+  public String getContractId() {
+    return this.contractId;
+  }
+
+  public void setContractId(String contractId) {
+    this.contractId = contractId;
+  }
+
+  @Body private Contract body;
+
+  public Contract getContract() {
+    return this.body;
+  }
+
+  public void setContract(Contract body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchContractReq() {}
+
+  public PatchContractReq(Builder builder) {
     /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     * 自定义值，根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：227988d7-66da-4afb-9943-32e73d5cda8b
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 合同ID
-     * <p> 示例值：1616161616
+     * 合同ID，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取
+     *
+     * <p>示例值：7091849027838838316
      */
-    @Path
-    @SerializedName("contract_id")
-    private String contractId;
-    @Body
+    this.contractId = builder.contractId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 自定义值，根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 自定义值，根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：227988d7-66da-4afb-9943-32e73d5cda8b
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String
+        contractId; // 合同ID，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取
+
+    /**
+     * 合同ID，该ID可以通过[【批量查询合同】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/list)接口获取
+     *
+     * <p>示例值：7091849027838838316
+     *
+     * @param contractId
+     * @return
+     */
+    public Builder contractId(String contractId) {
+      this.contractId = contractId;
+      return this;
+    }
+
     private Contract body;
 
-    // builder 开始
-    public PatchContractReq() {
-    }
-
-    public PatchContractReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 合同ID
-         * <p> 示例值：1616161616
-         */
-        this.contractId = builder.contractId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getContractId() {
-        return this.contractId;
-    }
-
-    public void setContractId(String contractId) {
-        this.contractId = contractId;
-    }
-
     public Contract getContract() {
-        return this.body;
+      return this.body;
     }
 
-    public void setContract(Contract body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder contract(Contract body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String contractId; // 合同ID
-        private Contract body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 合同ID
-         * <p> 示例值：1616161616
-         *
-         * @param contractId
-         * @return
-         */
-        public Builder contractId(String contractId) {
-            this.contractId = contractId;
-            return this;
-        }
-
-        public Contract getContract() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder contract(Contract body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchContractReq build() {
-            return new PatchContractReq(this);
-        }
+    public PatchContractReq build() {
+      return new PatchContractReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

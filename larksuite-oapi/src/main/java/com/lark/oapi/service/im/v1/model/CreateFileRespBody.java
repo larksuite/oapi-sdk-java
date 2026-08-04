@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileRespBody {
-    /**
-     * 文件的key
-     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-     */
-    @SerializedName("file_key")
-    private String fileKey;
+  /**
+   * 文件的 Key
+   *
+   * <p>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+   */
+  @SerializedName("file_key")
+  private String fileKey;
 
-    public String getFileKey() {
-        return this.fileKey;
-    }
+  public String getFileKey() {
+    return this.fileKey;
+  }
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
-
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
 }

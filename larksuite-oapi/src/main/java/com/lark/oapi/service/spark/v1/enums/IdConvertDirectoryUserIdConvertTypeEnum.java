@@ -13,22 +13,21 @@
 
 package com.lark.oapi.service.spark.v1.enums;
 
-/**
- * ID 转换类型，枚举
- */
+/** ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br> */
 public enum IdConvertDirectoryUserIdConvertTypeEnum {
-    FORCEUSERID2FEISHUOPENID(10), // 妙搭用户 ID 转飞书开放平台 Open ID
-    FORCEUSERID2FEISHUUNIONID(11), // 妙搭用户 ID 转飞书开放平台 Union ID
-    FEISHUOPENID2FORCEUSERID(20), // 飞书开放平台 Open ID 转妙搭用户 ID
-    FEISHUUNIONID2FORCEUSERID(21), // 飞书开放平台 Union ID 转妙搭用户 ID
-    ;
-    private Integer value;
+  FORCEUSERID2FEISHUOPENID(10), // 妙搭用户 ID 转飞书开放平台 Open ID
+  FORCEUSERID2FEISHUUNIONID(11), // 妙搭用户 ID 转飞书开放平台 Union ID
+  FEISHUOPENID2FORCEUSERID(20), // 飞书开放平台 Open ID 转妙搭用户 ID
+  FEISHUUNIONID2FORCEUSERID(21), // 飞书开放平台 Union ID 转妙搭用户 ID
+  FORCEUSERID2LARKUSERID(40), // 妙搭用户 ID 转飞书用户 ID
+  ;
+  private Integer value;
 
-    IdConvertDirectoryUserIdConvertTypeEnum(Integer value) {
-        this.value = value;
-    }
+  IdConvertDirectoryUserIdConvertTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

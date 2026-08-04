@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendStatusDetail {
+  /**
+   * 收件人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recipient")
+  private MailAddress recipient;
+
+  /**
+   * 投递状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 最后更新时间（Unix 时间戳，秒）
+   *
+   * <p>示例值：1700000000
+   */
+  @SerializedName("last_updated_time")
+  private Integer lastUpdatedTime;
+
+  public MailAddress getRecipient() {
+    return this.recipient;
+  }
+
+  public void setRecipient(MailAddress recipient) {
+    this.recipient = recipient;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public Integer getLastUpdatedTime() {
+    return this.lastUpdatedTime;
+  }
+
+  public void setLastUpdatedTime(Integer lastUpdatedTime) {
+    this.lastUpdatedTime = lastUpdatedTime;
+  }
+
+  // builder 开始
+  public SendStatusDetail() {}
+
+  public SendStatusDetail(Builder builder) {
     /**
      * 收件人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recipient")
-    private MailAddress recipient;
+    this.recipient = builder.recipient;
     /**
      * 投递状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 最后更新时间（Unix 时间戳，秒）
-     * <p> 示例值：1700000000
+     *
+     * <p>示例值：1700000000
      */
-    @SerializedName("last_updated_time")
+    this.lastUpdatedTime = builder.lastUpdatedTime;
+  }
+
+  public static class Builder {
+    /**
+     * 收件人信息
+     *
+     * <p>示例值：
+     */
+    private MailAddress recipient;
+
+    /**
+     * 投递状态
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 最后更新时间（Unix 时间戳，秒）
+     *
+     * <p>示例值：1700000000
+     */
     private Integer lastUpdatedTime;
 
-    // builder 开始
-    public SendStatusDetail() {
+    /**
+     * 收件人信息
+     *
+     * <p>示例值：
+     *
+     * @param recipient
+     * @return
+     */
+    public Builder recipient(MailAddress recipient) {
+      this.recipient = recipient;
+      return this;
     }
 
-    public SendStatusDetail(Builder builder) {
-        /**
-         * 收件人信息
-         * <p> 示例值：
-         */
-        this.recipient = builder.recipient;
-        /**
-         * 投递状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 最后更新时间（Unix 时间戳，秒）
-         * <p> 示例值：1700000000
-         */
-        this.lastUpdatedTime = builder.lastUpdatedTime;
+    /**
+     * 投递状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.mail.v1.enums.SendStatusDetailSendStatusDetailStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.mail.v1.enums.SendStatusDetailSendStatusDetailStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public MailAddress getRecipient() {
-        return this.recipient;
+    /**
+     * 最后更新时间（Unix 时间戳，秒）
+     *
+     * <p>示例值：1700000000
+     *
+     * @param lastUpdatedTime
+     * @return
+     */
+    public Builder lastUpdatedTime(Integer lastUpdatedTime) {
+      this.lastUpdatedTime = lastUpdatedTime;
+      return this;
     }
 
-    public void setRecipient(MailAddress recipient) {
-        this.recipient = recipient;
+    public SendStatusDetail build() {
+      return new SendStatusDetail(this);
     }
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getLastUpdatedTime() {
-        return this.lastUpdatedTime;
-    }
-
-    public void setLastUpdatedTime(Integer lastUpdatedTime) {
-        this.lastUpdatedTime = lastUpdatedTime;
-    }
-
-    public static class Builder {
-        /**
-         * 收件人信息
-         * <p> 示例值：
-         */
-        private MailAddress recipient;
-        /**
-         * 投递状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 最后更新时间（Unix 时间戳，秒）
-         * <p> 示例值：1700000000
-         */
-        private Integer lastUpdatedTime;
-
-        /**
-         * 收件人信息
-         * <p> 示例值：
-         *
-         * @param recipient
-         * @return
-         */
-        public Builder recipient(MailAddress recipient) {
-            this.recipient = recipient;
-            return this;
-        }
-
-
-        /**
-         * 投递状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 投递状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.mail.v1.enums.SendStatusDetailSendStatusDetailStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.mail.v1.enums.SendStatusDetailSendStatusDetailStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 最后更新时间（Unix 时间戳，秒）
-         * <p> 示例值：1700000000
-         *
-         * @param lastUpdatedTime
-         * @return
-         */
-        public Builder lastUpdatedTime(Integer lastUpdatedTime) {
-            this.lastUpdatedTime = lastUpdatedTime;
-            return this;
-        }
-
-
-        public SendStatusDetail build() {
-            return new SendStatusDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,210 +13,218 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Project {
+  /**
+   * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
+   *
+   * <p>示例值：project title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 项目链接
+   *
+   * <p>示例值：https://project.feishu.cn/home
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 子类型
+   *
+   * <p>示例值：Table
+   */
+  @SerializedName("sub_type")
+  private String subType;
+
+  /**
+   * 视图类型，该字段仅在子类型为视图表格时返回
+   *
+   * <p>示例值：Normal
+   */
+  @SerializedName("view_type")
+  private String viewType;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(String subType) {
+    this.subType = subType;
+  }
+
+  public String getViewType() {
+    return this.viewType;
+  }
+
+  public void setViewType(String viewType) {
+    this.viewType = viewType;
+  }
+
+  // builder 开始
+  public Project() {}
+
+  public Project(Builder builder) {
     /**
      * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
-     * <p> 示例值：project title
+     *
+     * <p>示例值：project title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 项目链接
-     * <p> 示例值：https://project.feishu.cn/home
+     *
+     * <p>示例值：https://project.feishu.cn/home
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 子类型
-     * <p> 示例值：Table
+     *
+     * <p>示例值：Table
      */
-    @SerializedName("sub_type")
-    private String subType;
+    this.subType = builder.subType;
     /**
      * 视图类型，该字段仅在子类型为视图表格时返回
-     * <p> 示例值：Normal
+     *
+     * <p>示例值：Normal
      */
-    @SerializedName("view_type")
+    this.viewType = builder.viewType;
+  }
+
+  public static class Builder {
+    /**
+     * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
+     *
+     * <p>示例值：project title
+     */
+    private String title;
+
+    /**
+     * 项目链接
+     *
+     * <p>示例值：https://project.feishu.cn/home
+     */
+    private String url;
+
+    /**
+     * 子类型
+     *
+     * <p>示例值：Table
+     */
+    private String subType;
+
+    /**
+     * 视图类型，该字段仅在子类型为视图表格时返回
+     *
+     * <p>示例值：Normal
+     */
     private String viewType;
 
-    // builder 开始
-    public Project() {
+    /**
+     * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
+     *
+     * <p>示例值：project title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public Project(Builder builder) {
-        /**
-         * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
-         * <p> 示例值：project title
-         */
-        this.title = builder.title;
-        /**
-         * 项目链接
-         * <p> 示例值：https://project.feishu.cn/home
-         */
-        this.url = builder.url;
-        /**
-         * 子类型
-         * <p> 示例值：Table
-         */
-        this.subType = builder.subType;
-        /**
-         * 视图类型，该字段仅在子类型为视图表格时返回
-         * <p> 示例值：Normal
-         */
-        this.viewType = builder.viewType;
+    /**
+     * 项目链接
+     *
+     * <p>示例值：https://project.feishu.cn/home
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子类型
+     *
+     * <p>示例值：Table
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(String subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 子类型
+     *
+     * <p>示例值：Table
+     *
+     * @param subType {@link com.lark.oapi.service.docx.v1.enums.ProjectProjectSubTypeEnum}
+     * @return
+     */
+    public Builder subType(com.lark.oapi.service.docx.v1.enums.ProjectProjectSubTypeEnum subType) {
+      this.subType = subType.getValue();
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 视图类型，该字段仅在子类型为视图表格时返回
+     *
+     * <p>示例值：Normal
+     *
+     * @param viewType
+     * @return
+     */
+    public Builder viewType(String viewType) {
+      this.viewType = viewType;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 视图类型，该字段仅在子类型为视图表格时返回
+     *
+     * <p>示例值：Normal
+     *
+     * @param viewType {@link com.lark.oapi.service.docx.v1.enums.ProjectProjectViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(
+        com.lark.oapi.service.docx.v1.enums.ProjectProjectViewTypeEnum viewType) {
+      this.viewType = viewType.getValue();
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public Project build() {
+      return new Project(this);
     }
+  }
 
-    public String getSubType() {
-        return this.subType;
-    }
-
-    public void setSubType(String subType) {
-        this.subType = subType;
-    }
-
-    public String getViewType() {
-        return this.viewType;
-    }
-
-    public void setViewType(String viewType) {
-        this.viewType = viewType;
-    }
-
-    public static class Builder {
-        /**
-         * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
-         * <p> 示例值：project title
-         */
-        private String title;
-        /**
-         * 项目链接
-         * <p> 示例值：https://project.feishu.cn/home
-         */
-        private String url;
-        /**
-         * 子类型
-         * <p> 示例值：Table
-         */
-        private String subType;
-        /**
-         * 视图类型，该字段仅在子类型为视图表格时返回
-         * <p> 示例值：Normal
-         */
-        private String viewType;
-
-        /**
-         * 项目标题，仅记录插入那一刻的标题，不会自动同步最新标题
-         * <p> 示例值：project title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 项目链接
-         * <p> 示例值：https://project.feishu.cn/home
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 子类型
-         * <p> 示例值：Table
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(String subType) {
-            this.subType = subType;
-            return this;
-        }
-
-        /**
-         * 子类型
-         * <p> 示例值：Table
-         *
-         * @param subType {@link com.lark.oapi.service.docx.v1.enums.ProjectProjectSubTypeEnum}
-         * @return
-         */
-        public Builder subType(com.lark.oapi.service.docx.v1.enums.ProjectProjectSubTypeEnum subType) {
-            this.subType = subType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 视图类型，该字段仅在子类型为视图表格时返回
-         * <p> 示例值：Normal
-         *
-         * @param viewType
-         * @return
-         */
-        public Builder viewType(String viewType) {
-            this.viewType = viewType;
-            return this;
-        }
-
-        /**
-         * 视图类型，该字段仅在子类型为视图表格时返回
-         * <p> 示例值：Normal
-         *
-         * @param viewType {@link com.lark.oapi.service.docx.v1.enums.ProjectProjectViewTypeEnum}
-         * @return
-         */
-        public Builder viewType(com.lark.oapi.service.docx.v1.enums.ProjectProjectViewTypeEnum viewType) {
-            this.viewType = viewType.getValue();
-            return this;
-        }
-
-
-        public Project build() {
-            return new Project(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,259 +13,290 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionAssessmentRequest {
+  /**
+   * 评价维度ID，可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+   * 接口获取。
+   *
+   * <p>示例值：7484008015926434905
+   */
+  @SerializedName("dimension_id")
+  private String dimensionId;
+
+  /**
+   * 内容评价，描述题、系统预置-记录维度使用
+   *
+   * <p>示例值：面试评价
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 选项评价ID，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分
+   * 维度使用。选项ID可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+   * 接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_ids")
+  private String[] optionIds;
+
+  /**
+   * 得分评价，打分题(填空)维度使用。
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("score_value")
+  private Integer scoreValue;
+
+  /**
+   * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1。
+   * 职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+   *
+   * <p>示例值：1z3278jv8apy9yb
+   */
+  @SerializedName("min_job_level_id")
+  private String minJobLevelId;
+
+  /**
+   * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1。职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+   *
+   * <p>示例值：1z3278jv8apy9yb
+   */
+  @SerializedName("max_job_level_id")
+  private String maxJobLevelId;
+
+  public String getDimensionId() {
+    return this.dimensionId;
+  }
+
+  public void setDimensionId(String dimensionId) {
+    this.dimensionId = dimensionId;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String[] getOptionIds() {
+    return this.optionIds;
+  }
+
+  public void setOptionIds(String[] optionIds) {
+    this.optionIds = optionIds;
+  }
+
+  public Integer getScoreValue() {
+    return this.scoreValue;
+  }
+
+  public void setScoreValue(Integer scoreValue) {
+    this.scoreValue = scoreValue;
+  }
+
+  public String getMinJobLevelId() {
+    return this.minJobLevelId;
+  }
+
+  public void setMinJobLevelId(String minJobLevelId) {
+    this.minJobLevelId = minJobLevelId;
+  }
+
+  public String getMaxJobLevelId() {
+    return this.maxJobLevelId;
+  }
+
+  public void setMaxJobLevelId(String maxJobLevelId) {
+    this.maxJobLevelId = maxJobLevelId;
+  }
+
+  // builder 开始
+  public DimensionAssessmentRequest() {}
+
+  public DimensionAssessmentRequest(Builder builder) {
     /**
-     * 评价维度ID
-     * <p> 示例值：7484008015926434905
+     * 评价维度ID，可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：7484008015926434905
      */
-    @SerializedName("dimension_id")
-    private String dimensionId;
+    this.dimensionId = builder.dimensionId;
     /**
      * 内容评价，描述题、系统预置-记录维度使用
-     * <p> 示例值：面试评价
+     *
+     * <p>示例值：面试评价
      */
-    @SerializedName("content")
+    this.content = builder.content;
+    /**
+     * 选项评价ID，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分
+     * 维度使用。选项ID可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：
+     */
+    this.optionIds = builder.optionIds;
+    /**
+     * 得分评价，打分题(填空)维度使用。
+     *
+     * <p>示例值：20
+     */
+    this.scoreValue = builder.scoreValue;
+    /**
+     * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1。
+     * 职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
+     */
+    this.minJobLevelId = builder.minJobLevelId;
+    /**
+     * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1。职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
+     */
+    this.maxJobLevelId = builder.maxJobLevelId;
+  }
+
+  public static class Builder {
+    /**
+     * 评价维度ID，可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：7484008015926434905
+     */
+    private String dimensionId;
+
+    /**
+     * 内容评价，描述题、系统预置-记录维度使用
+     *
+     * <p>示例值：面试评价
+     */
     private String content;
+
     /**
-     * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-     * <p> 示例值：
+     * 选项评价ID，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分
+     * 维度使用。选项ID可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_ids")
     private String[] optionIds;
+
     /**
-     * 得分评价，打分题(填空)维度使用
-     * <p> 示例值：20
+     * 得分评价，打分题(填空)维度使用。
+     *
+     * <p>示例值：20
      */
-    @SerializedName("score_value")
     private Integer scoreValue;
+
     /**
-     * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-     * <p> 示例值：1z3278jv8apy9yb
+     * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1。
+     * 职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
      */
-    @SerializedName("min_job_level_id")
     private String minJobLevelId;
+
     /**
-     * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-     * <p> 示例值：1z3278jv8apy9yb
+     * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1。职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
      */
-    @SerializedName("max_job_level_id")
     private String maxJobLevelId;
 
-    // builder 开始
-    public DimensionAssessmentRequest() {
+    /**
+     * 评价维度ID，可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：7484008015926434905
+     *
+     * @param dimensionId
+     * @return
+     */
+    public Builder dimensionId(String dimensionId) {
+      this.dimensionId = dimensionId;
+      return this;
     }
 
-    public DimensionAssessmentRequest(Builder builder) {
-        /**
-         * 评价维度ID
-         * <p> 示例值：7484008015926434905
-         */
-        this.dimensionId = builder.dimensionId;
-        /**
-         * 内容评价，描述题、系统预置-记录维度使用
-         * <p> 示例值：面试评价
-         */
-        this.content = builder.content;
-        /**
-         * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-         * <p> 示例值：
-         */
-        this.optionIds = builder.optionIds;
-        /**
-         * 得分评价，打分题(填空)维度使用
-         * <p> 示例值：20
-         */
-        this.scoreValue = builder.scoreValue;
-        /**
-         * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         */
-        this.minJobLevelId = builder.minJobLevelId;
-        /**
-         * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         */
-        this.maxJobLevelId = builder.maxJobLevelId;
+    /**
+     * 内容评价，描述题、系统预置-记录维度使用
+     *
+     * <p>示例值：面试评价
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项评价ID，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分
+     * 维度使用。选项ID可通过[获取面试评价表列表;](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)
+     * 接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param optionIds
+     * @return
+     */
+    public Builder optionIds(String[] optionIds) {
+      this.optionIds = optionIds;
+      return this;
     }
 
-    public String getDimensionId() {
-        return this.dimensionId;
+    /**
+     * 得分评价，打分题(填空)维度使用。
+     *
+     * <p>示例值：20
+     *
+     * @param scoreValue
+     * @return
+     */
+    public Builder scoreValue(Integer scoreValue) {
+      this.scoreValue = scoreValue;
+      return this;
     }
 
-    public void setDimensionId(String dimensionId) {
-        this.dimensionId = dimensionId;
+    /**
+     * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1。
+     * 职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
+     *
+     * @param minJobLevelId
+     * @return
+     */
+    public Builder minJobLevelId(String minJobLevelId) {
+      this.minJobLevelId = minJobLevelId;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1。职级ID可从[获取租户职级列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list);接口获取
+     *
+     * <p>示例值：1z3278jv8apy9yb
+     *
+     * @param maxJobLevelId
+     * @return
+     */
+    public Builder maxJobLevelId(String maxJobLevelId) {
+      this.maxJobLevelId = maxJobLevelId;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public DimensionAssessmentRequest build() {
+      return new DimensionAssessmentRequest(this);
     }
+  }
 
-    public String[] getOptionIds() {
-        return this.optionIds;
-    }
-
-    public void setOptionIds(String[] optionIds) {
-        this.optionIds = optionIds;
-    }
-
-    public Integer getScoreValue() {
-        return this.scoreValue;
-    }
-
-    public void setScoreValue(Integer scoreValue) {
-        this.scoreValue = scoreValue;
-    }
-
-    public String getMinJobLevelId() {
-        return this.minJobLevelId;
-    }
-
-    public void setMinJobLevelId(String minJobLevelId) {
-        this.minJobLevelId = minJobLevelId;
-    }
-
-    public String getMaxJobLevelId() {
-        return this.maxJobLevelId;
-    }
-
-    public void setMaxJobLevelId(String maxJobLevelId) {
-        this.maxJobLevelId = maxJobLevelId;
-    }
-
-    public static class Builder {
-        /**
-         * 评价维度ID
-         * <p> 示例值：7484008015926434905
-         */
-        private String dimensionId;
-        /**
-         * 内容评价，描述题、系统预置-记录维度使用
-         * <p> 示例值：面试评价
-         */
-        private String content;
-        /**
-         * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-         * <p> 示例值：
-         */
-        private String[] optionIds;
-        /**
-         * 得分评价，打分题(填空)维度使用
-         * <p> 示例值：20
-         */
-        private Integer scoreValue;
-        /**
-         * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         */
-        private String minJobLevelId;
-        /**
-         * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         */
-        private String maxJobLevelId;
-
-        /**
-         * 评价维度ID
-         * <p> 示例值：7484008015926434905
-         *
-         * @param dimensionId
-         * @return
-         */
-        public Builder dimensionId(String dimensionId) {
-            this.dimensionId = dimensionId;
-            return this;
-        }
-
-
-        /**
-         * 内容评价，描述题、系统预置-记录维度使用
-         * <p> 示例值：面试评价
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 选项评价，单选题、多选题、打分题(单选)、系统预置-结论、系统预置-得分 维度使用
-         * <p> 示例值：
-         *
-         * @param optionIds
-         * @return
-         */
-        public Builder optionIds(String[] optionIds) {
-            this.optionIds = optionIds;
-            return this;
-        }
-
-
-        /**
-         * 得分评价，打分题(填空)维度使用
-         * <p> 示例值：20
-         *
-         * @param scoreValue
-         * @return
-         */
-        public Builder scoreValue(Integer scoreValue) {
-            this.scoreValue = scoreValue;
-            return this;
-        }
-
-
-        /**
-         * 职级建议下限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         *
-         * @param minJobLevelId
-         * @return
-         */
-        public Builder minJobLevelId(String minJobLevelId) {
-            this.minJobLevelId = minJobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 职级建议上限，职级建议维度使用，「无法判断」时，值为-1.  职级ID可从【获取租户职级列表】接口获取
-         * <p> 示例值：1z3278jv8apy9yb
-         *
-         * @param maxJobLevelId
-         * @return
-         */
-        public Builder maxJobLevelId(String maxJobLevelId) {
-            this.maxJobLevelId = maxJobLevelId;
-            return this;
-        }
-
-
-        public DimensionAssessmentRequest build() {
-            return new DimensionAssessmentRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessagePassageParam {
+  /**
+   * searchable
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * chat_ids
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  /**
+   * excluded_passage_ids
+   *
+   * <p>示例值：
+   */
+  @SerializedName("excluded_passage_ids")
+  private String[] excludedPassageIds;
+
+  /**
+   * excluded_chat_ids
+   *
+   * <p>示例值：
+   */
+  @SerializedName("excluded_chat_ids")
+  private String[] excludedChatIds;
+
+  /**
+   * excluded_message_ids
+   *
+   * <p>示例值：
+   */
+  @SerializedName("excluded_message_ids")
+  private String[] excludedMessageIds;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  public String[] getExcludedPassageIds() {
+    return this.excludedPassageIds;
+  }
+
+  public void setExcludedPassageIds(String[] excludedPassageIds) {
+    this.excludedPassageIds = excludedPassageIds;
+  }
+
+  public String[] getExcludedChatIds() {
+    return this.excludedChatIds;
+  }
+
+  public void setExcludedChatIds(String[] excludedChatIds) {
+    this.excludedChatIds = excludedChatIds;
+  }
+
+  public String[] getExcludedMessageIds() {
+    return this.excludedMessageIds;
+  }
+
+  public void setExcludedMessageIds(String[] excludedMessageIds) {
+    this.excludedMessageIds = excludedMessageIds;
+  }
+
+  // builder 开始
+  public MessagePassageParam() {}
+
+  public MessagePassageParam(Builder builder) {
     /**
      * searchable
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("searchable")
-    private Boolean searchable;
+    this.searchable = builder.searchable;
     /**
      * chat_ids
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
-    private String[] chatIds;
+    this.chatIds = builder.chatIds;
     /**
      * excluded_passage_ids
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("excluded_passage_ids")
-    private String[] excludedPassageIds;
+    this.excludedPassageIds = builder.excludedPassageIds;
     /**
      * excluded_chat_ids
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("excluded_chat_ids")
-    private String[] excludedChatIds;
+    this.excludedChatIds = builder.excludedChatIds;
     /**
      * excluded_message_ids
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("excluded_message_ids")
+    this.excludedMessageIds = builder.excludedMessageIds;
+  }
+
+  public static class Builder {
+    /**
+     * searchable
+     *
+     * <p>示例值：false
+     */
+    private Boolean searchable;
+
+    /**
+     * chat_ids
+     *
+     * <p>示例值：
+     */
+    private String[] chatIds;
+
+    /**
+     * excluded_passage_ids
+     *
+     * <p>示例值：
+     */
+    private String[] excludedPassageIds;
+
+    /**
+     * excluded_chat_ids
+     *
+     * <p>示例值：
+     */
+    private String[] excludedChatIds;
+
+    /**
+     * excluded_message_ids
+     *
+     * <p>示例值：
+     */
     private String[] excludedMessageIds;
 
-    // builder 开始
-    public MessagePassageParam() {
+    /**
+     * searchable
+     *
+     * <p>示例值：false
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public MessagePassageParam(Builder builder) {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * chat_ids
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * excluded_passage_ids
-         * <p> 示例值：
-         */
-        this.excludedPassageIds = builder.excludedPassageIds;
-        /**
-         * excluded_chat_ids
-         * <p> 示例值：
-         */
-        this.excludedChatIds = builder.excludedChatIds;
-        /**
-         * excluded_message_ids
-         * <p> 示例值：
-         */
-        this.excludedMessageIds = builder.excludedMessageIds;
+    /**
+     * chat_ids
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * excluded_passage_ids
+     *
+     * <p>示例值：
+     *
+     * @param excludedPassageIds
+     * @return
+     */
+    public Builder excludedPassageIds(String[] excludedPassageIds) {
+      this.excludedPassageIds = excludedPassageIds;
+      return this;
     }
 
-    public Boolean getSearchable() {
-        return this.searchable;
+    /**
+     * excluded_chat_ids
+     *
+     * <p>示例值：
+     *
+     * @param excludedChatIds
+     * @return
+     */
+    public Builder excludedChatIds(String[] excludedChatIds) {
+      this.excludedChatIds = excludedChatIds;
+      return this;
     }
 
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
+    /**
+     * excluded_message_ids
+     *
+     * <p>示例值：
+     *
+     * @param excludedMessageIds
+     * @return
+     */
+    public Builder excludedMessageIds(String[] excludedMessageIds) {
+      this.excludedMessageIds = excludedMessageIds;
+      return this;
     }
 
-    public String[] getChatIds() {
-        return this.chatIds;
+    public MessagePassageParam build() {
+      return new MessagePassageParam(this);
     }
+  }
 
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public String[] getExcludedPassageIds() {
-        return this.excludedPassageIds;
-    }
-
-    public void setExcludedPassageIds(String[] excludedPassageIds) {
-        this.excludedPassageIds = excludedPassageIds;
-    }
-
-    public String[] getExcludedChatIds() {
-        return this.excludedChatIds;
-    }
-
-    public void setExcludedChatIds(String[] excludedChatIds) {
-        this.excludedChatIds = excludedChatIds;
-    }
-
-    public String[] getExcludedMessageIds() {
-        return this.excludedMessageIds;
-    }
-
-    public void setExcludedMessageIds(String[] excludedMessageIds) {
-        this.excludedMessageIds = excludedMessageIds;
-    }
-
-    public static class Builder {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * chat_ids
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-        /**
-         * excluded_passage_ids
-         * <p> 示例值：
-         */
-        private String[] excludedPassageIds;
-        /**
-         * excluded_chat_ids
-         * <p> 示例值：
-         */
-        private String[] excludedChatIds;
-        /**
-         * excluded_message_ids
-         * <p> 示例值：
-         */
-        private String[] excludedMessageIds;
-
-        /**
-         * searchable
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * chat_ids
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        /**
-         * excluded_passage_ids
-         * <p> 示例值：
-         *
-         * @param excludedPassageIds
-         * @return
-         */
-        public Builder excludedPassageIds(String[] excludedPassageIds) {
-            this.excludedPassageIds = excludedPassageIds;
-            return this;
-        }
-
-
-        /**
-         * excluded_chat_ids
-         * <p> 示例值：
-         *
-         * @param excludedChatIds
-         * @return
-         */
-        public Builder excludedChatIds(String[] excludedChatIds) {
-            this.excludedChatIds = excludedChatIds;
-            return this;
-        }
-
-
-        /**
-         * excluded_message_ids
-         * <p> 示例值：
-         *
-         * @param excludedMessageIds
-         * @return
-         */
-        public Builder excludedMessageIds(String[] excludedMessageIds) {
-            this.excludedMessageIds = excludedMessageIds;
-            return this;
-        }
-
-
-        public MessagePassageParam build() {
-            return new MessagePassageParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteAppTableRecordRespBody {
-    /**
-     * 记录
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private DeleteRecord[] records;
+  /**
+   * 删除的记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private DeleteRecord[] records;
 
-    public DeleteRecord[] getRecords() {
-        return this.records;
-    }
+  public DeleteRecord[] getRecords() {
+    return this.records;
+  }
 
-    public void setRecords(DeleteRecord[] records) {
-        this.records = records;
-    }
-
+  public void setRecords(DeleteRecord[] records) {
+    this.records = records;
+  }
 }

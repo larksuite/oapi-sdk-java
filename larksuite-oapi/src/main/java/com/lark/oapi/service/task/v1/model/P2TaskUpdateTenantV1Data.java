@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TaskUpdateTenantV1Data {
-    /**
-     * 用户 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_id_list")
-    private UserIdList userIdList;
-    /**
-     * 任务的id
-     * <p> 示例值：24314cff-b7fe-438d-a232-b1a80a5f3371
-     */
-    @SerializedName("task_id")
-    private String taskId;
-    /**
-     * 变更的数据类型，可选值：;"task"，"collaborator"，"follower"
-     * <p> 示例值：task
-     */
-    @SerializedName("object_type")
-    private String objectType;
-    /**
-     * 事件类型，可选值：;"create"，"delete"，"update"
-     * <p> 示例值：update
-     */
-    @SerializedName("event_type")
-    private String eventType;
+  /**
+   * 用户 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private UserIdList userIdList;
 
-    public UserIdList getUserIdList() {
-        return this.userIdList;
-    }
+  /**
+   * 任务的id
+   *
+   * <p>示例值：24314cff-b7fe-438d-a232-b1a80a5f3371
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public void setUserIdList(UserIdList userIdList) {
-        this.userIdList = userIdList;
-    }
+  /**
+   * 变更的数据类型，可选值：;"task"，"collaborator"，"follower"
+   *
+   * <p>示例值：task
+   */
+  @SerializedName("object_type")
+  private String objectType;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  /**
+   * 事件类型，可选值：;"create"，"delete"，"update"
+   *
+   * <p>示例值：update
+   */
+  @SerializedName("event_type")
+  private String eventType;
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+  public UserIdList getUserIdList() {
+    return this.userIdList;
+  }
 
-    public String getObjectType() {
-        return this.objectType;
-    }
+  public void setUserIdList(UserIdList userIdList) {
+    this.userIdList = userIdList;
+  }
 
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public String getEventType() {
-        return this.eventType;
-    }
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
+  public String getObjectType() {
+    return this.objectType;
+  }
 
+  public void setObjectType(String objectType) {
+    this.objectType = objectType;
+  }
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
 }

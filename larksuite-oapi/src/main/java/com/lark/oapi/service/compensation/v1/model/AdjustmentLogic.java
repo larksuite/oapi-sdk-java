@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AdjustmentLogic {
+  /**
+   * 固定值
+   *
+   * <p>示例值：60
+   */
+  @SerializedName("fixed")
+  private String fixed;
+
+  /**
+   * 公式配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("formula")
+  private Formula formula;
+
+  public String getFixed() {
+    return this.fixed;
+  }
+
+  public void setFixed(String fixed) {
+    this.fixed = fixed;
+  }
+
+  public Formula getFormula() {
+    return this.formula;
+  }
+
+  public void setFormula(Formula formula) {
+    this.formula = formula;
+  }
+
+  // builder 开始
+  public AdjustmentLogic() {}
+
+  public AdjustmentLogic(Builder builder) {
     /**
      * 固定值
-     * <p> 示例值：60
+     *
+     * <p>示例值：60
      */
-    @SerializedName("fixed")
-    private String fixed;
+    this.fixed = builder.fixed;
     /**
      * 公式配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("formula")
+    this.formula = builder.formula;
+  }
+
+  public static class Builder {
+    /**
+     * 固定值
+     *
+     * <p>示例值：60
+     */
+    private String fixed;
+
+    /**
+     * 公式配置
+     *
+     * <p>示例值：
+     */
     private Formula formula;
 
-    // builder 开始
-    public AdjustmentLogic() {
+    /**
+     * 固定值
+     *
+     * <p>示例值：60
+     *
+     * @param fixed
+     * @return
+     */
+    public Builder fixed(String fixed) {
+      this.fixed = fixed;
+      return this;
     }
 
-    public AdjustmentLogic(Builder builder) {
-        /**
-         * 固定值
-         * <p> 示例值：60
-         */
-        this.fixed = builder.fixed;
-        /**
-         * 公式配置
-         * <p> 示例值：
-         */
-        this.formula = builder.formula;
+    /**
+     * 公式配置
+     *
+     * <p>示例值：
+     *
+     * @param formula
+     * @return
+     */
+    public Builder formula(Formula formula) {
+      this.formula = formula;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AdjustmentLogic build() {
+      return new AdjustmentLogic(this);
     }
+  }
 
-    public String getFixed() {
-        return this.fixed;
-    }
-
-    public void setFixed(String fixed) {
-        this.fixed = fixed;
-    }
-
-    public Formula getFormula() {
-        return this.formula;
-    }
-
-    public void setFormula(Formula formula) {
-        this.formula = formula;
-    }
-
-    public static class Builder {
-        /**
-         * 固定值
-         * <p> 示例值：60
-         */
-        private String fixed;
-        /**
-         * 公式配置
-         * <p> 示例值：
-         */
-        private Formula formula;
-
-        /**
-         * 固定值
-         * <p> 示例值：60
-         *
-         * @param fixed
-         * @return
-         */
-        public Builder fixed(String fixed) {
-            this.fixed = fixed;
-            return this;
-        }
-
-
-        /**
-         * 公式配置
-         * <p> 示例值：
-         *
-         * @param formula
-         * @return
-         */
-        public Builder formula(Formula formula) {
-            this.formula = formula;
-            return this;
-        }
-
-
-        public AdjustmentLogic build() {
-            return new AdjustmentLogic(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

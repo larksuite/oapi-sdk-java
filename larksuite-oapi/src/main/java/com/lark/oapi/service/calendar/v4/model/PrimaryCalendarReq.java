@@ -13,117 +13,114 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class PrimaryCalendarReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 应用身份下指定操作用户的日历日程数据
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @Query
+  @SerializedName("op_user_id")
+  private String opUserId;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getOpUserId() {
+    return this.opUserId;
+  }
+
+  public void setOpUserId(String opUserId) {
+    this.opUserId = opUserId;
+  }
+
+  // builder 开始
+  public PrimaryCalendarReq() {}
+
+  public PrimaryCalendarReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 应用身份下指定操作用户的日历日程数据
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @Query
-    @SerializedName("op_user_id")
-    private String opUserId;
+    this.opUserId = builder.opUserId;
+  }
 
-    // builder 开始
-    public PrimaryCalendarReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String opUserId; // 应用身份下指定操作用户的日历日程数据
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public PrimaryCalendarReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.opUserId = builder.opUserId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用身份下指定操作用户的日历日程数据
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param opUserId
+     * @return
+     */
+    public Builder opUserId(String opUserId) {
+      this.opUserId = opUserId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public PrimaryCalendarReq build() {
+      return new PrimaryCalendarReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getOpUserId() {
-        return this.opUserId;
-    }
-
-    public void setOpUserId(String opUserId) {
-        this.opUserId = opUserId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String opUserId; // 应用身份下指定操作用户的日历日程数据
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param opUserId
-         * @return
-         */
-        public Builder opUserId(String opUserId) {
-            this.opUserId = opUserId;
-            return this;
-        }
-
-
-        public PrimaryCalendarReq build() {
-            return new PrimaryCalendarReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

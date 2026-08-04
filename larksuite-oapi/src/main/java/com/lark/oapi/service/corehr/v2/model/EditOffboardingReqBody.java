@@ -13,149 +13,193 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EditOffboardingReqBody {
+  /**
+   * 离职记录ID，不允许为空。可以通过[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)获取，取值于接口返回的data
+   * > items > offboarding_id
+   *
+   * <p>示例值：7095671727698478604
+   */
+  @SerializedName("offboarding_id")
+  private String offboardingId;
+
+  /**
+   * 操作人雇佣 ID（employment_id），ID类型与查询参数
+   * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+   * Union
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+   * ID。然后通过[ID
+   * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：为空时，默认系统操作人
+   *
+   * <p>示例值：6982509313466189341
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  /**
+   * 编辑字段数据信息，不允许为空。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_data")
+  private ObjectFieldData[] updateData;
+
+  public String getOffboardingId() {
+    return this.offboardingId;
+  }
+
+  public void setOffboardingId(String offboardingId) {
+    this.offboardingId = offboardingId;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public ObjectFieldData[] getUpdateData() {
+    return this.updateData;
+  }
+
+  public void setUpdateData(ObjectFieldData[] updateData) {
+    this.updateData = updateData;
+  }
+
+  // builder 开始
+  public EditOffboardingReqBody() {}
+
+  public EditOffboardingReqBody(Builder builder) {
     /**
-     * 离职记录 ID
-     * <p> 示例值：7095671727698478604
+     * 离职记录ID，不允许为空。可以通过[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)获取，取值于接口返回的data
+     * > items > offboarding_id
+     *
+     * <p>示例值：7095671727698478604
      */
-    @SerializedName("offboarding_id")
+    this.offboardingId = builder.offboardingId;
+    /**
+     * 操作人雇佣 ID（employment_id），ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：为空时，默认系统操作人
+     *
+     * <p>示例值：6982509313466189341
+     */
+    this.operatorId = builder.operatorId;
+    /**
+     * 编辑字段数据信息，不允许为空。
+     *
+     * <p>示例值：
+     */
+    this.updateData = builder.updateData;
+  }
+
+  public static class Builder {
+    /**
+     * 离职记录ID，不允许为空。可以通过[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)获取，取值于接口返回的data
+     * > items > offboarding_id
+     *
+     * <p>示例值：7095671727698478604
+     */
     private String offboardingId;
+
     /**
-     * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-     * <p> 示例值：6982509313466189341
+     * 操作人雇佣 ID（employment_id），ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：为空时，默认系统操作人
+     *
+     * <p>示例值：6982509313466189341
      */
-    @SerializedName("operator_id")
     private String operatorId;
+
     /**
-     * 编辑字段数据信息
-     * <p> 示例值：
+     * 编辑字段数据信息，不允许为空。
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_data")
     private ObjectFieldData[] updateData;
 
-    // builder 开始
-    public EditOffboardingReqBody() {
+    /**
+     * 离职记录ID，不允许为空。可以通过[搜索离职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/search)获取，取值于接口返回的data
+     * > items > offboarding_id
+     *
+     * <p>示例值：7095671727698478604
+     *
+     * @param offboardingId
+     * @return
+     */
+    public Builder offboardingId(String offboardingId) {
+      this.offboardingId = offboardingId;
+      return this;
     }
 
-    public EditOffboardingReqBody(Builder builder) {
-        /**
-         * 离职记录 ID
-         * <p> 示例值：7095671727698478604
-         */
-        this.offboardingId = builder.offboardingId;
-        /**
-         * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-         * <p> 示例值：6982509313466189341
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 编辑字段数据信息
-         * <p> 示例值：
-         */
-        this.updateData = builder.updateData;
+    /**
+     * 操作人雇佣 ID（employment_id），ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：为空时，默认系统操作人
+     *
+     * <p>示例值：6982509313466189341
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编辑字段数据信息，不允许为空。
+     *
+     * <p>示例值：
+     *
+     * @param updateData
+     * @return
+     */
+    public Builder updateData(ObjectFieldData[] updateData) {
+      this.updateData = updateData;
+      return this;
     }
 
-    public String getOffboardingId() {
-        return this.offboardingId;
+    public EditOffboardingReqBody build() {
+      return new EditOffboardingReqBody(this);
     }
+  }
 
-    public void setOffboardingId(String offboardingId) {
-        this.offboardingId = offboardingId;
-    }
-
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public ObjectFieldData[] getUpdateData() {
-        return this.updateData;
-    }
-
-    public void setUpdateData(ObjectFieldData[] updateData) {
-        this.updateData = updateData;
-    }
-
-    public static class Builder {
-        /**
-         * 离职记录 ID
-         * <p> 示例值：7095671727698478604
-         */
-        private String offboardingId;
-        /**
-         * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-         * <p> 示例值：6982509313466189341
-         */
-        private String operatorId;
-        /**
-         * 编辑字段数据信息
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] updateData;
-
-        /**
-         * 离职记录 ID
-         * <p> 示例值：7095671727698478604
-         *
-         * @param offboardingId
-         * @return
-         */
-        public Builder offboardingId(String offboardingId) {
-            this.offboardingId = offboardingId;
-            return this;
-        }
-
-
-        /**
-         * 操作人雇佣 ID（employment_id），为空默认为系统操作。
-         * <p> 示例值：6982509313466189341
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        /**
-         * 编辑字段数据信息
-         * <p> 示例值：
-         *
-         * @param updateData
-         * @return
-         */
-        public Builder updateData(ObjectFieldData[] updateData) {
-            this.updateData = updateData;
-            return this;
-        }
-
-
-        public EditOffboardingReqBody build() {
-            return new EditOffboardingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

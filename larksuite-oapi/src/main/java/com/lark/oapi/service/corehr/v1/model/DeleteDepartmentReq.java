@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteDepartmentReq {
+  /**
+   * 需要删除的部门
+   * ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得
+   *
+   * <p>示例值：341143141
+   */
+  @Path
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public DeleteDepartmentReq() {}
+
+  public DeleteDepartmentReq(Builder builder) {
     /**
-     * 需要删除的部门 ID
-     * <p> 示例值：341143141
+     * 需要删除的部门
+     * ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得
+     *
+     * <p>示例值：341143141
      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
+  }
 
-    // builder 开始
-    public DeleteDepartmentReq() {
+  public static class Builder {
+
+    private String departmentId; // 需要删除的部门
+
+    // ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得
+
+    /**
+     * 需要删除的部门
+     * ID，可通过[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口查询获得
+     *
+     * <p>示例值：341143141
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public DeleteDepartmentReq(Builder builder) {
-        /**
-         * 需要删除的部门 ID
-         * <p> 示例值：341143141
-         */
-        this.departmentId = builder.departmentId;
+    public DeleteDepartmentReq build() {
+      return new DeleteDepartmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-
-        private String departmentId; // 需要删除的部门 ID
-
-        /**
-         * 需要删除的部门 ID
-         * <p> 示例值：341143141
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public DeleteDepartmentReq build() {
-            return new DeleteDepartmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

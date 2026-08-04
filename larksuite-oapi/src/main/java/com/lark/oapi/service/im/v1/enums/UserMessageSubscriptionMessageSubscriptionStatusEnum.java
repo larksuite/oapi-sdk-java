@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 订阅状态
- */
+/** 订阅状态 */
 public enum UserMessageSubscriptionMessageSubscriptionStatusEnum {
-    ACTIVE(1), // 激活
-    DISABLED(2), // 未启用
-    DELETED(3), // 删除
-    ;
-    private Integer value;
+  ACTIVE(1), // 激活
+  DISABLED(2), // 未启用
+  DELETED(3), // 删除
+  ;
+  private Integer value;
 
-    UserMessageSubscriptionMessageSubscriptionStatusEnum(Integer value) {
-        this.value = value;
-    }
+  UserMessageSubscriptionMessageSubscriptionStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

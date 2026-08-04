@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CountryRegion {
+  /**
+   * 国家地区ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 国家地区三字码
+   *
+   * <p>示例值：CHN
+   */
+  @SerializedName("alpha3_code")
+  private String alpha3Code;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getAlpha3Code() {
+    return this.alpha3Code;
+  }
+
+  public void setAlpha3Code(String alpha3Code) {
+    this.alpha3Code = alpha3Code;
+  }
+
+  // builder 开始
+  public CountryRegion() {}
+
+  public CountryRegion(Builder builder) {
     /**
      * 国家地区ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 国家地区三字码
-     * <p> 示例值：CHN
+     *
+     * <p>示例值：CHN
      */
-    @SerializedName("alpha3_code")
+    this.alpha3Code = builder.alpha3Code;
+  }
+
+  public static class Builder {
+    /**
+     * 国家地区ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String id;
+
+    /**
+     * 国家地区三字码
+     *
+     * <p>示例值：CHN
+     */
     private String alpha3Code;
 
-    // builder 开始
-    public CountryRegion() {
+    /**
+     * 国家地区ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CountryRegion(Builder builder) {
-        /**
-         * 国家地区ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.id = builder.id;
-        /**
-         * 国家地区三字码
-         * <p> 示例值：CHN
-         */
-        this.alpha3Code = builder.alpha3Code;
+    /**
+     * 国家地区三字码
+     *
+     * <p>示例值：CHN
+     *
+     * @param alpha3Code
+     * @return
+     */
+    public Builder alpha3Code(String alpha3Code) {
+      this.alpha3Code = alpha3Code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CountryRegion build() {
+      return new CountryRegion(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getAlpha3Code() {
-        return this.alpha3Code;
-    }
-
-    public void setAlpha3Code(String alpha3Code) {
-        this.alpha3Code = alpha3Code;
-    }
-
-    public static class Builder {
-        /**
-         * 国家地区ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String id;
-        /**
-         * 国家地区三字码
-         * <p> 示例值：CHN
-         */
-        private String alpha3Code;
-
-        /**
-         * 国家地区ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 国家地区三字码
-         * <p> 示例值：CHN
-         *
-         * @param alpha3Code
-         * @return
-         */
-        public Builder alpha3Code(String alpha3Code) {
-            this.alpha3Code = alpha3Code;
-            return this;
-        }
-
-
-        public CountryRegion build() {
-            return new CountryRegion(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

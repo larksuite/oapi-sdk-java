@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InternOfferOnboardingInfo {
+  /**
+   * 实际入职日期;;;**值格式**："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("actual_onboarding_date")
+  private String actualOnboardingDate;
+
+  public String getActualOnboardingDate() {
+    return this.actualOnboardingDate;
+  }
+
+  public void setActualOnboardingDate(String actualOnboardingDate) {
+    this.actualOnboardingDate = actualOnboardingDate;
+  }
+
+  // builder 开始
+  public InternOfferOnboardingInfo() {}
+
+  public InternOfferOnboardingInfo(Builder builder) {
     /**
-     * 实际入职日期
-     * <p> 示例值：2022-01-01
+     * 实际入职日期;;;**值格式**："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("actual_onboarding_date")
+    this.actualOnboardingDate = builder.actualOnboardingDate;
+  }
+
+  public static class Builder {
+    /**
+     * 实际入职日期;;;**值格式**："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     */
     private String actualOnboardingDate;
 
-    // builder 开始
-    public InternOfferOnboardingInfo() {
+    /**
+     * 实际入职日期;;;**值格式**："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param actualOnboardingDate
+     * @return
+     */
+    public Builder actualOnboardingDate(String actualOnboardingDate) {
+      this.actualOnboardingDate = actualOnboardingDate;
+      return this;
     }
 
-    public InternOfferOnboardingInfo(Builder builder) {
-        /**
-         * 实际入职日期
-         * <p> 示例值：2022-01-01
-         */
-        this.actualOnboardingDate = builder.actualOnboardingDate;
+    public InternOfferOnboardingInfo build() {
+      return new InternOfferOnboardingInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getActualOnboardingDate() {
-        return this.actualOnboardingDate;
-    }
-
-    public void setActualOnboardingDate(String actualOnboardingDate) {
-        this.actualOnboardingDate = actualOnboardingDate;
-    }
-
-    public static class Builder {
-        /**
-         * 实际入职日期
-         * <p> 示例值：2022-01-01
-         */
-        private String actualOnboardingDate;
-
-        /**
-         * 实际入职日期
-         * <p> 示例值：2022-01-01
-         *
-         * @param actualOnboardingDate
-         * @return
-         */
-        public Builder actualOnboardingDate(String actualOnboardingDate) {
-            this.actualOnboardingDate = actualOnboardingDate;
-            return this;
-        }
-
-
-        public InternOfferOnboardingInfo build() {
-            return new InternOfferOnboardingInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

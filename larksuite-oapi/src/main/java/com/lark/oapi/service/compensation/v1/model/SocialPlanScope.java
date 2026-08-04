@@ -13,112 +13,127 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialPlanScope {
+  /**
+   * 是否适用于全部
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_all")
+  private Boolean isAll;
+
+  /**
+   * rules：配置的条件规则。返回两层结构：[条件组[条件]]。多个 [条件组] 之间是 或 的关系，一个条件组内的多个 [条件] 是 且 的关系。;比如：rules:
+   * [[1,2],[3,4]]，业务含义为：(1 and 2) or (3 and 4)<br>
+   * rules [][]social_plan_condition 适用范围;- left_type int 可选值有：<br>
+   * ``1``：参保城市<br>
+   * ``2``：缴纳主体 ;- operator int 可选值有：<br>
+   * ``1``：包含;- right_values []string; - 当left_type=1时，是参保城市ID; - 当left_type=2时，是缴纳主体ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rules")
+  private SocialPlanCondition[][] rules;
+
+  public Boolean getIsAll() {
+    return this.isAll;
+  }
+
+  public void setIsAll(Boolean isAll) {
+    this.isAll = isAll;
+  }
+
+  public SocialPlanCondition[][] getRules() {
+    return this.rules;
+  }
+
+  public void setRules(SocialPlanCondition[][] rules) {
+    this.rules = rules;
+  }
+
+  // builder 开始
+  public SocialPlanScope() {}
+
+  public SocialPlanScope(Builder builder) {
     /**
      * 是否适用于全部
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_all")
-    private Boolean isAll;
+    this.isAll = builder.isAll;
     /**
-     * 适用范围，二维。外层or连接，内层and连接
-     * <p> 示例值：
+     * rules：配置的条件规则。返回两层结构：[条件组[条件]]。多个 [条件组] 之间是 或 的关系，一个条件组内的多个 [条件] 是 且 的关系。;比如：rules:
+     * [[1,2],[3,4]]，业务含义为：(1 and 2) or (3 and 4)<br>
+     * rules [][]social_plan_condition 适用范围;- left_type int 可选值有：<br>
+     * ``1``：参保城市<br>
+     * ``2``：缴纳主体 ;- operator int 可选值有：<br>
+     * ``1``：包含;- right_values []string; - 当left_type=1时，是参保城市ID; - 当left_type=2时，是缴纳主体ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("rules")
+    this.rules = builder.rules;
+  }
+
+  public static class Builder {
+    /**
+     * 是否适用于全部
+     *
+     * <p>示例值：true
+     */
+    private Boolean isAll;
+
+    /**
+     * rules：配置的条件规则。返回两层结构：[条件组[条件]]。多个 [条件组] 之间是 或 的关系，一个条件组内的多个 [条件] 是 且 的关系。;比如：rules:
+     * [[1,2],[3,4]]，业务含义为：(1 and 2) or (3 and 4)<br>
+     * rules [][]social_plan_condition 适用范围;- left_type int 可选值有：<br>
+     * ``1``：参保城市<br>
+     * ``2``：缴纳主体 ;- operator int 可选值有：<br>
+     * ``1``：包含;- right_values []string; - 当left_type=1时，是参保城市ID; - 当left_type=2时，是缴纳主体ID
+     *
+     * <p>示例值：
+     */
     private SocialPlanCondition[][] rules;
 
-    // builder 开始
-    public SocialPlanScope() {
+    /**
+     * 是否适用于全部
+     *
+     * <p>示例值：true
+     *
+     * @param isAll
+     * @return
+     */
+    public Builder isAll(Boolean isAll) {
+      this.isAll = isAll;
+      return this;
     }
 
-    public SocialPlanScope(Builder builder) {
-        /**
-         * 是否适用于全部
-         * <p> 示例值：true
-         */
-        this.isAll = builder.isAll;
-        /**
-         * 适用范围，二维。外层or连接，内层and连接
-         * <p> 示例值：
-         */
-        this.rules = builder.rules;
+    /**
+     * rules：配置的条件规则。返回两层结构：[条件组[条件]]。多个 [条件组] 之间是 或 的关系，一个条件组内的多个 [条件] 是 且 的关系。;比如：rules:
+     * [[1,2],[3,4]]，业务含义为：(1 and 2) or (3 and 4)<br>
+     * rules [][]social_plan_condition 适用范围;- left_type int 可选值有：<br>
+     * ``1``：参保城市<br>
+     * ``2``：缴纳主体 ;- operator int 可选值有：<br>
+     * ``1``：包含;- right_values []string; - 当left_type=1时，是参保城市ID; - 当left_type=2时，是缴纳主体ID
+     *
+     * <p>示例值：
+     *
+     * @param rules
+     * @return
+     */
+    public Builder rules(SocialPlanCondition[][] rules) {
+      this.rules = rules;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SocialPlanScope build() {
+      return new SocialPlanScope(this);
     }
+  }
 
-    public Boolean getIsAll() {
-        return this.isAll;
-    }
-
-    public void setIsAll(Boolean isAll) {
-        this.isAll = isAll;
-    }
-
-    public SocialPlanCondition[][] getRules() {
-        return this.rules;
-    }
-
-    public void setRules(SocialPlanCondition[][] rules) {
-        this.rules = rules;
-    }
-
-    public static class Builder {
-        /**
-         * 是否适用于全部
-         * <p> 示例值：true
-         */
-        private Boolean isAll;
-        /**
-         * 适用范围，二维。外层or连接，内层and连接
-         * <p> 示例值：
-         */
-        private SocialPlanCondition[][] rules;
-
-        /**
-         * 是否适用于全部
-         * <p> 示例值：true
-         *
-         * @param isAll
-         * @return
-         */
-        public Builder isAll(Boolean isAll) {
-            this.isAll = isAll;
-            return this;
-        }
-
-
-        /**
-         * 适用范围，二维。外层or连接，内层and连接
-         * <p> 示例值：
-         *
-         * @param rules
-         * @return
-         */
-        public Builder rules(SocialPlanCondition[][] rules) {
-            this.rules = rules;
-            return this;
-        }
-
-
-        public SocialPlanScope build() {
-            return new SocialPlanScope(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

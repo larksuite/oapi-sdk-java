@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MigrateGeoOptions {
+  /**
+   * 迁移的目标Geo
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("target_geo")
+  private String targetGeo;
+
+  /**
+   * 迁移任务的id，不指定时自动生成
+   *
+   * <p>示例值：342123423
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  public String getTargetGeo() {
+    return this.targetGeo;
+  }
+
+  public void setTargetGeo(String targetGeo) {
+    this.targetGeo = targetGeo;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  // builder 开始
+  public MigrateGeoOptions() {}
+
+  public MigrateGeoOptions(Builder builder) {
     /**
      * 迁移的目标Geo
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("target_geo")
-    private String targetGeo;
+    this.targetGeo = builder.targetGeo;
     /**
      * 迁移任务的id，不指定时自动生成
-     * <p> 示例值：342123423
+     *
+     * <p>示例值：342123423
      */
-    @SerializedName("task_id")
+    this.taskId = builder.taskId;
+  }
+
+  public static class Builder {
+    /**
+     * 迁移的目标Geo
+     *
+     * <p>示例值：cn
+     */
+    private String targetGeo;
+
+    /**
+     * 迁移任务的id，不指定时自动生成
+     *
+     * <p>示例值：342123423
+     */
     private String taskId;
 
-    // builder 开始
-    public MigrateGeoOptions() {
+    /**
+     * 迁移的目标Geo
+     *
+     * <p>示例值：cn
+     *
+     * @param targetGeo
+     * @return
+     */
+    public Builder targetGeo(String targetGeo) {
+      this.targetGeo = targetGeo;
+      return this;
     }
 
-    public MigrateGeoOptions(Builder builder) {
-        /**
-         * 迁移的目标Geo
-         * <p> 示例值：cn
-         */
-        this.targetGeo = builder.targetGeo;
-        /**
-         * 迁移任务的id，不指定时自动生成
-         * <p> 示例值：342123423
-         */
-        this.taskId = builder.taskId;
+    /**
+     * 迁移任务的id，不指定时自动生成
+     *
+     * <p>示例值：342123423
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MigrateGeoOptions build() {
+      return new MigrateGeoOptions(this);
     }
+  }
 
-    public String getTargetGeo() {
-        return this.targetGeo;
-    }
-
-    public void setTargetGeo(String targetGeo) {
-        this.targetGeo = targetGeo;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public static class Builder {
-        /**
-         * 迁移的目标Geo
-         * <p> 示例值：cn
-         */
-        private String targetGeo;
-        /**
-         * 迁移任务的id，不指定时自动生成
-         * <p> 示例值：342123423
-         */
-        private String taskId;
-
-        /**
-         * 迁移的目标Geo
-         * <p> 示例值：cn
-         *
-         * @param targetGeo
-         * @return
-         */
-        public Builder targetGeo(String targetGeo) {
-            this.targetGeo = targetGeo;
-            return this;
-        }
-
-
-        /**
-         * 迁移任务的id，不指定时自动生成
-         * <p> 示例值：342123423
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        public MigrateGeoOptions build() {
-            return new MigrateGeoOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

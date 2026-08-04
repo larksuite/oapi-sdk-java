@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Document {
+  /**
+   * 文档唯一标识
+   *
+   * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
+   */
+  @SerializedName("document_id")
+  private String documentId;
+
+  /**
+   * 文档版本 ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("revision_id")
+  private Integer revisionId;
+
+  /**
+   * 文档标题
+   *
+   * <p>示例值：undefined
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文档展示设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display_setting")
+  private DocumentDisplaySetting displaySetting;
+
+  /**
+   * 文档封面
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cover")
+  private DocumentCover cover;
+
+  public String getDocumentId() {
+    return this.documentId;
+  }
+
+  public void setDocumentId(String documentId) {
+    this.documentId = documentId;
+  }
+
+  public Integer getRevisionId() {
+    return this.revisionId;
+  }
+
+  public void setRevisionId(Integer revisionId) {
+    this.revisionId = revisionId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public DocumentDisplaySetting getDisplaySetting() {
+    return this.displaySetting;
+  }
+
+  public void setDisplaySetting(DocumentDisplaySetting displaySetting) {
+    this.displaySetting = displaySetting;
+  }
+
+  public DocumentCover getCover() {
+    return this.cover;
+  }
+
+  public void setCover(DocumentCover cover) {
+    this.cover = cover;
+  }
+
+  // builder 开始
+  public Document() {}
+
+  public Document(Builder builder) {
     /**
      * 文档唯一标识
-     * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
+     *
+     * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
      */
-    @SerializedName("document_id")
-    private String documentId;
+    this.documentId = builder.documentId;
     /**
      * 文档版本 ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("revision_id")
-    private Integer revisionId;
+    this.revisionId = builder.revisionId;
     /**
      * 文档标题
-     * <p> 示例值：undefined
+     *
+     * <p>示例值：undefined
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文档展示设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("display_setting")
-    private DocumentDisplaySetting displaySetting;
+    this.displaySetting = builder.displaySetting;
     /**
      * 文档封面
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cover")
+    this.cover = builder.cover;
+  }
+
+  public static class Builder {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
+     */
+    private String documentId;
+
+    /**
+     * 文档版本 ID
+     *
+     * <p>示例值：1
+     */
+    private Integer revisionId;
+
+    /**
+     * 文档标题
+     *
+     * <p>示例值：undefined
+     */
+    private String title;
+
+    /**
+     * 文档展示设置
+     *
+     * <p>示例值：
+     */
+    private DocumentDisplaySetting displaySetting;
+
+    /**
+     * 文档封面
+     *
+     * <p>示例值：
+     */
     private DocumentCover cover;
 
-    // builder 开始
-    public Document() {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
+     *
+     * @param documentId
+     * @return
+     */
+    public Builder documentId(String documentId) {
+      this.documentId = documentId;
+      return this;
     }
 
-    public Document(Builder builder) {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-         */
-        this.documentId = builder.documentId;
-        /**
-         * 文档版本 ID
-         * <p> 示例值：1
-         */
-        this.revisionId = builder.revisionId;
-        /**
-         * 文档标题
-         * <p> 示例值：undefined
-         */
-        this.title = builder.title;
-        /**
-         * 文档展示设置
-         * <p> 示例值：
-         */
-        this.displaySetting = builder.displaySetting;
-        /**
-         * 文档封面
-         * <p> 示例值：
-         */
-        this.cover = builder.cover;
+    /**
+     * 文档版本 ID
+     *
+     * <p>示例值：1
+     *
+     * @param revisionId
+     * @return
+     */
+    public Builder revisionId(Integer revisionId) {
+      this.revisionId = revisionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档标题
+     *
+     * <p>示例值：undefined
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getDocumentId() {
-        return this.documentId;
+    /**
+     * 文档展示设置
+     *
+     * <p>示例值：
+     *
+     * @param displaySetting
+     * @return
+     */
+    public Builder displaySetting(DocumentDisplaySetting displaySetting) {
+      this.displaySetting = displaySetting;
+      return this;
     }
 
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
+    /**
+     * 文档封面
+     *
+     * <p>示例值：
+     *
+     * @param cover
+     * @return
+     */
+    public Builder cover(DocumentCover cover) {
+      this.cover = cover;
+      return this;
     }
 
-    public Integer getRevisionId() {
-        return this.revisionId;
+    public Document build() {
+      return new Document(this);
     }
+  }
 
-    public void setRevisionId(Integer revisionId) {
-        this.revisionId = revisionId;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public DocumentDisplaySetting getDisplaySetting() {
-        return this.displaySetting;
-    }
-
-    public void setDisplaySetting(DocumentDisplaySetting displaySetting) {
-        this.displaySetting = displaySetting;
-    }
-
-    public DocumentCover getCover() {
-        return this.cover;
-    }
-
-    public void setCover(DocumentCover cover) {
-        this.cover = cover;
-    }
-
-    public static class Builder {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-         */
-        private String documentId;
-        /**
-         * 文档版本 ID
-         * <p> 示例值：1
-         */
-        private Integer revisionId;
-        /**
-         * 文档标题
-         * <p> 示例值：undefined
-         */
-        private String title;
-        /**
-         * 文档展示设置
-         * <p> 示例值：
-         */
-        private DocumentDisplaySetting displaySetting;
-        /**
-         * 文档封面
-         * <p> 示例值：
-         */
-        private DocumentCover cover;
-
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doxcni6mOy7jLRWbEylaKKC7K88
-         *
-         * @param documentId
-         * @return
-         */
-        public Builder documentId(String documentId) {
-            this.documentId = documentId;
-            return this;
-        }
-
-
-        /**
-         * 文档版本 ID
-         * <p> 示例值：1
-         *
-         * @param revisionId
-         * @return
-         */
-        public Builder revisionId(Integer revisionId) {
-            this.revisionId = revisionId;
-            return this;
-        }
-
-
-        /**
-         * 文档标题
-         * <p> 示例值：undefined
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文档展示设置
-         * <p> 示例值：
-         *
-         * @param displaySetting
-         * @return
-         */
-        public Builder displaySetting(DocumentDisplaySetting displaySetting) {
-            this.displaySetting = displaySetting;
-            return this;
-        }
-
-
-        /**
-         * 文档封面
-         * <p> 示例值：
-         *
-         * @param cover
-         * @return
-         */
-        public Builder cover(DocumentCover cover) {
-            this.cover = cover;
-            return this;
-        }
-
-
-        public Document build() {
-            return new Document(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

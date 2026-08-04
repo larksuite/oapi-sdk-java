@@ -13,25 +13,24 @@
 package com.lark.oapi.service.translation;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.translation.v1.V1;
 import com.lark.oapi.service.translation.v1.model.*;
 import com.lark.oapi.service.translation.v1.resource.Text;
 
 public class TranslationService {
-    private final V1 v1;
-    private final Text text; // 文本
+  private final V1 v1;
+  private final Text text; // text
 
-    public TranslationService(Config config) {
-        this.v1 = new V1(config);
-        this.text = new Text(config);
-    }
+  public TranslationService(Config config) {
+    this.v1 = new V1(config);
+    this.text = new Text(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Text text() {
-        return text;
-    }
+  public Text text() {
+    return text;
+  }
 }

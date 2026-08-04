@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BuiltinAction {
+  /**
+   * 内置的消息交互类型
+   *
+   * <p>示例值：CANCEL
+   */
+  @SerializedName("builtin_action_type")
+  private String builtinActionType;
+
+  /**
+   * 是否可交互
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable")
+  private Boolean enable;
+
+  /**
+   * action 状态
+   *
+   * <p>示例值：DISLIKE
+   */
+  @SerializedName("action_status")
+  private String actionStatus;
+
+  /**
+   * action 的其它信息
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("extra")
+  private String extra;
+
+  public String getBuiltinActionType() {
+    return this.builtinActionType;
+  }
+
+  public void setBuiltinActionType(String builtinActionType) {
+    this.builtinActionType = builtinActionType;
+  }
+
+  public Boolean getEnable() {
+    return this.enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+  public String getActionStatus() {
+    return this.actionStatus;
+  }
+
+  public void setActionStatus(String actionStatus) {
+    this.actionStatus = actionStatus;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public BuiltinAction() {}
+
+  public BuiltinAction(Builder builder) {
     /**
      * 内置的消息交互类型
-     * <p> 示例值：CANCEL
+     *
+     * <p>示例值：CANCEL
      */
-    @SerializedName("builtin_action_type")
-    private String builtinActionType;
+    this.builtinActionType = builder.builtinActionType;
     /**
      * 是否可交互
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable")
-    private Boolean enable;
+    this.enable = builder.enable;
     /**
      * action 状态
-     * <p> 示例值：DISLIKE
+     *
+     * <p>示例值：DISLIKE
      */
-    @SerializedName("action_status")
-    private String actionStatus;
+    this.actionStatus = builder.actionStatus;
     /**
      * action 的其它信息
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("extra")
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 内置的消息交互类型
+     *
+     * <p>示例值：CANCEL
+     */
+    private String builtinActionType;
+
+    /**
+     * 是否可交互
+     *
+     * <p>示例值：true
+     */
+    private Boolean enable;
+
+    /**
+     * action 状态
+     *
+     * <p>示例值：DISLIKE
+     */
+    private String actionStatus;
+
+    /**
+     * action 的其它信息
+     *
+     * <p>示例值：{}
+     */
     private String extra;
 
-    // builder 开始
-    public BuiltinAction() {
+    /**
+     * 内置的消息交互类型
+     *
+     * <p>示例值：CANCEL
+     *
+     * @param builtinActionType
+     * @return
+     */
+    public Builder builtinActionType(String builtinActionType) {
+      this.builtinActionType = builtinActionType;
+      return this;
     }
 
-    public BuiltinAction(Builder builder) {
-        /**
-         * 内置的消息交互类型
-         * <p> 示例值：CANCEL
-         */
-        this.builtinActionType = builder.builtinActionType;
-        /**
-         * 是否可交互
-         * <p> 示例值：true
-         */
-        this.enable = builder.enable;
-        /**
-         * action 状态
-         * <p> 示例值：DISLIKE
-         */
-        this.actionStatus = builder.actionStatus;
-        /**
-         * action 的其它信息
-         * <p> 示例值：{}
-         */
-        this.extra = builder.extra;
+    /**
+     * 内置的消息交互类型
+     *
+     * <p>示例值：CANCEL
+     *
+     * @param builtinActionType {@link
+     *     com.lark.oapi.service.aily.v1.enums.BuiltinActionBuiltinActionTypeEnum}
+     * @return
+     */
+    public Builder builtinActionType(
+        com.lark.oapi.service.aily.v1.enums.BuiltinActionBuiltinActionTypeEnum builtinActionType) {
+      this.builtinActionType = builtinActionType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否可交互
+     *
+     * <p>示例值：true
+     *
+     * @param enable
+     * @return
+     */
+    public Builder enable(Boolean enable) {
+      this.enable = enable;
+      return this;
     }
 
-    public String getBuiltinActionType() {
-        return this.builtinActionType;
+    /**
+     * action 状态
+     *
+     * <p>示例值：DISLIKE
+     *
+     * @param actionStatus
+     * @return
+     */
+    public Builder actionStatus(String actionStatus) {
+      this.actionStatus = actionStatus;
+      return this;
     }
 
-    public void setBuiltinActionType(String builtinActionType) {
-        this.builtinActionType = builtinActionType;
+    /**
+     * action 的其它信息
+     *
+     * <p>示例值：{}
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public Boolean getEnable() {
-        return this.enable;
+    public BuiltinAction build() {
+      return new BuiltinAction(this);
     }
+  }
 
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
-    }
-
-    public String getActionStatus() {
-        return this.actionStatus;
-    }
-
-    public void setActionStatus(String actionStatus) {
-        this.actionStatus = actionStatus;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 内置的消息交互类型
-         * <p> 示例值：CANCEL
-         */
-        private String builtinActionType;
-        /**
-         * 是否可交互
-         * <p> 示例值：true
-         */
-        private Boolean enable;
-        /**
-         * action 状态
-         * <p> 示例值：DISLIKE
-         */
-        private String actionStatus;
-        /**
-         * action 的其它信息
-         * <p> 示例值：{}
-         */
-        private String extra;
-
-        /**
-         * 内置的消息交互类型
-         * <p> 示例值：CANCEL
-         *
-         * @param builtinActionType
-         * @return
-         */
-        public Builder builtinActionType(String builtinActionType) {
-            this.builtinActionType = builtinActionType;
-            return this;
-        }
-
-        /**
-         * 内置的消息交互类型
-         * <p> 示例值：CANCEL
-         *
-         * @param builtinActionType {@link com.lark.oapi.service.aily.v1.enums.BuiltinActionBuiltinActionTypeEnum}
-         * @return
-         */
-        public Builder builtinActionType(com.lark.oapi.service.aily.v1.enums.BuiltinActionBuiltinActionTypeEnum builtinActionType) {
-            this.builtinActionType = builtinActionType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否可交互
-         * <p> 示例值：true
-         *
-         * @param enable
-         * @return
-         */
-        public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
-        }
-
-
-        /**
-         * action 状态
-         * <p> 示例值：DISLIKE
-         *
-         * @param actionStatus
-         * @return
-         */
-        public Builder actionStatus(String actionStatus) {
-            this.actionStatus = actionStatus;
-            return this;
-        }
-
-
-        /**
-         * action 的其它信息
-         * <p> 示例值：{}
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public BuiltinAction build() {
-            return new BuiltinAction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeActualWorkLocation {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 工作地点信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_locations")
+  private ActualWorkLocation[] workLocations;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public ActualWorkLocation[] getWorkLocations() {
+    return this.workLocations;
+  }
+
+  public void setWorkLocations(ActualWorkLocation[] workLocations) {
+    this.workLocations = workLocations;
+  }
+
+  // builder 开始
+  public EmployeeActualWorkLocation() {}
+
+  public EmployeeActualWorkLocation(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 工作地点信息列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_locations")
+    this.workLocations = builder.workLocations;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String employmentId;
+
+    /**
+     * 工作地点信息列表
+     *
+     * <p>示例值：
+     */
     private ActualWorkLocation[] workLocations;
 
-    // builder 开始
-    public EmployeeActualWorkLocation() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeActualWorkLocation(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 工作地点信息列表
-         * <p> 示例值：
-         */
-        this.workLocations = builder.workLocations;
+    /**
+     * 工作地点信息列表
+     *
+     * <p>示例值：
+     *
+     * @param workLocations
+     * @return
+     */
+    public Builder workLocations(ActualWorkLocation[] workLocations) {
+      this.workLocations = workLocations;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeActualWorkLocation build() {
+      return new EmployeeActualWorkLocation(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public ActualWorkLocation[] getWorkLocations() {
-        return this.workLocations;
-    }
-
-    public void setWorkLocations(ActualWorkLocation[] workLocations) {
-        this.workLocations = workLocations;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String employmentId;
-        /**
-         * 工作地点信息列表
-         * <p> 示例值：
-         */
-        private ActualWorkLocation[] workLocations;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 工作地点信息列表
-         * <p> 示例值：
-         *
-         * @param workLocations
-         * @return
-         */
-        public Builder workLocations(ActualWorkLocation[] workLocations) {
-            this.workLocations = workLocations;
-            return this;
-        }
-
-
-        public EmployeeActualWorkLocation build() {
-            return new EmployeeActualWorkLocation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

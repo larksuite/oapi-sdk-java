@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 单位类型
- */
+/** 单位类型 */
 public enum RulemanagerTimeCodeInfoUnitTypeEnum {
-    UNITUNKNOWN(0), // 未知
-    UNITHOUR(1), // 小时
-    UNITDAY(2), // 天
-    ;
-    private Integer value;
+  UNITUNKNOWN(0), // 未知
+  UNITHOUR(1), // 小时
+  UNITDAY(2), // 天
+  ;
+  private Integer value;
 
-    RulemanagerTimeCodeInfoUnitTypeEnum(Integer value) {
-        this.value = value;
-    }
+  RulemanagerTimeCodeInfoUnitTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

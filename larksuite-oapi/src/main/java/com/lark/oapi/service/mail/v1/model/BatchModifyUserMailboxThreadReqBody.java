@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchModifyUserMailboxThreadReqBody {
+  /**
+   * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add_label_ids")
+  private String[] addLabelIds;
+
+  /**
+   * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("remove_label_ids")
+  private String[] removeLabelIds;
+
+  /**
+   * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
+   *
+   * <p>示例值：INBOX
+   */
+  @SerializedName("add_folder")
+  private String addFolder;
+
+  /**
+   * 需要操作的邮件会话ID，可通过列出邮件会话获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("thread_ids")
+  private String[] threadIds;
+
+  public String[] getAddLabelIds() {
+    return this.addLabelIds;
+  }
+
+  public void setAddLabelIds(String[] addLabelIds) {
+    this.addLabelIds = addLabelIds;
+  }
+
+  public String[] getRemoveLabelIds() {
+    return this.removeLabelIds;
+  }
+
+  public void setRemoveLabelIds(String[] removeLabelIds) {
+    this.removeLabelIds = removeLabelIds;
+  }
+
+  public String getAddFolder() {
+    return this.addFolder;
+  }
+
+  public void setAddFolder(String addFolder) {
+    this.addFolder = addFolder;
+  }
+
+  public String[] getThreadIds() {
+    return this.threadIds;
+  }
+
+  public void setThreadIds(String[] threadIds) {
+    this.threadIds = threadIds;
+  }
+
+  // builder 开始
+  public BatchModifyUserMailboxThreadReqBody() {}
+
+  public BatchModifyUserMailboxThreadReqBody(Builder builder) {
     /**
      * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("add_label_ids")
-    private String[] addLabelIds;
+    this.addLabelIds = builder.addLabelIds;
     /**
      * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("remove_label_ids")
-    private String[] removeLabelIds;
+    this.removeLabelIds = builder.removeLabelIds;
     /**
      * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-     * <p> 示例值：INBOX
+     *
+     * <p>示例值：INBOX
      */
-    @SerializedName("add_folder")
-    private String addFolder;
+    this.addFolder = builder.addFolder;
     /**
      * 需要操作的邮件会话ID，可通过列出邮件会话获取
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("thread_ids")
+    this.threadIds = builder.threadIds;
+  }
+
+  public static class Builder {
+    /**
+     * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+     *
+     * <p>示例值：
+     */
+    private String[] addLabelIds;
+
+    /**
+     * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+     *
+     * <p>示例值：
+     */
+    private String[] removeLabelIds;
+
+    /**
+     * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
+     *
+     * <p>示例值：INBOX
+     */
+    private String addFolder;
+
+    /**
+     * 需要操作的邮件会话ID，可通过列出邮件会话获取
+     *
+     * <p>示例值：
+     */
     private String[] threadIds;
 
-    // builder 开始
-    public BatchModifyUserMailboxThreadReqBody() {
+    /**
+     * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+     *
+     * <p>示例值：
+     *
+     * @param addLabelIds
+     * @return
+     */
+    public Builder addLabelIds(String[] addLabelIds) {
+      this.addLabelIds = addLabelIds;
+      return this;
     }
 
-    public BatchModifyUserMailboxThreadReqBody(Builder builder) {
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        this.addLabelIds = builder.addLabelIds;
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        this.removeLabelIds = builder.removeLabelIds;
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         */
-        this.addFolder = builder.addFolder;
-        /**
-         * 需要操作的邮件会话ID，可通过列出邮件会话获取
-         * <p> 示例值：
-         */
-        this.threadIds = builder.threadIds;
+    /**
+     * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
+     *
+     * <p>示例值：
+     *
+     * @param removeLabelIds
+     * @return
+     */
+    public Builder removeLabelIds(String[] removeLabelIds) {
+      this.removeLabelIds = removeLabelIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
+     *
+     * <p>示例值：INBOX
+     *
+     * @param addFolder
+     * @return
+     */
+    public Builder addFolder(String addFolder) {
+      this.addFolder = addFolder;
+      return this;
     }
 
-    public String[] getAddLabelIds() {
-        return this.addLabelIds;
+    /**
+     * 需要操作的邮件会话ID，可通过列出邮件会话获取
+     *
+     * <p>示例值：
+     *
+     * @param threadIds
+     * @return
+     */
+    public Builder threadIds(String[] threadIds) {
+      this.threadIds = threadIds;
+      return this;
     }
 
-    public void setAddLabelIds(String[] addLabelIds) {
-        this.addLabelIds = addLabelIds;
+    public BatchModifyUserMailboxThreadReqBody build() {
+      return new BatchModifyUserMailboxThreadReqBody(this);
     }
+  }
 
-    public String[] getRemoveLabelIds() {
-        return this.removeLabelIds;
-    }
-
-    public void setRemoveLabelIds(String[] removeLabelIds) {
-        this.removeLabelIds = removeLabelIds;
-    }
-
-    public String getAddFolder() {
-        return this.addFolder;
-    }
-
-    public void setAddFolder(String addFolder) {
-        this.addFolder = addFolder;
-    }
-
-    public String[] getThreadIds() {
-        return this.threadIds;
-    }
-
-    public void setThreadIds(String[] threadIds) {
-        this.threadIds = threadIds;
-    }
-
-    public static class Builder {
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        private String[] addLabelIds;
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        private String[] removeLabelIds;
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         */
-        private String addFolder;
-        /**
-         * 需要操作的邮件会话ID，可通过列出邮件会话获取
-         * <p> 示例值：
-         */
-        private String[] threadIds;
-
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         *
-         * @param addLabelIds
-         * @return
-         */
-        public Builder addLabelIds(String[] addLabelIds) {
-            this.addLabelIds = addLabelIds;
-            return this;
-        }
-
-
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         *
-         * @param removeLabelIds
-         * @return
-         */
-        public Builder removeLabelIds(String[] removeLabelIds) {
-            this.removeLabelIds = removeLabelIds;
-            return this;
-        }
-
-
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         *
-         * @param addFolder
-         * @return
-         */
-        public Builder addFolder(String addFolder) {
-            this.addFolder = addFolder;
-            return this;
-        }
-
-
-        /**
-         * 需要操作的邮件会话ID，可通过列出邮件会话获取
-         * <p> 示例值：
-         *
-         * @param threadIds
-         * @return
-         */
-        public Builder threadIds(String[] threadIds) {
-            this.threadIds = threadIds;
-            return this;
-        }
-
-
-        public BatchModifyUserMailboxThreadReqBody build() {
-            return new BatchModifyUserMailboxThreadReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

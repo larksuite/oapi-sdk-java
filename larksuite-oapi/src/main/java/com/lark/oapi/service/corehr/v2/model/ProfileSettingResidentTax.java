@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingResidentTax {
+  /**
+   * 年度
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("year_resident_tax")
+  private String yearResidentTax;
+
+  /**
+   * 国家 / 地区ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("tax_country_region")
+  private String taxCountryRegion;
+
+  /**
+   * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name =
+   * "resident_status"
+   *
+   * <p>示例值：tax_residence
+   */
+  @SerializedName("resident_status")
+  private String residentStatus;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ProfileSettingCustomField[] customFields;
+
+  public String getYearResidentTax() {
+    return this.yearResidentTax;
+  }
+
+  public void setYearResidentTax(String yearResidentTax) {
+    this.yearResidentTax = yearResidentTax;
+  }
+
+  public String getTaxCountryRegion() {
+    return this.taxCountryRegion;
+  }
+
+  public void setTaxCountryRegion(String taxCountryRegion) {
+    this.taxCountryRegion = taxCountryRegion;
+  }
+
+  public String getResidentStatus() {
+    return this.residentStatus;
+  }
+
+  public void setResidentStatus(String residentStatus) {
+    this.residentStatus = residentStatus;
+  }
+
+  public ProfileSettingCustomField[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ProfileSettingCustomField[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public ProfileSettingResidentTax() {}
+
+  public ProfileSettingResidentTax(Builder builder) {
     /**
      * 年度
-     * <p> 示例值：2006-01-02
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("year_resident_tax")
-    private String yearResidentTax;
+    this.yearResidentTax = builder.yearResidentTax;
     /**
      * 国家 / 地区ID
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("tax_country_region")
-    private String taxCountryRegion;
+    this.taxCountryRegion = builder.taxCountryRegion;
     /**
-     * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name = "resident_status"
-     * <p> 示例值：tax_residence
+     * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name =
+     * "resident_status"
+     *
+     * <p>示例值：tax_residence
      */
-    @SerializedName("resident_status")
-    private String residentStatus;
+    this.residentStatus = builder.residentStatus;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 年度
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String yearResidentTax;
+
+    /**
+     * 国家 / 地区ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String taxCountryRegion;
+
+    /**
+     * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name =
+     * "resident_status"
+     *
+     * <p>示例值：tax_residence
+     */
+    private String residentStatus;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ProfileSettingCustomField[] customFields;
 
-    // builder 开始
-    public ProfileSettingResidentTax() {
+    /**
+     * 年度
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param yearResidentTax
+     * @return
+     */
+    public Builder yearResidentTax(String yearResidentTax) {
+      this.yearResidentTax = yearResidentTax;
+      return this;
     }
 
-    public ProfileSettingResidentTax(Builder builder) {
-        /**
-         * 年度
-         * <p> 示例值：2006-01-02
-         */
-        this.yearResidentTax = builder.yearResidentTax;
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.taxCountryRegion = builder.taxCountryRegion;
-        /**
-         * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name = "resident_status"
-         * <p> 示例值：tax_residence
-         */
-        this.residentStatus = builder.residentStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 国家 / 地区ID
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param taxCountryRegion
+     * @return
+     */
+    public Builder taxCountryRegion(String taxCountryRegion) {
+      this.taxCountryRegion = taxCountryRegion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name =
+     * "resident_status"
+     *
+     * <p>示例值：tax_residence
+     *
+     * @param residentStatus
+     * @return
+     */
+    public Builder residentStatus(String residentStatus) {
+      this.residentStatus = residentStatus;
+      return this;
     }
 
-    public String getYearResidentTax() {
-        return this.yearResidentTax;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ProfileSettingCustomField[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setYearResidentTax(String yearResidentTax) {
-        this.yearResidentTax = yearResidentTax;
+    public ProfileSettingResidentTax build() {
+      return new ProfileSettingResidentTax(this);
     }
+  }
 
-    public String getTaxCountryRegion() {
-        return this.taxCountryRegion;
-    }
-
-    public void setTaxCountryRegion(String taxCountryRegion) {
-        this.taxCountryRegion = taxCountryRegion;
-    }
-
-    public String getResidentStatus() {
-        return this.residentStatus;
-    }
-
-    public void setResidentStatus(String residentStatus) {
-        this.residentStatus = residentStatus;
-    }
-
-    public ProfileSettingCustomField[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ProfileSettingCustomField[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 年度
-         * <p> 示例值：2006-01-02
-         */
-        private String yearResidentTax;
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String taxCountryRegion;
-        /**
-         * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name = "resident_status"
-         * <p> 示例值：tax_residence
-         */
-        private String residentStatus;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomField[] customFields;
-
-        /**
-         * 年度
-         * <p> 示例值：2006-01-02
-         *
-         * @param yearResidentTax
-         * @return
-         */
-        public Builder yearResidentTax(String yearResidentTax) {
-            this.yearResidentTax = yearResidentTax;
-            return this;
-        }
-
-
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param taxCountryRegion
-         * @return
-         */
-        public Builder taxCountryRegion(String taxCountryRegion) {
-            this.taxCountryRegion = taxCountryRegion;
-            return this;
-        }
-
-
-        /**
-         * 居民身份，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "resident_tax" custom_api_name = "resident_status"
-         * <p> 示例值：tax_residence
-         *
-         * @param residentStatus
-         * @return
-         */
-        public Builder residentStatus(String residentStatus) {
-            this.residentStatus = residentStatus;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ProfileSettingCustomField[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public ProfileSettingResidentTax build() {
-            return new ProfileSettingResidentTax(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

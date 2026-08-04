@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class BatchModifyUserMailboxMessageReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：adc@abc.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  @Body private BatchModifyUserMailboxMessageReqBody body;
+
+  public BatchModifyUserMailboxMessageReqBody getBatchModifyUserMailboxMessageReqBody() {
+    return this.body;
+  }
+
+  public void setBatchModifyUserMailboxMessageReqBody(BatchModifyUserMailboxMessageReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchModifyUserMailboxMessageReq() {}
+
+  public BatchModifyUserMailboxMessageReq(Builder builder) {
     /**
      * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：adc@abc.com
+     *
+     * <p>示例值：adc@abc.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
-    @Body
+    this.userMailboxId = builder.userMailboxId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：adc@abc.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
     private BatchModifyUserMailboxMessageReqBody body;
 
-    // builder 开始
-    public BatchModifyUserMailboxMessageReq() {
-    }
-
-    public BatchModifyUserMailboxMessageReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：adc@abc.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
     public BatchModifyUserMailboxMessageReqBody getBatchModifyUserMailboxMessageReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchModifyUserMailboxMessageReqBody(BatchModifyUserMailboxMessageReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchModifyUserMailboxMessageReqBody(BatchModifyUserMailboxMessageReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private BatchModifyUserMailboxMessageReqBody body;
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：adc@abc.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        public BatchModifyUserMailboxMessageReqBody getBatchModifyUserMailboxMessageReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchModifyUserMailboxMessageReqBody(BatchModifyUserMailboxMessageReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchModifyUserMailboxMessageReq build() {
-            return new BatchModifyUserMailboxMessageReq(this);
-        }
+    public BatchModifyUserMailboxMessageReq build() {
+      return new BatchModifyUserMailboxMessageReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationCountry {
+  /**
+   * 国家Code码
+   *
+   * <p>示例值：CN_1
+   */
+  @SerializedName("country_code")
+  private String countryCode;
+
+  /**
+   * 国家名称信息聚合
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_name_info")
+  private LocationNameInfo countryNameInfo;
+
+  public String getCountryCode() {
+    return this.countryCode;
+  }
+
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
+
+  public LocationNameInfo getCountryNameInfo() {
+    return this.countryNameInfo;
+  }
+
+  public void setCountryNameInfo(LocationNameInfo countryNameInfo) {
+    this.countryNameInfo = countryNameInfo;
+  }
+
+  // builder 开始
+  public LocationCountry() {}
+
+  public LocationCountry(Builder builder) {
     /**
-     * 国家地址Code码
-     * <p> 示例值：CN_1
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
      */
-    @SerializedName("country_code")
+    this.countryCode = builder.countryCode;
+    /**
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
+     */
+    this.countryNameInfo = builder.countryNameInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
+     */
     private String countryCode;
+
     /**
-     * 国家地址名称信息聚合
-     * <p> 示例值：
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_name_info")
     private LocationNameInfo countryNameInfo;
 
-    // builder 开始
-    public LocationCountry() {
+    /**
+     * 国家Code码
+     *
+     * <p>示例值：CN_1
+     *
+     * @param countryCode
+     * @return
+     */
+    public Builder countryCode(String countryCode) {
+      this.countryCode = countryCode;
+      return this;
     }
 
-    public LocationCountry(Builder builder) {
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
-        this.countryCode = builder.countryCode;
-        /**
-         * 国家地址名称信息聚合
-         * <p> 示例值：
-         */
-        this.countryNameInfo = builder.countryNameInfo;
+    /**
+     * 国家名称信息聚合
+     *
+     * <p>示例值：
+     *
+     * @param countryNameInfo
+     * @return
+     */
+    public Builder countryNameInfo(LocationNameInfo countryNameInfo) {
+      this.countryNameInfo = countryNameInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public LocationCountry build() {
+      return new LocationCountry(this);
     }
+  }
 
-    public String getCountryCode() {
-        return this.countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public LocationNameInfo getCountryNameInfo() {
-        return this.countryNameInfo;
-    }
-
-    public void setCountryNameInfo(LocationNameInfo countryNameInfo) {
-        this.countryNameInfo = countryNameInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         */
-        private String countryCode;
-        /**
-         * 国家地址名称信息聚合
-         * <p> 示例值：
-         */
-        private LocationNameInfo countryNameInfo;
-
-        /**
-         * 国家地址Code码
-         * <p> 示例值：CN_1
-         *
-         * @param countryCode
-         * @return
-         */
-        public Builder countryCode(String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-
-        /**
-         * 国家地址名称信息聚合
-         * <p> 示例值：
-         *
-         * @param countryNameInfo
-         * @return
-         */
-        public Builder countryNameInfo(LocationNameInfo countryNameInfo) {
-            this.countryNameInfo = countryNameInfo;
-            return this;
-        }
-
-
-        public LocationCountry build() {
-            return new LocationCountry(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

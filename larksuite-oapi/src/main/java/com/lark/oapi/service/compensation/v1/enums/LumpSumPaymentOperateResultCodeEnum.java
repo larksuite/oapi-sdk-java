@@ -13,50 +13,77 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 操作结果状态码
- */
+/** 操作结果状态码 */
 public enum LumpSumPaymentOperateResultCodeEnum {
-    VALUE_0(0), // "success"       操作成功
-    VALUE_21270201(21270201), // "The bonus to be changed does not exist"       要更改的奖金不存在
-    VALUE_21270202(21270202), // "Idempotent ID conflict"       幂等id冲突
-    VALUE_21270203(21270203), // "The total amount format is incorrect"       总金额格式不正确
-    VALUE_21270205(21270205), // "The bonus item does not support decimal places for the amount"       奖金项不支持金额小数位数
-    VALUE_21270206(21270206), // "The sum of the bonus details does not equal the total amount"       奖金明细金额之和不等于总金额
-    VALUE_21270207(21270207), // "issuance frequency not equal to size of details"       奖金明细总数不等于发放次数
-    VALUE_21270208(21270208), // "The number of issuances is less than or equal to 0"       发放次数小于等于0
-    VALUE_21270209(21270209), // "The currency is empty or does not exist"       币种为空或不存在
-    VALUE_21270210(21270210), // "Notes are too long"       备注超长
-    VALUE_21270211(21270211), // "The bonus details amount format is incorrect"       奖金明细金额格式不正确
-    VALUE_21270213(21270213), // "The bonus details payment time format is incorrect"       奖金明细的发放时间格式不正确
-    VALUE_21270214(21270214), // "The bonus details are issued in an illegal manner"       奖金明细的发放方式不合法
-    VALUE_21270215(21270215), // "The bonus details are not in a valid payment status"       奖金明细的发放状态不合法
-    VALUE_21270217(21270217), // "Employees are not covered by the bonus rules"       员工不在奖金项规则适用范围之内
-    VALUE_21270218(21270218), // "The method of awarding bonus details is not covered by the bonus item rules"       奖金明细的发放方式不在奖金项规则适用范围之内
-    VALUE_21270219(21270219), // "Bonus item rules do not support configuration of binding period"       奖金项规则不支持配置绑定期
-    VALUE_21270220(21270220), // "The bonus details payment status is "paid", and cannot be modified"       奖金明细发放状态为「已发放」，不支持修改
-    VALUE_21270221(21270221), // "The bonus item rules already include the currency, and other currencies cannot be specified"       奖金项规则已包含币种，不支持指定其他币种
-    VALUE_21270222(21270222), // "The salary item does not exist"       薪酬项不存在
-    VALUE_21270223(21270223), // "Employee does not exist"       员工不存在
-    VALUE_21270224(21270224), // "The bonus details payment status is "paid", and deletion is not supported"       奖金明细发放状态为「已发放」，不支持删除
-    VALUE_21270225(21270225), // "Bonus rules do not allow multiple awards"       奖金项规则不允许多次发放
-    VALUE_21270226(21270226), // "No data permission"       无数据权限
-    VALUE_21270227(21270227), // "Only positive integers are allowed for the binding period"       绑定期只允许正整数
-    VALUE_21270228(21270228), // "This bonus does not currently support custom binding periods. Please configure and write according to the rules for the binding period of the salary item"       该奖金暂不支持自定义绑定期，请按照薪酬项绑定期规则配置写入
-    VALUE_21270229(21270229), // "The application issuance date must not be later than the issuance date"       申请发放日期不得晚于发放日期
-    VALUE_21270230(21270230), // "The application payment date format of the bonus details is incorrect"       奖金明细的申请发放日期格式不正确
-    VALUE_21270070(21270070), // "The binding period and the ownership period start and end dates do not match"       绑定期和所属期开始结束日期不匹配
-    VALUE_21270239(21270239), // "One time payment detail reference period start date and One time payment detail reference period end date shall be filled in or left blank at the same time. Please confirm"       「一次性支付明细所属期开始日期」、「一次性支付明细所属期结束日期」需同时填写或同时为空，请确认
-    VALUE_21270240(21270240), // "One time payment detail reference period start date must be earlier than or equal to One time payment detail reference period end date. Please confirm"       「一次性支付明细所属期开始日期」需早于等于「一次性支付明细结束日期」，请确认
-    VALUE_21270241(21270241), // "One time payment detail reference period must fall within the scope of One time payment record reference period. Please adjust"       「一次性支付明细所属期」需包含在「一次性支付记录所属期」范围内，请调整
-    ;
-    private Integer value;
+  VALUE_0(0), // "Success" 操作成功
+  VALUE_21270201(21270201), // "The bonus to be changed does not exist" 要更改的奖金不存在
+  VALUE_21270202(21270202), // "Idempotent ID conflict" 幂等id冲突
+  VALUE_21270203(21270203), // "The total amount format is incorrect" 总金额格式不正确
+  VALUE_21270205(
+      21270205), // "Only use the number of decimal places specified in the bonus item rules"
+  // 仅限使用奖金项规则中规定的小数位数
+  VALUE_21270206(
+      21270206), // "The sum of the bonus details does not equal the total amount" 奖金明细金额之和不等于总金额
+  VALUE_21270207(21270207), // "issuance frequency not equal to size of details" 奖金明细总数不等于发放次数
+  VALUE_21270208(21270208), // "The number of issuances is less than or equal to 0" 发放次数小于等于0
+  VALUE_21270209(21270209), // "The currency is empty or does not exist" 币种为空或不存在
+  VALUE_21270210(21270210), // "Notes are too long" 备注超长
+  VALUE_21270211(21270211), // "The bonus details amount format is incorrect" 奖金明细金额格式不正确
+  VALUE_21270213(21270213), // "The bonus details payment time format is incorrect" 奖金明细的发放时间格式不正确
+  VALUE_21270214(21270214), // "The bonus details are issued in an illegal manner" 奖金明细的发放方式不合法
+  VALUE_21270215(21270215), // "The bonus details are not in a valid payment status" 奖金明细的发放状态不合法
+  VALUE_21270217(21270217), // "Employees are not covered by the bonus rules" 员工不在奖金项规则适用范围之内
+  VALUE_21270218(
+      21270218), // "The method of awarding bonus details is not covered by the bonus item rules"
+  // 奖金明细的发放方式不在奖金项规则适用范围之内
+  VALUE_21270219(
+      21270219), // "Bonus item rules do not support configuration of binding period" 奖金项规则不支持配置绑定期
+  VALUE_21270220(21270220), // "The bonus details payment status is "paid", and cannot be modified"
+  // 奖金明细发放状态为「已发放」，不支持修改
+  VALUE_21270221(
+      21270221), // "The bonus item rules already include the currency, and other currencies cannot
+  // be specified" 奖金项规则已包含币种，不支持指定其他币种
+  VALUE_21270222(21270222), // "The salary item does not exist" 薪酬项不存在
+  VALUE_21270223(21270223), // "Employee does not exist" 员工不存在
+  VALUE_21270224(
+      21270224), // "The bonus details payment status is "paid", and deletion is not supported"
+  // 奖金明细发放状态为「已发放」，不支持删除
+  VALUE_21270225(21270225), // "Bonus rules do not allow multiple awards" 奖金项规则不允许多次发放
+  VALUE_21270226(21270226), // "No data permission" 无数据权限
+  VALUE_21270227(21270227), // "Only positive integers are allowed for the binding period" 绑定期只允许正整数
+  VALUE_21270228(
+      21270228), // "This bonus does not currently support custom binding periods. Please configure
+  // and write according to the rules for the binding period of the salary item"
+  // 该奖金暂不支持自定义绑定期，请按照薪酬项绑定期规则配置写入
+  VALUE_21270229(
+      21270229), // "The application issuance date must not be later than the issuance date"
+  // 申请发放日期不得晚于发放日期
+  VALUE_21270230(
+      21270230), // "The application payment date format of the bonus details is incorrect"
+  // 奖金明细的申请发放日期格式不正确
+  VALUE_21270070(
+      21270070), // "The binding period and the ownership period start and end dates do not match"
+  // 绑定期和所属期开始结束日期不匹配
+  VALUE_21270239(
+      21270239), // "One time payment detail reference period start date and One time payment detail
+  // reference period end date shall be filled in or left blank at the same time.
+  // Please confirm" 「一次性支付明细所属期开始日期」、「一次性支付明细所属期结束日期」需同时填写或同时为空，请确认
+  VALUE_21270240(
+      21270240), // "One time payment detail reference period start date must be earlier than or
+  // equal to One time payment detail reference period end date. Please confirm"
+  // 「一次性支付明细所属期开始日期」需早于等于「一次性支付明细结束日期」，请确认
+  VALUE_21270241(
+      21270241), // "One time payment detail reference period must fall within the scope of One time
+// payment record reference period. Please adjust"
+// 「一次性支付明细所属期」需包含在「一次性支付记录所属期」范围内，请调整
+;
+  private Integer value;
 
-    LumpSumPaymentOperateResultCodeEnum(Integer value) {
-        this.value = value;
-    }
+  LumpSumPaymentOperateResultCodeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

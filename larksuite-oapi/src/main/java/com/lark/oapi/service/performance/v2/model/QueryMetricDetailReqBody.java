@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMetricDetailReqBody {
+  /**
+   * 周期 ID，1 次只允许查询 1 个周期，semester_id
+   * 可通过【[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)】接口获得
+   *
+   * <p>示例值：6992035450862224940
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewee_user_ids")
+  private String[] revieweeUserIds;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String[] getRevieweeUserIds() {
+    return this.revieweeUserIds;
+  }
+
+  public void setRevieweeUserIds(String[] revieweeUserIds) {
+    this.revieweeUserIds = revieweeUserIds;
+  }
+
+  // builder 开始
+  public QueryMetricDetailReqBody() {}
+
+  public QueryMetricDetailReqBody(Builder builder) {
     /**
-     * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：6992035450862224940
+     * 周期 ID，1 次只允许查询 1 个周期，semester_id
+     * 可通过【[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)】接口获得
+     *
+     * <p>示例值：6992035450862224940
      */
-    @SerializedName("semester_id")
+    this.semesterId = builder.semesterId;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     */
+    this.revieweeUserIds = builder.revieweeUserIds;
+  }
+
+  public static class Builder {
+    /**
+     * 周期 ID，1 次只允许查询 1 个周期，semester_id
+     * 可通过【[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)】接口获得
+     *
+     * <p>示例值：6992035450862224940
+     */
     private String semesterId;
+
     /**
-     * 被评估人 ID 列表。如果不传则返回该周期所有参与的被评估人的关键指标详情
-     * <p> 示例值：
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewee_user_ids")
     private String[] revieweeUserIds;
 
-    // builder 开始
-    public QueryMetricDetailReqBody() {
+    /**
+     * 周期 ID，1 次只允许查询 1 个周期，semester_id
+     * 可通过【[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)】接口获得
+     *
+     * <p>示例值：6992035450862224940
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public QueryMetricDetailReqBody(Builder builder) {
-        /**
-         * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：6992035450862224940
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 被评估人 ID 列表。如果不传则返回该周期所有参与的被评估人的关键指标详情
-         * <p> 示例值：
-         */
-        this.revieweeUserIds = builder.revieweeUserIds;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     *
+     * @param revieweeUserIds
+     * @return
+     */
+    public Builder revieweeUserIds(String[] revieweeUserIds) {
+      this.revieweeUserIds = revieweeUserIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryMetricDetailReqBody build() {
+      return new QueryMetricDetailReqBody(this);
     }
+  }
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public String[] getRevieweeUserIds() {
-        return this.revieweeUserIds;
-    }
-
-    public void setRevieweeUserIds(String[] revieweeUserIds) {
-        this.revieweeUserIds = revieweeUserIds;
-    }
-
-    public static class Builder {
-        /**
-         * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：6992035450862224940
-         */
-        private String semesterId;
-        /**
-         * 被评估人 ID 列表。如果不传则返回该周期所有参与的被评估人的关键指标详情
-         * <p> 示例值：
-         */
-        private String[] revieweeUserIds;
-
-        /**
-         * 周期 ID，1 次只允许查询 1 个周期，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：6992035450862224940
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 被评估人 ID 列表。如果不传则返回该周期所有参与的被评估人的关键指标详情
-         * <p> 示例值：
-         *
-         * @param revieweeUserIds
-         * @return
-         */
-        public Builder revieweeUserIds(String[] revieweeUserIds) {
-            this.revieweeUserIds = revieweeUserIds;
-            return this;
-        }
-
-
-        public QueryMetricDetailReqBody build() {
-            return new QueryMetricDetailReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

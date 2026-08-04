@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommonCityInfo {
+  /**
+   * 所在地点编码，详情请查看：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+   *
+   * <p>示例值：CT_1
+   */
+  @SerializedName("city_code")
+  private String cityCode;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getCityCode() {
+    return this.cityCode;
+  }
+
+  public void setCityCode(String cityCode) {
+    this.cityCode = cityCode;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public CommonCityInfo() {}
+
+  public CommonCityInfo(Builder builder) {
     /**
-     * 城市码
-     * <p> 示例值：CN_183
+     * 所在地点编码，详情请查看：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CT_1
      */
-    @SerializedName("city_code")
-    private String cityCode;
+    this.cityCode = builder.cityCode;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 所在地点编码，详情请查看：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CT_1
+     */
+    private String cityCode;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public CommonCityInfo() {
+    /**
+     * 所在地点编码，详情请查看：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CT_1
+     *
+     * @param cityCode
+     * @return
+     */
+    public Builder cityCode(String cityCode) {
+      this.cityCode = cityCode;
+      return this;
     }
 
-    public CommonCityInfo(Builder builder) {
-        /**
-         * 城市码
-         * <p> 示例值：CN_183
-         */
-        this.cityCode = builder.cityCode;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CommonCityInfo build() {
+      return new CommonCityInfo(this);
     }
+  }
 
-    public String getCityCode() {
-        return this.cityCode;
-    }
-
-    public void setCityCode(String cityCode) {
-        this.cityCode = cityCode;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 城市码
-         * <p> 示例值：CN_183
-         */
-        private String cityCode;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 城市码
-         * <p> 示例值：CN_183
-         *
-         * @param cityCode
-         * @return
-         */
-        public Builder cityCode(String cityCode) {
-            this.cityCode = cityCode;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public CommonCityInfo build() {
-            return new CommonCityInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

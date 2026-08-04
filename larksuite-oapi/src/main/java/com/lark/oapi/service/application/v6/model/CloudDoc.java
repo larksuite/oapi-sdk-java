@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CloudDoc {
+  /**
+   * 云空间重定向 url
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("space_url")
+  private String spaceUrl;
+
+  /**
+   * 国际化信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n")
+  private CloudDocI18nInfo[] i18n;
+
+  /**
+   * 图标链接
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("icon_url")
+  private String iconUrl;
+
+  /**
+   * 云文档支持模式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("mode")
+  private Integer mode;
+
+  public String getSpaceUrl() {
+    return this.spaceUrl;
+  }
+
+  public void setSpaceUrl(String spaceUrl) {
+    this.spaceUrl = spaceUrl;
+  }
+
+  public CloudDocI18nInfo[] getI18n() {
+    return this.i18n;
+  }
+
+  public void setI18n(CloudDocI18nInfo[] i18n) {
+    this.i18n = i18n;
+  }
+
+  public String getIconUrl() {
+    return this.iconUrl;
+  }
+
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
+  }
+
+  public Integer getMode() {
+    return this.mode;
+  }
+
+  public void setMode(Integer mode) {
+    this.mode = mode;
+  }
+
+  // builder 开始
+  public CloudDoc() {}
+
+  public CloudDoc(Builder builder) {
     /**
      * 云空间重定向 url
-     * <p> 示例值：https://www.example.com
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("space_url")
-    private String spaceUrl;
+    this.spaceUrl = builder.spaceUrl;
     /**
      * 国际化信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n")
-    private CloudDocI18nInfo[] i18n;
+    this.i18n = builder.i18n;
     /**
      * 图标链接
-     * <p> 示例值：https://www.example.com
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("icon_url")
-    private String iconUrl;
+    this.iconUrl = builder.iconUrl;
     /**
      * 云文档支持模式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("mode")
+    this.mode = builder.mode;
+  }
+
+  public static class Builder {
+    /**
+     * 云空间重定向 url
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String spaceUrl;
+
+    /**
+     * 国际化信息
+     *
+     * <p>示例值：
+     */
+    private CloudDocI18nInfo[] i18n;
+
+    /**
+     * 图标链接
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String iconUrl;
+
+    /**
+     * 云文档支持模式
+     *
+     * <p>示例值：1
+     */
     private Integer mode;
 
-    // builder 开始
-    public CloudDoc() {
+    /**
+     * 云空间重定向 url
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param spaceUrl
+     * @return
+     */
+    public Builder spaceUrl(String spaceUrl) {
+      this.spaceUrl = spaceUrl;
+      return this;
     }
 
-    public CloudDoc(Builder builder) {
-        /**
-         * 云空间重定向 url
-         * <p> 示例值：https://www.example.com
-         */
-        this.spaceUrl = builder.spaceUrl;
-        /**
-         * 国际化信息
-         * <p> 示例值：
-         */
-        this.i18n = builder.i18n;
-        /**
-         * 图标链接
-         * <p> 示例值：https://www.example.com
-         */
-        this.iconUrl = builder.iconUrl;
-        /**
-         * 云文档支持模式
-         * <p> 示例值：1
-         */
-        this.mode = builder.mode;
+    /**
+     * 国际化信息
+     *
+     * <p>示例值：
+     *
+     * @param i18n
+     * @return
+     */
+    public Builder i18n(CloudDocI18nInfo[] i18n) {
+      this.i18n = i18n;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图标链接
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param iconUrl
+     * @return
+     */
+    public Builder iconUrl(String iconUrl) {
+      this.iconUrl = iconUrl;
+      return this;
     }
 
-    public String getSpaceUrl() {
-        return this.spaceUrl;
+    /**
+     * 云文档支持模式
+     *
+     * <p>示例值：1
+     *
+     * @param mode
+     * @return
+     */
+    public Builder mode(Integer mode) {
+      this.mode = mode;
+      return this;
     }
 
-    public void setSpaceUrl(String spaceUrl) {
-        this.spaceUrl = spaceUrl;
+    /**
+     * 云文档支持模式
+     *
+     * <p>示例值：1
+     *
+     * @param mode {@link
+     *     com.lark.oapi.service.application.v6.enums.CloudDocCloudDocSupportModeEnum}
+     * @return
+     */
+    public Builder mode(
+        com.lark.oapi.service.application.v6.enums.CloudDocCloudDocSupportModeEnum mode) {
+      this.mode = mode.getValue();
+      return this;
     }
 
-    public CloudDocI18nInfo[] getI18n() {
-        return this.i18n;
+    public CloudDoc build() {
+      return new CloudDoc(this);
     }
+  }
 
-    public void setI18n(CloudDocI18nInfo[] i18n) {
-        this.i18n = i18n;
-    }
-
-    public String getIconUrl() {
-        return this.iconUrl;
-    }
-
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
-    public Integer getMode() {
-        return this.mode;
-    }
-
-    public void setMode(Integer mode) {
-        this.mode = mode;
-    }
-
-    public static class Builder {
-        /**
-         * 云空间重定向 url
-         * <p> 示例值：https://www.example.com
-         */
-        private String spaceUrl;
-        /**
-         * 国际化信息
-         * <p> 示例值：
-         */
-        private CloudDocI18nInfo[] i18n;
-        /**
-         * 图标链接
-         * <p> 示例值：https://www.example.com
-         */
-        private String iconUrl;
-        /**
-         * 云文档支持模式
-         * <p> 示例值：1
-         */
-        private Integer mode;
-
-        /**
-         * 云空间重定向 url
-         * <p> 示例值：https://www.example.com
-         *
-         * @param spaceUrl
-         * @return
-         */
-        public Builder spaceUrl(String spaceUrl) {
-            this.spaceUrl = spaceUrl;
-            return this;
-        }
-
-
-        /**
-         * 国际化信息
-         * <p> 示例值：
-         *
-         * @param i18n
-         * @return
-         */
-        public Builder i18n(CloudDocI18nInfo[] i18n) {
-            this.i18n = i18n;
-            return this;
-        }
-
-
-        /**
-         * 图标链接
-         * <p> 示例值：https://www.example.com
-         *
-         * @param iconUrl
-         * @return
-         */
-        public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
-        }
-
-
-        /**
-         * 云文档支持模式
-         * <p> 示例值：1
-         *
-         * @param mode
-         * @return
-         */
-        public Builder mode(Integer mode) {
-            this.mode = mode;
-            return this;
-        }
-
-        /**
-         * 云文档支持模式
-         * <p> 示例值：1
-         *
-         * @param mode {@link com.lark.oapi.service.application.v6.enums.CloudDocCloudDocSupportModeEnum}
-         * @return
-         */
-        public Builder mode(com.lark.oapi.service.application.v6.enums.CloudDocCloudDocSupportModeEnum mode) {
-            this.mode = mode.getValue();
-            return this;
-        }
-
-
-        public CloudDoc build() {
-            return new CloudDoc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingPhone {
+  /**
+   * 国际电话区号;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+   * ;- object_api_name = "phone" ;- custom_api_name = "international_area_code"
+   *
+   * <p>示例值：86_china
+   */
+  @SerializedName("international_area_code")
+  private String internationalAreaCode;
+
+  /**
+   * 电话号码;;如果填写了工作电话对象，则该字段必填
+   *
+   * <p>示例值：13000000000
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  public String getInternationalAreaCode() {
+    return this.internationalAreaCode;
+  }
+
+  public void setInternationalAreaCode(String internationalAreaCode) {
+    this.internationalAreaCode = internationalAreaCode;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  // builder 开始
+  public ProfileSettingPhone() {}
+
+  public ProfileSettingPhone(Builder builder) {
     /**
-     * 国际电话区号，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "phone" custom_api_name = "international_area_code"
-     * <p> 示例值：86_china
+     * 国际电话区号;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "phone" ;- custom_api_name = "international_area_code"
+     *
+     * <p>示例值：86_china
      */
-    @SerializedName("international_area_code")
+    this.internationalAreaCode = builder.internationalAreaCode;
+    /**
+     * 电话号码;;如果填写了工作电话对象，则该字段必填
+     *
+     * <p>示例值：13000000000
+     */
+    this.phoneNumber = builder.phoneNumber;
+  }
+
+  public static class Builder {
+    /**
+     * 国际电话区号;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "phone" ;- custom_api_name = "international_area_code"
+     *
+     * <p>示例值：86_china
+     */
     private String internationalAreaCode;
+
     /**
-     * 电话号码
-     * <p> 示例值：13000000000
+     * 电话号码;;如果填写了工作电话对象，则该字段必填
+     *
+     * <p>示例值：13000000000
      */
-    @SerializedName("phone_number")
     private String phoneNumber;
 
-    // builder 开始
-    public ProfileSettingPhone() {
+    /**
+     * 国际电话区号;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "phone" ;- custom_api_name = "international_area_code"
+     *
+     * <p>示例值：86_china
+     *
+     * @param internationalAreaCode
+     * @return
+     */
+    public Builder internationalAreaCode(String internationalAreaCode) {
+      this.internationalAreaCode = internationalAreaCode;
+      return this;
     }
 
-    public ProfileSettingPhone(Builder builder) {
-        /**
-         * 国际电话区号，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "phone" custom_api_name = "international_area_code"
-         * <p> 示例值：86_china
-         */
-        this.internationalAreaCode = builder.internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：13000000000
-         */
-        this.phoneNumber = builder.phoneNumber;
+    /**
+     * 电话号码;;如果填写了工作电话对象，则该字段必填
+     *
+     * <p>示例值：13000000000
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProfileSettingPhone build() {
+      return new ProfileSettingPhone(this);
     }
+  }
 
-    public String getInternationalAreaCode() {
-        return this.internationalAreaCode;
-    }
-
-    public void setInternationalAreaCode(String internationalAreaCode) {
-        this.internationalAreaCode = internationalAreaCode;
-    }
-
-    public String getPhoneNumber() {
-        return this.phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public static class Builder {
-        /**
-         * 国际电话区号，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "phone" custom_api_name = "international_area_code"
-         * <p> 示例值：86_china
-         */
-        private String internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：13000000000
-         */
-        private String phoneNumber;
-
-        /**
-         * 国际电话区号，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "phone" custom_api_name = "international_area_code"
-         * <p> 示例值：86_china
-         *
-         * @param internationalAreaCode
-         * @return
-         */
-        public Builder internationalAreaCode(String internationalAreaCode) {
-            this.internationalAreaCode = internationalAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 电话号码
-         * <p> 示例值：13000000000
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        public ProfileSettingPhone build() {
-            return new ProfileSettingPhone(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

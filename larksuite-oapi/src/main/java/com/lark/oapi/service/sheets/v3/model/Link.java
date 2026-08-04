@@ -13,146 +13,149 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Link {
+  /**
+   * 文本
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：www.xxxx.cn
+   */
+  @SerializedName("link")
+  private String link;
+
+  /**
+   * -
+   *
+   * <p>示例值：
+   */
+  @SerializedName("segment_styles")
+  private SegmentStyle[] segmentStyles;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public SegmentStyle[] getSegmentStyles() {
+    return this.segmentStyles;
+  }
+
+  public void setSegmentStyles(SegmentStyle[] segmentStyles) {
+    this.segmentStyles = segmentStyles;
+  }
+
+  // builder 开始
+  public Link() {}
+
+  public Link(Builder builder) {
     /**
      * 文本
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 链接
-     * <p> 示例值：www.xxxx.cn
+     *
+     * <p>示例值：www.xxxx.cn
      */
-    @SerializedName("link")
-    private String link;
+    this.link = builder.link;
     /**
-     * <p> 示例值：
+     * -
+     *
+     * <p>示例值：
      */
-    @SerializedName("segment_styles")
+    this.segmentStyles = builder.segmentStyles;
+  }
+
+  public static class Builder {
+    /**
+     * 文本
+     *
+     * <p>示例值：text
+     */
+    private String text;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：www.xxxx.cn
+     */
+    private String link;
+
+    /**
+     * -
+     *
+     * <p>示例值：
+     */
     private SegmentStyle[] segmentStyles;
 
-    // builder 开始
-    public Link() {
+    /**
+     * 文本
+     *
+     * <p>示例值：text
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public Link(Builder builder) {
-        /**
-         * 文本
-         * <p> 示例值：text
-         */
-        this.text = builder.text;
-        /**
-         * 链接
-         * <p> 示例值：www.xxxx.cn
-         */
-        this.link = builder.link;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.segmentStyles = builder.segmentStyles;
+    /**
+     * 链接
+     *
+     * <p>示例值：www.xxxx.cn
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * -
+     *
+     * <p>示例值：
+     *
+     * @param segmentStyles
+     * @return
+     */
+    public Builder segmentStyles(SegmentStyle[] segmentStyles) {
+      this.segmentStyles = segmentStyles;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    public Link build() {
+      return new Link(this);
     }
+  }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public SegmentStyle[] getSegmentStyles() {
-        return this.segmentStyles;
-    }
-
-    public void setSegmentStyles(SegmentStyle[] segmentStyles) {
-        this.segmentStyles = segmentStyles;
-    }
-
-    public static class Builder {
-        /**
-         * 文本
-         * <p> 示例值：text
-         */
-        private String text;
-        /**
-         * 链接
-         * <p> 示例值：www.xxxx.cn
-         */
-        private String link;
-        /**
-         * <p> 示例值：
-         */
-        private SegmentStyle[] segmentStyles;
-
-        /**
-         * 文本
-         * <p> 示例值：text
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：www.xxxx.cn
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param segmentStyles
-         * @return
-         */
-        public Builder segmentStyles(SegmentStyle[] segmentStyles) {
-            this.segmentStyles = segmentStyles;
-            return this;
-        }
-
-
-        public Link build() {
-            return new Link(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

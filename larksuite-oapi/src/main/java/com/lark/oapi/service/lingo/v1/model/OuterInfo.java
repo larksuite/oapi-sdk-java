@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OuterInfo {
+  /**
+   * 外部系统（不能包含中横线 "-"）
+   *
+   * <p>示例值：星云
+   */
+  @SerializedName("provider")
+  private String provider;
+
+  /**
+   * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+   *
+   * <p>示例值：client_65326***7498d
+   */
+  @SerializedName("outer_id")
+  private String outerId;
+
+  public String getProvider() {
+    return this.provider;
+  }
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+  public String getOuterId() {
+    return this.outerId;
+  }
+
+  public void setOuterId(String outerId) {
+    this.outerId = outerId;
+  }
+
+  // builder 开始
+  public OuterInfo() {}
+
+  public OuterInfo(Builder builder) {
     /**
-     * 数据提供方（不能包含中横线 "-"）
-     * <p> 示例值：星云
+     * 外部系统（不能包含中横线 "-"）
+     *
+     * <p>示例值：星云
      */
-    @SerializedName("provider")
+    this.provider = builder.provider;
+    /**
+     * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+     *
+     * <p>示例值：client_65326***7498d
+     */
+    this.outerId = builder.outerId;
+  }
+
+  public static class Builder {
+    /**
+     * 外部系统（不能包含中横线 "-"）
+     *
+     * <p>示例值：星云
+     */
     private String provider;
+
     /**
-     * 唯一标识，可用来和其他平台的内容进行绑定。需保证和百科词条唯一对应（不能包含中横线 "-"）
-     * <p> 示例值：12345abc
+     * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+     *
+     * <p>示例值：client_65326***7498d
      */
-    @SerializedName("outer_id")
     private String outerId;
 
-    // builder 开始
-    public OuterInfo() {
+    /**
+     * 外部系统（不能包含中横线 "-"）
+     *
+     * <p>示例值：星云
+     *
+     * @param provider
+     * @return
+     */
+    public Builder provider(String provider) {
+      this.provider = provider;
+      return this;
     }
 
-    public OuterInfo(Builder builder) {
-        /**
-         * 数据提供方（不能包含中横线 "-"）
-         * <p> 示例值：星云
-         */
-        this.provider = builder.provider;
-        /**
-         * 唯一标识，可用来和其他平台的内容进行绑定。需保证和百科词条唯一对应（不能包含中横线 "-"）
-         * <p> 示例值：12345abc
-         */
-        this.outerId = builder.outerId;
+    /**
+     * 词条在外部系统中对应的唯一 ID（不能包含中横线 "-"）
+     *
+     * <p>示例值：client_65326***7498d
+     *
+     * @param outerId
+     * @return
+     */
+    public Builder outerId(String outerId) {
+      this.outerId = outerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OuterInfo build() {
+      return new OuterInfo(this);
     }
+  }
 
-    public String getProvider() {
-        return this.provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    public String getOuterId() {
-        return this.outerId;
-    }
-
-    public void setOuterId(String outerId) {
-        this.outerId = outerId;
-    }
-
-    public static class Builder {
-        /**
-         * 数据提供方（不能包含中横线 "-"）
-         * <p> 示例值：星云
-         */
-        private String provider;
-        /**
-         * 唯一标识，可用来和其他平台的内容进行绑定。需保证和百科词条唯一对应（不能包含中横线 "-"）
-         * <p> 示例值：12345abc
-         */
-        private String outerId;
-
-        /**
-         * 数据提供方（不能包含中横线 "-"）
-         * <p> 示例值：星云
-         *
-         * @param provider
-         * @return
-         */
-        public Builder provider(String provider) {
-            this.provider = provider;
-            return this;
-        }
-
-
-        /**
-         * 唯一标识，可用来和其他平台的内容进行绑定。需保证和百科词条唯一对应（不能包含中横线 "-"）
-         * <p> 示例值：12345abc
-         *
-         * @param outerId
-         * @return
-         */
-        public Builder outerId(String outerId) {
-            this.outerId = outerId;
-            return this;
-        }
-
-
-        public OuterInfo build() {
-            return new OuterInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

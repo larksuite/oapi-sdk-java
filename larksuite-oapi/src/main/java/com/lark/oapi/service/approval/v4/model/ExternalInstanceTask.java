@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalInstanceTask {
+  /**
+   * 审批实例内的审批任务
+   * ID。自定义配置，需要确保当前企业、应用内唯一。;;**注意**：调用本接口和[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)接口操作同一个三方审批实例内的任务时，需要确保所用的任务
+   * ID 一致。
+   *
+   * <p>示例值：112253
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务最近更新时间，Unix 毫秒时间戳。
+   *
+   * <p>示例值：1591603040000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public ExternalInstanceTask() {}
+
+  public ExternalInstanceTask(Builder builder) {
     /**
-     * 任务 id
-     * <p> 示例值：112253
+     * 审批实例内的审批任务
+     * ID。自定义配置，需要确保当前企业、应用内唯一。;;**注意**：调用本接口和[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)接口操作同一个三方审批实例内的任务时，需要确保所用的任务
+     * ID 一致。
+     *
+     * <p>示例值：112253
      */
-    @SerializedName("task_id")
+    this.taskId = builder.taskId;
+    /**
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
+     */
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例内的审批任务
+     * ID。自定义配置，需要确保当前企业、应用内唯一。;;**注意**：调用本接口和[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)接口操作同一个三方审批实例内的任务时，需要确保所用的任务
+     * ID 一致。
+     *
+     * <p>示例值：112253
+     */
     private String taskId;
+
     /**
-     * 任务最近更新时间
-     * <p> 示例值：1591603040000
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
      */
-    @SerializedName("update_time")
     private String updateTime;
 
-    // builder 开始
-    public ExternalInstanceTask() {
+    /**
+     * 审批实例内的审批任务
+     * ID。自定义配置，需要确保当前企业、应用内唯一。;;**注意**：调用本接口和[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)接口操作同一个三方审批实例内的任务时，需要确保所用的任务
+     * ID 一致。
+     *
+     * <p>示例值：112253
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public ExternalInstanceTask(Builder builder) {
-        /**
-         * 任务 id
-         * <p> 示例值：112253
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ExternalInstanceTask build() {
+      return new ExternalInstanceTask(this);
     }
+  }
 
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 任务 id
-         * <p> 示例值：112253
-         */
-        private String taskId;
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         */
-        private String updateTime;
-
-        /**
-         * 任务 id
-         * <p> 示例值：112253
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public ExternalInstanceTask build() {
-            return new ExternalInstanceTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

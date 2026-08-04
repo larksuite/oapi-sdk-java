@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileBlockChangeInfo {
+  /**
+   * 子block token
+   *
+   * <p>示例值：doxcnxxxxxxxxxxxxxxxx
+   */
+  @SerializedName("block_token")
+  private String blockToken;
+
+  /**
+   * 子block文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("block_token_type")
+  private String blockTokenType;
+
+  /**
+   * 起点版本和终点版本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rev_ranges")
+  private Integer[] revRanges;
+
+  public String getBlockToken() {
+    return this.blockToken;
+  }
+
+  public void setBlockToken(String blockToken) {
+    this.blockToken = blockToken;
+  }
+
+  public String getBlockTokenType() {
+    return this.blockTokenType;
+  }
+
+  public void setBlockTokenType(String blockTokenType) {
+    this.blockTokenType = blockTokenType;
+  }
+
+  public Integer[] getRevRanges() {
+    return this.revRanges;
+  }
+
+  public void setRevRanges(Integer[] revRanges) {
+    this.revRanges = revRanges;
+  }
+
+  // builder 开始
+  public FileBlockChangeInfo() {}
+
+  public FileBlockChangeInfo(Builder builder) {
     /**
      * 子block token
-     * <p> 示例值：doxcnxxxxxxxxxxxxxxxx
+     *
+     * <p>示例值：doxcnxxxxxxxxxxxxxxxx
      */
-    @SerializedName("block_token")
-    private String blockToken;
+    this.blockToken = builder.blockToken;
     /**
      * 子block文档类型
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("block_token_type")
-    private String blockTokenType;
+    this.blockTokenType = builder.blockTokenType;
     /**
      * 起点版本和终点版本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rev_ranges")
+    this.revRanges = builder.revRanges;
+  }
+
+  public static class Builder {
+    /**
+     * 子block token
+     *
+     * <p>示例值：doxcnxxxxxxxxxxxxxxxx
+     */
+    private String blockToken;
+
+    /**
+     * 子block文档类型
+     *
+     * <p>示例值：docx
+     */
+    private String blockTokenType;
+
+    /**
+     * 起点版本和终点版本
+     *
+     * <p>示例值：
+     */
     private Integer[] revRanges;
 
-    // builder 开始
-    public FileBlockChangeInfo() {
+    /**
+     * 子block token
+     *
+     * <p>示例值：doxcnxxxxxxxxxxxxxxxx
+     *
+     * @param blockToken
+     * @return
+     */
+    public Builder blockToken(String blockToken) {
+      this.blockToken = blockToken;
+      return this;
     }
 
-    public FileBlockChangeInfo(Builder builder) {
-        /**
-         * 子block token
-         * <p> 示例值：doxcnxxxxxxxxxxxxxxxx
-         */
-        this.blockToken = builder.blockToken;
-        /**
-         * 子block文档类型
-         * <p> 示例值：docx
-         */
-        this.blockTokenType = builder.blockTokenType;
-        /**
-         * 起点版本和终点版本
-         * <p> 示例值：
-         */
-        this.revRanges = builder.revRanges;
+    /**
+     * 子block文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param blockTokenType
+     * @return
+     */
+    public Builder blockTokenType(String blockTokenType) {
+      this.blockTokenType = blockTokenType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 起点版本和终点版本
+     *
+     * <p>示例值：
+     *
+     * @param revRanges
+     * @return
+     */
+    public Builder revRanges(Integer[] revRanges) {
+      this.revRanges = revRanges;
+      return this;
     }
 
-    public String getBlockToken() {
-        return this.blockToken;
+    public FileBlockChangeInfo build() {
+      return new FileBlockChangeInfo(this);
     }
+  }
 
-    public void setBlockToken(String blockToken) {
-        this.blockToken = blockToken;
-    }
-
-    public String getBlockTokenType() {
-        return this.blockTokenType;
-    }
-
-    public void setBlockTokenType(String blockTokenType) {
-        this.blockTokenType = blockTokenType;
-    }
-
-    public Integer[] getRevRanges() {
-        return this.revRanges;
-    }
-
-    public void setRevRanges(Integer[] revRanges) {
-        this.revRanges = revRanges;
-    }
-
-    public static class Builder {
-        /**
-         * 子block token
-         * <p> 示例值：doxcnxxxxxxxxxxxxxxxx
-         */
-        private String blockToken;
-        /**
-         * 子block文档类型
-         * <p> 示例值：docx
-         */
-        private String blockTokenType;
-        /**
-         * 起点版本和终点版本
-         * <p> 示例值：
-         */
-        private Integer[] revRanges;
-
-        /**
-         * 子block token
-         * <p> 示例值：doxcnxxxxxxxxxxxxxxxx
-         *
-         * @param blockToken
-         * @return
-         */
-        public Builder blockToken(String blockToken) {
-            this.blockToken = blockToken;
-            return this;
-        }
-
-
-        /**
-         * 子block文档类型
-         * <p> 示例值：docx
-         *
-         * @param blockTokenType
-         * @return
-         */
-        public Builder blockTokenType(String blockTokenType) {
-            this.blockTokenType = blockTokenType;
-            return this;
-        }
-
-
-        /**
-         * 起点版本和终点版本
-         * <p> 示例值：
-         *
-         * @param revRanges
-         * @return
-         */
-        public Builder revRanges(Integer[] revRanges) {
-            this.revRanges = revRanges;
-            return this;
-        }
-
-
-        public FileBlockChangeInfo build() {
-            return new FileBlockChangeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

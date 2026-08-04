@@ -19,25 +19,25 @@ import com.lark.oapi.service.drive.v2.resource.FileLike;
 import com.lark.oapi.service.drive.v2.resource.PermissionPublic;
 
 public class V2 {
-    private final CommentReaction commentReaction; // comment_reaction
-    private final FileLike fileLike; // file.like
-    private final PermissionPublic permissionPublic; // permission.public
+  private final CommentReaction commentReaction; // comment_reaction
+  private final FileLike fileLike; // file.like
+  private final PermissionPublic permissionPublic; // permission.public
 
-    public V2(Config config) {
-        this.commentReaction = new CommentReaction(config);
-        this.fileLike = new FileLike(config);
-        this.permissionPublic = new PermissionPublic(config);
-    }
+  public V2(Config config) {
+    this.commentReaction = new CommentReaction(config);
+    this.fileLike = new FileLike(config);
+    this.permissionPublic = new PermissionPublic(config);
+  }
 
-    public CommentReaction commentReaction() {
-        return commentReaction;
-    }
+  public CommentReaction commentReaction() {
+    return commentReaction;
+  }
 
-    public FileLike fileLike() {
-        return fileLike;
-    }
+  public FileLike fileLike() {
+    return fileLike;
+  }
 
-    public PermissionPublic permissionPublic() {
-        return permissionPublic;
-    }
+  public PermissionPublic permissionPublic() {
+    return permissionPublic;
+  }
 }

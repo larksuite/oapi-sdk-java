@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CancelApprovalInstanceReqBody {
+  /**
+   * 操作用户的kunlunUserID,可通过Apaas用户管理页面获取
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 撤销原因
+   *
+   * <p>示例值：撤销了
+   */
+  @SerializedName("opinion")
+  private String opinion;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpinion() {
+    return this.opinion;
+  }
+
+  public void setOpinion(String opinion) {
+    this.opinion = opinion;
+  }
+
+  // builder 开始
+  public CancelApprovalInstanceReqBody() {}
+
+  public CancelApprovalInstanceReqBody(Builder builder) {
     /**
-     * 操作用户id
-     * <p> 示例值：
+     * 操作用户的kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 撤销原因
-     * <p> 示例值：撤销了
+     *
+     * <p>示例值：撤销了
      */
-    @SerializedName("opinion")
+    this.opinion = builder.opinion;
+  }
+
+  public static class Builder {
+    /**
+     * 操作用户的kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     */
+    private String userId;
+
+    /**
+     * 撤销原因
+     *
+     * <p>示例值：撤销了
+     */
     private String opinion;
 
-    // builder 开始
-    public CancelApprovalInstanceReqBody() {
+    /**
+     * 操作用户的kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public CancelApprovalInstanceReqBody(Builder builder) {
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 撤销原因
-         * <p> 示例值：撤销了
-         */
-        this.opinion = builder.opinion;
+    /**
+     * 撤销原因
+     *
+     * <p>示例值：撤销了
+     *
+     * @param opinion
+     * @return
+     */
+    public Builder opinion(String opinion) {
+      this.opinion = opinion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CancelApprovalInstanceReqBody build() {
+      return new CancelApprovalInstanceReqBody(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOpinion() {
-        return this.opinion;
-    }
-
-    public void setOpinion(String opinion) {
-        this.opinion = opinion;
-    }
-
-    public static class Builder {
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 撤销原因
-         * <p> 示例值：撤销了
-         */
-        private String opinion;
-
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 撤销原因
-         * <p> 示例值：撤销了
-         *
-         * @param opinion
-         * @return
-         */
-        public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
-        }
-
-
-        public CancelApprovalInstanceReqBody build() {
-            return new CancelApprovalInstanceReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

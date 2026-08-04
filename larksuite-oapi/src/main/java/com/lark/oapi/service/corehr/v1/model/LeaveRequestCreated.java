@@ -13,704 +13,785 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveRequestCreated {
+  /**
+   * 员工ID（与 user_id_type 保持一致）
+   *
+   * <p>示例值：7360983350600173082
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 假期类型ID（可以通过接口 https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types
+   * 来获取假期类型ID）
+   *
+   * <p>示例值：7452717067026138635
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 请假开始时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start_time")
+  private LeaveTime startTime;
+
+  /**
+   * 请假结束时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("end_time")
+  private LeaveTime endTime;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * 每日休假方式（arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走）
+   *
+   * <p>示例值：arrive_late
+   */
+  @SerializedName("daily_leave_mode")
+  private String dailyLeaveMode;
+
+  /**
+   * 上班晚到时长（分钟）
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("arrive_late_minutes")
+  private Integer arriveLateMinutes;
+
+  /**
+   * 下班早走时长（分钟）
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("leave_early_minutes")
+  private Integer leaveEarlyMinutes;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：休息
+   */
+  @SerializedName("notes")
+  private String notes;
+
+  /**
+   * 领证日期
+   *
+   * <p>示例值：2023-11-07
+   */
+  @SerializedName("date_of_marriage_certificate")
+  private String dateOfMarriageCertificate;
+
+  /**
+   * 是否可提供婚前检查材料
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("provide_premarital_examination_materials")
+  private Boolean providePremaritalExaminationMaterials;
+
+  /**
+   * 是否夫妻两地分居
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_couple_live_apart")
+  private Boolean isCoupleLiveApart;
+
+  /**
+   * 是否难产
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("difficulty_giving_birth")
+  private Boolean difficultyGivingBirth;
+
+  /**
+   * 怀孕月数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("pregnant_months")
+  private Integer pregnantMonths;
+
+  /**
+   * 预产期
+   *
+   * <p>示例值：2023-11-07
+   */
+  @SerializedName("due_date")
+  private String dueDate;
+
+  /**
+   * 子女出生日期
+   *
+   * <p>示例值：2023-11-07
+   */
+  @SerializedName("child_date_of_birth")
+  private String childDateOfBirth;
+
+  /**
+   * 新生儿数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("number_of_newborns")
+  private Integer numberOfNewborns;
+
+  /**
+   * 申请场景（parent_accompany:父母/配偶父母患病需陪护, spouse_accompany:配偶患病需陪护, child_accompany:子女患病需陪护）
+   *
+   * <p>示例值：parent_accompany
+   */
+  @SerializedName("applicable_scenarios")
+  private String applicableScenarios;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public LeaveTime getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(LeaveTime startTime) {
+    this.startTime = startTime;
+  }
+
+  public LeaveTime getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(LeaveTime endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public String getDailyLeaveMode() {
+    return this.dailyLeaveMode;
+  }
+
+  public void setDailyLeaveMode(String dailyLeaveMode) {
+    this.dailyLeaveMode = dailyLeaveMode;
+  }
+
+  public Integer getArriveLateMinutes() {
+    return this.arriveLateMinutes;
+  }
+
+  public void setArriveLateMinutes(Integer arriveLateMinutes) {
+    this.arriveLateMinutes = arriveLateMinutes;
+  }
+
+  public Integer getLeaveEarlyMinutes() {
+    return this.leaveEarlyMinutes;
+  }
+
+  public void setLeaveEarlyMinutes(Integer leaveEarlyMinutes) {
+    this.leaveEarlyMinutes = leaveEarlyMinutes;
+  }
+
+  public String getNotes() {
+    return this.notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
+
+  public String getDateOfMarriageCertificate() {
+    return this.dateOfMarriageCertificate;
+  }
+
+  public void setDateOfMarriageCertificate(String dateOfMarriageCertificate) {
+    this.dateOfMarriageCertificate = dateOfMarriageCertificate;
+  }
+
+  public Boolean getProvidePremaritalExaminationMaterials() {
+    return this.providePremaritalExaminationMaterials;
+  }
+
+  public void setProvidePremaritalExaminationMaterials(
+      Boolean providePremaritalExaminationMaterials) {
+    this.providePremaritalExaminationMaterials = providePremaritalExaminationMaterials;
+  }
+
+  public Boolean getIsCoupleLiveApart() {
+    return this.isCoupleLiveApart;
+  }
+
+  public void setIsCoupleLiveApart(Boolean isCoupleLiveApart) {
+    this.isCoupleLiveApart = isCoupleLiveApart;
+  }
+
+  public Boolean getDifficultyGivingBirth() {
+    return this.difficultyGivingBirth;
+  }
+
+  public void setDifficultyGivingBirth(Boolean difficultyGivingBirth) {
+    this.difficultyGivingBirth = difficultyGivingBirth;
+  }
+
+  public Integer getPregnantMonths() {
+    return this.pregnantMonths;
+  }
+
+  public void setPregnantMonths(Integer pregnantMonths) {
+    this.pregnantMonths = pregnantMonths;
+  }
+
+  public String getDueDate() {
+    return this.dueDate;
+  }
+
+  public void setDueDate(String dueDate) {
+    this.dueDate = dueDate;
+  }
+
+  public String getChildDateOfBirth() {
+    return this.childDateOfBirth;
+  }
+
+  public void setChildDateOfBirth(String childDateOfBirth) {
+    this.childDateOfBirth = childDateOfBirth;
+  }
+
+  public Integer getNumberOfNewborns() {
+    return this.numberOfNewborns;
+  }
+
+  public void setNumberOfNewborns(Integer numberOfNewborns) {
+    this.numberOfNewborns = numberOfNewborns;
+  }
+
+  public String getApplicableScenarios() {
+    return this.applicableScenarios;
+  }
+
+  public void setApplicableScenarios(String applicableScenarios) {
+    this.applicableScenarios = applicableScenarios;
+  }
+
+  // builder 开始
+  public LeaveRequestCreated() {}
+
+  public LeaveRequestCreated(Builder builder) {
     /**
-     * 员工ID
-     * <p> 示例值：7442604019808519724
+     * 员工ID（与 user_id_type 保持一致）
+     *
+     * <p>示例值：7360983350600173082
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 假期类型ID
-     * <p> 示例值：7444819921379313196
+     * 假期类型ID（可以通过接口 https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types
+     * 来获取假期类型ID）
+     *
+     * <p>示例值：7452717067026138635
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 请假开始时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("start_time")
-    private LeaveTime startTime;
+    this.startTime = builder.startTime;
     /**
      * 请假结束时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("end_time")
-    private LeaveTime endTime;
+    this.endTime = builder.endTime;
     /**
      * 时区
-     * <p> 示例值：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @SerializedName("time_zone")
-    private String timeZone;
+    this.timeZone = builder.timeZone;
     /**
-     * 每日休假方式
-     * <p> 示例值：arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走
+     * 每日休假方式（arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走）
+     *
+     * <p>示例值：arrive_late
      */
-    @SerializedName("daily_leave_mode")
-    private String dailyLeaveMode;
+    this.dailyLeaveMode = builder.dailyLeaveMode;
     /**
      * 上班晚到时长（分钟）
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("arrive_late_minutes")
-    private Integer arriveLateMinutes;
+    this.arriveLateMinutes = builder.arriveLateMinutes;
     /**
      * 下班早走时长（分钟）
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("leave_early_minutes")
-    private Integer leaveEarlyMinutes;
+    this.leaveEarlyMinutes = builder.leaveEarlyMinutes;
     /**
      * 备注
-     * <p> 示例值：休息
+     *
+     * <p>示例值：休息
      */
-    @SerializedName("notes")
-    private String notes;
+    this.notes = builder.notes;
     /**
      * 领证日期
-     * <p> 示例值：2023-11-07
+     *
+     * <p>示例值：2023-11-07
      */
-    @SerializedName("date_of_marriage_certificate")
-    private String dateOfMarriageCertificate;
+    this.dateOfMarriageCertificate = builder.dateOfMarriageCertificate;
     /**
      * 是否可提供婚前检查材料
-     * <p> 示例值：fasle
+     *
+     * <p>示例值：false
      */
-    @SerializedName("provide_premarital_examination_materials")
-    private Boolean providePremaritalExaminationMaterials;
+    this.providePremaritalExaminationMaterials = builder.providePremaritalExaminationMaterials;
     /**
      * 是否夫妻两地分居
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_couple_live_apart")
-    private Boolean isCoupleLiveApart;
+    this.isCoupleLiveApart = builder.isCoupleLiveApart;
     /**
      * 是否难产
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("difficulty_giving_birth")
-    private Boolean difficultyGivingBirth;
+    this.difficultyGivingBirth = builder.difficultyGivingBirth;
     /**
      * 怀孕月数
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("pregnant_months")
-    private Integer pregnantMonths;
+    this.pregnantMonths = builder.pregnantMonths;
     /**
      * 预产期
-     * <p> 示例值：2023-11-07
+     *
+     * <p>示例值：2023-11-07
      */
-    @SerializedName("due_date")
-    private String dueDate;
+    this.dueDate = builder.dueDate;
     /**
      * 子女出生日期
-     * <p> 示例值：2023-11-07
+     *
+     * <p>示例值：2023-11-07
      */
-    @SerializedName("child_date_of_birth")
-    private String childDateOfBirth;
+    this.childDateOfBirth = builder.childDateOfBirth;
     /**
      * 新生儿数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("number_of_newborns")
-    private Integer numberOfNewborns;
+    this.numberOfNewborns = builder.numberOfNewborns;
     /**
-     * 申请场景
-     * <p> 示例值：父母/配偶父母患病需陪护:parent_accompany, 配偶患病需陪护:spouse_accompany, 子女患病需陪护:child_accompany
+     * 申请场景（parent_accompany:父母/配偶父母患病需陪护, spouse_accompany:配偶患病需陪护, child_accompany:子女患病需陪护）
+     *
+     * <p>示例值：parent_accompany
      */
-    @SerializedName("applicable_scenarios")
+    this.applicableScenarios = builder.applicableScenarios;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID（与 user_id_type 保持一致）
+     *
+     * <p>示例值：7360983350600173082
+     */
+    private String employmentId;
+
+    /**
+     * 假期类型ID（可以通过接口 https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types
+     * 来获取假期类型ID）
+     *
+     * <p>示例值：7452717067026138635
+     */
+    private String leaveTypeId;
+
+    /**
+     * 请假开始时间
+     *
+     * <p>示例值：
+     */
+    private LeaveTime startTime;
+
+    /**
+     * 请假结束时间
+     *
+     * <p>示例值：
+     */
+    private LeaveTime endTime;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     */
+    private String timeZone;
+
+    /**
+     * 每日休假方式（arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走）
+     *
+     * <p>示例值：arrive_late
+     */
+    private String dailyLeaveMode;
+
+    /**
+     * 上班晚到时长（分钟）
+     *
+     * <p>示例值：10
+     */
+    private Integer arriveLateMinutes;
+
+    /**
+     * 下班早走时长（分钟）
+     *
+     * <p>示例值：10
+     */
+    private Integer leaveEarlyMinutes;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：休息
+     */
+    private String notes;
+
+    /**
+     * 领证日期
+     *
+     * <p>示例值：2023-11-07
+     */
+    private String dateOfMarriageCertificate;
+
+    /**
+     * 是否可提供婚前检查材料
+     *
+     * <p>示例值：false
+     */
+    private Boolean providePremaritalExaminationMaterials;
+
+    /**
+     * 是否夫妻两地分居
+     *
+     * <p>示例值：false
+     */
+    private Boolean isCoupleLiveApart;
+
+    /**
+     * 是否难产
+     *
+     * <p>示例值：false
+     */
+    private Boolean difficultyGivingBirth;
+
+    /**
+     * 怀孕月数
+     *
+     * <p>示例值：10
+     */
+    private Integer pregnantMonths;
+
+    /**
+     * 预产期
+     *
+     * <p>示例值：2023-11-07
+     */
+    private String dueDate;
+
+    /**
+     * 子女出生日期
+     *
+     * <p>示例值：2023-11-07
+     */
+    private String childDateOfBirth;
+
+    /**
+     * 新生儿数量
+     *
+     * <p>示例值：1
+     */
+    private Integer numberOfNewborns;
+
+    /**
+     * 申请场景（parent_accompany:父母/配偶父母患病需陪护, spouse_accompany:配偶患病需陪护, child_accompany:子女患病需陪护）
+     *
+     * <p>示例值：parent_accompany
+     */
     private String applicableScenarios;
 
-    // builder 开始
-    public LeaveRequestCreated() {
+    /**
+     * 员工ID（与 user_id_type 保持一致）
+     *
+     * <p>示例值：7360983350600173082
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public LeaveRequestCreated(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7442604019808519724
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：7444819921379313196
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 请假开始时间
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 请假结束时间
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 每日休假方式
-         * <p> 示例值：arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走
-         */
-        this.dailyLeaveMode = builder.dailyLeaveMode;
-        /**
-         * 上班晚到时长（分钟）
-         * <p> 示例值：10
-         */
-        this.arriveLateMinutes = builder.arriveLateMinutes;
-        /**
-         * 下班早走时长（分钟）
-         * <p> 示例值：10
-         */
-        this.leaveEarlyMinutes = builder.leaveEarlyMinutes;
-        /**
-         * 备注
-         * <p> 示例值：休息
-         */
-        this.notes = builder.notes;
-        /**
-         * 领证日期
-         * <p> 示例值：2023-11-07
-         */
-        this.dateOfMarriageCertificate = builder.dateOfMarriageCertificate;
-        /**
-         * 是否可提供婚前检查材料
-         * <p> 示例值：fasle
-         */
-        this.providePremaritalExaminationMaterials = builder.providePremaritalExaminationMaterials;
-        /**
-         * 是否夫妻两地分居
-         * <p> 示例值：false
-         */
-        this.isCoupleLiveApart = builder.isCoupleLiveApart;
-        /**
-         * 是否难产
-         * <p> 示例值：false
-         */
-        this.difficultyGivingBirth = builder.difficultyGivingBirth;
-        /**
-         * 怀孕月数
-         * <p> 示例值：10
-         */
-        this.pregnantMonths = builder.pregnantMonths;
-        /**
-         * 预产期
-         * <p> 示例值：2023-11-07
-         */
-        this.dueDate = builder.dueDate;
-        /**
-         * 子女出生日期
-         * <p> 示例值：2023-11-07
-         */
-        this.childDateOfBirth = builder.childDateOfBirth;
-        /**
-         * 新生儿数量
-         * <p> 示例值：1
-         */
-        this.numberOfNewborns = builder.numberOfNewborns;
-        /**
-         * 申请场景
-         * <p> 示例值：父母/配偶父母患病需陪护:parent_accompany, 配偶患病需陪护:spouse_accompany, 子女患病需陪护:child_accompany
-         */
-        this.applicableScenarios = builder.applicableScenarios;
+    /**
+     * 假期类型ID（可以通过接口 https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types
+     * 来获取假期类型ID）
+     *
+     * <p>示例值：7452717067026138635
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请假开始时间
+     *
+     * <p>示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(LeaveTime startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 请假结束时间
+     *
+     * <p>示例值：
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(LeaveTime endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 每日休假方式（arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走）
+     *
+     * <p>示例值：arrive_late
+     *
+     * @param dailyLeaveMode
+     * @return
+     */
+    public Builder dailyLeaveMode(String dailyLeaveMode) {
+      this.dailyLeaveMode = dailyLeaveMode;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    /**
+     * 上班晚到时长（分钟）
+     *
+     * <p>示例值：10
+     *
+     * @param arriveLateMinutes
+     * @return
+     */
+    public Builder arriveLateMinutes(Integer arriveLateMinutes) {
+      this.arriveLateMinutes = arriveLateMinutes;
+      return this;
     }
 
-    public LeaveTime getStartTime() {
-        return this.startTime;
+    /**
+     * 下班早走时长（分钟）
+     *
+     * <p>示例值：10
+     *
+     * @param leaveEarlyMinutes
+     * @return
+     */
+    public Builder leaveEarlyMinutes(Integer leaveEarlyMinutes) {
+      this.leaveEarlyMinutes = leaveEarlyMinutes;
+      return this;
     }
 
-    public void setStartTime(LeaveTime startTime) {
-        this.startTime = startTime;
+    /**
+     * 备注
+     *
+     * <p>示例值：休息
+     *
+     * @param notes
+     * @return
+     */
+    public Builder notes(String notes) {
+      this.notes = notes;
+      return this;
     }
 
-    public LeaveTime getEndTime() {
-        return this.endTime;
+    /**
+     * 领证日期
+     *
+     * <p>示例值：2023-11-07
+     *
+     * @param dateOfMarriageCertificate
+     * @return
+     */
+    public Builder dateOfMarriageCertificate(String dateOfMarriageCertificate) {
+      this.dateOfMarriageCertificate = dateOfMarriageCertificate;
+      return this;
     }
 
-    public void setEndTime(LeaveTime endTime) {
-        this.endTime = endTime;
+    /**
+     * 是否可提供婚前检查材料
+     *
+     * <p>示例值：false
+     *
+     * @param providePremaritalExaminationMaterials
+     * @return
+     */
+    public Builder providePremaritalExaminationMaterials(
+        Boolean providePremaritalExaminationMaterials) {
+      this.providePremaritalExaminationMaterials = providePremaritalExaminationMaterials;
+      return this;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
+    /**
+     * 是否夫妻两地分居
+     *
+     * <p>示例值：false
+     *
+     * @param isCoupleLiveApart
+     * @return
+     */
+    public Builder isCoupleLiveApart(Boolean isCoupleLiveApart) {
+      this.isCoupleLiveApart = isCoupleLiveApart;
+      return this;
     }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+    /**
+     * 是否难产
+     *
+     * <p>示例值：false
+     *
+     * @param difficultyGivingBirth
+     * @return
+     */
+    public Builder difficultyGivingBirth(Boolean difficultyGivingBirth) {
+      this.difficultyGivingBirth = difficultyGivingBirth;
+      return this;
     }
 
-    public String getDailyLeaveMode() {
-        return this.dailyLeaveMode;
+    /**
+     * 怀孕月数
+     *
+     * <p>示例值：10
+     *
+     * @param pregnantMonths
+     * @return
+     */
+    public Builder pregnantMonths(Integer pregnantMonths) {
+      this.pregnantMonths = pregnantMonths;
+      return this;
     }
 
-    public void setDailyLeaveMode(String dailyLeaveMode) {
-        this.dailyLeaveMode = dailyLeaveMode;
+    /**
+     * 预产期
+     *
+     * <p>示例值：2023-11-07
+     *
+     * @param dueDate
+     * @return
+     */
+    public Builder dueDate(String dueDate) {
+      this.dueDate = dueDate;
+      return this;
     }
 
-    public Integer getArriveLateMinutes() {
-        return this.arriveLateMinutes;
+    /**
+     * 子女出生日期
+     *
+     * <p>示例值：2023-11-07
+     *
+     * @param childDateOfBirth
+     * @return
+     */
+    public Builder childDateOfBirth(String childDateOfBirth) {
+      this.childDateOfBirth = childDateOfBirth;
+      return this;
     }
 
-    public void setArriveLateMinutes(Integer arriveLateMinutes) {
-        this.arriveLateMinutes = arriveLateMinutes;
+    /**
+     * 新生儿数量
+     *
+     * <p>示例值：1
+     *
+     * @param numberOfNewborns
+     * @return
+     */
+    public Builder numberOfNewborns(Integer numberOfNewborns) {
+      this.numberOfNewborns = numberOfNewborns;
+      return this;
     }
 
-    public Integer getLeaveEarlyMinutes() {
-        return this.leaveEarlyMinutes;
+    /**
+     * 申请场景（parent_accompany:父母/配偶父母患病需陪护, spouse_accompany:配偶患病需陪护, child_accompany:子女患病需陪护）
+     *
+     * <p>示例值：parent_accompany
+     *
+     * @param applicableScenarios
+     * @return
+     */
+    public Builder applicableScenarios(String applicableScenarios) {
+      this.applicableScenarios = applicableScenarios;
+      return this;
     }
 
-    public void setLeaveEarlyMinutes(Integer leaveEarlyMinutes) {
-        this.leaveEarlyMinutes = leaveEarlyMinutes;
+    public LeaveRequestCreated build() {
+      return new LeaveRequestCreated(this);
     }
+  }
 
-    public String getNotes() {
-        return this.notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public String getDateOfMarriageCertificate() {
-        return this.dateOfMarriageCertificate;
-    }
-
-    public void setDateOfMarriageCertificate(String dateOfMarriageCertificate) {
-        this.dateOfMarriageCertificate = dateOfMarriageCertificate;
-    }
-
-    public Boolean getProvidePremaritalExaminationMaterials() {
-        return this.providePremaritalExaminationMaterials;
-    }
-
-    public void setProvidePremaritalExaminationMaterials(Boolean providePremaritalExaminationMaterials) {
-        this.providePremaritalExaminationMaterials = providePremaritalExaminationMaterials;
-    }
-
-    public Boolean getIsCoupleLiveApart() {
-        return this.isCoupleLiveApart;
-    }
-
-    public void setIsCoupleLiveApart(Boolean isCoupleLiveApart) {
-        this.isCoupleLiveApart = isCoupleLiveApart;
-    }
-
-    public Boolean getDifficultyGivingBirth() {
-        return this.difficultyGivingBirth;
-    }
-
-    public void setDifficultyGivingBirth(Boolean difficultyGivingBirth) {
-        this.difficultyGivingBirth = difficultyGivingBirth;
-    }
-
-    public Integer getPregnantMonths() {
-        return this.pregnantMonths;
-    }
-
-    public void setPregnantMonths(Integer pregnantMonths) {
-        this.pregnantMonths = pregnantMonths;
-    }
-
-    public String getDueDate() {
-        return this.dueDate;
-    }
-
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public String getChildDateOfBirth() {
-        return this.childDateOfBirth;
-    }
-
-    public void setChildDateOfBirth(String childDateOfBirth) {
-        this.childDateOfBirth = childDateOfBirth;
-    }
-
-    public Integer getNumberOfNewborns() {
-        return this.numberOfNewborns;
-    }
-
-    public void setNumberOfNewborns(Integer numberOfNewborns) {
-        this.numberOfNewborns = numberOfNewborns;
-    }
-
-    public String getApplicableScenarios() {
-        return this.applicableScenarios;
-    }
-
-    public void setApplicableScenarios(String applicableScenarios) {
-        this.applicableScenarios = applicableScenarios;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7442604019808519724
-         */
-        private String employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：7444819921379313196
-         */
-        private String leaveTypeId;
-        /**
-         * 请假开始时间
-         * <p> 示例值：
-         */
-        private LeaveTime startTime;
-        /**
-         * 请假结束时间
-         * <p> 示例值：
-         */
-        private LeaveTime endTime;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timeZone;
-        /**
-         * 每日休假方式
-         * <p> 示例值：arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走
-         */
-        private String dailyLeaveMode;
-        /**
-         * 上班晚到时长（分钟）
-         * <p> 示例值：10
-         */
-        private Integer arriveLateMinutes;
-        /**
-         * 下班早走时长（分钟）
-         * <p> 示例值：10
-         */
-        private Integer leaveEarlyMinutes;
-        /**
-         * 备注
-         * <p> 示例值：休息
-         */
-        private String notes;
-        /**
-         * 领证日期
-         * <p> 示例值：2023-11-07
-         */
-        private String dateOfMarriageCertificate;
-        /**
-         * 是否可提供婚前检查材料
-         * <p> 示例值：fasle
-         */
-        private Boolean providePremaritalExaminationMaterials;
-        /**
-         * 是否夫妻两地分居
-         * <p> 示例值：false
-         */
-        private Boolean isCoupleLiveApart;
-        /**
-         * 是否难产
-         * <p> 示例值：false
-         */
-        private Boolean difficultyGivingBirth;
-        /**
-         * 怀孕月数
-         * <p> 示例值：10
-         */
-        private Integer pregnantMonths;
-        /**
-         * 预产期
-         * <p> 示例值：2023-11-07
-         */
-        private String dueDate;
-        /**
-         * 子女出生日期
-         * <p> 示例值：2023-11-07
-         */
-        private String childDateOfBirth;
-        /**
-         * 新生儿数量
-         * <p> 示例值：1
-         */
-        private Integer numberOfNewborns;
-        /**
-         * 申请场景
-         * <p> 示例值：父母/配偶父母患病需陪护:parent_accompany, 配偶患病需陪护:spouse_accompany, 子女患病需陪护:child_accompany
-         */
-        private String applicableScenarios;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7442604019808519724
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：7444819921379313196
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 请假开始时间
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(LeaveTime startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 请假结束时间
-         * <p> 示例值：
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(LeaveTime endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 每日休假方式
-         * <p> 示例值：arrive_late:上班晚到, leave_early:上班晚到, arrive_late_and_leave_early:上班晚到 + 下班早走
-         *
-         * @param dailyLeaveMode
-         * @return
-         */
-        public Builder dailyLeaveMode(String dailyLeaveMode) {
-            this.dailyLeaveMode = dailyLeaveMode;
-            return this;
-        }
-
-
-        /**
-         * 上班晚到时长（分钟）
-         * <p> 示例值：10
-         *
-         * @param arriveLateMinutes
-         * @return
-         */
-        public Builder arriveLateMinutes(Integer arriveLateMinutes) {
-            this.arriveLateMinutes = arriveLateMinutes;
-            return this;
-        }
-
-
-        /**
-         * 下班早走时长（分钟）
-         * <p> 示例值：10
-         *
-         * @param leaveEarlyMinutes
-         * @return
-         */
-        public Builder leaveEarlyMinutes(Integer leaveEarlyMinutes) {
-            this.leaveEarlyMinutes = leaveEarlyMinutes;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：休息
-         *
-         * @param notes
-         * @return
-         */
-        public Builder notes(String notes) {
-            this.notes = notes;
-            return this;
-        }
-
-
-        /**
-         * 领证日期
-         * <p> 示例值：2023-11-07
-         *
-         * @param dateOfMarriageCertificate
-         * @return
-         */
-        public Builder dateOfMarriageCertificate(String dateOfMarriageCertificate) {
-            this.dateOfMarriageCertificate = dateOfMarriageCertificate;
-            return this;
-        }
-
-
-        /**
-         * 是否可提供婚前检查材料
-         * <p> 示例值：fasle
-         *
-         * @param providePremaritalExaminationMaterials
-         * @return
-         */
-        public Builder providePremaritalExaminationMaterials(Boolean providePremaritalExaminationMaterials) {
-            this.providePremaritalExaminationMaterials = providePremaritalExaminationMaterials;
-            return this;
-        }
-
-
-        /**
-         * 是否夫妻两地分居
-         * <p> 示例值：false
-         *
-         * @param isCoupleLiveApart
-         * @return
-         */
-        public Builder isCoupleLiveApart(Boolean isCoupleLiveApart) {
-            this.isCoupleLiveApart = isCoupleLiveApart;
-            return this;
-        }
-
-
-        /**
-         * 是否难产
-         * <p> 示例值：false
-         *
-         * @param difficultyGivingBirth
-         * @return
-         */
-        public Builder difficultyGivingBirth(Boolean difficultyGivingBirth) {
-            this.difficultyGivingBirth = difficultyGivingBirth;
-            return this;
-        }
-
-
-        /**
-         * 怀孕月数
-         * <p> 示例值：10
-         *
-         * @param pregnantMonths
-         * @return
-         */
-        public Builder pregnantMonths(Integer pregnantMonths) {
-            this.pregnantMonths = pregnantMonths;
-            return this;
-        }
-
-
-        /**
-         * 预产期
-         * <p> 示例值：2023-11-07
-         *
-         * @param dueDate
-         * @return
-         */
-        public Builder dueDate(String dueDate) {
-            this.dueDate = dueDate;
-            return this;
-        }
-
-
-        /**
-         * 子女出生日期
-         * <p> 示例值：2023-11-07
-         *
-         * @param childDateOfBirth
-         * @return
-         */
-        public Builder childDateOfBirth(String childDateOfBirth) {
-            this.childDateOfBirth = childDateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 新生儿数量
-         * <p> 示例值：1
-         *
-         * @param numberOfNewborns
-         * @return
-         */
-        public Builder numberOfNewborns(Integer numberOfNewborns) {
-            this.numberOfNewborns = numberOfNewborns;
-            return this;
-        }
-
-
-        /**
-         * 申请场景
-         * <p> 示例值：父母/配偶父母患病需陪护:parent_accompany, 配偶患病需陪护:spouse_accompany, 子女患病需陪护:child_accompany
-         *
-         * @param applicableScenarios
-         * @return
-         */
-        public Builder applicableScenarios(String applicableScenarios) {
-            this.applicableScenarios = applicableScenarios;
-            return this;
-        }
-
-
-        public LeaveRequestCreated build() {
-            return new LeaveRequestCreated(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

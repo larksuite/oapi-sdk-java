@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 查询对象类型，不填返回所有
- */
+/** 查询对象类型，不填返回所有 */
 public enum ListAlertGetAlertHistoryQueryTypeEnum {
-    ROOM(1), // 会议室
-    ERC(2), // erc
-    SIP(3), // SIP会议室系统
-    ;
-    private Integer value;
+  ROOM(1), // 会议室
+  ERC(2), // 企业会议室连接器
+  SIP(3), // SIP会议室系统
+  ;
+  private Integer value;
 
-    ListAlertGetAlertHistoryQueryTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ListAlertGetAlertHistoryQueryTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

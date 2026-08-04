@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateJobFamily {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_name")
+  private I18nText jobFamilyName;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 上级序列
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 外部ID
+   *
+   * <p>示例值：custom_id
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public I18nText getJobFamilyName() {
+    return this.jobFamilyName;
+  }
+
+  public void setJobFamilyName(I18nText jobFamilyName) {
+    this.jobFamilyName = jobFamilyName;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public CreateJobFamily() {}
+
+  public CreateJobFamily(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_name")
-    private I18nText jobFamilyName;
+    this.jobFamilyName = builder.jobFamilyName;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 上级序列
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 外部ID
-     * <p> 示例值：custom_id
+     *
+     * <p>示例值：custom_id
      */
-    @SerializedName("external_id")
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText jobFamilyName;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 上级序列
+     *
+     * <p>示例值：6872549699048439828
+     */
+    private String parentId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     */
     private String externalId;
 
-    // builder 开始
-    public CreateJobFamily() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyName
+     * @return
+     */
+    public Builder jobFamilyName(I18nText jobFamilyName) {
+      this.jobFamilyName = jobFamilyName;
+      return this;
     }
 
-    public CreateJobFamily(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.jobFamilyName = builder.jobFamilyName;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 上级序列
-         * <p> 示例值：6872549699048439828
-         */
-        this.parentId = builder.parentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上级序列
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public I18nText getJobFamilyName() {
-        return this.jobFamilyName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public void setJobFamilyName(I18nText jobFamilyName) {
-        this.jobFamilyName = jobFamilyName;
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
+    public CreateJobFamily build() {
+      return new CreateJobFamily(this);
     }
+  }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText jobFamilyName;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-        /**
-         * 上级序列
-         * <p> 示例值：6872549699048439828
-         */
-        private String parentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        private String externalId;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param jobFamilyName
-         * @return
-         */
-        public Builder jobFamilyName(I18nText jobFamilyName) {
-            this.jobFamilyName = jobFamilyName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 上级序列
-         * <p> 示例值：6872549699048439828
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public CreateJobFamily build() {
-            return new CreateJobFamily(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

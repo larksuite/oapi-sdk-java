@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TagInfoV2 {
+  /**
+   * id
+   *
+   * <p>示例值：716168xxxxx
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户id
+   *
+   * <p>示例值：716168xxxxx
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 标签类型
+   *
+   * <p>示例值：tenant
+   */
+  @SerializedName("tag_type")
+  private String tagType;
+
+  /**
+   * name
+   *
+   * <p>示例值：tagName1
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * i18n name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private TagI18nNameV2[] i18nNames;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：716168xxxxx
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1700793403850
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1700793403850
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getTagType() {
+    return this.tagType;
+  }
+
+  public void setTagType(String tagType) {
+    this.tagType = tagType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public TagI18nNameV2[] getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(TagI18nNameV2[] i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public TagInfoV2() {}
+
+  public TagInfoV2(Builder builder) {
     /**
      * id
-     * <p> 示例值：716168xxxxx
+     *
+     * <p>示例值：716168xxxxx
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户id
-     * <p> 示例值：716168xxxxx
+     *
+     * <p>示例值：716168xxxxx
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 标签类型
-     * <p> 示例值：tenant
+     *
+     * <p>示例值：tenant
      */
-    @SerializedName("tag_type")
-    private String tagType;
+    this.tagType = builder.tagType;
     /**
      * name
-     * <p> 示例值：tagName1
+     *
+     * <p>示例值：tagName1
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * i18n name
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private TagI18nNameV2[] i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 创建人
-     * <p> 示例值：716168xxxxx
+     *
+     * <p>示例值：716168xxxxx
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 创建时间
-     * <p> 示例值：1700793403850
+     *
+     * <p>示例值：1700793403850
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1700793403850
+     *
+     * <p>示例值：1700793403850
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：716168xxxxx
+     */
+    private String id;
+
+    /**
+     * 租户id
+     *
+     * <p>示例值：716168xxxxx
+     */
+    private String tenantId;
+
+    /**
+     * 标签类型
+     *
+     * <p>示例值：tenant
+     */
+    private String tagType;
+
+    /**
+     * name
+     *
+     * <p>示例值：tagName1
+     */
+    private String name;
+
+    /**
+     * i18n name
+     *
+     * <p>示例值：
+     */
+    private TagI18nNameV2[] i18nNames;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：716168xxxxx
+     */
+    private String creatorId;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1700793403850
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1700793403850
+     */
     private String updateTime;
 
-    // builder 开始
-    public TagInfoV2() {
+    /**
+     * id
+     *
+     * <p>示例值：716168xxxxx
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TagInfoV2(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：716168xxxxx
-         */
-        this.id = builder.id;
-        /**
-         * 租户id
-         * <p> 示例值：716168xxxxx
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         */
-        this.tagType = builder.tagType;
-        /**
-         * name
-         * <p> 示例值：tagName1
-         */
-        this.name = builder.name;
-        /**
-         * i18n name
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 创建人
-         * <p> 示例值：716168xxxxx
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 创建时间
-         * <p> 示例值：1700793403850
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1700793403850
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 租户id
+     *
+     * <p>示例值：716168xxxxx
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签类型
+     *
+     * <p>示例值：tenant
+     *
+     * @param tagType
+     * @return
+     */
+    public Builder tagType(String tagType) {
+      this.tagType = tagType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * name
+     *
+     * <p>示例值：tagName1
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * i18n name
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(TagI18nNameV2[] i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 创建人
+     *
+     * <p>示例值：716168xxxxx
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1700793403850
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getTagType() {
-        return this.tagType;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1700793403850
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setTagType(String tagType) {
-        this.tagType = tagType;
+    public TagInfoV2 build() {
+      return new TagInfoV2(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public TagI18nNameV2[] getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(TagI18nNameV2[] i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：716168xxxxx
-         */
-        private String id;
-        /**
-         * 租户id
-         * <p> 示例值：716168xxxxx
-         */
-        private String tenantId;
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         */
-        private String tagType;
-        /**
-         * name
-         * <p> 示例值：tagName1
-         */
-        private String name;
-        /**
-         * i18n name
-         * <p> 示例值：
-         */
-        private TagI18nNameV2[] i18nNames;
-        /**
-         * 创建人
-         * <p> 示例值：716168xxxxx
-         */
-        private String creatorId;
-        /**
-         * 创建时间
-         * <p> 示例值：1700793403850
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1700793403850
-         */
-        private String updateTime;
-
-        /**
-         * id
-         * <p> 示例值：716168xxxxx
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户id
-         * <p> 示例值：716168xxxxx
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         *
-         * @param tagType
-         * @return
-         */
-        public Builder tagType(String tagType) {
-            this.tagType = tagType;
-            return this;
-        }
-
-
-        /**
-         * name
-         * <p> 示例值：tagName1
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * i18n name
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(TagI18nNameV2[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：716168xxxxx
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1700793403850
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1700793403850
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public TagInfoV2 build() {
-            return new TagInfoV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

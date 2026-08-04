@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PathwayDeletedV2Data {
-    /**
-     * 通道ID
-     * <p> 示例值：201571101
-     */
-    @SerializedName("pathway_id")
-    private String pathwayId;
+  /**
+   * 通道ID
+   *
+   * <p>示例值：201571101
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
 
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
 
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
 }

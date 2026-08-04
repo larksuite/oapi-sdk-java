@@ -13,420 +13,456 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageSearchMeta {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：post
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 创建时间(iso8601)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间(iso8601)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 消息位置
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("position")
+  private Integer position;
+
+  /**
+   * 所在会话ID
+   *
+   * <p>示例值：oc_5ad11d72b830411d72b836c20
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 消息发送者ID
+   *
+   * <p>示例值：ou-7890123456abcdef
+   */
+  @SerializedName("from_id")
+  private String fromId;
+
+  /**
+   * 消息话题ID
+   *
+   * <p>示例值：omt_d4be107c616a
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 消息话题位置
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("thread_position")
+  private Integer threadPosition;
+
+  /**
+   * 是否为单聊
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_p2p_chat")
+  private Boolean isP2pChat;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Integer getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getFromId() {
+    return this.fromId;
+  }
+
+  public void setFromId(String fromId) {
+    this.fromId = fromId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public Integer getThreadPosition() {
+    return this.threadPosition;
+  }
+
+  public void setThreadPosition(Integer threadPosition) {
+    this.threadPosition = threadPosition;
+  }
+
+  public Boolean getIsP2pChat() {
+    return this.isP2pChat;
+  }
+
+  public void setIsP2pChat(Boolean isP2pChat) {
+    this.isP2pChat = isP2pChat;
+  }
+
+  // builder 开始
+  public MessageSearchMeta() {}
+
+  public MessageSearchMeta(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 消息类型
-     * <p> 示例值：post
+     *
+     * <p>示例值：post
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 创建时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 消息位置
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("position")
-    private Integer position;
+    this.position = builder.position;
     /**
      * 所在会话ID
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     *
+     * <p>示例值：oc_5ad11d72b830411d72b836c20
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 消息发送者ID
-     * <p> 示例值：ou-7890123456abcdef
+     *
+     * <p>示例值：ou-7890123456abcdef
      */
-    @SerializedName("from_id")
-    private String fromId;
+    this.fromId = builder.fromId;
     /**
      * 消息话题ID
-     * <p> 示例值：omt_d4be107c616a
+     *
+     * <p>示例值：omt_d4be107c616a
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 消息话题位置
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("thread_position")
-    private Integer threadPosition;
+    this.threadPosition = builder.threadPosition;
     /**
      * 是否为单聊
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_p2p_chat")
+    this.isP2pChat = builder.isP2pChat;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     */
+    private String messageId;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：post
+     */
+    private String type;
+
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    private String createTime;
+
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    private String updateTime;
+
+    /**
+     * 消息位置
+     *
+     * <p>示例值：0
+     */
+    private Integer position;
+
+    /**
+     * 所在会话ID
+     *
+     * <p>示例值：oc_5ad11d72b830411d72b836c20
+     */
+    private String chatId;
+
+    /**
+     * 消息发送者ID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     */
+    private String fromId;
+
+    /**
+     * 消息话题ID
+     *
+     * <p>示例值：omt_d4be107c616a
+     */
+    private String threadId;
+
+    /**
+     * 消息话题位置
+     *
+     * <p>示例值：10
+     */
+    private Integer threadPosition;
+
+    /**
+     * 是否为单聊
+     *
+     * <p>示例值：false
+     */
     private Boolean isP2pChat;
 
-    // builder 开始
-    public MessageSearchMeta() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MessageSearchMeta(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：post
-         */
-        this.type = builder.type;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 消息位置
-         * <p> 示例值：0
-         */
-        this.position = builder.position;
-        /**
-         * 所在会话ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 消息发送者ID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        this.fromId = builder.fromId;
-        /**
-         * 消息话题ID
-         * <p> 示例值：omt_d4be107c616a
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息话题位置
-         * <p> 示例值：10
-         */
-        this.threadPosition = builder.threadPosition;
-        /**
-         * 是否为单聊
-         * <p> 示例值：false
-         */
-        this.isP2pChat = builder.isP2pChat;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：post
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息类型
+     *
+     * <p>示例值：post
+     *
+     * @param type {@link com.lark.oapi.service.im.v1.enums.MessageSearchMetaTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.im.v1.enums.MessageSearchMetaTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 消息位置
+     *
+     * <p>示例值：0
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(Integer position) {
+      this.position = position;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 所在会话ID
+     *
+     * <p>示例值：oc_5ad11d72b830411d72b836c20
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 消息发送者ID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     *
+     * @param fromId
+     * @return
+     */
+    public Builder fromId(String fromId) {
+      this.fromId = fromId;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 消息话题ID
+     *
+     * <p>示例值：omt_d4be107c616a
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 消息话题位置
+     *
+     * <p>示例值：10
+     *
+     * @param threadPosition
+     * @return
+     */
+    public Builder threadPosition(Integer threadPosition) {
+      this.threadPosition = threadPosition;
+      return this;
     }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 是否为单聊
+     *
+     * <p>示例值：false
+     *
+     * @param isP2pChat
+     * @return
+     */
+    public Builder isP2pChat(Boolean isP2pChat) {
+      this.isP2pChat = isP2pChat;
+      return this;
     }
 
-    public Integer getPosition() {
-        return this.position;
+    public MessageSearchMeta build() {
+      return new MessageSearchMeta(this);
     }
+  }
 
-    public void setPosition(Integer position) {
-        this.position = position;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getFromId() {
-        return this.fromId;
-    }
-
-    public void setFromId(String fromId) {
-        this.fromId = fromId;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public Integer getThreadPosition() {
-        return this.threadPosition;
-    }
-
-    public void setThreadPosition(Integer threadPosition) {
-        this.threadPosition = threadPosition;
-    }
-
-    public Boolean getIsP2pChat() {
-        return this.isP2pChat;
-    }
-
-    public void setIsP2pChat(Boolean isP2pChat) {
-        this.isP2pChat = isP2pChat;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         */
-        private String messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：post
-         */
-        private String type;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String updateTime;
-        /**
-         * 消息位置
-         * <p> 示例值：0
-         */
-        private Integer position;
-        /**
-         * 所在会话ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        private String chatId;
-        /**
-         * 消息发送者ID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        private String fromId;
-        /**
-         * 消息话题ID
-         * <p> 示例值：omt_d4be107c616a
-         */
-        private String threadId;
-        /**
-         * 消息话题位置
-         * <p> 示例值：10
-         */
-        private Integer threadPosition;
-        /**
-         * 是否为单聊
-         * <p> 示例值：false
-         */
-        private Boolean isP2pChat;
-
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：post
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 消息类型
-         * <p> 示例值：post
-         *
-         * @param type {@link com.lark.oapi.service.im.v1.enums.MessageSearchMetaTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.im.v1.enums.MessageSearchMetaTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 消息位置
-         * <p> 示例值：0
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(Integer position) {
-            this.position = position;
-            return this;
-        }
-
-
-        /**
-         * 所在会话ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 消息发送者ID
-         * <p> 示例值：ou-7890123456abcdef
-         *
-         * @param fromId
-         * @return
-         */
-        public Builder fromId(String fromId) {
-            this.fromId = fromId;
-            return this;
-        }
-
-
-        /**
-         * 消息话题ID
-         * <p> 示例值：omt_d4be107c616a
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 消息话题位置
-         * <p> 示例值：10
-         *
-         * @param threadPosition
-         * @return
-         */
-        public Builder threadPosition(Integer threadPosition) {
-            this.threadPosition = threadPosition;
-            return this;
-        }
-
-
-        /**
-         * 是否为单聊
-         * <p> 示例值：false
-         *
-         * @param isP2pChat
-         * @return
-         */
-        public Builder isP2pChat(Boolean isP2pChat) {
-            this.isP2pChat = isP2pChat;
-            return this;
-        }
-
-
-        public MessageSearchMeta build() {
-            return new MessageSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

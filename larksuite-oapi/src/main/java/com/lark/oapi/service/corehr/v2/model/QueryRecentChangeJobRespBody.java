@@ -13,76 +13,73 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecentChangeJobRespBody {
-    /**
-     * 职务 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("job_ids")
-    private String[] jobIds;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 删除的职务 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("deleted_job_ids")
-    private String[] deletedJobIds;
+  /**
+   * 职务ID 列表， 其中包含新建、更新以及删除的 ID 列表;-
+   * 非删除的数据，可通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)
+   * 获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_ids")
+  private String[] jobIds;
 
-    public String[] getJobIds() {
-        return this.jobIds;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setJobIds(String[] jobIds) {
-        this.jobIds = jobIds;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 目标查询时间范围内被删除的职务列表， 该列表是 job_ids 的子集，便于获取在指定的[start_date, end_date+1) 的范围内被删除的职务 IDs。;-
+   * **由于对应的职务已经被删除，无法通过 ID 查询到历史数据。**
+   *
+   * <p>示例值：
+   */
+  @SerializedName("deleted_job_ids")
+  private String[] deletedJobIds;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getJobIds() {
+    return this.jobIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setJobIds(String[] jobIds) {
+    this.jobIds = jobIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String[] getDeletedJobIds() {
-        return this.deletedJobIds;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setDeletedJobIds(String[] deletedJobIds) {
-        this.deletedJobIds = deletedJobIds;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String[] getDeletedJobIds() {
+    return this.deletedJobIds;
+  }
+
+  public void setDeletedJobIds(String[] deletedJobIds) {
+    this.deletedJobIds = deletedJobIds;
+  }
 }

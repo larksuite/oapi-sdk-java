@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 文档类型
- */
+/** 文件类型 */
 public enum GetFileStatisticsFileTypeEnum {
-    DOC("doc"), // doc文档
-    SHEET("sheet"), // 表格
-    MINDNOTE("mindnote"), // 思维笔记
-    BITABLE("bitable"), // 多维表格
-    WIKI("wiki"), // 知识库wiki
-    FILE("file"), // 文件
-    DOCX("docx"), // docx文档
-    ;
-    private String value;
+  DOC("doc"), // 旧版文档
+  SHEET("sheet"), // 电子表格
+  MINDNOTE("mindnote"), // 思维笔记
+  BITABLE("bitable"), // 多维表格
+  WIKI("wiki"), // 知识库文档
+  FILE("file"), // 文件
+  DOCX("docx"), // 新版文档
+  ;
+  private String value;
 
-    GetFileStatisticsFileTypeEnum(String value) {
-        this.value = value;
-    }
+  GetFileStatisticsFileTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

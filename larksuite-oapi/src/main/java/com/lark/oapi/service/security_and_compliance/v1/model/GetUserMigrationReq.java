@@ -13,116 +13,118 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.security_and_compliance.v1.enums.*;
 
 public class GetUserMigrationReq {
+  /**
+   * 用户 id 类型
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * ID类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：ou_1234567890abcdef1234567890abcdef
+   */
+  @Path
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public GetUserMigrationReq() {}
+
+  public GetUserMigrationReq(Builder builder) {
     /**
      * 用户 id 类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 用户 id
-     * <p> 示例值：
+     * ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_1234567890abcdef1234567890abcdef
      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
+  }
 
-    // builder 开始
-    public GetUserMigrationReq() {
+  public static class Builder {
+    private String userIdType; // 用户 id 类型
+
+    /**
+     * 用户 id 类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetUserMigrationReq(Builder builder) {
-        /**
-         * 用户 id 类型
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户 id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 用户 id 类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.GetUserMigrationGetUserMigrationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .GetUserMigrationGetUserMigrationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String userId; // ID类型必须与查询参数user_id_type的取值一致
+
+    /**
+     * ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_1234567890abcdef1234567890abcdef
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetUserMigrationReq build() {
+      return new GetUserMigrationReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户 id 类型
-        private String userId; // 用户 id
-
-        /**
-         * 用户 id 类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 id 类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.security_and_compliance.v1.enums.GetUserMigrationGetUserMigrationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.security_and_compliance.v1.enums.GetUserMigrationGetUserMigrationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户 id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public GetUserMigrationReq build() {
-            return new GetUserMigrationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

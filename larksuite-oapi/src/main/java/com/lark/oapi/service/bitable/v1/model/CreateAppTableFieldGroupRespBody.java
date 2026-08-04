@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppTableFieldGroupRespBody {
-    /**
-     * 字段编组的内容
-     * <p> 示例值：[   {     "id": "fldjX7dUj5",     "name": "编组1"   },   {     "id": "fldjX7dUj6",     "name": "编组2"   } ]
-     */
-    @SerializedName("field_groups")
-    private String fieldGroups;
+  /**
+   * 字段编组的内容
+   *
+   * <p>示例值：[ { "id": "fldjX7dUj5", "name": "编组1" }, { "id": "fldjX7dUj6", "name": "编组2" } ]
+   */
+  @SerializedName("field_groups")
+  private String fieldGroups;
 
-    public String getFieldGroups() {
-        return this.fieldGroups;
-    }
+  public String getFieldGroups() {
+    return this.fieldGroups;
+  }
 
-    public void setFieldGroups(String fieldGroups) {
-        this.fieldGroups = fieldGroups;
-    }
-
+  public void setFieldGroups(String fieldGroups) {
+    this.fieldGroups = fieldGroups;
+  }
 }

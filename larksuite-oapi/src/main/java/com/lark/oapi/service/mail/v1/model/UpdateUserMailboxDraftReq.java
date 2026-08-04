@@ -13,131 +13,129 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class UpdateUserMailboxDraftReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：aba@aac.com 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 草稿ID，可通过创建草稿或列出草稿接口获得
+   *
+   * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+   */
+  @Path
+  @SerializedName("draft_id")
+  private String draftId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  @Body private UpdateUserMailboxDraftReqBody body;
+
+  public UpdateUserMailboxDraftReqBody getUpdateUserMailboxDraftReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateUserMailboxDraftReqBody(UpdateUserMailboxDraftReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateUserMailboxDraftReq() {}
+
+  public UpdateUserMailboxDraftReq(Builder builder) {
     /**
-     * 用户邮箱地址，使用用户身份时可填写me
-     * <p> 示例值：aba@aac.com
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：aba@aac.com 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
-     * 草稿ID，可通过创建草稿或列出草稿列表接口获得
-     * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     * 草稿ID，可通过创建草稿或列出草稿接口获得
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
      */
-    @Path
-    @SerializedName("draft_id")
-    private String draftId;
-    @Body
+    this.draftId = builder.draftId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+    private String draftId; // 草稿ID，可通过创建草稿或列出草稿接口获得
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：aba@aac.com 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
+    /**
+     * 草稿ID，可通过创建草稿或列出草稿接口获得
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
+    }
+
     private UpdateUserMailboxDraftReqBody body;
 
-    // builder 开始
-    public UpdateUserMailboxDraftReq() {
-    }
-
-    public UpdateUserMailboxDraftReq(Builder builder) {
-        /**
-         * 用户邮箱地址，使用用户身份时可填写me
-         * <p> 示例值：aba@aac.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 草稿ID，可通过创建草稿或列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         */
-        this.draftId = builder.draftId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getDraftId() {
-        return this.draftId;
-    }
-
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
-
     public UpdateUserMailboxDraftReqBody getUpdateUserMailboxDraftReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateUserMailboxDraftReqBody(UpdateUserMailboxDraftReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateUserMailboxDraftReqBody(UpdateUserMailboxDraftReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址，使用用户身份时可填写me
-        private String draftId; // 草稿ID，可通过创建草稿或列出草稿列表接口获得
-        private UpdateUserMailboxDraftReqBody body;
-
-        /**
-         * 用户邮箱地址，使用用户身份时可填写me
-         * <p> 示例值：aba@aac.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        /**
-         * 草稿ID，可通过创建草稿或列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-        public UpdateUserMailboxDraftReqBody getUpdateUserMailboxDraftReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateUserMailboxDraftReqBody(UpdateUserMailboxDraftReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateUserMailboxDraftReq build() {
-            return new UpdateUserMailboxDraftReq(this);
-        }
+    public UpdateUserMailboxDraftReq build() {
+      return new UpdateUserMailboxDraftReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

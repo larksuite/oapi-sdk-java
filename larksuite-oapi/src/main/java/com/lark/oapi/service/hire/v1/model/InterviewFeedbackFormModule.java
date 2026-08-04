@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewFeedbackFormModule {
+  /**
+   * 面试评价表模块ID
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 模块名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 模块描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 模块类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 模块顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  /**
+   * 模块权重
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("weight")
+  private Double weight;
+
+  /**
+   * 模块维度列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimensions")
+  private InterviewFeedbackFormDimension[] dimensions;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  public Double getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(Double weight) {
+    this.weight = weight;
+  }
+
+  public InterviewFeedbackFormDimension[] getDimensions() {
+    return this.dimensions;
+  }
+
+  public void setDimensions(InterviewFeedbackFormDimension[] dimensions) {
+    this.dimensions = dimensions;
+  }
+
+  // builder 开始
+  public InterviewFeedbackFormModule() {}
+
+  public InterviewFeedbackFormModule(Builder builder) {
     /**
      * 面试评价表模块ID
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 模块名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 模块描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 模块类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 模块顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
-    private Integer sequence;
+    this.sequence = builder.sequence;
     /**
      * 模块权重
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("weight")
-    private Double weight;
+    this.weight = builder.weight;
     /**
      * 模块维度列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimensions")
+    this.dimensions = builder.dimensions;
+  }
+
+  public static class Builder {
+    /**
+     * 面试评价表模块ID
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String id;
+
+    /**
+     * 模块名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 模块描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 模块类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 模块顺序
+     *
+     * <p>示例值：1
+     */
+    private Integer sequence;
+
+    /**
+     * 模块权重
+     *
+     * <p>示例值：1
+     */
+    private Double weight;
+
+    /**
+     * 模块维度列表
+     *
+     * <p>示例值：
+     */
     private InterviewFeedbackFormDimension[] dimensions;
 
-    // builder 开始
-    public InterviewFeedbackFormModule() {
+    /**
+     * 面试评价表模块ID
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InterviewFeedbackFormModule(Builder builder) {
-        /**
-         * 面试评价表模块ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.id = builder.id;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 模块描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 模块类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 模块顺序
-         * <p> 示例值：1
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 模块权重
-         * <p> 示例值：1
-         */
-        this.weight = builder.weight;
-        /**
-         * 模块维度列表
-         * <p> 示例值：
-         */
-        this.dimensions = builder.dimensions;
+    /**
+     * 模块名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模块描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 模块类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 模块顺序
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 模块权重
+     *
+     * <p>示例值：1
+     *
+     * @param weight
+     * @return
+     */
+    public Builder weight(Double weight) {
+      this.weight = weight;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 模块维度列表
+     *
+     * <p>示例值：
+     *
+     * @param dimensions
+     * @return
+     */
+    public Builder dimensions(InterviewFeedbackFormDimension[] dimensions) {
+      this.dimensions = dimensions;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    public InterviewFeedbackFormModule build() {
+      return new InterviewFeedbackFormModule(this);
     }
+  }
 
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public Double getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public InterviewFeedbackFormDimension[] getDimensions() {
-        return this.dimensions;
-    }
-
-    public void setDimensions(InterviewFeedbackFormDimension[] dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public static class Builder {
-        /**
-         * 面试评价表模块ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String id;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 模块描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 模块类型
-         * <p> 示例值：
-         */
-        private Integer type;
-        /**
-         * 模块顺序
-         * <p> 示例值：1
-         */
-        private Integer sequence;
-        /**
-         * 模块权重
-         * <p> 示例值：1
-         */
-        private Double weight;
-        /**
-         * 模块维度列表
-         * <p> 示例值：
-         */
-        private InterviewFeedbackFormDimension[] dimensions;
-
-        /**
-         * 面试评价表模块ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 模块名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 模块描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 模块类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 模块顺序
-         * <p> 示例值：1
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        /**
-         * 模块权重
-         * <p> 示例值：1
-         *
-         * @param weight
-         * @return
-         */
-        public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
-        }
-
-
-        /**
-         * 模块维度列表
-         * <p> 示例值：
-         *
-         * @param dimensions
-         * @return
-         */
-        public Builder dimensions(InterviewFeedbackFormDimension[] dimensions) {
-            this.dimensions = dimensions;
-            return this;
-        }
-
-
-        public InterviewFeedbackFormModule build() {
-            return new InterviewFeedbackFormModule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

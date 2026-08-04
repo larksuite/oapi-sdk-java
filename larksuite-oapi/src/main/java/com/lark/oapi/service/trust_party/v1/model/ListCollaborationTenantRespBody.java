@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCollaborationTenantRespBody {
-    /**
-     * 关联组织列表
-     * <p> 示例值：
-     */
-    @SerializedName("target_tenant_list")
-    private CollaborationTenant[] targetTenantList;
-    /**
-     * 是否还有更多的关联组织
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 关联组织列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_tenant_list")
+  private CollaborationTenant[] targetTenantList;
 
-    public CollaborationTenant[] getTargetTenantList() {
-        return this.targetTenantList;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setTargetTenantList(CollaborationTenant[] targetTenantList) {
-        this.targetTenantList = targetTenantList;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public CollaborationTenant[] getTargetTenantList() {
+    return this.targetTenantList;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setTargetTenantList(CollaborationTenant[] targetTenantList) {
+    this.targetTenantList = targetTenantList;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

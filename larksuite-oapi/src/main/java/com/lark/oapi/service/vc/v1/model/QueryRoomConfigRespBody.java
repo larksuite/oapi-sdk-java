@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRoomConfigRespBody {
-    /**
-     * 飞书会议室背景图
-     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-     */
-    @SerializedName("room_background")
-    private String roomBackground;
-    /**
-     * 飞书签到板背景图
-     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-     */
-    @SerializedName("display_background")
-    private String displayBackground;
-    /**
-     * 飞书会议室数字标牌
-     * <p> 示例值：
-     */
-    @SerializedName("digital_signage")
-    private RoomDigitalSignage digitalSignage;
-    /**
-     * 飞书投屏盒子数字标牌
-     * <p> 示例值：
-     */
-    @SerializedName("room_box_digital_signage")
-    private RoomDigitalSignage roomBoxDigitalSignage;
-    /**
-     * 会议室状态
-     * <p> 示例值：
-     */
-    @SerializedName("room_status")
-    private RoomStatus roomStatus;
+  /**
+   * 飞书会议室背景图
+   *
+   * <p>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+   */
+  @SerializedName("room_background")
+  private String roomBackground;
 
-    public String getRoomBackground() {
-        return this.roomBackground;
-    }
+  /**
+   * 飞书签到板背景图
+   *
+   * <p>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+   */
+  @SerializedName("display_background")
+  private String displayBackground;
 
-    public void setRoomBackground(String roomBackground) {
-        this.roomBackground = roomBackground;
-    }
+  /**
+   * 飞书会议室数字标牌
+   *
+   * <p>示例值：
+   */
+  @SerializedName("digital_signage")
+  private RoomDigitalSignage digitalSignage;
 
-    public String getDisplayBackground() {
-        return this.displayBackground;
-    }
+  /**
+   * 飞书会议室数字标牌
+   *
+   * <p>示例值：
+   */
+  @SerializedName("room_box_digital_signage")
+  private RoomDigitalSignage roomBoxDigitalSignage;
 
-    public void setDisplayBackground(String displayBackground) {
-        this.displayBackground = displayBackground;
-    }
+  /**
+   * 会议室状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("room_status")
+  private RoomStatus roomStatus;
 
-    public RoomDigitalSignage getDigitalSignage() {
-        return this.digitalSignage;
-    }
+  public String getRoomBackground() {
+    return this.roomBackground;
+  }
 
-    public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
-        this.digitalSignage = digitalSignage;
-    }
+  public void setRoomBackground(String roomBackground) {
+    this.roomBackground = roomBackground;
+  }
 
-    public RoomDigitalSignage getRoomBoxDigitalSignage() {
-        return this.roomBoxDigitalSignage;
-    }
+  public String getDisplayBackground() {
+    return this.displayBackground;
+  }
 
-    public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
-        this.roomBoxDigitalSignage = roomBoxDigitalSignage;
-    }
+  public void setDisplayBackground(String displayBackground) {
+    this.displayBackground = displayBackground;
+  }
 
-    public RoomStatus getRoomStatus() {
-        return this.roomStatus;
-    }
+  public RoomDigitalSignage getDigitalSignage() {
+    return this.digitalSignage;
+  }
 
-    public void setRoomStatus(RoomStatus roomStatus) {
-        this.roomStatus = roomStatus;
-    }
+  public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
+    this.digitalSignage = digitalSignage;
+  }
 
+  public RoomDigitalSignage getRoomBoxDigitalSignage() {
+    return this.roomBoxDigitalSignage;
+  }
+
+  public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
+    this.roomBoxDigitalSignage = roomBoxDigitalSignage;
+  }
+
+  public RoomStatus getRoomStatus() {
+    return this.roomStatus;
+  }
+
+  public void setRoomStatus(RoomStatus roomStatus) {
+    this.roomStatus = roomStatus;
+  }
 }

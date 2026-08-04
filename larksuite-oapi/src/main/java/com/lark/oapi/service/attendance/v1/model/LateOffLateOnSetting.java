@@ -13,136 +13,139 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LateOffLateOnSetting {
+  /**
+   * 当日晚走时间计算规则
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("late_off_base_on_time_type")
+  private Integer lateOffBaseOnTimeType;
+
+  /**
+   * 次日晚到时间计算规则
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("late_on_base_on_time_type")
+  private Integer lateOnBaseOnTimeType;
+
+  public Integer getLateOffBaseOnTimeType() {
+    return this.lateOffBaseOnTimeType;
+  }
+
+  public void setLateOffBaseOnTimeType(Integer lateOffBaseOnTimeType) {
+    this.lateOffBaseOnTimeType = lateOffBaseOnTimeType;
+  }
+
+  public Integer getLateOnBaseOnTimeType() {
+    return this.lateOnBaseOnTimeType;
+  }
+
+  public void setLateOnBaseOnTimeType(Integer lateOnBaseOnTimeType) {
+    this.lateOnBaseOnTimeType = lateOnBaseOnTimeType;
+  }
+
+  // builder 开始
+  public LateOffLateOnSetting() {}
+
+  public LateOffLateOnSetting(Builder builder) {
     /**
      * 当日晚走时间计算规则
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("late_off_base_on_time_type")
-    private Integer lateOffBaseOnTimeType;
+    this.lateOffBaseOnTimeType = builder.lateOffBaseOnTimeType;
     /**
      * 次日晚到时间计算规则
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("late_on_base_on_time_type")
+    this.lateOnBaseOnTimeType = builder.lateOnBaseOnTimeType;
+  }
+
+  public static class Builder {
+    /**
+     * 当日晚走时间计算规则
+     *
+     * <p>示例值：0
+     */
+    private Integer lateOffBaseOnTimeType;
+
+    /**
+     * 次日晚到时间计算规则
+     *
+     * <p>示例值：0
+     */
     private Integer lateOnBaseOnTimeType;
 
-    // builder 开始
-    public LateOffLateOnSetting() {
+    /**
+     * 当日晚走时间计算规则
+     *
+     * <p>示例值：0
+     *
+     * @param lateOffBaseOnTimeType
+     * @return
+     */
+    public Builder lateOffBaseOnTimeType(Integer lateOffBaseOnTimeType) {
+      this.lateOffBaseOnTimeType = lateOffBaseOnTimeType;
+      return this;
     }
 
-    public LateOffLateOnSetting(Builder builder) {
-        /**
-         * 当日晚走时间计算规则
-         * <p> 示例值：0
-         */
-        this.lateOffBaseOnTimeType = builder.lateOffBaseOnTimeType;
-        /**
-         * 次日晚到时间计算规则
-         * <p> 示例值：0
-         */
-        this.lateOnBaseOnTimeType = builder.lateOnBaseOnTimeType;
+    /**
+     * 当日晚走时间计算规则
+     *
+     * <p>示例值：0
+     *
+     * @param lateOffBaseOnTimeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOffBaseOnTimeTypeEnum}
+     * @return
+     */
+    public Builder lateOffBaseOnTimeType(
+        com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOffBaseOnTimeTypeEnum
+            lateOffBaseOnTimeType) {
+      this.lateOffBaseOnTimeType = lateOffBaseOnTimeType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 次日晚到时间计算规则
+     *
+     * <p>示例值：0
+     *
+     * @param lateOnBaseOnTimeType
+     * @return
+     */
+    public Builder lateOnBaseOnTimeType(Integer lateOnBaseOnTimeType) {
+      this.lateOnBaseOnTimeType = lateOnBaseOnTimeType;
+      return this;
     }
 
-    public Integer getLateOffBaseOnTimeType() {
-        return this.lateOffBaseOnTimeType;
+    /**
+     * 次日晚到时间计算规则
+     *
+     * <p>示例值：0
+     *
+     * @param lateOnBaseOnTimeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOnBaseOnTimeTypeEnum}
+     * @return
+     */
+    public Builder lateOnBaseOnTimeType(
+        com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOnBaseOnTimeTypeEnum
+            lateOnBaseOnTimeType) {
+      this.lateOnBaseOnTimeType = lateOnBaseOnTimeType.getValue();
+      return this;
     }
 
-    public void setLateOffBaseOnTimeType(Integer lateOffBaseOnTimeType) {
-        this.lateOffBaseOnTimeType = lateOffBaseOnTimeType;
+    public LateOffLateOnSetting build() {
+      return new LateOffLateOnSetting(this);
     }
+  }
 
-    public Integer getLateOnBaseOnTimeType() {
-        return this.lateOnBaseOnTimeType;
-    }
-
-    public void setLateOnBaseOnTimeType(Integer lateOnBaseOnTimeType) {
-        this.lateOnBaseOnTimeType = lateOnBaseOnTimeType;
-    }
-
-    public static class Builder {
-        /**
-         * 当日晚走时间计算规则
-         * <p> 示例值：0
-         */
-        private Integer lateOffBaseOnTimeType;
-        /**
-         * 次日晚到时间计算规则
-         * <p> 示例值：0
-         */
-        private Integer lateOnBaseOnTimeType;
-
-        /**
-         * 当日晚走时间计算规则
-         * <p> 示例值：0
-         *
-         * @param lateOffBaseOnTimeType
-         * @return
-         */
-        public Builder lateOffBaseOnTimeType(Integer lateOffBaseOnTimeType) {
-            this.lateOffBaseOnTimeType = lateOffBaseOnTimeType;
-            return this;
-        }
-
-        /**
-         * 当日晚走时间计算规则
-         * <p> 示例值：0
-         *
-         * @param lateOffBaseOnTimeType {@link com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOffBaseOnTimeTypeEnum}
-         * @return
-         */
-        public Builder lateOffBaseOnTimeType(com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOffBaseOnTimeTypeEnum lateOffBaseOnTimeType) {
-            this.lateOffBaseOnTimeType = lateOffBaseOnTimeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 次日晚到时间计算规则
-         * <p> 示例值：0
-         *
-         * @param lateOnBaseOnTimeType
-         * @return
-         */
-        public Builder lateOnBaseOnTimeType(Integer lateOnBaseOnTimeType) {
-            this.lateOnBaseOnTimeType = lateOnBaseOnTimeType;
-            return this;
-        }
-
-        /**
-         * 次日晚到时间计算规则
-         * <p> 示例值：0
-         *
-         * @param lateOnBaseOnTimeType {@link com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOnBaseOnTimeTypeEnum}
-         * @return
-         */
-        public Builder lateOnBaseOnTimeType(com.lark.oapi.service.attendance.v1.enums.LateOffLateOnSettingLateOnBaseOnTimeTypeEnum lateOnBaseOnTimeType) {
-            this.lateOnBaseOnTimeType = lateOnBaseOnTimeType.getValue();
-            return this;
-        }
-
-
-        public LateOffLateOnSetting build() {
-            return new LateOffLateOnSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

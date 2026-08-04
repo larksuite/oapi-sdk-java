@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckReportObject {
+  /**
+   * 链接
+   *
+   * <p>示例值：http://xxx.test
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public BackgroundCheckReportObject() {}
+
+  public BackgroundCheckReportObject(Builder builder) {
     /**
      * 链接
-     * <p> 示例值：
+     *
+     * <p>示例值：http://xxx.test
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 链接
+     *
+     * <p>示例值：http://xxx.test
+     */
     private String url;
 
-    // builder 开始
-    public BackgroundCheckReportObject() {
+    /**
+     * 链接
+     *
+     * <p>示例值：http://xxx.test
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public BackgroundCheckReportObject(Builder builder) {
-        /**
-         * 链接
-         * <p> 示例值：
-         */
-        this.url = builder.url;
+    public BackgroundCheckReportObject build() {
+      return new BackgroundCheckReportObject(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 链接
-         * <p> 示例值：
-         */
-        private String url;
-
-        /**
-         * 链接
-         * <p> 示例值：
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public BackgroundCheckReportObject build() {
-            return new BackgroundCheckReportObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 字段同步方式
- */
+/** 字段同步方式 */
 public enum ConnectorConnectorFieldSyncTypeEnum {
-    ALL("1"), // 同步全字段
-    SPECIFIC("2"), // 同步指定字段
-    ;
-    private String value;
+  ALL("1"), // 同步全字段
+  SPECIFIC("2"), // 同步指定字段
+  ;
+  private String value;
 
-    ConnectorConnectorFieldSyncTypeEnum(String value) {
-        this.value = value;
-    }
+  ConnectorConnectorFieldSyncTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

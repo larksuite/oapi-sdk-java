@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScoreLevelSetting {
+  /**
+   * 最小值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("min")
+  private Integer min;
+
+  /**
+   * 最大值
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("max")
+  private Integer max;
+
+  /**
+   * 保留小数位数
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("decimal")
+  private Integer decimal;
+
+  /**
+   * 分数区间类型
+   *
+   * <p>示例值：right_less_equal
+   */
+  @SerializedName("score_interval_type")
+  private String scoreIntervalType;
+
+  /**
+   * 评分类型
+   *
+   * <p>示例值：input_score
+   */
+  @SerializedName("score_type")
+  private String scoreType;
+
+  /**
+   * 评分选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score_options")
+  private ScoreOption[] scoreOptions;
+
+  public Integer getMin() {
+    return this.min;
+  }
+
+  public void setMin(Integer min) {
+    this.min = min;
+  }
+
+  public Integer getMax() {
+    return this.max;
+  }
+
+  public void setMax(Integer max) {
+    this.max = max;
+  }
+
+  public Integer getDecimal() {
+    return this.decimal;
+  }
+
+  public void setDecimal(Integer decimal) {
+    this.decimal = decimal;
+  }
+
+  public String getScoreIntervalType() {
+    return this.scoreIntervalType;
+  }
+
+  public void setScoreIntervalType(String scoreIntervalType) {
+    this.scoreIntervalType = scoreIntervalType;
+  }
+
+  public String getScoreType() {
+    return this.scoreType;
+  }
+
+  public void setScoreType(String scoreType) {
+    this.scoreType = scoreType;
+  }
+
+  public ScoreOption[] getScoreOptions() {
+    return this.scoreOptions;
+  }
+
+  public void setScoreOptions(ScoreOption[] scoreOptions) {
+    this.scoreOptions = scoreOptions;
+  }
+
+  // builder 开始
+  public ScoreLevelSetting() {}
+
+  public ScoreLevelSetting(Builder builder) {
     /**
      * 最小值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("min")
-    private Integer min;
+    this.min = builder.min;
     /**
      * 最大值
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("max")
-    private Integer max;
+    this.max = builder.max;
     /**
      * 保留小数位数
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("decimal")
-    private Integer decimal;
+    this.decimal = builder.decimal;
     /**
      * 分数区间类型
-     * <p> 示例值：right_less_equal
+     *
+     * <p>示例值：right_less_equal
      */
-    @SerializedName("score_interval_type")
-    private String scoreIntervalType;
+    this.scoreIntervalType = builder.scoreIntervalType;
     /**
      * 评分类型
-     * <p> 示例值：input_score
+     *
+     * <p>示例值：input_score
      */
-    @SerializedName("score_type")
-    private String scoreType;
+    this.scoreType = builder.scoreType;
     /**
      * 评分选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("score_options")
+    this.scoreOptions = builder.scoreOptions;
+  }
+
+  public static class Builder {
+    /**
+     * 最小值
+     *
+     * <p>示例值：1
+     */
+    private Integer min;
+
+    /**
+     * 最大值
+     *
+     * <p>示例值：10
+     */
+    private Integer max;
+
+    /**
+     * 保留小数位数
+     *
+     * <p>示例值：2
+     */
+    private Integer decimal;
+
+    /**
+     * 分数区间类型
+     *
+     * <p>示例值：right_less_equal
+     */
+    private String scoreIntervalType;
+
+    /**
+     * 评分类型
+     *
+     * <p>示例值：input_score
+     */
+    private String scoreType;
+
+    /**
+     * 评分选项
+     *
+     * <p>示例值：
+     */
     private ScoreOption[] scoreOptions;
 
-    // builder 开始
-    public ScoreLevelSetting() {
+    /**
+     * 最小值
+     *
+     * <p>示例值：1
+     *
+     * @param min
+     * @return
+     */
+    public Builder min(Integer min) {
+      this.min = min;
+      return this;
     }
 
-    public ScoreLevelSetting(Builder builder) {
-        /**
-         * 最小值
-         * <p> 示例值：1
-         */
-        this.min = builder.min;
-        /**
-         * 最大值
-         * <p> 示例值：10
-         */
-        this.max = builder.max;
-        /**
-         * 保留小数位数
-         * <p> 示例值：2
-         */
-        this.decimal = builder.decimal;
-        /**
-         * 分数区间类型
-         * <p> 示例值：right_less_equal
-         */
-        this.scoreIntervalType = builder.scoreIntervalType;
-        /**
-         * 评分类型
-         * <p> 示例值：input_score
-         */
-        this.scoreType = builder.scoreType;
-        /**
-         * 评分选项
-         * <p> 示例值：
-         */
-        this.scoreOptions = builder.scoreOptions;
+    /**
+     * 最大值
+     *
+     * <p>示例值：10
+     *
+     * @param max
+     * @return
+     */
+    public Builder max(Integer max) {
+      this.max = max;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 保留小数位数
+     *
+     * <p>示例值：2
+     *
+     * @param decimal
+     * @return
+     */
+    public Builder decimal(Integer decimal) {
+      this.decimal = decimal;
+      return this;
     }
 
-    public Integer getMin() {
-        return this.min;
+    /**
+     * 分数区间类型
+     *
+     * <p>示例值：right_less_equal
+     *
+     * @param scoreIntervalType
+     * @return
+     */
+    public Builder scoreIntervalType(String scoreIntervalType) {
+      this.scoreIntervalType = scoreIntervalType;
+      return this;
     }
 
-    public void setMin(Integer min) {
-        this.min = min;
+    /**
+     * 评分类型
+     *
+     * <p>示例值：input_score
+     *
+     * @param scoreType
+     * @return
+     */
+    public Builder scoreType(String scoreType) {
+      this.scoreType = scoreType;
+      return this;
     }
 
-    public Integer getMax() {
-        return this.max;
+    /**
+     * 评分选项
+     *
+     * <p>示例值：
+     *
+     * @param scoreOptions
+     * @return
+     */
+    public Builder scoreOptions(ScoreOption[] scoreOptions) {
+      this.scoreOptions = scoreOptions;
+      return this;
     }
 
-    public void setMax(Integer max) {
-        this.max = max;
+    public ScoreLevelSetting build() {
+      return new ScoreLevelSetting(this);
     }
+  }
 
-    public Integer getDecimal() {
-        return this.decimal;
-    }
-
-    public void setDecimal(Integer decimal) {
-        this.decimal = decimal;
-    }
-
-    public String getScoreIntervalType() {
-        return this.scoreIntervalType;
-    }
-
-    public void setScoreIntervalType(String scoreIntervalType) {
-        this.scoreIntervalType = scoreIntervalType;
-    }
-
-    public String getScoreType() {
-        return this.scoreType;
-    }
-
-    public void setScoreType(String scoreType) {
-        this.scoreType = scoreType;
-    }
-
-    public ScoreOption[] getScoreOptions() {
-        return this.scoreOptions;
-    }
-
-    public void setScoreOptions(ScoreOption[] scoreOptions) {
-        this.scoreOptions = scoreOptions;
-    }
-
-    public static class Builder {
-        /**
-         * 最小值
-         * <p> 示例值：1
-         */
-        private Integer min;
-        /**
-         * 最大值
-         * <p> 示例值：10
-         */
-        private Integer max;
-        /**
-         * 保留小数位数
-         * <p> 示例值：2
-         */
-        private Integer decimal;
-        /**
-         * 分数区间类型
-         * <p> 示例值：right_less_equal
-         */
-        private String scoreIntervalType;
-        /**
-         * 评分类型
-         * <p> 示例值：input_score
-         */
-        private String scoreType;
-        /**
-         * 评分选项
-         * <p> 示例值：
-         */
-        private ScoreOption[] scoreOptions;
-
-        /**
-         * 最小值
-         * <p> 示例值：1
-         *
-         * @param min
-         * @return
-         */
-        public Builder min(Integer min) {
-            this.min = min;
-            return this;
-        }
-
-
-        /**
-         * 最大值
-         * <p> 示例值：10
-         *
-         * @param max
-         * @return
-         */
-        public Builder max(Integer max) {
-            this.max = max;
-            return this;
-        }
-
-
-        /**
-         * 保留小数位数
-         * <p> 示例值：2
-         *
-         * @param decimal
-         * @return
-         */
-        public Builder decimal(Integer decimal) {
-            this.decimal = decimal;
-            return this;
-        }
-
-
-        /**
-         * 分数区间类型
-         * <p> 示例值：right_less_equal
-         *
-         * @param scoreIntervalType
-         * @return
-         */
-        public Builder scoreIntervalType(String scoreIntervalType) {
-            this.scoreIntervalType = scoreIntervalType;
-            return this;
-        }
-
-
-        /**
-         * 评分类型
-         * <p> 示例值：input_score
-         *
-         * @param scoreType
-         * @return
-         */
-        public Builder scoreType(String scoreType) {
-            this.scoreType = scoreType;
-            return this;
-        }
-
-
-        /**
-         * 评分选项
-         * <p> 示例值：
-         *
-         * @param scoreOptions
-         * @return
-         */
-        public Builder scoreOptions(ScoreOption[] scoreOptions) {
-            this.scoreOptions = scoreOptions;
-            return this;
-        }
-
-
-        public ScoreLevelSetting build() {
-            return new ScoreLevelSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

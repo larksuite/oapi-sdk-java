@@ -13,371 +13,405 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryApplicationObjectRecordReqBody {
+  /**
+   * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
+   *
+   * <p>示例值：
+   */
+  @SerializedName("select")
+  private String[] select;
+
+  /**
+   * 筛选条件，通过 JSON 格式指定条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private Criterion filter;
+
+  /**
+   * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("order_by")
+  private Sort[] orderBy;
+
+  /**
+   * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("group_by")
+  private RecordGroupByItem[] groupBy;
+
+  /**
+   * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为
+   * False 。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("use_page_token")
+  private Boolean usePageToken;
+
+  /**
+   * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offset")
+  private Integer offset;
+
+  /**
+   * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_total_count")
+  private Boolean needTotalCount;
+
+  public String[] getSelect() {
+    return this.select;
+  }
+
+  public void setSelect(String[] select) {
+    this.select = select;
+  }
+
+  public Criterion getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(Criterion filter) {
+    this.filter = filter;
+  }
+
+  public Sort[] getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(Sort[] orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public RecordGroupByItem[] getGroupBy() {
+    return this.groupBy;
+  }
+
+  public void setGroupBy(RecordGroupByItem[] groupBy) {
+    this.groupBy = groupBy;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getUsePageToken() {
+    return this.usePageToken;
+  }
+
+  public void setUsePageToken(Boolean usePageToken) {
+    this.usePageToken = usePageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public Boolean getNeedTotalCount() {
+    return this.needTotalCount;
+  }
+
+  public void setNeedTotalCount(Boolean needTotalCount) {
+    this.needTotalCount = needTotalCount;
+  }
+
+  // builder 开始
+  public BatchQueryApplicationObjectRecordReqBody() {}
+
+  public BatchQueryApplicationObjectRecordReqBody(Builder builder) {
     /**
      * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("select")
-    private String[] select;
+    this.select = builder.select;
     /**
      * 筛选条件，通过 JSON 格式指定条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
-    private Criterion filter;
+    this.filter = builder.filter;
     /**
      * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("order_by")
-    private Sort[] orderBy;
+    this.orderBy = builder.orderBy;
     /**
      * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("group_by")
-    private RecordGroupByItem[] groupBy;
+    this.groupBy = builder.groupBy;
     /**
      * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为 False 。
-     * <p> 示例值：false
+     * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为
+     * False 。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("use_page_token")
-    private Boolean usePageToken;
+    this.usePageToken = builder.usePageToken;
     /**
      * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offset")
-    private Integer offset;
+    this.offset = builder.offset;
     /**
      * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_total_count")
+    this.needTotalCount = builder.needTotalCount;
+  }
+
+  public static class Builder {
+    /**
+     * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
+     *
+     * <p>示例值：
+     */
+    private String[] select;
+
+    /**
+     * 筛选条件，通过 JSON 格式指定条件
+     *
+     * <p>示例值：
+     */
+    private Criterion filter;
+
+    /**
+     * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
+     *
+     * <p>示例值：
+     */
+    private Sort[] orderBy;
+
+    /**
+     * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
+     *
+     * <p>示例值：
+     */
+    private RecordGroupByItem[] groupBy;
+
+    /**
+     * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
+     *
+     * <p>示例值：
+     */
+    private String pageToken;
+
+    /**
+     * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为
+     * False 。
+     *
+     * <p>示例值：false
+     */
+    private Boolean usePageToken;
+
+    /**
+     * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
+     *
+     * <p>示例值：100
+     */
+    private Integer pageSize;
+
+    /**
+     * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
+     *
+     * <p>示例值：0
+     */
+    private Integer offset;
+
+    /**
+     * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
+     *
+     * <p>示例值：true
+     */
     private Boolean needTotalCount;
 
-    // builder 开始
-    public BatchQueryApplicationObjectRecordReqBody() {
+    /**
+     * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
+     *
+     * <p>示例值：
+     *
+     * @param select
+     * @return
+     */
+    public Builder select(String[] select) {
+      this.select = select;
+      return this;
     }
 
-    public BatchQueryApplicationObjectRecordReqBody(Builder builder) {
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
-         * <p> 示例值：
-         */
-        this.select = builder.select;
-        /**
-         * 筛选条件，通过 JSON 格式指定条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
-         * <p> 示例值：
-         */
-        this.orderBy = builder.orderBy;
-        /**
-         * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
-         * <p> 示例值：
-         */
-        this.groupBy = builder.groupBy;
-        /**
-         * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为 False 。
-         * <p> 示例值：false
-         */
-        this.usePageToken = builder.usePageToken;
-        /**
-         * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
-         * <p> 示例值：0
-         */
-        this.offset = builder.offset;
-        /**
-         * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
-         * <p> 示例值：true
-         */
-        this.needTotalCount = builder.needTotalCount;
+    /**
+     * 筛选条件，通过 JSON 格式指定条件
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(Criterion filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
+     *
+     * <p>示例值：
+     *
+     * @param orderBy
+     * @return
+     */
+    public Builder orderBy(Sort[] orderBy) {
+      this.orderBy = orderBy;
+      return this;
     }
 
-    public String[] getSelect() {
-        return this.select;
+    /**
+     * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
+     *
+     * <p>示例值：
+     *
+     * @param groupBy
+     * @return
+     */
+    public Builder groupBy(RecordGroupByItem[] groupBy) {
+      this.groupBy = groupBy;
+      return this;
     }
 
-    public void setSelect(String[] select) {
-        this.select = select;
+    /**
+     * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public Criterion getFilter() {
-        return this.filter;
+    /**
+     * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为
+     * False 。
+     *
+     * <p>示例值：false
+     *
+     * @param usePageToken
+     * @return
+     */
+    public Builder usePageToken(Boolean usePageToken) {
+      this.usePageToken = usePageToken;
+      return this;
     }
 
-    public void setFilter(Criterion filter) {
-        this.filter = filter;
+    /**
+     * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public Sort[] getOrderBy() {
-        return this.orderBy;
+    /**
+     * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
+     *
+     * <p>示例值：0
+     *
+     * @param offset
+     * @return
+     */
+    public Builder offset(Integer offset) {
+      this.offset = offset;
+      return this;
     }
 
-    public void setOrderBy(Sort[] orderBy) {
-        this.orderBy = orderBy;
+    /**
+     * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
+     *
+     * <p>示例值：true
+     *
+     * @param needTotalCount
+     * @return
+     */
+    public Builder needTotalCount(Boolean needTotalCount) {
+      this.needTotalCount = needTotalCount;
+      return this;
     }
 
-    public RecordGroupByItem[] getGroupBy() {
-        return this.groupBy;
+    public BatchQueryApplicationObjectRecordReqBody build() {
+      return new BatchQueryApplicationObjectRecordReqBody(this);
     }
+  }
 
-    public void setGroupBy(RecordGroupByItem[] groupBy) {
-        this.groupBy = groupBy;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Boolean getUsePageToken() {
-        return this.usePageToken;
-    }
-
-    public void setUsePageToken(Boolean usePageToken) {
-        this.usePageToken = usePageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getOffset() {
-        return this.offset;
-    }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public Boolean getNeedTotalCount() {
-        return this.needTotalCount;
-    }
-
-    public void setNeedTotalCount(Boolean needTotalCount) {
-        this.needTotalCount = needTotalCount;
-    }
-
-    public static class Builder {
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
-         * <p> 示例值：
-         */
-        private String[] select;
-        /**
-         * 筛选条件，通过 JSON 格式指定条件
-         * <p> 示例值：
-         */
-        private Criterion filter;
-        /**
-         * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
-         * <p> 示例值：
-         */
-        private Sort[] orderBy;
-        /**
-         * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
-         * <p> 示例值：
-         */
-        private RecordGroupByItem[] groupBy;
-        /**
-         * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
-         * <p> 示例值：
-         */
-        private String pageToken;
-        /**
-         * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为 False 。
-         * <p> 示例值：false
-         */
-        private Boolean usePageToken;
-        /**
-         * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
-         * <p> 示例值：100
-         */
-        private Integer pageSize;
-        /**
-         * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
-         * <p> 示例值：0
-         */
-        private Integer offset;
-        /**
-         * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
-         * <p> 示例值：true
-         */
-        private Boolean needTotalCount;
-
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用「.」进行下钻
-         * <p> 示例值：
-         *
-         * @param select
-         * @return
-         */
-        public Builder select(String[] select) {
-            this.select = select;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件，通过 JSON 格式指定条件
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(Criterion filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * 排序参数，通过 JSON 格式指定条件。其中， field 为参与排序字段，direction 为排序方向，多个条件按其在数组中的顺序生效。
-         * <p> 示例值：
-         *
-         * @param orderBy
-         * @return
-         */
-        public Builder orderBy(Sort[] orderBy) {
-            this.orderBy = orderBy;
-            return this;
-        }
-
-
-        /**
-         * 聚合参数，通过 JSON 格式指定条件。其中， field 为参与聚合的字段。
-         * <p> 示例值：
-         *
-         * @param groupBy
-         * @return
-         */
-        public Builder groupBy(RecordGroupByItem[] groupBy) {
-            this.groupBy = groupBy;
-            return this;
-        }
-
-
-        /**
-         * 分页的 Token 值，由服务端生成，可从 Response 中的 next_page_token 参数中获取。注意：第一页需填写空字符串 ""，且不能与 OFFSET 一起使用。
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 是否使用 page_token 功能。为 True 时将使用 page_token 的值作为起始位置查询记录，并且会在 Response 中返回 next_page_token 。默认为 False 。
-         * <p> 示例值：false
-         *
-         * @param usePageToken
-         * @return
-         */
-        public Builder usePageToken(Boolean usePageToken) {
-            this.usePageToken = usePageToken;
-            return this;
-        }
-
-
-        /**
-         * 期望服务端返回的记录条数，上限 500 条。不填则取默认值，默认值为 500。
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 返回记录的偏移量，默认为 0 ，即从查询到的第一条记录开始返回。offset 较大时查询性能较差，可能引起接口响应超时，拉取全部记录时建议使用 ID 游标分页，具体见 ID 游标分页说明
-         * <p> 示例值：0
-         *
-         * @param offset
-         * @return
-         */
-        public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
-        }
-
-
-        /**
-         * 是否返回符合条件的记录总数（Total）。默认为 False，不返回记录总数。
-         * <p> 示例值：true
-         *
-         * @param needTotalCount
-         * @return
-         */
-        public Builder needTotalCount(Boolean needTotalCount) {
-            this.needTotalCount = needTotalCount;
-            return this;
-        }
-
-
-        public BatchQueryApplicationObjectRecordReqBody build() {
-            return new BatchQueryApplicationObjectRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

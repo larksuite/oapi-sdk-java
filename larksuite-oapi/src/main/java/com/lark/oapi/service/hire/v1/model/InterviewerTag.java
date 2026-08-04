@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewerTag {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 标签名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 停启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 创建人UserID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 修改人UserID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("updater_id")
+  private String updaterId;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1733729032000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1733993842000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getUpdaterId() {
+    return this.updaterId;
+  }
+
+  public void setUpdaterId(String updaterId) {
+    this.updaterId = updaterId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public InterviewerTag() {}
+
+  public InterviewerTag(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 标签名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 停启用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
      * 创建人UserID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 修改人UserID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("updater_id")
-    private String updaterId;
+    this.updaterId = builder.updaterId;
     /**
      * 创建时间
-     * <p> 示例值：1733729032000
+     *
+     * <p>示例值：1733729032000
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1733993842000
+     *
+     * <p>示例值：1733993842000
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 停启用状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 创建人UserID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    private String creatorId;
+
+    /**
+     * 修改人UserID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    private String updaterId;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1733729032000
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1733993842000
+     */
     private String updateTime;
 
-    // builder 开始
-    public InterviewerTag() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InterviewerTag(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 停启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 创建人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 修改人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.updaterId = builder.updaterId;
-        /**
-         * 创建时间
-         * <p> 示例值：1733729032000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1733993842000
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 停启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 创建人UserID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 修改人UserID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param updaterId
+     * @return
+     */
+    public Builder updaterId(String updaterId) {
+      this.updaterId = updaterId;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1733729032000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1733993842000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
+    public InterviewerTag build() {
+      return new InterviewerTag(this);
     }
+  }
 
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUpdaterId() {
-        return this.updaterId;
-    }
-
-    public void setUpdaterId(String updaterId) {
-        this.updaterId = updaterId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 停启用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 创建人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String creatorId;
-        /**
-         * 修改人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String updaterId;
-        /**
-         * 创建时间
-         * <p> 示例值：1733729032000
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1733993842000
-         */
-        private String updateTime;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标签名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 停启用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 创建人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 修改人UserID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param updaterId
-         * @return
-         */
-        public Builder updaterId(String updaterId) {
-            this.updaterId = updaterId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1733729032000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1733993842000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public InterviewerTag build() {
-            return new InterviewerTag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

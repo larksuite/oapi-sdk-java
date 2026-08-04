@@ -13,72 +13,71 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class GetJobTitleReq {
+  /**
+   * 职务
+   * ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务
+   * ID。
+   *
+   * <p>示例值：dd39369b19b9
+   */
+  @Path
+  @SerializedName("job_title_id")
+  private String jobTitleId;
+
+  public String getJobTitleId() {
+    return this.jobTitleId;
+  }
+
+  public void setJobTitleId(String jobTitleId) {
+    this.jobTitleId = jobTitleId;
+  }
+
+  // builder 开始
+  public GetJobTitleReq() {}
+
+  public GetJobTitleReq(Builder builder) {
     /**
-     * 职务ID
-     * <p> 示例值：dd39369b19b9
+     * 职务
+     * ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务
+     * ID。
+     *
+     * <p>示例值：dd39369b19b9
      */
-    @Path
-    @SerializedName("job_title_id")
-    private String jobTitleId;
+    this.jobTitleId = builder.jobTitleId;
+  }
 
-    // builder 开始
-    public GetJobTitleReq() {
+  public static class Builder {
+
+    private String jobTitleId; // 职务
+
+    // ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务 ID。
+
+    /**
+     * 职务
+     * ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务
+     * ID。
+     *
+     * <p>示例值：dd39369b19b9
+     *
+     * @param jobTitleId
+     * @return
+     */
+    public Builder jobTitleId(String jobTitleId) {
+      this.jobTitleId = jobTitleId;
+      return this;
     }
 
-    public GetJobTitleReq(Builder builder) {
-        /**
-         * 职务ID
-         * <p> 示例值：dd39369b19b9
-         */
-        this.jobTitleId = builder.jobTitleId;
+    public GetJobTitleReq build() {
+      return new GetJobTitleReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobTitleId() {
-        return this.jobTitleId;
-    }
-
-    public void setJobTitleId(String jobTitleId) {
-        this.jobTitleId = jobTitleId;
-    }
-
-    public static class Builder {
-
-        private String jobTitleId; // 职务ID
-
-        /**
-         * 职务ID
-         * <p> 示例值：dd39369b19b9
-         *
-         * @param jobTitleId
-         * @return
-         */
-        public Builder jobTitleId(String jobTitleId) {
-            this.jobTitleId = jobTitleId;
-            return this;
-        }
-
-
-        public GetJobTitleReq build() {
-            return new GetJobTitleReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

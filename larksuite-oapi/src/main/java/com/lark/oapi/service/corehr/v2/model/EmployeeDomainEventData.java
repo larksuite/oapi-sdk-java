@@ -13,272 +13,298 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeDomainEventData {
+  /**
+   * 变更实体的 ID;- 雇佣ID，个人信息ID;- 特殊：; -
+   * 任职记录版本ID：请使用[批量查询员工任职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)获取任职记录，对照
+   * version_id 字段查找对象
+   *
+   * <p>示例值：7291573441955235372
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 变更实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息;- email: 邮箱;- person_name：姓名
+   *
+   * <p>示例值：email
+   */
+  @SerializedName("entity")
+  private String entity;
+
+  /**
+   * 聚合实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息
+   *
+   * <p>示例值：person
+   */
+  @SerializedName("agg_entity")
+  private String aggEntity;
+
+  /**
+   * 聚合实体 ID，父对象 ID，如：;- person：个人信息 ID;- employment：雇佣 ID
+   *
+   * <p>示例值：7291273149417948716
+   */
+  @SerializedName("agg_entity_id")
+  private String aggEntityId;
+
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("opt_type")
+  private Integer optType;
+
+  /**
+   * 字段标识，ApiName
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getEntity() {
+    return this.entity;
+  }
+
+  public void setEntity(String entity) {
+    this.entity = entity;
+  }
+
+  public String getAggEntity() {
+    return this.aggEntity;
+  }
+
+  public void setAggEntity(String aggEntity) {
+    this.aggEntity = aggEntity;
+  }
+
+  public String getAggEntityId() {
+    return this.aggEntityId;
+  }
+
+  public void setAggEntityId(String aggEntityId) {
+    this.aggEntityId = aggEntityId;
+  }
+
+  public Integer getOptType() {
+    return this.optType;
+  }
+
+  public void setOptType(Integer optType) {
+    this.optType = optType;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public EmployeeDomainEventData() {}
+
+  public EmployeeDomainEventData(Builder builder) {
     /**
-     * 变更实体的ID
-     * <p> 示例值：7291573441955235372
+     * 变更实体的 ID;- 雇佣ID，个人信息ID;- 特殊：; -
+     * 任职记录版本ID：请使用[批量查询员工任职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)获取任职记录，对照
+     * version_id 字段查找对象
+     *
+     * <p>示例值：7291573441955235372
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 变更实体标识，ObjAPIName
-     * <p> 示例值：email
+     * 变更实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息;- email: 邮箱;- person_name：姓名
+     *
+     * <p>示例值：email
      */
-    @SerializedName("entity")
-    private String entity;
+    this.entity = builder.entity;
     /**
-     * 聚合实体标识，父对象 ObjAPIName
-     * <p> 示例值：person
+     * 聚合实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息
+     *
+     * <p>示例值：person
      */
-    @SerializedName("agg_entity")
-    private String aggEntity;
+    this.aggEntity = builder.aggEntity;
     /**
-     * 聚合实体ID 父对象ID
-     * <p> 示例值：7291273149417948716
+     * 聚合实体 ID，父对象 ID，如：;- person：个人信息 ID;- employment：雇佣 ID
+     *
+     * <p>示例值：7291273149417948716
      */
-    @SerializedName("agg_entity_id")
-    private String aggEntityId;
+    this.aggEntityId = builder.aggEntityId;
     /**
      * 操作类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("opt_type")
-    private Integer optType;
+    this.optType = builder.optType;
     /**
      * 字段标识，ApiName
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 变更实体的 ID;- 雇佣ID，个人信息ID;- 特殊：; -
+     * 任职记录版本ID：请使用[批量查询员工任职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)获取任职记录，对照
+     * version_id 字段查找对象
+     *
+     * <p>示例值：7291573441955235372
+     */
+    private String id;
+
+    /**
+     * 变更实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息;- email: 邮箱;- person_name：姓名
+     *
+     * <p>示例值：email
+     */
+    private String entity;
+
+    /**
+     * 聚合实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息
+     *
+     * <p>示例值：person
+     */
+    private String aggEntity;
+
+    /**
+     * 聚合实体 ID，父对象 ID，如：;- person：个人信息 ID;- employment：雇佣 ID
+     *
+     * <p>示例值：7291273149417948716
+     */
+    private String aggEntityId;
+
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
+    private Integer optType;
+
+    /**
+     * 字段标识，ApiName
+     *
+     * <p>示例值：
+     */
     private String[] fields;
 
-    // builder 开始
-    public EmployeeDomainEventData() {
+    /**
+     * 变更实体的 ID;- 雇佣ID，个人信息ID;- 特殊：; -
+     * 任职记录版本ID：请使用[批量查询员工任职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)获取任职记录，对照
+     * version_id 字段查找对象
+     *
+     * <p>示例值：7291573441955235372
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EmployeeDomainEventData(Builder builder) {
-        /**
-         * 变更实体的ID
-         * <p> 示例值：7291573441955235372
-         */
-        this.id = builder.id;
-        /**
-         * 变更实体标识，ObjAPIName
-         * <p> 示例值：email
-         */
-        this.entity = builder.entity;
-        /**
-         * 聚合实体标识，父对象 ObjAPIName
-         * <p> 示例值：person
-         */
-        this.aggEntity = builder.aggEntity;
-        /**
-         * 聚合实体ID 父对象ID
-         * <p> 示例值：7291273149417948716
-         */
-        this.aggEntityId = builder.aggEntityId;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.optType = builder.optType;
-        /**
-         * 字段标识，ApiName
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 变更实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息;- email: 邮箱;- person_name：姓名
+     *
+     * <p>示例值：email
+     *
+     * @param entity
+     * @return
+     */
+    public Builder entity(String entity) {
+      this.entity = entity;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 聚合实体标识，如：;- job_data: 任职信息;- person：个人信息;- employment：雇佣信息
+     *
+     * <p>示例值：person
+     *
+     * @param aggEntity
+     * @return
+     */
+    public Builder aggEntity(String aggEntity) {
+      this.aggEntity = aggEntity;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 聚合实体 ID，父对象 ID，如：;- person：个人信息 ID;- employment：雇佣 ID
+     *
+     * <p>示例值：7291273149417948716
+     *
+     * @param aggEntityId
+     * @return
+     */
+    public Builder aggEntityId(String aggEntityId) {
+      this.aggEntityId = aggEntityId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param optType
+     * @return
+     */
+    public Builder optType(Integer optType) {
+      this.optType = optType;
+      return this;
     }
 
-    public String getEntity() {
-        return this.entity;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param optType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum}
+     * @return
+     */
+    public Builder optType(
+        com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum optType) {
+      this.optType = optType.getValue();
+      return this;
     }
 
-    public void setEntity(String entity) {
-        this.entity = entity;
+    /**
+     * 字段标识，ApiName
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getAggEntity() {
-        return this.aggEntity;
+    public EmployeeDomainEventData build() {
+      return new EmployeeDomainEventData(this);
     }
+  }
 
-    public void setAggEntity(String aggEntity) {
-        this.aggEntity = aggEntity;
-    }
-
-    public String getAggEntityId() {
-        return this.aggEntityId;
-    }
-
-    public void setAggEntityId(String aggEntityId) {
-        this.aggEntityId = aggEntityId;
-    }
-
-    public Integer getOptType() {
-        return this.optType;
-    }
-
-    public void setOptType(Integer optType) {
-        this.optType = optType;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 变更实体的ID
-         * <p> 示例值：7291573441955235372
-         */
-        private String id;
-        /**
-         * 变更实体标识，ObjAPIName
-         * <p> 示例值：email
-         */
-        private String entity;
-        /**
-         * 聚合实体标识，父对象 ObjAPIName
-         * <p> 示例值：person
-         */
-        private String aggEntity;
-        /**
-         * 聚合实体ID 父对象ID
-         * <p> 示例值：7291273149417948716
-         */
-        private String aggEntityId;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        private Integer optType;
-        /**
-         * 字段标识，ApiName
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 变更实体的ID
-         * <p> 示例值：7291573441955235372
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 变更实体标识，ObjAPIName
-         * <p> 示例值：email
-         *
-         * @param entity
-         * @return
-         */
-        public Builder entity(String entity) {
-            this.entity = entity;
-            return this;
-        }
-
-
-        /**
-         * 聚合实体标识，父对象 ObjAPIName
-         * <p> 示例值：person
-         *
-         * @param aggEntity
-         * @return
-         */
-        public Builder aggEntity(String aggEntity) {
-            this.aggEntity = aggEntity;
-            return this;
-        }
-
-
-        /**
-         * 聚合实体ID 父对象ID
-         * <p> 示例值：7291273149417948716
-         *
-         * @param aggEntityId
-         * @return
-         */
-        public Builder aggEntityId(String aggEntityId) {
-            this.aggEntityId = aggEntityId;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param optType
-         * @return
-         */
-        public Builder optType(Integer optType) {
-            this.optType = optType;
-            return this;
-        }
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param optType {@link com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum}
-         * @return
-         */
-        public Builder optType(com.lark.oapi.service.corehr.v2.enums.EmployeeDomainEventDataOptTypeEnum optType) {
-            this.optType = optType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字段标识，ApiName
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public EmployeeDomainEventData build() {
-            return new EmployeeDomainEventData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

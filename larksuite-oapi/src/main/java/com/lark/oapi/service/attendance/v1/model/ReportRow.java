@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReportRow {
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：293719827389172931
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+   *
+   * <p>示例值：{\"1\":{\"Code\":\"1_0\",\"Value\":\"蔡\",\"Feature\":{\"avatarUrl\":\"https://internal-api-lark-file.feishu-xx.cn/static-resource/v1/icker_format=.webp\"},\"ValueType\":0,\"FieldID\":\"1\",\"FieldType\":\"\"},\"13\":{\"Code\":\"13_0\",\"Value\":\"未排班
+   * \",\"Feature\":{\"data_id\":\"-1\"},\"ValueType\":0,\"FieldID\":\"13\",\"FieldType\":\"\"},\"14\":{\"Code\":\"14_0\",\"Value\":\"固定考勤组(05.01-05.03,05.06,05.09,05.11,05.13,05.18,05.20-05.22,05.28)\",\"Feature\":{\"data_id\":\"7503547812341091878\"},\"ValueType\":0,\"FieldID\":\"14\",\"FieldType\":\"\"},\"4\":{\"Code\":\"4_0\",\"Value\":\"A95688\",\"ValueType\":0,\"FieldID\":\"4\",\"FieldType\":\"\"},\"72\":{\"Code\":\"72_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"72\",\"FieldType\":\"\"},\"7498740431102935051\":{\"Code\":\"80_7498740431102935051\",\"Value\":\"不支持除以0\",\"ValueType\":0,\"FieldID\":\"7498740431102935051\",\"FieldType\":\"\"},\"83\":{\"Code\":\"83_0\",\"Value\":\"2025/05/01-2025/05/28\",\"ValueType\":0,\"FieldID\":\"83\",\"FieldType\":\"\"},\"85\":{\"Code\":\"85_0\",\"Value\":\"需要打卡\",\"ValueType\":0,\"FieldID\":\"85\",\"FieldType\":\"\"},\"88\":{\"Code\":\"88_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"88\",\"FieldType\":\"\"}}
+   */
+  @SerializedName("column_map")
+  private String columnMap;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getColumnMap() {
+    return this.columnMap;
+  }
+
+  public void setColumnMap(String columnMap) {
+    this.columnMap = columnMap;
+  }
+
+  // builder 开始
+  public ReportRow() {}
+
+  public ReportRow(Builder builder) {
     /**
      * 用户姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户ID
-     * <p> 示例值：293719827389172931
+     *
+     * <p>示例值：293719827389172931
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-     * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
+     *
+     * <p>示例值：{\"1\":{\"Code\":\"1_0\",\"Value\":\"蔡\",\"Feature\":{\"avatarUrl\":\"https://internal-api-lark-file.feishu-xx.cn/static-resource/v1/icker_format=.webp\"},\"ValueType\":0,\"FieldID\":\"1\",\"FieldType\":\"\"},\"13\":{\"Code\":\"13_0\",\"Value\":\"未排班
+     * \",\"Feature\":{\"data_id\":\"-1\"},\"ValueType\":0,\"FieldID\":\"13\",\"FieldType\":\"\"},\"14\":{\"Code\":\"14_0\",\"Value\":\"固定考勤组(05.01-05.03,05.06,05.09,05.11,05.13,05.18,05.20-05.22,05.28)\",\"Feature\":{\"data_id\":\"7503547812341091878\"},\"ValueType\":0,\"FieldID\":\"14\",\"FieldType\":\"\"},\"4\":{\"Code\":\"4_0\",\"Value\":\"A95688\",\"ValueType\":0,\"FieldID\":\"4\",\"FieldType\":\"\"},\"72\":{\"Code\":\"72_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"72\",\"FieldType\":\"\"},\"7498740431102935051\":{\"Code\":\"80_7498740431102935051\",\"Value\":\"不支持除以0\",\"ValueType\":0,\"FieldID\":\"7498740431102935051\",\"FieldType\":\"\"},\"83\":{\"Code\":\"83_0\",\"Value\":\"2025/05/01-2025/05/28\",\"ValueType\":0,\"FieldID\":\"83\",\"FieldType\":\"\"},\"85\":{\"Code\":\"85_0\",\"Value\":\"需要打卡\",\"ValueType\":0,\"FieldID\":\"85\",\"FieldType\":\"\"},\"88\":{\"Code\":\"88_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"88\",\"FieldType\":\"\"}}
      */
-    @SerializedName("column_map")
+    this.columnMap = builder.columnMap;
+  }
+
+  public static class Builder {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：293719827389172931
+     */
+    private String userId;
+
+    /**
+     * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+     *
+     * <p>示例值：{\"1\":{\"Code\":\"1_0\",\"Value\":\"蔡\",\"Feature\":{\"avatarUrl\":\"https://internal-api-lark-file.feishu-xx.cn/static-resource/v1/icker_format=.webp\"},\"ValueType\":0,\"FieldID\":\"1\",\"FieldType\":\"\"},\"13\":{\"Code\":\"13_0\",\"Value\":\"未排班
+     * \",\"Feature\":{\"data_id\":\"-1\"},\"ValueType\":0,\"FieldID\":\"13\",\"FieldType\":\"\"},\"14\":{\"Code\":\"14_0\",\"Value\":\"固定考勤组(05.01-05.03,05.06,05.09,05.11,05.13,05.18,05.20-05.22,05.28)\",\"Feature\":{\"data_id\":\"7503547812341091878\"},\"ValueType\":0,\"FieldID\":\"14\",\"FieldType\":\"\"},\"4\":{\"Code\":\"4_0\",\"Value\":\"A95688\",\"ValueType\":0,\"FieldID\":\"4\",\"FieldType\":\"\"},\"72\":{\"Code\":\"72_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"72\",\"FieldType\":\"\"},\"7498740431102935051\":{\"Code\":\"80_7498740431102935051\",\"Value\":\"不支持除以0\",\"ValueType\":0,\"FieldID\":\"7498740431102935051\",\"FieldType\":\"\"},\"83\":{\"Code\":\"83_0\",\"Value\":\"2025/05/01-2025/05/28\",\"ValueType\":0,\"FieldID\":\"83\",\"FieldType\":\"\"},\"85\":{\"Code\":\"85_0\",\"Value\":\"需要打卡\",\"ValueType\":0,\"FieldID\":\"85\",\"FieldType\":\"\"},\"88\":{\"Code\":\"88_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"88\",\"FieldType\":\"\"}}
+     */
     private String columnMap;
 
-    // builder 开始
-    public ReportRow() {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public ReportRow(Builder builder) {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 用户ID
-         * <p> 示例值：293719827389172931
-         */
-        this.userId = builder.userId;
-        /**
-         * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-         * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         */
-        this.columnMap = builder.columnMap;
+    /**
+     * 用户ID
+     *
+     * <p>示例值：293719827389172931
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
+     *
+     * <p>示例值：{\"1\":{\"Code\":\"1_0\",\"Value\":\"蔡\",\"Feature\":{\"avatarUrl\":\"https://internal-api-lark-file.feishu-xx.cn/static-resource/v1/icker_format=.webp\"},\"ValueType\":0,\"FieldID\":\"1\",\"FieldType\":\"\"},\"13\":{\"Code\":\"13_0\",\"Value\":\"未排班
+     * \",\"Feature\":{\"data_id\":\"-1\"},\"ValueType\":0,\"FieldID\":\"13\",\"FieldType\":\"\"},\"14\":{\"Code\":\"14_0\",\"Value\":\"固定考勤组(05.01-05.03,05.06,05.09,05.11,05.13,05.18,05.20-05.22,05.28)\",\"Feature\":{\"data_id\":\"7503547812341091878\"},\"ValueType\":0,\"FieldID\":\"14\",\"FieldType\":\"\"},\"4\":{\"Code\":\"4_0\",\"Value\":\"A95688\",\"ValueType\":0,\"FieldID\":\"4\",\"FieldType\":\"\"},\"72\":{\"Code\":\"72_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"72\",\"FieldType\":\"\"},\"7498740431102935051\":{\"Code\":\"80_7498740431102935051\",\"Value\":\"不支持除以0\",\"ValueType\":0,\"FieldID\":\"7498740431102935051\",\"FieldType\":\"\"},\"83\":{\"Code\":\"83_0\",\"Value\":\"2025/05/01-2025/05/28\",\"ValueType\":0,\"FieldID\":\"83\",\"FieldType\":\"\"},\"85\":{\"Code\":\"85_0\",\"Value\":\"需要打卡\",\"ValueType\":0,\"FieldID\":\"85\",\"FieldType\":\"\"},\"88\":{\"Code\":\"88_0\",\"Value\":\"0\",\"ValueType\":0,\"FieldID\":\"88\",\"FieldType\":\"\"}}
+     *
+     * @param columnMap
+     * @return
+     */
+    public Builder columnMap(String columnMap) {
+      this.columnMap = columnMap;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public ReportRow build() {
+      return new ReportRow(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getColumnMap() {
-        return this.columnMap;
-    }
-
-    public void setColumnMap(String columnMap) {
-        this.columnMap = columnMap;
-    }
-
-    public static class Builder {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        private String name;
-        /**
-         * 用户ID
-         * <p> 示例值：293719827389172931
-         */
-        private String userId;
-        /**
-         * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-         * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         */
-        private String columnMap;
-
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：293719827389172931
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * json string。map结构，key为列名（filed_id），value 为具体的值结构(column_value)
-         * <p> 示例值：{"ewqeq":{"code":"1212","value":"bkebqk"}}
-         *
-         * @param columnMap
-         * @return
-         */
-        public Builder columnMap(String columnMap) {
-            this.columnMap = columnMap;
-            return this;
-        }
-
-
-        public ReportRow build() {
-            return new ReportRow(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

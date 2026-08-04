@@ -13,173 +13,175 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Condition {
+  /**
+   * 条件类型
+   *
+   * <p>示例值：范围
+   */
+  @SerializedName("range")
+  private Integer range;
+
+  /**
+   * 操作符
+   *
+   * <p>示例值：resign
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 参数，具体取值与range有关，见range描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("params")
+  private String[] params;
+
+  public Integer getRange() {
+    return this.range;
+  }
+
+  public void setRange(Integer range) {
+    this.range = range;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String[] getParams() {
+    return this.params;
+  }
+
+  public void setParams(String[] params) {
+    this.params = params;
+  }
+
+  // builder 开始
+  public Condition() {}
+
+  public Condition(Builder builder) {
     /**
      * 条件类型
-     * <p> 示例值：范围
+     *
+     * <p>示例值：范围
      */
-    @SerializedName("range")
-    private Integer range;
+    this.range = builder.range;
     /**
      * 操作符
-     * <p> 示例值：resign
+     *
+     * <p>示例值：resign
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 参数，具体取值与range有关，见range描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("params")
+    this.params = builder.params;
+  }
+
+  public static class Builder {
+    /**
+     * 条件类型
+     *
+     * <p>示例值：范围
+     */
+    private Integer range;
+
+    /**
+     * 操作符
+     *
+     * <p>示例值：resign
+     */
+    private String operator;
+
+    /**
+     * 参数，具体取值与range有关，见range描述
+     *
+     * <p>示例值：
+     */
     private String[] params;
 
-    // builder 开始
-    public Condition() {
+    /**
+     * 条件类型
+     *
+     * <p>示例值：范围
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(Integer range) {
+      this.range = range;
+      return this;
     }
 
-    public Condition(Builder builder) {
-        /**
-         * 条件类型
-         * <p> 示例值：范围
-         */
-        this.range = builder.range;
-        /**
-         * 操作符
-         * <p> 示例值：resign
-         */
-        this.operator = builder.operator;
-        /**
-         * 参数，具体取值与range有关，见range描述
-         * <p> 示例值：
-         */
-        this.params = builder.params;
+    /**
+     * 条件类型
+     *
+     * <p>示例值：范围
+     *
+     * @param range {@link com.lark.oapi.service.drive.v2.enums.ConditionRangeEnum}
+     * @return
+     */
+    public Builder range(com.lark.oapi.service.drive.v2.enums.ConditionRangeEnum range) {
+      this.range = range.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作符
+     *
+     * <p>示例值：resign
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public Integer getRange() {
-        return this.range;
+    /**
+     * 操作符
+     *
+     * <p>示例值：resign
+     *
+     * @param operator {@link com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum}
+     * @return
+     */
+    public Builder operator(com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public void setRange(Integer range) {
-        this.range = range;
+    /**
+     * 参数，具体取值与range有关，见range描述
+     *
+     * <p>示例值：
+     *
+     * @param params
+     * @return
+     */
+    public Builder params(String[] params) {
+      this.params = params;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    public Condition build() {
+      return new Condition(this);
     }
+  }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String[] getParams() {
-        return this.params;
-    }
-
-    public void setParams(String[] params) {
-        this.params = params;
-    }
-
-    public static class Builder {
-        /**
-         * 条件类型
-         * <p> 示例值：范围
-         */
-        private Integer range;
-        /**
-         * 操作符
-         * <p> 示例值：resign
-         */
-        private String operator;
-        /**
-         * 参数，具体取值与range有关，见range描述
-         * <p> 示例值：
-         */
-        private String[] params;
-
-        /**
-         * 条件类型
-         * <p> 示例值：范围
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(Integer range) {
-            this.range = range;
-            return this;
-        }
-
-        /**
-         * 条件类型
-         * <p> 示例值：范围
-         *
-         * @param range {@link com.lark.oapi.service.drive.v2.enums.ConditionRangeEnum}
-         * @return
-         */
-        public Builder range(com.lark.oapi.service.drive.v2.enums.ConditionRangeEnum range) {
-            this.range = range.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作符
-         * <p> 示例值：resign
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-        /**
-         * 操作符
-         * <p> 示例值：resign
-         *
-         * @param operator {@link com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum}
-         * @return
-         */
-        public Builder operator(com.lark.oapi.service.drive.v2.enums.ConditionOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参数，具体取值与range有关，见range描述
-         * <p> 示例值：
-         *
-         * @param params
-         * @return
-         */
-        public Builder params(String[] params) {
-            this.params = params;
-            return this;
-        }
-
-
-        public Condition build() {
-            return new Condition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MemberResult {
+  /**
+   * 成员 ID。ID 类型与请求参数中，每一个成员对应的 member_id_type 取值保持一致。
+   *
+   * <p>示例值：u287xj12
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  /**
+   * 结果响应码，取值为 `0` 表示成功。取值非 `0` 表示当前的 member_id
+   * 存在问题，具体的错误码排查方案可参考本文的错误码列表或者[通用错误码](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN)。
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("code")
+  private Integer code;
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  public Integer getCode() {
+    return this.code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  // builder 开始
+  public MemberResult() {}
+
+  public MemberResult(Builder builder) {
     /**
-     * 成员ID
-     * <p> 示例值：u287xj12
+     * 成员 ID。ID 类型与请求参数中，每一个成员对应的 member_id_type 取值保持一致。
+     *
+     * <p>示例值：u287xj12
      */
-    @SerializedName("member_id")
+    this.memberId = builder.memberId;
+    /**
+     * 结果响应码，取值为 `0` 表示成功。取值非 `0` 表示当前的 member_id
+     * 存在问题，具体的错误码排查方案可参考本文的错误码列表或者[通用错误码](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN)。
+     *
+     * <p>示例值：0
+     */
+    this.code = builder.code;
+  }
+
+  public static class Builder {
+    /**
+     * 成员 ID。ID 类型与请求参数中，每一个成员对应的 member_id_type 取值保持一致。
+     *
+     * <p>示例值：u287xj12
+     */
     private String memberId;
+
     /**
-     * 结果响应码，0表示成功
-     * <p> 示例值：0
+     * 结果响应码，取值为 `0` 表示成功。取值非 `0` 表示当前的 member_id
+     * 存在问题，具体的错误码排查方案可参考本文的错误码列表或者[通用错误码](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN)。
+     *
+     * <p>示例值：0
      */
-    @SerializedName("code")
     private Integer code;
 
-    // builder 开始
-    public MemberResult() {
+    /**
+     * 成员 ID。ID 类型与请求参数中，每一个成员对应的 member_id_type 取值保持一致。
+     *
+     * <p>示例值：u287xj12
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public MemberResult(Builder builder) {
-        /**
-         * 成员ID
-         * <p> 示例值：u287xj12
-         */
-        this.memberId = builder.memberId;
-        /**
-         * 结果响应码，0表示成功
-         * <p> 示例值：0
-         */
-        this.code = builder.code;
+    /**
+     * 结果响应码，取值为 `0` 表示成功。取值非 `0` 表示当前的 member_id
+     * 存在问题，具体的错误码排查方案可参考本文的错误码列表或者[通用错误码](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN)。
+     *
+     * <p>示例值：0
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(Integer code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MemberResult build() {
+      return new MemberResult(this);
     }
+  }
 
-    public String getMemberId() {
-        return this.memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public static class Builder {
-        /**
-         * 成员ID
-         * <p> 示例值：u287xj12
-         */
-        private String memberId;
-        /**
-         * 结果响应码，0表示成功
-         * <p> 示例值：0
-         */
-        private Integer code;
-
-        /**
-         * 成员ID
-         * <p> 示例值：u287xj12
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        /**
-         * 结果响应码，0表示成功
-         * <p> 示例值：0
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(Integer code) {
-            this.code = code;
-            return this;
-        }
-
-
-        public MemberResult build() {
-            return new MemberResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

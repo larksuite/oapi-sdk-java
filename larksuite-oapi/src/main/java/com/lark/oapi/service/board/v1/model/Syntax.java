@@ -13,173 +13,180 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Syntax {
+  /**
+   * 语法类别
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("syntax_type")
+  private Integer syntaxType;
+
+  /**
+   * PlantUml/Mermaid源码
+   *
+   * <p>示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication
+   * Response\\n@enduml
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 语法样式（画板样式/经典样式）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("style_type")
+  private Integer styleType;
+
+  public Integer getSyntaxType() {
+    return this.syntaxType;
+  }
+
+  public void setSyntaxType(Integer syntaxType) {
+    this.syntaxType = syntaxType;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public Integer getStyleType() {
+    return this.styleType;
+  }
+
+  public void setStyleType(Integer styleType) {
+    this.styleType = styleType;
+  }
+
+  // builder 开始
+  public Syntax() {}
+
+  public Syntax(Builder builder) {
     /**
      * 语法类别
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("syntax_type")
-    private Integer syntaxType;
+    this.syntaxType = builder.syntaxType;
     /**
      * PlantUml/Mermaid源码
-     * <p> 示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication Response\\n@enduml
+     *
+     * <p>示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication
+     * Response\\n@enduml
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 语法样式（画板样式/经典样式）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("style_type")
+    this.styleType = builder.styleType;
+  }
+
+  public static class Builder {
+    /**
+     * 语法类别
+     *
+     * <p>示例值：1
+     */
+    private Integer syntaxType;
+
+    /**
+     * PlantUml/Mermaid源码
+     *
+     * <p>示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication
+     * Response\\n@enduml
+     */
+    private String code;
+
+    /**
+     * 语法样式（画板样式/经典样式）
+     *
+     * <p>示例值：1
+     */
     private Integer styleType;
 
-    // builder 开始
-    public Syntax() {
+    /**
+     * 语法类别
+     *
+     * <p>示例值：1
+     *
+     * @param syntaxType
+     * @return
+     */
+    public Builder syntaxType(Integer syntaxType) {
+      this.syntaxType = syntaxType;
+      return this;
     }
 
-    public Syntax(Builder builder) {
-        /**
-         * 语法类别
-         * <p> 示例值：
-         */
-        this.syntaxType = builder.syntaxType;
-        /**
-         * PlantUml/Mermaid源码
-         * <p> 示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication Response\\n@enduml
-         */
-        this.code = builder.code;
-        /**
-         * 语法样式（画板样式/经典样式）
-         * <p> 示例值：1
-         */
-        this.styleType = builder.styleType;
+    /**
+     * 语法类别
+     *
+     * <p>示例值：1
+     *
+     * @param syntaxType {@link com.lark.oapi.service.board.v1.enums.SyntaxSyntaxTypeEnum}
+     * @return
+     */
+    public Builder syntaxType(
+        com.lark.oapi.service.board.v1.enums.SyntaxSyntaxTypeEnum syntaxType) {
+      this.syntaxType = syntaxType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * PlantUml/Mermaid源码
+     *
+     * <p>示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication
+     * Response\\n@enduml
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public Integer getSyntaxType() {
-        return this.syntaxType;
+    /**
+     * 语法样式（画板样式/经典样式）
+     *
+     * <p>示例值：1
+     *
+     * @param styleType
+     * @return
+     */
+    public Builder styleType(Integer styleType) {
+      this.styleType = styleType;
+      return this;
     }
 
-    public void setSyntaxType(Integer syntaxType) {
-        this.syntaxType = syntaxType;
+    /**
+     * 语法样式（画板样式/经典样式）
+     *
+     * <p>示例值：1
+     *
+     * @param styleType {@link com.lark.oapi.service.board.v1.enums.SyntaxStyleTypeEnum}
+     * @return
+     */
+    public Builder styleType(com.lark.oapi.service.board.v1.enums.SyntaxStyleTypeEnum styleType) {
+      this.styleType = styleType.getValue();
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    public Syntax build() {
+      return new Syntax(this);
     }
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Integer getStyleType() {
-        return this.styleType;
-    }
-
-    public void setStyleType(Integer styleType) {
-        this.styleType = styleType;
-    }
-
-    public static class Builder {
-        /**
-         * 语法类别
-         * <p> 示例值：
-         */
-        private Integer syntaxType;
-        /**
-         * PlantUml/Mermaid源码
-         * <p> 示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication Response\\n@enduml
-         */
-        private String code;
-        /**
-         * 语法样式（画板样式/经典样式）
-         * <p> 示例值：1
-         */
-        private Integer styleType;
-
-        /**
-         * 语法类别
-         * <p> 示例值：
-         *
-         * @param syntaxType
-         * @return
-         */
-        public Builder syntaxType(Integer syntaxType) {
-            this.syntaxType = syntaxType;
-            return this;
-        }
-
-        /**
-         * 语法类别
-         * <p> 示例值：
-         *
-         * @param syntaxType {@link com.lark.oapi.service.board.v1.enums.SyntaxSyntaxTypeEnum}
-         * @return
-         */
-        public Builder syntaxType(com.lark.oapi.service.board.v1.enums.SyntaxSyntaxTypeEnum syntaxType) {
-            this.syntaxType = syntaxType.getValue();
-            return this;
-        }
-
-
-        /**
-         * PlantUml/Mermaid源码
-         * <p> 示例值：@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication Response\\n@enduml
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 语法样式（画板样式/经典样式）
-         * <p> 示例值：1
-         *
-         * @param styleType
-         * @return
-         */
-        public Builder styleType(Integer styleType) {
-            this.styleType = styleType;
-            return this;
-        }
-
-        /**
-         * 语法样式（画板样式/经典样式）
-         * <p> 示例值：1
-         *
-         * @param styleType {@link com.lark.oapi.service.board.v1.enums.SyntaxStyleTypeEnum}
-         * @return
-         */
-        public Builder styleType(com.lark.oapi.service.board.v1.enums.SyntaxStyleTypeEnum styleType) {
-            this.styleType = styleType.getValue();
-            return this;
-        }
-
-
-        public Syntax build() {
-            return new Syntax(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

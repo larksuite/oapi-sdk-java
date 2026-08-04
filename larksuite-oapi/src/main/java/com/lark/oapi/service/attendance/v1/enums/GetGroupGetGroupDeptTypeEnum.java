@@ -13,19 +13,18 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 部门 ID 的类型
- */
+/** 部门 ID 的类型 */
 public enum GetGroupGetGroupDeptTypeEnum {
-    OPEN_ID("open_id"), // 开放openID
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 暂时只支持部门的
+// openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id
+;
+  private String value;
 
-    GetGroupGetGroupDeptTypeEnum(String value) {
-        this.value = value;
-    }
+  GetGroupGetGroupDeptTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

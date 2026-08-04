@@ -13,259 +13,282 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ModuleAssessment {
+  /**
+   * 面试评价表模块
+   * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+   * `data.items.modules` 字段;
+   *
+   * <p>示例值：7171693733661327361
+   */
+  @SerializedName("interview_feedback_form_module_id")
+  private String interviewFeedbackFormModuleId;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("module_name")
+  private I18n moduleName;
+
+  /**
+   * 模块类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("module_type")
+  private Integer moduleType;
+
+  /**
+   * 模块权重，精确到小数点后两位
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("module_weight")
+  private Double moduleWeight;
+
+  /**
+   * 模块打分，精确到小数点后两位
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("module_score")
+  private Double moduleScore;
+
+  /**
+   * 模块评价
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_assessments")
+  private DimensionAssessment[] dimensionAssessments;
+
+  public String getInterviewFeedbackFormModuleId() {
+    return this.interviewFeedbackFormModuleId;
+  }
+
+  public void setInterviewFeedbackFormModuleId(String interviewFeedbackFormModuleId) {
+    this.interviewFeedbackFormModuleId = interviewFeedbackFormModuleId;
+  }
+
+  public I18n getModuleName() {
+    return this.moduleName;
+  }
+
+  public void setModuleName(I18n moduleName) {
+    this.moduleName = moduleName;
+  }
+
+  public Integer getModuleType() {
+    return this.moduleType;
+  }
+
+  public void setModuleType(Integer moduleType) {
+    this.moduleType = moduleType;
+  }
+
+  public Double getModuleWeight() {
+    return this.moduleWeight;
+  }
+
+  public void setModuleWeight(Double moduleWeight) {
+    this.moduleWeight = moduleWeight;
+  }
+
+  public Double getModuleScore() {
+    return this.moduleScore;
+  }
+
+  public void setModuleScore(Double moduleScore) {
+    this.moduleScore = moduleScore;
+  }
+
+  public DimensionAssessment[] getDimensionAssessments() {
+    return this.dimensionAssessments;
+  }
+
+  public void setDimensionAssessments(DimensionAssessment[] dimensionAssessments) {
+    this.dimensionAssessments = dimensionAssessments;
+  }
+
+  // builder 开始
+  public ModuleAssessment() {}
+
+  public ModuleAssessment(Builder builder) {
     /**
-     * 对应面试评价表中模块 ID
-     * <p> 示例值：7171693733661327361
+     * 面试评价表模块
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules` 字段;
+     *
+     * <p>示例值：7171693733661327361
      */
-    @SerializedName("interview_feedback_form_module_id")
-    private String interviewFeedbackFormModuleId;
+    this.interviewFeedbackFormModuleId = builder.interviewFeedbackFormModuleId;
     /**
-     * 模块名称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("module_name")
-    private I18n moduleName;
+    this.moduleName = builder.moduleName;
     /**
      * 模块类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("module_type")
-    private Integer moduleType;
+    this.moduleType = builder.moduleType;
     /**
-     * 模块权重
-     * <p> 示例值：10
+     * 模块权重，精确到小数点后两位
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("module_weight")
-    private Double moduleWeight;
+    this.moduleWeight = builder.moduleWeight;
     /**
-     * 模块打分
-     * <p> 示例值：10
+     * 模块打分，精确到小数点后两位
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("module_score")
-    private Double moduleScore;
+    this.moduleScore = builder.moduleScore;
     /**
      * 模块评价
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_assessments")
+    this.dimensionAssessments = builder.dimensionAssessments;
+  }
+
+  public static class Builder {
+    /**
+     * 面试评价表模块
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules` 字段;
+     *
+     * <p>示例值：7171693733661327361
+     */
+    private String interviewFeedbackFormModuleId;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n moduleName;
+
+    /**
+     * 模块类型
+     *
+     * <p>示例值：1
+     */
+    private Integer moduleType;
+
+    /**
+     * 模块权重，精确到小数点后两位
+     *
+     * <p>示例值：10.00
+     */
+    private Double moduleWeight;
+
+    /**
+     * 模块打分，精确到小数点后两位
+     *
+     * <p>示例值：10.00
+     */
+    private Double moduleScore;
+
+    /**
+     * 模块评价
+     *
+     * <p>示例值：
+     */
     private DimensionAssessment[] dimensionAssessments;
 
-    // builder 开始
-    public ModuleAssessment() {
+    /**
+     * 面试评价表模块
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules` 字段;
+     *
+     * <p>示例值：7171693733661327361
+     *
+     * @param interviewFeedbackFormModuleId
+     * @return
+     */
+    public Builder interviewFeedbackFormModuleId(String interviewFeedbackFormModuleId) {
+      this.interviewFeedbackFormModuleId = interviewFeedbackFormModuleId;
+      return this;
     }
 
-    public ModuleAssessment(Builder builder) {
-        /**
-         * 对应面试评价表中模块 ID
-         * <p> 示例值：7171693733661327361
-         */
-        this.interviewFeedbackFormModuleId = builder.interviewFeedbackFormModuleId;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        this.moduleName = builder.moduleName;
-        /**
-         * 模块类型
-         * <p> 示例值：
-         */
-        this.moduleType = builder.moduleType;
-        /**
-         * 模块权重
-         * <p> 示例值：10
-         */
-        this.moduleWeight = builder.moduleWeight;
-        /**
-         * 模块打分
-         * <p> 示例值：10
-         */
-        this.moduleScore = builder.moduleScore;
-        /**
-         * 模块评价
-         * <p> 示例值：
-         */
-        this.dimensionAssessments = builder.dimensionAssessments;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param moduleName
+     * @return
+     */
+    public Builder moduleName(I18n moduleName) {
+      this.moduleName = moduleName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模块类型
+     *
+     * <p>示例值：1
+     *
+     * @param moduleType
+     * @return
+     */
+    public Builder moduleType(Integer moduleType) {
+      this.moduleType = moduleType;
+      return this;
     }
 
-    public String getInterviewFeedbackFormModuleId() {
-        return this.interviewFeedbackFormModuleId;
+    /**
+     * 模块权重，精确到小数点后两位
+     *
+     * <p>示例值：10.00
+     *
+     * @param moduleWeight
+     * @return
+     */
+    public Builder moduleWeight(Double moduleWeight) {
+      this.moduleWeight = moduleWeight;
+      return this;
     }
 
-    public void setInterviewFeedbackFormModuleId(String interviewFeedbackFormModuleId) {
-        this.interviewFeedbackFormModuleId = interviewFeedbackFormModuleId;
+    /**
+     * 模块打分，精确到小数点后两位
+     *
+     * <p>示例值：10.00
+     *
+     * @param moduleScore
+     * @return
+     */
+    public Builder moduleScore(Double moduleScore) {
+      this.moduleScore = moduleScore;
+      return this;
     }
 
-    public I18n getModuleName() {
-        return this.moduleName;
+    /**
+     * 模块评价
+     *
+     * <p>示例值：
+     *
+     * @param dimensionAssessments
+     * @return
+     */
+    public Builder dimensionAssessments(DimensionAssessment[] dimensionAssessments) {
+      this.dimensionAssessments = dimensionAssessments;
+      return this;
     }
 
-    public void setModuleName(I18n moduleName) {
-        this.moduleName = moduleName;
+    public ModuleAssessment build() {
+      return new ModuleAssessment(this);
     }
+  }
 
-    public Integer getModuleType() {
-        return this.moduleType;
-    }
-
-    public void setModuleType(Integer moduleType) {
-        this.moduleType = moduleType;
-    }
-
-    public Double getModuleWeight() {
-        return this.moduleWeight;
-    }
-
-    public void setModuleWeight(Double moduleWeight) {
-        this.moduleWeight = moduleWeight;
-    }
-
-    public Double getModuleScore() {
-        return this.moduleScore;
-    }
-
-    public void setModuleScore(Double moduleScore) {
-        this.moduleScore = moduleScore;
-    }
-
-    public DimensionAssessment[] getDimensionAssessments() {
-        return this.dimensionAssessments;
-    }
-
-    public void setDimensionAssessments(DimensionAssessment[] dimensionAssessments) {
-        this.dimensionAssessments = dimensionAssessments;
-    }
-
-    public static class Builder {
-        /**
-         * 对应面试评价表中模块 ID
-         * <p> 示例值：7171693733661327361
-         */
-        private String interviewFeedbackFormModuleId;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        private I18n moduleName;
-        /**
-         * 模块类型
-         * <p> 示例值：
-         */
-        private Integer moduleType;
-        /**
-         * 模块权重
-         * <p> 示例值：10
-         */
-        private Double moduleWeight;
-        /**
-         * 模块打分
-         * <p> 示例值：10
-         */
-        private Double moduleScore;
-        /**
-         * 模块评价
-         * <p> 示例值：
-         */
-        private DimensionAssessment[] dimensionAssessments;
-
-        /**
-         * 对应面试评价表中模块 ID
-         * <p> 示例值：7171693733661327361
-         *
-         * @param interviewFeedbackFormModuleId
-         * @return
-         */
-        public Builder interviewFeedbackFormModuleId(String interviewFeedbackFormModuleId) {
-            this.interviewFeedbackFormModuleId = interviewFeedbackFormModuleId;
-            return this;
-        }
-
-
-        /**
-         * 模块名称
-         * <p> 示例值：
-         *
-         * @param moduleName
-         * @return
-         */
-        public Builder moduleName(I18n moduleName) {
-            this.moduleName = moduleName;
-            return this;
-        }
-
-
-        /**
-         * 模块类型
-         * <p> 示例值：
-         *
-         * @param moduleType
-         * @return
-         */
-        public Builder moduleType(Integer moduleType) {
-            this.moduleType = moduleType;
-            return this;
-        }
-
-
-        /**
-         * 模块权重
-         * <p> 示例值：10
-         *
-         * @param moduleWeight
-         * @return
-         */
-        public Builder moduleWeight(Double moduleWeight) {
-            this.moduleWeight = moduleWeight;
-            return this;
-        }
-
-
-        /**
-         * 模块打分
-         * <p> 示例值：10
-         *
-         * @param moduleScore
-         * @return
-         */
-        public Builder moduleScore(Double moduleScore) {
-            this.moduleScore = moduleScore;
-            return this;
-        }
-
-
-        /**
-         * 模块评价
-         * <p> 示例值：
-         *
-         * @param dimensionAssessments
-         * @return
-         */
-        public Builder dimensionAssessments(DimensionAssessment[] dimensionAssessments) {
-            this.dimensionAssessments = dimensionAssessments;
-            return this;
-        }
-
-
-        public ModuleAssessment build() {
-            return new ModuleAssessment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

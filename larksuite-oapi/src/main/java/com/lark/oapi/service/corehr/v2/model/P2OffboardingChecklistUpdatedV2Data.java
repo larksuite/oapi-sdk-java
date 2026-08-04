@@ -13,90 +13,87 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2OffboardingChecklistUpdatedV2Data {
-    /**
-     * 员工 ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 员工的飞书用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
-    /**
-     * 离职记录 ID
-     * <p> 示例值：7044427347159746085
-     */
-    @SerializedName("offboarding_id")
-    private String offboardingId;
-    /**
-     * 离职流转流程发起后的审批流程实例 ID
-     * <p> 示例值：7090409013925398060
-     */
-    @SerializedName("checklist_process_id")
-    private String checklistProcessId;
-    /**
-     * 离职流转状态
-     * <p> 示例值：1
-     */
-    @SerializedName("checklist_status")
-    private Integer checklistStatus;
+  /**
+   * 离职员工雇佣ID，可通过[批量查询员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取员工信息。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 离职员工的用户ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 离职记录ID，每条离职记录的唯一标识。
+   *
+   * <p>示例值：7044427347159746085
+   */
+  @SerializedName("offboarding_id")
+  private String offboardingId;
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  /**
+   * 离职流转流程的实例
+   * ID，可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。
+   *
+   * <p>示例值：7090409013925398060
+   */
+  @SerializedName("checklist_process_id")
+  private String checklistProcessId;
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  /**
+   * 离职流转状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("checklist_status")
+  private Integer checklistStatus;
 
-    public String getOffboardingId() {
-        return this.offboardingId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setOffboardingId(String offboardingId) {
-        this.offboardingId = offboardingId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public String getChecklistProcessId() {
-        return this.checklistProcessId;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
-    public void setChecklistProcessId(String checklistProcessId) {
-        this.checklistProcessId = checklistProcessId;
-    }
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 
-    public Integer getChecklistStatus() {
-        return this.checklistStatus;
-    }
+  public String getOffboardingId() {
+    return this.offboardingId;
+  }
 
-    public void setChecklistStatus(Integer checklistStatus) {
-        this.checklistStatus = checklistStatus;
-    }
+  public void setOffboardingId(String offboardingId) {
+    this.offboardingId = offboardingId;
+  }
 
+  public String getChecklistProcessId() {
+    return this.checklistProcessId;
+  }
+
+  public void setChecklistProcessId(String checklistProcessId) {
+    this.checklistProcessId = checklistProcessId;
+  }
+
+  public Integer getChecklistStatus() {
+    return this.checklistStatus;
+  }
+
+  public void setChecklistStatus(Integer checklistStatus) {
+    this.checklistStatus = checklistStatus;
+  }
 }

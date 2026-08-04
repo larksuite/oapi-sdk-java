@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDataId {
+  /**
+   * 记录ID
+   *
+   * <p>示例值：7305354116229514796
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  // builder 开始
+  public JobDataId() {}
+
+  public JobDataId(Builder builder) {
     /**
      * 记录ID
-     * <p> 示例值：7305354116229514796
+     *
+     * <p>示例值：7305354116229514796
      */
-    @SerializedName("wk_id")
+    this.wkId = builder.wkId;
+  }
+
+  public static class Builder {
+    /**
+     * 记录ID
+     *
+     * <p>示例值：7305354116229514796
+     */
     private String wkId;
 
-    // builder 开始
-    public JobDataId() {
+    /**
+     * 记录ID
+     *
+     * <p>示例值：7305354116229514796
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public JobDataId(Builder builder) {
-        /**
-         * 记录ID
-         * <p> 示例值：7305354116229514796
-         */
-        this.wkId = builder.wkId;
+    public JobDataId build() {
+      return new JobDataId(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public static class Builder {
-        /**
-         * 记录ID
-         * <p> 示例值：7305354116229514796
-         */
-        private String wkId;
-
-        /**
-         * 记录ID
-         * <p> 示例值：7305354116229514796
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        public JobDataId build() {
-            return new JobDataId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

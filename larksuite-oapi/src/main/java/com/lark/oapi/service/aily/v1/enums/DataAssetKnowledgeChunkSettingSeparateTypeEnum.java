@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 切片分割符类型
- */
+/** 切片分割符类型 */
 public enum DataAssetKnowledgeChunkSettingSeparateTypeEnum {
-    PARAGRAPH("paragraph"), // 段落分隔符："\n\n"、"\n"、空格
-    TITLE("title"), // 标题分割符：######
-    ;
-    private String value;
+  PARAGRAPH("paragraph"), // 段落分隔符："\n\n"、"\n"、空格
+  TITLE("title"), // 标题分割符：######
+  ;
+  private String value;
 
-    DataAssetKnowledgeChunkSettingSeparateTypeEnum(String value) {
-        this.value = value;
-    }
+  DataAssetKnowledgeChunkSettingSeparateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

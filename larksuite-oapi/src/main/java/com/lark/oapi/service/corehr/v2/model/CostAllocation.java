@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostAllocation {
+  /**
+   * 分摊生效日期
+   *
+   * <p>示例值：2025-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 分摊失效日期
+   *
+   * <p>示例值：2025-02-01
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 成本分摊信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_rates")
+  private JobDataCostCenter[] costCenterRates;
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public JobDataCostCenter[] getCostCenterRates() {
+    return this.costCenterRates;
+  }
+
+  public void setCostCenterRates(JobDataCostCenter[] costCenterRates) {
+    this.costCenterRates = costCenterRates;
+  }
+
+  // builder 开始
+  public CostAllocation() {}
+
+  public CostAllocation(Builder builder) {
     /**
      * 分摊生效日期
-     * <p> 示例值：2025-01-01
+     *
+     * <p>示例值：2025-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 分摊失效日期
-     * <p> 示例值：2025-02-01
+     *
+     * <p>示例值：2025-02-01
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
      * 成本分摊信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_rates")
+    this.costCenterRates = builder.costCenterRates;
+  }
+
+  public static class Builder {
+    /**
+     * 分摊生效日期
+     *
+     * <p>示例值：2025-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 分摊失效日期
+     *
+     * <p>示例值：2025-02-01
+     */
+    private String expirationTime;
+
+    /**
+     * 成本分摊信息
+     *
+     * <p>示例值：
+     */
     private JobDataCostCenter[] costCenterRates;
 
-    // builder 开始
-    public CostAllocation() {
+    /**
+     * 分摊生效日期
+     *
+     * <p>示例值：2025-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public CostAllocation(Builder builder) {
-        /**
-         * 分摊生效日期
-         * <p> 示例值：2025-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 分摊失效日期
-         * <p> 示例值：2025-02-01
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 成本分摊信息
-         * <p> 示例值：
-         */
-        this.costCenterRates = builder.costCenterRates;
+    /**
+     * 分摊失效日期
+     *
+     * <p>示例值：2025-02-01
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本分摊信息
+     *
+     * <p>示例值：
+     *
+     * @param costCenterRates
+     * @return
+     */
+    public Builder costCenterRates(JobDataCostCenter[] costCenterRates) {
+      this.costCenterRates = costCenterRates;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    public CostAllocation build() {
+      return new CostAllocation(this);
     }
+  }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public JobDataCostCenter[] getCostCenterRates() {
-        return this.costCenterRates;
-    }
-
-    public void setCostCenterRates(JobDataCostCenter[] costCenterRates) {
-        this.costCenterRates = costCenterRates;
-    }
-
-    public static class Builder {
-        /**
-         * 分摊生效日期
-         * <p> 示例值：2025-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 分摊失效日期
-         * <p> 示例值：2025-02-01
-         */
-        private String expirationTime;
-        /**
-         * 成本分摊信息
-         * <p> 示例值：
-         */
-        private JobDataCostCenter[] costCenterRates;
-
-        /**
-         * 分摊生效日期
-         * <p> 示例值：2025-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 分摊失效日期
-         * <p> 示例值：2025-02-01
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊信息
-         * <p> 示例值：
-         *
-         * @param costCenterRates
-         * @return
-         */
-        public Builder costCenterRates(JobDataCostCenter[] costCenterRates) {
-            this.costCenterRates = costCenterRates;
-            return this;
-        }
-
-
-        public CostAllocation build() {
-            return new CostAllocation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

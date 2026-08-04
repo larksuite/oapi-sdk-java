@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InputOption {
+  /**
+   * 选项名称
+   *
+   * <p>示例值：高优
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 颜色索引值，支持0～54中的一个数字。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("color_index")
+  private Integer colorIndex;
+
+  /**
+   * 要放到某个option之前的option_guid
+   *
+   * <p>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
+   */
+  @SerializedName("insert_before")
+  private String insertBefore;
+
+  /**
+   * 要放到某个option之后的option_guid
+   *
+   * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+   */
+  @SerializedName("insert_after")
+  private String insertAfter;
+
+  /**
+   * 是否隐藏
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_hidden")
+  private Boolean isHidden;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getColorIndex() {
+    return this.colorIndex;
+  }
+
+  public void setColorIndex(Integer colorIndex) {
+    this.colorIndex = colorIndex;
+  }
+
+  public String getInsertBefore() {
+    return this.insertBefore;
+  }
+
+  public void setInsertBefore(String insertBefore) {
+    this.insertBefore = insertBefore;
+  }
+
+  public String getInsertAfter() {
+    return this.insertAfter;
+  }
+
+  public void setInsertAfter(String insertAfter) {
+    this.insertAfter = insertAfter;
+  }
+
+  public Boolean getIsHidden() {
+    return this.isHidden;
+  }
+
+  public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+  // builder 开始
+  public InputOption() {}
+
+  public InputOption(Builder builder) {
     /**
      * 选项名称
-     * <p> 示例值：高优
+     *
+     * <p>示例值：高优
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 颜色索引值，支持0～54中的一个数字。如果不填写，则会随机选一个。
-     * <p> 示例值：10
+     * 颜色索引值，支持0～54中的一个数字。
+     *
+     * <p>示例值：10
      */
-    @SerializedName("color_index")
-    private Integer colorIndex;
+    this.colorIndex = builder.colorIndex;
     /**
      * 要放到某个option之前的option_guid
-     * <p> 示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
+     *
+     * <p>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
      */
-    @SerializedName("insert_before")
-    private String insertBefore;
+    this.insertBefore = builder.insertBefore;
     /**
      * 要放到某个option之后的option_guid
-     * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+     *
+     * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
      */
-    @SerializedName("insert_after")
-    private String insertAfter;
+    this.insertAfter = builder.insertAfter;
     /**
      * 是否隐藏
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_hidden")
+    this.isHidden = builder.isHidden;
+  }
+
+  public static class Builder {
+    /**
+     * 选项名称
+     *
+     * <p>示例值：高优
+     */
+    private String name;
+
+    /**
+     * 颜色索引值，支持0～54中的一个数字。
+     *
+     * <p>示例值：10
+     */
+    private Integer colorIndex;
+
+    /**
+     * 要放到某个option之前的option_guid
+     *
+     * <p>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
+     */
+    private String insertBefore;
+
+    /**
+     * 要放到某个option之后的option_guid
+     *
+     * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+     */
+    private String insertAfter;
+
+    /**
+     * 是否隐藏
+     *
+     * <p>示例值：false
+     */
     private Boolean isHidden;
 
-    // builder 开始
-    public InputOption() {
+    /**
+     * 选项名称
+     *
+     * <p>示例值：高优
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public InputOption(Builder builder) {
-        /**
-         * 选项名称
-         * <p> 示例值：高优
-         */
-        this.name = builder.name;
-        /**
-         * 颜色索引值，支持0～54中的一个数字。如果不填写，则会随机选一个。
-         * <p> 示例值：10
-         */
-        this.colorIndex = builder.colorIndex;
-        /**
-         * 要放到某个option之前的option_guid
-         * <p> 示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
-         */
-        this.insertBefore = builder.insertBefore;
-        /**
-         * 要放到某个option之后的option_guid
-         * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
-         */
-        this.insertAfter = builder.insertAfter;
-        /**
-         * 是否隐藏
-         * <p> 示例值：false
-         */
-        this.isHidden = builder.isHidden;
+    /**
+     * 颜色索引值，支持0～54中的一个数字。
+     *
+     * <p>示例值：10
+     *
+     * @param colorIndex
+     * @return
+     */
+    public Builder colorIndex(Integer colorIndex) {
+      this.colorIndex = colorIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 要放到某个option之前的option_guid
+     *
+     * <p>示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
+     *
+     * @param insertBefore
+     * @return
+     */
+    public Builder insertBefore(String insertBefore) {
+      this.insertBefore = insertBefore;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 要放到某个option之后的option_guid
+     *
+     * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+     *
+     * @param insertAfter
+     * @return
+     */
+    public Builder insertAfter(String insertAfter) {
+      this.insertAfter = insertAfter;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 是否隐藏
+     *
+     * <p>示例值：false
+     *
+     * @param isHidden
+     * @return
+     */
+    public Builder isHidden(Boolean isHidden) {
+      this.isHidden = isHidden;
+      return this;
     }
 
-    public Integer getColorIndex() {
-        return this.colorIndex;
+    public InputOption build() {
+      return new InputOption(this);
     }
+  }
 
-    public void setColorIndex(Integer colorIndex) {
-        this.colorIndex = colorIndex;
-    }
-
-    public String getInsertBefore() {
-        return this.insertBefore;
-    }
-
-    public void setInsertBefore(String insertBefore) {
-        this.insertBefore = insertBefore;
-    }
-
-    public String getInsertAfter() {
-        return this.insertAfter;
-    }
-
-    public void setInsertAfter(String insertAfter) {
-        this.insertAfter = insertAfter;
-    }
-
-    public Boolean getIsHidden() {
-        return this.isHidden;
-    }
-
-    public void setIsHidden(Boolean isHidden) {
-        this.isHidden = isHidden;
-    }
-
-    public static class Builder {
-        /**
-         * 选项名称
-         * <p> 示例值：高优
-         */
-        private String name;
-        /**
-         * 颜色索引值，支持0～54中的一个数字。如果不填写，则会随机选一个。
-         * <p> 示例值：10
-         */
-        private Integer colorIndex;
-        /**
-         * 要放到某个option之前的option_guid
-         * <p> 示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
-         */
-        private String insertBefore;
-        /**
-         * 要放到某个option之后的option_guid
-         * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
-         */
-        private String insertAfter;
-        /**
-         * 是否隐藏
-         * <p> 示例值：false
-         */
-        private Boolean isHidden;
-
-        /**
-         * 选项名称
-         * <p> 示例值：高优
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 颜色索引值，支持0～54中的一个数字。如果不填写，则会随机选一个。
-         * <p> 示例值：10
-         *
-         * @param colorIndex
-         * @return
-         */
-        public Builder colorIndex(Integer colorIndex) {
-            this.colorIndex = colorIndex;
-            return this;
-        }
-
-
-        /**
-         * 要放到某个option之前的option_guid
-         * <p> 示例值：2bd905f8-ef38-408b-aa1f-2b2ad33b2913
-         *
-         * @param insertBefore
-         * @return
-         */
-        public Builder insertBefore(String insertBefore) {
-            this.insertBefore = insertBefore;
-            return this;
-        }
-
-
-        /**
-         * 要放到某个option之后的option_guid
-         * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
-         *
-         * @param insertAfter
-         * @return
-         */
-        public Builder insertAfter(String insertAfter) {
-            this.insertAfter = insertAfter;
-            return this;
-        }
-
-
-        /**
-         * 是否隐藏
-         * <p> 示例值：false
-         *
-         * @param isHidden
-         * @return
-         */
-        public Builder isHidden(Boolean isHidden) {
-            this.isHidden = isHidden;
-            return this;
-        }
-
-
-        public InputOption build() {
-            return new InputOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,177 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkCalendarFilter {
+  /**
+   * 工作日历ID列表，第一次传入时可以传入空数组，形如[]
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wk_calendar_ids")
+  private String[] wkCalendarIds;
+
+  /** 示例值：7136914415957591596 */
+  @SerializedName("wk_calendar_id_gt")
+  private String wkCalendarIdGt;
+
+  /**
+   * 分页、排序等选项，如未填写将赋默认值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wk_option")
+  private WkOption wkOption;
+
+  /**
+   * 是否只返回启用的工作日历。（暂不支持，目前只返回启用状态的工作日历）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("only_enable")
+  private Boolean onlyEnable;
+
+  public String[] getWkCalendarIds() {
+    return this.wkCalendarIds;
+  }
+
+  public void setWkCalendarIds(String[] wkCalendarIds) {
+    this.wkCalendarIds = wkCalendarIds;
+  }
+
+  public String getWkCalendarIdGt() {
+    return this.wkCalendarIdGt;
+  }
+
+  public void setWkCalendarIdGt(String wkCalendarIdGt) {
+    this.wkCalendarIdGt = wkCalendarIdGt;
+  }
+
+  public WkOption getWkOption() {
+    return this.wkOption;
+  }
+
+  public void setWkOption(WkOption wkOption) {
+    this.wkOption = wkOption;
+  }
+
+  public Boolean getOnlyEnable() {
+    return this.onlyEnable;
+  }
+
+  public void setOnlyEnable(Boolean onlyEnable) {
+    this.onlyEnable = onlyEnable;
+  }
+
+  // builder 开始
+  public WorkCalendarFilter() {}
+
+  public WorkCalendarFilter(Builder builder) {
     /**
-     * 工作日历ID列表
-     * <p> 示例值：
+     * 工作日历ID列表，第一次传入时可以传入空数组，形如[]
+     *
+     * <p>示例值：
      */
-    @SerializedName("wk_calendar_ids")
+    this.wkCalendarIds = builder.wkCalendarIds;
+    /** 示例值：7136914415957591596 */
+    this.wkCalendarIdGt = builder.wkCalendarIdGt;
+    /**
+     * 分页、排序等选项，如未填写将赋默认值
+     *
+     * <p>示例值：
+     */
+    this.wkOption = builder.wkOption;
+    /**
+     * 是否只返回启用的工作日历。（暂不支持，目前只返回启用状态的工作日历）
+     *
+     * <p>示例值：true
+     */
+    this.onlyEnable = builder.onlyEnable;
+  }
+
+  public static class Builder {
+    /**
+     * 工作日历ID列表，第一次传入时可以传入空数组，形如[]
+     *
+     * <p>示例值：
+     */
     private String[] wkCalendarIds;
-    /**
-     * 工作日历ID大于
-     * <p> 示例值：12344
-     */
-    @SerializedName("wk_calendar_id_gt")
+
+    /** 示例值：7136914415957591596 */
     private String wkCalendarIdGt;
+
     /**
-     * 分页、排序等选项
-     * <p> 示例值：
+     * 分页、排序等选项，如未填写将赋默认值
+     *
+     * <p>示例值：
      */
-    @SerializedName("wk_option")
     private WkOption wkOption;
+
     /**
-     * 是否只返回启用的工作日历，不填默认true
-     * <p> 示例值：true
+     * 是否只返回启用的工作日历。（暂不支持，目前只返回启用状态的工作日历）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("only_enable")
     private Boolean onlyEnable;
 
-    // builder 开始
-    public WorkCalendarFilter() {
+    /**
+     * 工作日历ID列表，第一次传入时可以传入空数组，形如[]
+     *
+     * <p>示例值：
+     *
+     * @param wkCalendarIds
+     * @return
+     */
+    public Builder wkCalendarIds(String[] wkCalendarIds) {
+      this.wkCalendarIds = wkCalendarIds;
+      return this;
     }
 
-    public WorkCalendarFilter(Builder builder) {
-        /**
-         * 工作日历ID列表
-         * <p> 示例值：
-         */
-        this.wkCalendarIds = builder.wkCalendarIds;
-        /**
-         * 工作日历ID大于
-         * <p> 示例值：12344
-         */
-        this.wkCalendarIdGt = builder.wkCalendarIdGt;
-        /**
-         * 分页、排序等选项
-         * <p> 示例值：
-         */
-        this.wkOption = builder.wkOption;
-        /**
-         * 是否只返回启用的工作日历，不填默认true
-         * <p> 示例值：true
-         */
-        this.onlyEnable = builder.onlyEnable;
+    /**
+     * 示例值：7136914415957591596
+     *
+     * @param wkCalendarIdGt
+     * @return
+     */
+    public Builder wkCalendarIdGt(String wkCalendarIdGt) {
+      this.wkCalendarIdGt = wkCalendarIdGt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页、排序等选项，如未填写将赋默认值
+     *
+     * <p>示例值：
+     *
+     * @param wkOption
+     * @return
+     */
+    public Builder wkOption(WkOption wkOption) {
+      this.wkOption = wkOption;
+      return this;
     }
 
-    public String[] getWkCalendarIds() {
-        return this.wkCalendarIds;
+    /**
+     * 是否只返回启用的工作日历。（暂不支持，目前只返回启用状态的工作日历）
+     *
+     * <p>示例值：true
+     *
+     * @param onlyEnable
+     * @return
+     */
+    public Builder onlyEnable(Boolean onlyEnable) {
+      this.onlyEnable = onlyEnable;
+      return this;
     }
 
-    public void setWkCalendarIds(String[] wkCalendarIds) {
-        this.wkCalendarIds = wkCalendarIds;
+    public WorkCalendarFilter build() {
+      return new WorkCalendarFilter(this);
     }
+  }
 
-    public String getWkCalendarIdGt() {
-        return this.wkCalendarIdGt;
-    }
-
-    public void setWkCalendarIdGt(String wkCalendarIdGt) {
-        this.wkCalendarIdGt = wkCalendarIdGt;
-    }
-
-    public WkOption getWkOption() {
-        return this.wkOption;
-    }
-
-    public void setWkOption(WkOption wkOption) {
-        this.wkOption = wkOption;
-    }
-
-    public Boolean getOnlyEnable() {
-        return this.onlyEnable;
-    }
-
-    public void setOnlyEnable(Boolean onlyEnable) {
-        this.onlyEnable = onlyEnable;
-    }
-
-    public static class Builder {
-        /**
-         * 工作日历ID列表
-         * <p> 示例值：
-         */
-        private String[] wkCalendarIds;
-        /**
-         * 工作日历ID大于
-         * <p> 示例值：12344
-         */
-        private String wkCalendarIdGt;
-        /**
-         * 分页、排序等选项
-         * <p> 示例值：
-         */
-        private WkOption wkOption;
-        /**
-         * 是否只返回启用的工作日历，不填默认true
-         * <p> 示例值：true
-         */
-        private Boolean onlyEnable;
-
-        /**
-         * 工作日历ID列表
-         * <p> 示例值：
-         *
-         * @param wkCalendarIds
-         * @return
-         */
-        public Builder wkCalendarIds(String[] wkCalendarIds) {
-            this.wkCalendarIds = wkCalendarIds;
-            return this;
-        }
-
-
-        /**
-         * 工作日历ID大于
-         * <p> 示例值：12344
-         *
-         * @param wkCalendarIdGt
-         * @return
-         */
-        public Builder wkCalendarIdGt(String wkCalendarIdGt) {
-            this.wkCalendarIdGt = wkCalendarIdGt;
-            return this;
-        }
-
-
-        /**
-         * 分页、排序等选项
-         * <p> 示例值：
-         *
-         * @param wkOption
-         * @return
-         */
-        public Builder wkOption(WkOption wkOption) {
-            this.wkOption = wkOption;
-            return this;
-        }
-
-
-        /**
-         * 是否只返回启用的工作日历，不填默认true
-         * <p> 示例值：true
-         *
-         * @param onlyEnable
-         * @return
-         */
-        public Builder onlyEnable(Boolean onlyEnable) {
-            this.onlyEnable = onlyEnable;
-            return this;
-        }
-
-
-        public WorkCalendarFilter build() {
-            return new WorkCalendarFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

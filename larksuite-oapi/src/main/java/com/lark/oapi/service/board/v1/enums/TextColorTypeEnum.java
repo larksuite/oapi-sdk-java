@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 文字颜色类型，0=系统颜色，1=自定义颜色
- */
+/** 文字颜色类型，0=系统颜色，1=自定义颜色 */
 public enum TextColorTypeEnum {
-    SYSTEM_COLOR(0), // 系统颜色
-    CUSTOM_COLOR(1), // 自定义颜色
-    ;
-    private Integer value;
+  SYSTEM_COLOR(0), // 系统颜色
+  CUSTOM_COLOR(1), // 自定义颜色
+  ;
+  private Integer value;
 
-    TextColorTypeEnum(Integer value) {
-        this.value = value;
-    }
+  TextColorTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

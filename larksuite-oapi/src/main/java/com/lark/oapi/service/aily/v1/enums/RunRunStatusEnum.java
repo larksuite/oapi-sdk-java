@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum RunRunStatusEnum {
-    RUNSTATUSQUEUED("QUEUED"), // 排队中
-    RUNSTATUSINPROGRESS("IN_PROGRESS"), // 执行中
-    RUNSTATUSREQUIRESMESSAGE("REQUIRES_MESSAGE"), // 等待补充消息输入
-    RUNSTATUSCANCELLED("CANCELLED"), // 已取消
-    RUNSTATUSCOMPLETED("COMPLETED"), // 已完成
-    RUNSTATUSFAILED("FAILED"), // 已失败
-    RUNSTATUSEXPIRED("EXPIRED"), // 已过期
-    ;
-    private String value;
+  RUNSTATUSQUEUED("QUEUED"), // 排队中
+  RUNSTATUSINPROGRESS("IN_PROGRESS"), // 执行中
+  RUNSTATUSREQUIRESMESSAGE("REQUIRES_MESSAGE"), // 等待补充消息输入
+  RUNSTATUSCANCELLED("CANCELLED"), // 已取消
+  RUNSTATUSCOMPLETED("COMPLETED"), // 已完成
+  RUNSTATUSFAILED("FAILED"), // 已失败
+  RUNSTATUSEXPIRED("EXPIRED"), // 已过期
+  ;
+  private String value;
 
-    RunRunStatusEnum(String value) {
-        this.value = value;
-    }
+  RunRunStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

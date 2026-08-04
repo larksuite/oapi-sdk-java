@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListPeriodRespBody {
-    /**
-     * 分页标志
-     * <p> 示例值：asdasdasd
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有更多
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 数据项
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Period[] items;
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：asdasdasd
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 数据项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Period[] items;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public Period[] getItems() {
-        return this.items;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setItems(Period[] items) {
-        this.items = items;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public Period[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(Period[] items) {
+    this.items = items;
+  }
 }

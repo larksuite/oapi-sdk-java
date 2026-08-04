@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.docs.v1.enums;
 
-/**
- * 语言
- */
+/** 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文; */
 public enum GetContentLangEnum {
-    ZH("zh"), // 中文
-    EN("en"), // 英文
-    JA("ja"), // 日文
-    ;
-    private String value;
+  ZH("zh"), // 中文
+  EN("en"), // 英文
+  JA("ja"), // 日文
+  ;
+  private String value;
 
-    GetContentLangEnum(String value) {
-        this.value = value;
-    }
+  GetContentLangEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

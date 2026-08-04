@@ -13,174 +13,182 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CourseRegistrationCreatedV2Data {
-    /**
-     * 课程ID
-     * <p> 示例值：5fd087e96dbe3a73394188ae
-     */
-    @SerializedName("course_id")
-    private String courseId;
-    /**
-     * 课程学员信息
-     * <p> 示例值：
-     */
-    @SerializedName("learner")
-    private EventUser learner;
-    /**
-     * 加入学习时间戳（秒）
-     * <p> 示例值：1708428972
-     */
-    @SerializedName("enroll_at")
-    private Integer enrollAt;
-    /**
-     * 注册类型
-     * <p> 示例值：1
-     */
-    @SerializedName("enroll_type")
-    private Integer enrollType;
-    /**
-     * 学习时长，单位：秒
-     * <p> 示例值：213
-     */
-    @SerializedName("learning_duration")
-    private Integer learningDuration;
-    /**
-     * 完成时间戳（秒）
-     * <p> 示例值：1708428972
-     */
-    @SerializedName("finished_at")
-    private Integer finishedAt;
-    /**
-     * 完成状态
-     * <p> 示例值：4
-     */
-    @SerializedName("learning_state")
-    private Integer learningState;
-    /**
-     * 必修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
-     */
-    @SerializedName("compulsory_lesson_ids")
-    private String[] compulsoryLessonIds;
-    /**
-     * 已完成的必修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418801"]
-     */
-    @SerializedName("learned_compulsory_lesson_ids")
-    private String[] learnedCompulsoryLessonIds;
-    /**
-     * 选修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
-     */
-    @SerializedName("optional_lesson_ids")
-    private String[] optionalLessonIds;
-    /**
-     * 已完成的选修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418803"]
-     */
-    @SerializedName("learned_optional_lesson_ids")
-    private String[] learnedOptionalLessonIds;
+  /**
+   * 课程ID
+   *
+   * <p>示例值：5fd087e96dbe3a73394188ae
+   */
+  @SerializedName("course_id")
+  private String courseId;
 
-    public String getCourseId() {
-        return this.courseId;
-    }
+  /**
+   * 课程学员信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private EventUser learner;
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
+  /**
+   * 加入学习时间戳（秒）
+   *
+   * <p>示例值：1708428972
+   */
+  @SerializedName("enroll_at")
+  private Integer enrollAt;
 
-    public EventUser getLearner() {
-        return this.learner;
-    }
+  /**
+   * 注册类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enroll_type")
+  private Integer enrollType;
 
-    public void setLearner(EventUser learner) {
-        this.learner = learner;
-    }
+  /**
+   * 学习时长，单位：秒
+   *
+   * <p>示例值：213
+   */
+  @SerializedName("learning_duration")
+  private Integer learningDuration;
 
-    public Integer getEnrollAt() {
-        return this.enrollAt;
-    }
+  /**
+   * 完成时间戳（秒）
+   *
+   * <p>示例值：1708428972
+   */
+  @SerializedName("finished_at")
+  private Integer finishedAt;
 
-    public void setEnrollAt(Integer enrollAt) {
-        this.enrollAt = enrollAt;
-    }
+  /**
+   * 完成状态
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("learning_state")
+  private Integer learningState;
 
-    public Integer getEnrollType() {
-        return this.enrollType;
-    }
+  /**
+   * 必修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
+   */
+  @SerializedName("compulsory_lesson_ids")
+  private String[] compulsoryLessonIds;
 
-    public void setEnrollType(Integer enrollType) {
-        this.enrollType = enrollType;
-    }
+  /**
+   * 已完成的必修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418801"]
+   */
+  @SerializedName("learned_compulsory_lesson_ids")
+  private String[] learnedCompulsoryLessonIds;
 
-    public Integer getLearningDuration() {
-        return this.learningDuration;
-    }
+  /**
+   * 选修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
+   */
+  @SerializedName("optional_lesson_ids")
+  private String[] optionalLessonIds;
 
-    public void setLearningDuration(Integer learningDuration) {
-        this.learningDuration = learningDuration;
-    }
+  /**
+   * 已完成的选修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418803"]
+   */
+  @SerializedName("learned_optional_lesson_ids")
+  private String[] learnedOptionalLessonIds;
 
-    public Integer getFinishedAt() {
-        return this.finishedAt;
-    }
+  public String getCourseId() {
+    return this.courseId;
+  }
 
-    public void setFinishedAt(Integer finishedAt) {
-        this.finishedAt = finishedAt;
-    }
+  public void setCourseId(String courseId) {
+    this.courseId = courseId;
+  }
 
-    public Integer getLearningState() {
-        return this.learningState;
-    }
+  public EventUser getLearner() {
+    return this.learner;
+  }
 
-    public void setLearningState(Integer learningState) {
-        this.learningState = learningState;
-    }
+  public void setLearner(EventUser learner) {
+    this.learner = learner;
+  }
 
-    public String[] getCompulsoryLessonIds() {
-        return this.compulsoryLessonIds;
-    }
+  public Integer getEnrollAt() {
+    return this.enrollAt;
+  }
 
-    public void setCompulsoryLessonIds(String[] compulsoryLessonIds) {
-        this.compulsoryLessonIds = compulsoryLessonIds;
-    }
+  public void setEnrollAt(Integer enrollAt) {
+    this.enrollAt = enrollAt;
+  }
 
-    public String[] getLearnedCompulsoryLessonIds() {
-        return this.learnedCompulsoryLessonIds;
-    }
+  public Integer getEnrollType() {
+    return this.enrollType;
+  }
 
-    public void setLearnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
-        this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
-    }
+  public void setEnrollType(Integer enrollType) {
+    this.enrollType = enrollType;
+  }
 
-    public String[] getOptionalLessonIds() {
-        return this.optionalLessonIds;
-    }
+  public Integer getLearningDuration() {
+    return this.learningDuration;
+  }
 
-    public void setOptionalLessonIds(String[] optionalLessonIds) {
-        this.optionalLessonIds = optionalLessonIds;
-    }
+  public void setLearningDuration(Integer learningDuration) {
+    this.learningDuration = learningDuration;
+  }
 
-    public String[] getLearnedOptionalLessonIds() {
-        return this.learnedOptionalLessonIds;
-    }
+  public Integer getFinishedAt() {
+    return this.finishedAt;
+  }
 
-    public void setLearnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
-        this.learnedOptionalLessonIds = learnedOptionalLessonIds;
-    }
+  public void setFinishedAt(Integer finishedAt) {
+    this.finishedAt = finishedAt;
+  }
 
+  public Integer getLearningState() {
+    return this.learningState;
+  }
+
+  public void setLearningState(Integer learningState) {
+    this.learningState = learningState;
+  }
+
+  public String[] getCompulsoryLessonIds() {
+    return this.compulsoryLessonIds;
+  }
+
+  public void setCompulsoryLessonIds(String[] compulsoryLessonIds) {
+    this.compulsoryLessonIds = compulsoryLessonIds;
+  }
+
+  public String[] getLearnedCompulsoryLessonIds() {
+    return this.learnedCompulsoryLessonIds;
+  }
+
+  public void setLearnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
+    this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
+  }
+
+  public String[] getOptionalLessonIds() {
+    return this.optionalLessonIds;
+  }
+
+  public void setOptionalLessonIds(String[] optionalLessonIds) {
+    this.optionalLessonIds = optionalLessonIds;
+  }
+
+  public String[] getLearnedOptionalLessonIds() {
+    return this.learnedOptionalLessonIds;
+  }
+
+  public void setLearnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
+    this.learnedOptionalLessonIds = learnedOptionalLessonIds;
+  }
 }

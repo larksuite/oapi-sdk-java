@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 元素类别
- */
+/** 元素类别 */
 public enum RichTextElementRichTextElementTypeEnum {
-    TEXT(0), // 文本
-    LINK(1), // 链接
-    MENTION_USER(2), // @用户
-    MENTION_DOC(3), // 文档
-    ;
-    private Integer value;
+  TEXT(0), // 文本
+  LINK(1), // 超链接
+  MENTION_USER(2), // @用户
+  MENTION_DOC(3), // 文档
+  ;
+  private Integer value;
 
-    RichTextElementRichTextElementTypeEnum(Integer value) {
-        this.value = value;
-    }
+  RichTextElementRichTextElementTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

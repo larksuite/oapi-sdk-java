@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 定薪方式
- */
+/** 定薪方式 */
 public enum PlanItemAdjustmentTypeEnum {
-    MANUAL("manual"), // 手动输入
-    FORMULA("formula"), // 公式计算
-    FIXED("fixed"), // 固定值
-    ;
-    private String value;
+  MANUAL("manual"), // 手动输入
+  FORMULA("formula"), // 公式计算
+  FIXED("fixed"), // 固定值
+  ;
+  private String value;
 
-    PlanItemAdjustmentTypeEnum(String value) {
-        this.value = value;
-    }
+  PlanItemAdjustmentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

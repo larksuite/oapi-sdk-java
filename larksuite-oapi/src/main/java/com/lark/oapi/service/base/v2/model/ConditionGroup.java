@@ -13,173 +13,178 @@
 
 package com.lark.oapi.service.base.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.base.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConditionGroup {
+  /**
+   * 条件组类型
+   *
+   * <p>示例值：and
+   */
+  @SerializedName("condition_type")
+  private Integer conditionType;
+
+  /**
+   * 条件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private RecRuleCondition[] conditions;
+
+  /**
+   * 条件符
+   *
+   * <p>示例值：or
+   */
+  @SerializedName("conjunction")
+  private String conjunction;
+
+  public Integer getConditionType() {
+    return this.conditionType;
+  }
+
+  public void setConditionType(Integer conditionType) {
+    this.conditionType = conditionType;
+  }
+
+  public RecRuleCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(RecRuleCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  public String getConjunction() {
+    return this.conjunction;
+  }
+
+  public void setConjunction(String conjunction) {
+    this.conjunction = conjunction;
+  }
+
+  // builder 开始
+  public ConditionGroup() {}
+
+  public ConditionGroup(Builder builder) {
     /**
      * 条件组类型
-     * <p> 示例值：and
+     *
+     * <p>示例值：and
      */
-    @SerializedName("condition_type")
-    private Integer conditionType;
+    this.conditionType = builder.conditionType;
     /**
      * 条件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
-    private RecRuleCondition[] conditions;
+    this.conditions = builder.conditions;
     /**
      * 条件符
-     * <p> 示例值：or
+     *
+     * <p>示例值：or
      */
-    @SerializedName("conjunction")
+    this.conjunction = builder.conjunction;
+  }
+
+  public static class Builder {
+    /**
+     * 条件组类型
+     *
+     * <p>示例值：and
+     */
+    private Integer conditionType;
+
+    /**
+     * 条件列表
+     *
+     * <p>示例值：
+     */
+    private RecRuleCondition[] conditions;
+
+    /**
+     * 条件符
+     *
+     * <p>示例值：or
+     */
     private String conjunction;
 
-    // builder 开始
-    public ConditionGroup() {
+    /**
+     * 条件组类型
+     *
+     * <p>示例值：and
+     *
+     * @param conditionType
+     * @return
+     */
+    public Builder conditionType(Integer conditionType) {
+      this.conditionType = conditionType;
+      return this;
     }
 
-    public ConditionGroup(Builder builder) {
-        /**
-         * 条件组类型
-         * <p> 示例值：and
-         */
-        this.conditionType = builder.conditionType;
-        /**
-         * 条件列表
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-        /**
-         * 条件符
-         * <p> 示例值：or
-         */
-        this.conjunction = builder.conjunction;
+    /**
+     * 条件组类型
+     *
+     * <p>示例值：and
+     *
+     * @param conditionType {@link
+     *     com.lark.oapi.service.base.v2.enums.ConditionGroupConditionTypeEnum}
+     * @return
+     */
+    public Builder conditionType(
+        com.lark.oapi.service.base.v2.enums.ConditionGroupConditionTypeEnum conditionType) {
+      this.conditionType = conditionType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 条件列表
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(RecRuleCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public Integer getConditionType() {
-        return this.conditionType;
+    /**
+     * 条件符
+     *
+     * <p>示例值：or
+     *
+     * @param conjunction
+     * @return
+     */
+    public Builder conjunction(String conjunction) {
+      this.conjunction = conjunction;
+      return this;
     }
 
-    public void setConditionType(Integer conditionType) {
-        this.conditionType = conditionType;
+    /**
+     * 条件符
+     *
+     * <p>示例值：or
+     *
+     * @param conjunction {@link com.lark.oapi.service.base.v2.enums.ConditionGroupConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.base.v2.enums.ConditionGroupConjunctionEnum conjunction) {
+      this.conjunction = conjunction.getValue();
+      return this;
     }
 
-    public RecRuleCondition[] getConditions() {
-        return this.conditions;
+    public ConditionGroup build() {
+      return new ConditionGroup(this);
     }
+  }
 
-    public void setConditions(RecRuleCondition[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public String getConjunction() {
-        return this.conjunction;
-    }
-
-    public void setConjunction(String conjunction) {
-        this.conjunction = conjunction;
-    }
-
-    public static class Builder {
-        /**
-         * 条件组类型
-         * <p> 示例值：and
-         */
-        private Integer conditionType;
-        /**
-         * 条件列表
-         * <p> 示例值：
-         */
-        private RecRuleCondition[] conditions;
-        /**
-         * 条件符
-         * <p> 示例值：or
-         */
-        private String conjunction;
-
-        /**
-         * 条件组类型
-         * <p> 示例值：and
-         *
-         * @param conditionType
-         * @return
-         */
-        public Builder conditionType(Integer conditionType) {
-            this.conditionType = conditionType;
-            return this;
-        }
-
-        /**
-         * 条件组类型
-         * <p> 示例值：and
-         *
-         * @param conditionType {@link com.lark.oapi.service.base.v2.enums.ConditionGroupConditionTypeEnum}
-         * @return
-         */
-        public Builder conditionType(com.lark.oapi.service.base.v2.enums.ConditionGroupConditionTypeEnum conditionType) {
-            this.conditionType = conditionType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 条件列表
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(RecRuleCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        /**
-         * 条件符
-         * <p> 示例值：or
-         *
-         * @param conjunction
-         * @return
-         */
-        public Builder conjunction(String conjunction) {
-            this.conjunction = conjunction;
-            return this;
-        }
-
-        /**
-         * 条件符
-         * <p> 示例值：or
-         *
-         * @param conjunction {@link com.lark.oapi.service.base.v2.enums.ConditionGroupConjunctionEnum}
-         * @return
-         */
-        public Builder conjunction(com.lark.oapi.service.base.v2.enums.ConditionGroupConjunctionEnum conjunction) {
-            this.conjunction = conjunction.getValue();
-            return this;
-        }
-
-
-        public ConditionGroup build() {
-            return new ConditionGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

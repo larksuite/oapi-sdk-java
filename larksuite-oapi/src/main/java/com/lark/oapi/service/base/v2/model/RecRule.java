@@ -13,308 +13,341 @@
 
 package com.lark.oapi.service.base.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.base.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecRule {
+  /**
+   * 记录筛选条件，用于指定可编辑或可阅读的记录。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private RecRuleCondition[] conditions;
+
+  /**
+   * 多个筛选条件的关系
+   *
+   * <p>示例值：and
+   */
+  @SerializedName("conjunction")
+  private String conjunction;
+
+  /**
+   * 命中 rec_rule 的记录对应的权限，可不设置，理论上应该与 table_perm 保持一致
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("perm")
+  private Integer perm;
+
+  /**
+   * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule`
+   * 的记录仅可阅读，不可编辑;- 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过
+   * `other_rec_rule` 进一步指定可阅读的记录范围。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("other_perm")
+  private Integer otherPerm;
+
+  /**
+   * 条件组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("condition_groups")
+  private ConditionGroup[] conditionGroups;
+
+  /**
+   * 条件版本
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("display_rec_rule_version")
+  private Integer displayRecRuleVersion;
+
+  public RecRuleCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(RecRuleCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  public String getConjunction() {
+    return this.conjunction;
+  }
+
+  public void setConjunction(String conjunction) {
+    this.conjunction = conjunction;
+  }
+
+  public Integer getPerm() {
+    return this.perm;
+  }
+
+  public void setPerm(Integer perm) {
+    this.perm = perm;
+  }
+
+  public Integer getOtherPerm() {
+    return this.otherPerm;
+  }
+
+  public void setOtherPerm(Integer otherPerm) {
+    this.otherPerm = otherPerm;
+  }
+
+  public ConditionGroup[] getConditionGroups() {
+    return this.conditionGroups;
+  }
+
+  public void setConditionGroups(ConditionGroup[] conditionGroups) {
+    this.conditionGroups = conditionGroups;
+  }
+
+  public Integer getDisplayRecRuleVersion() {
+    return this.displayRecRuleVersion;
+  }
+
+  public void setDisplayRecRuleVersion(Integer displayRecRuleVersion) {
+    this.displayRecRuleVersion = displayRecRuleVersion;
+  }
+
+  // builder 开始
+  public RecRule() {}
+
+  public RecRule(Builder builder) {
     /**
-     * 记录筛选条件
-     * <p> 示例值：
+     * 记录筛选条件，用于指定可编辑或可阅读的记录。
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
-    private RecRuleCondition[] conditions;
+    this.conditions = builder.conditions;
     /**
      * 多个筛选条件的关系
-     * <p> 示例值：and
+     *
+     * <p>示例值：and
      */
-    @SerializedName("conjunction")
-    private String conjunction;
+    this.conjunction = builder.conjunction;
     /**
-     * 规则筛选记录对应的权限
-     * <p> 示例值：1
+     * 命中 rec_rule 的记录对应的权限，可不设置，理论上应该与 table_perm 保持一致
+     *
+     * <p>示例值：1
      */
-    @SerializedName("perm")
-    private Integer perm;
+    this.perm = builder.perm;
     /**
-     * 其他记录权限，仅在table_perm为2时有效
-     * <p> 示例值：1
+     * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule`
+     * 的记录仅可阅读，不可编辑;- 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过
+     * `other_rec_rule` 进一步指定可阅读的记录范围。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("other_perm")
-    private Integer otherPerm;
+    this.otherPerm = builder.otherPerm;
     /**
      * 条件组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("condition_groups")
-    private ConditionGroup[] conditionGroups;
+    this.conditionGroups = builder.conditionGroups;
     /**
      * 条件版本
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("display_rec_rule_version")
+    this.displayRecRuleVersion = builder.displayRecRuleVersion;
+  }
+
+  public static class Builder {
+    /**
+     * 记录筛选条件，用于指定可编辑或可阅读的记录。
+     *
+     * <p>示例值：
+     */
+    private RecRuleCondition[] conditions;
+
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     */
+    private String conjunction;
+
+    /**
+     * 命中 rec_rule 的记录对应的权限，可不设置，理论上应该与 table_perm 保持一致
+     *
+     * <p>示例值：1
+     */
+    private Integer perm;
+
+    /**
+     * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule`
+     * 的记录仅可阅读，不可编辑;- 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过
+     * `other_rec_rule` 进一步指定可阅读的记录范围。
+     *
+     * <p>示例值：1
+     */
+    private Integer otherPerm;
+
+    /**
+     * 条件组
+     *
+     * <p>示例值：
+     */
+    private ConditionGroup[] conditionGroups;
+
+    /**
+     * 条件版本
+     *
+     * <p>示例值：1
+     */
     private Integer displayRecRuleVersion;
 
-    // builder 开始
-    public RecRule() {
+    /**
+     * 记录筛选条件，用于指定可编辑或可阅读的记录。
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(RecRuleCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public RecRule(Builder builder) {
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        this.conjunction = builder.conjunction;
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         */
-        this.perm = builder.perm;
-        /**
-         * 其他记录权限，仅在table_perm为2时有效
-         * <p> 示例值：1
-         */
-        this.otherPerm = builder.otherPerm;
-        /**
-         * 条件组
-         * <p> 示例值：
-         */
-        this.conditionGroups = builder.conditionGroups;
-        /**
-         * 条件版本
-         * <p> 示例值：1
-         */
-        this.displayRecRuleVersion = builder.displayRecRuleVersion;
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction
+     * @return
+     */
+    public Builder conjunction(String conjunction) {
+      this.conjunction = conjunction;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction {@link com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum conjunction) {
+      this.conjunction = conjunction.getValue();
+      return this;
     }
 
-    public RecRuleCondition[] getConditions() {
-        return this.conditions;
+    /**
+     * 命中 rec_rule 的记录对应的权限，可不设置，理论上应该与 table_perm 保持一致
+     *
+     * <p>示例值：1
+     *
+     * @param perm
+     * @return
+     */
+    public Builder perm(Integer perm) {
+      this.perm = perm;
+      return this;
     }
 
-    public void setConditions(RecRuleCondition[] conditions) {
-        this.conditions = conditions;
+    /**
+     * 命中 rec_rule 的记录对应的权限，可不设置，理论上应该与 table_perm 保持一致
+     *
+     * <p>示例值：1
+     *
+     * @param perm {@link com.lark.oapi.service.base.v2.enums.RecRulePermEnum}
+     * @return
+     */
+    public Builder perm(com.lark.oapi.service.base.v2.enums.RecRulePermEnum perm) {
+      this.perm = perm.getValue();
+      return this;
     }
 
-    public String getConjunction() {
-        return this.conjunction;
+    /**
+     * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule`
+     * 的记录仅可阅读，不可编辑;- 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过
+     * `other_rec_rule` 进一步指定可阅读的记录范围。
+     *
+     * <p>示例值：1
+     *
+     * @param otherPerm
+     * @return
+     */
+    public Builder otherPerm(Integer otherPerm) {
+      this.otherPerm = otherPerm;
+      return this;
     }
 
-    public void setConjunction(String conjunction) {
-        this.conjunction = conjunction;
+    /**
+     * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule`
+     * 的记录仅可阅读，不可编辑;- 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过
+     * `other_rec_rule` 进一步指定可阅读的记录范围。
+     *
+     * <p>示例值：1
+     *
+     * @param otherPerm {@link com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum}
+     * @return
+     */
+    public Builder otherPerm(com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum otherPerm) {
+      this.otherPerm = otherPerm.getValue();
+      return this;
     }
 
-    public Integer getPerm() {
-        return this.perm;
+    /**
+     * 条件组
+     *
+     * <p>示例值：
+     *
+     * @param conditionGroups
+     * @return
+     */
+    public Builder conditionGroups(ConditionGroup[] conditionGroups) {
+      this.conditionGroups = conditionGroups;
+      return this;
     }
 
-    public void setPerm(Integer perm) {
-        this.perm = perm;
+    /**
+     * 条件版本
+     *
+     * <p>示例值：1
+     *
+     * @param displayRecRuleVersion
+     * @return
+     */
+    public Builder displayRecRuleVersion(Integer displayRecRuleVersion) {
+      this.displayRecRuleVersion = displayRecRuleVersion;
+      return this;
     }
 
-    public Integer getOtherPerm() {
-        return this.otherPerm;
+    /**
+     * 条件版本
+     *
+     * <p>示例值：1
+     *
+     * @param displayRecRuleVersion {@link
+     *     com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum}
+     * @return
+     */
+    public Builder displayRecRuleVersion(
+        com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum
+            displayRecRuleVersion) {
+      this.displayRecRuleVersion = displayRecRuleVersion.getValue();
+      return this;
     }
 
-    public void setOtherPerm(Integer otherPerm) {
-        this.otherPerm = otherPerm;
+    public RecRule build() {
+      return new RecRule(this);
     }
+  }
 
-    public ConditionGroup[] getConditionGroups() {
-        return this.conditionGroups;
-    }
-
-    public void setConditionGroups(ConditionGroup[] conditionGroups) {
-        this.conditionGroups = conditionGroups;
-    }
-
-    public Integer getDisplayRecRuleVersion() {
-        return this.displayRecRuleVersion;
-    }
-
-    public void setDisplayRecRuleVersion(Integer displayRecRuleVersion) {
-        this.displayRecRuleVersion = displayRecRuleVersion;
-    }
-
-    public static class Builder {
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         */
-        private RecRuleCondition[] conditions;
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        private String conjunction;
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         */
-        private Integer perm;
-        /**
-         * 其他记录权限，仅在table_perm为2时有效
-         * <p> 示例值：1
-         */
-        private Integer otherPerm;
-        /**
-         * 条件组
-         * <p> 示例值：
-         */
-        private ConditionGroup[] conditionGroups;
-        /**
-         * 条件版本
-         * <p> 示例值：1
-         */
-        private Integer displayRecRuleVersion;
-
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(RecRuleCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction
-         * @return
-         */
-        public Builder conjunction(String conjunction) {
-            this.conjunction = conjunction;
-            return this;
-        }
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction {@link com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum}
-         * @return
-         */
-        public Builder conjunction(com.lark.oapi.service.base.v2.enums.RecRuleConjunctionEnum conjunction) {
-            this.conjunction = conjunction.getValue();
-            return this;
-        }
-
-
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         *
-         * @param perm
-         * @return
-         */
-        public Builder perm(Integer perm) {
-            this.perm = perm;
-            return this;
-        }
-
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         *
-         * @param perm {@link com.lark.oapi.service.base.v2.enums.RecRulePermEnum}
-         * @return
-         */
-        public Builder perm(com.lark.oapi.service.base.v2.enums.RecRulePermEnum perm) {
-            this.perm = perm.getValue();
-            return this;
-        }
-
-
-        /**
-         * 其他记录权限，仅在table_perm为2时有效
-         * <p> 示例值：1
-         *
-         * @param otherPerm
-         * @return
-         */
-        public Builder otherPerm(Integer otherPerm) {
-            this.otherPerm = otherPerm;
-            return this;
-        }
-
-        /**
-         * 其他记录权限，仅在table_perm为2时有效
-         * <p> 示例值：1
-         *
-         * @param otherPerm {@link com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum}
-         * @return
-         */
-        public Builder otherPerm(com.lark.oapi.service.base.v2.enums.RecRuleOtherPermEnum otherPerm) {
-            this.otherPerm = otherPerm.getValue();
-            return this;
-        }
-
-
-        /**
-         * 条件组
-         * <p> 示例值：
-         *
-         * @param conditionGroups
-         * @return
-         */
-        public Builder conditionGroups(ConditionGroup[] conditionGroups) {
-            this.conditionGroups = conditionGroups;
-            return this;
-        }
-
-
-        /**
-         * 条件版本
-         * <p> 示例值：1
-         *
-         * @param displayRecRuleVersion
-         * @return
-         */
-        public Builder displayRecRuleVersion(Integer displayRecRuleVersion) {
-            this.displayRecRuleVersion = displayRecRuleVersion;
-            return this;
-        }
-
-        /**
-         * 条件版本
-         * <p> 示例值：1
-         *
-         * @param displayRecRuleVersion {@link com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum}
-         * @return
-         */
-        public Builder displayRecRuleVersion(com.lark.oapi.service.base.v2.enums.RecRuleDisplayRecRuleVersionEnum displayRecRuleVersion) {
-            this.displayRecRuleVersion = displayRecRuleVersion.getValue();
-            return this;
-        }
-
-
-        public RecRule build() {
-            return new RecRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

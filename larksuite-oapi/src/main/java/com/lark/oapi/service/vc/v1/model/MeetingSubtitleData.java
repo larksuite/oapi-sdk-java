@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingSubtitleData {
+  /**
+   * 纳秒时间戳
+   *
+   * <p>示例值：9223372036854775807
+   */
+  @SerializedName("seg_id")
+  private Integer segId;
+
+  /**
+   * 字幕
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subtitle")
+  private MeetingSubtitle subtitle;
+
+  public Integer getSegId() {
+    return this.segId;
+  }
+
+  public void setSegId(Integer segId) {
+    this.segId = segId;
+  }
+
+  public MeetingSubtitle getSubtitle() {
+    return this.subtitle;
+  }
+
+  public void setSubtitle(MeetingSubtitle subtitle) {
+    this.subtitle = subtitle;
+  }
+
+  // builder 开始
+  public MeetingSubtitleData() {}
+
+  public MeetingSubtitleData(Builder builder) {
     /**
-     * 时间戳
-     * <p> 示例值：9223372036854775807
+     * 纳秒时间戳
+     *
+     * <p>示例值：9223372036854775807
      */
-    @SerializedName("seg_id")
-    private Integer segId;
+    this.segId = builder.segId;
     /**
      * 字幕
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subtitle")
+    this.subtitle = builder.subtitle;
+  }
+
+  public static class Builder {
+    /**
+     * 纳秒时间戳
+     *
+     * <p>示例值：9223372036854775807
+     */
+    private Integer segId;
+
+    /**
+     * 字幕
+     *
+     * <p>示例值：
+     */
     private MeetingSubtitle subtitle;
 
-    // builder 开始
-    public MeetingSubtitleData() {
+    /**
+     * 纳秒时间戳
+     *
+     * <p>示例值：9223372036854775807
+     *
+     * @param segId
+     * @return
+     */
+    public Builder segId(Integer segId) {
+      this.segId = segId;
+      return this;
     }
 
-    public MeetingSubtitleData(Builder builder) {
-        /**
-         * 时间戳
-         * <p> 示例值：9223372036854775807
-         */
-        this.segId = builder.segId;
-        /**
-         * 字幕
-         * <p> 示例值：
-         */
-        this.subtitle = builder.subtitle;
+    /**
+     * 字幕
+     *
+     * <p>示例值：
+     *
+     * @param subtitle
+     * @return
+     */
+    public Builder subtitle(MeetingSubtitle subtitle) {
+      this.subtitle = subtitle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MeetingSubtitleData build() {
+      return new MeetingSubtitleData(this);
     }
+  }
 
-    public Integer getSegId() {
-        return this.segId;
-    }
-
-    public void setSegId(Integer segId) {
-        this.segId = segId;
-    }
-
-    public MeetingSubtitle getSubtitle() {
-        return this.subtitle;
-    }
-
-    public void setSubtitle(MeetingSubtitle subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public static class Builder {
-        /**
-         * 时间戳
-         * <p> 示例值：9223372036854775807
-         */
-        private Integer segId;
-        /**
-         * 字幕
-         * <p> 示例值：
-         */
-        private MeetingSubtitle subtitle;
-
-        /**
-         * 时间戳
-         * <p> 示例值：9223372036854775807
-         *
-         * @param segId
-         * @return
-         */
-        public Builder segId(Integer segId) {
-            this.segId = segId;
-            return this;
-        }
-
-
-        /**
-         * 字幕
-         * <p> 示例值：
-         *
-         * @param subtitle
-         * @return
-         */
-        public Builder subtitle(MeetingSubtitle subtitle) {
-            this.subtitle = subtitle;
-            return this;
-        }
-
-
-        public MeetingSubtitleData build() {
-            return new MeetingSubtitleData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateLumpSumPaymentRespBody {
-    /**
-     * 每条记录的操作结果。对于创建成功的记录，会返回创建后的一次性支付记录id
-     * <p> 示例值：
-     */
-    @SerializedName("operate_results")
-    private LumpSumPaymentOperateResult[] operateResults;
+  /**
+   * 每条记录的操作结果。对于创建成功的记录，会返回创建后的一次性支付记录id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operate_results")
+  private LumpSumPaymentOperateResult[] operateResults;
 
-    public LumpSumPaymentOperateResult[] getOperateResults() {
-        return this.operateResults;
-    }
+  public LumpSumPaymentOperateResult[] getOperateResults() {
+    return this.operateResults;
+  }
 
-    public void setOperateResults(LumpSumPaymentOperateResult[] operateResults) {
-        this.operateResults = operateResults;
-    }
-
+  public void setOperateResults(LumpSumPaymentOperateResult[] operateResults) {
+    this.operateResults = operateResults;
+  }
 }

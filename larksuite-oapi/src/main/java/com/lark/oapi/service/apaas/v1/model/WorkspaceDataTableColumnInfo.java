@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkspaceDataTableColumnInfo {
+  /**
+   * 列名
+   *
+   * <p>示例值：column_name
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 列描述
+   *
+   * <p>示例值：column_name的描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 数据库数据类型
+   *
+   * <p>示例值：varchar
+   */
+  @SerializedName("data_type")
+  private String dataType;
+
+  /**
+   * 是否是主键
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_primary_key")
+  private Boolean isPrimaryKey;
+
+  /**
+   * 是否唯一
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_unique")
+  private Boolean isUnique;
+
+  /**
+   * 是否是自增
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_auto_increment")
+  private Boolean isAutoIncrement;
+
+  /**
+   * 是否是数组类型
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_array")
+  private Boolean isArray;
+
+  /**
+   * 是否允许为空
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_allow_null")
+  private Boolean isAllowNull;
+
+  /**
+   * 默认值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_value")
+  private String defaultValue;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getDataType() {
+    return this.dataType;
+  }
+
+  public void setDataType(String dataType) {
+    this.dataType = dataType;
+  }
+
+  public Boolean getIsPrimaryKey() {
+    return this.isPrimaryKey;
+  }
+
+  public void setIsPrimaryKey(Boolean isPrimaryKey) {
+    this.isPrimaryKey = isPrimaryKey;
+  }
+
+  public Boolean getIsUnique() {
+    return this.isUnique;
+  }
+
+  public void setIsUnique(Boolean isUnique) {
+    this.isUnique = isUnique;
+  }
+
+  public Boolean getIsAutoIncrement() {
+    return this.isAutoIncrement;
+  }
+
+  public void setIsAutoIncrement(Boolean isAutoIncrement) {
+    this.isAutoIncrement = isAutoIncrement;
+  }
+
+  public Boolean getIsArray() {
+    return this.isArray;
+  }
+
+  public void setIsArray(Boolean isArray) {
+    this.isArray = isArray;
+  }
+
+  public Boolean getIsAllowNull() {
+    return this.isAllowNull;
+  }
+
+  public void setIsAllowNull(Boolean isAllowNull) {
+    this.isAllowNull = isAllowNull;
+  }
+
+  public String getDefaultValue() {
+    return this.defaultValue;
+  }
+
+  public void setDefaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  // builder 开始
+  public WorkspaceDataTableColumnInfo() {}
+
+  public WorkspaceDataTableColumnInfo(Builder builder) {
     /**
      * 列名
-     * <p> 示例值：column_name
+     *
+     * <p>示例值：column_name
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 列描述
-     * <p> 示例值：column_name的描述
+     *
+     * <p>示例值：column_name的描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 数据库数据类型
-     * <p> 示例值：varchar
+     *
+     * <p>示例值：varchar
      */
-    @SerializedName("data_type")
-    private String dataType;
+    this.dataType = builder.dataType;
     /**
      * 是否是主键
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_primary_key")
-    private Boolean isPrimaryKey;
+    this.isPrimaryKey = builder.isPrimaryKey;
     /**
      * 是否唯一
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_unique")
-    private Boolean isUnique;
+    this.isUnique = builder.isUnique;
     /**
      * 是否是自增
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_auto_increment")
-    private Boolean isAutoIncrement;
+    this.isAutoIncrement = builder.isAutoIncrement;
     /**
      * 是否是数组类型
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_array")
-    private Boolean isArray;
+    this.isArray = builder.isArray;
     /**
      * 是否允许为空
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_allow_null")
-    private Boolean isAllowNull;
+    this.isAllowNull = builder.isAllowNull;
     /**
      * 默认值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_value")
+    this.defaultValue = builder.defaultValue;
+  }
+
+  public static class Builder {
+    /**
+     * 列名
+     *
+     * <p>示例值：column_name
+     */
+    private String name;
+
+    /**
+     * 列描述
+     *
+     * <p>示例值：column_name的描述
+     */
+    private String description;
+
+    /**
+     * 数据库数据类型
+     *
+     * <p>示例值：varchar
+     */
+    private String dataType;
+
+    /**
+     * 是否是主键
+     *
+     * <p>示例值：false
+     */
+    private Boolean isPrimaryKey;
+
+    /**
+     * 是否唯一
+     *
+     * <p>示例值：false
+     */
+    private Boolean isUnique;
+
+    /**
+     * 是否是自增
+     *
+     * <p>示例值：false
+     */
+    private Boolean isAutoIncrement;
+
+    /**
+     * 是否是数组类型
+     *
+     * <p>示例值：false
+     */
+    private Boolean isArray;
+
+    /**
+     * 是否允许为空
+     *
+     * <p>示例值：false
+     */
+    private Boolean isAllowNull;
+
+    /**
+     * 默认值
+     *
+     * <p>示例值：
+     */
     private String defaultValue;
 
-    // builder 开始
-    public WorkspaceDataTableColumnInfo() {
+    /**
+     * 列名
+     *
+     * <p>示例值：column_name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public WorkspaceDataTableColumnInfo(Builder builder) {
-        /**
-         * 列名
-         * <p> 示例值：column_name
-         */
-        this.name = builder.name;
-        /**
-         * 列描述
-         * <p> 示例值：column_name的描述
-         */
-        this.description = builder.description;
-        /**
-         * 数据库数据类型
-         * <p> 示例值：varchar
-         */
-        this.dataType = builder.dataType;
-        /**
-         * 是否是主键
-         * <p> 示例值：false
-         */
-        this.isPrimaryKey = builder.isPrimaryKey;
-        /**
-         * 是否唯一
-         * <p> 示例值：false
-         */
-        this.isUnique = builder.isUnique;
-        /**
-         * 是否是自增
-         * <p> 示例值：false
-         */
-        this.isAutoIncrement = builder.isAutoIncrement;
-        /**
-         * 是否是数组类型
-         * <p> 示例值：false
-         */
-        this.isArray = builder.isArray;
-        /**
-         * 是否允许为空
-         * <p> 示例值：false
-         */
-        this.isAllowNull = builder.isAllowNull;
-        /**
-         * 默认值
-         * <p> 示例值：
-         */
-        this.defaultValue = builder.defaultValue;
+    /**
+     * 列描述
+     *
+     * <p>示例值：column_name的描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据库数据类型
+     *
+     * <p>示例值：varchar
+     *
+     * @param dataType
+     * @return
+     */
+    public Builder dataType(String dataType) {
+      this.dataType = dataType;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 是否是主键
+     *
+     * <p>示例值：false
+     *
+     * @param isPrimaryKey
+     * @return
+     */
+    public Builder isPrimaryKey(Boolean isPrimaryKey) {
+      this.isPrimaryKey = isPrimaryKey;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 是否唯一
+     *
+     * <p>示例值：false
+     *
+     * @param isUnique
+     * @return
+     */
+    public Builder isUnique(Boolean isUnique) {
+      this.isUnique = isUnique;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 是否是自增
+     *
+     * <p>示例值：false
+     *
+     * @param isAutoIncrement
+     * @return
+     */
+    public Builder isAutoIncrement(Boolean isAutoIncrement) {
+      this.isAutoIncrement = isAutoIncrement;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 是否是数组类型
+     *
+     * <p>示例值：false
+     *
+     * @param isArray
+     * @return
+     */
+    public Builder isArray(Boolean isArray) {
+      this.isArray = isArray;
+      return this;
     }
 
-    public String getDataType() {
-        return this.dataType;
+    /**
+     * 是否允许为空
+     *
+     * <p>示例值：false
+     *
+     * @param isAllowNull
+     * @return
+     */
+    public Builder isAllowNull(Boolean isAllowNull) {
+      this.isAllowNull = isAllowNull;
+      return this;
     }
 
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
+    /**
+     * 默认值
+     *
+     * <p>示例值：
+     *
+     * @param defaultValue
+     * @return
+     */
+    public Builder defaultValue(String defaultValue) {
+      this.defaultValue = defaultValue;
+      return this;
     }
 
-    public Boolean getIsPrimaryKey() {
-        return this.isPrimaryKey;
+    public WorkspaceDataTableColumnInfo build() {
+      return new WorkspaceDataTableColumnInfo(this);
     }
+  }
 
-    public void setIsPrimaryKey(Boolean isPrimaryKey) {
-        this.isPrimaryKey = isPrimaryKey;
-    }
-
-    public Boolean getIsUnique() {
-        return this.isUnique;
-    }
-
-    public void setIsUnique(Boolean isUnique) {
-        this.isUnique = isUnique;
-    }
-
-    public Boolean getIsAutoIncrement() {
-        return this.isAutoIncrement;
-    }
-
-    public void setIsAutoIncrement(Boolean isAutoIncrement) {
-        this.isAutoIncrement = isAutoIncrement;
-    }
-
-    public Boolean getIsArray() {
-        return this.isArray;
-    }
-
-    public void setIsArray(Boolean isArray) {
-        this.isArray = isArray;
-    }
-
-    public Boolean getIsAllowNull() {
-        return this.isAllowNull;
-    }
-
-    public void setIsAllowNull(Boolean isAllowNull) {
-        this.isAllowNull = isAllowNull;
-    }
-
-    public String getDefaultValue() {
-        return this.defaultValue;
-    }
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
-    }
-
-    public static class Builder {
-        /**
-         * 列名
-         * <p> 示例值：column_name
-         */
-        private String name;
-        /**
-         * 列描述
-         * <p> 示例值：column_name的描述
-         */
-        private String description;
-        /**
-         * 数据库数据类型
-         * <p> 示例值：varchar
-         */
-        private String dataType;
-        /**
-         * 是否是主键
-         * <p> 示例值：false
-         */
-        private Boolean isPrimaryKey;
-        /**
-         * 是否唯一
-         * <p> 示例值：false
-         */
-        private Boolean isUnique;
-        /**
-         * 是否是自增
-         * <p> 示例值：false
-         */
-        private Boolean isAutoIncrement;
-        /**
-         * 是否是数组类型
-         * <p> 示例值：false
-         */
-        private Boolean isArray;
-        /**
-         * 是否允许为空
-         * <p> 示例值：false
-         */
-        private Boolean isAllowNull;
-        /**
-         * 默认值
-         * <p> 示例值：
-         */
-        private String defaultValue;
-
-        /**
-         * 列名
-         * <p> 示例值：column_name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 列描述
-         * <p> 示例值：column_name的描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 数据库数据类型
-         * <p> 示例值：varchar
-         *
-         * @param dataType
-         * @return
-         */
-        public Builder dataType(String dataType) {
-            this.dataType = dataType;
-            return this;
-        }
-
-
-        /**
-         * 是否是主键
-         * <p> 示例值：false
-         *
-         * @param isPrimaryKey
-         * @return
-         */
-        public Builder isPrimaryKey(Boolean isPrimaryKey) {
-            this.isPrimaryKey = isPrimaryKey;
-            return this;
-        }
-
-
-        /**
-         * 是否唯一
-         * <p> 示例值：false
-         *
-         * @param isUnique
-         * @return
-         */
-        public Builder isUnique(Boolean isUnique) {
-            this.isUnique = isUnique;
-            return this;
-        }
-
-
-        /**
-         * 是否是自增
-         * <p> 示例值：false
-         *
-         * @param isAutoIncrement
-         * @return
-         */
-        public Builder isAutoIncrement(Boolean isAutoIncrement) {
-            this.isAutoIncrement = isAutoIncrement;
-            return this;
-        }
-
-
-        /**
-         * 是否是数组类型
-         * <p> 示例值：false
-         *
-         * @param isArray
-         * @return
-         */
-        public Builder isArray(Boolean isArray) {
-            this.isArray = isArray;
-            return this;
-        }
-
-
-        /**
-         * 是否允许为空
-         * <p> 示例值：false
-         *
-         * @param isAllowNull
-         * @return
-         */
-        public Builder isAllowNull(Boolean isAllowNull) {
-            this.isAllowNull = isAllowNull;
-            return this;
-        }
-
-
-        /**
-         * 默认值
-         * <p> 示例值：
-         *
-         * @param defaultValue
-         * @return
-         */
-        public Builder defaultValue(String defaultValue) {
-            this.defaultValue = defaultValue;
-            return this;
-        }
-
-
-        public WorkspaceDataTableColumnInfo build() {
-            return new WorkspaceDataTableColumnInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

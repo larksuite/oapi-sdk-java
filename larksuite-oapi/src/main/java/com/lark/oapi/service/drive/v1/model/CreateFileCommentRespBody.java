@@ -13,188 +13,198 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileCommentRespBody {
-    /**
-     * 评论 ID
-     * <p> 示例值：69161068xxxxx512356
-     */
-    @SerializedName("comment_id")
-    private String commentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     */
-    @SerializedName("create_time")
-    private Integer createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：1610281603
-     */
-    @SerializedName("update_time")
-    private Integer updateTime;
-    /**
-     * 是否已解决
-     * <p> 示例值：
-     */
-    @SerializedName("is_solved")
-    private Boolean isSolved;
-    /**
-     * 解决评论时间
-     * <p> 示例值：1610281603
-     */
-    @SerializedName("solved_time")
-    private Integer solvedTime;
-    /**
-     * 解决评论者的用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("solver_user_id")
-    private String solverUserId;
-    /**
-     * 是否有更多回复
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 回复分页标记
-     * <p> 示例值：6916106822734512356
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否是全文评论
-     * <p> 示例值：
-     */
-    @SerializedName("is_whole")
-    private Boolean isWhole;
-    /**
-     * 局部评论的引用字段
-     * <p> 示例值：hello
-     */
-    @SerializedName("quote")
-    private String quote;
-    /**
-     * 评论里的回复列表
-     * <p> 示例值：
-     */
-    @SerializedName("reply_list")
-    private ReplyList replyList;
+  /**
+   * 评论 ID
+   *
+   * <p>示例值：69161068xxxxx512356
+   */
+  @SerializedName("comment_id")
+  private String commentId;
 
-    public String getCommentId() {
-        return this.commentId;
-    }
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_cc19b2bfb93f8a44db4b4d6eababcef
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1610281603
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1610281603
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  /**
+   * 是否已解决
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_solved")
+  private Boolean isSolved;
 
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
+  /**
+   * 解决评论时间
+   *
+   * <p>示例值：1610281603
+   */
+  @SerializedName("solved_time")
+  private Integer solvedTime;
 
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
+  /**
+   * 解决评论者的用户 ID
+   *
+   * <p>示例值：null
+   */
+  @SerializedName("solver_user_id")
+  private String solverUserId;
 
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
+  /**
+   * 是否有更多回复
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
+  /**
+   * 回复分页标记
+   *
+   * <p>示例值：6916106822734512356
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getIsSolved() {
-        return this.isSolved;
-    }
+  /**
+   * 是否是全文评论
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_whole")
+  private Boolean isWhole;
 
-    public void setIsSolved(Boolean isSolved) {
-        this.isSolved = isSolved;
-    }
+  /**
+   * 局部评论的引用字段
+   *
+   * <p>示例值：hello
+   */
+  @SerializedName("quote")
+  private String quote;
 
-    public Integer getSolvedTime() {
-        return this.solvedTime;
-    }
+  /**
+   * 评论里的回复列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reply_list")
+  private ReplyList replyList;
 
-    public void setSolvedTime(Integer solvedTime) {
-        this.solvedTime = solvedTime;
-    }
+  public String getCommentId() {
+    return this.commentId;
+  }
 
-    public String getSolverUserId() {
-        return this.solverUserId;
-    }
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
 
-    public void setSolverUserId(String solverUserId) {
-        this.solverUserId = solverUserId;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
 
-    public Boolean getIsWhole() {
-        return this.isWhole;
-    }
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public void setIsWhole(Boolean isWhole) {
-        this.isWhole = isWhole;
-    }
+  public Boolean getIsSolved() {
+    return this.isSolved;
+  }
 
-    public String getQuote() {
-        return this.quote;
-    }
+  public void setIsSolved(Boolean isSolved) {
+    this.isSolved = isSolved;
+  }
 
-    public void setQuote(String quote) {
-        this.quote = quote;
-    }
+  public Integer getSolvedTime() {
+    return this.solvedTime;
+  }
 
-    public ReplyList getReplyList() {
-        return this.replyList;
-    }
+  public void setSolvedTime(Integer solvedTime) {
+    this.solvedTime = solvedTime;
+  }
 
-    public void setReplyList(ReplyList replyList) {
-        this.replyList = replyList;
-    }
+  public String getSolverUserId() {
+    return this.solverUserId;
+  }
 
+  public void setSolverUserId(String solverUserId) {
+    this.solverUserId = solverUserId;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getIsWhole() {
+    return this.isWhole;
+  }
+
+  public void setIsWhole(Boolean isWhole) {
+    this.isWhole = isWhole;
+  }
+
+  public String getQuote() {
+    return this.quote;
+  }
+
+  public void setQuote(String quote) {
+    this.quote = quote;
+  }
+
+  public ReplyList getReplyList() {
+    return this.replyList;
+  }
+
+  public void setReplyList(ReplyList replyList) {
+    this.replyList = replyList;
+  }
 }

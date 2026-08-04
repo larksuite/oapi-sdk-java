@@ -13,76 +13,73 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecentChangeCustomOrgRespBody {
-    /**
-     * 自定义组织 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("custom_org_ids")
-    private String[] customOrgIds;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 删除的自定义组织 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("deleted_custom_org_ids")
-    private String[] deletedCustomOrgIds;
+  /**
+   * 自定义组织 ID 列表， 其中包含新建、更新以及删除的 ID 列表。;-
+   * 非删除的数据，可通过[查询自定义组织信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)
+   * 获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_org_ids")
+  private String[] customOrgIds;
 
-    public String[] getCustomOrgIds() {
-        return this.customOrgIds;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setCustomOrgIds(String[] customOrgIds) {
-        this.customOrgIds = customOrgIds;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 目标查询时间范围内被删除的自定义组织列表， 该列表是 department_ids 的子集，便于获取在指定的[start_date, end_date+1) 的范围内被删除的自定义组织
+   * IDs。;- **由于对应的自定义组织已经被删除，无法通过 ID 查询到历史数据。**
+   *
+   * <p>示例值：
+   */
+  @SerializedName("deleted_custom_org_ids")
+  private String[] deletedCustomOrgIds;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getCustomOrgIds() {
+    return this.customOrgIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setCustomOrgIds(String[] customOrgIds) {
+    this.customOrgIds = customOrgIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String[] getDeletedCustomOrgIds() {
-        return this.deletedCustomOrgIds;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setDeletedCustomOrgIds(String[] deletedCustomOrgIds) {
-        this.deletedCustomOrgIds = deletedCustomOrgIds;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String[] getDeletedCustomOrgIds() {
+    return this.deletedCustomOrgIds;
+  }
+
+  public void setDeletedCustomOrgIds(String[] deletedCustomOrgIds) {
+    this.deletedCustomOrgIds = deletedCustomOrgIds;
+  }
 }

@@ -13,46 +13,44 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 预览类型
- */
+/** 预览类型 */
 public enum PreviewResultItemPreviewTypeEnum {
-    PDF(0), // PDF预览
-    PNG(1), // PNG预览
-    PAGES(2), // 分页预览
-    VIDEO(3), // 视频预览
-    MP4_360P(4), // MP4 360P
-    MP4_480P(5), // MP4 480P
-    MP4_720P(6), // MP4 720P
-    JPG(7), // JPG预览
-    HTML(8), // HTML预览
-    PDF_LIN(9), // 线性化PDF
-    XOD(10), // XOD预览
-    JPG_LIN(11), // 线性化JPG
-    PNG_LIN(12), // 线性化PNG
-    ARCHIVE(13), // 压缩包预览
-    TEXT(14), // 文本预览
-    PDF_PART(15), // 部分PDF
-    SOURCE_FILE(16), // 源文件
-    VIDEO_META(17), // 视频元信息
-    WPS(18), // WPS预览
-    SPLIT_PNG(19), // 分页PNG
-    MEDIA_RESULT(20), // 媒体结果
-    MIME(21), // MIME类型
-    SPILT_IMG_TXT(22), // 图文分离
-    MP4_1080P(23), // MP4 1080P
-    IMAGE_META(24), // 图片元信息
-    DOC_PART(25), // 文档部分
-    WATERMARK_PDF(26), // 水印PDF
-    FILE_WATERMARK(27), // 文件水印
-    ;
-    private Integer value;
+  PDF(0), // PDF预览
+  PNG(1), // PNG预览
+  PAGES(2), // 分页预览
+  VIDEO(3), // 视频预览
+  MP4_360P(4), // MP4 360P
+  MP4_480P(5), // MP4 480P
+  MP4_720P(6), // MP4 720P
+  JPG(7), // JPG预览
+  HTML(8), // HTML预览
+  PDF_LIN(9), // 线性化PDF
+  XOD(10), // XOD预览
+  JPG_LIN(11), // 线性化JPG
+  PNG_LIN(12), // 线性化PNG
+  ARCHIVE(13), // 压缩包预览
+  TEXT(14), // 文本预览
+  PDF_PART(15), // 部分PDF
+  SOURCE_FILE(16), // 源文件
+  VIDEO_META(17), // 视频元信息
+  WPS(18), // WPS预览
+  SPLIT_PNG(19), // 分页PNG
+  MEDIA_RESULT(20), // 媒体结果
+  MIME(21), // MIME类型
+  SPILT_IMG_TXT(22), // 图文分离
+  MP4_1080P(23), // MP4 1080P
+  IMAGE_META(24), // 图片元信息
+  DOC_PART(25), // 文档部分
+  WATERMARK_PDF(26), // 水印PDF
+  FILE_WATERMARK(27), // 文件水印
+  ;
+  private Integer value;
 
-    PreviewResultItemPreviewTypeEnum(Integer value) {
-        this.value = value;
-    }
+  PreviewResultItemPreviewTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

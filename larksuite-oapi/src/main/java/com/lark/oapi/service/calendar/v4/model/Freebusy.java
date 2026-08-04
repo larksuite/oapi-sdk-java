@@ -13,161 +13,163 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Freebusy {
+  /**
+   * 忙闲信息开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+   *
+   * <p>示例值：2020-10-28T22:30:00+08:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 忙闲信息结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+   *
+   * <p>示例值：2020-10-28T22:45:00+08:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 用户RSVP状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rsvp_status")
+  private String rsvpStatus;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getRsvpStatus() {
+    return this.rsvpStatus;
+  }
+
+  public void setRsvpStatus(String rsvpStatus) {
+    this.rsvpStatus = rsvpStatus;
+  }
+
+  // builder 开始
+  public Freebusy() {}
+
+  public Freebusy(Builder builder) {
     /**
-     * 忙闲信息开始时间，RFC3339 date_time 格式
-     * <p> 示例值：2020-10-28T22:30:00+08:00
+     * 忙闲信息开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
      */
-    @SerializedName("start_time")
+    this.startTime = builder.startTime;
+    /**
+     * 忙闲信息结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:45:00+08:00
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 用户RSVP状态
+     *
+     * <p>示例值：
+     */
+    this.rsvpStatus = builder.rsvpStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 忙闲信息开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     */
     private String startTime;
+
     /**
-     * 忙闲信息结束时间，RFC3339 date_time 格式
-     * <p> 示例值：2020-10-28T22:45:00+08:00
+     * 忙闲信息结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:45:00+08:00
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 参与人RSVP状态
-     * <p> 示例值：
+     * 用户RSVP状态
+     *
+     * <p>示例值：
      */
-    @SerializedName("rsvp_status")
     private String rsvpStatus;
 
-    // builder 开始
-    public Freebusy() {
+    /**
+     * 忙闲信息开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public Freebusy(Builder builder) {
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:45:00+08:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：
-         */
-        this.rsvpStatus = builder.rsvpStatus;
+    /**
+     * 忙闲信息结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time 格式。
+     *
+     * <p>示例值：2020-10-28T22:45:00+08:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus
+     * @return
+     */
+    public Builder rsvpStatus(String rsvpStatus) {
+      this.rsvpStatus = rsvpStatus;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 用户RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum}
+     * @return
+     */
+    public Builder rsvpStatus(
+        com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum rsvpStatus) {
+      this.rsvpStatus = rsvpStatus.getValue();
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public Freebusy build() {
+      return new Freebusy(this);
     }
+  }
 
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getRsvpStatus() {
-        return this.rsvpStatus;
-    }
-
-    public void setRsvpStatus(String rsvpStatus) {
-        this.rsvpStatus = rsvpStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        private String startTime;
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:45:00+08:00
-         */
-        private String endTime;
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：
-         */
-        private String rsvpStatus;
-
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time 格式
-         * <p> 示例值：2020-10-28T22:45:00+08:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：
-         *
-         * @param rsvpStatus
-         * @return
-         */
-        public Builder rsvpStatus(String rsvpStatus) {
-            this.rsvpStatus = rsvpStatus;
-            return this;
-        }
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：
-         *
-         * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum}
-         * @return
-         */
-        public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.FreebusyRsvpStatusEnum rsvpStatus) {
-            this.rsvpStatus = rsvpStatus.getValue();
-            return this;
-        }
-
-
-        public Freebusy build() {
-            return new Freebusy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

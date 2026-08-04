@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDocumentBlockDescendantRespBody {
-    /**
-     * 所添加的孩子的 Block 信息
-     * <p> 示例值：111
-     */
-    @SerializedName("children")
-    private Block[] children;
-    /**
-     * 当前提交的 Block 创建成功后文档的版本号
-     * <p> 示例值：1
-     */
-    @SerializedName("document_revision_id")
-    private Integer documentRevisionId;
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
-     */
-    @SerializedName("client_token")
-    private String clientToken;
-    /**
-     * 传入的临时 BlockID 与真实 BlockID 映射关系
-     * <p> 示例值：
-     */
-    @SerializedName("block_id_relations")
-    private BlockIdRelation[] blockIdRelations;
+  /**
+   * 添加的子块信息
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("children")
+  private Block[] children;
 
-    public Block[] getChildren() {
-        return this.children;
-    }
+  /**
+   * 当前提交的 Block 创建成功后文档的版本号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("document_revision_id")
+  private Integer documentRevisionId;
 
-    public void setChildren(Block[] children) {
-        this.children = children;
-    }
+  /**
+   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+   *
+   * <p>示例值：80bf5b2a-4dea-4c02-8a84-a0e682de463d
+   */
+  @SerializedName("client_token")
+  private String clientToken;
 
-    public Integer getDocumentRevisionId() {
-        return this.documentRevisionId;
-    }
+  /**
+   * 传入的临时 Block ID 与实际 Block ID 映射关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("block_id_relations")
+  private BlockIdRelation[] blockIdRelations;
 
-    public void setDocumentRevisionId(Integer documentRevisionId) {
-        this.documentRevisionId = documentRevisionId;
-    }
+  public Block[] getChildren() {
+    return this.children;
+  }
 
-    public String getClientToken() {
-        return this.clientToken;
-    }
+  public void setChildren(Block[] children) {
+    this.children = children;
+  }
 
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
+  public Integer getDocumentRevisionId() {
+    return this.documentRevisionId;
+  }
 
-    public BlockIdRelation[] getBlockIdRelations() {
-        return this.blockIdRelations;
-    }
+  public void setDocumentRevisionId(Integer documentRevisionId) {
+    this.documentRevisionId = documentRevisionId;
+  }
 
-    public void setBlockIdRelations(BlockIdRelation[] blockIdRelations) {
-        this.blockIdRelations = blockIdRelations;
-    }
+  public String getClientToken() {
+    return this.clientToken;
+  }
 
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public BlockIdRelation[] getBlockIdRelations() {
+    return this.blockIdRelations;
+  }
+
+  public void setBlockIdRelations(BlockIdRelation[] blockIdRelations) {
+    this.blockIdRelations = blockIdRelations;
+  }
 }

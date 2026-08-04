@@ -13,433 +13,689 @@
 
 package com.lark.oapi.service.task.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.task.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class CustomField {
-    private static final Logger log = LoggerFactory.getLogger(CustomField.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(CustomField.class);
+  private final Config config;
 
-    public CustomField(Config config) {
-        this.config = config;
+  public CustomField(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 将自定义字段加入资源，将自定义字段加入一个资源。目前资源类型支持清单tasklist。一个自定义字段可以加入多个清单中。加入后，该清单可以展示任务的该字段的值，同时基于该字段实现筛选，分组等功能。;;如果自定义字段的设置被更新，字段加入的所有资源都能收到这个更新，并进行相应的展示。
+   *
+   * <p>将自定义字段加入一个资源需要该字段和资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java</a>
+   * ;
+   */
+  public AddCustomFieldResp add(AddCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid/add",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java</a> ;
-     */
-    public AddCustomFieldResp add(AddCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid/add"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        AddCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AddCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid/add"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    AddCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AddCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid/add",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java</a> ;
-     */
-    public AddCustomFieldResp add(AddCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid/add"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        AddCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AddCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid/add"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 将自定义字段加入资源，将自定义字段加入一个资源。目前资源类型支持清单tasklist。一个自定义字段可以加入多个清单中。加入后，该清单可以展示任务的该字段的值，同时基于该字段实现筛选，分组等功能。;;如果自定义字段的设置被更新，字段加入的所有资源都能收到这个更新，并进行相应的展示。
+   *
+   * <p>将自定义字段加入一个资源需要该字段和资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/AddCustomFieldSample.java</a>
+   * ;
+   */
+  public AddCustomFieldResp add(AddCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid/add",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    AddCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AddCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid/add",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java</a> ;
-     */
-    public CreateCustomFieldResp create(CreateCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 创建自定义字段，创建一个自定义字段，并将其加入一个资源上（目前资源只支持清单）。创建自定义字段必须提供字段名称，类型和相应类型的设置。;;目前任务自定义字段支持数字(number)，成员(member)，日期(datetime)，单选(single_select),多选(multi_select),
+   * 文本(text)几种类型。分别使用"number_setting", "member_setting", "datetime_setting",
+   * "single_select_setting",
+   * "multi_select_setting","text_setting"来设置。;;例如创建一个数字类型的自定义字段，并添加到guid为"ec5ed63d-a4a9-44de-a935-7ba243471c0a"的清单，可以这样发请求。;;```;POST
+   * /task/v2/custom_fields;{; "name": "价格",; "type": "number",; "resource_type": "tasklist",;
+   * "resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",; "number_setting": {; "format": "cny",;
+   * "decimal_count": 2,; "separator": "thousand";
+   * };};```;表示创建一个叫做“价格”的自定义字段，保留两位小数。在界面上显示时采用人民币的格式，并显示千分位分隔符。;;类似的，创建一个单选字段，可以这样调用接口：;```;POST
+   * /task/v2/custom_fields;{; "name": "优先级",; "type": "single_select",; "resource_type":
+   * "tasklist",; "resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",; "single_select_setting":
+   * {; "options": [; {; "name": "高",; "color_index": 1; },; {; "name": "中",; "color_index": 11; },;
+   * {; "name": "低",; "color_index": 16; }; ];
+   * };};```;表示创建一个叫“优先级”的单选，包含“高”，“中”，“低”三个选项，每个选项设置一个颜色值。
+   *
+   * <p>在一个资源上创建自定义字段需要该资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java</a>
+   * ;
+   */
+  public CreateCustomFieldResp create(CreateCustomFieldReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java</a> ;
-     */
-    public CreateCustomFieldResp create(CreateCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        CreateCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java</a> ;
-     */
-    public GetCustomFieldResp get(GetCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 创建自定义字段，创建一个自定义字段，并将其加入一个资源上（目前资源只支持清单）。创建自定义字段必须提供字段名称，类型和相应类型的设置。;;目前任务自定义字段支持数字(number)，成员(member)，日期(datetime)，单选(single_select),多选(multi_select),
+   * 文本(text)几种类型。分别使用"number_setting", "member_setting", "datetime_setting",
+   * "single_select_setting",
+   * "multi_select_setting","text_setting"来设置。;;例如创建一个数字类型的自定义字段，并添加到guid为"ec5ed63d-a4a9-44de-a935-7ba243471c0a"的清单，可以这样发请求。;;```;POST
+   * /task/v2/custom_fields;{; "name": "价格",; "type": "number",; "resource_type": "tasklist",;
+   * "resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",; "number_setting": {; "format": "cny",;
+   * "decimal_count": 2,; "separator": "thousand";
+   * };};```;表示创建一个叫做“价格”的自定义字段，保留两位小数。在界面上显示时采用人民币的格式，并显示千分位分隔符。;;类似的，创建一个单选字段，可以这样调用接口：;```;POST
+   * /task/v2/custom_fields;{; "name": "优先级",; "type": "single_select",; "resource_type":
+   * "tasklist",; "resource_id": "ec5ed63d-a4a9-44de-a935-7ba243471c0a",; "single_select_setting":
+   * {; "options": [; {; "name": "高",; "color_index": 1; },; {; "name": "中",; "color_index": 11; },;
+   * {; "name": "低",; "color_index": 16; }; ];
+   * };};```;表示创建一个叫“优先级”的单选，包含“高”，“中”，“低”三个选项，每个选项设置一个颜色值。
+   *
+   * <p>在一个资源上创建自定义字段需要该资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateCustomFieldSample.java</a>
+   * ;
+   */
+  public CreateCustomFieldResp create(CreateCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java</a> ;
-     */
-    public GetCustomFieldResp get(GetCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 获取自定义字段，根据一个自定义字段的GUID，获取其详细的设置信息。
+   *
+   * <p>获取自定义字段需要有自定义字段的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java</a>
+   * ;
+   */
+  public GetCustomFieldResp get(GetCustomFieldReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java</a> ;
-     */
-    public ListCustomFieldResp list(ListCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/custom_fields"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        ListCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java</a> ;
-     */
-    public ListCustomFieldResp list(ListCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/custom_fields"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取自定义字段，根据一个自定义字段的GUID，获取其详细的设置信息。
+   *
+   * <p>获取自定义字段需要有自定义字段的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetCustomFieldSample.java</a>
+   * ;
+   */
+  public GetCustomFieldResp get(GetCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    GetCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java</a> ;
-     */
-    public PatchCustomFieldResp patch(PatchCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        PatchCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 列取自定义字段，列取用户可访问的自定义字段列表。如果不提供`resource_type`和`resource_id`参数，则返回用户可访问的所有自定义字段。;;如果提供`resource_type`和`resource_id`，则返回该资源下的自定义字段。目前`resource_type`仅支持"tasklist"，此时`resource_id`应为一个清单的tasklist_guid。;;该接口支持分页。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java</a>
+   * ;
+   */
+  public ListCustomFieldResp list(ListCustomFieldReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java</a> ;
-     */
-    public PatchCustomFieldResp patch(PatchCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/custom_fields",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        PatchCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java</a> ;
-     */
-    public RemoveCustomFieldResp remove(RemoveCustomFieldReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid/remove"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        RemoveCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid/remove"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 列取自定义字段，列取用户可访问的自定义字段列表。如果不提供`resource_type`和`resource_id`参数，则返回用户可访问的所有自定义字段。;;如果提供`resource_type`和`resource_id`，则返回该资源下的自定义字段。目前`resource_type`仅支持"tasklist"，此时`resource_id`应为一个清单的tasklist_guid。;;该接口支持分页。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListCustomFieldSample.java</a>
+   * ;
+   */
+  public ListCustomFieldResp list(ListCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/custom_fields",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    ListCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java</a> ;
-     */
-    public RemoveCustomFieldResp remove(RemoveCustomFieldReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/custom_fields/:custom_field_guid/remove"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        RemoveCustomFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveCustomFieldResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/custom_fields/:custom_field_guid/remove"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 更新自定义字段，更新一个自定义字段的名称和设定。更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`custom_field`字段中填写要修改的字段的新值即可。自定义字段不允许修改类型，只能根据类型修改其设置。;;`update_fields`支持更新的字段包括：;;*
+   * `name`：自定义字段名称;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);* `member_setting`
+   * ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置 (当且仅当要更新的自定义字段类型是日期时);*
+   * `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);* `multi_select_setting`：多选类型设置
+   * (当且仅当要更新的自定义字段类型是多选时);* `text_setting`:
+   * 文本类型设置（目前文本类型没有可设置项）;;当更改某个设置时，如果不填写一个字段，表示不覆盖原有的设定。比如，对于一个数字，原有的setting是:;```json;"number_setting":
+   * {; "format": "normal",; "decimal_count": 2,; "separator": "none",; "custom_symbol": "L",;
+   * "custom_symbol_position": "right";};```;;使用如下参数调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "number_setting": {;
+   * "decimal_count": 4; }; },; "update_fields":
+   * ["number_setting"];};```;;表示仅仅将小数位数从2改为4，其余的设置`format`, `separator`,
+   * `custom_field`等都不变。;;对于单选/多选类型的自定义字段，其设定是一个选项列表。更新时，使用方式接近使用App的界面。使用者不必传入字段的所有选项，而是只需要提供最终希望界面可见（is_hidden=false)
+   * 的选项。原有字段中的选项如果没有出现在输入中，则被置为`is_hidden=true`并放到所有可见选项之后。;;对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在response中被返回)。;;例如，一个单选字段原来有3个选项A，B，C，D。其中C是隐藏的。用户可以这样更新选项：;;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "options": [; {; "name": "E",; "color_index": 25; },; {; "guid": "<option_guid of A>"; "name":
+   * "A2"; },; {; "guid": "<option_guid of C>",; },; ]; }; },; "update_fields":
+   * ["single_select_setting"];};```;;调用后最终得到了新的选项列表E, A, C, B, D。其中：;;*
+   * 选项E被新建出来，其`color_index`被设为了25。;* 选项A被更新，其名称被改为了"A2"。但其color_index因为没有设置而保持不变；;*
+   * 选项整体顺序遵循用户的输入顺序，即E，A，C。同时E，A，C作为直接的输入，其is_hidden均被设为了false，其中，C原本是is_hidden=true，也会被设置为is_hidden=false。;*
+   * 选项B和D因为用户没有输入，其`is_hidden`被置为了true，并且被放到了所有用户输入的选项之后。;;如果只是单纯的希望修改用户可见的选项的顺序，比如从原本的选项A,B,C修改为C,B,A，可以这样调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "optoins": [; {; "guid": "<option_guid_of_C>"; },; {; "guid": "<option_guid of B>"; },; {;
+   * "guid": "<option_guid of A>",; },; ]; }; },; "update_fields":
+   * ["single_select_setting"];};```;;如果希望直接将字段里的所有选项都标记为不可见，可以这样调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "optoins": []; }; },; "update_fields":
+   * ["single_select_setting"];};```;;更新单选/多选字段的选项必须满足“可见选项名字不能重复”的约束。否则会返回错误。开发者需要自行保证输入的选项名不可以重复。;;如希望只更新单个选项，或者希望单独设置某个选项的is_hidden，本接口无法支持，但可以使用[更新自定义字段选项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/patch)接口实现。
+   *
+   * <p>更新自定义字段需要拥有自定义字段的编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java</a>
+   * ;
+   */
+  public PatchCustomFieldResp patch(PatchCustomFieldReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    PatchCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新自定义字段，更新一个自定义字段的名称和设定。更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`custom_field`字段中填写要修改的字段的新值即可。自定义字段不允许修改类型，只能根据类型修改其设置。;;`update_fields`支持更新的字段包括：;;*
+   * `name`：自定义字段名称;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);* `member_setting`
+   * ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置 (当且仅当要更新的自定义字段类型是日期时);*
+   * `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);* `multi_select_setting`：多选类型设置
+   * (当且仅当要更新的自定义字段类型是多选时);* `text_setting`:
+   * 文本类型设置（目前文本类型没有可设置项）;;当更改某个设置时，如果不填写一个字段，表示不覆盖原有的设定。比如，对于一个数字，原有的setting是:;```json;"number_setting":
+   * {; "format": "normal",; "decimal_count": 2,; "separator": "none",; "custom_symbol": "L",;
+   * "custom_symbol_position": "right";};```;;使用如下参数调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "number_setting": {;
+   * "decimal_count": 4; }; },; "update_fields":
+   * ["number_setting"];};```;;表示仅仅将小数位数从2改为4，其余的设置`format`, `separator`,
+   * `custom_field`等都不变。;;对于单选/多选类型的自定义字段，其设定是一个选项列表。更新时，使用方式接近使用App的界面。使用者不必传入字段的所有选项，而是只需要提供最终希望界面可见（is_hidden=false)
+   * 的选项。原有字段中的选项如果没有出现在输入中，则被置为`is_hidden=true`并放到所有可见选项之后。;;对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在response中被返回)。;;例如，一个单选字段原来有3个选项A，B，C，D。其中C是隐藏的。用户可以这样更新选项：;;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "options": [; {; "name": "E",; "color_index": 25; },; {; "guid": "<option_guid of A>"; "name":
+   * "A2"; },; {; "guid": "<option_guid of C>",; },; ]; }; },; "update_fields":
+   * ["single_select_setting"];};```;;调用后最终得到了新的选项列表E, A, C, B, D。其中：;;*
+   * 选项E被新建出来，其`color_index`被设为了25。;* 选项A被更新，其名称被改为了"A2"。但其color_index因为没有设置而保持不变；;*
+   * 选项整体顺序遵循用户的输入顺序，即E，A，C。同时E，A，C作为直接的输入，其is_hidden均被设为了false，其中，C原本是is_hidden=true，也会被设置为is_hidden=false。;*
+   * 选项B和D因为用户没有输入，其`is_hidden`被置为了true，并且被放到了所有用户输入的选项之后。;;如果只是单纯的希望修改用户可见的选项的顺序，比如从原本的选项A,B,C修改为C,B,A，可以这样调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "optoins": [; {; "guid": "<option_guid_of_C>"; },; {; "guid": "<option_guid of B>"; },; {;
+   * "guid": "<option_guid of A>",; },; ]; }; },; "update_fields":
+   * ["single_select_setting"];};```;;如果希望直接将字段里的所有选项都标记为不可见，可以这样调用接口：;```;PATCH
+   * /task/v2/custom_fields/:custom_field_guid;{; "custom_field": {; "single_select_setting": {;
+   * "optoins": []; }; },; "update_fields":
+   * ["single_select_setting"];};```;;更新单选/多选字段的选项必须满足“可见选项名字不能重复”的约束。否则会返回错误。开发者需要自行保证输入的选项名不可以重复。;;如希望只更新单个选项，或者希望单独设置某个选项的is_hidden，本接口无法支持，但可以使用[更新自定义字段选项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/patch)接口实现。
+   *
+   * <p>更新自定义字段需要拥有自定义字段的编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchCustomFieldSample.java</a>
+   * ;
+   */
+  public PatchCustomFieldResp patch(PatchCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    PatchCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, PatchCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 将自定义字段移出资源，将自定义字段从资源中移出。移除后，该资源将无法再使用该字段。目前资源的类型支持"tasklist"。;;如果要移除的自定义字段本来就不存在于资源中，本接口将正常返回。;;注意自定义字段是通过清单来实现授权的，如果将自定义字段从所有关联的清单中移除，就意味着任何调用身份都无法再访问改自定义字段。
+   *
+   * <p>需要资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java</a>
+   * ;
+   */
+  public RemoveCustomFieldResp remove(RemoveCustomFieldReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid/remove",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    RemoveCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid/remove",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 将自定义字段移出资源，将自定义字段从资源中移出。移除后，该资源将无法再使用该字段。目前资源的类型支持"tasklist"。;;如果要移除的自定义字段本来就不存在于资源中，本接口将正常返回。;;注意自定义字段是通过清单来实现授权的，如果将自定义字段从所有关联的清单中移除，就意味着任何调用身份都无法再访问改自定义字段。
+   *
+   * <p>需要资源的可编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=remove&project=task&resource=custom_field&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/RemoveCustomFieldSample.java</a>
+   * ;
+   */
+  public RemoveCustomFieldResp remove(RemoveCustomFieldReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/custom_fields/:custom_field_guid/remove",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    RemoveCustomFieldResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, RemoveCustomFieldResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/custom_fields/:custom_field_guid/remove",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

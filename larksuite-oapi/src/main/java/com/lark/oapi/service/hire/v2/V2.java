@@ -18,19 +18,19 @@ import com.lark.oapi.service.hire.v2.resource.InterviewRecord;
 import com.lark.oapi.service.hire.v2.resource.Talent;
 
 public class V2 {
-    private final InterviewRecord interviewRecord; // interview_record
-    private final Talent talent; // 人才
+  private final InterviewRecord interviewRecord; // interview_record
+  private final Talent talent; // talent
 
-    public V2(Config config) {
-        this.interviewRecord = new InterviewRecord(config);
-        this.talent = new Talent(config);
-    }
+  public V2(Config config) {
+    this.interviewRecord = new InterviewRecord(config);
+    this.talent = new Talent(config);
+  }
 
-    public InterviewRecord interviewRecord() {
-        return interviewRecord;
-    }
+  public InterviewRecord interviewRecord() {
+    return interviewRecord;
+  }
 
-    public Talent talent() {
-        return talent;
-    }
+  public Talent talent() {
+    return talent;
+  }
 }

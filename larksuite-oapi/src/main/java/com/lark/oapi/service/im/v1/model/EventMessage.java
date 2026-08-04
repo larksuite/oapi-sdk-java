@@ -13,519 +13,601 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventMessage {
+  /**
+   * 消息 ID。由系统生成的唯一 ID 标识，基于该 ID
+   * 可以[回复消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply)
+   * 或其他管理消息的操作。
+   *
+   * <p>示例值：om_5ce6d572455d361153b7cb51da133945
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 根消息 ID，仅在回复消息场景会有返回值。了解 root_id
+   * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+   *
+   * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+   */
+  @SerializedName("root_id")
+  private String rootId;
+
+  /**
+   * 父消息 ID，仅在回复消息场景会有返回值。了解 parent_id
+   * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+   *
+   * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 消息发送时间（毫秒）
+   *
+   * <p>示例值：1609073151345
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 消息更新时间（毫秒）
+   *
+   * <p>示例值：1687343654666
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 消息所在的群组
+   * ID。调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，可通过
+   * ID 获取群组信息。
+   *
+   * <p>示例值：oc_5ce6d572455d361153b7xx51da133945
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 消息所属的话题
+   * ID（不返回说明该消息非话题消息）。了解话题可参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)。
+   *
+   * <p>示例值：omt_d4be107c616
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 消息所在的群组类型;;**可能值有**：;- `p2p`：单聊;- `group`： 群组
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_type")
+  private String chatType;
+
+  /**
+   * 消息类型，可能返回的消息类型以及详细介绍，参见[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)。
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("message_type")
+  private String messageType;
+
+  /**
+   * 消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。
+   *
+   * <p>示例值：{\"text\":\"@_user_1 hello\"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 被提及用户的信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mentions")
+  private MentionEvent[] mentions;
+
+  /**
+   * 用户代理数据，仅在接收事件的机器人具备==获取客户端用户代理信息（im:user_agent:read）==权限时返回
+   *
+   * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko)
+   * Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
+   */
+  @SerializedName("user_agent")
+  private String userAgent;
+
+  /**
+   * 智能体上下文信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lark_agent_context")
+  private LarkAgentContext larkAgentContext;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getRootId() {
+    return this.rootId;
+  }
+
+  public void setRootId(String rootId) {
+    this.rootId = rootId;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(String chatType) {
+    this.chatType = chatType;
+  }
+
+  public String getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public MentionEvent[] getMentions() {
+    return this.mentions;
+  }
+
+  public void setMentions(MentionEvent[] mentions) {
+    this.mentions = mentions;
+  }
+
+  public String getUserAgent() {
+    return this.userAgent;
+  }
+
+  public void setUserAgent(String userAgent) {
+    this.userAgent = userAgent;
+  }
+
+  public LarkAgentContext getLarkAgentContext() {
+    return this.larkAgentContext;
+  }
+
+  public void setLarkAgentContext(LarkAgentContext larkAgentContext) {
+    this.larkAgentContext = larkAgentContext;
+  }
+
+  // builder 开始
+  public EventMessage() {}
+
+  public EventMessage(Builder builder) {
     /**
-     * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
+     * 消息 ID。由系统生成的唯一 ID 标识，基于该 ID
+     * 可以[回复消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply)
+     * 或其他管理消息的操作。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb51da133945
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
-     * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     * 根消息 ID，仅在回复消息场景会有返回值。了解 root_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
      */
-    @SerializedName("root_id")
-    private String rootId;
+    this.rootId = builder.rootId;
     /**
-     * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     * 父消息 ID，仅在回复消息场景会有返回值。了解 parent_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 消息发送时间（毫秒）
-     * <p> 示例值：1609073151345
+     *
+     * <p>示例值：1609073151345
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 消息更新时间（毫秒）
-     * <p> 示例值：1687343654666
+     *
+     * <p>示例值：1687343654666
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
-     * 消息所在的群组 ID
-     * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
+     * 消息所在的群组
+     * ID。调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，可通过
+     * ID 获取群组信息。
+     *
+     * <p>示例值：oc_5ce6d572455d361153b7xx51da133945
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
-     * 消息所属的话题 ID
-     * <p> 示例值：omt_d4be107c616
+     * 消息所属的话题
+     * ID（不返回说明该消息非话题消息）。了解话题可参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)。
+     *
+     * <p>示例值：omt_d4be107c616
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
-     * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
-     * <p> 示例值：group
+     * 消息所在的群组类型;;**可能值有**：;- `p2p`：单聊;- `group`： 群组
+     *
+     * <p>示例值：group
      */
-    @SerializedName("chat_type")
-    private String chatType;
+    this.chatType = builder.chatType;
     /**
-     * 消息类型
-     * <p> 示例值：text
+     * 消息类型，可能返回的消息类型以及详细介绍，参见[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)。
+     *
+     * <p>示例值：text
      */
-    @SerializedName("message_type")
-    private String messageType;
+    this.messageType = builder.messageType;
     /**
-     * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-     * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+     * 消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 被提及用户的信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mentions")
-    private MentionEvent[] mentions;
+    this.mentions = builder.mentions;
     /**
-     * 用户代理
-     * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
+     * 用户代理数据，仅在接收事件的机器人具备==获取客户端用户代理信息（im:user_agent:read）==权限时返回
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
      */
-    @SerializedName("user_agent")
-    private String userAgent;
+    this.userAgent = builder.userAgent;
     /**
      * 智能体上下文信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("lark_agent_context")
+    this.larkAgentContext = builder.larkAgentContext;
+  }
+
+  public static class Builder {
+    /**
+     * 消息 ID。由系统生成的唯一 ID 标识，基于该 ID
+     * 可以[回复消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply)
+     * 或其他管理消息的操作。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb51da133945
+     */
+    private String messageId;
+
+    /**
+     * 根消息 ID，仅在回复消息场景会有返回值。了解 root_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
+    private String rootId;
+
+    /**
+     * 父消息 ID，仅在回复消息场景会有返回值。了解 parent_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
+    private String parentId;
+
+    /**
+     * 消息发送时间（毫秒）
+     *
+     * <p>示例值：1609073151345
+     */
+    private String createTime;
+
+    /**
+     * 消息更新时间（毫秒）
+     *
+     * <p>示例值：1687343654666
+     */
+    private String updateTime;
+
+    /**
+     * 消息所在的群组
+     * ID。调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，可通过
+     * ID 获取群组信息。
+     *
+     * <p>示例值：oc_5ce6d572455d361153b7xx51da133945
+     */
+    private String chatId;
+
+    /**
+     * 消息所属的话题
+     * ID（不返回说明该消息非话题消息）。了解话题可参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)。
+     *
+     * <p>示例值：omt_d4be107c616
+     */
+    private String threadId;
+
+    /**
+     * 消息所在的群组类型;;**可能值有**：;- `p2p`：单聊;- `group`： 群组
+     *
+     * <p>示例值：group
+     */
+    private String chatType;
+
+    /**
+     * 消息类型，可能返回的消息类型以及详细介绍，参见[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)。
+     *
+     * <p>示例值：text
+     */
+    private String messageType;
+
+    /**
+     * 消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
+     */
+    private String content;
+
+    /**
+     * 被提及用户的信息
+     *
+     * <p>示例值：
+     */
+    private MentionEvent[] mentions;
+
+    /**
+     * 用户代理数据，仅在接收事件的机器人具备==获取客户端用户代理信息（im:user_agent:read）==权限时返回
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
+     */
+    private String userAgent;
+
+    /**
+     * 智能体上下文信息
+     *
+     * <p>示例值：
+     */
     private LarkAgentContext larkAgentContext;
 
-    // builder 开始
-    public EventMessage() {
+    /**
+     * 消息 ID。由系统生成的唯一 ID 标识，基于该 ID
+     * 可以[回复消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply)
+     * 或其他管理消息的操作。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb51da133945
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public EventMessage(Builder builder) {
-        /**
-         * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         */
-        this.rootId = builder.rootId;
-        /**
-         * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 消息发送时间（毫秒）
-         * <p> 示例值：1609073151345
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 消息更新时间（毫秒）
-         * <p> 示例值：1687343654666
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 消息所在的群组 ID
-         * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
-         * <p> 示例值：group
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         */
-        this.content = builder.content;
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         */
-        this.mentions = builder.mentions;
-        /**
-         * 用户代理
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
-         */
-        this.userAgent = builder.userAgent;
-        /**
-         * 智能体上下文信息
-         * <p> 示例值：
-         */
-        this.larkAgentContext = builder.larkAgentContext;
+    /**
+     * 根消息 ID，仅在回复消息场景会有返回值。了解 root_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     *
+     * @param rootId
+     * @return
+     */
+    public Builder rootId(String rootId) {
+      this.rootId = rootId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 父消息 ID，仅在回复消息场景会有返回值。了解 parent_id
+     * 可参见[消息管理概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro)。
+     *
+     * <p>示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 消息发送时间（毫秒）
+     *
+     * <p>示例值：1609073151345
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 消息更新时间（毫秒）
+     *
+     * <p>示例值：1687343654666
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getRootId() {
-        return this.rootId;
+    /**
+     * 消息所在的群组
+     * ID。调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，可通过
+     * ID 获取群组信息。
+     *
+     * <p>示例值：oc_5ce6d572455d361153b7xx51da133945
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public void setRootId(String rootId) {
-        this.rootId = rootId;
+    /**
+     * 消息所属的话题
+     * ID（不返回说明该消息非话题消息）。了解话题可参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)。
+     *
+     * <p>示例值：omt_d4be107c616
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 消息所在的群组类型;;**可能值有**：;- `p2p`：单聊;- `group`： 群组
+     *
+     * <p>示例值：group
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(String chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    /**
+     * 消息类型，可能返回的消息类型以及详细介绍，参见[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)。
+     *
+     * <p>示例值：text
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(String messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 被提及用户的信息
+     *
+     * <p>示例值：
+     *
+     * @param mentions
+     * @return
+     */
+    public Builder mentions(MentionEvent[] mentions) {
+      this.mentions = mentions;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 用户代理数据，仅在接收事件的机器人具备==获取客户端用户代理信息（im:user_agent:read）==权限时返回
+     *
+     * <p>示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko)
+     * Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
+     *
+     * @param userAgent
+     * @return
+     */
+    public Builder userAgent(String userAgent) {
+      this.userAgent = userAgent;
+      return this;
     }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 智能体上下文信息
+     *
+     * <p>示例值：
+     *
+     * @param larkAgentContext
+     * @return
+     */
+    public Builder larkAgentContext(LarkAgentContext larkAgentContext) {
+      this.larkAgentContext = larkAgentContext;
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    public EventMessage build() {
+      return new EventMessage(this);
     }
+  }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(String chatType) {
-        this.chatType = chatType;
-    }
-
-    public String getMessageType() {
-        return this.messageType;
-    }
-
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public MentionEvent[] getMentions() {
-        return this.mentions;
-    }
-
-    public void setMentions(MentionEvent[] mentions) {
-        this.mentions = mentions;
-    }
-
-    public String getUserAgent() {
-        return this.userAgent;
-    }
-
-    public void setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public LarkAgentContext getLarkAgentContext() {
-        return this.larkAgentContext;
-    }
-
-    public void setLarkAgentContext(LarkAgentContext larkAgentContext) {
-        this.larkAgentContext = larkAgentContext;
-    }
-
-    public static class Builder {
-        /**
-         * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
-         */
-        private String messageId;
-        /**
-         * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         */
-        private String rootId;
-        /**
-         * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         */
-        private String parentId;
-        /**
-         * 消息发送时间（毫秒）
-         * <p> 示例值：1609073151345
-         */
-        private String createTime;
-        /**
-         * 消息更新时间（毫秒）
-         * <p> 示例值：1687343654666
-         */
-        private String updateTime;
-        /**
-         * 消息所在的群组 ID
-         * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
-         */
-        private String chatId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         */
-        private String threadId;
-        /**
-         * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
-         * <p> 示例值：group
-         */
-        private String chatType;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        private String messageType;
-        /**
-         * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         */
-        private String content;
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         */
-        private MentionEvent[] mentions;
-        /**
-         * 用户代理
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
-         */
-        private String userAgent;
-        /**
-         * 智能体上下文信息
-         * <p> 示例值：
-         */
-        private LarkAgentContext larkAgentContext;
-
-        /**
-         * 消息的open_message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 根消息id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         *
-         * @param rootId
-         * @return
-         */
-        public Builder rootId(String rootId) {
-            this.rootId = rootId;
-            return this;
-        }
-
-
-        /**
-         * 父消息的id，用于回复消息场景，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 消息发送时间（毫秒）
-         * <p> 示例值：1609073151345
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 消息更新时间（毫秒）
-         * <p> 示例值：1687343654666
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 消息所在的群组 ID
-         * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 消息所在的群组类型;;**可选值有**：;- `p2p`：单聊;- `group`： 群组;- `topic_group`：话题群
-         * <p> 示例值：group
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(String chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(String messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-
-        /**
-         * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         *
-         * @param mentions
-         * @return
-         */
-        public Builder mentions(MentionEvent[] mentions) {
-            this.mentions = mentions;
-            return this;
-        }
-
-
-        /**
-         * 用户代理
-         * <p> 示例值：Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.53 Safari/537.36 Lark/6.7.5 LarkLocale/en_US ttnet SDK-Version/6.7.8
-         *
-         * @param userAgent
-         * @return
-         */
-        public Builder userAgent(String userAgent) {
-            this.userAgent = userAgent;
-            return this;
-        }
-
-
-        /**
-         * 智能体上下文信息
-         * <p> 示例值：
-         *
-         * @param larkAgentContext
-         * @return
-         */
-        public Builder larkAgentContext(LarkAgentContext larkAgentContext) {
-            this.larkAgentContext = larkAgentContext;
-            return this;
-        }
-
-
-        public EventMessage build() {
-            return new EventMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

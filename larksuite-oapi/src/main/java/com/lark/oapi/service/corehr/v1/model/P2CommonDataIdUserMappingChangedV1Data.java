@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CommonDataIdUserMappingChangedV1Data {
-    /**
-     * 变更类型，取值范围：insert、delete
-     * <p> 示例值：insert
-     */
-    @SerializedName("change_type")
-    private String changeType;
-    /**
-     * ID转换类型。1:飞书人事<->飞书，2:飞书人事<->PeopleAdmin，3:PeopleAdmin<->飞书
-     * <p> 示例值：1
-     */
-    @SerializedName("id_transform_type")
-    private Integer idTransformType;
-    /**
-     * 飞书人事ID，仅id_transform_type等于1、2时有值
-     * <p> 示例值：6814523528021526024
-     */
-    @SerializedName("corehr_id")
-    private String corehrId;
-    /**
-     * PeopleAdmin ID，仅id_transform_type等于2、3时有值
-     * <p> 示例值：6894136542327997966
-     */
-    @SerializedName("people_admin_id")
-    private String peopleAdminId;
-    /**
-     * 飞书ID，仅id_transform_type等于1、3时有值
-     * <p> 示例值：
-     */
-    @SerializedName("feishu_id")
-    private UserId feishuId;
+  /**
+   * 变更类型。insert：创建用户ID映射，delete：删除用户ID映射。
+   *
+   * <p>示例值：insert
+   */
+  @SerializedName("change_type")
+  private String changeType;
 
-    public String getChangeType() {
-        return this.changeType;
-    }
+  /**
+   * ID转换类型。1:飞书人事<->飞书，2:飞书人事<->PeopleAdmin，3:PeopleAdmin<->飞书。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id_transform_type")
+  private Integer idTransformType;
 
-    public void setChangeType(String changeType) {
-        this.changeType = changeType;
-    }
+  /**
+   * 飞书人事ID，仅id_transform_type等于1、2时有值。
+   *
+   * <p>示例值：6814523528021526024
+   */
+  @SerializedName("corehr_id")
+  private String corehrId;
 
-    public Integer getIdTransformType() {
-        return this.idTransformType;
-    }
+  /**
+   * PeopleAdmin ID，仅id_transform_type等于2、3时有值。
+   *
+   * <p>示例值：6894136542327997966
+   */
+  @SerializedName("people_admin_id")
+  private String peopleAdminId;
 
-    public void setIdTransformType(Integer idTransformType) {
-        this.idTransformType = idTransformType;
-    }
+  /**
+   * 飞书用户ID，仅id_transform_type等于1、3时有值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("feishu_id")
+  private UserId feishuId;
 
-    public String getCorehrId() {
-        return this.corehrId;
-    }
+  public String getChangeType() {
+    return this.changeType;
+  }
 
-    public void setCorehrId(String corehrId) {
-        this.corehrId = corehrId;
-    }
+  public void setChangeType(String changeType) {
+    this.changeType = changeType;
+  }
 
-    public String getPeopleAdminId() {
-        return this.peopleAdminId;
-    }
+  public Integer getIdTransformType() {
+    return this.idTransformType;
+  }
 
-    public void setPeopleAdminId(String peopleAdminId) {
-        this.peopleAdminId = peopleAdminId;
-    }
+  public void setIdTransformType(Integer idTransformType) {
+    this.idTransformType = idTransformType;
+  }
 
-    public UserId getFeishuId() {
-        return this.feishuId;
-    }
+  public String getCorehrId() {
+    return this.corehrId;
+  }
 
-    public void setFeishuId(UserId feishuId) {
-        this.feishuId = feishuId;
-    }
+  public void setCorehrId(String corehrId) {
+    this.corehrId = corehrId;
+  }
 
+  public String getPeopleAdminId() {
+    return this.peopleAdminId;
+  }
+
+  public void setPeopleAdminId(String peopleAdminId) {
+    this.peopleAdminId = peopleAdminId;
+  }
+
+  public UserId getFeishuId() {
+    return this.feishuId;
+  }
+
+  public void setFeishuId(UserId feishuId) {
+    this.feishuId = feishuId;
+  }
 }

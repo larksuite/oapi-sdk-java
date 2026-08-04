@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTicketReqBody {
+  /**
+   * 工单新status，status对应具体的含义如下：1: 待响应, 2: 处理中, 3: 排队中, 4: 待定, 5: 待用户响应, 50: 机器人关闭工单, 51: 人工关闭工单
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 新标签名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag_names")
+  private String[] tagNames;
+
+  /**
+   * 新评论
+   *
+   * <p>示例值：good
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_fields")
+  private CustomizedFieldDisplayItem[] customizedFields;
+
+  /**
+   * ticket stage
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("ticket_type")
+  private Integer ticketType;
+
+  /**
+   * 工单是否解决，1: 未解决, 2: 已解决
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("solved")
+  private Integer solved;
+
+  /**
+   * 工单来源渠道ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("channel")
+  private Integer channel;
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String[] getTagNames() {
+    return this.tagNames;
+  }
+
+  public void setTagNames(String[] tagNames) {
+    this.tagNames = tagNames;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public CustomizedFieldDisplayItem[] getCustomizedFields() {
+    return this.customizedFields;
+  }
+
+  public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+    this.customizedFields = customizedFields;
+  }
+
+  public Integer getTicketType() {
+    return this.ticketType;
+  }
+
+  public void setTicketType(Integer ticketType) {
+    this.ticketType = ticketType;
+  }
+
+  public Integer getSolved() {
+    return this.solved;
+  }
+
+  public void setSolved(Integer solved) {
+    this.solved = solved;
+  }
+
+  public Integer getChannel() {
+    return this.channel;
+  }
+
+  public void setChannel(Integer channel) {
+    this.channel = channel;
+  }
+
+  // builder 开始
+  public UpdateTicketReqBody() {}
+
+  public UpdateTicketReqBody(Builder builder) {
     /**
-     * new status, 1: 已创建, 2: 处理中, 3: 排队中, 5: 待定, 50: 机器人关闭工单, 51: 关闭工单
-     * <p> 示例值：1
+     * 工单新status，status对应具体的含义如下：1: 待响应, 2: 处理中, 3: 排队中, 4: 待定, 5: 待用户响应, 50: 机器人关闭工单, 51: 人工关闭工单
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 新标签名
-     * <p> 示例值：abc
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag_names")
-    private String[] tagNames;
+    this.tagNames = builder.tagNames;
     /**
      * 新评论
-     * <p> 示例值：good
+     *
+     * <p>示例值：good
      */
-    @SerializedName("comment")
-    private String comment;
+    this.comment = builder.comment;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_fields")
-    private CustomizedFieldDisplayItem[] customizedFields;
+    this.customizedFields = builder.customizedFields;
     /**
      * ticket stage
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("ticket_type")
-    private Integer ticketType;
+    this.ticketType = builder.ticketType;
     /**
      * 工单是否解决，1: 未解决, 2: 已解决
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("solved")
-    private Integer solved;
+    this.solved = builder.solved;
     /**
      * 工单来源渠道ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("channel")
+    this.channel = builder.channel;
+  }
+
+  public static class Builder {
+    /**
+     * 工单新status，status对应具体的含义如下：1: 待响应, 2: 处理中, 3: 排队中, 4: 待定, 5: 待用户响应, 50: 机器人关闭工单, 51: 人工关闭工单
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 新标签名
+     *
+     * <p>示例值：
+     */
+    private String[] tagNames;
+
+    /**
+     * 新评论
+     *
+     * <p>示例值：good
+     */
+    private String comment;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private CustomizedFieldDisplayItem[] customizedFields;
+
+    /**
+     * ticket stage
+     *
+     * <p>示例值：1
+     */
+    private Integer ticketType;
+
+    /**
+     * 工单是否解决，1: 未解决, 2: 已解决
+     *
+     * <p>示例值：1
+     */
+    private Integer solved;
+
+    /**
+     * 工单来源渠道ID
+     *
+     * <p>示例值：1
+     */
     private Integer channel;
 
-    // builder 开始
-    public UpdateTicketReqBody() {
+    /**
+     * 工单新status，status对应具体的含义如下：1: 待响应, 2: 处理中, 3: 排队中, 4: 待定, 5: 待用户响应, 50: 机器人关闭工单, 51: 人工关闭工单
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public UpdateTicketReqBody(Builder builder) {
-        /**
-         * new status, 1: 已创建, 2: 处理中, 3: 排队中, 5: 待定, 50: 机器人关闭工单, 51: 关闭工单
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 新标签名
-         * <p> 示例值：abc
-         */
-        this.tagNames = builder.tagNames;
-        /**
-         * 新评论
-         * <p> 示例值：good
-         */
-        this.comment = builder.comment;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedFields = builder.customizedFields;
-        /**
-         * ticket stage
-         * <p> 示例值：1
-         */
-        this.ticketType = builder.ticketType;
-        /**
-         * 工单是否解决，1: 未解决, 2: 已解决
-         * <p> 示例值：1
-         */
-        this.solved = builder.solved;
-        /**
-         * 工单来源渠道ID
-         * <p> 示例值：1
-         */
-        this.channel = builder.channel;
+    /**
+     * 新标签名
+     *
+     * <p>示例值：
+     *
+     * @param tagNames
+     * @return
+     */
+    public Builder tagNames(String[] tagNames) {
+      this.tagNames = tagNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 新评论
+     *
+     * <p>示例值：good
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedFields
+     * @return
+     */
+    public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+      this.customizedFields = customizedFields;
+      return this;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    /**
+     * ticket stage
+     *
+     * <p>示例值：1
+     *
+     * @param ticketType
+     * @return
+     */
+    public Builder ticketType(Integer ticketType) {
+      this.ticketType = ticketType;
+      return this;
     }
 
-    public String[] getTagNames() {
-        return this.tagNames;
+    /**
+     * 工单是否解决，1: 未解决, 2: 已解决
+     *
+     * <p>示例值：1
+     *
+     * @param solved
+     * @return
+     */
+    public Builder solved(Integer solved) {
+      this.solved = solved;
+      return this;
     }
 
-    public void setTagNames(String[] tagNames) {
-        this.tagNames = tagNames;
+    /**
+     * 工单来源渠道ID
+     *
+     * <p>示例值：1
+     *
+     * @param channel
+     * @return
+     */
+    public Builder channel(Integer channel) {
+      this.channel = channel;
+      return this;
     }
 
-    public String getComment() {
-        return this.comment;
+    public UpdateTicketReqBody build() {
+      return new UpdateTicketReqBody(this);
     }
+  }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public CustomizedFieldDisplayItem[] getCustomizedFields() {
-        return this.customizedFields;
-    }
-
-    public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-        this.customizedFields = customizedFields;
-    }
-
-    public Integer getTicketType() {
-        return this.ticketType;
-    }
-
-    public void setTicketType(Integer ticketType) {
-        this.ticketType = ticketType;
-    }
-
-    public Integer getSolved() {
-        return this.solved;
-    }
-
-    public void setSolved(Integer solved) {
-        this.solved = solved;
-    }
-
-    public Integer getChannel() {
-        return this.channel;
-    }
-
-    public void setChannel(Integer channel) {
-        this.channel = channel;
-    }
-
-    public static class Builder {
-        /**
-         * new status, 1: 已创建, 2: 处理中, 3: 排队中, 5: 待定, 50: 机器人关闭工单, 51: 关闭工单
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 新标签名
-         * <p> 示例值：abc
-         */
-        private String[] tagNames;
-        /**
-         * 新评论
-         * <p> 示例值：good
-         */
-        private String comment;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomizedFieldDisplayItem[] customizedFields;
-        /**
-         * ticket stage
-         * <p> 示例值：1
-         */
-        private Integer ticketType;
-        /**
-         * 工单是否解决，1: 未解决, 2: 已解决
-         * <p> 示例值：1
-         */
-        private Integer solved;
-        /**
-         * 工单来源渠道ID
-         * <p> 示例值：1
-         */
-        private Integer channel;
-
-        /**
-         * new status, 1: 已创建, 2: 处理中, 3: 排队中, 5: 待定, 50: 机器人关闭工单, 51: 关闭工单
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 新标签名
-         * <p> 示例值：abc
-         *
-         * @param tagNames
-         * @return
-         */
-        public Builder tagNames(String[] tagNames) {
-            this.tagNames = tagNames;
-            return this;
-        }
-
-
-        /**
-         * 新评论
-         * <p> 示例值：good
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedFields
-         * @return
-         */
-        public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-            this.customizedFields = customizedFields;
-            return this;
-        }
-
-
-        /**
-         * ticket stage
-         * <p> 示例值：1
-         *
-         * @param ticketType
-         * @return
-         */
-        public Builder ticketType(Integer ticketType) {
-            this.ticketType = ticketType;
-            return this;
-        }
-
-
-        /**
-         * 工单是否解决，1: 未解决, 2: 已解决
-         * <p> 示例值：1
-         *
-         * @param solved
-         * @return
-         */
-        public Builder solved(Integer solved) {
-            this.solved = solved;
-            return this;
-        }
-
-
-        /**
-         * 工单来源渠道ID
-         * <p> 示例值：1
-         *
-         * @param channel
-         * @return
-         */
-        public Builder channel(Integer channel) {
-            this.channel = channel;
-            return this;
-        }
-
-
-        public UpdateTicketReqBody build() {
-            return new UpdateTicketReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

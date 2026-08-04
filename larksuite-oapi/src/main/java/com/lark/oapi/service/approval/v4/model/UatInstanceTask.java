@@ -13,358 +13,386 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UatInstanceTask {
+  /**
+   * 审批任务id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 审批人的用户id，自动通过、自动拒绝 时为空
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * instance 状态
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * task 所属节点 id
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b64
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  /**
+   * task 所属节点名称
+   *
+   * <p>示例值：开始
+   */
+  @SerializedName("node_name")
+  private String nodeName;
+
+  /**
+   * 审批方式
+   *
+   * <p>示例值：AND
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * task 开始时间
+   *
+   * <p>示例值：1564590532967
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * task 完成时间, 未完成为 0
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeName() {
+    return this.nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public UatInstanceTask() {}
+
+  public UatInstanceTask(Builder builder) {
     /**
      * 审批任务id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 审批人的用户id，自动通过、自动拒绝 时为空
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * instance 状态
-     * <p> 示例值：PENDING
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * task 所属节点 id
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
      */
-    @SerializedName("node_id")
-    private String nodeId;
+    this.nodeId = builder.nodeId;
     /**
      * task 所属节点名称
-     * <p> 示例值：开始
+     *
+     * <p>示例值：开始
      */
-    @SerializedName("node_name")
-    private String nodeName;
+    this.nodeName = builder.nodeName;
     /**
      * 审批方式
-     * <p> 示例值：AND
+     *
+     * <p>示例值：AND
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * task 开始时间
-     * <p> 示例值：1564590532967
+     *
+     * <p>示例值：1564590532967
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * task 完成时间, 未完成为 0
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 审批任务id
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 审批人的用户id，自动通过、自动拒绝 时为空
+     *
+     * <p>示例值：12345
+     */
+    private String userId;
+
+    /**
+     * instance 状态
+     *
+     * <p>示例值：PENDING
+     */
+    private String status;
+
+    /**
+     * task 所属节点 id
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     */
+    private String nodeId;
+
+    /**
+     * task 所属节点名称
+     *
+     * <p>示例值：开始
+     */
+    private String nodeName;
+
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     */
+    private String type;
+
+    /**
+     * task 开始时间
+     *
+     * <p>示例值：1564590532967
+     */
+    private String startTime;
+
+    /**
+     * task 完成时间, 未完成为 0
+     *
+     * <p>示例值：0
+     */
     private String endTime;
 
-    // builder 开始
-    public UatInstanceTask() {
+    /**
+     * 审批任务id
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UatInstanceTask(Builder builder) {
-        /**
-         * 审批任务id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：12345
-         */
-        this.userId = builder.userId;
-        /**
-         * instance 状态
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         */
-        this.nodeName = builder.nodeName;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        this.type = builder.type;
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         */
-        this.startTime = builder.startTime;
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 审批人的用户id，自动通过、自动拒绝 时为空
+     *
+     * <p>示例值：12345
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * instance 状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * instance 状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.UatInstanceTaskStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.UatInstanceTaskStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * task 所属节点 id
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * task 所属节点名称
+     *
+     * <p>示例值：开始
+     *
+     * @param nodeName
+     * @return
+     */
+    public Builder nodeName(String nodeName) {
+      this.nodeName = nodeName;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.UatInstanceTaskTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.UatInstanceTaskTaskTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * task 开始时间
+     *
+     * <p>示例值：1564590532967
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getNodeId() {
-        return this.nodeId;
+    /**
+     * task 完成时间, 未完成为 0
+     *
+     * <p>示例值：0
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    public UatInstanceTask build() {
+      return new UatInstanceTask(this);
     }
+  }
 
-    public String getNodeName() {
-        return this.nodeName;
-    }
-
-    public void setNodeName(String nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 审批任务id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：12345
-         */
-        private String userId;
-        /**
-         * instance 状态
-         * <p> 示例值：PENDING
-         */
-        private String status;
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        private String nodeId;
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         */
-        private String nodeName;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        private String type;
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         */
-        private String startTime;
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         */
-        private String endTime;
-
-        /**
-         * 审批任务id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：12345
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * instance 状态
-         * <p> 示例值：PENDING
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * instance 状态
-         * <p> 示例值：PENDING
-         *
-         * @param status {@link com.lark.oapi.service.approval.v4.enums.UatInstanceTaskStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.approval.v4.enums.UatInstanceTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         *
-         * @param nodeName
-         * @return
-         */
-        public Builder nodeName(String nodeName) {
-            this.nodeName = nodeName;
-            return this;
-        }
-
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type {@link com.lark.oapi.service.approval.v4.enums.UatInstanceTaskTaskTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.approval.v4.enums.UatInstanceTaskTaskTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public UatInstanceTask build() {
-            return new UatInstanceTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

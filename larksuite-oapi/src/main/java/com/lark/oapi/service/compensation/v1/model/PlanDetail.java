@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PlanDetail {
+  /**
+   * 薪资方案ID
+   *
+   * <p>示例值：2134193289
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 薪资方案版本ID
+   *
+   * <p>示例值：129738122
+   */
+  @SerializedName("tid")
+  private String tid;
+
+  /**
+   * 薪资方案名称
+   *
+   * <p>示例值：基本月薪方案
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 薪资方案描述
+   *
+   * <p>示例值：基本月薪方案描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 薪资方案生效时间
+   *
+   * <p>示例值：2022-10-20
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 薪资方案适用范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_scope")
+  private PlanScope planScope;
+
+  /**
+   * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+   *
+   * <p>示例值：341324121
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 开启试用期薪酬状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("probation_salary_status")
+  private Boolean probationSalaryStatus;
+
+  /**
+   * 方案关联的薪资项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_items")
+  private PlanItem[] planItems;
+
+  /**
+   * 方案关联的薪资统计指标
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_indicators")
+  private PlanIndicator[] planIndicators;
+
+  /**
+   * 多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private I18nContent[] i18nNames;
+
+  /**
+   * 多语言描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_descriptions")
+  private I18nContent[] i18nDescriptions;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTid() {
+    return this.tid;
+  }
+
+  public void setTid(String tid) {
+    this.tid = tid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public PlanScope getPlanScope() {
+    return this.planScope;
+  }
+
+  public void setPlanScope(PlanScope planScope) {
+    this.planScope = planScope;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public Boolean getProbationSalaryStatus() {
+    return this.probationSalaryStatus;
+  }
+
+  public void setProbationSalaryStatus(Boolean probationSalaryStatus) {
+    this.probationSalaryStatus = probationSalaryStatus;
+  }
+
+  public PlanItem[] getPlanItems() {
+    return this.planItems;
+  }
+
+  public void setPlanItems(PlanItem[] planItems) {
+    this.planItems = planItems;
+  }
+
+  public PlanIndicator[] getPlanIndicators() {
+    return this.planIndicators;
+  }
+
+  public void setPlanIndicators(PlanIndicator[] planIndicators) {
+    this.planIndicators = planIndicators;
+  }
+
+  public I18nContent[] getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(I18nContent[] i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public I18nContent[] getI18nDescriptions() {
+    return this.i18nDescriptions;
+  }
+
+  public void setI18nDescriptions(I18nContent[] i18nDescriptions) {
+    this.i18nDescriptions = i18nDescriptions;
+  }
+
+  // builder 开始
+  public PlanDetail() {}
+
+  public PlanDetail(Builder builder) {
     /**
      * 薪资方案ID
-     * <p> 示例值：2134193289
+     *
+     * <p>示例值：2134193289
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 薪资方案TID
-     * <p> 示例值：129738122
+     * 薪资方案版本ID
+     *
+     * <p>示例值：129738122
      */
-    @SerializedName("tid")
-    private String tid;
+    this.tid = builder.tid;
     /**
      * 薪资方案名称
-     * <p> 示例值：基本月薪方案
+     *
+     * <p>示例值：基本月薪方案
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 薪资方案描述
-     * <p> 示例值：基本月薪方案描述
+     *
+     * <p>示例值：基本月薪方案描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 薪资方案生效时间
-     * <p> 示例值：2022-10-20
+     *
+     * <p>示例值：2022-10-20
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 薪资方案适用范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_scope")
-    private PlanScope planScope;
+    this.planScope = builder.planScope;
     /**
-     * 币种ID
-     * <p> 示例值：341324121
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：341324121
      */
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
     /**
      * 开启试用期薪酬状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("probation_salary_status")
-    private Boolean probationSalaryStatus;
+    this.probationSalaryStatus = builder.probationSalaryStatus;
     /**
      * 方案关联的薪资项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_items")
-    private PlanItem[] planItems;
+    this.planItems = builder.planItems;
     /**
      * 方案关联的薪资统计指标
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_indicators")
-    private PlanIndicator[] planIndicators;
+    this.planIndicators = builder.planIndicators;
     /**
      * 多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private I18nContent[] i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 多语言描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_descriptions")
+    this.i18nDescriptions = builder.i18nDescriptions;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资方案ID
+     *
+     * <p>示例值：2134193289
+     */
+    private String id;
+
+    /**
+     * 薪资方案版本ID
+     *
+     * <p>示例值：129738122
+     */
+    private String tid;
+
+    /**
+     * 薪资方案名称
+     *
+     * <p>示例值：基本月薪方案
+     */
+    private String name;
+
+    /**
+     * 薪资方案描述
+     *
+     * <p>示例值：基本月薪方案描述
+     */
+    private String description;
+
+    /**
+     * 薪资方案生效时间
+     *
+     * <p>示例值：2022-10-20
+     */
+    private String effectiveDate;
+
+    /**
+     * 薪资方案适用范围
+     *
+     * <p>示例值：
+     */
+    private PlanScope planScope;
+
+    /**
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：341324121
+     */
+    private String currencyId;
+
+    /**
+     * 开启试用期薪酬状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean probationSalaryStatus;
+
+    /**
+     * 方案关联的薪资项
+     *
+     * <p>示例值：
+     */
+    private PlanItem[] planItems;
+
+    /**
+     * 方案关联的薪资统计指标
+     *
+     * <p>示例值：
+     */
+    private PlanIndicator[] planIndicators;
+
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nNames;
+
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     */
     private I18nContent[] i18nDescriptions;
 
-    // builder 开始
-    public PlanDetail() {
+    /**
+     * 薪资方案ID
+     *
+     * <p>示例值：2134193289
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PlanDetail(Builder builder) {
-        /**
-         * 薪资方案ID
-         * <p> 示例值：2134193289
-         */
-        this.id = builder.id;
-        /**
-         * 薪资方案TID
-         * <p> 示例值：129738122
-         */
-        this.tid = builder.tid;
-        /**
-         * 薪资方案名称
-         * <p> 示例值：基本月薪方案
-         */
-        this.name = builder.name;
-        /**
-         * 薪资方案描述
-         * <p> 示例值：基本月薪方案描述
-         */
-        this.description = builder.description;
-        /**
-         * 薪资方案生效时间
-         * <p> 示例值：2022-10-20
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 薪资方案适用范围
-         * <p> 示例值：
-         */
-        this.planScope = builder.planScope;
-        /**
-         * 币种ID
-         * <p> 示例值：341324121
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 开启试用期薪酬状态
-         * <p> 示例值：true
-         */
-        this.probationSalaryStatus = builder.probationSalaryStatus;
-        /**
-         * 方案关联的薪资项
-         * <p> 示例值：
-         */
-        this.planItems = builder.planItems;
-        /**
-         * 方案关联的薪资统计指标
-         * <p> 示例值：
-         */
-        this.planIndicators = builder.planIndicators;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        this.i18nDescriptions = builder.i18nDescriptions;
+    /**
+     * 薪资方案版本ID
+     *
+     * <p>示例值：129738122
+     *
+     * @param tid
+     * @return
+     */
+    public Builder tid(String tid) {
+      this.tid = tid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 薪资方案名称
+     *
+     * <p>示例值：基本月薪方案
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 薪资方案描述
+     *
+     * <p>示例值：基本月薪方案描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 薪资方案生效时间
+     *
+     * <p>示例值：2022-10-20
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getTid() {
-        return this.tid;
+    /**
+     * 薪资方案适用范围
+     *
+     * <p>示例值：
+     *
+     * @param planScope
+     * @return
+     */
+    public Builder planScope(PlanScope planScope) {
+      this.planScope = planScope;
+      return this;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid;
+    /**
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：341324121
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 开启试用期薪酬状态
+     *
+     * <p>示例值：true
+     *
+     * @param probationSalaryStatus
+     * @return
+     */
+    public Builder probationSalaryStatus(Boolean probationSalaryStatus) {
+      this.probationSalaryStatus = probationSalaryStatus;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 方案关联的薪资项
+     *
+     * <p>示例值：
+     *
+     * @param planItems
+     * @return
+     */
+    public Builder planItems(PlanItem[] planItems) {
+      this.planItems = planItems;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 方案关联的薪资统计指标
+     *
+     * <p>示例值：
+     *
+     * @param planIndicators
+     * @return
+     */
+    public Builder planIndicators(PlanIndicator[] planIndicators) {
+      this.planIndicators = planIndicators;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(I18nContent[] i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     *
+     * @param i18nDescriptions
+     * @return
+     */
+    public Builder i18nDescriptions(I18nContent[] i18nDescriptions) {
+      this.i18nDescriptions = i18nDescriptions;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public PlanDetail build() {
+      return new PlanDetail(this);
     }
+  }
 
-    public PlanScope getPlanScope() {
-        return this.planScope;
-    }
-
-    public void setPlanScope(PlanScope planScope) {
-        this.planScope = planScope;
-    }
-
-    public String getCurrencyId() {
-        return this.currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public Boolean getProbationSalaryStatus() {
-        return this.probationSalaryStatus;
-    }
-
-    public void setProbationSalaryStatus(Boolean probationSalaryStatus) {
-        this.probationSalaryStatus = probationSalaryStatus;
-    }
-
-    public PlanItem[] getPlanItems() {
-        return this.planItems;
-    }
-
-    public void setPlanItems(PlanItem[] planItems) {
-        this.planItems = planItems;
-    }
-
-    public PlanIndicator[] getPlanIndicators() {
-        return this.planIndicators;
-    }
-
-    public void setPlanIndicators(PlanIndicator[] planIndicators) {
-        this.planIndicators = planIndicators;
-    }
-
-    public I18nContent[] getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(I18nContent[] i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public I18nContent[] getI18nDescriptions() {
-        return this.i18nDescriptions;
-    }
-
-    public void setI18nDescriptions(I18nContent[] i18nDescriptions) {
-        this.i18nDescriptions = i18nDescriptions;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资方案ID
-         * <p> 示例值：2134193289
-         */
-        private String id;
-        /**
-         * 薪资方案TID
-         * <p> 示例值：129738122
-         */
-        private String tid;
-        /**
-         * 薪资方案名称
-         * <p> 示例值：基本月薪方案
-         */
-        private String name;
-        /**
-         * 薪资方案描述
-         * <p> 示例值：基本月薪方案描述
-         */
-        private String description;
-        /**
-         * 薪资方案生效时间
-         * <p> 示例值：2022-10-20
-         */
-        private String effectiveDate;
-        /**
-         * 薪资方案适用范围
-         * <p> 示例值：
-         */
-        private PlanScope planScope;
-        /**
-         * 币种ID
-         * <p> 示例值：341324121
-         */
-        private String currencyId;
-        /**
-         * 开启试用期薪酬状态
-         * <p> 示例值：true
-         */
-        private Boolean probationSalaryStatus;
-        /**
-         * 方案关联的薪资项
-         * <p> 示例值：
-         */
-        private PlanItem[] planItems;
-        /**
-         * 方案关联的薪资统计指标
-         * <p> 示例值：
-         */
-        private PlanIndicator[] planIndicators;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nDescriptions;
-
-        /**
-         * 薪资方案ID
-         * <p> 示例值：2134193289
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案TID
-         * <p> 示例值：129738122
-         *
-         * @param tid
-         * @return
-         */
-        public Builder tid(String tid) {
-            this.tid = tid;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案名称
-         * <p> 示例值：基本月薪方案
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案描述
-         * <p> 示例值：基本月薪方案描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案生效时间
-         * <p> 示例值：2022-10-20
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案适用范围
-         * <p> 示例值：
-         *
-         * @param planScope
-         * @return
-         */
-        public Builder planScope(PlanScope planScope) {
-            this.planScope = planScope;
-            return this;
-        }
-
-
-        /**
-         * 币种ID
-         * <p> 示例值：341324121
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 开启试用期薪酬状态
-         * <p> 示例值：true
-         *
-         * @param probationSalaryStatus
-         * @return
-         */
-        public Builder probationSalaryStatus(Boolean probationSalaryStatus) {
-            this.probationSalaryStatus = probationSalaryStatus;
-            return this;
-        }
-
-
-        /**
-         * 方案关联的薪资项
-         * <p> 示例值：
-         *
-         * @param planItems
-         * @return
-         */
-        public Builder planItems(PlanItem[] planItems) {
-            this.planItems = planItems;
-            return this;
-        }
-
-
-        /**
-         * 方案关联的薪资统计指标
-         * <p> 示例值：
-         *
-         * @param planIndicators
-         * @return
-         */
-        public Builder planIndicators(PlanIndicator[] planIndicators) {
-            this.planIndicators = planIndicators;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(I18nContent[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         *
-         * @param i18nDescriptions
-         * @return
-         */
-        public Builder i18nDescriptions(I18nContent[] i18nDescriptions) {
-            this.i18nDescriptions = i18nDescriptions;
-            return this;
-        }
-
-
-        public PlanDetail build() {
-            return new PlanDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

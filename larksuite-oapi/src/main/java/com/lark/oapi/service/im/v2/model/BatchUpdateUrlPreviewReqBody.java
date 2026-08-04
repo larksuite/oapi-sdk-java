@@ -13,112 +13,123 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateUrlPreviewReqBody {
+  /**
+   * URL 预览的 preview_tokens
+   * 列表。需要通过[拉取链接预览数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/pull-link-preview-data-callback-structure)回调获取
+   * preview_tokens。;;**注意**：单个 token 限制更新频率为 1次/5秒。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preview_tokens")
+  private String[] previewTokens;
+
+  /**
+   * 需要更新 URL 预览的用户 open_id。若不传，则默认更新 URL 预览所在会话的所有成员；若用户不在 URL 所在会话，则无法触发更新该用户对应的 URL
+   * 预览结果。获取方式参见[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_ids")
+  private String[] openIds;
+
+  public String[] getPreviewTokens() {
+    return this.previewTokens;
+  }
+
+  public void setPreviewTokens(String[] previewTokens) {
+    this.previewTokens = previewTokens;
+  }
+
+  public String[] getOpenIds() {
+    return this.openIds;
+  }
+
+  public void setOpenIds(String[] openIds) {
+    this.openIds = openIds;
+  }
+
+  // builder 开始
+  public BatchUpdateUrlPreviewReqBody() {}
+
+  public BatchUpdateUrlPreviewReqBody(Builder builder) {
     /**
-     * URL预览的token列表
-     * <p> 示例值：
+     * URL 预览的 preview_tokens
+     * 列表。需要通过[拉取链接预览数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/pull-link-preview-data-callback-structure)回调获取
+     * preview_tokens。;;**注意**：单个 token 限制更新频率为 1次/5秒。
+     *
+     * <p>示例值：
      */
-    @SerializedName("preview_tokens")
+    this.previewTokens = builder.previewTokens;
+    /**
+     * 需要更新 URL 预览的用户 open_id。若不传，则默认更新 URL 预览所在会话的所有成员；若用户不在 URL 所在会话，则无法触发更新该用户对应的 URL
+     * 预览结果。获取方式参见[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：
+     */
+    this.openIds = builder.openIds;
+  }
+
+  public static class Builder {
+    /**
+     * URL 预览的 preview_tokens
+     * 列表。需要通过[拉取链接预览数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/pull-link-preview-data-callback-structure)回调获取
+     * preview_tokens。;;**注意**：单个 token 限制更新频率为 1次/5秒。
+     *
+     * <p>示例值：
+     */
     private String[] previewTokens;
+
     /**
-     * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-     * <p> 示例值：
+     * 需要更新 URL 预览的用户 open_id。若不传，则默认更新 URL 预览所在会话的所有成员；若用户不在 URL 所在会话，则无法触发更新该用户对应的 URL
+     * 预览结果。获取方式参见[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_ids")
     private String[] openIds;
 
-    // builder 开始
-    public BatchUpdateUrlPreviewReqBody() {
+    /**
+     * URL 预览的 preview_tokens
+     * 列表。需要通过[拉取链接预览数据](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/development-link-preview/pull-link-preview-data-callback-structure)回调获取
+     * preview_tokens。;;**注意**：单个 token 限制更新频率为 1次/5秒。
+     *
+     * <p>示例值：
+     *
+     * @param previewTokens
+     * @return
+     */
+    public Builder previewTokens(String[] previewTokens) {
+      this.previewTokens = previewTokens;
+      return this;
     }
 
-    public BatchUpdateUrlPreviewReqBody(Builder builder) {
-        /**
-         * URL预览的token列表
-         * <p> 示例值：
-         */
-        this.previewTokens = builder.previewTokens;
-        /**
-         * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-         * <p> 示例值：
-         */
-        this.openIds = builder.openIds;
+    /**
+     * 需要更新 URL 预览的用户 open_id。若不传，则默认更新 URL 预览所在会话的所有成员；若用户不在 URL 所在会话，则无法触发更新该用户对应的 URL
+     * 预览结果。获取方式参见[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：
+     *
+     * @param openIds
+     * @return
+     */
+    public Builder openIds(String[] openIds) {
+      this.openIds = openIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchUpdateUrlPreviewReqBody build() {
+      return new BatchUpdateUrlPreviewReqBody(this);
     }
+  }
 
-    public String[] getPreviewTokens() {
-        return this.previewTokens;
-    }
-
-    public void setPreviewTokens(String[] previewTokens) {
-        this.previewTokens = previewTokens;
-    }
-
-    public String[] getOpenIds() {
-        return this.openIds;
-    }
-
-    public void setOpenIds(String[] openIds) {
-        this.openIds = openIds;
-    }
-
-    public static class Builder {
-        /**
-         * URL预览的token列表
-         * <p> 示例值：
-         */
-        private String[] previewTokens;
-        /**
-         * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-         * <p> 示例值：
-         */
-        private String[] openIds;
-
-        /**
-         * URL预览的token列表
-         * <p> 示例值：
-         *
-         * @param previewTokens
-         * @return
-         */
-        public Builder previewTokens(String[] previewTokens) {
-            this.previewTokens = previewTokens;
-            return this;
-        }
-
-
-        /**
-         * 需要更新URL预览的用户open_id。若不传，则默认更新URL所在会话成员；若用户不在URL所在会话，则无法更新该用户
-         * <p> 示例值：
-         *
-         * @param openIds
-         * @return
-         */
-        public Builder openIds(String[] openIds) {
-            this.openIds = openIds;
-            return this;
-        }
-
-
-        public BatchUpdateUrlPreviewReqBody build() {
-            return new BatchUpdateUrlPreviewReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

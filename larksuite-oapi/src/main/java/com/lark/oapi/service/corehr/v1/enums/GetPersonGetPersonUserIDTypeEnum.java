@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 此次调用中使用的用户ID的类型
- */
+/** 此次调用中使用的用户ID的类型 */
 public enum GetPersonGetPersonUserIDTypeEnum {
-    PEOPLE_EMPLOYEE_ID("people_employee_id"), // 以people_employee_id来识别用户
-    ;
-    private String value;
+  PEOPLE_EMPLOYEE_ID("people_employee_id"), // 以people_employee_id来识别用户
+  ;
+  private String value;
 
-    GetPersonGetPersonUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  GetPersonGetPersonUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

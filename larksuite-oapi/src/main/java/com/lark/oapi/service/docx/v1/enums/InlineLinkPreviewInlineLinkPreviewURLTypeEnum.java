@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 链接类型
- */
+/** 链接类型 */
 public enum InlineLinkPreviewInlineLinkPreviewURLTypeEnum {
-    PROJECT("Project"), // 飞书项目
-    UNDEFINED("Undefined"), // 未定义
-    ;
-    private String value;
+  PROJECT("Project"), // 飞书项目
+  UNDEFINED("Undefined"), // 未定义
+  ;
+  private String value;
 
-    InlineLinkPreviewInlineLinkPreviewURLTypeEnum(String value) {
-        this.value = value;
-    }
+  InlineLinkPreviewInlineLinkPreviewURLTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

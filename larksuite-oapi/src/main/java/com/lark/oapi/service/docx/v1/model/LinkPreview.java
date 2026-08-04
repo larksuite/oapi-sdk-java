@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LinkPreview {
+  /**
+   * 链接
+   *
+   * <p>示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 链接类型
+   *
+   * <p>示例值：MessageLink
+   */
+  @SerializedName("url_type")
+  private String urlType;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getUrlType() {
+    return this.urlType;
+  }
+
+  public void setUrlType(String urlType) {
+    this.urlType = urlType;
+  }
+
+  // builder 开始
+  public LinkPreview() {}
+
+  public LinkPreview(Builder builder) {
     /**
      * 链接
-     * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
+     *
+     * <p>示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 链接类型
-     * <p> 示例值：MessageLink
+     *
+     * <p>示例值：MessageLink
      */
-    @SerializedName("url_type")
+    this.urlType = builder.urlType;
+  }
+
+  public static class Builder {
+    /**
+     * 链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
+     */
+    private String url;
+
+    /**
+     * 链接类型
+     *
+     * <p>示例值：MessageLink
+     */
     private String urlType;
 
-    // builder 开始
-    public LinkPreview() {
+    /**
+     * 链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public LinkPreview(Builder builder) {
-        /**
-         * 链接
-         * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
-         */
-        this.url = builder.url;
-        /**
-         * 链接类型
-         * <p> 示例值：MessageLink
-         */
-        this.urlType = builder.urlType;
+    /**
+     * 链接类型
+     *
+     * <p>示例值：MessageLink
+     *
+     * @param urlType
+     * @return
+     */
+    public Builder urlType(String urlType) {
+      this.urlType = urlType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 链接类型
+     *
+     * <p>示例值：MessageLink
+     *
+     * @param urlType {@link com.lark.oapi.service.docx.v1.enums.LinkPreviewLinkPreviewURLTypeEnum}
+     * @return
+     */
+    public Builder urlType(
+        com.lark.oapi.service.docx.v1.enums.LinkPreviewLinkPreviewURLTypeEnum urlType) {
+      this.urlType = urlType.getValue();
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    public LinkPreview build() {
+      return new LinkPreview(this);
     }
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUrlType() {
-        return this.urlType;
-    }
-
-    public void setUrlType(String urlType) {
-        this.urlType = urlType;
-    }
-
-    public static class Builder {
-        /**
-         * 链接
-         * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
-         */
-        private String url;
-        /**
-         * 链接类型
-         * <p> 示例值：MessageLink
-         */
-        private String urlType;
-
-        /**
-         * 链接
-         * <p> 示例值：https://applink.feishu.cn/client/message/link/open?token=Al7F******Q%3D
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 链接类型
-         * <p> 示例值：MessageLink
-         *
-         * @param urlType
-         * @return
-         */
-        public Builder urlType(String urlType) {
-            this.urlType = urlType;
-            return this;
-        }
-
-        /**
-         * 链接类型
-         * <p> 示例值：MessageLink
-         *
-         * @param urlType {@link com.lark.oapi.service.docx.v1.enums.LinkPreviewLinkPreviewURLTypeEnum}
-         * @return
-         */
-        public Builder urlType(com.lark.oapi.service.docx.v1.enums.LinkPreviewLinkPreviewURLTypeEnum urlType) {
-            this.urlType = urlType.getValue();
-            return this;
-        }
-
-
-        public LinkPreview build() {
-            return new LinkPreview(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateAppTableRecordRespBody {
-    /**
-     * 本次请求新增的记录列表
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private AppTableRecord[] records;
+  /**
+   * 新增的记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private AppTableRecord[] records;
 
-    public AppTableRecord[] getRecords() {
-        return this.records;
-    }
+  public AppTableRecord[] getRecords() {
+    return this.records;
+  }
 
-    public void setRecords(AppTableRecord[] records) {
-        this.records = records;
-    }
-
+  public void setRecords(AppTableRecord[] records) {
+    this.records = records;
+  }
 }

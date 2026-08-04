@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionDetail {
+  /**
+   * 角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role")
+  private SecurityGroup role;
+
+  /**
+   * 指定管理对象列表，如果该值为null，则使用设置数据权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assigned_organization_list")
+  private AssignedOrganization[][] assignedOrganizationList;
+
+  /**
+   * 设置数据权限，如果该值为null，则使用指定管理对象列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("grantor_rule_list")
+  private PermissionSecurityGroup[] grantorRuleList;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1641883226867361
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public SecurityGroup getRole() {
+    return this.role;
+  }
+
+  public void setRole(SecurityGroup role) {
+    this.role = role;
+  }
+
+  public AssignedOrganization[][] getAssignedOrganizationList() {
+    return this.assignedOrganizationList;
+  }
+
+  public void setAssignedOrganizationList(AssignedOrganization[][] assignedOrganizationList) {
+    this.assignedOrganizationList = assignedOrganizationList;
+  }
+
+  public PermissionSecurityGroup[] getGrantorRuleList() {
+    return this.grantorRuleList;
+  }
+
+  public void setGrantorRuleList(PermissionSecurityGroup[] grantorRuleList) {
+    this.grantorRuleList = grantorRuleList;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public PermissionDetail() {}
+
+  public PermissionDetail(Builder builder) {
     /**
      * 角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("role")
-    private SecurityGroup role;
+    this.role = builder.role;
     /**
      * 指定管理对象列表，如果该值为null，则使用设置数据权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assigned_organization_list")
-    private AssignedOrganization[][] assignedOrganizationList;
+    this.assignedOrganizationList = builder.assignedOrganizationList;
     /**
      * 设置数据权限，如果该值为null，则使用指定管理对象列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("grantor_rule_list")
-    private PermissionSecurityGroup[] grantorRuleList;
+    this.grantorRuleList = builder.grantorRuleList;
     /**
      * 更新时间
-     * <p> 示例值：1641883226867361
+     *
+     * <p>示例值：1641883226867361
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 角色
+     *
+     * <p>示例值：
+     */
+    private SecurityGroup role;
+
+    /**
+     * 指定管理对象列表，如果该值为null，则使用设置数据权限
+     *
+     * <p>示例值：
+     */
+    private AssignedOrganization[][] assignedOrganizationList;
+
+    /**
+     * 设置数据权限，如果该值为null，则使用指定管理对象列表
+     *
+     * <p>示例值：
+     */
+    private PermissionSecurityGroup[] grantorRuleList;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1641883226867361
+     */
     private String updateTime;
 
-    // builder 开始
-    public PermissionDetail() {
+    /**
+     * 角色
+     *
+     * <p>示例值：
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(SecurityGroup role) {
+      this.role = role;
+      return this;
     }
 
-    public PermissionDetail(Builder builder) {
-        /**
-         * 角色
-         * <p> 示例值：
-         */
-        this.role = builder.role;
-        /**
-         * 指定管理对象列表，如果该值为null，则使用设置数据权限
-         * <p> 示例值：
-         */
-        this.assignedOrganizationList = builder.assignedOrganizationList;
-        /**
-         * 设置数据权限，如果该值为null，则使用指定管理对象列表
-         * <p> 示例值：
-         */
-        this.grantorRuleList = builder.grantorRuleList;
-        /**
-         * 更新时间
-         * <p> 示例值：1641883226867361
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 指定管理对象列表，如果该值为null，则使用设置数据权限
+     *
+     * <p>示例值：
+     *
+     * @param assignedOrganizationList
+     * @return
+     */
+    public Builder assignedOrganizationList(AssignedOrganization[][] assignedOrganizationList) {
+      this.assignedOrganizationList = assignedOrganizationList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设置数据权限，如果该值为null，则使用指定管理对象列表
+     *
+     * <p>示例值：
+     *
+     * @param grantorRuleList
+     * @return
+     */
+    public Builder grantorRuleList(PermissionSecurityGroup[] grantorRuleList) {
+      this.grantorRuleList = grantorRuleList;
+      return this;
     }
 
-    public SecurityGroup getRole() {
-        return this.role;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1641883226867361
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setRole(SecurityGroup role) {
-        this.role = role;
+    public PermissionDetail build() {
+      return new PermissionDetail(this);
     }
+  }
 
-    public AssignedOrganization[][] getAssignedOrganizationList() {
-        return this.assignedOrganizationList;
-    }
-
-    public void setAssignedOrganizationList(AssignedOrganization[][] assignedOrganizationList) {
-        this.assignedOrganizationList = assignedOrganizationList;
-    }
-
-    public PermissionSecurityGroup[] getGrantorRuleList() {
-        return this.grantorRuleList;
-    }
-
-    public void setGrantorRuleList(PermissionSecurityGroup[] grantorRuleList) {
-        this.grantorRuleList = grantorRuleList;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 角色
-         * <p> 示例值：
-         */
-        private SecurityGroup role;
-        /**
-         * 指定管理对象列表，如果该值为null，则使用设置数据权限
-         * <p> 示例值：
-         */
-        private AssignedOrganization[][] assignedOrganizationList;
-        /**
-         * 设置数据权限，如果该值为null，则使用指定管理对象列表
-         * <p> 示例值：
-         */
-        private PermissionSecurityGroup[] grantorRuleList;
-        /**
-         * 更新时间
-         * <p> 示例值：1641883226867361
-         */
-        private String updateTime;
-
-        /**
-         * 角色
-         * <p> 示例值：
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(SecurityGroup role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 指定管理对象列表，如果该值为null，则使用设置数据权限
-         * <p> 示例值：
-         *
-         * @param assignedOrganizationList
-         * @return
-         */
-        public Builder assignedOrganizationList(AssignedOrganization[][] assignedOrganizationList) {
-            this.assignedOrganizationList = assignedOrganizationList;
-            return this;
-        }
-
-
-        /**
-         * 设置数据权限，如果该值为null，则使用指定管理对象列表
-         * <p> 示例值：
-         *
-         * @param grantorRuleList
-         * @return
-         */
-        public Builder grantorRuleList(PermissionSecurityGroup[] grantorRuleList) {
-            this.grantorRuleList = grantorRuleList;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1641883226867361
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public PermissionDetail build() {
-            return new PermissionDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

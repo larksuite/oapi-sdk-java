@@ -13,161 +13,166 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchApplicationContactsRangeReqBody {
+  /**
+   * 更新范围方式
+   *
+   * <p>示例值：some
+   */
+  @SerializedName("contacts_range_type")
+  private String contactsRangeType;
+
+  /**
+   * 通讯录权限范围新增列表;;仅contacts_range_type为some 时生效并进行增量更新
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add_visible_list")
+  private AppContactsRangeIdList addVisibleList;
+
+  /**
+   * 从通讯录权限范围删除的列表;;仅contacts_range_type为some 时生效并进行增量更新
+   *
+   * <p>示例值：
+   */
+  @SerializedName("del_visible_list")
+  private AppContactsRangeIdList delVisibleList;
+
+  public String getContactsRangeType() {
+    return this.contactsRangeType;
+  }
+
+  public void setContactsRangeType(String contactsRangeType) {
+    this.contactsRangeType = contactsRangeType;
+  }
+
+  public AppContactsRangeIdList getAddVisibleList() {
+    return this.addVisibleList;
+  }
+
+  public void setAddVisibleList(AppContactsRangeIdList addVisibleList) {
+    this.addVisibleList = addVisibleList;
+  }
+
+  public AppContactsRangeIdList getDelVisibleList() {
+    return this.delVisibleList;
+  }
+
+  public void setDelVisibleList(AppContactsRangeIdList delVisibleList) {
+    this.delVisibleList = delVisibleList;
+  }
+
+  // builder 开始
+  public PatchApplicationContactsRangeReqBody() {}
+
+  public PatchApplicationContactsRangeReqBody(Builder builder) {
     /**
      * 更新范围方式
-     * <p> 示例值：some
+     *
+     * <p>示例值：some
      */
-    @SerializedName("contacts_range_type")
+    this.contactsRangeType = builder.contactsRangeType;
+    /**
+     * 通讯录权限范围新增列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
+     */
+    this.addVisibleList = builder.addVisibleList;
+    /**
+     * 从通讯录权限范围删除的列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
+     */
+    this.delVisibleList = builder.delVisibleList;
+  }
+
+  public static class Builder {
+    /**
+     * 更新范围方式
+     *
+     * <p>示例值：some
+     */
     private String contactsRangeType;
+
     /**
-     * 可见范围新增列表
-     * <p> 示例值：
+     * 通讯录权限范围新增列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
      */
-    @SerializedName("add_visible_list")
     private AppContactsRangeIdList addVisibleList;
+
     /**
-     * 删除可用名单
-     * <p> 示例值：
+     * 从通讯录权限范围删除的列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
      */
-    @SerializedName("del_visible_list")
     private AppContactsRangeIdList delVisibleList;
 
-    // builder 开始
-    public PatchApplicationContactsRangeReqBody() {
+    /**
+     * 更新范围方式
+     *
+     * <p>示例值：some
+     *
+     * @param contactsRangeType
+     * @return
+     */
+    public Builder contactsRangeType(String contactsRangeType) {
+      this.contactsRangeType = contactsRangeType;
+      return this;
     }
 
-    public PatchApplicationContactsRangeReqBody(Builder builder) {
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         */
-        this.contactsRangeType = builder.contactsRangeType;
-        /**
-         * 可见范围新增列表
-         * <p> 示例值：
-         */
-        this.addVisibleList = builder.addVisibleList;
-        /**
-         * 删除可用名单
-         * <p> 示例值：
-         */
-        this.delVisibleList = builder.delVisibleList;
+    /**
+     * 更新范围方式
+     *
+     * <p>示例值：some
+     *
+     * @param contactsRangeType {@link
+     *     com.lark.oapi.service.application.v6.enums.PatchApplicationContactsRangePatchApplicationContactsRangeContactsRangeTypeEnum}
+     * @return
+     */
+    public Builder contactsRangeType(
+        com.lark.oapi.service.application.v6.enums
+                .PatchApplicationContactsRangePatchApplicationContactsRangeContactsRangeTypeEnum
+            contactsRangeType) {
+      this.contactsRangeType = contactsRangeType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 通讯录权限范围新增列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
+     *
+     * @param addVisibleList
+     * @return
+     */
+    public Builder addVisibleList(AppContactsRangeIdList addVisibleList) {
+      this.addVisibleList = addVisibleList;
+      return this;
     }
 
-    public String getContactsRangeType() {
-        return this.contactsRangeType;
+    /**
+     * 从通讯录权限范围删除的列表;;仅contacts_range_type为some 时生效并进行增量更新
+     *
+     * <p>示例值：
+     *
+     * @param delVisibleList
+     * @return
+     */
+    public Builder delVisibleList(AppContactsRangeIdList delVisibleList) {
+      this.delVisibleList = delVisibleList;
+      return this;
     }
 
-    public void setContactsRangeType(String contactsRangeType) {
-        this.contactsRangeType = contactsRangeType;
+    public PatchApplicationContactsRangeReqBody build() {
+      return new PatchApplicationContactsRangeReqBody(this);
     }
+  }
 
-    public AppContactsRangeIdList getAddVisibleList() {
-        return this.addVisibleList;
-    }
-
-    public void setAddVisibleList(AppContactsRangeIdList addVisibleList) {
-        this.addVisibleList = addVisibleList;
-    }
-
-    public AppContactsRangeIdList getDelVisibleList() {
-        return this.delVisibleList;
-    }
-
-    public void setDelVisibleList(AppContactsRangeIdList delVisibleList) {
-        this.delVisibleList = delVisibleList;
-    }
-
-    public static class Builder {
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         */
-        private String contactsRangeType;
-        /**
-         * 可见范围新增列表
-         * <p> 示例值：
-         */
-        private AppContactsRangeIdList addVisibleList;
-        /**
-         * 删除可用名单
-         * <p> 示例值：
-         */
-        private AppContactsRangeIdList delVisibleList;
-
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         *
-         * @param contactsRangeType
-         * @return
-         */
-        public Builder contactsRangeType(String contactsRangeType) {
-            this.contactsRangeType = contactsRangeType;
-            return this;
-        }
-
-        /**
-         * 更新范围方式
-         * <p> 示例值：some
-         *
-         * @param contactsRangeType {@link com.lark.oapi.service.application.v6.enums.PatchApplicationContactsRangePatchApplicationContactsRangeContactsRangeTypeEnum}
-         * @return
-         */
-        public Builder contactsRangeType(com.lark.oapi.service.application.v6.enums.PatchApplicationContactsRangePatchApplicationContactsRangeContactsRangeTypeEnum contactsRangeType) {
-            this.contactsRangeType = contactsRangeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 可见范围新增列表
-         * <p> 示例值：
-         *
-         * @param addVisibleList
-         * @return
-         */
-        public Builder addVisibleList(AppContactsRangeIdList addVisibleList) {
-            this.addVisibleList = addVisibleList;
-            return this;
-        }
-
-
-        /**
-         * 删除可用名单
-         * <p> 示例值：
-         *
-         * @param delVisibleList
-         * @return
-         */
-        public Builder delVisibleList(AppContactsRangeIdList delVisibleList) {
-            this.delVisibleList = delVisibleList;
-            return this;
-        }
-
-
-        public PatchApplicationContactsRangeReqBody build() {
-            return new PatchApplicationContactsRangeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

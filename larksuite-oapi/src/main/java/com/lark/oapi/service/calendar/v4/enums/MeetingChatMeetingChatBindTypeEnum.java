@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * 会议群绑定类型
- */
+/** 会议群绑定类型 */
 public enum MeetingChatMeetingChatBindTypeEnum {
-    MEETINGCHAT("meeting_chat"), // 会议群
-    BOUNDCHAT("bound_chat"), // 绑定的普通群
-    ;
-    private String value;
+  MEETINGCHAT("meeting_chat"), // 会议群
+  BOUNDCHAT("bound_chat"), // 绑定的普通群
+  ;
+  private String value;
 
-    MeetingChatMeetingChatBindTypeEnum(String value) {
-        this.value = value;
-    }
+  MeetingChatMeetingChatBindTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

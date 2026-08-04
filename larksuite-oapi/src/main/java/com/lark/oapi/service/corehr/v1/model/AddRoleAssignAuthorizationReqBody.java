@@ -13,75 +13,87 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddRoleAssignAuthorizationReqBody {
+  /**
+   * 被授权角色的授权范围。你需要按照请求体示例构造结构体。 ;它是一个二维数组，你可以使用它来授权具有多个管理维度的角色，例如属地 HRBP。 ;- ==org_key==：管理维度。可选项有;
+   * - 部门：==department==; - 工作地点：==work_location==; - 公司：==company==; -
+   * 成本中心：==organization_id_strand==; - 社保城市：==social_security_location==; -
+   * 入职地点：==onboarding_location==; - 薪资组：==pay_group==; - 人才池：==talent_pool==; -
+   * 自定义组织：可在「[飞书人事](https://people.feishu.cn/people/)-设置-组织设置」中相应的自定义组织目录下查看对应的组织类型编码，例如==custom_org_01==、==custom_org_02==、==custom_org_03==、==custom_org_04==、==custom_org_05==;-
+   * ==org_ids==：组织 ID。组织 ID 和组织编码只需要填写一个;- ==org_codes==：组织编码。组织 ID 和组织编码只需要填写一个
+   *
+   * <p>示例值：67489937334909845
+   */
+  @SerializedName("assigned_organization_items")
+  private AssignedOrganizationWithCode[][] assignedOrganizationItems;
+
+  public AssignedOrganizationWithCode[][] getAssignedOrganizationItems() {
+    return this.assignedOrganizationItems;
+  }
+
+  public void setAssignedOrganizationItems(
+      AssignedOrganizationWithCode[][] assignedOrganizationItems) {
+    this.assignedOrganizationItems = assignedOrganizationItems;
+  }
+
+  // builder 开始
+  public AddRoleAssignAuthorizationReqBody() {}
+
+  public AddRoleAssignAuthorizationReqBody(Builder builder) {
     /**
-     * 授权
-     * <p> 示例值：67489937334909845
+     * 被授权角色的授权范围。你需要按照请求体示例构造结构体。 ;它是一个二维数组，你可以使用它来授权具有多个管理维度的角色，例如属地 HRBP。 ;-
+     * ==org_key==：管理维度。可选项有; - 部门：==department==; - 工作地点：==work_location==; - 公司：==company==; -
+     * 成本中心：==organization_id_strand==; - 社保城市：==social_security_location==; -
+     * 入职地点：==onboarding_location==; - 薪资组：==pay_group==; - 人才池：==talent_pool==; -
+     * 自定义组织：可在「[飞书人事](https://people.feishu.cn/people/)-设置-组织设置」中相应的自定义组织目录下查看对应的组织类型编码，例如==custom_org_01==、==custom_org_02==、==custom_org_03==、==custom_org_04==、==custom_org_05==;-
+     * ==org_ids==：组织 ID。组织 ID 和组织编码只需要填写一个;- ==org_codes==：组织编码。组织 ID 和组织编码只需要填写一个
+     *
+     * <p>示例值：67489937334909845
      */
-    @SerializedName("assigned_organization_items")
+    this.assignedOrganizationItems = builder.assignedOrganizationItems;
+  }
+
+  public static class Builder {
+    /**
+     * 被授权角色的授权范围。你需要按照请求体示例构造结构体。 ;它是一个二维数组，你可以使用它来授权具有多个管理维度的角色，例如属地 HRBP。 ;-
+     * ==org_key==：管理维度。可选项有; - 部门：==department==; - 工作地点：==work_location==; - 公司：==company==; -
+     * 成本中心：==organization_id_strand==; - 社保城市：==social_security_location==; -
+     * 入职地点：==onboarding_location==; - 薪资组：==pay_group==; - 人才池：==talent_pool==; -
+     * 自定义组织：可在「[飞书人事](https://people.feishu.cn/people/)-设置-组织设置」中相应的自定义组织目录下查看对应的组织类型编码，例如==custom_org_01==、==custom_org_02==、==custom_org_03==、==custom_org_04==、==custom_org_05==;-
+     * ==org_ids==：组织 ID。组织 ID 和组织编码只需要填写一个;- ==org_codes==：组织编码。组织 ID 和组织编码只需要填写一个
+     *
+     * <p>示例值：67489937334909845
+     */
     private AssignedOrganizationWithCode[][] assignedOrganizationItems;
 
-    // builder 开始
-    public AddRoleAssignAuthorizationReqBody() {
+    /**
+     * 被授权角色的授权范围。你需要按照请求体示例构造结构体。 ;它是一个二维数组，你可以使用它来授权具有多个管理维度的角色，例如属地 HRBP。 ;-
+     * ==org_key==：管理维度。可选项有; - 部门：==department==; - 工作地点：==work_location==; - 公司：==company==; -
+     * 成本中心：==organization_id_strand==; - 社保城市：==social_security_location==; -
+     * 入职地点：==onboarding_location==; - 薪资组：==pay_group==; - 人才池：==talent_pool==; -
+     * 自定义组织：可在「[飞书人事](https://people.feishu.cn/people/)-设置-组织设置」中相应的自定义组织目录下查看对应的组织类型编码，例如==custom_org_01==、==custom_org_02==、==custom_org_03==、==custom_org_04==、==custom_org_05==;-
+     * ==org_ids==：组织 ID。组织 ID 和组织编码只需要填写一个;- ==org_codes==：组织编码。组织 ID 和组织编码只需要填写一个
+     *
+     * <p>示例值：67489937334909845
+     *
+     * @param assignedOrganizationItems
+     * @return
+     */
+    public Builder assignedOrganizationItems(
+        AssignedOrganizationWithCode[][] assignedOrganizationItems) {
+      this.assignedOrganizationItems = assignedOrganizationItems;
+      return this;
     }
 
-    public AddRoleAssignAuthorizationReqBody(Builder builder) {
-        /**
-         * 授权
-         * <p> 示例值：67489937334909845
-         */
-        this.assignedOrganizationItems = builder.assignedOrganizationItems;
+    public AddRoleAssignAuthorizationReqBody build() {
+      return new AddRoleAssignAuthorizationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public AssignedOrganizationWithCode[][] getAssignedOrganizationItems() {
-        return this.assignedOrganizationItems;
-    }
-
-    public void setAssignedOrganizationItems(AssignedOrganizationWithCode[][] assignedOrganizationItems) {
-        this.assignedOrganizationItems = assignedOrganizationItems;
-    }
-
-    public static class Builder {
-        /**
-         * 授权
-         * <p> 示例值：67489937334909845
-         */
-        private AssignedOrganizationWithCode[][] assignedOrganizationItems;
-
-        /**
-         * 授权
-         * <p> 示例值：67489937334909845
-         *
-         * @param assignedOrganizationItems
-         * @return
-         */
-        public Builder assignedOrganizationItems(AssignedOrganizationWithCode[][] assignedOrganizationItems) {
-            this.assignedOrganizationItems = assignedOrganizationItems;
-            return this;
-        }
-
-
-        public AddRoleAssignAuthorizationReqBody build() {
-            return new AddRoleAssignAuthorizationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

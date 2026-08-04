@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateAppTableRecordReqBody {
+  /**
+   * 要更新的记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private AppTableRecord[] records;
+
+  public AppTableRecord[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(AppTableRecord[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchUpdateAppTableRecordReqBody() {}
+
+  public BatchUpdateAppTableRecordReqBody(Builder builder) {
     /**
-     * 记录
-     * <p> 示例值：
+     * 要更新的记录
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的记录
+     *
+     * <p>示例值：
+     */
     private AppTableRecord[] records;
 
-    // builder 开始
-    public BatchUpdateAppTableRecordReqBody() {
+    /**
+     * 要更新的记录
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(AppTableRecord[] records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchUpdateAppTableRecordReqBody(Builder builder) {
-        /**
-         * 记录
-         * <p> 示例值：
-         */
-        this.records = builder.records;
+    public BatchUpdateAppTableRecordReqBody build() {
+      return new BatchUpdateAppTableRecordReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public AppTableRecord[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(AppTableRecord[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 记录
-         * <p> 示例值：
-         */
-        private AppTableRecord[] records;
-
-        /**
-         * 记录
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(AppTableRecord[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchUpdateAppTableRecordReqBody build() {
-            return new BatchUpdateAppTableRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AccountingItemValue {
+  /**
+   * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("original_value")
+  private String originalValue;
+
+  /**
+   * 引用类型算薪项展示值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reference_values")
+  private I18nContent[] referenceValues;
+
+  public String getOriginalValue() {
+    return this.originalValue;
+  }
+
+  public void setOriginalValue(String originalValue) {
+    this.originalValue = originalValue;
+  }
+
+  public I18nContent[] getReferenceValues() {
+    return this.referenceValues;
+  }
+
+  public void setReferenceValues(I18nContent[] referenceValues) {
+    this.referenceValues = referenceValues;
+  }
+
+  // builder 开始
+  public AccountingItemValue() {}
+
+  public AccountingItemValue(Builder builder) {
     /**
      * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("original_value")
-    private String originalValue;
+    this.originalValue = builder.originalValue;
     /**
      * 引用类型算薪项展示值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reference_values")
+    this.referenceValues = builder.referenceValues;
+  }
+
+  public static class Builder {
+    /**
+     * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
+     *
+     * <p>示例值：100
+     */
+    private String originalValue;
+
+    /**
+     * 引用类型算薪项展示值
+     *
+     * <p>示例值：
+     */
     private I18nContent[] referenceValues;
 
-    // builder 开始
-    public AccountingItemValue() {
+    /**
+     * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
+     *
+     * <p>示例值：100
+     *
+     * @param originalValue
+     * @return
+     */
+    public Builder originalValue(String originalValue) {
+      this.originalValue = originalValue;
+      return this;
     }
 
-    public AccountingItemValue(Builder builder) {
-        /**
-         * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
-         * <p> 示例值：100
-         */
-        this.originalValue = builder.originalValue;
-        /**
-         * 引用类型算薪项展示值
-         * <p> 示例值：
-         */
-        this.referenceValues = builder.referenceValues;
+    /**
+     * 引用类型算薪项展示值
+     *
+     * <p>示例值：
+     *
+     * @param referenceValues
+     * @return
+     */
+    public Builder referenceValues(I18nContent[] referenceValues) {
+      this.referenceValues = referenceValues;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AccountingItemValue build() {
+      return new AccountingItemValue(this);
     }
+  }
 
-    public String getOriginalValue() {
-        return this.originalValue;
-    }
-
-    public void setOriginalValue(String originalValue) {
-        this.originalValue = originalValue;
-    }
-
-    public I18nContent[] getReferenceValues() {
-        return this.referenceValues;
-    }
-
-    public void setReferenceValues(I18nContent[] referenceValues) {
-        this.referenceValues = referenceValues;
-    }
-
-    public static class Builder {
-        /**
-         * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
-         * <p> 示例值：100
-         */
-        private String originalValue;
-        /**
-         * 引用类型算薪项展示值
-         * <p> 示例值：
-         */
-        private I18nContent[] referenceValues;
-
-        /**
-         * 算薪项数据原始值，当发薪明细的数据来源为「人工导入」时，如果当前算薪项类型为引用类型，那么算薪项原始值可能为空。
-         * <p> 示例值：100
-         *
-         * @param originalValue
-         * @return
-         */
-        public Builder originalValue(String originalValue) {
-            this.originalValue = originalValue;
-            return this;
-        }
-
-
-        /**
-         * 引用类型算薪项展示值
-         * <p> 示例值：
-         *
-         * @param referenceValues
-         * @return
-         */
-        public Builder referenceValues(I18nContent[] referenceValues) {
-            this.referenceValues = referenceValues;
-            return this;
-        }
-
-
-        public AccountingItemValue build() {
-            return new AccountingItemValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

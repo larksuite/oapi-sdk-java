@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FailInfo {
+  /**
+   * 写入失败的数据行索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("idx")
+  private Integer idx;
+
+  /**
+   * 写入失败的原因错误码。;具体参考：;- 300000002 无员工薪资组操作权限;- 300000003 参数错误（如：成分方案id不存在）;- 310010203
+   * 成本分摊更正报表汇总维度不一致;- 310010291 成本分摊更正报表金额格式不正确;- 310010292 成本分摊更正报表维度名称重复，需要使用维度编码;- 310010294
+   * 成本分摊更正报表成本项不存在;- 310010295 成本分摊更正报表成本项不可更正;- 310010296 成本分摊更正报表员工无薪资组;- 310010224
+   * 成本分摊更正报表员工不在当前成本分摊报表中;- 310010225 成本分摊更正报表维度不存在
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("error_code")
+  private Integer errorCode;
+
+  public Integer getIdx() {
+    return this.idx;
+  }
+
+  public void setIdx(Integer idx) {
+    this.idx = idx;
+  }
+
+  public Integer getErrorCode() {
+    return this.errorCode;
+  }
+
+  public void setErrorCode(Integer errorCode) {
+    this.errorCode = errorCode;
+  }
+
+  // builder 开始
+  public FailInfo() {}
+
+  public FailInfo(Builder builder) {
     /**
      * 写入失败的数据行索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("idx")
-    private Integer idx;
+    this.idx = builder.idx;
     /**
-     * 写入失败的原因错误码
-     * <p> 示例值：0
+     * 写入失败的原因错误码。;具体参考：;- 300000002 无员工薪资组操作权限;- 300000003 参数错误（如：成分方案id不存在）;- 310010203
+     * 成本分摊更正报表汇总维度不一致;- 310010291 成本分摊更正报表金额格式不正确;- 310010292 成本分摊更正报表维度名称重复，需要使用维度编码;- 310010294
+     * 成本分摊更正报表成本项不存在;- 310010295 成本分摊更正报表成本项不可更正;- 310010296 成本分摊更正报表员工无薪资组;- 310010224
+     * 成本分摊更正报表员工不在当前成本分摊报表中;- 310010225 成本分摊更正报表维度不存在
+     *
+     * <p>示例值：0
      */
-    @SerializedName("error_code")
+    this.errorCode = builder.errorCode;
+  }
+
+  public static class Builder {
+    /**
+     * 写入失败的数据行索引
+     *
+     * <p>示例值：0
+     */
+    private Integer idx;
+
+    /**
+     * 写入失败的原因错误码。;具体参考：;- 300000002 无员工薪资组操作权限;- 300000003 参数错误（如：成分方案id不存在）;- 310010203
+     * 成本分摊更正报表汇总维度不一致;- 310010291 成本分摊更正报表金额格式不正确;- 310010292 成本分摊更正报表维度名称重复，需要使用维度编码;- 310010294
+     * 成本分摊更正报表成本项不存在;- 310010295 成本分摊更正报表成本项不可更正;- 310010296 成本分摊更正报表员工无薪资组;- 310010224
+     * 成本分摊更正报表员工不在当前成本分摊报表中;- 310010225 成本分摊更正报表维度不存在
+     *
+     * <p>示例值：0
+     */
     private Integer errorCode;
 
-    // builder 开始
-    public FailInfo() {
+    /**
+     * 写入失败的数据行索引
+     *
+     * <p>示例值：0
+     *
+     * @param idx
+     * @return
+     */
+    public Builder idx(Integer idx) {
+      this.idx = idx;
+      return this;
     }
 
-    public FailInfo(Builder builder) {
-        /**
-         * 写入失败的数据行索引
-         * <p> 示例值：0
-         */
-        this.idx = builder.idx;
-        /**
-         * 写入失败的原因错误码
-         * <p> 示例值：0
-         */
-        this.errorCode = builder.errorCode;
+    /**
+     * 写入失败的原因错误码。;具体参考：;- 300000002 无员工薪资组操作权限;- 300000003 参数错误（如：成分方案id不存在）;- 310010203
+     * 成本分摊更正报表汇总维度不一致;- 310010291 成本分摊更正报表金额格式不正确;- 310010292 成本分摊更正报表维度名称重复，需要使用维度编码;- 310010294
+     * 成本分摊更正报表成本项不存在;- 310010295 成本分摊更正报表成本项不可更正;- 310010296 成本分摊更正报表员工无薪资组;- 310010224
+     * 成本分摊更正报表员工不在当前成本分摊报表中;- 310010225 成本分摊更正报表维度不存在
+     *
+     * <p>示例值：0
+     *
+     * @param errorCode
+     * @return
+     */
+    public Builder errorCode(Integer errorCode) {
+      this.errorCode = errorCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FailInfo build() {
+      return new FailInfo(this);
     }
+  }
 
-    public Integer getIdx() {
-        return this.idx;
-    }
-
-    public void setIdx(Integer idx) {
-        this.idx = idx;
-    }
-
-    public Integer getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(Integer errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public static class Builder {
-        /**
-         * 写入失败的数据行索引
-         * <p> 示例值：0
-         */
-        private Integer idx;
-        /**
-         * 写入失败的原因错误码
-         * <p> 示例值：0
-         */
-        private Integer errorCode;
-
-        /**
-         * 写入失败的数据行索引
-         * <p> 示例值：0
-         *
-         * @param idx
-         * @return
-         */
-        public Builder idx(Integer idx) {
-            this.idx = idx;
-            return this;
-        }
-
-
-        /**
-         * 写入失败的原因错误码
-         * <p> 示例值：0
-         *
-         * @param errorCode
-         * @return
-         */
-        public Builder errorCode(Integer errorCode) {
-            this.errorCode = errorCode;
-            return this;
-        }
-
-
-        public FailInfo build() {
-            return new FailInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

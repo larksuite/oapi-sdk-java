@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskSearchItem {
+  /**
+   * 任务 ID
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+   *
+   * <p>示例值：任务<h>搜索</h>
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 任务元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private TaskSearchMeta metaData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public TaskSearchMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(TaskSearchMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public TaskSearchItem() {}
+
+  public TaskSearchItem(Builder builder) {
     /**
      * 任务 ID
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-     * <p> 示例值：任务<h>搜索</h>
+     *
+     * <p>示例值：任务<h>搜索</h>
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 任务元信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 任务 ID
+     *
+     * <p>示例值：123456789
+     */
+    private String id;
+
+    /**
+     * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：任务<h>搜索</h>
+     */
+    private String displayInfo;
+
+    /**
+     * 任务元信息
+     *
+     * <p>示例值：
+     */
     private TaskSearchMeta metaData;
 
-    // builder 开始
-    public TaskSearchItem() {
+    /**
+     * 任务 ID
+     *
+     * <p>示例值：123456789
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TaskSearchItem(Builder builder) {
-        /**
-         * 任务 ID
-         * <p> 示例值：123456789
-         */
-        this.id = builder.id;
-        /**
-         * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：任务<h>搜索</h>
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 任务元信息
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：任务<h>搜索</h>
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务元信息
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(TaskSearchMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public TaskSearchItem build() {
+      return new TaskSearchItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public TaskSearchMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(TaskSearchMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 任务 ID
-         * <p> 示例值：123456789
-         */
-        private String id;
-        /**
-         * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：任务<h>搜索</h>
-         */
-        private String displayInfo;
-        /**
-         * 任务元信息
-         * <p> 示例值：
-         */
-        private TaskSearchMeta metaData;
-
-        /**
-         * 任务 ID
-         * <p> 示例值：123456789
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 包含任务基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：任务<h>搜索</h>
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 任务元信息
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(TaskSearchMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public TaskSearchItem build() {
-            return new TaskSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

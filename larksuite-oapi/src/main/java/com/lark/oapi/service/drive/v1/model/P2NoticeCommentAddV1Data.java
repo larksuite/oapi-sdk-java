@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2NoticeCommentAddV1Data {
-    /**
-     * 通知元信息
-     * <p> 示例值：
-     */
-    @SerializedName("notice_meta")
-    private Notice noticeMeta;
-    /**
-     * 评论ID
-     * <p> 示例值：7618859513273112345
-     */
-    @SerializedName("comment_id")
-    private String commentId;
-    /**
-     * 回复ID
-     * <p> 示例值：7618859513273112345
-     */
-    @SerializedName("reply_id")
-    private String replyId;
-    /**
-     * 接收者是否被mention
-     * <p> 示例值：
-     */
-    @SerializedName("is_mentioned")
-    private Boolean isMentioned;
+  /**
+   * 通知元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_meta")
+  private Notice noticeMeta;
 
-    public Notice getNoticeMeta() {
-        return this.noticeMeta;
-    }
+  /**
+   * 评论ID
+   *
+   * <p>示例值：7618859513273112345
+   */
+  @SerializedName("comment_id")
+  private String commentId;
 
-    public void setNoticeMeta(Notice noticeMeta) {
-        this.noticeMeta = noticeMeta;
-    }
+  /**
+   * 回复ID
+   *
+   * <p>示例值：7618859513273112345
+   */
+  @SerializedName("reply_id")
+  private String replyId;
 
-    public String getCommentId() {
-        return this.commentId;
-    }
+  /**
+   * 接收者是否被mention
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_mentioned")
+  private Boolean isMentioned;
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
+  public Notice getNoticeMeta() {
+    return this.noticeMeta;
+  }
 
-    public String getReplyId() {
-        return this.replyId;
-    }
+  public void setNoticeMeta(Notice noticeMeta) {
+    this.noticeMeta = noticeMeta;
+  }
 
-    public void setReplyId(String replyId) {
-        this.replyId = replyId;
-    }
+  public String getCommentId() {
+    return this.commentId;
+  }
 
-    public Boolean getIsMentioned() {
-        return this.isMentioned;
-    }
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
 
-    public void setIsMentioned(Boolean isMentioned) {
-        this.isMentioned = isMentioned;
-    }
+  public String getReplyId() {
+    return this.replyId;
+  }
 
+  public void setReplyId(String replyId) {
+    this.replyId = replyId;
+  }
+
+  public Boolean getIsMentioned() {
+    return this.isMentioned;
+  }
+
+  public void setIsMentioned(Boolean isMentioned) {
+    this.isMentioned = isMentioned;
+  }
 }

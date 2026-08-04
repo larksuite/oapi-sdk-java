@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Unit {
+  /**
+   * 评估内容 ID
+   *
+   * <p>示例值：6982759008043877922
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public Unit() {}
+
+  public Unit(Builder builder) {
     /**
      * 评估内容 ID
-     * <p> 示例值：6982759008043877922
+     *
+     * <p>示例值：6982759008043877922
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 评估内容名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：6982759008043877922
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public Unit() {
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：6982759008043877922
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Unit(Builder builder) {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008043877922
-         */
-        this.id = builder.id;
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Unit build() {
+      return new Unit(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008043877922
-         */
-        private String id;
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008043877922
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public Unit build() {
-            return new Unit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

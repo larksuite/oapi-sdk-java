@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 人员类型
- */
+/** 人员类型 */
 public enum AppCollaboratorTypeEnum {
-    ADMINISTRATOR("administrator"), // 管理员
-    DEVELOPER("developer"), // 开发者
-    OPERATOR("operator"), // 运营
-    ;
-    private String value;
+  ADMINISTRATOR("administrator"), // 管理员
+  DEVELOPER("developer"), // 开发者
+  OPERATOR("operator"), // 运营
+  ;
+  private String value;
 
-    AppCollaboratorTypeEnum(String value) {
-        this.value = value;
-    }
+  AppCollaboratorTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

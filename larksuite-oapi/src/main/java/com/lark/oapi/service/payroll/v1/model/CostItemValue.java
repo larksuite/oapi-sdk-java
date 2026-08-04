@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostItemValue {
+  /**
+   * 成本项ID。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+   *
+   * <p>示例值：7433424967234601004
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 成本项值
+   *
+   * <p>示例值：1.00
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public CostItemValue() {}
+
+  public CostItemValue(Builder builder) {
     /**
-     * 成本项ID
-     * <p> 示例值：7433424967234601004
+     * 成本项ID。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：7433424967234601004
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 成本项值
-     * <p> 示例值：1.00
+     *
+     * <p>示例值：1.00
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 成本项ID。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：7433424967234601004
+     */
+    private String id;
+
+    /**
+     * 成本项值
+     *
+     * <p>示例值：1.00
+     */
     private String value;
 
-    // builder 开始
-    public CostItemValue() {
+    /**
+     * 成本项ID。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：7433424967234601004
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CostItemValue(Builder builder) {
-        /**
-         * 成本项ID
-         * <p> 示例值：7433424967234601004
-         */
-        this.id = builder.id;
-        /**
-         * 成本项值
-         * <p> 示例值：1.00
-         */
-        this.value = builder.value;
+    /**
+     * 成本项值
+     *
+     * <p>示例值：1.00
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CostItemValue build() {
+      return new CostItemValue(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 成本项ID
-         * <p> 示例值：7433424967234601004
-         */
-        private String id;
-        /**
-         * 成本项值
-         * <p> 示例值：1.00
-         */
-        private String value;
-
-        /**
-         * 成本项ID
-         * <p> 示例值：7433424967234601004
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 成本项值
-         * <p> 示例值：1.00
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public CostItemValue build() {
-            return new CostItemValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

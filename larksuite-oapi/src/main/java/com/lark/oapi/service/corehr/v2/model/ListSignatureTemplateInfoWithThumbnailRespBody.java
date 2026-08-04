@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListSignatureTemplateInfoWithThumbnailRespBody {
-    /**
-     * 电子签模板缩略图列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private SignatureTemplateInfoWithThumbnail[] items;
-    /**
-     * 查询偏移量；下次查询可以从page_token开始查询
-     * <p> 示例值：1000
-     */
-    @SerializedName("page_token")
-    private Integer pageToken;
-    /**
-     * 数据总数
-     * <p> 示例值：1000
-     */
-    @SerializedName("count")
-    private Integer count;
+  /**
+   * 电子签模板列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private SignatureTemplateInfoWithThumbnail[] items;
 
-    public SignatureTemplateInfoWithThumbnail[] getItems() {
-        return this.items;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("page_token")
+  private Integer pageToken;
 
-    public void setItems(SignatureTemplateInfoWithThumbnail[] items) {
-        this.items = items;
-    }
+  /**
+   * 数据总数
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("count")
+  private Integer count;
 
-    public Integer getPageToken() {
-        return this.pageToken;
-    }
+  public SignatureTemplateInfoWithThumbnail[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(Integer pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(SignatureTemplateInfoWithThumbnail[] items) {
+    this.items = items;
+  }
 
-    public Integer getCount() {
-        return this.count;
-    }
+  public Integer getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setCount(Integer count) {
-        this.count = count;
-    }
+  public void setPageToken(Integer pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
 }

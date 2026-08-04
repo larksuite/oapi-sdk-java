@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiPluginContext {
+  /**
+   * 插件名称
+   *
+   * <p>示例值：Calendar
+   */
+  @SerializedName("key")
+  private String key;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  // builder 开始
+  public MyAiPluginContext() {}
+
+  public MyAiPluginContext(Builder builder) {
     /**
      * 插件名称
-     * <p> 示例值：Calendar
+     *
+     * <p>示例值：Calendar
      */
-    @SerializedName("key")
+    this.key = builder.key;
+  }
+
+  public static class Builder {
+    /**
+     * 插件名称
+     *
+     * <p>示例值：Calendar
+     */
     private String key;
 
-    // builder 开始
-    public MyAiPluginContext() {
+    /**
+     * 插件名称
+     *
+     * <p>示例值：Calendar
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public MyAiPluginContext(Builder builder) {
-        /**
-         * 插件名称
-         * <p> 示例值：Calendar
-         */
-        this.key = builder.key;
+    public MyAiPluginContext build() {
+      return new MyAiPluginContext(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public static class Builder {
-        /**
-         * 插件名称
-         * <p> 示例值：Calendar
-         */
-        private String key;
-
-        /**
-         * 插件名称
-         * <p> 示例值：Calendar
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        public MyAiPluginContext build() {
-            return new MyAiPluginContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

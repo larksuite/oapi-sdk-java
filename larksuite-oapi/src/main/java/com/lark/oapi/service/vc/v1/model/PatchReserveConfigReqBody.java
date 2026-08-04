@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchReserveConfigReqBody {
+  /**
+   * 1 代表层级，2 代表会议室
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("scope_type")
+  private String scopeType;
+
+  /**
+   * 预定审批设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approval_config")
+  private ApprovalConfig approvalConfig;
+
+  /**
+   * 预定时间设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_config")
+  private TimeConfig timeConfig;
+
+  /**
+   * 预定范围设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reserve_scope_config")
+  private ReserveScopeConfig reserveScopeConfig;
+
+  public String getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(String scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public ApprovalConfig getApprovalConfig() {
+    return this.approvalConfig;
+  }
+
+  public void setApprovalConfig(ApprovalConfig approvalConfig) {
+    this.approvalConfig = approvalConfig;
+  }
+
+  public TimeConfig getTimeConfig() {
+    return this.timeConfig;
+  }
+
+  public void setTimeConfig(TimeConfig timeConfig) {
+    this.timeConfig = timeConfig;
+  }
+
+  public ReserveScopeConfig getReserveScopeConfig() {
+    return this.reserveScopeConfig;
+  }
+
+  public void setReserveScopeConfig(ReserveScopeConfig reserveScopeConfig) {
+    this.reserveScopeConfig = reserveScopeConfig;
+  }
+
+  // builder 开始
+  public PatchReserveConfigReqBody() {}
+
+  public PatchReserveConfigReqBody(Builder builder) {
     /**
      * 1 代表层级，2 代表会议室
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("scope_type")
-    private String scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 预定审批设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approval_config")
-    private ApprovalConfig approvalConfig;
+    this.approvalConfig = builder.approvalConfig;
     /**
      * 预定时间设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_config")
-    private TimeConfig timeConfig;
+    this.timeConfig = builder.timeConfig;
     /**
      * 预定范围设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reserve_scope_config")
+    this.reserveScopeConfig = builder.reserveScopeConfig;
+  }
+
+  public static class Builder {
+    /**
+     * 1 代表层级，2 代表会议室
+     *
+     * <p>示例值：2
+     */
+    private String scopeType;
+
+    /**
+     * 预定审批设置
+     *
+     * <p>示例值：
+     */
+    private ApprovalConfig approvalConfig;
+
+    /**
+     * 预定时间设置
+     *
+     * <p>示例值：
+     */
+    private TimeConfig timeConfig;
+
+    /**
+     * 预定范围设置
+     *
+     * <p>示例值：
+     */
     private ReserveScopeConfig reserveScopeConfig;
 
-    // builder 开始
-    public PatchReserveConfigReqBody() {
+    /**
+     * 1 代表层级，2 代表会议室
+     *
+     * <p>示例值：2
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(String scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public PatchReserveConfigReqBody(Builder builder) {
-        /**
-         * 1 代表层级，2 代表会议室
-         * <p> 示例值：2
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 预定审批设置
-         * <p> 示例值：
-         */
-        this.approvalConfig = builder.approvalConfig;
-        /**
-         * 预定时间设置
-         * <p> 示例值：
-         */
-        this.timeConfig = builder.timeConfig;
-        /**
-         * 预定范围设置
-         * <p> 示例值：
-         */
-        this.reserveScopeConfig = builder.reserveScopeConfig;
+    /**
+     * 预定审批设置
+     *
+     * <p>示例值：
+     *
+     * @param approvalConfig
+     * @return
+     */
+    public Builder approvalConfig(ApprovalConfig approvalConfig) {
+      this.approvalConfig = approvalConfig;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 预定时间设置
+     *
+     * <p>示例值：
+     *
+     * @param timeConfig
+     * @return
+     */
+    public Builder timeConfig(TimeConfig timeConfig) {
+      this.timeConfig = timeConfig;
+      return this;
     }
 
-    public String getScopeType() {
-        return this.scopeType;
+    /**
+     * 预定范围设置
+     *
+     * <p>示例值：
+     *
+     * @param reserveScopeConfig
+     * @return
+     */
+    public Builder reserveScopeConfig(ReserveScopeConfig reserveScopeConfig) {
+      this.reserveScopeConfig = reserveScopeConfig;
+      return this;
     }
 
-    public void setScopeType(String scopeType) {
-        this.scopeType = scopeType;
+    public PatchReserveConfigReqBody build() {
+      return new PatchReserveConfigReqBody(this);
     }
+  }
 
-    public ApprovalConfig getApprovalConfig() {
-        return this.approvalConfig;
-    }
-
-    public void setApprovalConfig(ApprovalConfig approvalConfig) {
-        this.approvalConfig = approvalConfig;
-    }
-
-    public TimeConfig getTimeConfig() {
-        return this.timeConfig;
-    }
-
-    public void setTimeConfig(TimeConfig timeConfig) {
-        this.timeConfig = timeConfig;
-    }
-
-    public ReserveScopeConfig getReserveScopeConfig() {
-        return this.reserveScopeConfig;
-    }
-
-    public void setReserveScopeConfig(ReserveScopeConfig reserveScopeConfig) {
-        this.reserveScopeConfig = reserveScopeConfig;
-    }
-
-    public static class Builder {
-        /**
-         * 1 代表层级，2 代表会议室
-         * <p> 示例值：2
-         */
-        private String scopeType;
-        /**
-         * 预定审批设置
-         * <p> 示例值：
-         */
-        private ApprovalConfig approvalConfig;
-        /**
-         * 预定时间设置
-         * <p> 示例值：
-         */
-        private TimeConfig timeConfig;
-        /**
-         * 预定范围设置
-         * <p> 示例值：
-         */
-        private ReserveScopeConfig reserveScopeConfig;
-
-        /**
-         * 1 代表层级，2 代表会议室
-         * <p> 示例值：2
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-
-        /**
-         * 预定审批设置
-         * <p> 示例值：
-         *
-         * @param approvalConfig
-         * @return
-         */
-        public Builder approvalConfig(ApprovalConfig approvalConfig) {
-            this.approvalConfig = approvalConfig;
-            return this;
-        }
-
-
-        /**
-         * 预定时间设置
-         * <p> 示例值：
-         *
-         * @param timeConfig
-         * @return
-         */
-        public Builder timeConfig(TimeConfig timeConfig) {
-            this.timeConfig = timeConfig;
-            return this;
-        }
-
-
-        /**
-         * 预定范围设置
-         * <p> 示例值：
-         *
-         * @param reserveScopeConfig
-         * @return
-         */
-        public Builder reserveScopeConfig(ReserveScopeConfig reserveScopeConfig) {
-            this.reserveScopeConfig = reserveScopeConfig;
-            return this;
-        }
-
-
-        public PatchReserveConfigReqBody build() {
-            return new PatchReserveConfigReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

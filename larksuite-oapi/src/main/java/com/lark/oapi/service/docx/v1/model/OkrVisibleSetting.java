@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrVisibleSetting {
+  /**
+   * 进展编辑区域是否可见
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("progress_fill_area_visible")
+  private Boolean progressFillAreaVisible;
+
+  /**
+   * 进展状态是否可见
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("progress_status_visible")
+  private Boolean progressStatusVisible;
+
+  /**
+   * 分数是否可见
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("score_visible")
+  private Boolean scoreVisible;
+
+  public Boolean getProgressFillAreaVisible() {
+    return this.progressFillAreaVisible;
+  }
+
+  public void setProgressFillAreaVisible(Boolean progressFillAreaVisible) {
+    this.progressFillAreaVisible = progressFillAreaVisible;
+  }
+
+  public Boolean getProgressStatusVisible() {
+    return this.progressStatusVisible;
+  }
+
+  public void setProgressStatusVisible(Boolean progressStatusVisible) {
+    this.progressStatusVisible = progressStatusVisible;
+  }
+
+  public Boolean getScoreVisible() {
+    return this.scoreVisible;
+  }
+
+  public void setScoreVisible(Boolean scoreVisible) {
+    this.scoreVisible = scoreVisible;
+  }
+
+  // builder 开始
+  public OkrVisibleSetting() {}
+
+  public OkrVisibleSetting(Builder builder) {
     /**
      * 进展编辑区域是否可见
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("progress_fill_area_visible")
-    private Boolean progressFillAreaVisible;
+    this.progressFillAreaVisible = builder.progressFillAreaVisible;
     /**
      * 进展状态是否可见
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("progress_status_visible")
-    private Boolean progressStatusVisible;
+    this.progressStatusVisible = builder.progressStatusVisible;
     /**
      * 分数是否可见
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("score_visible")
+    this.scoreVisible = builder.scoreVisible;
+  }
+
+  public static class Builder {
+    /**
+     * 进展编辑区域是否可见
+     *
+     * <p>示例值：true
+     */
+    private Boolean progressFillAreaVisible;
+
+    /**
+     * 进展状态是否可见
+     *
+     * <p>示例值：true
+     */
+    private Boolean progressStatusVisible;
+
+    /**
+     * 分数是否可见
+     *
+     * <p>示例值：true
+     */
     private Boolean scoreVisible;
 
-    // builder 开始
-    public OkrVisibleSetting() {
+    /**
+     * 进展编辑区域是否可见
+     *
+     * <p>示例值：true
+     *
+     * @param progressFillAreaVisible
+     * @return
+     */
+    public Builder progressFillAreaVisible(Boolean progressFillAreaVisible) {
+      this.progressFillAreaVisible = progressFillAreaVisible;
+      return this;
     }
 
-    public OkrVisibleSetting(Builder builder) {
-        /**
-         * 进展编辑区域是否可见
-         * <p> 示例值：true
-         */
-        this.progressFillAreaVisible = builder.progressFillAreaVisible;
-        /**
-         * 进展状态是否可见
-         * <p> 示例值：true
-         */
-        this.progressStatusVisible = builder.progressStatusVisible;
-        /**
-         * 分数是否可见
-         * <p> 示例值：true
-         */
-        this.scoreVisible = builder.scoreVisible;
+    /**
+     * 进展状态是否可见
+     *
+     * <p>示例值：true
+     *
+     * @param progressStatusVisible
+     * @return
+     */
+    public Builder progressStatusVisible(Boolean progressStatusVisible) {
+      this.progressStatusVisible = progressStatusVisible;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分数是否可见
+     *
+     * <p>示例值：true
+     *
+     * @param scoreVisible
+     * @return
+     */
+    public Builder scoreVisible(Boolean scoreVisible) {
+      this.scoreVisible = scoreVisible;
+      return this;
     }
 
-    public Boolean getProgressFillAreaVisible() {
-        return this.progressFillAreaVisible;
+    public OkrVisibleSetting build() {
+      return new OkrVisibleSetting(this);
     }
+  }
 
-    public void setProgressFillAreaVisible(Boolean progressFillAreaVisible) {
-        this.progressFillAreaVisible = progressFillAreaVisible;
-    }
-
-    public Boolean getProgressStatusVisible() {
-        return this.progressStatusVisible;
-    }
-
-    public void setProgressStatusVisible(Boolean progressStatusVisible) {
-        this.progressStatusVisible = progressStatusVisible;
-    }
-
-    public Boolean getScoreVisible() {
-        return this.scoreVisible;
-    }
-
-    public void setScoreVisible(Boolean scoreVisible) {
-        this.scoreVisible = scoreVisible;
-    }
-
-    public static class Builder {
-        /**
-         * 进展编辑区域是否可见
-         * <p> 示例值：true
-         */
-        private Boolean progressFillAreaVisible;
-        /**
-         * 进展状态是否可见
-         * <p> 示例值：true
-         */
-        private Boolean progressStatusVisible;
-        /**
-         * 分数是否可见
-         * <p> 示例值：true
-         */
-        private Boolean scoreVisible;
-
-        /**
-         * 进展编辑区域是否可见
-         * <p> 示例值：true
-         *
-         * @param progressFillAreaVisible
-         * @return
-         */
-        public Builder progressFillAreaVisible(Boolean progressFillAreaVisible) {
-            this.progressFillAreaVisible = progressFillAreaVisible;
-            return this;
-        }
-
-
-        /**
-         * 进展状态是否可见
-         * <p> 示例值：true
-         *
-         * @param progressStatusVisible
-         * @return
-         */
-        public Builder progressStatusVisible(Boolean progressStatusVisible) {
-            this.progressStatusVisible = progressStatusVisible;
-            return this;
-        }
-
-
-        /**
-         * 分数是否可见
-         * <p> 示例值：true
-         *
-         * @param scoreVisible
-         * @return
-         */
-        public Builder scoreVisible(Boolean scoreVisible) {
-            this.scoreVisible = scoreVisible;
-            return this;
-        }
-
-
-        public OkrVisibleSetting build() {
-            return new OkrVisibleSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateGuest {
+  /**
+   * 姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private UpsertGuestName name;
+
+  /**
+   * 手机
+   *
+   * <p>示例值：+8612345678901
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 邮箱
+   *
+   * <p>示例值：abc@abc.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 头像
+   *
+   * <p>示例值：asdfaserwerweradsfasdf
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 国家地区
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("work_country_or_region")
+  private String workCountryOrRegion;
+
+  public UpsertGuestName getName() {
+    return this.name;
+  }
+
+  public void setName(UpsertGuestName name) {
+    this.name = name;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public String getWorkCountryOrRegion() {
+    return this.workCountryOrRegion;
+  }
+
+  public void setWorkCountryOrRegion(String workCountryOrRegion) {
+    this.workCountryOrRegion = workCountryOrRegion;
+  }
+
+  // builder 开始
+  public CreateGuest() {}
+
+  public CreateGuest(Builder builder) {
     /**
      * 姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private UpsertGuestName name;
+    this.name = builder.name;
     /**
      * 手机
-     * <p> 示例值：+8612345678901
+     *
+     * <p>示例值：+8612345678901
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 邮箱
-     * <p> 示例值：abc@abc.com
+     *
+     * <p>示例值：abc@abc.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 头像
-     * <p> 示例值：asdfaserwerweradsfasdf
+     *
+     * <p>示例值：asdfaserwerweradsfasdf
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 国家地区
-     * <p> 示例值：MDCT00000256
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("work_country_or_region")
+    this.workCountryOrRegion = builder.workCountryOrRegion;
+  }
+
+  public static class Builder {
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     */
+    private UpsertGuestName name;
+
+    /**
+     * 手机
+     *
+     * <p>示例值：+8612345678901
+     */
+    private String mobile;
+
+    /**
+     * 邮箱
+     *
+     * <p>示例值：abc@abc.com
+     */
+    private String email;
+
+    /**
+     * 头像
+     *
+     * <p>示例值：asdfaserwerweradsfasdf
+     */
+    private String avatarKey;
+
+    /**
+     * 国家地区
+     *
+     * <p>示例值：MDCT00000256
+     */
     private String workCountryOrRegion;
 
-    // builder 开始
-    public CreateGuest() {
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(UpsertGuestName name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateGuest(Builder builder) {
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 手机
-         * <p> 示例值：+8612345678901
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：abc@abc.com
-         */
-        this.email = builder.email;
-        /**
-         * 头像
-         * <p> 示例值：asdfaserwerweradsfasdf
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 国家地区
-         * <p> 示例值：MDCT00000256
-         */
-        this.workCountryOrRegion = builder.workCountryOrRegion;
+    /**
+     * 手机
+     *
+     * <p>示例值：+8612345678901
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮箱
+     *
+     * <p>示例值：abc@abc.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public UpsertGuestName getName() {
-        return this.name;
+    /**
+     * 头像
+     *
+     * <p>示例值：asdfaserwerweradsfasdf
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public void setName(UpsertGuestName name) {
-        this.name = name;
+    /**
+     * 国家地区
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param workCountryOrRegion
+     * @return
+     */
+    public Builder workCountryOrRegion(String workCountryOrRegion) {
+      this.workCountryOrRegion = workCountryOrRegion;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    public CreateGuest build() {
+      return new CreateGuest(this);
     }
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public String getWorkCountryOrRegion() {
-        return this.workCountryOrRegion;
-    }
-
-    public void setWorkCountryOrRegion(String workCountryOrRegion) {
-        this.workCountryOrRegion = workCountryOrRegion;
-    }
-
-    public static class Builder {
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        private UpsertGuestName name;
-        /**
-         * 手机
-         * <p> 示例值：+8612345678901
-         */
-        private String mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：abc@abc.com
-         */
-        private String email;
-        /**
-         * 头像
-         * <p> 示例值：asdfaserwerweradsfasdf
-         */
-        private String avatarKey;
-        /**
-         * 国家地区
-         * <p> 示例值：MDCT00000256
-         */
-        private String workCountryOrRegion;
-
-        /**
-         * 姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(UpsertGuestName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 手机
-         * <p> 示例值：+8612345678901
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：abc@abc.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 头像
-         * <p> 示例值：asdfaserwerweradsfasdf
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 国家地区
-         * <p> 示例值：MDCT00000256
-         *
-         * @param workCountryOrRegion
-         * @return
-         */
-        public Builder workCountryOrRegion(String workCountryOrRegion) {
-            this.workCountryOrRegion = workCountryOrRegion;
-            return this;
-        }
-
-
-        public CreateGuest build() {
-            return new CreateGuest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeQueryOption {
+  /**
+   * 数据源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  /**
+   * limit
+   *
+   * <p>示例值：200
+   */
+  @SerializedName("limit")
+  private Integer limit;
+
+  /**
+   * 游标
+   *
+   * <p>示例值：7233736321931739155
+   */
+  @SerializedName("cursor")
+  private String cursor;
+
+  /**
+   * 是否读person archive
+   *
+   * <p>示例值：
+   */
+  @SerializedName("read_archive")
+  private Boolean readArchive;
+
+  /**
+   * 是否查询多记录对象
+   *
+   * <p>示例值：
+   */
+  @SerializedName("all_multi_records")
+  private Boolean allMultiRecords;
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public String getCursor() {
+    return this.cursor;
+  }
+
+  public void setCursor(String cursor) {
+    this.cursor = cursor;
+  }
+
+  public Boolean getReadArchive() {
+    return this.readArchive;
+  }
+
+  public void setReadArchive(Boolean readArchive) {
+    this.readArchive = readArchive;
+  }
+
+  public Boolean getAllMultiRecords() {
+    return this.allMultiRecords;
+  }
+
+  public void setAllMultiRecords(Boolean allMultiRecords) {
+    this.allMultiRecords = allMultiRecords;
+  }
+
+  // builder 开始
+  public EmployeeQueryOption() {}
+
+  public EmployeeQueryOption(Builder builder) {
     /**
      * 数据源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
-    private Integer dataSource;
+    this.dataSource = builder.dataSource;
     /**
      * limit
-     * <p> 示例值：200
+     *
+     * <p>示例值：200
      */
-    @SerializedName("limit")
-    private Integer limit;
+    this.limit = builder.limit;
     /**
      * 游标
-     * <p> 示例值：7233736321931739155
+     *
+     * <p>示例值：7233736321931739155
      */
-    @SerializedName("cursor")
-    private String cursor;
+    this.cursor = builder.cursor;
     /**
      * 是否读person archive
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("read_archive")
-    private Boolean readArchive;
+    this.readArchive = builder.readArchive;
     /**
      * 是否查询多记录对象
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("all_multi_records")
+    this.allMultiRecords = builder.allMultiRecords;
+  }
+
+  public static class Builder {
+    /**
+     * 数据源
+     *
+     * <p>示例值：1
+     */
+    private Integer dataSource;
+
+    /**
+     * limit
+     *
+     * <p>示例值：200
+     */
+    private Integer limit;
+
+    /**
+     * 游标
+     *
+     * <p>示例值：7233736321931739155
+     */
+    private String cursor;
+
+    /**
+     * 是否读person archive
+     *
+     * <p>示例值：
+     */
+    private Boolean readArchive;
+
+    /**
+     * 是否查询多记录对象
+     *
+     * <p>示例值：
+     */
     private Boolean allMultiRecords;
 
-    // builder 开始
-    public EmployeeQueryOption() {
+    /**
+     * 数据源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public EmployeeQueryOption(Builder builder) {
-        /**
-         * 数据源
-         * <p> 示例值：1
-         */
-        this.dataSource = builder.dataSource;
-        /**
-         * limit
-         * <p> 示例值：200
-         */
-        this.limit = builder.limit;
-        /**
-         * 游标
-         * <p> 示例值：7233736321931739155
-         */
-        this.cursor = builder.cursor;
-        /**
-         * 是否读person archive
-         * <p> 示例值：
-         */
-        this.readArchive = builder.readArchive;
-        /**
-         * 是否查询多记录对象
-         * <p> 示例值：
-         */
-        this.allMultiRecords = builder.allMultiRecords;
+    /**
+     * limit
+     *
+     * <p>示例值：200
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 游标
+     *
+     * <p>示例值：7233736321931739155
+     *
+     * @param cursor
+     * @return
+     */
+    public Builder cursor(String cursor) {
+      this.cursor = cursor;
+      return this;
     }
 
-    public Integer getDataSource() {
-        return this.dataSource;
+    /**
+     * 是否读person archive
+     *
+     * <p>示例值：
+     *
+     * @param readArchive
+     * @return
+     */
+    public Builder readArchive(Boolean readArchive) {
+      this.readArchive = readArchive;
+      return this;
     }
 
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
+    /**
+     * 是否查询多记录对象
+     *
+     * <p>示例值：
+     *
+     * @param allMultiRecords
+     * @return
+     */
+    public Builder allMultiRecords(Boolean allMultiRecords) {
+      this.allMultiRecords = allMultiRecords;
+      return this;
     }
 
-    public Integer getLimit() {
-        return this.limit;
+    public EmployeeQueryOption build() {
+      return new EmployeeQueryOption(this);
     }
+  }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
-    }
-
-    public String getCursor() {
-        return this.cursor;
-    }
-
-    public void setCursor(String cursor) {
-        this.cursor = cursor;
-    }
-
-    public Boolean getReadArchive() {
-        return this.readArchive;
-    }
-
-    public void setReadArchive(Boolean readArchive) {
-        this.readArchive = readArchive;
-    }
-
-    public Boolean getAllMultiRecords() {
-        return this.allMultiRecords;
-    }
-
-    public void setAllMultiRecords(Boolean allMultiRecords) {
-        this.allMultiRecords = allMultiRecords;
-    }
-
-    public static class Builder {
-        /**
-         * 数据源
-         * <p> 示例值：1
-         */
-        private Integer dataSource;
-        /**
-         * limit
-         * <p> 示例值：200
-         */
-        private Integer limit;
-        /**
-         * 游标
-         * <p> 示例值：7233736321931739155
-         */
-        private String cursor;
-        /**
-         * 是否读person archive
-         * <p> 示例值：
-         */
-        private Boolean readArchive;
-        /**
-         * 是否查询多记录对象
-         * <p> 示例值：
-         */
-        private Boolean allMultiRecords;
-
-        /**
-         * 数据源
-         * <p> 示例值：1
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        /**
-         * limit
-         * <p> 示例值：200
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        /**
-         * 游标
-         * <p> 示例值：7233736321931739155
-         *
-         * @param cursor
-         * @return
-         */
-        public Builder cursor(String cursor) {
-            this.cursor = cursor;
-            return this;
-        }
-
-
-        /**
-         * 是否读person archive
-         * <p> 示例值：
-         *
-         * @param readArchive
-         * @return
-         */
-        public Builder readArchive(Boolean readArchive) {
-            this.readArchive = readArchive;
-            return this;
-        }
-
-
-        /**
-         * 是否查询多记录对象
-         * <p> 示例值：
-         *
-         * @param allMultiRecords
-         * @return
-         */
-        public Builder allMultiRecords(Boolean allMultiRecords) {
-            this.allMultiRecords = allMultiRecords;
-            return this;
-        }
-
-
-        public EmployeeQueryOption build() {
-            return new EmployeeQueryOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

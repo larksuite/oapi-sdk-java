@@ -13,109 +13,108 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class PreviewInstanceReq {
+  /**
+   * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private PreviewInstanceReqBody body;
+
+  public PreviewInstanceReqBody getPreviewInstanceReqBody() {
+    return this.body;
+  }
+
+  public void setPreviewInstanceReqBody(PreviewInstanceReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PreviewInstanceReq() {}
+
+  public PreviewInstanceReq(Builder builder) {
     /**
      * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        userIdType; // open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+
+    /**
+     * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private PreviewInstanceReqBody body;
 
-    // builder 开始
-    public PreviewInstanceReq() {
-    }
-
-    public PreviewInstanceReq(Builder builder) {
-        /**
-         * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public PreviewInstanceReqBody getPreviewInstanceReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPreviewInstanceReqBody(PreviewInstanceReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder previewInstanceReqBody(PreviewInstanceReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
-        private PreviewInstanceReqBody body;
-
-        /**
-         * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.PreviewInstancePreviewInstanceUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public PreviewInstanceReqBody getPreviewInstanceReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder previewInstanceReqBody(PreviewInstanceReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PreviewInstanceReq build() {
-            return new PreviewInstanceReq(this);
-        }
+    public PreviewInstanceReq build() {
+      return new PreviewInstanceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,98 +13,100 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class SqlCommandsWorkspaceReq {
+  /**
+   * 工作空间id，可以从数据平台的 URL 中获取，如
+   * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+   * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+   *
+   * <p>示例值：workspace_aadimx5uzpsls
+   */
+  @Path
+  @SerializedName("workspace_id")
+  private String workspaceId;
+
+  public String getWorkspaceId() {
+    return this.workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+  }
+
+  @Body private SqlCommandsWorkspaceReqBody body;
+
+  public SqlCommandsWorkspaceReqBody getSqlCommandsWorkspaceReqBody() {
+    return this.body;
+  }
+
+  public void setSqlCommandsWorkspaceReqBody(SqlCommandsWorkspaceReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SqlCommandsWorkspaceReq() {}
+
+  public SqlCommandsWorkspaceReq(Builder builder) {
     /**
-     * 工作空间id
-     * <p> 示例值：workspace_abc
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
      */
-    @Path
-    @SerializedName("workspace_id")
-    private String workspaceId;
-    @Body
+    this.workspaceId = builder.workspaceId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String workspaceId; // 工作空间id，可以从数据平台的 URL 中获取，如
+
+    // `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id
+
+    /**
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
+     *
+     * @param workspaceId
+     * @return
+     */
+    public Builder workspaceId(String workspaceId) {
+      this.workspaceId = workspaceId;
+      return this;
+    }
+
     private SqlCommandsWorkspaceReqBody body;
 
-    // builder 开始
-    public SqlCommandsWorkspaceReq() {
-    }
-
-    public SqlCommandsWorkspaceReq(Builder builder) {
-        /**
-         * 工作空间id
-         * <p> 示例值：workspace_abc
-         */
-        this.workspaceId = builder.workspaceId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWorkspaceId() {
-        return this.workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
-
     public SqlCommandsWorkspaceReqBody getSqlCommandsWorkspaceReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSqlCommandsWorkspaceReqBody(SqlCommandsWorkspaceReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder sqlCommandsWorkspaceReqBody(SqlCommandsWorkspaceReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String workspaceId; // 工作空间id
-        private SqlCommandsWorkspaceReqBody body;
-
-        /**
-         * 工作空间id
-         * <p> 示例值：workspace_abc
-         *
-         * @param workspaceId
-         * @return
-         */
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = workspaceId;
-            return this;
-        }
-
-        public SqlCommandsWorkspaceReqBody getSqlCommandsWorkspaceReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder sqlCommandsWorkspaceReqBody(SqlCommandsWorkspaceReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SqlCommandsWorkspaceReq build() {
-            return new SqlCommandsWorkspaceReq(this);
-        }
+    public SqlCommandsWorkspaceReq build() {
+      return new SqlCommandsWorkspaceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

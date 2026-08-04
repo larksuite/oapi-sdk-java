@@ -13,32 +13,30 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum TrainEntityTrainEntityTypeEnum {
-    STARTSTATION("start_station"), // 出发站
-    ENDSTATION("end_station"), // 到达站
-    TRAINNUM("train_num"), // 车次编号
-    NAME("name"), // 火车票姓名
-    SEATNUM("seat_num"), // 座位号
-    TICKETNUM("ticket_num"), // 车票编号
-    TOTALAMOUNT("total_amount"), // 价格
-    TIME("time"), // 出发时间
-    PRICE("price"), // 金额
-    SEATNUM1("seat_num"), // 座位号
-    SEATCLS("seat_cls"), // 座位类型
-    IDNUM("id_num"), // 身份证号
-    SALENUM("sale_num"), // 售卖号
-    SALESTATION("sale_station"), // 售卖车站
-    ;
-    private String value;
+  STARTSTATION("start_station"), // 出发站
+  ENDSTATION("end_station"), // 到达站
+  TRAINNUM("train_num"), // 车次编号
+  NAME("name"), // 火车票姓名
+  SEATNUM("seat_num"), // 座位号
+  TICKETNUM("ticket_num"), // 车票编号
+  TOTALAMOUNT("total_amount"), // 价格
+  TIME("time"), // 出发时间
+  PRICE("price"), // 金额
+  SEATNUM1("seat_num"), // 座位号
+  SEATCLS("seat_cls"), // 座位类型
+  IDNUM("id_num"), // 身份证号
+  SALENUM("sale_num"), // 售卖号
+  SALESTATION("sale_station"), // 售卖车站
+  ;
+  private String value;
 
-    TrainEntityTrainEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  TrainEntityTrainEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

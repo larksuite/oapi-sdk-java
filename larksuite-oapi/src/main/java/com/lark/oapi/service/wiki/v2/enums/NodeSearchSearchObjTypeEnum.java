@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * wiki类型
- */
+/** wiki类型 */
 public enum NodeSearchSearchObjTypeEnum {
-    DOC(1), // 旧版文档
-    DOCX(8), // 新版文档
-    ;
-    private Integer value;
+  DOC(1), // 旧版文档
+  DOCX(8), // 新版文档
+  ;
+  private Integer value;
 
-    NodeSearchSearchObjTypeEnum(Integer value) {
-        this.value = value;
-    }
+  NodeSearchSearchObjTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

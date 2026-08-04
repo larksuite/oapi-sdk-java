@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingCitizenshipStatus {
+  /**
+   * 国家/地区ID
+   *
+   * <p>示例值：7324333990030034476
+   */
+  @SerializedName("country_region")
+  private String countryRegion;
+
+  /**
+   * 公民身份类型
+   *
+   * <p>示例值：公民
+   */
+  @SerializedName("citizenship_status")
+  private String citizenshipStatus;
+
+  public String getCountryRegion() {
+    return this.countryRegion;
+  }
+
+  public void setCountryRegion(String countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
+  public String getCitizenshipStatus() {
+    return this.citizenshipStatus;
+  }
+
+  public void setCitizenshipStatus(String citizenshipStatus) {
+    this.citizenshipStatus = citizenshipStatus;
+  }
+
+  // builder 开始
+  public ProfileSettingCitizenshipStatus() {}
+
+  public ProfileSettingCitizenshipStatus(Builder builder) {
     /**
      * 国家/地区ID
-     * <p> 示例值：7324333990030034476
+     *
+     * <p>示例值：7324333990030034476
      */
-    @SerializedName("country_region")
-    private String countryRegion;
+    this.countryRegion = builder.countryRegion;
     /**
      * 公民身份类型
-     * <p> 示例值：公民
+     *
+     * <p>示例值：公民
      */
-    @SerializedName("citizenship_status")
+    this.citizenshipStatus = builder.citizenshipStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 国家/地区ID
+     *
+     * <p>示例值：7324333990030034476
+     */
+    private String countryRegion;
+
+    /**
+     * 公民身份类型
+     *
+     * <p>示例值：公民
+     */
     private String citizenshipStatus;
 
-    // builder 开始
-    public ProfileSettingCitizenshipStatus() {
+    /**
+     * 国家/地区ID
+     *
+     * <p>示例值：7324333990030034476
+     *
+     * @param countryRegion
+     * @return
+     */
+    public Builder countryRegion(String countryRegion) {
+      this.countryRegion = countryRegion;
+      return this;
     }
 
-    public ProfileSettingCitizenshipStatus(Builder builder) {
-        /**
-         * 国家/地区ID
-         * <p> 示例值：7324333990030034476
-         */
-        this.countryRegion = builder.countryRegion;
-        /**
-         * 公民身份类型
-         * <p> 示例值：公民
-         */
-        this.citizenshipStatus = builder.citizenshipStatus;
+    /**
+     * 公民身份类型
+     *
+     * <p>示例值：公民
+     *
+     * @param citizenshipStatus
+     * @return
+     */
+    public Builder citizenshipStatus(String citizenshipStatus) {
+      this.citizenshipStatus = citizenshipStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProfileSettingCitizenshipStatus build() {
+      return new ProfileSettingCitizenshipStatus(this);
     }
+  }
 
-    public String getCountryRegion() {
-        return this.countryRegion;
-    }
-
-    public void setCountryRegion(String countryRegion) {
-        this.countryRegion = countryRegion;
-    }
-
-    public String getCitizenshipStatus() {
-        return this.citizenshipStatus;
-    }
-
-    public void setCitizenshipStatus(String citizenshipStatus) {
-        this.citizenshipStatus = citizenshipStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 国家/地区ID
-         * <p> 示例值：7324333990030034476
-         */
-        private String countryRegion;
-        /**
-         * 公民身份类型
-         * <p> 示例值：公民
-         */
-        private String citizenshipStatus;
-
-        /**
-         * 国家/地区ID
-         * <p> 示例值：7324333990030034476
-         *
-         * @param countryRegion
-         * @return
-         */
-        public Builder countryRegion(String countryRegion) {
-            this.countryRegion = countryRegion;
-            return this;
-        }
-
-
-        /**
-         * 公民身份类型
-         * <p> 示例值：公民
-         *
-         * @param citizenshipStatus
-         * @return
-         */
-        public Builder citizenshipStatus(String citizenshipStatus) {
-            this.citizenshipStatus = citizenshipStatus;
-            return this;
-        }
-
-
-        public ProfileSettingCitizenshipStatus build() {
-            return new ProfileSettingCitizenshipStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

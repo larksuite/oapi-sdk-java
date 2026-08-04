@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgencySupplierLabel {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：6887469228283299336
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 标签名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public AgencySupplierLabel() {}
+
+  public AgencySupplierLabel(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：6887469228283299336
+     *
+     * <p>示例值：6887469228283299336
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 标签名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6887469228283299336
+     */
+    private String id;
+
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public AgencySupplierLabel() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6887469228283299336
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AgencySupplierLabel(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：6887469228283299336
-         */
-        this.id = builder.id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AgencySupplierLabel build() {
+      return new AgencySupplierLabel(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：6887469228283299336
-         */
-        private String id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：6887469228283299336
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标签名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public AgencySupplierLabel build() {
-            return new AgencySupplierLabel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

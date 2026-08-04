@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ConnectorInstanceRefInfo {
+  /**
+   * 连接器SourceAPIname
+   *
+   * <p>示例值：test_1
+   */
+  @SerializedName("source_api_name")
+  private String sourceApiName;
+
+  /**
+   * 连接器SourceType
+   *
+   * <p>示例值：connector
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 连接器Extra
+   *
+   * <p>示例值：extra
+   */
+  @SerializedName("extra")
+  private Map<String, String> extra;
+
+  public String getSourceApiName() {
+    return this.sourceApiName;
+  }
+
+  public void setSourceApiName(String sourceApiName) {
+    this.sourceApiName = sourceApiName;
+  }
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public ConnectorInstanceRefInfo() {}
+
+  public ConnectorInstanceRefInfo(Builder builder) {
     /**
      * 连接器SourceAPIname
-     * <p> 示例值：test_1
+     *
+     * <p>示例值：test_1
      */
-    @SerializedName("source_api_name")
-    private String sourceApiName;
+    this.sourceApiName = builder.sourceApiName;
     /**
      * 连接器SourceType
-     * <p> 示例值：connector
+     *
+     * <p>示例值：connector
      */
-    @SerializedName("source_type")
-    private String sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 连接器Extra
-     * <p> 示例值：extra
+     *
+     * <p>示例值：extra
      */
-    @SerializedName("extra")
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 连接器SourceAPIname
+     *
+     * <p>示例值：test_1
+     */
+    private String sourceApiName;
+
+    /**
+     * 连接器SourceType
+     *
+     * <p>示例值：connector
+     */
+    private String sourceType;
+
+    /**
+     * 连接器Extra
+     *
+     * <p>示例值：extra
+     */
     private Map<String, String> extra;
 
-    // builder 开始
-    public ConnectorInstanceRefInfo() {
+    /**
+     * 连接器SourceAPIname
+     *
+     * <p>示例值：test_1
+     *
+     * @param sourceApiName
+     * @return
+     */
+    public Builder sourceApiName(String sourceApiName) {
+      this.sourceApiName = sourceApiName;
+      return this;
     }
 
-    public ConnectorInstanceRefInfo(Builder builder) {
-        /**
-         * 连接器SourceAPIname
-         * <p> 示例值：test_1
-         */
-        this.sourceApiName = builder.sourceApiName;
-        /**
-         * 连接器SourceType
-         * <p> 示例值：connector
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 连接器Extra
-         * <p> 示例值：extra
-         */
-        this.extra = builder.extra;
+    /**
+     * 连接器SourceType
+     *
+     * <p>示例值：connector
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 连接器Extra
+     *
+     * <p>示例值：extra
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getSourceApiName() {
-        return this.sourceApiName;
+    public ConnectorInstanceRefInfo build() {
+      return new ConnectorInstanceRefInfo(this);
     }
+  }
 
-    public void setSourceApiName(String sourceApiName) {
-        this.sourceApiName = sourceApiName;
-    }
-
-    public String getSourceType() {
-        return this.sourceType;
-    }
-
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 连接器SourceAPIname
-         * <p> 示例值：test_1
-         */
-        private String sourceApiName;
-        /**
-         * 连接器SourceType
-         * <p> 示例值：connector
-         */
-        private String sourceType;
-        /**
-         * 连接器Extra
-         * <p> 示例值：extra
-         */
-        private Map<String, String> extra;
-
-        /**
-         * 连接器SourceAPIname
-         * <p> 示例值：test_1
-         *
-         * @param sourceApiName
-         * @return
-         */
-        public Builder sourceApiName(String sourceApiName) {
-            this.sourceApiName = sourceApiName;
-            return this;
-        }
-
-
-        /**
-         * 连接器SourceType
-         * <p> 示例值：connector
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-
-        /**
-         * 连接器Extra
-         * <p> 示例值：extra
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public ConnectorInstanceRefInfo build() {
-            return new ConnectorInstanceRefInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

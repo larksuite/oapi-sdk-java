@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class SetAncestorTaskTaskReq {
+  /**
+   * 任务的GUID，可从任务详情字段获取
+   *
+   * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+   */
+  @Path
+  @SerializedName("task_guid")
+  private String taskGuid;
+
+  public String getTaskGuid() {
+    return this.taskGuid;
+  }
+
+  public void setTaskGuid(String taskGuid) {
+    this.taskGuid = taskGuid;
+  }
+
+  @Body private SetAncestorTaskTaskReqBody body;
+
+  public SetAncestorTaskTaskReqBody getSetAncestorTaskTaskReqBody() {
+    return this.body;
+  }
+
+  public void setSetAncestorTaskTaskReqBody(SetAncestorTaskTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SetAncestorTaskTaskReq() {}
+
+  public SetAncestorTaskTaskReq(Builder builder) {
     /**
-     * 任务的guid
-     * <p> 示例值：1234
+     * 任务的GUID，可从任务详情字段获取
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
      */
-    @Path
-    @SerializedName("task_guid")
-    private String taskGuid;
-    @Body
+    this.taskGuid = builder.taskGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String taskGuid; // 任务的GUID，可从任务详情字段获取
+
+    /**
+     * 任务的GUID，可从任务详情字段获取
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * @param taskGuid
+     * @return
+     */
+    public Builder taskGuid(String taskGuid) {
+      this.taskGuid = taskGuid;
+      return this;
+    }
+
     private SetAncestorTaskTaskReqBody body;
 
-    // builder 开始
-    public SetAncestorTaskTaskReq() {
-    }
-
-    public SetAncestorTaskTaskReq(Builder builder) {
-        /**
-         * 任务的guid
-         * <p> 示例值：1234
-         */
-        this.taskGuid = builder.taskGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTaskGuid() {
-        return this.taskGuid;
-    }
-
-    public void setTaskGuid(String taskGuid) {
-        this.taskGuid = taskGuid;
-    }
-
     public SetAncestorTaskTaskReqBody getSetAncestorTaskTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSetAncestorTaskTaskReqBody(SetAncestorTaskTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder setAncestorTaskTaskReqBody(SetAncestorTaskTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String taskGuid; // 任务的guid
-        private SetAncestorTaskTaskReqBody body;
-
-        /**
-         * 任务的guid
-         * <p> 示例值：1234
-         *
-         * @param taskGuid
-         * @return
-         */
-        public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
-        }
-
-        public SetAncestorTaskTaskReqBody getSetAncestorTaskTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder setAncestorTaskTaskReqBody(SetAncestorTaskTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SetAncestorTaskTaskReq build() {
-            return new SetAncestorTaskTaskReq(this);
-        }
+    public SetAncestorTaskTaskReq build() {
+      return new SetAncestorTaskTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

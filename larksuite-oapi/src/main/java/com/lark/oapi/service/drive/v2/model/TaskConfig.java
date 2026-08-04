@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskConfig {
+  /**
+   * 被圈选的用户范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("includes")
+  private Condition[] includes;
+
+  /**
+   * 白名单，即被剔除的用户范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("excludes")
+  private Condition[] excludes;
+
+  public Condition[] getIncludes() {
+    return this.includes;
+  }
+
+  public void setIncludes(Condition[] includes) {
+    this.includes = includes;
+  }
+
+  public Condition[] getExcludes() {
+    return this.excludes;
+  }
+
+  public void setExcludes(Condition[] excludes) {
+    this.excludes = excludes;
+  }
+
+  // builder 开始
+  public TaskConfig() {}
+
+  public TaskConfig(Builder builder) {
     /**
      * 被圈选的用户范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("includes")
-    private Condition[] includes;
+    this.includes = builder.includes;
     /**
      * 白名单，即被剔除的用户范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("excludes")
+    this.excludes = builder.excludes;
+  }
+
+  public static class Builder {
+    /**
+     * 被圈选的用户范围
+     *
+     * <p>示例值：
+     */
+    private Condition[] includes;
+
+    /**
+     * 白名单，即被剔除的用户范围
+     *
+     * <p>示例值：
+     */
     private Condition[] excludes;
 
-    // builder 开始
-    public TaskConfig() {
+    /**
+     * 被圈选的用户范围
+     *
+     * <p>示例值：
+     *
+     * @param includes
+     * @return
+     */
+    public Builder includes(Condition[] includes) {
+      this.includes = includes;
+      return this;
     }
 
-    public TaskConfig(Builder builder) {
-        /**
-         * 被圈选的用户范围
-         * <p> 示例值：
-         */
-        this.includes = builder.includes;
-        /**
-         * 白名单，即被剔除的用户范围
-         * <p> 示例值：
-         */
-        this.excludes = builder.excludes;
+    /**
+     * 白名单，即被剔除的用户范围
+     *
+     * <p>示例值：
+     *
+     * @param excludes
+     * @return
+     */
+    public Builder excludes(Condition[] excludes) {
+      this.excludes = excludes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TaskConfig build() {
+      return new TaskConfig(this);
     }
+  }
 
-    public Condition[] getIncludes() {
-        return this.includes;
-    }
-
-    public void setIncludes(Condition[] includes) {
-        this.includes = includes;
-    }
-
-    public Condition[] getExcludes() {
-        return this.excludes;
-    }
-
-    public void setExcludes(Condition[] excludes) {
-        this.excludes = excludes;
-    }
-
-    public static class Builder {
-        /**
-         * 被圈选的用户范围
-         * <p> 示例值：
-         */
-        private Condition[] includes;
-        /**
-         * 白名单，即被剔除的用户范围
-         * <p> 示例值：
-         */
-        private Condition[] excludes;
-
-        /**
-         * 被圈选的用户范围
-         * <p> 示例值：
-         *
-         * @param includes
-         * @return
-         */
-        public Builder includes(Condition[] includes) {
-            this.includes = includes;
-            return this;
-        }
-
-
-        /**
-         * 白名单，即被剔除的用户范围
-         * <p> 示例值：
-         *
-         * @param excludes
-         * @return
-         */
-        public Builder excludes(Condition[] excludes) {
-            this.excludes = excludes;
-            return this;
-        }
-
-
-        public TaskConfig build() {
-            return new TaskConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

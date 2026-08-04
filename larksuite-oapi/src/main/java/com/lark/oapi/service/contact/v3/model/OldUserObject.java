@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OldUserObject {
+  /**
+   * 用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 用户的 open_id，应用内用户的唯一标识。不同用户 ID 的说明参见 [用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：ou_xxxxxxxxxx
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  // builder 开始
+  public OldUserObject() {}
+
+  public OldUserObject(Builder builder) {
     /**
-     * 用户所属部门的ID列表
-     * <p> 示例值：
+     * 用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 用户的 open_id，应用内用户的唯一标识。不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
+     */
+    this.openId = builder.openId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：
+     */
     private String[] departmentIds;
+
     /**
-     * 用户open_id
-     * <p> 示例值：ou_xxxxxxxxxx
+     * 用户的 open_id，应用内用户的唯一标识。不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
      */
-    @SerializedName("open_id")
     private String openId;
 
-    // builder 开始
-    public OldUserObject() {
+    /**
+     * 用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public OldUserObject(Builder builder) {
-        /**
-         * 用户所属部门的ID列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 用户open_id
-         * <p> 示例值：ou_xxxxxxxxxx
-         */
-        this.openId = builder.openId;
+    /**
+     * 用户的 open_id，应用内用户的唯一标识。不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OldUserObject build() {
+      return new OldUserObject(this);
     }
+  }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户所属部门的ID列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 用户open_id
-         * <p> 示例值：ou_xxxxxxxxxx
-         */
-        private String openId;
-
-        /**
-         * 用户所属部门的ID列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 用户open_id
-         * <p> 示例值：ou_xxxxxxxxxx
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        public OldUserObject build() {
-            return new OldUserObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

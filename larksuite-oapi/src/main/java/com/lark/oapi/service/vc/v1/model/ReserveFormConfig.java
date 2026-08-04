@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReserveFormConfig {
+  /**
+   * 是否覆盖子层级及会议室
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("if_cover_child_scope")
+  private Boolean ifCoverChildScope;
+
+  /**
+   * 预定表单开关，true表示打开，false表示关闭
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("reserve_form")
+  private Boolean reserveForm;
+
+  /**
+   * 通知人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notified_users")
+  private SubscribeUser[] notifiedUsers;
+
+  /**
+   * 最晚于会议开始前 notified_time收到通知（单位：分/时/天）
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("notified_time")
+  private Integer notifiedTime;
+
+  /**
+   * 时间单位，1为分钟；2为小时；3为天，默认为天
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("time_unit")
+  private Integer timeUnit;
+
+  /**
+   * 题目选项配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_list")
+  private CustomList[] customList;
+
+  public Boolean getIfCoverChildScope() {
+    return this.ifCoverChildScope;
+  }
+
+  public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+    this.ifCoverChildScope = ifCoverChildScope;
+  }
+
+  public Boolean getReserveForm() {
+    return this.reserveForm;
+  }
+
+  public void setReserveForm(Boolean reserveForm) {
+    this.reserveForm = reserveForm;
+  }
+
+  public SubscribeUser[] getNotifiedUsers() {
+    return this.notifiedUsers;
+  }
+
+  public void setNotifiedUsers(SubscribeUser[] notifiedUsers) {
+    this.notifiedUsers = notifiedUsers;
+  }
+
+  public Integer getNotifiedTime() {
+    return this.notifiedTime;
+  }
+
+  public void setNotifiedTime(Integer notifiedTime) {
+    this.notifiedTime = notifiedTime;
+  }
+
+  public Integer getTimeUnit() {
+    return this.timeUnit;
+  }
+
+  public void setTimeUnit(Integer timeUnit) {
+    this.timeUnit = timeUnit;
+  }
+
+  public CustomList[] getCustomList() {
+    return this.customList;
+  }
+
+  public void setCustomList(CustomList[] customList) {
+    this.customList = customList;
+  }
+
+  // builder 开始
+  public ReserveFormConfig() {}
+
+  public ReserveFormConfig(Builder builder) {
     /**
      * 是否覆盖子层级及会议室
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("if_cover_child_scope")
-    private Boolean ifCoverChildScope;
+    this.ifCoverChildScope = builder.ifCoverChildScope;
     /**
-     * 预定表单开关
-     * <p> 示例值：false
+     * 预定表单开关，true表示打开，false表示关闭
+     *
+     * <p>示例值：false
      */
-    @SerializedName("reserve_form")
-    private Boolean reserveForm;
+    this.reserveForm = builder.reserveForm;
     /**
      * 通知人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("notified_users")
-    private SubscribeUser[] notifiedUsers;
+    this.notifiedUsers = builder.notifiedUsers;
     /**
-     * 最晚于会议开始前 notified_time收到通知(单位:分/时/天)
-     * <p> 示例值：3
+     * 最晚于会议开始前 notified_time收到通知（单位：分/时/天）
+     *
+     * <p>示例值：3
      */
-    @SerializedName("notified_time")
-    private Integer notifiedTime;
+    this.notifiedTime = builder.notifiedTime;
     /**
-     * 时间单位,1为分钟;2为小时;3为天，默认为天
-     * <p> 示例值：3
+     * 时间单位，1为分钟；2为小时；3为天，默认为天
+     *
+     * <p>示例值：3
      */
-    @SerializedName("time_unit")
-    private Integer timeUnit;
+    this.timeUnit = builder.timeUnit;
     /**
      * 题目选项配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_list")
+    this.customList = builder.customList;
+  }
+
+  public static class Builder {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     */
+    private Boolean ifCoverChildScope;
+
+    /**
+     * 预定表单开关，true表示打开，false表示关闭
+     *
+     * <p>示例值：false
+     */
+    private Boolean reserveForm;
+
+    /**
+     * 通知人列表
+     *
+     * <p>示例值：
+     */
+    private SubscribeUser[] notifiedUsers;
+
+    /**
+     * 最晚于会议开始前 notified_time收到通知（单位：分/时/天）
+     *
+     * <p>示例值：3
+     */
+    private Integer notifiedTime;
+
+    /**
+     * 时间单位，1为分钟；2为小时；3为天，默认为天
+     *
+     * <p>示例值：3
+     */
+    private Integer timeUnit;
+
+    /**
+     * 题目选项配置
+     *
+     * <p>示例值：
+     */
     private CustomList[] customList;
 
-    // builder 开始
-    public ReserveFormConfig() {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     *
+     * @param ifCoverChildScope
+     * @return
+     */
+    public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+      this.ifCoverChildScope = ifCoverChildScope;
+      return this;
     }
 
-    public ReserveFormConfig(Builder builder) {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        this.ifCoverChildScope = builder.ifCoverChildScope;
-        /**
-         * 预定表单开关
-         * <p> 示例值：false
-         */
-        this.reserveForm = builder.reserveForm;
-        /**
-         * 通知人列表
-         * <p> 示例值：
-         */
-        this.notifiedUsers = builder.notifiedUsers;
-        /**
-         * 最晚于会议开始前 notified_time收到通知(单位:分/时/天)
-         * <p> 示例值：3
-         */
-        this.notifiedTime = builder.notifiedTime;
-        /**
-         * 时间单位,1为分钟;2为小时;3为天，默认为天
-         * <p> 示例值：3
-         */
-        this.timeUnit = builder.timeUnit;
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         */
-        this.customList = builder.customList;
+    /**
+     * 预定表单开关，true表示打开，false表示关闭
+     *
+     * <p>示例值：false
+     *
+     * @param reserveForm
+     * @return
+     */
+    public Builder reserveForm(Boolean reserveForm) {
+      this.reserveForm = reserveForm;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 通知人列表
+     *
+     * <p>示例值：
+     *
+     * @param notifiedUsers
+     * @return
+     */
+    public Builder notifiedUsers(SubscribeUser[] notifiedUsers) {
+      this.notifiedUsers = notifiedUsers;
+      return this;
     }
 
-    public Boolean getIfCoverChildScope() {
-        return this.ifCoverChildScope;
+    /**
+     * 最晚于会议开始前 notified_time收到通知（单位：分/时/天）
+     *
+     * <p>示例值：3
+     *
+     * @param notifiedTime
+     * @return
+     */
+    public Builder notifiedTime(Integer notifiedTime) {
+      this.notifiedTime = notifiedTime;
+      return this;
     }
 
-    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
-        this.ifCoverChildScope = ifCoverChildScope;
+    /**
+     * 时间单位，1为分钟；2为小时；3为天，默认为天
+     *
+     * <p>示例值：3
+     *
+     * @param timeUnit
+     * @return
+     */
+    public Builder timeUnit(Integer timeUnit) {
+      this.timeUnit = timeUnit;
+      return this;
     }
 
-    public Boolean getReserveForm() {
-        return this.reserveForm;
+    /**
+     * 题目选项配置
+     *
+     * <p>示例值：
+     *
+     * @param customList
+     * @return
+     */
+    public Builder customList(CustomList[] customList) {
+      this.customList = customList;
+      return this;
     }
 
-    public void setReserveForm(Boolean reserveForm) {
-        this.reserveForm = reserveForm;
+    public ReserveFormConfig build() {
+      return new ReserveFormConfig(this);
     }
+  }
 
-    public SubscribeUser[] getNotifiedUsers() {
-        return this.notifiedUsers;
-    }
-
-    public void setNotifiedUsers(SubscribeUser[] notifiedUsers) {
-        this.notifiedUsers = notifiedUsers;
-    }
-
-    public Integer getNotifiedTime() {
-        return this.notifiedTime;
-    }
-
-    public void setNotifiedTime(Integer notifiedTime) {
-        this.notifiedTime = notifiedTime;
-    }
-
-    public Integer getTimeUnit() {
-        return this.timeUnit;
-    }
-
-    public void setTimeUnit(Integer timeUnit) {
-        this.timeUnit = timeUnit;
-    }
-
-    public CustomList[] getCustomList() {
-        return this.customList;
-    }
-
-    public void setCustomList(CustomList[] customList) {
-        this.customList = customList;
-    }
-
-    public static class Builder {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        private Boolean ifCoverChildScope;
-        /**
-         * 预定表单开关
-         * <p> 示例值：false
-         */
-        private Boolean reserveForm;
-        /**
-         * 通知人列表
-         * <p> 示例值：
-         */
-        private SubscribeUser[] notifiedUsers;
-        /**
-         * 最晚于会议开始前 notified_time收到通知(单位:分/时/天)
-         * <p> 示例值：3
-         */
-        private Integer notifiedTime;
-        /**
-         * 时间单位,1为分钟;2为小时;3为天，默认为天
-         * <p> 示例值：3
-         */
-        private Integer timeUnit;
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         */
-        private CustomList[] customList;
-
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         *
-         * @param ifCoverChildScope
-         * @return
-         */
-        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
-            this.ifCoverChildScope = ifCoverChildScope;
-            return this;
-        }
-
-
-        /**
-         * 预定表单开关
-         * <p> 示例值：false
-         *
-         * @param reserveForm
-         * @return
-         */
-        public Builder reserveForm(Boolean reserveForm) {
-            this.reserveForm = reserveForm;
-            return this;
-        }
-
-
-        /**
-         * 通知人列表
-         * <p> 示例值：
-         *
-         * @param notifiedUsers
-         * @return
-         */
-        public Builder notifiedUsers(SubscribeUser[] notifiedUsers) {
-            this.notifiedUsers = notifiedUsers;
-            return this;
-        }
-
-
-        /**
-         * 最晚于会议开始前 notified_time收到通知(单位:分/时/天)
-         * <p> 示例值：3
-         *
-         * @param notifiedTime
-         * @return
-         */
-        public Builder notifiedTime(Integer notifiedTime) {
-            this.notifiedTime = notifiedTime;
-            return this;
-        }
-
-
-        /**
-         * 时间单位,1为分钟;2为小时;3为天，默认为天
-         * <p> 示例值：3
-         *
-         * @param timeUnit
-         * @return
-         */
-        public Builder timeUnit(Integer timeUnit) {
-            this.timeUnit = timeUnit;
-            return this;
-        }
-
-
-        /**
-         * 题目选项配置
-         * <p> 示例值：
-         *
-         * @param customList
-         * @return
-         */
-        public Builder customList(CustomList[] customList) {
-            this.customList = customList;
-            return this;
-        }
-
-
-        public ReserveFormConfig build() {
-            return new ReserveFormConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

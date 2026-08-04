@@ -13,151 +13,153 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class EmploymentCustomOrgRecordEmployeeCustomOrgReq {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：7293641346149138452
+   */
+  @Query
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @Query
+  @SerializedName("object_api_names")
+  private String[] objectApiNames;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String[] getObjectApiNames() {
+    return this.objectApiNames;
+  }
+
+  public void setObjectApiNames(String[] objectApiNames) {
+    this.objectApiNames = objectApiNames;
+  }
+
+  // builder 开始
+  public EmploymentCustomOrgRecordEmployeeCustomOrgReq() {}
+
+  public EmploymentCustomOrgRecordEmployeeCustomOrgReq(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：7293641346149138452
+     *
+     * <p>示例值：7293641346149138452
      */
-    @Query
-    @SerializedName("user_ids")
-    private String[] userIds;
+    this.userIds = builder.userIds;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
-     * <p> 示例值：custom_org_01
+     *
+     * <p>示例值：custom_org_01
      */
-    @Query
-    @SerializedName("object_api_names")
-    private String[] objectApiNames;
+    this.objectApiNames = builder.objectApiNames;
+  }
 
-    // builder 开始
-    public EmploymentCustomOrgRecordEmployeeCustomOrgReq() {
+  public static class Builder {
+    private String[] userIds; // 用户ID
+    private String userIdType; // 用户 ID 类型
+    private String[] objectApiNames; // 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7293641346149138452
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public EmploymentCustomOrgRecordEmployeeCustomOrgReq(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：7293641346149138452
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
-         * <p> 示例值：custom_org_01
-         */
-        this.objectApiNames = builder.objectApiNames;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.EmploymentCustomOrgRecordEmployeeCustomOrgEmpCustomOrgRecordUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .EmploymentCustomOrgRecordEmployeeCustomOrgEmpCustomOrgRecordUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String[] getUserIds() {
-        return this.userIds;
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     *
+     * @param objectApiNames
+     * @return
+     */
+    public Builder objectApiNames(String[] objectApiNames) {
+      this.objectApiNames = objectApiNames;
+      return this;
     }
 
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
+    public EmploymentCustomOrgRecordEmployeeCustomOrgReq build() {
+      return new EmploymentCustomOrgRecordEmployeeCustomOrgReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String[] getObjectApiNames() {
-        return this.objectApiNames;
-    }
-
-    public void setObjectApiNames(String[] objectApiNames) {
-        this.objectApiNames = objectApiNames;
-    }
-
-    public static class Builder {
-        private String[] userIds; // 用户ID
-        private String userIdType; // 用户 ID 类型
-        private String[] objectApiNames; // 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
-
-        /**
-         * 用户ID
-         * <p> 示例值：7293641346149138452
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.EmploymentCustomOrgRecordEmployeeCustomOrgEmpCustomOrgRecordUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.EmploymentCustomOrgRecordEmployeeCustomOrgEmpCustomOrgRecordUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
-         * <p> 示例值：custom_org_01
-         *
-         * @param objectApiNames
-         * @return
-         */
-        public Builder objectApiNames(String[] objectApiNames) {
-            this.objectApiNames = objectApiNames;
-            return this;
-        }
-
-
-        public EmploymentCustomOrgRecordEmployeeCustomOrgReq build() {
-            return new EmploymentCustomOrgRecordEmployeeCustomOrgReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

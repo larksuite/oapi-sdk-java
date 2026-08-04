@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BottomBorderStyle {
+  /**
+   * 边框样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("style")
+  private String style;
+
+  /**
+   * 边框颜色
+   *
+   * <p>示例值：#ff00ff
+   */
+  @SerializedName("color")
+  private String color;
+
+  public String getStyle() {
+    return this.style;
+  }
+
+  public void setStyle(String style) {
+    this.style = style;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  // builder 开始
+  public BottomBorderStyle() {}
+
+  public BottomBorderStyle(Builder builder) {
     /**
      * 边框样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("style")
-    private String style;
+    this.style = builder.style;
     /**
      * 边框颜色
-     * <p> 示例值：#ff00ff
+     *
+     * <p>示例值：#ff00ff
      */
-    @SerializedName("color")
+    this.color = builder.color;
+  }
+
+  public static class Builder {
+    /**
+     * 边框样式
+     *
+     * <p>示例值：
+     */
+    private String style;
+
+    /**
+     * 边框颜色
+     *
+     * <p>示例值：#ff00ff
+     */
     private String color;
 
-    // builder 开始
-    public BottomBorderStyle() {
+    /**
+     * 边框样式
+     *
+     * <p>示例值：
+     *
+     * @param style
+     * @return
+     */
+    public Builder style(String style) {
+      this.style = style;
+      return this;
     }
 
-    public BottomBorderStyle(Builder builder) {
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
-        this.style = builder.style;
-        /**
-         * 边框颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.color = builder.color;
+    /**
+     * 边框样式
+     *
+     * <p>示例值：
+     *
+     * @param style {@link
+     *     com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum}
+     * @return
+     */
+    public Builder style(
+        com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum style) {
+      this.style = style.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 边框颜色
+     *
+     * <p>示例值：#ff00ff
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public String getStyle() {
-        return this.style;
+    public BottomBorderStyle build() {
+      return new BottomBorderStyle(this);
     }
+  }
 
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public static class Builder {
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
-        private String style;
-        /**
-         * 边框颜色
-         * <p> 示例值：#ff00ff
-         */
-        private String color;
-
-        /**
-         * 边框样式
-         * <p> 示例值：
-         *
-         * @param style
-         * @return
-         */
-        public Builder style(String style) {
-            this.style = style;
-            return this;
-        }
-
-        /**
-         * 边框样式
-         * <p> 示例值：
-         *
-         * @param style {@link com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum}
-         * @return
-         */
-        public Builder style(com.lark.oapi.service.sheets.v3.enums.BottomBorderStyleBorderStyleTypeEnum style) {
-            this.style = style.getValue();
-            return this;
-        }
-
-
-        /**
-         * 边框颜色
-         * <p> 示例值：#ff00ff
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        public BottomBorderStyle build() {
-            return new BottomBorderStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

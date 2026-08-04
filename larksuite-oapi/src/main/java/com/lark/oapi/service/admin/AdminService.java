@@ -13,7 +13,6 @@
 package com.lark.oapi.service.admin;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.admin.v1.V1;
 import com.lark.oapi.service.admin.v1.model.*;
 import com.lark.oapi.service.admin.v1.resource.AdminDeptStat;
@@ -25,55 +24,55 @@ import com.lark.oapi.service.admin.v1.resource.BadgeImage;
 import com.lark.oapi.service.admin.v1.resource.Password;
 
 public class AdminService {
-    private final V1 v1;
-    private final AdminDeptStat adminDeptStat; // 部门维度的数据报表
-    private final AdminUserStat adminUserStat; // 用户维度的数据报表
-    private final AuditInfo auditInfo; // 行为审计日志（灰度租户可见）
-    private final Badge badge; // 勋章
-    private final BadgeGrant badgeGrant; // 勋章授予名单
-    private final BadgeImage badgeImage; // 勋章图片
-    private final Password password; // 登录密码管理
+  private final V1 v1;
+  private final AdminDeptStat adminDeptStat; // admin_dept_stat
+  private final AdminUserStat adminUserStat; // admin_user_stat
+  private final AuditInfo auditInfo; // audit_info
+  private final Badge badge; // badge
+  private final BadgeGrant badgeGrant; // badge.grant
+  private final BadgeImage badgeImage; // badge_image
+  private final Password password; // password
 
-    public AdminService(Config config) {
-        this.v1 = new V1(config);
-        this.adminDeptStat = new AdminDeptStat(config);
-        this.adminUserStat = new AdminUserStat(config);
-        this.auditInfo = new AuditInfo(config);
-        this.badge = new Badge(config);
-        this.badgeGrant = new BadgeGrant(config);
-        this.badgeImage = new BadgeImage(config);
-        this.password = new Password(config);
-    }
+  public AdminService(Config config) {
+    this.v1 = new V1(config);
+    this.adminDeptStat = new AdminDeptStat(config);
+    this.adminUserStat = new AdminUserStat(config);
+    this.auditInfo = new AuditInfo(config);
+    this.badge = new Badge(config);
+    this.badgeGrant = new BadgeGrant(config);
+    this.badgeImage = new BadgeImage(config);
+    this.password = new Password(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public AdminDeptStat adminDeptStat() {
-        return adminDeptStat;
-    }
+  public AdminDeptStat adminDeptStat() {
+    return adminDeptStat;
+  }
 
-    public AdminUserStat adminUserStat() {
-        return adminUserStat;
-    }
+  public AdminUserStat adminUserStat() {
+    return adminUserStat;
+  }
 
-    public AuditInfo auditInfo() {
-        return auditInfo;
-    }
+  public AuditInfo auditInfo() {
+    return auditInfo;
+  }
 
-    public Badge badge() {
-        return badge;
-    }
+  public Badge badge() {
+    return badge;
+  }
 
-    public BadgeGrant badgeGrant() {
-        return badgeGrant;
-    }
+  public BadgeGrant badgeGrant() {
+    return badgeGrant;
+  }
 
-    public BadgeImage badgeImage() {
-        return badgeImage;
-    }
+  public BadgeImage badgeImage() {
+    return badgeImage;
+  }
 
-    public Password password() {
-        return password;
-    }
+  public Password password() {
+    return password;
+  }
 }

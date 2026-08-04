@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class HkmMainlandTravelPermit {
+  /**
+   * 识别出的实体类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entities")
+  private HkmMainlandTravelPermitEntity[] entities;
+
+  public HkmMainlandTravelPermitEntity[] getEntities() {
+    return this.entities;
+  }
+
+  public void setEntities(HkmMainlandTravelPermitEntity[] entities) {
+    this.entities = entities;
+  }
+
+  // builder 开始
+  public HkmMainlandTravelPermit() {}
+
+  public HkmMainlandTravelPermit(Builder builder) {
     /**
      * 识别出的实体类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entities")
+    this.entities = builder.entities;
+  }
+
+  public static class Builder {
+    /**
+     * 识别出的实体类型
+     *
+     * <p>示例值：
+     */
     private HkmMainlandTravelPermitEntity[] entities;
 
-    // builder 开始
-    public HkmMainlandTravelPermit() {
+    /**
+     * 识别出的实体类型
+     *
+     * <p>示例值：
+     *
+     * @param entities
+     * @return
+     */
+    public Builder entities(HkmMainlandTravelPermitEntity[] entities) {
+      this.entities = entities;
+      return this;
     }
 
-    public HkmMainlandTravelPermit(Builder builder) {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
-        this.entities = builder.entities;
+    public HkmMainlandTravelPermit build() {
+      return new HkmMainlandTravelPermit(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public HkmMainlandTravelPermitEntity[] getEntities() {
-        return this.entities;
-    }
-
-    public void setEntities(HkmMainlandTravelPermitEntity[] entities) {
-        this.entities = entities;
-    }
-
-    public static class Builder {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
-        private HkmMainlandTravelPermitEntity[] entities;
-
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         *
-         * @param entities
-         * @return
-         */
-        public Builder entities(HkmMainlandTravelPermitEntity[] entities) {
-            this.entities = entities;
-            return this;
-        }
-
-
-        public HkmMainlandTravelPermit build() {
-            return new HkmMainlandTravelPermit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

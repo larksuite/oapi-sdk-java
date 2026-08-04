@@ -13,412 +13,458 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateChatRespBody {
-    /**
-     * 群 ID，详情参见：[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-     */
-    @SerializedName("chat_id")
-    private String chatId;
-    /**
-     * 群头像 URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-     */
-    @SerializedName("avatar")
-    private String avatar;
-    /**
-     * 群名称
-     * <p> 示例值：测试群名称
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 群描述
-     * <p> 示例值：测试群描述
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * 群国际化名称
-     * <p> 示例值：
-     */
-    @SerializedName("i18n_names")
-    private I18nNames i18nNames;
-    /**
-     * 群主 ID，ID值与查询参数中的 ==user_id_type== 对应；不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**注意**：当群主是机器人时，该字段不返回
-     * <p> 示例值：4d7a3c6g
-     */
-    @SerializedName("owner_id")
-    private String ownerId;
-    /**
-     * 群主 ID 对应的ID类型，与查询参数中的 ==user_id_type== 相同。取值为：`open_id`、`user_id`、`union_id`其中之一;;**注意**：当群主是机器人时，该字段不返回
-     * <p> 示例值：user_id
-     */
-    @SerializedName("owner_id_type")
-    private String ownerIdType;
-    /**
-     * 谁可以加急
-     * <p> 示例值：all_members
-     */
-    @SerializedName("urgent_setting")
-    private String urgentSetting;
-    /**
-     * 谁可以发起视频会议
-     * <p> 示例值：all_members
-     */
-    @SerializedName("video_conference_setting")
-    private String videoConferenceSetting;
-    /**
-     * 谁可以管理置顶
-     * <p> 示例值：all_members
-     */
-    @SerializedName("pin_manage_setting")
-    private String pinManageSetting;
-    /**
-     * 拉 用户或机器人 入群权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-     * <p> 示例值：all members
-     */
-    @SerializedName("add_member_permission")
-    private String addMemberPermission;
-    /**
-     * 群分享权限;;**可选值有**：;- `allowed`：允许;- `not_allowed`：不允许
-     * <p> 示例值：allowed
-     */
-    @SerializedName("share_card_permission")
-    private String shareCardPermission;
-    /**
-     * at 所有人权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-     * <p> 示例值：all members
-     */
-    @SerializedName("at_all_permission")
-    private String atAllPermission;
-    /**
-     * 群编辑权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
-     * <p> 示例值：all members
-     */
-    @SerializedName("edit_permission")
-    private String editPermission;
-    /**
-     * 群消息模式
-     * <p> 示例值：chat
-     */
-    @SerializedName("group_message_type")
-    private String groupMessageType;
-    /**
-     * 群模式;;**可选值有**：;- `group`：群组
-     * <p> 示例值：group
-     */
-    @SerializedName("chat_mode")
-    private String chatMode;
-    /**
-     * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
-     * <p> 示例值：private
-     */
-    @SerializedName("chat_type")
-    private String chatType;
-    /**
-     * 群标签，如有多个，则按照下列顺序返回第一个;;**可选值有**：;- `inner`：内部群;- `tenant`：公司群;- `department`：部门群;- `edu`：教育群;- `meeting`：会议群;- `customer_service`：客服群
-     * <p> 示例值：inner
-     */
-    @SerializedName("chat_tag")
-    private String chatTag;
-    /**
-     * 是否是外部群
-     * <p> 示例值：false
-     */
-    @SerializedName("external")
-    private Boolean external;
-    /**
-     * 租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-     * <p> 示例值：736588c9260f175e
-     */
-    @SerializedName("tenant_key")
-    private String tenantKey;
-    /**
-     * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
-     * <p> 示例值：all_members
-     */
-    @SerializedName("join_message_visibility")
-    private String joinMessageVisibility;
-    /**
-     * 出群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
-     * <p> 示例值：all_members
-     */
-    @SerializedName("leave_message_visibility")
-    private String leaveMessageVisibility;
-    /**
-     * 加群审批;;**可选值有**：;- `no_approval_required`：无需审批;- `approval_required`：需要审批
-     * <p> 示例值：no_approval_required
-     */
-    @SerializedName("membership_approval")
-    private String membershipApproval;
-    /**
-     * 发言权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员;- `moderator_list`：指定群成员
-     * <p> 示例值：all_members
-     */
-    @SerializedName("moderation_permission")
-    private String moderationPermission;
-    /**
-     * 群标签
-     * <p> 示例值：
-     */
-    @SerializedName("labels")
-    private String[] labels;
-    /**
-     * 群快捷组件列表
-     * <p> 示例值：
-     */
-    @SerializedName("toolkit_ids")
-    private String[] toolkitIds;
-    /**
-     * 防泄密模式设置
-     * <p> 示例值：
-     */
-    @SerializedName("restricted_mode_setting")
-    private RestrictedModeSetting restrictedModeSetting;
-    /**
-     * 隐藏群成员人数设置
-     * <p> 示例值：all_members
-     */
-    @SerializedName("hide_member_count_setting")
-    private String hideMemberCountSetting;
+  /**
+   * 群 ID。建议保存该
+   * ID，后续[向群发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)、[更新群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update)以及[将用户或机器人拉入群聊](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)等群组相关的操作均需使用该
+   * ID。
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
 
-    public String getChatId() {
-        return this.chatId;
-    }
+  /**
+   * 群头像 URL
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
+  /**
+   * 群名称
+   *
+   * <p>示例值：测试群名称
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getAvatar() {
-        return this.avatar;
-    }
+  /**
+   * 群描述
+   *
+   * <p>示例值：测试群描述
+   */
+  @SerializedName("description")
+  private String description;
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+  /**
+   * 群国际化名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private I18nNames i18nNames;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 群主 ID，ID 类型与查询参数中的 ==user_id_type== 对应；不同 ID 的说明参见 [用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**注意**：当群主是机器人时，该字段不返回
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 群主 ID 类型，与查询参数中的 ==user_id_type== 取值相同。;;**注意**：当群主是机器人时，该字段不返回
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("owner_id_type")
+  private String ownerIdType;
 
-    public String getDescription() {
-        return this.description;
-    }
+  /**
+   * 谁可以加急
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("urgent_setting")
+  private String urgentSetting;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  /**
+   * 谁可以发起视频会议
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("video_conference_setting")
+  private String videoConferenceSetting;
 
-    public I18nNames getI18nNames() {
-        return this.i18nNames;
-    }
+  /**
+   * 谁可以管理置顶
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("pin_manage_setting")
+  private String pinManageSetting;
 
-    public void setI18nNames(I18nNames i18nNames) {
-        this.i18nNames = i18nNames;
-    }
+  /**
+   * 谁可以邀请用户或机器人入群;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+   *
+   * <p>示例值：all members
+   */
+  @SerializedName("add_member_permission")
+  private String addMemberPermission;
 
-    public String getOwnerId() {
-        return this.ownerId;
-    }
+  /**
+   * 群分享权限;;**可选值有**：;- `allowed`：允许;- `not_allowed`：不允许
+   *
+   * <p>示例值：allowed
+   */
+  @SerializedName("share_card_permission")
+  private String shareCardPermission;
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
+  /**
+   * 谁可以 at 所有人;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+   *
+   * <p>示例值：all members
+   */
+  @SerializedName("at_all_permission")
+  private String atAllPermission;
 
-    public String getOwnerIdType() {
-        return this.ownerIdType;
-    }
+  /**
+   * 群编辑权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员
+   *
+   * <p>示例值：all members
+   */
+  @SerializedName("edit_permission")
+  private String editPermission;
 
-    public void setOwnerIdType(String ownerIdType) {
-        this.ownerIdType = ownerIdType;
-    }
+  /**
+   * 群消息形式;;**可选值有**：;- `chat`：对话消息;- `thread`：话题消息
+   *
+   * <p>示例值：chat
+   */
+  @SerializedName("group_message_type")
+  private String groupMessageType;
 
-    public String getUrgentSetting() {
-        return this.urgentSetting;
-    }
+  /**
+   * 群模式;;**可选值有**：;- `group`：群组
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_mode")
+  private String chatMode;
 
-    public void setUrgentSetting(String urgentSetting) {
-        this.urgentSetting = urgentSetting;
-    }
+  /**
+   * 群类型;;**可选值有**：;- `private`：私有群;- `public`：公开群
+   *
+   * <p>示例值：private
+   */
+  @SerializedName("chat_type")
+  private String chatType;
 
-    public String getVideoConferenceSetting() {
-        return this.videoConferenceSetting;
-    }
+  /**
+   * 群标签，如有多个，则按照下列顺序返回第一个;;**可选值有**：;- `inner`：内部群;- `tenant`：公司群;- `department`：部门群;- `edu`：教育群;-
+   * `meeting`：会议群;- `customer_service`：客服群
+   *
+   * <p>示例值：inner
+   */
+  @SerializedName("chat_tag")
+  private String chatTag;
 
-    public void setVideoConferenceSetting(String videoConferenceSetting) {
-        this.videoConferenceSetting = videoConferenceSetting;
-    }
+  /**
+   * 是否是外部群
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("external")
+  private Boolean external;
 
-    public String getPinManageSetting() {
-        return this.pinManageSetting;
-    }
+  /**
+   * 租户在飞书上的唯一标识，用来换取对应的 tenant_access_token，也可以用作租户在应用里面的唯一标识
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
 
-    public void setPinManageSetting(String pinManageSetting) {
-        this.pinManageSetting = pinManageSetting;
-    }
+  /**
+   * 入群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("join_message_visibility")
+  private String joinMessageVisibility;
 
-    public String getAddMemberPermission() {
-        return this.addMemberPermission;
-    }
+  /**
+   * 出群消息可见性;;**可选值有**：;- `only_owner`：仅群主和管理员可见;- `all_members`：所有成员可见;- `not_anyone`：任何人均不可见
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("leave_message_visibility")
+  private String leaveMessageVisibility;
 
-    public void setAddMemberPermission(String addMemberPermission) {
-        this.addMemberPermission = addMemberPermission;
-    }
+  /**
+   * 加群审批;;**可选值有**：;- `no_approval_required`：无需审批;- `approval_required`：需要审批
+   *
+   * <p>示例值：no_approval_required
+   */
+  @SerializedName("membership_approval")
+  private String membershipApproval;
 
-    public String getShareCardPermission() {
-        return this.shareCardPermission;
-    }
+  /**
+   * 发言权限;;**可选值有**：;- `only_owner`：仅群主和管理员;- `all_members`：所有成员;- `moderator_list`：指定群成员
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("moderation_permission")
+  private String moderationPermission;
 
-    public void setShareCardPermission(String shareCardPermission) {
-        this.shareCardPermission = shareCardPermission;
-    }
+  /**
+   * 群标签
+   *
+   * <p>示例值：
+   */
+  @SerializedName("labels")
+  private String[] labels;
 
-    public String getAtAllPermission() {
-        return this.atAllPermission;
-    }
+  /**
+   * 群快捷组件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("toolkit_ids")
+  private String[] toolkitIds;
 
-    public void setAtAllPermission(String atAllPermission) {
-        this.atAllPermission = atAllPermission;
-    }
+  /**
+   * 保密模式设置;;**注意**：仅企业旗舰版支持设置保密模式。保密模式的适用版本与功能介绍，参见[会话保密模式](https://www.feishu.cn/hc/zh-CN/articles/418691056559)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("restricted_mode_setting")
+  private RestrictedModeSetting restrictedModeSetting;
 
-    public String getEditPermission() {
-        return this.editPermission;
-    }
+  /**
+   * 隐藏群成员人数设置
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("hide_member_count_setting")
+  private String hideMemberCountSetting;
 
-    public void setEditPermission(String editPermission) {
-        this.editPermission = editPermission;
-    }
+  public String getChatId() {
+    return this.chatId;
+  }
 
-    public String getGroupMessageType() {
-        return this.groupMessageType;
-    }
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
 
-    public void setGroupMessageType(String groupMessageType) {
-        this.groupMessageType = groupMessageType;
-    }
+  public String getAvatar() {
+    return this.avatar;
+  }
 
-    public String getChatMode() {
-        return this.chatMode;
-    }
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
 
-    public void setChatMode(String chatMode) {
-        this.chatMode = chatMode;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public String getChatType() {
-        return this.chatType;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setChatType(String chatType) {
-        this.chatType = chatType;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public String getChatTag() {
-        return this.chatTag;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setChatTag(String chatTag) {
-        this.chatTag = chatTag;
-    }
+  public I18nNames getI18nNames() {
+    return this.i18nNames;
+  }
 
-    public Boolean getExternal() {
-        return this.external;
-    }
+  public void setI18nNames(I18nNames i18nNames) {
+    this.i18nNames = i18nNames;
+  }
 
-    public void setExternal(Boolean external) {
-        this.external = external;
-    }
+  public String getOwnerId() {
+    return this.ownerId;
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
+  public String getOwnerIdType() {
+    return this.ownerIdType;
+  }
 
-    public String getJoinMessageVisibility() {
-        return this.joinMessageVisibility;
-    }
+  public void setOwnerIdType(String ownerIdType) {
+    this.ownerIdType = ownerIdType;
+  }
 
-    public void setJoinMessageVisibility(String joinMessageVisibility) {
-        this.joinMessageVisibility = joinMessageVisibility;
-    }
+  public String getUrgentSetting() {
+    return this.urgentSetting;
+  }
 
-    public String getLeaveMessageVisibility() {
-        return this.leaveMessageVisibility;
-    }
+  public void setUrgentSetting(String urgentSetting) {
+    this.urgentSetting = urgentSetting;
+  }
 
-    public void setLeaveMessageVisibility(String leaveMessageVisibility) {
-        this.leaveMessageVisibility = leaveMessageVisibility;
-    }
+  public String getVideoConferenceSetting() {
+    return this.videoConferenceSetting;
+  }
 
-    public String getMembershipApproval() {
-        return this.membershipApproval;
-    }
+  public void setVideoConferenceSetting(String videoConferenceSetting) {
+    this.videoConferenceSetting = videoConferenceSetting;
+  }
 
-    public void setMembershipApproval(String membershipApproval) {
-        this.membershipApproval = membershipApproval;
-    }
+  public String getPinManageSetting() {
+    return this.pinManageSetting;
+  }
 
-    public String getModerationPermission() {
-        return this.moderationPermission;
-    }
+  public void setPinManageSetting(String pinManageSetting) {
+    this.pinManageSetting = pinManageSetting;
+  }
 
-    public void setModerationPermission(String moderationPermission) {
-        this.moderationPermission = moderationPermission;
-    }
+  public String getAddMemberPermission() {
+    return this.addMemberPermission;
+  }
 
-    public String[] getLabels() {
-        return this.labels;
-    }
+  public void setAddMemberPermission(String addMemberPermission) {
+    this.addMemberPermission = addMemberPermission;
+  }
 
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
+  public String getShareCardPermission() {
+    return this.shareCardPermission;
+  }
 
-    public String[] getToolkitIds() {
-        return this.toolkitIds;
-    }
+  public void setShareCardPermission(String shareCardPermission) {
+    this.shareCardPermission = shareCardPermission;
+  }
 
-    public void setToolkitIds(String[] toolkitIds) {
-        this.toolkitIds = toolkitIds;
-    }
+  public String getAtAllPermission() {
+    return this.atAllPermission;
+  }
 
-    public RestrictedModeSetting getRestrictedModeSetting() {
-        return this.restrictedModeSetting;
-    }
+  public void setAtAllPermission(String atAllPermission) {
+    this.atAllPermission = atAllPermission;
+  }
 
-    public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
-        this.restrictedModeSetting = restrictedModeSetting;
-    }
+  public String getEditPermission() {
+    return this.editPermission;
+  }
 
-    public String getHideMemberCountSetting() {
-        return this.hideMemberCountSetting;
-    }
+  public void setEditPermission(String editPermission) {
+    this.editPermission = editPermission;
+  }
 
-    public void setHideMemberCountSetting(String hideMemberCountSetting) {
-        this.hideMemberCountSetting = hideMemberCountSetting;
-    }
+  public String getGroupMessageType() {
+    return this.groupMessageType;
+  }
 
+  public void setGroupMessageType(String groupMessageType) {
+    this.groupMessageType = groupMessageType;
+  }
+
+  public String getChatMode() {
+    return this.chatMode;
+  }
+
+  public void setChatMode(String chatMode) {
+    this.chatMode = chatMode;
+  }
+
+  public String getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(String chatType) {
+    this.chatType = chatType;
+  }
+
+  public String getChatTag() {
+    return this.chatTag;
+  }
+
+  public void setChatTag(String chatTag) {
+    this.chatTag = chatTag;
+  }
+
+  public Boolean getExternal() {
+    return this.external;
+  }
+
+  public void setExternal(Boolean external) {
+    this.external = external;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getJoinMessageVisibility() {
+    return this.joinMessageVisibility;
+  }
+
+  public void setJoinMessageVisibility(String joinMessageVisibility) {
+    this.joinMessageVisibility = joinMessageVisibility;
+  }
+
+  public String getLeaveMessageVisibility() {
+    return this.leaveMessageVisibility;
+  }
+
+  public void setLeaveMessageVisibility(String leaveMessageVisibility) {
+    this.leaveMessageVisibility = leaveMessageVisibility;
+  }
+
+  public String getMembershipApproval() {
+    return this.membershipApproval;
+  }
+
+  public void setMembershipApproval(String membershipApproval) {
+    this.membershipApproval = membershipApproval;
+  }
+
+  public String getModerationPermission() {
+    return this.moderationPermission;
+  }
+
+  public void setModerationPermission(String moderationPermission) {
+    this.moderationPermission = moderationPermission;
+  }
+
+  public String[] getLabels() {
+    return this.labels;
+  }
+
+  public void setLabels(String[] labels) {
+    this.labels = labels;
+  }
+
+  public String[] getToolkitIds() {
+    return this.toolkitIds;
+  }
+
+  public void setToolkitIds(String[] toolkitIds) {
+    this.toolkitIds = toolkitIds;
+  }
+
+  public RestrictedModeSetting getRestrictedModeSetting() {
+    return this.restrictedModeSetting;
+  }
+
+  public void setRestrictedModeSetting(RestrictedModeSetting restrictedModeSetting) {
+    this.restrictedModeSetting = restrictedModeSetting;
+  }
+
+  public String getHideMemberCountSetting() {
+    return this.hideMemberCountSetting;
+  }
+
+  public void setHideMemberCountSetting(String hideMemberCountSetting) {
+    this.hideMemberCountSetting = hideMemberCountSetting;
+  }
 }

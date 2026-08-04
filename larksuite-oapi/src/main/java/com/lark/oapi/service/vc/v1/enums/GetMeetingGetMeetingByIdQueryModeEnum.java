@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
- */
+/** 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物 */
 public enum GetMeetingGetMeetingByIdQueryModeEnum {
-    GET_ONLY_MEETING(0), // 只查询会议信息（默认）
-    GET_ONLY_RELATED_ARTIFACTS(1), // 只查询会议产物（纪要、逐字稿）
-    ;
-    private Integer value;
+  GET_ONLY_MEETING(0), // 只查询会议信息（默认）
+  GET_ONLY_RELATED_ARTIFACTS(1), // 只查询会议产物（纪要、逐字稿）
+  ;
+  private Integer value;
 
-    GetMeetingGetMeetingByIdQueryModeEnum(Integer value) {
-        this.value = value;
-    }
+  GetMeetingGetMeetingByIdQueryModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateApp {
+  /**
+   * AppUser ID
+   *
+   * <p>示例值：7036181931599499700
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 头像的文件key
+   *
+   * <p>示例值：asdfadsfasdfasdfadsf
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 租户下是否可用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usable")
+  private Boolean usable;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public Boolean getUsable() {
+    return this.usable;
+  }
+
+  public void setUsable(Boolean usable) {
+    this.usable = usable;
+  }
+
+  // builder 开始
+  public UpdateApp() {}
+
+  public UpdateApp(Builder builder) {
     /**
      * AppUser ID
-     * <p> 示例值：7036181931599499700
+     *
+     * <p>示例值：7036181931599499700
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 头像的文件key
-     * <p> 示例值：asdfadsfasdfasdfadsf
+     *
+     * <p>示例值：asdfadsfasdfasdfadsf
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 租户下是否可用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("usable")
+    this.usable = builder.usable;
+  }
+
+  public static class Builder {
+    /**
+     * AppUser ID
+     *
+     * <p>示例值：7036181931599499700
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：asdfadsfasdfasdfadsf
+     */
+    private String avatarKey;
+
+    /**
+     * 租户下是否可用
+     *
+     * <p>示例值：
+     */
     private Boolean usable;
 
-    // builder 开始
-    public UpdateApp() {
+    /**
+     * AppUser ID
+     *
+     * <p>示例值：7036181931599499700
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateApp(Builder builder) {
-        /**
-         * AppUser ID
-         * <p> 示例值：7036181931599499700
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 头像的文件key
-         * <p> 示例值：asdfadsfasdfasdfadsf
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         */
-        this.usable = builder.usable;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：asdfadsfasdfasdfadsf
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 租户下是否可用
+     *
+     * <p>示例值：
+     *
+     * @param usable
+     * @return
+     */
+    public Builder usable(Boolean usable) {
+      this.usable = usable;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public UpdateApp build() {
+      return new UpdateApp(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public Boolean getUsable() {
-        return this.usable;
-    }
-
-    public void setUsable(Boolean usable) {
-        this.usable = usable;
-    }
-
-    public static class Builder {
-        /**
-         * AppUser ID
-         * <p> 示例值：7036181931599499700
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 头像的文件key
-         * <p> 示例值：asdfadsfasdfasdfadsf
-         */
-        private String avatarKey;
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         */
-        private Boolean usable;
-
-        /**
-         * AppUser ID
-         * <p> 示例值：7036181931599499700
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 头像的文件key
-         * <p> 示例值：asdfadsfasdfasdfadsf
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 租户下是否可用
-         * <p> 示例值：
-         *
-         * @param usable
-         * @return
-         */
-        public Builder usable(Boolean usable) {
-            this.usable = usable;
-            return this;
-        }
-
-
-        public UpdateApp build() {
-            return new UpdateApp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

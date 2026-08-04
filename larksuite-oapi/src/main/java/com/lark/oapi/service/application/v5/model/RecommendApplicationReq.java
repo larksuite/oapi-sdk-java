@@ -13,197 +13,206 @@
 
 package com.lark.oapi.service.application.v5.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v5.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v5.enums.*;
 
 public class RecommendApplicationReq {
+  /**
+   * 应用信息的语言版本
+   *
+   * <p>示例值：zh_cn
+   */
+  @Query
+  @SerializedName("language")
+  private String language;
+
+  /**
+   * 推荐应用类型，默认为用户不可移除的推荐应用列表
+   *
+   * <p>示例值：user_unremovable
+   */
+  @Query
+  @SerializedName("recommend_type")
+  private String recommendType;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：new-e11ee058b4a8ed2881da11ac7e37c4fc
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public String getRecommendType() {
+    return this.recommendType;
+  }
+
+  public void setRecommendType(String recommendType) {
+    this.recommendType = recommendType;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public RecommendApplicationReq() {}
+
+  public RecommendApplicationReq(Builder builder) {
     /**
      * 应用信息的语言版本
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @Query
-    @SerializedName("language")
-    private String language;
+    this.language = builder.language;
     /**
      * 推荐应用类型，默认为用户不可移除的推荐应用列表
-     * <p> 示例值：user_unremovable
+     *
+     * <p>示例值：user_unremovable
      */
-    @Query
-    @SerializedName("recommend_type")
-    private String recommendType;
+    this.recommendType = builder.recommendType;
     /**
-     * 分页标记,不填表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：7153511712153412356
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：new-e11ee058b4a8ed2881da11ac7e37c4fc
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 单页需求最大个数（最大 100），不传默认10个
-     * <p> 示例值：10
+     * 分页大小
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
+  }
 
-    // builder 开始
-    public RecommendApplicationReq() {
+  public static class Builder {
+    private String language; // 应用信息的语言版本
+    private String recommendType; // 推荐应用类型，默认为用户不可移除的推荐应用列表
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 分页大小
+
+    /**
+     * 应用信息的语言版本
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public RecommendApplicationReq(Builder builder) {
-        /**
-         * 应用信息的语言版本
-         * <p> 示例值：zh_cn
-         */
-        this.language = builder.language;
-        /**
-         * 推荐应用类型，默认为用户不可移除的推荐应用列表
-         * <p> 示例值：user_unremovable
-         */
-        this.recommendType = builder.recommendType;
-        /**
-         * 分页标记,不填表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：7153511712153412356
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 单页需求最大个数（最大 100），不传默认10个
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 应用信息的语言版本
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param language {@link
+     *     com.lark.oapi.service.application.v5.enums.RecommendApplicationLanguageEnum}
+     * @return
+     */
+    public Builder language(
+        com.lark.oapi.service.application.v5.enums.RecommendApplicationLanguageEnum language) {
+      this.language = language.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 推荐应用类型，默认为用户不可移除的推荐应用列表
+     *
+     * <p>示例值：user_unremovable
+     *
+     * @param recommendType
+     * @return
+     */
+    public Builder recommendType(String recommendType) {
+      this.recommendType = recommendType;
+      return this;
     }
 
-    public String getLanguage() {
-        return this.language;
+    /**
+     * 推荐应用类型，默认为用户不可移除的推荐应用列表
+     *
+     * <p>示例值：user_unremovable
+     *
+     * @param recommendType {@link
+     *     com.lark.oapi.service.application.v5.enums.RecommendApplicationRecommendTypeEnum}
+     * @return
+     */
+    public Builder recommendType(
+        com.lark.oapi.service.application.v5.enums.RecommendApplicationRecommendTypeEnum
+            recommendType) {
+      this.recommendType = recommendType.getValue();
+      return this;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：new-e11ee058b4a8ed2881da11ac7e37c4fc
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getRecommendType() {
-        return this.recommendType;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setRecommendType(String recommendType) {
-        this.recommendType = recommendType;
+    public RecommendApplicationReq build() {
+      return new RecommendApplicationReq(this);
     }
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        private String language; // 应用信息的语言版本
-        private String recommendType; // 推荐应用类型，默认为用户不可移除的推荐应用列表
-        private String pageToken; // 分页标记,不填表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 单页需求最大个数（最大 100），不传默认10个
-
-        /**
-         * 应用信息的语言版本
-         * <p> 示例值：zh_cn
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-        /**
-         * 应用信息的语言版本
-         * <p> 示例值：zh_cn
-         *
-         * @param language {@link com.lark.oapi.service.application.v5.enums.RecommendApplicationLanguageEnum}
-         * @return
-         */
-        public Builder language(com.lark.oapi.service.application.v5.enums.RecommendApplicationLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
-        }
-
-
-        /**
-         * 推荐应用类型，默认为用户不可移除的推荐应用列表
-         * <p> 示例值：user_unremovable
-         *
-         * @param recommendType
-         * @return
-         */
-        public Builder recommendType(String recommendType) {
-            this.recommendType = recommendType;
-            return this;
-        }
-
-        /**
-         * 推荐应用类型，默认为用户不可移除的推荐应用列表
-         * <p> 示例值：user_unremovable
-         *
-         * @param recommendType {@link com.lark.oapi.service.application.v5.enums.RecommendApplicationRecommendTypeEnum}
-         * @return
-         */
-        public Builder recommendType(com.lark.oapi.service.application.v5.enums.RecommendApplicationRecommendTypeEnum recommendType) {
-            this.recommendType = recommendType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分页标记,不填表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：7153511712153412356
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 单页需求最大个数（最大 100），不传默认10个
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public RecommendApplicationReq build() {
-            return new RecommendApplicationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

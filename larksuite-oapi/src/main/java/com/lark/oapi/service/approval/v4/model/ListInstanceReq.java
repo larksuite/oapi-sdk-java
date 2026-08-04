@@ -13,207 +13,233 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class ListInstanceReq {
+  /**
+   * 分页大小，用于指定一次请求所返回的数据量上限。
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @Query
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批实例创建时间的开始区间，毫秒时间戳。;;**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。;;<md-alert
+   * type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+   *
+   * <p>示例值：1567690398020
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 审批实例创建时间的结束区间，毫秒时间戳。;;**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的
+   * Code。;;<md-alert type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+   *
+   * <p>示例值：1567690398020
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public ListInstanceReq() {}
+
+  public ListInstanceReq(Builder builder) {
     /**
-     * 分页大小
-     * <p> 示例值：100
+     * 分页大小，用于指定一次请求所返回的数据量上限。
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     *
+     * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 审批定义唯一标识
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @Query
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
-     * 审批实例创建时间区间（毫秒）
-     * <p> 示例值：1567690398020
+     * 审批实例创建时间的开始区间，毫秒时间戳。;;**说明**：start_time 与 end_time
+     * 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。;;<md-alert type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+     *
+     * <p>示例值：1567690398020
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 审批实例创建时间区间（毫秒）
-     * <p> 示例值：1567690398020
+     * 审批实例创建时间的结束区间，毫秒时间戳。;;**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的
+     * Code。;;<md-alert type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+     *
+     * <p>示例值：1567690398020
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
+  }
 
-    // builder 开始
-    public ListInstanceReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于指定一次请求所返回的数据量上限。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String approvalCode; // 审批定义 Code。获取方式：;;-
+    // 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+    private String startTime; // 审批实例创建时间的开始区间，毫秒时间戳。;;**说明**：start_time 与 end_time
+    // 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。;;<md-alert
+    // type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+    private String endTime; // 审批实例创建时间的结束区间，毫秒时间戳。;;**说明**：start_time 与 end_time
+
+    // 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的 Code。;;<md-alert
+    // type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+
+    /**
+     * 分页大小，用于指定一次请求所返回的数据量上限。
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListInstanceReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 审批定义唯一标识
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例创建时间区间（毫秒）
-         * <p> 示例值：1567690398020
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 审批实例创建时间区间（毫秒）
-         * <p> 示例值：1567690398020
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 审批实例创建时间的开始区间，毫秒时间戳。;;**说明**：start_time 与 end_time
+     * 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。;;<md-alert type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+     *
+     * <p>示例值：1567690398020
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 审批实例创建时间的结束区间，毫秒时间戳。;;**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的
+     * Code。;;<md-alert type="warn">;单次查询时间范围不要超过10小时;</md-alert>;
+     *
+     * <p>示例值：1567690398020
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListInstanceReq build() {
+      return new ListInstanceReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
-
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String approvalCode; // 审批定义唯一标识
-        private String startTime; // 审批实例创建时间区间（毫秒）
-        private String endTime; // 审批实例创建时间区间（毫秒）
-
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 审批定义唯一标识
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批实例创建时间区间（毫秒）
-         * <p> 示例值：1567690398020
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 审批实例创建时间区间（毫秒）
-         * <p> 示例值：1567690398020
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public ListInstanceReq build() {
-            return new ListInstanceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

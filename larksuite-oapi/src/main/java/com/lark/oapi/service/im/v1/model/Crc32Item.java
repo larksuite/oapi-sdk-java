@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Crc32Item {
+  /**
+   * 分片编号（1开始）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("part_id")
+  private String partId;
+
+  /**
+   * crc32校验
+   *
+   * <p>示例值：12342388237783212356
+   */
+  @SerializedName("crc32")
+  private String crc32;
+
+  public String getPartId() {
+    return this.partId;
+  }
+
+  public void setPartId(String partId) {
+    this.partId = partId;
+  }
+
+  public String getCrc32() {
+    return this.crc32;
+  }
+
+  public void setCrc32(String crc32) {
+    this.crc32 = crc32;
+  }
+
+  // builder 开始
+  public Crc32Item() {}
+
+  public Crc32Item(Builder builder) {
     /**
      * 分片编号（1开始）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("part_id")
-    private String partId;
+    this.partId = builder.partId;
     /**
      * crc32校验
-     * <p> 示例值：12342388237783212356
+     *
+     * <p>示例值：12342388237783212356
      */
-    @SerializedName("crc32")
+    this.crc32 = builder.crc32;
+  }
+
+  public static class Builder {
+    /**
+     * 分片编号（1开始）
+     *
+     * <p>示例值：1
+     */
+    private String partId;
+
+    /**
+     * crc32校验
+     *
+     * <p>示例值：12342388237783212356
+     */
     private String crc32;
 
-    // builder 开始
-    public Crc32Item() {
+    /**
+     * 分片编号（1开始）
+     *
+     * <p>示例值：1
+     *
+     * @param partId
+     * @return
+     */
+    public Builder partId(String partId) {
+      this.partId = partId;
+      return this;
     }
 
-    public Crc32Item(Builder builder) {
-        /**
-         * 分片编号（1开始）
-         * <p> 示例值：1
-         */
-        this.partId = builder.partId;
-        /**
-         * crc32校验
-         * <p> 示例值：12342388237783212356
-         */
-        this.crc32 = builder.crc32;
+    /**
+     * crc32校验
+     *
+     * <p>示例值：12342388237783212356
+     *
+     * @param crc32
+     * @return
+     */
+    public Builder crc32(String crc32) {
+      this.crc32 = crc32;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Crc32Item build() {
+      return new Crc32Item(this);
     }
+  }
 
-    public String getPartId() {
-        return this.partId;
-    }
-
-    public void setPartId(String partId) {
-        this.partId = partId;
-    }
-
-    public String getCrc32() {
-        return this.crc32;
-    }
-
-    public void setCrc32(String crc32) {
-        this.crc32 = crc32;
-    }
-
-    public static class Builder {
-        /**
-         * 分片编号（1开始）
-         * <p> 示例值：1
-         */
-        private String partId;
-        /**
-         * crc32校验
-         * <p> 示例值：12342388237783212356
-         */
-        private String crc32;
-
-        /**
-         * 分片编号（1开始）
-         * <p> 示例值：1
-         *
-         * @param partId
-         * @return
-         */
-        public Builder partId(String partId) {
-            this.partId = partId;
-            return this;
-        }
-
-
-        /**
-         * crc32校验
-         * <p> 示例值：12342388237783212356
-         *
-         * @param crc32
-         * @return
-         */
-        public Builder crc32(String crc32) {
-            this.crc32 = crc32;
-            return this;
-        }
-
-
-        public Crc32Item build() {
-            return new Crc32Item(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

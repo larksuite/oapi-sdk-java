@@ -13,358 +13,389 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecallDetailItem {
+  /**
+   * 收件人邮箱地址
+   *
+   * <p>示例值：zhangsan@example.com
+   */
+  @SerializedName("recipient_address")
+  private String recipientAddress;
+
+  /**
+   * 收件人显示名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("recipient_name")
+  private String recipientName;
+
+  /**
+   * 该收件人的撤回状态
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 撤回失败原因，仅status为fail时有值
+   *
+   * <p>示例值：message_has_been_read
+   */
+  @SerializedName("fail_reason")
+  private String failReason;
+
+  /**
+   * 是否为邮件组地址
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_mailing_list")
+  private Boolean isMailingList;
+
+  /**
+   * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("mailing_list_success_count")
+  private Integer mailingListSuccessCount;
+
+  /**
+   * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("mailing_list_failure_count")
+  private Integer mailingListFailureCount;
+
+  /**
+   * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("mailing_list_finish_percent")
+  private Integer mailingListFinishPercent;
+
+  public String getRecipientAddress() {
+    return this.recipientAddress;
+  }
+
+  public void setRecipientAddress(String recipientAddress) {
+    this.recipientAddress = recipientAddress;
+  }
+
+  public String getRecipientName() {
+    return this.recipientName;
+  }
+
+  public void setRecipientName(String recipientName) {
+    this.recipientName = recipientName;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getFailReason() {
+    return this.failReason;
+  }
+
+  public void setFailReason(String failReason) {
+    this.failReason = failReason;
+  }
+
+  public Boolean getIsMailingList() {
+    return this.isMailingList;
+  }
+
+  public void setIsMailingList(Boolean isMailingList) {
+    this.isMailingList = isMailingList;
+  }
+
+  public Integer getMailingListSuccessCount() {
+    return this.mailingListSuccessCount;
+  }
+
+  public void setMailingListSuccessCount(Integer mailingListSuccessCount) {
+    this.mailingListSuccessCount = mailingListSuccessCount;
+  }
+
+  public Integer getMailingListFailureCount() {
+    return this.mailingListFailureCount;
+  }
+
+  public void setMailingListFailureCount(Integer mailingListFailureCount) {
+    this.mailingListFailureCount = mailingListFailureCount;
+  }
+
+  public Integer getMailingListFinishPercent() {
+    return this.mailingListFinishPercent;
+  }
+
+  public void setMailingListFinishPercent(Integer mailingListFinishPercent) {
+    this.mailingListFinishPercent = mailingListFinishPercent;
+  }
+
+  // builder 开始
+  public RecallDetailItem() {}
+
+  public RecallDetailItem(Builder builder) {
     /**
      * 收件人邮箱地址
-     * <p> 示例值：zhangsan@example.com
+     *
+     * <p>示例值：zhangsan@example.com
      */
-    @SerializedName("recipient_address")
-    private String recipientAddress;
+    this.recipientAddress = builder.recipientAddress;
     /**
      * 收件人显示名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("recipient_name")
-    private String recipientName;
+    this.recipientName = builder.recipientName;
     /**
      * 该收件人的撤回状态
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 撤回失败原因，仅status为fail时有值
-     * <p> 示例值：message_has_been_read
+     *
+     * <p>示例值：message_has_been_read
      */
-    @SerializedName("fail_reason")
-    private String failReason;
+    this.failReason = builder.failReason;
     /**
      * 是否为邮件组地址
-     * <p> 示例值：false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_mailing_list")
-    private Boolean isMailingList;
+    this.isMailingList = builder.isMailingList;
     /**
      * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
-     * <p> 示例值：5
+     *
+     * <p>示例值：5
      */
-    @SerializedName("mailing_list_success_count")
-    private Integer mailingListSuccessCount;
+    this.mailingListSuccessCount = builder.mailingListSuccessCount;
     /**
      * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("mailing_list_failure_count")
-    private Integer mailingListFailureCount;
+    this.mailingListFailureCount = builder.mailingListFailureCount;
     /**
      * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("mailing_list_finish_percent")
+    this.mailingListFinishPercent = builder.mailingListFinishPercent;
+  }
+
+  public static class Builder {
+    /**
+     * 收件人邮箱地址
+     *
+     * <p>示例值：zhangsan@example.com
+     */
+    private String recipientAddress;
+
+    /**
+     * 收件人显示名称
+     *
+     * <p>示例值：张三
+     */
+    private String recipientName;
+
+    /**
+     * 该收件人的撤回状态
+     *
+     * <p>示例值：success
+     */
+    private String status;
+
+    /**
+     * 撤回失败原因，仅status为fail时有值
+     *
+     * <p>示例值：message_has_been_read
+     */
+    private String failReason;
+
+    /**
+     * 是否为邮件组地址
+     *
+     * <p>示例值：true
+     */
+    private Boolean isMailingList;
+
+    /**
+     * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：5
+     */
+    private Integer mailingListSuccessCount;
+
+    /**
+     * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：0
+     */
+    private Integer mailingListFailureCount;
+
+    /**
+     * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：100
+     */
     private Integer mailingListFinishPercent;
 
-    // builder 开始
-    public RecallDetailItem() {
+    /**
+     * 收件人邮箱地址
+     *
+     * <p>示例值：zhangsan@example.com
+     *
+     * @param recipientAddress
+     * @return
+     */
+    public Builder recipientAddress(String recipientAddress) {
+      this.recipientAddress = recipientAddress;
+      return this;
     }
 
-    public RecallDetailItem(Builder builder) {
-        /**
-         * 收件人邮箱地址
-         * <p> 示例值：zhangsan@example.com
-         */
-        this.recipientAddress = builder.recipientAddress;
-        /**
-         * 收件人显示名称
-         * <p> 示例值：张三
-         */
-        this.recipientName = builder.recipientName;
-        /**
-         * 该收件人的撤回状态
-         * <p> 示例值：success
-         */
-        this.status = builder.status;
-        /**
-         * 撤回失败原因，仅status为fail时有值
-         * <p> 示例值：message_has_been_read
-         */
-        this.failReason = builder.failReason;
-        /**
-         * 是否为邮件组地址
-         * <p> 示例值：false
-         */
-        this.isMailingList = builder.isMailingList;
-        /**
-         * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
-         * <p> 示例值：5
-         */
-        this.mailingListSuccessCount = builder.mailingListSuccessCount;
-        /**
-         * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
-         * <p> 示例值：0
-         */
-        this.mailingListFailureCount = builder.mailingListFailureCount;
-        /**
-         * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
-         * <p> 示例值：100
-         */
-        this.mailingListFinishPercent = builder.mailingListFinishPercent;
+    /**
+     * 收件人显示名称
+     *
+     * <p>示例值：张三
+     *
+     * @param recipientName
+     * @return
+     */
+    public Builder recipientName(String recipientName) {
+      this.recipientName = recipientName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该收件人的撤回状态
+     *
+     * <p>示例值：success
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getRecipientAddress() {
-        return this.recipientAddress;
+    /**
+     * 该收件人的撤回状态
+     *
+     * <p>示例值：success
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallDetailStatusTypeEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallDetailStatusTypeEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setRecipientAddress(String recipientAddress) {
-        this.recipientAddress = recipientAddress;
+    /**
+     * 撤回失败原因，仅status为fail时有值
+     *
+     * <p>示例值：message_has_been_read
+     *
+     * @param failReason
+     * @return
+     */
+    public Builder failReason(String failReason) {
+      this.failReason = failReason;
+      return this;
     }
 
-    public String getRecipientName() {
-        return this.recipientName;
+    /**
+     * 撤回失败原因，仅status为fail时有值
+     *
+     * <p>示例值：message_has_been_read
+     *
+     * @param failReason {@link
+     *     com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallFailReasonTypeEnum}
+     * @return
+     */
+    public Builder failReason(
+        com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallFailReasonTypeEnum failReason) {
+      this.failReason = failReason.getValue();
+      return this;
     }
 
-    public void setRecipientName(String recipientName) {
-        this.recipientName = recipientName;
+    /**
+     * 是否为邮件组地址
+     *
+     * <p>示例值：true
+     *
+     * @param isMailingList
+     * @return
+     */
+    public Builder isMailingList(Boolean isMailingList) {
+      this.isMailingList = isMailingList;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：5
+     *
+     * @param mailingListSuccessCount
+     * @return
+     */
+    public Builder mailingListSuccessCount(Integer mailingListSuccessCount) {
+      this.mailingListSuccessCount = mailingListSuccessCount;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：0
+     *
+     * @param mailingListFailureCount
+     * @return
+     */
+    public Builder mailingListFailureCount(Integer mailingListFailureCount) {
+      this.mailingListFailureCount = mailingListFailureCount;
+      return this;
     }
 
-    public String getFailReason() {
-        return this.failReason;
+    /**
+     * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
+     *
+     * <p>示例值：100
+     *
+     * @param mailingListFinishPercent
+     * @return
+     */
+    public Builder mailingListFinishPercent(Integer mailingListFinishPercent) {
+      this.mailingListFinishPercent = mailingListFinishPercent;
+      return this;
     }
 
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
+    public RecallDetailItem build() {
+      return new RecallDetailItem(this);
     }
+  }
 
-    public Boolean getIsMailingList() {
-        return this.isMailingList;
-    }
-
-    public void setIsMailingList(Boolean isMailingList) {
-        this.isMailingList = isMailingList;
-    }
-
-    public Integer getMailingListSuccessCount() {
-        return this.mailingListSuccessCount;
-    }
-
-    public void setMailingListSuccessCount(Integer mailingListSuccessCount) {
-        this.mailingListSuccessCount = mailingListSuccessCount;
-    }
-
-    public Integer getMailingListFailureCount() {
-        return this.mailingListFailureCount;
-    }
-
-    public void setMailingListFailureCount(Integer mailingListFailureCount) {
-        this.mailingListFailureCount = mailingListFailureCount;
-    }
-
-    public Integer getMailingListFinishPercent() {
-        return this.mailingListFinishPercent;
-    }
-
-    public void setMailingListFinishPercent(Integer mailingListFinishPercent) {
-        this.mailingListFinishPercent = mailingListFinishPercent;
-    }
-
-    public static class Builder {
-        /**
-         * 收件人邮箱地址
-         * <p> 示例值：zhangsan@example.com
-         */
-        private String recipientAddress;
-        /**
-         * 收件人显示名称
-         * <p> 示例值：张三
-         */
-        private String recipientName;
-        /**
-         * 该收件人的撤回状态
-         * <p> 示例值：success
-         */
-        private String status;
-        /**
-         * 撤回失败原因，仅status为fail时有值
-         * <p> 示例值：message_has_been_read
-         */
-        private String failReason;
-        /**
-         * 是否为邮件组地址
-         * <p> 示例值：false
-         */
-        private Boolean isMailingList;
-        /**
-         * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
-         * <p> 示例值：5
-         */
-        private Integer mailingListSuccessCount;
-        /**
-         * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
-         * <p> 示例值：0
-         */
-        private Integer mailingListFailureCount;
-        /**
-         * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
-         * <p> 示例值：100
-         */
-        private Integer mailingListFinishPercent;
-
-        /**
-         * 收件人邮箱地址
-         * <p> 示例值：zhangsan@example.com
-         *
-         * @param recipientAddress
-         * @return
-         */
-        public Builder recipientAddress(String recipientAddress) {
-            this.recipientAddress = recipientAddress;
-            return this;
-        }
-
-
-        /**
-         * 收件人显示名称
-         * <p> 示例值：张三
-         *
-         * @param recipientName
-         * @return
-         */
-        public Builder recipientName(String recipientName) {
-            this.recipientName = recipientName;
-            return this;
-        }
-
-
-        /**
-         * 该收件人的撤回状态
-         * <p> 示例值：success
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 该收件人的撤回状态
-         * <p> 示例值：success
-         *
-         * @param status {@link com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallDetailStatusTypeEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallDetailStatusTypeEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 撤回失败原因，仅status为fail时有值
-         * <p> 示例值：message_has_been_read
-         *
-         * @param failReason
-         * @return
-         */
-        public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
-        }
-
-        /**
-         * 撤回失败原因，仅status为fail时有值
-         * <p> 示例值：message_has_been_read
-         *
-         * @param failReason {@link com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallFailReasonTypeEnum}
-         * @return
-         */
-        public Builder failReason(com.lark.oapi.service.mail.v1.enums.RecallDetailItemRecallFailReasonTypeEnum failReason) {
-            this.failReason = failReason.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否为邮件组地址
-         * <p> 示例值：false
-         *
-         * @param isMailingList
-         * @return
-         */
-        public Builder isMailingList(Boolean isMailingList) {
-            this.isMailingList = isMailingList;
-            return this;
-        }
-
-
-        /**
-         * 邮件组内成功撤回人数，仅is_mailing_list为true时有值
-         * <p> 示例值：5
-         *
-         * @param mailingListSuccessCount
-         * @return
-         */
-        public Builder mailingListSuccessCount(Integer mailingListSuccessCount) {
-            this.mailingListSuccessCount = mailingListSuccessCount;
-            return this;
-        }
-
-
-        /**
-         * 邮件组内撤回失败人数，仅is_mailing_list为true时有值
-         * <p> 示例值：0
-         *
-         * @param mailingListFailureCount
-         * @return
-         */
-        public Builder mailingListFailureCount(Integer mailingListFailureCount) {
-            this.mailingListFailureCount = mailingListFailureCount;
-            return this;
-        }
-
-
-        /**
-         * 邮件组完成百分比0-100，仅is_mailing_list为true时有值
-         * <p> 示例值：100
-         *
-         * @param mailingListFinishPercent
-         * @return
-         */
-        public Builder mailingListFinishPercent(Integer mailingListFinishPercent) {
-            this.mailingListFinishPercent = mailingListFinishPercent;
-            return this;
-        }
-
-
-        public RecallDetailItem build() {
-            return new RecallDetailItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

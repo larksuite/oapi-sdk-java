@@ -13,140 +13,107 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockChangeInfo {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("block_token")
+  /** 示例值： */
+  @SerializedName("block_token")
+  private String blockToken;
+
+  /** 示例值： */
+  @SerializedName("block_token_type")
+  private String blockTokenType;
+
+  /** 示例值： */
+  @SerializedName("rev_ranges")
+  private String[] revRanges;
+
+  public String getBlockToken() {
+    return this.blockToken;
+  }
+
+  public void setBlockToken(String blockToken) {
+    this.blockToken = blockToken;
+  }
+
+  public String getBlockTokenType() {
+    return this.blockTokenType;
+  }
+
+  public void setBlockTokenType(String blockTokenType) {
+    this.blockTokenType = blockTokenType;
+  }
+
+  public String[] getRevRanges() {
+    return this.revRanges;
+  }
+
+  public void setRevRanges(String[] revRanges) {
+    this.revRanges = revRanges;
+  }
+
+  // builder 开始
+  public BlockChangeInfo() {}
+
+  public BlockChangeInfo(Builder builder) {
+    /** 示例值： */
+    this.blockToken = builder.blockToken;
+    /** 示例值： */
+    this.blockTokenType = builder.blockTokenType;
+    /** 示例值： */
+    this.revRanges = builder.revRanges;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String blockToken;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("block_token_type")
+
+    /** 示例值： */
     private String blockTokenType;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("rev_ranges")
+
+    /** 示例值： */
     private String[] revRanges;
 
-    // builder 开始
-    public BlockChangeInfo() {
+    /**
+     * 示例值：
+     *
+     * @param blockToken
+     * @return
+     */
+    public Builder blockToken(String blockToken) {
+      this.blockToken = blockToken;
+      return this;
     }
 
-    public BlockChangeInfo(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.blockToken = builder.blockToken;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.blockTokenType = builder.blockTokenType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.revRanges = builder.revRanges;
+    /**
+     * 示例值：
+     *
+     * @param blockTokenType
+     * @return
+     */
+    public Builder blockTokenType(String blockTokenType) {
+      this.blockTokenType = blockTokenType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param revRanges
+     * @return
+     */
+    public Builder revRanges(String[] revRanges) {
+      this.revRanges = revRanges;
+      return this;
     }
 
-    public String getBlockToken() {
-        return this.blockToken;
+    public BlockChangeInfo build() {
+      return new BlockChangeInfo(this);
     }
+  }
 
-    public void setBlockToken(String blockToken) {
-        this.blockToken = blockToken;
-    }
-
-    public String getBlockTokenType() {
-        return this.blockTokenType;
-    }
-
-    public void setBlockTokenType(String blockTokenType) {
-        this.blockTokenType = blockTokenType;
-    }
-
-    public String[] getRevRanges() {
-        return this.revRanges;
-    }
-
-    public void setRevRanges(String[] revRanges) {
-        this.revRanges = revRanges;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String blockToken;
-        /**
-         * <p> 示例值：
-         */
-        private String blockTokenType;
-        /**
-         * <p> 示例值：
-         */
-        private String[] revRanges;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param blockToken
-         * @return
-         */
-        public Builder blockToken(String blockToken) {
-            this.blockToken = blockToken;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param blockTokenType
-         * @return
-         */
-        public Builder blockTokenType(String blockTokenType) {
-            this.blockTokenType = blockTokenType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param revRanges
-         * @return
-         */
-        public Builder revRanges(String[] revRanges) {
-            this.revRanges = revRanges;
-            return this;
-        }
-
-
-        public BlockChangeInfo build() {
-            return new BlockChangeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

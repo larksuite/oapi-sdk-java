@@ -13,130 +13,135 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchCompanyReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 需要更新的公司 ID。ID获取方式：;-
+   * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+   *
+   * <p>示例值：6863333352603125255
+   */
+  @Path
+  @SerializedName("company_id")
+  private String companyId;
+
+  public String getCompanyId() {
+    return this.companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+  @Body private Company body;
+
+  public Company getCompany() {
+    return this.body;
+  }
+
+  public void setCompany(Company body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchCompanyReq() {}
+
+  public PatchCompanyReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 需要更新的公司 ID
-     * <p> 示例值：1616161616
+     * 需要更新的公司 ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+     *
+     * <p>示例值：6863333352603125255
      */
-    @Path
-    @SerializedName("company_id")
-    private String companyId;
-    @Body
+    this.companyId = builder.companyId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String companyId; // 需要更新的公司 ID。ID获取方式：;-
+
+    // 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+
+    /**
+     * 需要更新的公司 ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+     *
+     * <p>示例值：6863333352603125255
+     *
+     * @param companyId
+     * @return
+     */
+    public Builder companyId(String companyId) {
+      this.companyId = companyId;
+      return this;
+    }
+
     private Company body;
 
-    // builder 开始
-    public PatchCompanyReq() {
-    }
-
-    public PatchCompanyReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 需要更新的公司 ID
-         * <p> 示例值：1616161616
-         */
-        this.companyId = builder.companyId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getCompanyId() {
-        return this.companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
-
     public Company getCompany() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCompany(Company body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder company(Company body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String companyId; // 需要更新的公司 ID
-        private Company body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 需要更新的公司 ID
-         * <p> 示例值：1616161616
-         *
-         * @param companyId
-         * @return
-         */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
-
-        public Company getCompany() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder company(Company body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchCompanyReq build() {
-            return new PatchCompanyReq(this);
-        }
+    public PatchCompanyReq build() {
+      return new PatchCompanyReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

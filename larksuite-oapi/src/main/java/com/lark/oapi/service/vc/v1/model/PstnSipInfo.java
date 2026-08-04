@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PstnSipInfo {
+  /**
+   * 给pstn/sip用户设置的临时昵称
+   *
+   * <p>示例值：dodo
+   */
+  @SerializedName("nickname")
+  private String nickname;
+
+  /**
+   * pstn/sip主机号
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("main_address")
+  private String mainAddress;
+
+  public String getNickname() {
+    return this.nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
+
+  public String getMainAddress() {
+    return this.mainAddress;
+  }
+
+  public void setMainAddress(String mainAddress) {
+    this.mainAddress = mainAddress;
+  }
+
+  // builder 开始
+  public PstnSipInfo() {}
+
+  public PstnSipInfo(Builder builder) {
     /**
      * 给pstn/sip用户设置的临时昵称
-     * <p> 示例值：dodo
+     *
+     * <p>示例值：dodo
      */
-    @SerializedName("nickname")
-    private String nickname;
+    this.nickname = builder.nickname;
     /**
-     * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
-     * <p> 示例值：+86-02187654321
+     * pstn/sip主机号
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("main_address")
+    this.mainAddress = builder.mainAddress;
+  }
+
+  public static class Builder {
+    /**
+     * 给pstn/sip用户设置的临时昵称
+     *
+     * <p>示例值：dodo
+     */
+    private String nickname;
+
+    /**
+     * pstn/sip主机号
+     *
+     * <p>示例值：1234
+     */
     private String mainAddress;
 
-    // builder 开始
-    public PstnSipInfo() {
+    /**
+     * 给pstn/sip用户设置的临时昵称
+     *
+     * <p>示例值：dodo
+     *
+     * @param nickname
+     * @return
+     */
+    public Builder nickname(String nickname) {
+      this.nickname = nickname;
+      return this;
     }
 
-    public PstnSipInfo(Builder builder) {
-        /**
-         * 给pstn/sip用户设置的临时昵称
-         * <p> 示例值：dodo
-         */
-        this.nickname = builder.nickname;
-        /**
-         * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
-         * <p> 示例值：+86-02187654321
-         */
-        this.mainAddress = builder.mainAddress;
+    /**
+     * pstn/sip主机号
+     *
+     * <p>示例值：1234
+     *
+     * @param mainAddress
+     * @return
+     */
+    public Builder mainAddress(String mainAddress) {
+      this.mainAddress = mainAddress;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PstnSipInfo build() {
+      return new PstnSipInfo(this);
     }
+  }
 
-    public String getNickname() {
-        return this.nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getMainAddress() {
-        return this.mainAddress;
-    }
-
-    public void setMainAddress(String mainAddress) {
-        this.mainAddress = mainAddress;
-    }
-
-    public static class Builder {
-        /**
-         * 给pstn/sip用户设置的临时昵称
-         * <p> 示例值：dodo
-         */
-        private String nickname;
-        /**
-         * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
-         * <p> 示例值：+86-02187654321
-         */
-        private String mainAddress;
-
-        /**
-         * 给pstn/sip用户设置的临时昵称
-         * <p> 示例值：dodo
-         *
-         * @param nickname
-         * @return
-         */
-        public Builder nickname(String nickname) {
-            this.nickname = nickname;
-            return this;
-        }
-
-
-        /**
-         * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
-         * <p> 示例值：+86-02187654321
-         *
-         * @param mainAddress
-         * @return
-         */
-        public Builder mainAddress(String mainAddress) {
-            this.mainAddress = mainAddress;
-            return this;
-        }
-
-
-        public PstnSipInfo build() {
-            return new PstnSipInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

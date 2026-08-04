@@ -13,223 +13,317 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Sender {
+  /**
+   * 该字段标识发送者的id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 该字段标识发送者的id类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id_type")
+  private String idType;
+
+  /**
+   * 该字段标识发送者的类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_type")
+  private String senderType;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 该字段标识发送者的名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_name")
+  private String senderName;
+
+  /**
+   * 该字段表示bot发送者的openid
+   *
+   * <p>示例值：ou_4df0d86a696caae0d70054633af9565b
+   */
+  @SerializedName("open_bot_id")
+  private String openBotId;
+
+  /**
+   * 群国际化名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_i18n_names")
+  private I18nNames senderI18nNames;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIdType() {
+    return this.idType;
+  }
+
+  public void setIdType(String idType) {
+    this.idType = idType;
+  }
+
+  public String getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getSenderName() {
+    return this.senderName;
+  }
+
+  public void setSenderName(String senderName) {
+    this.senderName = senderName;
+  }
+
+  public String getOpenBotId() {
+    return this.openBotId;
+  }
+
+  public void setOpenBotId(String openBotId) {
+    this.openBotId = openBotId;
+  }
+
+  public I18nNames getSenderI18nNames() {
+    return this.senderI18nNames;
+  }
+
+  public void setSenderI18nNames(I18nNames senderI18nNames) {
+    this.senderI18nNames = senderI18nNames;
+  }
+
+  // builder 开始
+  public Sender() {}
+
+  public Sender(Builder builder) {
     /**
      * 该字段标识发送者的id
-     * <p> 示例值：cli_9f427eec54ae901b
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 该字段标识发送者的id类型;;**可选值有：**;- `open_id`;- `app_id`
-     * <p> 示例值：app_id
+     * 该字段标识发送者的id类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("id_type")
-    private String idType;
+    this.idType = builder.idType;
     /**
-     * 该字段标识发送者的类型;;**可选值有：**;- `user`: 用户;- `app`: 应用;- `anonymous`: 匿名;- `unknown`: 未知
-     * <p> 示例值：app
+     * 该字段标识发送者的类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender_type")
-    private String senderType;
+    this.senderType = builder.senderType;
     /**
-     * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-     * <p> 示例值：736588c9260f175e
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 该字段标识发送者的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender_name")
+    this.senderName = builder.senderName;
+    /**
+     * 该字段表示bot发送者的openid
+     *
+     * <p>示例值：ou_4df0d86a696caae0d70054633af9565b
+     */
+    this.openBotId = builder.openBotId;
+    /**
+     * 群国际化名称
+     *
+     * <p>示例值：
+     */
+    this.senderI18nNames = builder.senderI18nNames;
+  }
+
+  public static class Builder {
+    /**
+     * 该字段标识发送者的id
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 该字段标识发送者的id类型
+     *
+     * <p>示例值：
+     */
+    private String idType;
+
+    /**
+     * 该字段标识发送者的类型
+     *
+     * <p>示例值：
+     */
+    private String senderType;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     */
+    private String tenantKey;
+
+    /**
+     * 该字段标识发送者的名称
+     *
+     * <p>示例值：
+     */
     private String senderName;
 
-    // builder 开始
-    public Sender() {
+    /**
+     * 该字段表示bot发送者的openid
+     *
+     * <p>示例值：ou_4df0d86a696caae0d70054633af9565b
+     */
+    private String openBotId;
+
+    /**
+     * 群国际化名称
+     *
+     * <p>示例值：
+     */
+    private I18nNames senderI18nNames;
+
+    /**
+     * 该字段标识发送者的id
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Sender(Builder builder) {
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：cli_9f427eec54ae901b
-         */
-        this.id = builder.id;
-        /**
-         * 该字段标识发送者的id类型;;**可选值有：**;- `open_id`;- `app_id`
-         * <p> 示例值：app_id
-         */
-        this.idType = builder.idType;
-        /**
-         * 该字段标识发送者的类型;;**可选值有：**;- `user`: 用户;- `app`: 应用;- `anonymous`: 匿名;- `unknown`: 未知
-         * <p> 示例值：app
-         */
-        this.senderType = builder.senderType;
-        /**
-         * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 该字段标识发送者的名称
-         * <p> 示例值：
-         */
-        this.senderName = builder.senderName;
+    /**
+     * 该字段标识发送者的id类型
+     *
+     * <p>示例值：
+     *
+     * @param idType
+     * @return
+     */
+    public Builder idType(String idType) {
+      this.idType = idType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该字段标识发送者的类型
+     *
+     * <p>示例值：
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(String senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 该字段标识发送者的名称
+     *
+     * <p>示例值：
+     *
+     * @param senderName
+     * @return
+     */
+    public Builder senderName(String senderName) {
+      this.senderName = senderName;
+      return this;
     }
 
-    public String getIdType() {
-        return this.idType;
+    /**
+     * 该字段表示bot发送者的openid
+     *
+     * <p>示例值：ou_4df0d86a696caae0d70054633af9565b
+     *
+     * @param openBotId
+     * @return
+     */
+    public Builder openBotId(String openBotId) {
+      this.openBotId = openBotId;
+      return this;
     }
 
-    public void setIdType(String idType) {
-        this.idType = idType;
+    /**
+     * 群国际化名称
+     *
+     * <p>示例值：
+     *
+     * @param senderI18nNames
+     * @return
+     */
+    public Builder senderI18nNames(I18nNames senderI18nNames) {
+      this.senderI18nNames = senderI18nNames;
+      return this;
     }
 
-    public String getSenderType() {
-        return this.senderType;
+    public Sender build() {
+      return new Sender(this);
     }
+  }
 
-    public void setSenderType(String senderType) {
-        this.senderType = senderType;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public String getSenderName() {
-        return this.senderName;
-    }
-
-    public void setSenderName(String senderName) {
-        this.senderName = senderName;
-    }
-
-    public static class Builder {
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：cli_9f427eec54ae901b
-         */
-        private String id;
-        /**
-         * 该字段标识发送者的id类型;;**可选值有：**;- `open_id`;- `app_id`
-         * <p> 示例值：app_id
-         */
-        private String idType;
-        /**
-         * 该字段标识发送者的类型;;**可选值有：**;- `user`: 用户;- `app`: 应用;- `anonymous`: 匿名;- `unknown`: 未知
-         * <p> 示例值：app
-         */
-        private String senderType;
-        /**
-         * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-        /**
-         * 该字段标识发送者的名称
-         * <p> 示例值：
-         */
-        private String senderName;
-
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：cli_9f427eec54ae901b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 该字段标识发送者的id类型;;**可选值有：**;- `open_id`;- `app_id`
-         * <p> 示例值：app_id
-         *
-         * @param idType
-         * @return
-         */
-        public Builder idType(String idType) {
-            this.idType = idType;
-            return this;
-        }
-
-
-        /**
-         * 该字段标识发送者的类型;;**可选值有：**;- `user`: 用户;- `app`: 应用;- `anonymous`: 匿名;- `unknown`: 未知
-         * <p> 示例值：app
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(String senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-
-        /**
-         * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 该字段标识发送者的名称
-         * <p> 示例值：
-         *
-         * @param senderName
-         * @return
-         */
-        public Builder senderName(String senderName) {
-            this.senderName = senderName;
-            return this;
-        }
-
-
-        public Sender build() {
-            return new Sender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

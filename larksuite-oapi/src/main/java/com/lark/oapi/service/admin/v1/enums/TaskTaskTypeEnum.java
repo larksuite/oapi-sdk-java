@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.admin.v1.enums;
 
-/**
- * 任务类型
- */
+/** 任务类型 */
 public enum TaskTaskTypeEnum {
-    RECOVERTRANSFER(1), // 恢复（并转移）
-    TRANSFER(2), // 转移
-    ;
-    private Integer value;
+  RECOVERTRANSFER(1), // 恢复（并转移）
+  TRANSFER(2), // 转移
+  ;
+  private Integer value;
 
-    TaskTaskTypeEnum(Integer value) {
-        this.value = value;
-    }
+  TaskTaskTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

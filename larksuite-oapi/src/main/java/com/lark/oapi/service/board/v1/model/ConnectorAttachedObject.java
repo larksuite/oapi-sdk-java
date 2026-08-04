@@ -13,161 +13,163 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConnectorAttachedObject {
+  /**
+   * 连接图形的 id
+   *
+   * <p>示例值：o1:1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 连接图形的方向
+   *
+   * <p>示例值：auto
+   */
+  @SerializedName("snap_to")
+  private String snapTo;
+
+  /**
+   * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position")
+  private Point position;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getSnapTo() {
+    return this.snapTo;
+  }
+
+  public void setSnapTo(String snapTo) {
+    this.snapTo = snapTo;
+  }
+
+  public Point getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(Point position) {
+    this.position = position;
+  }
+
+  // builder 开始
+  public ConnectorAttachedObject() {}
+
+  public ConnectorAttachedObject(Builder builder) {
     /**
      * 连接图形的 id
-     * <p> 示例值：o1:1
+     *
+     * <p>示例值：o1:1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 连接图形的方向
-     * <p> 示例值：auto
+     *
+     * <p>示例值：auto
      */
-    @SerializedName("snap_to")
-    private String snapTo;
+    this.snapTo = builder.snapTo;
     /**
-     * 连接图形的相对坐标，0-1
-     * <p> 示例值：
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("position")
+    this.position = builder.position;
+  }
+
+  public static class Builder {
+    /**
+     * 连接图形的 id
+     *
+     * <p>示例值：o1:1
+     */
+    private String id;
+
+    /**
+     * 连接图形的方向
+     *
+     * <p>示例值：auto
+     */
+    private String snapTo;
+
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     */
     private Point position;
 
-    // builder 开始
-    public ConnectorAttachedObject() {
+    /**
+     * 连接图形的 id
+     *
+     * <p>示例值：o1:1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ConnectorAttachedObject(Builder builder) {
-        /**
-         * 连接图形的 id
-         * <p> 示例值：o1:1
-         */
-        this.id = builder.id;
-        /**
-         * 连接图形的方向
-         * <p> 示例值：auto
-         */
-        this.snapTo = builder.snapTo;
-        /**
-         * 连接图形的相对坐标，0-1
-         * <p> 示例值：
-         */
-        this.position = builder.position;
+    /**
+     * 连接图形的方向
+     *
+     * <p>示例值：auto
+     *
+     * @param snapTo
+     * @return
+     */
+    public Builder snapTo(String snapTo) {
+      this.snapTo = snapTo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 连接图形的方向
+     *
+     * <p>示例值：auto
+     *
+     * @param snapTo {@link com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum}
+     * @return
+     */
+    public Builder snapTo(
+        com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum snapTo) {
+      this.snapTo = snapTo.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(Point position) {
+      this.position = position;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ConnectorAttachedObject build() {
+      return new ConnectorAttachedObject(this);
     }
+  }
 
-    public String getSnapTo() {
-        return this.snapTo;
-    }
-
-    public void setSnapTo(String snapTo) {
-        this.snapTo = snapTo;
-    }
-
-    public Point getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(Point position) {
-        this.position = position;
-    }
-
-    public static class Builder {
-        /**
-         * 连接图形的 id
-         * <p> 示例值：o1:1
-         */
-        private String id;
-        /**
-         * 连接图形的方向
-         * <p> 示例值：auto
-         */
-        private String snapTo;
-        /**
-         * 连接图形的相对坐标，0-1
-         * <p> 示例值：
-         */
-        private Point position;
-
-        /**
-         * 连接图形的 id
-         * <p> 示例值：o1:1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 连接图形的方向
-         * <p> 示例值：auto
-         *
-         * @param snapTo
-         * @return
-         */
-        public Builder snapTo(String snapTo) {
-            this.snapTo = snapTo;
-            return this;
-        }
-
-        /**
-         * 连接图形的方向
-         * <p> 示例值：auto
-         *
-         * @param snapTo {@link com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum}
-         * @return
-         */
-        public Builder snapTo(com.lark.oapi.service.board.v1.enums.ConnectorAttachedObjectSnapToEnum snapTo) {
-            this.snapTo = snapTo.getValue();
-            return this;
-        }
-
-
-        /**
-         * 连接图形的相对坐标，0-1
-         * <p> 示例值：
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(Point position) {
-            this.position = position;
-            return this;
-        }
-
-
-        public ConnectorAttachedObject build() {
-            return new ConnectorAttachedObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

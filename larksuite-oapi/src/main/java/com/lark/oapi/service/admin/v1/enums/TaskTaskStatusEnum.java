@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.admin.v1.enums;
 
-/**
- * 任务状态
- */
+/** 任务状态 */
 public enum TaskTaskStatusEnum {
-    SUCCESS(1), // 成功状态
-    PENDING(2), // 任务执行中
-    ;
-    private Integer value;
+  SUCCESS(1), // 成功状态
+  PENDING(2), // 任务执行中
+  ;
+  private Integer value;
 
-    TaskTaskStatusEnum(Integer value) {
-        this.value = value;
-    }
+  TaskTaskStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

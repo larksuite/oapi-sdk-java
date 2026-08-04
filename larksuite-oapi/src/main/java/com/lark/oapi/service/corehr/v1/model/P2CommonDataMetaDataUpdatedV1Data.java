@@ -13,76 +13,71 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CommonDataMetaDataUpdatedV1Data {
-    /**
-     * 对象 API Name
-     * <p> 示例值：person
-     */
-    @SerializedName("api_name")
-    private String apiName;
-    /**
-     * 变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
-    /**
-     * 变更的元数据类型
-     * <p> 示例值：Enum
-     */
-    @SerializedName("metadata_type")
-    private String metadataType;
-    /**
-     * 变更的枚举
-     * <p> 示例值：
-     */
-    @SerializedName("enum_value_changes")
-    private String[] enumValueChanges;
+  /**
+   * 发生变更的对象 API
+   * Name，可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)查询字段详情
+   *
+   * <p>示例值：person
+   */
+  @SerializedName("api_name")
+  private String apiName;
 
-    public String getApiName() {
-        return this.apiName;
-    }
+  /**
+   * 变更的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
+  /**
+   * 变更的元数据类型（包括对象和枚举）
+   *
+   * <p>示例值：Enum
+   */
+  @SerializedName("metadata_type")
+  private String metadataType;
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  /**
+   * 变更的枚举
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_value_changes")
+  private String[] enumValueChanges;
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String getApiName() {
+    return this.apiName;
+  }
 
-    public String getMetadataType() {
-        return this.metadataType;
-    }
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
 
-    public void setMetadataType(String metadataType) {
-        this.metadataType = metadataType;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
-    public String[] getEnumValueChanges() {
-        return this.enumValueChanges;
-    }
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 
-    public void setEnumValueChanges(String[] enumValueChanges) {
-        this.enumValueChanges = enumValueChanges;
-    }
+  public String getMetadataType() {
+    return this.metadataType;
+  }
 
+  public void setMetadataType(String metadataType) {
+    this.metadataType = metadataType;
+  }
+
+  public String[] getEnumValueChanges() {
+    return this.enumValueChanges;
+  }
+
+  public void setEnumValueChanges(String[] enumValueChanges) {
+    this.enumValueChanges = enumValueChanges;
+  }
 }

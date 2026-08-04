@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 用户活跃状态
- */
+/** 用户活跃状态 */
 public enum EmployeeBaseEntityActiveStatusEnum {
-    EMPLOYEE_ACTIVE_STATUS_DIRECTORY_UNREGISTER(1), // 未激活
-    EMPLOYEE_ACTIVE_STATUS_DIRECTORY_REGISTER(2), // 激活
-    EMPLOYEE_ACTIVE_STATUS_DIRECTORY_FROZEN(3), // 冻结
-    EMPLOYEE_ACTIVE_STATUS_DIRECTORY_QUIT(4), // 主动退出
-    EMPLOYEE_ACTIVE_STATUS_DIRECTORY_UNJOINED(5), // 未加入
-    ;
-    private Integer value;
+  EMPLOYEE_ACTIVE_STATUS_DIRECTORY_UNREGISTER(1), // 未激活
+  EMPLOYEE_ACTIVE_STATUS_DIRECTORY_REGISTER(2), // 激活
+  EMPLOYEE_ACTIVE_STATUS_DIRECTORY_FROZEN(3), // 冻结
+  EMPLOYEE_ACTIVE_STATUS_DIRECTORY_QUIT(4), // 主动退出
+  EMPLOYEE_ACTIVE_STATUS_DIRECTORY_UNJOINED(5), // 未加入
+  ;
+  private Integer value;
 
-    EmployeeBaseEntityActiveStatusEnum(Integer value) {
-        this.value = value;
-    }
+  EmployeeBaseEntityActiveStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

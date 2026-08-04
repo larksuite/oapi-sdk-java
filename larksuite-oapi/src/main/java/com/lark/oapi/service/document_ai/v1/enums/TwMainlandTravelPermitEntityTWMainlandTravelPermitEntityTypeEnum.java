@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum TwMainlandTravelPermitEntityTWMainlandTravelPermitEntityTypeEnum {
-    FULLNAMECN("full_name_cn"), // 中文姓名
-    FULLNAMEEN("full_name_en"), // 英文格式姓名
-    DATEOFBIRTH("date_of_birth"), // 出生日期
-    DATEOFEXPIRY("date_of_expiry"), // 有效期至
-    CARDNUMBER("card_number"), // 证件号码
-    ;
-    private String value;
+  FULLNAMECN("full_name_cn"), // 中文姓名
+  FULLNAMEEN("full_name_en"), // 英文格式姓名
+  DATEOFBIRTH("date_of_birth"), // 出生日期
+  DATEOFEXPIRY("date_of_expiry"), // 有效期至
+  CARDNUMBER("card_number"), // 证件号码
+  ;
+  private String value;
 
-    TwMainlandTravelPermitEntityTWMainlandTravelPermitEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  TwMainlandTravelPermitEntityTWMainlandTravelPermitEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

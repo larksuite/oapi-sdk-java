@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchLeaveAccrualRecordReqBody {
+  /**
+   * 发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)获取
+   *
+   * <p>示例值：6893014062142064135
+   */
+  @SerializedName("leave_granting_record_id")
+  private String leaveGrantingRecordId;
+
+  /**
+   * 员工ID，类型对应user_id_type
+   *
+   * <p>示例值：6982509313466189342
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+   *
+   * <p>示例值：7111688079785723436
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 修改发放记录原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private LangText[] reason;
+
+  /**
+   * 时间偏移，东八区：480 8*60
+   *
+   * <p>示例值：480
+   */
+  @SerializedName("time_offset")
+  private Integer timeOffset;
+
+  /**
+   * 失效日期，格式"2020-01-01"
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 修改发放数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("quantity")
+  private String quantity;
+
+  /**
+   * 是否参与清算
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("section_type")
+  private Integer sectionType;
+
+  public String getLeaveGrantingRecordId() {
+    return this.leaveGrantingRecordId;
+  }
+
+  public void setLeaveGrantingRecordId(String leaveGrantingRecordId) {
+    this.leaveGrantingRecordId = leaveGrantingRecordId;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public LangText[] getReason() {
+    return this.reason;
+  }
+
+  public void setReason(LangText[] reason) {
+    this.reason = reason;
+  }
+
+  public Integer getTimeOffset() {
+    return this.timeOffset;
+  }
+
+  public void setTimeOffset(Integer timeOffset) {
+    this.timeOffset = timeOffset;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getQuantity() {
+    return this.quantity;
+  }
+
+  public void setQuantity(String quantity) {
+    this.quantity = quantity;
+  }
+
+  public Integer getSectionType() {
+    return this.sectionType;
+  }
+
+  public void setSectionType(Integer sectionType) {
+    this.sectionType = sectionType;
+  }
+
+  // builder 开始
+  public PatchLeaveAccrualRecordReqBody() {}
+
+  public PatchLeaveAccrualRecordReqBody(Builder builder) {
     /**
-     * 授予记录的唯一ID
-     * <p> 示例值：1
+     * 发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)获取
+     *
+     * <p>示例值：6893014062142064135
      */
-    @SerializedName("leave_granting_record_id")
-    private String leaveGrantingRecordId;
+    this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
     /**
-     * 员工ID
-     * <p> 示例值：1
+     * 员工ID，类型对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 假期类型ID
-     * <p> 示例值：1
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
-     * 修改授予记录原因
-     * <p> 示例值：
+     * 修改发放记录原因
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
-    private LangText[] reason;
+    this.reason = builder.reason;
     /**
-     * 时间偏移，东八区：480    8*60
-     * <p> 示例值：480
+     * 时间偏移，东八区：480 8*60
+     *
+     * <p>示例值：480
      */
-    @SerializedName("time_offset")
-    private Integer timeOffset;
+    this.timeOffset = builder.timeOffset;
     /**
      * 失效日期，格式"2020-01-01"
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
-     * 修改source 余额
-     * <p> 示例值：1
+     * 修改发放数量
+     *
+     * <p>示例值：1
      */
-    @SerializedName("quantity")
-    private String quantity;
+    this.quantity = builder.quantity;
     /**
      * 是否参与清算
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("section_type")
+    this.sectionType = builder.sectionType;
+  }
+
+  public static class Builder {
+    /**
+     * 发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)获取
+     *
+     * <p>示例值：6893014062142064135
+     */
+    private String leaveGrantingRecordId;
+
+    /**
+     * 员工ID，类型对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
+     */
+    private String employmentId;
+
+    /**
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
+     */
+    private String leaveTypeId;
+
+    /**
+     * 修改发放记录原因
+     *
+     * <p>示例值：
+     */
+    private LangText[] reason;
+
+    /**
+     * 时间偏移，东八区：480 8*60
+     *
+     * <p>示例值：480
+     */
+    private Integer timeOffset;
+
+    /**
+     * 失效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String expirationDate;
+
+    /**
+     * 修改发放数量
+     *
+     * <p>示例值：1
+     */
+    private String quantity;
+
+    /**
+     * 是否参与清算
+     *
+     * <p>示例值：1
+     */
     private Integer sectionType;
 
-    // builder 开始
-    public PatchLeaveAccrualRecordReqBody() {
+    /**
+     * 发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)获取
+     *
+     * <p>示例值：6893014062142064135
+     *
+     * @param leaveGrantingRecordId
+     * @return
+     */
+    public Builder leaveGrantingRecordId(String leaveGrantingRecordId) {
+      this.leaveGrantingRecordId = leaveGrantingRecordId;
+      return this;
     }
 
-    public PatchLeaveAccrualRecordReqBody(Builder builder) {
-        /**
-         * 授予记录的唯一ID
-         * <p> 示例值：1
-         */
-        this.leaveGrantingRecordId = builder.leaveGrantingRecordId;
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 修改授予记录原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 时间偏移，东八区：480    8*60
-         * <p> 示例值：480
-         */
-        this.timeOffset = builder.timeOffset;
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 修改source 余额
-         * <p> 示例值：1
-         */
-        this.quantity = builder.quantity;
-        /**
-         * 是否参与清算
-         * <p> 示例值：1
-         */
-        this.sectionType = builder.sectionType;
+    /**
+     * 员工ID，类型对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public String getLeaveGrantingRecordId() {
-        return this.leaveGrantingRecordId;
+    /**
+     * 修改发放记录原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(LangText[] reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public void setLeaveGrantingRecordId(String leaveGrantingRecordId) {
-        this.leaveGrantingRecordId = leaveGrantingRecordId;
+    /**
+     * 时间偏移，东八区：480 8*60
+     *
+     * <p>示例值：480
+     *
+     * @param timeOffset
+     * @return
+     */
+    public Builder timeOffset(Integer timeOffset) {
+      this.timeOffset = timeOffset;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 失效日期，格式"2020-01-01"
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 修改发放数量
+     *
+     * <p>示例值：1
+     *
+     * @param quantity
+     * @return
+     */
+    public Builder quantity(String quantity) {
+      this.quantity = quantity;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 是否参与清算
+     *
+     * <p>示例值：1
+     *
+     * @param sectionType
+     * @return
+     */
+    public Builder sectionType(Integer sectionType) {
+      this.sectionType = sectionType;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    public PatchLeaveAccrualRecordReqBody build() {
+      return new PatchLeaveAccrualRecordReqBody(this);
     }
+  }
 
-    public LangText[] getReason() {
-        return this.reason;
-    }
-
-    public void setReason(LangText[] reason) {
-        this.reason = reason;
-    }
-
-    public Integer getTimeOffset() {
-        return this.timeOffset;
-    }
-
-    public void setTimeOffset(Integer timeOffset) {
-        this.timeOffset = timeOffset;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getQuantity() {
-        return this.quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public Integer getSectionType() {
-        return this.sectionType;
-    }
-
-    public void setSectionType(Integer sectionType) {
-        this.sectionType = sectionType;
-    }
-
-    public static class Builder {
-        /**
-         * 授予记录的唯一ID
-         * <p> 示例值：1
-         */
-        private String leaveGrantingRecordId;
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        private String employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        private String leaveTypeId;
-        /**
-         * 修改授予记录原因
-         * <p> 示例值：
-         */
-        private LangText[] reason;
-        /**
-         * 时间偏移，东八区：480    8*60
-         * <p> 示例值：480
-         */
-        private Integer timeOffset;
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         */
-        private String expirationDate;
-        /**
-         * 修改source 余额
-         * <p> 示例值：1
-         */
-        private String quantity;
-        /**
-         * 是否参与清算
-         * <p> 示例值：1
-         */
-        private Integer sectionType;
-
-        /**
-         * 授予记录的唯一ID
-         * <p> 示例值：1
-         *
-         * @param leaveGrantingRecordId
-         * @return
-         */
-        public Builder leaveGrantingRecordId(String leaveGrantingRecordId) {
-            this.leaveGrantingRecordId = leaveGrantingRecordId;
-            return this;
-        }
-
-
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 修改授予记录原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(LangText[] reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 时间偏移，东八区：480    8*60
-         * <p> 示例值：480
-         *
-         * @param timeOffset
-         * @return
-         */
-        public Builder timeOffset(Integer timeOffset) {
-            this.timeOffset = timeOffset;
-            return this;
-        }
-
-
-        /**
-         * 失效日期，格式"2020-01-01"
-         * <p> 示例值：2020-01-01
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 修改source 余额
-         * <p> 示例值：1
-         *
-         * @param quantity
-         * @return
-         */
-        public Builder quantity(String quantity) {
-            this.quantity = quantity;
-            return this;
-        }
-
-
-        /**
-         * 是否参与清算
-         * <p> 示例值：1
-         *
-         * @param sectionType
-         * @return
-         */
-        public Builder sectionType(Integer sectionType) {
-            this.sectionType = sectionType;
-            return this;
-        }
-
-
-        public PatchLeaveAccrualRecordReqBody build() {
-            return new PatchLeaveAccrualRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

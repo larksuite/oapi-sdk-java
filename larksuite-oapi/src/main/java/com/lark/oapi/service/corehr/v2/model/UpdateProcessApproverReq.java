@@ -13,220 +13,251 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class UpdateProcessApproverReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+   * process_ids 字段获取
+   *
+   * <p>示例值：7328345170959681068
+   */
+  @Path
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+   * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+   * approver_id。
+   *
+   * <p>示例值：7381468648050787884
+   */
+  @Path
+  @SerializedName("approver_id")
+  private String approverId;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getApproverId() {
+    return this.approverId;
+  }
+
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
+
+  @Body private ProcessApprover body;
+
+  public ProcessApprover getProcessApprover() {
+    return this.body;
+  }
+
+  public void setProcessApprover(ProcessApprover body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateProcessApproverReq() {}
+
+  public UpdateProcessApproverReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 流程实例id
-     * <p> 示例值：7328345170959681068
+     * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+     * process_ids 字段获取
+     *
+     * <p>示例值：7328345170959681068
      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
-     * 审批任务id
-     * <p> 示例值：7328345235136726572
+     * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。
+     *
+     * <p>示例值：7381468648050787884
      */
-    @Path
-    @SerializedName("approver_id")
-    private String approverId;
-    @Body
+    this.approverId = builder.approverId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .UpdateProcessApproverUpdateProcessApproverUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .UpdateProcessApproverUpdateProcessApproverDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String
+        processId; // 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的 process_ids 字段获取
+    private String
+        approverId; // 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+
+    // [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的 approver_id。
+
+    /**
+     * 流程实例id，是一个流程的唯一标识。;;可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口返回的
+     * process_ids 字段获取
+     *
+     * <p>示例值：7328345170959681068
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
+    }
+
+    /**
+     * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。
+     *
+     * <p>示例值：7381468648050787884
+     *
+     * @param approverId
+     * @return
+     */
+    public Builder approverId(String approverId) {
+      this.approverId = approverId;
+      return this;
+    }
+
     private ProcessApprover body;
 
-    // builder 开始
-    public UpdateProcessApproverReq() {
-    }
-
-    public UpdateProcessApproverReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 流程实例id
-         * <p> 示例值：7328345170959681068
-         */
-        this.processId = builder.processId;
-        /**
-         * 审批任务id
-         * <p> 示例值：7328345235136726572
-         */
-        this.approverId = builder.approverId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getApproverId() {
-        return this.approverId;
-    }
-
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
-    }
-
     public ProcessApprover getProcessApprover() {
-        return this.body;
+      return this.body;
     }
 
-    public void setProcessApprover(ProcessApprover body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder processApprover(ProcessApprover body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String processId; // 流程实例id
-        private String approverId; // 审批任务id
-        private ProcessApprover body;
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.UpdateProcessApproverUpdateProcessApproverDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 流程实例id
-         * <p> 示例值：7328345170959681068
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-        /**
-         * 审批任务id
-         * <p> 示例值：7328345235136726572
-         *
-         * @param approverId
-         * @return
-         */
-        public Builder approverId(String approverId) {
-            this.approverId = approverId;
-            return this;
-        }
-
-        public ProcessApprover getProcessApprover() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder processApprover(ProcessApprover body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateProcessApproverReq build() {
-            return new UpdateProcessApproverReq(this);
-        }
+    public UpdateProcessApproverReq build() {
+      return new UpdateProcessApproverReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

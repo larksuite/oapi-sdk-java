@@ -13,530 +13,589 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TrainingRegistration {
+  /**
+   * 活动ID
+   *
+   * <p>示例值：e160a0b9a1ce4af859719e2cecba757b
+   */
+  @SerializedName("training_id")
+  private String trainingId;
+
+  /**
+   * 期次ID
+   *
+   * <p>示例值：7fc8ef54a8154c28341bf9a47443a5ce
+   */
+  @SerializedName("session_id")
+  private String sessionId;
+
+  /**
+   * 用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private User learner;
+
+  /**
+   * 加入活动时间（10位时间戳）
+   *
+   * <p>示例值：1714998269
+   */
+  @SerializedName("enroll_at")
+  private String enrollAt;
+
+  /**
+   * 加入类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enroll_type")
+  private Integer enrollType;
+
+  /**
+   * 加入渠道
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("enroll_sub_type")
+  private Integer enrollSubType;
+
+  /**
+   * 签到状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sign_in_state")
+  private Integer signInState;
+
+  /**
+   * 学习状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("learning_state")
+  private Integer learningState;
+
+  /**
+   * 学员完成条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("completion_condition")
+  private CompletionCondition completionCondition;
+
+  /**
+   * 直播参与时长（单位：秒）
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("meeting_duration")
+  private Integer meetingDuration;
+
+  /**
+   * 回放参与时长（单位：秒）
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("playback_duration")
+  private Integer playbackDuration;
+
+  /**
+   * 完成时间（10位时间戳）
+   *
+   * <p>示例值：1714998443
+   */
+  @SerializedName("finished_at")
+  private String finishedAt;
+
+  public String getTrainingId() {
+    return this.trainingId;
+  }
+
+  public void setTrainingId(String trainingId) {
+    this.trainingId = trainingId;
+  }
+
+  public String getSessionId() {
+    return this.sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
+  public User getLearner() {
+    return this.learner;
+  }
+
+  public void setLearner(User learner) {
+    this.learner = learner;
+  }
+
+  public String getEnrollAt() {
+    return this.enrollAt;
+  }
+
+  public void setEnrollAt(String enrollAt) {
+    this.enrollAt = enrollAt;
+  }
+
+  public Integer getEnrollType() {
+    return this.enrollType;
+  }
+
+  public void setEnrollType(Integer enrollType) {
+    this.enrollType = enrollType;
+  }
+
+  public Integer getEnrollSubType() {
+    return this.enrollSubType;
+  }
+
+  public void setEnrollSubType(Integer enrollSubType) {
+    this.enrollSubType = enrollSubType;
+  }
+
+  public Integer getSignInState() {
+    return this.signInState;
+  }
+
+  public void setSignInState(Integer signInState) {
+    this.signInState = signInState;
+  }
+
+  public Integer getLearningState() {
+    return this.learningState;
+  }
+
+  public void setLearningState(Integer learningState) {
+    this.learningState = learningState;
+  }
+
+  public CompletionCondition getCompletionCondition() {
+    return this.completionCondition;
+  }
+
+  public void setCompletionCondition(CompletionCondition completionCondition) {
+    this.completionCondition = completionCondition;
+  }
+
+  public Integer getMeetingDuration() {
+    return this.meetingDuration;
+  }
+
+  public void setMeetingDuration(Integer meetingDuration) {
+    this.meetingDuration = meetingDuration;
+  }
+
+  public Integer getPlaybackDuration() {
+    return this.playbackDuration;
+  }
+
+  public void setPlaybackDuration(Integer playbackDuration) {
+    this.playbackDuration = playbackDuration;
+  }
+
+  public String getFinishedAt() {
+    return this.finishedAt;
+  }
+
+  public void setFinishedAt(String finishedAt) {
+    this.finishedAt = finishedAt;
+  }
+
+  // builder 开始
+  public TrainingRegistration() {}
+
+  public TrainingRegistration(Builder builder) {
     /**
      * 活动ID
-     * <p> 示例值：e160a0b9a1ce4af859719e2cecba757b
+     *
+     * <p>示例值：e160a0b9a1ce4af859719e2cecba757b
      */
-    @SerializedName("training_id")
-    private String trainingId;
+    this.trainingId = builder.trainingId;
     /**
      * 期次ID
-     * <p> 示例值：7fc8ef54a8154c28341bf9a47443a5ce
+     *
+     * <p>示例值：7fc8ef54a8154c28341bf9a47443a5ce
      */
-    @SerializedName("session_id")
-    private String sessionId;
+    this.sessionId = builder.sessionId;
     /**
-     * 学员信息
-     * <p> 示例值：
+     * 用户
+     *
+     * <p>示例值：
      */
-    @SerializedName("learner")
-    private User learner;
+    this.learner = builder.learner;
     /**
      * 加入活动时间（10位时间戳）
-     * <p> 示例值：1714998269
+     *
+     * <p>示例值：1714998269
      */
-    @SerializedName("enroll_at")
-    private String enrollAt;
+    this.enrollAt = builder.enrollAt;
     /**
      * 加入类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enroll_type")
-    private Integer enrollType;
+    this.enrollType = builder.enrollType;
     /**
      * 加入渠道
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("enroll_sub_type")
-    private Integer enrollSubType;
+    this.enrollSubType = builder.enrollSubType;
     /**
      * 签到状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sign_in_state")
-    private Integer signInState;
+    this.signInState = builder.signInState;
     /**
      * 学习状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("learning_state")
-    private Integer learningState;
+    this.learningState = builder.learningState;
     /**
      * 学员完成条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("completion_condition")
-    private CompletionCondition completionCondition;
+    this.completionCondition = builder.completionCondition;
     /**
      * 直播参与时长（单位：秒）
-     * <p> 示例值：1000
+     *
+     * <p>示例值：1000
      */
-    @SerializedName("meeting_duration")
-    private Integer meetingDuration;
+    this.meetingDuration = builder.meetingDuration;
     /**
      * 回放参与时长（单位：秒）
-     * <p> 示例值：1000
+     *
+     * <p>示例值：1000
      */
-    @SerializedName("playback_duration")
-    private Integer playbackDuration;
+    this.playbackDuration = builder.playbackDuration;
     /**
      * 完成时间（10位时间戳）
-     * <p> 示例值：1714998443
+     *
+     * <p>示例值：1714998443
      */
-    @SerializedName("finished_at")
+    this.finishedAt = builder.finishedAt;
+  }
+
+  public static class Builder {
+    /**
+     * 活动ID
+     *
+     * <p>示例值：e160a0b9a1ce4af859719e2cecba757b
+     */
+    private String trainingId;
+
+    /**
+     * 期次ID
+     *
+     * <p>示例值：7fc8ef54a8154c28341bf9a47443a5ce
+     */
+    private String sessionId;
+
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     */
+    private User learner;
+
+    /**
+     * 加入活动时间（10位时间戳）
+     *
+     * <p>示例值：1714998269
+     */
+    private String enrollAt;
+
+    /**
+     * 加入类型
+     *
+     * <p>示例值：1
+     */
+    private Integer enrollType;
+
+    /**
+     * 加入渠道
+     *
+     * <p>示例值：0
+     */
+    private Integer enrollSubType;
+
+    /**
+     * 签到状态
+     *
+     * <p>示例值：1
+     */
+    private Integer signInState;
+
+    /**
+     * 学习状态
+     *
+     * <p>示例值：1
+     */
+    private Integer learningState;
+
+    /**
+     * 学员完成条件
+     *
+     * <p>示例值：
+     */
+    private CompletionCondition completionCondition;
+
+    /**
+     * 直播参与时长（单位：秒）
+     *
+     * <p>示例值：1000
+     */
+    private Integer meetingDuration;
+
+    /**
+     * 回放参与时长（单位：秒）
+     *
+     * <p>示例值：1000
+     */
+    private Integer playbackDuration;
+
+    /**
+     * 完成时间（10位时间戳）
+     *
+     * <p>示例值：1714998443
+     */
     private String finishedAt;
 
-    // builder 开始
-    public TrainingRegistration() {
+    /**
+     * 活动ID
+     *
+     * <p>示例值：e160a0b9a1ce4af859719e2cecba757b
+     *
+     * @param trainingId
+     * @return
+     */
+    public Builder trainingId(String trainingId) {
+      this.trainingId = trainingId;
+      return this;
     }
 
-    public TrainingRegistration(Builder builder) {
-        /**
-         * 活动ID
-         * <p> 示例值：e160a0b9a1ce4af859719e2cecba757b
-         */
-        this.trainingId = builder.trainingId;
-        /**
-         * 期次ID
-         * <p> 示例值：7fc8ef54a8154c28341bf9a47443a5ce
-         */
-        this.sessionId = builder.sessionId;
-        /**
-         * 学员信息
-         * <p> 示例值：
-         */
-        this.learner = builder.learner;
-        /**
-         * 加入活动时间（10位时间戳）
-         * <p> 示例值：1714998269
-         */
-        this.enrollAt = builder.enrollAt;
-        /**
-         * 加入类型
-         * <p> 示例值：1
-         */
-        this.enrollType = builder.enrollType;
-        /**
-         * 加入渠道
-         * <p> 示例值：0
-         */
-        this.enrollSubType = builder.enrollSubType;
-        /**
-         * 签到状态
-         * <p> 示例值：1
-         */
-        this.signInState = builder.signInState;
-        /**
-         * 学习状态
-         * <p> 示例值：1
-         */
-        this.learningState = builder.learningState;
-        /**
-         * 学员完成条件
-         * <p> 示例值：
-         */
-        this.completionCondition = builder.completionCondition;
-        /**
-         * 直播参与时长（单位：秒）
-         * <p> 示例值：1000
-         */
-        this.meetingDuration = builder.meetingDuration;
-        /**
-         * 回放参与时长（单位：秒）
-         * <p> 示例值：1000
-         */
-        this.playbackDuration = builder.playbackDuration;
-        /**
-         * 完成时间（10位时间戳）
-         * <p> 示例值：1714998443
-         */
-        this.finishedAt = builder.finishedAt;
+    /**
+     * 期次ID
+     *
+     * <p>示例值：7fc8ef54a8154c28341bf9a47443a5ce
+     *
+     * @param sessionId
+     * @return
+     */
+    public Builder sessionId(String sessionId) {
+      this.sessionId = sessionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     *
+     * @param learner
+     * @return
+     */
+    public Builder learner(User learner) {
+      this.learner = learner;
+      return this;
     }
 
-    public String getTrainingId() {
-        return this.trainingId;
+    /**
+     * 加入活动时间（10位时间戳）
+     *
+     * <p>示例值：1714998269
+     *
+     * @param enrollAt
+     * @return
+     */
+    public Builder enrollAt(String enrollAt) {
+      this.enrollAt = enrollAt;
+      return this;
     }
 
-    public void setTrainingId(String trainingId) {
-        this.trainingId = trainingId;
+    /**
+     * 加入类型
+     *
+     * <p>示例值：1
+     *
+     * @param enrollType
+     * @return
+     */
+    public Builder enrollType(Integer enrollType) {
+      this.enrollType = enrollType;
+      return this;
     }
 
-    public String getSessionId() {
-        return this.sessionId;
+    /**
+     * 加入类型
+     *
+     * <p>示例值：1
+     *
+     * @param enrollType {@link
+     *     com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollTypeEnum}
+     * @return
+     */
+    public Builder enrollType(
+        com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollTypeEnum enrollType) {
+      this.enrollType = enrollType.getValue();
+      return this;
     }
 
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
+    /**
+     * 加入渠道
+     *
+     * <p>示例值：0
+     *
+     * @param enrollSubType
+     * @return
+     */
+    public Builder enrollSubType(Integer enrollSubType) {
+      this.enrollSubType = enrollSubType;
+      return this;
     }
 
-    public User getLearner() {
-        return this.learner;
+    /**
+     * 加入渠道
+     *
+     * <p>示例值：0
+     *
+     * @param enrollSubType {@link
+     *     com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollSubTypeEnum}
+     * @return
+     */
+    public Builder enrollSubType(
+        com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollSubTypeEnum
+            enrollSubType) {
+      this.enrollSubType = enrollSubType.getValue();
+      return this;
     }
 
-    public void setLearner(User learner) {
-        this.learner = learner;
+    /**
+     * 签到状态
+     *
+     * <p>示例值：1
+     *
+     * @param signInState
+     * @return
+     */
+    public Builder signInState(Integer signInState) {
+      this.signInState = signInState;
+      return this;
     }
 
-    public String getEnrollAt() {
-        return this.enrollAt;
+    /**
+     * 签到状态
+     *
+     * <p>示例值：1
+     *
+     * @param signInState {@link
+     *     com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationSignInStateEnum}
+     * @return
+     */
+    public Builder signInState(
+        com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationSignInStateEnum signInState) {
+      this.signInState = signInState.getValue();
+      return this;
     }
 
-    public void setEnrollAt(String enrollAt) {
-        this.enrollAt = enrollAt;
+    /**
+     * 学习状态
+     *
+     * <p>示例值：1
+     *
+     * @param learningState
+     * @return
+     */
+    public Builder learningState(Integer learningState) {
+      this.learningState = learningState;
+      return this;
     }
 
-    public Integer getEnrollType() {
-        return this.enrollType;
+    /**
+     * 学习状态
+     *
+     * <p>示例值：1
+     *
+     * @param learningState {@link
+     *     com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationLearningStateEnum}
+     * @return
+     */
+    public Builder learningState(
+        com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationLearningStateEnum
+            learningState) {
+      this.learningState = learningState.getValue();
+      return this;
     }
 
-    public void setEnrollType(Integer enrollType) {
-        this.enrollType = enrollType;
+    /**
+     * 学员完成条件
+     *
+     * <p>示例值：
+     *
+     * @param completionCondition
+     * @return
+     */
+    public Builder completionCondition(CompletionCondition completionCondition) {
+      this.completionCondition = completionCondition;
+      return this;
     }
 
-    public Integer getEnrollSubType() {
-        return this.enrollSubType;
+    /**
+     * 直播参与时长（单位：秒）
+     *
+     * <p>示例值：1000
+     *
+     * @param meetingDuration
+     * @return
+     */
+    public Builder meetingDuration(Integer meetingDuration) {
+      this.meetingDuration = meetingDuration;
+      return this;
     }
 
-    public void setEnrollSubType(Integer enrollSubType) {
-        this.enrollSubType = enrollSubType;
+    /**
+     * 回放参与时长（单位：秒）
+     *
+     * <p>示例值：1000
+     *
+     * @param playbackDuration
+     * @return
+     */
+    public Builder playbackDuration(Integer playbackDuration) {
+      this.playbackDuration = playbackDuration;
+      return this;
     }
 
-    public Integer getSignInState() {
-        return this.signInState;
+    /**
+     * 完成时间（10位时间戳）
+     *
+     * <p>示例值：1714998443
+     *
+     * @param finishedAt
+     * @return
+     */
+    public Builder finishedAt(String finishedAt) {
+      this.finishedAt = finishedAt;
+      return this;
     }
 
-    public void setSignInState(Integer signInState) {
-        this.signInState = signInState;
+    public TrainingRegistration build() {
+      return new TrainingRegistration(this);
     }
+  }
 
-    public Integer getLearningState() {
-        return this.learningState;
-    }
-
-    public void setLearningState(Integer learningState) {
-        this.learningState = learningState;
-    }
-
-    public CompletionCondition getCompletionCondition() {
-        return this.completionCondition;
-    }
-
-    public void setCompletionCondition(CompletionCondition completionCondition) {
-        this.completionCondition = completionCondition;
-    }
-
-    public Integer getMeetingDuration() {
-        return this.meetingDuration;
-    }
-
-    public void setMeetingDuration(Integer meetingDuration) {
-        this.meetingDuration = meetingDuration;
-    }
-
-    public Integer getPlaybackDuration() {
-        return this.playbackDuration;
-    }
-
-    public void setPlaybackDuration(Integer playbackDuration) {
-        this.playbackDuration = playbackDuration;
-    }
-
-    public String getFinishedAt() {
-        return this.finishedAt;
-    }
-
-    public void setFinishedAt(String finishedAt) {
-        this.finishedAt = finishedAt;
-    }
-
-    public static class Builder {
-        /**
-         * 活动ID
-         * <p> 示例值：e160a0b9a1ce4af859719e2cecba757b
-         */
-        private String trainingId;
-        /**
-         * 期次ID
-         * <p> 示例值：7fc8ef54a8154c28341bf9a47443a5ce
-         */
-        private String sessionId;
-        /**
-         * 学员信息
-         * <p> 示例值：
-         */
-        private User learner;
-        /**
-         * 加入活动时间（10位时间戳）
-         * <p> 示例值：1714998269
-         */
-        private String enrollAt;
-        /**
-         * 加入类型
-         * <p> 示例值：1
-         */
-        private Integer enrollType;
-        /**
-         * 加入渠道
-         * <p> 示例值：0
-         */
-        private Integer enrollSubType;
-        /**
-         * 签到状态
-         * <p> 示例值：1
-         */
-        private Integer signInState;
-        /**
-         * 学习状态
-         * <p> 示例值：1
-         */
-        private Integer learningState;
-        /**
-         * 学员完成条件
-         * <p> 示例值：
-         */
-        private CompletionCondition completionCondition;
-        /**
-         * 直播参与时长（单位：秒）
-         * <p> 示例值：1000
-         */
-        private Integer meetingDuration;
-        /**
-         * 回放参与时长（单位：秒）
-         * <p> 示例值：1000
-         */
-        private Integer playbackDuration;
-        /**
-         * 完成时间（10位时间戳）
-         * <p> 示例值：1714998443
-         */
-        private String finishedAt;
-
-        /**
-         * 活动ID
-         * <p> 示例值：e160a0b9a1ce4af859719e2cecba757b
-         *
-         * @param trainingId
-         * @return
-         */
-        public Builder trainingId(String trainingId) {
-            this.trainingId = trainingId;
-            return this;
-        }
-
-
-        /**
-         * 期次ID
-         * <p> 示例值：7fc8ef54a8154c28341bf9a47443a5ce
-         *
-         * @param sessionId
-         * @return
-         */
-        public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
-        }
-
-
-        /**
-         * 学员信息
-         * <p> 示例值：
-         *
-         * @param learner
-         * @return
-         */
-        public Builder learner(User learner) {
-            this.learner = learner;
-            return this;
-        }
-
-
-        /**
-         * 加入活动时间（10位时间戳）
-         * <p> 示例值：1714998269
-         *
-         * @param enrollAt
-         * @return
-         */
-        public Builder enrollAt(String enrollAt) {
-            this.enrollAt = enrollAt;
-            return this;
-        }
-
-
-        /**
-         * 加入类型
-         * <p> 示例值：1
-         *
-         * @param enrollType
-         * @return
-         */
-        public Builder enrollType(Integer enrollType) {
-            this.enrollType = enrollType;
-            return this;
-        }
-
-        /**
-         * 加入类型
-         * <p> 示例值：1
-         *
-         * @param enrollType {@link com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollTypeEnum}
-         * @return
-         */
-        public Builder enrollType(com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollTypeEnum enrollType) {
-            this.enrollType = enrollType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加入渠道
-         * <p> 示例值：0
-         *
-         * @param enrollSubType
-         * @return
-         */
-        public Builder enrollSubType(Integer enrollSubType) {
-            this.enrollSubType = enrollSubType;
-            return this;
-        }
-
-        /**
-         * 加入渠道
-         * <p> 示例值：0
-         *
-         * @param enrollSubType {@link com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollSubTypeEnum}
-         * @return
-         */
-        public Builder enrollSubType(com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationEnrollSubTypeEnum enrollSubType) {
-            this.enrollSubType = enrollSubType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 签到状态
-         * <p> 示例值：1
-         *
-         * @param signInState
-         * @return
-         */
-        public Builder signInState(Integer signInState) {
-            this.signInState = signInState;
-            return this;
-        }
-
-        /**
-         * 签到状态
-         * <p> 示例值：1
-         *
-         * @param signInState {@link com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationSignInStateEnum}
-         * @return
-         */
-        public Builder signInState(com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationSignInStateEnum signInState) {
-            this.signInState = signInState.getValue();
-            return this;
-        }
-
-
-        /**
-         * 学习状态
-         * <p> 示例值：1
-         *
-         * @param learningState
-         * @return
-         */
-        public Builder learningState(Integer learningState) {
-            this.learningState = learningState;
-            return this;
-        }
-
-        /**
-         * 学习状态
-         * <p> 示例值：1
-         *
-         * @param learningState {@link com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationLearningStateEnum}
-         * @return
-         */
-        public Builder learningState(com.lark.oapi.service.elearning.v2.enums.TrainingRegistrationLearningStateEnum learningState) {
-            this.learningState = learningState.getValue();
-            return this;
-        }
-
-
-        /**
-         * 学员完成条件
-         * <p> 示例值：
-         *
-         * @param completionCondition
-         * @return
-         */
-        public Builder completionCondition(CompletionCondition completionCondition) {
-            this.completionCondition = completionCondition;
-            return this;
-        }
-
-
-        /**
-         * 直播参与时长（单位：秒）
-         * <p> 示例值：1000
-         *
-         * @param meetingDuration
-         * @return
-         */
-        public Builder meetingDuration(Integer meetingDuration) {
-            this.meetingDuration = meetingDuration;
-            return this;
-        }
-
-
-        /**
-         * 回放参与时长（单位：秒）
-         * <p> 示例值：1000
-         *
-         * @param playbackDuration
-         * @return
-         */
-        public Builder playbackDuration(Integer playbackDuration) {
-            this.playbackDuration = playbackDuration;
-            return this;
-        }
-
-
-        /**
-         * 完成时间（10位时间戳）
-         * <p> 示例值：1714998443
-         *
-         * @param finishedAt
-         * @return
-         */
-        public Builder finishedAt(String finishedAt) {
-            this.finishedAt = finishedAt;
-            return this;
-        }
-
-
-        public TrainingRegistration build() {
-            return new TrainingRegistration(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

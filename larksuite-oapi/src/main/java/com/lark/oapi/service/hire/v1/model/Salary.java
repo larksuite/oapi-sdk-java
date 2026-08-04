@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Salary {
+  /**
+   * 操作时间
+   *
+   * <p>示例值：1638260625671
+   */
+  @SerializedName("operate_time")
+  private String operateTime;
+
+  /**
+   * 薪酬审批状态
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("salary_status")
+  private Integer salaryStatus;
+
+  /**
+   * Offer ID
+   *
+   * <p>示例值：7981638260625671
+   */
+  @SerializedName("offer_id")
+  private String offerId;
+
+  /**
+   * 薪酬 ID
+   *
+   * <p>示例值：salay_id
+   */
+  @SerializedName("salay_id")
+  private String salayId;
+
+  /**
+   * 操作人 ID
+   *
+   * <p>示例值：ou_xxxxxx
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  public String getOperateTime() {
+    return this.operateTime;
+  }
+
+  public void setOperateTime(String operateTime) {
+    this.operateTime = operateTime;
+  }
+
+  public Integer getSalaryStatus() {
+    return this.salaryStatus;
+  }
+
+  public void setSalaryStatus(Integer salaryStatus) {
+    this.salaryStatus = salaryStatus;
+  }
+
+  public String getOfferId() {
+    return this.offerId;
+  }
+
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
+
+  public String getSalayId() {
+    return this.salayId;
+  }
+
+  public void setSalayId(String salayId) {
+    this.salayId = salayId;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  // builder 开始
+  public Salary() {}
+
+  public Salary(Builder builder) {
     /**
      * 操作时间
-     * <p> 示例值：1638260625671
+     *
+     * <p>示例值：1638260625671
      */
-    @SerializedName("operate_time")
-    private String operateTime;
+    this.operateTime = builder.operateTime;
     /**
      * 薪酬审批状态
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("salary_status")
-    private Integer salaryStatus;
+    this.salaryStatus = builder.salaryStatus;
     /**
      * Offer ID
-     * <p> 示例值：7981638260625671
+     *
+     * <p>示例值：7981638260625671
      */
-    @SerializedName("offer_id")
-    private String offerId;
+    this.offerId = builder.offerId;
     /**
      * 薪酬 ID
-     * <p> 示例值：salay_id
+     *
+     * <p>示例值：salay_id
      */
-    @SerializedName("salay_id")
-    private String salayId;
+    this.salayId = builder.salayId;
     /**
      * 操作人 ID
-     * <p> 示例值：ou_xxxxxx
+     *
+     * <p>示例值：ou_xxxxxx
      */
-    @SerializedName("operator_id")
+    this.operatorId = builder.operatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1638260625671
+     */
+    private String operateTime;
+
+    /**
+     * 薪酬审批状态
+     *
+     * <p>示例值：2
+     */
+    private Integer salaryStatus;
+
+    /**
+     * Offer ID
+     *
+     * <p>示例值：7981638260625671
+     */
+    private String offerId;
+
+    /**
+     * 薪酬 ID
+     *
+     * <p>示例值：salay_id
+     */
+    private String salayId;
+
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：ou_xxxxxx
+     */
     private String operatorId;
 
-    // builder 开始
-    public Salary() {
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1638260625671
+     *
+     * @param operateTime
+     * @return
+     */
+    public Builder operateTime(String operateTime) {
+      this.operateTime = operateTime;
+      return this;
     }
 
-    public Salary(Builder builder) {
-        /**
-         * 操作时间
-         * <p> 示例值：1638260625671
-         */
-        this.operateTime = builder.operateTime;
-        /**
-         * 薪酬审批状态
-         * <p> 示例值：2
-         */
-        this.salaryStatus = builder.salaryStatus;
-        /**
-         * Offer ID
-         * <p> 示例值：7981638260625671
-         */
-        this.offerId = builder.offerId;
-        /**
-         * 薪酬 ID
-         * <p> 示例值：salay_id
-         */
-        this.salayId = builder.salayId;
-        /**
-         * 操作人 ID
-         * <p> 示例值：ou_xxxxxx
-         */
-        this.operatorId = builder.operatorId;
+    /**
+     * 薪酬审批状态
+     *
+     * <p>示例值：2
+     *
+     * @param salaryStatus
+     * @return
+     */
+    public Builder salaryStatus(Integer salaryStatus) {
+      this.salaryStatus = salaryStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Offer ID
+     *
+     * <p>示例值：7981638260625671
+     *
+     * @param offerId
+     * @return
+     */
+    public Builder offerId(String offerId) {
+      this.offerId = offerId;
+      return this;
     }
 
-    public String getOperateTime() {
-        return this.operateTime;
+    /**
+     * 薪酬 ID
+     *
+     * <p>示例值：salay_id
+     *
+     * @param salayId
+     * @return
+     */
+    public Builder salayId(String salayId) {
+      this.salayId = salayId;
+      return this;
     }
 
-    public void setOperateTime(String operateTime) {
-        this.operateTime = operateTime;
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：ou_xxxxxx
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public Integer getSalaryStatus() {
-        return this.salaryStatus;
+    public Salary build() {
+      return new Salary(this);
     }
+  }
 
-    public void setSalaryStatus(Integer salaryStatus) {
-        this.salaryStatus = salaryStatus;
-    }
-
-    public String getOfferId() {
-        return this.offerId;
-    }
-
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
-    }
-
-    public String getSalayId() {
-        return this.salayId;
-    }
-
-    public void setSalayId(String salayId) {
-        this.salayId = salayId;
-    }
-
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 操作时间
-         * <p> 示例值：1638260625671
-         */
-        private String operateTime;
-        /**
-         * 薪酬审批状态
-         * <p> 示例值：2
-         */
-        private Integer salaryStatus;
-        /**
-         * Offer ID
-         * <p> 示例值：7981638260625671
-         */
-        private String offerId;
-        /**
-         * 薪酬 ID
-         * <p> 示例值：salay_id
-         */
-        private String salayId;
-        /**
-         * 操作人 ID
-         * <p> 示例值：ou_xxxxxx
-         */
-        private String operatorId;
-
-        /**
-         * 操作时间
-         * <p> 示例值：1638260625671
-         *
-         * @param operateTime
-         * @return
-         */
-        public Builder operateTime(String operateTime) {
-            this.operateTime = operateTime;
-            return this;
-        }
-
-
-        /**
-         * 薪酬审批状态
-         * <p> 示例值：2
-         *
-         * @param salaryStatus
-         * @return
-         */
-        public Builder salaryStatus(Integer salaryStatus) {
-            this.salaryStatus = salaryStatus;
-            return this;
-        }
-
-
-        /**
-         * Offer ID
-         * <p> 示例值：7981638260625671
-         *
-         * @param offerId
-         * @return
-         */
-        public Builder offerId(String offerId) {
-            this.offerId = offerId;
-            return this;
-        }
-
-
-        /**
-         * 薪酬 ID
-         * <p> 示例值：salay_id
-         *
-         * @param salayId
-         * @return
-         */
-        public Builder salayId(String salayId) {
-            this.salayId = salayId;
-            return this;
-        }
-
-
-        /**
-         * 操作人 ID
-         * <p> 示例值：ou_xxxxxx
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        public Salary build() {
-            return new Salary(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

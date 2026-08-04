@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckTarget {
+  /**
+   * 背调对象ID
+   *
+   * <p>示例值：11
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 姓
+   *
+   * <p>示例值：张
+   */
+  @SerializedName("first_name")
+  private String firstName;
+
+  /**
+   * 名
+   *
+   * <p>示例值：三
+   */
+  @SerializedName("last_name")
+  private String lastName;
+
+  /**
+   * 邮箱
+   *
+   * <p>示例值：xxxx@test.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 工作国家
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_country")
+  private BackgroundCheckCountry workCountry;
+
+  /**
+   * 工作城市
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_city")
+  private BackgroundCheckCity workCity;
+
+  /**
+   * 职称
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("job_title")
+  private String jobTitle;
+
+  /**
+   * offer HR的电子邮件
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("offer_hr_email")
+  private String offerHrEmail;
+
+  /**
+   * 业务单元
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("biz_unit")
+  private String bizUnit;
+
+  /**
+   * offer HR的部门ID
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("offer_hr_department_id")
+  private String offerHrDepartmentId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public BackgroundCheckCountry getWorkCountry() {
+    return this.workCountry;
+  }
+
+  public void setWorkCountry(BackgroundCheckCountry workCountry) {
+    this.workCountry = workCountry;
+  }
+
+  public BackgroundCheckCity getWorkCity() {
+    return this.workCity;
+  }
+
+  public void setWorkCity(BackgroundCheckCity workCity) {
+    this.workCity = workCity;
+  }
+
+  public String getJobTitle() {
+    return this.jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public String getOfferHrEmail() {
+    return this.offerHrEmail;
+  }
+
+  public void setOfferHrEmail(String offerHrEmail) {
+    this.offerHrEmail = offerHrEmail;
+  }
+
+  public String getBizUnit() {
+    return this.bizUnit;
+  }
+
+  public void setBizUnit(String bizUnit) {
+    this.bizUnit = bizUnit;
+  }
+
+  public String getOfferHrDepartmentId() {
+    return this.offerHrDepartmentId;
+  }
+
+  public void setOfferHrDepartmentId(String offerHrDepartmentId) {
+    this.offerHrDepartmentId = offerHrDepartmentId;
+  }
+
+  // builder 开始
+  public BackgroundCheckTarget() {}
+
+  public BackgroundCheckTarget(Builder builder) {
     /**
      * 背调对象ID
-     * <p> 示例值：
+     *
+     * <p>示例值：11
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 姓
-     * <p> 示例值：
+     *
+     * <p>示例值：张
      */
-    @SerializedName("first_name")
-    private String firstName;
+    this.firstName = builder.firstName;
     /**
      * 名
-     * <p> 示例值：
+     *
+     * <p>示例值：三
      */
-    @SerializedName("last_name")
-    private String lastName;
+    this.lastName = builder.lastName;
     /**
      * 邮箱
-     * <p> 示例值：
+     *
+     * <p>示例值：xxxx@test.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 工作国家
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_country")
-    private BackgroundCheckCountry workCountry;
+    this.workCountry = builder.workCountry;
     /**
      * 工作城市
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_city")
-    private BackgroundCheckCity workCity;
+    this.workCity = builder.workCity;
     /**
      * 职称
-     * <p> 示例值：
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("job_title")
-    private String jobTitle;
+    this.jobTitle = builder.jobTitle;
     /**
      * offer HR的电子邮件
-     * <p> 示例值：
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("offer_hr_email")
-    private String offerHrEmail;
+    this.offerHrEmail = builder.offerHrEmail;
     /**
      * 业务单元
-     * <p> 示例值：
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("biz_unit")
-    private String bizUnit;
+    this.bizUnit = builder.bizUnit;
     /**
      * offer HR的部门ID
-     * <p> 示例值：
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("offer_hr_department_id")
+    this.offerHrDepartmentId = builder.offerHrDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 背调对象ID
+     *
+     * <p>示例值：11
+     */
+    private String id;
+
+    /**
+     * 姓
+     *
+     * <p>示例值：张
+     */
+    private String firstName;
+
+    /**
+     * 名
+     *
+     * <p>示例值：三
+     */
+    private String lastName;
+
+    /**
+     * 邮箱
+     *
+     * <p>示例值：xxxx@test.com
+     */
+    private String email;
+
+    /**
+     * 工作国家
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckCountry workCountry;
+
+    /**
+     * 工作城市
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckCity workCity;
+
+    /**
+     * 职称
+     *
+     * <p>示例值：xx
+     */
+    private String jobTitle;
+
+    /**
+     * offer HR的电子邮件
+     *
+     * <p>示例值：xx
+     */
+    private String offerHrEmail;
+
+    /**
+     * 业务单元
+     *
+     * <p>示例值：xx
+     */
+    private String bizUnit;
+
+    /**
+     * offer HR的部门ID
+     *
+     * <p>示例值：xx
+     */
     private String offerHrDepartmentId;
 
-    // builder 开始
-    public BackgroundCheckTarget() {
+    /**
+     * 背调对象ID
+     *
+     * <p>示例值：11
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BackgroundCheckTarget(Builder builder) {
-        /**
-         * 背调对象ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 姓
-         * <p> 示例值：
-         */
-        this.firstName = builder.firstName;
-        /**
-         * 名
-         * <p> 示例值：
-         */
-        this.lastName = builder.lastName;
-        /**
-         * 邮箱
-         * <p> 示例值：
-         */
-        this.email = builder.email;
-        /**
-         * 工作国家
-         * <p> 示例值：
-         */
-        this.workCountry = builder.workCountry;
-        /**
-         * 工作城市
-         * <p> 示例值：
-         */
-        this.workCity = builder.workCity;
-        /**
-         * 职称
-         * <p> 示例值：
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * offer HR的电子邮件
-         * <p> 示例值：
-         */
-        this.offerHrEmail = builder.offerHrEmail;
-        /**
-         * 业务单元
-         * <p> 示例值：
-         */
-        this.bizUnit = builder.bizUnit;
-        /**
-         * offer HR的部门ID
-         * <p> 示例值：
-         */
-        this.offerHrDepartmentId = builder.offerHrDepartmentId;
+    /**
+     * 姓
+     *
+     * <p>示例值：张
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(String firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 名
+     *
+     * <p>示例值：三
+     *
+     * @param lastName
+     * @return
+     */
+    public Builder lastName(String lastName) {
+      this.lastName = lastName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 邮箱
+     *
+     * <p>示例值：xxxx@test.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 工作国家
+     *
+     * <p>示例值：
+     *
+     * @param workCountry
+     * @return
+     */
+    public Builder workCountry(BackgroundCheckCountry workCountry) {
+      this.workCountry = workCountry;
+      return this;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    /**
+     * 工作城市
+     *
+     * <p>示例值：
+     *
+     * @param workCity
+     * @return
+     */
+    public Builder workCity(BackgroundCheckCity workCity) {
+      this.workCity = workCity;
+      return this;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    /**
+     * 职称
+     *
+     * <p>示例值：xx
+     *
+     * @param jobTitle
+     * @return
+     */
+    public Builder jobTitle(String jobTitle) {
+      this.jobTitle = jobTitle;
+      return this;
     }
 
-    public String getLastName() {
-        return this.lastName;
+    /**
+     * offer HR的电子邮件
+     *
+     * <p>示例值：xx
+     *
+     * @param offerHrEmail
+     * @return
+     */
+    public Builder offerHrEmail(String offerHrEmail) {
+      this.offerHrEmail = offerHrEmail;
+      return this;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    /**
+     * 业务单元
+     *
+     * <p>示例值：xx
+     *
+     * @param bizUnit
+     * @return
+     */
+    public Builder bizUnit(String bizUnit) {
+      this.bizUnit = bizUnit;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * offer HR的部门ID
+     *
+     * <p>示例值：xx
+     *
+     * @param offerHrDepartmentId
+     * @return
+     */
+    public Builder offerHrDepartmentId(String offerHrDepartmentId) {
+      this.offerHrDepartmentId = offerHrDepartmentId;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public BackgroundCheckTarget build() {
+      return new BackgroundCheckTarget(this);
     }
+  }
 
-    public BackgroundCheckCountry getWorkCountry() {
-        return this.workCountry;
-    }
-
-    public void setWorkCountry(BackgroundCheckCountry workCountry) {
-        this.workCountry = workCountry;
-    }
-
-    public BackgroundCheckCity getWorkCity() {
-        return this.workCity;
-    }
-
-    public void setWorkCity(BackgroundCheckCity workCity) {
-        this.workCity = workCity;
-    }
-
-    public String getJobTitle() {
-        return this.jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getOfferHrEmail() {
-        return this.offerHrEmail;
-    }
-
-    public void setOfferHrEmail(String offerHrEmail) {
-        this.offerHrEmail = offerHrEmail;
-    }
-
-    public String getBizUnit() {
-        return this.bizUnit;
-    }
-
-    public void setBizUnit(String bizUnit) {
-        this.bizUnit = bizUnit;
-    }
-
-    public String getOfferHrDepartmentId() {
-        return this.offerHrDepartmentId;
-    }
-
-    public void setOfferHrDepartmentId(String offerHrDepartmentId) {
-        this.offerHrDepartmentId = offerHrDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 背调对象ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 姓
-         * <p> 示例值：
-         */
-        private String firstName;
-        /**
-         * 名
-         * <p> 示例值：
-         */
-        private String lastName;
-        /**
-         * 邮箱
-         * <p> 示例值：
-         */
-        private String email;
-        /**
-         * 工作国家
-         * <p> 示例值：
-         */
-        private BackgroundCheckCountry workCountry;
-        /**
-         * 工作城市
-         * <p> 示例值：
-         */
-        private BackgroundCheckCity workCity;
-        /**
-         * 职称
-         * <p> 示例值：
-         */
-        private String jobTitle;
-        /**
-         * offer HR的电子邮件
-         * <p> 示例值：
-         */
-        private String offerHrEmail;
-        /**
-         * 业务单元
-         * <p> 示例值：
-         */
-        private String bizUnit;
-        /**
-         * offer HR的部门ID
-         * <p> 示例值：
-         */
-        private String offerHrDepartmentId;
-
-        /**
-         * 背调对象ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 姓
-         * <p> 示例值：
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * 名
-         * <p> 示例值：
-         *
-         * @param lastName
-         * @return
-         */
-        public Builder lastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 工作国家
-         * <p> 示例值：
-         *
-         * @param workCountry
-         * @return
-         */
-        public Builder workCountry(BackgroundCheckCountry workCountry) {
-            this.workCountry = workCountry;
-            return this;
-        }
-
-
-        /**
-         * 工作城市
-         * <p> 示例值：
-         *
-         * @param workCity
-         * @return
-         */
-        public Builder workCity(BackgroundCheckCity workCity) {
-            this.workCity = workCity;
-            return this;
-        }
-
-
-        /**
-         * 职称
-         * <p> 示例值：
-         *
-         * @param jobTitle
-         * @return
-         */
-        public Builder jobTitle(String jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
-        }
-
-
-        /**
-         * offer HR的电子邮件
-         * <p> 示例值：
-         *
-         * @param offerHrEmail
-         * @return
-         */
-        public Builder offerHrEmail(String offerHrEmail) {
-            this.offerHrEmail = offerHrEmail;
-            return this;
-        }
-
-
-        /**
-         * 业务单元
-         * <p> 示例值：
-         *
-         * @param bizUnit
-         * @return
-         */
-        public Builder bizUnit(String bizUnit) {
-            this.bizUnit = bizUnit;
-            return this;
-        }
-
-
-        /**
-         * offer HR的部门ID
-         * <p> 示例值：
-         *
-         * @param offerHrDepartmentId
-         * @return
-         */
-        public Builder offerHrDepartmentId(String offerHrDepartmentId) {
-            this.offerHrDepartmentId = offerHrDepartmentId;
-            return this;
-        }
-
-
-        public BackgroundCheckTarget build() {
-            return new BackgroundCheckTarget(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

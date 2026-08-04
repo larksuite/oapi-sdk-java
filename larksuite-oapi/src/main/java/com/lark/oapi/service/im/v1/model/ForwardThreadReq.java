@@ -13,175 +13,187 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class ForwardThreadReq {
+  /**
+   * 消息接收者 ID 类型。
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("receive_id_type")
+  private String receiveIdType;
+
+  /**
+   * 自定义设置的唯一字符串序列，用于在转发话题时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。
+   *
+   * <p>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+   */
+  @Query
+  @SerializedName("uuid")
+  private String uuid;
+
+  public String getReceiveIdType() {
+    return this.receiveIdType;
+  }
+
+  public void setReceiveIdType(String receiveIdType) {
+    this.receiveIdType = receiveIdType;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  /**
+   * 要转发的话题ID，获取方式参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+   * **如何获取 thread_id** 章节。
+   *
+   * <p>示例值：omt_dc132645203
+   */
+  @Path
+  @SerializedName("thread_id")
+  private String threadId;
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  @Body private ForwardThreadReqBody body;
+
+  public ForwardThreadReqBody getForwardThreadReqBody() {
+    return this.body;
+  }
+
+  public void setForwardThreadReqBody(ForwardThreadReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ForwardThreadReq() {}
+
+  public ForwardThreadReq(Builder builder) {
     /**
-     * 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
-     * <p> 示例值：
+     * 消息接收者 ID 类型。
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("receive_id_type")
-    private String receiveIdType;
+    this.receiveIdType = builder.receiveIdType;
     /**
-     * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-     * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+     * 自定义设置的唯一字符串序列，用于在转发话题时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。
+     *
+     * <p>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
      */
-    @Query
-    @SerializedName("uuid")
-    private String uuid;
+    this.uuid = builder.uuid;
     /**
-     * 要转发的话题ID
-     * <p> 示例值：ot_dc13264520392913993dd051dba21dcf
+     * 要转发的话题ID，获取方式参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+     * **如何获取 thread_id** 章节。
+     *
+     * <p>示例值：omt_dc132645203
      */
-    @Path
-    @SerializedName("thread_id")
-    private String threadId;
-    @Body
+    this.threadId = builder.threadId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String receiveIdType; // 消息接收者 ID 类型。
+    private String uuid; // 自定义设置的唯一字符串序列，用于在转发话题时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。
+
+    /**
+     * 消息接收者 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param receiveIdType
+     * @return
+     */
+    public Builder receiveIdType(String receiveIdType) {
+      this.receiveIdType = receiveIdType;
+      return this;
+    }
+
+    /**
+     * 消息接收者 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param receiveIdType {@link
+     *     com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum}
+     * @return
+     */
+    public Builder receiveIdType(
+        com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum
+            receiveIdType) {
+      this.receiveIdType = receiveIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 自定义设置的唯一字符串序列，用于在转发话题时请求去重。持有相同 uuid 的请求，在 1 小时内向同一目标的转发只可成功一次。
+     *
+     * <p>示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
+    }
+
+    private String
+        threadId; // 要转发的话题ID，获取方式参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的 **如何获取 thread_id** 章节。
+
+    /**
+     * 要转发的话题ID，获取方式参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+     * **如何获取 thread_id** 章节。
+     *
+     * <p>示例值：omt_dc132645203
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
+    }
+
     private ForwardThreadReqBody body;
 
-    // builder 开始
-    public ForwardThreadReq() {
-    }
-
-    public ForwardThreadReq(Builder builder) {
-        /**
-         * 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
-         * <p> 示例值：
-         */
-        this.receiveIdType = builder.receiveIdType;
-        /**
-         * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-         * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 要转发的话题ID
-         * <p> 示例值：ot_dc13264520392913993dd051dba21dcf
-         */
-        this.threadId = builder.threadId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getReceiveIdType() {
-        return this.receiveIdType;
-    }
-
-    public void setReceiveIdType(String receiveIdType) {
-        this.receiveIdType = receiveIdType;
-    }
-
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
     public ForwardThreadReqBody getForwardThreadReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setForwardThreadReqBody(ForwardThreadReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder forwardThreadReqBody(ForwardThreadReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String receiveIdType; // 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
-        private String uuid; // 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-        private String threadId; // 要转发的话题ID
-        private ForwardThreadReqBody body;
-
-        /**
-         * 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
-         * <p> 示例值：
-         *
-         * @param receiveIdType
-         * @return
-         */
-        public Builder receiveIdType(String receiveIdType) {
-            this.receiveIdType = receiveIdType;
-            return this;
-        }
-
-        /**
-         * 消息接收者id类型 open_id/user_id/union_id/email/chat_id/thread_id
-         * <p> 示例值：
-         *
-         * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum}
-         * @return
-         */
-        public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ForwardThreadForwardThreadV1ReceiveIDTypeEnum receiveIdType) {
-            this.receiveIdType = receiveIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 由开发者生成的唯一字符串序列，用于转发消息请求去重；持有相同uuid的请求在1小时内向同一个目标的转发只可成功一次。
-         * <p> 示例值：b13g2t38-1jd2-458b-8djf-dtbca5104204
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-        /**
-         * 要转发的话题ID
-         * <p> 示例值：ot_dc13264520392913993dd051dba21dcf
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-        public ForwardThreadReqBody getForwardThreadReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder forwardThreadReqBody(ForwardThreadReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ForwardThreadReq build() {
-            return new ForwardThreadReq(this);
-        }
+    public ForwardThreadReq build() {
+      return new ForwardThreadReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

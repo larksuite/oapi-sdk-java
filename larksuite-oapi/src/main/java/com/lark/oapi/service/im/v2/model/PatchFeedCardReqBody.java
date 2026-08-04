@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchFeedCardReqBody {
+  /**
+   * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("time_sensitive")
+  private Boolean timeSensitive;
+
+  /**
+   * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public Boolean getTimeSensitive() {
+    return this.timeSensitive;
+  }
+
+  public void setTimeSensitive(Boolean timeSensitive) {
+    this.timeSensitive = timeSensitive;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public PatchFeedCardReqBody() {}
+
+  public PatchFeedCardReqBody(Builder builder) {
     /**
-     * 临时置顶状态，true-打开，false-关闭
-     * <p> 示例值：true
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("time_sensitive")
+    this.timeSensitive = builder.timeSensitive;
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     */
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
+     */
     private Boolean timeSensitive;
+
     /**
-     * 用户id 列表
-     * <p> 示例值：
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
     private String[] userIds;
 
-    // builder 开始
-    public PatchFeedCardReqBody() {
+    /**
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
+     *
+     * @param timeSensitive
+     * @return
+     */
+    public Builder timeSensitive(Boolean timeSensitive) {
+      this.timeSensitive = timeSensitive;
+      return this;
     }
 
-    public PatchFeedCardReqBody(Builder builder) {
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         */
-        this.timeSensitive = builder.timeSensitive;
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchFeedCardReqBody build() {
+      return new PatchFeedCardReqBody(this);
     }
+  }
 
-    public Boolean getTimeSensitive() {
-        return this.timeSensitive;
-    }
-
-    public void setTimeSensitive(Boolean timeSensitive) {
-        this.timeSensitive = timeSensitive;
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         */
-        private Boolean timeSensitive;
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         *
-         * @param timeSensitive
-         * @return
-         */
-        public Builder timeSensitive(Boolean timeSensitive) {
-            this.timeSensitive = timeSensitive;
-            return this;
-        }
-
-
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public PatchFeedCardReqBody build() {
-            return new PatchFeedCardReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

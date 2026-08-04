@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 指标添加来源
- */
+/** 指标添加来源 */
 public enum MetricDetailAddFromEnum {
-    REVIEWEE("reviewee"), // 指标制定人添加
-    ADMIN("admin"), // 管理员添加
-    ;
-    private String value;
+  REVIEWEE("reviewee"), // 指标制定人添加
+  ADMIN("admin"), // 管理员添加
+  ;
+  private String value;
 
-    MetricDetailAddFromEnum(String value) {
-        this.value = value;
-    }
+  MetricDetailAddFromEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IdMapItem {
+  /**
+   * 源 ID
+   *
+   * <p>示例值：123445678933432
+   */
+  @SerializedName("source_id")
+  private String sourceId;
+
+  /**
+   * 目标 ID
+   *
+   * <p>示例值：ou_1234cdjhjfedgfhgdhy3884
+   */
+  @SerializedName("target_id")
+  private String targetId;
+
+  public String getSourceId() {
+    return this.sourceId;
+  }
+
+  public void setSourceId(String sourceId) {
+    this.sourceId = sourceId;
+  }
+
+  public String getTargetId() {
+    return this.targetId;
+  }
+
+  public void setTargetId(String targetId) {
+    this.targetId = targetId;
+  }
+
+  // builder 开始
+  public IdMapItem() {}
+
+  public IdMapItem(Builder builder) {
     /**
      * 源 ID
-     * <p> 示例值：123445678933432
+     *
+     * <p>示例值：123445678933432
      */
-    @SerializedName("source_id")
-    private String sourceId;
+    this.sourceId = builder.sourceId;
     /**
      * 目标 ID
-     * <p> 示例值：ou_1234cdjhjfedgfhgdhy3884
+     *
+     * <p>示例值：ou_1234cdjhjfedgfhgdhy3884
      */
-    @SerializedName("target_id")
+    this.targetId = builder.targetId;
+  }
+
+  public static class Builder {
+    /**
+     * 源 ID
+     *
+     * <p>示例值：123445678933432
+     */
+    private String sourceId;
+
+    /**
+     * 目标 ID
+     *
+     * <p>示例值：ou_1234cdjhjfedgfhgdhy3884
+     */
     private String targetId;
 
-    // builder 开始
-    public IdMapItem() {
+    /**
+     * 源 ID
+     *
+     * <p>示例值：123445678933432
+     *
+     * @param sourceId
+     * @return
+     */
+    public Builder sourceId(String sourceId) {
+      this.sourceId = sourceId;
+      return this;
     }
 
-    public IdMapItem(Builder builder) {
-        /**
-         * 源 ID
-         * <p> 示例值：123445678933432
-         */
-        this.sourceId = builder.sourceId;
-        /**
-         * 目标 ID
-         * <p> 示例值：ou_1234cdjhjfedgfhgdhy3884
-         */
-        this.targetId = builder.targetId;
+    /**
+     * 目标 ID
+     *
+     * <p>示例值：ou_1234cdjhjfedgfhgdhy3884
+     *
+     * @param targetId
+     * @return
+     */
+    public Builder targetId(String targetId) {
+      this.targetId = targetId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public IdMapItem build() {
+      return new IdMapItem(this);
     }
+  }
 
-    public String getSourceId() {
-        return this.sourceId;
-    }
-
-    public void setSourceId(String sourceId) {
-        this.sourceId = sourceId;
-    }
-
-    public String getTargetId() {
-        return this.targetId;
-    }
-
-    public void setTargetId(String targetId) {
-        this.targetId = targetId;
-    }
-
-    public static class Builder {
-        /**
-         * 源 ID
-         * <p> 示例值：123445678933432
-         */
-        private String sourceId;
-        /**
-         * 目标 ID
-         * <p> 示例值：ou_1234cdjhjfedgfhgdhy3884
-         */
-        private String targetId;
-
-        /**
-         * 源 ID
-         * <p> 示例值：123445678933432
-         *
-         * @param sourceId
-         * @return
-         */
-        public Builder sourceId(String sourceId) {
-            this.sourceId = sourceId;
-            return this;
-        }
-
-
-        /**
-         * 目标 ID
-         * <p> 示例值：ou_1234cdjhjfedgfhgdhy3884
-         *
-         * @param targetId
-         * @return
-         */
-        public Builder targetId(String targetId) {
-            this.targetId = targetId;
-            return this;
-        }
-
-
-        public IdMapItem build() {
-            return new IdMapItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

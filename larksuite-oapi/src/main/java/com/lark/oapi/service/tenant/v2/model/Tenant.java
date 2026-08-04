@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.tenant.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.tenant.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Tenant {
+  /**
+   * 企业名称
+   *
+   * <p>示例值：企业名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 企业编号，平台内唯一
+   *
+   * <p>示例值：F123456789
+   */
+  @SerializedName("display_id")
+  private String displayId;
+
+  /**
+   * 个人版/团队版标志
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("tenant_tag")
+  private Integer tenantTag;
+
+  /**
+   * 企业标识
+   *
+   * <p>示例值：abcdefghi
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 企业头像
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private Avatar avatar;
+
+  /**
+   * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+   *
+   * <p>示例值：example.feishu.cn
+   */
+  @SerializedName("domain")
+  private String domain;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDisplayId() {
+    return this.displayId;
+  }
+
+  public void setDisplayId(String displayId) {
+    this.displayId = displayId;
+  }
+
+  public Integer getTenantTag() {
+    return this.tenantTag;
+  }
+
+  public void setTenantTag(Integer tenantTag) {
+    this.tenantTag = tenantTag;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public Avatar getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(Avatar avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getDomain() {
+    return this.domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+  // builder 开始
+  public Tenant() {}
+
+  public Tenant(Builder builder) {
     /**
      * 企业名称
-     * <p> 示例值：企业名称
+     *
+     * <p>示例值：企业名称
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 企业编号，平台内唯一
-     * <p> 示例值：F123456789
+     *
+     * <p>示例值：F123456789
      */
-    @SerializedName("display_id")
-    private String displayId;
+    this.displayId = builder.displayId;
     /**
      * 个人版/团队版标志
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("tenant_tag")
-    private Integer tenantTag;
+    this.tenantTag = builder.tenantTag;
     /**
      * 企业标识
-     * <p> 示例值：abcdefghi
+     *
+     * <p>示例值：abcdefghi
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 企业头像
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
-    private Avatar avatar;
+    this.avatar = builder.avatar;
     /**
      * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
-     * <p> 示例值：newpoint.feishu-boe.cn
+     *
+     * <p>示例值：example.feishu.cn
      */
-    @SerializedName("domain")
+    this.domain = builder.domain;
+  }
+
+  public static class Builder {
+    /**
+     * 企业名称
+     *
+     * <p>示例值：企业名称
+     */
+    private String name;
+
+    /**
+     * 企业编号，平台内唯一
+     *
+     * <p>示例值：F123456789
+     */
+    private String displayId;
+
+    /**
+     * 个人版/团队版标志
+     *
+     * <p>示例值：0
+     */
+    private Integer tenantTag;
+
+    /**
+     * 企业标识
+     *
+     * <p>示例值：abcdefghi
+     */
+    private String tenantKey;
+
+    /**
+     * 企业头像
+     *
+     * <p>示例值：
+     */
+    private Avatar avatar;
+
+    /**
+     * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+     *
+     * <p>示例值：example.feishu.cn
+     */
     private String domain;
 
-    // builder 开始
-    public Tenant() {
+    /**
+     * 企业名称
+     *
+     * <p>示例值：企业名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public Tenant(Builder builder) {
-        /**
-         * 企业名称
-         * <p> 示例值：企业名称
-         */
-        this.name = builder.name;
-        /**
-         * 企业编号，平台内唯一
-         * <p> 示例值：F123456789
-         */
-        this.displayId = builder.displayId;
-        /**
-         * 个人版/团队版标志
-         * <p> 示例值：0
-         */
-        this.tenantTag = builder.tenantTag;
-        /**
-         * 企业标识
-         * <p> 示例值：abcdefghi
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 企业头像
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
-         * <p> 示例值：newpoint.feishu-boe.cn
-         */
-        this.domain = builder.domain;
+    /**
+     * 企业编号，平台内唯一
+     *
+     * <p>示例值：F123456789
+     *
+     * @param displayId
+     * @return
+     */
+    public Builder displayId(String displayId) {
+      this.displayId = displayId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 个人版/团队版标志
+     *
+     * <p>示例值：0
+     *
+     * @param tenantTag
+     * @return
+     */
+    public Builder tenantTag(Integer tenantTag) {
+      this.tenantTag = tenantTag;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 个人版/团队版标志
+     *
+     * <p>示例值：0
+     *
+     * @param tenantTag {@link com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum}
+     * @return
+     */
+    public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum tenantTag) {
+      this.tenantTag = tenantTag.getValue();
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 企业标识
+     *
+     * <p>示例值：abcdefghi
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public String getDisplayId() {
-        return this.displayId;
+    /**
+     * 企业头像
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(Avatar avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public void setDisplayId(String displayId) {
-        this.displayId = displayId;
+    /**
+     * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
+     *
+     * <p>示例值：example.feishu.cn
+     *
+     * @param domain
+     * @return
+     */
+    public Builder domain(String domain) {
+      this.domain = domain;
+      return this;
     }
 
-    public Integer getTenantTag() {
-        return this.tenantTag;
+    public Tenant build() {
+      return new Tenant(this);
     }
+  }
 
-    public void setTenantTag(Integer tenantTag) {
-        this.tenantTag = tenantTag;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public Avatar getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(Avatar avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getDomain() {
-        return this.domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
-
-    public static class Builder {
-        /**
-         * 企业名称
-         * <p> 示例值：企业名称
-         */
-        private String name;
-        /**
-         * 企业编号，平台内唯一
-         * <p> 示例值：F123456789
-         */
-        private String displayId;
-        /**
-         * 个人版/团队版标志
-         * <p> 示例值：0
-         */
-        private Integer tenantTag;
-        /**
-         * 企业标识
-         * <p> 示例值：abcdefghi
-         */
-        private String tenantKey;
-        /**
-         * 企业头像
-         * <p> 示例值：
-         */
-        private Avatar avatar;
-        /**
-         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
-         * <p> 示例值：newpoint.feishu-boe.cn
-         */
-        private String domain;
-
-        /**
-         * 企业名称
-         * <p> 示例值：企业名称
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 企业编号，平台内唯一
-         * <p> 示例值：F123456789
-         *
-         * @param displayId
-         * @return
-         */
-        public Builder displayId(String displayId) {
-            this.displayId = displayId;
-            return this;
-        }
-
-
-        /**
-         * 个人版/团队版标志
-         * <p> 示例值：0
-         *
-         * @param tenantTag
-         * @return
-         */
-        public Builder tenantTag(Integer tenantTag) {
-            this.tenantTag = tenantTag;
-            return this;
-        }
-
-        /**
-         * 个人版/团队版标志
-         * <p> 示例值：0
-         *
-         * @param tenantTag {@link com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum}
-         * @return
-         */
-        public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum tenantTag) {
-            this.tenantTag = tenantTag.getValue();
-            return this;
-        }
-
-
-        /**
-         * 企业标识
-         * <p> 示例值：abcdefghi
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 企业头像
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(Avatar avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 企业完整域名。企业域名可用于企业成员访问管理后台、云文档等含URL地址的网页。
-         * <p> 示例值：newpoint.feishu-boe.cn
-         *
-         * @param domain
-         * @return
-         */
-        public Builder domain(String domain) {
-            this.domain = domain;
-            return this;
-        }
-
-
-        public Tenant build() {
-            return new Tenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

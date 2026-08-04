@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 外部数据源和对接方式 - direct: 直连 - Import: 导入
- */
+/** 外部数据源和对接方式 - direct: 直连 - Import: 导入 */
 public enum SourceSettingDataSourceIntegrationTypeEnum {
-    DIRECT("direct"), // 数据直连
-    IMPORT("import"), // 导入
-    ;
-    private String value;
+  DIRECT("direct"), // 数据直连
+  IMPORT("import"), // 导入
+  ;
+  private String value;
 
-    SourceSettingDataSourceIntegrationTypeEnum(String value) {
-        this.value = value;
-    }
+  SourceSettingDataSourceIntegrationTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

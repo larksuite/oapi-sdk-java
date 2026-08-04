@@ -13,124 +13,116 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApproverRange {
+  /** 示例值：ALL */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * ID 列表。;;- 当 type 取值 ALL 时，无需传值。;- 当 type 取值 PERSONAL 时，传入用户 ID，ID 类型与 user_id_type 取值一致。;- 当
+   * type 取值 ROLE 时，传入角色
+   * ID。获取方式：成功[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)后，在返回结果中可获取角色
+   * ID。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("id_list")
+  private String[] idList;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String[] getIdList() {
+    return this.idList;
+  }
+
+  public void setIdList(String[] idList) {
+    this.idList = idList;
+  }
+
+  // builder 开始
+  public ApproverRange() {}
+
+  public ApproverRange(Builder builder) {
+    /** 示例值：ALL */
+    this.type = builder.type;
     /**
-     * 审批人类型
-     * <p> 示例值：ALL
+     * ID 列表。;;- 当 type 取值 ALL 时，无需传值。;- 当 type 取值 PERSONAL 时，传入用户 ID，ID 类型与 user_id_type 取值一致。;- 当
+     * type 取值 ROLE 时，传入角色
+     * ID。获取方式：成功[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)后，在返回结果中可获取角色
+     * ID。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("type")
+    this.idList = builder.idList;
+  }
+
+  public static class Builder {
+    /** 示例值：ALL */
     private String type;
+
     /**
-     * 审批人id
-     * <p> 示例值：f7cb567e
+     * ID 列表。;;- 当 type 取值 ALL 时，无需传值。;- 当 type 取值 PERSONAL 时，传入用户 ID，ID 类型与 user_id_type 取值一致。;- 当
+     * type 取值 ROLE 时，传入角色
+     * ID。获取方式：成功[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)后，在返回结果中可获取角色
+     * ID。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("id_list")
     private String[] idList;
 
-    // builder 开始
-    public ApproverRange() {
+    /**
+     * 示例值：ALL
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ApproverRange(Builder builder) {
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         */
-        this.type = builder.type;
-        /**
-         * 审批人id
-         * <p> 示例值：f7cb567e
-         */
-        this.idList = builder.idList;
+    /**
+     * 示例值：ALL
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * ID 列表。;;- 当 type 取值 ALL 时，无需传值。;- 当 type 取值 PERSONAL 时，传入用户 ID，ID 类型与 user_id_type 取值一致。;- 当
+     * type 取值 ROLE 时，传入角色
+     * ID。获取方式：成功[创建角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/functional_role/create)后，在返回结果中可获取角色
+     * ID。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param idList
+     * @return
+     */
+    public Builder idList(String[] idList) {
+      this.idList = idList;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public ApproverRange build() {
+      return new ApproverRange(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String[] getIdList() {
-        return this.idList;
-    }
-
-    public void setIdList(String[] idList) {
-        this.idList = idList;
-    }
-
-    public static class Builder {
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         */
-        private String type;
-        /**
-         * 审批人id
-         * <p> 示例值：f7cb567e
-         */
-        private String[] idList;
-
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 审批人类型
-         * <p> 示例值：ALL
-         *
-         * @param type {@link com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.approval.v4.enums.ApproverRangeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 审批人id
-         * <p> 示例值：f7cb567e
-         *
-         * @param idList
-         * @return
-         */
-        public Builder idList(String[] idList) {
-            this.idList = idList;
-            return this;
-        }
-
-
-        public ApproverRange build() {
-            return new ApproverRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

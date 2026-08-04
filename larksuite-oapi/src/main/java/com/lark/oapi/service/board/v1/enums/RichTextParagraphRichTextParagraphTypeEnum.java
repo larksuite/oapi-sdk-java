@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 段落类别
- */
+/** 段落类别 */
 public enum RichTextParagraphRichTextParagraphTypeEnum {
-    NORMAL(0), // 普通段落
-    UNORDEREDLIST(1), // 无序列表
-    ORDEREDLIST(2), // 有序列表
-    ;
-    private Integer value;
+  NORMAL(0), // 普通段落
+  UNORDEREDLIST(1), // 无序列表
+  ORDEREDLIST(2), // 有序列表
+  ;
+  private Integer value;
 
-    RichTextParagraphRichTextParagraphTypeEnum(Integer value) {
-        this.value = value;
-    }
+  RichTextParagraphRichTextParagraphTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateGuestOptions {
+  /**
+   * 指定geo/unit
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo_name")
+  private String geoName;
+
+  /**
+   * shadow关联的UserID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("home_user_id")
+  private String homeUserId;
+
+  /**
+   * 访客追踪信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("guest_trace_info")
+  private GuestTraceInfo guestTraceInfo;
+
+  public String getGeoName() {
+    return this.geoName;
+  }
+
+  public void setGeoName(String geoName) {
+    this.geoName = geoName;
+  }
+
+  public String getHomeUserId() {
+    return this.homeUserId;
+  }
+
+  public void setHomeUserId(String homeUserId) {
+    this.homeUserId = homeUserId;
+  }
+
+  public GuestTraceInfo getGuestTraceInfo() {
+    return this.guestTraceInfo;
+  }
+
+  public void setGuestTraceInfo(GuestTraceInfo guestTraceInfo) {
+    this.guestTraceInfo = guestTraceInfo;
+  }
+
+  // builder 开始
+  public CreateGuestOptions() {}
+
+  public CreateGuestOptions(Builder builder) {
     /**
      * 指定geo/unit
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo_name")
-    private String geoName;
+    this.geoName = builder.geoName;
     /**
      * shadow关联的UserID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("home_user_id")
-    private String homeUserId;
+    this.homeUserId = builder.homeUserId;
     /**
      * 访客追踪信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("guest_trace_info")
+    this.guestTraceInfo = builder.guestTraceInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 指定geo/unit
+     *
+     * <p>示例值：cn
+     */
+    private String geoName;
+
+    /**
+     * shadow关联的UserID
+     *
+     * <p>示例值：123123
+     */
+    private String homeUserId;
+
+    /**
+     * 访客追踪信息
+     *
+     * <p>示例值：
+     */
     private GuestTraceInfo guestTraceInfo;
 
-    // builder 开始
-    public CreateGuestOptions() {
+    /**
+     * 指定geo/unit
+     *
+     * <p>示例值：cn
+     *
+     * @param geoName
+     * @return
+     */
+    public Builder geoName(String geoName) {
+      this.geoName = geoName;
+      return this;
     }
 
-    public CreateGuestOptions(Builder builder) {
-        /**
-         * 指定geo/unit
-         * <p> 示例值：cn
-         */
-        this.geoName = builder.geoName;
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：123123
-         */
-        this.homeUserId = builder.homeUserId;
-        /**
-         * 访客追踪信息
-         * <p> 示例值：
-         */
-        this.guestTraceInfo = builder.guestTraceInfo;
+    /**
+     * shadow关联的UserID
+     *
+     * <p>示例值：123123
+     *
+     * @param homeUserId
+     * @return
+     */
+    public Builder homeUserId(String homeUserId) {
+      this.homeUserId = homeUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 访客追踪信息
+     *
+     * <p>示例值：
+     *
+     * @param guestTraceInfo
+     * @return
+     */
+    public Builder guestTraceInfo(GuestTraceInfo guestTraceInfo) {
+      this.guestTraceInfo = guestTraceInfo;
+      return this;
     }
 
-    public String getGeoName() {
-        return this.geoName;
+    public CreateGuestOptions build() {
+      return new CreateGuestOptions(this);
     }
+  }
 
-    public void setGeoName(String geoName) {
-        this.geoName = geoName;
-    }
-
-    public String getHomeUserId() {
-        return this.homeUserId;
-    }
-
-    public void setHomeUserId(String homeUserId) {
-        this.homeUserId = homeUserId;
-    }
-
-    public GuestTraceInfo getGuestTraceInfo() {
-        return this.guestTraceInfo;
-    }
-
-    public void setGuestTraceInfo(GuestTraceInfo guestTraceInfo) {
-        this.guestTraceInfo = guestTraceInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 指定geo/unit
-         * <p> 示例值：cn
-         */
-        private String geoName;
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：123123
-         */
-        private String homeUserId;
-        /**
-         * 访客追踪信息
-         * <p> 示例值：
-         */
-        private GuestTraceInfo guestTraceInfo;
-
-        /**
-         * 指定geo/unit
-         * <p> 示例值：cn
-         *
-         * @param geoName
-         * @return
-         */
-        public Builder geoName(String geoName) {
-            this.geoName = geoName;
-            return this;
-        }
-
-
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：123123
-         *
-         * @param homeUserId
-         * @return
-         */
-        public Builder homeUserId(String homeUserId) {
-            this.homeUserId = homeUserId;
-            return this;
-        }
-
-
-        /**
-         * 访客追踪信息
-         * <p> 示例值：
-         *
-         * @param guestTraceInfo
-         * @return
-         */
-        public Builder guestTraceInfo(GuestTraceInfo guestTraceInfo) {
-            this.guestTraceInfo = guestTraceInfo;
-            return this;
-        }
-
-
-        public CreateGuestOptions build() {
-            return new CreateGuestOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

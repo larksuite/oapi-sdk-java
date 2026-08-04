@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RelatedMeta {
+  /**
+   * 相关联系人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("users")
+  private Referer[] users;
+
+  /**
+   * 关联公开群组信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chats")
+  private Referer[] chats;
+
+  /**
+   * 飞书文档或飞书 wiki
+   *
+   * <p>示例值：
+   */
+  @SerializedName("docs")
+  private Referer[] docs;
+
+  /**
+   * 相关服务中的相关值班号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("oncalls")
+  private Referer[] oncalls;
+
+  /**
+   * 相关链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("links")
+  private Referer[] links;
+
+  /**
+   * 相关词条
+   *
+   * <p>示例值：
+   */
+  @SerializedName("abbreviations")
+  private Abbreviation[] abbreviations;
+
+  /**
+   * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("classifications")
+  private Classification[] classifications;
+
+  /**
+   * 上传的图片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("images")
+  private BaikeImage[] images;
+
+  public Referer[] getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(Referer[] users) {
+    this.users = users;
+  }
+
+  public Referer[] getChats() {
+    return this.chats;
+  }
+
+  public void setChats(Referer[] chats) {
+    this.chats = chats;
+  }
+
+  public Referer[] getDocs() {
+    return this.docs;
+  }
+
+  public void setDocs(Referer[] docs) {
+    this.docs = docs;
+  }
+
+  public Referer[] getOncalls() {
+    return this.oncalls;
+  }
+
+  public void setOncalls(Referer[] oncalls) {
+    this.oncalls = oncalls;
+  }
+
+  public Referer[] getLinks() {
+    return this.links;
+  }
+
+  public void setLinks(Referer[] links) {
+    this.links = links;
+  }
+
+  public Abbreviation[] getAbbreviations() {
+    return this.abbreviations;
+  }
+
+  public void setAbbreviations(Abbreviation[] abbreviations) {
+    this.abbreviations = abbreviations;
+  }
+
+  public Classification[] getClassifications() {
+    return this.classifications;
+  }
+
+  public void setClassifications(Classification[] classifications) {
+    this.classifications = classifications;
+  }
+
+  public BaikeImage[] getImages() {
+    return this.images;
+  }
+
+  public void setImages(BaikeImage[] images) {
+    this.images = images;
+  }
+
+  // builder 开始
+  public RelatedMeta() {}
+
+  public RelatedMeta(Builder builder) {
     /**
-     * 关联用户信息
-     * <p> 示例值：
+     * 相关联系人
+     *
+     * <p>示例值：
      */
-    @SerializedName("users")
+    this.users = builder.users;
+    /**
+     * 关联公开群组信息
+     *
+     * <p>示例值：
+     */
+    this.chats = builder.chats;
+    /**
+     * 飞书文档或飞书 wiki
+     *
+     * <p>示例值：
+     */
+    this.docs = builder.docs;
+    /**
+     * 相关服务中的相关值班号
+     *
+     * <p>示例值：
+     */
+    this.oncalls = builder.oncalls;
+    /**
+     * 相关链接
+     *
+     * <p>示例值：
+     */
+    this.links = builder.links;
+    /**
+     * 相关词条
+     *
+     * <p>示例值：
+     */
+    this.abbreviations = builder.abbreviations;
+    /**
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     *
+     * <p>示例值：
+     */
+    this.classifications = builder.classifications;
+    /**
+     * 上传的图片
+     *
+     * <p>示例值：
+     */
+    this.images = builder.images;
+  }
+
+  public static class Builder {
+    /**
+     * 相关联系人
+     *
+     * <p>示例值：
+     */
     private Referer[] users;
+
     /**
-     * 关联群组信息
-     * <p> 示例值：
+     * 关联公开群组信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("chats")
     private Referer[] chats;
+
     /**
-     * 关联文档信息
-     * <p> 示例值：
+     * 飞书文档或飞书 wiki
+     *
+     * <p>示例值：
      */
-    @SerializedName("docs")
     private Referer[] docs;
+
     /**
-     * 关联值班者信息
-     * <p> 示例值：
+     * 相关服务中的相关值班号
+     *
+     * <p>示例值：
      */
-    @SerializedName("oncalls")
     private Referer[] oncalls;
+
     /**
-     * 关联链接信息
-     * <p> 示例值：
+     * 相关链接
+     *
+     * <p>示例值：
      */
-    @SerializedName("links")
     private Referer[] links;
+
     /**
-     * 相关词条信息
-     * <p> 示例值：
+     * 相关词条
+     *
+     * <p>示例值：
      */
-    @SerializedName("abbreviations")
     private Abbreviation[] abbreviations;
+
     /**
-     * 所属分类信息（不支持传入一级分类。词条不可同时属于同一个一级分类下的多个二级分类，一级分类下的二级分类互斥）
-     * <p> 示例值：
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     *
+     * <p>示例值：
      */
-    @SerializedName("classifications")
     private Classification[] classifications;
+
     /**
-     * 上传的相关图片
-     * <p> 示例值：
+     * 上传的图片
+     *
+     * <p>示例值：
      */
-    @SerializedName("images")
     private BaikeImage[] images;
 
-    // builder 开始
-    public RelatedMeta() {
+    /**
+     * 相关联系人
+     *
+     * <p>示例值：
+     *
+     * @param users
+     * @return
+     */
+    public Builder users(Referer[] users) {
+      this.users = users;
+      return this;
     }
 
-    public RelatedMeta(Builder builder) {
-        /**
-         * 关联用户信息
-         * <p> 示例值：
-         */
-        this.users = builder.users;
-        /**
-         * 关联群组信息
-         * <p> 示例值：
-         */
-        this.chats = builder.chats;
-        /**
-         * 关联文档信息
-         * <p> 示例值：
-         */
-        this.docs = builder.docs;
-        /**
-         * 关联值班者信息
-         * <p> 示例值：
-         */
-        this.oncalls = builder.oncalls;
-        /**
-         * 关联链接信息
-         * <p> 示例值：
-         */
-        this.links = builder.links;
-        /**
-         * 相关词条信息
-         * <p> 示例值：
-         */
-        this.abbreviations = builder.abbreviations;
-        /**
-         * 所属分类信息（不支持传入一级分类。词条不可同时属于同一个一级分类下的多个二级分类，一级分类下的二级分类互斥）
-         * <p> 示例值：
-         */
-        this.classifications = builder.classifications;
-        /**
-         * 上传的相关图片
-         * <p> 示例值：
-         */
-        this.images = builder.images;
+    /**
+     * 关联公开群组信息
+     *
+     * <p>示例值：
+     *
+     * @param chats
+     * @return
+     */
+    public Builder chats(Referer[] chats) {
+      this.chats = chats;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 飞书文档或飞书 wiki
+     *
+     * <p>示例值：
+     *
+     * @param docs
+     * @return
+     */
+    public Builder docs(Referer[] docs) {
+      this.docs = docs;
+      return this;
     }
 
-    public Referer[] getUsers() {
-        return this.users;
+    /**
+     * 相关服务中的相关值班号
+     *
+     * <p>示例值：
+     *
+     * @param oncalls
+     * @return
+     */
+    public Builder oncalls(Referer[] oncalls) {
+      this.oncalls = oncalls;
+      return this;
     }
 
-    public void setUsers(Referer[] users) {
-        this.users = users;
+    /**
+     * 相关链接
+     *
+     * <p>示例值：
+     *
+     * @param links
+     * @return
+     */
+    public Builder links(Referer[] links) {
+      this.links = links;
+      return this;
     }
 
-    public Referer[] getChats() {
-        return this.chats;
+    /**
+     * 相关词条
+     *
+     * <p>示例值：
+     *
+     * @param abbreviations
+     * @return
+     */
+    public Builder abbreviations(Abbreviation[] abbreviations) {
+      this.abbreviations = abbreviations;
+      return this;
     }
 
-    public void setChats(Referer[] chats) {
-        this.chats = chats;
+    /**
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     *
+     * <p>示例值：
+     *
+     * @param classifications
+     * @return
+     */
+    public Builder classifications(Classification[] classifications) {
+      this.classifications = classifications;
+      return this;
     }
 
-    public Referer[] getDocs() {
-        return this.docs;
+    /**
+     * 上传的图片
+     *
+     * <p>示例值：
+     *
+     * @param images
+     * @return
+     */
+    public Builder images(BaikeImage[] images) {
+      this.images = images;
+      return this;
     }
 
-    public void setDocs(Referer[] docs) {
-        this.docs = docs;
+    public RelatedMeta build() {
+      return new RelatedMeta(this);
     }
+  }
 
-    public Referer[] getOncalls() {
-        return this.oncalls;
-    }
-
-    public void setOncalls(Referer[] oncalls) {
-        this.oncalls = oncalls;
-    }
-
-    public Referer[] getLinks() {
-        return this.links;
-    }
-
-    public void setLinks(Referer[] links) {
-        this.links = links;
-    }
-
-    public Abbreviation[] getAbbreviations() {
-        return this.abbreviations;
-    }
-
-    public void setAbbreviations(Abbreviation[] abbreviations) {
-        this.abbreviations = abbreviations;
-    }
-
-    public Classification[] getClassifications() {
-        return this.classifications;
-    }
-
-    public void setClassifications(Classification[] classifications) {
-        this.classifications = classifications;
-    }
-
-    public BaikeImage[] getImages() {
-        return this.images;
-    }
-
-    public void setImages(BaikeImage[] images) {
-        this.images = images;
-    }
-
-    public static class Builder {
-        /**
-         * 关联用户信息
-         * <p> 示例值：
-         */
-        private Referer[] users;
-        /**
-         * 关联群组信息
-         * <p> 示例值：
-         */
-        private Referer[] chats;
-        /**
-         * 关联文档信息
-         * <p> 示例值：
-         */
-        private Referer[] docs;
-        /**
-         * 关联值班者信息
-         * <p> 示例值：
-         */
-        private Referer[] oncalls;
-        /**
-         * 关联链接信息
-         * <p> 示例值：
-         */
-        private Referer[] links;
-        /**
-         * 相关词条信息
-         * <p> 示例值：
-         */
-        private Abbreviation[] abbreviations;
-        /**
-         * 所属分类信息（不支持传入一级分类。词条不可同时属于同一个一级分类下的多个二级分类，一级分类下的二级分类互斥）
-         * <p> 示例值：
-         */
-        private Classification[] classifications;
-        /**
-         * 上传的相关图片
-         * <p> 示例值：
-         */
-        private BaikeImage[] images;
-
-        /**
-         * 关联用户信息
-         * <p> 示例值：
-         *
-         * @param users
-         * @return
-         */
-        public Builder users(Referer[] users) {
-            this.users = users;
-            return this;
-        }
-
-
-        /**
-         * 关联群组信息
-         * <p> 示例值：
-         *
-         * @param chats
-         * @return
-         */
-        public Builder chats(Referer[] chats) {
-            this.chats = chats;
-            return this;
-        }
-
-
-        /**
-         * 关联文档信息
-         * <p> 示例值：
-         *
-         * @param docs
-         * @return
-         */
-        public Builder docs(Referer[] docs) {
-            this.docs = docs;
-            return this;
-        }
-
-
-        /**
-         * 关联值班者信息
-         * <p> 示例值：
-         *
-         * @param oncalls
-         * @return
-         */
-        public Builder oncalls(Referer[] oncalls) {
-            this.oncalls = oncalls;
-            return this;
-        }
-
-
-        /**
-         * 关联链接信息
-         * <p> 示例值：
-         *
-         * @param links
-         * @return
-         */
-        public Builder links(Referer[] links) {
-            this.links = links;
-            return this;
-        }
-
-
-        /**
-         * 相关词条信息
-         * <p> 示例值：
-         *
-         * @param abbreviations
-         * @return
-         */
-        public Builder abbreviations(Abbreviation[] abbreviations) {
-            this.abbreviations = abbreviations;
-            return this;
-        }
-
-
-        /**
-         * 所属分类信息（不支持传入一级分类。词条不可同时属于同一个一级分类下的多个二级分类，一级分类下的二级分类互斥）
-         * <p> 示例值：
-         *
-         * @param classifications
-         * @return
-         */
-        public Builder classifications(Classification[] classifications) {
-            this.classifications = classifications;
-            return this;
-        }
-
-
-        /**
-         * 上传的相关图片
-         * <p> 示例值：
-         *
-         * @param images
-         * @return
-         */
-        public Builder images(BaikeImage[] images) {
-            this.images = images;
-            return this;
-        }
-
-
-        public RelatedMeta build() {
-            return new RelatedMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

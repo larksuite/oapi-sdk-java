@@ -13,34 +13,18 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecognizeHkmMainlandTravelPermitRespBody {
-    /**
-     * 港澳居民来往内地通行证信息
-     * <p> 示例值：
-     */
-    @SerializedName("hkm_mainland_travel_permit")
-    private HkmMainlandTravelPermit hkmMainlandTravelPermit;
+  /** 示例值： */
+  @SerializedName("hkm_mainland_travel_permit")
+  private HkmMainlandTravelPermit hkmMainlandTravelPermit;
 
-    public HkmMainlandTravelPermit getHkmMainlandTravelPermit() {
-        return this.hkmMainlandTravelPermit;
-    }
+  public HkmMainlandTravelPermit getHkmMainlandTravelPermit() {
+    return this.hkmMainlandTravelPermit;
+  }
 
-    public void setHkmMainlandTravelPermit(HkmMainlandTravelPermit hkmMainlandTravelPermit) {
-        this.hkmMainlandTravelPermit = hkmMainlandTravelPermit;
-    }
-
+  public void setHkmMainlandTravelPermit(HkmMainlandTravelPermit hkmMainlandTravelPermit) {
+    this.hkmMainlandTravelPermit = hkmMainlandTravelPermit;
+  }
 }

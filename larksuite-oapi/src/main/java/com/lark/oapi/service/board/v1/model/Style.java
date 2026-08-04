@@ -13,715 +13,793 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Style {
+  /**
+   * 填充颜色，16 进制 rbg 值
+   *
+   * <p>示例值：#6db5a3
+   */
+  @SerializedName("fill_color")
+  private String fillColor;
+
+  /**
+   * 填充透明度，百分比
+   *
+   * <p>示例值：50
+   */
+  @SerializedName("fill_opacity")
+  private Double fillOpacity;
+
+  /**
+   * 边框样式
+   *
+   * <p>示例值：solid
+   */
+  @SerializedName("border_style")
+  private String borderStyle;
+
+  /**
+   * 边框宽度
+   *
+   * <p>示例值：narrow
+   */
+  @SerializedName("border_width")
+  private String borderWidth;
+
+  /**
+   * 边框透明度，百分比
+   *
+   * <p>示例值：50
+   */
+  @SerializedName("border_opacity")
+  private Double borderOpacity;
+
+  /**
+   * 水平翻折
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("h_flip")
+  private Boolean hFlip;
+
+  /**
+   * 垂直翻折
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("v_flip")
+  private Boolean vFlip;
+
+  /**
+   * 边框颜色，16 进制 rgb 值
+   *
+   * <p>示例值：#6db5a3
+   */
+  @SerializedName("border_color")
+  private String borderColor;
+
+  /**
+   * 填充颜色主题配色编码值
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("theme_fill_color_code")
+  private Integer themeFillColorCode;
+
+  /**
+   * 边框颜色主题配色编码值
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("theme_border_color_code")
+  private Integer themeBorderColorCode;
+
+  /**
+   * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("fill_color_type")
+  private Integer fillColorType;
+
+  /**
+   * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("border_color_type")
+  private Integer borderColorType;
+
+  /**
+   * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("border_dasharrays")
+  private Integer[] borderDasharrays;
+
+  /**
+   * 边框圆角半径，控制边角弧度。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("border_radius")
+  private BorderRadius borderRadius;
+
+  /**
+   * 阴影参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shadow")
+  private Shadow shadow;
+
+  /**
+   * 阴影参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("inner_shadow")
+  private Shadow innerShadow;
+
+  /**
+   * 渐变
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fill_gradient")
+  private FillGradient fillGradient;
+
+  public String getFillColor() {
+    return this.fillColor;
+  }
+
+  public void setFillColor(String fillColor) {
+    this.fillColor = fillColor;
+  }
+
+  public Double getFillOpacity() {
+    return this.fillOpacity;
+  }
+
+  public void setFillOpacity(Double fillOpacity) {
+    this.fillOpacity = fillOpacity;
+  }
+
+  public String getBorderStyle() {
+    return this.borderStyle;
+  }
+
+  public void setBorderStyle(String borderStyle) {
+    this.borderStyle = borderStyle;
+  }
+
+  public String getBorderWidth() {
+    return this.borderWidth;
+  }
+
+  public void setBorderWidth(String borderWidth) {
+    this.borderWidth = borderWidth;
+  }
+
+  public Double getBorderOpacity() {
+    return this.borderOpacity;
+  }
+
+  public void setBorderOpacity(Double borderOpacity) {
+    this.borderOpacity = borderOpacity;
+  }
+
+  public Boolean getHFlip() {
+    return this.hFlip;
+  }
+
+  public void setHFlip(Boolean hFlip) {
+    this.hFlip = hFlip;
+  }
+
+  public Boolean getVFlip() {
+    return this.vFlip;
+  }
+
+  public void setVFlip(Boolean vFlip) {
+    this.vFlip = vFlip;
+  }
+
+  public String getBorderColor() {
+    return this.borderColor;
+  }
+
+  public void setBorderColor(String borderColor) {
+    this.borderColor = borderColor;
+  }
+
+  public Integer getThemeFillColorCode() {
+    return this.themeFillColorCode;
+  }
+
+  public void setThemeFillColorCode(Integer themeFillColorCode) {
+    this.themeFillColorCode = themeFillColorCode;
+  }
+
+  public Integer getThemeBorderColorCode() {
+    return this.themeBorderColorCode;
+  }
+
+  public void setThemeBorderColorCode(Integer themeBorderColorCode) {
+    this.themeBorderColorCode = themeBorderColorCode;
+  }
+
+  public Integer getFillColorType() {
+    return this.fillColorType;
+  }
+
+  public void setFillColorType(Integer fillColorType) {
+    this.fillColorType = fillColorType;
+  }
+
+  public Integer getBorderColorType() {
+    return this.borderColorType;
+  }
+
+  public void setBorderColorType(Integer borderColorType) {
+    this.borderColorType = borderColorType;
+  }
+
+  public Integer[] getBorderDasharrays() {
+    return this.borderDasharrays;
+  }
+
+  public void setBorderDasharrays(Integer[] borderDasharrays) {
+    this.borderDasharrays = borderDasharrays;
+  }
+
+  public BorderRadius getBorderRadius() {
+    return this.borderRadius;
+  }
+
+  public void setBorderRadius(BorderRadius borderRadius) {
+    this.borderRadius = borderRadius;
+  }
+
+  public Shadow getShadow() {
+    return this.shadow;
+  }
+
+  public void setShadow(Shadow shadow) {
+    this.shadow = shadow;
+  }
+
+  public Shadow getInnerShadow() {
+    return this.innerShadow;
+  }
+
+  public void setInnerShadow(Shadow innerShadow) {
+    this.innerShadow = innerShadow;
+  }
+
+  public FillGradient getFillGradient() {
+    return this.fillGradient;
+  }
+
+  public void setFillGradient(FillGradient fillGradient) {
+    this.fillGradient = fillGradient;
+  }
+
+  // builder 开始
+  public Style() {}
+
+  public Style(Builder builder) {
     /**
      * 填充颜色，16 进制 rbg 值
-     * <p> 示例值：#6db5a3
+     *
+     * <p>示例值：#6db5a3
      */
-    @SerializedName("fill_color")
-    private String fillColor;
+    this.fillColor = builder.fillColor;
     /**
-     * 填充透明度
-     * <p> 示例值：50
+     * 填充透明度，百分比
+     *
+     * <p>示例值：50
      */
-    @SerializedName("fill_opacity")
-    private Double fillOpacity;
+    this.fillOpacity = builder.fillOpacity;
     /**
      * 边框样式
-     * <p> 示例值：
+     *
+     * <p>示例值：solid
      */
-    @SerializedName("border_style")
-    private String borderStyle;
+    this.borderStyle = builder.borderStyle;
     /**
      * 边框宽度
-     * <p> 示例值：
+     *
+     * <p>示例值：narrow
      */
-    @SerializedName("border_width")
-    private String borderWidth;
+    this.borderWidth = builder.borderWidth;
     /**
-     * 边框透明度
-     * <p> 示例值：50
+     * 边框透明度，百分比
+     *
+     * <p>示例值：50
      */
-    @SerializedName("border_opacity")
-    private Double borderOpacity;
+    this.borderOpacity = builder.borderOpacity;
     /**
      * 水平翻折
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("h_flip")
-    private Boolean hFlip;
+    this.hFlip = builder.hFlip;
     /**
      * 垂直翻折
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("v_flip")
-    private Boolean vFlip;
+    this.vFlip = builder.vFlip;
     /**
      * 边框颜色，16 进制 rgb 值
-     * <p> 示例值：#6db5a3
+     *
+     * <p>示例值：#6db5a3
      */
-    @SerializedName("border_color")
-    private String borderColor;
+    this.borderColor = builder.borderColor;
     /**
      * 填充颜色主题配色编码值
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("theme_fill_color_code")
-    private Integer themeFillColorCode;
+    this.themeFillColorCode = builder.themeFillColorCode;
     /**
      * 边框颜色主题配色编码值
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("theme_border_color_code")
-    private Integer themeBorderColorCode;
+    this.themeBorderColorCode = builder.themeBorderColorCode;
     /**
      * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @SerializedName("fill_color_type")
-    private Integer fillColorType;
+    this.fillColorType = builder.fillColorType;
     /**
      * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @SerializedName("border_color_type")
-    private Integer borderColorType;
+    this.borderColorType = builder.borderColorType;
     /**
      * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("border_dasharrays")
-    private Integer[] borderDasharrays;
+    this.borderDasharrays = builder.borderDasharrays;
     /**
      * 边框圆角半径，控制边角弧度。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("border_radius")
-    private BorderRadius borderRadius;
+    this.borderRadius = builder.borderRadius;
     /**
      * 阴影参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("shadow")
-    private Shadow shadow;
+    this.shadow = builder.shadow;
     /**
      * 阴影参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("inner_shadow")
-    private Shadow innerShadow;
+    this.innerShadow = builder.innerShadow;
     /**
      * 渐变
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fill_gradient")
+    this.fillGradient = builder.fillGradient;
+  }
+
+  public static class Builder {
+    /**
+     * 填充颜色，16 进制 rbg 值
+     *
+     * <p>示例值：#6db5a3
+     */
+    private String fillColor;
+
+    /**
+     * 填充透明度，百分比
+     *
+     * <p>示例值：50
+     */
+    private Double fillOpacity;
+
+    /**
+     * 边框样式
+     *
+     * <p>示例值：solid
+     */
+    private String borderStyle;
+
+    /**
+     * 边框宽度
+     *
+     * <p>示例值：narrow
+     */
+    private String borderWidth;
+
+    /**
+     * 边框透明度，百分比
+     *
+     * <p>示例值：50
+     */
+    private Double borderOpacity;
+
+    /**
+     * 水平翻折
+     *
+     * <p>示例值：false
+     */
+    private Boolean hFlip;
+
+    /**
+     * 垂直翻折
+     *
+     * <p>示例值：false
+     */
+    private Boolean vFlip;
+
+    /**
+     * 边框颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     */
+    private String borderColor;
+
+    /**
+     * 填充颜色主题配色编码值
+     *
+     * <p>示例值：3
+     */
+    private Integer themeFillColorCode;
+
+    /**
+     * 边框颜色主题配色编码值
+     *
+     * <p>示例值：4
+     */
+    private Integer themeBorderColorCode;
+
+    /**
+     * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+     *
+     * <p>示例值：0
+     */
+    private Integer fillColorType;
+
+    /**
+     * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+     *
+     * <p>示例值：0
+     */
+    private Integer borderColorType;
+
+    /**
+     * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+     *
+     * <p>示例值：
+     */
+    private Integer[] borderDasharrays;
+
+    /**
+     * 边框圆角半径，控制边角弧度。
+     *
+     * <p>示例值：
+     */
+    private BorderRadius borderRadius;
+
+    /**
+     * 阴影参数
+     *
+     * <p>示例值：
+     */
+    private Shadow shadow;
+
+    /**
+     * 阴影参数
+     *
+     * <p>示例值：
+     */
+    private Shadow innerShadow;
+
+    /**
+     * 渐变
+     *
+     * <p>示例值：
+     */
     private FillGradient fillGradient;
 
-    // builder 开始
-    public Style() {
+    /**
+     * 填充颜色，16 进制 rbg 值
+     *
+     * <p>示例值：#6db5a3
+     *
+     * @param fillColor
+     * @return
+     */
+    public Builder fillColor(String fillColor) {
+      this.fillColor = fillColor;
+      return this;
     }
 
-    public Style(Builder builder) {
-        /**
-         * 填充颜色，16 进制 rbg 值
-         * <p> 示例值：#6db5a3
-         */
-        this.fillColor = builder.fillColor;
-        /**
-         * 填充透明度
-         * <p> 示例值：50
-         */
-        this.fillOpacity = builder.fillOpacity;
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
-        this.borderStyle = builder.borderStyle;
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         */
-        this.borderWidth = builder.borderWidth;
-        /**
-         * 边框透明度
-         * <p> 示例值：50
-         */
-        this.borderOpacity = builder.borderOpacity;
-        /**
-         * 水平翻折
-         * <p> 示例值：false
-         */
-        this.hFlip = builder.hFlip;
-        /**
-         * 垂直翻折
-         * <p> 示例值：false
-         */
-        this.vFlip = builder.vFlip;
-        /**
-         * 边框颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        this.borderColor = builder.borderColor;
-        /**
-         * 填充颜色主题配色编码值
-         * <p> 示例值：3
-         */
-        this.themeFillColorCode = builder.themeFillColorCode;
-        /**
-         * 边框颜色主题配色编码值
-         * <p> 示例值：4
-         */
-        this.themeBorderColorCode = builder.themeBorderColorCode;
-        /**
-         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
-         * <p> 示例值：
-         */
-        this.fillColorType = builder.fillColorType;
-        /**
-         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
-         * <p> 示例值：
-         */
-        this.borderColorType = builder.borderColorType;
-        /**
-         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
-         * <p> 示例值：
-         */
-        this.borderDasharrays = builder.borderDasharrays;
-        /**
-         * 边框圆角半径，控制边角弧度。
-         * <p> 示例值：
-         */
-        this.borderRadius = builder.borderRadius;
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         */
-        this.shadow = builder.shadow;
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         */
-        this.innerShadow = builder.innerShadow;
-        /**
-         * 渐变
-         * <p> 示例值：
-         */
-        this.fillGradient = builder.fillGradient;
+    /**
+     * 填充透明度，百分比
+     *
+     * <p>示例值：50
+     *
+     * @param fillOpacity
+     * @return
+     */
+    public Builder fillOpacity(Double fillOpacity) {
+      this.fillOpacity = fillOpacity;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 边框样式
+     *
+     * <p>示例值：solid
+     *
+     * @param borderStyle
+     * @return
+     */
+    public Builder borderStyle(String borderStyle) {
+      this.borderStyle = borderStyle;
+      return this;
     }
 
-    public String getFillColor() {
-        return this.fillColor;
+    /**
+     * 边框样式
+     *
+     * <p>示例值：solid
+     *
+     * @param borderStyle {@link com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum}
+     * @return
+     */
+    public Builder borderStyle(
+        com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum borderStyle) {
+      this.borderStyle = borderStyle.getValue();
+      return this;
     }
 
-    public void setFillColor(String fillColor) {
-        this.fillColor = fillColor;
+    /**
+     * 边框宽度
+     *
+     * <p>示例值：narrow
+     *
+     * @param borderWidth
+     * @return
+     */
+    public Builder borderWidth(String borderWidth) {
+      this.borderWidth = borderWidth;
+      return this;
     }
 
-    public Double getFillOpacity() {
-        return this.fillOpacity;
+    /**
+     * 边框宽度
+     *
+     * <p>示例值：narrow
+     *
+     * @param borderWidth {@link com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum}
+     * @return
+     */
+    public Builder borderWidth(
+        com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum borderWidth) {
+      this.borderWidth = borderWidth.getValue();
+      return this;
     }
 
-    public void setFillOpacity(Double fillOpacity) {
-        this.fillOpacity = fillOpacity;
+    /**
+     * 边框透明度，百分比
+     *
+     * <p>示例值：50
+     *
+     * @param borderOpacity
+     * @return
+     */
+    public Builder borderOpacity(Double borderOpacity) {
+      this.borderOpacity = borderOpacity;
+      return this;
     }
 
-    public String getBorderStyle() {
-        return this.borderStyle;
+    /**
+     * 水平翻折
+     *
+     * <p>示例值：false
+     *
+     * @param hFlip
+     * @return
+     */
+    public Builder hFlip(Boolean hFlip) {
+      this.hFlip = hFlip;
+      return this;
     }
 
-    public void setBorderStyle(String borderStyle) {
-        this.borderStyle = borderStyle;
+    /**
+     * 垂直翻折
+     *
+     * <p>示例值：false
+     *
+     * @param vFlip
+     * @return
+     */
+    public Builder vFlip(Boolean vFlip) {
+      this.vFlip = vFlip;
+      return this;
     }
 
-    public String getBorderWidth() {
-        return this.borderWidth;
+    /**
+     * 边框颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     *
+     * @param borderColor
+     * @return
+     */
+    public Builder borderColor(String borderColor) {
+      this.borderColor = borderColor;
+      return this;
     }
 
-    public void setBorderWidth(String borderWidth) {
-        this.borderWidth = borderWidth;
+    /**
+     * 填充颜色主题配色编码值
+     *
+     * <p>示例值：3
+     *
+     * @param themeFillColorCode
+     * @return
+     */
+    public Builder themeFillColorCode(Integer themeFillColorCode) {
+      this.themeFillColorCode = themeFillColorCode;
+      return this;
     }
 
-    public Double getBorderOpacity() {
-        return this.borderOpacity;
+    /**
+     * 边框颜色主题配色编码值
+     *
+     * <p>示例值：4
+     *
+     * @param themeBorderColorCode
+     * @return
+     */
+    public Builder themeBorderColorCode(Integer themeBorderColorCode) {
+      this.themeBorderColorCode = themeBorderColorCode;
+      return this;
     }
 
-    public void setBorderOpacity(Double borderOpacity) {
-        this.borderOpacity = borderOpacity;
+    /**
+     * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+     *
+     * <p>示例值：0
+     *
+     * @param fillColorType
+     * @return
+     */
+    public Builder fillColorType(Integer fillColorType) {
+      this.fillColorType = fillColorType;
+      return this;
     }
 
-    public Boolean getHFlip() {
-        return this.hFlip;
+    /**
+     * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
+     *
+     * <p>示例值：0
+     *
+     * @param fillColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
+     * @return
+     */
+    public Builder fillColorType(
+        com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum fillColorType) {
+      this.fillColorType = fillColorType.getValue();
+      return this;
     }
 
-    public void setHFlip(Boolean hFlip) {
-        this.hFlip = hFlip;
+    /**
+     * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+     *
+     * <p>示例值：0
+     *
+     * @param borderColorType
+     * @return
+     */
+    public Builder borderColorType(Integer borderColorType) {
+      this.borderColorType = borderColorType;
+      return this;
     }
 
-    public Boolean getVFlip() {
-        return this.vFlip;
+    /**
+     * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
+     *
+     * <p>示例值：0
+     *
+     * @param borderColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
+     * @return
+     */
+    public Builder borderColorType(
+        com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum borderColorType) {
+      this.borderColorType = borderColorType.getValue();
+      return this;
     }
 
-    public void setVFlip(Boolean vFlip) {
-        this.vFlip = vFlip;
+    /**
+     * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
+     *
+     * <p>示例值：
+     *
+     * @param borderDasharrays
+     * @return
+     */
+    public Builder borderDasharrays(Integer[] borderDasharrays) {
+      this.borderDasharrays = borderDasharrays;
+      return this;
     }
 
-    public String getBorderColor() {
-        return this.borderColor;
+    /**
+     * 边框圆角半径，控制边角弧度。
+     *
+     * <p>示例值：
+     *
+     * @param borderRadius
+     * @return
+     */
+    public Builder borderRadius(BorderRadius borderRadius) {
+      this.borderRadius = borderRadius;
+      return this;
     }
 
-    public void setBorderColor(String borderColor) {
-        this.borderColor = borderColor;
+    /**
+     * 阴影参数
+     *
+     * <p>示例值：
+     *
+     * @param shadow
+     * @return
+     */
+    public Builder shadow(Shadow shadow) {
+      this.shadow = shadow;
+      return this;
     }
 
-    public Integer getThemeFillColorCode() {
-        return this.themeFillColorCode;
+    /**
+     * 阴影参数
+     *
+     * <p>示例值：
+     *
+     * @param innerShadow
+     * @return
+     */
+    public Builder innerShadow(Shadow innerShadow) {
+      this.innerShadow = innerShadow;
+      return this;
     }
 
-    public void setThemeFillColorCode(Integer themeFillColorCode) {
-        this.themeFillColorCode = themeFillColorCode;
+    /**
+     * 渐变
+     *
+     * <p>示例值：
+     *
+     * @param fillGradient
+     * @return
+     */
+    public Builder fillGradient(FillGradient fillGradient) {
+      this.fillGradient = fillGradient;
+      return this;
     }
 
-    public Integer getThemeBorderColorCode() {
-        return this.themeBorderColorCode;
+    public Style build() {
+      return new Style(this);
     }
+  }
 
-    public void setThemeBorderColorCode(Integer themeBorderColorCode) {
-        this.themeBorderColorCode = themeBorderColorCode;
-    }
-
-    public Integer getFillColorType() {
-        return this.fillColorType;
-    }
-
-    public void setFillColorType(Integer fillColorType) {
-        this.fillColorType = fillColorType;
-    }
-
-    public Integer getBorderColorType() {
-        return this.borderColorType;
-    }
-
-    public void setBorderColorType(Integer borderColorType) {
-        this.borderColorType = borderColorType;
-    }
-
-    public Integer[] getBorderDasharrays() {
-        return this.borderDasharrays;
-    }
-
-    public void setBorderDasharrays(Integer[] borderDasharrays) {
-        this.borderDasharrays = borderDasharrays;
-    }
-
-    public BorderRadius getBorderRadius() {
-        return this.borderRadius;
-    }
-
-    public void setBorderRadius(BorderRadius borderRadius) {
-        this.borderRadius = borderRadius;
-    }
-
-    public Shadow getShadow() {
-        return this.shadow;
-    }
-
-    public void setShadow(Shadow shadow) {
-        this.shadow = shadow;
-    }
-
-    public Shadow getInnerShadow() {
-        return this.innerShadow;
-    }
-
-    public void setInnerShadow(Shadow innerShadow) {
-        this.innerShadow = innerShadow;
-    }
-
-    public FillGradient getFillGradient() {
-        return this.fillGradient;
-    }
-
-    public void setFillGradient(FillGradient fillGradient) {
-        this.fillGradient = fillGradient;
-    }
-
-    public static class Builder {
-        /**
-         * 填充颜色，16 进制 rbg 值
-         * <p> 示例值：#6db5a3
-         */
-        private String fillColor;
-        /**
-         * 填充透明度
-         * <p> 示例值：50
-         */
-        private Double fillOpacity;
-        /**
-         * 边框样式
-         * <p> 示例值：
-         */
-        private String borderStyle;
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         */
-        private String borderWidth;
-        /**
-         * 边框透明度
-         * <p> 示例值：50
-         */
-        private Double borderOpacity;
-        /**
-         * 水平翻折
-         * <p> 示例值：false
-         */
-        private Boolean hFlip;
-        /**
-         * 垂直翻折
-         * <p> 示例值：false
-         */
-        private Boolean vFlip;
-        /**
-         * 边框颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        private String borderColor;
-        /**
-         * 填充颜色主题配色编码值
-         * <p> 示例值：3
-         */
-        private Integer themeFillColorCode;
-        /**
-         * 边框颜色主题配色编码值
-         * <p> 示例值：4
-         */
-        private Integer themeBorderColorCode;
-        /**
-         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
-         * <p> 示例值：
-         */
-        private Integer fillColorType;
-        /**
-         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
-         * <p> 示例值：
-         */
-        private Integer borderColorType;
-        /**
-         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
-         * <p> 示例值：
-         */
-        private Integer[] borderDasharrays;
-        /**
-         * 边框圆角半径，控制边角弧度。
-         * <p> 示例值：
-         */
-        private BorderRadius borderRadius;
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         */
-        private Shadow shadow;
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         */
-        private Shadow innerShadow;
-        /**
-         * 渐变
-         * <p> 示例值：
-         */
-        private FillGradient fillGradient;
-
-        /**
-         * 填充颜色，16 进制 rbg 值
-         * <p> 示例值：#6db5a3
-         *
-         * @param fillColor
-         * @return
-         */
-        public Builder fillColor(String fillColor) {
-            this.fillColor = fillColor;
-            return this;
-        }
-
-
-        /**
-         * 填充透明度
-         * <p> 示例值：50
-         *
-         * @param fillOpacity
-         * @return
-         */
-        public Builder fillOpacity(Double fillOpacity) {
-            this.fillOpacity = fillOpacity;
-            return this;
-        }
-
-
-        /**
-         * 边框样式
-         * <p> 示例值：
-         *
-         * @param borderStyle
-         * @return
-         */
-        public Builder borderStyle(String borderStyle) {
-            this.borderStyle = borderStyle;
-            return this;
-        }
-
-        /**
-         * 边框样式
-         * <p> 示例值：
-         *
-         * @param borderStyle {@link com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum}
-         * @return
-         */
-        public Builder borderStyle(com.lark.oapi.service.board.v1.enums.StyleBorderStyleEnum borderStyle) {
-            this.borderStyle = borderStyle.getValue();
-            return this;
-        }
-
-
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         *
-         * @param borderWidth
-         * @return
-         */
-        public Builder borderWidth(String borderWidth) {
-            this.borderWidth = borderWidth;
-            return this;
-        }
-
-        /**
-         * 边框宽度
-         * <p> 示例值：
-         *
-         * @param borderWidth {@link com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum}
-         * @return
-         */
-        public Builder borderWidth(com.lark.oapi.service.board.v1.enums.StyleBorderWidthEnum borderWidth) {
-            this.borderWidth = borderWidth.getValue();
-            return this;
-        }
-
-
-        /**
-         * 边框透明度
-         * <p> 示例值：50
-         *
-         * @param borderOpacity
-         * @return
-         */
-        public Builder borderOpacity(Double borderOpacity) {
-            this.borderOpacity = borderOpacity;
-            return this;
-        }
-
-
-        /**
-         * 水平翻折
-         * <p> 示例值：false
-         *
-         * @param hFlip
-         * @return
-         */
-        public Builder hFlip(Boolean hFlip) {
-            this.hFlip = hFlip;
-            return this;
-        }
-
-
-        /**
-         * 垂直翻折
-         * <p> 示例值：false
-         *
-         * @param vFlip
-         * @return
-         */
-        public Builder vFlip(Boolean vFlip) {
-            this.vFlip = vFlip;
-            return this;
-        }
-
-
-        /**
-         * 边框颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         *
-         * @param borderColor
-         * @return
-         */
-        public Builder borderColor(String borderColor) {
-            this.borderColor = borderColor;
-            return this;
-        }
-
-
-        /**
-         * 填充颜色主题配色编码值
-         * <p> 示例值：3
-         *
-         * @param themeFillColorCode
-         * @return
-         */
-        public Builder themeFillColorCode(Integer themeFillColorCode) {
-            this.themeFillColorCode = themeFillColorCode;
-            return this;
-        }
-
-
-        /**
-         * 边框颜色主题配色编码值
-         * <p> 示例值：4
-         *
-         * @param themeBorderColorCode
-         * @return
-         */
-        public Builder themeBorderColorCode(Integer themeBorderColorCode) {
-            this.themeBorderColorCode = themeBorderColorCode;
-            return this;
-        }
-
-
-        /**
-         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
-         * <p> 示例值：
-         *
-         * @param fillColorType
-         * @return
-         */
-        public Builder fillColorType(Integer fillColorType) {
-            this.fillColorType = fillColorType;
-            return this;
-        }
-
-        /**
-         * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
-         * <p> 示例值：
-         *
-         * @param fillColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
-         * @return
-         */
-        public Builder fillColorType(com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum fillColorType) {
-            this.fillColorType = fillColorType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
-         * <p> 示例值：
-         *
-         * @param borderColorType
-         * @return
-         */
-        public Builder borderColorType(Integer borderColorType) {
-            this.borderColorType = borderColorType;
-            return this;
-        }
-
-        /**
-         * 边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color
-         * <p> 示例值：
-         *
-         * @param borderColorType {@link com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum}
-         * @return
-         */
-        public Builder borderColorType(com.lark.oapi.service.board.v1.enums.StyleColorTypeEnum borderColorType) {
-            this.borderColorType = borderColorType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 定义虚线边框样式，参数为数字数组，依次表示实线段长度与空白间隔，循环构成虚线。
-         * <p> 示例值：
-         *
-         * @param borderDasharrays
-         * @return
-         */
-        public Builder borderDasharrays(Integer[] borderDasharrays) {
-            this.borderDasharrays = borderDasharrays;
-            return this;
-        }
-
-
-        /**
-         * 边框圆角半径，控制边角弧度。
-         * <p> 示例值：
-         *
-         * @param borderRadius
-         * @return
-         */
-        public Builder borderRadius(BorderRadius borderRadius) {
-            this.borderRadius = borderRadius;
-            return this;
-        }
-
-
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         *
-         * @param shadow
-         * @return
-         */
-        public Builder shadow(Shadow shadow) {
-            this.shadow = shadow;
-            return this;
-        }
-
-
-        /**
-         * 阴影参数
-         * <p> 示例值：
-         *
-         * @param innerShadow
-         * @return
-         */
-        public Builder innerShadow(Shadow innerShadow) {
-            this.innerShadow = innerShadow;
-            return this;
-        }
-
-
-        /**
-         * 渐变
-         * <p> 示例值：
-         *
-         * @param fillGradient
-         * @return
-         */
-        public Builder fillGradient(FillGradient fillGradient) {
-            this.fillGradient = fillGradient;
-            return this;
-        }
-
-
-        public Style build() {
-            return new Style(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

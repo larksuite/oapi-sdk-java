@@ -13,103 +13,123 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetAttachmentReq {
+  /**
+   * 附件类型
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("type")
+  private Integer type;
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  /**
+   * 附件 ID，获取方式如下：;- 简历附件 ID/作品附件 ID：通过[获取人才信息
+   * V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取;-
+   * 通用附件
+   * ID：通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)、[获取
+   * Offer
+   * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)、[获取
+   * Offer
+   * 信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer)接口获取
+   *
+   * <p>示例值：6960663240925956555
+   */
+  @Path
+  @SerializedName("attachment_id")
+  private String attachmentId;
+
+  public String getAttachmentId() {
+    return this.attachmentId;
+  }
+
+  public void setAttachmentId(String attachmentId) {
+    this.attachmentId = attachmentId;
+  }
+
+  // builder 开始
+  public GetAttachmentReq() {}
+
+  public GetAttachmentReq(Builder builder) {
     /**
      * 附件类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
-     * 附件id
-     * <p> 示例值：6435242341238
+     * 附件 ID，获取方式如下：;- 简历附件 ID/作品附件 ID：通过[获取人才信息
+     * V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取;-
+     * 通用附件
+     * ID：通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)、[获取
+     * Offer
+     * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)、[获取
+     * Offer
+     * 信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer)接口获取
+     *
+     * <p>示例值：6960663240925956555
      */
-    @Path
-    @SerializedName("attachment_id")
-    private String attachmentId;
+    this.attachmentId = builder.attachmentId;
+  }
 
-    // builder 开始
-    public GetAttachmentReq() {
+  public static class Builder {
+    private Integer type; // 附件类型
+
+    /**
+     * 附件类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public GetAttachmentReq(Builder builder) {
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 附件id
-         * <p> 示例值：6435242341238
-         */
-        this.attachmentId = builder.attachmentId;
+    private String attachmentId; // 附件 ID，获取方式如下：;- 简历附件 ID/作品附件 ID：通过[获取人才信息
+
+    // V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取;- 通用附件 ID：通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)、[获取 Offer 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)、[获取 Offer 信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer)接口获取
+
+    /**
+     * 附件 ID，获取方式如下：;- 简历附件 ID/作品附件 ID：通过[获取人才信息
+     * V1](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口获取;-
+     * 通用附件
+     * ID：通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)、[获取
+     * Offer
+     * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)、[获取
+     * Offer
+     * 信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer)接口获取
+     *
+     * <p>示例值：6960663240925956555
+     *
+     * @param attachmentId
+     * @return
+     */
+    public Builder attachmentId(String attachmentId) {
+      this.attachmentId = attachmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetAttachmentReq build() {
+      return new GetAttachmentReq(this);
     }
+  }
 
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getAttachmentId() {
-        return this.attachmentId;
-    }
-
-    public void setAttachmentId(String attachmentId) {
-        this.attachmentId = attachmentId;
-    }
-
-    public static class Builder {
-        private Integer type; // 附件类型
-        private String attachmentId; // 附件id
-
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 附件id
-         * <p> 示例值：6435242341238
-         *
-         * @param attachmentId
-         * @return
-         */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
-
-
-        public GetAttachmentReq build() {
-            return new GetAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

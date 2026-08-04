@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.sheets.v3.enums;
 
-/**
- * 条件格式类型
- */
+/** 条件格式类型 */
 public enum ConditionalFormatRuleConditionalFormatRuleTypeEnum {
-    BOOLEANRULECONDITION("BooleanRuleCondition"), // 真值条件格式
-    ;
-    private String value;
+  BOOLEANRULECONDITION("BooleanRuleCondition"), // 真值条件格式
+  ;
+  private String value;
 
-    ConditionalFormatRuleConditionalFormatRuleTypeEnum(String value) {
-        this.value = value;
-    }
+  ConditionalFormatRuleConditionalFormatRuleTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

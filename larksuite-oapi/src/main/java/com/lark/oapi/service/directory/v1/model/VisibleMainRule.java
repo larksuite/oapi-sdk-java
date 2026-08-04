@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisibleMainRule {
+  /**
+   * 主规则类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("main_rule_type")
+  private Integer mainRuleType;
+
+  /**
+   * 单位类型
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("unit_type")
+  private String unitType;
+
+  /**
+   * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("dept_leader_visible_the_dept")
+  private Boolean deptLeaderVisibleTheDept;
+
+  /**
+   * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("sub_depts_visible")
+  private Boolean subDeptsVisible;
+
+  public Integer getMainRuleType() {
+    return this.mainRuleType;
+  }
+
+  public void setMainRuleType(Integer mainRuleType) {
+    this.mainRuleType = mainRuleType;
+  }
+
+  public String getUnitType() {
+    return this.unitType;
+  }
+
+  public void setUnitType(String unitType) {
+    this.unitType = unitType;
+  }
+
+  public Boolean getDeptLeaderVisibleTheDept() {
+    return this.deptLeaderVisibleTheDept;
+  }
+
+  public void setDeptLeaderVisibleTheDept(Boolean deptLeaderVisibleTheDept) {
+    this.deptLeaderVisibleTheDept = deptLeaderVisibleTheDept;
+  }
+
+  public Boolean getSubDeptsVisible() {
+    return this.subDeptsVisible;
+  }
+
+  public void setSubDeptsVisible(Boolean subDeptsVisible) {
+    this.subDeptsVisible = subDeptsVisible;
+  }
+
+  // builder 开始
+  public VisibleMainRule() {}
+
+  public VisibleMainRule(Builder builder) {
     /**
      * 主规则类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("main_rule_type")
-    private Integer mainRuleType;
+    this.mainRuleType = builder.mainRuleType;
     /**
      * 单位类型
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("unit_type")
-    private String unitType;
+    this.unitType = builder.unitType;
     /**
      * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("dept_leader_visible_the_dept")
-    private Boolean deptLeaderVisibleTheDept;
+    this.deptLeaderVisibleTheDept = builder.deptLeaderVisibleTheDept;
     /**
      * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("sub_depts_visible")
+    this.subDeptsVisible = builder.subDeptsVisible;
+  }
+
+  public static class Builder {
+    /**
+     * 主规则类型
+     *
+     * <p>示例值：1
+     */
+    private Integer mainRuleType;
+
+    /**
+     * 单位类型
+     *
+     * <p>示例值：test
+     */
+    private String unitType;
+
+    /**
+     * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
+     *
+     * <p>示例值：true
+     */
+    private Boolean deptLeaderVisibleTheDept;
+
+    /**
+     * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
+     *
+     * <p>示例值：true
+     */
     private Boolean subDeptsVisible;
 
-    // builder 开始
-    public VisibleMainRule() {
+    /**
+     * 主规则类型
+     *
+     * <p>示例值：1
+     *
+     * @param mainRuleType
+     * @return
+     */
+    public Builder mainRuleType(Integer mainRuleType) {
+      this.mainRuleType = mainRuleType;
+      return this;
     }
 
-    public VisibleMainRule(Builder builder) {
-        /**
-         * 主规则类型
-         * <p> 示例值：1
-         */
-        this.mainRuleType = builder.mainRuleType;
-        /**
-         * 单位类型
-         * <p> 示例值：test
-         */
-        this.unitType = builder.unitType;
-        /**
-         * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
-         * <p> 示例值：true
-         */
-        this.deptLeaderVisibleTheDept = builder.deptLeaderVisibleTheDept;
-        /**
-         * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
-         * <p> 示例值：true
-         */
-        this.subDeptsVisible = builder.subDeptsVisible;
+    /**
+     * 主规则类型
+     *
+     * <p>示例值：1
+     *
+     * @param mainRuleType {@link
+     *     com.lark.oapi.service.directory.v1.enums.VisibleMainRuleMainRuleTypeEnum}
+     * @return
+     */
+    public Builder mainRuleType(
+        com.lark.oapi.service.directory.v1.enums.VisibleMainRuleMainRuleTypeEnum mainRuleType) {
+      this.mainRuleType = mainRuleType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 单位类型
+     *
+     * <p>示例值：test
+     *
+     * @param unitType
+     * @return
+     */
+    public Builder unitType(String unitType) {
+      this.unitType = unitType;
+      return this;
     }
 
-    public Integer getMainRuleType() {
-        return this.mainRuleType;
+    /**
+     * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
+     *
+     * <p>示例值：true
+     *
+     * @param deptLeaderVisibleTheDept
+     * @return
+     */
+    public Builder deptLeaderVisibleTheDept(Boolean deptLeaderVisibleTheDept) {
+      this.deptLeaderVisibleTheDept = deptLeaderVisibleTheDept;
+      return this;
     }
 
-    public void setMainRuleType(Integer mainRuleType) {
-        this.mainRuleType = mainRuleType;
+    /**
+     * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
+     *
+     * <p>示例值：true
+     *
+     * @param subDeptsVisible
+     * @return
+     */
+    public Builder subDeptsVisible(Boolean subDeptsVisible) {
+      this.subDeptsVisible = subDeptsVisible;
+      return this;
     }
 
-    public String getUnitType() {
-        return this.unitType;
+    public VisibleMainRule build() {
+      return new VisibleMainRule(this);
     }
+  }
 
-    public void setUnitType(String unitType) {
-        this.unitType = unitType;
-    }
-
-    public Boolean getDeptLeaderVisibleTheDept() {
-        return this.deptLeaderVisibleTheDept;
-    }
-
-    public void setDeptLeaderVisibleTheDept(Boolean deptLeaderVisibleTheDept) {
-        this.deptLeaderVisibleTheDept = deptLeaderVisibleTheDept;
-    }
-
-    public Boolean getSubDeptsVisible() {
-        return this.subDeptsVisible;
-    }
-
-    public void setSubDeptsVisible(Boolean subDeptsVisible) {
-        this.subDeptsVisible = subDeptsVisible;
-    }
-
-    public static class Builder {
-        /**
-         * 主规则类型
-         * <p> 示例值：1
-         */
-        private Integer mainRuleType;
-        /**
-         * 单位类型
-         * <p> 示例值：test
-         */
-        private String unitType;
-        /**
-         * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
-         * <p> 示例值：true
-         */
-        private Boolean deptLeaderVisibleTheDept;
-        /**
-         * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
-         * <p> 示例值：true
-         */
-        private Boolean subDeptsVisible;
-
-        /**
-         * 主规则类型
-         * <p> 示例值：1
-         *
-         * @param mainRuleType
-         * @return
-         */
-        public Builder mainRuleType(Integer mainRuleType) {
-            this.mainRuleType = mainRuleType;
-            return this;
-        }
-
-        /**
-         * 主规则类型
-         * <p> 示例值：1
-         *
-         * @param mainRuleType {@link com.lark.oapi.service.directory.v1.enums.VisibleMainRuleMainRuleTypeEnum}
-         * @return
-         */
-        public Builder mainRuleType(com.lark.oapi.service.directory.v1.enums.VisibleMainRuleMainRuleTypeEnum mainRuleType) {
-            this.mainRuleType = mainRuleType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 单位类型
-         * <p> 示例值：test
-         *
-         * @param unitType
-         * @return
-         */
-        public Builder unitType(String unitType) {
-            this.unitType = unitType;
-            return this;
-        }
-
-
-        /**
-         * 部门负责人可见自己负责的部门。仅在主规则类型为【成员不可见任何人】时可更改
-         * <p> 示例值：true
-         *
-         * @param deptLeaderVisibleTheDept
-         * @return
-         */
-        public Builder deptLeaderVisibleTheDept(Boolean deptLeaderVisibleTheDept) {
-            this.deptLeaderVisibleTheDept = deptLeaderVisibleTheDept;
-            return this;
-        }
-
-
-        /**
-         * 是否可见子部门。只有在主规则类型为「成员可见本部门」时有效
-         * <p> 示例值：true
-         *
-         * @param subDeptsVisible
-         * @return
-         */
-        public Builder subDeptsVisible(Boolean subDeptsVisible) {
-            this.subDeptsVisible = subDeptsVisible;
-            return this;
-        }
-
-
-        public VisibleMainRule build() {
-            return new VisibleMainRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

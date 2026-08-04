@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 来源
- */
+/** 来源 */
 public enum NormalLeaveBalanceGrantSourceEnum {
-    SYSTEM("system"), // 系统发放
-    MANU("manu"), // 手动发放
-    OVERTIME("overtime"), // 加班转入
-    VIRTUAL("virtual"), // 虚拟发放(表示超休)
-    OLDSYSTEMMIGRATE("oldSystemMigrate"), // 旧系统迁入
-    ;
-    private String value;
+  SYSTEM("system"), // 系统发放
+  MANU("manu"), // 手动发放
+  OVERTIME("overtime"), // 加班转入
+  VIRTUAL("virtual"), // 虚拟发放(表示超休)
+  OLDSYSTEMMIGRATE("oldSystemMigrate"), // 旧系统迁入
+  ;
+  private String value;
 
-    NormalLeaveBalanceGrantSourceEnum(String value) {
-        this.value = value;
-    }
+  NormalLeaveBalanceGrantSourceEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

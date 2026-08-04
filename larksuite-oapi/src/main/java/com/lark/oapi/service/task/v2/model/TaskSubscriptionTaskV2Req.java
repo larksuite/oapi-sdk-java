@@ -13,80 +13,65 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class TaskSubscriptionTaskV2Req {
+  /** 示例值： */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public TaskSubscriptionTaskV2Req() {}
+
+  public TaskSubscriptionTaskV2Req(Builder builder) {
+    /** 示例值： */
+    this.userIdType = builder.userIdType;
+  }
+
+  public static class Builder {
+    private String userIdType; //
+
     /**
-     * <p> 示例值：
+     * 示例值：
+     *
+     * @param userIdType
+     * @return
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-
-    // builder 开始
-    public TaskSubscriptionTaskV2Req() {
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public TaskSubscriptionTaskV2Req(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.task.v2.enums.TaskSubscriptionTaskV2UserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.TaskSubscriptionTaskV2UserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TaskSubscriptionTaskV2Req build() {
+      return new TaskSubscriptionTaskV2Req(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String userIdType; //
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.TaskSubscriptionTaskV2UserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.TaskSubscriptionTaskV2UserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public TaskSubscriptionTaskV2Req build() {
-            return new TaskSubscriptionTaskV2Req(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

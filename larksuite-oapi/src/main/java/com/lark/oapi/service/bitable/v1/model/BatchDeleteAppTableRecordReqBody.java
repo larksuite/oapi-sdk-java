@@ -13,75 +13,73 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteAppTableRecordReqBody {
+  /**
+   * 删除的多条记录 ID
+   * 列表。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。;;**注意**：;单次调用中最多删除
+   * 500 条记录。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private String[] records;
+
+  public String[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(String[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchDeleteAppTableRecordReqBody() {}
+
+  public BatchDeleteAppTableRecordReqBody(Builder builder) {
     /**
-     * 删除的多条记录id列表
-     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+     * 删除的多条记录 ID
+     * 列表。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。;;**注意**：;单次调用中最多删除
+     * 500 条记录。
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 删除的多条记录 ID
+     * 列表。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。;;**注意**：;单次调用中最多删除
+     * 500 条记录。
+     *
+     * <p>示例值：
+     */
     private String[] records;
 
-    // builder 开始
-    public BatchDeleteAppTableRecordReqBody() {
+    /**
+     * 删除的多条记录 ID
+     * 列表。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。;;**注意**：;单次调用中最多删除
+     * 500 条记录。
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(String[] records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchDeleteAppTableRecordReqBody(Builder builder) {
-        /**
-         * 删除的多条记录id列表
-         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-         */
-        this.records = builder.records;
+    public BatchDeleteAppTableRecordReqBody build() {
+      return new BatchDeleteAppTableRecordReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(String[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 删除的多条记录id列表
-         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-         */
-        private String[] records;
-
-        /**
-         * 删除的多条记录id列表
-         * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(String[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchDeleteAppTableRecordReqBody build() {
-            return new BatchDeleteAppTableRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

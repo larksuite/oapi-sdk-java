@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GradientStop {
+  /**
+   * 色标位置（百分比）
+   *
+   * <p>示例值：1.0
+   */
+  @SerializedName("position")
+  private Double position;
+
+  /**
+   * 颜色
+   *
+   * <p>示例值：#FFFFFF
+   */
+  @SerializedName("color")
+  private String color;
+
+  public Double getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(Double position) {
+    this.position = position;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  // builder 开始
+  public GradientStop() {}
+
+  public GradientStop(Builder builder) {
     /**
      * 色标位置（百分比）
-     * <p> 示例值：1.0
+     *
+     * <p>示例值：1.0
      */
-    @SerializedName("position")
-    private Double position;
+    this.position = builder.position;
     /**
      * 颜色
-     * <p> 示例值：#FFFFFF
+     *
+     * <p>示例值：#FFFFFF
      */
-    @SerializedName("color")
+    this.color = builder.color;
+  }
+
+  public static class Builder {
+    /**
+     * 色标位置（百分比）
+     *
+     * <p>示例值：1.0
+     */
+    private Double position;
+
+    /**
+     * 颜色
+     *
+     * <p>示例值：#FFFFFF
+     */
     private String color;
 
-    // builder 开始
-    public GradientStop() {
+    /**
+     * 色标位置（百分比）
+     *
+     * <p>示例值：1.0
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(Double position) {
+      this.position = position;
+      return this;
     }
 
-    public GradientStop(Builder builder) {
-        /**
-         * 色标位置（百分比）
-         * <p> 示例值：1.0
-         */
-        this.position = builder.position;
-        /**
-         * 颜色
-         * <p> 示例值：#FFFFFF
-         */
-        this.color = builder.color;
+    /**
+     * 颜色
+     *
+     * <p>示例值：#FFFFFF
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GradientStop build() {
+      return new GradientStop(this);
     }
+  }
 
-    public Double getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(Double position) {
-        this.position = position;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public static class Builder {
-        /**
-         * 色标位置（百分比）
-         * <p> 示例值：1.0
-         */
-        private Double position;
-        /**
-         * 颜色
-         * <p> 示例值：#FFFFFF
-         */
-        private String color;
-
-        /**
-         * 色标位置（百分比）
-         * <p> 示例值：1.0
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(Double position) {
-            this.position = position;
-            return this;
-        }
-
-
-        /**
-         * 颜色
-         * <p> 示例值：#FFFFFF
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        public GradientStop build() {
-            return new GradientStop(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

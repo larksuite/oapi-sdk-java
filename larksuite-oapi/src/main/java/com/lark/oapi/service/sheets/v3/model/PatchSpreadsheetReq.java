@@ -13,98 +13,103 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.sheets.v3.enums.*;
 
 public class PatchSpreadsheetReq {
+  /**
+   * 电子表格的
+   * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+   * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+   * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @Path
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  @Body private UpdateSpreadsheetProperties body;
+
+  public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
+    return this.body;
+  }
+
+  public void setUpdateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchSpreadsheetReq() {}
+
+  public PatchSpreadsheetReq(Builder builder) {
     /**
-     * 表格的token
-     * <p> 示例值：shtxxxxxxxxxxxxxxx
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
-    @Body
+    this.spreadsheetToken = builder.spreadsheetToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String spreadsheetToken; // 电子表格的
+
+    // token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+
+    /**
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
+    }
+
     private UpdateSpreadsheetProperties body;
 
-    // builder 开始
-    public PatchSpreadsheetReq() {
-    }
-
-    public PatchSpreadsheetReq(Builder builder) {
-        /**
-         * 表格的token
-         * <p> 示例值：shtxxxxxxxxxxxxxxx
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
-    }
-
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
-    }
-
     public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String spreadsheetToken; // 表格的token
-        private UpdateSpreadsheetProperties body;
-
-        /**
-         * 表格的token
-         * <p> 示例值：shtxxxxxxxxxxxxxxx
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-        public UpdateSpreadsheetProperties getUpdateSpreadsheetProperties() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateSpreadsheetProperties(UpdateSpreadsheetProperties body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchSpreadsheetReq build() {
-            return new PatchSpreadsheetReq(this);
-        }
+    public PatchSpreadsheetReq build() {
+      return new PatchSpreadsheetReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

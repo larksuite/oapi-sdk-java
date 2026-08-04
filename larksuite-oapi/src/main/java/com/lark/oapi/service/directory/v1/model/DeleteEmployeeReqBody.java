@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteEmployeeReqBody {
+  /**
+   * 接口拓展选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private DeleteEmployeeOptions options;
+
+  public DeleteEmployeeOptions getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(DeleteEmployeeOptions options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public DeleteEmployeeReqBody() {}
+
+  public DeleteEmployeeReqBody(Builder builder) {
     /**
      * 接口拓展选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    this.options = builder.options;
+  }
+
+  public static class Builder {
+    /**
+     * 接口拓展选项
+     *
+     * <p>示例值：
+     */
     private DeleteEmployeeOptions options;
 
-    // builder 开始
-    public DeleteEmployeeReqBody() {
+    /**
+     * 接口拓展选项
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(DeleteEmployeeOptions options) {
+      this.options = options;
+      return this;
     }
 
-    public DeleteEmployeeReqBody(Builder builder) {
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    public DeleteEmployeeReqBody build() {
+      return new DeleteEmployeeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public DeleteEmployeeOptions getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(DeleteEmployeeOptions options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         */
-        private DeleteEmployeeOptions options;
-
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(DeleteEmployeeOptions options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public DeleteEmployeeReqBody build() {
-            return new DeleteEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

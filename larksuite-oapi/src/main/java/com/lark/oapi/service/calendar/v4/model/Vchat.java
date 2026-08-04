@@ -13,358 +13,385 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Vchat {
+  /**
+   * 视频会议类型。如果无需视频会议，则必须传入 `no_meeting`。
+   *
+   * <p>示例值：third_party
+   */
+  @SerializedName("vc_type")
+  private String vcType;
+
+  /**
+   * 第三方视频会议的 icon 类型。;;**默认值**：空，表示不更新该字段
+   *
+   * <p>示例值：vc
+   */
+  @SerializedName("icon_type")
+  private String iconType;
+
+  /**
+   * 第三方视频会议文案。;;**默认值**：空，表示不更新该字段
+   *
+   * <p>示例值：发起视频会议
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 视频会议 URL。;;**默认值**：空，表示不更新该字段
+   *
+   * <p>示例值：https://example.com
+   */
+  @SerializedName("meeting_url")
+  private String meetingUrl;
+
+  /**
+   * VC视频会议转直播URL，当vc_type=vc时有值。
+   *
+   * <p>示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
+   */
+  @SerializedName("live_link")
+  private String liveLink;
+
+  /**
+   * VC视频会议原生信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("vc_info")
+  private VcInfo vcInfo;
+
+  /**
+   * VC视频会议的会前设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_settings")
+  private MeetingSettings meetingSettings;
+
+  /**
+   * 三方会议设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("third_party_meeting_settings")
+  private ThirdPartyMeetingSettings thirdPartyMeetingSettings;
+
+  public String getVcType() {
+    return this.vcType;
+  }
+
+  public void setVcType(String vcType) {
+    this.vcType = vcType;
+  }
+
+  public String getIconType() {
+    return this.iconType;
+  }
+
+  public void setIconType(String iconType) {
+    this.iconType = iconType;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getMeetingUrl() {
+    return this.meetingUrl;
+  }
+
+  public void setMeetingUrl(String meetingUrl) {
+    this.meetingUrl = meetingUrl;
+  }
+
+  public String getLiveLink() {
+    return this.liveLink;
+  }
+
+  public void setLiveLink(String liveLink) {
+    this.liveLink = liveLink;
+  }
+
+  public VcInfo getVcInfo() {
+    return this.vcInfo;
+  }
+
+  public void setVcInfo(VcInfo vcInfo) {
+    this.vcInfo = vcInfo;
+  }
+
+  public MeetingSettings getMeetingSettings() {
+    return this.meetingSettings;
+  }
+
+  public void setMeetingSettings(MeetingSettings meetingSettings) {
+    this.meetingSettings = meetingSettings;
+  }
+
+  public ThirdPartyMeetingSettings getThirdPartyMeetingSettings() {
+    return this.thirdPartyMeetingSettings;
+  }
+
+  public void setThirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
+    this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
+  }
+
+  // builder 开始
+  public Vchat() {}
+
+  public Vchat(Builder builder) {
     /**
-     * 视频会议类型
-     * <p> 示例值：third_party
+     * 视频会议类型。如果无需视频会议，则必须传入 `no_meeting`。
+     *
+     * <p>示例值：third_party
      */
-    @SerializedName("vc_type")
-    private String vcType;
+    this.vcType = builder.vcType;
     /**
-     * 第三方视频会议icon类型；可以为空，为空展示默认icon。
-     * <p> 示例值：vc
+     * 第三方视频会议的 icon 类型。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：vc
      */
-    @SerializedName("icon_type")
-    private String iconType;
+    this.iconType = builder.iconType;
     /**
-     * 第三方视频会议文案，可以为空，为空展示默认文案
-     * <p> 示例值：发起视频会议
+     * 第三方视频会议文案。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：发起视频会议
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
-     * 视频会议URL
-     * <p> 示例值：https://example.com
+     * 视频会议 URL。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：https://example.com
      */
-    @SerializedName("meeting_url")
-    private String meetingUrl;
+    this.meetingUrl = builder.meetingUrl;
     /**
      * VC视频会议转直播URL，当vc_type=vc时有值。
-     * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
      */
-    @SerializedName("live_link")
-    private String liveLink;
+    this.liveLink = builder.liveLink;
     /**
      * VC视频会议原生信息。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("vc_info")
-    private VcInfo vcInfo;
+    this.vcInfo = builder.vcInfo;
     /**
      * VC视频会议的会前设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_settings")
-    private MeetingSettings meetingSettings;
+    this.meetingSettings = builder.meetingSettings;
     /**
      * 三方会议设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("third_party_meeting_settings")
+    this.thirdPartyMeetingSettings = builder.thirdPartyMeetingSettings;
+  }
+
+  public static class Builder {
+    /**
+     * 视频会议类型。如果无需视频会议，则必须传入 `no_meeting`。
+     *
+     * <p>示例值：third_party
+     */
+    private String vcType;
+
+    /**
+     * 第三方视频会议的 icon 类型。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：vc
+     */
+    private String iconType;
+
+    /**
+     * 第三方视频会议文案。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：发起视频会议
+     */
+    private String description;
+
+    /**
+     * 视频会议 URL。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：https://example.com
+     */
+    private String meetingUrl;
+
+    /**
+     * VC视频会议转直播URL，当vc_type=vc时有值。
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
+     */
+    private String liveLink;
+
+    /**
+     * VC视频会议原生信息。
+     *
+     * <p>示例值：
+     */
+    private VcInfo vcInfo;
+
+    /**
+     * VC视频会议的会前设置
+     *
+     * <p>示例值：
+     */
+    private MeetingSettings meetingSettings;
+
+    /**
+     * 三方会议设置
+     *
+     * <p>示例值：
+     */
     private ThirdPartyMeetingSettings thirdPartyMeetingSettings;
 
-    // builder 开始
-    public Vchat() {
+    /**
+     * 视频会议类型。如果无需视频会议，则必须传入 `no_meeting`。
+     *
+     * <p>示例值：third_party
+     *
+     * @param vcType
+     * @return
+     */
+    public Builder vcType(String vcType) {
+      this.vcType = vcType;
+      return this;
     }
 
-    public Vchat(Builder builder) {
-        /**
-         * 视频会议类型
-         * <p> 示例值：third_party
-         */
-        this.vcType = builder.vcType;
-        /**
-         * 第三方视频会议icon类型；可以为空，为空展示默认icon。
-         * <p> 示例值：vc
-         */
-        this.iconType = builder.iconType;
-        /**
-         * 第三方视频会议文案，可以为空，为空展示默认文案
-         * <p> 示例值：发起视频会议
-         */
-        this.description = builder.description;
-        /**
-         * 视频会议URL
-         * <p> 示例值：https://example.com
-         */
-        this.meetingUrl = builder.meetingUrl;
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         */
-        this.liveLink = builder.liveLink;
-        /**
-         * VC视频会议原生信息。
-         * <p> 示例值：
-         */
-        this.vcInfo = builder.vcInfo;
-        /**
-         * VC视频会议的会前设置
-         * <p> 示例值：
-         */
-        this.meetingSettings = builder.meetingSettings;
-        /**
-         * 三方会议设置
-         * <p> 示例值：
-         */
-        this.thirdPartyMeetingSettings = builder.thirdPartyMeetingSettings;
+    /**
+     * 视频会议类型。如果无需视频会议，则必须传入 `no_meeting`。
+     *
+     * <p>示例值：third_party
+     *
+     * @param vcType {@link com.lark.oapi.service.calendar.v4.enums.VchatVcTypeEnum}
+     * @return
+     */
+    public Builder vcType(com.lark.oapi.service.calendar.v4.enums.VchatVcTypeEnum vcType) {
+      this.vcType = vcType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 第三方视频会议的 icon 类型。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：vc
+     *
+     * @param iconType
+     * @return
+     */
+    public Builder iconType(String iconType) {
+      this.iconType = iconType;
+      return this;
     }
 
-    public String getVcType() {
-        return this.vcType;
+    /**
+     * 第三方视频会议的 icon 类型。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：vc
+     *
+     * @param iconType {@link com.lark.oapi.service.calendar.v4.enums.VchatIconTypeEnum}
+     * @return
+     */
+    public Builder iconType(com.lark.oapi.service.calendar.v4.enums.VchatIconTypeEnum iconType) {
+      this.iconType = iconType.getValue();
+      return this;
     }
 
-    public void setVcType(String vcType) {
-        this.vcType = vcType;
+    /**
+     * 第三方视频会议文案。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：发起视频会议
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getIconType() {
-        return this.iconType;
+    /**
+     * 视频会议 URL。;;**默认值**：空，表示不更新该字段
+     *
+     * <p>示例值：https://example.com
+     *
+     * @param meetingUrl
+     * @return
+     */
+    public Builder meetingUrl(String meetingUrl) {
+      this.meetingUrl = meetingUrl;
+      return this;
     }
 
-    public void setIconType(String iconType) {
-        this.iconType = iconType;
+    /**
+     * VC视频会议转直播URL，当vc_type=vc时有值。
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
+     *
+     * @param liveLink
+     * @return
+     */
+    public Builder liveLink(String liveLink) {
+      this.liveLink = liveLink;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * VC视频会议原生信息。
+     *
+     * <p>示例值：
+     *
+     * @param vcInfo
+     * @return
+     */
+    public Builder vcInfo(VcInfo vcInfo) {
+      this.vcInfo = vcInfo;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * VC视频会议的会前设置
+     *
+     * <p>示例值：
+     *
+     * @param meetingSettings
+     * @return
+     */
+    public Builder meetingSettings(MeetingSettings meetingSettings) {
+      this.meetingSettings = meetingSettings;
+      return this;
     }
 
-    public String getMeetingUrl() {
-        return this.meetingUrl;
+    /**
+     * 三方会议设置
+     *
+     * <p>示例值：
+     *
+     * @param thirdPartyMeetingSettings
+     * @return
+     */
+    public Builder thirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
+      this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
+      return this;
     }
 
-    public void setMeetingUrl(String meetingUrl) {
-        this.meetingUrl = meetingUrl;
+    public Vchat build() {
+      return new Vchat(this);
     }
+  }
 
-    public String getLiveLink() {
-        return this.liveLink;
-    }
-
-    public void setLiveLink(String liveLink) {
-        this.liveLink = liveLink;
-    }
-
-    public VcInfo getVcInfo() {
-        return this.vcInfo;
-    }
-
-    public void setVcInfo(VcInfo vcInfo) {
-        this.vcInfo = vcInfo;
-    }
-
-    public MeetingSettings getMeetingSettings() {
-        return this.meetingSettings;
-    }
-
-    public void setMeetingSettings(MeetingSettings meetingSettings) {
-        this.meetingSettings = meetingSettings;
-    }
-
-    public ThirdPartyMeetingSettings getThirdPartyMeetingSettings() {
-        return this.thirdPartyMeetingSettings;
-    }
-
-    public void setThirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
-        this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
-    }
-
-    public static class Builder {
-        /**
-         * 视频会议类型
-         * <p> 示例值：third_party
-         */
-        private String vcType;
-        /**
-         * 第三方视频会议icon类型；可以为空，为空展示默认icon。
-         * <p> 示例值：vc
-         */
-        private String iconType;
-        /**
-         * 第三方视频会议文案，可以为空，为空展示默认文案
-         * <p> 示例值：发起视频会议
-         */
-        private String description;
-        /**
-         * 视频会议URL
-         * <p> 示例值：https://example.com
-         */
-        private String meetingUrl;
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         */
-        private String liveLink;
-        /**
-         * VC视频会议原生信息。
-         * <p> 示例值：
-         */
-        private VcInfo vcInfo;
-        /**
-         * VC视频会议的会前设置
-         * <p> 示例值：
-         */
-        private MeetingSettings meetingSettings;
-        /**
-         * 三方会议设置
-         * <p> 示例值：
-         */
-        private ThirdPartyMeetingSettings thirdPartyMeetingSettings;
-
-        /**
-         * 视频会议类型
-         * <p> 示例值：third_party
-         *
-         * @param vcType
-         * @return
-         */
-        public Builder vcType(String vcType) {
-            this.vcType = vcType;
-            return this;
-        }
-
-        /**
-         * 视频会议类型
-         * <p> 示例值：third_party
-         *
-         * @param vcType {@link com.lark.oapi.service.calendar.v4.enums.VchatVcTypeEnum}
-         * @return
-         */
-        public Builder vcType(com.lark.oapi.service.calendar.v4.enums.VchatVcTypeEnum vcType) {
-            this.vcType = vcType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 第三方视频会议icon类型；可以为空，为空展示默认icon。
-         * <p> 示例值：vc
-         *
-         * @param iconType
-         * @return
-         */
-        public Builder iconType(String iconType) {
-            this.iconType = iconType;
-            return this;
-        }
-
-        /**
-         * 第三方视频会议icon类型；可以为空，为空展示默认icon。
-         * <p> 示例值：vc
-         *
-         * @param iconType {@link com.lark.oapi.service.calendar.v4.enums.VchatIconTypeEnum}
-         * @return
-         */
-        public Builder iconType(com.lark.oapi.service.calendar.v4.enums.VchatIconTypeEnum iconType) {
-            this.iconType = iconType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 第三方视频会议文案，可以为空，为空展示默认文案
-         * <p> 示例值：发起视频会议
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 视频会议URL
-         * <p> 示例值：https://example.com
-         *
-         * @param meetingUrl
-         * @return
-         */
-        public Builder meetingUrl(String meetingUrl) {
-            this.meetingUrl = meetingUrl;
-            return this;
-        }
-
-
-        /**
-         * VC视频会议转直播URL，当vc_type=vc时有值。
-         * <p> 示例值：https://meetings.feishu.cn/s/1iof4hpw6i51w
-         *
-         * @param liveLink
-         * @return
-         */
-        public Builder liveLink(String liveLink) {
-            this.liveLink = liveLink;
-            return this;
-        }
-
-
-        /**
-         * VC视频会议原生信息。
-         * <p> 示例值：
-         *
-         * @param vcInfo
-         * @return
-         */
-        public Builder vcInfo(VcInfo vcInfo) {
-            this.vcInfo = vcInfo;
-            return this;
-        }
-
-
-        /**
-         * VC视频会议的会前设置
-         * <p> 示例值：
-         *
-         * @param meetingSettings
-         * @return
-         */
-        public Builder meetingSettings(MeetingSettings meetingSettings) {
-            this.meetingSettings = meetingSettings;
-            return this;
-        }
-
-
-        /**
-         * 三方会议设置
-         * <p> 示例值：
-         *
-         * @param thirdPartyMeetingSettings
-         * @return
-         */
-        public Builder thirdPartyMeetingSettings(ThirdPartyMeetingSettings thirdPartyMeetingSettings) {
-            this.thirdPartyMeetingSettings = thirdPartyMeetingSettings;
-            return this;
-        }
-
-
-        public Vchat build() {
-            return new Vchat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

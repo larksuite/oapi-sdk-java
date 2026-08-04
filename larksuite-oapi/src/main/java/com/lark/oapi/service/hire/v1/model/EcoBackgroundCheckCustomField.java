@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoBackgroundCheckCustomField {
+  /**
+   * 背调账号 ID，可在「账号绑定」事件中获取
+   *
+   * <p>示例值：6995842370159937061
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  /**
+   * 自定义字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_list")
+  private EcoBackgroundCheckCustomFieldData[] customFieldList;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public EcoBackgroundCheckCustomFieldData[] getCustomFieldList() {
+    return this.customFieldList;
+  }
+
+  public void setCustomFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
+    this.customFieldList = customFieldList;
+  }
+
+  // builder 开始
+  public EcoBackgroundCheckCustomField() {}
+
+  public EcoBackgroundCheckCustomField(Builder builder) {
     /**
      * 背调账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：6995842370159937061
+     *
+     * <p>示例值：6995842370159937061
      */
-    @SerializedName("account_id")
-    private String accountId;
+    this.accountId = builder.accountId;
     /**
      * 自定义字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_list")
+    this.customFieldList = builder.customFieldList;
+  }
+
+  public static class Builder {
+    /**
+     * 背调账号 ID，可在「账号绑定」事件中获取
+     *
+     * <p>示例值：6995842370159937061
+     */
+    private String accountId;
+
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     */
     private EcoBackgroundCheckCustomFieldData[] customFieldList;
 
-    // builder 开始
-    public EcoBackgroundCheckCustomField() {
+    /**
+     * 背调账号 ID，可在「账号绑定」事件中获取
+     *
+     * <p>示例值：6995842370159937061
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public EcoBackgroundCheckCustomField(Builder builder) {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：6995842370159937061
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        this.customFieldList = builder.customFieldList;
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     *
+     * @param customFieldList
+     * @return
+     */
+    public Builder customFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
+      this.customFieldList = customFieldList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EcoBackgroundCheckCustomField build() {
+      return new EcoBackgroundCheckCustomField(this);
     }
+  }
 
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public EcoBackgroundCheckCustomFieldData[] getCustomFieldList() {
-        return this.customFieldList;
-    }
-
-    public void setCustomFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
-        this.customFieldList = customFieldList;
-    }
-
-    public static class Builder {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：6995842370159937061
-         */
-        private String accountId;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        private EcoBackgroundCheckCustomFieldData[] customFieldList;
-
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：6995842370159937061
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         *
-         * @param customFieldList
-         * @return
-         */
-        public Builder customFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
-            this.customFieldList = customFieldList;
-            return this;
-        }
-
-
-        public EcoBackgroundCheckCustomField build() {
-            return new EcoBackgroundCheckCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

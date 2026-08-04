@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDepartment {
+  /**
+   * 部门 ID，与入参中的`department_id_type`类型一致
+   *
+   * <p>示例值：7281257045172308287
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门中文名称
+   *
+   * <p>示例值：字节跳动
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 部门英文名称
+   *
+   * <p>示例值：Bytedance
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  // builder 开始
+  public JobDepartment() {}
+
+  public JobDepartment(Builder builder) {
     /**
-     * 部门 ID
-     * <p> 示例值：od-xxxx
+     * 部门 ID，与入参中的`department_id_type`类型一致
+     *
+     * <p>示例值：7281257045172308287
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 部门中文名称
-     * <p> 示例值：字节跳动
+     *
+     * <p>示例值：字节跳动
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 部门英文名称
-     * <p> 示例值：Bytedance
+     *
+     * <p>示例值：Bytedance
      */
-    @SerializedName("en_name")
+    this.enName = builder.enName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID，与入参中的`department_id_type`类型一致
+     *
+     * <p>示例值：7281257045172308287
+     */
+    private String id;
+
+    /**
+     * 部门中文名称
+     *
+     * <p>示例值：字节跳动
+     */
+    private String zhName;
+
+    /**
+     * 部门英文名称
+     *
+     * <p>示例值：Bytedance
+     */
     private String enName;
 
-    // builder 开始
-    public JobDepartment() {
+    /**
+     * 部门 ID，与入参中的`department_id_type`类型一致
+     *
+     * <p>示例值：7281257045172308287
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobDepartment(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：od-xxxx
-         */
-        this.id = builder.id;
-        /**
-         * 部门中文名称
-         * <p> 示例值：字节跳动
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 部门英文名称
-         * <p> 示例值：Bytedance
-         */
-        this.enName = builder.enName;
+    /**
+     * 部门中文名称
+     *
+     * <p>示例值：字节跳动
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门英文名称
+     *
+     * <p>示例值：Bytedance
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public JobDepartment build() {
+      return new JobDepartment(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：od-xxxx
-         */
-        private String id;
-        /**
-         * 部门中文名称
-         * <p> 示例值：字节跳动
-         */
-        private String zhName;
-        /**
-         * 部门英文名称
-         * <p> 示例值：Bytedance
-         */
-        private String enName;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：od-xxxx
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门中文名称
-         * <p> 示例值：字节跳动
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 部门英文名称
-         * <p> 示例值：Bytedance
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        public JobDepartment build() {
-            return new JobDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

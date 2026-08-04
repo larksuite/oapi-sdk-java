@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TradeDetail {
+  /**
+   * 内推账户ID，通过[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)生成
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  /**
+   * 时间段内该账户在积分商城的实际充值金额
+   *
+   * <p>示例值：
+   */
+  @SerializedName("total_recharge_reward_info")
+  private BonusAmount totalRechargeRewardInfo;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public BonusAmount getTotalRechargeRewardInfo() {
+    return this.totalRechargeRewardInfo;
+  }
+
+  public void setTotalRechargeRewardInfo(BonusAmount totalRechargeRewardInfo) {
+    this.totalRechargeRewardInfo = totalRechargeRewardInfo;
+  }
+
+  // builder 开始
+  public TradeDetail() {}
+
+  public TradeDetail(Builder builder) {
     /**
-     * 账户ID
-     * <p> 示例值：6930815272790114324
+     * 内推账户ID，通过[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)生成
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("account_id")
-    private String accountId;
+    this.accountId = builder.accountId;
     /**
      * 时间段内该账户在积分商城的实际充值金额
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("total_recharge_reward_info")
+    this.totalRechargeRewardInfo = builder.totalRechargeRewardInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 内推账户ID，通过[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)生成
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String accountId;
+
+    /**
+     * 时间段内该账户在积分商城的实际充值金额
+     *
+     * <p>示例值：
+     */
     private BonusAmount totalRechargeRewardInfo;
 
-    // builder 开始
-    public TradeDetail() {
+    /**
+     * 内推账户ID，通过[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)生成
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public TradeDetail(Builder builder) {
-        /**
-         * 账户ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 时间段内该账户在积分商城的实际充值金额
-         * <p> 示例值：
-         */
-        this.totalRechargeRewardInfo = builder.totalRechargeRewardInfo;
+    /**
+     * 时间段内该账户在积分商城的实际充值金额
+     *
+     * <p>示例值：
+     *
+     * @param totalRechargeRewardInfo
+     * @return
+     */
+    public Builder totalRechargeRewardInfo(BonusAmount totalRechargeRewardInfo) {
+      this.totalRechargeRewardInfo = totalRechargeRewardInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TradeDetail build() {
+      return new TradeDetail(this);
     }
+  }
 
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public BonusAmount getTotalRechargeRewardInfo() {
-        return this.totalRechargeRewardInfo;
-    }
-
-    public void setTotalRechargeRewardInfo(BonusAmount totalRechargeRewardInfo) {
-        this.totalRechargeRewardInfo = totalRechargeRewardInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 账户ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String accountId;
-        /**
-         * 时间段内该账户在积分商城的实际充值金额
-         * <p> 示例值：
-         */
-        private BonusAmount totalRechargeRewardInfo;
-
-        /**
-         * 账户ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        /**
-         * 时间段内该账户在积分商城的实际充值金额
-         * <p> 示例值：
-         *
-         * @param totalRechargeRewardInfo
-         * @return
-         */
-        public Builder totalRechargeRewardInfo(BonusAmount totalRechargeRewardInfo) {
-            this.totalRechargeRewardInfo = totalRechargeRewardInfo;
-            return this;
-        }
-
-
-        public TradeDetail build() {
-            return new TradeDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

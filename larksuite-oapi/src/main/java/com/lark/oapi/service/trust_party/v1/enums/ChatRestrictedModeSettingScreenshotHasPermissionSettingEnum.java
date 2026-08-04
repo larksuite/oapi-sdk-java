@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.trust_party.v1.enums;
 
-/**
- * 允许截屏录屏
- */
+/** 允许截屏录屏 */
 public enum ChatRestrictedModeSettingScreenshotHasPermissionSettingEnum {
-    ALLMEMBERS("all_members"), // 所有成员允许截屏录屏
-    NOTANYONE("not_anyone"), // 所有成员禁止截屏录屏
-    ;
-    private String value;
+  ALLMEMBERS("all_members"), // 所有成员允许截屏录屏
+  NOTANYONE("not_anyone"), // 所有成员禁止截屏录屏
+  ;
+  private String value;
 
-    ChatRestrictedModeSettingScreenshotHasPermissionSettingEnum(String value) {
-        this.value = value;
-    }
+  ChatRestrictedModeSettingScreenshotHasPermissionSettingEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

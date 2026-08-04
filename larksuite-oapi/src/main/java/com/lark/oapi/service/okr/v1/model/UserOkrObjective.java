@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOkrObjective {
+  /**
+   * Objective ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 权限，0无权限，1有权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("permission")
+  private Integer permission;
+
+  /**
+   * Objective 内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * Objective 进度记录内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_report")
+  private String progressReport;
+
+  /**
+   * Objective 分数（0 - 100）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score")
+  private String score;
+
+  /**
+   * Objective进度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_rate")
+  private UserOkrObjectiveProgressRate progressRate;
+
+  /**
+   * Objective KeyResult 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("kr_list")
+  private UserOkrObjectiveKr[] krList;
+
+  /**
+   * 对齐到该Objective的Objective列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("aligned_objective_list")
+  private UserOkrObjectiveAlignedObjective[] alignedObjectiveList;
+
+  /**
+   * 该Objective对齐到的Objective列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("aligning_objective_list")
+  private UserOkrObjectiveAlignedObjective[] aligningObjectiveList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getPermission() {
+    return this.permission;
+  }
+
+  public void setPermission(Integer permission) {
+    this.permission = permission;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getProgressReport() {
+    return this.progressReport;
+  }
+
+  public void setProgressReport(String progressReport) {
+    this.progressReport = progressReport;
+  }
+
+  public String getScore() {
+    return this.score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
+  }
+
+  public UserOkrObjectiveProgressRate getProgressRate() {
+    return this.progressRate;
+  }
+
+  public void setProgressRate(UserOkrObjectiveProgressRate progressRate) {
+    this.progressRate = progressRate;
+  }
+
+  public UserOkrObjectiveKr[] getKrList() {
+    return this.krList;
+  }
+
+  public void setKrList(UserOkrObjectiveKr[] krList) {
+    this.krList = krList;
+  }
+
+  public UserOkrObjectiveAlignedObjective[] getAlignedObjectiveList() {
+    return this.alignedObjectiveList;
+  }
+
+  public void setAlignedObjectiveList(UserOkrObjectiveAlignedObjective[] alignedObjectiveList) {
+    this.alignedObjectiveList = alignedObjectiveList;
+  }
+
+  public UserOkrObjectiveAlignedObjective[] getAligningObjectiveList() {
+    return this.aligningObjectiveList;
+  }
+
+  public void setAligningObjectiveList(UserOkrObjectiveAlignedObjective[] aligningObjectiveList) {
+    this.aligningObjectiveList = aligningObjectiveList;
+  }
+
+  // builder 开始
+  public UserOkrObjective() {}
+
+  public UserOkrObjective(Builder builder) {
     /**
      * Objective ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 权限，0无权限，1有权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("permission")
-    private Integer permission;
+    this.permission = builder.permission;
     /**
      * Objective 内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * Objective 进度记录内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_report")
-    private String progressReport;
+    this.progressReport = builder.progressReport;
     /**
      * Objective 分数（0 - 100）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("score")
-    private String score;
+    this.score = builder.score;
     /**
      * Objective进度
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_rate")
-    private UserOkrObjectiveProgressRate progressRate;
+    this.progressRate = builder.progressRate;
     /**
      * Objective KeyResult 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("kr_list")
-    private UserOkrObjectiveKr[] krList;
+    this.krList = builder.krList;
     /**
      * 对齐到该Objective的Objective列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("aligned_objective_list")
-    private UserOkrObjectiveAlignedObjective[] alignedObjectiveList;
+    this.alignedObjectiveList = builder.alignedObjectiveList;
     /**
      * 该Objective对齐到的Objective列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("aligning_objective_list")
+    this.aligningObjectiveList = builder.aligningObjectiveList;
+  }
+
+  public static class Builder {
+    /**
+     * Objective ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 权限，0无权限，1有权限
+     *
+     * <p>示例值：
+     */
+    private Integer permission;
+
+    /**
+     * Objective 内容
+     *
+     * <p>示例值：
+     */
+    private String content;
+
+    /**
+     * Objective 进度记录内容
+     *
+     * <p>示例值：
+     */
+    private String progressReport;
+
+    /**
+     * Objective 分数（0 - 100）
+     *
+     * <p>示例值：
+     */
+    private String score;
+
+    /**
+     * Objective进度
+     *
+     * <p>示例值：
+     */
+    private UserOkrObjectiveProgressRate progressRate;
+
+    /**
+     * Objective KeyResult 列表
+     *
+     * <p>示例值：
+     */
+    private UserOkrObjectiveKr[] krList;
+
+    /**
+     * 对齐到该Objective的Objective列表
+     *
+     * <p>示例值：
+     */
+    private UserOkrObjectiveAlignedObjective[] alignedObjectiveList;
+
+    /**
+     * 该Objective对齐到的Objective列表
+     *
+     * <p>示例值：
+     */
     private UserOkrObjectiveAlignedObjective[] aligningObjectiveList;
 
-    // builder 开始
-    public UserOkrObjective() {
+    /**
+     * Objective ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserOkrObjective(Builder builder) {
-        /**
-         * Objective ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 权限，0无权限，1有权限
-         * <p> 示例值：
-         */
-        this.permission = builder.permission;
-        /**
-         * Objective 内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * Objective 进度记录内容
-         * <p> 示例值：
-         */
-        this.progressReport = builder.progressReport;
-        /**
-         * Objective 分数（0 - 100）
-         * <p> 示例值：
-         */
-        this.score = builder.score;
-        /**
-         * Objective进度
-         * <p> 示例值：
-         */
-        this.progressRate = builder.progressRate;
-        /**
-         * Objective KeyResult 列表
-         * <p> 示例值：
-         */
-        this.krList = builder.krList;
-        /**
-         * 对齐到该Objective的Objective列表
-         * <p> 示例值：
-         */
-        this.alignedObjectiveList = builder.alignedObjectiveList;
-        /**
-         * 该Objective对齐到的Objective列表
-         * <p> 示例值：
-         */
-        this.aligningObjectiveList = builder.aligningObjectiveList;
+    /**
+     * 权限，0无权限，1有权限
+     *
+     * <p>示例值：
+     *
+     * @param permission
+     * @return
+     */
+    public Builder permission(Integer permission) {
+      this.permission = permission;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Objective 内容
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * Objective 进度记录内容
+     *
+     * <p>示例值：
+     *
+     * @param progressReport
+     * @return
+     */
+    public Builder progressReport(String progressReport) {
+      this.progressReport = progressReport;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * Objective 分数（0 - 100）
+     *
+     * <p>示例值：
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(String score) {
+      this.score = score;
+      return this;
     }
 
-    public Integer getPermission() {
-        return this.permission;
+    /**
+     * Objective进度
+     *
+     * <p>示例值：
+     *
+     * @param progressRate
+     * @return
+     */
+    public Builder progressRate(UserOkrObjectiveProgressRate progressRate) {
+      this.progressRate = progressRate;
+      return this;
     }
 
-    public void setPermission(Integer permission) {
-        this.permission = permission;
+    /**
+     * Objective KeyResult 列表
+     *
+     * <p>示例值：
+     *
+     * @param krList
+     * @return
+     */
+    public Builder krList(UserOkrObjectiveKr[] krList) {
+      this.krList = krList;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 对齐到该Objective的Objective列表
+     *
+     * <p>示例值：
+     *
+     * @param alignedObjectiveList
+     * @return
+     */
+    public Builder alignedObjectiveList(UserOkrObjectiveAlignedObjective[] alignedObjectiveList) {
+      this.alignedObjectiveList = alignedObjectiveList;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 该Objective对齐到的Objective列表
+     *
+     * <p>示例值：
+     *
+     * @param aligningObjectiveList
+     * @return
+     */
+    public Builder aligningObjectiveList(UserOkrObjectiveAlignedObjective[] aligningObjectiveList) {
+      this.aligningObjectiveList = aligningObjectiveList;
+      return this;
     }
 
-    public String getProgressReport() {
-        return this.progressReport;
+    public UserOkrObjective build() {
+      return new UserOkrObjective(this);
     }
+  }
 
-    public void setProgressReport(String progressReport) {
-        this.progressReport = progressReport;
-    }
-
-    public String getScore() {
-        return this.score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public UserOkrObjectiveProgressRate getProgressRate() {
-        return this.progressRate;
-    }
-
-    public void setProgressRate(UserOkrObjectiveProgressRate progressRate) {
-        this.progressRate = progressRate;
-    }
-
-    public UserOkrObjectiveKr[] getKrList() {
-        return this.krList;
-    }
-
-    public void setKrList(UserOkrObjectiveKr[] krList) {
-        this.krList = krList;
-    }
-
-    public UserOkrObjectiveAlignedObjective[] getAlignedObjectiveList() {
-        return this.alignedObjectiveList;
-    }
-
-    public void setAlignedObjectiveList(UserOkrObjectiveAlignedObjective[] alignedObjectiveList) {
-        this.alignedObjectiveList = alignedObjectiveList;
-    }
-
-    public UserOkrObjectiveAlignedObjective[] getAligningObjectiveList() {
-        return this.aligningObjectiveList;
-    }
-
-    public void setAligningObjectiveList(UserOkrObjectiveAlignedObjective[] aligningObjectiveList) {
-        this.aligningObjectiveList = aligningObjectiveList;
-    }
-
-    public static class Builder {
-        /**
-         * Objective ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 权限，0无权限，1有权限
-         * <p> 示例值：
-         */
-        private Integer permission;
-        /**
-         * Objective 内容
-         * <p> 示例值：
-         */
-        private String content;
-        /**
-         * Objective 进度记录内容
-         * <p> 示例值：
-         */
-        private String progressReport;
-        /**
-         * Objective 分数（0 - 100）
-         * <p> 示例值：
-         */
-        private String score;
-        /**
-         * Objective进度
-         * <p> 示例值：
-         */
-        private UserOkrObjectiveProgressRate progressRate;
-        /**
-         * Objective KeyResult 列表
-         * <p> 示例值：
-         */
-        private UserOkrObjectiveKr[] krList;
-        /**
-         * 对齐到该Objective的Objective列表
-         * <p> 示例值：
-         */
-        private UserOkrObjectiveAlignedObjective[] alignedObjectiveList;
-        /**
-         * 该Objective对齐到的Objective列表
-         * <p> 示例值：
-         */
-        private UserOkrObjectiveAlignedObjective[] aligningObjectiveList;
-
-        /**
-         * Objective ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 权限，0无权限，1有权限
-         * <p> 示例值：
-         *
-         * @param permission
-         * @return
-         */
-        public Builder permission(Integer permission) {
-            this.permission = permission;
-            return this;
-        }
-
-
-        /**
-         * Objective 内容
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * Objective 进度记录内容
-         * <p> 示例值：
-         *
-         * @param progressReport
-         * @return
-         */
-        public Builder progressReport(String progressReport) {
-            this.progressReport = progressReport;
-            return this;
-        }
-
-
-        /**
-         * Objective 分数（0 - 100）
-         * <p> 示例值：
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(String score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * Objective进度
-         * <p> 示例值：
-         *
-         * @param progressRate
-         * @return
-         */
-        public Builder progressRate(UserOkrObjectiveProgressRate progressRate) {
-            this.progressRate = progressRate;
-            return this;
-        }
-
-
-        /**
-         * Objective KeyResult 列表
-         * <p> 示例值：
-         *
-         * @param krList
-         * @return
-         */
-        public Builder krList(UserOkrObjectiveKr[] krList) {
-            this.krList = krList;
-            return this;
-        }
-
-
-        /**
-         * 对齐到该Objective的Objective列表
-         * <p> 示例值：
-         *
-         * @param alignedObjectiveList
-         * @return
-         */
-        public Builder alignedObjectiveList(UserOkrObjectiveAlignedObjective[] alignedObjectiveList) {
-            this.alignedObjectiveList = alignedObjectiveList;
-            return this;
-        }
-
-
-        /**
-         * 该Objective对齐到的Objective列表
-         * <p> 示例值：
-         *
-         * @param aligningObjectiveList
-         * @return
-         */
-        public Builder aligningObjectiveList(UserOkrObjectiveAlignedObjective[] aligningObjectiveList) {
-            this.aligningObjectiveList = aligningObjectiveList;
-            return this;
-        }
-
-
-        public UserOkrObjective build() {
-            return new UserOkrObjective(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

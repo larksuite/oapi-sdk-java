@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ApplicationAppVersionPublishRevokeV6Data {
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id")
-    private UserId operatorId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("creator_id")
-    private UserId creatorId;
-    /**
-     * 撤回应用的 id
-     * <p> 示例值：cli_9b445f5258795107
-     */
-    @SerializedName("app_id")
-    private String appId;
-    /**
-     * 撤回应用的版本 id
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     */
-    @SerializedName("version_id")
-    private String versionId;
+  /**
+   * 撤回应用申请的成员 id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
 
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
+  /**
+   * 应用创建者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator_id")
+  private UserId creatorId;
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
+  /**
+   * 撤回应用的 id
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
 
-    public UserId getCreatorId() {
-        return this.creatorId;
-    }
+  /**
+   * 撤回应用的版本 id
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("version_id")
+  private String versionId;
 
-    public void setCreatorId(UserId creatorId) {
-        this.creatorId = creatorId;
-    }
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
+  public UserId getCreatorId() {
+    return this.creatorId;
+  }
 
-    public String getVersionId() {
-        return this.versionId;
-    }
+  public void setCreatorId(UserId creatorId) {
+    this.creatorId = creatorId;
+  }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
+  public String getAppId() {
+    return this.appId;
+  }
 
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
 }

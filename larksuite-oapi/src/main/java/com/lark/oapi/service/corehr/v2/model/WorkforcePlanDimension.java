@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkforcePlanDimension {
+  /**
+   * 维度key
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 维度名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public WorkforcePlanDimension() {}
+
+  public WorkforcePlanDimension(Builder builder) {
     /**
      * 维度key
-     * <p> 示例值：department
+     *
+     * <p>示例值：department
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 维度名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 维度key
+     *
+     * <p>示例值：department
+     */
+    private String key;
+
+    /**
+     * 维度名称
+     *
+     * <p>示例值：
+     */
     private I18n[] name;
 
-    // builder 开始
-    public WorkforcePlanDimension() {
+    /**
+     * 维度key
+     *
+     * <p>示例值：department
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public WorkforcePlanDimension(Builder builder) {
-        /**
-         * 维度key
-         * <p> 示例值：department
-         */
-        this.key = builder.key;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 维度名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WorkforcePlanDimension build() {
+      return new WorkforcePlanDimension(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public I18n[] getName() {
-        return this.name;
-    }
-
-    public void setName(I18n[] name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 维度key
-         * <p> 示例值：department
-         */
-        private String key;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-
-        /**
-         * 维度key
-         * <p> 示例值：department
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 维度名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public WorkforcePlanDimension build() {
-            return new WorkforcePlanDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

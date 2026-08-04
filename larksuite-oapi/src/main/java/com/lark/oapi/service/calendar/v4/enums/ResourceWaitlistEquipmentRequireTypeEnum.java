@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * 候补会议室设备要求
- */
+/** 候补会议室设备要求 */
 public enum ResourceWaitlistEquipmentRequireTypeEnum {
-    REQUIRENONEEQUIPMENT("RequireNoneEquipment"), // 无要求
-    INCLUDEPROJECTOR("IncludeProjector"), // 支持视频会议
-    ;
-    private String value;
+  REQUIRENONEEQUIPMENT("RequireNoneEquipment"), // 无要求
+  INCLUDEPROJECTOR("IncludeProjector"), // 支持视频会议
+  ;
+  private String value;
 
-    ResourceWaitlistEquipmentRequireTypeEnum(String value) {
-        this.value = value;
-    }
+  ResourceWaitlistEquipmentRequireTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentSearchFilterOptionItem {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 员工常用姓名
+   *
+   * <p>示例值：王某
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 员工工号
+   *
+   * <p>示例值：1069075
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 员工工作邮箱
+   *
+   * <p>示例值：wb995532169@qq.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  // builder 开始
+  public EmploymentSearchFilterOptionItem() {}
+
+  public EmploymentSearchFilterOptionItem(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 员工常用姓名
-     * <p> 示例值：王某
+     *
+     * <p>示例值：王某
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 员工工号
-     * <p> 示例值：1069075
+     *
+     * <p>示例值：1069075
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 员工工作邮箱
-     * <p> 示例值：wb995532169@qq.com
+     *
+     * <p>示例值：wb995532169@qq.com
      */
-    @SerializedName("email")
+    this.email = builder.email;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String employmentId;
+
+    /**
+     * 员工常用姓名
+     *
+     * <p>示例值：王某
+     */
+    private String name;
+
+    /**
+     * 员工工号
+     *
+     * <p>示例值：1069075
+     */
+    private String employeeNumber;
+
+    /**
+     * 员工工作邮箱
+     *
+     * <p>示例值：wb995532169@qq.com
+     */
     private String email;
 
-    // builder 开始
-    public EmploymentSearchFilterOptionItem() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmploymentSearchFilterOptionItem(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 员工常用姓名
-         * <p> 示例值：王某
-         */
-        this.name = builder.name;
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         */
-        this.email = builder.email;
+    /**
+     * 员工常用姓名
+     *
+     * <p>示例值：王某
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工工号
+     *
+     * <p>示例值：1069075
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 员工工作邮箱
+     *
+     * <p>示例值：wb995532169@qq.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    public EmploymentSearchFilterOptionItem build() {
+      return new EmploymentSearchFilterOptionItem(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
-    }
-
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String employmentId;
-        /**
-         * 员工常用姓名
-         * <p> 示例值：王某
-         */
-        private String name;
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         */
-        private String employeeNumber;
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         */
-        private String email;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 员工常用姓名
-         * <p> 示例值：王某
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        public EmploymentSearchFilterOptionItem build() {
-            return new EmploymentSearchFilterOptionItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

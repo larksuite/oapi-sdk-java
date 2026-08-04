@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody {
+  /**
+   * 部门调整记录 ID 列表。调整记录详情可通过[【根据流程 ID
+   * 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)
+   * 获取。 ;- 必须是查询参数process_id对应的流程下的部门调整记录ID。;- 未设置时查询到的部门调整记录为空。;- 返回的变更 ID 类型与
+   * 查询参数中的```department_id_type``` 一致。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_change_ids")
+  private String[] departmentChangeIds;
+
+  /**
+   * 是否返回部门全路径， 用于在组织架构调整中级联创建部门的场景， 由于上级部门还未生效， 因此返回全路径用于数据查询。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_department_path")
+  private Boolean needDepartmentPath;
+
+  public String[] getDepartmentChangeIds() {
+    return this.departmentChangeIds;
+  }
+
+  public void setDepartmentChangeIds(String[] departmentChangeIds) {
+    this.departmentChangeIds = departmentChangeIds;
+  }
+
+  public Boolean getNeedDepartmentPath() {
+    return this.needDepartmentPath;
+  }
+
+  public void setNeedDepartmentPath(Boolean needDepartmentPath) {
+    this.needDepartmentPath = needDepartmentPath;
+  }
+
+  // builder 开始
+  public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody() {}
+
+  public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody(Builder builder) {
     /**
-     * 部门调整记录 ID List
-     * <p> 示例值：
+     * 部门调整记录 ID 列表。调整记录详情可通过[【根据流程 ID
+     * 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)
+     * 获取。 ;- 必须是查询参数process_id对应的流程下的部门调整记录ID。;- 未设置时查询到的部门调整记录为空。;- 返回的变更 ID 类型与
+     * 查询参数中的```department_id_type``` 一致。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_change_ids")
+    this.departmentChangeIds = builder.departmentChangeIds;
+    /**
+     * 是否返回部门全路径， 用于在组织架构调整中级联创建部门的场景， 由于上级部门还未生效， 因此返回全路径用于数据查询。
+     *
+     * <p>示例值：false
+     */
+    this.needDepartmentPath = builder.needDepartmentPath;
+  }
+
+  public static class Builder {
+    /**
+     * 部门调整记录 ID 列表。调整记录详情可通过[【根据流程 ID
+     * 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)
+     * 获取。 ;- 必须是查询参数process_id对应的流程下的部门调整记录ID。;- 未设置时查询到的部门调整记录为空。;- 返回的变更 ID 类型与
+     * 查询参数中的```department_id_type``` 一致。
+     *
+     * <p>示例值：
+     */
     private String[] departmentChangeIds;
+
     /**
-     * 是否返回部门全路径
-     * <p> 示例值：false
+     * 是否返回部门全路径， 用于在组织架构调整中级联创建部门的场景， 由于上级部门还未生效， 因此返回全路径用于数据查询。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_department_path")
     private Boolean needDepartmentPath;
 
-    // builder 开始
-    public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody() {
+    /**
+     * 部门调整记录 ID 列表。调整记录详情可通过[【根据流程 ID
+     * 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)
+     * 获取。 ;- 必须是查询参数process_id对应的流程下的部门调整记录ID。;- 未设置时查询到的部门调整记录为空。;- 返回的变更 ID 类型与
+     * 查询参数中的```department_id_type``` 一致。
+     *
+     * <p>示例值：
+     *
+     * @param departmentChangeIds
+     * @return
+     */
+    public Builder departmentChangeIds(String[] departmentChangeIds) {
+      this.departmentChangeIds = departmentChangeIds;
+      return this;
     }
 
-    public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody(Builder builder) {
-        /**
-         * 部门调整记录 ID List
-         * <p> 示例值：
-         */
-        this.departmentChangeIds = builder.departmentChangeIds;
-        /**
-         * 是否返回部门全路径
-         * <p> 示例值：false
-         */
-        this.needDepartmentPath = builder.needDepartmentPath;
+    /**
+     * 是否返回部门全路径， 用于在组织架构调整中级联创建部门的场景， 由于上级部门还未生效， 因此返回全路径用于数据查询。
+     *
+     * <p>示例值：false
+     *
+     * @param needDepartmentPath
+     * @return
+     */
+    public Builder needDepartmentPath(Boolean needDepartmentPath) {
+      this.needDepartmentPath = needDepartmentPath;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody build() {
+      return new OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody(this);
     }
+  }
 
-    public String[] getDepartmentChangeIds() {
-        return this.departmentChangeIds;
-    }
-
-    public void setDepartmentChangeIds(String[] departmentChangeIds) {
-        this.departmentChangeIds = departmentChangeIds;
-    }
-
-    public Boolean getNeedDepartmentPath() {
-        return this.needDepartmentPath;
-    }
-
-    public void setNeedDepartmentPath(Boolean needDepartmentPath) {
-        this.needDepartmentPath = needDepartmentPath;
-    }
-
-    public static class Builder {
-        /**
-         * 部门调整记录 ID List
-         * <p> 示例值：
-         */
-        private String[] departmentChangeIds;
-        /**
-         * 是否返回部门全路径
-         * <p> 示例值：false
-         */
-        private Boolean needDepartmentPath;
-
-        /**
-         * 部门调整记录 ID List
-         * <p> 示例值：
-         *
-         * @param departmentChangeIds
-         * @return
-         */
-        public Builder departmentChangeIds(String[] departmentChangeIds) {
-            this.departmentChangeIds = departmentChangeIds;
-            return this;
-        }
-
-
-        /**
-         * 是否返回部门全路径
-         * <p> 示例值：false
-         *
-         * @param needDepartmentPath
-         * @return
-         */
-        public Builder needDepartmentPath(Boolean needDepartmentPath) {
-            this.needDepartmentPath = needDepartmentPath;
-            return this;
-        }
-
-
-        public OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody build() {
-            return new OpenQueryDepartmentChangeListByIdsApprovalGroupsReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

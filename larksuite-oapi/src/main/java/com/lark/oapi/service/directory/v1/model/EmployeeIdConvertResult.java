@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeIdConvertResult {
+  /**
+   * ID
+   *
+   * <p>示例值：ahjdsioad
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 员工ID
+   *
+   * <p>示例值：ahjdsioad
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 员工OpenID
+   *
+   * <p>示例值：ou_55432732133012310fb4390611231de61
+   */
+  @SerializedName("open_employee_id")
+  private String openEmployeeId;
+
+  /**
+   * 员工UnionID
+   *
+   * <p>示例值：on_b25e9058531123dawac4b379c2e257906
+   */
+  @SerializedName("union_employee_id")
+  private String unionEmployeeId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getOpenEmployeeId() {
+    return this.openEmployeeId;
+  }
+
+  public void setOpenEmployeeId(String openEmployeeId) {
+    this.openEmployeeId = openEmployeeId;
+  }
+
+  public String getUnionEmployeeId() {
+    return this.unionEmployeeId;
+  }
+
+  public void setUnionEmployeeId(String unionEmployeeId) {
+    this.unionEmployeeId = unionEmployeeId;
+  }
+
+  // builder 开始
+  public EmployeeIdConvertResult() {}
+
+  public EmployeeIdConvertResult(Builder builder) {
     /**
      * ID
-     * <p> 示例值：ahjdsioad
+     *
+     * <p>示例值：ahjdsioad
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 员工ID
-     * <p> 示例值：ahjdsioad
+     *
+     * <p>示例值：ahjdsioad
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 员工OpenID
-     * <p> 示例值：ou_55432732133012310fb4390611231de61
+     *
+     * <p>示例值：ou_55432732133012310fb4390611231de61
      */
-    @SerializedName("open_employee_id")
-    private String openEmployeeId;
+    this.openEmployeeId = builder.openEmployeeId;
     /**
      * 员工UnionID
-     * <p> 示例值：on_b25e9058531123dawac4b379c2e257906
+     *
+     * <p>示例值：on_b25e9058531123dawac4b379c2e257906
      */
-    @SerializedName("union_employee_id")
+    this.unionEmployeeId = builder.unionEmployeeId;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：ahjdsioad
+     */
+    private String id;
+
+    /**
+     * 员工ID
+     *
+     * <p>示例值：ahjdsioad
+     */
+    private String employeeId;
+
+    /**
+     * 员工OpenID
+     *
+     * <p>示例值：ou_55432732133012310fb4390611231de61
+     */
+    private String openEmployeeId;
+
+    /**
+     * 员工UnionID
+     *
+     * <p>示例值：on_b25e9058531123dawac4b379c2e257906
+     */
     private String unionEmployeeId;
 
-    // builder 开始
-    public EmployeeIdConvertResult() {
+    /**
+     * ID
+     *
+     * <p>示例值：ahjdsioad
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EmployeeIdConvertResult(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         */
-        this.id = builder.id;
-        /**
-         * 员工ID
-         * <p> 示例值：ahjdsioad
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 员工OpenID
-         * <p> 示例值：ou_55432732133012310fb4390611231de61
-         */
-        this.openEmployeeId = builder.openEmployeeId;
-        /**
-         * 员工UnionID
-         * <p> 示例值：on_b25e9058531123dawac4b379c2e257906
-         */
-        this.unionEmployeeId = builder.unionEmployeeId;
+    /**
+     * 员工ID
+     *
+     * <p>示例值：ahjdsioad
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工OpenID
+     *
+     * <p>示例值：ou_55432732133012310fb4390611231de61
+     *
+     * @param openEmployeeId
+     * @return
+     */
+    public Builder openEmployeeId(String openEmployeeId) {
+      this.openEmployeeId = openEmployeeId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 员工UnionID
+     *
+     * <p>示例值：on_b25e9058531123dawac4b379c2e257906
+     *
+     * @param unionEmployeeId
+     * @return
+     */
+    public Builder unionEmployeeId(String unionEmployeeId) {
+      this.unionEmployeeId = unionEmployeeId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public EmployeeIdConvertResult build() {
+      return new EmployeeIdConvertResult(this);
     }
+  }
 
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getOpenEmployeeId() {
-        return this.openEmployeeId;
-    }
-
-    public void setOpenEmployeeId(String openEmployeeId) {
-        this.openEmployeeId = openEmployeeId;
-    }
-
-    public String getUnionEmployeeId() {
-        return this.unionEmployeeId;
-    }
-
-    public void setUnionEmployeeId(String unionEmployeeId) {
-        this.unionEmployeeId = unionEmployeeId;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         */
-        private String id;
-        /**
-         * 员工ID
-         * <p> 示例值：ahjdsioad
-         */
-        private String employeeId;
-        /**
-         * 员工OpenID
-         * <p> 示例值：ou_55432732133012310fb4390611231de61
-         */
-        private String openEmployeeId;
-        /**
-         * 员工UnionID
-         * <p> 示例值：on_b25e9058531123dawac4b379c2e257906
-         */
-        private String unionEmployeeId;
-
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 员工ID
-         * <p> 示例值：ahjdsioad
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 员工OpenID
-         * <p> 示例值：ou_55432732133012310fb4390611231de61
-         *
-         * @param openEmployeeId
-         * @return
-         */
-        public Builder openEmployeeId(String openEmployeeId) {
-            this.openEmployeeId = openEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 员工UnionID
-         * <p> 示例值：on_b25e9058531123dawac4b379c2e257906
-         *
-         * @param unionEmployeeId
-         * @return
-         */
-        public Builder unionEmployeeId(String unionEmployeeId) {
-            this.unionEmployeeId = unionEmployeeId;
-            return this;
-        }
-
-
-        public EmployeeIdConvertResult build() {
-            return new EmployeeIdConvertResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

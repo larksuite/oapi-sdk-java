@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PaymentDetail {
+  /**
+   * 员工的唯一标识
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 发薪明细所在的发薪活动 ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 发薪明细详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("payment_accounting_items")
+  private PaymentAccountingItem[] paymentAccountingItems;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public PaymentAccountingItem[] getPaymentAccountingItems() {
+    return this.paymentAccountingItems;
+  }
+
+  public void setPaymentAccountingItems(PaymentAccountingItem[] paymentAccountingItems) {
+    this.paymentAccountingItems = paymentAccountingItems;
+  }
+
+  // builder 开始
+  public PaymentDetail() {}
+
+  public PaymentDetail(Builder builder) {
     /**
      * 员工的唯一标识
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 发薪明细所在的发薪活动 ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 发薪明细详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("payment_accounting_items")
+    this.paymentAccountingItems = builder.paymentAccountingItems;
+  }
+
+  public static class Builder {
+    /**
+     * 员工的唯一标识
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String employeeId;
+
+    /**
+     * 发薪明细所在的发薪活动 ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String activityId;
+
+    /**
+     * 发薪明细详情
+     *
+     * <p>示例值：
+     */
     private PaymentAccountingItem[] paymentAccountingItems;
 
-    // builder 开始
-    public PaymentDetail() {
+    /**
+     * 员工的唯一标识
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public PaymentDetail(Builder builder) {
-        /**
-         * 员工的唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 发薪明细所在的发薪活动 ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 发薪明细详情
-         * <p> 示例值：
-         */
-        this.paymentAccountingItems = builder.paymentAccountingItems;
+    /**
+     * 发薪明细所在的发薪活动 ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发薪明细详情
+     *
+     * <p>示例值：
+     *
+     * @param paymentAccountingItems
+     * @return
+     */
+    public Builder paymentAccountingItems(PaymentAccountingItem[] paymentAccountingItems) {
+      this.paymentAccountingItems = paymentAccountingItems;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    public PaymentDetail build() {
+      return new PaymentDetail(this);
     }
+  }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getActivityId() {
-        return this.activityId;
-    }
-
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
-    public PaymentAccountingItem[] getPaymentAccountingItems() {
-        return this.paymentAccountingItems;
-    }
-
-    public void setPaymentAccountingItems(PaymentAccountingItem[] paymentAccountingItems) {
-        this.paymentAccountingItems = paymentAccountingItems;
-    }
-
-    public static class Builder {
-        /**
-         * 员工的唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        private String employeeId;
-        /**
-         * 发薪明细所在的发薪活动 ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String activityId;
-        /**
-         * 发薪明细详情
-         * <p> 示例值：
-         */
-        private PaymentAccountingItem[] paymentAccountingItems;
-
-        /**
-         * 员工的唯一标识
-         * <p> 示例值：7202076988667019308
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 发薪明细所在的发薪活动 ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 发薪明细详情
-         * <p> 示例值：
-         *
-         * @param paymentAccountingItems
-         * @return
-         */
-        public Builder paymentAccountingItems(PaymentAccountingItem[] paymentAccountingItems) {
-            this.paymentAccountingItems = paymentAccountingItems;
-            return this;
-        }
-
-
-        public PaymentDetail build() {
-            return new PaymentDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

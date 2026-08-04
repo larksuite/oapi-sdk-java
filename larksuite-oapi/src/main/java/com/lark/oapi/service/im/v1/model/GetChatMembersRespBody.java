@@ -13,104 +13,102 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetChatMembersRespBody {
-    /**
-     * 成员列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private ListMember[] items;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：0
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 成员总数
-     * <p> 示例值：2
-     */
-    @SerializedName("member_total")
-    private Integer memberTotal;
-    /**
-     * 是否触发了安全配置
-     * <p> 示例值：
-     */
-    @SerializedName("trigger_security_conf_limit")
-    private Boolean triggerSecurityConfLimit;
-    /**
-     * 安全配置支持的最大查询群成员数量
-     * <p> 示例值：100
-     */
-    @SerializedName("security_conf_limit")
-    private Integer securityConfLimit;
+  /**
+   * 成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private ListMember[] items;
 
-    public ListMember[] getItems() {
-        return this.items;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(ListMember[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 成员总数
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("member_total")
+  private Integer memberTotal;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 是否触发了安全配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("trigger_security_conf_limit")
+  private Boolean triggerSecurityConfLimit;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 安全配置支持的最大查询群成员数量
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("security_conf_limit")
+  private Integer securityConfLimit;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public ListMember[] getItems() {
+    return this.items;
+  }
 
-    public Integer getMemberTotal() {
-        return this.memberTotal;
-    }
+  public void setItems(ListMember[] items) {
+    this.items = items;
+  }
 
-    public void setMemberTotal(Integer memberTotal) {
-        this.memberTotal = memberTotal;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public Boolean getTriggerSecurityConfLimit() {
-        return this.triggerSecurityConfLimit;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setTriggerSecurityConfLimit(Boolean triggerSecurityConfLimit) {
-        this.triggerSecurityConfLimit = triggerSecurityConfLimit;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public Integer getSecurityConfLimit() {
-        return this.securityConfLimit;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public void setSecurityConfLimit(Integer securityConfLimit) {
-        this.securityConfLimit = securityConfLimit;
-    }
+  public Integer getMemberTotal() {
+    return this.memberTotal;
+  }
 
+  public void setMemberTotal(Integer memberTotal) {
+    this.memberTotal = memberTotal;
+  }
+
+  public Boolean getTriggerSecurityConfLimit() {
+    return this.triggerSecurityConfLimit;
+  }
+
+  public void setTriggerSecurityConfLimit(Boolean triggerSecurityConfLimit) {
+    this.triggerSecurityConfLimit = triggerSecurityConfLimit;
+  }
+
+  public Integer getSecurityConfLimit() {
+    return this.securityConfLimit;
+  }
+
+  public void setSecurityConfLimit(Integer securityConfLimit) {
+    this.securityConfLimit = securityConfLimit;
+  }
 }

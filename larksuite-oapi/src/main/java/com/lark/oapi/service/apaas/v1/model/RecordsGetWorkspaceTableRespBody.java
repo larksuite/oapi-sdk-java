@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordsGetWorkspaceTableRespBody {
-    /**
-     * 是否还有更多项
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 符合条件的记录总数
-     * <p> 示例值：2
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 数据记录列表，格式为数组序列化后的 JSONString
-     * <p> 示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
-     */
-    @SerializedName("items")
-    private String items;
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 符合条件的记录总数
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 数据记录列表，格式为数组序列化后的 JSONString
+   *
+   * <p>示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
+   */
+  @SerializedName("items")
+  private String items;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String getItems() {
-        return this.items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setItems(String items) {
-        this.items = items;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  public String getItems() {
+    return this.items;
+  }
+
+  public void setItems(String items) {
+    this.items = items;
+  }
 }

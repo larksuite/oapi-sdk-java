@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteWhiteboardNodeRespBody {
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-     */
-    @SerializedName("client_token")
-    private String clientToken;
+  /**
+   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+   *
+   * <p>示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+   */
+  @SerializedName("client_token")
+  private String clientToken;
 
-    public String getClientToken() {
-        return this.clientToken;
-    }
+  public String getClientToken() {
+    return this.clientToken;
+  }
 
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 }

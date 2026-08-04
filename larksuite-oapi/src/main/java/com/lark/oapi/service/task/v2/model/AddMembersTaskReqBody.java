@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddMembersTaskReqBody {
+  /**
+   * 要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+   * 如何表示任务和清单的成员？”章节。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  /**
+   * 幂等token，如果提供则实现幂等行为。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+   * 幂等调用 ”章节。
+   *
+   * <p>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
+   */
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  // builder 开始
+  public AddMembersTaskReqBody() {}
+
+  public AddMembersTaskReqBody(Builder builder) {
     /**
-     * 要添加的members列表
-     * <p> 示例值：
+     * 要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
+    this.members = builder.members;
+    /**
+     * 幂等token，如果提供则实现幂等行为。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 幂等调用 ”章节。
+     *
+     * <p>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
+     */
+    this.clientToken = builder.clientToken;
+  }
+
+  public static class Builder {
+    /**
+     * 要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
+     */
     private Member[] members;
+
     /**
-     * 幂等token，如果提供则实现幂等行为
-     * <p> 示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
+     * 幂等token，如果提供则实现幂等行为。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 幂等调用 ”章节。
+     *
+     * <p>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
      */
-    @SerializedName("client_token")
     private String clientToken;
 
-    // builder 开始
-    public AddMembersTaskReqBody() {
+    /**
+     * 要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
     }
 
-    public AddMembersTaskReqBody(Builder builder) {
-        /**
-         * 要添加的members列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
-         */
-        this.clientToken = builder.clientToken;
+    /**
+     * 幂等token，如果提供则实现幂等行为。详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 幂等调用 ”章节。
+     *
+     * <p>示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AddMembersTaskReqBody build() {
+      return new AddMembersTaskReqBody(this);
     }
+  }
 
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public static class Builder {
-        /**
-         * 要添加的members列表
-         * <p> 示例值：
-         */
-        private Member[] members;
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
-         */
-        private String clientToken;
-
-        /**
-         * 要添加的members列表
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 幂等token，如果提供则实现幂等行为
-         * <p> 示例值：6d99f59c-4d7d-4452-98d6-3d0556393cf6
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-
-        public AddMembersTaskReqBody build() {
-            return new AddMembersTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

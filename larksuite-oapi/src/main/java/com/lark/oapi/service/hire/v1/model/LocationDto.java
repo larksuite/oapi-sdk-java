@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationDto {
+  /**
+   * 国家信息列表，仅当 location_type=1 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country")
+  private LocationCountry country;
+
+  /**
+   * 省份/州信息列表，仅当 location_type=2 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("state")
+  private LocationState state;
+
+  /**
+   * 市信息列表，仅当 location_type=3 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city")
+  private LocationCity city;
+
+  /**
+   * 区/县信息列表，仅当 location_type=4 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("district")
+  private LocationDistrict district;
+
+  public LocationCountry getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(LocationCountry country) {
+    this.country = country;
+  }
+
+  public LocationState getState() {
+    return this.state;
+  }
+
+  public void setState(LocationState state) {
+    this.state = state;
+  }
+
+  public LocationCity getCity() {
+    return this.city;
+  }
+
+  public void setCity(LocationCity city) {
+    this.city = city;
+  }
+
+  public LocationDistrict getDistrict() {
+    return this.district;
+  }
+
+  public void setDistrict(LocationDistrict district) {
+    this.district = district;
+  }
+
+  // builder 开始
+  public LocationDto() {}
+
+  public LocationDto(Builder builder) {
     /**
-     * 国家信息列表,仅当 location_type=1 时返回
-     * <p> 示例值：
+     * 国家信息列表，仅当 location_type=1 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("country")
-    private LocationCountry country;
+    this.country = builder.country;
     /**
-     * 省份/州信息列表,仅当 location_type=2 时返回
-     * <p> 示例值：
+     * 省份/州信息列表，仅当 location_type=2 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("state")
-    private LocationState state;
+    this.state = builder.state;
     /**
      * 市信息列表，仅当 location_type=3 时返回
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("city")
-    private LocationCity city;
+    this.city = builder.city;
     /**
      * 区/县信息列表，仅当 location_type=4 时返回
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("district")
+    this.district = builder.district;
+  }
+
+  public static class Builder {
+    /**
+     * 国家信息列表，仅当 location_type=1 时返回
+     *
+     * <p>示例值：
+     */
+    private LocationCountry country;
+
+    /**
+     * 省份/州信息列表，仅当 location_type=2 时返回
+     *
+     * <p>示例值：
+     */
+    private LocationState state;
+
+    /**
+     * 市信息列表，仅当 location_type=3 时返回
+     *
+     * <p>示例值：
+     */
+    private LocationCity city;
+
+    /**
+     * 区/县信息列表，仅当 location_type=4 时返回
+     *
+     * <p>示例值：
+     */
     private LocationDistrict district;
 
-    // builder 开始
-    public LocationDto() {
+    /**
+     * 国家信息列表，仅当 location_type=1 时返回
+     *
+     * <p>示例值：
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(LocationCountry country) {
+      this.country = country;
+      return this;
     }
 
-    public LocationDto(Builder builder) {
-        /**
-         * 国家信息列表,仅当 location_type=1 时返回
-         * <p> 示例值：
-         */
-        this.country = builder.country;
-        /**
-         * 省份/州信息列表,仅当 location_type=2 时返回
-         * <p> 示例值：
-         */
-        this.state = builder.state;
-        /**
-         * 市信息列表，仅当 location_type=3 时返回
-         * <p> 示例值：
-         */
-        this.city = builder.city;
-        /**
-         * 区/县信息列表，仅当 location_type=4 时返回
-         * <p> 示例值：
-         */
-        this.district = builder.district;
+    /**
+     * 省份/州信息列表，仅当 location_type=2 时返回
+     *
+     * <p>示例值：
+     *
+     * @param state
+     * @return
+     */
+    public Builder state(LocationState state) {
+      this.state = state;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 市信息列表，仅当 location_type=3 时返回
+     *
+     * <p>示例值：
+     *
+     * @param city
+     * @return
+     */
+    public Builder city(LocationCity city) {
+      this.city = city;
+      return this;
     }
 
-    public LocationCountry getCountry() {
-        return this.country;
+    /**
+     * 区/县信息列表，仅当 location_type=4 时返回
+     *
+     * <p>示例值：
+     *
+     * @param district
+     * @return
+     */
+    public Builder district(LocationDistrict district) {
+      this.district = district;
+      return this;
     }
 
-    public void setCountry(LocationCountry country) {
-        this.country = country;
+    public LocationDto build() {
+      return new LocationDto(this);
     }
+  }
 
-    public LocationState getState() {
-        return this.state;
-    }
-
-    public void setState(LocationState state) {
-        this.state = state;
-    }
-
-    public LocationCity getCity() {
-        return this.city;
-    }
-
-    public void setCity(LocationCity city) {
-        this.city = city;
-    }
-
-    public LocationDistrict getDistrict() {
-        return this.district;
-    }
-
-    public void setDistrict(LocationDistrict district) {
-        this.district = district;
-    }
-
-    public static class Builder {
-        /**
-         * 国家信息列表,仅当 location_type=1 时返回
-         * <p> 示例值：
-         */
-        private LocationCountry country;
-        /**
-         * 省份/州信息列表,仅当 location_type=2 时返回
-         * <p> 示例值：
-         */
-        private LocationState state;
-        /**
-         * 市信息列表，仅当 location_type=3 时返回
-         * <p> 示例值：
-         */
-        private LocationCity city;
-        /**
-         * 区/县信息列表，仅当 location_type=4 时返回
-         * <p> 示例值：
-         */
-        private LocationDistrict district;
-
-        /**
-         * 国家信息列表,仅当 location_type=1 时返回
-         * <p> 示例值：
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(LocationCountry country) {
-            this.country = country;
-            return this;
-        }
-
-
-        /**
-         * 省份/州信息列表,仅当 location_type=2 时返回
-         * <p> 示例值：
-         *
-         * @param state
-         * @return
-         */
-        public Builder state(LocationState state) {
-            this.state = state;
-            return this;
-        }
-
-
-        /**
-         * 市信息列表，仅当 location_type=3 时返回
-         * <p> 示例值：
-         *
-         * @param city
-         * @return
-         */
-        public Builder city(LocationCity city) {
-            this.city = city;
-            return this;
-        }
-
-
-        /**
-         * 区/县信息列表，仅当 location_type=4 时返回
-         * <p> 示例值：
-         *
-         * @param district
-         * @return
-         */
-        public Builder district(LocationDistrict district) {
-            this.district = district;
-            return this;
-        }
-
-
-        public LocationDto build() {
-            return new LocationDto(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

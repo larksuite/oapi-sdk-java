@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateReserveReqBody {
+  /**
+   * 预约到期时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608888867
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 会议设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_settings")
+  private ReserveMeetingSetting meetingSettings;
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public ReserveMeetingSetting getMeetingSettings() {
+    return this.meetingSettings;
+  }
+
+  public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
+    this.meetingSettings = meetingSettings;
+  }
+
+  // builder 开始
+  public UpdateReserveReqBody() {}
+
+  public UpdateReserveReqBody(Builder builder) {
     /**
      * 预约到期时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     *
+     * <p>示例值：1608888867
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 会议设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_settings")
+    this.meetingSettings = builder.meetingSettings;
+  }
+
+  public static class Builder {
+    /**
+     * 预约到期时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888867
+     */
+    private String endTime;
+
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     */
     private ReserveMeetingSetting meetingSettings;
 
-    // builder 开始
-    public UpdateReserveReqBody() {
+    /**
+     * 预约到期时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public UpdateReserveReqBody(Builder builder) {
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        this.meetingSettings = builder.meetingSettings;
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     *
+     * @param meetingSettings
+     * @return
+     */
+    public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
+      this.meetingSettings = meetingSettings;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateReserveReqBody build() {
+      return new UpdateReserveReqBody(this);
     }
+  }
 
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public ReserveMeetingSetting getMeetingSettings() {
-        return this.meetingSettings;
-    }
-
-    public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
-        this.meetingSettings = meetingSettings;
-    }
-
-    public static class Builder {
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        private String endTime;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        private ReserveMeetingSetting meetingSettings;
-
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 会议设置
-         * <p> 示例值：
-         *
-         * @param meetingSettings
-         * @return
-         */
-        public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
-            this.meetingSettings = meetingSettings;
-            return this;
-        }
-
-
-        public UpdateReserveReqBody build() {
-            return new UpdateReserveReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

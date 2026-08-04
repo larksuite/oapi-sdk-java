@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeEntity {
+  /**
+   * 员工基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("base_info")
+  private EmployeeBaseEntity baseInfo;
+
+  /**
+   * 员工工作信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_info")
+  private EmployeeWorkEntity workInfo;
+
+  /**
+   * 员工个人和社会关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("personal_and_social_relationship")
+  private EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship;
+
+  /**
+   * 员工教育和工作经历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("education_and_work_experience")
+  private EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience;
+
+  public EmployeeBaseEntity getBaseInfo() {
+    return this.baseInfo;
+  }
+
+  public void setBaseInfo(EmployeeBaseEntity baseInfo) {
+    this.baseInfo = baseInfo;
+  }
+
+  public EmployeeWorkEntity getWorkInfo() {
+    return this.workInfo;
+  }
+
+  public void setWorkInfo(EmployeeWorkEntity workInfo) {
+    this.workInfo = workInfo;
+  }
+
+  public EmployeePersonalAndSocialRelationshipEntity getPersonalAndSocialRelationship() {
+    return this.personalAndSocialRelationship;
+  }
+
+  public void setPersonalAndSocialRelationship(
+      EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship) {
+    this.personalAndSocialRelationship = personalAndSocialRelationship;
+  }
+
+  public EmployeeEducationAndWorkExperienceEntity getEducationAndWorkExperience() {
+    return this.educationAndWorkExperience;
+  }
+
+  public void setEducationAndWorkExperience(
+      EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience) {
+    this.educationAndWorkExperience = educationAndWorkExperience;
+  }
+
+  // builder 开始
+  public EmployeeEntity() {}
+
+  public EmployeeEntity(Builder builder) {
     /**
      * 员工基础信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("base_info")
-    private EmployeeBaseEntity baseInfo;
+    this.baseInfo = builder.baseInfo;
     /**
      * 员工工作信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_info")
-    private EmployeeWorkEntity workInfo;
+    this.workInfo = builder.workInfo;
     /**
      * 员工个人和社会关系
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("personal_and_social_relationship")
-    private EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship;
+    this.personalAndSocialRelationship = builder.personalAndSocialRelationship;
     /**
      * 员工教育和工作经历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("education_and_work_experience")
+    this.educationAndWorkExperience = builder.educationAndWorkExperience;
+  }
+
+  public static class Builder {
+    /**
+     * 员工基础信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeBaseEntity baseInfo;
+
+    /**
+     * 员工工作信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeWorkEntity workInfo;
+
+    /**
+     * 员工个人和社会关系
+     *
+     * <p>示例值：
+     */
+    private EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship;
+
+    /**
+     * 员工教育和工作经历
+     *
+     * <p>示例值：
+     */
     private EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience;
 
-    // builder 开始
-    public EmployeeEntity() {
+    /**
+     * 员工基础信息
+     *
+     * <p>示例值：
+     *
+     * @param baseInfo
+     * @return
+     */
+    public Builder baseInfo(EmployeeBaseEntity baseInfo) {
+      this.baseInfo = baseInfo;
+      return this;
     }
 
-    public EmployeeEntity(Builder builder) {
-        /**
-         * 员工基础信息
-         * <p> 示例值：
-         */
-        this.baseInfo = builder.baseInfo;
-        /**
-         * 员工工作信息
-         * <p> 示例值：
-         */
-        this.workInfo = builder.workInfo;
-        /**
-         * 员工个人和社会关系
-         * <p> 示例值：
-         */
-        this.personalAndSocialRelationship = builder.personalAndSocialRelationship;
-        /**
-         * 员工教育和工作经历
-         * <p> 示例值：
-         */
-        this.educationAndWorkExperience = builder.educationAndWorkExperience;
+    /**
+     * 员工工作信息
+     *
+     * <p>示例值：
+     *
+     * @param workInfo
+     * @return
+     */
+    public Builder workInfo(EmployeeWorkEntity workInfo) {
+      this.workInfo = workInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工个人和社会关系
+     *
+     * <p>示例值：
+     *
+     * @param personalAndSocialRelationship
+     * @return
+     */
+    public Builder personalAndSocialRelationship(
+        EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship) {
+      this.personalAndSocialRelationship = personalAndSocialRelationship;
+      return this;
     }
 
-    public EmployeeBaseEntity getBaseInfo() {
-        return this.baseInfo;
+    /**
+     * 员工教育和工作经历
+     *
+     * <p>示例值：
+     *
+     * @param educationAndWorkExperience
+     * @return
+     */
+    public Builder educationAndWorkExperience(
+        EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience) {
+      this.educationAndWorkExperience = educationAndWorkExperience;
+      return this;
     }
 
-    public void setBaseInfo(EmployeeBaseEntity baseInfo) {
-        this.baseInfo = baseInfo;
+    public EmployeeEntity build() {
+      return new EmployeeEntity(this);
     }
+  }
 
-    public EmployeeWorkEntity getWorkInfo() {
-        return this.workInfo;
-    }
-
-    public void setWorkInfo(EmployeeWorkEntity workInfo) {
-        this.workInfo = workInfo;
-    }
-
-    public EmployeePersonalAndSocialRelationshipEntity getPersonalAndSocialRelationship() {
-        return this.personalAndSocialRelationship;
-    }
-
-    public void setPersonalAndSocialRelationship(EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship) {
-        this.personalAndSocialRelationship = personalAndSocialRelationship;
-    }
-
-    public EmployeeEducationAndWorkExperienceEntity getEducationAndWorkExperience() {
-        return this.educationAndWorkExperience;
-    }
-
-    public void setEducationAndWorkExperience(EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience) {
-        this.educationAndWorkExperience = educationAndWorkExperience;
-    }
-
-    public static class Builder {
-        /**
-         * 员工基础信息
-         * <p> 示例值：
-         */
-        private EmployeeBaseEntity baseInfo;
-        /**
-         * 员工工作信息
-         * <p> 示例值：
-         */
-        private EmployeeWorkEntity workInfo;
-        /**
-         * 员工个人和社会关系
-         * <p> 示例值：
-         */
-        private EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship;
-        /**
-         * 员工教育和工作经历
-         * <p> 示例值：
-         */
-        private EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience;
-
-        /**
-         * 员工基础信息
-         * <p> 示例值：
-         *
-         * @param baseInfo
-         * @return
-         */
-        public Builder baseInfo(EmployeeBaseEntity baseInfo) {
-            this.baseInfo = baseInfo;
-            return this;
-        }
-
-
-        /**
-         * 员工工作信息
-         * <p> 示例值：
-         *
-         * @param workInfo
-         * @return
-         */
-        public Builder workInfo(EmployeeWorkEntity workInfo) {
-            this.workInfo = workInfo;
-            return this;
-        }
-
-
-        /**
-         * 员工个人和社会关系
-         * <p> 示例值：
-         *
-         * @param personalAndSocialRelationship
-         * @return
-         */
-        public Builder personalAndSocialRelationship(EmployeePersonalAndSocialRelationshipEntity personalAndSocialRelationship) {
-            this.personalAndSocialRelationship = personalAndSocialRelationship;
-            return this;
-        }
-
-
-        /**
-         * 员工教育和工作经历
-         * <p> 示例值：
-         *
-         * @param educationAndWorkExperience
-         * @return
-         */
-        public Builder educationAndWorkExperience(EmployeeEducationAndWorkExperienceEntity educationAndWorkExperience) {
-            this.educationAndWorkExperience = educationAndWorkExperience;
-            return this;
-        }
-
-
-        public EmployeeEntity build() {
-            return new EmployeeEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

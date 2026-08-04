@@ -13,370 +13,412 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDeliveryAttachment {
+  /**
+   * 职位广告
+   * ID，可通过[获取招聘官网下的职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+   *
+   * <p>示例值：6960663240925956636
+   */
+  @SerializedName("job_post_id")
+  private String jobPostId;
+
+  /**
+   * 官网用户ID，暂无直接查询接口，需在[新建招聘官网用户](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/create)获取并保存
+   *
+   * <p>示例值：6960663240925956634
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 简历文件
+   * ID，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成
+   *
+   * <p>示例值：7095614894070434092
+   */
+  @SerializedName("resume_file_id")
+  private String resumeFileId;
+
+  /**
+   * 官网推广渠道
+   * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("channel_id")
+  private String channelId;
+
+  /**
+   * 意向投递城市列表，最多可填入一个意向城市，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_preferred_city_code_list")
+  private String[] applicationPreferredCityCodeList;
+
+  /**
+   * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+   *
+   * <p>示例值：+86
+   */
+  @SerializedName("mobile_country_code")
+  private String mobileCountryCode;
+
+  /**
+   * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+   *
+   * <p>示例值：182900291190
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+   *
+   * <p>示例值：foo@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 证件（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("identification")
+  private WebsiteDeliveryAttachmentIndentification identification;
+
+  public String getJobPostId() {
+    return this.jobPostId;
+  }
+
+  public void setJobPostId(String jobPostId) {
+    this.jobPostId = jobPostId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getResumeFileId() {
+    return this.resumeFileId;
+  }
+
+  public void setResumeFileId(String resumeFileId) {
+    this.resumeFileId = resumeFileId;
+  }
+
+  public String getChannelId() {
+    return this.channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
+  public String[] getApplicationPreferredCityCodeList() {
+    return this.applicationPreferredCityCodeList;
+  }
+
+  public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+    this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+  }
+
+  public String getMobileCountryCode() {
+    return this.mobileCountryCode;
+  }
+
+  public void setMobileCountryCode(String mobileCountryCode) {
+    this.mobileCountryCode = mobileCountryCode;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public WebsiteDeliveryAttachmentIndentification getIdentification() {
+    return this.identification;
+  }
+
+  public void setIdentification(WebsiteDeliveryAttachmentIndentification identification) {
+    this.identification = identification;
+  }
+
+  // builder 开始
+  public WebsiteDeliveryAttachment() {}
+
+  public WebsiteDeliveryAttachment(Builder builder) {
     /**
-     * 职位广告 ID
-     * <p> 示例值：6960663240925956636
+     * 职位广告
+     * ID，可通过[获取招聘官网下的职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
      */
-    @SerializedName("job_post_id")
-    private String jobPostId;
+    this.jobPostId = builder.jobPostId;
     /**
-     * 官网用户 ID
-     * <p> 示例值：6960663240925956634
+     * 官网用户ID，暂无直接查询接口，需在[新建招聘官网用户](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/create)获取并保存
+     *
+     * <p>示例值：6960663240925956634
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 简历文件 ID，使用「创建附件」生成
-     * <p> 示例值：7095614894070434092
+     * 简历文件
+     * ID，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成
+     *
+     * <p>示例值：7095614894070434092
      */
-    @SerializedName("resume_file_id")
-    private String resumeFileId;
+    this.resumeFileId = builder.resumeFileId;
     /**
-     * 官网推广渠道 ID
-     * <p> 示例值：6891560630172518670
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("channel_id")
-    private String channelId;
+    this.channelId = builder.channelId;
     /**
-     * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-     * <p> 示例值：CT_1
+     * 意向投递城市列表，最多可填入一个意向城市，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_preferred_city_code_list")
-    private String[] applicationPreferredCityCodeList;
+    this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
     /**
-     * 电话国际区号，可从「获取地址码」查询（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-     * <p> 示例值：CN_1
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：+86
      */
-    @SerializedName("mobile_country_code")
-    private String mobileCountryCode;
+    this.mobileCountryCode = builder.mobileCountryCode;
     /**
      * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-     * <p> 示例值：182900291190
+     *
+     * <p>示例值：182900291190
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-     * <p> 示例值：foo@bytedance.com
+     *
+     * <p>示例值：foo@bytedance.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
-     * 身份证件号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-     * <p> 示例值：
+     * 证件（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：
      */
-    @SerializedName("identification")
+    this.identification = builder.identification;
+  }
+
+  public static class Builder {
+    /**
+     * 职位广告
+     * ID，可通过[获取招聘官网下的职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
+     */
+    private String jobPostId;
+
+    /**
+     * 官网用户ID，暂无直接查询接口，需在[新建招聘官网用户](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/create)获取并保存
+     *
+     * <p>示例值：6960663240925956634
+     */
+    private String userId;
+
+    /**
+     * 简历文件
+     * ID，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成
+     *
+     * <p>示例值：7095614894070434092
+     */
+    private String resumeFileId;
+
+    /**
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String channelId;
+
+    /**
+     * 意向投递城市列表，最多可填入一个意向城市，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
+     */
+    private String[] applicationPreferredCityCodeList;
+
+    /**
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：+86
+     */
+    private String mobileCountryCode;
+
+    /**
+     * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：182900291190
+     */
+    private String mobile;
+
+    /**
+     * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：foo@bytedance.com
+     */
+    private String email;
+
+    /**
+     * 证件（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：
+     */
     private WebsiteDeliveryAttachmentIndentification identification;
 
-    // builder 开始
-    public WebsiteDeliveryAttachment() {
+    /**
+     * 职位广告
+     * ID，可通过[获取招聘官网下的职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
+     *
+     * @param jobPostId
+     * @return
+     */
+    public Builder jobPostId(String jobPostId) {
+      this.jobPostId = jobPostId;
+      return this;
     }
 
-    public WebsiteDeliveryAttachment(Builder builder) {
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         */
-        this.jobPostId = builder.jobPostId;
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         */
-        this.userId = builder.userId;
-        /**
-         * 简历文件 ID，使用「创建附件」生成
-         * <p> 示例值：7095614894070434092
-         */
-        this.resumeFileId = builder.resumeFileId;
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.channelId = builder.channelId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_1
-         */
-        this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
-        /**
-         * 电话国际区号，可从「获取地址码」查询（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：CN_1
-         */
-        this.mobileCountryCode = builder.mobileCountryCode;
-        /**
-         * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：182900291190
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：foo@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * 身份证件号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：
-         */
-        this.identification = builder.identification;
+    /**
+     * 官网用户ID，暂无直接查询接口，需在[新建招聘官网用户](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/create)获取并保存
+     *
+     * <p>示例值：6960663240925956634
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 简历文件
+     * ID，通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)生成
+     *
+     * <p>示例值：7095614894070434092
+     *
+     * @param resumeFileId
+     * @return
+     */
+    public Builder resumeFileId(String resumeFileId) {
+      this.resumeFileId = resumeFileId;
+      return this;
     }
 
-    public String getJobPostId() {
-        return this.jobPostId;
+    /**
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param channelId
+     * @return
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
+      return this;
     }
 
-    public void setJobPostId(String jobPostId) {
-        this.jobPostId = jobPostId;
+    /**
+     * 意向投递城市列表，最多可填入一个意向城市，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
+     *
+     * @param applicationPreferredCityCodeList
+     * @return
+     */
+    public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+      this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：+86
+     *
+     * @param mobileCountryCode
+     * @return
+     */
+    public Builder mobileCountryCode(String mobileCountryCode) {
+      this.mobileCountryCode = mobileCountryCode;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：182900291190
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public String getResumeFileId() {
-        return this.resumeFileId;
+    /**
+     * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：foo@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setResumeFileId(String resumeFileId) {
-        this.resumeFileId = resumeFileId;
+    /**
+     * 证件（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
+     *
+     * <p>示例值：
+     *
+     * @param identification
+     * @return
+     */
+    public Builder identification(WebsiteDeliveryAttachmentIndentification identification) {
+      this.identification = identification;
+      return this;
     }
 
-    public String getChannelId() {
-        return this.channelId;
+    public WebsiteDeliveryAttachment build() {
+      return new WebsiteDeliveryAttachment(this);
     }
+  }
 
-    public void setChannelId(String channelId) {
-        this.channelId = channelId;
-    }
-
-    public String[] getApplicationPreferredCityCodeList() {
-        return this.applicationPreferredCityCodeList;
-    }
-
-    public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-        this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-    }
-
-    public String getMobileCountryCode() {
-        return this.mobileCountryCode;
-    }
-
-    public void setMobileCountryCode(String mobileCountryCode) {
-        this.mobileCountryCode = mobileCountryCode;
-    }
-
-    public String getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public WebsiteDeliveryAttachmentIndentification getIdentification() {
-        return this.identification;
-    }
-
-    public void setIdentification(WebsiteDeliveryAttachmentIndentification identification) {
-        this.identification = identification;
-    }
-
-    public static class Builder {
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         */
-        private String jobPostId;
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         */
-        private String userId;
-        /**
-         * 简历文件 ID，使用「创建附件」生成
-         * <p> 示例值：7095614894070434092
-         */
-        private String resumeFileId;
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String channelId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_1
-         */
-        private String[] applicationPreferredCityCodeList;
-        /**
-         * 电话国际区号，可从「获取地址码」查询（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：CN_1
-         */
-        private String mobileCountryCode;
-        /**
-         * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：182900291190
-         */
-        private String mobile;
-        /**
-         * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：foo@bytedance.com
-         */
-        private String email;
-        /**
-         * 身份证件号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryAttachmentIndentification identification;
-
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         *
-         * @param jobPostId
-         * @return
-         */
-        public Builder jobPostId(String jobPostId) {
-            this.jobPostId = jobPostId;
-            return this;
-        }
-
-
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 简历文件 ID，使用「创建附件」生成
-         * <p> 示例值：7095614894070434092
-         *
-         * @param resumeFileId
-         * @return
-         */
-        public Builder resumeFileId(String resumeFileId) {
-            this.resumeFileId = resumeFileId;
-            return this;
-        }
-
-
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param channelId
-         * @return
-         */
-        public Builder channelId(String channelId) {
-            this.channelId = channelId;
-            return this;
-        }
-
-
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_1
-         *
-         * @param applicationPreferredCityCodeList
-         * @return
-         */
-        public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-            this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-            return this;
-        }
-
-
-        /**
-         * 电话国际区号，可从「获取地址码」查询（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：CN_1
-         *
-         * @param mobileCountryCode
-         * @return
-         */
-        public Builder mobileCountryCode(String mobileCountryCode) {
-            this.mobileCountryCode = mobileCountryCode;
-            return this;
-        }
-
-
-        /**
-         * 电话号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：182900291190
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：foo@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 身份证件号码（当该参数值与简历附件中的相关值不一致时，将以该参数值为准）
-         * <p> 示例值：
-         *
-         * @param identification
-         * @return
-         */
-        public Builder identification(WebsiteDeliveryAttachmentIndentification identification) {
-            this.identification = identification;
-            return this;
-        }
-
-
-        public WebsiteDeliveryAttachment build() {
-            return new WebsiteDeliveryAttachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

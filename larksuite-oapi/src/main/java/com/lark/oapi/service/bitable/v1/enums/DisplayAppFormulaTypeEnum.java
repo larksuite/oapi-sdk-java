@@ -14,19 +14,20 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 文档公式字段类型
+ * 多维表格的公式字段类型。可结合[字段相关
+ * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
  */
 public enum DisplayAppFormulaTypeEnum {
-    NO_BASIC_TYPE(1), // 不支持指定类型
-    EXIST_BASIC_TYPE(2), // 支持指定类型
-    ;
-    private Integer value;
+  NO_BASIC_TYPE(1), // 不支持指定公式字段类型
+  EXIST_BASIC_TYPE(2), // 支持指定公式字段类型
+  ;
+  private Integer value;
 
-    DisplayAppFormulaTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DisplayAppFormulaTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

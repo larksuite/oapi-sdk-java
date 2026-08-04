@@ -13,23 +13,23 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 要转换的ID类型
- */
+/** 要转换的ID类型 */
 public enum ConvertCommonDataIdConvertCommonDataIdIDTypeEnum {
-    EMPLOYMENTID("user_id"), // 员工ID，当选择 user_id 且 id_transform_type 为 1、2、4 时，feishu_user_id_type 必填
-    DEPARTMENTID("department_id"), // 部门ID，当选择 department_id 且 id_transform_type 为 1、2、4 时，feishu_department_id_type 必填
-    JOBLEVELID("job_level_id"), // 职级ID
-    JOBFAMILYID("job_family_id"), // 序列ID
-    EMPLOYEETYPEID("employee_type_id"), // 人员类型ID
-    ;
-    private String value;
+  EMPLOYMENTID("user_id"), // 员工ID，当选择 user_id 且 id_transform_type 为 1、2、4 时，feishu_user_id_type 必填
+  DEPARTMENTID("department_id"), // 部门ID，当选择 department_id 且 id_transform_type 为 1、2、4
+  // 时，feishu_department_id_type 必填
+  JOBLEVELID("job_level_id"), // 职级ID
+  JOBFAMILYID("job_family_id"), // 序列ID
+  EMPLOYEETYPEID("employee_type_id"), // 人员类型ID，people admin 的人员类型ID 即为飞书通讯录人员类型的
+// enum_value，因此id_transform_type 为 3 时无须转换
+;
+  private String value;
 
-    ConvertCommonDataIdConvertCommonDataIdIDTypeEnum(String value) {
-        this.value = value;
-    }
+  ConvertCommonDataIdConvertCommonDataIdIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

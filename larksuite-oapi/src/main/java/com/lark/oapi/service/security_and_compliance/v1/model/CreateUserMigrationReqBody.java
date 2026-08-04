@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUserMigrationReqBody {
+  /**
+   * 迁移用户 ID 列表，ID类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 迁移目标地理位置区域，参数长度2到10字符
+   *
+   * <p>示例值：sg
+   */
+  @SerializedName("dest_geo")
+  private String destGeo;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String getDestGeo() {
+    return this.destGeo;
+  }
+
+  public void setDestGeo(String destGeo) {
+    this.destGeo = destGeo;
+  }
+
+  // builder 开始
+  public CreateUserMigrationReqBody() {}
+
+  public CreateUserMigrationReqBody(Builder builder) {
     /**
-     * 迁移用户 id 列表
-     * <p> 示例值：
+     * 迁移用户 ID 列表，ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+    /**
+     * 迁移目标地理位置区域，参数长度2到10字符
+     *
+     * <p>示例值：sg
+     */
+    this.destGeo = builder.destGeo;
+  }
+
+  public static class Builder {
+    /**
+     * 迁移用户 ID 列表，ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
+
     /**
-     * 迁移目标地理位置区域
-     * <p> 示例值：
+     * 迁移目标地理位置区域，参数长度2到10字符
+     *
+     * <p>示例值：sg
      */
-    @SerializedName("dest_geo")
     private String destGeo;
 
-    // builder 开始
-    public CreateUserMigrationReqBody() {
+    /**
+     * 迁移用户 ID 列表，ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public CreateUserMigrationReqBody(Builder builder) {
-        /**
-         * 迁移用户 id 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 迁移目标地理位置区域
-         * <p> 示例值：
-         */
-        this.destGeo = builder.destGeo;
+    /**
+     * 迁移目标地理位置区域，参数长度2到10字符
+     *
+     * <p>示例值：sg
+     *
+     * @param destGeo
+     * @return
+     */
+    public Builder destGeo(String destGeo) {
+      this.destGeo = destGeo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateUserMigrationReqBody build() {
+      return new CreateUserMigrationReqBody(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String getDestGeo() {
-        return this.destGeo;
-    }
-
-    public void setDestGeo(String destGeo) {
-        this.destGeo = destGeo;
-    }
-
-    public static class Builder {
-        /**
-         * 迁移用户 id 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-        /**
-         * 迁移目标地理位置区域
-         * <p> 示例值：
-         */
-        private String destGeo;
-
-        /**
-         * 迁移用户 id 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 迁移目标地理位置区域
-         * <p> 示例值：
-         *
-         * @param destGeo
-         * @return
-         */
-        public Builder destGeo(String destGeo) {
-            this.destGeo = destGeo;
-            return this;
-        }
-
-
-        public CreateUserMigrationReqBody build() {
-            return new CreateUserMigrationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,556 +13,611 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailLogMailInfo {
+  /**
+   * 邮件ID
+   *
+   * <p>示例值：tfuh9N4WnzU6jdDw=
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private UserMailEntity owner;
+
+  /**
+   * 收发信事件类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("event_types")
+  private String[] eventTypes;
+
+  /**
+   * RFC协议id
+   *
+   * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+   */
+  @SerializedName("smtp_message_id")
+  private String smtpMessageId;
+
+  /**
+   * EML中的事件时间（毫秒）
+   *
+   * <p>示例值：1682377086000
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 主题
+   *
+   * <p>示例值：邮件标题
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 发件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("header_from")
+  private MailAddress headerFrom;
+
+  /**
+   * 收件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to_recipients")
+  private MailAddress[] toRecipients;
+
+  /**
+   * 抄送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cc_recipients")
+  private MailAddress[] ccRecipients;
+
+  /**
+   * 秘送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bcc_recipients")
+  private MailAddress[] bccRecipients;
+
+  /**
+   * 附件数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("attachment_num")
+  private String attachmentNum;
+
+  /**
+   * 图片数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("image_num")
+  private String imageNum;
+
+  /**
+   * 附件信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachments")
+  private FileMetaInfo[] attachments;
+
+  /**
+   * 图片信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("images")
+  private FileMetaInfo[] images;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public UserMailEntity getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(UserMailEntity owner) {
+    this.owner = owner;
+  }
+
+  public String[] getEventTypes() {
+    return this.eventTypes;
+  }
+
+  public void setEventTypes(String[] eventTypes) {
+    this.eventTypes = eventTypes;
+  }
+
+  public String getSmtpMessageId() {
+    return this.smtpMessageId;
+  }
+
+  public void setSmtpMessageId(String smtpMessageId) {
+    this.smtpMessageId = smtpMessageId;
+  }
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public MailAddress getHeaderFrom() {
+    return this.headerFrom;
+  }
+
+  public void setHeaderFrom(MailAddress headerFrom) {
+    this.headerFrom = headerFrom;
+  }
+
+  public MailAddress[] getToRecipients() {
+    return this.toRecipients;
+  }
+
+  public void setToRecipients(MailAddress[] toRecipients) {
+    this.toRecipients = toRecipients;
+  }
+
+  public MailAddress[] getCcRecipients() {
+    return this.ccRecipients;
+  }
+
+  public void setCcRecipients(MailAddress[] ccRecipients) {
+    this.ccRecipients = ccRecipients;
+  }
+
+  public MailAddress[] getBccRecipients() {
+    return this.bccRecipients;
+  }
+
+  public void setBccRecipients(MailAddress[] bccRecipients) {
+    this.bccRecipients = bccRecipients;
+  }
+
+  public String getAttachmentNum() {
+    return this.attachmentNum;
+  }
+
+  public void setAttachmentNum(String attachmentNum) {
+    this.attachmentNum = attachmentNum;
+  }
+
+  public String getImageNum() {
+    return this.imageNum;
+  }
+
+  public void setImageNum(String imageNum) {
+    this.imageNum = imageNum;
+  }
+
+  public FileMetaInfo[] getAttachments() {
+    return this.attachments;
+  }
+
+  public void setAttachments(FileMetaInfo[] attachments) {
+    this.attachments = attachments;
+  }
+
+  public FileMetaInfo[] getImages() {
+    return this.images;
+  }
+
+  public void setImages(FileMetaInfo[] images) {
+    this.images = images;
+  }
+
+  // builder 开始
+  public MailLogMailInfo() {}
+
+  public MailLogMailInfo(Builder builder) {
     /**
      * 邮件ID
-     * <p> 示例值：abcdefg
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
-     * 邮箱实体信息
-     * <p> 示例值：
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private UserMailEntity owner;
+    this.owner = builder.owner;
     /**
      * 收发信事件类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("event_types")
-    private String[] eventTypes;
+    this.eventTypes = builder.eventTypes;
     /**
      * RFC协议id
-     * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
      */
-    @SerializedName("smtp_message_id")
-    private String smtpMessageId;
+    this.smtpMessageId = builder.smtpMessageId;
     /**
      * EML中的事件时间（毫秒）
-     * <p> 示例值：1682377086000
+     *
+     * <p>示例值：1682377086000
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
      * 主题
-     * <p> 示例值：邮件标题
+     *
+     * <p>示例值：邮件标题
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
      * 发件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("header_from")
-    private MailAddress headerFrom;
+    this.headerFrom = builder.headerFrom;
     /**
      * 收件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to_recipients")
-    private MailAddress[] toRecipients;
+    this.toRecipients = builder.toRecipients;
     /**
      * 抄送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cc_recipients")
-    private MailAddress[] ccRecipients;
+    this.ccRecipients = builder.ccRecipients;
     /**
      * 秘送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bcc_recipients")
-    private MailAddress[] bccRecipients;
+    this.bccRecipients = builder.bccRecipients;
     /**
      * 附件数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("attachment_num")
-    private String attachmentNum;
+    this.attachmentNum = builder.attachmentNum;
     /**
      * 图片数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("image_num")
-    private String imageNum;
+    this.imageNum = builder.imageNum;
     /**
      * 附件信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachments")
-    private FileMetaInfo[] attachments;
+    this.attachments = builder.attachments;
     /**
      * 图片信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("images")
+    this.images = builder.images;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件ID
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     */
+    private String messageId;
+
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     */
+    private UserMailEntity owner;
+
+    /**
+     * 收发信事件类型
+     *
+     * <p>示例值：
+     */
+    private String[] eventTypes;
+
+    /**
+     * RFC协议id
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+     */
+    private String smtpMessageId;
+
+    /**
+     * EML中的事件时间（毫秒）
+     *
+     * <p>示例值：1682377086000
+     */
+    private String date;
+
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     */
+    private String subject;
+
+    /**
+     * 发件人
+     *
+     * <p>示例值：
+     */
+    private MailAddress headerFrom;
+
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] toRecipients;
+
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] ccRecipients;
+
+    /**
+     * 秘送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] bccRecipients;
+
+    /**
+     * 附件数量
+     *
+     * <p>示例值：1
+     */
+    private String attachmentNum;
+
+    /**
+     * 图片数量
+     *
+     * <p>示例值：1
+     */
+    private String imageNum;
+
+    /**
+     * 附件信息
+     *
+     * <p>示例值：
+     */
+    private FileMetaInfo[] attachments;
+
+    /**
+     * 图片信息
+     *
+     * <p>示例值：
+     */
     private FileMetaInfo[] images;
 
-    // builder 开始
-    public MailLogMailInfo() {
+    /**
+     * 邮件ID
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MailLogMailInfo(Builder builder) {
-        /**
-         * 邮件ID
-         * <p> 示例值：abcdefg
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * 收发信事件类型
-         * <p> 示例值：
-         */
-        this.eventTypes = builder.eventTypes;
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         */
-        this.smtpMessageId = builder.smtpMessageId;
-        /**
-         * EML中的事件时间（毫秒）
-         * <p> 示例值：1682377086000
-         */
-        this.date = builder.date;
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        this.subject = builder.subject;
-        /**
-         * 发件人
-         * <p> 示例值：
-         */
-        this.headerFrom = builder.headerFrom;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        this.toRecipients = builder.toRecipients;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        this.ccRecipients = builder.ccRecipients;
-        /**
-         * 秘送
-         * <p> 示例值：
-         */
-        this.bccRecipients = builder.bccRecipients;
-        /**
-         * 附件数量
-         * <p> 示例值：1
-         */
-        this.attachmentNum = builder.attachmentNum;
-        /**
-         * 图片数量
-         * <p> 示例值：1
-         */
-        this.imageNum = builder.imageNum;
-        /**
-         * 附件信息
-         * <p> 示例值：
-         */
-        this.attachments = builder.attachments;
-        /**
-         * 图片信息
-         * <p> 示例值：
-         */
-        this.images = builder.images;
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(UserMailEntity owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 收发信事件类型
+     *
+     * <p>示例值：
+     *
+     * @param eventTypes
+     * @return
+     */
+    public Builder eventTypes(String[] eventTypes) {
+      this.eventTypes = eventTypes;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * RFC协议id
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+     *
+     * @param smtpMessageId
+     * @return
+     */
+    public Builder smtpMessageId(String smtpMessageId) {
+      this.smtpMessageId = smtpMessageId;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * EML中的事件时间（毫秒）
+     *
+     * <p>示例值：1682377086000
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public UserMailEntity getOwner() {
-        return this.owner;
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public void setOwner(UserMailEntity owner) {
-        this.owner = owner;
+    /**
+     * 发件人
+     *
+     * <p>示例值：
+     *
+     * @param headerFrom
+     * @return
+     */
+    public Builder headerFrom(MailAddress headerFrom) {
+      this.headerFrom = headerFrom;
+      return this;
     }
 
-    public String[] getEventTypes() {
-        return this.eventTypes;
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     *
+     * @param toRecipients
+     * @return
+     */
+    public Builder toRecipients(MailAddress[] toRecipients) {
+      this.toRecipients = toRecipients;
+      return this;
     }
 
-    public void setEventTypes(String[] eventTypes) {
-        this.eventTypes = eventTypes;
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     *
+     * @param ccRecipients
+     * @return
+     */
+    public Builder ccRecipients(MailAddress[] ccRecipients) {
+      this.ccRecipients = ccRecipients;
+      return this;
     }
 
-    public String getSmtpMessageId() {
-        return this.smtpMessageId;
+    /**
+     * 秘送
+     *
+     * <p>示例值：
+     *
+     * @param bccRecipients
+     * @return
+     */
+    public Builder bccRecipients(MailAddress[] bccRecipients) {
+      this.bccRecipients = bccRecipients;
+      return this;
     }
 
-    public void setSmtpMessageId(String smtpMessageId) {
-        this.smtpMessageId = smtpMessageId;
+    /**
+     * 附件数量
+     *
+     * <p>示例值：1
+     *
+     * @param attachmentNum
+     * @return
+     */
+    public Builder attachmentNum(String attachmentNum) {
+      this.attachmentNum = attachmentNum;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    /**
+     * 图片数量
+     *
+     * <p>示例值：1
+     *
+     * @param imageNum
+     * @return
+     */
+    public Builder imageNum(String imageNum) {
+      this.imageNum = imageNum;
+      return this;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    /**
+     * 附件信息
+     *
+     * <p>示例值：
+     *
+     * @param attachments
+     * @return
+     */
+    public Builder attachments(FileMetaInfo[] attachments) {
+      this.attachments = attachments;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 图片信息
+     *
+     * <p>示例值：
+     *
+     * @param images
+     * @return
+     */
+    public Builder images(FileMetaInfo[] images) {
+      this.images = images;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public MailLogMailInfo build() {
+      return new MailLogMailInfo(this);
     }
+  }
 
-    public MailAddress getHeaderFrom() {
-        return this.headerFrom;
-    }
-
-    public void setHeaderFrom(MailAddress headerFrom) {
-        this.headerFrom = headerFrom;
-    }
-
-    public MailAddress[] getToRecipients() {
-        return this.toRecipients;
-    }
-
-    public void setToRecipients(MailAddress[] toRecipients) {
-        this.toRecipients = toRecipients;
-    }
-
-    public MailAddress[] getCcRecipients() {
-        return this.ccRecipients;
-    }
-
-    public void setCcRecipients(MailAddress[] ccRecipients) {
-        this.ccRecipients = ccRecipients;
-    }
-
-    public MailAddress[] getBccRecipients() {
-        return this.bccRecipients;
-    }
-
-    public void setBccRecipients(MailAddress[] bccRecipients) {
-        this.bccRecipients = bccRecipients;
-    }
-
-    public String getAttachmentNum() {
-        return this.attachmentNum;
-    }
-
-    public void setAttachmentNum(String attachmentNum) {
-        this.attachmentNum = attachmentNum;
-    }
-
-    public String getImageNum() {
-        return this.imageNum;
-    }
-
-    public void setImageNum(String imageNum) {
-        this.imageNum = imageNum;
-    }
-
-    public FileMetaInfo[] getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(FileMetaInfo[] attachments) {
-        this.attachments = attachments;
-    }
-
-    public FileMetaInfo[] getImages() {
-        return this.images;
-    }
-
-    public void setImages(FileMetaInfo[] images) {
-        this.images = images;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件ID
-         * <p> 示例值：abcdefg
-         */
-        private String messageId;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        private UserMailEntity owner;
-        /**
-         * 收发信事件类型
-         * <p> 示例值：
-         */
-        private String[] eventTypes;
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         */
-        private String smtpMessageId;
-        /**
-         * EML中的事件时间（毫秒）
-         * <p> 示例值：1682377086000
-         */
-        private String date;
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        private String subject;
-        /**
-         * 发件人
-         * <p> 示例值：
-         */
-        private MailAddress headerFrom;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        private MailAddress[] toRecipients;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        private MailAddress[] ccRecipients;
-        /**
-         * 秘送
-         * <p> 示例值：
-         */
-        private MailAddress[] bccRecipients;
-        /**
-         * 附件数量
-         * <p> 示例值：1
-         */
-        private String attachmentNum;
-        /**
-         * 图片数量
-         * <p> 示例值：1
-         */
-        private String imageNum;
-        /**
-         * 附件信息
-         * <p> 示例值：
-         */
-        private FileMetaInfo[] attachments;
-        /**
-         * 图片信息
-         * <p> 示例值：
-         */
-        private FileMetaInfo[] images;
-
-        /**
-         * 邮件ID
-         * <p> 示例值：abcdefg
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(UserMailEntity owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 收发信事件类型
-         * <p> 示例值：
-         *
-         * @param eventTypes
-         * @return
-         */
-        public Builder eventTypes(String[] eventTypes) {
-            this.eventTypes = eventTypes;
-            return this;
-        }
-
-
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         *
-         * @param smtpMessageId
-         * @return
-         */
-        public Builder smtpMessageId(String smtpMessageId) {
-            this.smtpMessageId = smtpMessageId;
-            return this;
-        }
-
-
-        /**
-         * EML中的事件时间（毫秒）
-         * <p> 示例值：1682377086000
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 发件人
-         * <p> 示例值：
-         *
-         * @param headerFrom
-         * @return
-         */
-        public Builder headerFrom(MailAddress headerFrom) {
-            this.headerFrom = headerFrom;
-            return this;
-        }
-
-
-        /**
-         * 收件人
-         * <p> 示例值：
-         *
-         * @param toRecipients
-         * @return
-         */
-        public Builder toRecipients(MailAddress[] toRecipients) {
-            this.toRecipients = toRecipients;
-            return this;
-        }
-
-
-        /**
-         * 抄送
-         * <p> 示例值：
-         *
-         * @param ccRecipients
-         * @return
-         */
-        public Builder ccRecipients(MailAddress[] ccRecipients) {
-            this.ccRecipients = ccRecipients;
-            return this;
-        }
-
-
-        /**
-         * 秘送
-         * <p> 示例值：
-         *
-         * @param bccRecipients
-         * @return
-         */
-        public Builder bccRecipients(MailAddress[] bccRecipients) {
-            this.bccRecipients = bccRecipients;
-            return this;
-        }
-
-
-        /**
-         * 附件数量
-         * <p> 示例值：1
-         *
-         * @param attachmentNum
-         * @return
-         */
-        public Builder attachmentNum(String attachmentNum) {
-            this.attachmentNum = attachmentNum;
-            return this;
-        }
-
-
-        /**
-         * 图片数量
-         * <p> 示例值：1
-         *
-         * @param imageNum
-         * @return
-         */
-        public Builder imageNum(String imageNum) {
-            this.imageNum = imageNum;
-            return this;
-        }
-
-
-        /**
-         * 附件信息
-         * <p> 示例值：
-         *
-         * @param attachments
-         * @return
-         */
-        public Builder attachments(FileMetaInfo[] attachments) {
-            this.attachments = attachments;
-            return this;
-        }
-
-
-        /**
-         * 图片信息
-         * <p> 示例值：
-         *
-         * @param images
-         * @return
-         */
-        public Builder images(FileMetaInfo[] images) {
-            this.images = images;
-            return this;
-        }
-
-
-        public MailLogMailInfo build() {
-            return new MailLogMailInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationPrehireOptional {
+  /**
+   * 是否包含基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_talent_basic")
+  private Boolean withTalentBasic;
+
+  /**
+   * 是否包含扩展信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_talent_extend")
+  private Boolean withTalentExtend;
+
+  /**
+   * 是否包含岗位信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_job")
+  private Boolean withJob;
+
+  /**
+   * 是否包含offer信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_offer")
+  private Boolean withOffer;
+
+  public Boolean getWithTalentBasic() {
+    return this.withTalentBasic;
+  }
+
+  public void setWithTalentBasic(Boolean withTalentBasic) {
+    this.withTalentBasic = withTalentBasic;
+  }
+
+  public Boolean getWithTalentExtend() {
+    return this.withTalentExtend;
+  }
+
+  public void setWithTalentExtend(Boolean withTalentExtend) {
+    this.withTalentExtend = withTalentExtend;
+  }
+
+  public Boolean getWithJob() {
+    return this.withJob;
+  }
+
+  public void setWithJob(Boolean withJob) {
+    this.withJob = withJob;
+  }
+
+  public Boolean getWithOffer() {
+    return this.withOffer;
+  }
+
+  public void setWithOffer(Boolean withOffer) {
+    this.withOffer = withOffer;
+  }
+
+  // builder 开始
+  public ApplicationPrehireOptional() {}
+
+  public ApplicationPrehireOptional(Builder builder) {
     /**
      * 是否包含基础信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_talent_basic")
-    private Boolean withTalentBasic;
+    this.withTalentBasic = builder.withTalentBasic;
     /**
      * 是否包含扩展信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_talent_extend")
-    private Boolean withTalentExtend;
+    this.withTalentExtend = builder.withTalentExtend;
     /**
      * 是否包含岗位信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_job")
-    private Boolean withJob;
+    this.withJob = builder.withJob;
     /**
      * 是否包含offer信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_offer")
+    this.withOffer = builder.withOffer;
+  }
+
+  public static class Builder {
+    /**
+     * 是否包含基础信息
+     *
+     * <p>示例值：
+     */
+    private Boolean withTalentBasic;
+
+    /**
+     * 是否包含扩展信息
+     *
+     * <p>示例值：
+     */
+    private Boolean withTalentExtend;
+
+    /**
+     * 是否包含岗位信息
+     *
+     * <p>示例值：
+     */
+    private Boolean withJob;
+
+    /**
+     * 是否包含offer信息
+     *
+     * <p>示例值：
+     */
     private Boolean withOffer;
 
-    // builder 开始
-    public ApplicationPrehireOptional() {
+    /**
+     * 是否包含基础信息
+     *
+     * <p>示例值：
+     *
+     * @param withTalentBasic
+     * @return
+     */
+    public Builder withTalentBasic(Boolean withTalentBasic) {
+      this.withTalentBasic = withTalentBasic;
+      return this;
     }
 
-    public ApplicationPrehireOptional(Builder builder) {
-        /**
-         * 是否包含基础信息
-         * <p> 示例值：
-         */
-        this.withTalentBasic = builder.withTalentBasic;
-        /**
-         * 是否包含扩展信息
-         * <p> 示例值：
-         */
-        this.withTalentExtend = builder.withTalentExtend;
-        /**
-         * 是否包含岗位信息
-         * <p> 示例值：
-         */
-        this.withJob = builder.withJob;
-        /**
-         * 是否包含offer信息
-         * <p> 示例值：
-         */
-        this.withOffer = builder.withOffer;
+    /**
+     * 是否包含扩展信息
+     *
+     * <p>示例值：
+     *
+     * @param withTalentExtend
+     * @return
+     */
+    public Builder withTalentExtend(Boolean withTalentExtend) {
+      this.withTalentExtend = withTalentExtend;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否包含岗位信息
+     *
+     * <p>示例值：
+     *
+     * @param withJob
+     * @return
+     */
+    public Builder withJob(Boolean withJob) {
+      this.withJob = withJob;
+      return this;
     }
 
-    public Boolean getWithTalentBasic() {
-        return this.withTalentBasic;
+    /**
+     * 是否包含offer信息
+     *
+     * <p>示例值：
+     *
+     * @param withOffer
+     * @return
+     */
+    public Builder withOffer(Boolean withOffer) {
+      this.withOffer = withOffer;
+      return this;
     }
 
-    public void setWithTalentBasic(Boolean withTalentBasic) {
-        this.withTalentBasic = withTalentBasic;
+    public ApplicationPrehireOptional build() {
+      return new ApplicationPrehireOptional(this);
     }
+  }
 
-    public Boolean getWithTalentExtend() {
-        return this.withTalentExtend;
-    }
-
-    public void setWithTalentExtend(Boolean withTalentExtend) {
-        this.withTalentExtend = withTalentExtend;
-    }
-
-    public Boolean getWithJob() {
-        return this.withJob;
-    }
-
-    public void setWithJob(Boolean withJob) {
-        this.withJob = withJob;
-    }
-
-    public Boolean getWithOffer() {
-        return this.withOffer;
-    }
-
-    public void setWithOffer(Boolean withOffer) {
-        this.withOffer = withOffer;
-    }
-
-    public static class Builder {
-        /**
-         * 是否包含基础信息
-         * <p> 示例值：
-         */
-        private Boolean withTalentBasic;
-        /**
-         * 是否包含扩展信息
-         * <p> 示例值：
-         */
-        private Boolean withTalentExtend;
-        /**
-         * 是否包含岗位信息
-         * <p> 示例值：
-         */
-        private Boolean withJob;
-        /**
-         * 是否包含offer信息
-         * <p> 示例值：
-         */
-        private Boolean withOffer;
-
-        /**
-         * 是否包含基础信息
-         * <p> 示例值：
-         *
-         * @param withTalentBasic
-         * @return
-         */
-        public Builder withTalentBasic(Boolean withTalentBasic) {
-            this.withTalentBasic = withTalentBasic;
-            return this;
-        }
-
-
-        /**
-         * 是否包含扩展信息
-         * <p> 示例值：
-         *
-         * @param withTalentExtend
-         * @return
-         */
-        public Builder withTalentExtend(Boolean withTalentExtend) {
-            this.withTalentExtend = withTalentExtend;
-            return this;
-        }
-
-
-        /**
-         * 是否包含岗位信息
-         * <p> 示例值：
-         *
-         * @param withJob
-         * @return
-         */
-        public Builder withJob(Boolean withJob) {
-            this.withJob = withJob;
-            return this;
-        }
-
-
-        /**
-         * 是否包含offer信息
-         * <p> 示例值：
-         *
-         * @param withOffer
-         * @return
-         */
-        public Builder withOffer(Boolean withOffer) {
-            this.withOffer = withOffer;
-            return this;
-        }
-
-
-        public ApplicationPrehireOptional build() {
-            return new ApplicationPrehireOptional(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

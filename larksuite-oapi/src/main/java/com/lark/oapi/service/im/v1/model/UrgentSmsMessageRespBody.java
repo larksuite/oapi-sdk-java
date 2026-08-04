@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UrgentSmsMessageRespBody {
-    /**
-     * 无效的用户ID
-     * <p> 示例值：
-     */
-    @SerializedName("invalid_user_id_list")
-    private String[] invalidUserIdList;
+  /**
+   * 无效的用户 ID。当传入的用户 ID 列表内存在部分用户 ID 有效时，将对有效的用户进行加急操作，同时返回无效的用户 ID。当所有的用户 ID 无效时，将返回 `230001` 错误码。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invalid_user_id_list")
+  private String[] invalidUserIdList;
 
-    public String[] getInvalidUserIdList() {
-        return this.invalidUserIdList;
-    }
+  public String[] getInvalidUserIdList() {
+    return this.invalidUserIdList;
+  }
 
-    public void setInvalidUserIdList(String[] invalidUserIdList) {
-        this.invalidUserIdList = invalidUserIdList;
-    }
-
+  public void setInvalidUserIdList(String[] invalidUserIdList) {
+    this.invalidUserIdList = invalidUserIdList;
+  }
 }

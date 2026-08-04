@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateBadgeImageRespBody {
-    /**
-     * 图片的key
-     * <p> 示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg
-     */
-    @SerializedName("image_key")
-    private String imageKey;
+  /**
+   * 图片的key
+   *
+   * <p>示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg
+   */
+  @SerializedName("image_key")
+  private String imageKey;
 
-    public String getImageKey() {
-        return this.imageKey;
-    }
+  public String getImageKey() {
+    return this.imageKey;
+  }
 
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
 }

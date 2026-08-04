@@ -13,173 +13,180 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserStatsViewReqBody {
+  /**
+   * 语言类型
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 统计类型
+   *
+   * <p>示例值：daily
+   */
+  @SerializedName("stats_type")
+  private String statsType;
+
+  /**
+   * 操作者的用户id，对应employee_type;;* 必填字段(系统升级后，新系统要求必填)
+   *
+   * <p>示例值：dd31248a
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getStatsType() {
+    return this.statsType;
+  }
+
+  public void setStatsType(String statsType) {
+    this.statsType = statsType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public QueryUserStatsViewReqBody() {}
+
+  public QueryUserStatsViewReqBody(Builder builder) {
     /**
      * 语言类型
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * 统计类型
-     * <p> 示例值：daily
+     *
+     * <p>示例值：daily
      */
-    @SerializedName("stats_type")
-    private String statsType;
+    this.statsType = builder.statsType;
     /**
-     * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-     * <p> 示例值：dd31248a
+     * 操作者的用户id，对应employee_type;;* 必填字段(系统升级后，新系统要求必填)
+     *
+     * <p>示例值：dd31248a
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     */
+    private String locale;
+
+    /**
+     * 统计类型
+     *
+     * <p>示例值：daily
+     */
+    private String statsType;
+
+    /**
+     * 操作者的用户id，对应employee_type;;* 必填字段(系统升级后，新系统要求必填)
+     *
+     * <p>示例值：dd31248a
+     */
     private String userId;
 
-    // builder 开始
-    public QueryUserStatsViewReqBody() {
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public QueryUserStatsViewReqBody(Builder builder) {
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        this.locale = builder.locale;
-        /**
-         * 统计类型
-         * <p> 示例值：daily
-         */
-        this.statsType = builder.statsType;
-        /**
-         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-         * <p> 示例值：dd31248a
-         */
-        this.userId = builder.userId;
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param locale {@link
+     *     com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewLocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 统计类型
+     *
+     * <p>示例值：daily
+     *
+     * @param statsType
+     * @return
+     */
+    public Builder statsType(String statsType) {
+      this.statsType = statsType;
+      return this;
     }
 
-    public String getLocale() {
-        return this.locale;
+    /**
+     * 统计类型
+     *
+     * <p>示例值：daily
+     *
+     * @param statsType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewStatsTypeEnum}
+     * @return
+     */
+    public Builder statsType(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewStatsTypeEnum
+            statsType) {
+      this.statsType = statsType.getValue();
+      return this;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    /**
+     * 操作者的用户id，对应employee_type;;* 必填字段(系统升级后，新系统要求必填)
+     *
+     * <p>示例值：dd31248a
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getStatsType() {
-        return this.statsType;
+    public QueryUserStatsViewReqBody build() {
+      return new QueryUserStatsViewReqBody(this);
     }
+  }
 
-    public void setStatsType(String statsType) {
-        this.statsType = statsType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        private String locale;
-        /**
-         * 统计类型
-         * <p> 示例值：daily
-         */
-        private String statsType;
-        /**
-         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-         * <p> 示例值：dd31248a
-         */
-        private String userId;
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewLocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-
-        /**
-         * 统计类型
-         * <p> 示例值：daily
-         *
-         * @param statsType
-         * @return
-         */
-        public Builder statsType(String statsType) {
-            this.statsType = statsType;
-            return this;
-        }
-
-        /**
-         * 统计类型
-         * <p> 示例值：daily
-         *
-         * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewStatsTypeEnum}
-         * @return
-         */
-        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsViewQueryViewStatsTypeEnum statsType) {
-            this.statsType = statsType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 查询用户id，同【查询统计数据】、【更新统计设置】user_id
-         * <p> 示例值：dd31248a
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public QueryUserStatsViewReqBody build() {
-            return new QueryUserStatsViewReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

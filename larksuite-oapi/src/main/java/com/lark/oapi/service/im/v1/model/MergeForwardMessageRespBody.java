@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MergeForwardMessageRespBody {
-    /**
-     * 合并转发生成的新消息
-     * <p> 示例值：--
-     */
-    @SerializedName("message")
-    private Message message;
-    /**
-     * 无效的消息ID列表
-     * <p> 示例值：
-     */
-    @SerializedName("invalid_message_id_list")
-    private String[] invalidMessageIdList;
+  /**
+   * 合并转发生成的新消息。
+   *
+   * <p>示例值：--
+   */
+  @SerializedName("message")
+  private Message message;
 
-    public Message getMessage() {
-        return this.message;
-    }
+  /**
+   * 无效的消息 ID 列表，如不存在的消息、已被撤回的消息、当前操作者不可见的历史消息、接口不支持的消息类型等。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invalid_message_id_list")
+  private String[] invalidMessageIdList;
 
-    public void setMessage(Message message) {
-        this.message = message;
-    }
+  public Message getMessage() {
+    return this.message;
+  }
 
-    public String[] getInvalidMessageIdList() {
-        return this.invalidMessageIdList;
-    }
+  public void setMessage(Message message) {
+    this.message = message;
+  }
 
-    public void setInvalidMessageIdList(String[] invalidMessageIdList) {
-        this.invalidMessageIdList = invalidMessageIdList;
-    }
+  public String[] getInvalidMessageIdList() {
+    return this.invalidMessageIdList;
+  }
 
+  public void setInvalidMessageIdList(String[] invalidMessageIdList) {
+    this.invalidMessageIdList = invalidMessageIdList;
+  }
 }

@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class WithdrawOnboardingPreHireReq {
-    @Body
+  @Body private WithdrawOnboardingPreHireReqBody body;
+
+  public WithdrawOnboardingPreHireReqBody getWithdrawOnboardingPreHireReqBody() {
+    return this.body;
+  }
+
+  public void setWithdrawOnboardingPreHireReqBody(WithdrawOnboardingPreHireReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public WithdrawOnboardingPreHireReq() {}
+
+  public WithdrawOnboardingPreHireReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private WithdrawOnboardingPreHireReqBody body;
 
-    // builder 开始
-    public WithdrawOnboardingPreHireReq() {
-    }
-
-    public WithdrawOnboardingPreHireReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public WithdrawOnboardingPreHireReqBody getWithdrawOnboardingPreHireReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setWithdrawOnboardingPreHireReqBody(WithdrawOnboardingPreHireReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder withdrawOnboardingPreHireReqBody(WithdrawOnboardingPreHireReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private WithdrawOnboardingPreHireReqBody body;
-
-        public WithdrawOnboardingPreHireReqBody getWithdrawOnboardingPreHireReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder withdrawOnboardingPreHireReqBody(WithdrawOnboardingPreHireReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public WithdrawOnboardingPreHireReq build() {
-            return new WithdrawOnboardingPreHireReq(this);
-        }
+    public WithdrawOnboardingPreHireReq build() {
+      return new WithdrawOnboardingPreHireReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

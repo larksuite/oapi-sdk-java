@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOkrObjectiveAlignedObjective {
+  /**
+   * Objective的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * OKR的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("okr_id")
+  private String okrId;
+
+  /**
+   * 该Objective的Owner
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private UserOkrObjectiveAlignedObjectiveOwner owner;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getOkrId() {
+    return this.okrId;
+  }
+
+  public void setOkrId(String okrId) {
+    this.okrId = okrId;
+  }
+
+  public UserOkrObjectiveAlignedObjectiveOwner getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(UserOkrObjectiveAlignedObjectiveOwner owner) {
+    this.owner = owner;
+  }
+
+  // builder 开始
+  public UserOkrObjectiveAlignedObjective() {}
+
+  public UserOkrObjectiveAlignedObjective(Builder builder) {
     /**
      * Objective的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * OKR的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("okr_id")
-    private String okrId;
+    this.okrId = builder.okrId;
     /**
      * 该Objective的Owner
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
+    this.owner = builder.owner;
+  }
+
+  public static class Builder {
+    /**
+     * Objective的ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * OKR的ID
+     *
+     * <p>示例值：
+     */
+    private String okrId;
+
+    /**
+     * 该Objective的Owner
+     *
+     * <p>示例值：
+     */
     private UserOkrObjectiveAlignedObjectiveOwner owner;
 
-    // builder 开始
-    public UserOkrObjectiveAlignedObjective() {
+    /**
+     * Objective的ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserOkrObjectiveAlignedObjective(Builder builder) {
-        /**
-         * Objective的ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * OKR的ID
-         * <p> 示例值：
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
+    /**
+     * OKR的ID
+     *
+     * <p>示例值：
+     *
+     * @param okrId
+     * @return
+     */
+    public Builder okrId(String okrId) {
+      this.okrId = okrId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该Objective的Owner
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(UserOkrObjectiveAlignedObjectiveOwner owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public UserOkrObjectiveAlignedObjective build() {
+      return new UserOkrObjectiveAlignedObjective(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getOkrId() {
-        return this.okrId;
-    }
-
-    public void setOkrId(String okrId) {
-        this.okrId = okrId;
-    }
-
-    public UserOkrObjectiveAlignedObjectiveOwner getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(UserOkrObjectiveAlignedObjectiveOwner owner) {
-        this.owner = owner;
-    }
-
-    public static class Builder {
-        /**
-         * Objective的ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * OKR的ID
-         * <p> 示例值：
-         */
-        private String okrId;
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：
-         */
-        private UserOkrObjectiveAlignedObjectiveOwner owner;
-
-        /**
-         * Objective的ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * OKR的ID
-         * <p> 示例值：
-         *
-         * @param okrId
-         * @return
-         */
-        public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
-        }
-
-
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(UserOkrObjectiveAlignedObjectiveOwner owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        public UserOkrObjectiveAlignedObjective build() {
-            return new UserOkrObjectiveAlignedObjective(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

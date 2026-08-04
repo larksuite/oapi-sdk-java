@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchUserDataAi {
+  /**
+   * 查询传入的单个Keyword
+   *
+   * <p>示例值：UserName
+   */
+  @SerializedName("query_keyword")
+  private String queryKeyword;
+
+  /**
+   * 搜索到的用户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_info")
+  private UserMeta userInfo;
+
+  public String getQueryKeyword() {
+    return this.queryKeyword;
+  }
+
+  public void setQueryKeyword(String queryKeyword) {
+    this.queryKeyword = queryKeyword;
+  }
+
+  public UserMeta getUserInfo() {
+    return this.userInfo;
+  }
+
+  public void setUserInfo(UserMeta userInfo) {
+    this.userInfo = userInfo;
+  }
+
+  // builder 开始
+  public SearchUserDataAi() {}
+
+  public SearchUserDataAi(Builder builder) {
     /**
      * 查询传入的单个Keyword
-     * <p> 示例值：UserName
+     *
+     * <p>示例值：UserName
      */
-    @SerializedName("query_keyword")
-    private String queryKeyword;
+    this.queryKeyword = builder.queryKeyword;
     /**
      * 搜索到的用户信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_info")
+    this.userInfo = builder.userInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 查询传入的单个Keyword
+     *
+     * <p>示例值：UserName
+     */
+    private String queryKeyword;
+
+    /**
+     * 搜索到的用户信息
+     *
+     * <p>示例值：
+     */
     private UserMeta userInfo;
 
-    // builder 开始
-    public SearchUserDataAi() {
+    /**
+     * 查询传入的单个Keyword
+     *
+     * <p>示例值：UserName
+     *
+     * @param queryKeyword
+     * @return
+     */
+    public Builder queryKeyword(String queryKeyword) {
+      this.queryKeyword = queryKeyword;
+      return this;
     }
 
-    public SearchUserDataAi(Builder builder) {
-        /**
-         * 查询传入的单个Keyword
-         * <p> 示例值：UserName
-         */
-        this.queryKeyword = builder.queryKeyword;
-        /**
-         * 搜索到的用户信息
-         * <p> 示例值：
-         */
-        this.userInfo = builder.userInfo;
+    /**
+     * 搜索到的用户信息
+     *
+     * <p>示例值：
+     *
+     * @param userInfo
+     * @return
+     */
+    public Builder userInfo(UserMeta userInfo) {
+      this.userInfo = userInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchUserDataAi build() {
+      return new SearchUserDataAi(this);
     }
+  }
 
-    public String getQueryKeyword() {
-        return this.queryKeyword;
-    }
-
-    public void setQueryKeyword(String queryKeyword) {
-        this.queryKeyword = queryKeyword;
-    }
-
-    public UserMeta getUserInfo() {
-        return this.userInfo;
-    }
-
-    public void setUserInfo(UserMeta userInfo) {
-        this.userInfo = userInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 查询传入的单个Keyword
-         * <p> 示例值：UserName
-         */
-        private String queryKeyword;
-        /**
-         * 搜索到的用户信息
-         * <p> 示例值：
-         */
-        private UserMeta userInfo;
-
-        /**
-         * 查询传入的单个Keyword
-         * <p> 示例值：UserName
-         *
-         * @param queryKeyword
-         * @return
-         */
-        public Builder queryKeyword(String queryKeyword) {
-            this.queryKeyword = queryKeyword;
-            return this;
-        }
-
-
-        /**
-         * 搜索到的用户信息
-         * <p> 示例值：
-         *
-         * @param userInfo
-         * @return
-         */
-        public Builder userInfo(UserMeta userInfo) {
-            this.userInfo = userInfo;
-            return this;
-        }
-
-
-        public SearchUserDataAi build() {
-            return new SearchUserDataAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

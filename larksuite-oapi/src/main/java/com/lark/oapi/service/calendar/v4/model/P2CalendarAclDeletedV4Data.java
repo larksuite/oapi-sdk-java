@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CalendarAclDeletedV4Data {
-    /**
-     * acl资源ID
-     * <p> 示例值：user_6843287928157667331
-     */
-    @SerializedName("acl_id")
-    private String aclId;
-    /**
-     * 对日历的访问权限
-     * <p> 示例值：
-     */
-    @SerializedName("role")
-    private String role;
-    /**
-     * 权限范围
-     * <p> 示例值：
-     */
-    @SerializedName("scope")
-    private AclScopeEvent scope;
-    /**
-     * 需要推送事件的用户列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_id_list")
-    private UserId[] userIdList;
+  /**
+   * 访问控制 ID。该 ID 在单个日历实体内唯一，不同日历实体可能存在重复的访问控制 ID。
+   *
+   * <p>示例值：user_xxxxx
+   */
+  @SerializedName("acl_id")
+  private String aclId;
 
-    public String getAclId() {
-        return this.aclId;
-    }
+  /**
+   * 对日历的访问权限。
+   *
+   * <p>示例值：unknown
+   */
+  @SerializedName("role")
+  private String role;
 
-    public void setAclId(String aclId) {
-        this.aclId = aclId;
-    }
+  /**
+   * 权限生效范围。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope")
+  private AclScopeEvent scope;
 
-    public String getRole() {
-        return this.role;
-    }
+  /**
+   * 需要推送事件的用户列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private UserId[] userIdList;
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+  public String getAclId() {
+    return this.aclId;
+  }
 
-    public AclScopeEvent getScope() {
-        return this.scope;
-    }
+  public void setAclId(String aclId) {
+    this.aclId = aclId;
+  }
 
-    public void setScope(AclScopeEvent scope) {
-        this.scope = scope;
-    }
+  public String getRole() {
+    return this.role;
+  }
 
-    public UserId[] getUserIdList() {
-        return this.userIdList;
-    }
+  public void setRole(String role) {
+    this.role = role;
+  }
 
-    public void setUserIdList(UserId[] userIdList) {
-        this.userIdList = userIdList;
-    }
+  public AclScopeEvent getScope() {
+    return this.scope;
+  }
 
+  public void setScope(AclScopeEvent scope) {
+    this.scope = scope;
+  }
+
+  public UserId[] getUserIdList() {
+    return this.userIdList;
+  }
+
+  public void setUserIdList(UserId[] userIdList) {
+    this.userIdList = userIdList;
+  }
 }

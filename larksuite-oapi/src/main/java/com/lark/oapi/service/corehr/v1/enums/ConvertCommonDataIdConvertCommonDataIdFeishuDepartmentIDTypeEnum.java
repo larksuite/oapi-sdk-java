@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 此次调用中使用的部门 ID 类型
- */
+/** 此次调用中使用的部门 ID 类型 */
 public enum ConvertCommonDataIdConvertCommonDataIdFeishuDepartmentIDTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
-    DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
-    ;
-    private String value;
+  OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
+  DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
+  ;
+  private String value;
 
-    ConvertCommonDataIdConvertCommonDataIdFeishuDepartmentIDTypeEnum(String value) {
-        this.value = value;
-    }
+  ConvertCommonDataIdConvertCommonDataIdFeishuDepartmentIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

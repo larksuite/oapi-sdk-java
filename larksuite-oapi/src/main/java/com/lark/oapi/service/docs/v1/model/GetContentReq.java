@@ -13,209 +13,217 @@
 
 package com.lark.oapi.service.docs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.docs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.docs.v1.enums.*;
 
 public class GetContentReq {
+  /**
+   * 云文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+   * `doc_token`
+   *
+   * <p>示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+   */
+  @Query
+  @SerializedName("doc_token")
+  private String docToken;
+
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("doc_type")
+  private String docType;
+
+  /**
+   * 内容类型
+   *
+   * <p>示例值：markdown
+   */
+  @Query
+  @SerializedName("content_type")
+  private String contentType;
+
+  /**
+   * 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文;
+   *
+   * <p>示例值：zh
+   */
+  @Query
+  @SerializedName("lang")
+  private String lang;
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  public String getDocType() {
+    return this.docType;
+  }
+
+  public void setDocType(String docType) {
+    this.docType = docType;
+  }
+
+  public String getContentType() {
+    return this.contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  // builder 开始
+  public GetContentReq() {}
+
+  public GetContentReq(Builder builder) {
     /**
-     * 文档唯一标识
-     * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+     * 云文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `doc_token`
+     *
+     * <p>示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
      */
-    @Query
-    @SerializedName("doc_token")
-    private String docToken;
+    this.docToken = builder.docToken;
     /**
-     * 文档类型
-     * <p> 示例值：docx
+     * 云文档类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("doc_type")
-    private String docType;
+    this.docType = builder.docType;
     /**
      * 内容类型
-     * <p> 示例值：markdown
+     *
+     * <p>示例值：markdown
      */
-    @Query
-    @SerializedName("content_type")
-    private String contentType;
+    this.contentType = builder.contentType;
     /**
-     * 语言
-     * <p> 示例值：zh
+     * 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文;
+     *
+     * <p>示例值：zh
      */
-    @Query
-    @SerializedName("lang")
-    private String lang;
+    this.lang = builder.lang;
+  }
 
-    // builder 开始
-    public GetContentReq() {
+  public static class Builder {
+    private String
+        docToken; // 云文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `doc_token`
+    private String docType; // 云文档类型
+    private String contentType; // 内容类型
+    private String lang; // 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文;
+
+    /**
+     * 云文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `doc_token`
+     *
+     * <p>示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public GetContentReq(Builder builder) {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
-         */
-        this.docToken = builder.docToken;
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.docType = builder.docType;
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         */
-        this.contentType = builder.contentType;
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
-        this.lang = builder.lang;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param docType
+     * @return
+     */
+    public Builder docType(String docType) {
+      this.docType = docType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param docType {@link com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum}
+     * @return
+     */
+    public Builder docType(com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum docType) {
+      this.docType = docType.getValue();
+      return this;
     }
 
-    public String getDocToken() {
-        return this.docToken;
+    /**
+     * 内容类型
+     *
+     * <p>示例值：markdown
+     *
+     * @param contentType
+     * @return
+     */
+    public Builder contentType(String contentType) {
+      this.contentType = contentType;
+      return this;
     }
 
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
+    /**
+     * 内容类型
+     *
+     * <p>示例值：markdown
+     *
+     * @param contentType {@link com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum}
+     * @return
+     */
+    public Builder contentType(
+        com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum contentType) {
+      this.contentType = contentType.getValue();
+      return this;
     }
 
-    public String getDocType() {
-        return this.docType;
+    /**
+     * 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文;
+     *
+     * <p>示例值：zh
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public void setDocType(String docType) {
-        this.docType = docType;
+    /**
+     * 云文档中存在 @用户 元素时，指定该用户名称的语言。默认 `zh`，即中文;
+     *
+     * <p>示例值：zh
+     *
+     * @param lang {@link com.lark.oapi.service.docs.v1.enums.GetContentLangEnum}
+     * @return
+     */
+    public Builder lang(com.lark.oapi.service.docs.v1.enums.GetContentLangEnum lang) {
+      this.lang = lang.getValue();
+      return this;
     }
 
-    public String getContentType() {
-        return this.contentType;
+    public GetContentReq build() {
+      return new GetContentReq(this);
     }
+  }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getLang() {
-        return this.lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public static class Builder {
-        private String docToken; // 文档唯一标识
-        private String docType; // 文档类型
-        private String contentType; // 内容类型
-        private String lang; // 语言
-
-        /**
-         * 文档唯一标识
-         * <p> 示例值：B4EPdAYx8oi8HRxgPQQbM15UcBf
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param docType
-         * @return
-         */
-        public Builder docType(String docType) {
-            this.docType = docType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param docType {@link com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum}
-         * @return
-         */
-        public Builder docType(com.lark.oapi.service.docs.v1.enums.GetContentDocTypeEnum docType) {
-            this.docType = docType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         *
-         * @param contentType
-         * @return
-         */
-        public Builder contentType(String contentType) {
-            this.contentType = contentType;
-            return this;
-        }
-
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         *
-         * @param contentType {@link com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum}
-         * @return
-         */
-        public Builder contentType(com.lark.oapi.service.docs.v1.enums.GetContentContentTypeEnum contentType) {
-            this.contentType = contentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：zh
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-        /**
-         * 语言
-         * <p> 示例值：zh
-         *
-         * @param lang {@link com.lark.oapi.service.docs.v1.enums.GetContentLangEnum}
-         * @return
-         */
-        public Builder lang(com.lark.oapi.service.docs.v1.enums.GetContentLangEnum lang) {
-            this.lang = lang.getValue();
-            return this;
-        }
-
-
-        public GetContentReq build() {
-            return new GetContentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

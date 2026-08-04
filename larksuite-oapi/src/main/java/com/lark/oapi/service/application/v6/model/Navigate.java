@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Navigate {
+  /**
+   * pc 端主导航信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pc")
+  private NavigateMeta pc;
+
+  /**
+   * 移动端主导航信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mobile")
+  private NavigateMeta mobile;
+
+  public NavigateMeta getPc() {
+    return this.pc;
+  }
+
+  public void setPc(NavigateMeta pc) {
+    this.pc = pc;
+  }
+
+  public NavigateMeta getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(NavigateMeta mobile) {
+    this.mobile = mobile;
+  }
+
+  // builder 开始
+  public Navigate() {}
+
+  public Navigate(Builder builder) {
     /**
      * pc 端主导航信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pc")
-    private NavigateMeta pc;
+    this.pc = builder.pc;
     /**
      * 移动端主导航信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mobile")
+    this.mobile = builder.mobile;
+  }
+
+  public static class Builder {
+    /**
+     * pc 端主导航信息
+     *
+     * <p>示例值：
+     */
+    private NavigateMeta pc;
+
+    /**
+     * 移动端主导航信息
+     *
+     * <p>示例值：
+     */
     private NavigateMeta mobile;
 
-    // builder 开始
-    public Navigate() {
+    /**
+     * pc 端主导航信息
+     *
+     * <p>示例值：
+     *
+     * @param pc
+     * @return
+     */
+    public Builder pc(NavigateMeta pc) {
+      this.pc = pc;
+      return this;
     }
 
-    public Navigate(Builder builder) {
-        /**
-         * pc 端主导航信息
-         * <p> 示例值：
-         */
-        this.pc = builder.pc;
-        /**
-         * 移动端主导航信息
-         * <p> 示例值：
-         */
-        this.mobile = builder.mobile;
+    /**
+     * 移动端主导航信息
+     *
+     * <p>示例值：
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(NavigateMeta mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Navigate build() {
+      return new Navigate(this);
     }
+  }
 
-    public NavigateMeta getPc() {
-        return this.pc;
-    }
-
-    public void setPc(NavigateMeta pc) {
-        this.pc = pc;
-    }
-
-    public NavigateMeta getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(NavigateMeta mobile) {
-        this.mobile = mobile;
-    }
-
-    public static class Builder {
-        /**
-         * pc 端主导航信息
-         * <p> 示例值：
-         */
-        private NavigateMeta pc;
-        /**
-         * 移动端主导航信息
-         * <p> 示例值：
-         */
-        private NavigateMeta mobile;
-
-        /**
-         * pc 端主导航信息
-         * <p> 示例值：
-         *
-         * @param pc
-         * @return
-         */
-        public Builder pc(NavigateMeta pc) {
-            this.pc = pc;
-            return this;
-        }
-
-
-        /**
-         * 移动端主导航信息
-         * <p> 示例值：
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(NavigateMeta mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        public Navigate build() {
-            return new Navigate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

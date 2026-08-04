@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinutesFilter {
+  /**
+   * 按妙记创建者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * 按妙记参与者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_ids")
+  private String[] participantIds;
+
+  /**
+   * 按妙记创建时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time")
+  private TimeRange createTime;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public String[] getParticipantIds() {
+    return this.participantIds;
+  }
+
+  public void setParticipantIds(String[] participantIds) {
+    this.participantIds = participantIds;
+  }
+
+  public TimeRange getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(TimeRange createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public MinutesFilter() {}
+
+  public MinutesFilter(Builder builder) {
     /**
-     * 创建者用户 ID 列表
-     * <p> 示例值：
+     * 按妙记创建者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
+    this.ownerIds = builder.ownerIds;
+    /**
+     * 按妙记参与者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     */
+    this.participantIds = builder.participantIds;
+    /**
+     * 按妙记创建时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time
+     *
+     * <p>示例值：
+     */
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 按妙记创建者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     */
     private String[] ownerIds;
+
     /**
-     * 参与者用户 ID 列表
-     * <p> 示例值：
+     * 按妙记参与者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant_ids")
     private String[] participantIds;
+
     /**
-     * 创建时间范围
-     * <p> 示例值：
+     * 按妙记创建时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time")
     private TimeRange createTime;
 
-    // builder 开始
-    public MinutesFilter() {
+    /**
+     * 按妙记创建者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public MinutesFilter(Builder builder) {
-        /**
-         * 创建者用户 ID 列表
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         */
-        this.participantIds = builder.participantIds;
-        /**
-         * 创建时间范围
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 按妙记参与者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     *
+     * @param participantIds
+     * @return
+     */
+    public Builder participantIds(String[] participantIds) {
+      this.participantIds = participantIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 按妙记创建时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time
+     *
+     * <p>示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(TimeRange createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    public MinutesFilter build() {
+      return new MinutesFilter(this);
     }
+  }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
-    }
-
-    public String[] getParticipantIds() {
-        return this.participantIds;
-    }
-
-    public void setParticipantIds(String[] participantIds) {
-        this.participantIds = participantIds;
-    }
-
-    public TimeRange getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(TimeRange createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 创建者用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] participantIds;
-        /**
-         * 创建时间范围
-         * <p> 示例值：
-         */
-        private TimeRange createTime;
-
-        /**
-         * 创建者用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * 参与者用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param participantIds
-         * @return
-         */
-        public Builder participantIds(String[] participantIds) {
-            this.participantIds = participantIds;
-            return this;
-        }
-
-
-        /**
-         * 创建时间范围
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(TimeRange createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public MinutesFilter build() {
-            return new MinutesFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

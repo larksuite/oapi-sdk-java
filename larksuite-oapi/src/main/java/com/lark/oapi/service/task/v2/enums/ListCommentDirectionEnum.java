@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 返回数据的排序方式
- */
+/** 返回数据的排序方式。"asc"表示从最老到最新顺序返回；"desc"表示从最新到最老顺序返回。默认为"asc"。 */
 public enum ListCommentDirectionEnum {
-    ASC("asc"), // 评论发表时间升序
-    DESC("desc"), // 评论发表时间降序
-    ;
-    private String value;
+  ASC("asc"), // 评论发表时间升序
+  DESC("desc"), // 评论发表时间降序
+  ;
+  private String value;
 
-    ListCommentDirectionEnum(String value) {
-        this.value = value;
-    }
+  ListCommentDirectionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

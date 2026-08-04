@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnableReferralAccountReqBody {
+  /**
+   * 账户
+   * ID，注册账户后获取：[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)
+   *
+   * <p>示例值：6942778198054125570
+   */
+  @SerializedName("referral_account_id")
+  private String referralAccountId;
+
+  public String getReferralAccountId() {
+    return this.referralAccountId;
+  }
+
+  public void setReferralAccountId(String referralAccountId) {
+    this.referralAccountId = referralAccountId;
+  }
+
+  // builder 开始
+  public EnableReferralAccountReqBody() {}
+
+  public EnableReferralAccountReqBody(Builder builder) {
     /**
-     * 账户 ID
-     * <p> 示例值：6942778198054125570
+     * 账户
+     * ID，注册账户后获取：[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)
+     *
+     * <p>示例值：6942778198054125570
      */
-    @SerializedName("referral_account_id")
+    this.referralAccountId = builder.referralAccountId;
+  }
+
+  public static class Builder {
+    /**
+     * 账户
+     * ID，注册账户后获取：[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)
+     *
+     * <p>示例值：6942778198054125570
+     */
     private String referralAccountId;
 
-    // builder 开始
-    public EnableReferralAccountReqBody() {
+    /**
+     * 账户
+     * ID，注册账户后获取：[注册内推账户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/referral_account/create)
+     *
+     * <p>示例值：6942778198054125570
+     *
+     * @param referralAccountId
+     * @return
+     */
+    public Builder referralAccountId(String referralAccountId) {
+      this.referralAccountId = referralAccountId;
+      return this;
     }
 
-    public EnableReferralAccountReqBody(Builder builder) {
-        /**
-         * 账户 ID
-         * <p> 示例值：6942778198054125570
-         */
-        this.referralAccountId = builder.referralAccountId;
+    public EnableReferralAccountReqBody build() {
+      return new EnableReferralAccountReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getReferralAccountId() {
-        return this.referralAccountId;
-    }
-
-    public void setReferralAccountId(String referralAccountId) {
-        this.referralAccountId = referralAccountId;
-    }
-
-    public static class Builder {
-        /**
-         * 账户 ID
-         * <p> 示例值：6942778198054125570
-         */
-        private String referralAccountId;
-
-        /**
-         * 账户 ID
-         * <p> 示例值：6942778198054125570
-         *
-         * @param referralAccountId
-         * @return
-         */
-        public Builder referralAccountId(String referralAccountId) {
-            this.referralAccountId = referralAccountId;
-            return this;
-        }
-
-
-        public EnableReferralAccountReqBody build() {
-            return new EnableReferralAccountReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScoreDimensionConfig {
+  /**
+   * 分数维度类型，属于打分题的子维度类型，包括固定分值、自定义分值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("score_dimension_type")
+  private Integer scoreDimensionType;
+
+  /**
+   * 分数下限
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("lower_limit_score")
+  private Integer lowerLimitScore;
+
+  /**
+   * 分数上限
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("upper_limit_score")
+  private Integer upperLimitScore;
+
+  public Integer getScoreDimensionType() {
+    return this.scoreDimensionType;
+  }
+
+  public void setScoreDimensionType(Integer scoreDimensionType) {
+    this.scoreDimensionType = scoreDimensionType;
+  }
+
+  public Integer getLowerLimitScore() {
+    return this.lowerLimitScore;
+  }
+
+  public void setLowerLimitScore(Integer lowerLimitScore) {
+    this.lowerLimitScore = lowerLimitScore;
+  }
+
+  public Integer getUpperLimitScore() {
+    return this.upperLimitScore;
+  }
+
+  public void setUpperLimitScore(Integer upperLimitScore) {
+    this.upperLimitScore = upperLimitScore;
+  }
+
+  // builder 开始
+  public ScoreDimensionConfig() {}
+
+  public ScoreDimensionConfig(Builder builder) {
     /**
-     * 分数维度类型
-     * <p> 示例值：1
+     * 分数维度类型，属于打分题的子维度类型，包括固定分值、自定义分值
+     *
+     * <p>示例值：1
      */
-    @SerializedName("score_dimension_type")
-    private Integer scoreDimensionType;
+    this.scoreDimensionType = builder.scoreDimensionType;
     /**
      * 分数下限
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("lower_limit_score")
-    private Integer lowerLimitScore;
+    this.lowerLimitScore = builder.lowerLimitScore;
     /**
      * 分数上限
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("upper_limit_score")
+    this.upperLimitScore = builder.upperLimitScore;
+  }
+
+  public static class Builder {
+    /**
+     * 分数维度类型，属于打分题的子维度类型，包括固定分值、自定义分值
+     *
+     * <p>示例值：1
+     */
+    private Integer scoreDimensionType;
+
+    /**
+     * 分数下限
+     *
+     * <p>示例值：1
+     */
+    private Integer lowerLimitScore;
+
+    /**
+     * 分数上限
+     *
+     * <p>示例值：100
+     */
     private Integer upperLimitScore;
 
-    // builder 开始
-    public ScoreDimensionConfig() {
+    /**
+     * 分数维度类型，属于打分题的子维度类型，包括固定分值、自定义分值
+     *
+     * <p>示例值：1
+     *
+     * @param scoreDimensionType
+     * @return
+     */
+    public Builder scoreDimensionType(Integer scoreDimensionType) {
+      this.scoreDimensionType = scoreDimensionType;
+      return this;
     }
 
-    public ScoreDimensionConfig(Builder builder) {
-        /**
-         * 分数维度类型
-         * <p> 示例值：1
-         */
-        this.scoreDimensionType = builder.scoreDimensionType;
-        /**
-         * 分数下限
-         * <p> 示例值：1
-         */
-        this.lowerLimitScore = builder.lowerLimitScore;
-        /**
-         * 分数上限
-         * <p> 示例值：100
-         */
-        this.upperLimitScore = builder.upperLimitScore;
+    /**
+     * 分数下限
+     *
+     * <p>示例值：1
+     *
+     * @param lowerLimitScore
+     * @return
+     */
+    public Builder lowerLimitScore(Integer lowerLimitScore) {
+      this.lowerLimitScore = lowerLimitScore;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分数上限
+     *
+     * <p>示例值：100
+     *
+     * @param upperLimitScore
+     * @return
+     */
+    public Builder upperLimitScore(Integer upperLimitScore) {
+      this.upperLimitScore = upperLimitScore;
+      return this;
     }
 
-    public Integer getScoreDimensionType() {
-        return this.scoreDimensionType;
+    public ScoreDimensionConfig build() {
+      return new ScoreDimensionConfig(this);
     }
+  }
 
-    public void setScoreDimensionType(Integer scoreDimensionType) {
-        this.scoreDimensionType = scoreDimensionType;
-    }
-
-    public Integer getLowerLimitScore() {
-        return this.lowerLimitScore;
-    }
-
-    public void setLowerLimitScore(Integer lowerLimitScore) {
-        this.lowerLimitScore = lowerLimitScore;
-    }
-
-    public Integer getUpperLimitScore() {
-        return this.upperLimitScore;
-    }
-
-    public void setUpperLimitScore(Integer upperLimitScore) {
-        this.upperLimitScore = upperLimitScore;
-    }
-
-    public static class Builder {
-        /**
-         * 分数维度类型
-         * <p> 示例值：1
-         */
-        private Integer scoreDimensionType;
-        /**
-         * 分数下限
-         * <p> 示例值：1
-         */
-        private Integer lowerLimitScore;
-        /**
-         * 分数上限
-         * <p> 示例值：100
-         */
-        private Integer upperLimitScore;
-
-        /**
-         * 分数维度类型
-         * <p> 示例值：1
-         *
-         * @param scoreDimensionType
-         * @return
-         */
-        public Builder scoreDimensionType(Integer scoreDimensionType) {
-            this.scoreDimensionType = scoreDimensionType;
-            return this;
-        }
-
-
-        /**
-         * 分数下限
-         * <p> 示例值：1
-         *
-         * @param lowerLimitScore
-         * @return
-         */
-        public Builder lowerLimitScore(Integer lowerLimitScore) {
-            this.lowerLimitScore = lowerLimitScore;
-            return this;
-        }
-
-
-        /**
-         * 分数上限
-         * <p> 示例值：100
-         *
-         * @param upperLimitScore
-         * @return
-         */
-        public Builder upperLimitScore(Integer upperLimitScore) {
-            this.upperLimitScore = upperLimitScore;
-            return this;
-        }
-
-
-        public ScoreDimensionConfig build() {
-            return new ScoreDimensionConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2UserUpdatedV1Data {
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
-    private UserId userId;
-    /**
-     * 卡号
-     * <p> 示例值：123456
-     */
-    @SerializedName("card")
-    private Integer card;
-    /**
-     * 是否上传人脸图片
-     * <p> 示例值：true
-     */
-    @SerializedName("face_uploaded")
-    private Boolean faceUploaded;
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
 
-    public UserId getUserId() {
-        return this.userId;
-    }
+  /**
+   * 卡号
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("card")
+  private Integer card;
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
+  /**
+   * 是否上传人脸图片
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("face_uploaded")
+  private Boolean faceUploaded;
 
-    public Integer getCard() {
-        return this.card;
-    }
+  public UserId getUserId() {
+    return this.userId;
+  }
 
-    public void setCard(Integer card) {
-        this.card = card;
-    }
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
 
-    public Boolean getFaceUploaded() {
-        return this.faceUploaded;
-    }
+  public Integer getCard() {
+    return this.card;
+  }
 
-    public void setFaceUploaded(Boolean faceUploaded) {
-        this.faceUploaded = faceUploaded;
-    }
+  public void setCard(Integer card) {
+    this.card = card;
+  }
 
+  public Boolean getFaceUploaded() {
+    return this.faceUploaded;
+  }
+
+  public void setFaceUploaded(Boolean faceUploaded) {
+    this.faceUploaded = faceUploaded;
+  }
 }

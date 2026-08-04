@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LessonStudyRecord {
+  /**
+   * 章节ID
+   *
+   * <p>示例值：DzMBN__Dp
+   */
+  @SerializedName("lesson_id")
+  private String lessonId;
+
+  /**
+   * 课程ID
+   *
+   * <p>示例值：5fd087e96dbe3a73394188ae
+   */
+  @SerializedName("course_id")
+  private String courseId;
+
+  /**
+   * 用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private User learner;
+
+  /**
+   * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("learning_state")
+  private Integer learningState;
+
+  /**
+   * 考试作答记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exam_record_list")
+  private ExamRecord[] examRecordList;
+
+  /**
+   * 完成时间
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("finished_at")
+  private Integer finishedAt;
+
+  /**
+   * 心得
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("thought")
+  private String thought;
+
+  /**
+   * 活动信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activity_session_record")
+  private ActivitySessionRecord activitySessionRecord;
+
+  public String getLessonId() {
+    return this.lessonId;
+  }
+
+  public void setLessonId(String lessonId) {
+    this.lessonId = lessonId;
+  }
+
+  public String getCourseId() {
+    return this.courseId;
+  }
+
+  public void setCourseId(String courseId) {
+    this.courseId = courseId;
+  }
+
+  public User getLearner() {
+    return this.learner;
+  }
+
+  public void setLearner(User learner) {
+    this.learner = learner;
+  }
+
+  public Integer getLearningState() {
+    return this.learningState;
+  }
+
+  public void setLearningState(Integer learningState) {
+    this.learningState = learningState;
+  }
+
+  public ExamRecord[] getExamRecordList() {
+    return this.examRecordList;
+  }
+
+  public void setExamRecordList(ExamRecord[] examRecordList) {
+    this.examRecordList = examRecordList;
+  }
+
+  public Integer getFinishedAt() {
+    return this.finishedAt;
+  }
+
+  public void setFinishedAt(Integer finishedAt) {
+    this.finishedAt = finishedAt;
+  }
+
+  public String getThought() {
+    return this.thought;
+  }
+
+  public void setThought(String thought) {
+    this.thought = thought;
+  }
+
+  public ActivitySessionRecord getActivitySessionRecord() {
+    return this.activitySessionRecord;
+  }
+
+  public void setActivitySessionRecord(ActivitySessionRecord activitySessionRecord) {
+    this.activitySessionRecord = activitySessionRecord;
+  }
+
+  // builder 开始
+  public LessonStudyRecord() {}
+
+  public LessonStudyRecord(Builder builder) {
     /**
      * 章节ID
-     * <p> 示例值：DzMBN__Dp
+     *
+     * <p>示例值：DzMBN__Dp
      */
-    @SerializedName("lesson_id")
-    private String lessonId;
+    this.lessonId = builder.lessonId;
     /**
      * 课程ID
-     * <p> 示例值：5fd087e96dbe3a73394188ae
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
      */
-    @SerializedName("course_id")
-    private String courseId;
+    this.courseId = builder.courseId;
     /**
-     * 课程学员信息
-     * <p> 示例值：
+     * 用户
+     *
+     * <p>示例值：
      */
-    @SerializedName("learner")
-    private User learner;
+    this.learner = builder.learner;
     /**
      * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("learning_state")
-    private Integer learningState;
+    this.learningState = builder.learningState;
     /**
      * 考试作答记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exam_record_list")
-    private ExamRecord[] examRecordList;
+    this.examRecordList = builder.examRecordList;
     /**
      * 完成时间
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("finished_at")
-    private Integer finishedAt;
+    this.finishedAt = builder.finishedAt;
     /**
      * 心得
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("thought")
-    private String thought;
+    this.thought = builder.thought;
     /**
      * 活动信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("activity_session_record")
+    this.activitySessionRecord = builder.activitySessionRecord;
+  }
+
+  public static class Builder {
+    /**
+     * 章节ID
+     *
+     * <p>示例值：DzMBN__Dp
+     */
+    private String lessonId;
+
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     */
+    private String courseId;
+
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     */
+    private User learner;
+
+    /**
+     * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：0
+     */
+    private Integer learningState;
+
+    /**
+     * 考试作答记录
+     *
+     * <p>示例值：
+     */
+    private ExamRecord[] examRecordList;
+
+    /**
+     * 完成时间
+     *
+     * <p>示例值：0
+     */
+    private Integer finishedAt;
+
+    /**
+     * 心得
+     *
+     * <p>示例值：0
+     */
+    private String thought;
+
+    /**
+     * 活动信息
+     *
+     * <p>示例值：
+     */
     private ActivitySessionRecord activitySessionRecord;
 
-    // builder 开始
-    public LessonStudyRecord() {
+    /**
+     * 章节ID
+     *
+     * <p>示例值：DzMBN__Dp
+     *
+     * @param lessonId
+     * @return
+     */
+    public Builder lessonId(String lessonId) {
+      this.lessonId = lessonId;
+      return this;
     }
 
-    public LessonStudyRecord(Builder builder) {
-        /**
-         * 章节ID
-         * <p> 示例值：DzMBN__Dp
-         */
-        this.lessonId = builder.lessonId;
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        this.courseId = builder.courseId;
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         */
-        this.learner = builder.learner;
-        /**
-         * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：0
-         */
-        this.learningState = builder.learningState;
-        /**
-         * 考试作答记录
-         * <p> 示例值：
-         */
-        this.examRecordList = builder.examRecordList;
-        /**
-         * 完成时间
-         * <p> 示例值：0
-         */
-        this.finishedAt = builder.finishedAt;
-        /**
-         * 心得
-         * <p> 示例值：0
-         */
-        this.thought = builder.thought;
-        /**
-         * 活动信息
-         * <p> 示例值：
-         */
-        this.activitySessionRecord = builder.activitySessionRecord;
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     *
+     * @param courseId
+     * @return
+     */
+    public Builder courseId(String courseId) {
+      this.courseId = courseId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     *
+     * @param learner
+     * @return
+     */
+    public Builder learner(User learner) {
+      this.learner = learner;
+      return this;
     }
 
-    public String getLessonId() {
-        return this.lessonId;
+    /**
+     * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：0
+     *
+     * @param learningState
+     * @return
+     */
+    public Builder learningState(Integer learningState) {
+      this.learningState = learningState;
+      return this;
     }
 
-    public void setLessonId(String lessonId) {
-        this.lessonId = lessonId;
+    /**
+     * 考试作答记录
+     *
+     * <p>示例值：
+     *
+     * @param examRecordList
+     * @return
+     */
+    public Builder examRecordList(ExamRecord[] examRecordList) {
+      this.examRecordList = examRecordList;
+      return this;
     }
 
-    public String getCourseId() {
-        return this.courseId;
+    /**
+     * 完成时间
+     *
+     * <p>示例值：0
+     *
+     * @param finishedAt
+     * @return
+     */
+    public Builder finishedAt(Integer finishedAt) {
+      this.finishedAt = finishedAt;
+      return this;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
+    /**
+     * 心得
+     *
+     * <p>示例值：0
+     *
+     * @param thought
+     * @return
+     */
+    public Builder thought(String thought) {
+      this.thought = thought;
+      return this;
     }
 
-    public User getLearner() {
-        return this.learner;
+    /**
+     * 活动信息
+     *
+     * <p>示例值：
+     *
+     * @param activitySessionRecord
+     * @return
+     */
+    public Builder activitySessionRecord(ActivitySessionRecord activitySessionRecord) {
+      this.activitySessionRecord = activitySessionRecord;
+      return this;
     }
 
-    public void setLearner(User learner) {
-        this.learner = learner;
+    public LessonStudyRecord build() {
+      return new LessonStudyRecord(this);
     }
+  }
 
-    public Integer getLearningState() {
-        return this.learningState;
-    }
-
-    public void setLearningState(Integer learningState) {
-        this.learningState = learningState;
-    }
-
-    public ExamRecord[] getExamRecordList() {
-        return this.examRecordList;
-    }
-
-    public void setExamRecordList(ExamRecord[] examRecordList) {
-        this.examRecordList = examRecordList;
-    }
-
-    public Integer getFinishedAt() {
-        return this.finishedAt;
-    }
-
-    public void setFinishedAt(Integer finishedAt) {
-        this.finishedAt = finishedAt;
-    }
-
-    public String getThought() {
-        return this.thought;
-    }
-
-    public void setThought(String thought) {
-        this.thought = thought;
-    }
-
-    public ActivitySessionRecord getActivitySessionRecord() {
-        return this.activitySessionRecord;
-    }
-
-    public void setActivitySessionRecord(ActivitySessionRecord activitySessionRecord) {
-        this.activitySessionRecord = activitySessionRecord;
-    }
-
-    public static class Builder {
-        /**
-         * 章节ID
-         * <p> 示例值：DzMBN__Dp
-         */
-        private String lessonId;
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        private String courseId;
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         */
-        private User learner;
-        /**
-         * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：0
-         */
-        private Integer learningState;
-        /**
-         * 考试作答记录
-         * <p> 示例值：
-         */
-        private ExamRecord[] examRecordList;
-        /**
-         * 完成时间
-         * <p> 示例值：0
-         */
-        private Integer finishedAt;
-        /**
-         * 心得
-         * <p> 示例值：0
-         */
-        private String thought;
-        /**
-         * 活动信息
-         * <p> 示例值：
-         */
-        private ActivitySessionRecord activitySessionRecord;
-
-        /**
-         * 章节ID
-         * <p> 示例值：DzMBN__Dp
-         *
-         * @param lessonId
-         * @return
-         */
-        public Builder lessonId(String lessonId) {
-            this.lessonId = lessonId;
-            return this;
-        }
-
-
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         *
-         * @param courseId
-         * @return
-         */
-        public Builder courseId(String courseId) {
-            this.courseId = courseId;
-            return this;
-        }
-
-
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         *
-         * @param learner
-         * @return
-         */
-        public Builder learner(User learner) {
-            this.learner = learner;
-            return this;
-        }
-
-
-        /**
-         * 完成状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：0
-         *
-         * @param learningState
-         * @return
-         */
-        public Builder learningState(Integer learningState) {
-            this.learningState = learningState;
-            return this;
-        }
-
-
-        /**
-         * 考试作答记录
-         * <p> 示例值：
-         *
-         * @param examRecordList
-         * @return
-         */
-        public Builder examRecordList(ExamRecord[] examRecordList) {
-            this.examRecordList = examRecordList;
-            return this;
-        }
-
-
-        /**
-         * 完成时间
-         * <p> 示例值：0
-         *
-         * @param finishedAt
-         * @return
-         */
-        public Builder finishedAt(Integer finishedAt) {
-            this.finishedAt = finishedAt;
-            return this;
-        }
-
-
-        /**
-         * 心得
-         * <p> 示例值：0
-         *
-         * @param thought
-         * @return
-         */
-        public Builder thought(String thought) {
-            this.thought = thought;
-            return this;
-        }
-
-
-        /**
-         * 活动信息
-         * <p> 示例值：
-         *
-         * @param activitySessionRecord
-         * @return
-         */
-        public Builder activitySessionRecord(ActivitySessionRecord activitySessionRecord) {
-            this.activitySessionRecord = activitySessionRecord;
-            return this;
-        }
-
-
-        public LessonStudyRecord build() {
-            return new LessonStudyRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,333 +13,359 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class Major {
+  /**
+   * 主数据编码
+   *
+   * <p>示例值：MDMJ00000001
+   */
+  @SerializedName("mdm_code")
+  private String mdmCode;
+
+  /**
+   * 国家/地区名称
+   *
+   * <p>示例值：name
+   */
+  @SerializedName("name")
+  private I18nString name;
+
+  /**
+   * 父级专业
+   *
+   * <p>示例值：superior_major
+   */
+  @SerializedName("superior_major")
+  private String superiorMajor;
+
+  /**
+   * 学历
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("degree")
+  private String degree;
+
+  /**
+   * 层级
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private String level;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：remark
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 排序码
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order_code")
+  private String orderCode;
+
+  public String getMdmCode() {
+    return this.mdmCode;
+  }
+
+  public void setMdmCode(String mdmCode) {
+    this.mdmCode = mdmCode;
+  }
+
+  public I18nString getName() {
+    return this.name;
+  }
+
+  public void setName(I18nString name) {
+    this.name = name;
+  }
+
+  public String getSuperiorMajor() {
+    return this.superiorMajor;
+  }
+
+  public void setSuperiorMajor(String superiorMajor) {
+    this.superiorMajor = superiorMajor;
+  }
+
+  public String getDegree() {
+    return this.degree;
+  }
+
+  public void setDegree(String degree) {
+    this.degree = degree;
+  }
+
+  public String getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getOrderCode() {
+    return this.orderCode;
+  }
+
+  public void setOrderCode(String orderCode) {
+    this.orderCode = orderCode;
+  }
+
+  // builder 开始
+  public Major() {}
+
+  public Major(Builder builder) {
     /**
      * 主数据编码
-     * <p> 示例值：MDMJ00000001
+     *
+     * <p>示例值：MDMJ00000001
      */
-    @SerializedName("mdm_code")
-    private String mdmCode;
+    this.mdmCode = builder.mdmCode;
     /**
-     * 名称
-     * <p> 示例值：name
+     * 国家/地区名称
+     *
+     * <p>示例值：name
      */
-    @SerializedName("name")
-    private I18nString name;
+    this.name = builder.name;
     /**
      * 父级专业
-     * <p> 示例值：superior_major
+     *
+     * <p>示例值：superior_major
      */
-    @SerializedName("superior_major")
-    private String superiorMajor;
+    this.superiorMajor = builder.superiorMajor;
     /**
      * 学历
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("degree")
-    private String degree;
+    this.degree = builder.degree;
     /**
      * 层级
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
-    private String level;
+    this.level = builder.level;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 备注
-     * <p> 示例值：remark
+     *
+     * <p>示例值：remark
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 排序码
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order_code")
+    this.orderCode = builder.orderCode;
+  }
+
+  public static class Builder {
+    /**
+     * 主数据编码
+     *
+     * <p>示例值：MDMJ00000001
+     */
+    private String mdmCode;
+
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：name
+     */
+    private I18nString name;
+
+    /**
+     * 父级专业
+     *
+     * <p>示例值：superior_major
+     */
+    private String superiorMajor;
+
+    /**
+     * 学历
+     *
+     * <p>示例值：1
+     */
+    private String degree;
+
+    /**
+     * 层级
+     *
+     * <p>示例值：1
+     */
+    private String level;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
+    private String status;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：remark
+     */
+    private String remark;
+
+    /**
+     * 排序码
+     *
+     * <p>示例值：1
+     */
     private String orderCode;
 
-    // builder 开始
-    public Major() {
+    /**
+     * 主数据编码
+     *
+     * <p>示例值：MDMJ00000001
+     *
+     * @param mdmCode
+     * @return
+     */
+    public Builder mdmCode(String mdmCode) {
+      this.mdmCode = mdmCode;
+      return this;
     }
 
-    public Major(Builder builder) {
-        /**
-         * 主数据编码
-         * <p> 示例值：MDMJ00000001
-         */
-        this.mdmCode = builder.mdmCode;
-        /**
-         * 名称
-         * <p> 示例值：name
-         */
-        this.name = builder.name;
-        /**
-         * 父级专业
-         * <p> 示例值：superior_major
-         */
-        this.superiorMajor = builder.superiorMajor;
-        /**
-         * 学历
-         * <p> 示例值：1
-         */
-        this.degree = builder.degree;
-        /**
-         * 层级
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 备注
-         * <p> 示例值：remark
-         */
-        this.remark = builder.remark;
-        /**
-         * 排序码
-         * <p> 示例值：1
-         */
-        this.orderCode = builder.orderCode;
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nString name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 父级专业
+     *
+     * <p>示例值：superior_major
+     *
+     * @param superiorMajor
+     * @return
+     */
+    public Builder superiorMajor(String superiorMajor) {
+      this.superiorMajor = superiorMajor;
+      return this;
     }
 
-    public String getMdmCode() {
-        return this.mdmCode;
+    /**
+     * 学历
+     *
+     * <p>示例值：1
+     *
+     * @param degree
+     * @return
+     */
+    public Builder degree(String degree) {
+      this.degree = degree;
+      return this;
     }
 
-    public void setMdmCode(String mdmCode) {
-        this.mdmCode = mdmCode;
+    /**
+     * 层级
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(String level) {
+      this.level = level;
+      return this;
     }
 
-    public I18nString getName() {
-        return this.name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setName(I18nString name) {
-        this.name = name;
+    /**
+     * 备注
+     *
+     * <p>示例值：remark
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public String getSuperiorMajor() {
-        return this.superiorMajor;
+    /**
+     * 排序码
+     *
+     * <p>示例值：1
+     *
+     * @param orderCode
+     * @return
+     */
+    public Builder orderCode(String orderCode) {
+      this.orderCode = orderCode;
+      return this;
     }
 
-    public void setSuperiorMajor(String superiorMajor) {
-        this.superiorMajor = superiorMajor;
+    public Major build() {
+      return new Major(this);
     }
+  }
 
-    public String getDegree() {
-        return this.degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public String getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getOrderCode() {
-        return this.orderCode;
-    }
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
-    }
-
-    public static class Builder {
-        /**
-         * 主数据编码
-         * <p> 示例值：MDMJ00000001
-         */
-        private String mdmCode;
-        /**
-         * 名称
-         * <p> 示例值：name
-         */
-        private I18nString name;
-        /**
-         * 父级专业
-         * <p> 示例值：superior_major
-         */
-        private String superiorMajor;
-        /**
-         * 学历
-         * <p> 示例值：1
-         */
-        private String degree;
-        /**
-         * 层级
-         * <p> 示例值：1
-         */
-        private String level;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private String status;
-        /**
-         * 备注
-         * <p> 示例值：remark
-         */
-        private String remark;
-        /**
-         * 排序码
-         * <p> 示例值：1
-         */
-        private String orderCode;
-
-        /**
-         * 主数据编码
-         * <p> 示例值：MDMJ00000001
-         *
-         * @param mdmCode
-         * @return
-         */
-        public Builder mdmCode(String mdmCode) {
-            this.mdmCode = mdmCode;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nString name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 父级专业
-         * <p> 示例值：superior_major
-         *
-         * @param superiorMajor
-         * @return
-         */
-        public Builder superiorMajor(String superiorMajor) {
-            this.superiorMajor = superiorMajor;
-            return this;
-        }
-
-
-        /**
-         * 学历
-         * <p> 示例值：1
-         *
-         * @param degree
-         * @return
-         */
-        public Builder degree(String degree) {
-            this.degree = degree;
-            return this;
-        }
-
-
-        /**
-         * 层级
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(String level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：remark
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 排序码
-         * <p> 示例值：1
-         *
-         * @param orderCode
-         * @return
-         */
-        public Builder orderCode(String orderCode) {
-            this.orderCode = orderCode;
-            return this;
-        }
-
-
-        public Major build() {
-            return new Major(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

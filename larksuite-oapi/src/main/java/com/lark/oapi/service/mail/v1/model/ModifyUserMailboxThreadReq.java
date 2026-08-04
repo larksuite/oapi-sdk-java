@@ -13,131 +13,129 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class ModifyUserMailboxThreadReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+   *
+   * <p>示例值：th_xxxxxxxxxxxx
+   */
+  @Path
+  @SerializedName("thread_id")
+  private String threadId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  @Body private ModifyUserMailboxThreadReqBody body;
+
+  public ModifyUserMailboxThreadReqBody getModifyUserMailboxThreadReqBody() {
+    return this.body;
+  }
+
+  public void setModifyUserMailboxThreadReqBody(ModifyUserMailboxThreadReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ModifyUserMailboxThreadReq() {}
+
+  public ModifyUserMailboxThreadReq(Builder builder) {
     /**
      * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：me
+     *
+     * <p>示例值：me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-     * <p> 示例值：th_xxxxxxxxxxxx
+     *
+     * <p>示例值：th_xxxxxxxxxxxx
      */
-    @Path
-    @SerializedName("thread_id")
-    private String threadId;
-    @Body
+    this.threadId = builder.threadId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+    private String threadId; // 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
+    /**
+     * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
+     *
+     * <p>示例值：th_xxxxxxxxxxxx
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
+    }
+
     private ModifyUserMailboxThreadReqBody body;
 
-    // builder 开始
-    public ModifyUserMailboxThreadReq() {
-    }
-
-    public ModifyUserMailboxThreadReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-         * <p> 示例值：th_xxxxxxxxxxxx
-         */
-        this.threadId = builder.threadId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
     public ModifyUserMailboxThreadReqBody getModifyUserMailboxThreadReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setModifyUserMailboxThreadReqBody(ModifyUserMailboxThreadReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder modifyUserMailboxThreadReqBody(ModifyUserMailboxThreadReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private String threadId; // 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-        private ModifyUserMailboxThreadReqBody body;
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        /**
-         * 邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。
-         * <p> 示例值：th_xxxxxxxxxxxx
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-        public ModifyUserMailboxThreadReqBody getModifyUserMailboxThreadReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder modifyUserMailboxThreadReqBody(ModifyUserMailboxThreadReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ModifyUserMailboxThreadReq build() {
-            return new ModifyUserMailboxThreadReq(this);
-        }
+    public ModifyUserMailboxThreadReq build() {
+      return new ModifyUserMailboxThreadReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

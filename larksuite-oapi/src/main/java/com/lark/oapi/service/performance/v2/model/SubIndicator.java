@@ -13,260 +13,279 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubIndicator {
+  /**
+   * 子评估题 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 子评估项 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 子评估项的评估等级 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("option_id")
+  private String optionId;
+
+  /**
+   * 子评估项的评分
+   *
+   * <p>示例值：1.1
+   */
+  @SerializedName("score")
+  private String score;
+
+  /**
+   * 子评估项填写的文本
+   *
+   * <p>示例值：qwertyuiop
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+   */
+  @SerializedName("richtext")
+  private String richtext;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public String getOptionId() {
+    return this.optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = optionId;
+  }
+
+  public String getScore() {
+    return this.score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getRichtext() {
+    return this.richtext;
+  }
+
+  public void setRichtext(String richtext) {
+    this.richtext = richtext;
+  }
+
+  // builder 开始
+  public SubIndicator() {}
+
+  public SubIndicator(Builder builder) {
     /**
-     * 子评估项的 ID
-     * <p> 示例值：7343513161666707459
+     * 子评估题 ID
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
+    /**
+     * 子评估项 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    this.indicatorId = builder.indicatorId;
     /**
      * 子评估项的评估等级 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.optionId = builder.optionId;
     /**
      * 子评估项的评分
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：1.1
      */
-    @SerializedName("option_id")
+    this.score = builder.score;
+    /**
+     * 子评估项填写的文本
+     *
+     * <p>示例值：qwertyuiop
+     */
+    this.text = builder.text;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     */
+    this.richtext = builder.richtext;
+  }
+
+  public static class Builder {
+    /**
+     * 子评估题 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String fieldId;
+
+    /**
+     * 子评估项 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String indicatorId;
+
+    /**
+     * 子评估项的评估等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
     private String optionId;
+
     /**
-     * 子评估项的填写项标题名称
-     * <p> 示例值：1.1
+     * 子评估项的评分
+     *
+     * <p>示例值：1.1
      */
-    @SerializedName("score")
     private String score;
+
     /**
-     * 评估人在该子评估项填写的文本
-     * <p> 示例值：qwertyuiop
+     * 子评估项填写的文本
+     *
+     * <p>示例值：qwertyuiop
      */
-    @SerializedName("text")
     private String text;
+
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
      */
-    @SerializedName("richtext")
     private String richtext;
 
-    // builder 开始
-    public SubIndicator() {
+    /**
+     * 子评估题 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public SubIndicator(Builder builder) {
-        /**
-         * 子评估项的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 子评估项的评估等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 子评估项的评分
-         * <p> 示例值：7343513161666707459
-         */
-        this.optionId = builder.optionId;
-        /**
-         * 子评估项的填写项标题名称
-         * <p> 示例值：1.1
-         */
-        this.score = builder.score;
-        /**
-         * 评估人在该子评估项填写的文本
-         * <p> 示例值：qwertyuiop
-         */
-        this.text = builder.text;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        this.richtext = builder.richtext;
+    /**
+     * 子评估项 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子评估项的评估等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param optionId
+     * @return
+     */
+    public Builder optionId(String optionId) {
+      this.optionId = optionId;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 子评估项的评分
+     *
+     * <p>示例值：1.1
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(String score) {
+      this.score = score;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 子评估项填写的文本
+     *
+     * <p>示例值：qwertyuiop
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public String getIndicatorId() {
-        return this.indicatorId;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     *
+     * @param richtext
+     * @return
+     */
+    public Builder richtext(String richtext) {
+      this.richtext = richtext;
+      return this;
     }
 
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
+    public SubIndicator build() {
+      return new SubIndicator(this);
     }
+  }
 
-    public String getOptionId() {
-        return this.optionId;
-    }
-
-    public void setOptionId(String optionId) {
-        this.optionId = optionId;
-    }
-
-    public String getScore() {
-        return this.score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getRichtext() {
-        return this.richtext;
-    }
-
-    public void setRichtext(String richtext) {
-        this.richtext = richtext;
-    }
-
-    public static class Builder {
-        /**
-         * 子评估项的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String fieldId;
-        /**
-         * 子评估项的评估等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String indicatorId;
-        /**
-         * 子评估项的评分
-         * <p> 示例值：7343513161666707459
-         */
-        private String optionId;
-        /**
-         * 子评估项的填写项标题名称
-         * <p> 示例值：1.1
-         */
-        private String score;
-        /**
-         * 评估人在该子评估项填写的文本
-         * <p> 示例值：qwertyuiop
-         */
-        private String text;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        private String richtext;
-
-        /**
-         * 子评估项的 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 子评估项的评估等级 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 子评估项的评分
-         * <p> 示例值：7343513161666707459
-         *
-         * @param optionId
-         * @return
-         */
-        public Builder optionId(String optionId) {
-            this.optionId = optionId;
-            return this;
-        }
-
-
-        /**
-         * 子评估项的填写项标题名称
-         * <p> 示例值：1.1
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(String score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 评估人在该子评估项填写的文本
-         * <p> 示例值：qwertyuiop
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         *
-         * @param richtext
-         * @return
-         */
-        public Builder richtext(String richtext) {
-            this.richtext = richtext;
-            return this;
-        }
-
-
-        public SubIndicator build() {
-            return new SubIndicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

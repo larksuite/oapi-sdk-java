@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DonationsTaxData {
+  /**
+   * 员工工号（老工号）
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("employee_id")
+  private Integer employeeId;
+
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("legal_name")
+  private String legalName;
+
+  /**
+   * 证件类型
+   *
+   * <p>示例值：居民身份证
+   */
+  @SerializedName("identity_type")
+  private String identityType;
+
+  /**
+   * 证件号码
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("identity_number")
+  private String identityNumber;
+
+  /**
+   * 发薪公司主体
+   *
+   * <p>示例值：字节跳动
+   */
+  @SerializedName("issuing_company")
+  private String issuingCompany;
+
+  /**
+   * 非居民纳税标签
+   *
+   * <p>示例值：是
+   */
+  @SerializedName("non_tax_residence")
+  private String nonTaxResidence;
+
+  /**
+   * 本月实际捐赠金额
+   *
+   * <p>示例值：123.45
+   */
+  @SerializedName("total_donation_amount")
+  private String totalDonationAmount;
+
+  /**
+   * 本月实际免税捐赠-30%
+   *
+   * <p>示例值：123.45
+   */
+  @SerializedName("tax_free_donation_amount30")
+  private String taxFreeDonationAmount30;
+
+  /**
+   * 本月实际免税捐赠-100%
+   *
+   * <p>示例值：123.45
+   */
+  @SerializedName("tax_free_donation_amount100")
+  private String taxFreeDonationAmount100;
+
+  public Integer getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(Integer employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(String legalName) {
+    this.legalName = legalName;
+  }
+
+  public String getIdentityType() {
+    return this.identityType;
+  }
+
+  public void setIdentityType(String identityType) {
+    this.identityType = identityType;
+  }
+
+  public String getIdentityNumber() {
+    return this.identityNumber;
+  }
+
+  public void setIdentityNumber(String identityNumber) {
+    this.identityNumber = identityNumber;
+  }
+
+  public String getIssuingCompany() {
+    return this.issuingCompany;
+  }
+
+  public void setIssuingCompany(String issuingCompany) {
+    this.issuingCompany = issuingCompany;
+  }
+
+  public String getNonTaxResidence() {
+    return this.nonTaxResidence;
+  }
+
+  public void setNonTaxResidence(String nonTaxResidence) {
+    this.nonTaxResidence = nonTaxResidence;
+  }
+
+  public String getTotalDonationAmount() {
+    return this.totalDonationAmount;
+  }
+
+  public void setTotalDonationAmount(String totalDonationAmount) {
+    this.totalDonationAmount = totalDonationAmount;
+  }
+
+  public String getTaxFreeDonationAmount30() {
+    return this.taxFreeDonationAmount30;
+  }
+
+  public void setTaxFreeDonationAmount30(String taxFreeDonationAmount30) {
+    this.taxFreeDonationAmount30 = taxFreeDonationAmount30;
+  }
+
+  public String getTaxFreeDonationAmount100() {
+    return this.taxFreeDonationAmount100;
+  }
+
+  public void setTaxFreeDonationAmount100(String taxFreeDonationAmount100) {
+    this.taxFreeDonationAmount100 = taxFreeDonationAmount100;
+  }
+
+  // builder 开始
+  public DonationsTaxData() {}
+
+  public DonationsTaxData(Builder builder) {
     /**
      * 员工工号（老工号）
-     * <p> 示例值：111
+     *
+     * <p>示例值：111
      */
-    @SerializedName("employee_id")
-    private Integer employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 法定姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("legal_name")
-    private String legalName;
+    this.legalName = builder.legalName;
     /**
      * 证件类型
-     * <p> 示例值：居民身份证
+     *
+     * <p>示例值：居民身份证
      */
-    @SerializedName("identity_type")
-    private String identityType;
+    this.identityType = builder.identityType;
     /**
      * 证件号码
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("identity_number")
-    private String identityNumber;
+    this.identityNumber = builder.identityNumber;
     /**
      * 发薪公司主体
-     * <p> 示例值：字节跳动
+     *
+     * <p>示例值：字节跳动
      */
-    @SerializedName("issuing_company")
-    private String issuingCompany;
+    this.issuingCompany = builder.issuingCompany;
     /**
      * 非居民纳税标签
-     * <p> 示例值：是
+     *
+     * <p>示例值：是
      */
-    @SerializedName("non_tax_residence")
-    private String nonTaxResidence;
+    this.nonTaxResidence = builder.nonTaxResidence;
     /**
      * 本月实际捐赠金额
-     * <p> 示例值：123.45
+     *
+     * <p>示例值：123.45
      */
-    @SerializedName("total_donation_amount")
-    private String totalDonationAmount;
+    this.totalDonationAmount = builder.totalDonationAmount;
     /**
      * 本月实际免税捐赠-30%
-     * <p> 示例值：123.45
+     *
+     * <p>示例值：123.45
      */
-    @SerializedName("tax_free_donation_amount30")
-    private String taxFreeDonationAmount30;
+    this.taxFreeDonationAmount30 = builder.taxFreeDonationAmount30;
     /**
      * 本月实际免税捐赠-100%
-     * <p> 示例值：123.45
+     *
+     * <p>示例值：123.45
      */
-    @SerializedName("tax_free_donation_amount100")
+    this.taxFreeDonationAmount100 = builder.taxFreeDonationAmount100;
+  }
+
+  public static class Builder {
+    /**
+     * 员工工号（老工号）
+     *
+     * <p>示例值：111
+     */
+    private Integer employeeId;
+
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     */
+    private String legalName;
+
+    /**
+     * 证件类型
+     *
+     * <p>示例值：居民身份证
+     */
+    private String identityType;
+
+    /**
+     * 证件号码
+     *
+     * <p>示例值：123456789
+     */
+    private String identityNumber;
+
+    /**
+     * 发薪公司主体
+     *
+     * <p>示例值：字节跳动
+     */
+    private String issuingCompany;
+
+    /**
+     * 非居民纳税标签
+     *
+     * <p>示例值：是
+     */
+    private String nonTaxResidence;
+
+    /**
+     * 本月实际捐赠金额
+     *
+     * <p>示例值：123.45
+     */
+    private String totalDonationAmount;
+
+    /**
+     * 本月实际免税捐赠-30%
+     *
+     * <p>示例值：123.45
+     */
+    private String taxFreeDonationAmount30;
+
+    /**
+     * 本月实际免税捐赠-100%
+     *
+     * <p>示例值：123.45
+     */
     private String taxFreeDonationAmount100;
 
-    // builder 开始
-    public DonationsTaxData() {
+    /**
+     * 员工工号（老工号）
+     *
+     * <p>示例值：111
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(Integer employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public DonationsTaxData(Builder builder) {
-        /**
-         * 员工工号（老工号）
-         * <p> 示例值：111
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        this.legalName = builder.legalName;
-        /**
-         * 证件类型
-         * <p> 示例值：居民身份证
-         */
-        this.identityType = builder.identityType;
-        /**
-         * 证件号码
-         * <p> 示例值：123456789
-         */
-        this.identityNumber = builder.identityNumber;
-        /**
-         * 发薪公司主体
-         * <p> 示例值：字节跳动
-         */
-        this.issuingCompany = builder.issuingCompany;
-        /**
-         * 非居民纳税标签
-         * <p> 示例值：是
-         */
-        this.nonTaxResidence = builder.nonTaxResidence;
-        /**
-         * 本月实际捐赠金额
-         * <p> 示例值：123.45
-         */
-        this.totalDonationAmount = builder.totalDonationAmount;
-        /**
-         * 本月实际免税捐赠-30%
-         * <p> 示例值：123.45
-         */
-        this.taxFreeDonationAmount30 = builder.taxFreeDonationAmount30;
-        /**
-         * 本月实际免税捐赠-100%
-         * <p> 示例值：123.45
-         */
-        this.taxFreeDonationAmount100 = builder.taxFreeDonationAmount100;
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(String legalName) {
+      this.legalName = legalName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证件类型
+     *
+     * <p>示例值：居民身份证
+     *
+     * @param identityType
+     * @return
+     */
+    public Builder identityType(String identityType) {
+      this.identityType = identityType;
+      return this;
     }
 
-    public Integer getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 证件号码
+     *
+     * <p>示例值：123456789
+     *
+     * @param identityNumber
+     * @return
+     */
+    public Builder identityNumber(String identityNumber) {
+      this.identityNumber = identityNumber;
+      return this;
     }
 
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    /**
+     * 发薪公司主体
+     *
+     * <p>示例值：字节跳动
+     *
+     * @param issuingCompany
+     * @return
+     */
+    public Builder issuingCompany(String issuingCompany) {
+      this.issuingCompany = issuingCompany;
+      return this;
     }
 
-    public String getLegalName() {
-        return this.legalName;
+    /**
+     * 非居民纳税标签
+     *
+     * <p>示例值：是
+     *
+     * @param nonTaxResidence
+     * @return
+     */
+    public Builder nonTaxResidence(String nonTaxResidence) {
+      this.nonTaxResidence = nonTaxResidence;
+      return this;
     }
 
-    public void setLegalName(String legalName) {
-        this.legalName = legalName;
+    /**
+     * 本月实际捐赠金额
+     *
+     * <p>示例值：123.45
+     *
+     * @param totalDonationAmount
+     * @return
+     */
+    public Builder totalDonationAmount(String totalDonationAmount) {
+      this.totalDonationAmount = totalDonationAmount;
+      return this;
     }
 
-    public String getIdentityType() {
-        return this.identityType;
+    /**
+     * 本月实际免税捐赠-30%
+     *
+     * <p>示例值：123.45
+     *
+     * @param taxFreeDonationAmount30
+     * @return
+     */
+    public Builder taxFreeDonationAmount30(String taxFreeDonationAmount30) {
+      this.taxFreeDonationAmount30 = taxFreeDonationAmount30;
+      return this;
     }
 
-    public void setIdentityType(String identityType) {
-        this.identityType = identityType;
+    /**
+     * 本月实际免税捐赠-100%
+     *
+     * <p>示例值：123.45
+     *
+     * @param taxFreeDonationAmount100
+     * @return
+     */
+    public Builder taxFreeDonationAmount100(String taxFreeDonationAmount100) {
+      this.taxFreeDonationAmount100 = taxFreeDonationAmount100;
+      return this;
     }
 
-    public String getIdentityNumber() {
-        return this.identityNumber;
+    public DonationsTaxData build() {
+      return new DonationsTaxData(this);
     }
+  }
 
-    public void setIdentityNumber(String identityNumber) {
-        this.identityNumber = identityNumber;
-    }
-
-    public String getIssuingCompany() {
-        return this.issuingCompany;
-    }
-
-    public void setIssuingCompany(String issuingCompany) {
-        this.issuingCompany = issuingCompany;
-    }
-
-    public String getNonTaxResidence() {
-        return this.nonTaxResidence;
-    }
-
-    public void setNonTaxResidence(String nonTaxResidence) {
-        this.nonTaxResidence = nonTaxResidence;
-    }
-
-    public String getTotalDonationAmount() {
-        return this.totalDonationAmount;
-    }
-
-    public void setTotalDonationAmount(String totalDonationAmount) {
-        this.totalDonationAmount = totalDonationAmount;
-    }
-
-    public String getTaxFreeDonationAmount30() {
-        return this.taxFreeDonationAmount30;
-    }
-
-    public void setTaxFreeDonationAmount30(String taxFreeDonationAmount30) {
-        this.taxFreeDonationAmount30 = taxFreeDonationAmount30;
-    }
-
-    public String getTaxFreeDonationAmount100() {
-        return this.taxFreeDonationAmount100;
-    }
-
-    public void setTaxFreeDonationAmount100(String taxFreeDonationAmount100) {
-        this.taxFreeDonationAmount100 = taxFreeDonationAmount100;
-    }
-
-    public static class Builder {
-        /**
-         * 员工工号（老工号）
-         * <p> 示例值：111
-         */
-        private Integer employeeId;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        private String legalName;
-        /**
-         * 证件类型
-         * <p> 示例值：居民身份证
-         */
-        private String identityType;
-        /**
-         * 证件号码
-         * <p> 示例值：123456789
-         */
-        private String identityNumber;
-        /**
-         * 发薪公司主体
-         * <p> 示例值：字节跳动
-         */
-        private String issuingCompany;
-        /**
-         * 非居民纳税标签
-         * <p> 示例值：是
-         */
-        private String nonTaxResidence;
-        /**
-         * 本月实际捐赠金额
-         * <p> 示例值：123.45
-         */
-        private String totalDonationAmount;
-        /**
-         * 本月实际免税捐赠-30%
-         * <p> 示例值：123.45
-         */
-        private String taxFreeDonationAmount30;
-        /**
-         * 本月实际免税捐赠-100%
-         * <p> 示例值：123.45
-         */
-        private String taxFreeDonationAmount100;
-
-        /**
-         * 员工工号（老工号）
-         * <p> 示例值：111
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(Integer employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(String legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        /**
-         * 证件类型
-         * <p> 示例值：居民身份证
-         *
-         * @param identityType
-         * @return
-         */
-        public Builder identityType(String identityType) {
-            this.identityType = identityType;
-            return this;
-        }
-
-
-        /**
-         * 证件号码
-         * <p> 示例值：123456789
-         *
-         * @param identityNumber
-         * @return
-         */
-        public Builder identityNumber(String identityNumber) {
-            this.identityNumber = identityNumber;
-            return this;
-        }
-
-
-        /**
-         * 发薪公司主体
-         * <p> 示例值：字节跳动
-         *
-         * @param issuingCompany
-         * @return
-         */
-        public Builder issuingCompany(String issuingCompany) {
-            this.issuingCompany = issuingCompany;
-            return this;
-        }
-
-
-        /**
-         * 非居民纳税标签
-         * <p> 示例值：是
-         *
-         * @param nonTaxResidence
-         * @return
-         */
-        public Builder nonTaxResidence(String nonTaxResidence) {
-            this.nonTaxResidence = nonTaxResidence;
-            return this;
-        }
-
-
-        /**
-         * 本月实际捐赠金额
-         * <p> 示例值：123.45
-         *
-         * @param totalDonationAmount
-         * @return
-         */
-        public Builder totalDonationAmount(String totalDonationAmount) {
-            this.totalDonationAmount = totalDonationAmount;
-            return this;
-        }
-
-
-        /**
-         * 本月实际免税捐赠-30%
-         * <p> 示例值：123.45
-         *
-         * @param taxFreeDonationAmount30
-         * @return
-         */
-        public Builder taxFreeDonationAmount30(String taxFreeDonationAmount30) {
-            this.taxFreeDonationAmount30 = taxFreeDonationAmount30;
-            return this;
-        }
-
-
-        /**
-         * 本月实际免税捐赠-100%
-         * <p> 示例值：123.45
-         *
-         * @param taxFreeDonationAmount100
-         * @return
-         */
-        public Builder taxFreeDonationAmount100(String taxFreeDonationAmount100) {
-            this.taxFreeDonationAmount100 = taxFreeDonationAmount100;
-            return this;
-        }
-
-
-        public DonationsTaxData build() {
-            return new DonationsTaxData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

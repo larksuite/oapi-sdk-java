@@ -13,124 +13,140 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Action {
+  /**
+   * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+   * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 -
+   * delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时
+   * parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+   * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+   *
+   * <p>示例值：partial_update_setting
+   */
+  @SerializedName("action")
+  private String action;
+
+  /**
+   * 操作类型对应的参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("params")
+  private Params params;
+
+  public String getAction() {
+    return this.action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public Params getParams() {
+    return this.params;
+  }
+
+  public void setParams(Params params) {
+    this.params = params;
+  }
+
+  // builder 开始
+  public Action() {}
+
+  public Action(Builder builder) {
     /**
-     * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
-     * <p> 示例值：partial_update_setting
+     * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+     * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 -
+     * delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时
+     * parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+     * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+     *
+     * <p>示例值：partial_update_setting
      */
-    @SerializedName("action")
-    private String action;
+    this.action = builder.action;
     /**
      * 操作类型对应的参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("params")
+    this.params = builder.params;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+     * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 -
+     * delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时
+     * parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+     * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+     *
+     * <p>示例值：partial_update_setting
+     */
+    private String action;
+
+    /**
+     * 操作类型对应的参数
+     *
+     * <p>示例值：
+     */
     private Params params;
 
-    // builder 开始
-    public Action() {
+    /**
+     * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+     * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 -
+     * delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时
+     * parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+     * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+     *
+     * <p>示例值：partial_update_setting
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String action) {
+      this.action = action;
+      return this;
     }
 
-    public Action(Builder builder) {
-        /**
-         * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
-         * <p> 示例值：partial_update_setting
-         */
-        this.action = builder.action;
-        /**
-         * 操作类型对应的参数
-         * <p> 示例值：
-         */
-        this.params = builder.params;
+    /**
+     * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+     * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 -
+     * delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时
+     * parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+     * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+     *
+     * <p>示例值：partial_update_setting
+     *
+     * @param action {@link com.lark.oapi.service.cardkit.v1.enums.ActionActionEnum}
+     * @return
+     */
+    public Builder action(com.lark.oapi.service.cardkit.v1.enums.ActionActionEnum action) {
+      this.action = action.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作类型对应的参数
+     *
+     * <p>示例值：
+     *
+     * @param params
+     * @return
+     */
+    public Builder params(Params params) {
+      this.params = params;
+      return this;
     }
 
-    public String getAction() {
-        return this.action;
+    public Action build() {
+      return new Action(this);
     }
+  }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public Params getParams() {
-        return this.params;
-    }
-
-    public void setParams(Params params) {
-        this.params = params;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
-         * <p> 示例值：partial_update_setting
-         */
-        private String action;
-        /**
-         * 操作类型对应的参数
-         * <p> 示例值：
-         */
-        private Params params;
-
-        /**
-         * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
-         * <p> 示例值：partial_update_setting
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String action) {
-            this.action = action;
-            return this;
-        }
-
-        /**
-         * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
-         * <p> 示例值：partial_update_setting
-         *
-         * @param action {@link com.lark.oapi.service.cardkit.v1.enums.ActionActionEnum}
-         * @return
-         */
-        public Builder action(com.lark.oapi.service.cardkit.v1.enums.ActionActionEnum action) {
-            this.action = action.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作类型对应的参数
-         * <p> 示例值：
-         *
-         * @param params
-         * @return
-         */
-        public Builder params(Params params) {
-            this.params = params;
-            return this;
-        }
-
-
-        public Action build() {
-            return new Action(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

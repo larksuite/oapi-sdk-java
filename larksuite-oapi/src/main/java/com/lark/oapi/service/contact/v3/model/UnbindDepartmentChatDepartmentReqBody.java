@@ -13,75 +13,81 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UnbindDepartmentChatDepartmentReqBody {
+  /**
+   * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+   * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+   * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+   * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+   * API 进行查询。
+   *
+   * <p>示例值：D096
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public UnbindDepartmentChatDepartmentReqBody() {}
+
+  public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
     /**
-     * 部门ID
-     * <p> 示例值：D096
+     * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+     * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+     * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。
+     *
+     * <p>示例值：D096
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+     * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+     * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。
+     *
+     * <p>示例值：D096
+     */
     private String departmentId;
 
-    // builder 开始
-    public UnbindDepartmentChatDepartmentReqBody() {
+    /**
+     * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+     * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+     * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。
+     *
+     * <p>示例值：D096
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         */
-        this.departmentId = builder.departmentId;
+    public UnbindDepartmentChatDepartmentReqBody build() {
+      return new UnbindDepartmentChatDepartmentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         */
-        private String departmentId;
-
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public UnbindDepartmentChatDepartmentReqBody build() {
-            return new UnbindDepartmentChatDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

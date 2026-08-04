@@ -13,901 +13,1003 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Message {
+  /**
+   * MIME邮件数据，基于base64url编码
+   *
+   * <p>示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
+   */
+  @SerializedName("raw")
+  private String raw;
+
+  /**
+   * 主题
+   *
+   * <p>示例值：邮件标题
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 收件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to")
+  private MailAddress[] to;
+
+  /**
+   * 抄送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cc")
+  private MailAddress[] cc;
+
+  /**
+   * 密送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bcc")
+  private MailAddress[] bcc;
+
+  /**
+   * 发件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("head_from")
+  private MailAddress headFrom;
+
+  /**
+   * 正文(base64url)
+   *
+   * <p>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-
+   */
+  @SerializedName("body_html")
+  private String bodyHtml;
+
+  /**
+   * 创建/收/发信时间（毫秒）
+   *
+   * <p>示例值：1682377086000
+   */
+  @SerializedName("internal_date")
+  private String internalDate;
+
+  /**
+   * 邮件状态，1为收信，2为发信，3为草稿
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("message_state")
+  private Integer messageState;
+
+  /**
+   * RFC协议id
+   *
+   * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+   */
+  @SerializedName("smtp_message_id")
+  private String smtpMessageId;
+
+  /**
+   * 邮件id
+   *
+   * <p>示例值：tfuh9N4WnzU6jdDw=
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 邮件附件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachments")
+  private Attachment[] attachments;
+
+  /**
+   * 正文纯文本(base64url)
+   *
+   * <p>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4
+   */
+  @SerializedName("body_plain_text")
+  private String bodyPlainText;
+
+  /**
+   * 会话id
+   *
+   * <p>示例值：tfuh9N4WnzU6jdDw=
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
+   *
+   * <p>示例值：Hello, this is a draft email.
+   */
+  @SerializedName("body_preview")
+  private String bodyPreview;
+
+  /**
+   * 标签ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label_ids")
+  private String[] labelIds;
+
+  /**
+   * 文件夹ID
+   *
+   * <p>示例值：INBOX
+   */
+  @SerializedName("folder_id")
+  private String folderId;
+
+  /**
+   * In-Reply-To邮件头
+   *
+   * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+   */
+  @SerializedName("in_reply_to")
+  private String inReplyTo;
+
+  /**
+   * Reply-To邮件头
+   *
+   * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+   */
+  @SerializedName("reply_to")
+  private String replyTo;
+
+  /**
+   * 邮件优先级
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("priority_type")
+  private String priorityType;
+
+  /**
+   * 安全信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("security_level")
+  private SecurityLevel securityLevel;
+
+  /**
+   * References邮件头
+   *
+   * <p>示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
+   */
+  @SerializedName("references")
+  private String references;
+
+  /**
+   * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+   *
+   * <p>示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+   */
+  @SerializedName("body_calendar")
+  private String bodyCalendar;
+
+  public String getRaw() {
+    return this.raw;
+  }
+
+  public void setRaw(String raw) {
+    this.raw = raw;
+  }
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public MailAddress[] getTo() {
+    return this.to;
+  }
+
+  public void setTo(MailAddress[] to) {
+    this.to = to;
+  }
+
+  public MailAddress[] getCc() {
+    return this.cc;
+  }
+
+  public void setCc(MailAddress[] cc) {
+    this.cc = cc;
+  }
+
+  public MailAddress[] getBcc() {
+    return this.bcc;
+  }
+
+  public void setBcc(MailAddress[] bcc) {
+    this.bcc = bcc;
+  }
+
+  public MailAddress getHeadFrom() {
+    return this.headFrom;
+  }
+
+  public void setHeadFrom(MailAddress headFrom) {
+    this.headFrom = headFrom;
+  }
+
+  public String getBodyHtml() {
+    return this.bodyHtml;
+  }
+
+  public void setBodyHtml(String bodyHtml) {
+    this.bodyHtml = bodyHtml;
+  }
+
+  public String getInternalDate() {
+    return this.internalDate;
+  }
+
+  public void setInternalDate(String internalDate) {
+    this.internalDate = internalDate;
+  }
+
+  public Integer getMessageState() {
+    return this.messageState;
+  }
+
+  public void setMessageState(Integer messageState) {
+    this.messageState = messageState;
+  }
+
+  public String getSmtpMessageId() {
+    return this.smtpMessageId;
+  }
+
+  public void setSmtpMessageId(String smtpMessageId) {
+    this.smtpMessageId = smtpMessageId;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Attachment[] getAttachments() {
+    return this.attachments;
+  }
+
+  public void setAttachments(Attachment[] attachments) {
+    this.attachments = attachments;
+  }
+
+  public String getBodyPlainText() {
+    return this.bodyPlainText;
+  }
+
+  public void setBodyPlainText(String bodyPlainText) {
+    this.bodyPlainText = bodyPlainText;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getBodyPreview() {
+    return this.bodyPreview;
+  }
+
+  public void setBodyPreview(String bodyPreview) {
+    this.bodyPreview = bodyPreview;
+  }
+
+  public String[] getLabelIds() {
+    return this.labelIds;
+  }
+
+  public void setLabelIds(String[] labelIds) {
+    this.labelIds = labelIds;
+  }
+
+  public String getFolderId() {
+    return this.folderId;
+  }
+
+  public void setFolderId(String folderId) {
+    this.folderId = folderId;
+  }
+
+  public String getInReplyTo() {
+    return this.inReplyTo;
+  }
+
+  public void setInReplyTo(String inReplyTo) {
+    this.inReplyTo = inReplyTo;
+  }
+
+  public String getReplyTo() {
+    return this.replyTo;
+  }
+
+  public void setReplyTo(String replyTo) {
+    this.replyTo = replyTo;
+  }
+
+  public String getPriorityType() {
+    return this.priorityType;
+  }
+
+  public void setPriorityType(String priorityType) {
+    this.priorityType = priorityType;
+  }
+
+  public SecurityLevel getSecurityLevel() {
+    return this.securityLevel;
+  }
+
+  public void setSecurityLevel(SecurityLevel securityLevel) {
+    this.securityLevel = securityLevel;
+  }
+
+  public String getReferences() {
+    return this.references;
+  }
+
+  public void setReferences(String references) {
+    this.references = references;
+  }
+
+  public String getBodyCalendar() {
+    return this.bodyCalendar;
+  }
+
+  public void setBodyCalendar(String bodyCalendar) {
+    this.bodyCalendar = bodyCalendar;
+  }
+
+  // builder 开始
+  public Message() {}
+
+  public Message(Builder builder) {
     /**
      * MIME邮件数据，基于base64url编码
-     * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
+     *
+     * <p>示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
      */
-    @SerializedName("raw")
-    private String raw;
+    this.raw = builder.raw;
     /**
      * 主题
-     * <p> 示例值：邮件标题
+     *
+     * <p>示例值：邮件标题
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
      * 收件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to")
-    private MailAddress[] to;
+    this.to = builder.to;
     /**
      * 抄送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cc")
-    private MailAddress[] cc;
+    this.cc = builder.cc;
     /**
      * 密送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bcc")
-    private MailAddress[] bcc;
+    this.bcc = builder.bcc;
     /**
      * 发件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("head_from")
-    private MailAddress headFrom;
+    this.headFrom = builder.headFrom;
     /**
      * 正文(base64url)
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-
      */
-    @SerializedName("body_html")
-    private String bodyHtml;
+    this.bodyHtml = builder.bodyHtml;
     /**
      * 创建/收/发信时间（毫秒）
-     * <p> 示例值：1682377086000
+     *
+     * <p>示例值：1682377086000
      */
-    @SerializedName("internal_date")
-    private String internalDate;
+    this.internalDate = builder.internalDate;
     /**
-     * 邮件状态，1（收信）2（发信）3（草稿）
-     * <p> 示例值：1
+     * 邮件状态，1为收信，2为发信，3为草稿
+     *
+     * <p>示例值：1
      */
-    @SerializedName("message_state")
-    private Integer messageState;
+    this.messageState = builder.messageState;
     /**
      * RFC协议id
-     * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
      */
-    @SerializedName("smtp_message_id")
-    private String smtpMessageId;
+    this.smtpMessageId = builder.smtpMessageId;
     /**
      * 邮件id
-     * <p> 示例值：tfuh9N4WnzU6jdDw=
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 邮件附件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachments")
-    private Attachment[] attachments;
+    this.attachments = builder.attachments;
     /**
      * 正文纯文本(base64url)
-     * <p> 示例值：xxxxx
+     *
+     * <p>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4
      */
-    @SerializedName("body_plain_text")
-    private String bodyPlainText;
+    this.bodyPlainText = builder.bodyPlainText;
     /**
      * 会话id
-     * <p> 示例值：tfuh9N4WnzU6jdDw=
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
-     * <p> 示例值：xxxxx
+     *
+     * <p>示例值：Hello, this is a draft email.
      */
-    @SerializedName("body_preview")
-    private String bodyPreview;
+    this.bodyPreview = builder.bodyPreview;
     /**
      * 标签ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("label_ids")
-    private String[] labelIds;
+    this.labelIds = builder.labelIds;
     /**
      * 文件夹ID
-     * <p> 示例值：INBOX
+     *
+     * <p>示例值：INBOX
      */
-    @SerializedName("folder_id")
-    private String folderId;
+    this.folderId = builder.folderId;
     /**
      * In-Reply-To邮件头
-     * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
      */
-    @SerializedName("in_reply_to")
-    private String inReplyTo;
+    this.inReplyTo = builder.inReplyTo;
     /**
      * Reply-To邮件头
-     * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
      */
-    @SerializedName("reply_to")
-    private String replyTo;
+    this.replyTo = builder.replyTo;
     /**
      * 邮件优先级
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("priority_type")
-    private String priorityType;
+    this.priorityType = builder.priorityType;
     /**
      * 安全信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("security_level")
-    private SecurityLevel securityLevel;
+    this.securityLevel = builder.securityLevel;
     /**
      * References邮件头
-     * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
+     *
+     * <p>示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
      */
-    @SerializedName("references")
-    private String references;
+    this.references = builder.references;
     /**
      * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
-     * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+     *
+     * <p>示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
      */
-    @SerializedName("body_calendar")
+    this.bodyCalendar = builder.bodyCalendar;
+  }
+
+  public static class Builder {
+    /**
+     * MIME邮件数据，基于base64url编码
+     *
+     * <p>示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
+     */
+    private String raw;
+
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     */
+    private String subject;
+
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] to;
+
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] cc;
+
+    /**
+     * 密送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] bcc;
+
+    /**
+     * 发件人
+     *
+     * <p>示例值：
+     */
+    private MailAddress headFrom;
+
+    /**
+     * 正文(base64url)
+     *
+     * <p>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-
+     */
+    private String bodyHtml;
+
+    /**
+     * 创建/收/发信时间（毫秒）
+     *
+     * <p>示例值：1682377086000
+     */
+    private String internalDate;
+
+    /**
+     * 邮件状态，1为收信，2为发信，3为草稿
+     *
+     * <p>示例值：1
+     */
+    private Integer messageState;
+
+    /**
+     * RFC协议id
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+     */
+    private String smtpMessageId;
+
+    /**
+     * 邮件id
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     */
+    private String messageId;
+
+    /**
+     * 邮件附件列表
+     *
+     * <p>示例值：
+     */
+    private Attachment[] attachments;
+
+    /**
+     * 正文纯文本(base64url)
+     *
+     * <p>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4
+     */
+    private String bodyPlainText;
+
+    /**
+     * 会话id
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     */
+    private String threadId;
+
+    /**
+     * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
+     *
+     * <p>示例值：Hello, this is a draft email.
+     */
+    private String bodyPreview;
+
+    /**
+     * 标签ID
+     *
+     * <p>示例值：
+     */
+    private String[] labelIds;
+
+    /**
+     * 文件夹ID
+     *
+     * <p>示例值：INBOX
+     */
+    private String folderId;
+
+    /**
+     * In-Reply-To邮件头
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     */
+    private String inReplyTo;
+
+    /**
+     * Reply-To邮件头
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     */
+    private String replyTo;
+
+    /**
+     * 邮件优先级
+     *
+     * <p>示例值：0
+     */
+    private String priorityType;
+
+    /**
+     * 安全信息
+     *
+     * <p>示例值：
+     */
+    private SecurityLevel securityLevel;
+
+    /**
+     * References邮件头
+     *
+     * <p>示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
+     */
+    private String references;
+
+    /**
+     * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+     *
+     * <p>示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+     */
     private String bodyCalendar;
 
-    // builder 开始
-    public Message() {
+    /**
+     * MIME邮件数据，基于base64url编码
+     *
+     * <p>示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
+     *
+     * @param raw
+     * @return
+     */
+    public Builder raw(String raw) {
+      this.raw = raw;
+      return this;
     }
 
-    public Message(Builder builder) {
-        /**
-         * MIME邮件数据，基于base64url编码
-         * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
-         */
-        this.raw = builder.raw;
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        this.subject = builder.subject;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        this.to = builder.to;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        this.cc = builder.cc;
-        /**
-         * 密送
-         * <p> 示例值：
-         */
-        this.bcc = builder.bcc;
-        /**
-         * 发件人
-         * <p> 示例值：
-         */
-        this.headFrom = builder.headFrom;
-        /**
-         * 正文(base64url)
-         * <p> 示例值：xxxx
-         */
-        this.bodyHtml = builder.bodyHtml;
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1682377086000
-         */
-        this.internalDate = builder.internalDate;
-        /**
-         * 邮件状态，1（收信）2（发信）3（草稿）
-         * <p> 示例值：1
-         */
-        this.messageState = builder.messageState;
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         */
-        this.smtpMessageId = builder.smtpMessageId;
-        /**
-         * 邮件id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 邮件附件列表
-         * <p> 示例值：
-         */
-        this.attachments = builder.attachments;
-        /**
-         * 正文纯文本(base64url)
-         * <p> 示例值：xxxxx
-         */
-        this.bodyPlainText = builder.bodyPlainText;
-        /**
-         * 会话id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
-         * <p> 示例值：xxxxx
-         */
-        this.bodyPreview = builder.bodyPreview;
-        /**
-         * 标签ID
-         * <p> 示例值：
-         */
-        this.labelIds = builder.labelIds;
-        /**
-         * 文件夹ID
-         * <p> 示例值：INBOX
-         */
-        this.folderId = builder.folderId;
-        /**
-         * In-Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         */
-        this.inReplyTo = builder.inReplyTo;
-        /**
-         * Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         */
-        this.replyTo = builder.replyTo;
-        /**
-         * 邮件优先级
-         * <p> 示例值：0
-         */
-        this.priorityType = builder.priorityType;
-        /**
-         * 安全信息
-         * <p> 示例值：
-         */
-        this.securityLevel = builder.securityLevel;
-        /**
-         * References邮件头
-         * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
-         */
-        this.references = builder.references;
-        /**
-         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
-         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
-         */
-        this.bodyCalendar = builder.bodyCalendar;
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     *
+     * @param to
+     * @return
+     */
+    public Builder to(MailAddress[] to) {
+      this.to = to;
+      return this;
     }
 
-    public String getRaw() {
-        return this.raw;
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     *
+     * @param cc
+     * @return
+     */
+    public Builder cc(MailAddress[] cc) {
+      this.cc = cc;
+      return this;
     }
 
-    public void setRaw(String raw) {
-        this.raw = raw;
+    /**
+     * 密送
+     *
+     * <p>示例值：
+     *
+     * @param bcc
+     * @return
+     */
+    public Builder bcc(MailAddress[] bcc) {
+      this.bcc = bcc;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 发件人
+     *
+     * <p>示例值：
+     *
+     * @param headFrom
+     * @return
+     */
+    public Builder headFrom(MailAddress headFrom) {
+      this.headFrom = headFrom;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    /**
+     * 正文(base64url)
+     *
+     * <p>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-
+     *
+     * @param bodyHtml
+     * @return
+     */
+    public Builder bodyHtml(String bodyHtml) {
+      this.bodyHtml = bodyHtml;
+      return this;
     }
 
-    public MailAddress[] getTo() {
-        return this.to;
+    /**
+     * 创建/收/发信时间（毫秒）
+     *
+     * <p>示例值：1682377086000
+     *
+     * @param internalDate
+     * @return
+     */
+    public Builder internalDate(String internalDate) {
+      this.internalDate = internalDate;
+      return this;
     }
 
-    public void setTo(MailAddress[] to) {
-        this.to = to;
+    /**
+     * 邮件状态，1为收信，2为发信，3为草稿
+     *
+     * <p>示例值：1
+     *
+     * @param messageState
+     * @return
+     */
+    public Builder messageState(Integer messageState) {
+      this.messageState = messageState;
+      return this;
     }
 
-    public MailAddress[] getCc() {
-        return this.cc;
+    /**
+     * RFC协议id
+     *
+     * <p>示例值：ay0azrJDvbs3FJAg@outlook.com
+     *
+     * @param smtpMessageId
+     * @return
+     */
+    public Builder smtpMessageId(String smtpMessageId) {
+      this.smtpMessageId = smtpMessageId;
+      return this;
     }
 
-    public void setCc(MailAddress[] cc) {
-        this.cc = cc;
+    /**
+     * 邮件id
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MailAddress[] getBcc() {
-        return this.bcc;
+    /**
+     * 邮件附件列表
+     *
+     * <p>示例值：
+     *
+     * @param attachments
+     * @return
+     */
+    public Builder attachments(Attachment[] attachments) {
+      this.attachments = attachments;
+      return this;
     }
 
-    public void setBcc(MailAddress[] bcc) {
-        this.bcc = bcc;
+    /**
+     * 正文纯文本(base64url)
+     *
+     * <p>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4
+     *
+     * @param bodyPlainText
+     * @return
+     */
+    public Builder bodyPlainText(String bodyPlainText) {
+      this.bodyPlainText = bodyPlainText;
+      return this;
     }
 
-    public MailAddress getHeadFrom() {
-        return this.headFrom;
+    /**
+     * 会话id
+     *
+     * <p>示例值：tfuh9N4WnzU6jdDw=
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public void setHeadFrom(MailAddress headFrom) {
-        this.headFrom = headFrom;
+    /**
+     * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
+     *
+     * <p>示例值：Hello, this is a draft email.
+     *
+     * @param bodyPreview
+     * @return
+     */
+    public Builder bodyPreview(String bodyPreview) {
+      this.bodyPreview = bodyPreview;
+      return this;
     }
 
-    public String getBodyHtml() {
-        return this.bodyHtml;
+    /**
+     * 标签ID
+     *
+     * <p>示例值：
+     *
+     * @param labelIds
+     * @return
+     */
+    public Builder labelIds(String[] labelIds) {
+      this.labelIds = labelIds;
+      return this;
     }
 
-    public void setBodyHtml(String bodyHtml) {
-        this.bodyHtml = bodyHtml;
+    /**
+     * 文件夹ID
+     *
+     * <p>示例值：INBOX
+     *
+     * @param folderId
+     * @return
+     */
+    public Builder folderId(String folderId) {
+      this.folderId = folderId;
+      return this;
     }
 
-    public String getInternalDate() {
-        return this.internalDate;
+    /**
+     * In-Reply-To邮件头
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     *
+     * @param inReplyTo
+     * @return
+     */
+    public Builder inReplyTo(String inReplyTo) {
+      this.inReplyTo = inReplyTo;
+      return this;
     }
 
-    public void setInternalDate(String internalDate) {
-        this.internalDate = internalDate;
+    /**
+     * Reply-To邮件头
+     *
+     * <p>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
+     *
+     * @param replyTo
+     * @return
+     */
+    public Builder replyTo(String replyTo) {
+      this.replyTo = replyTo;
+      return this;
     }
 
-    public Integer getMessageState() {
-        return this.messageState;
+    /**
+     * 邮件优先级
+     *
+     * <p>示例值：0
+     *
+     * @param priorityType
+     * @return
+     */
+    public Builder priorityType(String priorityType) {
+      this.priorityType = priorityType;
+      return this;
     }
 
-    public void setMessageState(Integer messageState) {
-        this.messageState = messageState;
+    /**
+     * 邮件优先级
+     *
+     * <p>示例值：0
+     *
+     * @param priorityType {@link com.lark.oapi.service.mail.v1.enums.MessagePriorityTypeEnum}
+     * @return
+     */
+    public Builder priorityType(
+        com.lark.oapi.service.mail.v1.enums.MessagePriorityTypeEnum priorityType) {
+      this.priorityType = priorityType.getValue();
+      return this;
     }
 
-    public String getSmtpMessageId() {
-        return this.smtpMessageId;
+    /**
+     * 安全信息
+     *
+     * <p>示例值：
+     *
+     * @param securityLevel
+     * @return
+     */
+    public Builder securityLevel(SecurityLevel securityLevel) {
+      this.securityLevel = securityLevel;
+      return this;
     }
 
-    public void setSmtpMessageId(String smtpMessageId) {
-        this.smtpMessageId = smtpMessageId;
+    /**
+     * References邮件头
+     *
+     * <p>示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
+     *
+     * @param references
+     * @return
+     */
+    public Builder references(String references) {
+      this.references = references;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
+     *
+     * <p>示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
+     *
+     * @param bodyCalendar
+     * @return
+     */
+    public Builder bodyCalendar(String bodyCalendar) {
+      this.bodyCalendar = bodyCalendar;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    public Message build() {
+      return new Message(this);
     }
-
-    public Attachment[] getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(Attachment[] attachments) {
-        this.attachments = attachments;
-    }
-
-    public String getBodyPlainText() {
-        return this.bodyPlainText;
-    }
-
-    public void setBodyPlainText(String bodyPlainText) {
-        this.bodyPlainText = bodyPlainText;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getBodyPreview() {
-        return this.bodyPreview;
-    }
-
-    public void setBodyPreview(String bodyPreview) {
-        this.bodyPreview = bodyPreview;
-    }
-
-    public String[] getLabelIds() {
-        return this.labelIds;
-    }
-
-    public void setLabelIds(String[] labelIds) {
-        this.labelIds = labelIds;
-    }
-
-    public String getFolderId() {
-        return this.folderId;
-    }
-
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
-
-    public String getInReplyTo() {
-        return this.inReplyTo;
-    }
-
-    public void setInReplyTo(String inReplyTo) {
-        this.inReplyTo = inReplyTo;
-    }
-
-    public String getReplyTo() {
-        return this.replyTo;
-    }
-
-    public void setReplyTo(String replyTo) {
-        this.replyTo = replyTo;
-    }
-
-    public String getPriorityType() {
-        return this.priorityType;
-    }
-
-    public void setPriorityType(String priorityType) {
-        this.priorityType = priorityType;
-    }
-
-    public SecurityLevel getSecurityLevel() {
-        return this.securityLevel;
-    }
-
-    public void setSecurityLevel(SecurityLevel securityLevel) {
-        this.securityLevel = securityLevel;
-    }
-
-    public String getReferences() {
-        return this.references;
-    }
-
-    public void setReferences(String references) {
-        this.references = references;
-    }
-
-    public String getBodyCalendar() {
-        return this.bodyCalendar;
-    }
-
-    public void setBodyCalendar(String bodyCalendar) {
-        this.bodyCalendar = bodyCalendar;
-    }
-
-    public static class Builder {
-        /**
-         * MIME邮件数据，基于base64url编码
-         * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
-         */
-        private String raw;
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        private String subject;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        private MailAddress[] to;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        private MailAddress[] cc;
-        /**
-         * 密送
-         * <p> 示例值：
-         */
-        private MailAddress[] bcc;
-        /**
-         * 发件人
-         * <p> 示例值：
-         */
-        private MailAddress headFrom;
-        /**
-         * 正文(base64url)
-         * <p> 示例值：xxxx
-         */
-        private String bodyHtml;
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1682377086000
-         */
-        private String internalDate;
-        /**
-         * 邮件状态，1（收信）2（发信）3（草稿）
-         * <p> 示例值：1
-         */
-        private Integer messageState;
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         */
-        private String smtpMessageId;
-        /**
-         * 邮件id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         */
-        private String messageId;
-        /**
-         * 邮件附件列表
-         * <p> 示例值：
-         */
-        private Attachment[] attachments;
-        /**
-         * 正文纯文本(base64url)
-         * <p> 示例值：xxxxx
-         */
-        private String bodyPlainText;
-        /**
-         * 会话id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         */
-        private String threadId;
-        /**
-         * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
-         * <p> 示例值：xxxxx
-         */
-        private String bodyPreview;
-        /**
-         * 标签ID
-         * <p> 示例值：
-         */
-        private String[] labelIds;
-        /**
-         * 文件夹ID
-         * <p> 示例值：INBOX
-         */
-        private String folderId;
-        /**
-         * In-Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         */
-        private String inReplyTo;
-        /**
-         * Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         */
-        private String replyTo;
-        /**
-         * 邮件优先级
-         * <p> 示例值：0
-         */
-        private String priorityType;
-        /**
-         * 安全信息
-         * <p> 示例值：
-         */
-        private SecurityLevel securityLevel;
-        /**
-         * References邮件头
-         * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
-         */
-        private String references;
-        /**
-         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
-         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
-         */
-        private String bodyCalendar;
-
-        /**
-         * MIME邮件数据，基于base64url编码
-         * <p> 示例值：Q29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PSJ1cy1hc2NpaSIKTUlNRS1WZXJzaW9uOiAxLjAKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdAp0bzogInRvIiA8dG9AeHh4Lnh4Pgpmcm9tOiAiZnJvbSIgPGZyb21AeHh4Lnh4PgpzdWJqZWN0OiB0aGlzIGlzIGEgc3ViamVjdAoKdGhpcyBpcyB0aGUgbWVzc2FnZSBib2R5Lg
-         *
-         * @param raw
-         * @return
-         */
-        public Builder raw(String raw) {
-            this.raw = raw;
-            return this;
-        }
-
-
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 收件人
-         * <p> 示例值：
-         *
-         * @param to
-         * @return
-         */
-        public Builder to(MailAddress[] to) {
-            this.to = to;
-            return this;
-        }
-
-
-        /**
-         * 抄送
-         * <p> 示例值：
-         *
-         * @param cc
-         * @return
-         */
-        public Builder cc(MailAddress[] cc) {
-            this.cc = cc;
-            return this;
-        }
-
-
-        /**
-         * 密送
-         * <p> 示例值：
-         *
-         * @param bcc
-         * @return
-         */
-        public Builder bcc(MailAddress[] bcc) {
-            this.bcc = bcc;
-            return this;
-        }
-
-
-        /**
-         * 发件人
-         * <p> 示例值：
-         *
-         * @param headFrom
-         * @return
-         */
-        public Builder headFrom(MailAddress headFrom) {
-            this.headFrom = headFrom;
-            return this;
-        }
-
-
-        /**
-         * 正文(base64url)
-         * <p> 示例值：xxxx
-         *
-         * @param bodyHtml
-         * @return
-         */
-        public Builder bodyHtml(String bodyHtml) {
-            this.bodyHtml = bodyHtml;
-            return this;
-        }
-
-
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1682377086000
-         *
-         * @param internalDate
-         * @return
-         */
-        public Builder internalDate(String internalDate) {
-            this.internalDate = internalDate;
-            return this;
-        }
-
-
-        /**
-         * 邮件状态，1（收信）2（发信）3（草稿）
-         * <p> 示例值：1
-         *
-         * @param messageState
-         * @return
-         */
-        public Builder messageState(Integer messageState) {
-            this.messageState = messageState;
-            return this;
-        }
-
-
-        /**
-         * RFC协议id
-         * <p> 示例值：ay0azrJDvbs3FJAg@outlook.com
-         *
-         * @param smtpMessageId
-         * @return
-         */
-        public Builder smtpMessageId(String smtpMessageId) {
-            this.smtpMessageId = smtpMessageId;
-            return this;
-        }
-
-
-        /**
-         * 邮件id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 邮件附件列表
-         * <p> 示例值：
-         *
-         * @param attachments
-         * @return
-         */
-        public Builder attachments(Attachment[] attachments) {
-            this.attachments = attachments;
-            return this;
-        }
-
-
-        /**
-         * 正文纯文本(base64url)
-         * <p> 示例值：xxxxx
-         *
-         * @param bodyPlainText
-         * @return
-         */
-        public Builder bodyPlainText(String bodyPlainText) {
-            this.bodyPlainText = bodyPlainText;
-            return this;
-        }
-
-
-        /**
-         * 会话id
-         * <p> 示例值：tfuh9N4WnzU6jdDw=
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文
-         * <p> 示例值：xxxxx
-         *
-         * @param bodyPreview
-         * @return
-         */
-        public Builder bodyPreview(String bodyPreview) {
-            this.bodyPreview = bodyPreview;
-            return this;
-        }
-
-
-        /**
-         * 标签ID
-         * <p> 示例值：
-         *
-         * @param labelIds
-         * @return
-         */
-        public Builder labelIds(String[] labelIds) {
-            this.labelIds = labelIds;
-            return this;
-        }
-
-
-        /**
-         * 文件夹ID
-         * <p> 示例值：INBOX
-         *
-         * @param folderId
-         * @return
-         */
-        public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
-        }
-
-
-        /**
-         * In-Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         *
-         * @param inReplyTo
-         * @return
-         */
-        public Builder inReplyTo(String inReplyTo) {
-            this.inReplyTo = inReplyTo;
-            return this;
-        }
-
-
-        /**
-         * Reply-To邮件头
-         * <p> 示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com
-         *
-         * @param replyTo
-         * @return
-         */
-        public Builder replyTo(String replyTo) {
-            this.replyTo = replyTo;
-            return this;
-        }
-
-
-        /**
-         * 邮件优先级
-         * <p> 示例值：0
-         *
-         * @param priorityType
-         * @return
-         */
-        public Builder priorityType(String priorityType) {
-            this.priorityType = priorityType;
-            return this;
-        }
-
-        /**
-         * 邮件优先级
-         * <p> 示例值：0
-         *
-         * @param priorityType {@link com.lark.oapi.service.mail.v1.enums.MessagePriorityTypeEnum}
-         * @return
-         */
-        public Builder priorityType(com.lark.oapi.service.mail.v1.enums.MessagePriorityTypeEnum priorityType) {
-            this.priorityType = priorityType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 安全信息
-         * <p> 示例值：
-         *
-         * @param securityLevel
-         * @return
-         */
-        public Builder securityLevel(SecurityLevel securityLevel) {
-            this.securityLevel = securityLevel;
-            return this;
-        }
-
-
-        /**
-         * References邮件头
-         * <p> 示例值：<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>
-         *
-         * @param references
-         * @return
-         */
-        public Builder references(String references) {
-            this.references = references;
-            return this;
-        }
-
-
-        /**
-         * 日历邀请内容(base64url)。当邮件包含标准RFC 5545格式的日历邀请时返回，解码后为ICS文本。
-         * <p> 示例值：QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KLi4uDQpFTkQ6VkNBTEVOREFS
-         *
-         * @param bodyCalendar
-         * @return
-         */
-        public Builder bodyCalendar(String bodyCalendar) {
-            this.bodyCalendar = bodyCalendar;
-            return this;
-        }
-
-
-        public Message build() {
-            return new Message(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

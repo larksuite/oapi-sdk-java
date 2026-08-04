@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LookupWithAvatar {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：1768491480010814
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户名称
+   *
+   * <p>示例值：郭xx
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：79888
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 用户邮箱
+   *
+   * <p>示例值：gxxx@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  // builder 开始
+  public LookupWithAvatar() {}
+
+  public LookupWithAvatar(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：1768491480010814
+     *
+     * <p>示例值：1768491480010814
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户名称
-     * <p> 示例值：郭晋
+     *
+     * <p>示例值：郭xx
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 租户ID
-     * <p> 示例值：79844
+     *
+     * <p>示例值：79888
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 用户邮箱
-     * <p> 示例值：guojin.jim@bytedance.com
+     *
+     * <p>示例值：gxxx@bytedance.com
      */
-    @SerializedName("email")
+    this.email = builder.email;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：1768491480010814
+     */
+    private String id;
+
+    /**
+     * 用户名称
+     *
+     * <p>示例值：郭xx
+     */
+    private String name;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：79888
+     */
+    private String tenantId;
+
+    /**
+     * 用户邮箱
+     *
+     * <p>示例值：gxxx@bytedance.com
+     */
     private String email;
 
-    // builder 开始
-    public LookupWithAvatar() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：1768491480010814
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LookupWithAvatar(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：1768491480010814
-         */
-        this.id = builder.id;
-        /**
-         * 用户名称
-         * <p> 示例值：郭晋
-         */
-        this.name = builder.name;
-        /**
-         * 租户ID
-         * <p> 示例值：79844
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 用户邮箱
-         * <p> 示例值：guojin.jim@bytedance.com
-         */
-        this.email = builder.email;
+    /**
+     * 用户名称
+     *
+     * <p>示例值：郭xx
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户ID
+     *
+     * <p>示例值：79888
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 用户邮箱
+     *
+     * <p>示例值：gxxx@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public LookupWithAvatar build() {
+      return new LookupWithAvatar(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：1768491480010814
-         */
-        private String id;
-        /**
-         * 用户名称
-         * <p> 示例值：郭晋
-         */
-        private String name;
-        /**
-         * 租户ID
-         * <p> 示例值：79844
-         */
-        private String tenantId;
-        /**
-         * 用户邮箱
-         * <p> 示例值：guojin.jim@bytedance.com
-         */
-        private String email;
-
-        /**
-         * 用户ID
-         * <p> 示例值：1768491480010814
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户名称
-         * <p> 示例值：郭晋
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：79844
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 用户邮箱
-         * <p> 示例值：guojin.jim@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        public LookupWithAvatar build() {
-            return new LookupWithAvatar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

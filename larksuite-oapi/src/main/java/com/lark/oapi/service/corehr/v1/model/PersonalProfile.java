@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonalProfile {
+  /**
+   * 个人资料 ID
+   *
+   * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+   */
+  @SerializedName("personal_profile_id")
+  private String personalProfileId;
+
+  /**
+   * 资料类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("personal_profile_type")
+  private Enum personalProfileType;
+
+  /**
+   * 上传文件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private File[] files;
+
+  public String getPersonalProfileId() {
+    return this.personalProfileId;
+  }
+
+  public void setPersonalProfileId(String personalProfileId) {
+    this.personalProfileId = personalProfileId;
+  }
+
+  public Enum getPersonalProfileType() {
+    return this.personalProfileType;
+  }
+
+  public void setPersonalProfileType(Enum personalProfileType) {
+    this.personalProfileType = personalProfileType;
+  }
+
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public PersonalProfile() {}
+
+  public PersonalProfile(Builder builder) {
     /**
      * 个人资料 ID
-     * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
      */
-    @SerializedName("personal_profile_id")
-    private String personalProfileId;
+    this.personalProfileId = builder.personalProfileId;
     /**
-     * 个人资料类型，比如;银行储蓄卡复印件、证件照、个人信息采集表、生活照
-     * <p> 示例值：
+     * 资料类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("personal_profile_type")
-    private Enum personalProfileType;
+    this.personalProfileType = builder.personalProfileType;
     /**
      * 上传文件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 个人资料 ID
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     */
+    private String personalProfileId;
+
+    /**
+     * 资料类型
+     *
+     * <p>示例值：
+     */
+    private Enum personalProfileType;
+
+    /**
+     * 上传文件列表
+     *
+     * <p>示例值：
+     */
     private File[] files;
 
-    // builder 开始
-    public PersonalProfile() {
+    /**
+     * 个人资料 ID
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     *
+     * @param personalProfileId
+     * @return
+     */
+    public Builder personalProfileId(String personalProfileId) {
+      this.personalProfileId = personalProfileId;
+      return this;
     }
 
-    public PersonalProfile(Builder builder) {
-        /**
-         * 个人资料 ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        this.personalProfileId = builder.personalProfileId;
-        /**
-         * 个人资料类型，比如;银行储蓄卡复印件、证件照、个人信息采集表、生活照
-         * <p> 示例值：
-         */
-        this.personalProfileType = builder.personalProfileType;
-        /**
-         * 上传文件列表
-         * <p> 示例值：
-         */
-        this.files = builder.files;
+    /**
+     * 资料类型
+     *
+     * <p>示例值：
+     *
+     * @param personalProfileType
+     * @return
+     */
+    public Builder personalProfileType(Enum personalProfileType) {
+      this.personalProfileType = personalProfileType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上传文件列表
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
+      return this;
     }
 
-    public String getPersonalProfileId() {
-        return this.personalProfileId;
+    public PersonalProfile build() {
+      return new PersonalProfile(this);
     }
+  }
 
-    public void setPersonalProfileId(String personalProfileId) {
-        this.personalProfileId = personalProfileId;
-    }
-
-    public Enum getPersonalProfileType() {
-        return this.personalProfileType;
-    }
-
-    public void setPersonalProfileType(Enum personalProfileType) {
-        this.personalProfileType = personalProfileType;
-    }
-
-    public File[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 个人资料 ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        private String personalProfileId;
-        /**
-         * 个人资料类型，比如;银行储蓄卡复印件、证件照、个人信息采集表、生活照
-         * <p> 示例值：
-         */
-        private Enum personalProfileType;
-        /**
-         * 上传文件列表
-         * <p> 示例值：
-         */
-        private File[] files;
-
-        /**
-         * 个人资料 ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         *
-         * @param personalProfileId
-         * @return
-         */
-        public Builder personalProfileId(String personalProfileId) {
-            this.personalProfileId = personalProfileId;
-            return this;
-        }
-
-
-        /**
-         * 个人资料类型，比如;银行储蓄卡复印件、证件照、个人信息采集表、生活照
-         * <p> 示例值：
-         *
-         * @param personalProfileType
-         * @return
-         */
-        public Builder personalProfileType(Enum personalProfileType) {
-            this.personalProfileType = personalProfileType;
-            return this;
-        }
-
-
-        /**
-         * 上传文件列表
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(File[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public PersonalProfile build() {
-            return new PersonalProfile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

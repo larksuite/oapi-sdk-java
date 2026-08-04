@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- *
- */
+/** */
 public enum MetaMixStateEnum {
-    SAAS("0"), // SaaS 机房
-    THIRDPARTY("1"), // 第三方存储
-    ;
-    private String value;
+  SAAS("0"), // SaaS 机房
+  THIRDPARTY("1"), // 第三方存储
+  ;
+  private String value;
 
-    MetaMixStateEnum(String value) {
-        this.value = value;
-    }
+  MetaMixStateEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

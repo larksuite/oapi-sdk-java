@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v5.enums;
 
-/**
- * 应用信息的语言版本
- */
+/** 应用信息的语言版本 */
 public enum RecommendApplicationLanguageEnum {
-    CHINESE("zh_cn"), // 中文
-    ENGLISH("en_us"), // 英文
-    JAPANESE("ja_jp"), // 日文
-    ;
-    private String value;
+  CHINESE("zh_cn"), // 中文
+  ENGLISH("en_us"), // 英文
+  JAPANESE("ja_jp"), // 日文
+  ;
+  private String value;
 
-    RecommendApplicationLanguageEnum(String value) {
-        this.value = value;
-    }
+  RecommendApplicationLanguageEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

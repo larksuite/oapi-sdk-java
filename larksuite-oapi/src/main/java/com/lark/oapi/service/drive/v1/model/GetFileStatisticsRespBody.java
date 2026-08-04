@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetFileStatisticsRespBody {
-    /**
-     * 文件 token
-     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 文件类型
-     * <p> 示例值：doc
-     */
-    @SerializedName("file_type")
-    private String fileType;
-    /**
-     * 文件统计信息
-     * <p> 示例值：
-     */
-    @SerializedName("statistics")
-    private FileStatistics statistics;
+  /**
+   * 文档 token
+   *
+   * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /**
+   * 文档类型
+   *
+   * <p>示例值：doc
+   */
+  @SerializedName("file_type")
+  private String fileType;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  /**
+   * 文档统计信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("statistics")
+  private FileStatistics statistics;
 
-    public String getFileType() {
-        return this.fileType;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public FileStatistics getStatistics() {
-        return this.statistics;
-    }
+  public String getFileType() {
+    return this.fileType;
+  }
 
-    public void setStatistics(FileStatistics statistics) {
-        this.statistics = statistics;
-    }
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
 
+  public FileStatistics getStatistics() {
+    return this.statistics;
+  }
+
+  public void setStatistics(FileStatistics statistics) {
+    this.statistics = statistics;
+  }
 }

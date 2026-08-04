@@ -13,263 +13,276 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class DataModelPermissionV2 {
+  /**
+   * 所属角色 apiName
+   *
+   * <p>示例值：role_65445dff6ed
+   */
+  @SerializedName("role_api_name")
+  private String roleApiName;
+
+  /**
+   * 关联数据模型 apiName
+   *
+   * <p>示例值：data_model_65445dff6ed
+   */
+  @SerializedName("data_model_api_name")
+  private String dataModelApiName;
+
+  /**
+   * 关联数据模型 类型对象/数据集
+   *
+   * <p>示例值：object
+   */
+  @SerializedName("data_model_type")
+  private String dataModelType;
+
+  /**
+   * 对象的权限列表（删除列表里不需要传）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("access_permissions")
+  private Integer[] accessPermissions;
+
+  /**
+   * 字段权限（删除列表里不需要传）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_permission_config")
+  private FieldPermissionConfigV2 fieldPermissionConfig;
+
+  /**
+   * 数据模型名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("data_model_name")
+  private Map<String, String> dataModelName;
+
+  public String getRoleApiName() {
+    return this.roleApiName;
+  }
+
+  public void setRoleApiName(String roleApiName) {
+    this.roleApiName = roleApiName;
+  }
+
+  public String getDataModelApiName() {
+    return this.dataModelApiName;
+  }
+
+  public void setDataModelApiName(String dataModelApiName) {
+    this.dataModelApiName = dataModelApiName;
+  }
+
+  public String getDataModelType() {
+    return this.dataModelType;
+  }
+
+  public void setDataModelType(String dataModelType) {
+    this.dataModelType = dataModelType;
+  }
+
+  public Integer[] getAccessPermissions() {
+    return this.accessPermissions;
+  }
+
+  public void setAccessPermissions(Integer[] accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
+  public FieldPermissionConfigV2 getFieldPermissionConfig() {
+    return this.fieldPermissionConfig;
+  }
+
+  public void setFieldPermissionConfig(FieldPermissionConfigV2 fieldPermissionConfig) {
+    this.fieldPermissionConfig = fieldPermissionConfig;
+  }
+
+  public Map<String, String> getDataModelName() {
+    return this.dataModelName;
+  }
+
+  public void setDataModelName(Map<String, String> dataModelName) {
+    this.dataModelName = dataModelName;
+  }
+
+  // builder 开始
+  public DataModelPermissionV2() {}
+
+  public DataModelPermissionV2(Builder builder) {
     /**
      * 所属角色 apiName
-     * <p> 示例值：role_65445dff6ed
+     *
+     * <p>示例值：role_65445dff6ed
      */
-    @SerializedName("role_api_name")
-    private String roleApiName;
+    this.roleApiName = builder.roleApiName;
     /**
      * 关联数据模型 apiName
-     * <p> 示例值：data_model_65445dff6ed
+     *
+     * <p>示例值：data_model_65445dff6ed
      */
-    @SerializedName("data_model_api_name")
-    private String dataModelApiName;
+    this.dataModelApiName = builder.dataModelApiName;
     /**
      * 关联数据模型 类型对象/数据集
-     * <p> 示例值：object
+     *
+     * <p>示例值：object
      */
-    @SerializedName("data_model_type")
-    private String dataModelType;
+    this.dataModelType = builder.dataModelType;
     /**
-     * 对象的权限列表
-     * <p> 示例值：
+     * 对象的权限列表（删除列表里不需要传）
+     *
+     * <p>示例值：
      */
-    @SerializedName("access_permissions")
-    private Integer[] accessPermissions;
+    this.accessPermissions = builder.accessPermissions;
     /**
-     * 字段权限
-     * <p> 示例值：
+     * 字段权限（删除列表里不需要传）
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_permission_config")
-    private FieldPermissionConfigV2 fieldPermissionConfig;
+    this.fieldPermissionConfig = builder.fieldPermissionConfig;
     /**
      * 数据模型名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("data_model_name")
+    this.dataModelName = builder.dataModelName;
+  }
+
+  public static class Builder {
+    /**
+     * 所属角色 apiName
+     *
+     * <p>示例值：role_65445dff6ed
+     */
+    private String roleApiName;
+
+    /**
+     * 关联数据模型 apiName
+     *
+     * <p>示例值：data_model_65445dff6ed
+     */
+    private String dataModelApiName;
+
+    /**
+     * 关联数据模型 类型对象/数据集
+     *
+     * <p>示例值：object
+     */
+    private String dataModelType;
+
+    /**
+     * 对象的权限列表（删除列表里不需要传）
+     *
+     * <p>示例值：
+     */
+    private Integer[] accessPermissions;
+
+    /**
+     * 字段权限（删除列表里不需要传）
+     *
+     * <p>示例值：
+     */
+    private FieldPermissionConfigV2 fieldPermissionConfig;
+
+    /**
+     * 数据模型名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> dataModelName;
 
-    // builder 开始
-    public DataModelPermissionV2() {
+    /**
+     * 所属角色 apiName
+     *
+     * <p>示例值：role_65445dff6ed
+     *
+     * @param roleApiName
+     * @return
+     */
+    public Builder roleApiName(String roleApiName) {
+      this.roleApiName = roleApiName;
+      return this;
     }
 
-    public DataModelPermissionV2(Builder builder) {
-        /**
-         * 所属角色 apiName
-         * <p> 示例值：role_65445dff6ed
-         */
-        this.roleApiName = builder.roleApiName;
-        /**
-         * 关联数据模型 apiName
-         * <p> 示例值：data_model_65445dff6ed
-         */
-        this.dataModelApiName = builder.dataModelApiName;
-        /**
-         * 关联数据模型 类型对象/数据集
-         * <p> 示例值：object
-         */
-        this.dataModelType = builder.dataModelType;
-        /**
-         * 对象的权限列表
-         * <p> 示例值：
-         */
-        this.accessPermissions = builder.accessPermissions;
-        /**
-         * 字段权限
-         * <p> 示例值：
-         */
-        this.fieldPermissionConfig = builder.fieldPermissionConfig;
-        /**
-         * 数据模型名称
-         * <p> 示例值：
-         */
-        this.dataModelName = builder.dataModelName;
+    /**
+     * 关联数据模型 apiName
+     *
+     * <p>示例值：data_model_65445dff6ed
+     *
+     * @param dataModelApiName
+     * @return
+     */
+    public Builder dataModelApiName(String dataModelApiName) {
+      this.dataModelApiName = dataModelApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联数据模型 类型对象/数据集
+     *
+     * <p>示例值：object
+     *
+     * @param dataModelType
+     * @return
+     */
+    public Builder dataModelType(String dataModelType) {
+      this.dataModelType = dataModelType;
+      return this;
     }
 
-    public String getRoleApiName() {
-        return this.roleApiName;
+    /**
+     * 对象的权限列表（删除列表里不需要传）
+     *
+     * <p>示例值：
+     *
+     * @param accessPermissions
+     * @return
+     */
+    public Builder accessPermissions(Integer[] accessPermissions) {
+      this.accessPermissions = accessPermissions;
+      return this;
     }
 
-    public void setRoleApiName(String roleApiName) {
-        this.roleApiName = roleApiName;
+    /**
+     * 字段权限（删除列表里不需要传）
+     *
+     * <p>示例值：
+     *
+     * @param fieldPermissionConfig
+     * @return
+     */
+    public Builder fieldPermissionConfig(FieldPermissionConfigV2 fieldPermissionConfig) {
+      this.fieldPermissionConfig = fieldPermissionConfig;
+      return this;
     }
 
-    public String getDataModelApiName() {
-        return this.dataModelApiName;
+    /**
+     * 数据模型名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param dataModelName
+     * @return
+     */
+    public Builder dataModelName(Map<String, String> dataModelName) {
+      this.dataModelName = dataModelName;
+      return this;
     }
 
-    public void setDataModelApiName(String dataModelApiName) {
-        this.dataModelApiName = dataModelApiName;
+    public DataModelPermissionV2 build() {
+      return new DataModelPermissionV2(this);
     }
+  }
 
-    public String getDataModelType() {
-        return this.dataModelType;
-    }
-
-    public void setDataModelType(String dataModelType) {
-        this.dataModelType = dataModelType;
-    }
-
-    public Integer[] getAccessPermissions() {
-        return this.accessPermissions;
-    }
-
-    public void setAccessPermissions(Integer[] accessPermissions) {
-        this.accessPermissions = accessPermissions;
-    }
-
-    public FieldPermissionConfigV2 getFieldPermissionConfig() {
-        return this.fieldPermissionConfig;
-    }
-
-    public void setFieldPermissionConfig(FieldPermissionConfigV2 fieldPermissionConfig) {
-        this.fieldPermissionConfig = fieldPermissionConfig;
-    }
-
-    public Map<String, String> getDataModelName() {
-        return this.dataModelName;
-    }
-
-    public void setDataModelName(Map<String, String> dataModelName) {
-        this.dataModelName = dataModelName;
-    }
-
-    public static class Builder {
-        /**
-         * 所属角色 apiName
-         * <p> 示例值：role_65445dff6ed
-         */
-        private String roleApiName;
-        /**
-         * 关联数据模型 apiName
-         * <p> 示例值：data_model_65445dff6ed
-         */
-        private String dataModelApiName;
-        /**
-         * 关联数据模型 类型对象/数据集
-         * <p> 示例值：object
-         */
-        private String dataModelType;
-        /**
-         * 对象的权限列表
-         * <p> 示例值：
-         */
-        private Integer[] accessPermissions;
-        /**
-         * 字段权限
-         * <p> 示例值：
-         */
-        private FieldPermissionConfigV2 fieldPermissionConfig;
-        /**
-         * 数据模型名称
-         * <p> 示例值：
-         */
-        private Map<String, String> dataModelName;
-
-        /**
-         * 所属角色 apiName
-         * <p> 示例值：role_65445dff6ed
-         *
-         * @param roleApiName
-         * @return
-         */
-        public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
-        }
-
-
-        /**
-         * 关联数据模型 apiName
-         * <p> 示例值：data_model_65445dff6ed
-         *
-         * @param dataModelApiName
-         * @return
-         */
-        public Builder dataModelApiName(String dataModelApiName) {
-            this.dataModelApiName = dataModelApiName;
-            return this;
-        }
-
-
-        /**
-         * 关联数据模型 类型对象/数据集
-         * <p> 示例值：object
-         *
-         * @param dataModelType
-         * @return
-         */
-        public Builder dataModelType(String dataModelType) {
-            this.dataModelType = dataModelType;
-            return this;
-        }
-
-
-        /**
-         * 对象的权限列表
-         * <p> 示例值：
-         *
-         * @param accessPermissions
-         * @return
-         */
-        public Builder accessPermissions(Integer[] accessPermissions) {
-            this.accessPermissions = accessPermissions;
-            return this;
-        }
-
-
-        /**
-         * 字段权限
-         * <p> 示例值：
-         *
-         * @param fieldPermissionConfig
-         * @return
-         */
-        public Builder fieldPermissionConfig(FieldPermissionConfigV2 fieldPermissionConfig) {
-            this.fieldPermissionConfig = fieldPermissionConfig;
-            return this;
-        }
-
-
-        /**
-         * 数据模型名称
-         * <p> 示例值：
-         *
-         * @param dataModelName
-         * @return
-         */
-        public Builder dataModelName(Map<String, String> dataModelName) {
-            this.dataModelName = dataModelName;
-            return this;
-        }
-
-
-        public DataModelPermissionV2 build() {
-            return new DataModelPermissionV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

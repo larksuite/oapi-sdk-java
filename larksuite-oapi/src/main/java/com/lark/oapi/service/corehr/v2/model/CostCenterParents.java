@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenterParents {
+  /**
+   * cost_center_id
+   *
+   * <p>示例值：cost_center_id_xxx
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * parent_cost_center_list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_cost_center_list")
+  private CostCenterParentInfo[] parentCostCenterList;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public CostCenterParentInfo[] getParentCostCenterList() {
+    return this.parentCostCenterList;
+  }
+
+  public void setParentCostCenterList(CostCenterParentInfo[] parentCostCenterList) {
+    this.parentCostCenterList = parentCostCenterList;
+  }
+
+  // builder 开始
+  public CostCenterParents() {}
+
+  public CostCenterParents(Builder builder) {
     /**
      * cost_center_id
-     * <p> 示例值：cost_center_id_xxx
+     *
+     * <p>示例值：cost_center_id_xxx
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * parent_cost_center_list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_cost_center_list")
+    this.parentCostCenterList = builder.parentCostCenterList;
+  }
+
+  public static class Builder {
+    /**
+     * cost_center_id
+     *
+     * <p>示例值：cost_center_id_xxx
+     */
+    private String costCenterId;
+
+    /**
+     * parent_cost_center_list
+     *
+     * <p>示例值：
+     */
     private CostCenterParentInfo[] parentCostCenterList;
 
-    // builder 开始
-    public CostCenterParents() {
+    /**
+     * cost_center_id
+     *
+     * <p>示例值：cost_center_id_xxx
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public CostCenterParents(Builder builder) {
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * parent_cost_center_list
-         * <p> 示例值：
-         */
-        this.parentCostCenterList = builder.parentCostCenterList;
+    /**
+     * parent_cost_center_list
+     *
+     * <p>示例值：
+     *
+     * @param parentCostCenterList
+     * @return
+     */
+    public Builder parentCostCenterList(CostCenterParentInfo[] parentCostCenterList) {
+      this.parentCostCenterList = parentCostCenterList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CostCenterParents build() {
+      return new CostCenterParents(this);
     }
+  }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
-    }
-
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public CostCenterParentInfo[] getParentCostCenterList() {
-        return this.parentCostCenterList;
-    }
-
-    public void setParentCostCenterList(CostCenterParentInfo[] parentCostCenterList) {
-        this.parentCostCenterList = parentCostCenterList;
-    }
-
-    public static class Builder {
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         */
-        private String costCenterId;
-        /**
-         * parent_cost_center_list
-         * <p> 示例值：
-         */
-        private CostCenterParentInfo[] parentCostCenterList;
-
-        /**
-         * cost_center_id
-         * <p> 示例值：cost_center_id_xxx
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * parent_cost_center_list
-         * <p> 示例值：
-         *
-         * @param parentCostCenterList
-         * @return
-         */
-        public Builder parentCostCenterList(CostCenterParentInfo[] parentCostCenterList) {
-            this.parentCostCenterList = parentCostCenterList;
-            return this;
-        }
-
-
-        public CostCenterParents build() {
-            return new CostCenterParents(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

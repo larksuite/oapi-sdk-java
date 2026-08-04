@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventSearchMeta {
+  /**
+   * 日程的 app_link，跳转到具体的某个日程。
+   *
+   * <p>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
+   */
+  @SerializedName("app_link")
+  private String appLink;
+
+  /**
+   * 日程头像
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 日程描述
+   *
+   * <p>示例值：日程描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 日程所在的日历 ID
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
+   *
+   * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 日程开始时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start")
+  private TimeInfo start;
+
+  /**
+   * 日程结束时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("end")
+  private TimeInfo end;
+
+  /**
+   * true表示全天日程，默认是非全天日程
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_all_day")
+  private Boolean isAllDay;
+
+  /**
+   * 日程标题
+   *
+   * <p>示例值：日程标题
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  public String getAppLink() {
+    return this.appLink;
+  }
+
+  public void setAppLink(String appLink) {
+    this.appLink = appLink;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public TimeInfo getStart() {
+    return this.start;
+  }
+
+  public void setStart(TimeInfo start) {
+    this.start = start;
+  }
+
+  public TimeInfo getEnd() {
+    return this.end;
+  }
+
+  public void setEnd(TimeInfo end) {
+    this.end = end;
+  }
+
+  public Boolean getIsAllDay() {
+    return this.isAllDay;
+  }
+
+  public void setIsAllDay(Boolean isAllDay) {
+    this.isAllDay = isAllDay;
+  }
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  // builder 开始
+  public CalendarEventSearchMeta() {}
+
+  public CalendarEventSearchMeta(Builder builder) {
     /**
      * 日程的 app_link，跳转到具体的某个日程。
-     * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
+     *
+     * <p>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
      */
-    @SerializedName("app_link")
-    private String appLink;
+    this.appLink = builder.appLink;
     /**
      * 日程头像
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 日程描述
-     * <p> 示例值：日程描述
+     *
+     * <p>示例值：日程描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 日程所在的日历 ID
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
      * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * 日程开始时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("start")
-    private TimeInfo start;
+    this.start = builder.start;
     /**
      * 日程结束时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("end")
-    private TimeInfo end;
+    this.end = builder.end;
     /**
      * true表示全天日程，默认是非全天日程
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_all_day")
-    private Boolean isAllDay;
+    this.isAllDay = builder.isAllDay;
     /**
      * 日程标题
-     * <p> 示例值：日程标题
+     *
+     * <p>示例值：日程标题
      */
-    @SerializedName("summary")
+    this.summary = builder.summary;
+  }
+
+  public static class Builder {
+    /**
+     * 日程的 app_link，跳转到具体的某个日程。
+     *
+     * <p>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
+     */
+    private String appLink;
+
+    /**
+     * 日程头像
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
+     */
+    private String avatar;
+
+    /**
+     * 日程描述
+     *
+     * <p>示例值：日程描述
+     */
+    private String description;
+
+    /**
+     * 日程所在的日历 ID
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
+    private String calendarId;
+
+    /**
+     * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     */
+    private String eventId;
+
+    /**
+     * 日程开始时间
+     *
+     * <p>示例值：
+     */
+    private TimeInfo start;
+
+    /**
+     * 日程结束时间
+     *
+     * <p>示例值：
+     */
+    private TimeInfo end;
+
+    /**
+     * true表示全天日程，默认是非全天日程
+     *
+     * <p>示例值：false
+     */
+    private Boolean isAllDay;
+
+    /**
+     * 日程标题
+     *
+     * <p>示例值：日程标题
+     */
     private String summary;
 
-    // builder 开始
-    public CalendarEventSearchMeta() {
+    /**
+     * 日程的 app_link，跳转到具体的某个日程。
+     *
+     * <p>示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
+     *
+     * @param appLink
+     * @return
+     */
+    public Builder appLink(String appLink) {
+      this.appLink = appLink;
+      return this;
     }
 
-    public CalendarEventSearchMeta(Builder builder) {
-        /**
-         * 日程的 app_link，跳转到具体的某个日程。
-         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
-         */
-        this.appLink = builder.appLink;
-        /**
-         * 日程头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 日程描述
-         * <p> 示例值：日程描述
-         */
-        this.description = builder.description;
-        /**
-         * 日程所在的日历 ID
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 日程开始时间
-         * <p> 示例值：
-         */
-        this.start = builder.start;
-        /**
-         * 日程结束时间
-         * <p> 示例值：
-         */
-        this.end = builder.end;
-        /**
-         * true表示全天日程，默认是非全天日程
-         * <p> 示例值：false
-         */
-        this.isAllDay = builder.isAllDay;
-        /**
-         * 日程标题
-         * <p> 示例值：日程标题
-         */
-        this.summary = builder.summary;
+    /**
+     * 日程头像
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程描述
+     *
+     * <p>示例值：日程描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAppLink() {
-        return this.appLink;
+    /**
+     * 日程所在的日历 ID
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public void setAppLink(String appLink) {
-        this.appLink = appLink;
+    /**
+     * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public String getAvatar() {
-        return this.avatar;
+    /**
+     * 日程开始时间
+     *
+     * <p>示例值：
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(TimeInfo start) {
+      this.start = start;
+      return this;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    /**
+     * 日程结束时间
+     *
+     * <p>示例值：
+     *
+     * @param end
+     * @return
+     */
+    public Builder end(TimeInfo end) {
+      this.end = end;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * true表示全天日程，默认是非全天日程
+     *
+     * <p>示例值：false
+     *
+     * @param isAllDay
+     * @return
+     */
+    public Builder isAllDay(Boolean isAllDay) {
+      this.isAllDay = isAllDay;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 日程标题
+     *
+     * <p>示例值：日程标题
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
     }
 
-    public String getCalendarId() {
-        return this.calendarId;
+    public CalendarEventSearchMeta build() {
+      return new CalendarEventSearchMeta(this);
     }
+  }
 
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public TimeInfo getStart() {
-        return this.start;
-    }
-
-    public void setStart(TimeInfo start) {
-        this.start = start;
-    }
-
-    public TimeInfo getEnd() {
-        return this.end;
-    }
-
-    public void setEnd(TimeInfo end) {
-        this.end = end;
-    }
-
-    public Boolean getIsAllDay() {
-        return this.isAllDay;
-    }
-
-    public void setIsAllDay(Boolean isAllDay) {
-        this.isAllDay = isAllDay;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public static class Builder {
-        /**
-         * 日程的 app_link，跳转到具体的某个日程。
-         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
-         */
-        private String appLink;
-        /**
-         * 日程头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
-         */
-        private String avatar;
-        /**
-         * 日程描述
-         * <p> 示例值：日程描述
-         */
-        private String description;
-        /**
-         * 日程所在的日历 ID
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        private String calendarId;
-        /**
-         * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        private String eventId;
-        /**
-         * 日程开始时间
-         * <p> 示例值：
-         */
-        private TimeInfo start;
-        /**
-         * 日程结束时间
-         * <p> 示例值：
-         */
-        private TimeInfo end;
-        /**
-         * true表示全天日程，默认是非全天日程
-         * <p> 示例值：false
-         */
-        private Boolean isAllDay;
-        /**
-         * 日程标题
-         * <p> 示例值：日程标题
-         */
-        private String summary;
-
-        /**
-         * 日程的 app_link，跳转到具体的某个日程。
-         * <p> 示例值：https://applink.feishu.cn/client/calendar/event/detail?calendarId=feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn&key=xxxxxxxx
-         *
-         * @param appLink
-         * @return
-         */
-        public Builder appLink(String appLink) {
-            this.appLink = appLink;
-            return this;
-        }
-
-
-        /**
-         * 日程头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-calendar-avatar~100x100.png
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 日程描述
-         * <p> 示例值：日程描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 日程所在的日历 ID
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程 ID。后续可通过该 ID 查询、更新或删除日程信息。
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 日程开始时间
-         * <p> 示例值：
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(TimeInfo start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 日程结束时间
-         * <p> 示例值：
-         *
-         * @param end
-         * @return
-         */
-        public Builder end(TimeInfo end) {
-            this.end = end;
-            return this;
-        }
-
-
-        /**
-         * true表示全天日程，默认是非全天日程
-         * <p> 示例值：false
-         *
-         * @param isAllDay
-         * @return
-         */
-        public Builder isAllDay(Boolean isAllDay) {
-            this.isAllDay = isAllDay;
-            return this;
-        }
-
-
-        /**
-         * 日程标题
-         * <p> 示例值：日程标题
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        public CalendarEventSearchMeta build() {
-            return new CalendarEventSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

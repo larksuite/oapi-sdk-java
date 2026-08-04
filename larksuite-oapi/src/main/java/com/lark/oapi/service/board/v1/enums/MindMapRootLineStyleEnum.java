@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 思维导图图形连接线样式
- */
+/** 思维导图图形连接线样式 */
 public enum MindMapRootLineStyleEnum {
-    CURVE("curve"), // 曲线
-    RIGHTANGLE("right_angle"), // 直角折线
-    ROUNDANGLE("round_angle"), // 圆角折线
-    ;
-    private String value;
+  CURVE("curve"), // 曲线
+  RIGHTANGLE("right_angle"), // 直角折线
+  ROUNDANGLE("round_angle"), // 圆角折线
+  ;
+  private String value;
 
-    MindMapRootLineStyleEnum(String value) {
-        this.value = value;
-    }
+  MindMapRootLineStyleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

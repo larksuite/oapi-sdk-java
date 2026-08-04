@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkhourSetting {
+  /**
+   * 用户工作时间对应的时区信息。例如：Asia/Shanghai
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("timezone")
+  private String timezone;
+
+  /**
+   * 工作时间信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workhours")
+  private Workhour[] workhours;
+
+  /**
+   * 用户是否启用了工作时间设置。可能值：;- true：启用，此时返回的 workhours 字段值包含工作时间信息。;- false：未启用，此时 workhours 字段值为空。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("enable_work_hour")
+  private Boolean enableWorkHour;
+
+  /**
+   * 用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+   *
+   * <p>示例值：ou_xxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getTimezone() {
+    return this.timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+  public Workhour[] getWorkhours() {
+    return this.workhours;
+  }
+
+  public void setWorkhours(Workhour[] workhours) {
+    this.workhours = workhours;
+  }
+
+  public Boolean getEnableWorkHour() {
+    return this.enableWorkHour;
+  }
+
+  public void setEnableWorkHour(Boolean enableWorkHour) {
+    this.enableWorkHour = enableWorkHour;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public WorkhourSetting() {}
+
+  public WorkhourSetting(Builder builder) {
     /**
-     * 用户设置的对外展示时区
-     * <p> 示例值：Asia/Shanghai
+     * 用户工作时间对应的时区信息。例如：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @SerializedName("timezone")
+    this.timezone = builder.timezone;
+    /**
+     * 工作时间信息。
+     *
+     * <p>示例值：
+     */
+    this.workhours = builder.workhours;
+    /**
+     * 用户是否启用了工作时间设置。可能值：;- true：启用，此时返回的 workhours 字段值包含工作时间信息。;- false：未启用，此时 workhours 字段值为空。
+     *
+     * <p>示例值：false
+     */
+    this.enableWorkHour = builder.enableWorkHour;
+    /**
+     * 用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_xxxxxx
+     */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户工作时间对应的时区信息。例如：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
+     */
     private String timezone;
+
     /**
-     * 工作时间设置
-     * <p> 示例值：
+     * 工作时间信息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("workhours")
     private Workhour[] workhours;
+
     /**
-     * 用户是否启用工作时间设置
-     * <p> 示例值：false
+     * 用户是否启用了工作时间设置。可能值：;- true：启用，此时返回的 workhours 字段值包含工作时间信息。;- false：未启用，此时 workhours 字段值为空。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("enable_work_hour")
     private Boolean enableWorkHour;
+
     /**
-     * 用户user id
-     * <p> 示例值：ou_xxxxxx
+     * 用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_xxxxxx
      */
-    @SerializedName("user_id")
     private String userId;
 
-    // builder 开始
-    public WorkhourSetting() {
+    /**
+     * 用户工作时间对应的时区信息。例如：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timezone
+     * @return
+     */
+    public Builder timezone(String timezone) {
+      this.timezone = timezone;
+      return this;
     }
 
-    public WorkhourSetting(Builder builder) {
-        /**
-         * 用户设置的对外展示时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timezone = builder.timezone;
-        /**
-         * 工作时间设置
-         * <p> 示例值：
-         */
-        this.workhours = builder.workhours;
-        /**
-         * 用户是否启用工作时间设置
-         * <p> 示例值：false
-         */
-        this.enableWorkHour = builder.enableWorkHour;
-        /**
-         * 用户user id
-         * <p> 示例值：ou_xxxxxx
-         */
-        this.userId = builder.userId;
+    /**
+     * 工作时间信息。
+     *
+     * <p>示例值：
+     *
+     * @param workhours
+     * @return
+     */
+    public Builder workhours(Workhour[] workhours) {
+      this.workhours = workhours;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户是否启用了工作时间设置。可能值：;- true：启用，此时返回的 workhours 字段值包含工作时间信息。;- false：未启用，此时 workhours 字段值为空。
+     *
+     * <p>示例值：false
+     *
+     * @param enableWorkHour
+     * @return
+     */
+    public Builder enableWorkHour(Boolean enableWorkHour) {
+      this.enableWorkHour = enableWorkHour;
+      return this;
     }
 
-    public String getTimezone() {
-        return this.timezone;
+    /**
+     * 用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_xxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
+    public WorkhourSetting build() {
+      return new WorkhourSetting(this);
     }
+  }
 
-    public Workhour[] getWorkhours() {
-        return this.workhours;
-    }
-
-    public void setWorkhours(Workhour[] workhours) {
-        this.workhours = workhours;
-    }
-
-    public Boolean getEnableWorkHour() {
-        return this.enableWorkHour;
-    }
-
-    public void setEnableWorkHour(Boolean enableWorkHour) {
-        this.enableWorkHour = enableWorkHour;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户设置的对外展示时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timezone;
-        /**
-         * 工作时间设置
-         * <p> 示例值：
-         */
-        private Workhour[] workhours;
-        /**
-         * 用户是否启用工作时间设置
-         * <p> 示例值：false
-         */
-        private Boolean enableWorkHour;
-        /**
-         * 用户user id
-         * <p> 示例值：ou_xxxxxx
-         */
-        private String userId;
-
-        /**
-         * 用户设置的对外展示时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timezone
-         * @return
-         */
-        public Builder timezone(String timezone) {
-            this.timezone = timezone;
-            return this;
-        }
-
-
-        /**
-         * 工作时间设置
-         * <p> 示例值：
-         *
-         * @param workhours
-         * @return
-         */
-        public Builder workhours(Workhour[] workhours) {
-            this.workhours = workhours;
-            return this;
-        }
-
-
-        /**
-         * 用户是否启用工作时间设置
-         * <p> 示例值：false
-         *
-         * @param enableWorkHour
-         * @return
-         */
-        public Builder enableWorkHour(Boolean enableWorkHour) {
-            this.enableWorkHour = enableWorkHour;
-            return this;
-        }
-
-
-        /**
-         * 用户user id
-         * <p> 示例值：ou_xxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public WorkhourSetting build() {
-            return new WorkhourSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

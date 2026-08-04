@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppReqBody {
+  /**
+   * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+   *
+   * <p>示例值：智能客服助手
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+   *
+   * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+   *
+   * <p>示例值：https://example.com/app-icons/customer-service.png
+   */
+  @SerializedName("icon_url")
+  private String iconUrl;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getIconUrl() {
+    return this.iconUrl;
+  }
+
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
+  }
+
+  // builder 开始
+  public PatchAppReqBody() {}
+
+  public PatchAppReqBody(Builder builder) {
     /**
      * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-     * <p> 示例值：智能客服助手
+     *
+     * <p>示例值：智能客服助手
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-     * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-     * <p> 示例值：https://example.com/app-icons/customer-service.png
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
      */
-    @SerializedName("icon_url")
+    this.iconUrl = builder.iconUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+     *
+     * <p>示例值：智能客服助手
+     */
+    private String name;
+
+    /**
+     * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     */
+    private String description;
+
+    /**
+     * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     */
     private String iconUrl;
 
-    // builder 开始
-    public PatchAppReqBody() {
+    /**
+     * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+     *
+     * <p>示例值：智能客服助手
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public PatchAppReqBody(Builder builder) {
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         */
-        this.name = builder.name;
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        this.description = builder.description;
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        this.iconUrl = builder.iconUrl;
+    /**
+     * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     *
+     * @param iconUrl
+     * @return
+     */
+    public Builder iconUrl(String iconUrl) {
+      this.iconUrl = iconUrl;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public PatchAppReqBody build() {
+      return new PatchAppReqBody(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getIconUrl() {
-        return this.iconUrl;
-    }
-
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         */
-        private String name;
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        private String description;
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        private String iconUrl;
-
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         *
-         * @param iconUrl
-         * @return
-         */
-        public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
-        }
-
-
-        public PatchAppReqBody build() {
-            return new PatchAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

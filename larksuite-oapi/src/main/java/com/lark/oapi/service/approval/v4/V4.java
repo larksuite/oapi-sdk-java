@@ -24,55 +24,55 @@ import com.lark.oapi.service.approval.v4.resource.InstanceComment;
 import com.lark.oapi.service.approval.v4.resource.Task;
 
 public class V4 {
-    private final Approval approval; // 原生审批定义
-    private final District district; // district
-    private final ExternalApproval externalApproval; // 三方审批定义
-    private final ExternalInstance externalInstance; // 三方审批实例
-    private final ExternalTask externalTask; // 三方审批任务
-    private final Instance instance; // 原生审批实例
-    private final InstanceComment instanceComment; // 原生审批评论
-    private final Task task; // 原生审批任务
+  private final Approval approval; // approval
+  private final District district; // district
+  private final ExternalApproval externalApproval; // external_approval
+  private final ExternalInstance externalInstance; // external_instance
+  private final ExternalTask externalTask; // external_task
+  private final Instance instance; // instance
+  private final InstanceComment instanceComment; // instance.comment
+  private final Task task; // task
 
-    public V4(Config config) {
-        this.approval = new Approval(config);
-        this.district = new District(config);
-        this.externalApproval = new ExternalApproval(config);
-        this.externalInstance = new ExternalInstance(config);
-        this.externalTask = new ExternalTask(config);
-        this.instance = new Instance(config);
-        this.instanceComment = new InstanceComment(config);
-        this.task = new Task(config);
-    }
+  public V4(Config config) {
+    this.approval = new Approval(config);
+    this.district = new District(config);
+    this.externalApproval = new ExternalApproval(config);
+    this.externalInstance = new ExternalInstance(config);
+    this.externalTask = new ExternalTask(config);
+    this.instance = new Instance(config);
+    this.instanceComment = new InstanceComment(config);
+    this.task = new Task(config);
+  }
 
-    public Approval approval() {
-        return approval;
-    }
+  public Approval approval() {
+    return approval;
+  }
 
-    public District district() {
-        return district;
-    }
+  public District district() {
+    return district;
+  }
 
-    public ExternalApproval externalApproval() {
-        return externalApproval;
-    }
+  public ExternalApproval externalApproval() {
+    return externalApproval;
+  }
 
-    public ExternalInstance externalInstance() {
-        return externalInstance;
-    }
+  public ExternalInstance externalInstance() {
+    return externalInstance;
+  }
 
-    public ExternalTask externalTask() {
-        return externalTask;
-    }
+  public ExternalTask externalTask() {
+    return externalTask;
+  }
 
-    public Instance instance() {
-        return instance;
-    }
+  public Instance instance() {
+    return instance;
+  }
 
-    public InstanceComment instanceComment() {
-        return instanceComment;
-    }
+  public InstanceComment instanceComment() {
+    return instanceComment;
+  }
 
-    public Task task() {
-        return task;
-    }
+  public Task task() {
+    return task;
+  }
 }

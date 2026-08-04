@@ -13,337 +13,360 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UserSearchMeta {
+  /**
+   * 是否已激活
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_registered")
+  private Boolean isRegistered;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：7168668599198941203
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 联系邮箱地址
+   *
+   * <p>示例值：zhangsan@gmail.com
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
+
+  /**
+   * 关联的单聊ID
+   *
+   * <p>示例值：7890123456abcdef
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 企业邮箱地址
+   *
+   * <p>示例值：zhangsan@gmail.com
+   */
+  @SerializedName("enterprise_mail_address")
+  private String enterpriseMailAddress;
+
+  /**
+   * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private Map<String, String> i18nNames;
+
+  /**
+   * 是否跨租户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_cross_tenant")
+  private Boolean isCrossTenant;
+
+  /**
+   * 用户签名/描述
+   *
+   * <p>示例值：激发创造，丰富生活
+   */
+  @SerializedName("description")
+  private String description;
+
+  public Boolean getIsRegistered() {
+    return this.isRegistered;
+  }
+
+  public void setIsRegistered(Boolean isRegistered) {
+    this.isRegistered = isRegistered;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
+
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getEnterpriseMailAddress() {
+    return this.enterpriseMailAddress;
+  }
+
+  public void setEnterpriseMailAddress(String enterpriseMailAddress) {
+    this.enterpriseMailAddress = enterpriseMailAddress;
+  }
+
+  public Map<String, String> getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(Map<String, String> i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public Boolean getIsCrossTenant() {
+    return this.isCrossTenant;
+  }
+
+  public void setIsCrossTenant(Boolean isCrossTenant) {
+    this.isCrossTenant = isCrossTenant;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public UserSearchMeta() {}
+
+  public UserSearchMeta(Builder builder) {
     /**
      * 是否已激活
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_registered")
-    private Boolean isRegistered;
+    this.isRegistered = builder.isRegistered;
     /**
      * 租户ID
-     * <p> 示例值：7168668599198941203
+     *
+     * <p>示例值：7168668599198941203
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 联系邮箱地址
-     * <p> 示例值：zhangsan@gmail.com
+     *
+     * <p>示例值：zhangsan@gmail.com
      */
-    @SerializedName("mail_address")
-    private String mailAddress;
+    this.mailAddress = builder.mailAddress;
     /**
      * 关联的单聊ID
-     * <p> 示例值：7890123456abcdef
+     *
+     * <p>示例值：7890123456abcdef
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 企业邮箱地址
-     * <p> 示例值：zhangsan@gmail.com
+     *
+     * <p>示例值：zhangsan@gmail.com
      */
-    @SerializedName("enterprise_mail_address")
-    private String enterpriseMailAddress;
+    this.enterpriseMailAddress = builder.enterpriseMailAddress;
     /**
      * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private Map<String, String> i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 是否跨租户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_cross_tenant")
-    private Boolean isCrossTenant;
+    this.isCrossTenant = builder.isCrossTenant;
     /**
      * 用户签名/描述
-     * <p> 示例值：激发创造，丰富生活
+     *
+     * <p>示例值：激发创造，丰富生活
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 是否已激活
+     *
+     * <p>示例值：
+     */
+    private Boolean isRegistered;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：7168668599198941203
+     */
+    private String tenantId;
+
+    /**
+     * 联系邮箱地址
+     *
+     * <p>示例值：zhangsan@gmail.com
+     */
+    private String mailAddress;
+
+    /**
+     * 关联的单聊ID
+     *
+     * <p>示例值：7890123456abcdef
+     */
+    private String chatId;
+
+    /**
+     * 企业邮箱地址
+     *
+     * <p>示例值：zhangsan@gmail.com
+     */
+    private String enterpriseMailAddress;
+
+    /**
+     * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> i18nNames;
+
+    /**
+     * 是否跨租户
+     *
+     * <p>示例值：
+     */
+    private Boolean isCrossTenant;
+
+    /**
+     * 用户签名/描述
+     *
+     * <p>示例值：激发创造，丰富生活
+     */
     private String description;
 
-    // builder 开始
-    public UserSearchMeta() {
+    /**
+     * 是否已激活
+     *
+     * <p>示例值：
+     *
+     * @param isRegistered
+     * @return
+     */
+    public Builder isRegistered(Boolean isRegistered) {
+      this.isRegistered = isRegistered;
+      return this;
     }
 
-    public UserSearchMeta(Builder builder) {
-        /**
-         * 是否已激活
-         * <p> 示例值：
-         */
-        this.isRegistered = builder.isRegistered;
-        /**
-         * 租户ID
-         * <p> 示例值：7168668599198941203
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 联系邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         */
-        this.mailAddress = builder.mailAddress;
-        /**
-         * 关联的单聊ID
-         * <p> 示例值：7890123456abcdef
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 企业邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         */
-        this.enterpriseMailAddress = builder.enterpriseMailAddress;
-        /**
-         * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 是否跨租户
-         * <p> 示例值：
-         */
-        this.isCrossTenant = builder.isCrossTenant;
-        /**
-         * 用户签名/描述
-         * <p> 示例值：激发创造，丰富生活
-         */
-        this.description = builder.description;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：7168668599198941203
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 联系邮箱地址
+     *
+     * <p>示例值：zhangsan@gmail.com
+     *
+     * @param mailAddress
+     * @return
+     */
+    public Builder mailAddress(String mailAddress) {
+      this.mailAddress = mailAddress;
+      return this;
     }
 
-    public Boolean getIsRegistered() {
-        return this.isRegistered;
+    /**
+     * 关联的单聊ID
+     *
+     * <p>示例值：7890123456abcdef
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public void setIsRegistered(Boolean isRegistered) {
-        this.isRegistered = isRegistered;
+    /**
+     * 企业邮箱地址
+     *
+     * <p>示例值：zhangsan@gmail.com
+     *
+     * @param enterpriseMailAddress
+     * @return
+     */
+    public Builder enterpriseMailAddress(String enterpriseMailAddress) {
+      this.enterpriseMailAddress = enterpriseMailAddress;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(Map<String, String> i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 是否跨租户
+     *
+     * <p>示例值：
+     *
+     * @param isCrossTenant
+     * @return
+     */
+    public Builder isCrossTenant(Boolean isCrossTenant) {
+      this.isCrossTenant = isCrossTenant;
+      return this;
     }
 
-    public String getMailAddress() {
-        return this.mailAddress;
+    /**
+     * 用户签名/描述
+     *
+     * <p>示例值：激发创造，丰富生活
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
+    public UserSearchMeta build() {
+      return new UserSearchMeta(this);
     }
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getEnterpriseMailAddress() {
-        return this.enterpriseMailAddress;
-    }
-
-    public void setEnterpriseMailAddress(String enterpriseMailAddress) {
-        this.enterpriseMailAddress = enterpriseMailAddress;
-    }
-
-    public Map<String, String> getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(Map<String, String> i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public Boolean getIsCrossTenant() {
-        return this.isCrossTenant;
-    }
-
-    public void setIsCrossTenant(Boolean isCrossTenant) {
-        this.isCrossTenant = isCrossTenant;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 是否已激活
-         * <p> 示例值：
-         */
-        private Boolean isRegistered;
-        /**
-         * 租户ID
-         * <p> 示例值：7168668599198941203
-         */
-        private String tenantId;
-        /**
-         * 联系邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         */
-        private String mailAddress;
-        /**
-         * 关联的单聊ID
-         * <p> 示例值：7890123456abcdef
-         */
-        private String chatId;
-        /**
-         * 企业邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         */
-        private String enterpriseMailAddress;
-        /**
-         * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nNames;
-        /**
-         * 是否跨租户
-         * <p> 示例值：
-         */
-        private Boolean isCrossTenant;
-        /**
-         * 用户签名/描述
-         * <p> 示例值：激发创造，丰富生活
-         */
-        private String description;
-
-        /**
-         * 是否已激活
-         * <p> 示例值：
-         *
-         * @param isRegistered
-         * @return
-         */
-        public Builder isRegistered(Boolean isRegistered) {
-            this.isRegistered = isRegistered;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：7168668599198941203
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 联系邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         *
-         * @param mailAddress
-         * @return
-         */
-        public Builder mailAddress(String mailAddress) {
-            this.mailAddress = mailAddress;
-            return this;
-        }
-
-
-        /**
-         * 关联的单聊ID
-         * <p> 示例值：7890123456abcdef
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 企业邮箱地址
-         * <p> 示例值：zhangsan@gmail.com
-         *
-         * @param enterpriseMailAddress
-         * @return
-         */
-        public Builder enterpriseMailAddress(String enterpriseMailAddress) {
-            this.enterpriseMailAddress = enterpriseMailAddress;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称，key为语言代码(如zh_cn、en_us、ja_jp)，value为对应语言的名称
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(Map<String, String> i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 是否跨租户
-         * <p> 示例值：
-         *
-         * @param isCrossTenant
-         * @return
-         */
-        public Builder isCrossTenant(Boolean isCrossTenant) {
-            this.isCrossTenant = isCrossTenant;
-            return this;
-        }
-
-
-        /**
-         * 用户签名/描述
-         * <p> 示例值：激发创造，丰富生活
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public UserSearchMeta build() {
-            return new UserSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

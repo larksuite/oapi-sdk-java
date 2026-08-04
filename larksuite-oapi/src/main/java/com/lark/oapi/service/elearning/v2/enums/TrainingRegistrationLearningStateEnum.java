@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 学习状态
- */
+/** 学习状态 */
 public enum TrainingRegistrationLearningStateEnum {
-    UNSTART(0), // 课程未开始
-    PROCESSING(1), // 课程学习中
-    PASSED(2), // 课程已通过
-    FAILED(3), // 课程不合格
-    ;
-    private Integer value;
+  UNSTART(0), // 未开始
+  PROCESSING(1), // 学习中
+  PASSED(2), // 已通过
+  FAILED(3), // 不合格
+  ;
+  private Integer value;
 
-    TrainingRegistrationLearningStateEnum(Integer value) {
-        this.value = value;
-    }
+  TrainingRegistrationLearningStateEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

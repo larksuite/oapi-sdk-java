@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IconAppReqBody {
+  /**
+   * File 待上传的图标文件，multipart/form-data 的 file 部分
+   *
+   * <p>示例值："./image.png"
+   */
+  @SerializedName("file")
+  private java.io.File file;
+
+  public java.io.File getFile() {
+    return this.file;
+  }
+
+  public void setFile(java.io.File file) {
+    this.file = file;
+  }
+
+  // builder 开始
+  public IconAppReqBody() {}
+
+  public IconAppReqBody(Builder builder) {
     /**
-     * File 待上传的图标文件，multipart/form-data 的 file 部分。
-     * <p> 示例值：app-icon-20240520.png
+     * File 待上传的图标文件，multipart/form-data 的 file 部分
+     *
+     * <p>示例值："./image.png"
      */
-    @SerializedName("file")
+    this.file = builder.file;
+  }
+
+  public static class Builder {
+    /**
+     * File 待上传的图标文件，multipart/form-data 的 file 部分
+     *
+     * <p>示例值："./image.png"
+     */
     private java.io.File file;
 
-    // builder 开始
-    public IconAppReqBody() {
+    /**
+     * File 待上传的图标文件，multipart/form-data 的 file 部分
+     *
+     * <p>示例值："./image.png"
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(java.io.File file) {
+      this.file = file;
+      return this;
     }
 
-    public IconAppReqBody(Builder builder) {
-        /**
-         * File 待上传的图标文件，multipart/form-data 的 file 部分。
-         * <p> 示例值：app-icon-20240520.png
-         */
-        this.file = builder.file;
+    public IconAppReqBody build() {
+      return new IconAppReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public java.io.File getFile() {
-        return this.file;
-    }
-
-    public void setFile(java.io.File file) {
-        this.file = file;
-    }
-
-    public static class Builder {
-        /**
-         * File 待上传的图标文件，multipart/form-data 的 file 部分。
-         * <p> 示例值：app-icon-20240520.png
-         */
-        private java.io.File file;
-
-        /**
-         * File 待上传的图标文件，multipart/form-data 的 file 部分。
-         * <p> 示例值：app-icon-20240520.png
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
-        }
-
-
-        public IconAppReqBody build() {
-            return new IconAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

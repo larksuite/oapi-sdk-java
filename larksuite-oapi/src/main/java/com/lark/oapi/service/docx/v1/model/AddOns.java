@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddOns {
+  /**
+   * 文档小组件 ID。该 ID 可通过调用[创建
+   * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+   * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+   *
+   * <p>示例值：7056882725002051603
+   */
+  @SerializedName("component_id")
+  private String componentId;
+
+  /**
+   * 文档小组件类型，比如问答互动"blk_636a0a6657db8001c8df5488"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+   * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+   *
+   * <p>示例值：blk_636a0a6657db8001c8df5488
+   */
+  @SerializedName("component_type_id")
+  private String componentTypeId;
+
+  /**
+   * 文档小组件内容数据，JSON 字符串
+   *
+   * <p>示例值："{}"
+   */
+  @SerializedName("record")
+  private String record;
+
+  public String getComponentId() {
+    return this.componentId;
+  }
+
+  public void setComponentId(String componentId) {
+    this.componentId = componentId;
+  }
+
+  public String getComponentTypeId() {
+    return this.componentTypeId;
+  }
+
+  public void setComponentTypeId(String componentTypeId) {
+    this.componentTypeId = componentTypeId;
+  }
+
+  public String getRecord() {
+    return this.record;
+  }
+
+  public void setRecord(String record) {
+    this.record = record;
+  }
+
+  // builder 开始
+  public AddOns() {}
+
+  public AddOns(Builder builder) {
     /**
-     * 团队互动应用唯一ID
-     * <p> 示例值：7056882725002051603
+     * 文档小组件 ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
      */
-    @SerializedName("component_id")
-    private String componentId;
+    this.componentId = builder.componentId;
     /**
-     * 团队互动应用类型，比如问答互动"blk_636a0a6657db8001c8df5488"
-     * <p> 示例值：blk_636a0a6657db8001c8df5488
+     * 文档小组件类型，比如问答互动"blk_636a0a6657db8001c8df5488"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_636a0a6657db8001c8df5488
      */
-    @SerializedName("component_type_id")
-    private String componentTypeId;
+    this.componentTypeId = builder.componentTypeId;
     /**
      * 文档小组件内容数据，JSON 字符串
-     * <p> 示例值："{}"
+     *
+     * <p>示例值："{}"
      */
-    @SerializedName("record")
+    this.record = builder.record;
+  }
+
+  public static class Builder {
+    /**
+     * 文档小组件 ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
+     */
+    private String componentId;
+
+    /**
+     * 文档小组件类型，比如问答互动"blk_636a0a6657db8001c8df5488"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_636a0a6657db8001c8df5488
+     */
+    private String componentTypeId;
+
+    /**
+     * 文档小组件内容数据，JSON 字符串
+     *
+     * <p>示例值："{}"
+     */
     private String record;
 
-    // builder 开始
-    public AddOns() {
+    /**
+     * 文档小组件 ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
+     *
+     * @param componentId
+     * @return
+     */
+    public Builder componentId(String componentId) {
+      this.componentId = componentId;
+      return this;
     }
 
-    public AddOns(Builder builder) {
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         */
-        this.componentId = builder.componentId;
-        /**
-         * 团队互动应用类型，比如问答互动"blk_636a0a6657db8001c8df5488"
-         * <p> 示例值：blk_636a0a6657db8001c8df5488
-         */
-        this.componentTypeId = builder.componentTypeId;
-        /**
-         * 文档小组件内容数据，JSON 字符串
-         * <p> 示例值："{}"
-         */
-        this.record = builder.record;
+    /**
+     * 文档小组件类型，比如问答互动"blk_636a0a6657db8001c8df5488"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_636a0a6657db8001c8df5488
+     *
+     * @param componentTypeId
+     * @return
+     */
+    public Builder componentTypeId(String componentTypeId) {
+      this.componentTypeId = componentTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档小组件内容数据，JSON 字符串
+     *
+     * <p>示例值："{}"
+     *
+     * @param record
+     * @return
+     */
+    public Builder record(String record) {
+      this.record = record;
+      return this;
     }
 
-    public String getComponentId() {
-        return this.componentId;
+    public AddOns build() {
+      return new AddOns(this);
     }
+  }
 
-    public void setComponentId(String componentId) {
-        this.componentId = componentId;
-    }
-
-    public String getComponentTypeId() {
-        return this.componentTypeId;
-    }
-
-    public void setComponentTypeId(String componentTypeId) {
-        this.componentTypeId = componentTypeId;
-    }
-
-    public String getRecord() {
-        return this.record;
-    }
-
-    public void setRecord(String record) {
-        this.record = record;
-    }
-
-    public static class Builder {
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         */
-        private String componentId;
-        /**
-         * 团队互动应用类型，比如问答互动"blk_636a0a6657db8001c8df5488"
-         * <p> 示例值：blk_636a0a6657db8001c8df5488
-         */
-        private String componentTypeId;
-        /**
-         * 文档小组件内容数据，JSON 字符串
-         * <p> 示例值："{}"
-         */
-        private String record;
-
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         *
-         * @param componentId
-         * @return
-         */
-        public Builder componentId(String componentId) {
-            this.componentId = componentId;
-            return this;
-        }
-
-
-        /**
-         * 团队互动应用类型，比如问答互动"blk_636a0a6657db8001c8df5488"
-         * <p> 示例值：blk_636a0a6657db8001c8df5488
-         *
-         * @param componentTypeId
-         * @return
-         */
-        public Builder componentTypeId(String componentTypeId) {
-            this.componentTypeId = componentTypeId;
-            return this;
-        }
-
-
-        /**
-         * 文档小组件内容数据，JSON 字符串
-         * <p> 示例值："{}"
-         *
-         * @param record
-         * @return
-         */
-        public Builder record(String record) {
-            this.record = record;
-            return this;
-        }
-
-
-        public AddOns build() {
-            return new AddOns(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

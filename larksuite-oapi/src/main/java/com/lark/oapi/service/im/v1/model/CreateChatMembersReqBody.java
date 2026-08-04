@@ -13,75 +13,89 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateChatMembersReqBody {
+  /**
+   * 成员 ID 列表。;;- 邀请用户进群时推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+   * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);;-
+   * 邀请机器人进群时需填写应用的 App ID，请参考[如何获取应用的 App
+   * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;-
+   * 成员列表不可为空;- 列表中填写的成员 ID 类型应与 ==member_id_type== 参数中选择的类型相对应;- 每次请求最多拉 50
+   * 个用户且不超过群人数上限。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000 人。若租户管理员配置了群人数上限，则群人数上限为该人数上限;-
+   * 最多同时邀请 5 个机器人，且邀请后群组中机器人数量不能超过 15 个
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id_list")
+  private String[] idList;
+
+  public String[] getIdList() {
+    return this.idList;
+  }
+
+  public void setIdList(String[] idList) {
+    this.idList = idList;
+  }
+
+  // builder 开始
+  public CreateChatMembersReqBody() {}
+
+  public CreateChatMembersReqBody(Builder builder) {
     /**
-     * 成员ID列表，获取ID请参见[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get);;**注意**：;- 成员列表不可为空;- 每次请求最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人。若租户管理员配置了群人数上限，则群人数上限为该人数上限。
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     * 成员 ID 列表。;;- 邀请用户进群时推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);;-
+     * 邀请机器人进群时需填写应用的 App ID，请参考[如何获取应用的 App
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;-
+     * 成员列表不可为空;- 列表中填写的成员 ID 类型应与 ==member_id_type== 参数中选择的类型相对应;- 每次请求最多拉 50
+     * 个用户且不超过群人数上限。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000
+     * 人。若租户管理员配置了群人数上限，则群人数上限为该人数上限;- 最多同时邀请 5 个机器人，且邀请后群组中机器人数量不能超过 15 个
+     *
+     * <p>示例值：
      */
-    @SerializedName("id_list")
+    this.idList = builder.idList;
+  }
+
+  public static class Builder {
+    /**
+     * 成员 ID 列表。;;- 邀请用户进群时推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);;-
+     * 邀请机器人进群时需填写应用的 App ID，请参考[如何获取应用的 App
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;-
+     * 成员列表不可为空;- 列表中填写的成员 ID 类型应与 ==member_id_type== 参数中选择的类型相对应;- 每次请求最多拉 50
+     * 个用户且不超过群人数上限。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000
+     * 人。若租户管理员配置了群人数上限，则群人数上限为该人数上限;- 最多同时邀请 5 个机器人，且邀请后群组中机器人数量不能超过 15 个
+     *
+     * <p>示例值：
+     */
     private String[] idList;
 
-    // builder 开始
-    public CreateChatMembersReqBody() {
+    /**
+     * 成员 ID 列表。;;- 邀请用户进群时推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);;-
+     * 邀请机器人进群时需填写应用的 App ID，请参考[如何获取应用的 App
+     * ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;-
+     * 成员列表不可为空;- 列表中填写的成员 ID 类型应与 ==member_id_type== 参数中选择的类型相对应;- 每次请求最多拉 50
+     * 个用户且不超过群人数上限。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000
+     * 人。若租户管理员配置了群人数上限，则群人数上限为该人数上限;- 最多同时邀请 5 个机器人，且邀请后群组中机器人数量不能超过 15 个
+     *
+     * <p>示例值：
+     *
+     * @param idList
+     * @return
+     */
+    public Builder idList(String[] idList) {
+      this.idList = idList;
+      return this;
     }
 
-    public CreateChatMembersReqBody(Builder builder) {
-        /**
-         * 成员ID列表，获取ID请参见[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get);;**注意**：;- 成员列表不可为空;- 每次请求最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人。若租户管理员配置了群人数上限，则群人数上限为该人数上限。
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
-        this.idList = builder.idList;
+    public CreateChatMembersReqBody build() {
+      return new CreateChatMembersReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getIdList() {
-        return this.idList;
-    }
-
-    public void setIdList(String[] idList) {
-        this.idList = idList;
-    }
-
-    public static class Builder {
-        /**
-         * 成员ID列表，获取ID请参见[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get);;**注意**：;- 成员列表不可为空;- 每次请求最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人。若租户管理员配置了群人数上限，则群人数上限为该人数上限。
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
-        private String[] idList;
-
-        /**
-         * 成员ID列表，获取ID请参见[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get);;**注意**：;- 成员列表不可为空;- 每次请求最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人;- 列表中填写的成员ID类型应与 ==member_id_type== 参数中选择的类型相对应;- 对于已认证企业的飞书的群人数默认上限：普通群5000人，会议群3000人，话题群5000人。若租户管理员配置了群人数上限，则群人数上限为该人数上限。
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         *
-         * @param idList
-         * @return
-         */
-        public Builder idList(String[] idList) {
-            this.idList = idList;
-            return this;
-        }
-
-
-        public CreateChatMembersReqBody build() {
-            return new CreateChatMembersReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NotificationChat {
+  /**
+   * 非必填，会话ID
+   *
+   * <p>示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 非必填，会话名称
+   *
+   * <p>示例值：测试群聊
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public NotificationChat() {}
+
+  public NotificationChat(Builder builder) {
     /**
      * 非必填，会话ID
-     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * <p>示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 非必填，会话名称
-     * <p> 示例值：测试群聊
+     *
+     * <p>示例值：测试群聊
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 非必填，会话ID
+     *
+     * <p>示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
+    private String chatId;
+
+    /**
+     * 非必填，会话名称
+     *
+     * <p>示例值：测试群聊
+     */
     private String name;
 
-    // builder 开始
-    public NotificationChat() {
+    /**
+     * 非必填，会话ID
+     *
+     * <p>示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public NotificationChat(Builder builder) {
-        /**
-         * 非必填，会话ID
-         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 非必填，会话名称
-         * <p> 示例值：测试群聊
-         */
-        this.name = builder.name;
+    /**
+     * 非必填，会话名称
+     *
+     * <p>示例值：测试群聊
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public NotificationChat build() {
+      return new NotificationChat(this);
     }
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 非必填，会话ID
-         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
-        private String chatId;
-        /**
-         * 非必填，会话名称
-         * <p> 示例值：测试群聊
-         */
-        private String name;
-
-        /**
-         * 非必填，会话ID
-         * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 非必填，会话名称
-         * <p> 示例值：测试群聊
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public NotificationChat build() {
-            return new NotificationChat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoExamResultDetail {
+  /**
+   * 评价项 ID，由调用方自定义
+   *
+   * <p>示例值：pj001
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 评价项名称，由调用方自定义。;单次调用支持传入多个相同的评价项名称，结果将在「飞书招聘」-「候选人详情」-「笔试卡片」中并列展示
+   *
+   * <p>示例值：基本功
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 评价结果，由调用方自定义
+   *
+   * <p>示例值：优秀
+   */
+  @SerializedName("result")
+  private String result;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getResult() {
+    return this.result;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
+  }
+
+  // builder 开始
+  public EcoExamResultDetail() {}
+
+  public EcoExamResultDetail(Builder builder) {
     /**
-     * 评价 ID
-     * <p> 示例值：pj001
+     * 评价项 ID，由调用方自定义
+     *
+     * <p>示例值：pj001
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 评价项名称，由调用方自定义。;单次调用支持传入多个相同的评价项名称，结果将在「飞书招聘」-「候选人详情」-「笔试卡片」中并列展示
+     *
+     * <p>示例值：基本功
+     */
+    this.name = builder.name;
+    /**
+     * 评价结果，由调用方自定义
+     *
+     * <p>示例值：优秀
+     */
+    this.result = builder.result;
+  }
+
+  public static class Builder {
+    /**
+     * 评价项 ID，由调用方自定义
+     *
+     * <p>示例值：pj001
+     */
     private String id;
+
     /**
-     * 评价名称
-     * <p> 示例值：基本功
+     * 评价项名称，由调用方自定义。;单次调用支持传入多个相同的评价项名称，结果将在「飞书招聘」-「候选人详情」-「笔试卡片」中并列展示
+     *
+     * <p>示例值：基本功
      */
-    @SerializedName("name")
     private String name;
+
     /**
-     * 评价结果
-     * <p> 示例值：优秀
+     * 评价结果，由调用方自定义
+     *
+     * <p>示例值：优秀
      */
-    @SerializedName("result")
     private String result;
 
-    // builder 开始
-    public EcoExamResultDetail() {
+    /**
+     * 评价项 ID，由调用方自定义
+     *
+     * <p>示例值：pj001
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EcoExamResultDetail(Builder builder) {
-        /**
-         * 评价 ID
-         * <p> 示例值：pj001
-         */
-        this.id = builder.id;
-        /**
-         * 评价名称
-         * <p> 示例值：基本功
-         */
-        this.name = builder.name;
-        /**
-         * 评价结果
-         * <p> 示例值：优秀
-         */
-        this.result = builder.result;
+    /**
+     * 评价项名称，由调用方自定义。;单次调用支持传入多个相同的评价项名称，结果将在「飞书招聘」-「候选人详情」-「笔试卡片」中并列展示
+     *
+     * <p>示例值：基本功
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评价结果，由调用方自定义
+     *
+     * <p>示例值：优秀
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(String result) {
+      this.result = result;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public EcoExamResultDetail build() {
+      return new EcoExamResultDetail(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getResult() {
-        return this.result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public static class Builder {
-        /**
-         * 评价 ID
-         * <p> 示例值：pj001
-         */
-        private String id;
-        /**
-         * 评价名称
-         * <p> 示例值：基本功
-         */
-        private String name;
-        /**
-         * 评价结果
-         * <p> 示例值：优秀
-         */
-        private String result;
-
-        /**
-         * 评价 ID
-         * <p> 示例值：pj001
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 评价名称
-         * <p> 示例值：基本功
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评价结果
-         * <p> 示例值：优秀
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(String result) {
-            this.result = result;
-            return this;
-        }
-
-
-        public EcoExamResultDetail build() {
-            return new EcoExamResultDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

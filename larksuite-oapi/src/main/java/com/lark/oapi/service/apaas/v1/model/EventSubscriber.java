@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventSubscriber {
+  /**
+   * 应用的命名空间
+   *
+   * <p>示例值：package_ba55ff__c
+   */
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 事件订阅Webhook的授权类型
+   *
+   * <p>示例值：no_auth
+   */
+  @SerializedName("auth_type")
+  private String authType;
+
+  /**
+   * token，当选择静态token授权时，需要填写此字段
+   *
+   * <p>示例值：your_static_token
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * clientID，当选择动态token授权时，需填写此字段
+   *
+   * <p>示例值：your_client_id
+   */
+  @SerializedName("token_client_id")
+  private String tokenClientId;
+
+  /**
+   * 获取动态token的URL，当选择动态token授权时，需填写此字段
+   *
+   * <p>示例值：https://your_domian/your_url
+   */
+  @SerializedName("token_url")
+  private String tokenUrl;
+
+  /**
+   * clientSecret，当选择动态token授权时，需填写此字段
+   *
+   * <p>示例值：your_client_secret
+   */
+  @SerializedName("token_client_secret")
+  private String tokenClientSecret;
+
+  /**
+   * webook URL，当有事件发生时，会向此URL发送事件信息
+   *
+   * <p>示例值：http://your_domain/your_webhook_url
+   */
+  @SerializedName("webhook_url")
+  private String webhookUrl;
+
+  /**
+   * 事件订阅器的ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getAuthType() {
+    return this.authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getTokenClientId() {
+    return this.tokenClientId;
+  }
+
+  public void setTokenClientId(String tokenClientId) {
+    this.tokenClientId = tokenClientId;
+  }
+
+  public String getTokenUrl() {
+    return this.tokenUrl;
+  }
+
+  public void setTokenUrl(String tokenUrl) {
+    this.tokenUrl = tokenUrl;
+  }
+
+  public String getTokenClientSecret() {
+    return this.tokenClientSecret;
+  }
+
+  public void setTokenClientSecret(String tokenClientSecret) {
+    this.tokenClientSecret = tokenClientSecret;
+  }
+
+  public String getWebhookUrl() {
+    return this.webhookUrl;
+  }
+
+  public void setWebhookUrl(String webhookUrl) {
+    this.webhookUrl = webhookUrl;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public EventSubscriber() {}
+
+  public EventSubscriber(Builder builder) {
     /**
      * 应用的命名空间
-     * <p> 示例值：package_ba55ff__c
+     *
+     * <p>示例值：package_ba55ff__c
      */
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 事件订阅Webhook的授权类型
-     * <p> 示例值：no_auth
+     *
+     * <p>示例值：no_auth
      */
-    @SerializedName("auth_type")
-    private String authType;
+    this.authType = builder.authType;
     /**
      * token，当选择静态token授权时，需要填写此字段
-     * <p> 示例值：your_static_token
+     *
+     * <p>示例值：your_static_token
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * clientID，当选择动态token授权时，需填写此字段
-     * <p> 示例值：your_client_id
+     *
+     * <p>示例值：your_client_id
      */
-    @SerializedName("token_client_id")
-    private String tokenClientId;
+    this.tokenClientId = builder.tokenClientId;
     /**
      * 获取动态token的URL，当选择动态token授权时，需填写此字段
-     * <p> 示例值：https://your_domian/your_url
+     *
+     * <p>示例值：https://your_domian/your_url
      */
-    @SerializedName("token_url")
-    private String tokenUrl;
+    this.tokenUrl = builder.tokenUrl;
     /**
      * clientSecret，当选择动态token授权时，需填写此字段
-     * <p> 示例值：your_client_secret
+     *
+     * <p>示例值：your_client_secret
      */
-    @SerializedName("token_client_secret")
-    private String tokenClientSecret;
+    this.tokenClientSecret = builder.tokenClientSecret;
     /**
      * webook URL，当有事件发生时，会向此URL发送事件信息
-     * <p> 示例值：http://your_domain/your_webhook_url
+     *
+     * <p>示例值：http://your_domain/your_webhook_url
      */
-    @SerializedName("webhook_url")
-    private String webhookUrl;
+    this.webhookUrl = builder.webhookUrl;
     /**
      * 事件订阅器的ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 应用的命名空间
+     *
+     * <p>示例值：package_ba55ff__c
+     */
+    private String namespace;
+
+    /**
+     * 事件订阅Webhook的授权类型
+     *
+     * <p>示例值：no_auth
+     */
+    private String authType;
+
+    /**
+     * token，当选择静态token授权时，需要填写此字段
+     *
+     * <p>示例值：your_static_token
+     */
+    private String token;
+
+    /**
+     * clientID，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：your_client_id
+     */
+    private String tokenClientId;
+
+    /**
+     * 获取动态token的URL，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：https://your_domian/your_url
+     */
+    private String tokenUrl;
+
+    /**
+     * clientSecret，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：your_client_secret
+     */
+    private String tokenClientSecret;
+
+    /**
+     * webook URL，当有事件发生时，会向此URL发送事件信息
+     *
+     * <p>示例值：http://your_domain/your_webhook_url
+     */
+    private String webhookUrl;
+
+    /**
+     * 事件订阅器的ID
+     *
+     * <p>示例值：123
+     */
     private String id;
 
-    // builder 开始
-    public EventSubscriber() {
+    /**
+     * 应用的命名空间
+     *
+     * <p>示例值：package_ba55ff__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public EventSubscriber(Builder builder) {
-        /**
-         * 应用的命名空间
-         * <p> 示例值：package_ba55ff__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 事件订阅Webhook的授权类型
-         * <p> 示例值：no_auth
-         */
-        this.authType = builder.authType;
-        /**
-         * token，当选择静态token授权时，需要填写此字段
-         * <p> 示例值：your_static_token
-         */
-        this.token = builder.token;
-        /**
-         * clientID，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_id
-         */
-        this.tokenClientId = builder.tokenClientId;
-        /**
-         * 获取动态token的URL，当选择动态token授权时，需填写此字段
-         * <p> 示例值：https://your_domian/your_url
-         */
-        this.tokenUrl = builder.tokenUrl;
-        /**
-         * clientSecret，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_secret
-         */
-        this.tokenClientSecret = builder.tokenClientSecret;
-        /**
-         * webook URL，当有事件发生时，会向此URL发送事件信息
-         * <p> 示例值：http://your_domain/your_webhook_url
-         */
-        this.webhookUrl = builder.webhookUrl;
-        /**
-         * 事件订阅器的ID
-         * <p> 示例值：123
-         */
-        this.id = builder.id;
+    /**
+     * 事件订阅Webhook的授权类型
+     *
+     * <p>示例值：no_auth
+     *
+     * @param authType
+     * @return
+     */
+    public Builder authType(String authType) {
+      this.authType = authType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * token，当选择静态token授权时，需要填写此字段
+     *
+     * <p>示例值：your_static_token
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    /**
+     * clientID，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：your_client_id
+     *
+     * @param tokenClientId
+     * @return
+     */
+    public Builder tokenClientId(String tokenClientId) {
+      this.tokenClientId = tokenClientId;
+      return this;
     }
 
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
+    /**
+     * 获取动态token的URL，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：https://your_domian/your_url
+     *
+     * @param tokenUrl
+     * @return
+     */
+    public Builder tokenUrl(String tokenUrl) {
+      this.tokenUrl = tokenUrl;
+      return this;
     }
 
-    public String getAuthType() {
-        return this.authType;
+    /**
+     * clientSecret，当选择动态token授权时，需填写此字段
+     *
+     * <p>示例值：your_client_secret
+     *
+     * @param tokenClientSecret
+     * @return
+     */
+    public Builder tokenClientSecret(String tokenClientSecret) {
+      this.tokenClientSecret = tokenClientSecret;
+      return this;
     }
 
-    public void setAuthType(String authType) {
-        this.authType = authType;
+    /**
+     * webook URL，当有事件发生时，会向此URL发送事件信息
+     *
+     * <p>示例值：http://your_domain/your_webhook_url
+     *
+     * @param webhookUrl
+     * @return
+     */
+    public Builder webhookUrl(String webhookUrl) {
+      this.webhookUrl = webhookUrl;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 事件订阅器的ID
+     *
+     * <p>示例值：123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public EventSubscriber build() {
+      return new EventSubscriber(this);
     }
+  }
 
-    public String getTokenClientId() {
-        return this.tokenClientId;
-    }
-
-    public void setTokenClientId(String tokenClientId) {
-        this.tokenClientId = tokenClientId;
-    }
-
-    public String getTokenUrl() {
-        return this.tokenUrl;
-    }
-
-    public void setTokenUrl(String tokenUrl) {
-        this.tokenUrl = tokenUrl;
-    }
-
-    public String getTokenClientSecret() {
-        return this.tokenClientSecret;
-    }
-
-    public void setTokenClientSecret(String tokenClientSecret) {
-        this.tokenClientSecret = tokenClientSecret;
-    }
-
-    public String getWebhookUrl() {
-        return this.webhookUrl;
-    }
-
-    public void setWebhookUrl(String webhookUrl) {
-        this.webhookUrl = webhookUrl;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 应用的命名空间
-         * <p> 示例值：package_ba55ff__c
-         */
-        private String namespace;
-        /**
-         * 事件订阅Webhook的授权类型
-         * <p> 示例值：no_auth
-         */
-        private String authType;
-        /**
-         * token，当选择静态token授权时，需要填写此字段
-         * <p> 示例值：your_static_token
-         */
-        private String token;
-        /**
-         * clientID，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_id
-         */
-        private String tokenClientId;
-        /**
-         * 获取动态token的URL，当选择动态token授权时，需填写此字段
-         * <p> 示例值：https://your_domian/your_url
-         */
-        private String tokenUrl;
-        /**
-         * clientSecret，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_secret
-         */
-        private String tokenClientSecret;
-        /**
-         * webook URL，当有事件发生时，会向此URL发送事件信息
-         * <p> 示例值：http://your_domain/your_webhook_url
-         */
-        private String webhookUrl;
-        /**
-         * 事件订阅器的ID
-         * <p> 示例值：123
-         */
-        private String id;
-
-        /**
-         * 应用的命名空间
-         * <p> 示例值：package_ba55ff__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 事件订阅Webhook的授权类型
-         * <p> 示例值：no_auth
-         *
-         * @param authType
-         * @return
-         */
-        public Builder authType(String authType) {
-            this.authType = authType;
-            return this;
-        }
-
-
-        /**
-         * token，当选择静态token授权时，需要填写此字段
-         * <p> 示例值：your_static_token
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * clientID，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_id
-         *
-         * @param tokenClientId
-         * @return
-         */
-        public Builder tokenClientId(String tokenClientId) {
-            this.tokenClientId = tokenClientId;
-            return this;
-        }
-
-
-        /**
-         * 获取动态token的URL，当选择动态token授权时，需填写此字段
-         * <p> 示例值：https://your_domian/your_url
-         *
-         * @param tokenUrl
-         * @return
-         */
-        public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = tokenUrl;
-            return this;
-        }
-
-
-        /**
-         * clientSecret，当选择动态token授权时，需填写此字段
-         * <p> 示例值：your_client_secret
-         *
-         * @param tokenClientSecret
-         * @return
-         */
-        public Builder tokenClientSecret(String tokenClientSecret) {
-            this.tokenClientSecret = tokenClientSecret;
-            return this;
-        }
-
-
-        /**
-         * webook URL，当有事件发生时，会向此URL发送事件信息
-         * <p> 示例值：http://your_domain/your_webhook_url
-         *
-         * @param webhookUrl
-         * @return
-         */
-        public Builder webhookUrl(String webhookUrl) {
-            this.webhookUrl = webhookUrl;
-            return this;
-        }
-
-
-        /**
-         * 事件订阅器的ID
-         * <p> 示例值：123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public EventSubscriber build() {
-            return new EventSubscriber(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

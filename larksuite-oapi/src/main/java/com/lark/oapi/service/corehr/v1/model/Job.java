@@ -13,556 +13,623 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Job {
+  /**
+   * 实体在CoreHR内部的唯一键
+   *
+   * <p>示例值：4698040628992333549
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：JP422119
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 职务名称。注意事项：;- 名称不能包含「/」「；」「;」「\」「'」字符;- xx中英文名称会有全局唯一校验（已停用职务也会校验）;- 不传值时默认不更新此字段，保持原值;-
+   * 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 是否启用，true为启用，fasle为停用。不传值时默认不更新此字段，保持原值
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 职务头衔
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_title")
+  private I18n[] jobTitle;
+
+  /**
+   * 通道ID
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  /**
+   * 序列
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_id_list")
+  private String[] jobFamilyIdList;
+
+  /**
+   * 职级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level_id_list")
+  private String[] jobLevelIdList;
+
+  /**
+   * 工时制度，引用WorkingHoursType的ID
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  /**
+   * 版本生效日期;- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）;- 系统默认为填写日期当天的 00:00:00 生效 ;-
+   * 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59;- 不传值时默认不更新此字段，保持原值
+   *
+   * <p>示例值：2020-01-01 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 失效时间
+   *
+   * <p>示例值：2021-01-01 00:00:00
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+   * 或未传入时，遵循系统默认的编码策略。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_prefer_manual_encoding")
+  private Boolean isPreferManualEncoding;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public I18n[] getJobTitle() {
+    return this.jobTitle;
+  }
+
+  public void setJobTitle(I18n[] jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  public String[] getJobFamilyIdList() {
+    return this.jobFamilyIdList;
+  }
+
+  public void setJobFamilyIdList(String[] jobFamilyIdList) {
+    this.jobFamilyIdList = jobFamilyIdList;
+  }
+
+  public String[] getJobLevelIdList() {
+    return this.jobLevelIdList;
+  }
+
+  public void setJobLevelIdList(String[] jobLevelIdList) {
+    this.jobLevelIdList = jobLevelIdList;
+  }
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public Boolean getIsPreferManualEncoding() {
+    return this.isPreferManualEncoding;
+  }
+
+  public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+    this.isPreferManualEncoding = isPreferManualEncoding;
+  }
+
+  // builder 开始
+  public Job() {}
+
+  public Job(Builder builder) {
     /**
-     * 职务 ID
-     * <p> 示例值：4698040628992333549
+     * 实体在CoreHR内部的唯一键
+     *
+     * <p>示例值：4698040628992333549
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 编码
-     * <p> 示例值：JP422119
+     *
+     * <p>示例值：JP422119
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
-     * 名称
-     * <p> 示例值：
+     * 职务名称。注意事项：;- 名称不能包含「/」「；」「;」「\」「'」字符;- xx中英文名称会有全局唯一校验（已停用职务也会校验）;- 不传值时默认不更新此字段，保持原值;-
+     * 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
-     * 是否启用
-     * <p> 示例值：true
+     * 是否启用，true为启用，fasle为停用。不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 职务头衔
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_title")
-    private I18n[] jobTitle;
+    this.jobTitle = builder.jobTitle;
     /**
      * 通道ID
-     * <p> 示例值：4719519211875096301
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("pathway_id")
-    private String pathwayId;
+    this.pathwayId = builder.pathwayId;
     /**
-     * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-     * <p> 示例值：7373183781
+     * 序列
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_id_list")
-    private String[] jobFamilyIdList;
+    this.jobFamilyIdList = builder.jobFamilyIdList;
     /**
-     * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-     * <p> 示例值：316316317
+     * 职级
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level_id_list")
-    private String[] jobLevelIdList;
+    this.jobLevelIdList = builder.jobLevelIdList;
     /**
-     * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-     * <p> 示例值：6890452208593372679
+     * 工时制度，引用WorkingHoursType的ID
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
+    this.workingHoursTypeId = builder.workingHoursTypeId;
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01 00:00:00
+     * 版本生效日期;- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）;- 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59;- 不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：2020-01-01 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 失效时间
-     * <p> 示例值：2021-01-01 00:00:00
+     *
+     * <p>示例值：2021-01-01 00:00:00
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
-     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-     * <p> 示例值：
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_prefer_manual_encoding")
+    this.isPreferManualEncoding = builder.isPreferManualEncoding;
+  }
+
+  public static class Builder {
+    /**
+     * 实体在CoreHR内部的唯一键
+     *
+     * <p>示例值：4698040628992333549
+     */
+    private String id;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：JP422119
+     */
+    private String code;
+
+    /**
+     * 职务名称。注意事项：;- 名称不能包含「/」「；」「;」「\」「'」字符;- xx中英文名称会有全局唯一校验（已停用职务也会校验）;- 不传值时默认不更新此字段，保持原值;-
+     * 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 是否启用，true为启用，fasle为停用。不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 职务头衔
+     *
+     * <p>示例值：
+     */
+    private I18n[] jobTitle;
+
+    /**
+     * 通道ID
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String pathwayId;
+
+    /**
+     * 序列
+     *
+     * <p>示例值：
+     */
+    private String[] jobFamilyIdList;
+
+    /**
+     * 职级
+     *
+     * <p>示例值：
+     */
+    private String[] jobLevelIdList;
+
+    /**
+     * 工时制度，引用WorkingHoursType的ID
+     *
+     * <p>示例值：6890452208593372679
+     */
+    private String workingHoursTypeId;
+
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）;- 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59;- 不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2021-01-01 00:00:00
+     */
+    private String expirationTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     */
     private Boolean isPreferManualEncoding;
 
-    // builder 开始
-    public Job() {
+    /**
+     * 实体在CoreHR内部的唯一键
+     *
+     * <p>示例值：4698040628992333549
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Job(Builder builder) {
-        /**
-         * 职务 ID
-         * <p> 示例值：4698040628992333549
-         */
-        this.id = builder.id;
-        /**
-         * 编码
-         * <p> 示例值：JP422119
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
-        this.pathwayId = builder.pathwayId;
-        /**
-         * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-         * <p> 示例值：7373183781
-         */
-        this.jobFamilyIdList = builder.jobFamilyIdList;
-        /**
-         * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-         * <p> 示例值：316316317
-         */
-        this.jobLevelIdList = builder.jobLevelIdList;
-        /**
-         * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-         * <p> 示例值：6890452208593372679
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2021-01-01 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        this.isPreferManualEncoding = builder.isPreferManualEncoding;
+    /**
+     * 编码
+     *
+     * <p>示例值：JP422119
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职务名称。注意事项：;- 名称不能包含「/」「；」「;」「\」「'」字符;- xx中英文名称会有全局唯一校验（已停用职务也会校验）;- 不传值时默认不更新此字段，保持原值;-
+     * 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否启用，true为启用，fasle为停用。不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 职务头衔
+     *
+     * <p>示例值：
+     *
+     * @param jobTitle
+     * @return
+     */
+    public Builder jobTitle(I18n[] jobTitle) {
+      this.jobTitle = jobTitle;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 通道ID
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 序列
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIdList
+     * @return
+     */
+    public Builder jobFamilyIdList(String[] jobFamilyIdList) {
+      this.jobFamilyIdList = jobFamilyIdList;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 职级
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelIdList
+     * @return
+     */
+    public Builder jobLevelIdList(String[] jobLevelIdList) {
+      this.jobLevelIdList = jobLevelIdList;
+      return this;
     }
 
-    public I18n[] getDescription() {
-        return this.description;
+    /**
+     * 工时制度，引用WorkingHoursType的ID
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public void setDescription(I18n[] description) {
-        this.description = description;
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）;- 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59;- 不传值时默认不更新此字段，保持原值
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2021-01-01 00:00:00
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public I18n[] getJobTitle() {
-        return this.jobTitle;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     *
+     * @param isPreferManualEncoding
+     * @return
+     */
+    public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+      this.isPreferManualEncoding = isPreferManualEncoding;
+      return this;
     }
 
-    public void setJobTitle(I18n[] jobTitle) {
-        this.jobTitle = jobTitle;
+    public Job build() {
+      return new Job(this);
     }
+  }
 
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
-
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
-    public String[] getJobFamilyIdList() {
-        return this.jobFamilyIdList;
-    }
-
-    public void setJobFamilyIdList(String[] jobFamilyIdList) {
-        this.jobFamilyIdList = jobFamilyIdList;
-    }
-
-    public String[] getJobLevelIdList() {
-        return this.jobLevelIdList;
-    }
-
-    public void setJobLevelIdList(String[] jobLevelIdList) {
-        this.jobLevelIdList = jobLevelIdList;
-    }
-
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
-    }
-
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public Boolean getIsPreferManualEncoding() {
-        return this.isPreferManualEncoding;
-    }
-
-    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
-        this.isPreferManualEncoding = isPreferManualEncoding;
-    }
-
-    public static class Builder {
-        /**
-         * 职务 ID
-         * <p> 示例值：4698040628992333549
-         */
-        private String id;
-        /**
-         * 编码
-         * <p> 示例值：JP422119
-         */
-        private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
-        private I18n[] jobTitle;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
-        private String pathwayId;
-        /**
-         * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-         * <p> 示例值：7373183781
-         */
-        private String[] jobFamilyIdList;
-        /**
-         * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-         * <p> 示例值：316316317
-         */
-        private String[] jobLevelIdList;
-        /**
-         * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-         * <p> 示例值：6890452208593372679
-         */
-        private String workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2021-01-01 00:00:00
-         */
-        private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        private Boolean isPreferManualEncoding;
-
-        /**
-         * 职务 ID
-         * <p> 示例值：4698040628992333549
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：JP422119
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         *
-         * @param jobTitle
-         * @return
-         */
-        public Builder jobTitle(I18n[] jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
-        }
-
-
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-
-        /**
-         * 职务序列 ID 列表，枚举值及详细信息可通过【批量查询职务序列】接口查询获得
-         * <p> 示例值：7373183781
-         *
-         * @param jobFamilyIdList
-         * @return
-         */
-        public Builder jobFamilyIdList(String[] jobFamilyIdList) {
-            this.jobFamilyIdList = jobFamilyIdList;
-            return this;
-        }
-
-
-        /**
-         * 职务级别 ID 列表，枚举值及详细信息可通过【批量查询职务级别】接口查询获得
-         * <p> 示例值：316316317
-         *
-         * @param jobLevelIdList
-         * @return
-         */
-        public Builder jobLevelIdList(String[] jobLevelIdList) {
-            this.jobLevelIdList = jobLevelIdList;
-            return this;
-        }
-
-
-        /**
-         * 工时制度 ID，枚举值及详细信息可通过【批量查询工时制度】接口查询获得
-         * <p> 示例值：6890452208593372679
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2021-01-01 00:00:00
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         *
-         * @param isPreferManualEncoding
-         * @return
-         */
-        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
-            this.isPreferManualEncoding = isPreferManualEncoding;
-            return this;
-        }
-
-
-        public Job build() {
-            return new Job(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

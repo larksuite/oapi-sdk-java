@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventMessageReader {
+  /**
+   * 用户
+   * ID。调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，可通过
+   * ID 获取用户信息。
+   *
+   * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+   */
+  @SerializedName("reader_id")
+  private UserId readerId;
+
+  /**
+   * 用户已读的时间，毫秒级时间戳
+   *
+   * <p>示例值：1609484183000
+   */
+  @SerializedName("read_time")
+  private String readTime;
+
+  /**
+   * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  public UserId getReaderId() {
+    return this.readerId;
+  }
+
+  public void setReaderId(UserId readerId) {
+    this.readerId = readerId;
+  }
+
+  public String getReadTime() {
+    return this.readTime;
+  }
+
+  public void setReadTime(String readTime) {
+    this.readTime = readTime;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  // builder 开始
+  public EventMessageReader() {}
+
+  public EventMessageReader(Builder builder) {
     /**
-     * 用户 ID
-     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     * 用户
+     * ID。调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，可通过
+     * ID 获取用户信息。
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
      */
-    @SerializedName("reader_id")
-    private UserId readerId;
+    this.readerId = builder.readerId;
     /**
-     * 阅读时间
-     * <p> 示例值：1609484183000
+     * 用户已读的时间，毫秒级时间戳
+     *
+     * <p>示例值：1609484183000
      */
-    @SerializedName("read_time")
-    private String readTime;
+    this.readTime = builder.readTime;
     /**
      * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-     * <p> 示例值：736588c9260f175e
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
+    this.tenantKey = builder.tenantKey;
+  }
+
+  public static class Builder {
+    /**
+     * 用户
+     * ID。调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，可通过
+     * ID 获取用户信息。
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
+    private UserId readerId;
+
+    /**
+     * 用户已读的时间，毫秒级时间戳
+     *
+     * <p>示例值：1609484183000
+     */
+    private String readTime;
+
+    /**
+     * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     *
+     * <p>示例值：736588c9260f175e
+     */
     private String tenantKey;
 
-    // builder 开始
-    public EventMessageReader() {
+    /**
+     * 用户
+     * ID。调用[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)接口，可通过
+     * ID 获取用户信息。
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * @param readerId
+     * @return
+     */
+    public Builder readerId(UserId readerId) {
+      this.readerId = readerId;
+      return this;
     }
 
-    public EventMessageReader(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        this.readerId = builder.readerId;
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         */
-        this.readTime = builder.readTime;
-        /**
-         * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
+    /**
+     * 用户已读的时间，毫秒级时间戳
+     *
+     * <p>示例值：1609484183000
+     *
+     * @param readTime
+     * @return
+     */
+    public Builder readTime(String readTime) {
+      this.readTime = readTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public UserId getReaderId() {
-        return this.readerId;
+    public EventMessageReader build() {
+      return new EventMessageReader(this);
     }
+  }
 
-    public void setReaderId(UserId readerId) {
-        this.readerId = readerId;
-    }
-
-    public String getReadTime() {
-        return this.readTime;
-    }
-
-    public void setReadTime(String readTime) {
-        this.readTime = readTime;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        private UserId readerId;
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         */
-        private String readTime;
-        /**
-         * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         *
-         * @param readerId
-         * @return
-         */
-        public Builder readerId(UserId readerId) {
-            this.readerId = readerId;
-            return this;
-        }
-
-
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         *
-         * @param readTime
-         * @return
-         */
-        public Builder readTime(String readTime) {
-            this.readTime = readTime;
-            return this;
-        }
-
-
-        /**
-         * 租户key，为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        public EventMessageReader build() {
-            return new EventMessageReader(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

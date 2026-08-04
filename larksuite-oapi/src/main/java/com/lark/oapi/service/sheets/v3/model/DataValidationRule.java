@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataValidationRule {
+  /**
+   * 数据校验类型
+   *
+   * <p>示例值：SingleOption
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 单选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("single_option")
+  private SingleOption singleOption;
+
+  /**
+   * 多选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multiple_option")
+  private MultipleOption multipleOption;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public SingleOption getSingleOption() {
+    return this.singleOption;
+  }
+
+  public void setSingleOption(SingleOption singleOption) {
+    this.singleOption = singleOption;
+  }
+
+  public MultipleOption getMultipleOption() {
+    return this.multipleOption;
+  }
+
+  public void setMultipleOption(MultipleOption multipleOption) {
+    this.multipleOption = multipleOption;
+  }
+
+  // builder 开始
+  public DataValidationRule() {}
+
+  public DataValidationRule(Builder builder) {
     /**
      * 数据校验类型
-     * <p> 示例值：SingleOption
+     *
+     * <p>示例值：SingleOption
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 单选
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("single_option")
-    private SingleOption singleOption;
+    this.singleOption = builder.singleOption;
     /**
      * 多选
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("multiple_option")
+    this.multipleOption = builder.multipleOption;
+  }
+
+  public static class Builder {
+    /**
+     * 数据校验类型
+     *
+     * <p>示例值：SingleOption
+     */
+    private String type;
+
+    /**
+     * 单选
+     *
+     * <p>示例值：
+     */
+    private SingleOption singleOption;
+
+    /**
+     * 多选
+     *
+     * <p>示例值：
+     */
     private MultipleOption multipleOption;
 
-    // builder 开始
-    public DataValidationRule() {
+    /**
+     * 数据校验类型
+     *
+     * <p>示例值：SingleOption
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public DataValidationRule(Builder builder) {
-        /**
-         * 数据校验类型
-         * <p> 示例值：SingleOption
-         */
-        this.type = builder.type;
-        /**
-         * 单选
-         * <p> 示例值：
-         */
-        this.singleOption = builder.singleOption;
-        /**
-         * 多选
-         * <p> 示例值：
-         */
-        this.multipleOption = builder.multipleOption;
+    /**
+     * 数据校验类型
+     *
+     * <p>示例值：SingleOption
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.sheets.v3.enums.DataValidationRuleDataValidationTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.sheets.v3.enums.DataValidationRuleDataValidationTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 单选
+     *
+     * <p>示例值：
+     *
+     * @param singleOption
+     * @return
+     */
+    public Builder singleOption(SingleOption singleOption) {
+      this.singleOption = singleOption;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 多选
+     *
+     * <p>示例值：
+     *
+     * @param multipleOption
+     * @return
+     */
+    public Builder multipleOption(MultipleOption multipleOption) {
+      this.multipleOption = multipleOption;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public DataValidationRule build() {
+      return new DataValidationRule(this);
     }
+  }
 
-    public SingleOption getSingleOption() {
-        return this.singleOption;
-    }
-
-    public void setSingleOption(SingleOption singleOption) {
-        this.singleOption = singleOption;
-    }
-
-    public MultipleOption getMultipleOption() {
-        return this.multipleOption;
-    }
-
-    public void setMultipleOption(MultipleOption multipleOption) {
-        this.multipleOption = multipleOption;
-    }
-
-    public static class Builder {
-        /**
-         * 数据校验类型
-         * <p> 示例值：SingleOption
-         */
-        private String type;
-        /**
-         * 单选
-         * <p> 示例值：
-         */
-        private SingleOption singleOption;
-        /**
-         * 多选
-         * <p> 示例值：
-         */
-        private MultipleOption multipleOption;
-
-        /**
-         * 数据校验类型
-         * <p> 示例值：SingleOption
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 数据校验类型
-         * <p> 示例值：SingleOption
-         *
-         * @param type {@link com.lark.oapi.service.sheets.v3.enums.DataValidationRuleDataValidationTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.sheets.v3.enums.DataValidationRuleDataValidationTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 单选
-         * <p> 示例值：
-         *
-         * @param singleOption
-         * @return
-         */
-        public Builder singleOption(SingleOption singleOption) {
-            this.singleOption = singleOption;
-            return this;
-        }
-
-
-        /**
-         * 多选
-         * <p> 示例值：
-         *
-         * @param multipleOption
-         * @return
-         */
-        public Builder multipleOption(MultipleOption multipleOption) {
-            this.multipleOption = multipleOption;
-            return this;
-        }
-
-
-        public DataValidationRule build() {
-            return new DataValidationRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

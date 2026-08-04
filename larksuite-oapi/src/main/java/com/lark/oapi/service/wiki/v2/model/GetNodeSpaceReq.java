@@ -13,117 +13,129 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.wiki.v2.enums.*;
 
 public class GetNodeSpaceReq {
+  /**
+   * 知识库节点或对应云文档的实际 token。;- 知识库节点 token：如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点 token。;- 云文档实际
+   * token：如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token 是当前云文档的实际
+   * token。;;了解更多，请参考[文档常见问题-如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。;;**注意**：;;使用云文档
+   * token 查询时，需要对 obj_type 参数传入文档对应的类型。
+   *
+   * <p>示例值：wikcnKQ1k3p******8Vabcef
+   */
+  @Query
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文档类型。不传时默认以 wiki 类型查询。
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("obj_type")
+  private String objType;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  // builder 开始
+  public GetNodeSpaceReq() {}
+
+  public GetNodeSpaceReq(Builder builder) {
     /**
-     * 文档的节点token
-     * <p> 示例值：wikcnKQ1k3p******8Vabcef
+     * 知识库节点或对应云文档的实际 token。;- 知识库节点 token：如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点 token。;- 云文档实际
+     * token：如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token 是当前云文档的实际
+     * token。;;了解更多，请参考[文档常见问题-如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。;;**注意**：;;使用云文档
+     * token 查询时，需要对 obj_type 参数传入文档对应的类型。
+     *
+     * <p>示例值：wikcnKQ1k3p******8Vabcef
      */
-    @Query
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
-     * 文档类型
-     * <p> 示例值：docx
+     * 文档类型。不传时默认以 wiki 类型查询。
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("obj_type")
-    private String objType;
+    this.objType = builder.objType;
+  }
 
-    // builder 开始
-    public GetNodeSpaceReq() {
+  public static class Builder {
+    private String
+        token; // 知识库节点或对应云文档的实际 token。;- 知识库节点 token：如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点
+    // token。;- 云文档实际 token：如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token
+    // 是当前云文档的实际 token。;;了解更多，请参考[文档常见问题-如何获取云文档资源相关
+    // token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。;;**注意**：;;使用云文档 token 查询时，需要对 obj_type 参数传入文档对应的类型。
+    private String objType; // 文档类型。不传时默认以 wiki 类型查询。
+
+    /**
+     * 知识库节点或对应云文档的实际 token。;- 知识库节点 token：如果 URL 链接中 token 前为 wiki，该 token 为知识库的节点 token。;- 云文档实际
+     * token：如果 URL 链接中 token 前为 docx、base、sheets 等非 wiki 类型，则说明该 token 是当前云文档的实际
+     * token。;;了解更多，请参考[文档常见问题-如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)。;;**注意**：;;使用云文档
+     * token 查询时，需要对 obj_type 参数传入文档对应的类型。
+     *
+     * <p>示例值：wikcnKQ1k3p******8Vabcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public GetNodeSpaceReq(Builder builder) {
-        /**
-         * 文档的节点token
-         * <p> 示例值：wikcnKQ1k3p******8Vabcef
-         */
-        this.token = builder.token;
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.objType = builder.objType;
+    /**
+     * 文档类型。不传时默认以 wiki 类型查询。
+     *
+     * <p>示例值：docx
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档类型。不传时默认以 wiki 类型查询。
+     *
+     * <p>示例值：docx
+     *
+     * @param objType {@link com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public GetNodeSpaceReq build() {
+      return new GetNodeSpaceReq(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getObjType() {
-        return this.objType;
-    }
-
-    public void setObjType(String objType) {
-        this.objType = objType;
-    }
-
-    public static class Builder {
-        private String token; // 文档的节点token
-        private String objType; // 文档类型
-
-        /**
-         * 文档的节点token
-         * <p> 示例值：wikcnKQ1k3p******8Vabcef
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param objType {@link com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.wiki.v2.enums.GetNodeSpaceObjTypeForQueryEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-
-        public GetNodeSpaceReq build() {
-            return new GetNodeSpaceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

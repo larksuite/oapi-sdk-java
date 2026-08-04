@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OperationLogEntity {
+  /**
+   * 操作类型（create、update、delete）
+   *
+   * <p>示例值：update
+   */
+  @SerializedName("opt_type")
+  private String optType;
+
+  /**
+   * 变更字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private OperationLogEntityField[] fields;
+
+  /**
+   * 雇佣ID
+   *
+   * <p>示例值：7373878233473271340
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  public String getOptType() {
+    return this.optType;
+  }
+
+  public void setOptType(String optType) {
+    this.optType = optType;
+  }
+
+  public OperationLogEntityField[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(OperationLogEntityField[] fields) {
+    this.fields = fields;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  // builder 开始
+  public OperationLogEntity() {}
+
+  public OperationLogEntity(Builder builder) {
     /**
      * 操作类型（create、update、delete）
-     * <p> 示例值：update
+     *
+     * <p>示例值：update
      */
-    @SerializedName("opt_type")
-    private String optType;
+    this.optType = builder.optType;
     /**
      * 变更字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private OperationLogEntityField[] fields;
+    this.fields = builder.fields;
     /**
-     * 雇员ID
-     * <p> 示例值：7373878233473271340
+     * 雇佣ID
+     *
+     * <p>示例值：7373878233473271340
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型（create、update、delete）
+     *
+     * <p>示例值：update
+     */
+    private String optType;
+
+    /**
+     * 变更字段
+     *
+     * <p>示例值：
+     */
+    private OperationLogEntityField[] fields;
+
+    /**
+     * 雇佣ID
+     *
+     * <p>示例值：7373878233473271340
+     */
     private String employmentId;
 
-    // builder 开始
-    public OperationLogEntity() {
+    /**
+     * 操作类型（create、update、delete）
+     *
+     * <p>示例值：update
+     *
+     * @param optType
+     * @return
+     */
+    public Builder optType(String optType) {
+      this.optType = optType;
+      return this;
     }
 
-    public OperationLogEntity(Builder builder) {
-        /**
-         * 操作类型（create、update、delete）
-         * <p> 示例值：update
-         */
-        this.optType = builder.optType;
-        /**
-         * 变更字段
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 雇员ID
-         * <p> 示例值：7373878233473271340
-         */
-        this.employmentId = builder.employmentId;
+    /**
+     * 变更字段
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(OperationLogEntityField[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 雇佣ID
+     *
+     * <p>示例值：7373878233473271340
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public String getOptType() {
-        return this.optType;
+    public OperationLogEntity build() {
+      return new OperationLogEntity(this);
     }
+  }
 
-    public void setOptType(String optType) {
-        this.optType = optType;
-    }
-
-    public OperationLogEntityField[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(OperationLogEntityField[] fields) {
-        this.fields = fields;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型（create、update、delete）
-         * <p> 示例值：update
-         */
-        private String optType;
-        /**
-         * 变更字段
-         * <p> 示例值：
-         */
-        private OperationLogEntityField[] fields;
-        /**
-         * 雇员ID
-         * <p> 示例值：7373878233473271340
-         */
-        private String employmentId;
-
-        /**
-         * 操作类型（create、update、delete）
-         * <p> 示例值：update
-         *
-         * @param optType
-         * @return
-         */
-        public Builder optType(String optType) {
-            this.optType = optType;
-            return this;
-        }
-
-
-        /**
-         * 变更字段
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(OperationLogEntityField[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 雇员ID
-         * <p> 示例值：7373878233473271340
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        public OperationLogEntity build() {
-            return new OperationLogEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.baike.v1.enums.*;
 
 public class DownloadFileReq {
+  /**
+   * 需要下载的文件 token
+   *
+   * <p>示例值：boxbcEcmKiD3***vgqWTpvdc7jc
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DownloadFileReq() {}
+
+  public DownloadFileReq(Builder builder) {
     /**
      * 需要下载的文件 token
-     * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
+     *
+     * <p>示例值：boxbcEcmKiD3***vgqWTpvdc7jc
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DownloadFileReq() {
+  public static class Builder {
+
+    private String fileToken; // 需要下载的文件 token
+
+    /**
+     * 需要下载的文件 token
+     *
+     * <p>示例值：boxbcEcmKiD3***vgqWTpvdc7jc
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public DownloadFileReq(Builder builder) {
-        /**
-         * 需要下载的文件 token
-         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
-         */
-        this.fileToken = builder.fileToken;
+    public DownloadFileReq build() {
+      return new DownloadFileReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-
-        private String fileToken; // 需要下载的文件 token
-
-        /**
-         * 需要下载的文件 token
-         * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DownloadFileReq build() {
-            return new DownloadFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

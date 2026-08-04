@@ -13,272 +13,291 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialPlanItemDetail {
+  /**
+   * 险种ID，可通过[获取险种配置列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_insurance/list)接口查询
+   *
+   * <p>示例值：7200725830765987372
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_name")
+  private I18n itemName;
+
+  /**
+   * 企业缴纳配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_setting_of_person")
+  private SocialPlanItemSetting itemSettingOfPerson;
+
+  /**
+   * 企业缴纳配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_setting_of_company")
+  private SocialPlanItemSetting itemSettingOfCompany;
+
+  /**
+   * 缴纳频率
+   *
+   * <p>示例值：monthly
+   */
+  @SerializedName("payment_frequency")
+  private String paymentFrequency;
+
+  /**
+   * 缴纳月份，1月～12月
+   *
+   * <p>示例值：
+   */
+  @SerializedName("payment_months")
+  private Integer[] paymentMonths;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public I18n getItemName() {
+    return this.itemName;
+  }
+
+  public void setItemName(I18n itemName) {
+    this.itemName = itemName;
+  }
+
+  public SocialPlanItemSetting getItemSettingOfPerson() {
+    return this.itemSettingOfPerson;
+  }
+
+  public void setItemSettingOfPerson(SocialPlanItemSetting itemSettingOfPerson) {
+    this.itemSettingOfPerson = itemSettingOfPerson;
+  }
+
+  public SocialPlanItemSetting getItemSettingOfCompany() {
+    return this.itemSettingOfCompany;
+  }
+
+  public void setItemSettingOfCompany(SocialPlanItemSetting itemSettingOfCompany) {
+    this.itemSettingOfCompany = itemSettingOfCompany;
+  }
+
+  public String getPaymentFrequency() {
+    return this.paymentFrequency;
+  }
+
+  public void setPaymentFrequency(String paymentFrequency) {
+    this.paymentFrequency = paymentFrequency;
+  }
+
+  public Integer[] getPaymentMonths() {
+    return this.paymentMonths;
+  }
+
+  public void setPaymentMonths(Integer[] paymentMonths) {
+    this.paymentMonths = paymentMonths;
+  }
+
+  // builder 开始
+  public SocialPlanItemDetail() {}
+
+  public SocialPlanItemDetail(Builder builder) {
     /**
-     * 险种ID，详细信息可通过社保险种接口查询
-     * <p> 示例值：123456
+     * 险种ID，可通过[获取险种配置列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_insurance/list)接口查询
+     *
+     * <p>示例值：7200725830765987372
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
-     * 险种名
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_name")
-    private I18n itemName;
+    this.itemName = builder.itemName;
     /**
-     * 险种缴纳配置
-     * <p> 示例值：
+     * 企业缴纳配置
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_setting_of_person")
-    private SocialPlanItemSetting itemSettingOfPerson;
+    this.itemSettingOfPerson = builder.itemSettingOfPerson;
     /**
-     * 险种缴纳配置
-     * <p> 示例值：
+     * 企业缴纳配置
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_setting_of_company")
-    private SocialPlanItemSetting itemSettingOfCompany;
+    this.itemSettingOfCompany = builder.itemSettingOfCompany;
     /**
      * 缴纳频率
-     * <p> 示例值：8.00
+     *
+     * <p>示例值：monthly
      */
-    @SerializedName("payment_frequency")
-    private String paymentFrequency;
+    this.paymentFrequency = builder.paymentFrequency;
     /**
-     * 缴纳月份
-     * <p> 示例值：
+     * 缴纳月份，1月～12月
+     *
+     * <p>示例值：
      */
-    @SerializedName("payment_months")
+    this.paymentMonths = builder.paymentMonths;
+  }
+
+  public static class Builder {
+    /**
+     * 险种ID，可通过[获取险种配置列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_insurance/list)接口查询
+     *
+     * <p>示例值：7200725830765987372
+     */
+    private String itemId;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
+    private I18n itemName;
+
+    /**
+     * 企业缴纳配置
+     *
+     * <p>示例值：
+     */
+    private SocialPlanItemSetting itemSettingOfPerson;
+
+    /**
+     * 企业缴纳配置
+     *
+     * <p>示例值：
+     */
+    private SocialPlanItemSetting itemSettingOfCompany;
+
+    /**
+     * 缴纳频率
+     *
+     * <p>示例值：monthly
+     */
+    private String paymentFrequency;
+
+    /**
+     * 缴纳月份，1月～12月
+     *
+     * <p>示例值：
+     */
     private Integer[] paymentMonths;
 
-    // builder 开始
-    public SocialPlanItemDetail() {
+    /**
+     * 险种ID，可通过[获取险种配置列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_insurance/list)接口查询
+     *
+     * <p>示例值：7200725830765987372
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public SocialPlanItemDetail(Builder builder) {
-        /**
-         * 险种ID，详细信息可通过社保险种接口查询
-         * <p> 示例值：123456
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 险种名
-         * <p> 示例值：
-         */
-        this.itemName = builder.itemName;
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         */
-        this.itemSettingOfPerson = builder.itemSettingOfPerson;
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         */
-        this.itemSettingOfCompany = builder.itemSettingOfCompany;
-        /**
-         * 缴纳频率
-         * <p> 示例值：8.00
-         */
-        this.paymentFrequency = builder.paymentFrequency;
-        /**
-         * 缴纳月份
-         * <p> 示例值：
-         */
-        this.paymentMonths = builder.paymentMonths;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param itemName
+     * @return
+     */
+    public Builder itemName(I18n itemName) {
+      this.itemName = itemName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 企业缴纳配置
+     *
+     * <p>示例值：
+     *
+     * @param itemSettingOfPerson
+     * @return
+     */
+    public Builder itemSettingOfPerson(SocialPlanItemSetting itemSettingOfPerson) {
+      this.itemSettingOfPerson = itemSettingOfPerson;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 企业缴纳配置
+     *
+     * <p>示例值：
+     *
+     * @param itemSettingOfCompany
+     * @return
+     */
+    public Builder itemSettingOfCompany(SocialPlanItemSetting itemSettingOfCompany) {
+      this.itemSettingOfCompany = itemSettingOfCompany;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    /**
+     * 缴纳频率
+     *
+     * <p>示例值：monthly
+     *
+     * @param paymentFrequency
+     * @return
+     */
+    public Builder paymentFrequency(String paymentFrequency) {
+      this.paymentFrequency = paymentFrequency;
+      return this;
     }
 
-    public I18n getItemName() {
-        return this.itemName;
+    /**
+     * 缴纳频率
+     *
+     * <p>示例值：monthly
+     *
+     * @param paymentFrequency {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialPlanItemDetailPaymentFrequencyEnum}
+     * @return
+     */
+    public Builder paymentFrequency(
+        com.lark.oapi.service.compensation.v1.enums.SocialPlanItemDetailPaymentFrequencyEnum
+            paymentFrequency) {
+      this.paymentFrequency = paymentFrequency.getValue();
+      return this;
     }
 
-    public void setItemName(I18n itemName) {
-        this.itemName = itemName;
+    /**
+     * 缴纳月份，1月～12月
+     *
+     * <p>示例值：
+     *
+     * @param paymentMonths
+     * @return
+     */
+    public Builder paymentMonths(Integer[] paymentMonths) {
+      this.paymentMonths = paymentMonths;
+      return this;
     }
 
-    public SocialPlanItemSetting getItemSettingOfPerson() {
-        return this.itemSettingOfPerson;
+    public SocialPlanItemDetail build() {
+      return new SocialPlanItemDetail(this);
     }
+  }
 
-    public void setItemSettingOfPerson(SocialPlanItemSetting itemSettingOfPerson) {
-        this.itemSettingOfPerson = itemSettingOfPerson;
-    }
-
-    public SocialPlanItemSetting getItemSettingOfCompany() {
-        return this.itemSettingOfCompany;
-    }
-
-    public void setItemSettingOfCompany(SocialPlanItemSetting itemSettingOfCompany) {
-        this.itemSettingOfCompany = itemSettingOfCompany;
-    }
-
-    public String getPaymentFrequency() {
-        return this.paymentFrequency;
-    }
-
-    public void setPaymentFrequency(String paymentFrequency) {
-        this.paymentFrequency = paymentFrequency;
-    }
-
-    public Integer[] getPaymentMonths() {
-        return this.paymentMonths;
-    }
-
-    public void setPaymentMonths(Integer[] paymentMonths) {
-        this.paymentMonths = paymentMonths;
-    }
-
-    public static class Builder {
-        /**
-         * 险种ID，详细信息可通过社保险种接口查询
-         * <p> 示例值：123456
-         */
-        private String itemId;
-        /**
-         * 险种名
-         * <p> 示例值：
-         */
-        private I18n itemName;
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         */
-        private SocialPlanItemSetting itemSettingOfPerson;
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         */
-        private SocialPlanItemSetting itemSettingOfCompany;
-        /**
-         * 缴纳频率
-         * <p> 示例值：8.00
-         */
-        private String paymentFrequency;
-        /**
-         * 缴纳月份
-         * <p> 示例值：
-         */
-        private Integer[] paymentMonths;
-
-        /**
-         * 险种ID，详细信息可通过社保险种接口查询
-         * <p> 示例值：123456
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 险种名
-         * <p> 示例值：
-         *
-         * @param itemName
-         * @return
-         */
-        public Builder itemName(I18n itemName) {
-            this.itemName = itemName;
-            return this;
-        }
-
-
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         *
-         * @param itemSettingOfPerson
-         * @return
-         */
-        public Builder itemSettingOfPerson(SocialPlanItemSetting itemSettingOfPerson) {
-            this.itemSettingOfPerson = itemSettingOfPerson;
-            return this;
-        }
-
-
-        /**
-         * 险种缴纳配置
-         * <p> 示例值：
-         *
-         * @param itemSettingOfCompany
-         * @return
-         */
-        public Builder itemSettingOfCompany(SocialPlanItemSetting itemSettingOfCompany) {
-            this.itemSettingOfCompany = itemSettingOfCompany;
-            return this;
-        }
-
-
-        /**
-         * 缴纳频率
-         * <p> 示例值：8.00
-         *
-         * @param paymentFrequency
-         * @return
-         */
-        public Builder paymentFrequency(String paymentFrequency) {
-            this.paymentFrequency = paymentFrequency;
-            return this;
-        }
-
-        /**
-         * 缴纳频率
-         * <p> 示例值：8.00
-         *
-         * @param paymentFrequency {@link com.lark.oapi.service.compensation.v1.enums.SocialPlanItemDetailPaymentFrequencyEnum}
-         * @return
-         */
-        public Builder paymentFrequency(com.lark.oapi.service.compensation.v1.enums.SocialPlanItemDetailPaymentFrequencyEnum paymentFrequency) {
-            this.paymentFrequency = paymentFrequency.getValue();
-            return this;
-        }
-
-
-        /**
-         * 缴纳月份
-         * <p> 示例值：
-         *
-         * @param paymentMonths
-         * @return
-         */
-        public Builder paymentMonths(Integer[] paymentMonths) {
-            this.paymentMonths = paymentMonths;
-            return this;
-        }
-
-
-        public SocialPlanItemDetail build() {
-            return new SocialPlanItemDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

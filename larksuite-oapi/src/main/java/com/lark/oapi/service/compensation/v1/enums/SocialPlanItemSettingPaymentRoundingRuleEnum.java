@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 缴纳金舍入规则。rounding: 四舍五入; round_up: 向上舍入; round_down: 向下舍入
- */
+/** 缴纳金舍入规则。 */
 public enum SocialPlanItemSettingPaymentRoundingRuleEnum {
-    ROUNDING("rounding"), // 四舍五入
-    ROUND_UP("round_up"), // 向上舍入
-    ROUND_DOWN("round_down"), // 向下舍入
-    ;
-    private String value;
+  ROUNDING("rounding"), // 四舍五入
+  ROUND_UP("round_up"), // 向上舍入
+  ROUND_DOWN("round_down"), // 向下舍入
+  ;
+  private String value;
 
-    SocialPlanItemSettingPaymentRoundingRuleEnum(String value) {
-        this.value = value;
-    }
+  SocialPlanItemSettingPaymentRoundingRuleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentInfo {
+  /**
+   * 部门名称
+   *
+   * <p>示例值：部门
+   */
+  @SerializedName("department_name")
+  private String departmentName;
+
+  /**
+   * 部门全路径
+   *
+   * <p>示例值：根部门/次级部门/叶子部门
+   */
+  @SerializedName("department_full_path")
+  private String departmentFullPath;
+
+  /**
+   * 部门id
+   *
+   * <p>示例值：dg25d5662fdd639g
+   */
+  @SerializedName("custom_id")
+  private String customId;
+
+  public String getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  public String getDepartmentFullPath() {
+    return this.departmentFullPath;
+  }
+
+  public void setDepartmentFullPath(String departmentFullPath) {
+    this.departmentFullPath = departmentFullPath;
+  }
+
+  public String getCustomId() {
+    return this.customId;
+  }
+
+  public void setCustomId(String customId) {
+    this.customId = customId;
+  }
+
+  // builder 开始
+  public DepartmentInfo() {}
+
+  public DepartmentInfo(Builder builder) {
     /**
      * 部门名称
-     * <p> 示例值：部门
+     *
+     * <p>示例值：部门
      */
-    @SerializedName("department_name")
-    private String departmentName;
+    this.departmentName = builder.departmentName;
     /**
      * 部门全路径
-     * <p> 示例值：根部门/次级部门/叶子部门
+     *
+     * <p>示例值：根部门/次级部门/叶子部门
      */
-    @SerializedName("department_full_path")
-    private String departmentFullPath;
+    this.departmentFullPath = builder.departmentFullPath;
     /**
      * 部门id
-     * <p> 示例值：dg25d5662fdd639g
+     *
+     * <p>示例值：dg25d5662fdd639g
      */
-    @SerializedName("custom_id")
+    this.customId = builder.customId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称
+     *
+     * <p>示例值：部门
+     */
+    private String departmentName;
+
+    /**
+     * 部门全路径
+     *
+     * <p>示例值：根部门/次级部门/叶子部门
+     */
+    private String departmentFullPath;
+
+    /**
+     * 部门id
+     *
+     * <p>示例值：dg25d5662fdd639g
+     */
     private String customId;
 
-    // builder 开始
-    public DepartmentInfo() {
+    /**
+     * 部门名称
+     *
+     * <p>示例值：部门
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(String departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public DepartmentInfo(Builder builder) {
-        /**
-         * 部门名称
-         * <p> 示例值：部门
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 部门全路径
-         * <p> 示例值：根部门/次级部门/叶子部门
-         */
-        this.departmentFullPath = builder.departmentFullPath;
-        /**
-         * 部门id
-         * <p> 示例值：dg25d5662fdd639g
-         */
-        this.customId = builder.customId;
+    /**
+     * 部门全路径
+     *
+     * <p>示例值：根部门/次级部门/叶子部门
+     *
+     * @param departmentFullPath
+     * @return
+     */
+    public Builder departmentFullPath(String departmentFullPath) {
+      this.departmentFullPath = departmentFullPath;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门id
+     *
+     * <p>示例值：dg25d5662fdd639g
+     *
+     * @param customId
+     * @return
+     */
+    public Builder customId(String customId) {
+      this.customId = customId;
+      return this;
     }
 
-    public String getDepartmentName() {
-        return this.departmentName;
+    public DepartmentInfo build() {
+      return new DepartmentInfo(this);
     }
+  }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public String getDepartmentFullPath() {
-        return this.departmentFullPath;
-    }
-
-    public void setDepartmentFullPath(String departmentFullPath) {
-        this.departmentFullPath = departmentFullPath;
-    }
-
-    public String getCustomId() {
-        return this.customId;
-    }
-
-    public void setCustomId(String customId) {
-        this.customId = customId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门名称
-         * <p> 示例值：部门
-         */
-        private String departmentName;
-        /**
-         * 部门全路径
-         * <p> 示例值：根部门/次级部门/叶子部门
-         */
-        private String departmentFullPath;
-        /**
-         * 部门id
-         * <p> 示例值：dg25d5662fdd639g
-         */
-        private String customId;
-
-        /**
-         * 部门名称
-         * <p> 示例值：部门
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(String departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        /**
-         * 部门全路径
-         * <p> 示例值：根部门/次级部门/叶子部门
-         *
-         * @param departmentFullPath
-         * @return
-         */
-        public Builder departmentFullPath(String departmentFullPath) {
-            this.departmentFullPath = departmentFullPath;
-            return this;
-        }
-
-
-        /**
-         * 部门id
-         * <p> 示例值：dg25d5662fdd639g
-         *
-         * @param customId
-         * @return
-         */
-        public Builder customId(String customId) {
-            this.customId = customId;
-            return this;
-        }
-
-
-        public DepartmentInfo build() {
-            return new DepartmentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

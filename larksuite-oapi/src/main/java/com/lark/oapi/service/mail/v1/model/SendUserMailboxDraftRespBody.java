@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendUserMailboxDraftRespBody {
-    /**
-     * 发送后生成的已发送邮件ID
-     * <p> 示例值：xxxx
-     */
-    @SerializedName("message_id")
-    private String messageId;
-    /**
-     * 邮件所属会话ID
-     * <p> 示例值：xxxx
-     */
-    @SerializedName("thread_id")
-    private String threadId;
-    /**
-     * 仅允许撤回时返回该字段，值为available
-     * <p> 示例值：unavailable
-     */
-    @SerializedName("recall_status")
-    private String recallStatus;
-    /**
-     * 当用户禁用自动化发信时返回此字段；为空表示发信成功
-     * <p> 示例值：
-     */
-    @SerializedName("automation_send_disable")
-    private AutomationSendDisable automationSendDisable;
+  /**
+   * 发送后生成的已发送邮件ID
+   *
+   * <p>示例值：197c5d72e22e1d79
+   */
+  @SerializedName("message_id")
+  private String messageId;
 
-    public String getMessageId() {
-        return this.messageId;
-    }
+  /**
+   * 邮件所属会话ID
+   *
+   * <p>示例值：197c5d72e22e1d78
+   */
+  @SerializedName("thread_id")
+  private String threadId;
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
+  /**
+   * 仅允许撤回时返回该字段，值为available
+   *
+   * <p>示例值：unavailable
+   */
+  @SerializedName("recall_status")
+  private String recallStatus;
 
-    public String getThreadId() {
-        return this.threadId;
-    }
+  /**
+   * 当用户禁用自动化发信时返回此字段；为空表示发信成功
+   *
+   * <p>示例值：
+   */
+  @SerializedName("automation_send_disable")
+  private AutomationSendDisable automationSendDisable;
 
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
+  public String getMessageId() {
+    return this.messageId;
+  }
 
-    public String getRecallStatus() {
-        return this.recallStatus;
-    }
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
 
-    public void setRecallStatus(String recallStatus) {
-        this.recallStatus = recallStatus;
-    }
+  public String getThreadId() {
+    return this.threadId;
+  }
 
-    public AutomationSendDisable getAutomationSendDisable() {
-        return this.automationSendDisable;
-    }
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
 
-    public void setAutomationSendDisable(AutomationSendDisable automationSendDisable) {
-        this.automationSendDisable = automationSendDisable;
-    }
+  public String getRecallStatus() {
+    return this.recallStatus;
+  }
 
+  public void setRecallStatus(String recallStatus) {
+    this.recallStatus = recallStatus;
+  }
+
+  public AutomationSendDisable getAutomationSendDisable() {
+    return this.automationSendDisable;
+  }
+
+  public void setAutomationSendDisable(AutomationSendDisable automationSendDisable) {
+    this.automationSendDisable = automationSendDisable;
+  }
 }

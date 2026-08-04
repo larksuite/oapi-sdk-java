@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SemesterIndicator {
+  /**
+   * 评估周期id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 评估周期中被使用的评估项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indicators")
+  private BriefIndicator[] indicators;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public BriefIndicator[] getIndicators() {
+    return this.indicators;
+  }
+
+  public void setIndicators(BriefIndicator[] indicators) {
+    this.indicators = indicators;
+  }
+
+  // builder 开始
+  public SemesterIndicator() {}
+
+  public SemesterIndicator(Builder builder) {
     /**
      * 评估周期id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("semester_id")
-    private String semesterId;
+    this.semesterId = builder.semesterId;
     /**
      * 评估周期中被使用的评估项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("indicators")
+    this.indicators = builder.indicators;
+  }
+
+  public static class Builder {
+    /**
+     * 评估周期id
+     *
+     * <p>示例值：1234
+     */
+    private String semesterId;
+
+    /**
+     * 评估周期中被使用的评估项
+     *
+     * <p>示例值：
+     */
     private BriefIndicator[] indicators;
 
-    // builder 开始
-    public SemesterIndicator() {
+    /**
+     * 评估周期id
+     *
+     * <p>示例值：1234
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public SemesterIndicator(Builder builder) {
-        /**
-         * 评估周期id
-         * <p> 示例值：1234
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 评估周期中被使用的评估项
-         * <p> 示例值：
-         */
-        this.indicators = builder.indicators;
+    /**
+     * 评估周期中被使用的评估项
+     *
+     * <p>示例值：
+     *
+     * @param indicators
+     * @return
+     */
+    public Builder indicators(BriefIndicator[] indicators) {
+      this.indicators = indicators;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SemesterIndicator build() {
+      return new SemesterIndicator(this);
     }
+  }
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public BriefIndicator[] getIndicators() {
-        return this.indicators;
-    }
-
-    public void setIndicators(BriefIndicator[] indicators) {
-        this.indicators = indicators;
-    }
-
-    public static class Builder {
-        /**
-         * 评估周期id
-         * <p> 示例值：1234
-         */
-        private String semesterId;
-        /**
-         * 评估周期中被使用的评估项
-         * <p> 示例值：
-         */
-        private BriefIndicator[] indicators;
-
-        /**
-         * 评估周期id
-         * <p> 示例值：1234
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 评估周期中被使用的评估项
-         * <p> 示例值：
-         *
-         * @param indicators
-         * @return
-         */
-        public Builder indicators(BriefIndicator[] indicators) {
-            this.indicators = indicators;
-            return this;
-        }
-
-
-        public SemesterIndicator build() {
-            return new SemesterIndicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

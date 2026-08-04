@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Agent {
+  /**
+   * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 应用名称，用于展示应用的友好标识，支持中英文混合
+   *
+   * <p>示例值：企业任务管理助手
+   */
+  @SerializedName("app_name")
+  private String appName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getAppName() {
+    return this.appName;
+  }
+
+  public void setAppName(String appName) {
+    this.appName = appName;
+  }
+
+  // builder 开始
+  public Agent() {}
+
+  public Agent(Builder builder) {
     /**
      * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
-     * <p> 示例值：cli_a1b2c3d4e5f6g7h8
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
      * 应用名称，用于展示应用的友好标识，支持中英文混合
-     * <p> 示例值：企业任务管理助手
+     *
+     * <p>示例值：企业任务管理助手
      */
-    @SerializedName("app_name")
+    this.appName = builder.appName;
+  }
+
+  public static class Builder {
+    /**
+     * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
+     *
+     * <p>示例值：cli_***
+     */
+    private String appId;
+
+    /**
+     * 应用名称，用于展示应用的友好标识，支持中英文混合
+     *
+     * <p>示例值：企业任务管理助手
+     */
     private String appName;
 
-    // builder 开始
-    public Agent() {
+    /**
+     * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public Agent(Builder builder) {
-        /**
-         * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
-         * <p> 示例值：cli_a1b2c3d4e5f6g7h8
-         */
-        this.appId = builder.appId;
-        /**
-         * 应用名称，用于展示应用的友好标识，支持中英文混合
-         * <p> 示例值：企业任务管理助手
-         */
-        this.appName = builder.appName;
+    /**
+     * 应用名称，用于展示应用的友好标识，支持中英文混合
+     *
+     * <p>示例值：企业任务管理助手
+     *
+     * @param appName
+     * @return
+     */
+    public Builder appName(String appName) {
+      this.appName = appName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Agent build() {
+      return new Agent(this);
     }
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getAppName() {
-        return this.appName;
-    }
-
-    public void setAppName(String appName) {
-        this.appName = appName;
-    }
-
-    public static class Builder {
-        /**
-         * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
-         * <p> 示例值：cli_a1b2c3d4e5f6g7h8
-         */
-        private String appId;
-        /**
-         * 应用名称，用于展示应用的友好标识，支持中英文混合
-         * <p> 示例值：企业任务管理助手
-         */
-        private String appName;
-
-        /**
-         * 应用唯一标识，用于区分不同应用主体。可通过开放平台应用管理页面获取
-         * <p> 示例值：cli_a1b2c3d4e5f6g7h8
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 应用名称，用于展示应用的友好标识，支持中英文混合
-         * <p> 示例值：企业任务管理助手
-         *
-         * @param appName
-         * @return
-         */
-        public Builder appName(String appName) {
-            this.appName = appName;
-            return this;
-        }
-
-
-        public Agent build() {
-            return new Agent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

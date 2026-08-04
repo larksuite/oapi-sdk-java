@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 消息的可见性
- */
+/** 消息的可见性 */
 public enum MessageMessageVisibilityEnum {
-    SELF("SELF"), // 仅当前用户可见
-    ALL("ALL"), // 全员可见
-    ;
-    private String value;
+  SELF("SELF"), // 仅当前用户可见
+  ALL("ALL"), // 全员可见
+  ;
+  private String value;
 
-    MessageMessageVisibilityEnum(String value) {
-        this.value = value;
-    }
+  MessageMessageVisibilityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

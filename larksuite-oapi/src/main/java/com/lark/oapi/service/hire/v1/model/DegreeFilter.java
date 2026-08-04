@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DegreeFilter {
+  /**
+   * 是否过滤专升本
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("hide_option")
+  private Integer hideOption;
+
+  /**
+   * 学历列表，可选值：;;- 4：高中及以下;- 5：大专;- 6：本科;- 7：硕士;- 8：博士
+   *
+   * <p>示例值：
+   */
+  @SerializedName("degree")
+  private String[] degree;
+
+  public Integer getHideOption() {
+    return this.hideOption;
+  }
+
+  public void setHideOption(Integer hideOption) {
+    this.hideOption = hideOption;
+  }
+
+  public String[] getDegree() {
+    return this.degree;
+  }
+
+  public void setDegree(String[] degree) {
+    this.degree = degree;
+  }
+
+  // builder 开始
+  public DegreeFilter() {}
+
+  public DegreeFilter(Builder builder) {
     /**
      * 是否过滤专升本
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("hide_option")
-    private Integer hideOption;
+    this.hideOption = builder.hideOption;
     /**
-     * 学历列表
-     * <p> 示例值：
+     * 学历列表，可选值：;;- 4：高中及以下;- 5：大专;- 6：本科;- 7：硕士;- 8：博士
+     *
+     * <p>示例值：
      */
-    @SerializedName("degree")
+    this.degree = builder.degree;
+  }
+
+  public static class Builder {
+    /**
+     * 是否过滤专升本
+     *
+     * <p>示例值：1
+     */
+    private Integer hideOption;
+
+    /**
+     * 学历列表，可选值：;;- 4：高中及以下;- 5：大专;- 6：本科;- 7：硕士;- 8：博士
+     *
+     * <p>示例值：
+     */
     private String[] degree;
 
-    // builder 开始
-    public DegreeFilter() {
+    /**
+     * 是否过滤专升本
+     *
+     * <p>示例值：1
+     *
+     * @param hideOption
+     * @return
+     */
+    public Builder hideOption(Integer hideOption) {
+      this.hideOption = hideOption;
+      return this;
     }
 
-    public DegreeFilter(Builder builder) {
-        /**
-         * 是否过滤专升本
-         * <p> 示例值：1
-         */
-        this.hideOption = builder.hideOption;
-        /**
-         * 学历列表
-         * <p> 示例值：
-         */
-        this.degree = builder.degree;
+    /**
+     * 学历列表，可选值：;;- 4：高中及以下;- 5：大专;- 6：本科;- 7：硕士;- 8：博士
+     *
+     * <p>示例值：
+     *
+     * @param degree
+     * @return
+     */
+    public Builder degree(String[] degree) {
+      this.degree = degree;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DegreeFilter build() {
+      return new DegreeFilter(this);
     }
+  }
 
-    public Integer getHideOption() {
-        return this.hideOption;
-    }
-
-    public void setHideOption(Integer hideOption) {
-        this.hideOption = hideOption;
-    }
-
-    public String[] getDegree() {
-        return this.degree;
-    }
-
-    public void setDegree(String[] degree) {
-        this.degree = degree;
-    }
-
-    public static class Builder {
-        /**
-         * 是否过滤专升本
-         * <p> 示例值：1
-         */
-        private Integer hideOption;
-        /**
-         * 学历列表
-         * <p> 示例值：
-         */
-        private String[] degree;
-
-        /**
-         * 是否过滤专升本
-         * <p> 示例值：1
-         *
-         * @param hideOption
-         * @return
-         */
-        public Builder hideOption(Integer hideOption) {
-            this.hideOption = hideOption;
-            return this;
-        }
-
-
-        /**
-         * 学历列表
-         * <p> 示例值：
-         *
-         * @param degree
-         * @return
-         */
-        public Builder degree(String[] degree) {
-            this.degree = degree;
-            return this;
-        }
-
-
-        public DegreeFilter build() {
-            return new DegreeFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

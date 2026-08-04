@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateChatAnnouncementBlockChildrenReqBody {
+  /**
+   * 添加的子块列表。在一次请求中，你最多可以创建 5 个电子表格（Sheet）块
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private Block[] children;
+
+  /**
+   * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("index")
+  private Integer index;
+
+  public Block[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(Block[] children) {
+    this.children = children;
+  }
+
+  public Integer getIndex() {
+    return this.index;
+  }
+
+  public void setIndex(Integer index) {
+    this.index = index;
+  }
+
+  // builder 开始
+  public CreateChatAnnouncementBlockChildrenReqBody() {}
+
+  public CreateChatAnnouncementBlockChildrenReqBody(Builder builder) {
     /**
-     * 添加的孩子列表。
-     * <p> 示例值：
+     * 添加的子块列表。在一次请求中，你最多可以创建 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
-    private Block[] children;
+    this.children = builder.children;
     /**
      * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("index")
+    this.index = builder.index;
+  }
+
+  public static class Builder {
+    /**
+     * 添加的子块列表。在一次请求中，你最多可以创建 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
+     */
+    private Block[] children;
+
+    /**
+     * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+     *
+     * <p>示例值：0
+     */
     private Integer index;
 
-    // builder 开始
-    public CreateChatAnnouncementBlockChildrenReqBody() {
+    /**
+     * 添加的子块列表。在一次请求中，你最多可以创建 5 个电子表格（Sheet）块
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(Block[] children) {
+      this.children = children;
+      return this;
     }
 
-    public CreateChatAnnouncementBlockChildrenReqBody(Builder builder) {
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         */
-        this.index = builder.index;
+    /**
+     * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
+     *
+     * <p>示例值：0
+     *
+     * @param index
+     * @return
+     */
+    public Builder index(Integer index) {
+      this.index = index;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateChatAnnouncementBlockChildrenReqBody build() {
+      return new CreateChatAnnouncementBlockChildrenReqBody(this);
     }
+  }
 
-    public Block[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(Block[] children) {
-        this.children = children;
-    }
-
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public static class Builder {
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         */
-        private Block[] children;
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         */
-        private Integer index;
-
-        /**
-         * 添加的孩子列表。
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(Block[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        /**
-         * 当前 block 在 children 中的插入位置，起始值为 0，最大值为原 children 长度
-         * <p> 示例值：0
-         *
-         * @param index
-         * @return
-         */
-        public Builder index(Integer index) {
-            this.index = index;
-            return this;
-        }
-
-
-        public CreateChatAnnouncementBlockChildrenReqBody build() {
-            return new CreateChatAnnouncementBlockChildrenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

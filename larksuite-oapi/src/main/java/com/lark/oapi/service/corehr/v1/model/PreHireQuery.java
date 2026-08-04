@@ -13,482 +13,531 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireQuery {
+  /**
+   * 招聘投递 ID
+   * ，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+   *
+   * <p>示例值：4719168654814483759
+   */
+  @SerializedName("ats_application_id")
+  private String atsApplicationId;
+
+  /**
+   * 待入职ID，可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+   *
+   * <p>示例值：154545454
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 入职日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("hire_date")
+  private String hireDate;
+
+  /**
+   * 雇佣类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type")
+  private Enum employeeType;
+
+  /**
+   * 人员编号
+   *
+   * <p>示例值：1245646
+   */
+  @SerializedName("worker_id")
+  private String workerId;
+
+  /**
+   * 人员类型，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+   *
+   * <p>示例值：正式
+   */
+  @SerializedName("employee_type_id")
+  private String employeeTypeId;
+
+  /**
+   * 个人信息 ID
+   *
+   * <p>示例值：656464648662
+   */
+  @SerializedName("person_id")
+  private String personId;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 入职状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_status")
+  private Enum onboardingStatus;
+
+  /**
+   * 成本中心分摊信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_rate")
+  private SupportCostCenterItem[] costCenterRate;
+
+  /**
+   * 工作邮箱
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_email_list")
+  private Email[] workEmailList;
+
+  /**
+   * 部门ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+   *
+   * <p>示例值：656464648662
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getAtsApplicationId() {
+    return this.atsApplicationId;
+  }
+
+  public void setAtsApplicationId(String atsApplicationId) {
+    this.atsApplicationId = atsApplicationId;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getHireDate() {
+    return this.hireDate;
+  }
+
+  public void setHireDate(String hireDate) {
+    this.hireDate = hireDate;
+  }
+
+  public Enum getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(Enum employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public String getWorkerId() {
+    return this.workerId;
+  }
+
+  public void setWorkerId(String workerId) {
+    this.workerId = workerId;
+  }
+
+  public String getEmployeeTypeId() {
+    return this.employeeTypeId;
+  }
+
+  public void setEmployeeTypeId(String employeeTypeId) {
+    this.employeeTypeId = employeeTypeId;
+  }
+
+  public String getPersonId() {
+    return this.personId;
+  }
+
+  public void setPersonId(String personId) {
+    this.personId = personId;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public Enum getOnboardingStatus() {
+    return this.onboardingStatus;
+  }
+
+  public void setOnboardingStatus(Enum onboardingStatus) {
+    this.onboardingStatus = onboardingStatus;
+  }
+
+  public SupportCostCenterItem[] getCostCenterRate() {
+    return this.costCenterRate;
+  }
+
+  public void setCostCenterRate(SupportCostCenterItem[] costCenterRate) {
+    this.costCenterRate = costCenterRate;
+  }
+
+  public Email[] getWorkEmailList() {
+    return this.workEmailList;
+  }
+
+  public void setWorkEmailList(Email[] workEmailList) {
+    this.workEmailList = workEmailList;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public PreHireQuery() {}
+
+  public PreHireQuery(Builder builder) {
     /**
-     * 招聘系统的候选人 ID
-     * <p> 示例值：4719168654814483759
+     * 招聘投递 ID
+     * ，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：4719168654814483759
      */
-    @SerializedName("ats_application_id")
-    private String atsApplicationId;
+    this.atsApplicationId = builder.atsApplicationId;
     /**
-     * 实体在CoreHR内部的唯一键
-     * <p> 示例值：154545454
+     * 待入职ID，可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：154545454
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 入职日期
-     * <p> 示例值：2020-01-01
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("hire_date")
-    private String hireDate;
+    this.hireDate = builder.hireDate;
     /**
      * 雇佣类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type")
-    private Enum employeeType;
+    this.employeeType = builder.employeeType;
     /**
      * 人员编号
-     * <p> 示例值：1245646
+     *
+     * <p>示例值：1245646
      */
-    @SerializedName("worker_id")
-    private String workerId;
+    this.workerId = builder.workerId;
     /**
-     * 雇佣类型
-     * <p> 示例值：正式
+     * 人员类型，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：正式
      */
-    @SerializedName("employee_type_id")
-    private String employeeTypeId;
+    this.employeeTypeId = builder.employeeTypeId;
     /**
-     * 引用Person ID
-     * <p> 示例值：656464648662
+     * 个人信息 ID
+     *
+     * <p>示例值：656464648662
      */
-    @SerializedName("person_id")
-    private String personId;
+    this.personId = builder.personId;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 入职状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboarding_status")
-    private Enum onboardingStatus;
+    this.onboardingStatus = builder.onboardingStatus;
     /**
      * 成本中心分摊信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_rate")
-    private SupportCostCenterItem[] costCenterRate;
+    this.costCenterRate = builder.costCenterRate;
     /**
      * 工作邮箱
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_email_list")
-    private Email[] workEmailList;
+    this.workEmailList = builder.workEmailList;
     /**
-     * 部门ID
-     * <p> 示例值：656464648662
+     * 部门ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：656464648662
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 招聘投递 ID
+     * ，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：4719168654814483759
+     */
+    private String atsApplicationId;
+
+    /**
+     * 待入职ID，可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：154545454
+     */
+    private String id;
+
+    /**
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String hireDate;
+
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     */
+    private Enum employeeType;
+
+    /**
+     * 人员编号
+     *
+     * <p>示例值：1245646
+     */
+    private String workerId;
+
+    /**
+     * 人员类型，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：正式
+     */
+    private String employeeTypeId;
+
+    /**
+     * 个人信息 ID
+     *
+     * <p>示例值：656464648662
+     */
+    private String personId;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 入职状态
+     *
+     * <p>示例值：
+     */
+    private Enum onboardingStatus;
+
+    /**
+     * 成本中心分摊信息
+     *
+     * <p>示例值：
+     */
+    private SupportCostCenterItem[] costCenterRate;
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：
+     */
+    private Email[] workEmailList;
+
+    /**
+     * 部门ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：656464648662
+     */
     private String departmentId;
 
-    // builder 开始
-    public PreHireQuery() {
+    /**
+     * 招聘投递 ID
+     * ，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：4719168654814483759
+     *
+     * @param atsApplicationId
+     * @return
+     */
+    public Builder atsApplicationId(String atsApplicationId) {
+      this.atsApplicationId = atsApplicationId;
+      return this;
     }
 
-    public PreHireQuery(Builder builder) {
-        /**
-         * 招聘系统的候选人 ID
-         * <p> 示例值：4719168654814483759
-         */
-        this.atsApplicationId = builder.atsApplicationId;
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：154545454
-         */
-        this.id = builder.id;
-        /**
-         * 入职日期
-         * <p> 示例值：2020-01-01
-         */
-        this.hireDate = builder.hireDate;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 人员编号
-         * <p> 示例值：1245646
-         */
-        this.workerId = builder.workerId;
-        /**
-         * 雇佣类型
-         * <p> 示例值：正式
-         */
-        this.employeeTypeId = builder.employeeTypeId;
-        /**
-         * 引用Person ID
-         * <p> 示例值：656464648662
-         */
-        this.personId = builder.personId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 入职状态
-         * <p> 示例值：
-         */
-        this.onboardingStatus = builder.onboardingStatus;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        this.costCenterRate = builder.costCenterRate;
-        /**
-         * 工作邮箱
-         * <p> 示例值：
-         */
-        this.workEmailList = builder.workEmailList;
-        /**
-         * 部门ID
-         * <p> 示例值：656464648662
-         */
-        this.departmentId = builder.departmentId;
+    /**
+     * 待入职ID，可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：154545454
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param hireDate
+     * @return
+     */
+    public Builder hireDate(String hireDate) {
+      this.hireDate = hireDate;
+      return this;
     }
 
-    public String getAtsApplicationId() {
-        return this.atsApplicationId;
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(Enum employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public void setAtsApplicationId(String atsApplicationId) {
-        this.atsApplicationId = atsApplicationId;
+    /**
+     * 人员编号
+     *
+     * <p>示例值：1245646
+     *
+     * @param workerId
+     * @return
+     */
+    public Builder workerId(String workerId) {
+      this.workerId = workerId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 人员类型，可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：正式
+     *
+     * @param employeeTypeId
+     * @return
+     */
+    public Builder employeeTypeId(String employeeTypeId) {
+      this.employeeTypeId = employeeTypeId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 个人信息 ID
+     *
+     * <p>示例值：656464648662
+     *
+     * @param personId
+     * @return
+     */
+    public Builder personId(String personId) {
+      this.personId = personId;
+      return this;
     }
 
-    public String getHireDate() {
-        return this.hireDate;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setHireDate(String hireDate) {
-        this.hireDate = hireDate;
+    /**
+     * 入职状态
+     *
+     * <p>示例值：
+     *
+     * @param onboardingStatus
+     * @return
+     */
+    public Builder onboardingStatus(Enum onboardingStatus) {
+      this.onboardingStatus = onboardingStatus;
+      return this;
     }
 
-    public Enum getEmployeeType() {
-        return this.employeeType;
+    /**
+     * 成本中心分摊信息
+     *
+     * <p>示例值：
+     *
+     * @param costCenterRate
+     * @return
+     */
+    public Builder costCenterRate(SupportCostCenterItem[] costCenterRate) {
+      this.costCenterRate = costCenterRate;
+      return this;
     }
 
-    public void setEmployeeType(Enum employeeType) {
-        this.employeeType = employeeType;
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：
+     *
+     * @param workEmailList
+     * @return
+     */
+    public Builder workEmailList(Email[] workEmailList) {
+      this.workEmailList = workEmailList;
+      return this;
     }
 
-    public String getWorkerId() {
-        return this.workerId;
+    /**
+     * 部门ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：656464648662
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setWorkerId(String workerId) {
-        this.workerId = workerId;
+    public PreHireQuery build() {
+      return new PreHireQuery(this);
     }
+  }
 
-    public String getEmployeeTypeId() {
-        return this.employeeTypeId;
-    }
-
-    public void setEmployeeTypeId(String employeeTypeId) {
-        this.employeeTypeId = employeeTypeId;
-    }
-
-    public String getPersonId() {
-        return this.personId;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public Enum getOnboardingStatus() {
-        return this.onboardingStatus;
-    }
-
-    public void setOnboardingStatus(Enum onboardingStatus) {
-        this.onboardingStatus = onboardingStatus;
-    }
-
-    public SupportCostCenterItem[] getCostCenterRate() {
-        return this.costCenterRate;
-    }
-
-    public void setCostCenterRate(SupportCostCenterItem[] costCenterRate) {
-        this.costCenterRate = costCenterRate;
-    }
-
-    public Email[] getWorkEmailList() {
-        return this.workEmailList;
-    }
-
-    public void setWorkEmailList(Email[] workEmailList) {
-        this.workEmailList = workEmailList;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 招聘系统的候选人 ID
-         * <p> 示例值：4719168654814483759
-         */
-        private String atsApplicationId;
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：154545454
-         */
-        private String id;
-        /**
-         * 入职日期
-         * <p> 示例值：2020-01-01
-         */
-        private String hireDate;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        private Enum employeeType;
-        /**
-         * 人员编号
-         * <p> 示例值：1245646
-         */
-        private String workerId;
-        /**
-         * 雇佣类型
-         * <p> 示例值：正式
-         */
-        private String employeeTypeId;
-        /**
-         * 引用Person ID
-         * <p> 示例值：656464648662
-         */
-        private String personId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 入职状态
-         * <p> 示例值：
-         */
-        private Enum onboardingStatus;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        private SupportCostCenterItem[] costCenterRate;
-        /**
-         * 工作邮箱
-         * <p> 示例值：
-         */
-        private Email[] workEmailList;
-        /**
-         * 部门ID
-         * <p> 示例值：656464648662
-         */
-        private String departmentId;
-
-        /**
-         * 招聘系统的候选人 ID
-         * <p> 示例值：4719168654814483759
-         *
-         * @param atsApplicationId
-         * @return
-         */
-        public Builder atsApplicationId(String atsApplicationId) {
-            this.atsApplicationId = atsApplicationId;
-            return this;
-        }
-
-
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：154545454
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 入职日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param hireDate
-         * @return
-         */
-        public Builder hireDate(String hireDate) {
-            this.hireDate = hireDate;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(Enum employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-
-        /**
-         * 人员编号
-         * <p> 示例值：1245646
-         *
-         * @param workerId
-         * @return
-         */
-        public Builder workerId(String workerId) {
-            this.workerId = workerId;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型
-         * <p> 示例值：正式
-         *
-         * @param employeeTypeId
-         * @return
-         */
-        public Builder employeeTypeId(String employeeTypeId) {
-            this.employeeTypeId = employeeTypeId;
-            return this;
-        }
-
-
-        /**
-         * 引用Person ID
-         * <p> 示例值：656464648662
-         *
-         * @param personId
-         * @return
-         */
-        public Builder personId(String personId) {
-            this.personId = personId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 入职状态
-         * <p> 示例值：
-         *
-         * @param onboardingStatus
-         * @return
-         */
-        public Builder onboardingStatus(Enum onboardingStatus) {
-            this.onboardingStatus = onboardingStatus;
-            return this;
-        }
-
-
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         *
-         * @param costCenterRate
-         * @return
-         */
-        public Builder costCenterRate(SupportCostCenterItem[] costCenterRate) {
-            this.costCenterRate = costCenterRate;
-            return this;
-        }
-
-
-        /**
-         * 工作邮箱
-         * <p> 示例值：
-         *
-         * @param workEmailList
-         * @return
-         */
-        public Builder workEmailList(Email[] workEmailList) {
-            this.workEmailList = workEmailList;
-            return this;
-        }
-
-
-        /**
-         * 部门ID
-         * <p> 示例值：656464648662
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public PreHireQuery build() {
-            return new PreHireQuery(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

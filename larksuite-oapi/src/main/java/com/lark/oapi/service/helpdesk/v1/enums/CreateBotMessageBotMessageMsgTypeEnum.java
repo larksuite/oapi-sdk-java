@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.helpdesk.v1.enums;
 
-/**
- * 消息类型
- */
+/** 消息类型 */
 public enum CreateBotMessageBotMessageMsgTypeEnum {
-    TEXT("text"), // 普通文本
-    POST("post"), // 富文本
-    IMAGE("image"), // 图片
-    INTERACTIVE("interactive"), // 卡片消息
-    ;
-    private String value;
+  TEXT("text"), // 普通文本
+  POST("post"), // 富文本
+  IMAGE("image"), // 图片
+  INTERACTIVE("interactive"), // 卡片消息
+  ;
+  private String value;
 
-    CreateBotMessageBotMessageMsgTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateBotMessageBotMessageMsgTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,137 +13,144 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class DownloadAppStorageReq {
+  /**
+   * 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
+   *
+   * <p>示例值：1859988692091946
+   */
+  @Query
+  @SerializedName("file_key")
+  private String fileKey;
+
+  /**
+   * 文件 URL，ID 和 URL 不能同时为空
+   *
+   * <p>示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
+   */
+  @Query
+  @SerializedName("file_url")
+  private String fileUrl;
+
+  public String getFileKey() {
+    return this.fileKey;
+  }
+
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
+
+  public String getFileUrl() {
+    return this.fileUrl;
+  }
+
+  public void setFileUrl(String fileUrl) {
+    this.fileUrl = fileUrl;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public DownloadAppStorageReq() {}
+
+  public DownloadAppStorageReq(Builder builder) {
     /**
      * 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
-     * <p> 示例值：1859988692091946
+     *
+     * <p>示例值：1859988692091946
      */
-    @Query
-    @SerializedName("file_key")
-    private String fileKey;
+    this.fileKey = builder.fileKey;
     /**
      * 文件 URL，ID 和 URL 不能同时为空
-     * <p> 示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
+     *
+     * <p>示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
      */
-    @Query
-    @SerializedName("file_url")
-    private String fileUrl;
+    this.fileUrl = builder.fileUrl;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
+  }
 
-    // builder 开始
-    public DownloadAppStorageReq() {
+  public static class Builder {
+    private String fileKey; // 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
+    private String fileUrl; // 文件 URL，ID 和 URL 不能同时为空
+
+    /**
+     * 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
+     *
+     * <p>示例值：1859988692091946
+     *
+     * @param fileKey
+     * @return
+     */
+    public Builder fileKey(String fileKey) {
+      this.fileKey = fileKey;
+      return this;
     }
 
-    public DownloadAppStorageReq(Builder builder) {
-        /**
-         * 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
-         * <p> 示例值：1859988692091946
-         */
-        this.fileKey = builder.fileKey;
-        /**
-         * 文件 URL，ID 和 URL 不能同时为空
-         * <p> 示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
-         */
-        this.fileUrl = builder.fileUrl;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
+    /**
+     * 文件 URL，ID 和 URL 不能同时为空
+     *
+     * <p>示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
+     *
+     * @param fileUrl
+     * @return
+     */
+    public Builder fileUrl(String fileUrl) {
+      this.fileUrl = fileUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+
+    // app_4jcn5n11bpf5v 即为 app_id
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getFileKey() {
-        return this.fileKey;
+    public DownloadAppStorageReq build() {
+      return new DownloadAppStorageReq(this);
     }
+  }
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
-
-    public String getFileUrl() {
-        return this.fileUrl;
-    }
-
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        private String fileKey; // 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
-        private String fileUrl; // 文件 URL，ID 和 URL 不能同时为空
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-
-        /**
-         * 文件 ID，ID 和 URL 不能同时为空，都提供的情况下，使用 file_key
-         * <p> 示例值：1859988692091946
-         *
-         * @param fileKey
-         * @return
-         */
-        public Builder fileKey(String fileKey) {
-            this.fileKey = fileKey;
-            return this;
-        }
-
-        /**
-         * 文件 URL，ID 和 URL 不能同时为空
-         * <p> 示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
-         *
-         * @param fileUrl
-         * @return
-         */
-        public Builder fileUrl(String fileUrl) {
-            this.fileUrl = fileUrl;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public DownloadAppStorageReq build() {
-            return new DownloadAppStorageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

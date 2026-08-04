@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 日期类型
- */
+/** 日期类型 */
 public enum OvertimeApplyDetailOvertimeDateTypeEnum {
-    OVERTIMEDATETYPEWORKDAY(1), // 工作日
-    OVERTIMEDATETYPERESTDAY(2), // 休息日
-    OVERTIMEDATETYPESPECIALDAY(3), // 节假日
-    ;
-    private Integer value;
+  OVERTIMEDATETYPEWORKDAY(1), // 工作日
+  OVERTIMEDATETYPERESTDAY(2), // 休息日
+  OVERTIMEDATETYPESPECIALDAY(3), // 节假日
+  ;
+  private Integer value;
 
-    OvertimeApplyDetailOvertimeDateTypeEnum(Integer value) {
-        this.value = value;
-    }
+  OvertimeApplyDetailOvertimeDateTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

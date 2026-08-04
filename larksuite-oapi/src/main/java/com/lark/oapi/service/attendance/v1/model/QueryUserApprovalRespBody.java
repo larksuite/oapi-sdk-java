@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserApprovalRespBody {
-    /**
-     * 审批结果列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_approvals")
-    private UserApproval[] userApprovals;
+  /**
+   * 审批结果列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_approvals")
+  private UserApproval[] userApprovals;
 
-    public UserApproval[] getUserApprovals() {
-        return this.userApprovals;
-    }
+  public UserApproval[] getUserApprovals() {
+    return this.userApprovals;
+  }
 
-    public void setUserApprovals(UserApproval[] userApprovals) {
-        this.userApprovals = userApprovals;
-    }
-
+  public void setUserApprovals(UserApproval[] userApprovals) {
+    this.userApprovals = userApprovals;
+  }
 }

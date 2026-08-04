@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 签到状态
- */
+/** 签到状态 */
 public enum TrainingRegistrationSignInStateEnum {
-    NOTSIGNEDIN(0), // 未签到
-    SIGNEDIN(1), // 已签到
-    ;
-    private Integer value;
+  NOTSIGNEDIN(0), // 未签到
+  SIGNEDIN(1), // 已签到
+  ;
+  private Integer value;
 
-    TrainingRegistrationSignInStateEnum(Integer value) {
-        this.value = value;
-    }
+  TrainingRegistrationSignInStateEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

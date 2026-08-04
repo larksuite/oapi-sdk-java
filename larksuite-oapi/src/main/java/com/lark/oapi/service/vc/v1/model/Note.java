@@ -13,223 +13,289 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Note {
+  /**
+   * 纪要创建者 User ID
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 纪要创建时间（unix时间，单位sec）
+   *
+   * <p>示例值：1773922587
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 纪要产物
+   *
+   * <p>示例值：
+   */
+  @SerializedName("artifacts")
+  private NoteArtifactInfo[] artifacts;
+
+  /**
+   * 关联引用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("references")
+  private NoteReferenceInfo[] references;
+
+  /**
+   * 纪要来源。目前只有**会议来源**的会返回数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("note_source")
+  private GeneratedSource noteSource;
+
+  /**
+   * 纪要展示类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("note_display_type")
+  private Integer noteDisplayType;
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public NoteArtifactInfo[] getArtifacts() {
+    return this.artifacts;
+  }
+
+  public void setArtifacts(NoteArtifactInfo[] artifacts) {
+    this.artifacts = artifacts;
+  }
+
+  public NoteReferenceInfo[] getReferences() {
+    return this.references;
+  }
+
+  public void setReferences(NoteReferenceInfo[] references) {
+    this.references = references;
+  }
+
+  public GeneratedSource getNoteSource() {
+    return this.noteSource;
+  }
+
+  public void setNoteSource(GeneratedSource noteSource) {
+    this.noteSource = noteSource;
+  }
+
+  public Integer getNoteDisplayType() {
+    return this.noteDisplayType;
+  }
+
+  public void setNoteDisplayType(Integer noteDisplayType) {
+    this.noteDisplayType = noteDisplayType;
+  }
+
+  // builder 开始
+  public Note() {}
+
+  public Note(Builder builder) {
     /**
      * 纪要创建者 User ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
-     * 纪要创建时间
-     * <p> 示例值：1773922587
+     * 纪要创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 纪要产物
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("artifacts")
-    private NoteArtifactInfo[] artifacts;
+    this.artifacts = builder.artifacts;
     /**
      * 关联引用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("references")
-    private NoteReferenceInfo[] references;
+    this.references = builder.references;
     /**
-     * 纪要来源
-     * <p> 示例值：
+     * 纪要来源。目前只有**会议来源**的会返回数据。
+     *
+     * <p>示例值：
      */
-    @SerializedName("note_source")
+    this.noteSource = builder.noteSource;
+    /**
+     * 纪要展示类型
+     *
+     * <p>示例值：1
+     */
+    this.noteDisplayType = builder.noteDisplayType;
+  }
+
+  public static class Builder {
+    /**
+     * 纪要创建者 User ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private String creatorId;
+
+    /**
+     * 纪要创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
+     */
+    private String createTime;
+
+    /**
+     * 纪要产物
+     *
+     * <p>示例值：
+     */
+    private NoteArtifactInfo[] artifacts;
+
+    /**
+     * 关联引用
+     *
+     * <p>示例值：
+     */
+    private NoteReferenceInfo[] references;
+
+    /**
+     * 纪要来源。目前只有**会议来源**的会返回数据。
+     *
+     * <p>示例值：
+     */
     private GeneratedSource noteSource;
 
-    // builder 开始
-    public Note() {
+    /**
+     * 纪要展示类型
+     *
+     * <p>示例值：1
+     */
+    private Integer noteDisplayType;
+
+    /**
+     * 纪要创建者 User ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public Note(Builder builder) {
-        /**
-         * 纪要创建者 User ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 纪要创建时间
-         * <p> 示例值：1773922587
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 纪要产物
-         * <p> 示例值：
-         */
-        this.artifacts = builder.artifacts;
-        /**
-         * 关联引用
-         * <p> 示例值：
-         */
-        this.references = builder.references;
-        /**
-         * 纪要来源
-         * <p> 示例值：
-         */
-        this.noteSource = builder.noteSource;
+    /**
+     * 纪要创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 纪要产物
+     *
+     * <p>示例值：
+     *
+     * @param artifacts
+     * @return
+     */
+    public Builder artifacts(NoteArtifactInfo[] artifacts) {
+      this.artifacts = artifacts;
+      return this;
     }
 
-    public String getCreatorId() {
-        return this.creatorId;
+    /**
+     * 关联引用
+     *
+     * <p>示例值：
+     *
+     * @param references
+     * @return
+     */
+    public Builder references(NoteReferenceInfo[] references) {
+      this.references = references;
+      return this;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    /**
+     * 纪要来源。目前只有**会议来源**的会返回数据。
+     *
+     * <p>示例值：
+     *
+     * @param noteSource
+     * @return
+     */
+    public Builder noteSource(GeneratedSource noteSource) {
+      this.noteSource = noteSource;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 纪要展示类型
+     *
+     * <p>示例值：1
+     *
+     * @param noteDisplayType
+     * @return
+     */
+    public Builder noteDisplayType(Integer noteDisplayType) {
+      this.noteDisplayType = noteDisplayType;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 纪要展示类型
+     *
+     * <p>示例值：1
+     *
+     * @param noteDisplayType {@link com.lark.oapi.service.vc.v1.enums.NoteNoteDisplayTypeEnum}
+     * @return
+     */
+    public Builder noteDisplayType(
+        com.lark.oapi.service.vc.v1.enums.NoteNoteDisplayTypeEnum noteDisplayType) {
+      this.noteDisplayType = noteDisplayType.getValue();
+      return this;
     }
 
-    public NoteArtifactInfo[] getArtifacts() {
-        return this.artifacts;
+    public Note build() {
+      return new Note(this);
     }
+  }
 
-    public void setArtifacts(NoteArtifactInfo[] artifacts) {
-        this.artifacts = artifacts;
-    }
-
-    public NoteReferenceInfo[] getReferences() {
-        return this.references;
-    }
-
-    public void setReferences(NoteReferenceInfo[] references) {
-        this.references = references;
-    }
-
-    public GeneratedSource getNoteSource() {
-        return this.noteSource;
-    }
-
-    public void setNoteSource(GeneratedSource noteSource) {
-        this.noteSource = noteSource;
-    }
-
-    public static class Builder {
-        /**
-         * 纪要创建者 User ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private String creatorId;
-        /**
-         * 纪要创建时间
-         * <p> 示例值：1773922587
-         */
-        private String createTime;
-        /**
-         * 纪要产物
-         * <p> 示例值：
-         */
-        private NoteArtifactInfo[] artifacts;
-        /**
-         * 关联引用
-         * <p> 示例值：
-         */
-        private NoteReferenceInfo[] references;
-        /**
-         * 纪要来源
-         * <p> 示例值：
-         */
-        private GeneratedSource noteSource;
-
-        /**
-         * 纪要创建者 User ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 纪要创建时间
-         * <p> 示例值：1773922587
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 纪要产物
-         * <p> 示例值：
-         *
-         * @param artifacts
-         * @return
-         */
-        public Builder artifacts(NoteArtifactInfo[] artifacts) {
-            this.artifacts = artifacts;
-            return this;
-        }
-
-
-        /**
-         * 关联引用
-         * <p> 示例值：
-         *
-         * @param references
-         * @return
-         */
-        public Builder references(NoteReferenceInfo[] references) {
-            this.references = references;
-            return this;
-        }
-
-
-        /**
-         * 纪要来源
-         * <p> 示例值：
-         *
-         * @param noteSource
-         * @return
-         */
-        public Builder noteSource(GeneratedSource noteSource) {
-            this.noteSource = noteSource;
-            return this;
-        }
-
-
-        public Note build() {
-            return new Note(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

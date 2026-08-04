@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyLike {
+  /**
+   * 用户最后点赞时间，秒级时间戳
+   *
+   * <p>示例值：1690857821
+   */
+  @SerializedName("last_liked_time")
+  private String lastLikedTime;
+
+  /**
+   * 点赞的云文档 token，云文档被删除时不返回此字段
+   *
+   * <p>示例值：J6Lddz22AovnqkxWEXBcUJIingx
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 点赞的云文档类型，云文档被删除时不返回此字段
+   *
+   * <p>示例值：doc
+   */
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 点赞的云文档名，无云文档阅读权限或云文档被删除时不返回此字段
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 点赞的云文档链接，无云文档阅读权限或云文档被删除时不返回此字段
+   *
+   * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+   */
+  @SerializedName("file_url")
+  private String fileUrl;
+
+  /**
+   * 点赞的云文档是否已被删除
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("file_is_deleted")
+  private Boolean fileIsDeleted;
+
+  public String getLastLikedTime() {
+    return this.lastLikedTime;
+  }
+
+  public void setLastLikedTime(String lastLikedTime) {
+    this.lastLikedTime = lastLikedTime;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getFileUrl() {
+    return this.fileUrl;
+  }
+
+  public void setFileUrl(String fileUrl) {
+    this.fileUrl = fileUrl;
+  }
+
+  public Boolean getFileIsDeleted() {
+    return this.fileIsDeleted;
+  }
+
+  public void setFileIsDeleted(Boolean fileIsDeleted) {
+    this.fileIsDeleted = fileIsDeleted;
+  }
+
+  // builder 开始
+  public MyLike() {}
+
+  public MyLike(Builder builder) {
     /**
      * 用户最后点赞时间，秒级时间戳
-     * <p> 示例值：1690857821
+     *
+     * <p>示例值：1690857821
      */
-    @SerializedName("last_liked_time")
+    this.lastLikedTime = builder.lastLikedTime;
+    /**
+     * 点赞的云文档 token，云文档被删除时不返回此字段
+     *
+     * <p>示例值：J6Lddz22AovnqkxWEXBcUJIingx
+     */
+    this.fileToken = builder.fileToken;
+    /**
+     * 点赞的云文档类型，云文档被删除时不返回此字段
+     *
+     * <p>示例值：doc
+     */
+    this.fileType = builder.fileType;
+    /**
+     * 点赞的云文档名，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：title
+     */
+    this.fileName = builder.fileName;
+    /**
+     * 点赞的云文档链接，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     */
+    this.fileUrl = builder.fileUrl;
+    /**
+     * 点赞的云文档是否已被删除
+     *
+     * <p>示例值：false
+     */
+    this.fileIsDeleted = builder.fileIsDeleted;
+  }
+
+  public static class Builder {
+    /**
+     * 用户最后点赞时间，秒级时间戳
+     *
+     * <p>示例值：1690857821
+     */
     private String lastLikedTime;
+
     /**
-     * 点赞的文件 token
-     * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
+     * 点赞的云文档 token，云文档被删除时不返回此字段
+     *
+     * <p>示例值：J6Lddz22AovnqkxWEXBcUJIingx
      */
-    @SerializedName("file_token")
     private String fileToken;
+
     /**
-     * 点赞的文件类型
-     * <p> 示例值：doc
+     * 点赞的云文档类型，云文档被删除时不返回此字段
+     *
+     * <p>示例值：doc
      */
-    @SerializedName("file_type")
     private String fileType;
+
     /**
-     * 点赞的文件名，无文件阅读权限时不返回此字段
-     * <p> 示例值：title
+     * 点赞的云文档名，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：title
      */
-    @SerializedName("file_name")
     private String fileName;
+
     /**
-     * 点赞的文件链接，无文件阅读权限时不返回此字段
-     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     * 点赞的云文档链接，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
      */
-    @SerializedName("file_url")
     private String fileUrl;
+
     /**
-     * 点赞的文件是否已被删除
-     * <p> 示例值：false
+     * 点赞的云文档是否已被删除
+     *
+     * <p>示例值：false
      */
-    @SerializedName("file_is_deleted")
     private Boolean fileIsDeleted;
 
-    // builder 开始
-    public MyLike() {
+    /**
+     * 用户最后点赞时间，秒级时间戳
+     *
+     * <p>示例值：1690857821
+     *
+     * @param lastLikedTime
+     * @return
+     */
+    public Builder lastLikedTime(String lastLikedTime) {
+      this.lastLikedTime = lastLikedTime;
+      return this;
     }
 
-    public MyLike(Builder builder) {
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         */
-        this.lastLikedTime = builder.lastLikedTime;
-        /**
-         * 点赞的文件 token
-         * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 点赞的文件类型
-         * <p> 示例值：doc
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 点赞的文件名，无文件阅读权限时不返回此字段
-         * <p> 示例值：title
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 点赞的文件链接，无文件阅读权限时不返回此字段
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        this.fileUrl = builder.fileUrl;
-        /**
-         * 点赞的文件是否已被删除
-         * <p> 示例值：false
-         */
-        this.fileIsDeleted = builder.fileIsDeleted;
+    /**
+     * 点赞的云文档 token，云文档被删除时不返回此字段
+     *
+     * <p>示例值：J6Lddz22AovnqkxWEXBcUJIingx
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 点赞的云文档类型，云文档被删除时不返回此字段
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public String getLastLikedTime() {
-        return this.lastLikedTime;
+    /**
+     * 点赞的云文档类型，云文档被删除时不返回此字段
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v2.enums.MyLikeFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(com.lark.oapi.service.drive.v2.enums.MyLikeFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public void setLastLikedTime(String lastLikedTime) {
-        this.lastLikedTime = lastLikedTime;
+    /**
+     * 点赞的云文档名，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：title
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public String getFileToken() {
-        return this.fileToken;
+    /**
+     * 点赞的云文档链接，无云文档阅读权限或云文档被删除时不返回此字段
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param fileUrl
+     * @return
+     */
+    public Builder fileUrl(String fileUrl) {
+      this.fileUrl = fileUrl;
+      return this;
     }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
+    /**
+     * 点赞的云文档是否已被删除
+     *
+     * <p>示例值：false
+     *
+     * @param fileIsDeleted
+     * @return
+     */
+    public Builder fileIsDeleted(Boolean fileIsDeleted) {
+      this.fileIsDeleted = fileIsDeleted;
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    public MyLike build() {
+      return new MyLike(this);
     }
+  }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileUrl() {
-        return this.fileUrl;
-    }
-
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
-
-    public Boolean getFileIsDeleted() {
-        return this.fileIsDeleted;
-    }
-
-    public void setFileIsDeleted(Boolean fileIsDeleted) {
-        this.fileIsDeleted = fileIsDeleted;
-    }
-
-    public static class Builder {
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         */
-        private String lastLikedTime;
-        /**
-         * 点赞的文件 token
-         * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
-         */
-        private String fileToken;
-        /**
-         * 点赞的文件类型
-         * <p> 示例值：doc
-         */
-        private String fileType;
-        /**
-         * 点赞的文件名，无文件阅读权限时不返回此字段
-         * <p> 示例值：title
-         */
-        private String fileName;
-        /**
-         * 点赞的文件链接，无文件阅读权限时不返回此字段
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        private String fileUrl;
-        /**
-         * 点赞的文件是否已被删除
-         * <p> 示例值：false
-         */
-        private Boolean fileIsDeleted;
-
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         *
-         * @param lastLikedTime
-         * @return
-         */
-        public Builder lastLikedTime(String lastLikedTime) {
-            this.lastLikedTime = lastLikedTime;
-            return this;
-        }
-
-
-        /**
-         * 点赞的文件 token
-         * <p> 示例值：J6Lddz22AovnqkxWEXBcUJIingx
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 点赞的文件类型
-         * <p> 示例值：doc
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 点赞的文件类型
-         * <p> 示例值：doc
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v2.enums.MyLikeFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v2.enums.MyLikeFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 点赞的文件名，无文件阅读权限时不返回此字段
-         * <p> 示例值：title
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 点赞的文件链接，无文件阅读权限时不返回此字段
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         *
-         * @param fileUrl
-         * @return
-         */
-        public Builder fileUrl(String fileUrl) {
-            this.fileUrl = fileUrl;
-            return this;
-        }
-
-
-        /**
-         * 点赞的文件是否已被删除
-         * <p> 示例值：false
-         *
-         * @param fileIsDeleted
-         * @return
-         */
-        public Builder fileIsDeleted(Boolean fileIsDeleted) {
-            this.fileIsDeleted = fileIsDeleted;
-            return this;
-        }
-
-
-        public MyLike build() {
-            return new MyLike(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

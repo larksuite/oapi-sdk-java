@@ -13,76 +13,72 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecentChangeLocationRespBody {
-    /**
-     * 地点 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("location_ids")
-    private String[] locationIds;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 删除的地点 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("deleted_location_ids")
-    private String[] deletedLocationIds;
+  /**
+   * 地点 ID 列表， 其中包含新建、更新以及删除的 ID 列表。;-
+   * 非删除的数据，可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详情。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_ids")
+  private String[] locationIds;
 
-    public String[] getLocationIds() {
-        return this.locationIds;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setLocationIds(String[] locationIds) {
-        this.locationIds = locationIds;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 目标查询时间范围内被删除的地点列表， 该列表是 location_ids 的子集，便于获取在指定的[start_date, end_date+1) 的范围内被删除的部门 IDs。;-
+   * **由于对应的地点已经被删除，无法通过 ID 查询到历史数据。**
+   *
+   * <p>示例值：
+   */
+  @SerializedName("deleted_location_ids")
+  private String[] deletedLocationIds;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getLocationIds() {
+    return this.locationIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setLocationIds(String[] locationIds) {
+    this.locationIds = locationIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String[] getDeletedLocationIds() {
-        return this.deletedLocationIds;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setDeletedLocationIds(String[] deletedLocationIds) {
-        this.deletedLocationIds = deletedLocationIds;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String[] getDeletedLocationIds() {
+    return this.deletedLocationIds;
+  }
+
+  public void setDeletedLocationIds(String[] deletedLocationIds) {
+    this.deletedLocationIds = deletedLocationIds;
+  }
 }

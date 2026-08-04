@@ -13,228 +13,240 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class GetFileCommentReq {
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：doc
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 此次调用中使用的用户 ID 的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("need_reaction")
+  private Boolean needReaction;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Boolean getNeedReaction() {
+    return this.needReaction;
+  }
+
+  public void setNeedReaction(Boolean needReaction) {
+    this.needReaction = needReaction;
+  }
+
+  /**
+   * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+   *
+   * <p>示例值：doccnHh7U87HOFpii5u5G*****
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+   *
+   * <p>示例值：6916106822734578184
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  // builder 开始
+  public GetFileCommentReq() {}
+
+  public GetFileCommentReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc
+     * 云文档类型
+     *
+     * <p>示例值：doc
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 此次调用中使用的用户 ID 的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 是否需要获取评论卡片上挂载的Reaction数据
-     * <p> 示例值：
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("need_reaction")
-    private Boolean needReaction;
+    this.needReaction = builder.needReaction;
     /**
-     * 文档token
-     * <p> 示例值：doccnHh7U87HOFpii5u5G*****
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：doccnHh7U87HOFpii5u5G*****
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
-     * 评论ID
-     * <p> 示例值：6916106822734578184
+     * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+     *
+     * <p>示例值：6916106822734578184
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
+    this.commentId = builder.commentId;
+  }
 
-    // builder 开始
-    public GetFileCommentReq() {
+  public static class Builder {
+    private String fileType; // 云文档类型
+    private String userIdType; // 此次调用中使用的用户 ID 的类型
+    private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public GetFileCommentReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         */
-        this.needReaction = builder.needReaction;
-        /**
-         * 文档token
-         * <p> 示例值：doccnHh7U87HOFpii5u5G*****
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 评论ID
-         * <p> 示例值：6916106822734578184
-         */
-        this.commentId = builder.commentId;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.GetFileCommentFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.GetFileCommentFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户 ID 的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    /**
+     * 此次调用中使用的用户 ID 的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.GetFileCommentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.GetFileCommentUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    /**
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
+     *
+     * @param needReaction
+     * @return
+     */
+    public Builder needReaction(Boolean needReaction) {
+      this.needReaction = needReaction;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    private String fileToken; // 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+    private String commentId; // 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+
+    /**
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：doccnHh7U87HOFpii5u5G*****
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+     *
+     * <p>示例值：6916106822734578184
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
     }
 
-    public Boolean getNeedReaction() {
-        return this.needReaction;
+    public GetFileCommentReq build() {
+      return new GetFileCommentReq(this);
     }
+  }
 
-    public void setNeedReaction(Boolean needReaction) {
-        this.needReaction = needReaction;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
-    public static class Builder {
-        private String fileType; // 文档类型
-        private String userIdType; // 此次调用中使用的用户 ID 的类型
-        private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据
-        private String fileToken; // 文档token
-        private String commentId; // 评论ID
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.GetFileCommentFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.GetFileCommentFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.GetFileCommentUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.GetFileCommentUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         *
-         * @param needReaction
-         * @return
-         */
-        public Builder needReaction(Boolean needReaction) {
-            this.needReaction = needReaction;
-            return this;
-        }
-
-        /**
-         * 文档token
-         * <p> 示例值：doccnHh7U87HOFpii5u5G*****
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 评论ID
-         * <p> 示例值：6916106822734578184
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-
-        public GetFileCommentReq build() {
-            return new GetFileCommentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

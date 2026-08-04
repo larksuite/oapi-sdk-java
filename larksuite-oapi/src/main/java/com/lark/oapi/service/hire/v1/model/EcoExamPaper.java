@@ -13,111 +13,110 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoExamPaper {
+  /**
+   * 笔试账号
+   * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：7147998241542539527
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  /**
+   * 试卷列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paper_list")
+  private EcoExamPaperData[] paperList;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public EcoExamPaperData[] getPaperList() {
+    return this.paperList;
+  }
+
+  public void setPaperList(EcoExamPaperData[] paperList) {
+    this.paperList = paperList;
+  }
+
+  // builder 开始
+  public EcoExamPaper() {}
+
+  public EcoExamPaper(Builder builder) {
     /**
-     * 账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：7147998241542539527
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
      */
-    @SerializedName("account_id")
-    private String accountId;
+    this.accountId = builder.accountId;
     /**
      * 试卷列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("paper_list")
+    this.paperList = builder.paperList;
+  }
+
+  public static class Builder {
+    /**
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
+     */
+    private String accountId;
+
+    /**
+     * 试卷列表
+     *
+     * <p>示例值：
+     */
     private EcoExamPaperData[] paperList;
 
-    // builder 开始
-    public EcoExamPaper() {
+    /**
+     * 笔试账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：7147998241542539527
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public EcoExamPaper(Builder builder) {
-        /**
-         * 账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         */
-        this.accountId = builder.accountId;
-        /**
-         * 试卷列表
-         * <p> 示例值：
-         */
-        this.paperList = builder.paperList;
+    /**
+     * 试卷列表
+     *
+     * <p>示例值：
+     *
+     * @param paperList
+     * @return
+     */
+    public Builder paperList(EcoExamPaperData[] paperList) {
+      this.paperList = paperList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EcoExamPaper build() {
+      return new EcoExamPaper(this);
     }
+  }
 
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public EcoExamPaperData[] getPaperList() {
-        return this.paperList;
-    }
-
-    public void setPaperList(EcoExamPaperData[] paperList) {
-        this.paperList = paperList;
-    }
-
-    public static class Builder {
-        /**
-         * 账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         */
-        private String accountId;
-        /**
-         * 试卷列表
-         * <p> 示例值：
-         */
-        private EcoExamPaperData[] paperList;
-
-        /**
-         * 账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：7147998241542539527
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        /**
-         * 试卷列表
-         * <p> 示例值：
-         *
-         * @param paperList
-         * @return
-         */
-        public Builder paperList(EcoExamPaperData[] paperList) {
-            this.paperList = paperList;
-            return this;
-        }
-
-
-        public EcoExamPaper build() {
-            return new EcoExamPaper(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

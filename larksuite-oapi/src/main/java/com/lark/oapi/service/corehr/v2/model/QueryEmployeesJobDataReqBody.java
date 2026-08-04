@@ -13,334 +13,371 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryEmployeesJobDataReqBody {
+  /**
+   * 是否获取所有版本的任职记录;- true 为获取员工所有版本的任职记录;- false 为仅获取当前生效的任职记录;- 默认为 false
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("get_all_version")
+  private Boolean getAllVersion;
+
+  /**
+   * 查看数据日期;- 与时间范围筛选为 AND 关系;- 默认为当天
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("data_date")
+  private String dataDate;
+
+  /**
+   * 生效日期 - 搜索范围开始;- 默认为空
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_date_start")
+  private String effectiveDateStart;
+
+  /**
+   * 生效日期 - 搜索范围结束;- 默认为空
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_date_end")
+  private String effectiveDateEnd;
+
+  /**
+   * 员工当前所在的部门 ID;- 类型应与 department_id_type 一致
+   *
+   * <p>示例值：6891251722631890445
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 员工雇佣 ID 列表;- 类型应与 user_id_type 一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_ids")
+  private String[] employmentIds;
+
+  /**
+   * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;-
+   * 不传：返回全部
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("primary_job_data")
+  private Boolean primaryJobData;
+
+  /**
+   * 业务类型（原：任职原因）;-
+   * 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;
+   * - object_api_name：job_data; - custom_api_name：assignment_start_reason
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assignment_start_reasons")
+  private String[] assignmentStartReasons;
+
+  public Boolean getGetAllVersion() {
+    return this.getAllVersion;
+  }
+
+  public void setGetAllVersion(Boolean getAllVersion) {
+    this.getAllVersion = getAllVersion;
+  }
+
+  public String getDataDate() {
+    return this.dataDate;
+  }
+
+  public void setDataDate(String dataDate) {
+    this.dataDate = dataDate;
+  }
+
+  public String getEffectiveDateStart() {
+    return this.effectiveDateStart;
+  }
+
+  public void setEffectiveDateStart(String effectiveDateStart) {
+    this.effectiveDateStart = effectiveDateStart;
+  }
+
+  public String getEffectiveDateEnd() {
+    return this.effectiveDateEnd;
+  }
+
+  public void setEffectiveDateEnd(String effectiveDateEnd) {
+    this.effectiveDateEnd = effectiveDateEnd;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String[] getEmploymentIds() {
+    return this.employmentIds;
+  }
+
+  public void setEmploymentIds(String[] employmentIds) {
+    this.employmentIds = employmentIds;
+  }
+
+  public Boolean getPrimaryJobData() {
+    return this.primaryJobData;
+  }
+
+  public void setPrimaryJobData(Boolean primaryJobData) {
+    this.primaryJobData = primaryJobData;
+  }
+
+  public String[] getAssignmentStartReasons() {
+    return this.assignmentStartReasons;
+  }
+
+  public void setAssignmentStartReasons(String[] assignmentStartReasons) {
+    this.assignmentStartReasons = assignmentStartReasons;
+  }
+
+  // builder 开始
+  public QueryEmployeesJobDataReqBody() {}
+
+  public QueryEmployeesJobDataReqBody(Builder builder) {
     /**
-     * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
-     * <p> 示例值：false
+     * 是否获取所有版本的任职记录;- true 为获取员工所有版本的任职记录;- false 为仅获取当前生效的任职记录;- 默认为 false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("get_all_version")
+    this.getAllVersion = builder.getAllVersion;
+    /**
+     * 查看数据日期;- 与时间范围筛选为 AND 关系;- 默认为当天
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.dataDate = builder.dataDate;
+    /**
+     * 生效日期 - 搜索范围开始;- 默认为空
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveDateStart = builder.effectiveDateStart;
+    /**
+     * 生效日期 - 搜索范围结束;- 默认为空
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveDateEnd = builder.effectiveDateEnd;
+    /**
+     * 员工当前所在的部门 ID;- 类型应与 department_id_type 一致
+     *
+     * <p>示例值：6891251722631890445
+     */
+    this.departmentId = builder.departmentId;
+    /**
+     * 员工雇佣 ID 列表;- 类型应与 user_id_type 一致
+     *
+     * <p>示例值：
+     */
+    this.employmentIds = builder.employmentIds;
+    /**
+     * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;-
+     * 不传：返回全部
+     *
+     * <p>示例值：true
+     */
+    this.primaryJobData = builder.primaryJobData;
+    /**
+     * 业务类型（原：任职原因）;-
+     * 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;
+     * - object_api_name：job_data; - custom_api_name：assignment_start_reason
+     *
+     * <p>示例值：
+     */
+    this.assignmentStartReasons = builder.assignmentStartReasons;
+  }
+
+  public static class Builder {
+    /**
+     * 是否获取所有版本的任职记录;- true 为获取员工所有版本的任职记录;- false 为仅获取当前生效的任职记录;- 默认为 false
+     *
+     * <p>示例值：false
+     */
     private Boolean getAllVersion;
+
     /**
-     * 查看数据日期
-     * <p> 示例值：2020-01-01
+     * 查看数据日期;- 与时间范围筛选为 AND 关系;- 默认为当天
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("data_date")
     private String dataDate;
+
     /**
-     * 生效日期 - 搜索范围开始
-     * <p> 示例值：2020-01-01
+     * 生效日期 - 搜索范围开始;- 默认为空
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_date_start")
     private String effectiveDateStart;
+
     /**
-     * 生效日期 - 搜索范围结束
-     * <p> 示例值：2020-01-01
+     * 生效日期 - 搜索范围结束;- 默认为空
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_date_end")
     private String effectiveDateEnd;
+
     /**
-     * 部门 ID
-     * <p> 示例值：6891251722631890445
+     * 员工当前所在的部门 ID;- 类型应与 department_id_type 一致
+     *
+     * <p>示例值：6891251722631890445
      */
-    @SerializedName("department_id")
     private String departmentId;
+
     /**
-     * 员工雇佣 ID 列表
-     * <p> 示例值：
+     * 员工雇佣 ID 列表;- 类型应与 user_id_type 一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_ids")
     private String[] employmentIds;
+
     /**
-     * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;- 不传：返回全部
-     * <p> 示例值：true
+     * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;-
+     * 不传：返回全部
+     *
+     * <p>示例值：true
      */
-    @SerializedName("primary_job_data")
     private Boolean primaryJobData;
+
     /**
-     * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：assignment_start_reason
-     * <p> 示例值：
+     * 业务类型（原：任职原因）;-
+     * 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;
+     * - object_api_name：job_data; - custom_api_name：assignment_start_reason
+     *
+     * <p>示例值：
      */
-    @SerializedName("assignment_start_reasons")
     private String[] assignmentStartReasons;
 
-    // builder 开始
-    public QueryEmployeesJobDataReqBody() {
+    /**
+     * 是否获取所有版本的任职记录;- true 为获取员工所有版本的任职记录;- false 为仅获取当前生效的任职记录;- 默认为 false
+     *
+     * <p>示例值：false
+     *
+     * @param getAllVersion
+     * @return
+     */
+    public Builder getAllVersion(Boolean getAllVersion) {
+      this.getAllVersion = getAllVersion;
+      return this;
     }
 
-    public QueryEmployeesJobDataReqBody(Builder builder) {
-        /**
-         * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
-         * <p> 示例值：false
-         */
-        this.getAllVersion = builder.getAllVersion;
-        /**
-         * 查看数据日期
-         * <p> 示例值：2020-01-01
-         */
-        this.dataDate = builder.dataDate;
-        /**
-         * 生效日期 - 搜索范围开始
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveDateStart = builder.effectiveDateStart;
-        /**
-         * 生效日期 - 搜索范围结束
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveDateEnd = builder.effectiveDateEnd;
-        /**
-         * 部门 ID
-         * <p> 示例值：6891251722631890445
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 员工雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;- 不传：返回全部
-         * <p> 示例值：true
-         */
-        this.primaryJobData = builder.primaryJobData;
-        /**
-         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：assignment_start_reason
-         * <p> 示例值：
-         */
-        this.assignmentStartReasons = builder.assignmentStartReasons;
+    /**
+     * 查看数据日期;- 与时间范围筛选为 AND 关系;- 默认为当天
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param dataDate
+     * @return
+     */
+    public Builder dataDate(String dataDate) {
+      this.dataDate = dataDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效日期 - 搜索范围开始;- 默认为空
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveDateStart
+     * @return
+     */
+    public Builder effectiveDateStart(String effectiveDateStart) {
+      this.effectiveDateStart = effectiveDateStart;
+      return this;
     }
 
-    public Boolean getGetAllVersion() {
-        return this.getAllVersion;
+    /**
+     * 生效日期 - 搜索范围结束;- 默认为空
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveDateEnd
+     * @return
+     */
+    public Builder effectiveDateEnd(String effectiveDateEnd) {
+      this.effectiveDateEnd = effectiveDateEnd;
+      return this;
     }
 
-    public void setGetAllVersion(Boolean getAllVersion) {
-        this.getAllVersion = getAllVersion;
+    /**
+     * 员工当前所在的部门 ID;- 类型应与 department_id_type 一致
+     *
+     * <p>示例值：6891251722631890445
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getDataDate() {
-        return this.dataDate;
+    /**
+     * 员工雇佣 ID 列表;- 类型应与 user_id_type 一致
+     *
+     * <p>示例值：
+     *
+     * @param employmentIds
+     * @return
+     */
+    public Builder employmentIds(String[] employmentIds) {
+      this.employmentIds = employmentIds;
+      return this;
     }
 
-    public void setDataDate(String dataDate) {
-        this.dataDate = dataDate;
+    /**
+     * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;-
+     * 不传：返回全部
+     *
+     * <p>示例值：true
+     *
+     * @param primaryJobData
+     * @return
+     */
+    public Builder primaryJobData(Boolean primaryJobData) {
+      this.primaryJobData = primaryJobData;
+      return this;
     }
 
-    public String getEffectiveDateStart() {
-        return this.effectiveDateStart;
+    /**
+     * 业务类型（原：任职原因）;-
+     * 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;
+     * - object_api_name：job_data; - custom_api_name：assignment_start_reason
+     *
+     * <p>示例值：
+     *
+     * @param assignmentStartReasons
+     * @return
+     */
+    public Builder assignmentStartReasons(String[] assignmentStartReasons) {
+      this.assignmentStartReasons = assignmentStartReasons;
+      return this;
     }
 
-    public void setEffectiveDateStart(String effectiveDateStart) {
-        this.effectiveDateStart = effectiveDateStart;
+    public QueryEmployeesJobDataReqBody build() {
+      return new QueryEmployeesJobDataReqBody(this);
     }
+  }
 
-    public String getEffectiveDateEnd() {
-        return this.effectiveDateEnd;
-    }
-
-    public void setEffectiveDateEnd(String effectiveDateEnd) {
-        this.effectiveDateEnd = effectiveDateEnd;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String[] getEmploymentIds() {
-        return this.employmentIds;
-    }
-
-    public void setEmploymentIds(String[] employmentIds) {
-        this.employmentIds = employmentIds;
-    }
-
-    public Boolean getPrimaryJobData() {
-        return this.primaryJobData;
-    }
-
-    public void setPrimaryJobData(Boolean primaryJobData) {
-        this.primaryJobData = primaryJobData;
-    }
-
-    public String[] getAssignmentStartReasons() {
-        return this.assignmentStartReasons;
-    }
-
-    public void setAssignmentStartReasons(String[] assignmentStartReasons) {
-        this.assignmentStartReasons = assignmentStartReasons;
-    }
-
-    public static class Builder {
-        /**
-         * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
-         * <p> 示例值：false
-         */
-        private Boolean getAllVersion;
-        /**
-         * 查看数据日期
-         * <p> 示例值：2020-01-01
-         */
-        private String dataDate;
-        /**
-         * 生效日期 - 搜索范围开始
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveDateStart;
-        /**
-         * 生效日期 - 搜索范围结束
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveDateEnd;
-        /**
-         * 部门 ID
-         * <p> 示例值：6891251722631890445
-         */
-        private String departmentId;
-        /**
-         * 员工雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employmentIds;
-        /**
-         * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;- 不传：返回全部
-         * <p> 示例值：true
-         */
-        private Boolean primaryJobData;
-        /**
-         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：assignment_start_reason
-         * <p> 示例值：
-         */
-        private String[] assignmentStartReasons;
-
-        /**
-         * 是否获取所有任职记录，true 为获取员工所有版本的任职记录，false 为仅获取当前生效的任职记录，默认为 false
-         * <p> 示例值：false
-         *
-         * @param getAllVersion
-         * @return
-         */
-        public Builder getAllVersion(Boolean getAllVersion) {
-            this.getAllVersion = getAllVersion;
-            return this;
-        }
-
-
-        /**
-         * 查看数据日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param dataDate
-         * @return
-         */
-        public Builder dataDate(String dataDate) {
-            this.dataDate = dataDate;
-            return this;
-        }
-
-
-        /**
-         * 生效日期 - 搜索范围开始
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveDateStart
-         * @return
-         */
-        public Builder effectiveDateStart(String effectiveDateStart) {
-            this.effectiveDateStart = effectiveDateStart;
-            return this;
-        }
-
-
-        /**
-         * 生效日期 - 搜索范围结束
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveDateEnd
-         * @return
-         */
-        public Builder effectiveDateEnd(String effectiveDateEnd) {
-            this.effectiveDateEnd = effectiveDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID
-         * <p> 示例值：6891251722631890445
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 员工雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param employmentIds
-         * @return
-         */
-        public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
-        }
-
-
-        /**
-         * 是否仅查询主职;- true：仅返回 primary_job_data 为 true 的任职记录;- false：仅返回 primary_job_data 为 false 的任职记录;- 不传：返回全部
-         * <p> 示例值：true
-         *
-         * @param primaryJobData
-         * @return
-         */
-        public Builder primaryJobData(Boolean primaryJobData) {
-            this.primaryJobData = primaryJobData;
-            return this;
-        }
-
-
-        /**
-         * 任职原因;- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：;  - object_api_name：job_data;  - custom_api_name：assignment_start_reason
-         * <p> 示例值：
-         *
-         * @param assignmentStartReasons
-         * @return
-         */
-        public Builder assignmentStartReasons(String[] assignmentStartReasons) {
-            this.assignmentStartReasons = assignmentStartReasons;
-            return this;
-        }
-
-
-        public QueryEmployeesJobDataReqBody build() {
-            return new QueryEmployeesJobDataReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

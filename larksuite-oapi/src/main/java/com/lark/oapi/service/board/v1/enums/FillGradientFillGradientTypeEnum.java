@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 渐变类别
- */
+/** 渐变类别 */
 public enum FillGradientFillGradientTypeEnum {
-    LINEAR("linear-gradient"), // 线性渐变
-    RADIAL("radial-gradient"), // 径向渐变
-    ;
-    private String value;
+  LINEAR("linear-gradient"), // 线性渐变
+  RADIAL("radial-gradient"), // 径向渐变
+  ;
+  private String value;
 
-    FillGradientFillGradientTypeEnum(String value) {
-        this.value = value;
-    }
+  FillGradientFillGradientTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,124 +13,125 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserValue {
+  /**
+   * 人员ID列表，了解用户 ID
+   * 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  /**
+   * 人员类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private String userType;
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  public String getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(String userType) {
+    this.userType = userType;
+  }
+
+  // builder 开始
+  public UserValue() {}
+
+  public UserValue(Builder builder) {
     /**
-     * 人员ID
-     * <p> 示例值：
+     * 人员ID列表，了解用户 ID
+     * 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
-    private String[] ids;
+    this.ids = builder.ids;
     /**
      * 人员类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_type")
+    this.userType = builder.userType;
+  }
+
+  public static class Builder {
+    /**
+     * 人员ID列表，了解用户 ID
+     * 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     */
+    private String[] ids;
+
+    /**
+     * 人员类型
+     *
+     * <p>示例值：1
+     */
     private String userType;
 
-    // builder 开始
-    public UserValue() {
+    /**
+     * 人员ID列表，了解用户 ID
+     * 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public UserValue(Builder builder) {
-        /**
-         * 人员ID
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
-        /**
-         * 人员类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
+    /**
+     * 人员类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType
+     * @return
+     */
+    public Builder userType(String userType) {
+      this.userType = userType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人员类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType {@link com.lark.oapi.service.directory.v1.enums.UserValueUserTypeEnum}
+     * @return
+     */
+    public Builder userType(
+        com.lark.oapi.service.directory.v1.enums.UserValueUserTypeEnum userType) {
+      this.userType = userType.getValue();
+      return this;
     }
 
-    public String[] getIds() {
-        return this.ids;
+    public UserValue build() {
+      return new UserValue(this);
     }
+  }
 
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public String getUserType() {
-        return this.userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-    public static class Builder {
-        /**
-         * 人员ID
-         * <p> 示例值：
-         */
-        private String[] ids;
-        /**
-         * 人员类型
-         * <p> 示例值：1
-         */
-        private String userType;
-
-        /**
-         * 人员ID
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        /**
-         * 人员类型
-         * <p> 示例值：1
-         *
-         * @param userType
-         * @return
-         */
-        public Builder userType(String userType) {
-            this.userType = userType;
-            return this;
-        }
-
-        /**
-         * 人员类型
-         * <p> 示例值：1
-         *
-         * @param userType {@link com.lark.oapi.service.directory.v1.enums.UserValueUserTypeEnum}
-         * @return
-         */
-        public Builder userType(com.lark.oapi.service.directory.v1.enums.UserValueUserTypeEnum userType) {
-            this.userType = userType.getValue();
-            return this;
-        }
-
-
-        public UserValue build() {
-            return new UserValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

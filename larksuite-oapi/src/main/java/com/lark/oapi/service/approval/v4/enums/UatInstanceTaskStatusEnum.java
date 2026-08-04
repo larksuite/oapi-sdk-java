@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * instance 状态
- */
+/** instance 状态 */
 public enum UatInstanceTaskStatusEnum {
-    PENDING("PENDING"), // 审批中
-    APPROVED("APPROVED"), // 同意
-    REJECTED("REJECTED"), // 拒绝
-    TRANSFERRED("TRANSFERRED"), // 已转交
-    DONE("DONE"), // 完成
-    ;
-    private String value;
+  PENDING("PENDING"), // 审批中
+  APPROVED("APPROVED"), // 同意
+  REJECTED("REJECTED"), // 拒绝
+  TRANSFERRED("TRANSFERRED"), // 已转交
+  DONE("DONE"), // 完成
+  ;
+  private String value;
 
-    UatInstanceTaskStatusEnum(String value) {
-        this.value = value;
-    }
+  UatInstanceTaskStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

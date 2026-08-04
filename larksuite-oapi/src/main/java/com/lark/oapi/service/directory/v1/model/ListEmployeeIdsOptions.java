@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListEmployeeIdsOptions {
+  /**
+   * 是否返回总数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_total")
+  private Boolean needTotal;
+
+  public Boolean getNeedTotal() {
+    return this.needTotal;
+  }
+
+  public void setNeedTotal(Boolean needTotal) {
+    this.needTotal = needTotal;
+  }
+
+  // builder 开始
+  public ListEmployeeIdsOptions() {}
+
+  public ListEmployeeIdsOptions(Builder builder) {
     /**
      * 是否返回总数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_total")
+    this.needTotal = builder.needTotal;
+  }
+
+  public static class Builder {
+    /**
+     * 是否返回总数
+     *
+     * <p>示例值：
+     */
     private Boolean needTotal;
 
-    // builder 开始
-    public ListEmployeeIdsOptions() {
+    /**
+     * 是否返回总数
+     *
+     * <p>示例值：
+     *
+     * @param needTotal
+     * @return
+     */
+    public Builder needTotal(Boolean needTotal) {
+      this.needTotal = needTotal;
+      return this;
     }
 
-    public ListEmployeeIdsOptions(Builder builder) {
-        /**
-         * 是否返回总数
-         * <p> 示例值：
-         */
-        this.needTotal = builder.needTotal;
+    public ListEmployeeIdsOptions build() {
+      return new ListEmployeeIdsOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getNeedTotal() {
-        return this.needTotal;
-    }
-
-    public void setNeedTotal(Boolean needTotal) {
-        this.needTotal = needTotal;
-    }
-
-    public static class Builder {
-        /**
-         * 是否返回总数
-         * <p> 示例值：
-         */
-        private Boolean needTotal;
-
-        /**
-         * 是否返回总数
-         * <p> 示例值：
-         *
-         * @param needTotal
-         * @return
-         */
-        public Builder needTotal(Boolean needTotal) {
-            this.needTotal = needTotal;
-            return this;
-        }
-
-
-        public ListEmployeeIdsOptions build() {
-            return new ListEmployeeIdsOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

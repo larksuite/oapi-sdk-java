@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceHelpdeskFilter {
+  /**
+   * 服务台 ID
+   * 列表。参考[服务台接入指南](https://open.feishu.cn/document/ukTMukTMukTM/ugDOyYjL4gjM24CO4IjN#%E6%9C%8D%E5%8A%A1%E5%8F%B0token)获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("helpdesk_ids")
+  private String[] helpdeskIds;
+
+  public String[] getHelpdeskIds() {
+    return this.helpdeskIds;
+  }
+
+  public void setHelpdeskIds(String[] helpdeskIds) {
+    this.helpdeskIds = helpdeskIds;
+  }
+
+  // builder 开始
+  public KnowledgeSourceHelpdeskFilter() {}
+
+  public KnowledgeSourceHelpdeskFilter(Builder builder) {
     /**
-     * 服务台 ID 列表
-     * <p> 示例值：
+     * 服务台 ID
+     * 列表。参考[服务台接入指南](https://open.feishu.cn/document/ukTMukTMukTM/ugDOyYjL4gjM24CO4IjN#%E6%9C%8D%E5%8A%A1%E5%8F%B0token)获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("helpdesk_ids")
+    this.helpdeskIds = builder.helpdeskIds;
+  }
+
+  public static class Builder {
+    /**
+     * 服务台 ID
+     * 列表。参考[服务台接入指南](https://open.feishu.cn/document/ukTMukTMukTM/ugDOyYjL4gjM24CO4IjN#%E6%9C%8D%E5%8A%A1%E5%8F%B0token)获取。
+     *
+     * <p>示例值：
+     */
     private String[] helpdeskIds;
 
-    // builder 开始
-    public KnowledgeSourceHelpdeskFilter() {
+    /**
+     * 服务台 ID
+     * 列表。参考[服务台接入指南](https://open.feishu.cn/document/ukTMukTMukTM/ugDOyYjL4gjM24CO4IjN#%E6%9C%8D%E5%8A%A1%E5%8F%B0token)获取。
+     *
+     * <p>示例值：
+     *
+     * @param helpdeskIds
+     * @return
+     */
+    public Builder helpdeskIds(String[] helpdeskIds) {
+      this.helpdeskIds = helpdeskIds;
+      return this;
     }
 
-    public KnowledgeSourceHelpdeskFilter(Builder builder) {
-        /**
-         * 服务台 ID 列表
-         * <p> 示例值：
-         */
-        this.helpdeskIds = builder.helpdeskIds;
+    public KnowledgeSourceHelpdeskFilter build() {
+      return new KnowledgeSourceHelpdeskFilter(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getHelpdeskIds() {
-        return this.helpdeskIds;
-    }
-
-    public void setHelpdeskIds(String[] helpdeskIds) {
-        this.helpdeskIds = helpdeskIds;
-    }
-
-    public static class Builder {
-        /**
-         * 服务台 ID 列表
-         * <p> 示例值：
-         */
-        private String[] helpdeskIds;
-
-        /**
-         * 服务台 ID 列表
-         * <p> 示例值：
-         *
-         * @param helpdeskIds
-         * @return
-         */
-        public Builder helpdeskIds(String[] helpdeskIds) {
-            this.helpdeskIds = helpdeskIds;
-            return this;
-        }
-
-
-        public KnowledgeSourceHelpdeskFilter build() {
-            return new KnowledgeSourceHelpdeskFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

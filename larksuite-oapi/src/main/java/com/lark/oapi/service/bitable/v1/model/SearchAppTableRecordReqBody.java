@@ -13,223 +13,253 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchAppTableRecordReqBody {
+  /**
+   * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，view_id 是下图中高亮部分：;
+   * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+   * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+   * view_id。;;**注意**：;当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 view_id 会被忽略。
+   *
+   * <p>示例值：vewqhz51lk
+   */
+  @SerializedName("view_id")
+  private String viewId;
+
+  /**
+   * 字段名称，用于指定本次查询返回记录中包含的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_names")
+  private String[] fieldNames;
+
+  /**
+   * 排序条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sort")
+  private Sort[] sort;
+
+  /**
+   * 包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or`
+   * 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private FilterInfo filter;
+
+  /**
+   * 是否自动计算并返回创建时间（created_time）、修改时间（last_modified_time）、创建人（created_by）、修改人（last_modified_by）这四类字段。默认为
+   * false，表示不返回。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("automatic_fields")
+  private Boolean automaticFields;
+
+  public String getViewId() {
+    return this.viewId;
+  }
+
+  public void setViewId(String viewId) {
+    this.viewId = viewId;
+  }
+
+  public String[] getFieldNames() {
+    return this.fieldNames;
+  }
+
+  public void setFieldNames(String[] fieldNames) {
+    this.fieldNames = fieldNames;
+  }
+
+  public Sort[] getSort() {
+    return this.sort;
+  }
+
+  public void setSort(Sort[] sort) {
+    this.sort = sort;
+  }
+
+  public FilterInfo getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(FilterInfo filter) {
+    this.filter = filter;
+  }
+
+  public Boolean getAutomaticFields() {
+    return this.automaticFields;
+  }
+
+  public void setAutomaticFields(Boolean automaticFields) {
+    this.automaticFields = automaticFields;
+  }
+
+  // builder 开始
+  public SearchAppTableRecordReqBody() {}
+
+  public SearchAppTableRecordReqBody(Builder builder) {
     /**
-     * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-     * <p> 示例值：viex
+     * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，view_id 是下图中高亮部分：;
+     * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+     * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+     * view_id。;;**注意**：;当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 view_id 会被忽略。
+     *
+     * <p>示例值：vewqhz51lk
      */
-    @SerializedName("view_id")
-    private String viewId;
+    this.viewId = builder.viewId;
     /**
-     * 指定要返回的字段
-     * <p> 示例值：
+     * 字段名称，用于指定本次查询返回记录中包含的字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_names")
-    private String[] fieldNames;
+    this.fieldNames = builder.fieldNames;
     /**
      * 排序条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sort")
+    this.sort = builder.sort;
+    /**
+     * 包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or`
+     * 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。
+     *
+     * <p>示例值：
+     */
+    this.filter = builder.filter;
+    /**
+     * 是否自动计算并返回创建时间（created_time）、修改时间（last_modified_time）、创建人（created_by）、修改人（last_modified_by）这四类字段。默认为
+     * false，表示不返回。
+     *
+     * <p>示例值：false
+     */
+    this.automaticFields = builder.automaticFields;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，view_id 是下图中高亮部分：;
+     * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+     * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+     * view_id。;;**注意**：;当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 view_id 会被忽略。
+     *
+     * <p>示例值：vewqhz51lk
+     */
+    private String viewId;
+
+    /**
+     * 字段名称，用于指定本次查询返回记录中包含的字段
+     *
+     * <p>示例值：
+     */
+    private String[] fieldNames;
+
+    /**
+     * 排序条件
+     *
+     * <p>示例值：
+     */
     private Sort[] sort;
+
     /**
-     * 筛选条件
-     * <p> 示例值：
+     * 包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or`
+     * 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
     private FilterInfo filter;
+
     /**
-     * 控制是否返回自动计算的字段, true 表示返回
-     * <p> 示例值：
+     * 是否自动计算并返回创建时间（created_time）、修改时间（last_modified_time）、创建人（created_by）、修改人（last_modified_by）这四类字段。默认为
+     * false，表示不返回。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("automatic_fields")
     private Boolean automaticFields;
 
-    // builder 开始
-    public SearchAppTableRecordReqBody() {
+    /**
+     * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，view_id 是下图中高亮部分：;
+     * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+     * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+     * view_id。;;**注意**：;当 filter 参数 或 sort 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 view_id 会被忽略。
+     *
+     * <p>示例值：vewqhz51lk
+     *
+     * @param viewId
+     * @return
+     */
+    public Builder viewId(String viewId) {
+      this.viewId = viewId;
+      return this;
     }
 
-    public SearchAppTableRecordReqBody(Builder builder) {
-        /**
-         * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-         * <p> 示例值：viex
-         */
-        this.viewId = builder.viewId;
-        /**
-         * 指定要返回的字段
-         * <p> 示例值：
-         */
-        this.fieldNames = builder.fieldNames;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
-        this.sort = builder.sort;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 控制是否返回自动计算的字段, true 表示返回
-         * <p> 示例值：
-         */
-        this.automaticFields = builder.automaticFields;
+    /**
+     * 字段名称，用于指定本次查询返回记录中包含的字段
+     *
+     * <p>示例值：
+     *
+     * @param fieldNames
+     * @return
+     */
+    public Builder fieldNames(String[] fieldNames) {
+      this.fieldNames = fieldNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 排序条件
+     *
+     * <p>示例值：
+     *
+     * @param sort
+     * @return
+     */
+    public Builder sort(Sort[] sort) {
+      this.sort = sort;
+      return this;
     }
 
-    public String getViewId() {
-        return this.viewId;
+    /**
+     * 包含条件筛选信息的对象。了解 filter 填写指南和使用示例（如怎样同时使用 `and` 和 `or`
+     * 逻辑链接词），参考[记录筛选参数填写指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide)。
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(FilterInfo filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public void setViewId(String viewId) {
-        this.viewId = viewId;
+    /**
+     * 是否自动计算并返回创建时间（created_time）、修改时间（last_modified_time）、创建人（created_by）、修改人（last_modified_by）这四类字段。默认为
+     * false，表示不返回。
+     *
+     * <p>示例值：false
+     *
+     * @param automaticFields
+     * @return
+     */
+    public Builder automaticFields(Boolean automaticFields) {
+      this.automaticFields = automaticFields;
+      return this;
     }
 
-    public String[] getFieldNames() {
-        return this.fieldNames;
+    public SearchAppTableRecordReqBody build() {
+      return new SearchAppTableRecordReqBody(this);
     }
+  }
 
-    public void setFieldNames(String[] fieldNames) {
-        this.fieldNames = fieldNames;
-    }
-
-    public Sort[] getSort() {
-        return this.sort;
-    }
-
-    public void setSort(Sort[] sort) {
-        this.sort = sort;
-    }
-
-    public FilterInfo getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(FilterInfo filter) {
-        this.filter = filter;
-    }
-
-    public Boolean getAutomaticFields() {
-        return this.automaticFields;
-    }
-
-    public void setAutomaticFields(Boolean automaticFields) {
-        this.automaticFields = automaticFields;
-    }
-
-    public static class Builder {
-        /**
-         * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-         * <p> 示例值：viex
-         */
-        private String viewId;
-        /**
-         * 指定要返回的字段
-         * <p> 示例值：
-         */
-        private String[] fieldNames;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
-        private Sort[] sort;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        private FilterInfo filter;
-        /**
-         * 控制是否返回自动计算的字段, true 表示返回
-         * <p> 示例值：
-         */
-        private Boolean automaticFields;
-
-        /**
-         * 视图Id,指定视图id则按照视图的筛选排序结果返回数据
-         * <p> 示例值：viex
-         *
-         * @param viewId
-         * @return
-         */
-        public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
-        }
-
-
-        /**
-         * 指定要返回的字段
-         * <p> 示例值：
-         *
-         * @param fieldNames
-         * @return
-         */
-        public Builder fieldNames(String[] fieldNames) {
-            this.fieldNames = fieldNames;
-            return this;
-        }
-
-
-        /**
-         * 排序条件
-         * <p> 示例值：
-         *
-         * @param sort
-         * @return
-         */
-        public Builder sort(Sort[] sort) {
-            this.sort = sort;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(FilterInfo filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * 控制是否返回自动计算的字段, true 表示返回
-         * <p> 示例值：
-         *
-         * @param automaticFields
-         * @return
-         */
-        public Builder automaticFields(Boolean automaticFields) {
-            this.automaticFields = automaticFields;
-            return this;
-        }
-
-
-        public SearchAppTableRecordReqBody build() {
-            return new SearchAppTableRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

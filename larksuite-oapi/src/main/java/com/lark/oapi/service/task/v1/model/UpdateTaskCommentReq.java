@@ -13,175 +13,183 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v1.enums.*;
 
 public class UpdateTaskCommentReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 任务ID
+   *
+   * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
+  @Path
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 评论 ID
+   *
+   * <p>示例值：6937231762296684564
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  @Body private UpdateTaskCommentReqBody body;
+
+  public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateTaskCommentReq() {}
+
+  public UpdateTaskCommentReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 任务ID
-     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 评论 ID
-     * <p> 示例值：6937231762296684564
+     *
+     * <p>示例值：6937231762296684564
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
-    @Body
+    this.commentId = builder.commentId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.task.v1.enums.UpdateTaskCommentUpdateTaskCommentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v1.enums.UpdateTaskCommentUpdateTaskCommentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String taskId; // 任务ID
+    private String commentId; // 评论 ID
+
+    /**
+     * 任务ID
+     *
+     * <p>示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
+    }
+
+    /**
+     * 评论 ID
+     *
+     * <p>示例值：6937231762296684564
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
+    }
+
     private UpdateTaskCommentReqBody body;
 
-    // builder 开始
-    public UpdateTaskCommentReq() {
-    }
-
-    public UpdateTaskCommentReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 任务ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 评论 ID
-         * <p> 示例值：6937231762296684564
-         */
-        this.commentId = builder.commentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
     public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String taskId; // 任务ID
-        private String commentId; // 评论 ID
-        private UpdateTaskCommentReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v1.enums.UpdateTaskCommentUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v1.enums.UpdateTaskCommentUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 任务ID
-         * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-        /**
-         * 评论 ID
-         * <p> 示例值：6937231762296684564
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-        public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateTaskCommentReq build() {
-            return new UpdateTaskCommentReq(this);
-        }
+    public UpdateTaskCommentReq build() {
+      return new UpdateTaskCommentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

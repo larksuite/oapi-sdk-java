@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessRecord {
+  /**
+   * 发生变更的实例
+   *
+   * <p>示例值：
+   */
+  @SerializedName("instance")
+  private EntityProcessRecord instance;
+
+  /**
+   * 发生变更的待办
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task")
+  private EntityProcessRecord task;
+
+  /**
+   * 发生变更的抄送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cc")
+  private EntityProcessRecord cc;
+
+  public EntityProcessRecord getInstance() {
+    return this.instance;
+  }
+
+  public void setInstance(EntityProcessRecord instance) {
+    this.instance = instance;
+  }
+
+  public EntityProcessRecord getTask() {
+    return this.task;
+  }
+
+  public void setTask(EntityProcessRecord task) {
+    this.task = task;
+  }
+
+  public EntityProcessRecord getCc() {
+    return this.cc;
+  }
+
+  public void setCc(EntityProcessRecord cc) {
+    this.cc = cc;
+  }
+
+  // builder 开始
+  public ProcessRecord() {}
+
+  public ProcessRecord(Builder builder) {
     /**
      * 发生变更的实例
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("instance")
-    private EntityProcessRecord instance;
+    this.instance = builder.instance;
     /**
      * 发生变更的待办
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("task")
-    private EntityProcessRecord task;
+    this.task = builder.task;
     /**
      * 发生变更的抄送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cc")
+    this.cc = builder.cc;
+  }
+
+  public static class Builder {
+    /**
+     * 发生变更的实例
+     *
+     * <p>示例值：
+     */
+    private EntityProcessRecord instance;
+
+    /**
+     * 发生变更的待办
+     *
+     * <p>示例值：
+     */
+    private EntityProcessRecord task;
+
+    /**
+     * 发生变更的抄送
+     *
+     * <p>示例值：
+     */
     private EntityProcessRecord cc;
 
-    // builder 开始
-    public ProcessRecord() {
+    /**
+     * 发生变更的实例
+     *
+     * <p>示例值：
+     *
+     * @param instance
+     * @return
+     */
+    public Builder instance(EntityProcessRecord instance) {
+      this.instance = instance;
+      return this;
     }
 
-    public ProcessRecord(Builder builder) {
-        /**
-         * 发生变更的实例
-         * <p> 示例值：
-         */
-        this.instance = builder.instance;
-        /**
-         * 发生变更的待办
-         * <p> 示例值：
-         */
-        this.task = builder.task;
-        /**
-         * 发生变更的抄送
-         * <p> 示例值：
-         */
-        this.cc = builder.cc;
+    /**
+     * 发生变更的待办
+     *
+     * <p>示例值：
+     *
+     * @param task
+     * @return
+     */
+    public Builder task(EntityProcessRecord task) {
+      this.task = task;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发生变更的抄送
+     *
+     * <p>示例值：
+     *
+     * @param cc
+     * @return
+     */
+    public Builder cc(EntityProcessRecord cc) {
+      this.cc = cc;
+      return this;
     }
 
-    public EntityProcessRecord getInstance() {
-        return this.instance;
+    public ProcessRecord build() {
+      return new ProcessRecord(this);
     }
+  }
 
-    public void setInstance(EntityProcessRecord instance) {
-        this.instance = instance;
-    }
-
-    public EntityProcessRecord getTask() {
-        return this.task;
-    }
-
-    public void setTask(EntityProcessRecord task) {
-        this.task = task;
-    }
-
-    public EntityProcessRecord getCc() {
-        return this.cc;
-    }
-
-    public void setCc(EntityProcessRecord cc) {
-        this.cc = cc;
-    }
-
-    public static class Builder {
-        /**
-         * 发生变更的实例
-         * <p> 示例值：
-         */
-        private EntityProcessRecord instance;
-        /**
-         * 发生变更的待办
-         * <p> 示例值：
-         */
-        private EntityProcessRecord task;
-        /**
-         * 发生变更的抄送
-         * <p> 示例值：
-         */
-        private EntityProcessRecord cc;
-
-        /**
-         * 发生变更的实例
-         * <p> 示例值：
-         *
-         * @param instance
-         * @return
-         */
-        public Builder instance(EntityProcessRecord instance) {
-            this.instance = instance;
-            return this;
-        }
-
-
-        /**
-         * 发生变更的待办
-         * <p> 示例值：
-         *
-         * @param task
-         * @return
-         */
-        public Builder task(EntityProcessRecord task) {
-            this.task = task;
-            return this;
-        }
-
-
-        /**
-         * 发生变更的抄送
-         * <p> 示例值：
-         *
-         * @param cc
-         * @return
-         */
-        public Builder cc(EntityProcessRecord cc) {
-            this.cc = cc;
-            return this;
-        }
-
-
-        public ProcessRecord build() {
-            return new ProcessRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

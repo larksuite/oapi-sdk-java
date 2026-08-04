@@ -13,457 +13,500 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UatInstance {
+  /**
+   * 审批实例状态
+   *
+   * <p>示例值：Running
+   */
+  @SerializedName("instance_status")
+  private String instanceStatus;
+
+  /**
+   * 审批定义 Code
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("definition_code")
+  private String definitionCode;
+
+  /**
+   * 发起人 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("initiator")
+  private String initiator;
+
+  /**
+   * 发起人姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("initiator_name")
+  private String initiatorName;
+
+  /**
+   * 审批实例 Code
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 审批定义分组 ID
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("definition_group_id")
+  private String definitionGroupId;
+
+  /**
+   * 审批定义分组名称
+   *
+   * <p>示例值：考勤
+   */
+  @SerializedName("definition_group_name")
+  private String definitionGroupName;
+
+  /**
+   * 审批定义名称
+   *
+   * <p>示例值：加班
+   */
+  @SerializedName("definition_name")
+  private String definitionName;
+
+  /**
+   * 摘要
+   *
+   * <p>示例值：
+   */
+  @SerializedName("summaries")
+  private Pair[] summaries;
+
+  /**
+   * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
+   *
+   * <p>示例值：example_instance_id
+   */
+  @SerializedName("instance_external_id")
+  private String instanceExternalId;
+
+  /**
+   * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
+   *
+   * <p>示例值：https://www.xxxx.com
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getInstanceStatus() {
+    return this.instanceStatus;
+  }
+
+  public void setInstanceStatus(String instanceStatus) {
+    this.instanceStatus = instanceStatus;
+  }
+
+  public String getDefinitionCode() {
+    return this.definitionCode;
+  }
+
+  public void setDefinitionCode(String definitionCode) {
+    this.definitionCode = definitionCode;
+  }
+
+  public String getInitiator() {
+    return this.initiator;
+  }
+
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
+
+  public String getInitiatorName() {
+    return this.initiatorName;
+  }
+
+  public void setInitiatorName(String initiatorName) {
+    this.initiatorName = initiatorName;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getDefinitionGroupId() {
+    return this.definitionGroupId;
+  }
+
+  public void setDefinitionGroupId(String definitionGroupId) {
+    this.definitionGroupId = definitionGroupId;
+  }
+
+  public String getDefinitionGroupName() {
+    return this.definitionGroupName;
+  }
+
+  public void setDefinitionGroupName(String definitionGroupName) {
+    this.definitionGroupName = definitionGroupName;
+  }
+
+  public String getDefinitionName() {
+    return this.definitionName;
+  }
+
+  public void setDefinitionName(String definitionName) {
+    this.definitionName = definitionName;
+  }
+
+  public Pair[] getSummaries() {
+    return this.summaries;
+  }
+
+  public void setSummaries(Pair[] summaries) {
+    this.summaries = summaries;
+  }
+
+  public String getInstanceExternalId() {
+    return this.instanceExternalId;
+  }
+
+  public void setInstanceExternalId(String instanceExternalId) {
+    this.instanceExternalId = instanceExternalId;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public UatInstance() {}
+
+  public UatInstance(Builder builder) {
     /**
      * 审批实例状态
-     * <p> 示例值：Running
+     *
+     * <p>示例值：Running
      */
-    @SerializedName("instance_status")
-    private String instanceStatus;
+    this.instanceStatus = builder.instanceStatus;
     /**
      * 审批定义 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("definition_code")
-    private String definitionCode;
+    this.definitionCode = builder.definitionCode;
     /**
      * 发起人 ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("initiator")
-    private String initiator;
+    this.initiator = builder.initiator;
     /**
      * 发起人姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("initiator_name")
-    private String initiatorName;
+    this.initiatorName = builder.initiatorName;
     /**
      * 审批实例 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("instance_code")
-    private String instanceCode;
+    this.instanceCode = builder.instanceCode;
     /**
      * 审批定义分组 ID
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("definition_group_id")
-    private String definitionGroupId;
+    this.definitionGroupId = builder.definitionGroupId;
     /**
      * 审批定义分组名称
-     * <p> 示例值：考勤
+     *
+     * <p>示例值：考勤
      */
-    @SerializedName("definition_group_name")
-    private String definitionGroupName;
+    this.definitionGroupName = builder.definitionGroupName;
     /**
      * 审批定义名称
-     * <p> 示例值：加班
+     *
+     * <p>示例值：加班
      */
-    @SerializedName("definition_name")
-    private String definitionName;
+    this.definitionName = builder.definitionName;
     /**
      * 摘要
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("summaries")
-    private Pair[] summaries;
+    this.summaries = builder.summaries;
     /**
      * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
-     * <p> 示例值：example_instance_id
+     *
+     * <p>示例值：example_instance_id
      */
-    @SerializedName("instance_external_id")
-    private String instanceExternalId;
+    this.instanceExternalId = builder.instanceExternalId;
     /**
      * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
-     * <p> 示例值：https://www.xxxx.com
+     *
+     * <p>示例值：https://www.xxxx.com
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例状态
+     *
+     * <p>示例值：Running
+     */
+    private String instanceStatus;
+
+    /**
+     * 审批定义 Code
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String definitionCode;
+
+    /**
+     * 发起人 ID
+     *
+     * <p>示例值：123456
+     */
+    private String initiator;
+
+    /**
+     * 发起人姓名
+     *
+     * <p>示例值：张三
+     */
+    private String initiatorName;
+
+    /**
+     * 审批实例 Code
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String instanceCode;
+
+    /**
+     * 审批定义分组 ID
+     *
+     * <p>示例值：1234
+     */
+    private String definitionGroupId;
+
+    /**
+     * 审批定义分组名称
+     *
+     * <p>示例值：考勤
+     */
+    private String definitionGroupName;
+
+    /**
+     * 审批定义名称
+     *
+     * <p>示例值：加班
+     */
+    private String definitionName;
+
+    /**
+     * 摘要
+     *
+     * <p>示例值：
+     */
+    private Pair[] summaries;
+
+    /**
+     * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
+     *
+     * <p>示例值：example_instance_id
+     */
+    private String instanceExternalId;
+
+    /**
+     * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
+     *
+     * <p>示例值：https://www.xxxx.com
+     */
     private String link;
 
-    // builder 开始
-    public UatInstance() {
+    /**
+     * 审批实例状态
+     *
+     * <p>示例值：Running
+     *
+     * @param instanceStatus
+     * @return
+     */
+    public Builder instanceStatus(String instanceStatus) {
+      this.instanceStatus = instanceStatus;
+      return this;
     }
 
-    public UatInstance(Builder builder) {
-        /**
-         * 审批实例状态
-         * <p> 示例值：Running
-         */
-        this.instanceStatus = builder.instanceStatus;
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.definitionCode = builder.definitionCode;
-        /**
-         * 发起人 ID
-         * <p> 示例值：123456
-         */
-        this.initiator = builder.initiator;
-        /**
-         * 发起人姓名
-         * <p> 示例值：张三
-         */
-        this.initiatorName = builder.initiatorName;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 审批定义分组 ID
-         * <p> 示例值：1234
-         */
-        this.definitionGroupId = builder.definitionGroupId;
-        /**
-         * 审批定义分组名称
-         * <p> 示例值：考勤
-         */
-        this.definitionGroupName = builder.definitionGroupName;
-        /**
-         * 审批定义名称
-         * <p> 示例值：加班
-         */
-        this.definitionName = builder.definitionName;
-        /**
-         * 摘要
-         * <p> 示例值：
-         */
-        this.summaries = builder.summaries;
-        /**
-         * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
-         * <p> 示例值：example_instance_id
-         */
-        this.instanceExternalId = builder.instanceExternalId;
-        /**
-         * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
-         * <p> 示例值：https://www.xxxx.com
-         */
-        this.link = builder.link;
+    /**
+     * 审批实例状态
+     *
+     * <p>示例值：Running
+     *
+     * @param instanceStatus {@link
+     *     com.lark.oapi.service.approval.v4.enums.UatInstanceProcessStatusEnum}
+     * @return
+     */
+    public Builder instanceStatus(
+        com.lark.oapi.service.approval.v4.enums.UatInstanceProcessStatusEnum instanceStatus) {
+      this.instanceStatus = instanceStatus.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批定义 Code
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param definitionCode
+     * @return
+     */
+    public Builder definitionCode(String definitionCode) {
+      this.definitionCode = definitionCode;
+      return this;
     }
 
-    public String getInstanceStatus() {
-        return this.instanceStatus;
+    /**
+     * 发起人 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param initiator
+     * @return
+     */
+    public Builder initiator(String initiator) {
+      this.initiator = initiator;
+      return this;
     }
 
-    public void setInstanceStatus(String instanceStatus) {
-        this.instanceStatus = instanceStatus;
+    /**
+     * 发起人姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param initiatorName
+     * @return
+     */
+    public Builder initiatorName(String initiatorName) {
+      this.initiatorName = initiatorName;
+      return this;
     }
 
-    public String getDefinitionCode() {
-        return this.definitionCode;
+    /**
+     * 审批实例 Code
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public void setDefinitionCode(String definitionCode) {
-        this.definitionCode = definitionCode;
+    /**
+     * 审批定义分组 ID
+     *
+     * <p>示例值：1234
+     *
+     * @param definitionGroupId
+     * @return
+     */
+    public Builder definitionGroupId(String definitionGroupId) {
+      this.definitionGroupId = definitionGroupId;
+      return this;
     }
 
-    public String getInitiator() {
-        return this.initiator;
+    /**
+     * 审批定义分组名称
+     *
+     * <p>示例值：考勤
+     *
+     * @param definitionGroupName
+     * @return
+     */
+    public Builder definitionGroupName(String definitionGroupName) {
+      this.definitionGroupName = definitionGroupName;
+      return this;
     }
 
-    public void setInitiator(String initiator) {
-        this.initiator = initiator;
+    /**
+     * 审批定义名称
+     *
+     * <p>示例值：加班
+     *
+     * @param definitionName
+     * @return
+     */
+    public Builder definitionName(String definitionName) {
+      this.definitionName = definitionName;
+      return this;
     }
 
-    public String getInitiatorName() {
-        return this.initiatorName;
+    /**
+     * 摘要
+     *
+     * <p>示例值：
+     *
+     * @param summaries
+     * @return
+     */
+    public Builder summaries(Pair[] summaries) {
+      this.summaries = summaries;
+      return this;
     }
 
-    public void setInitiatorName(String initiatorName) {
-        this.initiatorName = initiatorName;
+    /**
+     * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
+     *
+     * <p>示例值：example_instance_id
+     *
+     * @param instanceExternalId
+     * @return
+     */
+    public Builder instanceExternalId(String instanceExternalId) {
+      this.instanceExternalId = instanceExternalId;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
+     *
+     * <p>示例值：https://www.xxxx.com
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    public UatInstance build() {
+      return new UatInstance(this);
     }
+  }
 
-    public String getDefinitionGroupId() {
-        return this.definitionGroupId;
-    }
-
-    public void setDefinitionGroupId(String definitionGroupId) {
-        this.definitionGroupId = definitionGroupId;
-    }
-
-    public String getDefinitionGroupName() {
-        return this.definitionGroupName;
-    }
-
-    public void setDefinitionGroupName(String definitionGroupName) {
-        this.definitionGroupName = definitionGroupName;
-    }
-
-    public String getDefinitionName() {
-        return this.definitionName;
-    }
-
-    public void setDefinitionName(String definitionName) {
-        this.definitionName = definitionName;
-    }
-
-    public Pair[] getSummaries() {
-        return this.summaries;
-    }
-
-    public void setSummaries(Pair[] summaries) {
-        this.summaries = summaries;
-    }
-
-    public String getInstanceExternalId() {
-        return this.instanceExternalId;
-    }
-
-    public void setInstanceExternalId(String instanceExternalId) {
-        this.instanceExternalId = instanceExternalId;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例状态
-         * <p> 示例值：Running
-         */
-        private String instanceStatus;
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String definitionCode;
-        /**
-         * 发起人 ID
-         * <p> 示例值：123456
-         */
-        private String initiator;
-        /**
-         * 发起人姓名
-         * <p> 示例值：张三
-         */
-        private String initiatorName;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String instanceCode;
-        /**
-         * 审批定义分组 ID
-         * <p> 示例值：1234
-         */
-        private String definitionGroupId;
-        /**
-         * 审批定义分组名称
-         * <p> 示例值：考勤
-         */
-        private String definitionGroupName;
-        /**
-         * 审批定义名称
-         * <p> 示例值：加班
-         */
-        private String definitionName;
-        /**
-         * 摘要
-         * <p> 示例值：
-         */
-        private Pair[] summaries;
-        /**
-         * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
-         * <p> 示例值：example_instance_id
-         */
-        private String instanceExternalId;
-        /**
-         * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
-         * <p> 示例值：https://www.xxxx.com
-         */
-        private String link;
-
-        /**
-         * 审批实例状态
-         * <p> 示例值：Running
-         *
-         * @param instanceStatus
-         * @return
-         */
-        public Builder instanceStatus(String instanceStatus) {
-            this.instanceStatus = instanceStatus;
-            return this;
-        }
-
-        /**
-         * 审批实例状态
-         * <p> 示例值：Running
-         *
-         * @param instanceStatus {@link com.lark.oapi.service.approval.v4.enums.UatInstanceProcessStatusEnum}
-         * @return
-         */
-        public Builder instanceStatus(com.lark.oapi.service.approval.v4.enums.UatInstanceProcessStatusEnum instanceStatus) {
-            this.instanceStatus = instanceStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param definitionCode
-         * @return
-         */
-        public Builder definitionCode(String definitionCode) {
-            this.definitionCode = definitionCode;
-            return this;
-        }
-
-
-        /**
-         * 发起人 ID
-         * <p> 示例值：123456
-         *
-         * @param initiator
-         * @return
-         */
-        public Builder initiator(String initiator) {
-            this.initiator = initiator;
-            return this;
-        }
-
-
-        /**
-         * 发起人姓名
-         * <p> 示例值：张三
-         *
-         * @param initiatorName
-         * @return
-         */
-        public Builder initiatorName(String initiatorName) {
-            this.initiatorName = initiatorName;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 审批定义分组 ID
-         * <p> 示例值：1234
-         *
-         * @param definitionGroupId
-         * @return
-         */
-        public Builder definitionGroupId(String definitionGroupId) {
-            this.definitionGroupId = definitionGroupId;
-            return this;
-        }
-
-
-        /**
-         * 审批定义分组名称
-         * <p> 示例值：考勤
-         *
-         * @param definitionGroupName
-         * @return
-         */
-        public Builder definitionGroupName(String definitionGroupName) {
-            this.definitionGroupName = definitionGroupName;
-            return this;
-        }
-
-
-        /**
-         * 审批定义名称
-         * <p> 示例值：加班
-         *
-         * @param definitionName
-         * @return
-         */
-        public Builder definitionName(String definitionName) {
-            this.definitionName = definitionName;
-            return this;
-        }
-
-
-        /**
-         * 摘要
-         * <p> 示例值：
-         *
-         * @param summaries
-         * @return
-         */
-        public Builder summaries(Pair[] summaries) {
-            this.summaries = summaries;
-            return this;
-        }
-
-
-        /**
-         * 三方审批实例 ID，仅第三方审批实例存在该字段，需要在当前租户、当前 APP 内唯一
-         * <p> 示例值：example_instance_id
-         *
-         * @param instanceExternalId
-         * @return
-         */
-        public Builder instanceExternalId(String instanceExternalId) {
-            this.instanceExternalId = instanceExternalId;
-            return this;
-        }
-
-
-        /**
-         * 三方审批跳转链接，用于跳转回三方审批系统查看单据详情
-         * <p> 示例值：https://www.xxxx.com
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public UatInstance build() {
-            return new UatInstance(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

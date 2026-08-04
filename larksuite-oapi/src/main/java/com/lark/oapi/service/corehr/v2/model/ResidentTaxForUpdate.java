@@ -13,260 +13,255 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResidentTaxForUpdate {
+  /**
+   * 国家 /
+   * 地区ID，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tax_country_region")
+  private String taxCountryRegion;
+
+  /**
+   * 居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+   * ;- object_api_name = resident_tax;- custom_api_name = resident_status
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resident_status")
+  private String residentStatus;
+
+  /**
+   * 纳税地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tax_address")
+  private AddressForUpdate taxAddress;
+
+  /** 示例值：文本内容，对纳税身份的补充说明信息 */
+  @SerializedName("resident_status_specification")
+  private String residentStatusSpecification;
+
+  /** 示例值： */
+  @SerializedName("year_resident_tax")
+  private String yearResidentTax;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  public String getTaxCountryRegion() {
+    return this.taxCountryRegion;
+  }
+
+  public void setTaxCountryRegion(String taxCountryRegion) {
+    this.taxCountryRegion = taxCountryRegion;
+  }
+
+  public String getResidentStatus() {
+    return this.residentStatus;
+  }
+
+  public void setResidentStatus(String residentStatus) {
+    this.residentStatus = residentStatus;
+  }
+
+  public AddressForUpdate getTaxAddress() {
+    return this.taxAddress;
+  }
+
+  public void setTaxAddress(AddressForUpdate taxAddress) {
+    this.taxAddress = taxAddress;
+  }
+
+  public String getResidentStatusSpecification() {
+    return this.residentStatusSpecification;
+  }
+
+  public void setResidentStatusSpecification(String residentStatusSpecification) {
+    this.residentStatusSpecification = residentStatusSpecification;
+  }
+
+  public String getYearResidentTax() {
+    return this.yearResidentTax;
+  }
+
+  public void setYearResidentTax(String yearResidentTax) {
+    this.yearResidentTax = yearResidentTax;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public ResidentTaxForUpdate() {}
+
+  public ResidentTaxForUpdate(Builder builder) {
     /**
-     * 国家 / 地区ID
-     * <p> 示例值：6862995757234914824
+     * 国家 /
+     * 地区ID，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("tax_country_region")
-    private String taxCountryRegion;
+    this.taxCountryRegion = builder.taxCountryRegion;
     /**
-     * 居民身份
-     * <p> 示例值：tax_residence
+     * 居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = resident_tax;- custom_api_name = resident_status
+     *
+     * <p>示例值：
      */
-    @SerializedName("resident_status")
-    private String residentStatus;
+    this.residentStatus = builder.residentStatus;
     /**
      * 纳税地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tax_address")
-    private AddressForUpdate taxAddress;
-    /**
-     * 居民纳税身份说明
-     * <p> 示例值：xxx
-     */
-    @SerializedName("resident_status_specification")
-    private String residentStatusSpecification;
-    /**
-     * 年度
-     * <p> 示例值：2006-01-01
-     */
-    @SerializedName("year_resident_tax")
-    private String yearResidentTax;
+    this.taxAddress = builder.taxAddress;
+    /** 示例值：文本内容，对纳税身份的补充说明信息 */
+    this.residentStatusSpecification = builder.residentStatusSpecification;
+    /** 示例值： */
+    this.yearResidentTax = builder.yearResidentTax;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 国家 /
+     * 地区ID，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：
+     */
+    private String taxCountryRegion;
+
+    /**
+     * 居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = resident_tax;- custom_api_name = resident_status
+     *
+     * <p>示例值：
+     */
+    private String residentStatus;
+
+    /**
+     * 纳税地址
+     *
+     * <p>示例值：
+     */
+    private AddressForUpdate taxAddress;
+
+    /** 示例值：文本内容，对纳税身份的补充说明信息 */
+    private String residentStatusSpecification;
+
+    /** 示例值： */
+    private String yearResidentTax;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] customFields;
 
-    // builder 开始
-    public ResidentTaxForUpdate() {
+    /**
+     * 国家 /
+     * 地区ID，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：
+     *
+     * @param taxCountryRegion
+     * @return
+     */
+    public Builder taxCountryRegion(String taxCountryRegion) {
+      this.taxCountryRegion = taxCountryRegion;
+      return this;
     }
 
-    public ResidentTaxForUpdate(Builder builder) {
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.taxCountryRegion = builder.taxCountryRegion;
-        /**
-         * 居民身份
-         * <p> 示例值：tax_residence
-         */
-        this.residentStatus = builder.residentStatus;
-        /**
-         * 纳税地址
-         * <p> 示例值：
-         */
-        this.taxAddress = builder.taxAddress;
-        /**
-         * 居民纳税身份说明
-         * <p> 示例值：xxx
-         */
-        this.residentStatusSpecification = builder.residentStatusSpecification;
-        /**
-         * 年度
-         * <p> 示例值：2006-01-01
-         */
-        this.yearResidentTax = builder.yearResidentTax;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 居民身份，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = resident_tax;- custom_api_name = resident_status
+     *
+     * <p>示例值：
+     *
+     * @param residentStatus
+     * @return
+     */
+    public Builder residentStatus(String residentStatus) {
+      this.residentStatus = residentStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 纳税地址
+     *
+     * <p>示例值：
+     *
+     * @param taxAddress
+     * @return
+     */
+    public Builder taxAddress(AddressForUpdate taxAddress) {
+      this.taxAddress = taxAddress;
+      return this;
     }
 
-    public String getTaxCountryRegion() {
-        return this.taxCountryRegion;
+    /**
+     * 示例值：文本内容，对纳税身份的补充说明信息
+     *
+     * @param residentStatusSpecification
+     * @return
+     */
+    public Builder residentStatusSpecification(String residentStatusSpecification) {
+      this.residentStatusSpecification = residentStatusSpecification;
+      return this;
     }
 
-    public void setTaxCountryRegion(String taxCountryRegion) {
-        this.taxCountryRegion = taxCountryRegion;
+    /**
+     * 示例值：
+     *
+     * @param yearResidentTax
+     * @return
+     */
+    public Builder yearResidentTax(String yearResidentTax) {
+      this.yearResidentTax = yearResidentTax;
+      return this;
     }
 
-    public String getResidentStatus() {
-        return this.residentStatus;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setResidentStatus(String residentStatus) {
-        this.residentStatus = residentStatus;
+    public ResidentTaxForUpdate build() {
+      return new ResidentTaxForUpdate(this);
     }
+  }
 
-    public AddressForUpdate getTaxAddress() {
-        return this.taxAddress;
-    }
-
-    public void setTaxAddress(AddressForUpdate taxAddress) {
-        this.taxAddress = taxAddress;
-    }
-
-    public String getResidentStatusSpecification() {
-        return this.residentStatusSpecification;
-    }
-
-    public void setResidentStatusSpecification(String residentStatusSpecification) {
-        this.residentStatusSpecification = residentStatusSpecification;
-    }
-
-    public String getYearResidentTax() {
-        return this.yearResidentTax;
-    }
-
-    public void setYearResidentTax(String yearResidentTax) {
-        this.yearResidentTax = yearResidentTax;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String taxCountryRegion;
-        /**
-         * 居民身份
-         * <p> 示例值：tax_residence
-         */
-        private String residentStatus;
-        /**
-         * 纳税地址
-         * <p> 示例值：
-         */
-        private AddressForUpdate taxAddress;
-        /**
-         * 居民纳税身份说明
-         * <p> 示例值：xxx
-         */
-        private String residentStatusSpecification;
-        /**
-         * 年度
-         * <p> 示例值：2006-01-01
-         */
-        private String yearResidentTax;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-
-        /**
-         * 国家 / 地区ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param taxCountryRegion
-         * @return
-         */
-        public Builder taxCountryRegion(String taxCountryRegion) {
-            this.taxCountryRegion = taxCountryRegion;
-            return this;
-        }
-
-
-        /**
-         * 居民身份
-         * <p> 示例值：tax_residence
-         *
-         * @param residentStatus
-         * @return
-         */
-        public Builder residentStatus(String residentStatus) {
-            this.residentStatus = residentStatus;
-            return this;
-        }
-
-
-        /**
-         * 纳税地址
-         * <p> 示例值：
-         *
-         * @param taxAddress
-         * @return
-         */
-        public Builder taxAddress(AddressForUpdate taxAddress) {
-            this.taxAddress = taxAddress;
-            return this;
-        }
-
-
-        /**
-         * 居民纳税身份说明
-         * <p> 示例值：xxx
-         *
-         * @param residentStatusSpecification
-         * @return
-         */
-        public Builder residentStatusSpecification(String residentStatusSpecification) {
-            this.residentStatusSpecification = residentStatusSpecification;
-            return this;
-        }
-
-
-        /**
-         * 年度
-         * <p> 示例值：2006-01-01
-         *
-         * @param yearResidentTax
-         * @return
-         */
-        public Builder yearResidentTax(String yearResidentTax) {
-            this.yearResidentTax = yearResidentTax;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public ResidentTaxForUpdate build() {
-            return new ResidentTaxForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

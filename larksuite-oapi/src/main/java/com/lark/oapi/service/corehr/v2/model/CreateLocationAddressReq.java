@@ -13,163 +13,176 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class CreateLocationAddressReq {
+  /**
+   * 根据 client_token 是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("need_custom_latin_address")
+  private Boolean needCustomLatinAddress;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public Boolean getNeedCustomLatinAddress() {
+    return this.needCustomLatinAddress;
+  }
+
+  public void setNeedCustomLatinAddress(Boolean needCustomLatinAddress) {
+    this.needCustomLatinAddress = needCustomLatinAddress;
+  }
+
+  /**
+   * 地点 ID。ID 获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点
+   * ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("location_id")
+  private String locationId;
+
+  public String getLocationId() {
+    return this.locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  @Body private LocationAddressCreate body;
+
+  public LocationAddressCreate getLocationAddressCreate() {
+    return this.body;
+  }
+
+  public void setLocationAddressCreate(LocationAddressCreate body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateLocationAddressReq() {}
+
+  public CreateLocationAddressReq(Builder builder) {
     /**
      * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("need_custom_latin_address")
-    private Boolean needCustomLatinAddress;
+    this.needCustomLatinAddress = builder.needCustomLatinAddress;
     /**
-     * 地点 ID
-     * <p> 示例值：1616161616
+     * 地点 ID。ID 获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点
+     * ID
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("location_id")
-    private String locationId;
-    @Body
+    this.locationId = builder.locationId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
+    private Boolean
+        needCustomLatinAddress; // 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+
+    /**
+     * 根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
+     *
+     * <p>示例值：true
+     *
+     * @param needCustomLatinAddress
+     * @return
+     */
+    public Builder needCustomLatinAddress(Boolean needCustomLatinAddress) {
+      this.needCustomLatinAddress = needCustomLatinAddress;
+      return this;
+    }
+
+    private String locationId; // 地点 ID。ID 获取方式：;-
+
+    // 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点 ID
+
+    /**
+     * 地点 ID。ID 获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点
+     * ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param locationId
+     * @return
+     */
+    public Builder locationId(String locationId) {
+      this.locationId = locationId;
+      return this;
+    }
+
     private LocationAddressCreate body;
 
-    // builder 开始
-    public CreateLocationAddressReq() {
-    }
-
-    public CreateLocationAddressReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
-         * <p> 示例值：true
-         */
-        this.needCustomLatinAddress = builder.needCustomLatinAddress;
-        /**
-         * 地点 ID
-         * <p> 示例值：1616161616
-         */
-        this.locationId = builder.locationId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public Boolean getNeedCustomLatinAddress() {
-        return this.needCustomLatinAddress;
-    }
-
-    public void setNeedCustomLatinAddress(Boolean needCustomLatinAddress) {
-        this.needCustomLatinAddress = needCustomLatinAddress;
-    }
-
-    public String getLocationId() {
-        return this.locationId;
-    }
-
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
-
     public LocationAddressCreate getLocationAddressCreate() {
-        return this.body;
+      return this.body;
     }
 
-    public void setLocationAddressCreate(LocationAddressCreate body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder locationAddressCreate(LocationAddressCreate body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private Boolean needCustomLatinAddress; // 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
-        private String locationId; // 地点 ID
-        private LocationAddressCreate body;
-
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 是否需要自定义传入国际化拉丁语系地址。如果传入true能够自定义传入address_line_xx的值，否则address_line_xx跟随local_address_line_xx的值
-         * <p> 示例值：true
-         *
-         * @param needCustomLatinAddress
-         * @return
-         */
-        public Builder needCustomLatinAddress(Boolean needCustomLatinAddress) {
-            this.needCustomLatinAddress = needCustomLatinAddress;
-            return this;
-        }
-
-        /**
-         * 地点 ID
-         * <p> 示例值：1616161616
-         *
-         * @param locationId
-         * @return
-         */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
-
-        public LocationAddressCreate getLocationAddressCreate() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder locationAddressCreate(LocationAddressCreate body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateLocationAddressReq build() {
-            return new CreateLocationAddressReq(this);
-        }
+    public CreateLocationAddressReq build() {
+      return new CreateLocationAddressReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

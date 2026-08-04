@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 配额作用范围
- */
+/** 配额作用范围 */
 public enum QuotaConfigTypeEnum {
-    QUOTACONFIGTYPEDOC(1), // Doc，仅校验云文档容量
-    QUOTACONFIGTYPEALL(2), // All，对全部业务生效
-    ;
-    private Integer value;
+  QUOTACONFIGTYPEDOC(1), // Doc，仅校验云文档容量
+  QUOTACONFIGTYPEALL(2), // All，对全部业务生效
+  ;
+  private Integer value;
 
-    QuotaConfigTypeEnum(Integer value) {
-        this.value = value;
-    }
+  QuotaConfigTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 操作类型
- */
+/** 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。 */
 public enum StandardScopeExpressionOperatorTypeEnum {
-    VALUE_1(1), // 包含
-    VALUE_2(2), // 不包含
-    VALUE_3(3), // 等于
-    ;
-    private Integer value;
+  VALUE_1(1), // 包含
+  VALUE_2(2), // 不包含
+  VALUE_3(3), // 等于
+  ;
+  private Integer value;
 
-    StandardScopeExpressionOperatorTypeEnum(Integer value) {
-        this.value = value;
-    }
+  StandardScopeExpressionOperatorTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

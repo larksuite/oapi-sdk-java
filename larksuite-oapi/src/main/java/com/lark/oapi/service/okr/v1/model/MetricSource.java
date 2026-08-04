@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MetricSource {
+  /**
+   * 指标库 id
+   *
+   * <p>示例值：7139040982003302420
+   */
+  @SerializedName("metric_source_id")
+  private String metricSourceId;
+
+  /**
+   * 指标库名称
+   *
+   * <p>示例值：指标库A
+   */
+  @SerializedName("metric_source_name")
+  private String metricSourceName;
+
+  /**
+   * 指标名称
+   *
+   * <p>示例值：指标A
+   */
+  @SerializedName("metric_name")
+  private String metricName;
+
+  /**
+   * 指标单位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("metric_unit")
+  private MetricUnit metricUnit;
+
+  public String getMetricSourceId() {
+    return this.metricSourceId;
+  }
+
+  public void setMetricSourceId(String metricSourceId) {
+    this.metricSourceId = metricSourceId;
+  }
+
+  public String getMetricSourceName() {
+    return this.metricSourceName;
+  }
+
+  public void setMetricSourceName(String metricSourceName) {
+    this.metricSourceName = metricSourceName;
+  }
+
+  public String getMetricName() {
+    return this.metricName;
+  }
+
+  public void setMetricName(String metricName) {
+    this.metricName = metricName;
+  }
+
+  public MetricUnit getMetricUnit() {
+    return this.metricUnit;
+  }
+
+  public void setMetricUnit(MetricUnit metricUnit) {
+    this.metricUnit = metricUnit;
+  }
+
+  // builder 开始
+  public MetricSource() {}
+
+  public MetricSource(Builder builder) {
     /**
      * 指标库 id
-     * <p> 示例值：7139040982003302420
+     *
+     * <p>示例值：7139040982003302420
      */
-    @SerializedName("metric_source_id")
-    private String metricSourceId;
+    this.metricSourceId = builder.metricSourceId;
     /**
      * 指标库名称
-     * <p> 示例值：指标库A
+     *
+     * <p>示例值：指标库A
      */
-    @SerializedName("metric_source_name")
-    private String metricSourceName;
+    this.metricSourceName = builder.metricSourceName;
     /**
      * 指标名称
-     * <p> 示例值：指标A
+     *
+     * <p>示例值：指标A
      */
-    @SerializedName("metric_name")
-    private String metricName;
+    this.metricName = builder.metricName;
     /**
      * 指标单位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("metric_unit")
+    this.metricUnit = builder.metricUnit;
+  }
+
+  public static class Builder {
+    /**
+     * 指标库 id
+     *
+     * <p>示例值：7139040982003302420
+     */
+    private String metricSourceId;
+
+    /**
+     * 指标库名称
+     *
+     * <p>示例值：指标库A
+     */
+    private String metricSourceName;
+
+    /**
+     * 指标名称
+     *
+     * <p>示例值：指标A
+     */
+    private String metricName;
+
+    /**
+     * 指标单位
+     *
+     * <p>示例值：
+     */
     private MetricUnit metricUnit;
 
-    // builder 开始
-    public MetricSource() {
+    /**
+     * 指标库 id
+     *
+     * <p>示例值：7139040982003302420
+     *
+     * @param metricSourceId
+     * @return
+     */
+    public Builder metricSourceId(String metricSourceId) {
+      this.metricSourceId = metricSourceId;
+      return this;
     }
 
-    public MetricSource(Builder builder) {
-        /**
-         * 指标库 id
-         * <p> 示例值：7139040982003302420
-         */
-        this.metricSourceId = builder.metricSourceId;
-        /**
-         * 指标库名称
-         * <p> 示例值：指标库A
-         */
-        this.metricSourceName = builder.metricSourceName;
-        /**
-         * 指标名称
-         * <p> 示例值：指标A
-         */
-        this.metricName = builder.metricName;
-        /**
-         * 指标单位
-         * <p> 示例值：
-         */
-        this.metricUnit = builder.metricUnit;
+    /**
+     * 指标库名称
+     *
+     * <p>示例值：指标库A
+     *
+     * @param metricSourceName
+     * @return
+     */
+    public Builder metricSourceName(String metricSourceName) {
+      this.metricSourceName = metricSourceName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指标名称
+     *
+     * <p>示例值：指标A
+     *
+     * @param metricName
+     * @return
+     */
+    public Builder metricName(String metricName) {
+      this.metricName = metricName;
+      return this;
     }
 
-    public String getMetricSourceId() {
-        return this.metricSourceId;
+    /**
+     * 指标单位
+     *
+     * <p>示例值：
+     *
+     * @param metricUnit
+     * @return
+     */
+    public Builder metricUnit(MetricUnit metricUnit) {
+      this.metricUnit = metricUnit;
+      return this;
     }
 
-    public void setMetricSourceId(String metricSourceId) {
-        this.metricSourceId = metricSourceId;
+    public MetricSource build() {
+      return new MetricSource(this);
     }
+  }
 
-    public String getMetricSourceName() {
-        return this.metricSourceName;
-    }
-
-    public void setMetricSourceName(String metricSourceName) {
-        this.metricSourceName = metricSourceName;
-    }
-
-    public String getMetricName() {
-        return this.metricName;
-    }
-
-    public void setMetricName(String metricName) {
-        this.metricName = metricName;
-    }
-
-    public MetricUnit getMetricUnit() {
-        return this.metricUnit;
-    }
-
-    public void setMetricUnit(MetricUnit metricUnit) {
-        this.metricUnit = metricUnit;
-    }
-
-    public static class Builder {
-        /**
-         * 指标库 id
-         * <p> 示例值：7139040982003302420
-         */
-        private String metricSourceId;
-        /**
-         * 指标库名称
-         * <p> 示例值：指标库A
-         */
-        private String metricSourceName;
-        /**
-         * 指标名称
-         * <p> 示例值：指标A
-         */
-        private String metricName;
-        /**
-         * 指标单位
-         * <p> 示例值：
-         */
-        private MetricUnit metricUnit;
-
-        /**
-         * 指标库 id
-         * <p> 示例值：7139040982003302420
-         *
-         * @param metricSourceId
-         * @return
-         */
-        public Builder metricSourceId(String metricSourceId) {
-            this.metricSourceId = metricSourceId;
-            return this;
-        }
-
-
-        /**
-         * 指标库名称
-         * <p> 示例值：指标库A
-         *
-         * @param metricSourceName
-         * @return
-         */
-        public Builder metricSourceName(String metricSourceName) {
-            this.metricSourceName = metricSourceName;
-            return this;
-        }
-
-
-        /**
-         * 指标名称
-         * <p> 示例值：指标A
-         *
-         * @param metricName
-         * @return
-         */
-        public Builder metricName(String metricName) {
-            this.metricName = metricName;
-            return this;
-        }
-
-
-        /**
-         * 指标单位
-         * <p> 示例值：
-         *
-         * @param metricUnit
-         * @return
-         */
-        public Builder metricUnit(MetricUnit metricUnit) {
-            this.metricUnit = metricUnit;
-            return this;
-        }
-
-
-        public MetricSource build() {
-            return new MetricSource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

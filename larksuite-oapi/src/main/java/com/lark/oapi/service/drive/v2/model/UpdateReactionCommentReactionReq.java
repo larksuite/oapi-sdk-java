@@ -13,130 +13,131 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v2.enums.*;
 
 public class UpdateReactionCommentReactionReq {
+  /**
+   * 文件类型，用于区分不同类型的云文档，可选值需参考[开放平台文件类型枚举](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  /**
+   * 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
+   *
+   * <p>示例值：ppHV2Xepq2BQk3K79FTB
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  @Body private UpdateReactionCommentReactionReqBody body;
+
+  public UpdateReactionCommentReactionReqBody getUpdateReactionCommentReactionReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateReactionCommentReactionReqBody(UpdateReactionCommentReactionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateReactionCommentReactionReq() {}
+
+  public UpdateReactionCommentReactionReq(Builder builder) {
     /**
-     * 文件类型，用于区分不同类型的云文档，可选值需参考开放平台文件类型枚举规范。
-     * <p> 示例值：docx
+     * 文件类型，用于区分不同类型的云文档，可选值需参考[开放平台文件类型枚举](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
-     * <p> 示例值：ppHV2Xepq2BQk3K79FTB
+     *
+     * <p>示例值：ppHV2Xepq2BQk3K79FTB
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-    @Body
+    this.fileToken = builder.fileToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        fileType; // 文件类型，用于区分不同类型的云文档，可选值需参考[开放平台文件类型枚举](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+
+    /**
+     * 文件类型，用于区分不同类型的云文档，可选值需参考[开放平台文件类型枚举](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
+    }
+
+    private String fileToken; // 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
+
+    /**
+     * 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
+     *
+     * <p>示例值：ppHV2Xepq2BQk3K79FTB
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
+    }
+
     private UpdateReactionCommentReactionReqBody body;
 
-    // builder 开始
-    public UpdateReactionCommentReactionReq() {
-    }
-
-    public UpdateReactionCommentReactionReq(Builder builder) {
-        /**
-         * 文件类型，用于区分不同类型的云文档，可选值需参考开放平台文件类型枚举规范。
-         * <p> 示例值：docx
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
-         * <p> 示例值：ppHV2Xepq2BQk3K79FTB
-         */
-        this.fileToken = builder.fileToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileType() {
-        return this.fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
     public UpdateReactionCommentReactionReqBody getUpdateReactionCommentReactionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateReactionCommentReactionReqBody(UpdateReactionCommentReactionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateReactionCommentReactionReqBody(UpdateReactionCommentReactionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String fileType; // 文件类型，用于区分不同类型的云文档，可选值需参考开放平台文件类型枚举规范。
-        private String fileToken; // 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
-        private UpdateReactionCommentReactionReqBody body;
-
-        /**
-         * 文件类型，用于区分不同类型的云文档，可选值需参考开放平台文件类型枚举规范。
-         * <p> 示例值：docx
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。
-         * <p> 示例值：ppHV2Xepq2BQk3K79FTB
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-        public UpdateReactionCommentReactionReqBody getUpdateReactionCommentReactionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateReactionCommentReactionReqBody(UpdateReactionCommentReactionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateReactionCommentReactionReq build() {
-            return new UpdateReactionCommentReactionReq(this);
-        }
+    public UpdateReactionCommentReactionReq build() {
+      return new UpdateReactionCommentReactionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

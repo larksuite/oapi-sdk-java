@@ -13,31 +13,29 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 任务状态
- */
+/** 任务状态 */
 public enum ApproverInfoApproverStatusEnum {
-    SKIPPED(-2), // 跳过
-    INITIATED(-1), // 发起
-    NOT_STARTED(0), // 未开始
-    IN_PROGRESS(1), // 进行中
-    REJECTED(2), // 已拒绝
-    APPROVED(3), // 已通过
-    CANCELLED(4), // 被撤回
-    CC(5), // 抄送
-    FORM_SUBMITTED(6), // 表单提交
-    FAILED(12), // 失败
-    ROLLED_BACK(14), // 已回退
-    REVOKE(16), // 发起撤销
-    INTERVENED(18), // 已干预
-    ;
-    private Integer value;
+  SKIPPED(-2), // 跳过
+  INITIATED(-1), // 发起
+  NOT_STARTED(0), // 未开始
+  IN_PROGRESS(1), // 进行中
+  REJECTED(2), // 已拒绝
+  APPROVED(3), // 已通过
+  CANCELLED(4), // 被撤回
+  CC(5), // 抄送
+  FORM_SUBMITTED(6), // 表单提交
+  FAILED(12), // 失败
+  ROLLED_BACK(14), // 已回退
+  REVOKE(16), // 发起撤销
+  INTERVENED(18), // 已干预
+  ;
+  private Integer value;
 
-    ApproverInfoApproverStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ApproverInfoApproverStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

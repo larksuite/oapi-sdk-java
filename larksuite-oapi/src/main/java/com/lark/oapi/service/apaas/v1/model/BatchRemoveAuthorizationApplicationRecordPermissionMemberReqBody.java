@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody {
+  /**
+   * 需要删除的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody() {}
+
+  public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody(Builder builder) {
     /**
-     * 需要删除的用户 ID 列表
-     * <p> 示例值：
+     * 需要删除的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 需要删除的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody() {
+    /**
+     * 需要删除的用户 ID 列表，使用飞书 aPaaS 的用户 ID
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody(Builder builder) {
-        /**
-         * 需要删除的用户 ID 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody build() {
+      return new BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 需要删除的用户 ID 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 需要删除的用户 ID 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody build() {
-            return new BatchRemoveAuthorizationApplicationRecordPermissionMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

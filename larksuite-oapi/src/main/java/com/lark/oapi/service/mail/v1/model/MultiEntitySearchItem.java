@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MultiEntitySearchItem {
+  /**
+   * 标识当前的实体是哪种（例如：user, chat 等）
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 唯一标识 ID
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 邮箱地址
+   *
+   * <p>示例值：zhangsan@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 备注名
+   *
+   * <p>示例值：备注名
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 群成员数量
+   *
+   * <p>示例值：128
+   */
+  @SerializedName("member_count")
+  private Integer memberCount;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_2d131f4c3a28b0
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 部门信息
+   *
+   * <p>示例值：飞书研发团队
+   */
+  @SerializedName("department")
+  private String department;
+
+  /**
+   * 群聊或会话 ID
+   *
+   * <p>示例值：oc_40ed357053e34b9
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 标签
+   *
+   * <p>示例值：超大群/部门群/邮箱联系人/邮件组/外部
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public Integer getMemberCount() {
+    return this.memberCount;
+  }
+
+  public void setMemberCount(Integer memberCount) {
+    this.memberCount = memberCount;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  // builder 开始
+  public MultiEntitySearchItem() {}
+
+  public MultiEntitySearchItem(Builder builder) {
     /**
      * 标识当前的实体是哪种（例如：user, chat 等）
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 唯一标识 ID
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 邮箱地址
-     * <p> 示例值：zhangsan@bytedance.com
+     *
+     * <p>示例值：zhangsan@bytedance.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 备注名
-     * <p> 示例值：备注名
+     *
+     * <p>示例值：备注名
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
      * 群成员数量
-     * <p> 示例值：128
+     *
+     * <p>示例值：128
      */
-    @SerializedName("member_count")
-    private Integer memberCount;
+    this.memberCount = builder.memberCount;
     /**
      * 用户 ID
-     * <p> 示例值：ou_2d131f4c3a28b0
+     *
+     * <p>示例值：ou_2d131f4c3a28b0
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 部门信息
-     * <p> 示例值：飞书研发团队
+     *
+     * <p>示例值：飞书研发团队
      */
-    @SerializedName("department")
-    private String department;
+    this.department = builder.department;
     /**
      * 群聊或会话 ID
-     * <p> 示例值：oc_40ed357053e34b9
+     *
+     * <p>示例值：oc_40ed357053e34b9
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 标签
-     * <p> 示例值：超大群/部门群/邮箱联系人/邮件组/外部
+     *
+     * <p>示例值：超大群/部门群/邮箱联系人/邮件组/外部
      */
-    @SerializedName("tag")
+    this.tag = builder.tag;
+  }
+
+  public static class Builder {
+    /**
+     * 标识当前的实体是哪种（例如：user, chat 等）
+     *
+     * <p>示例值：user
+     */
+    private String type;
+
+    /**
+     * 唯一标识 ID
+     *
+     * <p>示例值：6911188411932033028
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：zhangsan@bytedance.com
+     */
+    private String email;
+
+    /**
+     * 备注名
+     *
+     * <p>示例值：备注名
+     */
+    private String displayName;
+
+    /**
+     * 群成员数量
+     *
+     * <p>示例值：128
+     */
+    private Integer memberCount;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_2d131f4c3a28b0
+     */
+    private String userId;
+
+    /**
+     * 部门信息
+     *
+     * <p>示例值：飞书研发团队
+     */
+    private String department;
+
+    /**
+     * 群聊或会话 ID
+     *
+     * <p>示例值：oc_40ed357053e34b9
+     */
+    private String chatId;
+
+    /**
+     * 标签
+     *
+     * <p>示例值：超大群/部门群/邮箱联系人/邮件组/外部
+     */
     private String tag;
 
-    // builder 开始
-    public MultiEntitySearchItem() {
+    /**
+     * 标识当前的实体是哪种（例如：user, chat 等）
+     *
+     * <p>示例值：user
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public MultiEntitySearchItem(Builder builder) {
-        /**
-         * 标识当前的实体是哪种（例如：user, chat 等）
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 唯一标识 ID
-         * <p> 示例值：6911188411932033028
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 邮箱地址
-         * <p> 示例值：zhangsan@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * 备注名
-         * <p> 示例值：备注名
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 群成员数量
-         * <p> 示例值：128
-         */
-        this.memberCount = builder.memberCount;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_2d131f4c3a28b0
-         */
-        this.userId = builder.userId;
-        /**
-         * 部门信息
-         * <p> 示例值：飞书研发团队
-         */
-        this.department = builder.department;
-        /**
-         * 群聊或会话 ID
-         * <p> 示例值：oc_40ed357053e34b9
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 标签
-         * <p> 示例值：超大群/部门群/邮箱联系人/邮件组/外部
-         */
-        this.tag = builder.tag;
+    /**
+     * 唯一标识 ID
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 名称
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：zhangsan@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 备注名
+     *
+     * <p>示例值：备注名
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 群成员数量
+     *
+     * <p>示例值：128
+     *
+     * @param memberCount
+     * @return
+     */
+    public Builder memberCount(Integer memberCount) {
+      this.memberCount = memberCount;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_2d131f4c3a28b0
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 部门信息
+     *
+     * <p>示例值：飞书研发团队
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(String department) {
+      this.department = department;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 群聊或会话 ID
+     *
+     * <p>示例值：oc_40ed357053e34b9
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 标签
+     *
+     * <p>示例值：超大群/部门群/邮箱联系人/邮件组/外部
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public MultiEntitySearchItem build() {
+      return new MultiEntitySearchItem(this);
     }
+  }
 
-    public String getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public Integer getMemberCount() {
-        return this.memberCount;
-    }
-
-    public void setMemberCount(Integer memberCount) {
-        this.memberCount = memberCount;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getDepartment() {
-        return this.department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public static class Builder {
-        /**
-         * 标识当前的实体是哪种（例如：user, chat 等）
-         * <p> 示例值：user
-         */
-        private String type;
-        /**
-         * 唯一标识 ID
-         * <p> 示例值：6911188411932033028
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：张三
-         */
-        private String name;
-        /**
-         * 邮箱地址
-         * <p> 示例值：zhangsan@bytedance.com
-         */
-        private String email;
-        /**
-         * 备注名
-         * <p> 示例值：备注名
-         */
-        private String displayName;
-        /**
-         * 群成员数量
-         * <p> 示例值：128
-         */
-        private Integer memberCount;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_2d131f4c3a28b0
-         */
-        private String userId;
-        /**
-         * 部门信息
-         * <p> 示例值：飞书研发团队
-         */
-        private String department;
-        /**
-         * 群聊或会话 ID
-         * <p> 示例值：oc_40ed357053e34b9
-         */
-        private String chatId;
-        /**
-         * 标签
-         * <p> 示例值：超大群/部门群/邮箱联系人/邮件组/外部
-         */
-        private String tag;
-
-        /**
-         * 标识当前的实体是哪种（例如：user, chat 等）
-         * <p> 示例值：user
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 唯一标识 ID
-         * <p> 示例值：6911188411932033028
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：张三
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：zhangsan@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 备注名
-         * <p> 示例值：备注名
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 群成员数量
-         * <p> 示例值：128
-         *
-         * @param memberCount
-         * @return
-         */
-        public Builder memberCount(Integer memberCount) {
-            this.memberCount = memberCount;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_2d131f4c3a28b0
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 部门信息
-         * <p> 示例值：飞书研发团队
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(String department) {
-            this.department = department;
-            return this;
-        }
-
-
-        /**
-         * 群聊或会话 ID
-         * <p> 示例值：oc_40ed357053e34b9
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 标签
-         * <p> 示例值：超大群/部门群/邮箱联系人/邮件组/外部
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        public MultiEntitySearchItem build() {
-            return new MultiEntitySearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

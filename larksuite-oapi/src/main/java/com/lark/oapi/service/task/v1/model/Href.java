@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Href {
+  /**
+   * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+   *
+   * <p>示例值：https://support.feishu.com/internal/foo-bar
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 链接对应的标题
+   *
+   * <p>示例值：反馈一个问题，需要协助排查
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public Href() {}
+
+  public Href(Builder builder) {
     /**
      * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
-     * <p> 示例值：https://support.feishu.com/internal/foo-bar
+     *
+     * <p>示例值：https://support.feishu.com/internal/foo-bar
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 链接对应的标题
-     * <p> 示例值：反馈一个问题，需要协助排查
+     *
+     * <p>示例值：反馈一个问题，需要协助排查
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+     *
+     * <p>示例值：https://support.feishu.com/internal/foo-bar
+     */
+    private String url;
+
+    /**
+     * 链接对应的标题
+     *
+     * <p>示例值：反馈一个问题，需要协助排查
+     */
     private String title;
 
-    // builder 开始
-    public Href() {
+    /**
+     * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
+     *
+     * <p>示例值：https://support.feishu.com/internal/foo-bar
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public Href(Builder builder) {
-        /**
-         * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
-         * <p> 示例值：https://support.feishu.com/internal/foo-bar
-         */
-        this.url = builder.url;
-        /**
-         * 链接对应的标题
-         * <p> 示例值：反馈一个问题，需要协助排查
-         */
-        this.title = builder.title;
+    /**
+     * 链接对应的标题
+     *
+     * <p>示例值：反馈一个问题，需要协助排查
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Href build() {
+      return new Href(this);
     }
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
-         * <p> 示例值：https://support.feishu.com/internal/foo-bar
-         */
-        private String url;
-        /**
-         * 链接对应的标题
-         * <p> 示例值：反馈一个问题，需要协助排查
-         */
-        private String title;
-
-        /**
-         * 具体链接地址。;URL仅支持解析http、https。详细参见：[任务字段补充说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/Supplementary-directions-of-task-fields)
-         * <p> 示例值：https://support.feishu.com/internal/foo-bar
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 链接对应的标题
-         * <p> 示例值：反馈一个问题，需要协助排查
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public Href build() {
-            return new Href(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

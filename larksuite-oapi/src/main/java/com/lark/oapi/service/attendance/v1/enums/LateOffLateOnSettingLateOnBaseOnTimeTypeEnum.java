@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 次日晚到时间计算规则
- */
+/** 次日晚到时间计算规则 */
 public enum LateOffLateOnSettingLateOnBaseOnTimeTypeEnum {
-    FIXEDTYPE(0), // 固定规则
-    FLEXIBLETYPE(1), // 弹性规则
-    ;
-    private Integer value;
+  FIXEDTYPE(0), // 固定规则
+  FLEXIBLETYPE(1), // 弹性规则
+  ;
+  private Integer value;
 
-    LateOffLateOnSettingLateOnBaseOnTimeTypeEnum(Integer value) {
-        this.value = value;
-    }
+  LateOffLateOnSettingLateOnBaseOnTimeTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

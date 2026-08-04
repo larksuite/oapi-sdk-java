@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class CreateUserMailboxAliasReq {
+  /**
+   * 用户邮箱地址
+   *
+   * <p>示例值：user@xxx.xx
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  @Body private EmailAlias body;
+
+  public EmailAlias getEmailAlias() {
+    return this.body;
+  }
+
+  public void setEmailAlias(EmailAlias body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateUserMailboxAliasReq() {}
+
+  public CreateUserMailboxAliasReq(Builder builder) {
     /**
      * 用户邮箱地址
-     * <p> 示例值：user@xxx.xx
+     *
+     * <p>示例值：user@xxx.xx
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
-    @Body
+    this.userMailboxId = builder.userMailboxId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址
+
+    /**
+     * 用户邮箱地址
+     *
+     * <p>示例值：user@xxx.xx
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
     private EmailAlias body;
 
-    // builder 开始
-    public CreateUserMailboxAliasReq() {
-    }
-
-    public CreateUserMailboxAliasReq(Builder builder) {
-        /**
-         * 用户邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        this.userMailboxId = builder.userMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
     public EmailAlias getEmailAlias() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEmailAlias(EmailAlias body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder emailAlias(EmailAlias body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址
-        private EmailAlias body;
-
-        /**
-         * 用户邮箱地址
-         * <p> 示例值：user@xxx.xx
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        public EmailAlias getEmailAlias() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder emailAlias(EmailAlias body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateUserMailboxAliasReq build() {
-            return new CreateUserMailboxAliasReq(this);
-        }
+    public CreateUserMailboxAliasReq build() {
+      return new CreateUserMailboxAliasReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

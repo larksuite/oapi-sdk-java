@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
+  /**
+   * 名字
+   *
+   * <p>示例值：体验
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 语言
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("lang")
+  private String lang;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  // builder 开始
+  public I18n() {}
+
+  public I18n(Builder builder) {
     /**
      * 名字
-     * <p> 示例值：体验
+     *
+     * <p>示例值：体验
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 语言
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("lang")
+    this.lang = builder.lang;
+  }
+
+  public static class Builder {
+    /**
+     * 名字
+     *
+     * <p>示例值：体验
+     */
+    private String name;
+
+    /**
+     * 语言
+     *
+     * <p>示例值：zh
+     */
     private String lang;
 
-    // builder 开始
-    public I18n() {
+    /**
+     * 名字
+     *
+     * <p>示例值：体验
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public I18n(Builder builder) {
-        /**
-         * 名字
-         * <p> 示例值：体验
-         */
-        this.name = builder.name;
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
-        this.lang = builder.lang;
+    /**
+     * 语言
+     *
+     * <p>示例值：zh
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18n build() {
+      return new I18n(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLang() {
-        return this.lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public static class Builder {
-        /**
-         * 名字
-         * <p> 示例值：体验
-         */
-        private String name;
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
-        private String lang;
-
-        /**
-         * 名字
-         * <p> 示例值：体验
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：zh
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-
-        public I18n build() {
-            return new I18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

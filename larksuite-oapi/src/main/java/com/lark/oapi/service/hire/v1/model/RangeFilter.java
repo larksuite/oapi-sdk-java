@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RangeFilter {
+  /**
+   * 起始值（Unix毫秒时间戳）
+   *
+   * <p>示例值：1725951088959
+   */
+  @SerializedName("from")
+  private String from;
+
+  /**
+   * 终止值（Unix毫秒时间戳）
+   *
+   * <p>示例值：1725951088960
+   */
+  @SerializedName("to")
+  private String to;
+
+  public String getFrom() {
+    return this.from;
+  }
+
+  public void setFrom(String from) {
+    this.from = from;
+  }
+
+  public String getTo() {
+    return this.to;
+  }
+
+  public void setTo(String to) {
+    this.to = to;
+  }
+
+  // builder 开始
+  public RangeFilter() {}
+
+  public RangeFilter(Builder builder) {
     /**
-     * 起始值
-     * <p> 示例值：20
+     * 起始值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088959
      */
-    @SerializedName("from")
+    this.from = builder.from;
+    /**
+     * 终止值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088960
+     */
+    this.to = builder.to;
+  }
+
+  public static class Builder {
+    /**
+     * 起始值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088959
+     */
     private String from;
+
     /**
-     * 终止值
-     * <p> 示例值：30
+     * 终止值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088960
      */
-    @SerializedName("to")
     private String to;
 
-    // builder 开始
-    public RangeFilter() {
+    /**
+     * 起始值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088959
+     *
+     * @param from
+     * @return
+     */
+    public Builder from(String from) {
+      this.from = from;
+      return this;
     }
 
-    public RangeFilter(Builder builder) {
-        /**
-         * 起始值
-         * <p> 示例值：20
-         */
-        this.from = builder.from;
-        /**
-         * 终止值
-         * <p> 示例值：30
-         */
-        this.to = builder.to;
+    /**
+     * 终止值（Unix毫秒时间戳）
+     *
+     * <p>示例值：1725951088960
+     *
+     * @param to
+     * @return
+     */
+    public Builder to(String to) {
+      this.to = to;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RangeFilter build() {
+      return new RangeFilter(this);
     }
+  }
 
-    public String getFrom() {
-        return this.from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return this.to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public static class Builder {
-        /**
-         * 起始值
-         * <p> 示例值：20
-         */
-        private String from;
-        /**
-         * 终止值
-         * <p> 示例值：30
-         */
-        private String to;
-
-        /**
-         * 起始值
-         * <p> 示例值：20
-         *
-         * @param from
-         * @return
-         */
-        public Builder from(String from) {
-            this.from = from;
-            return this;
-        }
-
-
-        /**
-         * 终止值
-         * <p> 示例值：30
-         *
-         * @param to
-         * @return
-         */
-        public Builder to(String to) {
-            this.to = to;
-            return this;
-        }
-
-
-        public RangeFilter build() {
-            return new RangeFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

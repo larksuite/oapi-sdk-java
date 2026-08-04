@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchEmployeeReqBody {
+  /**
+   * 更新员工对象
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee")
+  private UpdateEmployee employee;
+
+  public UpdateEmployee getEmployee() {
+    return this.employee;
+  }
+
+  public void setEmployee(UpdateEmployee employee) {
+    this.employee = employee;
+  }
+
+  // builder 开始
+  public PatchEmployeeReqBody() {}
+
+  public PatchEmployeeReqBody(Builder builder) {
     /**
      * 更新员工对象
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee")
+    this.employee = builder.employee;
+  }
+
+  public static class Builder {
+    /**
+     * 更新员工对象
+     *
+     * <p>示例值：
+     */
     private UpdateEmployee employee;
 
-    // builder 开始
-    public PatchEmployeeReqBody() {
+    /**
+     * 更新员工对象
+     *
+     * <p>示例值：
+     *
+     * @param employee
+     * @return
+     */
+    public Builder employee(UpdateEmployee employee) {
+      this.employee = employee;
+      return this;
     }
 
-    public PatchEmployeeReqBody(Builder builder) {
-        /**
-         * 更新员工对象
-         * <p> 示例值：
-         */
-        this.employee = builder.employee;
+    public PatchEmployeeReqBody build() {
+      return new PatchEmployeeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public UpdateEmployee getEmployee() {
-        return this.employee;
-    }
-
-    public void setEmployee(UpdateEmployee employee) {
-        this.employee = employee;
-    }
-
-    public static class Builder {
-        /**
-         * 更新员工对象
-         * <p> 示例值：
-         */
-        private UpdateEmployee employee;
-
-        /**
-         * 更新员工对象
-         * <p> 示例值：
-         *
-         * @param employee
-         * @return
-         */
-        public Builder employee(UpdateEmployee employee) {
-            this.employee = employee;
-            return this;
-        }
-
-
-        public PatchEmployeeReqBody build() {
-            return new PatchEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

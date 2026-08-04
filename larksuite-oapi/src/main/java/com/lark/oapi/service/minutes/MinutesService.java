@@ -18,20 +18,21 @@ import com.lark.oapi.service.minutes.v1.V1;
 import com.lark.oapi.service.minutes.v1.model.*;
 
 public class MinutesService {
-    private final V1 v1;
+  private final V1 v1;
 
-    public MinutesService(Config config) {
-        this.v1 = new V1(config);
-    }
+  public MinutesService(Config config) {
+    this.v1 = new V1(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public abstract static class P2MinuteGeneratedV1Handler implements IEventHandler<P2MinuteGeneratedV1> {
-        @Override
-        public P2MinuteGeneratedV1 getEvent() {
-            return new P2MinuteGeneratedV1();
-        }
+  public abstract static class P2MinuteGeneratedV1Handler
+      implements IEventHandler<P2MinuteGeneratedV1> {
+    @Override
+    public P2MinuteGeneratedV1 getEvent() {
+      return new P2MinuteGeneratedV1();
     }
+  }
 }

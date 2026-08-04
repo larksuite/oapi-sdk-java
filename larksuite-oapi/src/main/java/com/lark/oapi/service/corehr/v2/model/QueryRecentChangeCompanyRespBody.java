@@ -13,76 +13,75 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecentChangeCompanyRespBody {
-    /**
-     * 公司 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("company_ids")
-    private String[] companyIds;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 删除的公司 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("deleted_company_ids")
-    private String[] deletedCompanyIds;
+  /**
+   * 公司 ID 列表， 其中包含新建、更新以及删除的 ID 列表。;-
+   * 非删除的数据，可通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)
+   * 或者[通过 ID
+   * 批量查询公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)
+   * 或者[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("company_ids")
+  private String[] companyIds;
 
-    public String[] getCompanyIds() {
-        return this.companyIds;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：7094136522860922111
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setCompanyIds(String[] companyIds) {
-        this.companyIds = companyIds;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 目标查询时间范围内被删除的公司列表， 该列表是 company_ids 的子集，便于获取在指定的[start_date, end_date) 的范围内被删除的公司IDs。;-
+   * **由于对应的公司已经被删除，无法通过 ID 查询到历史数据。**
+   *
+   * <p>示例值：
+   */
+  @SerializedName("deleted_company_ids")
+  private String[] deletedCompanyIds;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getCompanyIds() {
+    return this.companyIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setCompanyIds(String[] companyIds) {
+    this.companyIds = companyIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String[] getDeletedCompanyIds() {
-        return this.deletedCompanyIds;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setDeletedCompanyIds(String[] deletedCompanyIds) {
-        this.deletedCompanyIds = deletedCompanyIds;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String[] getDeletedCompanyIds() {
+    return this.deletedCompanyIds;
+  }
+
+  public void setDeletedCompanyIds(String[] deletedCompanyIds) {
+    this.deletedCompanyIds = deletedCompanyIds;
+  }
 }

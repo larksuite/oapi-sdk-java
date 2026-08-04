@@ -13,170 +13,189 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRoleBlockRole {
+  /**
+   * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+   * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+   * ;-
+   * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+   *
+   * <p>示例值：blknkqrP3RqUkcAW
+   */
+  @SerializedName("block_id")
+  private String blockId;
+
+  /**
+   * 仪表盘的类型
+   *
+   * <p>示例值：dashboard
+   */
+  @SerializedName("block_type")
+  private String blockType;
+
+  /**
+   * 仪表盘的权限
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("block_perm")
+  private Integer blockPerm;
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  public String getBlockType() {
+    return this.blockType;
+  }
+
+  public void setBlockType(String blockType) {
+    this.blockType = blockType;
+  }
+
+  public Integer getBlockPerm() {
+    return this.blockPerm;
+  }
+
+  public void setBlockPerm(Integer blockPerm) {
+    this.blockPerm = blockPerm;
+  }
+
+  // builder 开始
+  public AppRoleBlockRole() {}
+
+  public AppRoleBlockRole(Builder builder) {
     /**
-     * <p> 示例值：blknkqrP3RqUkcAW
+     * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+     * ;-
+     * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
      */
-    @SerializedName("block_id")
+    this.blockId = builder.blockId;
+    /**
+     * 仪表盘的类型
+     *
+     * <p>示例值：dashboard
+     */
+    this.blockType = builder.blockType;
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     */
+    this.blockPerm = builder.blockPerm;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+     * ;-
+     * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
+     */
     private String blockId;
+
     /**
-     * Block类型
-     * <p> 示例值：dashboard
+     * 仪表盘的类型
+     *
+     * <p>示例值：dashboard
      */
-    @SerializedName("block_type")
     private String blockType;
+
     /**
-     * Block权限
-     * <p> 示例值：0
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
      */
-    @SerializedName("block_perm")
     private Integer blockPerm;
 
-    // builder 开始
-    public AppRoleBlockRole() {
+    /**
+     * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+     * ;-
+     * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public AppRoleBlockRole(Builder builder) {
-        /**
-         *
-         * <p> 示例值：blknkqrP3RqUkcAW
-         */
-        this.blockId = builder.blockId;
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         */
-        this.blockType = builder.blockType;
-        /**
-         * Block权限
-         * <p> 示例值：0
-         */
-        this.blockPerm = builder.blockPerm;
+    /**
+     * 仪表盘的类型
+     *
+     * <p>示例值：dashboard
+     *
+     * @param blockType
+     * @return
+     */
+    public Builder blockType(String blockType) {
+      this.blockType = blockType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 仪表盘的类型
+     *
+     * <p>示例值：dashboard
+     *
+     * @param blockType {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum}
+     * @return
+     */
+    public Builder blockType(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum blockType) {
+      this.blockType = blockType.getValue();
+      return this;
     }
 
-    public String getBlockId() {
-        return this.blockId;
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     *
+     * @param blockPerm
+     * @return
+     */
+    public Builder blockPerm(Integer blockPerm) {
+      this.blockPerm = blockPerm;
+      return this;
     }
 
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     *
+     * @param blockPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum}
+     * @return
+     */
+    public Builder blockPerm(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum blockPerm) {
+      this.blockPerm = blockPerm.getValue();
+      return this;
     }
 
-    public String getBlockType() {
-        return this.blockType;
+    public AppRoleBlockRole build() {
+      return new AppRoleBlockRole(this);
     }
+  }
 
-    public void setBlockType(String blockType) {
-        this.blockType = blockType;
-    }
-
-    public Integer getBlockPerm() {
-        return this.blockPerm;
-    }
-
-    public void setBlockPerm(Integer blockPerm) {
-        this.blockPerm = blockPerm;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：blknkqrP3RqUkcAW
-         */
-        private String blockId;
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         */
-        private String blockType;
-        /**
-         * Block权限
-         * <p> 示例值：0
-         */
-        private Integer blockPerm;
-
-        /**
-         * <p> 示例值：blknkqrP3RqUkcAW
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         *
-         * @param blockType
-         * @return
-         */
-        public Builder blockType(String blockType) {
-            this.blockType = blockType;
-            return this;
-        }
-
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         *
-         * @param blockType {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum}
-         * @return
-         */
-        public Builder blockType(com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockTypeEnum blockType) {
-            this.blockType = blockType.getValue();
-            return this;
-        }
-
-
-        /**
-         * Block权限
-         * <p> 示例值：0
-         *
-         * @param blockPerm
-         * @return
-         */
-        public Builder blockPerm(Integer blockPerm) {
-            this.blockPerm = blockPerm;
-            return this;
-        }
-
-        /**
-         * Block权限
-         * <p> 示例值：0
-         *
-         * @param blockPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum}
-         * @return
-         */
-        public Builder blockPerm(com.lark.oapi.service.bitable.v1.enums.AppRoleBlockRoleBlockPermEnum blockPerm) {
-            this.blockPerm = blockPerm.getValue();
-            return this;
-        }
-
-
-        public AppRoleBlockRole build() {
-            return new AppRoleBlockRole(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

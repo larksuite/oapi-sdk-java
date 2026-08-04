@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceHelpdeskParam {
+  /**
+   * 是否搜索服务台 FAQ。默认为**否**。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * 圈选条件。不填写时，默认搜索**权限范围内所有**的服务台 FAQ。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private KnowledgeSourceHelpdeskFilter filter;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public KnowledgeSourceHelpdeskFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(KnowledgeSourceHelpdeskFilter filter) {
+    this.filter = filter;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceHelpdeskParam() {}
+
+  public EnterpriseKnowledgeSourceHelpdeskParam(Builder builder) {
     /**
-     * searchable
-     * <p> 示例值：false
+     * 是否搜索服务台 FAQ。默认为**否**。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("searchable")
+    this.searchable = builder.searchable;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**的服务台 FAQ。
+     *
+     * <p>示例值：
+     */
+    this.filter = builder.filter;
+  }
+
+  public static class Builder {
+    /**
+     * 是否搜索服务台 FAQ。默认为**否**。
+     *
+     * <p>示例值：true
+     */
     private Boolean searchable;
+
     /**
-     * filter
-     * <p> 示例值：
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**的服务台 FAQ。
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
     private KnowledgeSourceHelpdeskFilter filter;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceHelpdeskParam() {
+    /**
+     * 是否搜索服务台 FAQ。默认为**否**。
+     *
+     * <p>示例值：true
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceHelpdeskParam(Builder builder) {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
+    /**
+     * 圈选条件。不填写时，默认搜索**权限范围内所有**的服务台 FAQ。
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(KnowledgeSourceHelpdeskFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnterpriseKnowledgeSourceHelpdeskParam build() {
+      return new EnterpriseKnowledgeSourceHelpdeskParam(this);
     }
+  }
 
-    public Boolean getSearchable() {
-        return this.searchable;
-    }
-
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public KnowledgeSourceHelpdeskFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(KnowledgeSourceHelpdeskFilter filter) {
-        this.filter = filter;
-    }
-
-    public static class Builder {
-        /**
-         * searchable
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        private KnowledgeSourceHelpdeskFilter filter;
-
-        /**
-         * searchable
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * filter
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(KnowledgeSourceHelpdeskFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceHelpdeskParam build() {
-            return new EnterpriseKnowledgeSourceHelpdeskParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

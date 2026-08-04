@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Name {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("last_name")
+  private I18nText lastName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("first_name")
+  private I18nText firstName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("middle_name")
+  private I18nText middleName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 姓名的拼音
+   *
+   * <p>示例值：zhangsan
+   */
+  @SerializedName("name_py")
+  private String namePy;
+
+  /**
+   * 别名
+   *
+   * <p>示例值：张小明
+   */
+  @SerializedName("another_name")
+  private String anotherName;
+
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("legal_name")
+  private String legalName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display_name")
+  private I18nText displayName;
+
+  public I18nText getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(I18nText lastName) {
+    this.lastName = lastName;
+  }
+
+  public I18nText getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(I18nText firstName) {
+    this.firstName = firstName;
+  }
+
+  public I18nText getMiddleName() {
+    return this.middleName;
+  }
+
+  public void setMiddleName(I18nText middleName) {
+    this.middleName = middleName;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getNamePy() {
+    return this.namePy;
+  }
+
+  public void setNamePy(String namePy) {
+    this.namePy = namePy;
+  }
+
+  public String getAnotherName() {
+    return this.anotherName;
+  }
+
+  public void setAnotherName(String anotherName) {
+    this.anotherName = anotherName;
+  }
+
+  public String getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(String legalName) {
+    this.legalName = legalName;
+  }
+
+  public I18nText getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(I18nText displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public Name() {}
+
+  public Name(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("last_name")
-    private I18nText lastName;
+    this.lastName = builder.lastName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("first_name")
-    private I18nText firstName;
+    this.firstName = builder.firstName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("middle_name")
-    private I18nText middleName;
+    this.middleName = builder.middleName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 姓名的拼音
-     * <p> 示例值：zhangsan
+     *
+     * <p>示例值：zhangsan
      */
-    @SerializedName("name_py")
-    private String namePy;
+    this.namePy = builder.namePy;
     /**
      * 别名
-     * <p> 示例值：张小明
+     *
+     * <p>示例值：张小明
      */
-    @SerializedName("another_name")
-    private String anotherName;
+    this.anotherName = builder.anotherName;
     /**
      * 法定姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("legal_name")
-    private String legalName;
+    this.legalName = builder.legalName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText lastName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText firstName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText middleName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 姓名的拼音
+     *
+     * <p>示例值：zhangsan
+     */
+    private String namePy;
+
+    /**
+     * 别名
+     *
+     * <p>示例值：张小明
+     */
+    private String anotherName;
+
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     */
+    private String legalName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
     private I18nText displayName;
 
-    // builder 开始
-    public Name() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param lastName
+     * @return
+     */
+    public Builder lastName(I18nText lastName) {
+      this.lastName = lastName;
+      return this;
     }
 
-    public Name(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.lastName = builder.lastName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.firstName = builder.firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.middleName = builder.middleName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 姓名的拼音
-         * <p> 示例值：zhangsan
-         */
-        this.namePy = builder.namePy;
-        /**
-         * 别名
-         * <p> 示例值：张小明
-         */
-        this.anotherName = builder.anotherName;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        this.legalName = builder.legalName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.displayName = builder.displayName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(I18nText firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param middleName
+     * @return
+     */
+    public Builder middleName(I18nText middleName) {
+      this.middleName = middleName;
+      return this;
     }
 
-    public I18nText getLastName() {
-        return this.lastName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public void setLastName(I18nText lastName) {
-        this.lastName = lastName;
+    /**
+     * 姓名的拼音
+     *
+     * <p>示例值：zhangsan
+     *
+     * @param namePy
+     * @return
+     */
+    public Builder namePy(String namePy) {
+      this.namePy = namePy;
+      return this;
     }
 
-    public I18nText getFirstName() {
-        return this.firstName;
+    /**
+     * 别名
+     *
+     * <p>示例值：张小明
+     *
+     * @param anotherName
+     * @return
+     */
+    public Builder anotherName(String anotherName) {
+      this.anotherName = anotherName;
+      return this;
     }
 
-    public void setFirstName(I18nText firstName) {
-        this.firstName = firstName;
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(String legalName) {
+      this.legalName = legalName;
+      return this;
     }
 
-    public I18nText getMiddleName() {
-        return this.middleName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(I18nText displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setMiddleName(I18nText middleName) {
-        this.middleName = middleName;
+    public Name build() {
+      return new Name(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getNamePy() {
-        return this.namePy;
-    }
-
-    public void setNamePy(String namePy) {
-        this.namePy = namePy;
-    }
-
-    public String getAnotherName() {
-        return this.anotherName;
-    }
-
-    public void setAnotherName(String anotherName) {
-        this.anotherName = anotherName;
-    }
-
-    public String getLegalName() {
-        return this.legalName;
-    }
-
-    public void setLegalName(String legalName) {
-        this.legalName = legalName;
-    }
-
-    public I18nText getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(I18nText displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText lastName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText middleName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 姓名的拼音
-         * <p> 示例值：zhangsan
-         */
-        private String namePy;
-        /**
-         * 别名
-         * <p> 示例值：张小明
-         */
-        private String anotherName;
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         */
-        private String legalName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText displayName;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param lastName
-         * @return
-         */
-        public Builder lastName(I18nText lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(I18nText firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param middleName
-         * @return
-         */
-        public Builder middleName(I18nText middleName) {
-            this.middleName = middleName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 姓名的拼音
-         * <p> 示例值：zhangsan
-         *
-         * @param namePy
-         * @return
-         */
-        public Builder namePy(String namePy) {
-            this.namePy = namePy;
-            return this;
-        }
-
-
-        /**
-         * 别名
-         * <p> 示例值：张小明
-         *
-         * @param anotherName
-         * @return
-         */
-        public Builder anotherName(String anotherName) {
-            this.anotherName = anotherName;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：张三
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(String legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(I18nText displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public Name build() {
-            return new Name(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

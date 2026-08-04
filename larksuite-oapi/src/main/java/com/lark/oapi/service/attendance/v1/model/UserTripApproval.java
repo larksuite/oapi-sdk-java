@@ -13,186 +13,569 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserTripApproval {
+  /**
+   * 审批实例id
+   *
+   * <p>示例值：6737202939523236113
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 09:00:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 19:00:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 出差理由
+   *
+   * <p>示例值：培训
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 12:00:00
+   */
+  @SerializedName("approve_pass_time")
+  private String approvePassTime;
+
+  /**
+   * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 11:00:00
+   */
+  @SerializedName("approve_apply_time")
+  private String approveApplyTime;
+
+  /**
+   * 出发地（只有一个）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departure")
+  private RegionPlace departure;
+
+  /**
+   * 目的地（可写多个）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("destinations")
+  private RegionPlace[] destinations;
+
+  /**
+   * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transportation")
+  private Integer[] transportation;
+
+  /**
+   * 出差类型(1:单程 2:往返)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("trip_type")
+  private Integer tripType;
+
+  /**
+   * 出差备注
+   *
+   * <p>示例值：出差备注
+   */
+  @SerializedName("remarks")
+  private String remarks;
+
+  /**
+   * 审批状态
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getApprovePassTime() {
+    return this.approvePassTime;
+  }
+
+  public void setApprovePassTime(String approvePassTime) {
+    this.approvePassTime = approvePassTime;
+  }
+
+  public String getApproveApplyTime() {
+    return this.approveApplyTime;
+  }
+
+  public void setApproveApplyTime(String approveApplyTime) {
+    this.approveApplyTime = approveApplyTime;
+  }
+
+  public RegionPlace getDeparture() {
+    return this.departure;
+  }
+
+  public void setDeparture(RegionPlace departure) {
+    this.departure = departure;
+  }
+
+  public RegionPlace[] getDestinations() {
+    return this.destinations;
+  }
+
+  public void setDestinations(RegionPlace[] destinations) {
+    this.destinations = destinations;
+  }
+
+  public Integer[] getTransportation() {
+    return this.transportation;
+  }
+
+  public void setTransportation(Integer[] transportation) {
+    this.transportation = transportation;
+  }
+
+  public Integer getTripType() {
+    return this.tripType;
+  }
+
+  public void setTripType(Integer tripType) {
+    this.tripType = tripType;
+  }
+
+  public String getRemarks() {
+    return this.remarks;
+  }
+
+  public void setRemarks(String remarks) {
+    this.remarks = remarks;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  // builder 开始
+  public UserTripApproval() {}
+
+  public UserTripApproval(Builder builder) {
     /**
-     * 审批用户工号
-     * <p> 示例值：abd754f7
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.approvalId = builder.approvalId;
     /**
-     * 审批作用日期
-     * <p> 示例值：20210101
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
      */
-    @SerializedName("date")
-    private String date;
+    this.startTime = builder.startTime;
     /**
-     * 出差信息
-     * <p> 示例值：
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
      */
-    @SerializedName("trips")
-    private UserTrip[] trips;
+    this.endTime = builder.endTime;
     /**
-     * 审批作用时区
-     * <p> 示例值：Asia/Shanghai
+     * 出差理由
+     *
+     * <p>示例值：培训
      */
-    @SerializedName("time_zone")
+    this.reason = builder.reason;
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     */
+    this.approvePassTime = builder.approvePassTime;
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     */
+    this.approveApplyTime = builder.approveApplyTime;
+    /**
+     * 出发地（只有一个）
+     *
+     * <p>示例值：
+     */
+    this.departure = builder.departure;
+    /**
+     * 目的地（可写多个）
+     *
+     * <p>示例值：
+     */
+    this.destinations = builder.destinations;
+    /**
+     * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+     *
+     * <p>示例值：
+     */
+    this.transportation = builder.transportation;
+    /**
+     * 出差类型(1:单程 2:往返)
+     *
+     * <p>示例值：1
+     */
+    this.tripType = builder.tripType;
+    /**
+     * 出差备注
+     *
+     * <p>示例值：出差备注
+     */
+    this.remarks = builder.remarks;
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    this.status = builder.status;
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
+    this.timeZone = builder.timeZone;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     */
+    private String approvalId;
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     */
+    private String startTime;
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     */
+    private String endTime;
+
+    /**
+     * 出差理由
+     *
+     * <p>示例值：培训
+     */
+    private String reason;
+
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     */
+    private String approvePassTime;
+
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     */
+    private String approveApplyTime;
+
+    /**
+     * 出发地（只有一个）
+     *
+     * <p>示例值：
+     */
+    private RegionPlace departure;
+
+    /**
+     * 目的地（可写多个）
+     *
+     * <p>示例值：
+     */
+    private RegionPlace[] destinations;
+
+    /**
+     * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+     *
+     * <p>示例值：
+     */
+    private Integer[] transportation;
+
+    /**
+     * 出差类型(1:单程 2:往返)
+     *
+     * <p>示例值：1
+     */
+    private Integer tripType;
+
+    /**
+     * 出差备注
+     *
+     * <p>示例值：出差备注
+     */
+    private String remarks;
+
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    private Integer status;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
     private String timeZone;
 
-    // builder 开始
-    public UserTripApproval() {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public UserTripApproval(Builder builder) {
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         */
-        this.date = builder.date;
-        /**
-         * 出差信息
-         * <p> 示例值：
-         */
-        this.trips = builder.trips;
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 出差理由
+     *
+     * <p>示例值：培训
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
+    public Builder approvePassTime(String approvePassTime) {
+      this.approvePassTime = approvePassTime;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
+    public Builder approveApplyTime(String approveApplyTime) {
+      this.approveApplyTime = approveApplyTime;
+      return this;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    /**
+     * 出发地（只有一个）
+     *
+     * <p>示例值：
+     *
+     * @param departure
+     * @return
+     */
+    public Builder departure(RegionPlace departure) {
+      this.departure = departure;
+      return this;
     }
 
-    public UserTrip[] getTrips() {
-        return this.trips;
+    /**
+     * 目的地（可写多个）
+     *
+     * <p>示例值：
+     *
+     * @param destinations
+     * @return
+     */
+    public Builder destinations(RegionPlace[] destinations) {
+      this.destinations = destinations;
+      return this;
     }
 
-    public void setTrips(UserTrip[] trips) {
-        this.trips = trips;
+    /**
+     * 交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）
+     *
+     * <p>示例值：
+     *
+     * @param transportation
+     * @return
+     */
+    public Builder transportation(Integer[] transportation) {
+      this.transportation = transportation;
+      return this;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
+    /**
+     * 出差类型(1:单程 2:往返)
+     *
+     * <p>示例值：1
+     *
+     * @param tripType
+     * @return
+     */
+    public Builder tripType(Integer tripType) {
+      this.tripType = tripType;
+      return this;
     }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+    /**
+     * 出差备注
+     *
+     * <p>示例值：出差备注
+     *
+     * @param remarks
+     * @return
+     */
+    public Builder remarks(String remarks) {
+      this.remarks = remarks;
+      return this;
     }
 
-    public static class Builder {
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         */
-        private String userId;
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         */
-        private String date;
-        /**
-         * 出差信息
-         * <p> 示例值：
-         */
-        private UserTrip[] trips;
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timeZone;
-
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 出差信息
-         * <p> 示例值：
-         *
-         * @param trips
-         * @return
-         */
-        public Builder trips(UserTrip[] trips) {
-            this.trips = trips;
-            return this;
-        }
-
-
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        public UserTripApproval build() {
-            return new UserTripApproval(this);
-        }
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
+
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
+    }
+
+    public UserTripApproval build() {
+      return new UserTripApproval(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

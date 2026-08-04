@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v7.enums;
 
-/**
- * 移动端默认能力
- */
+/** 移动端默认能力 */
 public enum ApplicationApplicationMobileDefaultAbilityEnum {
-    GADGET("gadget"), // 小程序
-    WEB_APP("web_app"), // 网页应用
-    BOT("bot"), // 机器人
-    ;
-    private String value;
+  GADGET("gadget"), // 小程序
+  WEB_APP("web_app"), // 网页应用
+  BOT("bot"), // 机器人
+  ;
+  private String value;
 
-    ApplicationApplicationMobileDefaultAbilityEnum(String value) {
-        this.value = value;
-    }
+  ApplicationApplicationMobileDefaultAbilityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

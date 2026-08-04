@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentVisibility {
+  /**
+   * id
+   *
+   * <p>示例值：56401865069
+   */
+  @SerializedName("agent_visibility_id")
+  private String agentVisibilityId;
+
+  public String getAgentVisibilityId() {
+    return this.agentVisibilityId;
+  }
+
+  public void setAgentVisibilityId(String agentVisibilityId) {
+    this.agentVisibilityId = agentVisibilityId;
+  }
+
+  // builder 开始
+  public AgentVisibility() {}
+
+  public AgentVisibility(Builder builder) {
     /**
      * id
-     * <p> 示例值：56401865069
+     *
+     * <p>示例值：56401865069
      */
-    @SerializedName("agent_visibility_id")
+    this.agentVisibilityId = builder.agentVisibilityId;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：56401865069
+     */
     private String agentVisibilityId;
 
-    // builder 开始
-    public AgentVisibility() {
+    /**
+     * id
+     *
+     * <p>示例值：56401865069
+     *
+     * @param agentVisibilityId
+     * @return
+     */
+    public Builder agentVisibilityId(String agentVisibilityId) {
+      this.agentVisibilityId = agentVisibilityId;
+      return this;
     }
 
-    public AgentVisibility(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：56401865069
-         */
-        this.agentVisibilityId = builder.agentVisibilityId;
+    public AgentVisibility build() {
+      return new AgentVisibility(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAgentVisibilityId() {
-        return this.agentVisibilityId;
-    }
-
-    public void setAgentVisibilityId(String agentVisibilityId) {
-        this.agentVisibilityId = agentVisibilityId;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：56401865069
-         */
-        private String agentVisibilityId;
-
-        /**
-         * id
-         * <p> 示例值：56401865069
-         *
-         * @param agentVisibilityId
-         * @return
-         */
-        public Builder agentVisibilityId(String agentVisibilityId) {
-            this.agentVisibilityId = agentVisibilityId;
-            return this;
-        }
-
-
-        public AgentVisibility build() {
-            return new AgentVisibility(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

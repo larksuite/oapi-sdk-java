@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RollbackUserTaskReqBody {
+  /**
+   * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("operator_user_id")
+  private String operatorUserId;
+
+  /**
+   * 退回到的任务ID，可以通过[查询人工任务可退回的点](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback_points)获取
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("to_task_id")
+  private String toTaskId;
+
+  /**
+   * 退回原因
+   *
+   * <p>示例值：退回原因
+   */
+  @SerializedName("opinion")
+  private String opinion;
+
+  public String getOperatorUserId() {
+    return this.operatorUserId;
+  }
+
+  public void setOperatorUserId(String operatorUserId) {
+    this.operatorUserId = operatorUserId;
+  }
+
+  public String getToTaskId() {
+    return this.toTaskId;
+  }
+
+  public void setToTaskId(String toTaskId) {
+    this.toTaskId = toTaskId;
+  }
+
+  public String getOpinion() {
+    return this.opinion;
+  }
+
+  public void setOpinion(String opinion) {
+    this.opinion = opinion;
+  }
+
+  // builder 开始
+  public RollbackUserTaskReqBody() {}
+
+  public RollbackUserTaskReqBody(Builder builder) {
     /**
-     * 操作人kunlunUserID
-     * <p> 示例值：1234
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("operator_user_id")
-    private String operatorUserId;
+    this.operatorUserId = builder.operatorUserId;
     /**
-     * 退回到的任务ID
-     * <p> 示例值：1234
+     * 退回到的任务ID，可以通过[查询人工任务可退回的点](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback_points)获取
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("to_task_id")
-    private String toTaskId;
+    this.toTaskId = builder.toTaskId;
     /**
      * 退回原因
-     * <p> 示例值：退回原因
+     *
+     * <p>示例值：退回原因
      */
-    @SerializedName("opinion")
+    this.opinion = builder.opinion;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     */
+    private String operatorUserId;
+
+    /**
+     * 退回到的任务ID，可以通过[查询人工任务可退回的点](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback_points)获取
+     *
+     * <p>示例值：1234
+     */
+    private String toTaskId;
+
+    /**
+     * 退回原因
+     *
+     * <p>示例值：退回原因
+     */
     private String opinion;
 
-    // builder 开始
-    public RollbackUserTaskReqBody() {
+    /**
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     *
+     * @param operatorUserId
+     * @return
+     */
+    public Builder operatorUserId(String operatorUserId) {
+      this.operatorUserId = operatorUserId;
+      return this;
     }
 
-    public RollbackUserTaskReqBody(Builder builder) {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         */
-        this.operatorUserId = builder.operatorUserId;
-        /**
-         * 退回到的任务ID
-         * <p> 示例值：1234
-         */
-        this.toTaskId = builder.toTaskId;
-        /**
-         * 退回原因
-         * <p> 示例值：退回原因
-         */
-        this.opinion = builder.opinion;
+    /**
+     * 退回到的任务ID，可以通过[查询人工任务可退回的点](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/rollback_points)获取
+     *
+     * <p>示例值：1234
+     *
+     * @param toTaskId
+     * @return
+     */
+    public Builder toTaskId(String toTaskId) {
+      this.toTaskId = toTaskId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 退回原因
+     *
+     * <p>示例值：退回原因
+     *
+     * @param opinion
+     * @return
+     */
+    public Builder opinion(String opinion) {
+      this.opinion = opinion;
+      return this;
     }
 
-    public String getOperatorUserId() {
-        return this.operatorUserId;
+    public RollbackUserTaskReqBody build() {
+      return new RollbackUserTaskReqBody(this);
     }
+  }
 
-    public void setOperatorUserId(String operatorUserId) {
-        this.operatorUserId = operatorUserId;
-    }
-
-    public String getToTaskId() {
-        return this.toTaskId;
-    }
-
-    public void setToTaskId(String toTaskId) {
-        this.toTaskId = toTaskId;
-    }
-
-    public String getOpinion() {
-        return this.opinion;
-    }
-
-    public void setOpinion(String opinion) {
-        this.opinion = opinion;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         */
-        private String operatorUserId;
-        /**
-         * 退回到的任务ID
-         * <p> 示例值：1234
-         */
-        private String toTaskId;
-        /**
-         * 退回原因
-         * <p> 示例值：退回原因
-         */
-        private String opinion;
-
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         *
-         * @param operatorUserId
-         * @return
-         */
-        public Builder operatorUserId(String operatorUserId) {
-            this.operatorUserId = operatorUserId;
-            return this;
-        }
-
-
-        /**
-         * 退回到的任务ID
-         * <p> 示例值：1234
-         *
-         * @param toTaskId
-         * @return
-         */
-        public Builder toTaskId(String toTaskId) {
-            this.toTaskId = toTaskId;
-            return this;
-        }
-
-
-        /**
-         * 退回原因
-         * <p> 示例值：退回原因
-         *
-         * @param opinion
-         * @return
-         */
-        public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
-        }
-
-
-        public RollbackUserTaskReqBody build() {
-            return new RollbackUserTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

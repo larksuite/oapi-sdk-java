@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentId {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("department_id")
+  /** 示例值： */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /** 示例值： */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  // builder 开始
+  public DepartmentId() {}
+
+  public DepartmentId(Builder builder) {
+    /** 示例值： */
+    this.departmentId = builder.departmentId;
+    /** 示例值： */
+    this.openDepartmentId = builder.openDepartmentId;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String departmentId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("open_department_id")
+
+    /** 示例值： */
     private String openDepartmentId;
 
-    // builder 开始
-    public DepartmentId() {
+    /**
+     * 示例值：
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public DepartmentId(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.openDepartmentId = builder.openDepartmentId;
+    /**
+     * 示例值：
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DepartmentId build() {
+      return new DepartmentId(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
-    }
-
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String departmentId;
-        /**
-         * <p> 示例值：
-         */
-        private String openDepartmentId;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        public DepartmentId build() {
-            return new DepartmentId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

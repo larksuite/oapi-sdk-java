@@ -13,150 +13,155 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetPublicMailboxMemberReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 公共邮箱唯一标识或公共邮箱地址
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+   */
+  @Path
+  @SerializedName("public_mailbox_id")
+  private String publicMailboxId;
+
+  /**
+   * 公共邮箱内成员唯一标识
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @Path
+  @SerializedName("member_id")
+  private String memberId;
+
+  public String getPublicMailboxId() {
+    return this.publicMailboxId;
+  }
+
+  public void setPublicMailboxId(String publicMailboxId) {
+    this.publicMailboxId = publicMailboxId;
+  }
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  // builder 开始
+  public GetPublicMailboxMemberReq() {}
+
+  public GetPublicMailboxMemberReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 公共邮箱唯一标识或公共邮箱地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
      */
-    @Path
-    @SerializedName("public_mailbox_id")
-    private String publicMailboxId;
+    this.publicMailboxId = builder.publicMailboxId;
     /**
      * 公共邮箱内成员唯一标识
-     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
      */
-    @Path
-    @SerializedName("member_id")
-    private String memberId;
+    this.memberId = builder.memberId;
+  }
 
-    // builder 开始
-    public GetPublicMailboxMemberReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetPublicMailboxMemberReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         */
-        this.publicMailboxId = builder.publicMailboxId;
-        /**
-         * 公共邮箱内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        this.memberId = builder.memberId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums
+                .GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
+    private String memberId; // 公共邮箱内成员唯一标识
+
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
+    public Builder publicMailboxId(String publicMailboxId) {
+      this.publicMailboxId = publicMailboxId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 公共邮箱内成员唯一标识
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public GetPublicMailboxMemberReq build() {
+      return new GetPublicMailboxMemberReq(this);
     }
+  }
 
-    public String getPublicMailboxId() {
-        return this.publicMailboxId;
-    }
-
-    public void setPublicMailboxId(String publicMailboxId) {
-        this.publicMailboxId = publicMailboxId;
-    }
-
-    public String getMemberId() {
-        return this.memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
-        private String memberId; // 公共邮箱内成员唯一标识
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.GetPublicMailboxMemberGetPublicMailboxMemberUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         *
-         * @param publicMailboxId
-         * @return
-         */
-        public Builder publicMailboxId(String publicMailboxId) {
-            this.publicMailboxId = publicMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 公共邮箱内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        public GetPublicMailboxMemberReq build() {
-            return new GetPublicMailboxMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

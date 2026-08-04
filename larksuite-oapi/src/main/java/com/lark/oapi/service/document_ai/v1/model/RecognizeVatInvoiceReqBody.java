@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecognizeVatInvoiceReqBody {
+  /**
+   * 识别的增值税发票文件（支持JPG/JPEG/PNG/PDF/BMP/OFD）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file")
+  private java.io.File file;
+
+  public java.io.File getFile() {
+    return this.file;
+  }
+
+  public void setFile(java.io.File file) {
+    this.file = file;
+  }
+
+  // builder 开始
+  public RecognizeVatInvoiceReqBody() {}
+
+  public RecognizeVatInvoiceReqBody(Builder builder) {
     /**
-     * 识别的增值税发票文件
-     * <p> 示例值：
+     * 识别的增值税发票文件（支持JPG/JPEG/PNG/PDF/BMP/OFD）
+     *
+     * <p>示例值：
      */
-    @SerializedName("file")
+    this.file = builder.file;
+  }
+
+  public static class Builder {
+    /**
+     * 识别的增值税发票文件（支持JPG/JPEG/PNG/PDF/BMP/OFD）
+     *
+     * <p>示例值：
+     */
     private java.io.File file;
 
-    // builder 开始
-    public RecognizeVatInvoiceReqBody() {
+    /**
+     * 识别的增值税发票文件（支持JPG/JPEG/PNG/PDF/BMP/OFD）
+     *
+     * <p>示例值：
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(java.io.File file) {
+      this.file = file;
+      return this;
     }
 
-    public RecognizeVatInvoiceReqBody(Builder builder) {
-        /**
-         * 识别的增值税发票文件
-         * <p> 示例值：
-         */
-        this.file = builder.file;
+    public RecognizeVatInvoiceReqBody build() {
+      return new RecognizeVatInvoiceReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public java.io.File getFile() {
-        return this.file;
-    }
-
-    public void setFile(java.io.File file) {
-        this.file = file;
-    }
-
-    public static class Builder {
-        /**
-         * 识别的增值税发票文件
-         * <p> 示例值：
-         */
-        private java.io.File file;
-
-        /**
-         * 识别的增值税发票文件
-         * <p> 示例值：
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
-        }
-
-
-        public RecognizeVatInvoiceReqBody build() {
-            return new RecognizeVatInvoiceReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

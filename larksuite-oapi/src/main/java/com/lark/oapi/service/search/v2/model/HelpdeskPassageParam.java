@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class HelpdeskPassageParam {
+  /**
+   * 是否要搜索服务台
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * 搜索特定的服务台
+   *
+   * <p>示例值：
+   */
+  @SerializedName("helpdesk_ids")
+  private String[] helpdeskIds;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public String[] getHelpdeskIds() {
+    return this.helpdeskIds;
+  }
+
+  public void setHelpdeskIds(String[] helpdeskIds) {
+    this.helpdeskIds = helpdeskIds;
+  }
+
+  // builder 开始
+  public HelpdeskPassageParam() {}
+
+  public HelpdeskPassageParam(Builder builder) {
     /**
      * 是否要搜索服务台
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("searchable")
-    private Boolean searchable;
+    this.searchable = builder.searchable;
     /**
      * 搜索特定的服务台
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("helpdesk_ids")
+    this.helpdeskIds = builder.helpdeskIds;
+  }
+
+  public static class Builder {
+    /**
+     * 是否要搜索服务台
+     *
+     * <p>示例值：false
+     */
+    private Boolean searchable;
+
+    /**
+     * 搜索特定的服务台
+     *
+     * <p>示例值：
+     */
     private String[] helpdeskIds;
 
-    // builder 开始
-    public HelpdeskPassageParam() {
+    /**
+     * 是否要搜索服务台
+     *
+     * <p>示例值：false
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public HelpdeskPassageParam(Builder builder) {
-        /**
-         * 是否要搜索服务台
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * 搜索特定的服务台
-         * <p> 示例值：
-         */
-        this.helpdeskIds = builder.helpdeskIds;
+    /**
+     * 搜索特定的服务台
+     *
+     * <p>示例值：
+     *
+     * @param helpdeskIds
+     * @return
+     */
+    public Builder helpdeskIds(String[] helpdeskIds) {
+      this.helpdeskIds = helpdeskIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public HelpdeskPassageParam build() {
+      return new HelpdeskPassageParam(this);
     }
+  }
 
-    public Boolean getSearchable() {
-        return this.searchable;
-    }
-
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public String[] getHelpdeskIds() {
-        return this.helpdeskIds;
-    }
-
-    public void setHelpdeskIds(String[] helpdeskIds) {
-        this.helpdeskIds = helpdeskIds;
-    }
-
-    public static class Builder {
-        /**
-         * 是否要搜索服务台
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * 搜索特定的服务台
-         * <p> 示例值：
-         */
-        private String[] helpdeskIds;
-
-        /**
-         * 是否要搜索服务台
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * 搜索特定的服务台
-         * <p> 示例值：
-         *
-         * @param helpdeskIds
-         * @return
-         */
-        public Builder helpdeskIds(String[] helpdeskIds) {
-            this.helpdeskIds = helpdeskIds;
-            return this;
-        }
-
-
-        public HelpdeskPassageParam build() {
-            return new HelpdeskPassageParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

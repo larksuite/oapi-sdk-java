@@ -13,34 +13,23 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateByAttachmentWebsiteDeliveryRespBody {
-    /**
-     * 异步任务 ID
-     * <p> 示例值：f1c2a0f138ec492d99d7ab73594158ad
-     */
-    @SerializedName("task_id")
-    private String taskId;
+  /**
+   * 异步任务 ID，可根据此 ID
+   * 通过[获取招聘官网投递任务结果](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery_task/get)查询最终的投递结果
+   *
+   * <p>示例值：f1c2a0f138ec492d99d7ab73594158ad
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 }

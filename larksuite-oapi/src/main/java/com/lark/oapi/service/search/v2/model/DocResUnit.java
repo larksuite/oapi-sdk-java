@@ -13,198 +13,205 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocResUnit {
+  /**
+   * 标题高亮
+   *
+   * <p>示例值：<h>飞书文档</h>使用指南
+   */
+  @SerializedName("title_highlighted")
+  private String titleHighlighted;
+
+  /**
+   * 摘要高亮
+   *
+   * <p>示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
+   */
+  @SerializedName("summary_highlighted")
+  private String summaryHighlighted;
+
+  /**
+   * 结果类型
+   *
+   * <p>示例值：DOC
+   */
+  @SerializedName("entity_type")
+  private String entityType;
+
+  /**
+   * 文档搜索元信息
+   *
+   * <p>示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
+   */
+  @SerializedName("result_meta")
+  private DocMeta resultMeta;
+
+  public String getTitleHighlighted() {
+    return this.titleHighlighted;
+  }
+
+  public void setTitleHighlighted(String titleHighlighted) {
+    this.titleHighlighted = titleHighlighted;
+  }
+
+  public String getSummaryHighlighted() {
+    return this.summaryHighlighted;
+  }
+
+  public void setSummaryHighlighted(String summaryHighlighted) {
+    this.summaryHighlighted = summaryHighlighted;
+  }
+
+  public String getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  public DocMeta getResultMeta() {
+    return this.resultMeta;
+  }
+
+  public void setResultMeta(DocMeta resultMeta) {
+    this.resultMeta = resultMeta;
+  }
+
+  // builder 开始
+  public DocResUnit() {}
+
+  public DocResUnit(Builder builder) {
     /**
      * 标题高亮
-     * <p> 示例值：<h>飞书文档</h>使用指南
+     *
+     * <p>示例值：<h>飞书文档</h>使用指南
      */
-    @SerializedName("title_highlighted")
-    private String titleHighlighted;
+    this.titleHighlighted = builder.titleHighlighted;
     /**
      * 摘要高亮
-     * <p> 示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
+     *
+     * <p>示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
      */
-    @SerializedName("summary_highlighted")
-    private String summaryHighlighted;
+    this.summaryHighlighted = builder.summaryHighlighted;
     /**
      * 结果类型
-     * <p> 示例值：DOC
+     *
+     * <p>示例值：DOC
      */
-    @SerializedName("entity_type")
-    private String entityType;
+    this.entityType = builder.entityType;
     /**
      * 文档搜索元信息
-     * <p> 示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
+     *
+     * <p>示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
      */
-    @SerializedName("result_meta")
+    this.resultMeta = builder.resultMeta;
+  }
+
+  public static class Builder {
+    /**
+     * 标题高亮
+     *
+     * <p>示例值：<h>飞书文档</h>使用指南
+     */
+    private String titleHighlighted;
+
+    /**
+     * 摘要高亮
+     *
+     * <p>示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
+     */
+    private String summaryHighlighted;
+
+    /**
+     * 结果类型
+     *
+     * <p>示例值：DOC
+     */
+    private String entityType;
+
+    /**
+     * 文档搜索元信息
+     *
+     * <p>示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
+     */
     private DocMeta resultMeta;
 
-    // builder 开始
-    public DocResUnit() {
+    /**
+     * 标题高亮
+     *
+     * <p>示例值：<h>飞书文档</h>使用指南
+     *
+     * @param titleHighlighted
+     * @return
+     */
+    public Builder titleHighlighted(String titleHighlighted) {
+      this.titleHighlighted = titleHighlighted;
+      return this;
     }
 
-    public DocResUnit(Builder builder) {
-        /**
-         * 标题高亮
-         * <p> 示例值：<h>飞书文档</h>使用指南
-         */
-        this.titleHighlighted = builder.titleHighlighted;
-        /**
-         * 摘要高亮
-         * <p> 示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
-         */
-        this.summaryHighlighted = builder.summaryHighlighted;
-        /**
-         * 结果类型
-         * <p> 示例值：DOC
-         */
-        this.entityType = builder.entityType;
-        /**
-         * 文档搜索元信息
-         * <p> 示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
-         */
-        this.resultMeta = builder.resultMeta;
+    /**
+     * 摘要高亮
+     *
+     * <p>示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
+     *
+     * @param summaryHighlighted
+     * @return
+     */
+    public Builder summaryHighlighted(String summaryHighlighted) {
+      this.summaryHighlighted = summaryHighlighted;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结果类型
+     *
+     * <p>示例值：DOC
+     *
+     * @param entityType
+     * @return
+     */
+    public Builder entityType(String entityType) {
+      this.entityType = entityType;
+      return this;
     }
 
-    public String getTitleHighlighted() {
-        return this.titleHighlighted;
+    /**
+     * 结果类型
+     *
+     * <p>示例值：DOC
+     *
+     * @param entityType {@link com.lark.oapi.service.search.v2.enums.DocResUnitEntityTypeEnum}
+     * @return
+     */
+    public Builder entityType(
+        com.lark.oapi.service.search.v2.enums.DocResUnitEntityTypeEnum entityType) {
+      this.entityType = entityType.getValue();
+      return this;
     }
 
-    public void setTitleHighlighted(String titleHighlighted) {
-        this.titleHighlighted = titleHighlighted;
+    /**
+     * 文档搜索元信息
+     *
+     * <p>示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
+     *
+     * @param resultMeta
+     * @return
+     */
+    public Builder resultMeta(DocMeta resultMeta) {
+      this.resultMeta = resultMeta;
+      return this;
     }
 
-    public String getSummaryHighlighted() {
-        return this.summaryHighlighted;
+    public DocResUnit build() {
+      return new DocResUnit(this);
     }
+  }
 
-    public void setSummaryHighlighted(String summaryHighlighted) {
-        this.summaryHighlighted = summaryHighlighted;
-    }
-
-    public String getEntityType() {
-        return this.entityType;
-    }
-
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
-    }
-
-    public DocMeta getResultMeta() {
-        return this.resultMeta;
-    }
-
-    public void setResultMeta(DocMeta resultMeta) {
-        this.resultMeta = resultMeta;
-    }
-
-    public static class Builder {
-        /**
-         * 标题高亮
-         * <p> 示例值：<h>飞书文档</h>使用指南
-         */
-        private String titleHighlighted;
-        /**
-         * 摘要高亮
-         * <p> 示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
-         */
-        private String summaryHighlighted;
-        /**
-         * 结果类型
-         * <p> 示例值：DOC
-         */
-        private String entityType;
-        /**
-         * 文档搜索元信息
-         * <p> 示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
-         */
-        private DocMeta resultMeta;
-
-        /**
-         * 标题高亮
-         * <p> 示例值：<h>飞书文档</h>使用指南
-         *
-         * @param titleHighlighted
-         * @return
-         */
-        public Builder titleHighlighted(String titleHighlighted) {
-            this.titleHighlighted = titleHighlighted;
-            return this;
-        }
-
-
-        /**
-         * 摘要高亮
-         * <p> 示例值：本文介绍<h>飞书文档</h>的创建、编辑与分享功能
-         *
-         * @param summaryHighlighted
-         * @return
-         */
-        public Builder summaryHighlighted(String summaryHighlighted) {
-            this.summaryHighlighted = summaryHighlighted;
-            return this;
-        }
-
-
-        /**
-         * 结果类型
-         * <p> 示例值：DOC
-         *
-         * @param entityType
-         * @return
-         */
-        public Builder entityType(String entityType) {
-            this.entityType = entityType;
-            return this;
-        }
-
-        /**
-         * 结果类型
-         * <p> 示例值：DOC
-         *
-         * @param entityType {@link com.lark.oapi.service.search.v2.enums.DocResUnitEntityTypeEnum}
-         * @return
-         */
-        public Builder entityType(com.lark.oapi.service.search.v2.enums.DocResUnitEntityTypeEnum entityType) {
-            this.entityType = entityType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档搜索元信息
-         * <p> 示例值：{"title_highlighted":"<h>飞书文档</h>使用指南","summary_highlighted":"本文介绍<h>飞书文档</h>的创建、编辑与分享功能","entity_type":"DOC","result_meta":"{"type":SHORTCUT,"update_time":1766567613}"}
-         *
-         * @param resultMeta
-         * @return
-         */
-        public Builder resultMeta(DocMeta resultMeta) {
-            this.resultMeta = resultMeta;
-            return this;
-        }
-
-
-        public DocResUnit build() {
-            return new DocResUnit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

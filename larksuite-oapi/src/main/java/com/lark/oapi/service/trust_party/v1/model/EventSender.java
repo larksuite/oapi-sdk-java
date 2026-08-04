@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventSender {
+  /**
+   * 消息发送者的各种id,包括open_id,user_id,union_id
+   *
+   * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+   */
+  @SerializedName("sender_id")
+  private UserId senderId;
+
+  /**
+   * 消息发送者类型。目前只支持用户发送的消息
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("sender_type")
+  private String senderType;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  public UserId getSenderId() {
+    return this.senderId;
+  }
+
+  public void setSenderId(UserId senderId) {
+    this.senderId = senderId;
+  }
+
+  public String getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  // builder 开始
+  public EventSender() {}
+
+  public EventSender(Builder builder) {
     /**
      * 消息发送者的各种id,包括open_id,user_id,union_id
-     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
      */
-    @SerializedName("sender_id")
-    private UserId senderId;
+    this.senderId = builder.senderId;
     /**
      * 消息发送者类型。目前只支持用户发送的消息
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("sender_type")
-    private String senderType;
+    this.senderType = builder.senderType;
     /**
      * tenant key
-     * <p> 示例值：736588c9260f175e
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
+    this.tenantKey = builder.tenantKey;
+  }
+
+  public static class Builder {
+    /**
+     * 消息发送者的各种id,包括open_id,user_id,union_id
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
+    private UserId senderId;
+
+    /**
+     * 消息发送者类型。目前只支持用户发送的消息
+     *
+     * <p>示例值：user
+     */
+    private String senderType;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     */
     private String tenantKey;
 
-    // builder 开始
-    public EventSender() {
+    /**
+     * 消息发送者的各种id,包括open_id,user_id,union_id
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * @param senderId
+     * @return
+     */
+    public Builder senderId(UserId senderId) {
+      this.senderId = senderId;
+      return this;
     }
 
-    public EventSender(Builder builder) {
-        /**
-         * 消息发送者的各种id,包括open_id,user_id,union_id
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        this.senderId = builder.senderId;
-        /**
-         * 消息发送者类型。目前只支持用户发送的消息
-         * <p> 示例值：user
-         */
-        this.senderType = builder.senderType;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
+    /**
+     * 消息发送者类型。目前只支持用户发送的消息
+     *
+     * <p>示例值：user
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(String senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public UserId getSenderId() {
-        return this.senderId;
+    public EventSender build() {
+      return new EventSender(this);
     }
+  }
 
-    public void setSenderId(UserId senderId) {
-        this.senderId = senderId;
-    }
-
-    public String getSenderType() {
-        return this.senderType;
-    }
-
-    public void setSenderType(String senderType) {
-        this.senderType = senderType;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public static class Builder {
-        /**
-         * 消息发送者的各种id,包括open_id,user_id,union_id
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        private UserId senderId;
-        /**
-         * 消息发送者类型。目前只支持用户发送的消息
-         * <p> 示例值：user
-         */
-        private String senderType;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-
-        /**
-         * 消息发送者的各种id,包括open_id,user_id,union_id
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         *
-         * @param senderId
-         * @return
-         */
-        public Builder senderId(UserId senderId) {
-            this.senderId = senderId;
-            return this;
-        }
-
-
-        /**
-         * 消息发送者类型。目前只支持用户发送的消息
-         * <p> 示例值：user
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(String senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        public EventSender build() {
-            return new EventSender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Indicator {
+  /**
+   * 评估项
+   * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+   *
+   * <p>示例值：6982759010081818159
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估项等级列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private IndicatorOption[] options;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public IndicatorOption[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(IndicatorOption[] options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public Indicator() {}
+
+  public Indicator(Builder builder) {
     /**
-     * 评估项 ID
-     * <p> 示例值：6982759010081818159
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：6982759010081818159
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 评估项名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 评估项等级列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    this.options = builder.options;
+  }
+
+  public static class Builder {
+    /**
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：6982759010081818159
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估项等级列表
+     *
+     * <p>示例值：
+     */
     private IndicatorOption[] options;
 
-    // builder 开始
-    public Indicator() {
+    /**
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：6982759010081818159
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Indicator(Builder builder) {
-        /**
-         * 评估项 ID
-         * <p> 示例值：6982759010081818159
-         */
-        this.id = builder.id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估项等级列表
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估项等级列表
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(IndicatorOption[] options) {
+      this.options = options;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Indicator build() {
+      return new Indicator(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public IndicatorOption[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(IndicatorOption[] options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 评估项 ID
-         * <p> 示例值：6982759010081818159
-         */
-        private String id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估项等级列表
-         * <p> 示例值：
-         */
-        private IndicatorOption[] options;
-
-        /**
-         * 评估项 ID
-         * <p> 示例值：6982759010081818159
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估项等级列表
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(IndicatorOption[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public Indicator build() {
-            return new Indicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

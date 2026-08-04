@@ -13,926 +13,1031 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHirePersonId {
+  /**
+   * 常用姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preferred_names")
+  private I18n[] preferredNames;
+
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_names")
+  private I18n[] legalNames;
+
+  /**
+   * 附加姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_names")
+  private I18n[] additionalNames;
+
+  /**
+   * 邮箱
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 地址信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address")
+  private Address address;
+
+  /**
+   * 国籍
+   *
+   * <p>示例值：
+   */
+  @SerializedName("nationality")
+  private PreHireField nationality;
+
+  /**
+   * 国籍V2
+   *
+   * <p>示例值：
+   */
+  @SerializedName("nationality_v2")
+  private PreHireField nationalityV2;
+
+  /**
+   * 附加国籍
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_nationalities")
+  private PreHireField additionalNationalities;
+
+  /**
+   * 民族
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ethnicity_race")
+  private PreHireField ethnicityRace;
+
+  /**
+   * 宗教信仰
+   *
+   * <p>示例值：
+   */
+  @SerializedName("religion")
+  private PreHireField religion;
+
+  /**
+   * 性别
+   *
+   * <p>示例值：
+   */
+  @SerializedName("gender")
+  private PreHireField gender;
+
+  /**
+   * 婚姻状况
+   *
+   * <p>示例值：
+   */
+  @SerializedName("marital_status")
+  private PreHireField maritalStatus;
+
+  /**
+   * 出生日期
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("date_of_birth")
+  private String dateOfBirth;
+
+  /**
+   * 前雇主信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("former_employer")
+  private PreHireField formerEmployer;
+
+  /**
+   * 年龄
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("age")
+  private String age;
+
+  /**
+   * 最高学历学位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("highest_degree_of_education")
+  private PreHireField highestDegreeOfEducation;
+
+  /**
+   * 最高教育层次
+   *
+   * <p>示例值：
+   */
+  @SerializedName("highest_level_of_education")
+  private PreHireField highestLevelOfEducation;
+
+  /**
+   * 身份证号
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("national_id_number")
+  private String nationalIdNumber;
+
+  /**
+   * 银行账号
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("bank_account_number")
+  private String bankAccountNumber;
+
+  /**
+   * 首次参加工作日期
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("date_entered_workforce")
+  private String dateEnteredWorkforce;
+
+  /**
+   * 家庭住址
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("family_address")
+  private String familyAddress;
+
+  /**
+   * 工作年限
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("working_years")
+  private String workingYears;
+
+  /**
+   * 中国籍人员信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_info_chn")
+  private PersonInfoChnForAi personInfoChn;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public I18n[] getPreferredNames() {
+    return this.preferredNames;
+  }
+
+  public void setPreferredNames(I18n[] preferredNames) {
+    this.preferredNames = preferredNames;
+  }
+
+  public I18n[] getLegalNames() {
+    return this.legalNames;
+  }
+
+  public void setLegalNames(I18n[] legalNames) {
+    this.legalNames = legalNames;
+  }
+
+  public I18n[] getAdditionalNames() {
+    return this.additionalNames;
+  }
+
+  public void setAdditionalNames(I18n[] additionalNames) {
+    this.additionalNames = additionalNames;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Address getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
+
+  public PreHireField getNationality() {
+    return this.nationality;
+  }
+
+  public void setNationality(PreHireField nationality) {
+    this.nationality = nationality;
+  }
+
+  public PreHireField getNationalityV2() {
+    return this.nationalityV2;
+  }
+
+  public void setNationalityV2(PreHireField nationalityV2) {
+    this.nationalityV2 = nationalityV2;
+  }
+
+  public PreHireField getAdditionalNationalities() {
+    return this.additionalNationalities;
+  }
+
+  public void setAdditionalNationalities(PreHireField additionalNationalities) {
+    this.additionalNationalities = additionalNationalities;
+  }
+
+  public PreHireField getEthnicityRace() {
+    return this.ethnicityRace;
+  }
+
+  public void setEthnicityRace(PreHireField ethnicityRace) {
+    this.ethnicityRace = ethnicityRace;
+  }
+
+  public PreHireField getReligion() {
+    return this.religion;
+  }
+
+  public void setReligion(PreHireField religion) {
+    this.religion = religion;
+  }
+
+  public PreHireField getGender() {
+    return this.gender;
+  }
+
+  public void setGender(PreHireField gender) {
+    this.gender = gender;
+  }
+
+  public PreHireField getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(PreHireField maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public String getDateOfBirth() {
+    return this.dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public PreHireField getFormerEmployer() {
+    return this.formerEmployer;
+  }
+
+  public void setFormerEmployer(PreHireField formerEmployer) {
+    this.formerEmployer = formerEmployer;
+  }
+
+  public String getAge() {
+    return this.age;
+  }
+
+  public void setAge(String age) {
+    this.age = age;
+  }
+
+  public PreHireField getHighestDegreeOfEducation() {
+    return this.highestDegreeOfEducation;
+  }
+
+  public void setHighestDegreeOfEducation(PreHireField highestDegreeOfEducation) {
+    this.highestDegreeOfEducation = highestDegreeOfEducation;
+  }
+
+  public PreHireField getHighestLevelOfEducation() {
+    return this.highestLevelOfEducation;
+  }
+
+  public void setHighestLevelOfEducation(PreHireField highestLevelOfEducation) {
+    this.highestLevelOfEducation = highestLevelOfEducation;
+  }
+
+  public String getNationalIdNumber() {
+    return this.nationalIdNumber;
+  }
+
+  public void setNationalIdNumber(String nationalIdNumber) {
+    this.nationalIdNumber = nationalIdNumber;
+  }
+
+  public String getBankAccountNumber() {
+    return this.bankAccountNumber;
+  }
+
+  public void setBankAccountNumber(String bankAccountNumber) {
+    this.bankAccountNumber = bankAccountNumber;
+  }
+
+  public String getDateEnteredWorkforce() {
+    return this.dateEnteredWorkforce;
+  }
+
+  public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
+    this.dateEnteredWorkforce = dateEnteredWorkforce;
+  }
+
+  public String getFamilyAddress() {
+    return this.familyAddress;
+  }
+
+  public void setFamilyAddress(String familyAddress) {
+    this.familyAddress = familyAddress;
+  }
+
+  public String getWorkingYears() {
+    return this.workingYears;
+  }
+
+  public void setWorkingYears(String workingYears) {
+    this.workingYears = workingYears;
+  }
+
+  public PersonInfoChnForAi getPersonInfoChn() {
+    return this.personInfoChn;
+  }
+
+  public void setPersonInfoChn(PersonInfoChnForAi personInfoChn) {
+    this.personInfoChn = personInfoChn;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public PreHirePersonId() {}
+
+  public PreHirePersonId(Builder builder) {
     /**
      * 常用姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("preferred_names")
-    private I18n[] preferredNames;
+    this.preferredNames = builder.preferredNames;
     /**
      * 法定姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("legal_names")
-    private I18n[] legalNames;
+    this.legalNames = builder.legalNames;
     /**
      * 附加姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_names")
-    private I18n[] additionalNames;
+    this.additionalNames = builder.additionalNames;
     /**
      * 邮箱
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 地址信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("address")
-    private Address address;
+    this.address = builder.address;
     /**
      * 国籍
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("nationality")
-    private PreHireField nationality;
+    this.nationality = builder.nationality;
     /**
      * 国籍V2
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("nationality_v2")
-    private PreHireField nationalityV2;
+    this.nationalityV2 = builder.nationalityV2;
     /**
      * 附加国籍
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_nationalities")
-    private PreHireField additionalNationalities;
+    this.additionalNationalities = builder.additionalNationalities;
     /**
      * 民族
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ethnicity_race")
-    private PreHireField ethnicityRace;
+    this.ethnicityRace = builder.ethnicityRace;
     /**
      * 宗教信仰
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("religion")
-    private PreHireField religion;
+    this.religion = builder.religion;
     /**
      * 性别
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("gender")
-    private PreHireField gender;
+    this.gender = builder.gender;
     /**
      * 婚姻状况
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("marital_status")
-    private PreHireField maritalStatus;
+    this.maritalStatus = builder.maritalStatus;
     /**
      * 出生日期
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("date_of_birth")
-    private String dateOfBirth;
+    this.dateOfBirth = builder.dateOfBirth;
     /**
      * 前雇主信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("former_employer")
-    private PreHireField formerEmployer;
+    this.formerEmployer = builder.formerEmployer;
     /**
      * 年龄
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("age")
-    private String age;
+    this.age = builder.age;
     /**
      * 最高学历学位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("highest_degree_of_education")
-    private PreHireField highestDegreeOfEducation;
+    this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
     /**
      * 最高教育层次
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("highest_level_of_education")
-    private PreHireField highestLevelOfEducation;
+    this.highestLevelOfEducation = builder.highestLevelOfEducation;
     /**
      * 身份证号
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("national_id_number")
-    private String nationalIdNumber;
+    this.nationalIdNumber = builder.nationalIdNumber;
     /**
      * 银行账号
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("bank_account_number")
-    private String bankAccountNumber;
+    this.bankAccountNumber = builder.bankAccountNumber;
     /**
      * 首次参加工作日期
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("date_entered_workforce")
-    private String dateEnteredWorkforce;
+    this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
     /**
      * 家庭住址
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("family_address")
-    private String familyAddress;
+    this.familyAddress = builder.familyAddress;
     /**
      * 工作年限
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("working_years")
-    private String workingYears;
+    this.workingYears = builder.workingYears;
     /**
      * 中国籍人员信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_info_chn")
-    private PersonInfoChnForAi personInfoChn;
+    this.personInfoChn = builder.personInfoChn;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 常用姓名
+     *
+     * <p>示例值：
+     */
+    private I18n[] preferredNames;
+
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：
+     */
+    private I18n[] legalNames;
+
+    /**
+     * 附加姓名
+     *
+     * <p>示例值：
+     */
+    private I18n[] additionalNames;
+
+    /**
+     * 邮箱
+     *
+     * <p>示例值：example
+     */
+    private String email;
+
+    /**
+     * 地址信息
+     *
+     * <p>示例值：
+     */
+    private Address address;
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：
+     */
+    private PreHireField nationality;
+
+    /**
+     * 国籍V2
+     *
+     * <p>示例值：
+     */
+    private PreHireField nationalityV2;
+
+    /**
+     * 附加国籍
+     *
+     * <p>示例值：
+     */
+    private PreHireField additionalNationalities;
+
+    /**
+     * 民族
+     *
+     * <p>示例值：
+     */
+    private PreHireField ethnicityRace;
+
+    /**
+     * 宗教信仰
+     *
+     * <p>示例值：
+     */
+    private PreHireField religion;
+
+    /**
+     * 性别
+     *
+     * <p>示例值：
+     */
+    private PreHireField gender;
+
+    /**
+     * 婚姻状况
+     *
+     * <p>示例值：
+     */
+    private PreHireField maritalStatus;
+
+    /**
+     * 出生日期
+     *
+     * <p>示例值：example
+     */
+    private String dateOfBirth;
+
+    /**
+     * 前雇主信息
+     *
+     * <p>示例值：
+     */
+    private PreHireField formerEmployer;
+
+    /**
+     * 年龄
+     *
+     * <p>示例值：example
+     */
+    private String age;
+
+    /**
+     * 最高学历学位
+     *
+     * <p>示例值：
+     */
+    private PreHireField highestDegreeOfEducation;
+
+    /**
+     * 最高教育层次
+     *
+     * <p>示例值：
+     */
+    private PreHireField highestLevelOfEducation;
+
+    /**
+     * 身份证号
+     *
+     * <p>示例值：example
+     */
+    private String nationalIdNumber;
+
+    /**
+     * 银行账号
+     *
+     * <p>示例值：example
+     */
+    private String bankAccountNumber;
+
+    /**
+     * 首次参加工作日期
+     *
+     * <p>示例值：example
+     */
+    private String dateEnteredWorkforce;
+
+    /**
+     * 家庭住址
+     *
+     * <p>示例值：example
+     */
+    private String familyAddress;
+
+    /**
+     * 工作年限
+     *
+     * <p>示例值：example
+     */
+    private String workingYears;
+
+    /**
+     * 中国籍人员信息
+     *
+     * <p>示例值：
+     */
+    private PersonInfoChnForAi personInfoChn;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public PreHirePersonId() {
+    /**
+     * 常用姓名
+     *
+     * <p>示例值：
+     *
+     * @param preferredNames
+     * @return
+     */
+    public Builder preferredNames(I18n[] preferredNames) {
+      this.preferredNames = preferredNames;
+      return this;
     }
 
-    public PreHirePersonId(Builder builder) {
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         */
-        this.preferredNames = builder.preferredNames;
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        this.legalNames = builder.legalNames;
-        /**
-         * 附加姓名
-         * <p> 示例值：
-         */
-        this.additionalNames = builder.additionalNames;
-        /**
-         * 邮箱
-         * <p> 示例值：example
-         */
-        this.email = builder.email;
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 国籍
-         * <p> 示例值：
-         */
-        this.nationality = builder.nationality;
-        /**
-         * 国籍V2
-         * <p> 示例值：
-         */
-        this.nationalityV2 = builder.nationalityV2;
-        /**
-         * 附加国籍
-         * <p> 示例值：
-         */
-        this.additionalNationalities = builder.additionalNationalities;
-        /**
-         * 民族
-         * <p> 示例值：
-         */
-        this.ethnicityRace = builder.ethnicityRace;
-        /**
-         * 宗教信仰
-         * <p> 示例值：
-         */
-        this.religion = builder.religion;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        this.gender = builder.gender;
-        /**
-         * 婚姻状况
-         * <p> 示例值：
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 出生日期
-         * <p> 示例值：example
-         */
-        this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 前雇主信息
-         * <p> 示例值：
-         */
-        this.formerEmployer = builder.formerEmployer;
-        /**
-         * 年龄
-         * <p> 示例值：example
-         */
-        this.age = builder.age;
-        /**
-         * 最高学历学位
-         * <p> 示例值：
-         */
-        this.highestDegreeOfEducation = builder.highestDegreeOfEducation;
-        /**
-         * 最高教育层次
-         * <p> 示例值：
-         */
-        this.highestLevelOfEducation = builder.highestLevelOfEducation;
-        /**
-         * 身份证号
-         * <p> 示例值：example
-         */
-        this.nationalIdNumber = builder.nationalIdNumber;
-        /**
-         * 银行账号
-         * <p> 示例值：example
-         */
-        this.bankAccountNumber = builder.bankAccountNumber;
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：example
-         */
-        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
-        /**
-         * 家庭住址
-         * <p> 示例值：example
-         */
-        this.familyAddress = builder.familyAddress;
-        /**
-         * 工作年限
-         * <p> 示例值：example
-         */
-        this.workingYears = builder.workingYears;
-        /**
-         * 中国籍人员信息
-         * <p> 示例值：
-         */
-        this.personInfoChn = builder.personInfoChn;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：
+     *
+     * @param legalNames
+     * @return
+     */
+    public Builder legalNames(I18n[] legalNames) {
+      this.legalNames = legalNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附加姓名
+     *
+     * <p>示例值：
+     *
+     * @param additionalNames
+     * @return
+     */
+    public Builder additionalNames(I18n[] additionalNames) {
+      this.additionalNames = additionalNames;
+      return this;
     }
 
-    public I18n[] getPreferredNames() {
-        return this.preferredNames;
+    /**
+     * 邮箱
+     *
+     * <p>示例值：example
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setPreferredNames(I18n[] preferredNames) {
-        this.preferredNames = preferredNames;
+    /**
+     * 地址信息
+     *
+     * <p>示例值：
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(Address address) {
+      this.address = address;
+      return this;
     }
 
-    public I18n[] getLegalNames() {
-        return this.legalNames;
+    /**
+     * 国籍
+     *
+     * <p>示例值：
+     *
+     * @param nationality
+     * @return
+     */
+    public Builder nationality(PreHireField nationality) {
+      this.nationality = nationality;
+      return this;
     }
 
-    public void setLegalNames(I18n[] legalNames) {
-        this.legalNames = legalNames;
+    /**
+     * 国籍V2
+     *
+     * <p>示例值：
+     *
+     * @param nationalityV2
+     * @return
+     */
+    public Builder nationalityV2(PreHireField nationalityV2) {
+      this.nationalityV2 = nationalityV2;
+      return this;
     }
 
-    public I18n[] getAdditionalNames() {
-        return this.additionalNames;
+    /**
+     * 附加国籍
+     *
+     * <p>示例值：
+     *
+     * @param additionalNationalities
+     * @return
+     */
+    public Builder additionalNationalities(PreHireField additionalNationalities) {
+      this.additionalNationalities = additionalNationalities;
+      return this;
     }
 
-    public void setAdditionalNames(I18n[] additionalNames) {
-        this.additionalNames = additionalNames;
+    /**
+     * 民族
+     *
+     * <p>示例值：
+     *
+     * @param ethnicityRace
+     * @return
+     */
+    public Builder ethnicityRace(PreHireField ethnicityRace) {
+      this.ethnicityRace = ethnicityRace;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 宗教信仰
+     *
+     * <p>示例值：
+     *
+     * @param religion
+     * @return
+     */
+    public Builder religion(PreHireField religion) {
+      this.religion = religion;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /**
+     * 性别
+     *
+     * <p>示例值：
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(PreHireField gender) {
+      this.gender = gender;
+      return this;
     }
 
-    public Address getAddress() {
-        return this.address;
+    /**
+     * 婚姻状况
+     *
+     * <p>示例值：
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(PreHireField maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    /**
+     * 出生日期
+     *
+     * <p>示例值：example
+     *
+     * @param dateOfBirth
+     * @return
+     */
+    public Builder dateOfBirth(String dateOfBirth) {
+      this.dateOfBirth = dateOfBirth;
+      return this;
     }
 
-    public PreHireField getNationality() {
-        return this.nationality;
+    /**
+     * 前雇主信息
+     *
+     * <p>示例值：
+     *
+     * @param formerEmployer
+     * @return
+     */
+    public Builder formerEmployer(PreHireField formerEmployer) {
+      this.formerEmployer = formerEmployer;
+      return this;
     }
 
-    public void setNationality(PreHireField nationality) {
-        this.nationality = nationality;
+    /**
+     * 年龄
+     *
+     * <p>示例值：example
+     *
+     * @param age
+     * @return
+     */
+    public Builder age(String age) {
+      this.age = age;
+      return this;
     }
 
-    public PreHireField getNationalityV2() {
-        return this.nationalityV2;
+    /**
+     * 最高学历学位
+     *
+     * <p>示例值：
+     *
+     * @param highestDegreeOfEducation
+     * @return
+     */
+    public Builder highestDegreeOfEducation(PreHireField highestDegreeOfEducation) {
+      this.highestDegreeOfEducation = highestDegreeOfEducation;
+      return this;
     }
 
-    public void setNationalityV2(PreHireField nationalityV2) {
-        this.nationalityV2 = nationalityV2;
+    /**
+     * 最高教育层次
+     *
+     * <p>示例值：
+     *
+     * @param highestLevelOfEducation
+     * @return
+     */
+    public Builder highestLevelOfEducation(PreHireField highestLevelOfEducation) {
+      this.highestLevelOfEducation = highestLevelOfEducation;
+      return this;
     }
 
-    public PreHireField getAdditionalNationalities() {
-        return this.additionalNationalities;
+    /**
+     * 身份证号
+     *
+     * <p>示例值：example
+     *
+     * @param nationalIdNumber
+     * @return
+     */
+    public Builder nationalIdNumber(String nationalIdNumber) {
+      this.nationalIdNumber = nationalIdNumber;
+      return this;
     }
 
-    public void setAdditionalNationalities(PreHireField additionalNationalities) {
-        this.additionalNationalities = additionalNationalities;
+    /**
+     * 银行账号
+     *
+     * <p>示例值：example
+     *
+     * @param bankAccountNumber
+     * @return
+     */
+    public Builder bankAccountNumber(String bankAccountNumber) {
+      this.bankAccountNumber = bankAccountNumber;
+      return this;
     }
 
-    public PreHireField getEthnicityRace() {
-        return this.ethnicityRace;
+    /**
+     * 首次参加工作日期
+     *
+     * <p>示例值：example
+     *
+     * @param dateEnteredWorkforce
+     * @return
+     */
+    public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
+      this.dateEnteredWorkforce = dateEnteredWorkforce;
+      return this;
     }
 
-    public void setEthnicityRace(PreHireField ethnicityRace) {
-        this.ethnicityRace = ethnicityRace;
+    /**
+     * 家庭住址
+     *
+     * <p>示例值：example
+     *
+     * @param familyAddress
+     * @return
+     */
+    public Builder familyAddress(String familyAddress) {
+      this.familyAddress = familyAddress;
+      return this;
     }
 
-    public PreHireField getReligion() {
-        return this.religion;
+    /**
+     * 工作年限
+     *
+     * <p>示例值：example
+     *
+     * @param workingYears
+     * @return
+     */
+    public Builder workingYears(String workingYears) {
+      this.workingYears = workingYears;
+      return this;
     }
 
-    public void setReligion(PreHireField religion) {
-        this.religion = religion;
+    /**
+     * 中国籍人员信息
+     *
+     * <p>示例值：
+     *
+     * @param personInfoChn
+     * @return
+     */
+    public Builder personInfoChn(PersonInfoChnForAi personInfoChn) {
+      this.personInfoChn = personInfoChn;
+      return this;
     }
 
-    public PreHireField getGender() {
-        return this.gender;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setGender(PreHireField gender) {
-        this.gender = gender;
+    public PreHirePersonId build() {
+      return new PreHirePersonId(this);
     }
-
-    public PreHireField getMaritalStatus() {
-        return this.maritalStatus;
-    }
-
-    public void setMaritalStatus(PreHireField maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public PreHireField getFormerEmployer() {
-        return this.formerEmployer;
-    }
-
-    public void setFormerEmployer(PreHireField formerEmployer) {
-        this.formerEmployer = formerEmployer;
-    }
-
-    public String getAge() {
-        return this.age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public PreHireField getHighestDegreeOfEducation() {
-        return this.highestDegreeOfEducation;
-    }
-
-    public void setHighestDegreeOfEducation(PreHireField highestDegreeOfEducation) {
-        this.highestDegreeOfEducation = highestDegreeOfEducation;
-    }
-
-    public PreHireField getHighestLevelOfEducation() {
-        return this.highestLevelOfEducation;
-    }
-
-    public void setHighestLevelOfEducation(PreHireField highestLevelOfEducation) {
-        this.highestLevelOfEducation = highestLevelOfEducation;
-    }
-
-    public String getNationalIdNumber() {
-        return this.nationalIdNumber;
-    }
-
-    public void setNationalIdNumber(String nationalIdNumber) {
-        this.nationalIdNumber = nationalIdNumber;
-    }
-
-    public String getBankAccountNumber() {
-        return this.bankAccountNumber;
-    }
-
-    public void setBankAccountNumber(String bankAccountNumber) {
-        this.bankAccountNumber = bankAccountNumber;
-    }
-
-    public String getDateEnteredWorkforce() {
-        return this.dateEnteredWorkforce;
-    }
-
-    public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
-        this.dateEnteredWorkforce = dateEnteredWorkforce;
-    }
-
-    public String getFamilyAddress() {
-        return this.familyAddress;
-    }
-
-    public void setFamilyAddress(String familyAddress) {
-        this.familyAddress = familyAddress;
-    }
-
-    public String getWorkingYears() {
-        return this.workingYears;
-    }
-
-    public void setWorkingYears(String workingYears) {
-        this.workingYears = workingYears;
-    }
-
-    public PersonInfoChnForAi getPersonInfoChn() {
-        return this.personInfoChn;
-    }
-
-    public void setPersonInfoChn(PersonInfoChnForAi personInfoChn) {
-        this.personInfoChn = personInfoChn;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         */
-        private I18n[] preferredNames;
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        private I18n[] legalNames;
-        /**
-         * 附加姓名
-         * <p> 示例值：
-         */
-        private I18n[] additionalNames;
-        /**
-         * 邮箱
-         * <p> 示例值：example
-         */
-        private String email;
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
-        private Address address;
-        /**
-         * 国籍
-         * <p> 示例值：
-         */
-        private PreHireField nationality;
-        /**
-         * 国籍V2
-         * <p> 示例值：
-         */
-        private PreHireField nationalityV2;
-        /**
-         * 附加国籍
-         * <p> 示例值：
-         */
-        private PreHireField additionalNationalities;
-        /**
-         * 民族
-         * <p> 示例值：
-         */
-        private PreHireField ethnicityRace;
-        /**
-         * 宗教信仰
-         * <p> 示例值：
-         */
-        private PreHireField religion;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        private PreHireField gender;
-        /**
-         * 婚姻状况
-         * <p> 示例值：
-         */
-        private PreHireField maritalStatus;
-        /**
-         * 出生日期
-         * <p> 示例值：example
-         */
-        private String dateOfBirth;
-        /**
-         * 前雇主信息
-         * <p> 示例值：
-         */
-        private PreHireField formerEmployer;
-        /**
-         * 年龄
-         * <p> 示例值：example
-         */
-        private String age;
-        /**
-         * 最高学历学位
-         * <p> 示例值：
-         */
-        private PreHireField highestDegreeOfEducation;
-        /**
-         * 最高教育层次
-         * <p> 示例值：
-         */
-        private PreHireField highestLevelOfEducation;
-        /**
-         * 身份证号
-         * <p> 示例值：example
-         */
-        private String nationalIdNumber;
-        /**
-         * 银行账号
-         * <p> 示例值：example
-         */
-        private String bankAccountNumber;
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：example
-         */
-        private String dateEnteredWorkforce;
-        /**
-         * 家庭住址
-         * <p> 示例值：example
-         */
-        private String familyAddress;
-        /**
-         * 工作年限
-         * <p> 示例值：example
-         */
-        private String workingYears;
-        /**
-         * 中国籍人员信息
-         * <p> 示例值：
-         */
-        private PersonInfoChnForAi personInfoChn;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         *
-         * @param preferredNames
-         * @return
-         */
-        public Builder preferredNames(I18n[] preferredNames) {
-            this.preferredNames = preferredNames;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         *
-         * @param legalNames
-         * @return
-         */
-        public Builder legalNames(I18n[] legalNames) {
-            this.legalNames = legalNames;
-            return this;
-        }
-
-
-        /**
-         * 附加姓名
-         * <p> 示例值：
-         *
-         * @param additionalNames
-         * @return
-         */
-        public Builder additionalNames(I18n[] additionalNames) {
-            this.additionalNames = additionalNames;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：example
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 地址信息
-         * <p> 示例值：
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(Address address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 国籍
-         * <p> 示例值：
-         *
-         * @param nationality
-         * @return
-         */
-        public Builder nationality(PreHireField nationality) {
-            this.nationality = nationality;
-            return this;
-        }
-
-
-        /**
-         * 国籍V2
-         * <p> 示例值：
-         *
-         * @param nationalityV2
-         * @return
-         */
-        public Builder nationalityV2(PreHireField nationalityV2) {
-            this.nationalityV2 = nationalityV2;
-            return this;
-        }
-
-
-        /**
-         * 附加国籍
-         * <p> 示例值：
-         *
-         * @param additionalNationalities
-         * @return
-         */
-        public Builder additionalNationalities(PreHireField additionalNationalities) {
-            this.additionalNationalities = additionalNationalities;
-            return this;
-        }
-
-
-        /**
-         * 民族
-         * <p> 示例值：
-         *
-         * @param ethnicityRace
-         * @return
-         */
-        public Builder ethnicityRace(PreHireField ethnicityRace) {
-            this.ethnicityRace = ethnicityRace;
-            return this;
-        }
-
-
-        /**
-         * 宗教信仰
-         * <p> 示例值：
-         *
-         * @param religion
-         * @return
-         */
-        public Builder religion(PreHireField religion) {
-            this.religion = religion;
-            return this;
-        }
-
-
-        /**
-         * 性别
-         * <p> 示例值：
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(PreHireField gender) {
-            this.gender = gender;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状况
-         * <p> 示例值：
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(PreHireField maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * 出生日期
-         * <p> 示例值：example
-         *
-         * @param dateOfBirth
-         * @return
-         */
-        public Builder dateOfBirth(String dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 前雇主信息
-         * <p> 示例值：
-         *
-         * @param formerEmployer
-         * @return
-         */
-        public Builder formerEmployer(PreHireField formerEmployer) {
-            this.formerEmployer = formerEmployer;
-            return this;
-        }
-
-
-        /**
-         * 年龄
-         * <p> 示例值：example
-         *
-         * @param age
-         * @return
-         */
-        public Builder age(String age) {
-            this.age = age;
-            return this;
-        }
-
-
-        /**
-         * 最高学历学位
-         * <p> 示例值：
-         *
-         * @param highestDegreeOfEducation
-         * @return
-         */
-        public Builder highestDegreeOfEducation(PreHireField highestDegreeOfEducation) {
-            this.highestDegreeOfEducation = highestDegreeOfEducation;
-            return this;
-        }
-
-
-        /**
-         * 最高教育层次
-         * <p> 示例值：
-         *
-         * @param highestLevelOfEducation
-         * @return
-         */
-        public Builder highestLevelOfEducation(PreHireField highestLevelOfEducation) {
-            this.highestLevelOfEducation = highestLevelOfEducation;
-            return this;
-        }
-
-
-        /**
-         * 身份证号
-         * <p> 示例值：example
-         *
-         * @param nationalIdNumber
-         * @return
-         */
-        public Builder nationalIdNumber(String nationalIdNumber) {
-            this.nationalIdNumber = nationalIdNumber;
-            return this;
-        }
-
-
-        /**
-         * 银行账号
-         * <p> 示例值：example
-         *
-         * @param bankAccountNumber
-         * @return
-         */
-        public Builder bankAccountNumber(String bankAccountNumber) {
-            this.bankAccountNumber = bankAccountNumber;
-            return this;
-        }
-
-
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：example
-         *
-         * @param dateEnteredWorkforce
-         * @return
-         */
-        public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
-            this.dateEnteredWorkforce = dateEnteredWorkforce;
-            return this;
-        }
-
-
-        /**
-         * 家庭住址
-         * <p> 示例值：example
-         *
-         * @param familyAddress
-         * @return
-         */
-        public Builder familyAddress(String familyAddress) {
-            this.familyAddress = familyAddress;
-            return this;
-        }
-
-
-        /**
-         * 工作年限
-         * <p> 示例值：example
-         *
-         * @param workingYears
-         * @return
-         */
-        public Builder workingYears(String workingYears) {
-            this.workingYears = workingYears;
-            return this;
-        }
-
-
-        /**
-         * 中国籍人员信息
-         * <p> 示例值：
-         *
-         * @param personInfoChn
-         * @return
-         */
-        public Builder personInfoChn(PersonInfoChnForAi personInfoChn) {
-            this.personInfoChn = personInfoChn;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public PreHirePersonId build() {
-            return new PreHirePersonId(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

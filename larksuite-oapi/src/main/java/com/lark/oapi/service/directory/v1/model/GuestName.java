@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GuestName {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 姓名拼音
+   *
+   * <p>示例值：pinyin
+   */
+  @SerializedName("name_py")
+  private String namePy;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getNamePy() {
+    return this.namePy;
+  }
+
+  public void setNamePy(String namePy) {
+    this.namePy = namePy;
+  }
+
+  // builder 开始
+  public GuestName() {}
+
+  public GuestName(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 姓名拼音
-     * <p> 示例值：pinyin
+     *
+     * <p>示例值：pinyin
      */
-    @SerializedName("name_py")
+    this.namePy = builder.namePy;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 姓名拼音
+     *
+     * <p>示例值：pinyin
+     */
     private String namePy;
 
-    // builder 开始
-    public GuestName() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public GuestName(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 姓名拼音
-         * <p> 示例值：pinyin
-         */
-        this.namePy = builder.namePy;
+    /**
+     * 姓名拼音
+     *
+     * <p>示例值：pinyin
+     *
+     * @param namePy
+     * @return
+     */
+    public Builder namePy(String namePy) {
+      this.namePy = namePy;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GuestName build() {
+      return new GuestName(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getNamePy() {
-        return this.namePy;
-    }
-
-    public void setNamePy(String namePy) {
-        this.namePy = namePy;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 姓名拼音
-         * <p> 示例值：pinyin
-         */
-        private String namePy;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 姓名拼音
-         * <p> 示例值：pinyin
-         *
-         * @param namePy
-         * @return
-         */
-        public Builder namePy(String namePy) {
-            this.namePy = namePy;
-            return this;
-        }
-
-
-        public GuestName build() {
-            return new GuestName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

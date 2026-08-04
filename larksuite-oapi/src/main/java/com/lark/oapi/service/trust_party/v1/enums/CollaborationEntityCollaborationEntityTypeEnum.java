@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.trust_party.v1.enums;
 
-/**
- * 关联组织实体类型
- */
+/** 关联组织实体类型 */
 public enum CollaborationEntityCollaborationEntityTypeEnum {
-    USER("user"), // 用户类型
-    DEPARTMENT("department"), // 部门类型
-    GROUP("group"), // 用户组类型
-    ;
-    private String value;
+  USER("user"), // 用户类型
+  DEPARTMENT("department"), // 部门类型
+  GROUP("group"), // 用户组类型
+  ;
+  private String value;
 
-    CollaborationEntityCollaborationEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  CollaborationEntityCollaborationEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeesAdditionalJobBatchReqDate {
+  /**
+   * 开始;
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("start")
+  private String start;
+
+  /**
+   * 结束
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("end")
+  private String end;
+
+  public String getStart() {
+    return this.start;
+  }
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+  public String getEnd() {
+    return this.end;
+  }
+
+  public void setEnd(String end) {
+    this.end = end;
+  }
+
+  // builder 开始
+  public EmployeesAdditionalJobBatchReqDate() {}
+
+  public EmployeesAdditionalJobBatchReqDate(Builder builder) {
     /**
-     * 开始
-     * <p> 示例值：2024-01-01
+     * 开始;
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("start")
-    private String start;
+    this.start = builder.start;
     /**
      * 结束
-     * <p> 示例值：2024-01-01
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("end")
+    this.end = builder.end;
+  }
+
+  public static class Builder {
+    /**
+     * 开始;
+     *
+     * <p>示例值：2024-01-01
+     */
+    private String start;
+
+    /**
+     * 结束
+     *
+     * <p>示例值：2024-01-01
+     */
     private String end;
 
-    // builder 开始
-    public EmployeesAdditionalJobBatchReqDate() {
+    /**
+     * 开始;
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(String start) {
+      this.start = start;
+      return this;
     }
 
-    public EmployeesAdditionalJobBatchReqDate(Builder builder) {
-        /**
-         * 开始
-         * <p> 示例值：2024-01-01
-         */
-        this.start = builder.start;
-        /**
-         * 结束
-         * <p> 示例值：2024-01-01
-         */
-        this.end = builder.end;
+    /**
+     * 结束
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param end
+     * @return
+     */
+    public Builder end(String end) {
+      this.end = end;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeesAdditionalJobBatchReqDate build() {
+      return new EmployeesAdditionalJobBatchReqDate(this);
     }
+  }
 
-    public String getStart() {
-        return this.start;
-    }
-
-    public void setStart(String start) {
-        this.start = start;
-    }
-
-    public String getEnd() {
-        return this.end;
-    }
-
-    public void setEnd(String end) {
-        this.end = end;
-    }
-
-    public static class Builder {
-        /**
-         * 开始
-         * <p> 示例值：2024-01-01
-         */
-        private String start;
-        /**
-         * 结束
-         * <p> 示例值：2024-01-01
-         */
-        private String end;
-
-        /**
-         * 开始
-         * <p> 示例值：2024-01-01
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(String start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 结束
-         * <p> 示例值：2024-01-01
-         *
-         * @param end
-         * @return
-         */
-        public Builder end(String end) {
-            this.end = end;
-            return this;
-        }
-
-
-        public EmployeesAdditionalJobBatchReqDate build() {
-            return new EmployeesAdditionalJobBatchReqDate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

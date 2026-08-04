@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMessageItem {
+  /**
+   * 发送者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private MeetingAgentEventUser operator;
+
+  /**
+   * 消息 ID
+   *
+   * <p>示例值：m_1001
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("message_type")
+  private Integer messageType;
+
+  /**
+   * 消息内容
+   *
+   * <p>示例值：你好
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 发送时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712345678000
+   */
+  @SerializedName("send_time")
+  private String sendTime;
+
+  public MeetingAgentEventUser getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(MeetingAgentEventUser operator) {
+    this.operator = operator;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Integer getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(Integer messageType) {
+    this.messageType = messageType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSendTime() {
+    return this.sendTime;
+  }
+
+  public void setSendTime(String sendTime) {
+    this.sendTime = sendTime;
+  }
+
+  // builder 开始
+  public ChatMessageItem() {}
+
+  public ChatMessageItem(Builder builder) {
     /**
      * 发送者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private MeetingAgentEventUser operator;
+    this.operator = builder.operator;
     /**
      * 消息 ID
-     * <p> 示例值：m_1001
+     *
+     * <p>示例值：m_1001
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 消息类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("message_type")
-    private Integer messageType;
+    this.messageType = builder.messageType;
     /**
      * 消息内容
-     * <p> 示例值：你好
+     *
+     * <p>示例值：你好
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 发送时间（毫秒级时间戳）
-     * <p> 示例值：1712345678000
+     *
+     * <p>示例值：1712345678000
      */
-    @SerializedName("send_time")
+    this.sendTime = builder.sendTime;
+  }
+
+  public static class Builder {
+    /**
+     * 发送者
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventUser operator;
+
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：m_1001
+     */
+    private String messageId;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：1
+     */
+    private Integer messageType;
+
+    /**
+     * 消息内容
+     *
+     * <p>示例值：你好
+     */
+    private String content;
+
+    /**
+     * 发送时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     */
     private String sendTime;
 
-    // builder 开始
-    public ChatMessageItem() {
+    /**
+     * 发送者
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(MeetingAgentEventUser operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public ChatMessageItem(Builder builder) {
-        /**
-         * 发送者
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 消息 ID
-         * <p> 示例值：m_1001
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：1
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         */
-        this.content = builder.content;
-        /**
-         * 发送时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        this.sendTime = builder.sendTime;
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：m_1001
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息类型
+     *
+     * <p>示例值：1
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(Integer messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public MeetingAgentEventUser getOperator() {
-        return this.operator;
+    /**
+     * 消息内容
+     *
+     * <p>示例值：你好
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setOperator(MeetingAgentEventUser operator) {
-        this.operator = operator;
+    /**
+     * 发送时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     *
+     * @param sendTime
+     * @return
+     */
+    public Builder sendTime(String sendTime) {
+      this.sendTime = sendTime;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public ChatMessageItem build() {
+      return new ChatMessageItem(this);
     }
+  }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public Integer getMessageType() {
-        return this.messageType;
-    }
-
-    public void setMessageType(Integer messageType) {
-        this.messageType = messageType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getSendTime() {
-        return this.sendTime;
-    }
-
-    public void setSendTime(String sendTime) {
-        this.sendTime = sendTime;
-    }
-
-    public static class Builder {
-        /**
-         * 发送者
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser operator;
-        /**
-         * 消息 ID
-         * <p> 示例值：m_1001
-         */
-        private String messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：1
-         */
-        private Integer messageType;
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         */
-        private String content;
-        /**
-         * 发送时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        private String sendTime;
-
-        /**
-         * 发送者
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(MeetingAgentEventUser operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 消息 ID
-         * <p> 示例值：m_1001
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：1
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(Integer messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 发送时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         *
-         * @param sendTime
-         * @return
-         */
-        public Builder sendTime(String sendTime) {
-            this.sendTime = sendTime;
-            return this;
-        }
-
-
-        public ChatMessageItem build() {
-            return new ChatMessageItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

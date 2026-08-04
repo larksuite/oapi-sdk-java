@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCloseSystemStatusReqBody {
+  /**
+   * 用户ID列表，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+   *
+   * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+   */
+  @SerializedName("user_list")
+  private String[] userList;
+
+  public String[] getUserList() {
+    return this.userList;
+  }
+
+  public void setUserList(String[] userList) {
+    this.userList = userList;
+  }
+
+  // builder 开始
+  public BatchCloseSystemStatusReqBody() {}
+
+  public BatchCloseSystemStatusReqBody(Builder builder) {
     /**
-     * 成员列表
-     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     * 用户ID列表，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
      */
-    @SerializedName("user_list")
+    this.userList = builder.userList;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID列表，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
     private String[] userList;
 
-    // builder 开始
-    public BatchCloseSystemStatusReqBody() {
+    /**
+     * 用户ID列表，传入的ID类型由user_id_type决定，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     *
+     * @param userList
+     * @return
+     */
+    public Builder userList(String[] userList) {
+      this.userList = userList;
+      return this;
     }
 
-    public BatchCloseSystemStatusReqBody(Builder builder) {
-        /**
-         * 成员列表
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        this.userList = builder.userList;
+    public BatchCloseSystemStatusReqBody build() {
+      return new BatchCloseSystemStatusReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserList() {
-        return this.userList;
-    }
-
-    public void setUserList(String[] userList) {
-        this.userList = userList;
-    }
-
-    public static class Builder {
-        /**
-         * 成员列表
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        private String[] userList;
-
-        /**
-         * 成员列表
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         *
-         * @param userList
-         * @return
-         */
-        public Builder userList(String[] userList) {
-            this.userList = userList;
-            return this;
-        }
-
-
-        public BatchCloseSystemStatusReqBody build() {
-            return new BatchCloseSystemStatusReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

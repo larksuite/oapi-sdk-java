@@ -13,245 +13,192 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Base {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("log_id")
+  /** 示例值： */
+  @SerializedName("log_id")
+  private String logId;
+
+  /** 示例值： */
+  @SerializedName("caller")
+  private String caller;
+
+  /** 示例值： */
+  @SerializedName("addr")
+  private String addr;
+
+  /** 示例值： */
+  @SerializedName("client")
+  private String client;
+
+  /** 示例值： */
+  @SerializedName("traffic_env")
+  private TrafficEnv trafficEnv;
+
+  /** 示例值： */
+  @SerializedName("extra")
+  private Map<String, String> extra;
+
+  public String getLogId() {
+    return this.logId;
+  }
+
+  public void setLogId(String logId) {
+    this.logId = logId;
+  }
+
+  public String getCaller() {
+    return this.caller;
+  }
+
+  public void setCaller(String caller) {
+    this.caller = caller;
+  }
+
+  public String getAddr() {
+    return this.addr;
+  }
+
+  public void setAddr(String addr) {
+    this.addr = addr;
+  }
+
+  public String getClient() {
+    return this.client;
+  }
+
+  public void setClient(String client) {
+    this.client = client;
+  }
+
+  public TrafficEnv getTrafficEnv() {
+    return this.trafficEnv;
+  }
+
+  public void setTrafficEnv(TrafficEnv trafficEnv) {
+    this.trafficEnv = trafficEnv;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public Base() {}
+
+  public Base(Builder builder) {
+    /** 示例值： */
+    this.logId = builder.logId;
+    /** 示例值： */
+    this.caller = builder.caller;
+    /** 示例值： */
+    this.addr = builder.addr;
+    /** 示例值： */
+    this.client = builder.client;
+    /** 示例值： */
+    this.trafficEnv = builder.trafficEnv;
+    /** 示例值： */
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String logId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("caller")
+
+    /** 示例值： */
     private String caller;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("addr")
+
+    /** 示例值： */
     private String addr;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("client")
+
+    /** 示例值： */
     private String client;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("traffic_env")
+
+    /** 示例值： */
     private TrafficEnv trafficEnv;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("extra")
+
+    /** 示例值： */
     private Map<String, String> extra;
 
-    // builder 开始
-    public Base() {
+    /**
+     * 示例值：
+     *
+     * @param logId
+     * @return
+     */
+    public Builder logId(String logId) {
+      this.logId = logId;
+      return this;
     }
 
-    public Base(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.logId = builder.logId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.caller = builder.caller;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.addr = builder.addr;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.client = builder.client;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.trafficEnv = builder.trafficEnv;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * 示例值：
+     *
+     * @param caller
+     * @return
+     */
+    public Builder caller(String caller) {
+      this.caller = caller;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param addr
+     * @return
+     */
+    public Builder addr(String addr) {
+      this.addr = addr;
+      return this;
     }
 
-    public String getLogId() {
-        return this.logId;
+    /**
+     * 示例值：
+     *
+     * @param client
+     * @return
+     */
+    public Builder client(String client) {
+      this.client = client;
+      return this;
     }
 
-    public void setLogId(String logId) {
-        this.logId = logId;
+    /**
+     * 示例值：
+     *
+     * @param trafficEnv
+     * @return
+     */
+    public Builder trafficEnv(TrafficEnv trafficEnv) {
+      this.trafficEnv = trafficEnv;
+      return this;
     }
 
-    public String getCaller() {
-        return this.caller;
+    /**
+     * 示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setCaller(String caller) {
-        this.caller = caller;
+    public Base build() {
+      return new Base(this);
     }
+  }
 
-    public String getAddr() {
-        return this.addr;
-    }
-
-    public void setAddr(String addr) {
-        this.addr = addr;
-    }
-
-    public String getClient() {
-        return this.client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
-    }
-
-    public TrafficEnv getTrafficEnv() {
-        return this.trafficEnv;
-    }
-
-    public void setTrafficEnv(TrafficEnv trafficEnv) {
-        this.trafficEnv = trafficEnv;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String logId;
-        /**
-         * <p> 示例值：
-         */
-        private String caller;
-        /**
-         * <p> 示例值：
-         */
-        private String addr;
-        /**
-         * <p> 示例值：
-         */
-        private String client;
-        /**
-         * <p> 示例值：
-         */
-        private TrafficEnv trafficEnv;
-        /**
-         * <p> 示例值：
-         */
-        private Map<String, String> extra;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param logId
-         * @return
-         */
-        public Builder logId(String logId) {
-            this.logId = logId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param caller
-         * @return
-         */
-        public Builder caller(String caller) {
-            this.caller = caller;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param addr
-         * @return
-         */
-        public Builder addr(String addr) {
-            this.addr = addr;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param client
-         * @return
-         */
-        public Builder client(String client) {
-            this.client = client;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param trafficEnv
-         * @return
-         */
-        public Builder trafficEnv(TrafficEnv trafficEnv) {
-            this.trafficEnv = trafficEnv;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public Base build() {
-            return new Base(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

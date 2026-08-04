@@ -13,333 +13,358 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCombinedProjectInfo {
+  /**
+   * 项目经历 ID，无效字段，请勿使用
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：系统稳定性提升项目
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 项目角色
+   *
+   * <p>示例值：研发人员
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 项目链接
+   *
+   * <p>示例值：https://www.a.com
+   */
+  @SerializedName("link")
+  private String link;
+
+  /**
+   * 项目描述
+   *
+   * <p>示例值：该项目目标是提升整个系统的稳定性，达到行业一流水准。
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 项目开始时间，毫秒时间戳
+   *
+   * <p>示例值：1655644087000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 项目结束时间，毫秒时间戳
+   *
+   * <p>示例值：1687180087000
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private TalentCustomizedDataObjectValue[] customizedData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public TalentCustomizedDataObjectValue[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public TalentCombinedProjectInfo() {}
+
+  public TalentCombinedProjectInfo(Builder builder) {
     /**
-     * ID
-     * <p> 示例值：6891560630172518670
+     * 项目经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 项目名称
-     * <p> 示例值：测试
+     *
+     * <p>示例值：系统稳定性提升项目
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 项目角色
-     * <p> 示例值：test
+     *
+     * <p>示例值：研发人员
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 项目链接
-     * <p> 示例值：https://www.a.com
+     *
+     * <p>示例值：https://www.a.com
      */
-    @SerializedName("link")
+    this.link = builder.link;
+    /**
+     * 项目描述
+     *
+     * <p>示例值：该项目目标是提升整个系统的稳定性，达到行业一流水准。
+     */
+    this.desc = builder.desc;
+    /**
+     * 项目开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 项目结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     */
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 项目经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：系统稳定性提升项目
+     */
+    private String name;
+
+    /**
+     * 项目角色
+     *
+     * <p>示例值：研发人员
+     */
+    private String role;
+
+    /**
+     * 项目链接
+     *
+     * <p>示例值：https://www.a.com
+     */
     private String link;
+
     /**
-     * 描述
-     * <p> 示例值：xxx
+     * 项目描述
+     *
+     * <p>示例值：该项目目标是提升整个系统的稳定性，达到行业一流水准。
      */
-    @SerializedName("desc")
     private String desc;
+
     /**
-     * 开始时间
-     * <p> 示例值：293016767159
+     * 项目开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 结束时间
-     * <p> 示例值：293016767159
+     * 项目结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    // builder 开始
-    public TalentCombinedProjectInfo() {
+    /**
+     * 项目经历 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentCombinedProjectInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         */
-        this.name = builder.name;
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         */
-        this.role = builder.role;
-        /**
-         * 项目链接
-         * <p> 示例值：https://www.a.com
-         */
-        this.link = builder.link;
-        /**
-         * 描述
-         * <p> 示例值：xxx
-         */
-        this.desc = builder.desc;
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：系统稳定性提升项目
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 项目角色
+     *
+     * <p>示例值：研发人员
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 项目链接
+     *
+     * <p>示例值：https://www.a.com
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 项目描述
+     *
+     * <p>示例值：该项目目标是提升整个系统的稳定性，达到行业一流水准。
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 项目开始时间，毫秒时间戳
+     *
+     * <p>示例值：1655644087000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 项目结束时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getRole() {
-        return this.role;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public TalentCombinedProjectInfo build() {
+      return new TalentCombinedProjectInfo(this);
     }
+  }
 
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public TalentCustomizedDataObjectValue[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         */
-        private String name;
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         */
-        private String role;
-        /**
-         * 项目链接
-         * <p> 示例值：https://www.a.com
-         */
-        private String link;
-        /**
-         * 描述
-         * <p> 示例值：xxx
-         */
-        private String desc;
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         */
-        private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         */
-        private String endTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataObjectValue[] customizedData;
-
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 项目链接
-         * <p> 示例值：https://www.a.com
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：xxx
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：293016767159
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：293016767159
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public TalentCombinedProjectInfo build() {
-            return new TalentCombinedProjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

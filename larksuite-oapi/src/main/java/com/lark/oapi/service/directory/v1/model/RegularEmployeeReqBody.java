@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RegularEmployeeReqBody {
+  /**
+   * 开平独有Options 无需填写
+   *
+   * <p>示例值：
+   */
+  @SerializedName("openapi_options")
+  private OpenapiOptions openapiOptions;
+
+  public OpenapiOptions getOpenapiOptions() {
+    return this.openapiOptions;
+  }
+
+  public void setOpenapiOptions(OpenapiOptions openapiOptions) {
+    this.openapiOptions = openapiOptions;
+  }
+
+  // builder 开始
+  public RegularEmployeeReqBody() {}
+
+  public RegularEmployeeReqBody(Builder builder) {
     /**
      * 开平独有Options 无需填写
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("openapi_options")
+    this.openapiOptions = builder.openapiOptions;
+  }
+
+  public static class Builder {
+    /**
+     * 开平独有Options 无需填写
+     *
+     * <p>示例值：
+     */
     private OpenapiOptions openapiOptions;
 
-    // builder 开始
-    public RegularEmployeeReqBody() {
+    /**
+     * 开平独有Options 无需填写
+     *
+     * <p>示例值：
+     *
+     * @param openapiOptions
+     * @return
+     */
+    public Builder openapiOptions(OpenapiOptions openapiOptions) {
+      this.openapiOptions = openapiOptions;
+      return this;
     }
 
-    public RegularEmployeeReqBody(Builder builder) {
-        /**
-         * 开平独有Options 无需填写
-         * <p> 示例值：
-         */
-        this.openapiOptions = builder.openapiOptions;
+    public RegularEmployeeReqBody build() {
+      return new RegularEmployeeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public OpenapiOptions getOpenapiOptions() {
-        return this.openapiOptions;
-    }
-
-    public void setOpenapiOptions(OpenapiOptions openapiOptions) {
-        this.openapiOptions = openapiOptions;
-    }
-
-    public static class Builder {
-        /**
-         * 开平独有Options 无需填写
-         * <p> 示例值：
-         */
-        private OpenapiOptions openapiOptions;
-
-        /**
-         * 开平独有Options 无需填写
-         * <p> 示例值：
-         *
-         * @param openapiOptions
-         * @return
-         */
-        public Builder openapiOptions(OpenapiOptions openapiOptions) {
-            this.openapiOptions = openapiOptions;
-            return this;
-        }
-
-
-        public RegularEmployeeReqBody build() {
-            return new RegularEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

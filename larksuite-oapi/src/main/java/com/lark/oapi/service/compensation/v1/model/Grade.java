@@ -13,531 +13,583 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Grade {
+  /**
+   * 薪资标准明细ID
+   *
+   * <p>示例值：7481615459021637164
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 薪资标准明细版本TID
+   *
+   * <p>示例值：7481615459021669932
+   */
+  @SerializedName("tid")
+  private String tid;
+
+  /**
+   * 编号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("serial_number")
+  private String serialNumber;
+
+  /**
+   * 薪资标准值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("grade_standard_values")
+  private GradeStandardValue[] gradeStandardValues;
+
+  /**
+   * 划分维度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimensions")
+  private GradeStandardDimension[] dimensions;
+
+  /**
+   * 币种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency")
+  private Currency currency;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 数据生效日期，格式"2025-05-01"
+   *
+   * <p>示例值：2025-05-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 版本
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("standard_grade_version")
+  private String standardGradeVersion;
+
+  /**
+   * 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1704038400000
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 更新时间，毫秒时间戳
+   *
+   * <p>示例值：1704038400000
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 薪资标准表ID
+   *
+   * <p>示例值：7361627249681188396
+   */
+  @SerializedName("standard_id")
+  private String standardId;
+
+  /**
+   * 标准明细类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("standard_kind")
+  private Integer standardKind;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTid() {
+    return this.tid;
+  }
+
+  public void setTid(String tid) {
+    this.tid = tid;
+  }
+
+  public String getSerialNumber() {
+    return this.serialNumber;
+  }
+
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
+
+  public GradeStandardValue[] getGradeStandardValues() {
+    return this.gradeStandardValues;
+  }
+
+  public void setGradeStandardValues(GradeStandardValue[] gradeStandardValues) {
+    this.gradeStandardValues = gradeStandardValues;
+  }
+
+  public GradeStandardDimension[] getDimensions() {
+    return this.dimensions;
+  }
+
+  public void setDimensions(GradeStandardDimension[] dimensions) {
+    this.dimensions = dimensions;
+  }
+
+  public Currency getCurrency() {
+    return this.currency;
+  }
+
+  public void setCurrency(Currency currency) {
+    this.currency = currency;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getStandardGradeVersion() {
+    return this.standardGradeVersion;
+  }
+
+  public void setStandardGradeVersion(String standardGradeVersion) {
+    this.standardGradeVersion = standardGradeVersion;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getStandardId() {
+    return this.standardId;
+  }
+
+  public void setStandardId(String standardId) {
+    this.standardId = standardId;
+  }
+
+  public Integer getStandardKind() {
+    return this.standardKind;
+  }
+
+  public void setStandardKind(Integer standardKind) {
+    this.standardKind = standardKind;
+  }
+
+  // builder 开始
+  public Grade() {}
+
+  public Grade(Builder builder) {
     /**
      * 薪资标准明细ID
-     * <p> 示例值：7481615459021637164
+     *
+     * <p>示例值：7481615459021637164
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 薪资标准明细版本TID
-     * <p> 示例值：7481615459021669932
+     *
+     * <p>示例值：7481615459021669932
      */
-    @SerializedName("tid")
-    private String tid;
+    this.tid = builder.tid;
     /**
      * 编号
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("serial_number")
-    private String serialNumber;
+    this.serialNumber = builder.serialNumber;
     /**
      * 薪资标准值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("grade_standard_values")
-    private GradeStandardValue[] gradeStandardValues;
+    this.gradeStandardValues = builder.gradeStandardValues;
     /**
      * 划分维度
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimensions")
-    private GradeStandardDimension[] dimensions;
+    this.dimensions = builder.dimensions;
     /**
      * 币种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency")
-    private Currency currency;
+    this.currency = builder.currency;
     /**
-     * 备注
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
-     * 生效日期，格式"2025-05-01"
-     * <p> 示例值：2025-05-01
+     * 数据生效日期，格式"2025-05-01"
+     *
+     * <p>示例值：2025-05-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 版本
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("standard_grade_version")
-    private String standardGradeVersion;
+    this.standardGradeVersion = builder.standardGradeVersion;
     /**
      * 创建时间，毫秒时间戳
-     * <p> 示例值：1704038400000
+     *
+     * <p>示例值：1704038400000
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 更新时间，毫秒时间戳
-     * <p> 示例值：1704038400000
+     *
+     * <p>示例值：1704038400000
      */
-    @SerializedName("updated_at")
-    private String updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 薪资标准表ID
-     * <p> 示例值：7361627249681188396
+     *
+     * <p>示例值：7361627249681188396
      */
-    @SerializedName("standard_id")
-    private String standardId;
+    this.standardId = builder.standardId;
     /**
      * 标准明细类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("standard_kind")
+    this.standardKind = builder.standardKind;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资标准明细ID
+     *
+     * <p>示例值：7481615459021637164
+     */
+    private String id;
+
+    /**
+     * 薪资标准明细版本TID
+     *
+     * <p>示例值：7481615459021669932
+     */
+    private String tid;
+
+    /**
+     * 编号
+     *
+     * <p>示例值：1
+     */
+    private String serialNumber;
+
+    /**
+     * 薪资标准值列表
+     *
+     * <p>示例值：
+     */
+    private GradeStandardValue[] gradeStandardValues;
+
+    /**
+     * 划分维度
+     *
+     * <p>示例值：
+     */
+    private GradeStandardDimension[] dimensions;
+
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     */
+    private Currency currency;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 数据生效日期，格式"2025-05-01"
+     *
+     * <p>示例值：2025-05-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 版本
+     *
+     * <p>示例值：0
+     */
+    private String standardGradeVersion;
+
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1704038400000
+     */
+    private String createdAt;
+
+    /**
+     * 更新时间，毫秒时间戳
+     *
+     * <p>示例值：1704038400000
+     */
+    private String updatedAt;
+
+    /**
+     * 薪资标准表ID
+     *
+     * <p>示例值：7361627249681188396
+     */
+    private String standardId;
+
+    /**
+     * 标准明细类型
+     *
+     * <p>示例值：1
+     */
     private Integer standardKind;
 
-    // builder 开始
-    public Grade() {
+    /**
+     * 薪资标准明细ID
+     *
+     * <p>示例值：7481615459021637164
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Grade(Builder builder) {
-        /**
-         * 薪资标准明细ID
-         * <p> 示例值：7481615459021637164
-         */
-        this.id = builder.id;
-        /**
-         * 薪资标准明细版本TID
-         * <p> 示例值：7481615459021669932
-         */
-        this.tid = builder.tid;
-        /**
-         * 编号
-         * <p> 示例值：1
-         */
-        this.serialNumber = builder.serialNumber;
-        /**
-         * 薪资标准值列表
-         * <p> 示例值：
-         */
-        this.gradeStandardValues = builder.gradeStandardValues;
-        /**
-         * 划分维度
-         * <p> 示例值：
-         */
-        this.dimensions = builder.dimensions;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        this.currency = builder.currency;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 生效日期，格式"2025-05-01"
-         * <p> 示例值：2025-05-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 版本
-         * <p> 示例值：0
-         */
-        this.standardGradeVersion = builder.standardGradeVersion;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7361627249681188396
-         */
-        this.standardId = builder.standardId;
-        /**
-         * 标准明细类型
-         * <p> 示例值：1
-         */
-        this.standardKind = builder.standardKind;
+    /**
+     * 薪资标准明细版本TID
+     *
+     * <p>示例值：7481615459021669932
+     *
+     * @param tid
+     * @return
+     */
+    public Builder tid(String tid) {
+      this.tid = tid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编号
+     *
+     * <p>示例值：1
+     *
+     * @param serialNumber
+     * @return
+     */
+    public Builder serialNumber(String serialNumber) {
+      this.serialNumber = serialNumber;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 薪资标准值列表
+     *
+     * <p>示例值：
+     *
+     * @param gradeStandardValues
+     * @return
+     */
+    public Builder gradeStandardValues(GradeStandardValue[] gradeStandardValues) {
+      this.gradeStandardValues = gradeStandardValues;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 划分维度
+     *
+     * <p>示例值：
+     *
+     * @param dimensions
+     * @return
+     */
+    public Builder dimensions(GradeStandardDimension[] dimensions) {
+      this.dimensions = dimensions;
+      return this;
     }
 
-    public String getTid() {
-        return this.tid;
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     *
+     * @param currency
+     * @return
+     */
+    public Builder currency(Currency currency) {
+      this.currency = currency;
+      return this;
     }
 
-    public void setTid(String tid) {
-        this.tid = tid;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getSerialNumber() {
-        return this.serialNumber;
+    /**
+     * 数据生效日期，格式"2025-05-01"
+     *
+     * <p>示例值：2025-05-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    /**
+     * 版本
+     *
+     * <p>示例值：0
+     *
+     * @param standardGradeVersion
+     * @return
+     */
+    public Builder standardGradeVersion(String standardGradeVersion) {
+      this.standardGradeVersion = standardGradeVersion;
+      return this;
     }
 
-    public GradeStandardValue[] getGradeStandardValues() {
-        return this.gradeStandardValues;
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1704038400000
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setGradeStandardValues(GradeStandardValue[] gradeStandardValues) {
-        this.gradeStandardValues = gradeStandardValues;
+    /**
+     * 更新时间，毫秒时间戳
+     *
+     * <p>示例值：1704038400000
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public GradeStandardDimension[] getDimensions() {
-        return this.dimensions;
+    /**
+     * 薪资标准表ID
+     *
+     * <p>示例值：7361627249681188396
+     *
+     * @param standardId
+     * @return
+     */
+    public Builder standardId(String standardId) {
+      this.standardId = standardId;
+      return this;
     }
 
-    public void setDimensions(GradeStandardDimension[] dimensions) {
-        this.dimensions = dimensions;
+    /**
+     * 标准明细类型
+     *
+     * <p>示例值：1
+     *
+     * @param standardKind
+     * @return
+     */
+    public Builder standardKind(Integer standardKind) {
+      this.standardKind = standardKind;
+      return this;
     }
 
-    public Currency getCurrency() {
-        return this.currency;
+    /**
+     * 标准明细类型
+     *
+     * <p>示例值：1
+     *
+     * @param standardKind {@link com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum}
+     * @return
+     */
+    public Builder standardKind(
+        com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum standardKind) {
+      this.standardKind = standardKind.getValue();
+      return this;
     }
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
+    public Grade build() {
+      return new Grade(this);
     }
+  }
 
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getStandardGradeVersion() {
-        return this.standardGradeVersion;
-    }
-
-    public void setStandardGradeVersion(String standardGradeVersion) {
-        this.standardGradeVersion = standardGradeVersion;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getStandardId() {
-        return this.standardId;
-    }
-
-    public void setStandardId(String standardId) {
-        this.standardId = standardId;
-    }
-
-    public Integer getStandardKind() {
-        return this.standardKind;
-    }
-
-    public void setStandardKind(Integer standardKind) {
-        this.standardKind = standardKind;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资标准明细ID
-         * <p> 示例值：7481615459021637164
-         */
-        private String id;
-        /**
-         * 薪资标准明细版本TID
-         * <p> 示例值：7481615459021669932
-         */
-        private String tid;
-        /**
-         * 编号
-         * <p> 示例值：1
-         */
-        private String serialNumber;
-        /**
-         * 薪资标准值列表
-         * <p> 示例值：
-         */
-        private GradeStandardValue[] gradeStandardValues;
-        /**
-         * 划分维度
-         * <p> 示例值：
-         */
-        private GradeStandardDimension[] dimensions;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        private Currency currency;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 生效日期，格式"2025-05-01"
-         * <p> 示例值：2025-05-01
-         */
-        private String effectiveTime;
-        /**
-         * 版本
-         * <p> 示例值：0
-         */
-        private String standardGradeVersion;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         */
-        private String createdAt;
-        /**
-         * 更新时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         */
-        private String updatedAt;
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7361627249681188396
-         */
-        private String standardId;
-        /**
-         * 标准明细类型
-         * <p> 示例值：1
-         */
-        private Integer standardKind;
-
-        /**
-         * 薪资标准明细ID
-         * <p> 示例值：7481615459021637164
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 薪资标准明细版本TID
-         * <p> 示例值：7481615459021669932
-         *
-         * @param tid
-         * @return
-         */
-        public Builder tid(String tid) {
-            this.tid = tid;
-            return this;
-        }
-
-
-        /**
-         * 编号
-         * <p> 示例值：1
-         *
-         * @param serialNumber
-         * @return
-         */
-        public Builder serialNumber(String serialNumber) {
-            this.serialNumber = serialNumber;
-            return this;
-        }
-
-
-        /**
-         * 薪资标准值列表
-         * <p> 示例值：
-         *
-         * @param gradeStandardValues
-         * @return
-         */
-        public Builder gradeStandardValues(GradeStandardValue[] gradeStandardValues) {
-            this.gradeStandardValues = gradeStandardValues;
-            return this;
-        }
-
-
-        /**
-         * 划分维度
-         * <p> 示例值：
-         *
-         * @param dimensions
-         * @return
-         */
-        public Builder dimensions(GradeStandardDimension[] dimensions) {
-            this.dimensions = dimensions;
-            return this;
-        }
-
-
-        /**
-         * 币种
-         * <p> 示例值：
-         *
-         * @param currency
-         * @return
-         */
-        public Builder currency(Currency currency) {
-            this.currency = currency;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，格式"2025-05-01"
-         * <p> 示例值：2025-05-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 版本
-         * <p> 示例值：0
-         *
-         * @param standardGradeVersion
-         * @return
-         */
-        public Builder standardGradeVersion(String standardGradeVersion) {
-            this.standardGradeVersion = standardGradeVersion;
-            return this;
-        }
-
-
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 更新时间，毫秒时间戳
-         * <p> 示例值：1704038400000
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7361627249681188396
-         *
-         * @param standardId
-         * @return
-         */
-        public Builder standardId(String standardId) {
-            this.standardId = standardId;
-            return this;
-        }
-
-
-        /**
-         * 标准明细类型
-         * <p> 示例值：1
-         *
-         * @param standardKind
-         * @return
-         */
-        public Builder standardKind(Integer standardKind) {
-            this.standardKind = standardKind;
-            return this;
-        }
-
-        /**
-         * 标准明细类型
-         * <p> 示例值：1
-         *
-         * @param standardKind {@link com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum}
-         * @return
-         */
-        public Builder standardKind(com.lark.oapi.service.compensation.v1.enums.GradeStandardKindEnum standardKind) {
-            this.standardKind = standardKind.getValue();
-            return this;
-        }
-
-
-        public Grade build() {
-            return new Grade(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,1518 +13,1981 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicInfo {
+  /**
+   * 常用名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private Name name;
+
+  /**
+   * 手机号
+   *
+   * <p>示例值：138xxxx1234
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+   * ;- object_api_name = phone;- custom_api_name = international_area_code
+   *
+   * <p>示例值：86_china
+   */
+  @SerializedName("international_area_code")
+  private String internationalAreaCode;
+
+  /**
+   * 个人邮箱
+   *
+   * <p>示例值：xxx@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 生日
+   *
+   * <p>示例值：2011-09-09
+   */
+  @SerializedName("date_of_birth")
+  private String dateOfBirth;
+
+  /**
+   * 证件号（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略）
+   *
+   * <p>示例值：3101xxxx1234567890
+   */
+  @SerializedName("personal_id_number")
+  private String personalIdNumber;
+
+  /**
+   * 证件类型（待废弃，建议使用national_id_list，
+   * 如果与national_id_list同时传值，则national_id_list会被忽略），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("personal_id_type")
+  private String personalIdType;
+
+  /**
+   * 参加工作日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2010-09-09
+   */
+  @SerializedName("date_entered_workforce")
+  private String dateEnteredWorkforce;
+
+  /**
+   * 性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+   * ;- object_api_name = person;- custom_api_name = gender
+   *
+   * <p>示例值：male
+   */
+  @SerializedName("gender_id")
+  private String genderId;
+
+  /**
+   * 国籍
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("nationality_id")
+  private String nationalityId;
+
+  /**
+   * 国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("nationality_v2_id")
+  private String nationalityV2Id;
+
+  /**
+   * 其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+   *
+   * <p>示例值：[6862995757234914824]
+   */
+  @SerializedName("additional_nationality_id_list")
+  private String[] additionalNationalityIdList;
+
+  /**
+   * 公民身份，如需获取具体值，请联系人员档案管理员
+   *
+   * <p>示例值：[6862995757234914824]
+   */
+  @SerializedName("citizenship_status_id_list")
+  private String[] citizenshipStatusIdList;
+
+  /**
+   * 家庭地址（待废弃）
+   *
+   * <p>示例值：xx市xx街道xx路xx号
+   */
+  @SerializedName("home_address")
+  private String homeAddress;
+
+  /**
+   * 人员编号
+   *
+   * <p>示例值：DDD00001
+   */
+  @SerializedName("worker_id")
+  private String workerId;
+
+  /**
+   * 数据驻留地（部分租户开通此功能），枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取。;按如下参数查询即可：
+   * ;- object_api_name = pre_hire;- custom_api_name = user_geo
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_geo")
+  private String userGeo;
+
+  /**
+   * 常用名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_name")
+  private Name legalName;
+
+  /**
+   * 常用名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_name")
+  private Name additionalName;
+
+  /** 示例值： */
+  @SerializedName("resident_tax_list")
+  private ResidentTaxForUpdate[] residentTaxList;
+
+  /**
+   * 出生国家/地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("born_country_region")
+  private String bornCountryRegion;
+
+  /** 示例值： */
+  @SerializedName("is_disabled")
+  private Boolean isDisabled;
+
+  /** 示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号] */
+  @SerializedName("disable_card_number")
+  private String disableCardNumber;
+
+  /** 示例值： */
+  @SerializedName("is_old_alone")
+  private Boolean isOldAlone;
+
+  /** 示例值： */
+  @SerializedName("is_martyr_family")
+  private Boolean isMartyrFamily;
+
+  /** 示例值：00001 */
+  @SerializedName("martyr_card_number")
+  private String martyrCardNumber;
+
+  /** 示例值： */
+  @SerializedName("dependent_list")
+  private DependentForUpdate[] dependentList;
+
+  /**
+   * 宗教信仰，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：person;- custom_api_name：religion
+   *
+   * <p>示例值：buddism
+   */
+  @SerializedName("religion")
+  private String religion;
+
+  /** 示例值： */
+  @SerializedName("bank_account_list")
+  private BankAccountForUpdate[] bankAccountList;
+
+  /**
+   * 国家证件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_id_list")
+  private NationalIdForUpdate[] nationalIdList;
+
+  /** 示例值： */
+  @SerializedName("personal_profile_list")
+  private PersonalProfileForUpdate[] personalProfileList;
+
+  /** 示例值： */
+  @SerializedName("emergency_contact_list")
+  private EmergencyContactForUpdate[] emergencyContactList;
+
+  /** 示例值： */
+  @SerializedName("address_list")
+  private AddressForUpdate[] addressList;
+
+  /**
+   * 婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：person;- custom_api_name：marital_status
+   *
+   * <p>示例值：single
+   */
+  @SerializedName("marital_status")
+  private String maritalStatus;
+
+  /**
+   * 民族 /
+   * 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：person;- custom_api_name：ethnicity_race
+   *
+   * <p>示例值：han
+   */
+  @SerializedName("ethnicity_race")
+  private String ethnicityRace;
+
+  /**
+   * 籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取
+   *
+   * <p>示例值：6822114062122064111
+   */
+  @SerializedName("native_region")
+  private String nativeRegion;
+
+  /**
+   * 户口类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：person_info_chn;- custom_api_name：hukou_type
+   *
+   * <p>示例值：local_urban_residence
+   */
+  @SerializedName("hukou_type")
+  private String hukouType;
+
+  /** 示例值：北京市海淀区北三环西路 */
+  @SerializedName("hukou_location")
+  private String hukouLocation;
+
+  /**
+   * person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /** 示例值：2023-01-10 */
+  @SerializedName("expected_graduate_date")
+  private String expectedGraduateDate;
+
+  /**
+   * 政治面貌，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：person_info_chn;- custom_api_name：political_affiliation
+   *
+   * <p>示例值：
+   */
+  @SerializedName("political_affiliation")
+  private String politicalAffiliation;
+
+  /**
+   * 法定姓名列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_names")
+  private NameForUpdate[] legalNames;
+
+  /**
+   * 多国个人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_for_countries")
+  private PersonForCountryForUpdate[] personForCountries;
+
+  /**
+   * 护照列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passports")
+  private PassportForUpdate[] passports;
+
+  /**
+   * 签证列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visas")
+  private VisaForUpdate[] visas;
+
+  /**
+   * 国家证件v2
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_id_v2s")
+  private NationalIdForUpdate[] nationalIdV2s;
+
+  /**
+   * 常用姓名v2
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preferred_name_v2")
+  private NameForUpdate preferredNameV2;
+
+  /**
+   * 母亲姓名
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("mother_name")
+  private String motherName;
+
+  /**
+   * 出生城市
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("city_of_birth")
+  private String cityOfBirth;
+
+  /**
+   * 出生省份
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("region_of_birth")
+  private String regionOfBirth;
+
+  /**
+   * 马来税务信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tax_info_mys")
+  private TaxInfoMysForUpdate taxInfoMys;
+
+  public Name getName() {
+    return this.name;
+  }
+
+  public void setName(Name name) {
+    this.name = name;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getInternationalAreaCode() {
+    return this.internationalAreaCode;
+  }
+
+  public void setInternationalAreaCode(String internationalAreaCode) {
+    this.internationalAreaCode = internationalAreaCode;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getDateOfBirth() {
+    return this.dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public String getPersonalIdNumber() {
+    return this.personalIdNumber;
+  }
+
+  public void setPersonalIdNumber(String personalIdNumber) {
+    this.personalIdNumber = personalIdNumber;
+  }
+
+  public String getPersonalIdType() {
+    return this.personalIdType;
+  }
+
+  public void setPersonalIdType(String personalIdType) {
+    this.personalIdType = personalIdType;
+  }
+
+  public String getDateEnteredWorkforce() {
+    return this.dateEnteredWorkforce;
+  }
+
+  public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
+    this.dateEnteredWorkforce = dateEnteredWorkforce;
+  }
+
+  public String getGenderId() {
+    return this.genderId;
+  }
+
+  public void setGenderId(String genderId) {
+    this.genderId = genderId;
+  }
+
+  public String getNationalityId() {
+    return this.nationalityId;
+  }
+
+  public void setNationalityId(String nationalityId) {
+    this.nationalityId = nationalityId;
+  }
+
+  public String getNationalityV2Id() {
+    return this.nationalityV2Id;
+  }
+
+  public void setNationalityV2Id(String nationalityV2Id) {
+    this.nationalityV2Id = nationalityV2Id;
+  }
+
+  public String[] getAdditionalNationalityIdList() {
+    return this.additionalNationalityIdList;
+  }
+
+  public void setAdditionalNationalityIdList(String[] additionalNationalityIdList) {
+    this.additionalNationalityIdList = additionalNationalityIdList;
+  }
+
+  public String[] getCitizenshipStatusIdList() {
+    return this.citizenshipStatusIdList;
+  }
+
+  public void setCitizenshipStatusIdList(String[] citizenshipStatusIdList) {
+    this.citizenshipStatusIdList = citizenshipStatusIdList;
+  }
+
+  public String getHomeAddress() {
+    return this.homeAddress;
+  }
+
+  public void setHomeAddress(String homeAddress) {
+    this.homeAddress = homeAddress;
+  }
+
+  public String getWorkerId() {
+    return this.workerId;
+  }
+
+  public void setWorkerId(String workerId) {
+    this.workerId = workerId;
+  }
+
+  public String getUserGeo() {
+    return this.userGeo;
+  }
+
+  public void setUserGeo(String userGeo) {
+    this.userGeo = userGeo;
+  }
+
+  public Name getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(Name legalName) {
+    this.legalName = legalName;
+  }
+
+  public Name getAdditionalName() {
+    return this.additionalName;
+  }
+
+  public void setAdditionalName(Name additionalName) {
+    this.additionalName = additionalName;
+  }
+
+  public ResidentTaxForUpdate[] getResidentTaxList() {
+    return this.residentTaxList;
+  }
+
+  public void setResidentTaxList(ResidentTaxForUpdate[] residentTaxList) {
+    this.residentTaxList = residentTaxList;
+  }
+
+  public String getBornCountryRegion() {
+    return this.bornCountryRegion;
+  }
+
+  public void setBornCountryRegion(String bornCountryRegion) {
+    this.bornCountryRegion = bornCountryRegion;
+  }
+
+  public Boolean getIsDisabled() {
+    return this.isDisabled;
+  }
+
+  public void setIsDisabled(Boolean isDisabled) {
+    this.isDisabled = isDisabled;
+  }
+
+  public String getDisableCardNumber() {
+    return this.disableCardNumber;
+  }
+
+  public void setDisableCardNumber(String disableCardNumber) {
+    this.disableCardNumber = disableCardNumber;
+  }
+
+  public Boolean getIsOldAlone() {
+    return this.isOldAlone;
+  }
+
+  public void setIsOldAlone(Boolean isOldAlone) {
+    this.isOldAlone = isOldAlone;
+  }
+
+  public Boolean getIsMartyrFamily() {
+    return this.isMartyrFamily;
+  }
+
+  public void setIsMartyrFamily(Boolean isMartyrFamily) {
+    this.isMartyrFamily = isMartyrFamily;
+  }
+
+  public String getMartyrCardNumber() {
+    return this.martyrCardNumber;
+  }
+
+  public void setMartyrCardNumber(String martyrCardNumber) {
+    this.martyrCardNumber = martyrCardNumber;
+  }
+
+  public DependentForUpdate[] getDependentList() {
+    return this.dependentList;
+  }
+
+  public void setDependentList(DependentForUpdate[] dependentList) {
+    this.dependentList = dependentList;
+  }
+
+  public String getReligion() {
+    return this.religion;
+  }
+
+  public void setReligion(String religion) {
+    this.religion = religion;
+  }
+
+  public BankAccountForUpdate[] getBankAccountList() {
+    return this.bankAccountList;
+  }
+
+  public void setBankAccountList(BankAccountForUpdate[] bankAccountList) {
+    this.bankAccountList = bankAccountList;
+  }
+
+  public NationalIdForUpdate[] getNationalIdList() {
+    return this.nationalIdList;
+  }
+
+  public void setNationalIdList(NationalIdForUpdate[] nationalIdList) {
+    this.nationalIdList = nationalIdList;
+  }
+
+  public PersonalProfileForUpdate[] getPersonalProfileList() {
+    return this.personalProfileList;
+  }
+
+  public void setPersonalProfileList(PersonalProfileForUpdate[] personalProfileList) {
+    this.personalProfileList = personalProfileList;
+  }
+
+  public EmergencyContactForUpdate[] getEmergencyContactList() {
+    return this.emergencyContactList;
+  }
+
+  public void setEmergencyContactList(EmergencyContactForUpdate[] emergencyContactList) {
+    this.emergencyContactList = emergencyContactList;
+  }
+
+  public AddressForUpdate[] getAddressList() {
+    return this.addressList;
+  }
+
+  public void setAddressList(AddressForUpdate[] addressList) {
+    this.addressList = addressList;
+  }
+
+  public String getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public String getEthnicityRace() {
+    return this.ethnicityRace;
+  }
+
+  public void setEthnicityRace(String ethnicityRace) {
+    this.ethnicityRace = ethnicityRace;
+  }
+
+  public String getNativeRegion() {
+    return this.nativeRegion;
+  }
+
+  public void setNativeRegion(String nativeRegion) {
+    this.nativeRegion = nativeRegion;
+  }
+
+  public String getHukouType() {
+    return this.hukouType;
+  }
+
+  public void setHukouType(String hukouType) {
+    this.hukouType = hukouType;
+  }
+
+  public String getHukouLocation() {
+    return this.hukouLocation;
+  }
+
+  public void setHukouLocation(String hukouLocation) {
+    this.hukouLocation = hukouLocation;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getExpectedGraduateDate() {
+    return this.expectedGraduateDate;
+  }
+
+  public void setExpectedGraduateDate(String expectedGraduateDate) {
+    this.expectedGraduateDate = expectedGraduateDate;
+  }
+
+  public String getPoliticalAffiliation() {
+    return this.politicalAffiliation;
+  }
+
+  public void setPoliticalAffiliation(String politicalAffiliation) {
+    this.politicalAffiliation = politicalAffiliation;
+  }
+
+  public NameForUpdate[] getLegalNames() {
+    return this.legalNames;
+  }
+
+  public void setLegalNames(NameForUpdate[] legalNames) {
+    this.legalNames = legalNames;
+  }
+
+  public PersonForCountryForUpdate[] getPersonForCountries() {
+    return this.personForCountries;
+  }
+
+  public void setPersonForCountries(PersonForCountryForUpdate[] personForCountries) {
+    this.personForCountries = personForCountries;
+  }
+
+  public PassportForUpdate[] getPassports() {
+    return this.passports;
+  }
+
+  public void setPassports(PassportForUpdate[] passports) {
+    this.passports = passports;
+  }
+
+  public VisaForUpdate[] getVisas() {
+    return this.visas;
+  }
+
+  public void setVisas(VisaForUpdate[] visas) {
+    this.visas = visas;
+  }
+
+  public NationalIdForUpdate[] getNationalIdV2s() {
+    return this.nationalIdV2s;
+  }
+
+  public void setNationalIdV2s(NationalIdForUpdate[] nationalIdV2s) {
+    this.nationalIdV2s = nationalIdV2s;
+  }
+
+  public NameForUpdate getPreferredNameV2() {
+    return this.preferredNameV2;
+  }
+
+  public void setPreferredNameV2(NameForUpdate preferredNameV2) {
+    this.preferredNameV2 = preferredNameV2;
+  }
+
+  public String getMotherName() {
+    return this.motherName;
+  }
+
+  public void setMotherName(String motherName) {
+    this.motherName = motherName;
+  }
+
+  public String getCityOfBirth() {
+    return this.cityOfBirth;
+  }
+
+  public void setCityOfBirth(String cityOfBirth) {
+    this.cityOfBirth = cityOfBirth;
+  }
+
+  public String getRegionOfBirth() {
+    return this.regionOfBirth;
+  }
+
+  public void setRegionOfBirth(String regionOfBirth) {
+    this.regionOfBirth = regionOfBirth;
+  }
+
+  public TaxInfoMysForUpdate getTaxInfoMys() {
+    return this.taxInfoMys;
+  }
+
+  public void setTaxInfoMys(TaxInfoMysForUpdate taxInfoMys) {
+    this.taxInfoMys = taxInfoMys;
+  }
+
+  // builder 开始
+  public BasicInfo() {}
+
+  public BasicInfo(Builder builder) {
     /**
-     * 描述
-     * <p> 示例值：
+     * 常用名
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private Name name;
+    this.name = builder.name;
     /**
      * 手机号
-     * <p> 示例值：31123127
+     *
+     * <p>示例值：138xxxx1234
      */
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    this.phoneNumber = builder.phoneNumber;
     /**
-     * 区号
-     * <p> 示例值：86_china
+     * 区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = phone;- custom_api_name = international_area_code
+     *
+     * <p>示例值：86_china
      */
-    @SerializedName("international_area_code")
-    private String internationalAreaCode;
+    this.internationalAreaCode = builder.internationalAreaCode;
     /**
      * 个人邮箱
-     * <p> 示例值：xx@xx.com
+     *
+     * <p>示例值：xxx@bytedance.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 生日
-     * <p> 示例值：2011-99-99
+     *
+     * <p>示例值：2011-09-09
      */
-    @SerializedName("date_of_birth")
-    private String dateOfBirth;
+    this.dateOfBirth = builder.dateOfBirth;
     /**
-     * 证件号
-     * <p> 示例值：31123127
+     * 证件号（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略）
+     *
+     * <p>示例值：3101xxxx1234567890
      */
-    @SerializedName("personal_id_number")
-    private String personalIdNumber;
+    this.personalIdNumber = builder.personalIdNumber;
     /**
-     * 证件类型
-     * <p> 示例值：6862995757234914823
+     * 证件类型（待废弃，建议使用national_id_list，
+     * 如果与national_id_list同时传值，则national_id_list会被忽略），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("personal_id_type")
-    private String personalIdType;
+    this.personalIdType = builder.personalIdType;
     /**
-     * 参加工作日期
-     * <p> 示例值：2100-09-09
+     * 参加工作日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2010-09-09
      */
-    @SerializedName("date_entered_workforce")
-    private String dateEnteredWorkforce;
+    this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
     /**
-     * 性别
-     * <p> 示例值：male
+     * 性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = person;- custom_api_name = gender
+     *
+     * <p>示例值：male
      */
-    @SerializedName("gender_id")
-    private String genderId;
+    this.genderId = builder.genderId;
     /**
      * 国籍
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("nationality_id")
-    private String nationalityId;
+    this.nationalityId = builder.nationalityId;
     /**
-     * 国籍（新）
-     * <p> 示例值：6862995757234914824
+     * 国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("nationality_v2_id")
-    private String nationalityV2Id;
+    this.nationalityV2Id = builder.nationalityV2Id;
     /**
-     * 其他国籍
-     * <p> 示例值：[6862995757234914824]
+     * 其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：[6862995757234914824]
      */
-    @SerializedName("additional_nationality_id_list")
-    private String[] additionalNationalityIdList;
+    this.additionalNationalityIdList = builder.additionalNationalityIdList;
     /**
-     * 公民身份
-     * <p> 示例值：[6862995757234914824]
+     * 公民身份，如需获取具体值，请联系人员档案管理员
+     *
+     * <p>示例值：[6862995757234914824]
      */
-    @SerializedName("citizenship_status_id_list")
-    private String[] citizenshipStatusIdList;
+    this.citizenshipStatusIdList = builder.citizenshipStatusIdList;
     /**
-     * 家庭地址
-     * <p> 示例值：home addr
+     * 家庭地址（待废弃）
+     *
+     * <p>示例值：xx市xx街道xx路xx号
      */
-    @SerializedName("home_address")
-    private String homeAddress;
+    this.homeAddress = builder.homeAddress;
     /**
      * 人员编号
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：DDD00001
      */
-    @SerializedName("worker_id")
+    this.workerId = builder.workerId;
+    /**
+     * 数据驻留地（部分租户开通此功能），枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取。;按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = user_geo
+     *
+     * <p>示例值：
+     */
+    this.userGeo = builder.userGeo;
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     */
+    this.legalName = builder.legalName;
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     */
+    this.additionalName = builder.additionalName;
+    /** 示例值： */
+    this.residentTaxList = builder.residentTaxList;
+    /**
+     * 出生国家/地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取
+     *
+     * <p>示例值：
+     */
+    this.bornCountryRegion = builder.bornCountryRegion;
+    /** 示例值： */
+    this.isDisabled = builder.isDisabled;
+    /** 示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号] */
+    this.disableCardNumber = builder.disableCardNumber;
+    /** 示例值： */
+    this.isOldAlone = builder.isOldAlone;
+    /** 示例值： */
+    this.isMartyrFamily = builder.isMartyrFamily;
+    /** 示例值：00001 */
+    this.martyrCardNumber = builder.martyrCardNumber;
+    /** 示例值： */
+    this.dependentList = builder.dependentList;
+    /**
+     * 宗教信仰，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：religion
+     *
+     * <p>示例值：buddism
+     */
+    this.religion = builder.religion;
+    /** 示例值： */
+    this.bankAccountList = builder.bankAccountList;
+    /**
+     * 国家证件
+     *
+     * <p>示例值：
+     */
+    this.nationalIdList = builder.nationalIdList;
+    /** 示例值： */
+    this.personalProfileList = builder.personalProfileList;
+    /** 示例值： */
+    this.emergencyContactList = builder.emergencyContactList;
+    /** 示例值： */
+    this.addressList = builder.addressList;
+    /**
+     * 婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：marital_status
+     *
+     * <p>示例值：single
+     */
+    this.maritalStatus = builder.maritalStatus;
+    /**
+     * 民族 /
+     * 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：ethnicity_race
+     *
+     * <p>示例值：han
+     */
+    this.ethnicityRace = builder.ethnicityRace;
+    /**
+     * 籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取
+     *
+     * <p>示例值：6822114062122064111
+     */
+    this.nativeRegion = builder.nativeRegion;
+    /**
+     * 户口类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：hukou_type
+     *
+     * <p>示例值：local_urban_residence
+     */
+    this.hukouType = builder.hukouType;
+    /** 示例值：北京市海淀区北三环西路 */
+    this.hukouLocation = builder.hukouLocation;
+    /**
+     * person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
+     */
+    this.customFields = builder.customFields;
+    /** 示例值：2023-01-10 */
+    this.expectedGraduateDate = builder.expectedGraduateDate;
+    /**
+     * 政治面貌，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：political_affiliation
+     *
+     * <p>示例值：
+     */
+    this.politicalAffiliation = builder.politicalAffiliation;
+    /**
+     * 法定姓名列表
+     *
+     * <p>示例值：
+     */
+    this.legalNames = builder.legalNames;
+    /**
+     * 多国个人信息
+     *
+     * <p>示例值：
+     */
+    this.personForCountries = builder.personForCountries;
+    /**
+     * 护照列表
+     *
+     * <p>示例值：
+     */
+    this.passports = builder.passports;
+    /**
+     * 签证列表
+     *
+     * <p>示例值：
+     */
+    this.visas = builder.visas;
+    /**
+     * 国家证件v2
+     *
+     * <p>示例值：
+     */
+    this.nationalIdV2s = builder.nationalIdV2s;
+    /**
+     * 常用姓名v2
+     *
+     * <p>示例值：
+     */
+    this.preferredNameV2 = builder.preferredNameV2;
+    /**
+     * 母亲姓名
+     *
+     * <p>示例值：example
+     */
+    this.motherName = builder.motherName;
+    /**
+     * 出生城市
+     *
+     * <p>示例值：example
+     */
+    this.cityOfBirth = builder.cityOfBirth;
+    /**
+     * 出生省份
+     *
+     * <p>示例值：example
+     */
+    this.regionOfBirth = builder.regionOfBirth;
+    /**
+     * 马来税务信息
+     *
+     * <p>示例值：
+     */
+    this.taxInfoMys = builder.taxInfoMys;
+  }
+
+  public static class Builder {
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     */
+    private Name name;
+
+    /**
+     * 手机号
+     *
+     * <p>示例值：138xxxx1234
+     */
+    private String phoneNumber;
+
+    /**
+     * 区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = phone;- custom_api_name = international_area_code
+     *
+     * <p>示例值：86_china
+     */
+    private String internationalAreaCode;
+
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：xxx@bytedance.com
+     */
+    private String email;
+
+    /**
+     * 生日
+     *
+     * <p>示例值：2011-09-09
+     */
+    private String dateOfBirth;
+
+    /**
+     * 证件号（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略）
+     *
+     * <p>示例值：3101xxxx1234567890
+     */
+    private String personalIdNumber;
+
+    /**
+     * 证件类型（待废弃，建议使用national_id_list，
+     * 如果与national_id_list同时传值，则national_id_list会被忽略），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String personalIdType;
+
+    /**
+     * 参加工作日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2010-09-09
+     */
+    private String dateEnteredWorkforce;
+
+    /**
+     * 性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = person;- custom_api_name = gender
+     *
+     * <p>示例值：male
+     */
+    private String genderId;
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String nationalityId;
+
+    /**
+     * 国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：
+     */
+    private String nationalityV2Id;
+
+    /**
+     * 其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：[6862995757234914824]
+     */
+    private String[] additionalNationalityIdList;
+
+    /**
+     * 公民身份，如需获取具体值，请联系人员档案管理员
+     *
+     * <p>示例值：[6862995757234914824]
+     */
+    private String[] citizenshipStatusIdList;
+
+    /**
+     * 家庭地址（待废弃）
+     *
+     * <p>示例值：xx市xx街道xx路xx号
+     */
+    private String homeAddress;
+
+    /**
+     * 人员编号
+     *
+     * <p>示例值：DDD00001
+     */
     private String workerId;
+
     /**
-     * 数据驻留地
-     * <p> 示例值：cn
+     * 数据驻留地（部分租户开通此功能），枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取。;按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = user_geo
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_geo")
     private String userGeo;
+
     /**
-     * 法定姓名
-     * <p> 示例值：
+     * 常用名
+     *
+     * <p>示例值：
      */
-    @SerializedName("legal_name")
     private Name legalName;
+
     /**
-     * 别名
-     * <p> 示例值：
+     * 常用名
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_name")
     private Name additionalName;
-    /**
-     * 纳税身份信息
-     * <p> 示例值：
-     */
-    @SerializedName("resident_tax_list")
+
+    /** 示例值： */
     private ResidentTaxForUpdate[] residentTaxList;
+
     /**
-     * 出生国家/地区
-     * <p> 示例值：cn
+     * 出生国家/地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("born_country_region")
     private String bornCountryRegion;
-    /**
-     * 是否残疾
-     * <p> 示例值：true
-     */
-    @SerializedName("is_disabled")
+
+    /** 示例值： */
     private Boolean isDisabled;
-    /**
-     * 残疾证号
-     * <p> 示例值：xxx
-     */
-    @SerializedName("disable_card_number")
+
+    /** 示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号] */
     private String disableCardNumber;
-    /**
-     * 是否孤老
-     * <p> 示例值：true
-     */
-    @SerializedName("is_old_alone")
+
+    /** 示例值： */
     private Boolean isOldAlone;
-    /**
-     * 是否烈属
-     * <p> 示例值：true
-     */
-    @SerializedName("is_martyr_family")
+
+    /** 示例值： */
     private Boolean isMartyrFamily;
-    /**
-     * 烈属证号
-     * <p> 示例值：xxx
-     */
-    @SerializedName("martyr_card_number")
+
+    /** 示例值：00001 */
     private String martyrCardNumber;
-    /**
-     * 家庭成员
-     * <p> 示例值：
-     */
-    @SerializedName("dependent_list")
+
+    /** 示例值： */
     private DependentForUpdate[] dependentList;
+
     /**
-     * 宗教信仰
-     * <p> 示例值：xxx
+     * 宗教信仰，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：religion
+     *
+     * <p>示例值：buddism
      */
-    @SerializedName("religion")
     private String religion;
-    /**
-     * 银行账号
-     * <p> 示例值：
-     */
-    @SerializedName("bank_account_list")
+
+    /** 示例值： */
     private BankAccountForUpdate[] bankAccountList;
+
     /**
-     * 证件账号
-     * <p> 示例值：
+     * 国家证件
+     *
+     * <p>示例值：
      */
-    @SerializedName("national_id_list")
     private NationalIdForUpdate[] nationalIdList;
-    /**
-     * 个人资料
-     * <p> 示例值：
-     */
-    @SerializedName("personal_profile_list")
+
+    /** 示例值： */
     private PersonalProfileForUpdate[] personalProfileList;
-    /**
-     * 紧急联系人
-     * <p> 示例值：
-     */
-    @SerializedName("emergency_contact_list")
+
+    /** 示例值： */
     private EmergencyContactForUpdate[] emergencyContactList;
-    /**
-     * 联系地址
-     * <p> 示例值：
-     */
-    @SerializedName("address_list")
+
+    /** 示例值： */
     private AddressForUpdate[] addressList;
+
     /**
-     * 婚姻状况
-     * <p> 示例值：xxx
+     * 婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：marital_status
+     *
+     * <p>示例值：single
      */
-    @SerializedName("marital_status")
     private String maritalStatus;
+
     /**
-     * 民族 / 种族
-     * <p> 示例值：xxx
+     * 民族 /
+     * 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：ethnicity_race
+     *
+     * <p>示例值：han
      */
-    @SerializedName("ethnicity_race")
     private String ethnicityRace;
+
     /**
-     * 籍贯
-     * <p> 示例值：xxx
+     * 籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取
+     *
+     * <p>示例值：6822114062122064111
      */
-    @SerializedName("native_region")
     private String nativeRegion;
+
     /**
-     * 户口类型
-     * <p> 示例值：xxx
+     * 户口类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：hukou_type
+     *
+     * <p>示例值：local_urban_residence
      */
-    @SerializedName("hukou_type")
     private String hukouType;
-    /**
-     * 户口所在地
-     * <p> 示例值：xxx
-     */
-    @SerializedName("hukou_location")
+
+    /** 示例值：北京市海淀区北三环西路 */
     private String hukouLocation;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
     private ObjectFieldData[] customFields;
-    /**
-     * 预计毕业日期
-     * <p> 示例值：2023-01-10
-     */
-    @SerializedName("expected_graduate_date")
+
+    /** 示例值：2023-01-10 */
     private String expectedGraduateDate;
+
     /**
-     * 政治面貌
-     * <p> 示例值：
+     * 政治面貌，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：political_affiliation
+     *
+     * <p>示例值：
      */
-    @SerializedName("political_affiliation")
     private String politicalAffiliation;
 
-    // builder 开始
-    public BasicInfo() {
-    }
-
-    public BasicInfo(Builder builder) {
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 手机号
-         * <p> 示例值：31123127
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 区号
-         * <p> 示例值：86_china
-         */
-        this.internationalAreaCode = builder.internationalAreaCode;
-        /**
-         * 个人邮箱
-         * <p> 示例值：xx@xx.com
-         */
-        this.email = builder.email;
-        /**
-         * 生日
-         * <p> 示例值：2011-99-99
-         */
-        this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 证件号
-         * <p> 示例值：31123127
-         */
-        this.personalIdNumber = builder.personalIdNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：6862995757234914823
-         */
-        this.personalIdType = builder.personalIdType;
-        /**
-         * 参加工作日期
-         * <p> 示例值：2100-09-09
-         */
-        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
-        /**
-         * 性别
-         * <p> 示例值：male
-         */
-        this.genderId = builder.genderId;
-        /**
-         * 国籍
-         * <p> 示例值：6862995757234914824
-         */
-        this.nationalityId = builder.nationalityId;
-        /**
-         * 国籍（新）
-         * <p> 示例值：6862995757234914824
-         */
-        this.nationalityV2Id = builder.nationalityV2Id;
-        /**
-         * 其他国籍
-         * <p> 示例值：[6862995757234914824]
-         */
-        this.additionalNationalityIdList = builder.additionalNationalityIdList;
-        /**
-         * 公民身份
-         * <p> 示例值：[6862995757234914824]
-         */
-        this.citizenshipStatusIdList = builder.citizenshipStatusIdList;
-        /**
-         * 家庭地址
-         * <p> 示例值：home addr
-         */
-        this.homeAddress = builder.homeAddress;
-        /**
-         * 人员编号
-         * <p> 示例值：6862995757234914824
-         */
-        this.workerId = builder.workerId;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        this.userGeo = builder.userGeo;
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        this.legalName = builder.legalName;
-        /**
-         * 别名
-         * <p> 示例值：
-         */
-        this.additionalName = builder.additionalName;
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         */
-        this.residentTaxList = builder.residentTaxList;
-        /**
-         * 出生国家/地区
-         * <p> 示例值：cn
-         */
-        this.bornCountryRegion = builder.bornCountryRegion;
-        /**
-         * 是否残疾
-         * <p> 示例值：true
-         */
-        this.isDisabled = builder.isDisabled;
-        /**
-         * 残疾证号
-         * <p> 示例值：xxx
-         */
-        this.disableCardNumber = builder.disableCardNumber;
-        /**
-         * 是否孤老
-         * <p> 示例值：true
-         */
-        this.isOldAlone = builder.isOldAlone;
-        /**
-         * 是否烈属
-         * <p> 示例值：true
-         */
-        this.isMartyrFamily = builder.isMartyrFamily;
-        /**
-         * 烈属证号
-         * <p> 示例值：xxx
-         */
-        this.martyrCardNumber = builder.martyrCardNumber;
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         */
-        this.dependentList = builder.dependentList;
-        /**
-         * 宗教信仰
-         * <p> 示例值：xxx
-         */
-        this.religion = builder.religion;
-        /**
-         * 银行账号
-         * <p> 示例值：
-         */
-        this.bankAccountList = builder.bankAccountList;
-        /**
-         * 证件账号
-         * <p> 示例值：
-         */
-        this.nationalIdList = builder.nationalIdList;
-        /**
-         * 个人资料
-         * <p> 示例值：
-         */
-        this.personalProfileList = builder.personalProfileList;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        this.emergencyContactList = builder.emergencyContactList;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        this.addressList = builder.addressList;
-        /**
-         * 婚姻状况
-         * <p> 示例值：xxx
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 民族 / 种族
-         * <p> 示例值：xxx
-         */
-        this.ethnicityRace = builder.ethnicityRace;
-        /**
-         * 籍贯
-         * <p> 示例值：xxx
-         */
-        this.nativeRegion = builder.nativeRegion;
-        /**
-         * 户口类型
-         * <p> 示例值：xxx
-         */
-        this.hukouType = builder.hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：xxx
-         */
-        this.hukouLocation = builder.hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 预计毕业日期
-         * <p> 示例值：2023-01-10
-         */
-        this.expectedGraduateDate = builder.expectedGraduateDate;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        this.politicalAffiliation = builder.politicalAffiliation;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Name getName() {
-        return this.name;
-    }
-
-    public void setName(Name name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return this.phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getInternationalAreaCode() {
-        return this.internationalAreaCode;
-    }
-
-    public void setInternationalAreaCode(String internationalAreaCode) {
-        this.internationalAreaCode = internationalAreaCode;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPersonalIdNumber() {
-        return this.personalIdNumber;
-    }
-
-    public void setPersonalIdNumber(String personalIdNumber) {
-        this.personalIdNumber = personalIdNumber;
-    }
-
-    public String getPersonalIdType() {
-        return this.personalIdType;
-    }
-
-    public void setPersonalIdType(String personalIdType) {
-        this.personalIdType = personalIdType;
-    }
-
-    public String getDateEnteredWorkforce() {
-        return this.dateEnteredWorkforce;
-    }
-
-    public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
-        this.dateEnteredWorkforce = dateEnteredWorkforce;
-    }
-
-    public String getGenderId() {
-        return this.genderId;
-    }
-
-    public void setGenderId(String genderId) {
-        this.genderId = genderId;
-    }
-
-    public String getNationalityId() {
-        return this.nationalityId;
-    }
-
-    public void setNationalityId(String nationalityId) {
-        this.nationalityId = nationalityId;
-    }
-
-    public String getNationalityV2Id() {
-        return this.nationalityV2Id;
-    }
-
-    public void setNationalityV2Id(String nationalityV2Id) {
-        this.nationalityV2Id = nationalityV2Id;
-    }
-
-    public String[] getAdditionalNationalityIdList() {
-        return this.additionalNationalityIdList;
-    }
-
-    public void setAdditionalNationalityIdList(String[] additionalNationalityIdList) {
-        this.additionalNationalityIdList = additionalNationalityIdList;
-    }
-
-    public String[] getCitizenshipStatusIdList() {
-        return this.citizenshipStatusIdList;
-    }
-
-    public void setCitizenshipStatusIdList(String[] citizenshipStatusIdList) {
-        this.citizenshipStatusIdList = citizenshipStatusIdList;
-    }
-
-    public String getHomeAddress() {
-        return this.homeAddress;
-    }
-
-    public void setHomeAddress(String homeAddress) {
-        this.homeAddress = homeAddress;
-    }
-
-    public String getWorkerId() {
-        return this.workerId;
-    }
-
-    public void setWorkerId(String workerId) {
-        this.workerId = workerId;
-    }
-
-    public String getUserGeo() {
-        return this.userGeo;
-    }
-
-    public void setUserGeo(String userGeo) {
-        this.userGeo = userGeo;
-    }
-
-    public Name getLegalName() {
-        return this.legalName;
-    }
-
-    public void setLegalName(Name legalName) {
-        this.legalName = legalName;
-    }
-
-    public Name getAdditionalName() {
-        return this.additionalName;
-    }
-
-    public void setAdditionalName(Name additionalName) {
-        this.additionalName = additionalName;
-    }
-
-    public ResidentTaxForUpdate[] getResidentTaxList() {
-        return this.residentTaxList;
-    }
-
-    public void setResidentTaxList(ResidentTaxForUpdate[] residentTaxList) {
-        this.residentTaxList = residentTaxList;
-    }
-
-    public String getBornCountryRegion() {
-        return this.bornCountryRegion;
-    }
-
-    public void setBornCountryRegion(String bornCountryRegion) {
-        this.bornCountryRegion = bornCountryRegion;
-    }
-
-    public Boolean getIsDisabled() {
-        return this.isDisabled;
-    }
-
-    public void setIsDisabled(Boolean isDisabled) {
-        this.isDisabled = isDisabled;
-    }
-
-    public String getDisableCardNumber() {
-        return this.disableCardNumber;
-    }
-
-    public void setDisableCardNumber(String disableCardNumber) {
-        this.disableCardNumber = disableCardNumber;
-    }
-
-    public Boolean getIsOldAlone() {
-        return this.isOldAlone;
-    }
-
-    public void setIsOldAlone(Boolean isOldAlone) {
-        this.isOldAlone = isOldAlone;
-    }
-
-    public Boolean getIsMartyrFamily() {
-        return this.isMartyrFamily;
-    }
-
-    public void setIsMartyrFamily(Boolean isMartyrFamily) {
-        this.isMartyrFamily = isMartyrFamily;
-    }
-
-    public String getMartyrCardNumber() {
-        return this.martyrCardNumber;
-    }
-
-    public void setMartyrCardNumber(String martyrCardNumber) {
-        this.martyrCardNumber = martyrCardNumber;
-    }
-
-    public DependentForUpdate[] getDependentList() {
-        return this.dependentList;
-    }
-
-    public void setDependentList(DependentForUpdate[] dependentList) {
-        this.dependentList = dependentList;
-    }
-
-    public String getReligion() {
-        return this.religion;
-    }
-
-    public void setReligion(String religion) {
-        this.religion = religion;
-    }
-
-    public BankAccountForUpdate[] getBankAccountList() {
-        return this.bankAccountList;
-    }
-
-    public void setBankAccountList(BankAccountForUpdate[] bankAccountList) {
-        this.bankAccountList = bankAccountList;
-    }
-
-    public NationalIdForUpdate[] getNationalIdList() {
-        return this.nationalIdList;
-    }
-
-    public void setNationalIdList(NationalIdForUpdate[] nationalIdList) {
-        this.nationalIdList = nationalIdList;
-    }
-
-    public PersonalProfileForUpdate[] getPersonalProfileList() {
-        return this.personalProfileList;
-    }
-
-    public void setPersonalProfileList(PersonalProfileForUpdate[] personalProfileList) {
-        this.personalProfileList = personalProfileList;
-    }
-
-    public EmergencyContactForUpdate[] getEmergencyContactList() {
-        return this.emergencyContactList;
-    }
-
-    public void setEmergencyContactList(EmergencyContactForUpdate[] emergencyContactList) {
-        this.emergencyContactList = emergencyContactList;
-    }
-
-    public AddressForUpdate[] getAddressList() {
-        return this.addressList;
-    }
-
-    public void setAddressList(AddressForUpdate[] addressList) {
-        this.addressList = addressList;
-    }
-
-    public String getMaritalStatus() {
-        return this.maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public String getEthnicityRace() {
-        return this.ethnicityRace;
-    }
-
-    public void setEthnicityRace(String ethnicityRace) {
-        this.ethnicityRace = ethnicityRace;
-    }
-
-    public String getNativeRegion() {
-        return this.nativeRegion;
-    }
-
-    public void setNativeRegion(String nativeRegion) {
-        this.nativeRegion = nativeRegion;
-    }
-
-    public String getHukouType() {
-        return this.hukouType;
-    }
-
-    public void setHukouType(String hukouType) {
-        this.hukouType = hukouType;
-    }
-
-    public String getHukouLocation() {
-        return this.hukouLocation;
-    }
-
-    public void setHukouLocation(String hukouLocation) {
-        this.hukouLocation = hukouLocation;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getExpectedGraduateDate() {
-        return this.expectedGraduateDate;
-    }
-
-    public void setExpectedGraduateDate(String expectedGraduateDate) {
-        this.expectedGraduateDate = expectedGraduateDate;
-    }
-
-    public String getPoliticalAffiliation() {
-        return this.politicalAffiliation;
-    }
-
-    public void setPoliticalAffiliation(String politicalAffiliation) {
-        this.politicalAffiliation = politicalAffiliation;
-    }
-
-    public static class Builder {
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private Name name;
-        /**
-         * 手机号
-         * <p> 示例值：31123127
-         */
-        private String phoneNumber;
-        /**
-         * 区号
-         * <p> 示例值：86_china
-         */
-        private String internationalAreaCode;
-        /**
-         * 个人邮箱
-         * <p> 示例值：xx@xx.com
-         */
-        private String email;
-        /**
-         * 生日
-         * <p> 示例值：2011-99-99
-         */
-        private String dateOfBirth;
-        /**
-         * 证件号
-         * <p> 示例值：31123127
-         */
-        private String personalIdNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：6862995757234914823
-         */
-        private String personalIdType;
-        /**
-         * 参加工作日期
-         * <p> 示例值：2100-09-09
-         */
-        private String dateEnteredWorkforce;
-        /**
-         * 性别
-         * <p> 示例值：male
-         */
-        private String genderId;
-        /**
-         * 国籍
-         * <p> 示例值：6862995757234914824
-         */
-        private String nationalityId;
-        /**
-         * 国籍（新）
-         * <p> 示例值：6862995757234914824
-         */
-        private String nationalityV2Id;
-        /**
-         * 其他国籍
-         * <p> 示例值：[6862995757234914824]
-         */
-        private String[] additionalNationalityIdList;
-        /**
-         * 公民身份
-         * <p> 示例值：[6862995757234914824]
-         */
-        private String[] citizenshipStatusIdList;
-        /**
-         * 家庭地址
-         * <p> 示例值：home addr
-         */
-        private String homeAddress;
-        /**
-         * 人员编号
-         * <p> 示例值：6862995757234914824
-         */
-        private String workerId;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        private String userGeo;
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        private Name legalName;
-        /**
-         * 别名
-         * <p> 示例值：
-         */
-        private Name additionalName;
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         */
-        private ResidentTaxForUpdate[] residentTaxList;
-        /**
-         * 出生国家/地区
-         * <p> 示例值：cn
-         */
-        private String bornCountryRegion;
-        /**
-         * 是否残疾
-         * <p> 示例值：true
-         */
-        private Boolean isDisabled;
-        /**
-         * 残疾证号
-         * <p> 示例值：xxx
-         */
-        private String disableCardNumber;
-        /**
-         * 是否孤老
-         * <p> 示例值：true
-         */
-        private Boolean isOldAlone;
-        /**
-         * 是否烈属
-         * <p> 示例值：true
-         */
-        private Boolean isMartyrFamily;
-        /**
-         * 烈属证号
-         * <p> 示例值：xxx
-         */
-        private String martyrCardNumber;
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         */
-        private DependentForUpdate[] dependentList;
-        /**
-         * 宗教信仰
-         * <p> 示例值：xxx
-         */
-        private String religion;
-        /**
-         * 银行账号
-         * <p> 示例值：
-         */
-        private BankAccountForUpdate[] bankAccountList;
-        /**
-         * 证件账号
-         * <p> 示例值：
-         */
-        private NationalIdForUpdate[] nationalIdList;
-        /**
-         * 个人资料
-         * <p> 示例值：
-         */
-        private PersonalProfileForUpdate[] personalProfileList;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        private EmergencyContactForUpdate[] emergencyContactList;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        private AddressForUpdate[] addressList;
-        /**
-         * 婚姻状况
-         * <p> 示例值：xxx
-         */
-        private String maritalStatus;
-        /**
-         * 民族 / 种族
-         * <p> 示例值：xxx
-         */
-        private String ethnicityRace;
-        /**
-         * 籍贯
-         * <p> 示例值：xxx
-         */
-        private String nativeRegion;
-        /**
-         * 户口类型
-         * <p> 示例值：xxx
-         */
-        private String hukouType;
-        /**
-         * 户口所在地
-         * <p> 示例值：xxx
-         */
-        private String hukouLocation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 预计毕业日期
-         * <p> 示例值：2023-01-10
-         */
-        private String expectedGraduateDate;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        private String politicalAffiliation;
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 手机号
-         * <p> 示例值：31123127
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 区号
-         * <p> 示例值：86_china
-         *
-         * @param internationalAreaCode
-         * @return
-         */
-        public Builder internationalAreaCode(String internationalAreaCode) {
-            this.internationalAreaCode = internationalAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 个人邮箱
-         * <p> 示例值：xx@xx.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 生日
-         * <p> 示例值：2011-99-99
-         *
-         * @param dateOfBirth
-         * @return
-         */
-        public Builder dateOfBirth(String dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：31123127
-         *
-         * @param personalIdNumber
-         * @return
-         */
-        public Builder personalIdNumber(String personalIdNumber) {
-            this.personalIdNumber = personalIdNumber;
-            return this;
-        }
-
-
-        /**
-         * 证件类型
-         * <p> 示例值：6862995757234914823
-         *
-         * @param personalIdType
-         * @return
-         */
-        public Builder personalIdType(String personalIdType) {
-            this.personalIdType = personalIdType;
-            return this;
-        }
-
-
-        /**
-         * 参加工作日期
-         * <p> 示例值：2100-09-09
-         *
-         * @param dateEnteredWorkforce
-         * @return
-         */
-        public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
-            this.dateEnteredWorkforce = dateEnteredWorkforce;
-            return this;
-        }
-
-
-        /**
-         * 性别
-         * <p> 示例值：male
-         *
-         * @param genderId
-         * @return
-         */
-        public Builder genderId(String genderId) {
-            this.genderId = genderId;
-            return this;
-        }
-
-
-        /**
-         * 国籍
-         * <p> 示例值：6862995757234914824
-         *
-         * @param nationalityId
-         * @return
-         */
-        public Builder nationalityId(String nationalityId) {
-            this.nationalityId = nationalityId;
-            return this;
-        }
-
-
-        /**
-         * 国籍（新）
-         * <p> 示例值：6862995757234914824
-         *
-         * @param nationalityV2Id
-         * @return
-         */
-        public Builder nationalityV2Id(String nationalityV2Id) {
-            this.nationalityV2Id = nationalityV2Id;
-            return this;
-        }
-
-
-        /**
-         * 其他国籍
-         * <p> 示例值：[6862995757234914824]
-         *
-         * @param additionalNationalityIdList
-         * @return
-         */
-        public Builder additionalNationalityIdList(String[] additionalNationalityIdList) {
-            this.additionalNationalityIdList = additionalNationalityIdList;
-            return this;
-        }
-
-
-        /**
-         * 公民身份
-         * <p> 示例值：[6862995757234914824]
-         *
-         * @param citizenshipStatusIdList
-         * @return
-         */
-        public Builder citizenshipStatusIdList(String[] citizenshipStatusIdList) {
-            this.citizenshipStatusIdList = citizenshipStatusIdList;
-            return this;
-        }
-
-
-        /**
-         * 家庭地址
-         * <p> 示例值：home addr
-         *
-         * @param homeAddress
-         * @return
-         */
-        public Builder homeAddress(String homeAddress) {
-            this.homeAddress = homeAddress;
-            return this;
-        }
-
-
-        /**
-         * 人员编号
-         * <p> 示例值：6862995757234914824
-         *
-         * @param workerId
-         * @return
-         */
-        public Builder workerId(String workerId) {
-            this.workerId = workerId;
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         *
-         * @param userGeo
-         * @return
-         */
-        public Builder userGeo(String userGeo) {
-            this.userGeo = userGeo;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(Name legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        /**
-         * 别名
-         * <p> 示例值：
-         *
-         * @param additionalName
-         * @return
-         */
-        public Builder additionalName(Name additionalName) {
-            this.additionalName = additionalName;
-            return this;
-        }
-
-
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         *
-         * @param residentTaxList
-         * @return
-         */
-        public Builder residentTaxList(ResidentTaxForUpdate[] residentTaxList) {
-            this.residentTaxList = residentTaxList;
-            return this;
-        }
-
-
-        /**
-         * 出生国家/地区
-         * <p> 示例值：cn
-         *
-         * @param bornCountryRegion
-         * @return
-         */
-        public Builder bornCountryRegion(String bornCountryRegion) {
-            this.bornCountryRegion = bornCountryRegion;
-            return this;
-        }
-
-
-        /**
-         * 是否残疾
-         * <p> 示例值：true
-         *
-         * @param isDisabled
-         * @return
-         */
-        public Builder isDisabled(Boolean isDisabled) {
-            this.isDisabled = isDisabled;
-            return this;
-        }
-
-
-        /**
-         * 残疾证号
-         * <p> 示例值：xxx
-         *
-         * @param disableCardNumber
-         * @return
-         */
-        public Builder disableCardNumber(String disableCardNumber) {
-            this.disableCardNumber = disableCardNumber;
-            return this;
-        }
-
-
-        /**
-         * 是否孤老
-         * <p> 示例值：true
-         *
-         * @param isOldAlone
-         * @return
-         */
-        public Builder isOldAlone(Boolean isOldAlone) {
-            this.isOldAlone = isOldAlone;
-            return this;
-        }
-
-
-        /**
-         * 是否烈属
-         * <p> 示例值：true
-         *
-         * @param isMartyrFamily
-         * @return
-         */
-        public Builder isMartyrFamily(Boolean isMartyrFamily) {
-            this.isMartyrFamily = isMartyrFamily;
-            return this;
-        }
-
-
-        /**
-         * 烈属证号
-         * <p> 示例值：xxx
-         *
-         * @param martyrCardNumber
-         * @return
-         */
-        public Builder martyrCardNumber(String martyrCardNumber) {
-            this.martyrCardNumber = martyrCardNumber;
-            return this;
-        }
-
-
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         *
-         * @param dependentList
-         * @return
-         */
-        public Builder dependentList(DependentForUpdate[] dependentList) {
-            this.dependentList = dependentList;
-            return this;
-        }
-
-
-        /**
-         * 宗教信仰
-         * <p> 示例值：xxx
-         *
-         * @param religion
-         * @return
-         */
-        public Builder religion(String religion) {
-            this.religion = religion;
-            return this;
-        }
-
-
-        /**
-         * 银行账号
-         * <p> 示例值：
-         *
-         * @param bankAccountList
-         * @return
-         */
-        public Builder bankAccountList(BankAccountForUpdate[] bankAccountList) {
-            this.bankAccountList = bankAccountList;
-            return this;
-        }
-
-
-        /**
-         * 证件账号
-         * <p> 示例值：
-         *
-         * @param nationalIdList
-         * @return
-         */
-        public Builder nationalIdList(NationalIdForUpdate[] nationalIdList) {
-            this.nationalIdList = nationalIdList;
-            return this;
-        }
-
-
-        /**
-         * 个人资料
-         * <p> 示例值：
-         *
-         * @param personalProfileList
-         * @return
-         */
-        public Builder personalProfileList(PersonalProfileForUpdate[] personalProfileList) {
-            this.personalProfileList = personalProfileList;
-            return this;
-        }
-
-
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         *
-         * @param emergencyContactList
-         * @return
-         */
-        public Builder emergencyContactList(EmergencyContactForUpdate[] emergencyContactList) {
-            this.emergencyContactList = emergencyContactList;
-            return this;
-        }
-
-
-        /**
-         * 联系地址
-         * <p> 示例值：
-         *
-         * @param addressList
-         * @return
-         */
-        public Builder addressList(AddressForUpdate[] addressList) {
-            this.addressList = addressList;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状况
-         * <p> 示例值：xxx
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(String maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * 民族 / 种族
-         * <p> 示例值：xxx
-         *
-         * @param ethnicityRace
-         * @return
-         */
-        public Builder ethnicityRace(String ethnicityRace) {
-            this.ethnicityRace = ethnicityRace;
-            return this;
-        }
-
-
-        /**
-         * 籍贯
-         * <p> 示例值：xxx
-         *
-         * @param nativeRegion
-         * @return
-         */
-        public Builder nativeRegion(String nativeRegion) {
-            this.nativeRegion = nativeRegion;
-            return this;
-        }
-
-
-        /**
-         * 户口类型
-         * <p> 示例值：xxx
-         *
-         * @param hukouType
-         * @return
-         */
-        public Builder hukouType(String hukouType) {
-            this.hukouType = hukouType;
-            return this;
-        }
-
-
-        /**
-         * 户口所在地
-         * <p> 示例值：xxx
-         *
-         * @param hukouLocation
-         * @return
-         */
-        public Builder hukouLocation(String hukouLocation) {
-            this.hukouLocation = hukouLocation;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 预计毕业日期
-         * <p> 示例值：2023-01-10
-         *
-         * @param expectedGraduateDate
-         * @return
-         */
-        public Builder expectedGraduateDate(String expectedGraduateDate) {
-            this.expectedGraduateDate = expectedGraduateDate;
-            return this;
-        }
-
-
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         *
-         * @param politicalAffiliation
-         * @return
-         */
-        public Builder politicalAffiliation(String politicalAffiliation) {
-            this.politicalAffiliation = politicalAffiliation;
-            return this;
-        }
-
-
-        public BasicInfo build() {
-            return new BasicInfo(this);
-        }
-    }
+    /**
+     * 法定姓名列表
+     *
+     * <p>示例值：
+     */
+    private NameForUpdate[] legalNames;
+
+    /**
+     * 多国个人信息
+     *
+     * <p>示例值：
+     */
+    private PersonForCountryForUpdate[] personForCountries;
+
+    /**
+     * 护照列表
+     *
+     * <p>示例值：
+     */
+    private PassportForUpdate[] passports;
+
+    /**
+     * 签证列表
+     *
+     * <p>示例值：
+     */
+    private VisaForUpdate[] visas;
+
+    /**
+     * 国家证件v2
+     *
+     * <p>示例值：
+     */
+    private NationalIdForUpdate[] nationalIdV2s;
+
+    /**
+     * 常用姓名v2
+     *
+     * <p>示例值：
+     */
+    private NameForUpdate preferredNameV2;
+
+    /**
+     * 母亲姓名
+     *
+     * <p>示例值：example
+     */
+    private String motherName;
+
+    /**
+     * 出生城市
+     *
+     * <p>示例值：example
+     */
+    private String cityOfBirth;
+
+    /**
+     * 出生省份
+     *
+     * <p>示例值：example
+     */
+    private String regionOfBirth;
+
+    /**
+     * 马来税务信息
+     *
+     * <p>示例值：
+     */
+    private TaxInfoMysForUpdate taxInfoMys;
+
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Name name) {
+      this.name = name;
+      return this;
+    }
+
+    /**
+     * 手机号
+     *
+     * <p>示例值：138xxxx1234
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
+    }
+
+    /**
+     * 区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = phone;- custom_api_name = international_area_code
+     *
+     * <p>示例值：86_china
+     *
+     * @param internationalAreaCode
+     * @return
+     */
+    public Builder internationalAreaCode(String internationalAreaCode) {
+      this.internationalAreaCode = internationalAreaCode;
+      return this;
+    }
+
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：xxx@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
+    }
+
+    /**
+     * 生日
+     *
+     * <p>示例值：2011-09-09
+     *
+     * @param dateOfBirth
+     * @return
+     */
+    public Builder dateOfBirth(String dateOfBirth) {
+      this.dateOfBirth = dateOfBirth;
+      return this;
+    }
+
+    /**
+     * 证件号（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略）
+     *
+     * <p>示例值：3101xxxx1234567890
+     *
+     * @param personalIdNumber
+     * @return
+     */
+    public Builder personalIdNumber(String personalIdNumber) {
+      this.personalIdNumber = personalIdNumber;
+      return this;
+    }
+
+    /**
+     * 证件类型（待废弃，建议使用national_id_list，
+     * 如果与national_id_list同时传值，则national_id_list会被忽略），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param personalIdType
+     * @return
+     */
+    public Builder personalIdType(String personalIdType) {
+      this.personalIdType = personalIdType;
+      return this;
+    }
+
+    /**
+     * 参加工作日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2010-09-09
+     *
+     * @param dateEnteredWorkforce
+     * @return
+     */
+    public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
+      this.dateEnteredWorkforce = dateEnteredWorkforce;
+      return this;
+    }
+
+    /**
+     * 性别，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = person;- custom_api_name = gender
+     *
+     * <p>示例值：male
+     *
+     * @param genderId
+     * @return
+     */
+    public Builder genderId(String genderId) {
+      this.genderId = genderId;
+      return this;
+    }
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param nationalityId
+     * @return
+     */
+    public Builder nationalityId(String nationalityId) {
+      this.nationalityId = nationalityId;
+      return this;
+    }
+
+    /**
+     * 国籍（新），可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：
+     *
+     * @param nationalityV2Id
+     * @return
+     */
+    public Builder nationalityV2Id(String nationalityV2Id) {
+      this.nationalityV2Id = nationalityV2Id;
+      return this;
+    }
+
+    /**
+     * 其他国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获得
+     *
+     * <p>示例值：[6862995757234914824]
+     *
+     * @param additionalNationalityIdList
+     * @return
+     */
+    public Builder additionalNationalityIdList(String[] additionalNationalityIdList) {
+      this.additionalNationalityIdList = additionalNationalityIdList;
+      return this;
+    }
+
+    /**
+     * 公民身份，如需获取具体值，请联系人员档案管理员
+     *
+     * <p>示例值：[6862995757234914824]
+     *
+     * @param citizenshipStatusIdList
+     * @return
+     */
+    public Builder citizenshipStatusIdList(String[] citizenshipStatusIdList) {
+      this.citizenshipStatusIdList = citizenshipStatusIdList;
+      return this;
+    }
+
+    /**
+     * 家庭地址（待废弃）
+     *
+     * <p>示例值：xx市xx街道xx路xx号
+     *
+     * @param homeAddress
+     * @return
+     */
+    public Builder homeAddress(String homeAddress) {
+      this.homeAddress = homeAddress;
+      return this;
+    }
+
+    /**
+     * 人员编号
+     *
+     * <p>示例值：DDD00001
+     *
+     * @param workerId
+     * @return
+     */
+    public Builder workerId(String workerId) {
+      this.workerId = workerId;
+      return this;
+    }
+
+    /**
+     * 数据驻留地（部分租户开通此功能），枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取。;按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = user_geo
+     *
+     * <p>示例值：
+     *
+     * @param userGeo
+     * @return
+     */
+    public Builder userGeo(String userGeo) {
+      this.userGeo = userGeo;
+      return this;
+    }
+
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(Name legalName) {
+      this.legalName = legalName;
+      return this;
+    }
+
+    /**
+     * 常用名
+     *
+     * <p>示例值：
+     *
+     * @param additionalName
+     * @return
+     */
+    public Builder additionalName(Name additionalName) {
+      this.additionalName = additionalName;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param residentTaxList
+     * @return
+     */
+    public Builder residentTaxList(ResidentTaxForUpdate[] residentTaxList) {
+      this.residentTaxList = residentTaxList;
+      return this;
+    }
+
+    /**
+     * 出生国家/地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param bornCountryRegion
+     * @return
+     */
+    public Builder bornCountryRegion(String bornCountryRegion) {
+      this.bornCountryRegion = bornCountryRegion;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param isDisabled
+     * @return
+     */
+    public Builder isDisabled(Boolean isDisabled) {
+      this.isDisabled = isDisabled;
+      return this;
+    }
+
+    /**
+     * 示例值：身份证号+残疾类型（1-7）+ 残疾程度分级（1-4）+[补发编号]
+     *
+     * @param disableCardNumber
+     * @return
+     */
+    public Builder disableCardNumber(String disableCardNumber) {
+      this.disableCardNumber = disableCardNumber;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param isOldAlone
+     * @return
+     */
+    public Builder isOldAlone(Boolean isOldAlone) {
+      this.isOldAlone = isOldAlone;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param isMartyrFamily
+     * @return
+     */
+    public Builder isMartyrFamily(Boolean isMartyrFamily) {
+      this.isMartyrFamily = isMartyrFamily;
+      return this;
+    }
+
+    /**
+     * 示例值：00001
+     *
+     * @param martyrCardNumber
+     * @return
+     */
+    public Builder martyrCardNumber(String martyrCardNumber) {
+      this.martyrCardNumber = martyrCardNumber;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param dependentList
+     * @return
+     */
+    public Builder dependentList(DependentForUpdate[] dependentList) {
+      this.dependentList = dependentList;
+      return this;
+    }
+
+    /**
+     * 宗教信仰，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：religion
+     *
+     * <p>示例值：buddism
+     *
+     * @param religion
+     * @return
+     */
+    public Builder religion(String religion) {
+      this.religion = religion;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param bankAccountList
+     * @return
+     */
+    public Builder bankAccountList(BankAccountForUpdate[] bankAccountList) {
+      this.bankAccountList = bankAccountList;
+      return this;
+    }
+
+    /**
+     * 国家证件
+     *
+     * <p>示例值：
+     *
+     * @param nationalIdList
+     * @return
+     */
+    public Builder nationalIdList(NationalIdForUpdate[] nationalIdList) {
+      this.nationalIdList = nationalIdList;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param personalProfileList
+     * @return
+     */
+    public Builder personalProfileList(PersonalProfileForUpdate[] personalProfileList) {
+      this.personalProfileList = personalProfileList;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param emergencyContactList
+     * @return
+     */
+    public Builder emergencyContactList(EmergencyContactForUpdate[] emergencyContactList) {
+      this.emergencyContactList = emergencyContactList;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param addressList
+     * @return
+     */
+    public Builder addressList(AddressForUpdate[] addressList) {
+      this.addressList = addressList;
+      return this;
+    }
+
+    /**
+     * 婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：marital_status
+     *
+     * <p>示例值：single
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(String maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
+    }
+
+    /**
+     * 民族 /
+     * 种族，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person;- custom_api_name：ethnicity_race
+     *
+     * <p>示例值：han
+     *
+     * @param ethnicityRace
+     * @return
+     */
+    public Builder ethnicityRace(String ethnicityRace) {
+      this.ethnicityRace = ethnicityRace;
+      return this;
+    }
+
+    /**
+     * 籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取
+     *
+     * <p>示例值：6822114062122064111
+     *
+     * @param nativeRegion
+     * @return
+     */
+    public Builder nativeRegion(String nativeRegion) {
+      this.nativeRegion = nativeRegion;
+      return this;
+    }
+
+    /**
+     * 户口类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：hukou_type
+     *
+     * <p>示例值：local_urban_residence
+     *
+     * @param hukouType
+     * @return
+     */
+    public Builder hukouType(String hukouType) {
+      this.hukouType = hukouType;
+      return this;
+    }
+
+    /**
+     * 示例值：北京市海淀区北三环西路
+     *
+     * @param hukouLocation
+     * @return
+     */
+    public Builder hukouLocation(String hukouLocation) {
+      this.hukouLocation = hukouLocation;
+      return this;
+    }
+
+    /**
+     * person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
+    }
+
+    /**
+     * 示例值：2023-01-10
+     *
+     * @param expectedGraduateDate
+     * @return
+     */
+    public Builder expectedGraduateDate(String expectedGraduateDate) {
+      this.expectedGraduateDate = expectedGraduateDate;
+      return this;
+    }
+
+    /**
+     * 政治面貌，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：person_info_chn;- custom_api_name：political_affiliation
+     *
+     * <p>示例值：
+     *
+     * @param politicalAffiliation
+     * @return
+     */
+    public Builder politicalAffiliation(String politicalAffiliation) {
+      this.politicalAffiliation = politicalAffiliation;
+      return this;
+    }
+
+    /**
+     * 法定姓名列表
+     *
+     * <p>示例值：
+     *
+     * @param legalNames
+     * @return
+     */
+    public Builder legalNames(NameForUpdate[] legalNames) {
+      this.legalNames = legalNames;
+      return this;
+    }
+
+    /**
+     * 多国个人信息
+     *
+     * <p>示例值：
+     *
+     * @param personForCountries
+     * @return
+     */
+    public Builder personForCountries(PersonForCountryForUpdate[] personForCountries) {
+      this.personForCountries = personForCountries;
+      return this;
+    }
+
+    /**
+     * 护照列表
+     *
+     * <p>示例值：
+     *
+     * @param passports
+     * @return
+     */
+    public Builder passports(PassportForUpdate[] passports) {
+      this.passports = passports;
+      return this;
+    }
+
+    /**
+     * 签证列表
+     *
+     * <p>示例值：
+     *
+     * @param visas
+     * @return
+     */
+    public Builder visas(VisaForUpdate[] visas) {
+      this.visas = visas;
+      return this;
+    }
+
+    /**
+     * 国家证件v2
+     *
+     * <p>示例值：
+     *
+     * @param nationalIdV2s
+     * @return
+     */
+    public Builder nationalIdV2s(NationalIdForUpdate[] nationalIdV2s) {
+      this.nationalIdV2s = nationalIdV2s;
+      return this;
+    }
+
+    /**
+     * 常用姓名v2
+     *
+     * <p>示例值：
+     *
+     * @param preferredNameV2
+     * @return
+     */
+    public Builder preferredNameV2(NameForUpdate preferredNameV2) {
+      this.preferredNameV2 = preferredNameV2;
+      return this;
+    }
+
+    /**
+     * 母亲姓名
+     *
+     * <p>示例值：example
+     *
+     * @param motherName
+     * @return
+     */
+    public Builder motherName(String motherName) {
+      this.motherName = motherName;
+      return this;
+    }
+
+    /**
+     * 出生城市
+     *
+     * <p>示例值：example
+     *
+     * @param cityOfBirth
+     * @return
+     */
+    public Builder cityOfBirth(String cityOfBirth) {
+      this.cityOfBirth = cityOfBirth;
+      return this;
+    }
+
+    /**
+     * 出生省份
+     *
+     * <p>示例值：example
+     *
+     * @param regionOfBirth
+     * @return
+     */
+    public Builder regionOfBirth(String regionOfBirth) {
+      this.regionOfBirth = regionOfBirth;
+      return this;
+    }
+
+    /**
+     * 马来税务信息
+     *
+     * <p>示例值：
+     *
+     * @param taxInfoMys
+     * @return
+     */
+    public Builder taxInfoMys(TaxInfoMysForUpdate taxInfoMys) {
+      this.taxInfoMys = taxInfoMys;
+      return this;
+    }
+
+    public BasicInfo build() {
+      return new BasicInfo(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

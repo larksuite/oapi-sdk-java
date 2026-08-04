@@ -13,175 +13,200 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class AddRoleAssignAuthorizationReq {
+  /**
+   * 被授权用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+   * 换取 ==employment_id==
+   *
+   * <p>示例值：7303877149017292801
+   */
+  @Query
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 被授权角色的 ID，一次仅可授权一个角色。你可以使用
+   * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+   * 获取，或者在角色详情中获取（URL 末的数字）
+   *
+   * <p>示例值：7358732070333613619
+   */
+  @Query
+  @SerializedName("role_id")
+  private String roleId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  @Body private AddRoleAssignAuthorizationReqBody body;
+
+  public AddRoleAssignAuthorizationReqBody getAddRoleAssignAuthorizationReqBody() {
+    return this.body;
+  }
+
+  public void setAddRoleAssignAuthorizationReqBody(AddRoleAssignAuthorizationReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AddRoleAssignAuthorizationReq() {}
+
+  public AddRoleAssignAuthorizationReq(Builder builder) {
     /**
-     * 雇员 ID
-     * <p> 示例值：67489937334909845
+     * 被授权用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==
+     *
+     * <p>示例值：7303877149017292801
      */
-    @Query
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 角色 ID
-     * <p> 示例值：67489937334909845
+     * 被授权角色的 ID，一次仅可授权一个角色。你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，或者在角色详情中获取（URL 末的数字）
+     *
+     * <p>示例值：7358732070333613619
      */
-    @Query
-    @SerializedName("role_id")
-    private String roleId;
-    @Body
+    this.roleId = builder.roleId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        employmentId; // 被授权用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; >
+    // ;如果你需要不同类型的ID进行转换，可以使用
+    // [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==
+    private String userIdType; // 用户 ID 类型
+    private String roleId; // 被授权角色的 ID，一次仅可授权一个角色。你可以使用
+
+    // [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+    // 获取，或者在角色详情中获取（URL 末的数字）
+
+    /**
+     * 被授权用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==
+     *
+     * <p>示例值：7303877149017292801
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums
+                .AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 被授权角色的 ID，一次仅可授权一个角色。你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，或者在角色详情中获取（URL 末的数字）
+     *
+     * <p>示例值：7358732070333613619
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
+    }
+
     private AddRoleAssignAuthorizationReqBody body;
 
-    // builder 开始
-    public AddRoleAssignAuthorizationReq() {
-    }
-
-    public AddRoleAssignAuthorizationReq(Builder builder) {
-        /**
-         * 雇员 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 角色 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.roleId = builder.roleId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
     public AddRoleAssignAuthorizationReqBody getAddRoleAssignAuthorizationReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAddRoleAssignAuthorizationReqBody(AddRoleAssignAuthorizationReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder addRoleAssignAuthorizationReqBody(AddRoleAssignAuthorizationReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String employmentId; // 雇员 ID
-        private String userIdType; // 用户 ID 类型
-        private String roleId; // 角色 ID
-        private AddRoleAssignAuthorizationReqBody body;
-
-        /**
-         * 雇员 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.AddRoleAssignAuthorizationAddRoleAssignAuthorizationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 角色 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-        public AddRoleAssignAuthorizationReqBody getAddRoleAssignAuthorizationReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder addRoleAssignAuthorizationReqBody(AddRoleAssignAuthorizationReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AddRoleAssignAuthorizationReq build() {
-            return new AddRoleAssignAuthorizationReq(this);
-        }
+    public AddRoleAssignAuthorizationReq build() {
+      return new AddRoleAssignAuthorizationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

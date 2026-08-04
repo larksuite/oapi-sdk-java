@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 社保账户类型
- */
+/** 社保/公积金账户类型。当record_type为attrition时，不返回该数据 */
 public enum SocialArchiveDetailAccountTypeEnum {
-    ASSOCIATED_COMPANY("associated_company"), // 单立户
-    SUPPLIER("supplier"), // 大库
-    ;
-    private String value;
+  ASSOCIATED_COMPANY("associated_company"), // 单立户
+  SUPPLIER("supplier"), // 大库
+  ;
+  private String value;
 
-    SocialArchiveDetailAccountTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveDetailAccountTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

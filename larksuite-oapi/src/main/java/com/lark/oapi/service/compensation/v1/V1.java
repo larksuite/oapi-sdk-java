@@ -28,79 +28,79 @@ import com.lark.oapi.service.compensation.v1.resource.SocialInsurance;
 import com.lark.oapi.service.compensation.v1.resource.SocialPlan;
 
 public class V1 {
-    private final Archive archive; // archive
-    private final ChangeReason changeReason; // change_reason
-    private final Indicator indicator; // indicator
-    private final Item item; // item
-    private final ItemCategory itemCategory; // item_category
-    private final LumpSumPayment lumpSumPayment; // lump_sum_payment
-    private final Plan plan; // plan
-    private final RecurringPayment recurringPayment; // recurring_payment
-    private final SocialArchive socialArchive; // social_archive
-    private final SocialArchiveAdjustRecord socialArchiveAdjustRecord; // social_archive_adjust_record
-    private final SocialInsurance socialInsurance; // social_insurance
-    private final SocialPlan socialPlan; // social_plan
+  private final Archive archive; // archive
+  private final ChangeReason changeReason; // change_reason
+  private final Indicator indicator; // indicator
+  private final Item item; // item
+  private final ItemCategory itemCategory; // item_category
+  private final LumpSumPayment lumpSumPayment; // lump_sum_payment
+  private final Plan plan; // plan
+  private final RecurringPayment recurringPayment; // recurring_payment
+  private final SocialArchive socialArchive; // social_archive
+  private final SocialArchiveAdjustRecord socialArchiveAdjustRecord; // social_archive_adjust_record
+  private final SocialInsurance socialInsurance; // social_insurance
+  private final SocialPlan socialPlan; // social_plan
 
-    public V1(Config config) {
-        this.archive = new Archive(config);
-        this.changeReason = new ChangeReason(config);
-        this.indicator = new Indicator(config);
-        this.item = new Item(config);
-        this.itemCategory = new ItemCategory(config);
-        this.lumpSumPayment = new LumpSumPayment(config);
-        this.plan = new Plan(config);
-        this.recurringPayment = new RecurringPayment(config);
-        this.socialArchive = new SocialArchive(config);
-        this.socialArchiveAdjustRecord = new SocialArchiveAdjustRecord(config);
-        this.socialInsurance = new SocialInsurance(config);
-        this.socialPlan = new SocialPlan(config);
-    }
+  public V1(Config config) {
+    this.archive = new Archive(config);
+    this.changeReason = new ChangeReason(config);
+    this.indicator = new Indicator(config);
+    this.item = new Item(config);
+    this.itemCategory = new ItemCategory(config);
+    this.lumpSumPayment = new LumpSumPayment(config);
+    this.plan = new Plan(config);
+    this.recurringPayment = new RecurringPayment(config);
+    this.socialArchive = new SocialArchive(config);
+    this.socialArchiveAdjustRecord = new SocialArchiveAdjustRecord(config);
+    this.socialInsurance = new SocialInsurance(config);
+    this.socialPlan = new SocialPlan(config);
+  }
 
-    public Archive archive() {
-        return archive;
-    }
+  public Archive archive() {
+    return archive;
+  }
 
-    public ChangeReason changeReason() {
-        return changeReason;
-    }
+  public ChangeReason changeReason() {
+    return changeReason;
+  }
 
-    public Indicator indicator() {
-        return indicator;
-    }
+  public Indicator indicator() {
+    return indicator;
+  }
 
-    public Item item() {
-        return item;
-    }
+  public Item item() {
+    return item;
+  }
 
-    public ItemCategory itemCategory() {
-        return itemCategory;
-    }
+  public ItemCategory itemCategory() {
+    return itemCategory;
+  }
 
-    public LumpSumPayment lumpSumPayment() {
-        return lumpSumPayment;
-    }
+  public LumpSumPayment lumpSumPayment() {
+    return lumpSumPayment;
+  }
 
-    public Plan plan() {
-        return plan;
-    }
+  public Plan plan() {
+    return plan;
+  }
 
-    public RecurringPayment recurringPayment() {
-        return recurringPayment;
-    }
+  public RecurringPayment recurringPayment() {
+    return recurringPayment;
+  }
 
-    public SocialArchive socialArchive() {
-        return socialArchive;
-    }
+  public SocialArchive socialArchive() {
+    return socialArchive;
+  }
 
-    public SocialArchiveAdjustRecord socialArchiveAdjustRecord() {
-        return socialArchiveAdjustRecord;
-    }
+  public SocialArchiveAdjustRecord socialArchiveAdjustRecord() {
+    return socialArchiveAdjustRecord;
+  }
 
-    public SocialInsurance socialInsurance() {
-        return socialInsurance;
-    }
+  public SocialInsurance socialInsurance() {
+    return socialInsurance;
+  }
 
-    public SocialPlan socialPlan() {
-        return socialPlan;
-    }
+  public SocialPlan socialPlan() {
+    return socialPlan;
+  }
 }

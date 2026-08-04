@@ -13,630 +13,735 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmploymentRecord {
+  /**
+   * 人员类型
+   * ID;;可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  /**
+   * 部门
+   * ID;;可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("department")
+  private String department;
+
+  /**
+   * 直属上级雇佣
+   * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：6893014062142064135
+   */
+  @SerializedName("direct_manager")
+  private String directManager;
+
+  /**
+   * 工时制度
+   * ID;;可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获取
+   *
+   * <p>示例值：6890452208593372600
+   */
+  @SerializedName("working_hours_type")
+  private String workingHoursType;
+
+  /**
+   * 成本中心分摊信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_centers")
+  private ProfileSettingCostCenter[] costCenters;
+
+  /**
+   * 直属上级入职日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("direct_manager_effective_time")
+  private String directManagerEffectiveTime;
+
+  /**
+   * 虚线上级雇佣
+   * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：6893014062142064136
+   */
+  @SerializedName("dotted_line_manager")
+  private String dottedLineManager;
+
+  /**
+   * 虚线上级入职日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("dotted_line_manager_effective_time")
+  private String dottedLineManagerEffectiveTime;
+
+  /**
+   * 职务
+   * ID;;可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("job")
+  private String job;
+
+  /**
+   * 序列
+   * ID;;可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+   *
+   * <p>示例值：6890452208593372680
+   */
+  @SerializedName("job_family")
+  private String jobFamily;
+
+  /**
+   * 职级
+   * ID;;可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+   *
+   * <p>示例值：6890452208593372681
+   */
+  @SerializedName("job_level")
+  private String jobLevel;
+
+  /**
+   * 职等
+   * ID;;可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+   *
+   * <p>示例值：6890452208593372682
+   */
+  @SerializedName("job_grade")
+  private String jobGrade;
+
+  /**
+   * 工作地点
+   * ID;;可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+   *
+   * <p>示例值：6890452208593372683
+   */
+  @SerializedName("work_location")
+  private String workLocation;
+
+  /**
+   * 周工作时长
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("weekly_working_hours")
+  private Integer weeklyWorkingHours;
+
+  /**
+   * 岗位ID
+   *
+   * <p>示例值：6890452208593372684
+   */
+  @SerializedName("position")
+  private String position;
+
+  /**
+   * 通道ID
+   *
+   * <p>示例值：6890452208593372684
+   */
+  @SerializedName("pathway")
+  private String pathway;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public String getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
+  public String getDirectManager() {
+    return this.directManager;
+  }
+
+  public void setDirectManager(String directManager) {
+    this.directManager = directManager;
+  }
+
+  public String getWorkingHoursType() {
+    return this.workingHoursType;
+  }
+
+  public void setWorkingHoursType(String workingHoursType) {
+    this.workingHoursType = workingHoursType;
+  }
+
+  public ProfileSettingCostCenter[] getCostCenters() {
+    return this.costCenters;
+  }
+
+  public void setCostCenters(ProfileSettingCostCenter[] costCenters) {
+    this.costCenters = costCenters;
+  }
+
+  public String getDirectManagerEffectiveTime() {
+    return this.directManagerEffectiveTime;
+  }
+
+  public void setDirectManagerEffectiveTime(String directManagerEffectiveTime) {
+    this.directManagerEffectiveTime = directManagerEffectiveTime;
+  }
+
+  public String getDottedLineManager() {
+    return this.dottedLineManager;
+  }
+
+  public void setDottedLineManager(String dottedLineManager) {
+    this.dottedLineManager = dottedLineManager;
+  }
+
+  public String getDottedLineManagerEffectiveTime() {
+    return this.dottedLineManagerEffectiveTime;
+  }
+
+  public void setDottedLineManagerEffectiveTime(String dottedLineManagerEffectiveTime) {
+    this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
+  }
+
+  public String getJob() {
+    return this.job;
+  }
+
+  public void setJob(String job) {
+    this.job = job;
+  }
+
+  public String getJobFamily() {
+    return this.jobFamily;
+  }
+
+  public void setJobFamily(String jobFamily) {
+    this.jobFamily = jobFamily;
+  }
+
+  public String getJobLevel() {
+    return this.jobLevel;
+  }
+
+  public void setJobLevel(String jobLevel) {
+    this.jobLevel = jobLevel;
+  }
+
+  public String getJobGrade() {
+    return this.jobGrade;
+  }
+
+  public void setJobGrade(String jobGrade) {
+    this.jobGrade = jobGrade;
+  }
+
+  public String getWorkLocation() {
+    return this.workLocation;
+  }
+
+  public void setWorkLocation(String workLocation) {
+    this.workLocation = workLocation;
+  }
+
+  public Integer getWeeklyWorkingHours() {
+    return this.weeklyWorkingHours;
+  }
+
+  public void setWeeklyWorkingHours(Integer weeklyWorkingHours) {
+    this.weeklyWorkingHours = weeklyWorkingHours;
+  }
+
+  public String getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(String position) {
+    this.position = position;
+  }
+
+  public String getPathway() {
+    return this.pathway;
+  }
+
+  public void setPathway(String pathway) {
+    this.pathway = pathway;
+  }
+
+  // builder 开始
+  public ProfileSettingEmploymentRecord() {}
+
+  public ProfileSettingEmploymentRecord(Builder builder) {
     /**
-     * 人员类型 ID
-     * <p> 示例值：6890452208593372679
+     * 人员类型
+     * ID;;可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("employee_type")
-    private String employeeType;
+    this.employeeType = builder.employeeType;
     /**
-     * 部门 ID
-     * <p> 示例值：6890452208593372679
+     * 部门
+     * ID;;可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("department")
-    private String department;
+    this.department = builder.department;
     /**
-     * 实线主管雇佣ID
-     * <p> 示例值：6893014062142064135
+     * 直属上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064135
      */
-    @SerializedName("direct_manager")
-    private String directManager;
+    this.directManager = builder.directManager;
     /**
-     * 工时制度 ID
-     * <p> 示例值：6890452208593372600
+     * 工时制度
+     * ID;;可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372600
      */
-    @SerializedName("working_hours_type")
-    private String workingHoursType;
+    this.workingHoursType = builder.workingHoursType;
     /**
      * 成本中心分摊信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_centers")
-    private ProfileSettingCostCenter[] costCenters;
+    this.costCenters = builder.costCenters;
     /**
-     * 实线主管入职日期
-     * <p> 示例值：2020-01-01
+     * 直属上级入职日期
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("direct_manager_effective_time")
-    private String directManagerEffectiveTime;
+    this.directManagerEffectiveTime = builder.directManagerEffectiveTime;
     /**
-     * 虚线主管雇佣ID
-     * <p> 示例值：6893014062142064136
+     * 虚线上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064136
      */
-    @SerializedName("dotted_line_manager")
-    private String dottedLineManager;
+    this.dottedLineManager = builder.dottedLineManager;
     /**
-     * 虚线主管入职日期
-     * <p> 示例值：2020-01-01
+     * 虚线上级入职日期
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("dotted_line_manager_effective_time")
-    private String dottedLineManagerEffectiveTime;
+    this.dottedLineManagerEffectiveTime = builder.dottedLineManagerEffectiveTime;
     /**
-     * 职务 ID
-     * <p> 示例值：6890452208593372679
+     * 职务
+     * ID;;可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("job")
-    private String job;
+    this.job = builder.job;
     /**
-     * 职务序列 ID
-     * <p> 示例值：6890452208593372680
+     * 序列
+     * ID;;可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6890452208593372680
      */
-    @SerializedName("job_family")
-    private String jobFamily;
+    this.jobFamily = builder.jobFamily;
     /**
-     * 职务级别 ID
-     * <p> 示例值：6890452208593372681
+     * 职级
+     * ID;;可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6890452208593372681
      */
-    @SerializedName("job_level")
-    private String jobLevel;
+    this.jobLevel = builder.jobLevel;
     /**
-     * 职等 ID
-     * <p> 示例值：6890452208593372682
+     * 职等
+     * ID;;可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：6890452208593372682
      */
-    @SerializedName("job_grade")
-    private String jobGrade;
+    this.jobGrade = builder.jobGrade;
     /**
-     * 工作地点 ID
-     * <p> 示例值：6890452208593372683
+     * 工作地点
+     * ID;;可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6890452208593372683
      */
-    @SerializedName("work_location")
-    private String workLocation;
+    this.workLocation = builder.workLocation;
     /**
      * 周工作时长
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("weekly_working_hours")
-    private Integer weeklyWorkingHours;
+    this.weeklyWorkingHours = builder.weeklyWorkingHours;
     /**
      * 岗位ID
-     * <p> 示例值：6890452208593372684
+     *
+     * <p>示例值：6890452208593372684
      */
-    @SerializedName("position")
-    private String position;
+    this.position = builder.position;
     /**
      * 通道ID
-     * <p> 示例值：6890452208593372684
+     *
+     * <p>示例值：6890452208593372684
      */
-    @SerializedName("pathway")
+    this.pathway = builder.pathway;
+  }
+
+  public static class Builder {
+    /**
+     * 人员类型
+     * ID;;可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     */
+    private String employeeType;
+
+    /**
+     * 部门
+     * ID;;可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     */
+    private String department;
+
+    /**
+     * 直属上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064135
+     */
+    private String directManager;
+
+    /**
+     * 工时制度
+     * ID;;可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372600
+     */
+    private String workingHoursType;
+
+    /**
+     * 成本中心分摊信息
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingCostCenter[] costCenters;
+
+    /**
+     * 直属上级入职日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String directManagerEffectiveTime;
+
+    /**
+     * 虚线上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064136
+     */
+    private String dottedLineManager;
+
+    /**
+     * 虚线上级入职日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String dottedLineManagerEffectiveTime;
+
+    /**
+     * 职务
+     * ID;;可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     */
+    private String job;
+
+    /**
+     * 序列
+     * ID;;可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6890452208593372680
+     */
+    private String jobFamily;
+
+    /**
+     * 职级
+     * ID;;可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6890452208593372681
+     */
+    private String jobLevel;
+
+    /**
+     * 职等
+     * ID;;可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：6890452208593372682
+     */
+    private String jobGrade;
+
+    /**
+     * 工作地点
+     * ID;;可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6890452208593372683
+     */
+    private String workLocation;
+
+    /**
+     * 周工作时长
+     *
+     * <p>示例值：100
+     */
+    private Integer weeklyWorkingHours;
+
+    /**
+     * 岗位ID
+     *
+     * <p>示例值：6890452208593372684
+     */
+    private String position;
+
+    /**
+     * 通道ID
+     *
+     * <p>示例值：6890452208593372684
+     */
     private String pathway;
 
-    // builder 开始
-    public ProfileSettingEmploymentRecord() {
+    /**
+     * 人员类型
+     * ID;;可通过[【批量查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public ProfileSettingEmploymentRecord(Builder builder) {
-        /**
-         * 人员类型 ID
-         * <p> 示例值：6890452208593372679
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 部门 ID
-         * <p> 示例值：6890452208593372679
-         */
-        this.department = builder.department;
-        /**
-         * 实线主管雇佣ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.directManager = builder.directManager;
-        /**
-         * 工时制度 ID
-         * <p> 示例值：6890452208593372600
-         */
-        this.workingHoursType = builder.workingHoursType;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        this.costCenters = builder.costCenters;
-        /**
-         * 实线主管入职日期
-         * <p> 示例值：2020-01-01
-         */
-        this.directManagerEffectiveTime = builder.directManagerEffectiveTime;
-        /**
-         * 虚线主管雇佣ID
-         * <p> 示例值：6893014062142064136
-         */
-        this.dottedLineManager = builder.dottedLineManager;
-        /**
-         * 虚线主管入职日期
-         * <p> 示例值：2020-01-01
-         */
-        this.dottedLineManagerEffectiveTime = builder.dottedLineManagerEffectiveTime;
-        /**
-         * 职务 ID
-         * <p> 示例值：6890452208593372679
-         */
-        this.job = builder.job;
-        /**
-         * 职务序列 ID
-         * <p> 示例值：6890452208593372680
-         */
-        this.jobFamily = builder.jobFamily;
-        /**
-         * 职务级别 ID
-         * <p> 示例值：6890452208593372681
-         */
-        this.jobLevel = builder.jobLevel;
-        /**
-         * 职等 ID
-         * <p> 示例值：6890452208593372682
-         */
-        this.jobGrade = builder.jobGrade;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6890452208593372683
-         */
-        this.workLocation = builder.workLocation;
-        /**
-         * 周工作时长
-         * <p> 示例值：100
-         */
-        this.weeklyWorkingHours = builder.weeklyWorkingHours;
-        /**
-         * 岗位ID
-         * <p> 示例值：6890452208593372684
-         */
-        this.position = builder.position;
-        /**
-         * 通道ID
-         * <p> 示例值：6890452208593372684
-         */
-        this.pathway = builder.pathway;
+    /**
+     * 部门
+     * ID;;可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(String department) {
+      this.department = department;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 直属上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064135
+     *
+     * @param directManager
+     * @return
+     */
+    public Builder directManager(String directManager) {
+      this.directManager = directManager;
+      return this;
     }
 
-    public String getEmployeeType() {
-        return this.employeeType;
+    /**
+     * 工时制度
+     * ID;;可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获取
+     *
+     * <p>示例值：6890452208593372600
+     *
+     * @param workingHoursType
+     * @return
+     */
+    public Builder workingHoursType(String workingHoursType) {
+      this.workingHoursType = workingHoursType;
+      return this;
     }
 
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
+    /**
+     * 成本中心分摊信息
+     *
+     * <p>示例值：
+     *
+     * @param costCenters
+     * @return
+     */
+    public Builder costCenters(ProfileSettingCostCenter[] costCenters) {
+      this.costCenters = costCenters;
+      return this;
     }
 
-    public String getDepartment() {
-        return this.department;
+    /**
+     * 直属上级入职日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param directManagerEffectiveTime
+     * @return
+     */
+    public Builder directManagerEffectiveTime(String directManagerEffectiveTime) {
+      this.directManagerEffectiveTime = directManagerEffectiveTime;
+      return this;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    /**
+     * 虚线上级雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：6893014062142064136
+     *
+     * @param dottedLineManager
+     * @return
+     */
+    public Builder dottedLineManager(String dottedLineManager) {
+      this.dottedLineManager = dottedLineManager;
+      return this;
     }
 
-    public String getDirectManager() {
-        return this.directManager;
+    /**
+     * 虚线上级入职日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param dottedLineManagerEffectiveTime
+     * @return
+     */
+    public Builder dottedLineManagerEffectiveTime(String dottedLineManagerEffectiveTime) {
+      this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
+      return this;
     }
 
-    public void setDirectManager(String directManager) {
-        this.directManager = directManager;
+    /**
+     * 职务
+     * ID;;可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param job
+     * @return
+     */
+    public Builder job(String job) {
+      this.job = job;
+      return this;
     }
 
-    public String getWorkingHoursType() {
-        return this.workingHoursType;
+    /**
+     * 序列
+     * ID;;可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6890452208593372680
+     *
+     * @param jobFamily
+     * @return
+     */
+    public Builder jobFamily(String jobFamily) {
+      this.jobFamily = jobFamily;
+      return this;
     }
 
-    public void setWorkingHoursType(String workingHoursType) {
-        this.workingHoursType = workingHoursType;
+    /**
+     * 职级
+     * ID;;可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6890452208593372681
+     *
+     * @param jobLevel
+     * @return
+     */
+    public Builder jobLevel(String jobLevel) {
+      this.jobLevel = jobLevel;
+      return this;
     }
 
-    public ProfileSettingCostCenter[] getCostCenters() {
-        return this.costCenters;
+    /**
+     * 职等
+     * ID;;可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：6890452208593372682
+     *
+     * @param jobGrade
+     * @return
+     */
+    public Builder jobGrade(String jobGrade) {
+      this.jobGrade = jobGrade;
+      return this;
     }
 
-    public void setCostCenters(ProfileSettingCostCenter[] costCenters) {
-        this.costCenters = costCenters;
+    /**
+     * 工作地点
+     * ID;;可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6890452208593372683
+     *
+     * @param workLocation
+     * @return
+     */
+    public Builder workLocation(String workLocation) {
+      this.workLocation = workLocation;
+      return this;
     }
 
-    public String getDirectManagerEffectiveTime() {
-        return this.directManagerEffectiveTime;
+    /**
+     * 周工作时长
+     *
+     * <p>示例值：100
+     *
+     * @param weeklyWorkingHours
+     * @return
+     */
+    public Builder weeklyWorkingHours(Integer weeklyWorkingHours) {
+      this.weeklyWorkingHours = weeklyWorkingHours;
+      return this;
     }
 
-    public void setDirectManagerEffectiveTime(String directManagerEffectiveTime) {
-        this.directManagerEffectiveTime = directManagerEffectiveTime;
+    /**
+     * 岗位ID
+     *
+     * <p>示例值：6890452208593372684
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(String position) {
+      this.position = position;
+      return this;
     }
 
-    public String getDottedLineManager() {
-        return this.dottedLineManager;
+    /**
+     * 通道ID
+     *
+     * <p>示例值：6890452208593372684
+     *
+     * @param pathway
+     * @return
+     */
+    public Builder pathway(String pathway) {
+      this.pathway = pathway;
+      return this;
     }
 
-    public void setDottedLineManager(String dottedLineManager) {
-        this.dottedLineManager = dottedLineManager;
+    public ProfileSettingEmploymentRecord build() {
+      return new ProfileSettingEmploymentRecord(this);
     }
+  }
 
-    public String getDottedLineManagerEffectiveTime() {
-        return this.dottedLineManagerEffectiveTime;
-    }
-
-    public void setDottedLineManagerEffectiveTime(String dottedLineManagerEffectiveTime) {
-        this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
-    }
-
-    public String getJob() {
-        return this.job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public String getJobFamily() {
-        return this.jobFamily;
-    }
-
-    public void setJobFamily(String jobFamily) {
-        this.jobFamily = jobFamily;
-    }
-
-    public String getJobLevel() {
-        return this.jobLevel;
-    }
-
-    public void setJobLevel(String jobLevel) {
-        this.jobLevel = jobLevel;
-    }
-
-    public String getJobGrade() {
-        return this.jobGrade;
-    }
-
-    public void setJobGrade(String jobGrade) {
-        this.jobGrade = jobGrade;
-    }
-
-    public String getWorkLocation() {
-        return this.workLocation;
-    }
-
-    public void setWorkLocation(String workLocation) {
-        this.workLocation = workLocation;
-    }
-
-    public Integer getWeeklyWorkingHours() {
-        return this.weeklyWorkingHours;
-    }
-
-    public void setWeeklyWorkingHours(Integer weeklyWorkingHours) {
-        this.weeklyWorkingHours = weeklyWorkingHours;
-    }
-
-    public String getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public String getPathway() {
-        return this.pathway;
-    }
-
-    public void setPathway(String pathway) {
-        this.pathway = pathway;
-    }
-
-    public static class Builder {
-        /**
-         * 人员类型 ID
-         * <p> 示例值：6890452208593372679
-         */
-        private String employeeType;
-        /**
-         * 部门 ID
-         * <p> 示例值：6890452208593372679
-         */
-        private String department;
-        /**
-         * 实线主管雇佣ID
-         * <p> 示例值：6893014062142064135
-         */
-        private String directManager;
-        /**
-         * 工时制度 ID
-         * <p> 示例值：6890452208593372600
-         */
-        private String workingHoursType;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        private ProfileSettingCostCenter[] costCenters;
-        /**
-         * 实线主管入职日期
-         * <p> 示例值：2020-01-01
-         */
-        private String directManagerEffectiveTime;
-        /**
-         * 虚线主管雇佣ID
-         * <p> 示例值：6893014062142064136
-         */
-        private String dottedLineManager;
-        /**
-         * 虚线主管入职日期
-         * <p> 示例值：2020-01-01
-         */
-        private String dottedLineManagerEffectiveTime;
-        /**
-         * 职务 ID
-         * <p> 示例值：6890452208593372679
-         */
-        private String job;
-        /**
-         * 职务序列 ID
-         * <p> 示例值：6890452208593372680
-         */
-        private String jobFamily;
-        /**
-         * 职务级别 ID
-         * <p> 示例值：6890452208593372681
-         */
-        private String jobLevel;
-        /**
-         * 职等 ID
-         * <p> 示例值：6890452208593372682
-         */
-        private String jobGrade;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6890452208593372683
-         */
-        private String workLocation;
-        /**
-         * 周工作时长
-         * <p> 示例值：100
-         */
-        private Integer weeklyWorkingHours;
-        /**
-         * 岗位ID
-         * <p> 示例值：6890452208593372684
-         */
-        private String position;
-        /**
-         * 通道ID
-         * <p> 示例值：6890452208593372684
-         */
-        private String pathway;
-
-        /**
-         * 人员类型 ID
-         * <p> 示例值：6890452208593372679
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID
-         * <p> 示例值：6890452208593372679
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(String department) {
-            this.department = department;
-            return this;
-        }
-
-
-        /**
-         * 实线主管雇佣ID
-         * <p> 示例值：6893014062142064135
-         *
-         * @param directManager
-         * @return
-         */
-        public Builder directManager(String directManager) {
-            this.directManager = directManager;
-            return this;
-        }
-
-
-        /**
-         * 工时制度 ID
-         * <p> 示例值：6890452208593372600
-         *
-         * @param workingHoursType
-         * @return
-         */
-        public Builder workingHoursType(String workingHoursType) {
-            this.workingHoursType = workingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         *
-         * @param costCenters
-         * @return
-         */
-        public Builder costCenters(ProfileSettingCostCenter[] costCenters) {
-            this.costCenters = costCenters;
-            return this;
-        }
-
-
-        /**
-         * 实线主管入职日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param directManagerEffectiveTime
-         * @return
-         */
-        public Builder directManagerEffectiveTime(String directManagerEffectiveTime) {
-            this.directManagerEffectiveTime = directManagerEffectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 虚线主管雇佣ID
-         * <p> 示例值：6893014062142064136
-         *
-         * @param dottedLineManager
-         * @return
-         */
-        public Builder dottedLineManager(String dottedLineManager) {
-            this.dottedLineManager = dottedLineManager;
-            return this;
-        }
-
-
-        /**
-         * 虚线主管入职日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param dottedLineManagerEffectiveTime
-         * @return
-         */
-        public Builder dottedLineManagerEffectiveTime(String dottedLineManagerEffectiveTime) {
-            this.dottedLineManagerEffectiveTime = dottedLineManagerEffectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 职务 ID
-         * <p> 示例值：6890452208593372679
-         *
-         * @param job
-         * @return
-         */
-        public Builder job(String job) {
-            this.job = job;
-            return this;
-        }
-
-
-        /**
-         * 职务序列 ID
-         * <p> 示例值：6890452208593372680
-         *
-         * @param jobFamily
-         * @return
-         */
-        public Builder jobFamily(String jobFamily) {
-            this.jobFamily = jobFamily;
-            return this;
-        }
-
-
-        /**
-         * 职务级别 ID
-         * <p> 示例值：6890452208593372681
-         *
-         * @param jobLevel
-         * @return
-         */
-        public Builder jobLevel(String jobLevel) {
-            this.jobLevel = jobLevel;
-            return this;
-        }
-
-
-        /**
-         * 职等 ID
-         * <p> 示例值：6890452208593372682
-         *
-         * @param jobGrade
-         * @return
-         */
-        public Builder jobGrade(String jobGrade) {
-            this.jobGrade = jobGrade;
-            return this;
-        }
-
-
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6890452208593372683
-         *
-         * @param workLocation
-         * @return
-         */
-        public Builder workLocation(String workLocation) {
-            this.workLocation = workLocation;
-            return this;
-        }
-
-
-        /**
-         * 周工作时长
-         * <p> 示例值：100
-         *
-         * @param weeklyWorkingHours
-         * @return
-         */
-        public Builder weeklyWorkingHours(Integer weeklyWorkingHours) {
-            this.weeklyWorkingHours = weeklyWorkingHours;
-            return this;
-        }
-
-
-        /**
-         * 岗位ID
-         * <p> 示例值：6890452208593372684
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(String position) {
-            this.position = position;
-            return this;
-        }
-
-
-        /**
-         * 通道ID
-         * <p> 示例值：6890452208593372684
-         *
-         * @param pathway
-         * @return
-         */
-        public Builder pathway(String pathway) {
-            this.pathway = pathway;
-            return this;
-        }
-
-
-        public ProfileSettingEmploymentRecord build() {
-            return new ProfileSettingEmploymentRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

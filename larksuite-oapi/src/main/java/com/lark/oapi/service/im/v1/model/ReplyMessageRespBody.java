@@ -13,258 +13,278 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReplyMessageRespBody {
-    /**
-     * 消息id open_message_id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-     */
-    @SerializedName("message_id")
-    private String messageId;
-    /**
-     * 根消息id open_message_id
-     * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
-     */
-    @SerializedName("root_id")
-    private String rootId;
-    /**
-     * 父消息的id open_message_id
-     * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
-     */
-    @SerializedName("parent_id")
-    private String parentId;
-    /**
-     * 消息所属的话题 ID
-     * <p> 示例值：omt_d4be107c616a
-     */
-    @SerializedName("thread_id")
-    private String threadId;
-    /**
-     * 消息类型 text post card image等等
-     * <p> 示例值：card
-     */
-    @SerializedName("msg_type")
-    private String msgType;
-    /**
-     * 消息生成的时间戳(毫秒)
-     * <p> 示例值：1609296809
-     */
-    @SerializedName("create_time")
-    private String createTime;
-    /**
-     * 消息更新的时间戳
-     * <p> 示例值：1609336806
-     */
-    @SerializedName("update_time")
-    private String updateTime;
-    /**
-     * 消息是否被撤回
-     * <p> 示例值：false
-     */
-    @SerializedName("deleted")
-    private Boolean deleted;
-    /**
-     * 消息是否被更新
-     * <p> 示例值：false
-     */
-    @SerializedName("updated")
-    private Boolean updated;
-    /**
-     * 所属的群
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
-     */
-    @SerializedName("chat_id")
-    private String chatId;
-    /**
-     * 发送者，可以是用户或应用
-     * <p> 示例值：object
-     */
-    @SerializedName("sender")
-    private Sender sender;
-    /**
-     * 消息内容,json结构
-     * <p> 示例值：json结构
-     */
-    @SerializedName("body")
-    private MessageBody body;
-    /**
-     * 被艾特的人或应用的id
-     * <p> 示例值：
-     */
-    @SerializedName("mentions")
-    private Mention[] mentions;
-    /**
-     * 合并消息的上一层级消息id open_message_id
-     * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-     */
-    @SerializedName("upper_message_id")
-    private String upperMessageId;
-    /**
-     * 消息跳转链接
-     * <p> 示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
-     */
-    @SerializedName("message_app_link")
-    private String messageAppLink;
-    /**
-     * 消息在普通群里面的位置信息，仅普通群可用
-     * <p> 示例值：1
-     */
-    @SerializedName("message_position")
-    private String messagePosition;
-    /**
-     * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
-     * <p> 示例值：1
-     */
-    @SerializedName("thread_message_position")
-    private String threadMessagePosition;
+  /**
+   * 消息id open_message_id
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
 
-    public String getMessageId() {
-        return this.messageId;
-    }
+  /**
+   * 根消息id open_message_id
+   *
+   * <p>示例值：om_40eb06e7b84dc71c03e009ad3c754195
+   */
+  @SerializedName("root_id")
+  private String rootId;
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
+  /**
+   * 父消息的id open_message_id
+   *
+   * <p>示例值：om_d4be107c616aed9c1da8ed8068570a9f
+   */
+  @SerializedName("parent_id")
+  private String parentId;
 
-    public String getRootId() {
-        return this.rootId;
-    }
+  /**
+   * 消息所属的话题 ID
+   *
+   * <p>示例值：omt_d4be107c616a
+   */
+  @SerializedName("thread_id")
+  private String threadId;
 
-    public void setRootId(String rootId) {
-        this.rootId = rootId;
-    }
+  /**
+   * 消息类型 text post card image等等
+   *
+   * <p>示例值：card
+   */
+  @SerializedName("msg_type")
+  private String msgType;
 
-    public String getParentId() {
-        return this.parentId;
-    }
+  /**
+   * 消息生成的时间戳(毫秒)
+   *
+   * <p>示例值：1609296809
+   */
+  @SerializedName("create_time")
+  private String createTime;
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
+  /**
+   * 消息更新的时间戳
+   *
+   * <p>示例值：1609336806
+   */
+  @SerializedName("update_time")
+  private String updateTime;
 
-    public String getThreadId() {
-        return this.threadId;
-    }
+  /**
+   * 消息是否被撤回
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("deleted")
+  private Boolean deleted;
 
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
+  /**
+   * 消息是否被更新
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("updated")
+  private Boolean updated;
 
-    public String getMsgType() {
-        return this.msgType;
-    }
+  /**
+   * 所属的群
+   *
+   * <p>示例值：oc_5ad11d72b830411d72b836c20
+   */
+  @SerializedName("chat_id")
+  private String chatId;
 
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
-    }
+  /**
+   * 发送者，可以是用户或应用
+   *
+   * <p>示例值：object
+   */
+  @SerializedName("sender")
+  private Sender sender;
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
+  /**
+   * 消息内容,json结构
+   *
+   * <p>示例值：json结构
+   */
+  @SerializedName("body")
+  private MessageBody body;
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+  /**
+   * 发送的消息内，被 @ 的用户列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mentions")
+  private Mention[] mentions;
 
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
+  /**
+   * 合并消息的上一层级消息id open_message_id
+   *
+   * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+   */
+  @SerializedName("upper_message_id")
+  private String upperMessageId;
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
+  /**
+   * 消息跳转链接
+   *
+   * <p>示例值：https://xxxx/client/thread/open?chatid=xxx&threadid=xxx&thread_position=xxx
+   */
+  @SerializedName("message_app_link")
+  private String messageAppLink;
 
-    public Boolean getDeleted() {
-        return this.deleted;
-    }
+  /**
+   * 消息在普通群里面的位置信息，仅普通群可用
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("message_position")
+  private String messagePosition;
 
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
+  /**
+   * 话题回复消息在话题回复里面的位置信息，仅话题回复生效
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("thread_message_position")
+  private String threadMessagePosition;
 
-    public Boolean getUpdated() {
-        return this.updated;
-    }
+  public String getMessageId() {
+    return this.messageId;
+  }
 
-    public void setUpdated(Boolean updated) {
-        this.updated = updated;
-    }
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
+  public String getRootId() {
+    return this.rootId;
+  }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
+  public void setRootId(String rootId) {
+    this.rootId = rootId;
+  }
 
-    public Sender getSender() {
-        return this.sender;
-    }
+  public String getParentId() {
+    return this.parentId;
+  }
 
-    public void setSender(Sender sender) {
-        this.sender = sender;
-    }
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
 
-    public MessageBody getBody() {
-        return this.body;
-    }
+  public String getThreadId() {
+    return this.threadId;
+  }
 
-    public void setBody(MessageBody body) {
-        this.body = body;
-    }
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
 
-    public Mention[] getMentions() {
-        return this.mentions;
-    }
+  public String getMsgType() {
+    return this.msgType;
+  }
 
-    public void setMentions(Mention[] mentions) {
-        this.mentions = mentions;
-    }
+  public void setMsgType(String msgType) {
+    this.msgType = msgType;
+  }
 
-    public String getUpperMessageId() {
-        return this.upperMessageId;
-    }
+  public String getCreateTime() {
+    return this.createTime;
+  }
 
-    public void setUpperMessageId(String upperMessageId) {
-        this.upperMessageId = upperMessageId;
-    }
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
 
-    public String getMessageAppLink() {
-        return this.messageAppLink;
-    }
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
 
-    public void setMessageAppLink(String messageAppLink) {
-        this.messageAppLink = messageAppLink;
-    }
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public String getMessagePosition() {
-        return this.messagePosition;
-    }
+  public Boolean getDeleted() {
+    return this.deleted;
+  }
 
-    public void setMessagePosition(String messagePosition) {
-        this.messagePosition = messagePosition;
-    }
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
 
-    public String getThreadMessagePosition() {
-        return this.threadMessagePosition;
-    }
+  public Boolean getUpdated() {
+    return this.updated;
+  }
 
-    public void setThreadMessagePosition(String threadMessagePosition) {
-        this.threadMessagePosition = threadMessagePosition;
-    }
+  public void setUpdated(Boolean updated) {
+    this.updated = updated;
+  }
 
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public Sender getSender() {
+    return this.sender;
+  }
+
+  public void setSender(Sender sender) {
+    this.sender = sender;
+  }
+
+  public MessageBody getBody() {
+    return this.body;
+  }
+
+  public void setBody(MessageBody body) {
+    this.body = body;
+  }
+
+  public Mention[] getMentions() {
+    return this.mentions;
+  }
+
+  public void setMentions(Mention[] mentions) {
+    this.mentions = mentions;
+  }
+
+  public String getUpperMessageId() {
+    return this.upperMessageId;
+  }
+
+  public void setUpperMessageId(String upperMessageId) {
+    this.upperMessageId = upperMessageId;
+  }
+
+  public String getMessageAppLink() {
+    return this.messageAppLink;
+  }
+
+  public void setMessageAppLink(String messageAppLink) {
+    this.messageAppLink = messageAppLink;
+  }
+
+  public String getMessagePosition() {
+    return this.messagePosition;
+  }
+
+  public void setMessagePosition(String messagePosition) {
+    this.messagePosition = messagePosition;
+  }
+
+  public String getThreadMessagePosition() {
+    return this.threadMessagePosition;
+  }
+
+  public void setThreadMessagePosition(String threadMessagePosition) {
+    this.threadMessagePosition = threadMessagePosition;
+  }
 }

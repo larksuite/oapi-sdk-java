@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateRecurringPaymentRespBody {
-    /**
-     * 每条记录的操作结果。对于创建成功的记录，会返回创建后的经常性支付记录id
-     * <p> 示例值：
-     */
-    @SerializedName("operate_results")
-    private RecurringPaymentOperateResult[] operateResults;
+  /**
+   * 每条记录的操作结果。对于创建成功的记录，会返回创建后的经常性支付记录id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operate_results")
+  private RecurringPaymentOperateResult[] operateResults;
 
-    public RecurringPaymentOperateResult[] getOperateResults() {
-        return this.operateResults;
-    }
+  public RecurringPaymentOperateResult[] getOperateResults() {
+    return this.operateResults;
+  }
 
-    public void setOperateResults(RecurringPaymentOperateResult[] operateResults) {
-        this.operateResults = operateResults;
-    }
-
+  public void setOperateResults(RecurringPaymentOperateResult[] operateResults) {
+    this.operateResults = operateResults;
+  }
 }

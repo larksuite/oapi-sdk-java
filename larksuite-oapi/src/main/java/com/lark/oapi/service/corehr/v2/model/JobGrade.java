@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobGrade {
+  /**
+   * 职等 ID
+   *
+   * <p>示例值：4692446793125560154
+   */
+  @SerializedName("job_grade_id")
+  private String jobGradeId;
+
+  /**
+   * 职等数值，数字越大代表职等越高
+   *
+   * <p>示例值：9999
+   */
+  @SerializedName("grade_order")
+  private Integer gradeOrder;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：A01234
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getJobGradeId() {
+    return this.jobGradeId;
+  }
+
+  public void setJobGradeId(String jobGradeId) {
+    this.jobGradeId = jobGradeId;
+  }
+
+  public Integer getGradeOrder() {
+    return this.gradeOrder;
+  }
+
+  public void setGradeOrder(Integer gradeOrder) {
+    this.gradeOrder = gradeOrder;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public JobGrade() {}
+
+  public JobGrade(Builder builder) {
     /**
      * 职等 ID
-     * <p> 示例值：4692446793125560154
+     *
+     * <p>示例值：4692446793125560154
      */
-    @SerializedName("job_grade_id")
-    private String jobGradeId;
+    this.jobGradeId = builder.jobGradeId;
     /**
-     * 职等数值
-     * <p> 示例值：9999
+     * 职等数值，数字越大代表职等越高
+     *
+     * <p>示例值：9999
      */
-    @SerializedName("grade_order")
-    private Integer gradeOrder;
+    this.gradeOrder = builder.gradeOrder;
     /**
      * 编码
-     * <p> 示例值：A01234
+     *
+     * <p>示例值：A01234
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
-     * 启用
-     * <p> 示例值：true
+     * 是否启用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 职等 ID
+     *
+     * <p>示例值：4692446793125560154
+     */
+    private String jobGradeId;
+
+    /**
+     * 职等数值，数字越大代表职等越高
+     *
+     * <p>示例值：9999
+     */
+    private Integer gradeOrder;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     */
+    private String code;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public JobGrade() {
+    /**
+     * 职等 ID
+     *
+     * <p>示例值：4692446793125560154
+     *
+     * @param jobGradeId
+     * @return
+     */
+    public Builder jobGradeId(String jobGradeId) {
+      this.jobGradeId = jobGradeId;
+      return this;
     }
 
-    public JobGrade(Builder builder) {
-        /**
-         * 职等 ID
-         * <p> 示例值：4692446793125560154
-         */
-        this.jobGradeId = builder.jobGradeId;
-        /**
-         * 职等数值
-         * <p> 示例值：9999
-         */
-        this.gradeOrder = builder.gradeOrder;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * 职等数值，数字越大代表职等越高
+     *
+     * <p>示例值：9999
+     *
+     * @param gradeOrder
+     * @return
+     */
+    public Builder gradeOrder(Integer gradeOrder) {
+      this.gradeOrder = gradeOrder;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getJobGradeId() {
-        return this.jobGradeId;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public void setJobGradeId(String jobGradeId) {
-        this.jobGradeId = jobGradeId;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public Integer getGradeOrder() {
-        return this.gradeOrder;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setGradeOrder(Integer gradeOrder) {
-        this.gradeOrder = gradeOrder;
+    public JobGrade build() {
+      return new JobGrade(this);
     }
+  }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 职等 ID
-         * <p> 示例值：4692446793125560154
-         */
-        private String jobGradeId;
-        /**
-         * 职等数值
-         * <p> 示例值：9999
-         */
-        private Integer gradeOrder;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * 职等 ID
-         * <p> 示例值：4692446793125560154
-         *
-         * @param jobGradeId
-         * @return
-         */
-        public Builder jobGradeId(String jobGradeId) {
-            this.jobGradeId = jobGradeId;
-            return this;
-        }
-
-
-        /**
-         * 职等数值
-         * <p> 示例值：9999
-         *
-         * @param gradeOrder
-         * @return
-         */
-        public Builder gradeOrder(Integer gradeOrder) {
-            this.gradeOrder = gradeOrder;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public JobGrade build() {
-            return new JobGrade(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

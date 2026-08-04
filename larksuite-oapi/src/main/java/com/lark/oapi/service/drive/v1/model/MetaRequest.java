@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MetaRequest {
+  /**
+   * 请求的文件的 token 和类型。一次请求中不可超过 200 个
+   *
+   * <p>示例值：
+   */
+  @SerializedName("request_docs")
+  private RequestDoc[] requestDocs;
+
+  /**
+   * 是否获取文件的访问链接，默认值为false。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("with_url")
+  private Boolean withUrl;
+
+  public RequestDoc[] getRequestDocs() {
+    return this.requestDocs;
+  }
+
+  public void setRequestDocs(RequestDoc[] requestDocs) {
+    this.requestDocs = requestDocs;
+  }
+
+  public Boolean getWithUrl() {
+    return this.withUrl;
+  }
+
+  public void setWithUrl(Boolean withUrl) {
+    this.withUrl = withUrl;
+  }
+
+  // builder 开始
+  public MetaRequest() {}
+
+  public MetaRequest(Builder builder) {
     /**
-     * 请求文档,  一次不超过200个
-     * <p> 示例值：
+     * 请求的文件的 token 和类型。一次请求中不可超过 200 个
+     *
+     * <p>示例值：
      */
-    @SerializedName("request_docs")
+    this.requestDocs = builder.requestDocs;
+    /**
+     * 是否获取文件的访问链接，默认值为false。
+     *
+     * <p>示例值：false
+     */
+    this.withUrl = builder.withUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 请求的文件的 token 和类型。一次请求中不可超过 200 个
+     *
+     * <p>示例值：
+     */
     private RequestDoc[] requestDocs;
+
     /**
-     * 是否获取文档链接
-     * <p> 示例值：false
+     * 是否获取文件的访问链接，默认值为false。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("with_url")
     private Boolean withUrl;
 
-    // builder 开始
-    public MetaRequest() {
+    /**
+     * 请求的文件的 token 和类型。一次请求中不可超过 200 个
+     *
+     * <p>示例值：
+     *
+     * @param requestDocs
+     * @return
+     */
+    public Builder requestDocs(RequestDoc[] requestDocs) {
+      this.requestDocs = requestDocs;
+      return this;
     }
 
-    public MetaRequest(Builder builder) {
-        /**
-         * 请求文档,  一次不超过200个
-         * <p> 示例值：
-         */
-        this.requestDocs = builder.requestDocs;
-        /**
-         * 是否获取文档链接
-         * <p> 示例值：false
-         */
-        this.withUrl = builder.withUrl;
+    /**
+     * 是否获取文件的访问链接，默认值为false。
+     *
+     * <p>示例值：false
+     *
+     * @param withUrl
+     * @return
+     */
+    public Builder withUrl(Boolean withUrl) {
+      this.withUrl = withUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MetaRequest build() {
+      return new MetaRequest(this);
     }
+  }
 
-    public RequestDoc[] getRequestDocs() {
-        return this.requestDocs;
-    }
-
-    public void setRequestDocs(RequestDoc[] requestDocs) {
-        this.requestDocs = requestDocs;
-    }
-
-    public Boolean getWithUrl() {
-        return this.withUrl;
-    }
-
-    public void setWithUrl(Boolean withUrl) {
-        this.withUrl = withUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 请求文档,  一次不超过200个
-         * <p> 示例值：
-         */
-        private RequestDoc[] requestDocs;
-        /**
-         * 是否获取文档链接
-         * <p> 示例值：false
-         */
-        private Boolean withUrl;
-
-        /**
-         * 请求文档,  一次不超过200个
-         * <p> 示例值：
-         *
-         * @param requestDocs
-         * @return
-         */
-        public Builder requestDocs(RequestDoc[] requestDocs) {
-            this.requestDocs = requestDocs;
-            return this;
-        }
-
-
-        /**
-         * 是否获取文档链接
-         * <p> 示例值：false
-         *
-         * @param withUrl
-         * @return
-         */
-        public Builder withUrl(Boolean withUrl) {
-            this.withUrl = withUrl;
-            return this;
-        }
-
-
-        public MetaRequest build() {
-            return new MetaRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

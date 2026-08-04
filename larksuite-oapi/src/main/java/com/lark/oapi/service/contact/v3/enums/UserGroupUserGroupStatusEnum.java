@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 用户组状态
- */
+/** 用户组状态。 */
 public enum UserGroupUserGroupStatusEnum {
-    UNKNOWN(0), // 未知
-    COMPLETED(1), // 计算完毕
-    COMPLETING(2), // 计算中
-    FAILURE(3), // 计算失败
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知。
+  COMPLETED(1), // 计算完毕。
+  COMPLETING(2), // 计算中。
+  FAILURE(3), // 计算失败。
+  ;
+  private Integer value;
 
-    UserGroupUserGroupStatusEnum(Integer value) {
-        this.value = value;
-    }
+  UserGroupUserGroupStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

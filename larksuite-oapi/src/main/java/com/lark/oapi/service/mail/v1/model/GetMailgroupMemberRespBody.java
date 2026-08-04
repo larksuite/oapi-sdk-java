@@ -13,90 +13,90 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetMailgroupMemberRespBody {
-    /**
-     * The unique ID of a member in this mail group
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     */
-    @SerializedName("member_id")
-    private String memberId;
-    /**
-     * The member's email address. Value is valid when type is one of USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
-     * <p> 示例值：test_memeber@xxx.xx
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * The member's user id. Value is valid when type is USER
-     * <p> 示例值：xxxxxxxxxx
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * The member's department id. Value is valid when type is DEPARTMENT
-     * <p> 示例值：xxxxxxxxxx
-     */
-    @SerializedName("department_id")
-    private String departmentId;
-    /**
-     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public mailbox;- OTHER_MEMBER: other internal member
-     * <p> 示例值：USER
-     */
-    @SerializedName("type")
-    private String type;
+  /**
+   * The unique ID of a member in this mail group
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("member_id")
+  private String memberId;
 
-    public String getMemberId() {
-        return this.memberId;
-    }
+  /**
+   * The member's email address. Value is valid when type is one of
+   * USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+   *
+   * <p>示例值：test_memeber@xxx.xx
+   */
+  @SerializedName("email")
+  private String email;
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public String getEmail() {
-        return this.email;
-    }
+  /**
+   * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("department_id")
+  private String departmentId;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  /**
+   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+   * is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the
+   * organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public
+   * mailbox;- OTHER_MEMBER: other internal member
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("type")
+  private String type;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  public String getMemberId() {
+    return this.memberId;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
+  public String getEmail() {
+    return this.email;
+  }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getType() {
-        return this.type;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
 }

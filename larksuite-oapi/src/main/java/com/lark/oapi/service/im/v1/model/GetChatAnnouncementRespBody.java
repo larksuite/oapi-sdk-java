@@ -13,132 +13,144 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetChatAnnouncementRespBody {
-    /**
-     * 云文档序列化信息
-     * <p> 示例值：xxx
-     */
-    @SerializedName("content")
-    private String content;
-    /**
-     * 文档当前版本号 纯数字
-     * <p> 示例值：12
-     */
-    @SerializedName("revision")
-    private String revision;
-    /**
-     * 文档生成的时间戳（秒）
-     * <p> 示例值：1609296809
-     */
-    @SerializedName("create_time")
-    private String createTime;
-    /**
-     * 文档更新的时间戳（秒）
-     * <p> 示例值：1609296809
-     */
-    @SerializedName("update_time")
-    private String updateTime;
-    /**
-     * 文档所有者的 ID 类型;;- 如果所有者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);- 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
-     * <p> 示例值：open_id
-     */
-    @SerializedName("owner_id_type")
-    private String ownerIdType;
-    /**
-     * 文档所有者 ID，ID 值与owner_id_type 中的ID类型对应
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     */
-    @SerializedName("owner_id")
-    private String ownerId;
-    /**
-     * 文档最新修改者 id 类型;; - 如果修改者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);- 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
-     * <p> 示例值：open_id
-     */
-    @SerializedName("modifier_id_type")
-    private String modifierIdType;
-    /**
-     * 文档最新修改者 ID，ID 值与modifier_id_type 中的ID类型对应
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     */
-    @SerializedName("modifier_id")
-    private String modifierId;
+  /**
+   * 群公告内容，以旧版云文档序列化数据结构展示，数据结构详情参考：;;-
+   * [编辑旧版文档内容](https://open.feishu.cn/document/ukTMukTMukTM/uYDM2YjL2AjN24iNwYjN);-
+   * [旧版文档数据结构参考](https://open.feishu.cn/document/ukTMukTMukTM/ukDM2YjL5AjN24SOwYjN)
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("content")
+  private String content;
 
-    public String getContent() {
-        return this.content;
-    }
+  /**
+   * 文档当前版本号
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("revision")
+  private String revision;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  /**
+   * 文档生成的时间戳（秒）
+   *
+   * <p>示例值：1609296809
+   */
+  @SerializedName("create_time")
+  private String createTime;
 
-    public String getRevision() {
-        return this.revision;
-    }
+  /**
+   * 文档更新的时间戳（秒）
+   *
+   * <p>示例值：1609296809
+   */
+  @SerializedName("update_time")
+  private String updateTime;
 
-    public void setRevision(String revision) {
-        this.revision = revision;
-    }
+  /**
+   * 文档所有者的 ID 类型;;- 如果所有者是用户，则类型与查询参数中的 user_id_type 相同，取值为`open_id` `user_id` `union_id` 其中之一，不同
+   * ID 的说明参见 [用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;-
+   * 如果所有者是机器人，为机器人应用的 `app_id`，详情参见
+   * [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)。
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("owner_id_type")
+  private String ownerIdType;
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
+  /**
+   * 文档所有者 ID，ID 类型与 owner_id_type 取值一致。
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+  /**
+   * 文档最新修改者 ID 类型。;; - 如果修改者是用户，则类型与查询参数中的 user_id_type 相同，取值为`open_id` `user_id` `union_id`
+   * 其中之一，不同 ID 的说明参见 [用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;-
+   * 如果修改者是机器人，为机器人应用的 `app_id`，详情参见
+   * [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)。
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("modifier_id_type")
+  private String modifierIdType;
 
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
+  /**
+   * 文档最新修改者 ID，ID 类型与 modifier_id_type 取值一致。
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("modifier_id")
+  private String modifierId;
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
+  public String getContent() {
+    return this.content;
+  }
 
-    public String getOwnerIdType() {
-        return this.ownerIdType;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public void setOwnerIdType(String ownerIdType) {
-        this.ownerIdType = ownerIdType;
-    }
+  public String getRevision() {
+    return this.revision;
+  }
 
-    public String getOwnerId() {
-        return this.ownerId;
-    }
+  public void setRevision(String revision) {
+    this.revision = revision;
+  }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
+  public String getCreateTime() {
+    return this.createTime;
+  }
 
-    public String getModifierIdType() {
-        return this.modifierIdType;
-    }
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
 
-    public void setModifierIdType(String modifierIdType) {
-        this.modifierIdType = modifierIdType;
-    }
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
 
-    public String getModifierId() {
-        return this.modifierId;
-    }
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public void setModifierId(String modifierId) {
-        this.modifierId = modifierId;
-    }
+  public String getOwnerIdType() {
+    return this.ownerIdType;
+  }
 
+  public void setOwnerIdType(String ownerIdType) {
+    this.ownerIdType = ownerIdType;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getModifierIdType() {
+    return this.modifierIdType;
+  }
+
+  public void setModifierIdType(String modifierIdType) {
+    this.modifierIdType = modifierIdType;
+  }
+
+  public String getModifierId() {
+    return this.modifierId;
+  }
+
+  public void setModifierId(String modifierId) {
+    this.modifierId = modifierId;
+  }
 }

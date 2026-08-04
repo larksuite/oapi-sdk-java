@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AssignedOrganization {
+  /**
+   * 管理对象key
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("org_key")
+  private String orgKey;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_name")
+  private Name orgName;
+
+  /**
+   * 管理对象id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_id_list")
+  private String[] orgIdList;
+
+  public String getOrgKey() {
+    return this.orgKey;
+  }
+
+  public void setOrgKey(String orgKey) {
+    this.orgKey = orgKey;
+  }
+
+  public Name getOrgName() {
+    return this.orgName;
+  }
+
+  public void setOrgName(Name orgName) {
+    this.orgName = orgName;
+  }
+
+  public String[] getOrgIdList() {
+    return this.orgIdList;
+  }
+
+  public void setOrgIdList(String[] orgIdList) {
+    this.orgIdList = orgIdList;
+  }
+
+  // builder 开始
+  public AssignedOrganization() {}
+
+  public AssignedOrganization(Builder builder) {
     /**
      * 管理对象key
-     * <p> 示例值：department
+     *
+     * <p>示例值：department
      */
-    @SerializedName("org_key")
-    private String orgKey;
+    this.orgKey = builder.orgKey;
     /**
-     * 管理对象名称
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_name")
-    private Name orgName;
+    this.orgName = builder.orgName;
     /**
      * 管理对象id列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_id_list")
+    this.orgIdList = builder.orgIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 管理对象key
+     *
+     * <p>示例值：department
+     */
+    private String orgKey;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name orgName;
+
+    /**
+     * 管理对象id列表
+     *
+     * <p>示例值：
+     */
     private String[] orgIdList;
 
-    // builder 开始
-    public AssignedOrganization() {
+    /**
+     * 管理对象key
+     *
+     * <p>示例值：department
+     *
+     * @param orgKey
+     * @return
+     */
+    public Builder orgKey(String orgKey) {
+      this.orgKey = orgKey;
+      return this;
     }
 
-    public AssignedOrganization(Builder builder) {
-        /**
-         * 管理对象key
-         * <p> 示例值：department
-         */
-        this.orgKey = builder.orgKey;
-        /**
-         * 管理对象名称
-         * <p> 示例值：
-         */
-        this.orgName = builder.orgName;
-        /**
-         * 管理对象id列表
-         * <p> 示例值：
-         */
-        this.orgIdList = builder.orgIdList;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param orgName
+     * @return
+     */
+    public Builder orgName(Name orgName) {
+      this.orgName = orgName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 管理对象id列表
+     *
+     * <p>示例值：
+     *
+     * @param orgIdList
+     * @return
+     */
+    public Builder orgIdList(String[] orgIdList) {
+      this.orgIdList = orgIdList;
+      return this;
     }
 
-    public String getOrgKey() {
-        return this.orgKey;
+    public AssignedOrganization build() {
+      return new AssignedOrganization(this);
     }
+  }
 
-    public void setOrgKey(String orgKey) {
-        this.orgKey = orgKey;
-    }
-
-    public Name getOrgName() {
-        return this.orgName;
-    }
-
-    public void setOrgName(Name orgName) {
-        this.orgName = orgName;
-    }
-
-    public String[] getOrgIdList() {
-        return this.orgIdList;
-    }
-
-    public void setOrgIdList(String[] orgIdList) {
-        this.orgIdList = orgIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 管理对象key
-         * <p> 示例值：department
-         */
-        private String orgKey;
-        /**
-         * 管理对象名称
-         * <p> 示例值：
-         */
-        private Name orgName;
-        /**
-         * 管理对象id列表
-         * <p> 示例值：
-         */
-        private String[] orgIdList;
-
-        /**
-         * 管理对象key
-         * <p> 示例值：department
-         *
-         * @param orgKey
-         * @return
-         */
-        public Builder orgKey(String orgKey) {
-            this.orgKey = orgKey;
-            return this;
-        }
-
-
-        /**
-         * 管理对象名称
-         * <p> 示例值：
-         *
-         * @param orgName
-         * @return
-         */
-        public Builder orgName(Name orgName) {
-            this.orgName = orgName;
-            return this;
-        }
-
-
-        /**
-         * 管理对象id列表
-         * <p> 示例值：
-         *
-         * @param orgIdList
-         * @return
-         */
-        public Builder orgIdList(String[] orgIdList) {
-            this.orgIdList = orgIdList;
-            return this;
-        }
-
-
-        public AssignedOrganization build() {
-            return new AssignedOrganization(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

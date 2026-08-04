@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCalendarEventRespBody {
-    /**
-     * 是否还有更多数据
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下次请求需要带上的分页标记
-     * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 下次请求需要带上的增量同步标记
-     * <p> 示例值：ListCalendarsSyncToken_1632452910
-     */
-    @SerializedName("sync_token")
-    private String syncToken;
-    /**
-     * 日程列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private CalendarEvent[] items;
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：ListCalendarsPageToken_1632452910_1632539310
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 增量同步标记。当 has_more 为 false 时，会同步返回新的 sync_token，下次请求需要带上 sync_token 增量获取日历变更数据。
+   *
+   * <p>示例值：ListCalendarsSyncToken_1632452910
+   */
+  @SerializedName("sync_token")
+  private String syncToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 日程列表，当返回为空时，请根据has_more的值判断是否还有更多数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private CalendarEvent[] items;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public String getSyncToken() {
-        return this.syncToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public void setSyncToken(String syncToken) {
-        this.syncToken = syncToken;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public CalendarEvent[] getItems() {
-        return this.items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setItems(CalendarEvent[] items) {
-        this.items = items;
-    }
+  public String getSyncToken() {
+    return this.syncToken;
+  }
 
+  public void setSyncToken(String syncToken) {
+    this.syncToken = syncToken;
+  }
+
+  public CalendarEvent[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(CalendarEvent[] items) {
+    this.items = items;
+  }
 }

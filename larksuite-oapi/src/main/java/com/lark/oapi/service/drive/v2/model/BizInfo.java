@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BizInfo {
+  /**
+   * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
+   *
+   * <p>示例值：ccm
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
+   *
+   * <p>示例值：345567888
+   */
+  @SerializedName("used")
+  private String used;
+
+  /**
+   * 额度，单位byte，最大可能为int64，需要自己转换为数字
+   *
+   * <p>示例值：23455666
+   */
+  @SerializedName("quota")
+  private String quota;
+
+  /**
+   * 是否没设置容量限制
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("unlimited")
+  private Boolean unlimited;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUsed() {
+    return this.used;
+  }
+
+  public void setUsed(String used) {
+    this.used = used;
+  }
+
+  public String getQuota() {
+    return this.quota;
+  }
+
+  public void setQuota(String quota) {
+    this.quota = quota;
+  }
+
+  public Boolean getUnlimited() {
+    return this.unlimited;
+  }
+
+  public void setUnlimited(Boolean unlimited) {
+    this.unlimited = unlimited;
+  }
+
+  // builder 开始
+  public BizInfo() {}
+
+  public BizInfo(Builder builder) {
     /**
      * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
-     * <p> 示例值：ccm
+     *
+     * <p>示例值：ccm
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
-     * <p> 示例值：345567888
+     *
+     * <p>示例值：345567888
      */
-    @SerializedName("used")
-    private String used;
+    this.used = builder.used;
     /**
      * 额度，单位byte，最大可能为int64，需要自己转换为数字
-     * <p> 示例值：23455666
+     *
+     * <p>示例值：23455666
      */
-    @SerializedName("quota")
-    private String quota;
+    this.quota = builder.quota;
     /**
      * 是否没设置容量限制
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("unlimited")
+    this.unlimited = builder.unlimited;
+  }
+
+  public static class Builder {
+    /**
+     * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
+     *
+     * <p>示例值：ccm
+     */
+    private String name;
+
+    /**
+     * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：345567888
+     */
+    private String used;
+
+    /**
+     * 额度，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：23455666
+     */
+    private String quota;
+
+    /**
+     * 是否没设置容量限制
+     *
+     * <p>示例值：true
+     */
     private Boolean unlimited;
 
-    // builder 开始
-    public BizInfo() {
+    /**
+     * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
+     *
+     * <p>示例值：ccm
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public BizInfo(Builder builder) {
-        /**
-         * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
-         * <p> 示例值：ccm
-         */
-        this.name = builder.name;
-        /**
-         * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：345567888
-         */
-        this.used = builder.used;
-        /**
-         * 额度，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：23455666
-         */
-        this.quota = builder.quota;
-        /**
-         * 是否没设置容量限制
-         * <p> 示例值：true
-         */
-        this.unlimited = builder.unlimited;
+    /**
+     * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：345567888
+     *
+     * @param used
+     * @return
+     */
+    public Builder used(String used) {
+      this.used = used;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 额度，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：23455666
+     *
+     * @param quota
+     * @return
+     */
+    public Builder quota(String quota) {
+      this.quota = quota;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 是否没设置容量限制
+     *
+     * <p>示例值：true
+     *
+     * @param unlimited
+     * @return
+     */
+    public Builder unlimited(Boolean unlimited) {
+      this.unlimited = unlimited;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public BizInfo build() {
+      return new BizInfo(this);
     }
+  }
 
-    public String getUsed() {
-        return this.used;
-    }
-
-    public void setUsed(String used) {
-        this.used = used;
-    }
-
-    public String getQuota() {
-        return this.quota;
-    }
-
-    public void setQuota(String quota) {
-        this.quota = quota;
-    }
-
-    public Boolean getUnlimited() {
-        return this.unlimited;
-    }
-
-    public void setUnlimited(Boolean unlimited) {
-        this.unlimited = unlimited;
-    }
-
-    public static class Builder {
-        /**
-         * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
-         * <p> 示例值：ccm
-         */
-        private String name;
-        /**
-         * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：345567888
-         */
-        private String used;
-        /**
-         * 额度，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：23455666
-         */
-        private String quota;
-        /**
-         * 是否没设置容量限制
-         * <p> 示例值：true
-         */
-        private Boolean unlimited;
-
-        /**
-         * 业务名称，ccm代表云文档容量，vc代表视频会议，mail代表邮箱，im代表聊天文件
-         * <p> 示例值：ccm
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 业务已经使用的容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：345567888
-         *
-         * @param used
-         * @return
-         */
-        public Builder used(String used) {
-            this.used = used;
-            return this;
-        }
-
-
-        /**
-         * 额度，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：23455666
-         *
-         * @param quota
-         * @return
-         */
-        public Builder quota(String quota) {
-            this.quota = quota;
-            return this;
-        }
-
-
-        /**
-         * 是否没设置容量限制
-         * <p> 示例值：true
-         *
-         * @param unlimited
-         * @return
-         */
-        public Builder unlimited(Boolean unlimited) {
-            this.unlimited = unlimited;
-            return this;
-        }
-
-
-        public BizInfo build() {
-            return new BizInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

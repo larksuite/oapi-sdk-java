@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDetailCategory {
+  /**
+   * 职位序列 ID，与入参`job_family_id_type` 类型一致
+   *
+   * <p>示例值：7395082456917805339
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 职位序列名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 职位序列启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  // builder 开始
+  public JobDetailCategory() {}
+
+  public JobDetailCategory(Builder builder) {
     /**
-     * 职位序列 ID
-     * <p> 示例值：6301
+     * 职位序列 ID，与入参`job_family_id_type` 类型一致
+     *
+     * <p>示例值：7395082456917805339
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 职位序列名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 职位序列启用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 职位序列 ID，与入参`job_family_id_type` 类型一致
+     *
+     * <p>示例值：7395082456917805339
+     */
+    private String id;
+
+    /**
+     * 职位序列名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 职位序列启用状态
+     *
+     * <p>示例值：1
+     */
     private Integer activeStatus;
 
-    // builder 开始
-    public JobDetailCategory() {
+    /**
+     * 职位序列 ID，与入参`job_family_id_type` 类型一致
+     *
+     * <p>示例值：7395082456917805339
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobDetailCategory(Builder builder) {
-        /**
-         * 职位序列 ID
-         * <p> 示例值：6301
-         */
-        this.id = builder.id;
-        /**
-         * 职位序列名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 职位序列启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
+    /**
+     * 职位序列名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职位序列启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public JobDetailCategory build() {
+      return new JobDetailCategory(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 职位序列 ID
-         * <p> 示例值：6301
-         */
-        private String id;
-        /**
-         * 职位序列名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 职位序列启用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-
-        /**
-         * 职位序列 ID
-         * <p> 示例值：6301
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 职位序列名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 职位序列启用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        public JobDetailCategory build() {
-            return new JobDetailCategory(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 可见范围的 id 类型，包用户、部门两类
- */
+/** 可见范围的 id 类型，包用户、部门两类 */
 public enum GroupVisibleScopeVisibleScopeTypeEnum {
-    INVISIBLE("invisible"), // 所有人不可见
-    PUBLIC("public"), // 所有人可见
-    GROUP_MEMBER_VISIBLE("group_member_visible"), // 组内成员可见
-    SPECIFIED_SCOPE_VISIBLE("specified_scope_visible"), // 指定可见范围的成员可见
-    ;
-    private String value;
+  INVISIBLE("invisible"), // 所有人不可见
+  PUBLIC("public"), // 所有人可见
+  GROUP_MEMBER_VISIBLE("group_member_visible"), // 组内成员可见
+  SPECIFIED_SCOPE_VISIBLE("specified_scope_visible"), // 指定可见范围的成员可见
+  ;
+  private String value;
 
-    GroupVisibleScopeVisibleScopeTypeEnum(String value) {
-        this.value = value;
-    }
+  GroupVisibleScopeVisibleScopeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

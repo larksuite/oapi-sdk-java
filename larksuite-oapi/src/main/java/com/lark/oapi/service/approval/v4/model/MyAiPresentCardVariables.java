@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiPresentCardVariables {
+  /**
+   * 文字
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("prologue")
+  private String prologue;
+
+  /**
+   * 快捷指令
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("quick_actions")
+  private String quickActions;
+
+  public String getPrologue() {
+    return this.prologue;
+  }
+
+  public void setPrologue(String prologue) {
+    this.prologue = prologue;
+  }
+
+  public String getQuickActions() {
+    return this.quickActions;
+  }
+
+  public void setQuickActions(String quickActions) {
+    this.quickActions = quickActions;
+  }
+
+  // builder 开始
+  public MyAiPresentCardVariables() {}
+
+  public MyAiPresentCardVariables(Builder builder) {
     /**
      * 文字
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("prologue")
-    private String prologue;
+    this.prologue = builder.prologue;
     /**
      * 快捷指令
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("quick_actions")
+    this.quickActions = builder.quickActions;
+  }
+
+  public static class Builder {
+    /**
+     * 文字
+     *
+     * <p>示例值：text
+     */
+    private String prologue;
+
+    /**
+     * 快捷指令
+     *
+     * <p>示例值：{}
+     */
     private String quickActions;
 
-    // builder 开始
-    public MyAiPresentCardVariables() {
+    /**
+     * 文字
+     *
+     * <p>示例值：text
+     *
+     * @param prologue
+     * @return
+     */
+    public Builder prologue(String prologue) {
+      this.prologue = prologue;
+      return this;
     }
 
-    public MyAiPresentCardVariables(Builder builder) {
-        /**
-         * 文字
-         * <p> 示例值：text
-         */
-        this.prologue = builder.prologue;
-        /**
-         * 快捷指令
-         * <p> 示例值：{}
-         */
-        this.quickActions = builder.quickActions;
+    /**
+     * 快捷指令
+     *
+     * <p>示例值：{}
+     *
+     * @param quickActions
+     * @return
+     */
+    public Builder quickActions(String quickActions) {
+      this.quickActions = quickActions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiPresentCardVariables build() {
+      return new MyAiPresentCardVariables(this);
     }
+  }
 
-    public String getPrologue() {
-        return this.prologue;
-    }
-
-    public void setPrologue(String prologue) {
-        this.prologue = prologue;
-    }
-
-    public String getQuickActions() {
-        return this.quickActions;
-    }
-
-    public void setQuickActions(String quickActions) {
-        this.quickActions = quickActions;
-    }
-
-    public static class Builder {
-        /**
-         * 文字
-         * <p> 示例值：text
-         */
-        private String prologue;
-        /**
-         * 快捷指令
-         * <p> 示例值：{}
-         */
-        private String quickActions;
-
-        /**
-         * 文字
-         * <p> 示例值：text
-         *
-         * @param prologue
-         * @return
-         */
-        public Builder prologue(String prologue) {
-            this.prologue = prologue;
-            return this;
-        }
-
-
-        /**
-         * 快捷指令
-         * <p> 示例值：{}
-         *
-         * @param quickActions
-         * @return
-         */
-        public Builder quickActions(String quickActions) {
-            this.quickActions = quickActions;
-            return this;
-        }
-
-
-        public MyAiPresentCardVariables build() {
-            return new MyAiPresentCardVariables(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

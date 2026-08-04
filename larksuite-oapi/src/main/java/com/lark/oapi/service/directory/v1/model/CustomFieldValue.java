@@ -13,420 +13,458 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomFieldValue {
+  /**
+   * 自定义字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private String fieldType;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_value")
+  private I18nText textValue;
+
+  /**
+   * 网页链接字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("url_value")
+  private UrlValue urlValue;
+
+  /**
+   * 枚举字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_value")
+  private EnumValue enumValue;
+
+  /**
+   * 人员字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_values")
+  private UserValue[] userValues;
+
+  /**
+   * 时间戳字段值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("date_time_value")
+  private String dateTimeValue;
+
+  /**
+   * 数字字段值
+   *
+   * <p>示例值：169
+   */
+  @SerializedName("number_value")
+  private String numberValue;
+
+  /**
+   * 布尔值字段值
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("boolean_value")
+  private Boolean booleanValue;
+
+  /**
+   * 电话字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone_value")
+  private PhoneValue phoneValue;
+
+  /**
+   * 自定义字段key
+   *
+   * <p>示例值：C-1000001
+   */
+  @SerializedName("field_key")
+  private String fieldKey;
+
+  public String getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(String fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public I18nText getTextValue() {
+    return this.textValue;
+  }
+
+  public void setTextValue(I18nText textValue) {
+    this.textValue = textValue;
+  }
+
+  public UrlValue getUrlValue() {
+    return this.urlValue;
+  }
+
+  public void setUrlValue(UrlValue urlValue) {
+    this.urlValue = urlValue;
+  }
+
+  public EnumValue getEnumValue() {
+    return this.enumValue;
+  }
+
+  public void setEnumValue(EnumValue enumValue) {
+    this.enumValue = enumValue;
+  }
+
+  public UserValue[] getUserValues() {
+    return this.userValues;
+  }
+
+  public void setUserValues(UserValue[] userValues) {
+    this.userValues = userValues;
+  }
+
+  public String getDateTimeValue() {
+    return this.dateTimeValue;
+  }
+
+  public void setDateTimeValue(String dateTimeValue) {
+    this.dateTimeValue = dateTimeValue;
+  }
+
+  public String getNumberValue() {
+    return this.numberValue;
+  }
+
+  public void setNumberValue(String numberValue) {
+    this.numberValue = numberValue;
+  }
+
+  public Boolean getBooleanValue() {
+    return this.booleanValue;
+  }
+
+  public void setBooleanValue(Boolean booleanValue) {
+    this.booleanValue = booleanValue;
+  }
+
+  public PhoneValue getPhoneValue() {
+    return this.phoneValue;
+  }
+
+  public void setPhoneValue(PhoneValue phoneValue) {
+    this.phoneValue = phoneValue;
+  }
+
+  public String getFieldKey() {
+    return this.fieldKey;
+  }
+
+  public void setFieldKey(String fieldKey) {
+    this.fieldKey = fieldKey;
+  }
+
+  // builder 开始
+  public CustomFieldValue() {}
+
+  public CustomFieldValue(Builder builder) {
     /**
      * 自定义字段类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private String fieldType;
+    this.fieldType = builder.fieldType;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_value")
-    private I18nText textValue;
+    this.textValue = builder.textValue;
     /**
      * 网页链接字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("url_value")
-    private UrlValue urlValue;
+    this.urlValue = builder.urlValue;
     /**
-     * 枚举
-     * <p> 示例值：
+     * 枚举字段值
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_value")
-    private EnumValue enumValue;
+    this.enumValue = builder.enumValue;
     /**
      * 人员字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_values")
-    private UserValue[] userValues;
+    this.userValues = builder.userValues;
     /**
      * 时间戳字段值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("date_time_value")
-    private String dateTimeValue;
+    this.dateTimeValue = builder.dateTimeValue;
     /**
      * 数字字段值
-     * <p> 示例值：169
+     *
+     * <p>示例值：169
      */
-    @SerializedName("number_value")
-    private String numberValue;
+    this.numberValue = builder.numberValue;
     /**
      * 布尔值字段值
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("boolean_value")
-    private Boolean booleanValue;
+    this.booleanValue = builder.booleanValue;
     /**
      * 电话字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone_value")
-    private PhoneValue phoneValue;
+    this.phoneValue = builder.phoneValue;
     /**
      * 自定义字段key
-     * <p> 示例值：C-1000001
+     *
+     * <p>示例值：C-1000001
      */
-    @SerializedName("field_key")
+    this.fieldKey = builder.fieldKey;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：1
+     */
+    private String fieldType;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText textValue;
+
+    /**
+     * 网页链接字段值
+     *
+     * <p>示例值：
+     */
+    private UrlValue urlValue;
+
+    /**
+     * 枚举字段值
+     *
+     * <p>示例值：
+     */
+    private EnumValue enumValue;
+
+    /**
+     * 人员字段值
+     *
+     * <p>示例值：
+     */
+    private UserValue[] userValues;
+
+    /**
+     * 时间戳字段值
+     *
+     * <p>示例值：1
+     */
+    private String dateTimeValue;
+
+    /**
+     * 数字字段值
+     *
+     * <p>示例值：169
+     */
+    private String numberValue;
+
+    /**
+     * 布尔值字段值
+     *
+     * <p>示例值：true
+     */
+    private Boolean booleanValue;
+
+    /**
+     * 电话字段值
+     *
+     * <p>示例值：
+     */
+    private PhoneValue phoneValue;
+
+    /**
+     * 自定义字段key
+     *
+     * <p>示例值：C-1000001
+     */
     private String fieldKey;
 
-    // builder 开始
-    public CustomFieldValue() {
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(String fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public CustomFieldValue(Builder builder) {
-        /**
-         * 自定义字段类型
-         * <p> 示例值：
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.textValue = builder.textValue;
-        /**
-         * 网页链接字段值
-         * <p> 示例值：
-         */
-        this.urlValue = builder.urlValue;
-        /**
-         * 枚举
-         * <p> 示例值：
-         */
-        this.enumValue = builder.enumValue;
-        /**
-         * 人员字段值
-         * <p> 示例值：
-         */
-        this.userValues = builder.userValues;
-        /**
-         * 时间戳字段值
-         * <p> 示例值：1
-         */
-        this.dateTimeValue = builder.dateTimeValue;
-        /**
-         * 数字字段值
-         * <p> 示例值：169
-         */
-        this.numberValue = builder.numberValue;
-        /**
-         * 布尔值字段值
-         * <p> 示例值：true
-         */
-        this.booleanValue = builder.booleanValue;
-        /**
-         * 电话字段值
-         * <p> 示例值：
-         */
-        this.phoneValue = builder.phoneValue;
-        /**
-         * 自定义字段key
-         * <p> 示例值：C-1000001
-         */
-        this.fieldKey = builder.fieldKey;
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType {@link
+     *     com.lark.oapi.service.directory.v1.enums.CustomFieldValueFieldTypeEnum}
+     * @return
+     */
+    public Builder fieldType(
+        com.lark.oapi.service.directory.v1.enums.CustomFieldValueFieldTypeEnum fieldType) {
+      this.fieldType = fieldType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param textValue
+     * @return
+     */
+    public Builder textValue(I18nText textValue) {
+      this.textValue = textValue;
+      return this;
     }
 
-    public String getFieldType() {
-        return this.fieldType;
+    /**
+     * 网页链接字段值
+     *
+     * <p>示例值：
+     *
+     * @param urlValue
+     * @return
+     */
+    public Builder urlValue(UrlValue urlValue) {
+      this.urlValue = urlValue;
+      return this;
     }
 
-    public void setFieldType(String fieldType) {
-        this.fieldType = fieldType;
+    /**
+     * 枚举字段值
+     *
+     * <p>示例值：
+     *
+     * @param enumValue
+     * @return
+     */
+    public Builder enumValue(EnumValue enumValue) {
+      this.enumValue = enumValue;
+      return this;
     }
 
-    public I18nText getTextValue() {
-        return this.textValue;
+    /**
+     * 人员字段值
+     *
+     * <p>示例值：
+     *
+     * @param userValues
+     * @return
+     */
+    public Builder userValues(UserValue[] userValues) {
+      this.userValues = userValues;
+      return this;
     }
 
-    public void setTextValue(I18nText textValue) {
-        this.textValue = textValue;
+    /**
+     * 时间戳字段值
+     *
+     * <p>示例值：1
+     *
+     * @param dateTimeValue
+     * @return
+     */
+    public Builder dateTimeValue(String dateTimeValue) {
+      this.dateTimeValue = dateTimeValue;
+      return this;
     }
 
-    public UrlValue getUrlValue() {
-        return this.urlValue;
+    /**
+     * 数字字段值
+     *
+     * <p>示例值：169
+     *
+     * @param numberValue
+     * @return
+     */
+    public Builder numberValue(String numberValue) {
+      this.numberValue = numberValue;
+      return this;
     }
 
-    public void setUrlValue(UrlValue urlValue) {
-        this.urlValue = urlValue;
+    /**
+     * 布尔值字段值
+     *
+     * <p>示例值：true
+     *
+     * @param booleanValue
+     * @return
+     */
+    public Builder booleanValue(Boolean booleanValue) {
+      this.booleanValue = booleanValue;
+      return this;
     }
 
-    public EnumValue getEnumValue() {
-        return this.enumValue;
+    /**
+     * 电话字段值
+     *
+     * <p>示例值：
+     *
+     * @param phoneValue
+     * @return
+     */
+    public Builder phoneValue(PhoneValue phoneValue) {
+      this.phoneValue = phoneValue;
+      return this;
     }
 
-    public void setEnumValue(EnumValue enumValue) {
-        this.enumValue = enumValue;
+    /**
+     * 自定义字段key
+     *
+     * <p>示例值：C-1000001
+     *
+     * @param fieldKey
+     * @return
+     */
+    public Builder fieldKey(String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    public UserValue[] getUserValues() {
-        return this.userValues;
+    public CustomFieldValue build() {
+      return new CustomFieldValue(this);
     }
+  }
 
-    public void setUserValues(UserValue[] userValues) {
-        this.userValues = userValues;
-    }
-
-    public String getDateTimeValue() {
-        return this.dateTimeValue;
-    }
-
-    public void setDateTimeValue(String dateTimeValue) {
-        this.dateTimeValue = dateTimeValue;
-    }
-
-    public String getNumberValue() {
-        return this.numberValue;
-    }
-
-    public void setNumberValue(String numberValue) {
-        this.numberValue = numberValue;
-    }
-
-    public Boolean getBooleanValue() {
-        return this.booleanValue;
-    }
-
-    public void setBooleanValue(Boolean booleanValue) {
-        this.booleanValue = booleanValue;
-    }
-
-    public PhoneValue getPhoneValue() {
-        return this.phoneValue;
-    }
-
-    public void setPhoneValue(PhoneValue phoneValue) {
-        this.phoneValue = phoneValue;
-    }
-
-    public String getFieldKey() {
-        return this.fieldKey;
-    }
-
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段类型
-         * <p> 示例值：
-         */
-        private String fieldType;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText textValue;
-        /**
-         * 网页链接字段值
-         * <p> 示例值：
-         */
-        private UrlValue urlValue;
-        /**
-         * 枚举
-         * <p> 示例值：
-         */
-        private EnumValue enumValue;
-        /**
-         * 人员字段值
-         * <p> 示例值：
-         */
-        private UserValue[] userValues;
-        /**
-         * 时间戳字段值
-         * <p> 示例值：1
-         */
-        private String dateTimeValue;
-        /**
-         * 数字字段值
-         * <p> 示例值：169
-         */
-        private String numberValue;
-        /**
-         * 布尔值字段值
-         * <p> 示例值：true
-         */
-        private Boolean booleanValue;
-        /**
-         * 电话字段值
-         * <p> 示例值：
-         */
-        private PhoneValue phoneValue;
-        /**
-         * 自定义字段key
-         * <p> 示例值：C-1000001
-         */
-        private String fieldKey;
-
-        /**
-         * 自定义字段类型
-         * <p> 示例值：
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(String fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-        /**
-         * 自定义字段类型
-         * <p> 示例值：
-         *
-         * @param fieldType {@link com.lark.oapi.service.directory.v1.enums.CustomFieldValueFieldTypeEnum}
-         * @return
-         */
-        public Builder fieldType(com.lark.oapi.service.directory.v1.enums.CustomFieldValueFieldTypeEnum fieldType) {
-            this.fieldType = fieldType.getValue();
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param textValue
-         * @return
-         */
-        public Builder textValue(I18nText textValue) {
-            this.textValue = textValue;
-            return this;
-        }
-
-
-        /**
-         * 网页链接字段值
-         * <p> 示例值：
-         *
-         * @param urlValue
-         * @return
-         */
-        public Builder urlValue(UrlValue urlValue) {
-            this.urlValue = urlValue;
-            return this;
-        }
-
-
-        /**
-         * 枚举
-         * <p> 示例值：
-         *
-         * @param enumValue
-         * @return
-         */
-        public Builder enumValue(EnumValue enumValue) {
-            this.enumValue = enumValue;
-            return this;
-        }
-
-
-        /**
-         * 人员字段值
-         * <p> 示例值：
-         *
-         * @param userValues
-         * @return
-         */
-        public Builder userValues(UserValue[] userValues) {
-            this.userValues = userValues;
-            return this;
-        }
-
-
-        /**
-         * 时间戳字段值
-         * <p> 示例值：1
-         *
-         * @param dateTimeValue
-         * @return
-         */
-        public Builder dateTimeValue(String dateTimeValue) {
-            this.dateTimeValue = dateTimeValue;
-            return this;
-        }
-
-
-        /**
-         * 数字字段值
-         * <p> 示例值：169
-         *
-         * @param numberValue
-         * @return
-         */
-        public Builder numberValue(String numberValue) {
-            this.numberValue = numberValue;
-            return this;
-        }
-
-
-        /**
-         * 布尔值字段值
-         * <p> 示例值：true
-         *
-         * @param booleanValue
-         * @return
-         */
-        public Builder booleanValue(Boolean booleanValue) {
-            this.booleanValue = booleanValue;
-            return this;
-        }
-
-
-        /**
-         * 电话字段值
-         * <p> 示例值：
-         *
-         * @param phoneValue
-         * @return
-         */
-        public Builder phoneValue(PhoneValue phoneValue) {
-            this.phoneValue = phoneValue;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段key
-         * <p> 示例值：C-1000001
-         *
-         * @param fieldKey
-         * @return
-         */
-        public Builder fieldKey(String fieldKey) {
-            this.fieldKey = fieldKey;
-            return this;
-        }
-
-
-        public CustomFieldValue build() {
-            return new CustomFieldValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 类型
- */
+/** 类型 */
 public enum DataArchivingUserStructDataArchivingChatterTypeEnum {
-    USER("User"), // 用户类型
-    BOT("Bot"), // 机器人类型
-    SYSTEM("System"), // 系统类型
-    AI("AI"), // AI类型
-    UNKNOW("Unknow"), // 未知类型
-    ;
-    private String value;
+  USER("User"), // 用户类型
+  BOT("Bot"), // 机器人类型
+  SYSTEM("System"), // 系统类型
+  AI("AI"), // AI类型
+  UNKNOW("Unknow"), // 未知类型
+  ;
+  private String value;
 
-    DataArchivingUserStructDataArchivingChatterTypeEnum(String value) {
-        this.value = value;
-    }
+  DataArchivingUserStructDataArchivingChatterTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

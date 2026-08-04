@@ -13,173 +13,181 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateDeviceRecordReqBody {
+  /**
+   * 设备归属
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("device_ownership")
+  private Integer deviceOwnership;
+
+  /**
+   * 可信状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("device_status")
+  private Integer deviceStatus;
+
+  /**
+   * 是否为公共设备
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  public Integer getDeviceOwnership() {
+    return this.deviceOwnership;
+  }
+
+  public void setDeviceOwnership(Integer deviceOwnership) {
+    this.deviceOwnership = deviceOwnership;
+  }
+
+  public Integer getDeviceStatus() {
+    return this.deviceStatus;
+  }
+
+  public void setDeviceStatus(Integer deviceStatus) {
+    this.deviceStatus = deviceStatus;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  // builder 开始
+  public UpdateDeviceRecordReqBody() {}
+
+  public UpdateDeviceRecordReqBody(Builder builder) {
     /**
      * 设备归属
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("device_ownership")
-    private Integer deviceOwnership;
+    this.deviceOwnership = builder.deviceOwnership;
     /**
      * 可信状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("device_status")
-    private Integer deviceStatus;
+    this.deviceStatus = builder.deviceStatus;
     /**
      * 是否为公共设备
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_public")
+    this.isPublic = builder.isPublic;
+  }
+
+  public static class Builder {
+    /**
+     * 设备归属
+     *
+     * <p>示例值：0
+     */
+    private Integer deviceOwnership;
+
+    /**
+     * 可信状态
+     *
+     * <p>示例值：0
+     */
+    private Integer deviceStatus;
+
+    /**
+     * 是否为公共设备
+     *
+     * <p>示例值：
+     */
     private Boolean isPublic;
 
-    // builder 开始
-    public UpdateDeviceRecordReqBody() {
+    /**
+     * 设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param deviceOwnership
+     * @return
+     */
+    public Builder deviceOwnership(Integer deviceOwnership) {
+      this.deviceOwnership = deviceOwnership;
+      return this;
     }
 
-    public UpdateDeviceRecordReqBody(Builder builder) {
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         */
-        this.deviceOwnership = builder.deviceOwnership;
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         */
-        this.deviceStatus = builder.deviceStatus;
-        /**
-         * 是否为公共设备
-         * <p> 示例值：
-         */
-        this.isPublic = builder.isPublic;
+    /**
+     * 设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param deviceOwnership {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceOwnershipEnum}
+     * @return
+     */
+    public Builder deviceOwnership(
+        com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceOwnershipEnum
+            deviceOwnership) {
+      this.deviceOwnership = deviceOwnership.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 可信状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceStatus
+     * @return
+     */
+    public Builder deviceStatus(Integer deviceStatus) {
+      this.deviceStatus = deviceStatus;
+      return this;
     }
 
-    public Integer getDeviceOwnership() {
-        return this.deviceOwnership;
+    /**
+     * 可信状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceStatusEnum}
+     * @return
+     */
+    public Builder deviceStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceStatusEnum
+            deviceStatus) {
+      this.deviceStatus = deviceStatus.getValue();
+      return this;
     }
 
-    public void setDeviceOwnership(Integer deviceOwnership) {
-        this.deviceOwnership = deviceOwnership;
+    /**
+     * 是否为公共设备
+     *
+     * <p>示例值：
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public Integer getDeviceStatus() {
-        return this.deviceStatus;
+    public UpdateDeviceRecordReqBody build() {
+      return new UpdateDeviceRecordReqBody(this);
     }
+  }
 
-    public void setDeviceStatus(Integer deviceStatus) {
-        this.deviceStatus = deviceStatus;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public static class Builder {
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         */
-        private Integer deviceOwnership;
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         */
-        private Integer deviceStatus;
-        /**
-         * 是否为公共设备
-         * <p> 示例值：
-         */
-        private Boolean isPublic;
-
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         *
-         * @param deviceOwnership
-         * @return
-         */
-        public Builder deviceOwnership(Integer deviceOwnership) {
-            this.deviceOwnership = deviceOwnership;
-            return this;
-        }
-
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         *
-         * @param deviceOwnership {@link com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceOwnershipEnum}
-         * @return
-         */
-        public Builder deviceOwnership(com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceOwnershipEnum deviceOwnership) {
-            this.deviceOwnership = deviceOwnership.getValue();
-            return this;
-        }
-
-
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         *
-         * @param deviceStatus
-         * @return
-         */
-        public Builder deviceStatus(Integer deviceStatus) {
-            this.deviceStatus = deviceStatus;
-            return this;
-        }
-
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         *
-         * @param deviceStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceStatusEnum}
-         * @return
-         */
-        public Builder deviceStatus(com.lark.oapi.service.security_and_compliance.v2.enums.UpdateDeviceRecordDeviceStatusEnum deviceStatus) {
-            this.deviceStatus = deviceStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否为公共设备
-         * <p> 示例值：
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        public UpdateDeviceRecordReqBody build() {
-            return new UpdateDeviceRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCombinedAwardInfo {
+  /**
+   * 获奖 ID，无效字段，请勿使用
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 获奖名称
+   *
+   * <p>示例值：最佳新人奖
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 获奖时间，毫秒时间戳
+   *
+   * <p>示例值：1687180087000
+   */
+  @SerializedName("award_time")
+  private String awardTime;
+
+  /**
+   * 获奖描述
+   *
+   * <p>示例值：最优秀的新人奖
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private TalentCustomizedDataObjectValue[] customizedData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getAwardTime() {
+    return this.awardTime;
+  }
+
+  public void setAwardTime(String awardTime) {
+    this.awardTime = awardTime;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public TalentCustomizedDataObjectValue[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public TalentCombinedAwardInfo() {}
+
+  public TalentCombinedAwardInfo(Builder builder) {
     /**
-     * ID
-     * <p> 示例值：6891560630172518670
+     * 获奖 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 获奖名称
-     * <p> 示例值：最佳新人奖
+     *
+     * <p>示例值：最佳新人奖
      */
-    @SerializedName("title")
+    this.title = builder.title;
+    /**
+     * 获奖时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     */
+    this.awardTime = builder.awardTime;
+    /**
+     * 获奖描述
+     *
+     * <p>示例值：最优秀的新人奖
+     */
+    this.desc = builder.desc;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     */
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 获奖 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String id;
+
+    /**
+     * 获奖名称
+     *
+     * <p>示例值：最佳新人奖
+     */
     private String title;
+
     /**
-     * 获奖时间
-     * <p> 示例值：293016767159
+     * 获奖时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
      */
-    @SerializedName("award_time")
     private String awardTime;
+
     /**
-     * 描述
-     * <p> 示例值：最优秀的新人奖
+     * 获奖描述
+     *
+     * <p>示例值：最优秀的新人奖
      */
-    @SerializedName("desc")
     private String desc;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    // builder 开始
-    public TalentCombinedAwardInfo() {
+    /**
+     * 获奖 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentCombinedAwardInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 获奖名称
-         * <p> 示例值：最佳新人奖
-         */
-        this.title = builder.title;
-        /**
-         * 获奖时间
-         * <p> 示例值：293016767159
-         */
-        this.awardTime = builder.awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
-        this.desc = builder.desc;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 获奖名称
+     *
+     * <p>示例值：最佳新人奖
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 获奖时间，毫秒时间戳
+     *
+     * <p>示例值：1687180087000
+     *
+     * @param awardTime
+     * @return
+     */
+    public Builder awardTime(String awardTime) {
+      this.awardTime = awardTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 获奖描述
+     *
+     * <p>示例值：最优秀的新人奖
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    public TalentCombinedAwardInfo build() {
+      return new TalentCombinedAwardInfo(this);
     }
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAwardTime() {
-        return this.awardTime;
-    }
-
-    public void setAwardTime(String awardTime) {
-        this.awardTime = awardTime;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public TalentCustomizedDataObjectValue[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 获奖名称
-         * <p> 示例值：最佳新人奖
-         */
-        private String title;
-        /**
-         * 获奖时间
-         * <p> 示例值：293016767159
-         */
-        private String awardTime;
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         */
-        private String desc;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataObjectValue[] customizedData;
-
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 获奖名称
-         * <p> 示例值：最佳新人奖
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 获奖时间
-         * <p> 示例值：293016767159
-         *
-         * @param awardTime
-         * @return
-         */
-        public Builder awardTime(String awardTime) {
-            this.awardTime = awardTime;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：最优秀的新人奖
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public TalentCombinedAwardInfo build() {
-            return new TalentCombinedAwardInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

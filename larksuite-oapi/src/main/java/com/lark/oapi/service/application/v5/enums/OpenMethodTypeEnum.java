@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.application.v5.enums;
 
-/**
- * applink类型
- */
+/** applink类型 */
 public enum OpenMethodTypeEnum {
-    MOBILEGADGET("mobile_gadget"), // 移动端小程序
-    MOBILEWEB("mobile_web"), // 移动端Web
-    PCGADGET("pc_gadget"), // pc端小程序
-    PCWEB("pc_web"), // pc端web
-    BOT("bot"), // 机器人
-    ;
-    private String value;
+  MOBILEGADGET("mobile_gadget"), // 移动端小程序
+  MOBILEWEB("mobile_web"), // 移动端Web
+  PCGADGET("pc_gadget"), // pc端小程序
+  PCWEB("pc_web"), // pc端web
+  BOT("bot"), // 机器人
+  ;
+  private String value;
 
-    OpenMethodTypeEnum(String value) {
-        this.value = value;
-    }
+  OpenMethodTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

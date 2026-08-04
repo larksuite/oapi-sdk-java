@@ -13,109 +13,114 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class CreateShiftReq {
+  /**
+   * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  @Body private Shift body;
+
+  public Shift getShift() {
+    return this.body;
+  }
+
+  public void setShift(Shift body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateShiftReq() {}
+
+  public CreateShiftReq(Builder builder) {
     /**
-     * 用户 ID 的类型 不提供则用户相关字段无效
-     * <p> 示例值：
+     * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
-    @Body
+    this.employeeType = builder.employeeType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        employeeType; // 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+
+    /**
+     * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
+    }
+
+    /**
+     * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：
+     *
+     * @param employeeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum}
+     * @return
+     */
+    public Builder employeeType(
+        com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum
+            employeeType) {
+      this.employeeType = employeeType.getValue();
+      return this;
+    }
+
     private Shift body;
 
-    // builder 开始
-    public CreateShiftReq() {
-    }
-
-    public CreateShiftReq(Builder builder) {
-        /**
-         * 用户 ID 的类型 不提供则用户相关字段无效
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
     public Shift getShift() {
-        return this.body;
+      return this.body;
     }
 
-    public void setShift(Shift body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder shift(Shift body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String employeeType; // 用户 ID 的类型 不提供则用户相关字段无效
-        private Shift body;
-
-        /**
-         * 用户 ID 的类型 不提供则用户相关字段无效
-         * <p> 示例值：
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 的类型 不提供则用户相关字段无效
-         * <p> 示例值：
-         *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum}
-         * @return
-         */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateShiftCreateShiftEmployeeTypeEnum employeeType) {
-            this.employeeType = employeeType.getValue();
-            return this;
-        }
-
-        public Shift getShift() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder shift(Shift body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateShiftReq build() {
-            return new CreateShiftReq(this);
-        }
+    public CreateShiftReq build() {
+      return new CreateShiftReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCalendarAclRespBody {
-    /**
-     * acl资源ID
-     * <p> 示例值：user_6843287928157667331
-     */
-    @SerializedName("acl_id")
-    private String aclId;
-    /**
-     * 对日历的访问权限
-     * <p> 示例值：
-     */
-    @SerializedName("role")
-    private String role;
-    /**
-     * 权限范围
-     * <p> 示例值：
-     */
-    @SerializedName("scope")
-    private AclScope scope;
+  /**
+   * acl资源ID
+   *
+   * <p>示例值：user_6843287928157667331
+   */
+  @SerializedName("acl_id")
+  private String aclId;
 
-    public String getAclId() {
-        return this.aclId;
-    }
+  /**
+   * 对日历的访问权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role")
+  private String role;
 
-    public void setAclId(String aclId) {
-        this.aclId = aclId;
-    }
+  /**
+   * 权限生效范围。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope")
+  private AclScope scope;
 
-    public String getRole() {
-        return this.role;
-    }
+  public String getAclId() {
+    return this.aclId;
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+  public void setAclId(String aclId) {
+    this.aclId = aclId;
+  }
 
-    public AclScope getScope() {
-        return this.scope;
-    }
+  public String getRole() {
+    return this.role;
+  }
 
-    public void setScope(AclScope scope) {
-        this.scope = scope;
-    }
+  public void setRole(String role) {
+    this.role = role;
+  }
 
+  public AclScope getScope() {
+    return this.scope;
+  }
+
+  public void setScope(AclScope scope) {
+    this.scope = scope;
+  }
 }

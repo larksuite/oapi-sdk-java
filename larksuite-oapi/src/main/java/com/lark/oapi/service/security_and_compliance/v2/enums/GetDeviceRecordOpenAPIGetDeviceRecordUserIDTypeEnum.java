@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 此次调用中使用的用户ID的类型
- */
+/** 此次调用中使用的用户ID的类型 */
 public enum GetDeviceRecordOpenAPIGetDeviceRecordUserIDTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以user_id来识别用户
+  UNION_ID("union_id"), // 以union_id来识别用户
+  OPEN_ID("open_id"), // 以open_id来识别用户
+  ;
+  private String value;
 
-    GetDeviceRecordOpenAPIGetDeviceRecordUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  GetDeviceRecordOpenAPIGetDeviceRecordUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

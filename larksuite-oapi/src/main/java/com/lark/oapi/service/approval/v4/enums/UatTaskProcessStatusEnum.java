@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 审批实例状态
- */
+/** 审批实例状态 */
 public enum UatTaskProcessStatusEnum {
-    NONE("0"), // 无流程状态，不展示对应标签
-    RUNNING("1"), // 流程实例流转中
-    APPROVED("2"), // 已通过
-    REJECTED("3"), // 已拒绝
-    CANCELED("4"), // 已撤销
-    TERMINATED("5"), // 已终止
-    ;
-    private String value;
+  NONE("0"), // 无流程状态，不展示对应标签
+  RUNNING("1"), // 流程实例流转中
+  APPROVED("2"), // 已通过
+  REJECTED("3"), // 已拒绝
+  CANCELED("4"), // 已撤销
+  TERMINATED("5"), // 已终止
+  ;
+  private String value;
 
-    UatTaskProcessStatusEnum(String value) {
-        this.value = value;
-    }
+  UatTaskProcessStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

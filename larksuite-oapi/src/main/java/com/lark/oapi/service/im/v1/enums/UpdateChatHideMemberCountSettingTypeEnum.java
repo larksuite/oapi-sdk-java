@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 隐藏群成员人数设置
- */
+/** 隐藏群成员人数设置 */
 public enum UpdateChatHideMemberCountSettingTypeEnum {
-    ALL_MEMBERS("all_members"), // 所有群成员可见
-    ONLY_OWNER("only_owner"), // 仅群主群管理员可见
-    ;
-    private String value;
+  ALL_MEMBERS("all_members"), // 所有群成员可见
+  ONLY_OWNER("only_owner"), // 仅群主群管理员可见
+  ;
+  private String value;
 
-    UpdateChatHideMemberCountSettingTypeEnum(String value) {
-        this.value = value;
-    }
+  UpdateChatHideMemberCountSettingTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

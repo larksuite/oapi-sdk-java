@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CpstMatchItem {
+  /**
+   * 薪资标准表ID
+   *
+   * <p>示例值：7174758593538295340
+   */
+  @SerializedName("standard_id")
+  private String standardId;
+
+  /**
+   * 薪资等级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("grade")
+  private CpstGrade grade;
+
+  /**
+   * 生效时间（毫秒级时间戳）
+   *
+   * <p>示例值：1660924800000
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  public String getStandardId() {
+    return this.standardId;
+  }
+
+  public void setStandardId(String standardId) {
+    this.standardId = standardId;
+  }
+
+  public CpstGrade getGrade() {
+    return this.grade;
+  }
+
+  public void setGrade(CpstGrade grade) {
+    this.grade = grade;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  // builder 开始
+  public CpstMatchItem() {}
+
+  public CpstMatchItem(Builder builder) {
     /**
      * 薪资标准表ID
-     * <p> 示例值：7174758593538295340
+     *
+     * <p>示例值：7174758593538295340
      */
-    @SerializedName("standard_id")
-    private String standardId;
+    this.standardId = builder.standardId;
     /**
      * 薪资等级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("grade")
-    private CpstGrade grade;
+    this.grade = builder.grade;
     /**
-     * 生效时间
-     * <p> 示例值：1660924800000
+     * 生效时间（毫秒级时间戳）
+     *
+     * <p>示例值：1660924800000
      */
-    @SerializedName("effective_time")
+    this.effectiveTime = builder.effectiveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资标准表ID
+     *
+     * <p>示例值：7174758593538295340
+     */
+    private String standardId;
+
+    /**
+     * 薪资等级
+     *
+     * <p>示例值：
+     */
+    private CpstGrade grade;
+
+    /**
+     * 生效时间（毫秒级时间戳）
+     *
+     * <p>示例值：1660924800000
+     */
     private String effectiveTime;
 
-    // builder 开始
-    public CpstMatchItem() {
+    /**
+     * 薪资标准表ID
+     *
+     * <p>示例值：7174758593538295340
+     *
+     * @param standardId
+     * @return
+     */
+    public Builder standardId(String standardId) {
+      this.standardId = standardId;
+      return this;
     }
 
-    public CpstMatchItem(Builder builder) {
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7174758593538295340
-         */
-        this.standardId = builder.standardId;
-        /**
-         * 薪资等级
-         * <p> 示例值：
-         */
-        this.grade = builder.grade;
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         */
-        this.effectiveTime = builder.effectiveTime;
+    /**
+     * 薪资等级
+     *
+     * <p>示例值：
+     *
+     * @param grade
+     * @return
+     */
+    public Builder grade(CpstGrade grade) {
+      this.grade = grade;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效时间（毫秒级时间戳）
+     *
+     * <p>示例值：1660924800000
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getStandardId() {
-        return this.standardId;
+    public CpstMatchItem build() {
+      return new CpstMatchItem(this);
     }
+  }
 
-    public void setStandardId(String standardId) {
-        this.standardId = standardId;
-    }
-
-    public CpstGrade getGrade() {
-        return this.grade;
-    }
-
-    public void setGrade(CpstGrade grade) {
-        this.grade = grade;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7174758593538295340
-         */
-        private String standardId;
-        /**
-         * 薪资等级
-         * <p> 示例值：
-         */
-        private CpstGrade grade;
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         */
-        private String effectiveTime;
-
-        /**
-         * 薪资标准表ID
-         * <p> 示例值：7174758593538295340
-         *
-         * @param standardId
-         * @return
-         */
-        public Builder standardId(String standardId) {
-            this.standardId = standardId;
-            return this;
-        }
-
-
-        /**
-         * 薪资等级
-         * <p> 示例值：
-         *
-         * @param grade
-         * @return
-         */
-        public Builder grade(CpstGrade grade) {
-            this.grade = grade;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：1660924800000
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        public CpstMatchItem build() {
-            return new CpstMatchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

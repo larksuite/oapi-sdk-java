@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessFormVariableV2 {
+  /**
+   * 变量唯一标识，可通过[获取流程表单数据](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get)查询变量
+   *
+   * <p>示例值：custom123
+   */
+  @SerializedName("variable_api_name")
+  private String variableApiName;
+
+  /**
+   * 变量值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("variable_value")
+  private FieldVariableValueToForReview variableValue;
+
+  /**
+   * 在list_values和record_values中引用的变量
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_values")
+  private FieldVariableSubVlaueForReview[] subValues;
+
+  public String getVariableApiName() {
+    return this.variableApiName;
+  }
+
+  public void setVariableApiName(String variableApiName) {
+    this.variableApiName = variableApiName;
+  }
+
+  public FieldVariableValueToForReview getVariableValue() {
+    return this.variableValue;
+  }
+
+  public void setVariableValue(FieldVariableValueToForReview variableValue) {
+    this.variableValue = variableValue;
+  }
+
+  public FieldVariableSubVlaueForReview[] getSubValues() {
+    return this.subValues;
+  }
+
+  public void setSubValues(FieldVariableSubVlaueForReview[] subValues) {
+    this.subValues = subValues;
+  }
+
+  // builder 开始
+  public ProcessFormVariableV2() {}
+
+  public ProcessFormVariableV2(Builder builder) {
     /**
-     * 变量唯一标识
-     * <p> 示例值：custom123
+     * 变量唯一标识，可通过[获取流程表单数据](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get)查询变量
+     *
+     * <p>示例值：custom123
      */
-    @SerializedName("variable_api_name")
-    private String variableApiName;
+    this.variableApiName = builder.variableApiName;
     /**
      * 变量值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("variable_value")
-    private FieldVariableValueToForReview variableValue;
+    this.variableValue = builder.variableValue;
     /**
      * 在list_values和record_values中引用的变量
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_values")
+    this.subValues = builder.subValues;
+  }
+
+  public static class Builder {
+    /**
+     * 变量唯一标识，可通过[获取流程表单数据](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get)查询变量
+     *
+     * <p>示例值：custom123
+     */
+    private String variableApiName;
+
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     */
+    private FieldVariableValueToForReview variableValue;
+
+    /**
+     * 在list_values和record_values中引用的变量
+     *
+     * <p>示例值：
+     */
     private FieldVariableSubVlaueForReview[] subValues;
 
-    // builder 开始
-    public ProcessFormVariableV2() {
+    /**
+     * 变量唯一标识，可通过[获取流程表单数据](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get)查询变量
+     *
+     * <p>示例值：custom123
+     *
+     * @param variableApiName
+     * @return
+     */
+    public Builder variableApiName(String variableApiName) {
+      this.variableApiName = variableApiName;
+      return this;
     }
 
-    public ProcessFormVariableV2(Builder builder) {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         */
-        this.variableApiName = builder.variableApiName;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        this.variableValue = builder.variableValue;
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         */
-        this.subValues = builder.subValues;
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     *
+     * @param variableValue
+     * @return
+     */
+    public Builder variableValue(FieldVariableValueToForReview variableValue) {
+      this.variableValue = variableValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 在list_values和record_values中引用的变量
+     *
+     * <p>示例值：
+     *
+     * @param subValues
+     * @return
+     */
+    public Builder subValues(FieldVariableSubVlaueForReview[] subValues) {
+      this.subValues = subValues;
+      return this;
     }
 
-    public String getVariableApiName() {
-        return this.variableApiName;
+    public ProcessFormVariableV2 build() {
+      return new ProcessFormVariableV2(this);
     }
+  }
 
-    public void setVariableApiName(String variableApiName) {
-        this.variableApiName = variableApiName;
-    }
-
-    public FieldVariableValueToForReview getVariableValue() {
-        return this.variableValue;
-    }
-
-    public void setVariableValue(FieldVariableValueToForReview variableValue) {
-        this.variableValue = variableValue;
-    }
-
-    public FieldVariableSubVlaueForReview[] getSubValues() {
-        return this.subValues;
-    }
-
-    public void setSubValues(FieldVariableSubVlaueForReview[] subValues) {
-        this.subValues = subValues;
-    }
-
-    public static class Builder {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         */
-        private String variableApiName;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        private FieldVariableValueToForReview variableValue;
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         */
-        private FieldVariableSubVlaueForReview[] subValues;
-
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         *
-         * @param variableApiName
-         * @return
-         */
-        public Builder variableApiName(String variableApiName) {
-            this.variableApiName = variableApiName;
-            return this;
-        }
-
-
-        /**
-         * 变量值
-         * <p> 示例值：
-         *
-         * @param variableValue
-         * @return
-         */
-        public Builder variableValue(FieldVariableValueToForReview variableValue) {
-            this.variableValue = variableValue;
-            return this;
-        }
-
-
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         *
-         * @param subValues
-         * @return
-         */
-        public Builder subValues(FieldVariableSubVlaueForReview[] subValues) {
-            this.subValues = subValues;
-            return this;
-        }
-
-
-        public ProcessFormVariableV2 build() {
-            return new ProcessFormVariableV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

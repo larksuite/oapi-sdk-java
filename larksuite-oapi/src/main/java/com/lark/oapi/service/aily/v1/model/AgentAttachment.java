@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentAttachment {
+  /**
+   * 文件名称
+   *
+   * <p>示例值：风景.jpg
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：image
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：uploaded
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 文件下载url
+   *
+   * <p>示例值：
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public AgentAttachment() {}
+
+  public AgentAttachment(Builder builder) {
     /**
      * 文件名称
-     * <p> 示例值：风景.jpg
+     *
+     * <p>示例值：风景.jpg
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 文件类型
-     * <p> 示例值：image
+     *
+     * <p>示例值：image
      */
-    @SerializedName("mime_type")
-    private String mimeType;
+    this.mimeType = builder.mimeType;
     /**
      * 状态
-     * <p> 示例值：uploaded
+     *
+     * <p>示例值：uploaded
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 文件下载url
-     * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxx
+     *
+     * <p>示例值：
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 文件名称
+     *
+     * <p>示例值：风景.jpg
+     */
+    private String name;
+
+    /**
+     * 文件类型
+     *
+     * <p>示例值：image
+     */
+    private String mimeType;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：uploaded
+     */
+    private String status;
+
+    /**
+     * 文件下载url
+     *
+     * <p>示例值：
+     */
     private String url;
 
-    // builder 开始
-    public AgentAttachment() {
+    /**
+     * 文件名称
+     *
+     * <p>示例值：风景.jpg
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public AgentAttachment(Builder builder) {
-        /**
-         * 文件名称
-         * <p> 示例值：风景.jpg
-         */
-        this.name = builder.name;
-        /**
-         * 文件类型
-         * <p> 示例值：image
-         */
-        this.mimeType = builder.mimeType;
-        /**
-         * 状态
-         * <p> 示例值：uploaded
-         */
-        this.status = builder.status;
-        /**
-         * 文件下载url
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxx
-         */
-        this.url = builder.url;
+    /**
+     * 文件类型
+     *
+     * <p>示例值：image
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 状态
+     *
+     * <p>示例值：uploaded
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 文件下载url
+     *
+     * <p>示例值：
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public AgentAttachment build() {
+      return new AgentAttachment(this);
     }
+  }
 
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 文件名称
-         * <p> 示例值：风景.jpg
-         */
-        private String name;
-        /**
-         * 文件类型
-         * <p> 示例值：image
-         */
-        private String mimeType;
-        /**
-         * 状态
-         * <p> 示例值：uploaded
-         */
-        private String status;
-        /**
-         * 文件下载url
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxx
-         */
-        private String url;
-
-        /**
-         * 文件名称
-         * <p> 示例值：风景.jpg
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：image
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：uploaded
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 文件下载url
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxx
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public AgentAttachment build() {
-            return new AgentAttachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

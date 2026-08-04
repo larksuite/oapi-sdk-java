@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Paint {
+  /**
+   * 画笔类型
+   *
+   * <p>示例值：marker
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 画板线段，由系列坐标点表示
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lines")
+  private Point[] lines;
+
+  /**
+   * 画笔粗细，单位px
+   *
+   * <p>示例值：7
+   */
+  @SerializedName("width")
+  private Integer width;
+
+  /**
+   * 画笔颜色
+   *
+   * <p>示例值：#ffffff
+   */
+  @SerializedName("color")
+  private String color;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Point[] getLines() {
+    return this.lines;
+  }
+
+  public void setLines(Point[] lines) {
+    this.lines = lines;
+  }
+
+  public Integer getWidth() {
+    return this.width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  // builder 开始
+  public Paint() {}
+
+  public Paint(Builder builder) {
     /**
      * 画笔类型
-     * <p> 示例值：marker
+     *
+     * <p>示例值：marker
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 画板线段，由系列坐标点表示
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("lines")
-    private Point[] lines;
+    this.lines = builder.lines;
     /**
      * 画笔粗细，单位px
-     * <p> 示例值：7
+     *
+     * <p>示例值：7
      */
-    @SerializedName("width")
-    private Integer width;
+    this.width = builder.width;
     /**
      * 画笔颜色
-     * <p> 示例值：#ffffff
+     *
+     * <p>示例值：#ffffff
      */
-    @SerializedName("color")
+    this.color = builder.color;
+  }
+
+  public static class Builder {
+    /**
+     * 画笔类型
+     *
+     * <p>示例值：marker
+     */
+    private String type;
+
+    /**
+     * 画板线段，由系列坐标点表示
+     *
+     * <p>示例值：
+     */
+    private Point[] lines;
+
+    /**
+     * 画笔粗细，单位px
+     *
+     * <p>示例值：7
+     */
+    private Integer width;
+
+    /**
+     * 画笔颜色
+     *
+     * <p>示例值：#ffffff
+     */
     private String color;
 
-    // builder 开始
-    public Paint() {
+    /**
+     * 画笔类型
+     *
+     * <p>示例值：marker
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public Paint(Builder builder) {
-        /**
-         * 画笔类型
-         * <p> 示例值：marker
-         */
-        this.type = builder.type;
-        /**
-         * 画板线段，由系列坐标点表示
-         * <p> 示例值：
-         */
-        this.lines = builder.lines;
-        /**
-         * 画笔粗细，单位px
-         * <p> 示例值：7
-         */
-        this.width = builder.width;
-        /**
-         * 画笔颜色
-         * <p> 示例值：#ffffff
-         */
-        this.color = builder.color;
+    /**
+     * 画笔类型
+     *
+     * <p>示例值：marker
+     *
+     * @param type {@link com.lark.oapi.service.board.v1.enums.PaintPaintTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.board.v1.enums.PaintPaintTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 画板线段，由系列坐标点表示
+     *
+     * <p>示例值：
+     *
+     * @param lines
+     * @return
+     */
+    public Builder lines(Point[] lines) {
+      this.lines = lines;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 画笔粗细，单位px
+     *
+     * <p>示例值：7
+     *
+     * @param width
+     * @return
+     */
+    public Builder width(Integer width) {
+      this.width = width;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 画笔颜色
+     *
+     * <p>示例值：#ffffff
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public Point[] getLines() {
-        return this.lines;
+    public Paint build() {
+      return new Paint(this);
     }
+  }
 
-    public void setLines(Point[] lines) {
-        this.lines = lines;
-    }
-
-    public Integer getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public static class Builder {
-        /**
-         * 画笔类型
-         * <p> 示例值：marker
-         */
-        private String type;
-        /**
-         * 画板线段，由系列坐标点表示
-         * <p> 示例值：
-         */
-        private Point[] lines;
-        /**
-         * 画笔粗细，单位px
-         * <p> 示例值：7
-         */
-        private Integer width;
-        /**
-         * 画笔颜色
-         * <p> 示例值：#ffffff
-         */
-        private String color;
-
-        /**
-         * 画笔类型
-         * <p> 示例值：marker
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 画笔类型
-         * <p> 示例值：marker
-         *
-         * @param type {@link com.lark.oapi.service.board.v1.enums.PaintPaintTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.board.v1.enums.PaintPaintTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 画板线段，由系列坐标点表示
-         * <p> 示例值：
-         *
-         * @param lines
-         * @return
-         */
-        public Builder lines(Point[] lines) {
-            this.lines = lines;
-            return this;
-        }
-
-
-        /**
-         * 画笔粗细，单位px
-         * <p> 示例值：7
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(Integer width) {
-            this.width = width;
-            return this;
-        }
-
-
-        /**
-         * 画笔颜色
-         * <p> 示例值：#ffffff
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        public Paint build() {
-            return new Paint(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

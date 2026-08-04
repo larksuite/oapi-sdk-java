@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IndicatorOption {
+  /**
+   * 评估项等级 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估项等级代号
+   *
+   * <p>示例值：qwerty
+   */
+  @SerializedName("lable")
+  private String lable;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getLable() {
+    return this.lable;
+  }
+
+  public void setLable(String lable) {
+    this.lable = lable;
+  }
+
+  // builder 开始
+  public IndicatorOption() {}
+
+  public IndicatorOption(Builder builder) {
     /**
-     * 等级 ID
-     * <p> 示例值：7343513161666707459
+     * 评估项等级 ID
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 评估项等级代号
+     *
+     * <p>示例值：qwerty
+     */
+    this.lable = builder.lable;
+  }
+
+  public static class Builder {
+    /**
+     * 评估项等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
     private String id;
+
     /**
-     * 等级名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * 等级代号
-     * <p> 示例值：qwerty
+     * 评估项等级代号
+     *
+     * <p>示例值：qwerty
      */
-    @SerializedName("lable")
     private String lable;
 
-    // builder 开始
-    public IndicatorOption() {
+    /**
+     * 评估项等级 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public IndicatorOption(Builder builder) {
-        /**
-         * 等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 等级名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 等级代号
-         * <p> 示例值：qwerty
-         */
-        this.lable = builder.lable;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估项等级代号
+     *
+     * <p>示例值：qwerty
+     *
+     * @param lable
+     * @return
+     */
+    public Builder lable(String lable) {
+      this.lable = lable;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public IndicatorOption build() {
+      return new IndicatorOption(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getLable() {
-        return this.lable;
-    }
-
-    public void setLable(String lable) {
-        this.lable = lable;
-    }
-
-    public static class Builder {
-        /**
-         * 等级 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String id;
-        /**
-         * 等级名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 等级代号
-         * <p> 示例值：qwerty
-         */
-        private String lable;
-
-        /**
-         * 等级 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 等级名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 等级代号
-         * <p> 示例值：qwerty
-         *
-         * @param lable
-         * @return
-         */
-        public Builder lable(String lable) {
-            this.lable = lable;
-            return this;
-        }
-
-
-        public IndicatorOption build() {
-            return new IndicatorOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

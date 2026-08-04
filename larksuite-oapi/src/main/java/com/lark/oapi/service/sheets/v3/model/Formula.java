@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Formula {
+  /**
+   * 公式
+   *
+   * <p>示例值：=SUM(A:A)
+   */
+  @SerializedName("formula")
+  private String formula;
+
+  /**
+   * 公式结果
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("formula_value")
+  private String formulaValue;
+
+  /**
+   * 公式影响的范围
+   *
+   * <p>示例值：Xkhr2d!A1:B2
+   */
+  @SerializedName("affected_range")
+  private String affectedRange;
+
+  public String getFormula() {
+    return this.formula;
+  }
+
+  public void setFormula(String formula) {
+    this.formula = formula;
+  }
+
+  public String getFormulaValue() {
+    return this.formulaValue;
+  }
+
+  public void setFormulaValue(String formulaValue) {
+    this.formulaValue = formulaValue;
+  }
+
+  public String getAffectedRange() {
+    return this.affectedRange;
+  }
+
+  public void setAffectedRange(String affectedRange) {
+    this.affectedRange = affectedRange;
+  }
+
+  // builder 开始
+  public Formula() {}
+
+  public Formula(Builder builder) {
     /**
      * 公式
-     * <p> 示例值：=SUM(A:A)
+     *
+     * <p>示例值：=SUM(A:A)
      */
-    @SerializedName("formula")
-    private String formula;
+    this.formula = builder.formula;
     /**
      * 公式结果
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("formula_value")
-    private String formulaValue;
+    this.formulaValue = builder.formulaValue;
     /**
      * 公式影响的范围
-     * <p> 示例值：Xkhr2d!A1:B2
+     *
+     * <p>示例值：Xkhr2d!A1:B2
      */
-    @SerializedName("affected_range")
+    this.affectedRange = builder.affectedRange;
+  }
+
+  public static class Builder {
+    /**
+     * 公式
+     *
+     * <p>示例值：=SUM(A:A)
+     */
+    private String formula;
+
+    /**
+     * 公式结果
+     *
+     * <p>示例值：123
+     */
+    private String formulaValue;
+
+    /**
+     * 公式影响的范围
+     *
+     * <p>示例值：Xkhr2d!A1:B2
+     */
     private String affectedRange;
 
-    // builder 开始
-    public Formula() {
+    /**
+     * 公式
+     *
+     * <p>示例值：=SUM(A:A)
+     *
+     * @param formula
+     * @return
+     */
+    public Builder formula(String formula) {
+      this.formula = formula;
+      return this;
     }
 
-    public Formula(Builder builder) {
-        /**
-         * 公式
-         * <p> 示例值：=SUM(A:A)
-         */
-        this.formula = builder.formula;
-        /**
-         * 公式结果
-         * <p> 示例值：123
-         */
-        this.formulaValue = builder.formulaValue;
-        /**
-         * 公式影响的范围
-         * <p> 示例值：Xkhr2d!A1:B2
-         */
-        this.affectedRange = builder.affectedRange;
+    /**
+     * 公式结果
+     *
+     * <p>示例值：123
+     *
+     * @param formulaValue
+     * @return
+     */
+    public Builder formulaValue(String formulaValue) {
+      this.formulaValue = formulaValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公式影响的范围
+     *
+     * <p>示例值：Xkhr2d!A1:B2
+     *
+     * @param affectedRange
+     * @return
+     */
+    public Builder affectedRange(String affectedRange) {
+      this.affectedRange = affectedRange;
+      return this;
     }
 
-    public String getFormula() {
-        return this.formula;
+    public Formula build() {
+      return new Formula(this);
     }
+  }
 
-    public void setFormula(String formula) {
-        this.formula = formula;
-    }
-
-    public String getFormulaValue() {
-        return this.formulaValue;
-    }
-
-    public void setFormulaValue(String formulaValue) {
-        this.formulaValue = formulaValue;
-    }
-
-    public String getAffectedRange() {
-        return this.affectedRange;
-    }
-
-    public void setAffectedRange(String affectedRange) {
-        this.affectedRange = affectedRange;
-    }
-
-    public static class Builder {
-        /**
-         * 公式
-         * <p> 示例值：=SUM(A:A)
-         */
-        private String formula;
-        /**
-         * 公式结果
-         * <p> 示例值：123
-         */
-        private String formulaValue;
-        /**
-         * 公式影响的范围
-         * <p> 示例值：Xkhr2d!A1:B2
-         */
-        private String affectedRange;
-
-        /**
-         * 公式
-         * <p> 示例值：=SUM(A:A)
-         *
-         * @param formula
-         * @return
-         */
-        public Builder formula(String formula) {
-            this.formula = formula;
-            return this;
-        }
-
-
-        /**
-         * 公式结果
-         * <p> 示例值：123
-         *
-         * @param formulaValue
-         * @return
-         */
-        public Builder formulaValue(String formulaValue) {
-            this.formulaValue = formulaValue;
-            return this;
-        }
-
-
-        /**
-         * 公式影响的范围
-         * <p> 示例值：Xkhr2d!A1:B2
-         *
-         * @param affectedRange
-         * @return
-         */
-        public Builder affectedRange(String affectedRange) {
-            this.affectedRange = affectedRange;
-            return this;
-        }
-
-
-        public Formula build() {
-            return new Formula(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

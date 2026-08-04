@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProtectSearchAgencyRespBody {
-    /**
-     * 是否已入职
-     * <p> 示例值：false
-     */
-    @SerializedName("is_onboarded")
-    private Boolean isOnboarded;
-    /**
-     * 是否在猎头保护期内入职
-     * <p> 示例值：false
-     */
-    @SerializedName("onboarded_in_protection")
-    private Boolean onboardedInProtection;
-    /**
-     * 入职所在保护期
-     * <p> 示例值：
-     */
-    @SerializedName("onboarded_protection")
-    private AgencyProtection onboardedProtection;
-    /**
-     * 人才保护信息
-     * <p> 示例值：
-     */
-    @SerializedName("protection_list")
-    private AgencyProtection[] protectionList;
+  /**
+   * 是否已入职
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_onboarded")
+  private Boolean isOnboarded;
 
-    public Boolean getIsOnboarded() {
-        return this.isOnboarded;
-    }
+  /**
+   * 是否在猎头保护期内入职
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("onboarded_in_protection")
+  private Boolean onboardedInProtection;
 
-    public void setIsOnboarded(Boolean isOnboarded) {
-        this.isOnboarded = isOnboarded;
-    }
+  /**
+   * 入职时所在保护期，当且仅当`is_onboarded = true && onboarded_in_protection = true`时，该字段有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarded_protection")
+  private AgencyProtection onboardedProtection;
 
-    public Boolean getOnboardedInProtection() {
-        return this.onboardedInProtection;
-    }
+  /**
+   * 保护期列表，若返回空，则表明人才上没有任何的保护期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("protection_list")
+  private AgencyProtection[] protectionList;
 
-    public void setOnboardedInProtection(Boolean onboardedInProtection) {
-        this.onboardedInProtection = onboardedInProtection;
-    }
+  public Boolean getIsOnboarded() {
+    return this.isOnboarded;
+  }
 
-    public AgencyProtection getOnboardedProtection() {
-        return this.onboardedProtection;
-    }
+  public void setIsOnboarded(Boolean isOnboarded) {
+    this.isOnboarded = isOnboarded;
+  }
 
-    public void setOnboardedProtection(AgencyProtection onboardedProtection) {
-        this.onboardedProtection = onboardedProtection;
-    }
+  public Boolean getOnboardedInProtection() {
+    return this.onboardedInProtection;
+  }
 
-    public AgencyProtection[] getProtectionList() {
-        return this.protectionList;
-    }
+  public void setOnboardedInProtection(Boolean onboardedInProtection) {
+    this.onboardedInProtection = onboardedInProtection;
+  }
 
-    public void setProtectionList(AgencyProtection[] protectionList) {
-        this.protectionList = protectionList;
-    }
+  public AgencyProtection getOnboardedProtection() {
+    return this.onboardedProtection;
+  }
 
+  public void setOnboardedProtection(AgencyProtection onboardedProtection) {
+    this.onboardedProtection = onboardedProtection;
+  }
+
+  public AgencyProtection[] getProtectionList() {
+    return this.protectionList;
+  }
+
+  public void setProtectionList(AgencyProtection[] protectionList) {
+    this.protectionList = protectionList;
+  }
 }

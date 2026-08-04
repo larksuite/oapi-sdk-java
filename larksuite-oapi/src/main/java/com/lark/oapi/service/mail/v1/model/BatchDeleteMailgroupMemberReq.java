@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class BatchDeleteMailgroupMemberReq {
+  /**
+   * The unique ID or email address of a mail group
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+   */
+  @Path
+  @SerializedName("mailgroup_id")
+  private String mailgroupId;
+
+  public String getMailgroupId() {
+    return this.mailgroupId;
+  }
+
+  public void setMailgroupId(String mailgroupId) {
+    this.mailgroupId = mailgroupId;
+  }
+
+  @Body private BatchDeleteMailgroupMemberReqBody body;
+
+  public BatchDeleteMailgroupMemberReqBody getBatchDeleteMailgroupMemberReqBody() {
+    return this.body;
+  }
+
+  public void setBatchDeleteMailgroupMemberReqBody(BatchDeleteMailgroupMemberReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchDeleteMailgroupMemberReq() {}
+
+  public BatchDeleteMailgroupMemberReq(Builder builder) {
     /**
      * The unique ID or email address of a mail group
-     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
      */
-    @Path
-    @SerializedName("mailgroup_id")
-    private String mailgroupId;
-    @Body
+    this.mailgroupId = builder.mailgroupId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String mailgroupId; // The unique ID or email address of a mail group
+
+    /**
+     * The unique ID or email address of a mail group
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+     *
+     * @param mailgroupId
+     * @return
+     */
+    public Builder mailgroupId(String mailgroupId) {
+      this.mailgroupId = mailgroupId;
+      return this;
+    }
+
     private BatchDeleteMailgroupMemberReqBody body;
 
-    // builder 开始
-    public BatchDeleteMailgroupMemberReq() {
-    }
-
-    public BatchDeleteMailgroupMemberReq(Builder builder) {
-        /**
-         * The unique ID or email address of a mail group
-         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-         */
-        this.mailgroupId = builder.mailgroupId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMailgroupId() {
-        return this.mailgroupId;
-    }
-
-    public void setMailgroupId(String mailgroupId) {
-        this.mailgroupId = mailgroupId;
-    }
-
     public BatchDeleteMailgroupMemberReqBody getBatchDeleteMailgroupMemberReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchDeleteMailgroupMemberReqBody(BatchDeleteMailgroupMemberReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchDeleteMailgroupMemberReqBody(BatchDeleteMailgroupMemberReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String mailgroupId; // The unique ID or email address of a mail group
-        private BatchDeleteMailgroupMemberReqBody body;
-
-        /**
-         * The unique ID or email address of a mail group
-         * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
-         *
-         * @param mailgroupId
-         * @return
-         */
-        public Builder mailgroupId(String mailgroupId) {
-            this.mailgroupId = mailgroupId;
-            return this;
-        }
-
-        public BatchDeleteMailgroupMemberReqBody getBatchDeleteMailgroupMemberReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchDeleteMailgroupMemberReqBody(BatchDeleteMailgroupMemberReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchDeleteMailgroupMemberReq build() {
-            return new BatchDeleteMailgroupMemberReq(this);
-        }
+    public BatchDeleteMailgroupMemberReq build() {
+      return new BatchDeleteMailgroupMemberReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

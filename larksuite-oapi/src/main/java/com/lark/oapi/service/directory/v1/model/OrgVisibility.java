@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgVisibility {
+  /**
+   * 更新主规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("main_rule")
+  private VisibleMainRule mainRule;
+
+  /**
+   * 补充规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assist_rules")
+  private VisibleAssistRule[] assistRules;
+
+  public VisibleMainRule getMainRule() {
+    return this.mainRule;
+  }
+
+  public void setMainRule(VisibleMainRule mainRule) {
+    this.mainRule = mainRule;
+  }
+
+  public VisibleAssistRule[] getAssistRules() {
+    return this.assistRules;
+  }
+
+  public void setAssistRules(VisibleAssistRule[] assistRules) {
+    this.assistRules = assistRules;
+  }
+
+  // builder 开始
+  public OrgVisibility() {}
+
+  public OrgVisibility(Builder builder) {
     /**
-     * 主规则
-     * <p> 示例值：
+     * 更新主规则
+     *
+     * <p>示例值：
      */
-    @SerializedName("main_rule")
-    private VisibleMainRule mainRule;
+    this.mainRule = builder.mainRule;
     /**
      * 补充规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assist_rules")
+    this.assistRules = builder.assistRules;
+  }
+
+  public static class Builder {
+    /**
+     * 更新主规则
+     *
+     * <p>示例值：
+     */
+    private VisibleMainRule mainRule;
+
+    /**
+     * 补充规则
+     *
+     * <p>示例值：
+     */
     private VisibleAssistRule[] assistRules;
 
-    // builder 开始
-    public OrgVisibility() {
+    /**
+     * 更新主规则
+     *
+     * <p>示例值：
+     *
+     * @param mainRule
+     * @return
+     */
+    public Builder mainRule(VisibleMainRule mainRule) {
+      this.mainRule = mainRule;
+      return this;
     }
 
-    public OrgVisibility(Builder builder) {
-        /**
-         * 主规则
-         * <p> 示例值：
-         */
-        this.mainRule = builder.mainRule;
-        /**
-         * 补充规则
-         * <p> 示例值：
-         */
-        this.assistRules = builder.assistRules;
+    /**
+     * 补充规则
+     *
+     * <p>示例值：
+     *
+     * @param assistRules
+     * @return
+     */
+    public Builder assistRules(VisibleAssistRule[] assistRules) {
+      this.assistRules = assistRules;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OrgVisibility build() {
+      return new OrgVisibility(this);
     }
+  }
 
-    public VisibleMainRule getMainRule() {
-        return this.mainRule;
-    }
-
-    public void setMainRule(VisibleMainRule mainRule) {
-        this.mainRule = mainRule;
-    }
-
-    public VisibleAssistRule[] getAssistRules() {
-        return this.assistRules;
-    }
-
-    public void setAssistRules(VisibleAssistRule[] assistRules) {
-        this.assistRules = assistRules;
-    }
-
-    public static class Builder {
-        /**
-         * 主规则
-         * <p> 示例值：
-         */
-        private VisibleMainRule mainRule;
-        /**
-         * 补充规则
-         * <p> 示例值：
-         */
-        private VisibleAssistRule[] assistRules;
-
-        /**
-         * 主规则
-         * <p> 示例值：
-         *
-         * @param mainRule
-         * @return
-         */
-        public Builder mainRule(VisibleMainRule mainRule) {
-            this.mainRule = mainRule;
-            return this;
-        }
-
-
-        /**
-         * 补充规则
-         * <p> 示例值：
-         *
-         * @param assistRules
-         * @return
-         */
-        public Builder assistRules(VisibleAssistRule[] assistRules) {
-            this.assistRules = assistRules;
-            return this;
-        }
-
-
-        public OrgVisibility build() {
-            return new OrgVisibility(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

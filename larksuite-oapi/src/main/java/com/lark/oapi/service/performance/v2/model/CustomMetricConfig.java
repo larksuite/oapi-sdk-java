@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomMetricConfig {
+  /**
+   * 非指标库指标的评分方式（手动评分是 0；评分公式是具体的公式 ID）
+   *
+   * <p>示例值：7296701873237786643
+   */
+  @SerializedName("default_formula_id")
+  private String defaultFormulaId;
+
+  /**
+   * 最少需添加的指标数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("least_metrics_size")
+  private Integer leastMetricsSize;
+
+  /**
+   * 添加指标的方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add_metric_options")
+  private Integer[] addMetricOptions;
+
+  public String getDefaultFormulaId() {
+    return this.defaultFormulaId;
+  }
+
+  public void setDefaultFormulaId(String defaultFormulaId) {
+    this.defaultFormulaId = defaultFormulaId;
+  }
+
+  public Integer getLeastMetricsSize() {
+    return this.leastMetricsSize;
+  }
+
+  public void setLeastMetricsSize(Integer leastMetricsSize) {
+    this.leastMetricsSize = leastMetricsSize;
+  }
+
+  public Integer[] getAddMetricOptions() {
+    return this.addMetricOptions;
+  }
+
+  public void setAddMetricOptions(Integer[] addMetricOptions) {
+    this.addMetricOptions = addMetricOptions;
+  }
+
+  // builder 开始
+  public CustomMetricConfig() {}
+
+  public CustomMetricConfig(Builder builder) {
     /**
-     * 新增指标默认公式ID,非指标库指标的公式ID使用该值
-     * <p> 示例值：7296701873237786643
+     * 非指标库指标的评分方式（手动评分是 0；评分公式是具体的公式 ID）
+     *
+     * <p>示例值：7296701873237786643
      */
-    @SerializedName("default_formula_id")
+    this.defaultFormulaId = builder.defaultFormulaId;
+    /**
+     * 最少需添加的指标数量
+     *
+     * <p>示例值：1
+     */
+    this.leastMetricsSize = builder.leastMetricsSize;
+    /**
+     * 添加指标的方式
+     *
+     * <p>示例值：
+     */
+    this.addMetricOptions = builder.addMetricOptions;
+  }
+
+  public static class Builder {
+    /**
+     * 非指标库指标的评分方式（手动评分是 0；评分公式是具体的公式 ID）
+     *
+     * <p>示例值：7296701873237786643
+     */
     private String defaultFormulaId;
+
     /**
-     * 维度允许添加指标下限(包含)
-     * <p> 示例值：1
+     * 最少需添加的指标数量
+     *
+     * <p>示例值：1
      */
-    @SerializedName("least_metrics_size")
     private Integer leastMetricsSize;
+
     /**
-     * 添加的指标方式
-     * <p> 示例值：
+     * 添加指标的方式
+     *
+     * <p>示例值：
      */
-    @SerializedName("add_metric_options")
     private Integer[] addMetricOptions;
 
-    // builder 开始
-    public CustomMetricConfig() {
+    /**
+     * 非指标库指标的评分方式（手动评分是 0；评分公式是具体的公式 ID）
+     *
+     * <p>示例值：7296701873237786643
+     *
+     * @param defaultFormulaId
+     * @return
+     */
+    public Builder defaultFormulaId(String defaultFormulaId) {
+      this.defaultFormulaId = defaultFormulaId;
+      return this;
     }
 
-    public CustomMetricConfig(Builder builder) {
-        /**
-         * 新增指标默认公式ID,非指标库指标的公式ID使用该值
-         * <p> 示例值：7296701873237786643
-         */
-        this.defaultFormulaId = builder.defaultFormulaId;
-        /**
-         * 维度允许添加指标下限(包含)
-         * <p> 示例值：1
-         */
-        this.leastMetricsSize = builder.leastMetricsSize;
-        /**
-         * 添加的指标方式
-         * <p> 示例值：
-         */
-        this.addMetricOptions = builder.addMetricOptions;
+    /**
+     * 最少需添加的指标数量
+     *
+     * <p>示例值：1
+     *
+     * @param leastMetricsSize
+     * @return
+     */
+    public Builder leastMetricsSize(Integer leastMetricsSize) {
+      this.leastMetricsSize = leastMetricsSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 添加指标的方式
+     *
+     * <p>示例值：
+     *
+     * @param addMetricOptions
+     * @return
+     */
+    public Builder addMetricOptions(Integer[] addMetricOptions) {
+      this.addMetricOptions = addMetricOptions;
+      return this;
     }
 
-    public String getDefaultFormulaId() {
-        return this.defaultFormulaId;
+    public CustomMetricConfig build() {
+      return new CustomMetricConfig(this);
     }
+  }
 
-    public void setDefaultFormulaId(String defaultFormulaId) {
-        this.defaultFormulaId = defaultFormulaId;
-    }
-
-    public Integer getLeastMetricsSize() {
-        return this.leastMetricsSize;
-    }
-
-    public void setLeastMetricsSize(Integer leastMetricsSize) {
-        this.leastMetricsSize = leastMetricsSize;
-    }
-
-    public Integer[] getAddMetricOptions() {
-        return this.addMetricOptions;
-    }
-
-    public void setAddMetricOptions(Integer[] addMetricOptions) {
-        this.addMetricOptions = addMetricOptions;
-    }
-
-    public static class Builder {
-        /**
-         * 新增指标默认公式ID,非指标库指标的公式ID使用该值
-         * <p> 示例值：7296701873237786643
-         */
-        private String defaultFormulaId;
-        /**
-         * 维度允许添加指标下限(包含)
-         * <p> 示例值：1
-         */
-        private Integer leastMetricsSize;
-        /**
-         * 添加的指标方式
-         * <p> 示例值：
-         */
-        private Integer[] addMetricOptions;
-
-        /**
-         * 新增指标默认公式ID,非指标库指标的公式ID使用该值
-         * <p> 示例值：7296701873237786643
-         *
-         * @param defaultFormulaId
-         * @return
-         */
-        public Builder defaultFormulaId(String defaultFormulaId) {
-            this.defaultFormulaId = defaultFormulaId;
-            return this;
-        }
-
-
-        /**
-         * 维度允许添加指标下限(包含)
-         * <p> 示例值：1
-         *
-         * @param leastMetricsSize
-         * @return
-         */
-        public Builder leastMetricsSize(Integer leastMetricsSize) {
-            this.leastMetricsSize = leastMetricsSize;
-            return this;
-        }
-
-
-        /**
-         * 添加的指标方式
-         * <p> 示例值：
-         *
-         * @param addMetricOptions
-         * @return
-         */
-        public Builder addMetricOptions(Integer[] addMetricOptions) {
-            this.addMetricOptions = addMetricOptions;
-            return this;
-        }
-
-
-        public CustomMetricConfig build() {
-            return new CustomMetricConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

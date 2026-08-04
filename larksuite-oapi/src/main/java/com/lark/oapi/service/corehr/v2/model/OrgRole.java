@@ -13,186 +13,235 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgRole {
+  /**
+   * 角色key; - 可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取;
+   *
+   * <p>示例值：hcm_corehr_xxx
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 角色ID; -
+   * 可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+   * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+   * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+   *
+   * <p>示例值：7034393015968122400
+   */
+  @SerializedName("security_group_id")
+  private String securityGroupId;
+
+  /**
+   * 直接授权的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+   * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+   * 或
+   * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+   * 接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_ids")
+  private String[] employmentIds;
+
+  /**
+   * 由于有上级组织权限而自动获取下级组织权限的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+   * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+   * 或
+   * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+   * 接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("inherit_employment_ids")
+  private String[] inheritEmploymentIds;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getSecurityGroupId() {
+    return this.securityGroupId;
+  }
+
+  public void setSecurityGroupId(String securityGroupId) {
+    this.securityGroupId = securityGroupId;
+  }
+
+  public String[] getEmploymentIds() {
+    return this.employmentIds;
+  }
+
+  public void setEmploymentIds(String[] employmentIds) {
+    this.employmentIds = employmentIds;
+  }
+
+  public String[] getInheritEmploymentIds() {
+    return this.inheritEmploymentIds;
+  }
+
+  public void setInheritEmploymentIds(String[] inheritEmploymentIds) {
+    this.inheritEmploymentIds = inheritEmploymentIds;
+  }
+
+  // builder 开始
+  public OrgRole() {}
+
+  public OrgRole(Builder builder) {
     /**
-     * 角色key
-     * <p> 示例值：hrbp
+     * 角色key; - 可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取;
+     *
+     * <p>示例值：hcm_corehr_xxx
      */
-    @SerializedName("api_name")
+    this.apiName = builder.apiName;
+    /**
+     * 角色ID; -
+     * 可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：7034393015968122400
+     */
+    this.securityGroupId = builder.securityGroupId;
+    /**
+     * 直接授权的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
+     */
+    this.employmentIds = builder.employmentIds;
+    /**
+     * 由于有上级组织权限而自动获取下级组织权限的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
+     */
+    this.inheritEmploymentIds = builder.inheritEmploymentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 角色key; - 可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取;
+     *
+     * <p>示例值：hcm_corehr_xxx
+     */
     private String apiName;
+
     /**
-     * 角色ID
-     * <p> 示例值：7034393015968122400
+     * 角色ID; -
+     * 可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：7034393015968122400
      */
-    @SerializedName("security_group_id")
     private String securityGroupId;
+
     /**
-     * 授权员工列表
-     * <p> 示例值：
+     * 直接授权的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_ids")
     private String[] employmentIds;
+
     /**
-     * 继承至上级授权员工列表
-     * <p> 示例值：
+     * 由于有上级组织权限而自动获取下级组织权限的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("inherit_employment_ids")
     private String[] inheritEmploymentIds;
 
-    // builder 开始
-    public OrgRole() {
+    /**
+     * 角色key; - 可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取;
+     *
+     * <p>示例值：hcm_corehr_xxx
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public OrgRole(Builder builder) {
-        /**
-         * 角色key
-         * <p> 示例值：hrbp
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
-        this.securityGroupId = builder.securityGroupId;
-        /**
-         * 授权员工列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 继承至上级授权员工列表
-         * <p> 示例值：
-         */
-        this.inheritEmploymentIds = builder.inheritEmploymentIds;
+    /**
+     * 角色ID; -
+     * 可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：7034393015968122400
+     *
+     * @param securityGroupId
+     * @return
+     */
+    public Builder securityGroupId(String securityGroupId) {
+      this.securityGroupId = securityGroupId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 直接授权的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
+     *
+     * @param employmentIds
+     * @return
+     */
+    public Builder employmentIds(String[] employmentIds) {
+      this.employmentIds = employmentIds;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 由于有上级组织权限而自动获取下级组织权限的员工 ID 列表;- 返回的 ID 类型为 ==people_corehr_id==;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取
+     *
+     * <p>示例值：
+     *
+     * @param inheritEmploymentIds
+     * @return
+     */
+    public Builder inheritEmploymentIds(String[] inheritEmploymentIds) {
+      this.inheritEmploymentIds = inheritEmploymentIds;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public OrgRole build() {
+      return new OrgRole(this);
     }
+  }
 
-    public String getSecurityGroupId() {
-        return this.securityGroupId;
-    }
-
-    public void setSecurityGroupId(String securityGroupId) {
-        this.securityGroupId = securityGroupId;
-    }
-
-    public String[] getEmploymentIds() {
-        return this.employmentIds;
-    }
-
-    public void setEmploymentIds(String[] employmentIds) {
-        this.employmentIds = employmentIds;
-    }
-
-    public String[] getInheritEmploymentIds() {
-        return this.inheritEmploymentIds;
-    }
-
-    public void setInheritEmploymentIds(String[] inheritEmploymentIds) {
-        this.inheritEmploymentIds = inheritEmploymentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 角色key
-         * <p> 示例值：hrbp
-         */
-        private String apiName;
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
-        private String securityGroupId;
-        /**
-         * 授权员工列表
-         * <p> 示例值：
-         */
-        private String[] employmentIds;
-        /**
-         * 继承至上级授权员工列表
-         * <p> 示例值：
-         */
-        private String[] inheritEmploymentIds;
-
-        /**
-         * 角色key
-         * <p> 示例值：hrbp
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         *
-         * @param securityGroupId
-         * @return
-         */
-        public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = securityGroupId;
-            return this;
-        }
-
-
-        /**
-         * 授权员工列表
-         * <p> 示例值：
-         *
-         * @param employmentIds
-         * @return
-         */
-        public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
-        }
-
-
-        /**
-         * 继承至上级授权员工列表
-         * <p> 示例值：
-         *
-         * @param inheritEmploymentIds
-         * @return
-         */
-        public Builder inheritEmploymentIds(String[] inheritEmploymentIds) {
-            this.inheritEmploymentIds = inheritEmploymentIds;
-            return this;
-        }
-
-
-        public OrgRole build() {
-            return new OrgRole(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

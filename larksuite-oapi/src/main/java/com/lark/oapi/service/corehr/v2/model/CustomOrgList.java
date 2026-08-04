@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgList {
+  /**
+   * 自定义组织名称
+   *
+   * <p>示例值：编制单元
+   */
+  @SerializedName("custom_org_name")
+  private I18nV2 customOrgName;
+
+  /**
+   * 自定义组织ID
+   *
+   * <p>示例值：7293641346149138452
+   */
+  @SerializedName("custom_org_id")
+  private String customOrgId;
+
+  /**
+   * 比例
+   *
+   * <p>示例值：42.98
+   */
+  @SerializedName("rate")
+  private String rate;
+
+  public I18nV2 getCustomOrgName() {
+    return this.customOrgName;
+  }
+
+  public void setCustomOrgName(I18nV2 customOrgName) {
+    this.customOrgName = customOrgName;
+  }
+
+  public String getCustomOrgId() {
+    return this.customOrgId;
+  }
+
+  public void setCustomOrgId(String customOrgId) {
+    this.customOrgId = customOrgId;
+  }
+
+  public String getRate() {
+    return this.rate;
+  }
+
+  public void setRate(String rate) {
+    this.rate = rate;
+  }
+
+  // builder 开始
+  public CustomOrgList() {}
+
+  public CustomOrgList(Builder builder) {
     /**
      * 自定义组织名称
-     * <p> 示例值：编制单元
+     *
+     * <p>示例值：编制单元
      */
-    @SerializedName("custom_org_name")
-    private I18nV2 customOrgName;
+    this.customOrgName = builder.customOrgName;
     /**
      * 自定义组织ID
-     * <p> 示例值：7293641346149138452
+     *
+     * <p>示例值：7293641346149138452
      */
-    @SerializedName("custom_org_id")
-    private String customOrgId;
+    this.customOrgId = builder.customOrgId;
     /**
      * 比例
-     * <p> 示例值：42.98
+     *
+     * <p>示例值：42.98
      */
-    @SerializedName("rate")
+    this.rate = builder.rate;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义组织名称
+     *
+     * <p>示例值：编制单元
+     */
+    private I18nV2 customOrgName;
+
+    /**
+     * 自定义组织ID
+     *
+     * <p>示例值：7293641346149138452
+     */
+    private String customOrgId;
+
+    /**
+     * 比例
+     *
+     * <p>示例值：42.98
+     */
     private String rate;
 
-    // builder 开始
-    public CustomOrgList() {
+    /**
+     * 自定义组织名称
+     *
+     * <p>示例值：编制单元
+     *
+     * @param customOrgName
+     * @return
+     */
+    public Builder customOrgName(I18nV2 customOrgName) {
+      this.customOrgName = customOrgName;
+      return this;
     }
 
-    public CustomOrgList(Builder builder) {
-        /**
-         * 自定义组织名称
-         * <p> 示例值：编制单元
-         */
-        this.customOrgName = builder.customOrgName;
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293641346149138452
-         */
-        this.customOrgId = builder.customOrgId;
-        /**
-         * 比例
-         * <p> 示例值：42.98
-         */
-        this.rate = builder.rate;
+    /**
+     * 自定义组织ID
+     *
+     * <p>示例值：7293641346149138452
+     *
+     * @param customOrgId
+     * @return
+     */
+    public Builder customOrgId(String customOrgId) {
+      this.customOrgId = customOrgId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 比例
+     *
+     * <p>示例值：42.98
+     *
+     * @param rate
+     * @return
+     */
+    public Builder rate(String rate) {
+      this.rate = rate;
+      return this;
     }
 
-    public I18nV2 getCustomOrgName() {
-        return this.customOrgName;
+    public CustomOrgList build() {
+      return new CustomOrgList(this);
     }
+  }
 
-    public void setCustomOrgName(I18nV2 customOrgName) {
-        this.customOrgName = customOrgName;
-    }
-
-    public String getCustomOrgId() {
-        return this.customOrgId;
-    }
-
-    public void setCustomOrgId(String customOrgId) {
-        this.customOrgId = customOrgId;
-    }
-
-    public String getRate() {
-        return this.rate;
-    }
-
-    public void setRate(String rate) {
-        this.rate = rate;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义组织名称
-         * <p> 示例值：编制单元
-         */
-        private I18nV2 customOrgName;
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293641346149138452
-         */
-        private String customOrgId;
-        /**
-         * 比例
-         * <p> 示例值：42.98
-         */
-        private String rate;
-
-        /**
-         * 自定义组织名称
-         * <p> 示例值：编制单元
-         *
-         * @param customOrgName
-         * @return
-         */
-        public Builder customOrgName(I18nV2 customOrgName) {
-            this.customOrgName = customOrgName;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293641346149138452
-         *
-         * @param customOrgId
-         * @return
-         */
-        public Builder customOrgId(String customOrgId) {
-            this.customOrgId = customOrgId;
-            return this;
-        }
-
-
-        /**
-         * 比例
-         * <p> 示例值：42.98
-         *
-         * @param rate
-         * @return
-         */
-        public Builder rate(String rate) {
-            this.rate = rate;
-            return this;
-        }
-
-
-        public CustomOrgList build() {
-            return new CustomOrgList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

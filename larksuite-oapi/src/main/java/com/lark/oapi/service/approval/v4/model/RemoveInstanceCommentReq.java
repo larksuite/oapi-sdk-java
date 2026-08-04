@@ -13,149 +13,175 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class RemoveInstanceCommentReq {
+  /**
+   * 用户ID类型，不填默认为open_id
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 用户 ID，ID 类型与 user_id_type 取值一致。
+   *
+   * <p>示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+   * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+   * Code。;-
+   * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+   * Code。;;**说明**：支持传入自定义审批实例 ID。
+   *
+   * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+   */
+  @Path
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  // builder 开始
+  public RemoveInstanceCommentReq() {}
+
+  public RemoveInstanceCommentReq(Builder builder) {
     /**
      * 用户ID类型，不填默认为open_id
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 根据user_id_type填写用户ID
-     * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+     * 用户 ID，ID 类型与 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_806a18fb5bdf525e38ba219733bdbd73
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 审批实例code（或者租户自定义审批实例ID）
-     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;;**说明**：支持传入自定义审批实例 ID。
+     *
+     * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
      */
-    @Path
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
+  }
 
-    // builder 开始
-    public RemoveInstanceCommentReq() {
+  public static class Builder {
+    private String userIdType; // 用户ID类型，不填默认为open_id
+    private String userId; // 用户 ID，ID 类型与 user_id_type 取值一致。
+
+    /**
+     * 用户ID类型，不填默认为open_id
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public RemoveInstanceCommentReq(Builder builder) {
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 根据user_id_type填写用户ID
-         * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批实例code（或者租户自定义审批实例ID）
-         * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-         */
-        this.instanceId = builder.instanceId;
+    /**
+     * 用户ID类型，不填默认为open_id
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.RemoveInstanceCommentRemoveInstanceCommentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums
+                .RemoveInstanceCommentRemoveInstanceCommentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID，ID 类型与 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    private String instanceId; // 审批实例 Code。获取方式：;;-
+
+    // [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。;- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。;;**说明**：支持传入自定义审批实例 ID。
+
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;;**说明**：支持传入自定义审批实例 ID。
+     *
+     * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public RemoveInstanceCommentReq build() {
+      return new RemoveInstanceCommentReq(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getInstanceId() {
-        return this.instanceId;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户ID类型，不填默认为open_id
-        private String userId; // 根据user_id_type填写用户ID
-        private String instanceId; // 审批实例code（或者租户自定义审批实例ID）
-
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.RemoveInstanceCommentRemoveInstanceCommentUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.RemoveInstanceCommentRemoveInstanceCommentUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 根据user_id_type填写用户ID
-         * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        /**
-         * 审批实例code（或者租户自定义审批实例ID）
-         * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        public RemoveInstanceCommentReq build() {
-            return new RemoveInstanceCommentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

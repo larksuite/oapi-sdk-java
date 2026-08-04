@@ -13,260 +13,283 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentSkillRule {
+  /**
+   * attribute id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * selected operator, 2 for GreaterEqual, 3 for LessEqual, 4 for RangeValue, 5 for In, 6 for
+   * NotIn, 7 for MultiSelectExcludeAll, 8 for MultiSelectContainAny, 9 for ContainAny, 10 for
+   * ExcludeAll, 11 for ContainAll, 12 for MultiSelectContainAll
+   *
+   * <p>示例值：
+   */
+  @SerializedName("selected_operator")
+  private Integer selectedOperator;
+
+  /**
+   * options for operator
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_options")
+  private Integer[] operatorOptions;
+
+  /**
+   * operand value based on selected_operator
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operand")
+  private String operand;
+
+  /**
+   * 1 for FAQ, 2 for Ticket, 3 for User, 4 for PreInquiryForm
+   *
+   * <p>示例值：
+   */
+  @SerializedName("category")
+  private Integer category;
+
+  /**
+   * rule 名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getSelectedOperator() {
+    return this.selectedOperator;
+  }
+
+  public void setSelectedOperator(Integer selectedOperator) {
+    this.selectedOperator = selectedOperator;
+  }
+
+  public Integer[] getOperatorOptions() {
+    return this.operatorOptions;
+  }
+
+  public void setOperatorOptions(Integer[] operatorOptions) {
+    this.operatorOptions = operatorOptions;
+  }
+
+  public String getOperand() {
+    return this.operand;
+  }
+
+  public void setOperand(String operand) {
+    this.operand = operand;
+  }
+
+  public Integer getCategory() {
+    return this.category;
+  }
+
+  public void setCategory(Integer category) {
+    this.category = category;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public AgentSkillRule() {}
+
+  public AgentSkillRule(Builder builder) {
     /**
-     * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-     * <p> 示例值：test-skill-id
+     * attribute id
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-     * <p> 示例值：8
+     * selected operator, 2 for GreaterEqual, 3 for LessEqual, 4 for RangeValue, 5 for In, 6 for
+     * NotIn, 7 for MultiSelectExcludeAll, 8 for MultiSelectContainAny, 9 for ContainAny, 10 for
+     * ExcludeAll, 11 for ContainAll, 12 for MultiSelectContainAll
+     *
+     * <p>示例值：
      */
-    @SerializedName("selected_operator")
-    private Integer selectedOperator;
+    this.selectedOperator = builder.selectedOperator;
     /**
-     * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-     * <p> 示例值：[3]
+     * options for operator
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator_options")
-    private Integer[] operatorOptions;
+    this.operatorOptions = builder.operatorOptions;
     /**
-     * rule 操作数的值
-     * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
+     * operand value based on selected_operator
+     *
+     * <p>示例值：
      */
-    @SerializedName("operand")
-    private String operand;
+    this.operand = builder.operand;
     /**
-     * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-     * <p> 示例值：3
+     * 1 for FAQ, 2 for Ticket, 3 for User, 4 for PreInquiryForm
+     *
+     * <p>示例值：
      */
-    @SerializedName("category")
-    private Integer category;
+    this.category = builder.category;
     /**
      * rule 名
-     * <p> 示例值：中文知识库分类
+     *
+     * <p>示例值：
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * attribute id
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * selected operator, 2 for GreaterEqual, 3 for LessEqual, 4 for RangeValue, 5 for In, 6 for
+     * NotIn, 7 for MultiSelectExcludeAll, 8 for MultiSelectContainAny, 9 for ContainAny, 10 for
+     * ExcludeAll, 11 for ContainAll, 12 for MultiSelectContainAll
+     *
+     * <p>示例值：
+     */
+    private Integer selectedOperator;
+
+    /**
+     * options for operator
+     *
+     * <p>示例值：
+     */
+    private Integer[] operatorOptions;
+
+    /**
+     * operand value based on selected_operator
+     *
+     * <p>示例值：
+     */
+    private String operand;
+
+    /**
+     * 1 for FAQ, 2 for Ticket, 3 for User, 4 for PreInquiryForm
+     *
+     * <p>示例值：
+     */
+    private Integer category;
+
+    /**
+     * rule 名
+     *
+     * <p>示例值：
+     */
     private String displayName;
 
-    // builder 开始
-    public AgentSkillRule() {
+    /**
+     * attribute id
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AgentSkillRule(Builder builder) {
-        /**
-         * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-         * <p> 示例值：test-skill-id
-         */
-        this.id = builder.id;
-        /**
-         * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：8
-         */
-        this.selectedOperator = builder.selectedOperator;
-        /**
-         * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：[3]
-         */
-        this.operatorOptions = builder.operatorOptions;
-        /**
-         * rule 操作数的值
-         * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-         */
-        this.operand = builder.operand;
-        /**
-         * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-         * <p> 示例值：3
-         */
-        this.category = builder.category;
-        /**
-         * rule 名
-         * <p> 示例值：中文知识库分类
-         */
-        this.displayName = builder.displayName;
+    /**
+     * selected operator, 2 for GreaterEqual, 3 for LessEqual, 4 for RangeValue, 5 for In, 6 for
+     * NotIn, 7 for MultiSelectExcludeAll, 8 for MultiSelectContainAny, 9 for ContainAny, 10 for
+     * ExcludeAll, 11 for ContainAll, 12 for MultiSelectContainAll
+     *
+     * <p>示例值：
+     *
+     * @param selectedOperator
+     * @return
+     */
+    public Builder selectedOperator(Integer selectedOperator) {
+      this.selectedOperator = selectedOperator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * options for operator
+     *
+     * <p>示例值：
+     *
+     * @param operatorOptions
+     * @return
+     */
+    public Builder operatorOptions(Integer[] operatorOptions) {
+      this.operatorOptions = operatorOptions;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * operand value based on selected_operator
+     *
+     * <p>示例值：
+     *
+     * @param operand
+     * @return
+     */
+    public Builder operand(String operand) {
+      this.operand = operand;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 1 for FAQ, 2 for Ticket, 3 for User, 4 for PreInquiryForm
+     *
+     * <p>示例值：
+     *
+     * @param category
+     * @return
+     */
+    public Builder category(Integer category) {
+      this.category = category;
+      return this;
     }
 
-    public Integer getSelectedOperator() {
-        return this.selectedOperator;
+    /**
+     * rule 名
+     *
+     * <p>示例值：
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setSelectedOperator(Integer selectedOperator) {
-        this.selectedOperator = selectedOperator;
+    public AgentSkillRule build() {
+      return new AgentSkillRule(this);
     }
+  }
 
-    public Integer[] getOperatorOptions() {
-        return this.operatorOptions;
-    }
-
-    public void setOperatorOptions(Integer[] operatorOptions) {
-        this.operatorOptions = operatorOptions;
-    }
-
-    public String getOperand() {
-        return this.operand;
-    }
-
-    public void setOperand(String operand) {
-        this.operand = operand;
-    }
-
-    public Integer getCategory() {
-        return this.category;
-    }
-
-    public void setCategory(Integer category) {
-        this.category = category;
-    }
-
-    public String getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-         * <p> 示例值：test-skill-id
-         */
-        private String id;
-        /**
-         * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：8
-         */
-        private Integer selectedOperator;
-        /**
-         * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：[3]
-         */
-        private Integer[] operatorOptions;
-        /**
-         * rule 操作数的值
-         * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-         */
-        private String operand;
-        /**
-         * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-         * <p> 示例值：3
-         */
-        private Integer category;
-        /**
-         * rule 名
-         * <p> 示例值：中文知识库分类
-         */
-        private String displayName;
-
-        /**
-         * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
-         * <p> 示例值：test-skill-id
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：8
-         *
-         * @param selectedOperator
-         * @return
-         */
-        public Builder selectedOperator(Integer selectedOperator) {
-            this.selectedOperator = selectedOperator;
-            return this;
-        }
-
-
-        /**
-         * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
-         * <p> 示例值：[3]
-         *
-         * @param operatorOptions
-         * @return
-         */
-        public Builder operatorOptions(Integer[] operatorOptions) {
-            this.operatorOptions = operatorOptions;
-            return this;
-        }
-
-
-        /**
-         * rule 操作数的值
-         * <p> 示例值：{;                "selected_departments": [;                    {;                        "id": "部门ID",;                        "name": "IT";                    };                ];            }
-         *
-         * @param operand
-         * @return
-         */
-        public Builder operand(String operand) {
-            this.operand = operand;
-            return this;
-        }
-
-
-        /**
-         * rule 类型，1-知识库，2-工单信息，3-用户飞书信息
-         * <p> 示例值：3
-         *
-         * @param category
-         * @return
-         */
-        public Builder category(Integer category) {
-            this.category = category;
-            return this;
-        }
-
-
-        /**
-         * rule 名
-         * <p> 示例值：中文知识库分类
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public AgentSkillRule build() {
-            return new AgentSkillRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

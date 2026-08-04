@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMeta {
+  /**
+   * 群组 ID
+   *
+   * <p>示例值：ou-7890123456abcdef
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 创建时间(iso8601)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间(iso8601)
+   *
+   * <p>示例值：iso8601
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 是否是外部群
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external")
+  private Boolean external;
+
+  /**
+   * 群模式，group：群组 topic: 话题
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_mode")
+  private String chatMode;
+
+  /**
+   * 群描述
+   *
+   * <p>示例值：群描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 群成员数
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("user_count")
+  private Integer userCount;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Boolean getExternal() {
+    return this.external;
+  }
+
+  public void setExternal(Boolean external) {
+    this.external = external;
+  }
+
+  public String getChatMode() {
+    return this.chatMode;
+  }
+
+  public void setChatMode(String chatMode) {
+    this.chatMode = chatMode;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Integer getUserCount() {
+    return this.userCount;
+  }
+
+  public void setUserCount(Integer userCount) {
+    this.userCount = userCount;
+  }
+
+  // builder 开始
+  public ChatMeta() {}
+
+  public ChatMeta(Builder builder) {
     /**
      * 群组 ID
-     * <p> 示例值：ou-7890123456abcdef
+     *
+     * <p>示例值：ou-7890123456abcdef
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 创建时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间(iso8601)
-     * <p> 示例值：iso8601
+     *
+     * <p>示例值：iso8601
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 是否是外部群
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("external")
-    private Boolean external;
+    this.external = builder.external;
     /**
      * 群模式，group：群组 topic: 话题
-     * <p> 示例值：group
+     *
+     * <p>示例值：group
      */
-    @SerializedName("chat_mode")
-    private String chatMode;
+    this.chatMode = builder.chatMode;
     /**
      * 群描述
-     * <p> 示例值：群描述
+     *
+     * <p>示例值：群描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 群成员数
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @SerializedName("user_count")
+    this.userCount = builder.userCount;
+  }
+
+  public static class Builder {
+    /**
+     * 群组 ID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     */
+    private String chatId;
+
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    private String createTime;
+
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：iso8601
+     */
+    private String updateTime;
+
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：
+     */
+    private Boolean external;
+
+    /**
+     * 群模式，group：群组 topic: 话题
+     *
+     * <p>示例值：group
+     */
+    private String chatMode;
+
+    /**
+     * 群描述
+     *
+     * <p>示例值：群描述
+     */
+    private String description;
+
+    /**
+     * 群成员数
+     *
+     * <p>示例值：20
+     */
     private Integer userCount;
 
-    // builder 开始
-    public ChatMeta() {
+    /**
+     * 群组 ID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public ChatMeta(Builder builder) {
-        /**
-         * 群组 ID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         */
-        this.external = builder.external;
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         */
-        this.chatMode = builder.chatMode;
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         */
-        this.description = builder.description;
-        /**
-         * 群成员数
-         * <p> 示例值：20
-         */
-        this.userCount = builder.userCount;
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：iso8601
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：
+     *
+     * @param external
+     * @return
+     */
+    public Builder external(Boolean external) {
+      this.external = external;
+      return this;
     }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
+    /**
+     * 群模式，group：群组 topic: 话题
+     *
+     * <p>示例值：group
+     *
+     * @param chatMode
+     * @return
+     */
+    public Builder chatMode(String chatMode) {
+      this.chatMode = chatMode;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 群描述
+     *
+     * <p>示例值：群描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 群成员数
+     *
+     * <p>示例值：20
+     *
+     * @param userCount
+     * @return
+     */
+    public Builder userCount(Integer userCount) {
+      this.userCount = userCount;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    public ChatMeta build() {
+      return new ChatMeta(this);
     }
+  }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Boolean getExternal() {
-        return this.external;
-    }
-
-    public void setExternal(Boolean external) {
-        this.external = external;
-    }
-
-    public String getChatMode() {
-        return this.chatMode;
-    }
-
-    public void setChatMode(String chatMode) {
-        this.chatMode = chatMode;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getUserCount() {
-        return this.userCount;
-    }
-
-    public void setUserCount(Integer userCount) {
-        this.userCount = userCount;
-    }
-
-    public static class Builder {
-        /**
-         * 群组 ID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        private String chatId;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         */
-        private String updateTime;
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         */
-        private Boolean external;
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         */
-        private String chatMode;
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         */
-        private String description;
-        /**
-         * 群成员数
-         * <p> 示例值：20
-         */
-        private Integer userCount;
-
-        /**
-         * 群组 ID
-         * <p> 示例值：ou-7890123456abcdef
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         *
-         * @param external
-         * @return
-         */
-        public Builder external(Boolean external) {
-            this.external = external;
-            return this;
-        }
-
-
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         *
-         * @param chatMode
-         * @return
-         */
-        public Builder chatMode(String chatMode) {
-            this.chatMode = chatMode;
-            return this;
-        }
-
-
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 群成员数
-         * <p> 示例值：20
-         *
-         * @param userCount
-         * @return
-         */
-        public Builder userCount(Integer userCount) {
-            this.userCount = userCount;
-            return this;
-        }
-
-
-        public ChatMeta build() {
-            return new ChatMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

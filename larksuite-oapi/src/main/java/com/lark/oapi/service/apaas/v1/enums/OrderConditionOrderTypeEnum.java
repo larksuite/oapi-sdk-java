@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 排序方式
- */
+/** 排序方式，支持desc和asc */
 public enum OrderConditionOrderTypeEnum {
-    ORDERTYPEASC("asc"), // 升序
-    ORDERTYPEDESC("desc"), // 降序
-    ;
-    private String value;
+  ORDERTYPEASC("asc"), // 升序
+  ORDERTYPEDESC("desc"), // 降序
+  ;
+  private String value;
 
-    OrderConditionOrderTypeEnum(String value) {
-        this.value = value;
-    }
+  OrderConditionOrderTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

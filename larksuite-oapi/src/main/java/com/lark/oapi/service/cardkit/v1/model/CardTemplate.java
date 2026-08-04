@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CardTemplate {
+  /**
+   * 卡片模板 ID
+   *
+   * <p>示例值：AAqSZ3wf5hupo
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 卡片模板名
+   *
+   * <p>示例值：同事圈分享卡片
+   */
+  @SerializedName("template_name")
+  private String templateName;
+
+  /**
+   * 卡片模板所有者
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("template_owner")
+  private String templateOwner;
+
+  /**
+   * 卡片模板版本
+   *
+   * <p>示例值：1.0.0
+   */
+  @SerializedName("template_version_name")
+  private String templateVersionName;
+
+  /**
+   * 卡片 Schema 版本
+   *
+   * <p>示例值：2.0
+   */
+  @SerializedName("schema_version")
+  private String schemaVersion;
+
+  /**
+   * 卡片模板发布状态
+   *
+   * <p>示例值：PUBLISHED
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 卡片模板创建时间（毫秒）
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 卡片模板更新时间（毫秒）
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getTemplateName() {
+    return this.templateName;
+  }
+
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
+  public String getTemplateOwner() {
+    return this.templateOwner;
+  }
+
+  public void setTemplateOwner(String templateOwner) {
+    this.templateOwner = templateOwner;
+  }
+
+  public String getTemplateVersionName() {
+    return this.templateVersionName;
+  }
+
+  public void setTemplateVersionName(String templateVersionName) {
+    this.templateVersionName = templateVersionName;
+  }
+
+  public String getSchemaVersion() {
+    return this.schemaVersion;
+  }
+
+  public void setSchemaVersion(String schemaVersion) {
+    this.schemaVersion = schemaVersion;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public CardTemplate() {}
+
+  public CardTemplate(Builder builder) {
     /**
      * 卡片模板 ID
-     * <p> 示例值：AAqSZ3wf5hupo
+     *
+     * <p>示例值：AAqSZ3wf5hupo
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 卡片模板名
-     * <p> 示例值：同事圈分享卡片
+     *
+     * <p>示例值：同事圈分享卡片
      */
-    @SerializedName("template_name")
-    private String templateName;
+    this.templateName = builder.templateName;
     /**
      * 卡片模板所有者
-     * <p> 示例值：cli_a62a4fe4e938d01c
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("template_owner")
-    private String templateOwner;
+    this.templateOwner = builder.templateOwner;
     /**
      * 卡片模板版本
-     * <p> 示例值：1.0.0
+     *
+     * <p>示例值：1.0.0
      */
-    @SerializedName("template_version_name")
-    private String templateVersionName;
+    this.templateVersionName = builder.templateVersionName;
     /**
      * 卡片 Schema 版本
-     * <p> 示例值：2.0
+     *
+     * <p>示例值：2.0
      */
-    @SerializedName("schema_version")
-    private String schemaVersion;
+    this.schemaVersion = builder.schemaVersion;
     /**
      * 卡片模板发布状态
-     * <p> 示例值：PUBLISHED
+     *
+     * <p>示例值：PUBLISHED
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 卡片模板创建时间（毫秒）
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 卡片模板更新时间（毫秒）
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片模板 ID
+     *
+     * <p>示例值：AAqSZ3wf5hupo
+     */
+    private String templateId;
+
+    /**
+     * 卡片模板名
+     *
+     * <p>示例值：同事圈分享卡片
+     */
+    private String templateName;
+
+    /**
+     * 卡片模板所有者
+     *
+     * <p>示例值：cli_***
+     */
+    private String templateOwner;
+
+    /**
+     * 卡片模板版本
+     *
+     * <p>示例值：1.0.0
+     */
+    private String templateVersionName;
+
+    /**
+     * 卡片 Schema 版本
+     *
+     * <p>示例值：2.0
+     */
+    private String schemaVersion;
+
+    /**
+     * 卡片模板发布状态
+     *
+     * <p>示例值：PUBLISHED
+     */
+    private String status;
+
+    /**
+     * 卡片模板创建时间（毫秒）
+     *
+     * <p>示例值：1675742789470
+     */
+    private String createTime;
+
+    /**
+     * 卡片模板更新时间（毫秒）
+     *
+     * <p>示例值：1675742789470
+     */
     private String updateTime;
 
-    // builder 开始
-    public CardTemplate() {
+    /**
+     * 卡片模板 ID
+     *
+     * <p>示例值：AAqSZ3wf5hupo
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public CardTemplate(Builder builder) {
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 卡片模板名
-         * <p> 示例值：同事圈分享卡片
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         */
-        this.templateOwner = builder.templateOwner;
-        /**
-         * 卡片模板版本
-         * <p> 示例值：1.0.0
-         */
-        this.templateVersionName = builder.templateVersionName;
-        /**
-         * 卡片 Schema 版本
-         * <p> 示例值：2.0
-         */
-        this.schemaVersion = builder.schemaVersion;
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         */
-        this.status = builder.status;
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1675742789470
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1675742789470
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 卡片模板名
+     *
+     * <p>示例值：同事圈分享卡片
+     *
+     * @param templateName
+     * @return
+     */
+    public Builder templateName(String templateName) {
+      this.templateName = templateName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 卡片模板所有者
+     *
+     * <p>示例值：cli_***
+     *
+     * @param templateOwner
+     * @return
+     */
+    public Builder templateOwner(String templateOwner) {
+      this.templateOwner = templateOwner;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 卡片模板版本
+     *
+     * <p>示例值：1.0.0
+     *
+     * @param templateVersionName
+     * @return
+     */
+    public Builder templateVersionName(String templateVersionName) {
+      this.templateVersionName = templateVersionName;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 卡片 Schema 版本
+     *
+     * <p>示例值：2.0
+     *
+     * @param schemaVersion
+     * @return
+     */
+    public Builder schemaVersion(String schemaVersion) {
+      this.schemaVersion = schemaVersion;
+      return this;
     }
 
-    public String getTemplateName() {
-        return this.templateName;
+    /**
+     * 卡片模板发布状态
+     *
+     * <p>示例值：PUBLISHED
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
+    /**
+     * 卡片模板创建时间（毫秒）
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getTemplateOwner() {
-        return this.templateOwner;
+    /**
+     * 卡片模板更新时间（毫秒）
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setTemplateOwner(String templateOwner) {
-        this.templateOwner = templateOwner;
+    public CardTemplate build() {
+      return new CardTemplate(this);
     }
+  }
 
-    public String getTemplateVersionName() {
-        return this.templateVersionName;
-    }
-
-    public void setTemplateVersionName(String templateVersionName) {
-        this.templateVersionName = templateVersionName;
-    }
-
-    public String getSchemaVersion() {
-        return this.schemaVersion;
-    }
-
-    public void setSchemaVersion(String schemaVersion) {
-        this.schemaVersion = schemaVersion;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         */
-        private String templateId;
-        /**
-         * 卡片模板名
-         * <p> 示例值：同事圈分享卡片
-         */
-        private String templateName;
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         */
-        private String templateOwner;
-        /**
-         * 卡片模板版本
-         * <p> 示例值：1.0.0
-         */
-        private String templateVersionName;
-        /**
-         * 卡片 Schema 版本
-         * <p> 示例值：2.0
-         */
-        private String schemaVersion;
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         */
-        private String status;
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1675742789470
-         */
-        private String createTime;
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1675742789470
-         */
-        private String updateTime;
-
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板名
-         * <p> 示例值：同事圈分享卡片
-         *
-         * @param templateName
-         * @return
-         */
-        public Builder templateName(String templateName) {
-            this.templateName = templateName;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         *
-         * @param templateOwner
-         * @return
-         */
-        public Builder templateOwner(String templateOwner) {
-            this.templateOwner = templateOwner;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板版本
-         * <p> 示例值：1.0.0
-         *
-         * @param templateVersionName
-         * @return
-         */
-        public Builder templateVersionName(String templateVersionName) {
-            this.templateVersionName = templateVersionName;
-            return this;
-        }
-
-
-        /**
-         * 卡片 Schema 版本
-         * <p> 示例值：2.0
-         *
-         * @param schemaVersion
-         * @return
-         */
-        public Builder schemaVersion(String schemaVersion) {
-            this.schemaVersion = schemaVersion;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1675742789470
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1675742789470
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public CardTemplate build() {
-            return new CardTemplate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

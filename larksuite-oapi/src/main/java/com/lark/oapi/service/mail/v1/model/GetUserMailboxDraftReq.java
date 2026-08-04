@@ -13,150 +13,154 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetUserMailboxDraftReq {
+  /**
+   * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
+   *
+   * <p>示例值：full
+   */
+  @Query
+  @SerializedName("format")
+  private String format;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：aba@aac.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 草稿 ID。可通过列出草稿列表接口获取。
+   *
+   * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+   */
+  @Path
+  @SerializedName("draft_id")
+  private String draftId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  // builder 开始
+  public GetUserMailboxDraftReq() {}
+
+  public GetUserMailboxDraftReq(Builder builder) {
     /**
      * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
-     * <p> 示例值：full
+     *
+     * <p>示例值：full
      */
-    @Query
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
-     * 用户邮箱地址，使用用户身份时可填写me
-     * <p> 示例值：aba@aac.com
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：aba@aac.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
-     * 草稿ID，可通过列出草稿列表接口获得
-     * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     * 草稿 ID。可通过列出草稿列表接口获取。
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
      */
-    @Path
-    @SerializedName("draft_id")
-    private String draftId;
+    this.draftId = builder.draftId;
+  }
 
-    // builder 开始
-    public GetUserMailboxDraftReq() {
+  public static class Builder {
+    private String format; // 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
+
+    /**
+     * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
+     *
+     * <p>示例值：full
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public GetUserMailboxDraftReq(Builder builder) {
-        /**
-         * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
-         * <p> 示例值：full
-         */
-        this.format = builder.format;
-        /**
-         * 用户邮箱地址，使用用户身份时可填写me
-         * <p> 示例值：aba@aac.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 草稿ID，可通过列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         */
-        this.draftId = builder.draftId;
+    /**
+     * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
+     *
+     * <p>示例值：full
+     *
+     * @param format {@link com.lark.oapi.service.mail.v1.enums.GetUserMailboxDraftFormatEnum}
+     * @return
+     */
+    public Builder format(
+        com.lark.oapi.service.mail.v1.enums.GetUserMailboxDraftFormatEnum format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符
+    // me 表示当前授权用户的主邮箱。
+    private String draftId; // 草稿 ID。可通过列出草稿列表接口获取。
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：aba@aac.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    /**
+     * 草稿 ID。可通过列出草稿列表接口获取。
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
+    public GetUserMailboxDraftReq build() {
+      return new GetUserMailboxDraftReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getDraftId() {
-        return this.draftId;
-    }
-
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
-
-    public static class Builder {
-        private String format; // 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
-        private String userMailboxId; // 用户邮箱地址，使用用户身份时可填写me
-        private String draftId; // 草稿ID，可通过列出草稿列表接口获得
-
-        /**
-         * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
-         * <p> 示例值：full
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
-         * <p> 示例值：full
-         *
-         * @param format {@link com.lark.oapi.service.mail.v1.enums.GetUserMailboxDraftFormatEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.mail.v1.enums.GetUserMailboxDraftFormatEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址，使用用户身份时可填写me
-         * <p> 示例值：aba@aac.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 草稿ID，可通过列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-
-        public GetUserMailboxDraftReq build() {
-            return new GetUserMailboxDraftReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

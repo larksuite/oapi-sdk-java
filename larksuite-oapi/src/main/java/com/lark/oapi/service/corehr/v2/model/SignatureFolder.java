@@ -13,223 +13,235 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureFolder {
+  /**
+   * 业务 会对应不同的topic
+   *
+   * <p>示例值：
+   */
+  @SerializedName("biz_type")
+  private Enum bizType;
+
+  /**
+   * 签署人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_info")
+  private SignatureHumanInfo ownerInfo;
+
+  /**
+   * 发起签署所需的电子签模板信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("signature_template_fields")
+  private SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields;
+
+  /**
+   * 业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
+   *
+   * <p>示例值：10001
+   */
+  @SerializedName("unique_key")
+  private Integer uniqueKey;
+
+  /**
+   * 调用方生成，唯一即可
+   *
+   * <p>示例值：7246307700768902956
+   */
+  @SerializedName("biz_process_id")
+  private String bizProcessId;
+
+  public Enum getBizType() {
+    return this.bizType;
+  }
+
+  public void setBizType(Enum bizType) {
+    this.bizType = bizType;
+  }
+
+  public SignatureHumanInfo getOwnerInfo() {
+    return this.ownerInfo;
+  }
+
+  public void setOwnerInfo(SignatureHumanInfo ownerInfo) {
+    this.ownerInfo = ownerInfo;
+  }
+
+  public SignatureTemplateIdWithSystemAndCustomField[] getSignatureTemplateFields() {
+    return this.signatureTemplateFields;
+  }
+
+  public void setSignatureTemplateFields(
+      SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields) {
+    this.signatureTemplateFields = signatureTemplateFields;
+  }
+
+  public Integer getUniqueKey() {
+    return this.uniqueKey;
+  }
+
+  public void setUniqueKey(Integer uniqueKey) {
+    this.uniqueKey = uniqueKey;
+  }
+
+  public String getBizProcessId() {
+    return this.bizProcessId;
+  }
+
+  public void setBizProcessId(String bizProcessId) {
+    this.bizProcessId = bizProcessId;
+  }
+
+  // builder 开始
+  public SignatureFolder() {}
+
+  public SignatureFolder(Builder builder) {
     /**
      * 业务 会对应不同的topic
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("biz_type")
+    this.bizType = builder.bizType;
+    /**
+     * 签署人信息
+     *
+     * <p>示例值：
+     */
+    this.ownerInfo = builder.ownerInfo;
+    /**
+     * 发起签署所需的电子签模板信息列表
+     *
+     * <p>示例值：
+     */
+    this.signatureTemplateFields = builder.signatureTemplateFields;
+    /**
+     * 业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
+     *
+     * <p>示例值：10001
+     */
+    this.uniqueKey = builder.uniqueKey;
+    /**
+     * 调用方生成，唯一即可
+     *
+     * <p>示例值：7246307700768902956
+     */
+    this.bizProcessId = builder.bizProcessId;
+  }
+
+  public static class Builder {
+    /**
+     * 业务 会对应不同的topic
+     *
+     * <p>示例值：
+     */
     private Enum bizType;
+
     /**
-     * 归属人信息
-     * <p> 示例值：
+     * 签署人信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_info")
     private SignatureHumanInfo ownerInfo;
+
     /**
-     * 电子签模板字段列表
-     * <p> 示例值：
+     * 发起签署所需的电子签模板信息列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("signature_template_fields")
     private SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields;
+
     /**
-     * 某个业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
-     * <p> 示例值：1000
+     * 业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
+     *
+     * <p>示例值：10001
      */
-    @SerializedName("unique_key")
     private Integer uniqueKey;
+
     /**
-     * 业务流程对应id 可不传
-     * <p> 示例值：123123232
+     * 调用方生成，唯一即可
+     *
+     * <p>示例值：7246307700768902956
      */
-    @SerializedName("biz_process_id")
     private String bizProcessId;
 
-    // builder 开始
-    public SignatureFolder() {
+    /**
+     * 业务 会对应不同的topic
+     *
+     * <p>示例值：
+     *
+     * @param bizType
+     * @return
+     */
+    public Builder bizType(Enum bizType) {
+      this.bizType = bizType;
+      return this;
     }
 
-    public SignatureFolder(Builder builder) {
-        /**
-         * 业务 会对应不同的topic
-         * <p> 示例值：
-         */
-        this.bizType = builder.bizType;
-        /**
-         * 归属人信息
-         * <p> 示例值：
-         */
-        this.ownerInfo = builder.ownerInfo;
-        /**
-         * 电子签模板字段列表
-         * <p> 示例值：
-         */
-        this.signatureTemplateFields = builder.signatureTemplateFields;
-        /**
-         * 某个业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
-         * <p> 示例值：1000
-         */
-        this.uniqueKey = builder.uniqueKey;
-        /**
-         * 业务流程对应id 可不传
-         * <p> 示例值：123123232
-         */
-        this.bizProcessId = builder.bizProcessId;
+    /**
+     * 签署人信息
+     *
+     * <p>示例值：
+     *
+     * @param ownerInfo
+     * @return
+     */
+    public Builder ownerInfo(SignatureHumanInfo ownerInfo) {
+      this.ownerInfo = ownerInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发起签署所需的电子签模板信息列表
+     *
+     * <p>示例值：
+     *
+     * @param signatureTemplateFields
+     * @return
+     */
+    public Builder signatureTemplateFields(
+        SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields) {
+      this.signatureTemplateFields = signatureTemplateFields;
+      return this;
     }
 
-    public Enum getBizType() {
-        return this.bizType;
+    /**
+     * 业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
+     *
+     * <p>示例值：10001
+     *
+     * @param uniqueKey
+     * @return
+     */
+    public Builder uniqueKey(Integer uniqueKey) {
+      this.uniqueKey = uniqueKey;
+      return this;
     }
 
-    public void setBizType(Enum bizType) {
-        this.bizType = bizType;
+    /**
+     * 调用方生成，唯一即可
+     *
+     * <p>示例值：7246307700768902956
+     *
+     * @param bizProcessId
+     * @return
+     */
+    public Builder bizProcessId(String bizProcessId) {
+      this.bizProcessId = bizProcessId;
+      return this;
     }
 
-    public SignatureHumanInfo getOwnerInfo() {
-        return this.ownerInfo;
+    public SignatureFolder build() {
+      return new SignatureFolder(this);
     }
+  }
 
-    public void setOwnerInfo(SignatureHumanInfo ownerInfo) {
-        this.ownerInfo = ownerInfo;
-    }
-
-    public SignatureTemplateIdWithSystemAndCustomField[] getSignatureTemplateFields() {
-        return this.signatureTemplateFields;
-    }
-
-    public void setSignatureTemplateFields(SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields) {
-        this.signatureTemplateFields = signatureTemplateFields;
-    }
-
-    public Integer getUniqueKey() {
-        return this.uniqueKey;
-    }
-
-    public void setUniqueKey(Integer uniqueKey) {
-        this.uniqueKey = uniqueKey;
-    }
-
-    public String getBizProcessId() {
-        return this.bizProcessId;
-    }
-
-    public void setBizProcessId(String bizProcessId) {
-        this.bizProcessId = bizProcessId;
-    }
-
-    public static class Builder {
-        /**
-         * 业务 会对应不同的topic
-         * <p> 示例值：
-         */
-        private Enum bizType;
-        /**
-         * 归属人信息
-         * <p> 示例值：
-         */
-        private SignatureHumanInfo ownerInfo;
-        /**
-         * 电子签模板字段列表
-         * <p> 示例值：
-         */
-        private SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields;
-        /**
-         * 某个业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
-         * <p> 示例值：1000
-         */
-        private Integer uniqueKey;
-        /**
-         * 业务流程对应id 可不传
-         * <p> 示例值：123123232
-         */
-        private String bizProcessId;
-
-        /**
-         * 业务 会对应不同的topic
-         * <p> 示例值：
-         *
-         * @param bizType
-         * @return
-         */
-        public Builder bizType(Enum bizType) {
-            this.bizType = bizType;
-            return this;
-        }
-
-
-        /**
-         * 归属人信息
-         * <p> 示例值：
-         *
-         * @param ownerInfo
-         * @return
-         */
-        public Builder ownerInfo(SignatureHumanInfo ownerInfo) {
-            this.ownerInfo = ownerInfo;
-            return this;
-        }
-
-
-        /**
-         * 电子签模板字段列表
-         * <p> 示例值：
-         *
-         * @param signatureTemplateFields
-         * @return
-         */
-        public Builder signatureTemplateFields(SignatureTemplateIdWithSystemAndCustomField[] signatureTemplateFields) {
-            this.signatureTemplateFields = signatureTemplateFields;
-            return this;
-        }
-
-
-        /**
-         * 某个业务的唯一key，用于幂等。相同key不会重复发起文件，但会返回对应TaskID，并给发起成功回调
-         * <p> 示例值：1000
-         *
-         * @param uniqueKey
-         * @return
-         */
-        public Builder uniqueKey(Integer uniqueKey) {
-            this.uniqueKey = uniqueKey;
-            return this;
-        }
-
-
-        /**
-         * 业务流程对应id 可不传
-         * <p> 示例值：123123232
-         *
-         * @param bizProcessId
-         * @return
-         */
-        public Builder bizProcessId(String bizProcessId) {
-            this.bizProcessId = bizProcessId;
-            return this;
-        }
-
-
-        public SignatureFolder build() {
-            return new SignatureFolder(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

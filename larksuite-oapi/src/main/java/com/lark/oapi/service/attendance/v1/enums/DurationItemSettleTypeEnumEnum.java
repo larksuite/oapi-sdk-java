@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 加班类型
- */
+/** 加班类型 */
 public enum DurationItemSettleTypeEnumEnum {
-    ONLY_RECORD(0), // 只记录
-    COMPENSATORY_LEAVE(1), // 调休
-    PAY(2), // 加班费
-    CUSTOM(3), // 用户自定义
-    ;
-    private Integer value;
+  ONLY_RECORD(0), // 只记录
+  COMPENSATORY_LEAVE(1), // 调休
+  PAY(2), // 加班费
+  CUSTOM(3), // 用户自定义
+  ;
+  private Integer value;
 
-    DurationItemSettleTypeEnumEnum(Integer value) {
-        this.value = value;
-    }
+  DurationItemSettleTypeEnumEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

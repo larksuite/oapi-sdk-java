@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifFilterRule {
+  /**
+   * 筛选条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_conditions")
+  private VerifFilterCondition[] filterConditions;
+
+  /**
+   * 条件之间的关联关系
+   *
+   * <p>示例值：(1 or 2 and ( 3 or 4 ))
+   */
+  @SerializedName("filter_relationship")
+  private String filterRelationship;
+
+  public VerifFilterCondition[] getFilterConditions() {
+    return this.filterConditions;
+  }
+
+  public void setFilterConditions(VerifFilterCondition[] filterConditions) {
+    this.filterConditions = filterConditions;
+  }
+
+  public String getFilterRelationship() {
+    return this.filterRelationship;
+  }
+
+  public void setFilterRelationship(String filterRelationship) {
+    this.filterRelationship = filterRelationship;
+  }
+
+  // builder 开始
+  public VerifFilterRule() {}
+
+  public VerifFilterRule(Builder builder) {
     /**
      * 筛选条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_conditions")
-    private VerifFilterCondition[] filterConditions;
+    this.filterConditions = builder.filterConditions;
     /**
      * 条件之间的关联关系
-     * <p> 示例值：(1 or 2 and ( 3 or 4 ))
+     *
+     * <p>示例值：(1 or 2 and ( 3 or 4 ))
      */
-    @SerializedName("filter_relationship")
+    this.filterRelationship = builder.filterRelationship;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     */
+    private VerifFilterCondition[] filterConditions;
+
+    /**
+     * 条件之间的关联关系
+     *
+     * <p>示例值：(1 or 2 and ( 3 or 4 ))
+     */
     private String filterRelationship;
 
-    // builder 开始
-    public VerifFilterRule() {
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     *
+     * @param filterConditions
+     * @return
+     */
+    public Builder filterConditions(VerifFilterCondition[] filterConditions) {
+      this.filterConditions = filterConditions;
+      return this;
     }
 
-    public VerifFilterRule(Builder builder) {
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.filterConditions = builder.filterConditions;
-        /**
-         * 条件之间的关联关系
-         * <p> 示例值：(1 or 2 and ( 3 or 4 ))
-         */
-        this.filterRelationship = builder.filterRelationship;
+    /**
+     * 条件之间的关联关系
+     *
+     * <p>示例值：(1 or 2 and ( 3 or 4 ))
+     *
+     * @param filterRelationship
+     * @return
+     */
+    public Builder filterRelationship(String filterRelationship) {
+      this.filterRelationship = filterRelationship;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public VerifFilterRule build() {
+      return new VerifFilterRule(this);
     }
+  }
 
-    public VerifFilterCondition[] getFilterConditions() {
-        return this.filterConditions;
-    }
-
-    public void setFilterConditions(VerifFilterCondition[] filterConditions) {
-        this.filterConditions = filterConditions;
-    }
-
-    public String getFilterRelationship() {
-        return this.filterRelationship;
-    }
-
-    public void setFilterRelationship(String filterRelationship) {
-        this.filterRelationship = filterRelationship;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        private VerifFilterCondition[] filterConditions;
-        /**
-         * 条件之间的关联关系
-         * <p> 示例值：(1 or 2 and ( 3 or 4 ))
-         */
-        private String filterRelationship;
-
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         *
-         * @param filterConditions
-         * @return
-         */
-        public Builder filterConditions(VerifFilterCondition[] filterConditions) {
-            this.filterConditions = filterConditions;
-            return this;
-        }
-
-
-        /**
-         * 条件之间的关联关系
-         * <p> 示例值：(1 or 2 and ( 3 or 4 ))
-         *
-         * @param filterRelationship
-         * @return
-         */
-        public Builder filterRelationship(String filterRelationship) {
-            this.filterRelationship = filterRelationship;
-            return this;
-        }
-
-
-        public VerifFilterRule build() {
-            return new VerifFilterRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

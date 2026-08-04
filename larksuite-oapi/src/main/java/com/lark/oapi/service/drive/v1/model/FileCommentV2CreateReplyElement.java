@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileCommentV2CreateReplyElement {
+  /**
+   * text | mention_user | link
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
+   *
+   * <p>示例值：请尽快处理这份文件的审批流程
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
+   *
+   * <p>示例值：ou_1234567890abcdef1234567890abcdef
+   */
+  @SerializedName("mention_user")
+  private String mentionUser;
+
+  /**
+   * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
+   *
+   * <p>示例值：https://example.com/docs/approval-guide
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getMentionUser() {
+    return this.mentionUser;
+  }
+
+  public void setMentionUser(String mentionUser) {
+    this.mentionUser = mentionUser;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public FileCommentV2CreateReplyElement() {}
+
+  public FileCommentV2CreateReplyElement(Builder builder) {
     /**
      * text | mention_user | link
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
-     * <p> 示例值：请尽快处理这份文件的审批流程
+     *
+     * <p>示例值：请尽快处理这份文件的审批流程
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
-     * <p> 示例值：ou_1234567890abcdef1234567890abcdef
+     *
+     * <p>示例值：ou_1234567890abcdef1234567890abcdef
      */
-    @SerializedName("mention_user")
-    private String mentionUser;
+    this.mentionUser = builder.mentionUser;
     /**
      * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
-     * <p> 示例值：https://example.com/docs/approval-guide
+     *
+     * <p>示例值：https://example.com/docs/approval-guide
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * text | mention_user | link
+     *
+     * <p>示例值：text
+     */
+    private String type;
+
+    /**
+     * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
+     *
+     * <p>示例值：请尽快处理这份文件的审批流程
+     */
+    private String text;
+
+    /**
+     * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
+     *
+     * <p>示例值：ou_1234567890abcdef1234567890abcdef
+     */
+    private String mentionUser;
+
+    /**
+     * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
+     *
+     * <p>示例值：https://example.com/docs/approval-guide
+     */
     private String link;
 
-    // builder 开始
-    public FileCommentV2CreateReplyElement() {
+    /**
+     * text | mention_user | link
+     *
+     * <p>示例值：text
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public FileCommentV2CreateReplyElement(Builder builder) {
-        /**
-         * text | mention_user | link
-         * <p> 示例值：text
-         */
-        this.type = builder.type;
-        /**
-         * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
-         * <p> 示例值：请尽快处理这份文件的审批流程
-         */
-        this.text = builder.text;
-        /**
-         * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
-         * <p> 示例值：ou_1234567890abcdef1234567890abcdef
-         */
-        this.mentionUser = builder.mentionUser;
-        /**
-         * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
-         * <p> 示例值：https://example.com/docs/approval-guide
-         */
-        this.link = builder.link;
+    /**
+     * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
+     *
+     * <p>示例值：请尽快处理这份文件的审批流程
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
+     *
+     * <p>示例值：ou_1234567890abcdef1234567890abcdef
+     *
+     * @param mentionUser
+     * @return
+     */
+    public Builder mentionUser(String mentionUser) {
+      this.mentionUser = mentionUser;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
+     *
+     * <p>示例值：https://example.com/docs/approval-guide
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public FileCommentV2CreateReplyElement build() {
+      return new FileCommentV2CreateReplyElement(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getMentionUser() {
-        return this.mentionUser;
-    }
-
-    public void setMentionUser(String mentionUser) {
-        this.mentionUser = mentionUser;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * text | mention_user | link
-         * <p> 示例值：text
-         */
-        private String type;
-        /**
-         * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
-         * <p> 示例值：请尽快处理这份文件的审批流程
-         */
-        private String text;
-        /**
-         * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
-         * <p> 示例值：ou_1234567890abcdef1234567890abcdef
-         */
-        private String mentionUser;
-        /**
-         * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
-         * <p> 示例值：https://example.com/docs/approval-guide
-         */
-        private String link;
-
-        /**
-         * text | mention_user | link
-         * <p> 示例值：text
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 评论元素的文本内容。仅当 type 为 text 时生效，支持普通文本输入，长度限制为 1-1000 字符。
-         * <p> 示例值：请尽快处理这份文件的审批流程
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 被@用户的唯一标识。仅当 type 为 mention_user 时生效，可通过调用「获取用户信息」接口获取目标用户的 ID。
-         * <p> 示例值：ou_1234567890abcdef1234567890abcdef
-         *
-         * @param mentionUser
-         * @return
-         */
-        public Builder mentionUser(String mentionUser) {
-            this.mentionUser = mentionUser;
-            return this;
-        }
-
-
-        /**
-         * 跳转链接地址。仅当 type 为 link 时生效，需符合 HTTP/HTTPS 协议规范，长度限制为 1-2000 字符。
-         * <p> 示例值：https://example.com/docs/approval-guide
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public FileCommentV2CreateReplyElement build() {
-            return new FileCommentV2CreateReplyElement(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

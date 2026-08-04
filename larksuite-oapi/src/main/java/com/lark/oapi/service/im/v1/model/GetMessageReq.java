@@ -13,149 +13,236 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class GetMessageReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+   * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+   * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+   * 卡片请参考[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+   * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+   * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+   * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+   *
+   * <p>示例值：user_card_content
+   */
+  @Query
+  @SerializedName("card_msg_content_type")
+  private String cardMsgContentType;
+
+  /**
+   * 是否返回消息发送者名称信息
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_sender_name")
+  private Boolean withSenderName;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getCardMsgContentType() {
+    return this.cardMsgContentType;
+  }
+
+  public void setCardMsgContentType(String cardMsgContentType) {
+    this.cardMsgContentType = cardMsgContentType;
+  }
+
+  public Boolean getWithSenderName() {
+    return this.withSenderName;
+  }
+
+  public void setWithSenderName(Boolean withSenderName) {
+    this.withSenderName = withSenderName;
+  }
+
+  /**
+   * 消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public GetMessageReq() {}
+
+  public GetMessageReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 卡片消息返回类型
-     * <p> 示例值：user_card_content
+     * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+     * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+     * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+     * 卡片请参考[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+     * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+     * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+     *
+     * <p>示例值：user_card_content
      */
-    @Query
-    @SerializedName("card_msg_content_type")
-    private String cardMsgContentType;
+    this.cardMsgContentType = builder.cardMsgContentType;
     /**
-     * 待获取消息内容的消息的ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     * 是否返回消息发送者名称信息
+     *
+     * <p>示例值：false
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.withSenderName = builder.withSenderName;
+    /**
+     * 消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
+    this.messageId = builder.messageId;
+  }
 
-    // builder 开始
-    public GetMessageReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String
+        cardMsgContentType; // `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+    // **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片 JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0 卡片请参考[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。; * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;> **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+    private Boolean withSenderName; // 是否返回消息发送者名称信息
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetMessageReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 卡片消息返回类型
-         * <p> 示例值：user_card_content
-         */
-        this.cardMsgContentType = builder.cardMsgContentType;
-        /**
-         * 待获取消息内容的消息的ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+     * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+     * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+     * 卡片请参考[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+     * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+     * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+     *
+     * <p>示例值：user_card_content
+     *
+     * @param cardMsgContentType
+     * @return
+     */
+    public Builder cardMsgContentType(String cardMsgContentType) {
+      this.cardMsgContentType = cardMsgContentType;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 是否返回消息发送者名称信息
+     *
+     * <p>示例值：false
+     *
+     * @param withSenderName
+     * @return
+     */
+    public Builder withSenderName(Boolean withSenderName) {
+      this.withSenderName = withSenderName;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    private String messageId; // 消息 ID。ID 获取方式：; ;-
+
+    // 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。;- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。;- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。
+
+    /**
+     * 消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public String getCardMsgContentType() {
-        return this.cardMsgContentType;
+    public GetMessageReq build() {
+      return new GetMessageReq(this);
     }
+  }
 
-    public void setCardMsgContentType(String cardMsgContentType) {
-        this.cardMsgContentType = cardMsgContentType;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String cardMsgContentType; // 卡片消息返回类型
-        private String messageId; // 待获取消息内容的消息的ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.GetMessageGetMessageContentV1UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 卡片消息返回类型
-         * <p> 示例值：user_card_content
-         *
-         * @param cardMsgContentType
-         * @return
-         */
-        public Builder cardMsgContentType(String cardMsgContentType) {
-            this.cardMsgContentType = cardMsgContentType;
-            return this;
-        }
-
-        /**
-         * 待获取消息内容的消息的ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public GetMessageReq build() {
-            return new GetMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

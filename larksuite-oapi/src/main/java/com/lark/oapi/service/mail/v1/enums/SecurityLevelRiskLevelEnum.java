@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 风险邮件等级
- */
+/** 风险邮件等级 */
 public enum SecurityLevelRiskLevelEnum {
-    WARNING("WARNING"), // 警告
-    DANGER("DANGER"), // 危险
-    INFO("INFO"), // 提示
-    ;
-    private String value;
+  WARNING("WARNING"), // 警告
+  DANGER("DANGER"), // 危险
+  INFO("INFO"), // 提示
+  ;
+  private String value;
 
-    SecurityLevelRiskLevelEnum(String value) {
-        this.value = value;
-    }
+  SecurityLevelRiskLevelEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

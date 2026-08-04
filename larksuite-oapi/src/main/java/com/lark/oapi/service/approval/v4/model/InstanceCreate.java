@@ -13,790 +13,939 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceCreate {
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批发起人的 user_id，与 open_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批发起人的 open_id，与 user_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+   *
+   * <p>示例值：ou_3cda9c969f737aaa05e6915dce306cb9
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 审批发起人所属部门 ID。如果用户只属于一个部门，可以不填。如果用户属于多个部门，不填值则默认选择部门列表第一个部门。获取方式参见[部门
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。;;**说明**：;;-
+   * 不支持填写根部门。;- 需填写 department_id 类型的部门 ID。
+   *
+   * <p>示例值：9293493ccacbdb9a
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 填写的审批表单控件值，JSON
+   * 数组，传值时需要压缩转义为字符串。各控件值的参数说明参考[审批实例表单控件参数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/approval-instance-form-control-parameters)。
+   *
+   * <p>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+   */
+  @SerializedName("form")
+  private String form;
+
+  /**
+   * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+   * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_approver_user_id_list")
+  private NodeApprover[] nodeApproverUserIdList;
+
+  /**
+   * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+   * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_approver_open_id_list")
+  private NodeApprover[] nodeApproverOpenIdList;
+
+  /**
+   * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+   * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_cc_user_id_list")
+  private NodeCc[] nodeCcUserIdList;
+
+  /**
+   * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+   * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_cc_open_id_list")
+  private NodeCc[] nodeCcOpenIdList;
+
+  /**
+   * 审批实例 uuid，用于幂等操作，单个企业内的唯一 key。同一个 uuid 只能用于创建一个审批实例，如果冲突则创建失败并返回错误码 60012 ，格式建议为
+   * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A87
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * 是否配置 **提交** 按钮，适用于任务的审批人退回审批单据后，审批提交人可以在同一个审批实例内点击 **提交**，提交单据。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_resubmit")
+  private Boolean allowResubmit;
+
+  /**
+   * 是否配置 **再次提交** 按钮，适用于周期性提单场景，按照当前表单内容再次发起一个新审批实例。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_submit_again")
+  private Boolean allowSubmitAgain;
+
+  /**
+   * 取消指定的 Bot 推送通知。可选值有：;;- 1：取消审批实例通过推送。;- 2：取消审批实例拒绝推送。;- 4：取消审批实例取消推送。;;支持同时取消多个 bot
+   * 推送通知。位运算，即如需取消 1 和 2 两种通知，则需要传入加和值 3。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("cancel_bot_notification")
+  private String cancelBotNotification;
+
+  /**
+   * 是否禁止撤销审批实例
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("forbid_revoke")
+  private Boolean forbidRevoke;
+
+  /**
+   * 国际化文案。目前只支持为表单的单行、多行文本控件赋值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_resources")
+  private I18nResource[] i18nResources;
+
+  /**
+   * 审批实例的展示名称。如果填写了该参数，则审批列表中的审批名称使用该参数，如果不填该参数，则审批名称使用审批定义的名称。;;**说明**：这里传入的是国际化文案 Key（即
+   * i18n_resources.texts 参数中的 Key），必须以 @i18n@ 开头，还需要在 i18n_resources.texts 参数中以 Key:Value 格式进行赋值。
+   *
+   * <p>示例值：@i18n@1
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 审批详情页 title 展示模式。
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("title_display_method")
+  private Integer titleDisplayMethod;
+
+  /**
+   * 设置自动通过的节点。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_auto_approval_list")
+  private NodeAutoApproval[] nodeAutoApprovalList;
+
+  /**
+   * 字节内部扩展字段
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("byte_extra")
+  private String byteExtra;
+
+  /**
+   * 是否可选返回链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_link")
+  private Boolean withLink;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getForm() {
+    return this.form;
+  }
+
+  public void setForm(String form) {
+    this.form = form;
+  }
+
+  public NodeApprover[] getNodeApproverUserIdList() {
+    return this.nodeApproverUserIdList;
+  }
+
+  public void setNodeApproverUserIdList(NodeApprover[] nodeApproverUserIdList) {
+    this.nodeApproverUserIdList = nodeApproverUserIdList;
+  }
+
+  public NodeApprover[] getNodeApproverOpenIdList() {
+    return this.nodeApproverOpenIdList;
+  }
+
+  public void setNodeApproverOpenIdList(NodeApprover[] nodeApproverOpenIdList) {
+    this.nodeApproverOpenIdList = nodeApproverOpenIdList;
+  }
+
+  public NodeCc[] getNodeCcUserIdList() {
+    return this.nodeCcUserIdList;
+  }
+
+  public void setNodeCcUserIdList(NodeCc[] nodeCcUserIdList) {
+    this.nodeCcUserIdList = nodeCcUserIdList;
+  }
+
+  public NodeCc[] getNodeCcOpenIdList() {
+    return this.nodeCcOpenIdList;
+  }
+
+  public void setNodeCcOpenIdList(NodeCc[] nodeCcOpenIdList) {
+    this.nodeCcOpenIdList = nodeCcOpenIdList;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public Boolean getAllowResubmit() {
+    return this.allowResubmit;
+  }
+
+  public void setAllowResubmit(Boolean allowResubmit) {
+    this.allowResubmit = allowResubmit;
+  }
+
+  public Boolean getAllowSubmitAgain() {
+    return this.allowSubmitAgain;
+  }
+
+  public void setAllowSubmitAgain(Boolean allowSubmitAgain) {
+    this.allowSubmitAgain = allowSubmitAgain;
+  }
+
+  public String getCancelBotNotification() {
+    return this.cancelBotNotification;
+  }
+
+  public void setCancelBotNotification(String cancelBotNotification) {
+    this.cancelBotNotification = cancelBotNotification;
+  }
+
+  public Boolean getForbidRevoke() {
+    return this.forbidRevoke;
+  }
+
+  public void setForbidRevoke(Boolean forbidRevoke) {
+    this.forbidRevoke = forbidRevoke;
+  }
+
+  public I18nResource[] getI18nResources() {
+    return this.i18nResources;
+  }
+
+  public void setI18nResources(I18nResource[] i18nResources) {
+    this.i18nResources = i18nResources;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Integer getTitleDisplayMethod() {
+    return this.titleDisplayMethod;
+  }
+
+  public void setTitleDisplayMethod(Integer titleDisplayMethod) {
+    this.titleDisplayMethod = titleDisplayMethod;
+  }
+
+  public NodeAutoApproval[] getNodeAutoApprovalList() {
+    return this.nodeAutoApprovalList;
+  }
+
+  public void setNodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
+    this.nodeAutoApprovalList = nodeAutoApprovalList;
+  }
+
+  public String getByteExtra() {
+    return this.byteExtra;
+  }
+
+  public void setByteExtra(String byteExtra) {
+    this.byteExtra = byteExtra;
+  }
+
+  public Boolean getWithLink() {
+    return this.withLink;
+  }
+
+  public void setWithLink(Boolean withLink) {
+    this.withLink = withLink;
+  }
+
+  // builder 开始
+  public InstanceCreate() {}
+
+  public InstanceCreate(Builder builder) {
     /**
-     * 审批定义 code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
-     * 发起审批用户
-     * <p> 示例值：f7cb567e
+     * 审批发起人的 user_id，与 open_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 发起审批用户 open id, 如果传了 user_id 则优先使用 user_id
-     * <p> 示例值：ou_3cda9c969f737aaa05e6915dce306cb9
+     * 审批发起人的 open_id，与 user_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     *
+     * <p>示例值：ou_3cda9c969f737aaa05e6915dce306cb9
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
-     * 发起审批用户部门id，如果用户只属于一个部门，可以不填。如果属于多个部门，默认会选择部门列表第一个部门
-     * <p> 示例值：9293493ccacbdb9a
+     * 审批发起人所属部门 ID。如果用户只属于一个部门，可以不填。如果用户属于多个部门，不填值则默认选择部门列表第一个部门。获取方式参见[部门
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。;;**说明**：;;-
+     * 不支持填写根部门。;- 需填写 department_id 类型的部门 ID。
+     *
+     * <p>示例值：9293493ccacbdb9a
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * json 数组，控件值
-     * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+     * 填写的审批表单控件值，JSON
+     * 数组，传值时需要压缩转义为字符串。各控件值的参数说明参考[审批实例表单控件参数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/approval-instance-form-control-parameters)。
+     *
+     * <p>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
      */
-    @SerializedName("form")
-    private String form;
+    this.form = builder.form;
     /**
-     * 如果有发起人自选节点，则需要填写对应节点的审批人
-     * <p> 示例值：
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_approver_user_id_list")
-    private NodeApprover[] nodeApproverUserIdList;
+    this.nodeApproverUserIdList = builder.nodeApproverUserIdList;
     /**
-     * 审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集
-     * <p> 示例值：
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_approver_open_id_list")
-    private NodeApprover[] nodeApproverOpenIdList;
+    this.nodeApproverOpenIdList = builder.nodeApproverOpenIdList;
     /**
-     * 如果有发起人自选节点，则可填写对应节点的抄送人，单个节点最多选择20位抄送人
-     * <p> 示例值：
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_cc_user_id_list")
-    private NodeCc[] nodeCcUserIdList;
+    this.nodeCcUserIdList = builder.nodeCcUserIdList;
     /**
-     * 抄送人发起人自选 open id 单个节点最多选择20位抄送人
-     * <p> 示例值：
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_cc_open_id_list")
-    private NodeCc[] nodeCcOpenIdList;
+    this.nodeCcOpenIdList = builder.nodeCcOpenIdList;
     /**
-     * 审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A87
+     * 审批实例 uuid，用于幂等操作，单个企业内的唯一 key。同一个 uuid 只能用于创建一个审批实例，如果冲突则创建失败并返回错误码 60012 ，格式建议为
+     * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A87
      */
-    @SerializedName("uuid")
-    private String uuid;
+    this.uuid = builder.uuid;
     /**
-     * 可配置是否可以再次提交
-     * <p> 示例值：true
+     * 是否配置 **提交** 按钮，适用于任务的审批人退回审批单据后，审批提交人可以在同一个审批实例内点击 **提交**，提交单据。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_resubmit")
-    private Boolean allowResubmit;
+    this.allowResubmit = builder.allowResubmit;
     /**
-     * 可配置是否可以重新提交
-     * <p> 示例值：true
+     * 是否配置 **再次提交** 按钮，适用于周期性提单场景，按照当前表单内容再次发起一个新审批实例。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_submit_again")
-    private Boolean allowSubmitAgain;
+    this.allowSubmitAgain = builder.allowSubmitAgain;
     /**
-     * 配置bot是否取消通知结果
-     * <p> 示例值：0
+     * 取消指定的 Bot 推送通知。可选值有：;;- 1：取消审批实例通过推送。;- 2：取消审批实例拒绝推送。;- 4：取消审批实例取消推送。;;支持同时取消多个 bot
+     * 推送通知。位运算，即如需取消 1 和 2 两种通知，则需要传入加和值 3。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("cancel_bot_notification")
-    private String cancelBotNotification;
+    this.cancelBotNotification = builder.cancelBotNotification;
     /**
-     * 配置是否可以禁止撤销
-     * <p> 示例值：false
+     * 是否禁止撤销审批实例
+     *
+     * <p>示例值：false
      */
-    @SerializedName("forbid_revoke")
-    private Boolean forbidRevoke;
+    this.forbidRevoke = builder.forbidRevoke;
     /**
-     * 国际化文案
-     * <p> 示例值：
+     * 国际化文案。目前只支持为表单的单行、多行文本控件赋值。
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_resources")
-    private I18nResource[] i18nResources;
+    this.i18nResources = builder.i18nResources;
     /**
-     * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-     * <p> 示例值：@i18n@1
+     * 审批实例的展示名称。如果填写了该参数，则审批列表中的审批名称使用该参数，如果不填该参数，则审批名称使用审批定义的名称。;;**说明**：这里传入的是国际化文案 Key（即
+     * i18n_resources.texts 参数中的 Key），必须以 @i18n@ 开头，还需要在 i18n_resources.texts 参数中以 Key:Value 格式进行赋值。
+     *
+     * <p>示例值：@i18n@1
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 详情页title展示模式
-     * <p> 示例值：0
+     * 审批详情页 title 展示模式。
+     *
+     * <p>示例值：0
      */
-    @SerializedName("title_display_method")
-    private Integer titleDisplayMethod;
+    this.titleDisplayMethod = builder.titleDisplayMethod;
     /**
-     * 自动通过节点ID
-     * <p> 示例值：
+     * 设置自动通过的节点。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_auto_approval_list")
-    private NodeAutoApproval[] nodeAutoApprovalList;
+    this.nodeAutoApprovalList = builder.nodeAutoApprovalList;
     /**
      * 字节内部扩展字段
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("byte_extra")
-    private String byteExtra;
+    this.byteExtra = builder.byteExtra;
     /**
      * 是否可选返回链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_link")
+    this.withLink = builder.withLink;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String approvalCode;
+
+    /**
+     * 审批发起人的 user_id，与 open_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String userId;
+
+    /**
+     * 审批发起人的 open_id，与 user_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     *
+     * <p>示例值：ou_3cda9c969f737aaa05e6915dce306cb9
+     */
+    private String openId;
+
+    /**
+     * 审批发起人所属部门 ID。如果用户只属于一个部门，可以不填。如果用户属于多个部门，不填值则默认选择部门列表第一个部门。获取方式参见[部门
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。;;**说明**：;;-
+     * 不支持填写根部门。;- 需填写 department_id 类型的部门 ID。
+     *
+     * <p>示例值：9293493ccacbdb9a
+     */
+    private String departmentId;
+
+    /**
+     * 填写的审批表单控件值，JSON
+     * 数组，传值时需要压缩转义为字符串。各控件值的参数说明参考[审批实例表单控件参数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/approval-instance-form-control-parameters)。
+     *
+     * <p>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+     */
+    private String form;
+
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
+     */
+    private NodeApprover[] nodeApproverUserIdList;
+
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
+     */
+    private NodeApprover[] nodeApproverOpenIdList;
+
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
+     */
+    private NodeCc[] nodeCcUserIdList;
+
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
+     */
+    private NodeCc[] nodeCcOpenIdList;
+
+    /**
+     * 审批实例 uuid，用于幂等操作，单个企业内的唯一 key。同一个 uuid 只能用于创建一个审批实例，如果冲突则创建失败并返回错误码 60012 ，格式建议为
+     * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A87
+     */
+    private String uuid;
+
+    /**
+     * 是否配置 **提交** 按钮，适用于任务的审批人退回审批单据后，审批提交人可以在同一个审批实例内点击 **提交**，提交单据。
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowResubmit;
+
+    /**
+     * 是否配置 **再次提交** 按钮，适用于周期性提单场景，按照当前表单内容再次发起一个新审批实例。
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowSubmitAgain;
+
+    /**
+     * 取消指定的 Bot 推送通知。可选值有：;;- 1：取消审批实例通过推送。;- 2：取消审批实例拒绝推送。;- 4：取消审批实例取消推送。;;支持同时取消多个 bot
+     * 推送通知。位运算，即如需取消 1 和 2 两种通知，则需要传入加和值 3。
+     *
+     * <p>示例值：1
+     */
+    private String cancelBotNotification;
+
+    /**
+     * 是否禁止撤销审批实例
+     *
+     * <p>示例值：false
+     */
+    private Boolean forbidRevoke;
+
+    /**
+     * 国际化文案。目前只支持为表单的单行、多行文本控件赋值。
+     *
+     * <p>示例值：
+     */
+    private I18nResource[] i18nResources;
+
+    /**
+     * 审批实例的展示名称。如果填写了该参数，则审批列表中的审批名称使用该参数，如果不填该参数，则审批名称使用审批定义的名称。;;**说明**：这里传入的是国际化文案 Key（即
+     * i18n_resources.texts 参数中的 Key），必须以 @i18n@ 开头，还需要在 i18n_resources.texts 参数中以 Key:Value 格式进行赋值。
+     *
+     * <p>示例值：@i18n@1
+     */
+    private String title;
+
+    /**
+     * 审批详情页 title 展示模式。
+     *
+     * <p>示例值：0
+     */
+    private Integer titleDisplayMethod;
+
+    /**
+     * 设置自动通过的节点。
+     *
+     * <p>示例值：
+     */
+    private NodeAutoApproval[] nodeAutoApprovalList;
+
+    /**
+     * 字节内部扩展字段
+     *
+     * <p>示例值：{}
+     */
+    private String byteExtra;
+
+    /**
+     * 是否可选返回链接
+     *
+     * <p>示例值：
+     */
     private Boolean withLink;
 
-    // builder 开始
-    public InstanceCreate() {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public InstanceCreate(Builder builder) {
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 发起审批用户
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 发起审批用户 open id, 如果传了 user_id 则优先使用 user_id
-         * <p> 示例值：ou_3cda9c969f737aaa05e6915dce306cb9
-         */
-        this.openId = builder.openId;
-        /**
-         * 发起审批用户部门id，如果用户只属于一个部门，可以不填。如果属于多个部门，默认会选择部门列表第一个部门
-         * <p> 示例值：9293493ccacbdb9a
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
-        this.form = builder.form;
-        /**
-         * 如果有发起人自选节点，则需要填写对应节点的审批人
-         * <p> 示例值：
-         */
-        this.nodeApproverUserIdList = builder.nodeApproverUserIdList;
-        /**
-         * 审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集
-         * <p> 示例值：
-         */
-        this.nodeApproverOpenIdList = builder.nodeApproverOpenIdList;
-        /**
-         * 如果有发起人自选节点，则可填写对应节点的抄送人，单个节点最多选择20位抄送人
-         * <p> 示例值：
-         */
-        this.nodeCcUserIdList = builder.nodeCcUserIdList;
-        /**
-         * 抄送人发起人自选 open id 单个节点最多选择20位抄送人
-         * <p> 示例值：
-         */
-        this.nodeCcOpenIdList = builder.nodeCcOpenIdList;
-        /**
-         * 审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A87
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 可配置是否可以再次提交
-         * <p> 示例值：true
-         */
-        this.allowResubmit = builder.allowResubmit;
-        /**
-         * 可配置是否可以重新提交
-         * <p> 示例值：true
-         */
-        this.allowSubmitAgain = builder.allowSubmitAgain;
-        /**
-         * 配置bot是否取消通知结果
-         * <p> 示例值：0
-         */
-        this.cancelBotNotification = builder.cancelBotNotification;
-        /**
-         * 配置是否可以禁止撤销
-         * <p> 示例值：false
-         */
-        this.forbidRevoke = builder.forbidRevoke;
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         */
-        this.i18nResources = builder.i18nResources;
-        /**
-         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-         * <p> 示例值：@i18n@1
-         */
-        this.title = builder.title;
-        /**
-         * 详情页title展示模式
-         * <p> 示例值：0
-         */
-        this.titleDisplayMethod = builder.titleDisplayMethod;
-        /**
-         * 自动通过节点ID
-         * <p> 示例值：
-         */
-        this.nodeAutoApprovalList = builder.nodeAutoApprovalList;
-        /**
-         * 字节内部扩展字段
-         * <p> 示例值：{}
-         */
-        this.byteExtra = builder.byteExtra;
-        /**
-         * 是否可选返回链接
-         * <p> 示例值：
-         */
-        this.withLink = builder.withLink;
+    /**
+     * 审批发起人的 user_id，与 open_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批发起人的 open_id，与 user_id 必须传入其中一个。如果传入了 user_id 则优先使用 user_id。获取方式参考[如何获取用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     *
+     * <p>示例值：ou_3cda9c969f737aaa05e6915dce306cb9
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 审批发起人所属部门 ID。如果用户只属于一个部门，可以不填。如果用户属于多个部门，不填值则默认选择部门列表第一个部门。获取方式参见[部门
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。;;**说明**：;;-
+     * 不支持填写根部门。;- 需填写 department_id 类型的部门 ID。
+     *
+     * <p>示例值：9293493ccacbdb9a
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 填写的审批表单控件值，JSON
+     * 数组，传值时需要压缩转义为字符串。各控件值的参数说明参考[审批实例表单控件参数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/approval-instance-form-control-parameters)。
+     *
+     * <p>示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+     *
+     * @param form
+     * @return
+     */
+    public Builder form(String form) {
+      this.form = form;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
+     *
+     * @param nodeApproverUserIdList
+     * @return
+     */
+    public Builder nodeApproverUserIdList(NodeApprover[] nodeApproverUserIdList) {
+      this.nodeApproverUserIdList = nodeApproverUserIdList;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选审批人，则需要通过本参数填写对应节点的审批人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_approver_user_id_list、node_approver_open_id_list，则取两个参数的并集生效审批人。
+     *
+     * <p>示例值：
+     *
+     * @param nodeApproverOpenIdList
+     * @return
+     */
+    public Builder nodeApproverOpenIdList(NodeApprover[] nodeApproverOpenIdList) {
+      this.nodeApproverOpenIdList = nodeApproverOpenIdList;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 user_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
+     *
+     * @param nodeCcUserIdList
+     * @return
+     */
+    public Builder nodeCcUserIdList(NodeCc[] nodeCcUserIdList) {
+      this.nodeCcUserIdList = nodeCcUserIdList;
+      return this;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    /**
+     * 如果审批定义的流程中，有节点需要发起人自选抄送人，则需要通过本参数填写对应节点的抄送人（通过用户 open_id 指定审批人）。;;**说明**：如果同时传入了
+     * node_cc_user_id_list、node_cc_open_id_list，则取两个参数的并集生效抄送人。
+     *
+     * <p>示例值：
+     *
+     * @param nodeCcOpenIdList
+     * @return
+     */
+    public Builder nodeCcOpenIdList(NodeCc[] nodeCcOpenIdList) {
+      this.nodeCcOpenIdList = nodeCcOpenIdList;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 审批实例 uuid，用于幂等操作，单个企业内的唯一 key。同一个 uuid 只能用于创建一个审批实例，如果冲突则创建失败并返回错误码 60012 ，格式建议为
+     * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A87
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 是否配置 **提交** 按钮，适用于任务的审批人退回审批单据后，审批提交人可以在同一个审批实例内点击 **提交**，提交单据。
+     *
+     * <p>示例值：true
+     *
+     * @param allowResubmit
+     * @return
+     */
+    public Builder allowResubmit(Boolean allowResubmit) {
+      this.allowResubmit = allowResubmit;
+      return this;
     }
 
-    public String getForm() {
-        return this.form;
+    /**
+     * 是否配置 **再次提交** 按钮，适用于周期性提单场景，按照当前表单内容再次发起一个新审批实例。
+     *
+     * <p>示例值：true
+     *
+     * @param allowSubmitAgain
+     * @return
+     */
+    public Builder allowSubmitAgain(Boolean allowSubmitAgain) {
+      this.allowSubmitAgain = allowSubmitAgain;
+      return this;
     }
 
-    public void setForm(String form) {
-        this.form = form;
+    /**
+     * 取消指定的 Bot 推送通知。可选值有：;;- 1：取消审批实例通过推送。;- 2：取消审批实例拒绝推送。;- 4：取消审批实例取消推送。;;支持同时取消多个 bot
+     * 推送通知。位运算，即如需取消 1 和 2 两种通知，则需要传入加和值 3。
+     *
+     * <p>示例值：1
+     *
+     * @param cancelBotNotification
+     * @return
+     */
+    public Builder cancelBotNotification(String cancelBotNotification) {
+      this.cancelBotNotification = cancelBotNotification;
+      return this;
     }
 
-    public NodeApprover[] getNodeApproverUserIdList() {
-        return this.nodeApproverUserIdList;
+    /**
+     * 是否禁止撤销审批实例
+     *
+     * <p>示例值：false
+     *
+     * @param forbidRevoke
+     * @return
+     */
+    public Builder forbidRevoke(Boolean forbidRevoke) {
+      this.forbidRevoke = forbidRevoke;
+      return this;
     }
 
-    public void setNodeApproverUserIdList(NodeApprover[] nodeApproverUserIdList) {
-        this.nodeApproverUserIdList = nodeApproverUserIdList;
+    /**
+     * 国际化文案。目前只支持为表单的单行、多行文本控件赋值。
+     *
+     * <p>示例值：
+     *
+     * @param i18nResources
+     * @return
+     */
+    public Builder i18nResources(I18nResource[] i18nResources) {
+      this.i18nResources = i18nResources;
+      return this;
     }
 
-    public NodeApprover[] getNodeApproverOpenIdList() {
-        return this.nodeApproverOpenIdList;
+    /**
+     * 审批实例的展示名称。如果填写了该参数，则审批列表中的审批名称使用该参数，如果不填该参数，则审批名称使用审批定义的名称。;;**说明**：这里传入的是国际化文案 Key（即
+     * i18n_resources.texts 参数中的 Key），必须以 @i18n@ 开头，还需要在 i18n_resources.texts 参数中以 Key:Value 格式进行赋值。
+     *
+     * <p>示例值：@i18n@1
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setNodeApproverOpenIdList(NodeApprover[] nodeApproverOpenIdList) {
-        this.nodeApproverOpenIdList = nodeApproverOpenIdList;
+    /**
+     * 审批详情页 title 展示模式。
+     *
+     * <p>示例值：0
+     *
+     * @param titleDisplayMethod
+     * @return
+     */
+    public Builder titleDisplayMethod(Integer titleDisplayMethod) {
+      this.titleDisplayMethod = titleDisplayMethod;
+      return this;
     }
 
-    public NodeCc[] getNodeCcUserIdList() {
-        return this.nodeCcUserIdList;
+    /**
+     * 审批详情页 title 展示模式。
+     *
+     * <p>示例值：0
+     *
+     * @param titleDisplayMethod {@link
+     *     com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum}
+     * @return
+     */
+    public Builder titleDisplayMethod(
+        com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum
+            titleDisplayMethod) {
+      this.titleDisplayMethod = titleDisplayMethod.getValue();
+      return this;
     }
 
-    public void setNodeCcUserIdList(NodeCc[] nodeCcUserIdList) {
-        this.nodeCcUserIdList = nodeCcUserIdList;
+    /**
+     * 设置自动通过的节点。
+     *
+     * <p>示例值：
+     *
+     * @param nodeAutoApprovalList
+     * @return
+     */
+    public Builder nodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
+      this.nodeAutoApprovalList = nodeAutoApprovalList;
+      return this;
     }
 
-    public NodeCc[] getNodeCcOpenIdList() {
-        return this.nodeCcOpenIdList;
+    /**
+     * 字节内部扩展字段
+     *
+     * <p>示例值：{}
+     *
+     * @param byteExtra
+     * @return
+     */
+    public Builder byteExtra(String byteExtra) {
+      this.byteExtra = byteExtra;
+      return this;
     }
 
-    public void setNodeCcOpenIdList(NodeCc[] nodeCcOpenIdList) {
-        this.nodeCcOpenIdList = nodeCcOpenIdList;
+    /**
+     * 是否可选返回链接
+     *
+     * <p>示例值：
+     *
+     * @param withLink
+     * @return
+     */
+    public Builder withLink(Boolean withLink) {
+      this.withLink = withLink;
+      return this;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    public InstanceCreate build() {
+      return new InstanceCreate(this);
     }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public Boolean getAllowResubmit() {
-        return this.allowResubmit;
-    }
-
-    public void setAllowResubmit(Boolean allowResubmit) {
-        this.allowResubmit = allowResubmit;
-    }
-
-    public Boolean getAllowSubmitAgain() {
-        return this.allowSubmitAgain;
-    }
-
-    public void setAllowSubmitAgain(Boolean allowSubmitAgain) {
-        this.allowSubmitAgain = allowSubmitAgain;
-    }
-
-    public String getCancelBotNotification() {
-        return this.cancelBotNotification;
-    }
-
-    public void setCancelBotNotification(String cancelBotNotification) {
-        this.cancelBotNotification = cancelBotNotification;
-    }
-
-    public Boolean getForbidRevoke() {
-        return this.forbidRevoke;
-    }
-
-    public void setForbidRevoke(Boolean forbidRevoke) {
-        this.forbidRevoke = forbidRevoke;
-    }
-
-    public I18nResource[] getI18nResources() {
-        return this.i18nResources;
-    }
-
-    public void setI18nResources(I18nResource[] i18nResources) {
-        this.i18nResources = i18nResources;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer getTitleDisplayMethod() {
-        return this.titleDisplayMethod;
-    }
-
-    public void setTitleDisplayMethod(Integer titleDisplayMethod) {
-        this.titleDisplayMethod = titleDisplayMethod;
-    }
-
-    public NodeAutoApproval[] getNodeAutoApprovalList() {
-        return this.nodeAutoApprovalList;
-    }
-
-    public void setNodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
-        this.nodeAutoApprovalList = nodeAutoApprovalList;
-    }
-
-    public String getByteExtra() {
-        return this.byteExtra;
-    }
-
-    public void setByteExtra(String byteExtra) {
-        this.byteExtra = byteExtra;
-    }
-
-    public Boolean getWithLink() {
-        return this.withLink;
-    }
-
-    public void setWithLink(Boolean withLink) {
-        this.withLink = withLink;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String approvalCode;
-        /**
-         * 发起审批用户
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 发起审批用户 open id, 如果传了 user_id 则优先使用 user_id
-         * <p> 示例值：ou_3cda9c969f737aaa05e6915dce306cb9
-         */
-        private String openId;
-        /**
-         * 发起审批用户部门id，如果用户只属于一个部门，可以不填。如果属于多个部门，默认会选择部门列表第一个部门
-         * <p> 示例值：9293493ccacbdb9a
-         */
-        private String departmentId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
-        private String form;
-        /**
-         * 如果有发起人自选节点，则需要填写对应节点的审批人
-         * <p> 示例值：
-         */
-        private NodeApprover[] nodeApproverUserIdList;
-        /**
-         * 审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集
-         * <p> 示例值：
-         */
-        private NodeApprover[] nodeApproverOpenIdList;
-        /**
-         * 如果有发起人自选节点，则可填写对应节点的抄送人，单个节点最多选择20位抄送人
-         * <p> 示例值：
-         */
-        private NodeCc[] nodeCcUserIdList;
-        /**
-         * 抄送人发起人自选 open id 单个节点最多选择20位抄送人
-         * <p> 示例值：
-         */
-        private NodeCc[] nodeCcOpenIdList;
-        /**
-         * 审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A87
-         */
-        private String uuid;
-        /**
-         * 可配置是否可以再次提交
-         * <p> 示例值：true
-         */
-        private Boolean allowResubmit;
-        /**
-         * 可配置是否可以重新提交
-         * <p> 示例值：true
-         */
-        private Boolean allowSubmitAgain;
-        /**
-         * 配置bot是否取消通知结果
-         * <p> 示例值：0
-         */
-        private String cancelBotNotification;
-        /**
-         * 配置是否可以禁止撤销
-         * <p> 示例值：false
-         */
-        private Boolean forbidRevoke;
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         */
-        private I18nResource[] i18nResources;
-        /**
-         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-         * <p> 示例值：@i18n@1
-         */
-        private String title;
-        /**
-         * 详情页title展示模式
-         * <p> 示例值：0
-         */
-        private Integer titleDisplayMethod;
-        /**
-         * 自动通过节点ID
-         * <p> 示例值：
-         */
-        private NodeAutoApproval[] nodeAutoApprovalList;
-        /**
-         * 字节内部扩展字段
-         * <p> 示例值：{}
-         */
-        private String byteExtra;
-        /**
-         * 是否可选返回链接
-         * <p> 示例值：
-         */
-        private Boolean withLink;
-
-        /**
-         * 审批定义 code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 发起审批用户
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 发起审批用户 open id, 如果传了 user_id 则优先使用 user_id
-         * <p> 示例值：ou_3cda9c969f737aaa05e6915dce306cb9
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 发起审批用户部门id，如果用户只属于一个部门，可以不填。如果属于多个部门，默认会选择部门列表第一个部门
-         * <p> 示例值：9293493ccacbdb9a
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         *
-         * @param form
-         * @return
-         */
-        public Builder form(String form) {
-            this.form = form;
-            return this;
-        }
-
-
-        /**
-         * 如果有发起人自选节点，则需要填写对应节点的审批人
-         * <p> 示例值：
-         *
-         * @param nodeApproverUserIdList
-         * @return
-         */
-        public Builder nodeApproverUserIdList(NodeApprover[] nodeApproverUserIdList) {
-            this.nodeApproverUserIdList = nodeApproverUserIdList;
-            return this;
-        }
-
-
-        /**
-         * 审批人发起人自选 open id，与上述node_approver_user_id_list字段取并集
-         * <p> 示例值：
-         *
-         * @param nodeApproverOpenIdList
-         * @return
-         */
-        public Builder nodeApproverOpenIdList(NodeApprover[] nodeApproverOpenIdList) {
-            this.nodeApproverOpenIdList = nodeApproverOpenIdList;
-            return this;
-        }
-
-
-        /**
-         * 如果有发起人自选节点，则可填写对应节点的抄送人，单个节点最多选择20位抄送人
-         * <p> 示例值：
-         *
-         * @param nodeCcUserIdList
-         * @return
-         */
-        public Builder nodeCcUserIdList(NodeCc[] nodeCcUserIdList) {
-            this.nodeCcUserIdList = nodeCcUserIdList;
-            return this;
-        }
-
-
-        /**
-         * 抄送人发起人自选 open id 单个节点最多选择20位抄送人
-         * <p> 示例值：
-         *
-         * @param nodeCcOpenIdList
-         * @return
-         */
-        public Builder nodeCcOpenIdList(NodeCc[] nodeCcOpenIdList) {
-            this.nodeCcOpenIdList = nodeCcOpenIdList;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 uuid，用于幂等操作, 每个租户下面的唯一key，同一个 uuid 只能用于创建一个审批实例，如果冲突，返回错误码 60012 ，格式建议为 XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX，不区分大小写
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A87
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * 可配置是否可以再次提交
-         * <p> 示例值：true
-         *
-         * @param allowResubmit
-         * @return
-         */
-        public Builder allowResubmit(Boolean allowResubmit) {
-            this.allowResubmit = allowResubmit;
-            return this;
-        }
-
-
-        /**
-         * 可配置是否可以重新提交
-         * <p> 示例值：true
-         *
-         * @param allowSubmitAgain
-         * @return
-         */
-        public Builder allowSubmitAgain(Boolean allowSubmitAgain) {
-            this.allowSubmitAgain = allowSubmitAgain;
-            return this;
-        }
-
-
-        /**
-         * 配置bot是否取消通知结果
-         * <p> 示例值：0
-         *
-         * @param cancelBotNotification
-         * @return
-         */
-        public Builder cancelBotNotification(String cancelBotNotification) {
-            this.cancelBotNotification = cancelBotNotification;
-            return this;
-        }
-
-
-        /**
-         * 配置是否可以禁止撤销
-         * <p> 示例值：false
-         *
-         * @param forbidRevoke
-         * @return
-         */
-        public Builder forbidRevoke(Boolean forbidRevoke) {
-            this.forbidRevoke = forbidRevoke;
-            return this;
-        }
-
-
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         *
-         * @param i18nResources
-         * @return
-         */
-        public Builder i18nResources(I18nResource[] i18nResources) {
-            this.i18nResources = i18nResources;
-            return this;
-        }
-
-
-        /**
-         * 审批展示名称，如果填写了该字段，则审批列表中的审批名称使用该字段，如果不填该字段，则审批名称使用审批定义的名称
-         * <p> 示例值：@i18n@1
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 详情页title展示模式
-         * <p> 示例值：0
-         *
-         * @param titleDisplayMethod
-         * @return
-         */
-        public Builder titleDisplayMethod(Integer titleDisplayMethod) {
-            this.titleDisplayMethod = titleDisplayMethod;
-            return this;
-        }
-
-        /**
-         * 详情页title展示模式
-         * <p> 示例值：0
-         *
-         * @param titleDisplayMethod {@link com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum}
-         * @return
-         */
-        public Builder titleDisplayMethod(com.lark.oapi.service.approval.v4.enums.InstanceCreateInstanceCreateTitleDisplayMethodEnum titleDisplayMethod) {
-            this.titleDisplayMethod = titleDisplayMethod.getValue();
-            return this;
-        }
-
-
-        /**
-         * 自动通过节点ID
-         * <p> 示例值：
-         *
-         * @param nodeAutoApprovalList
-         * @return
-         */
-        public Builder nodeAutoApprovalList(NodeAutoApproval[] nodeAutoApprovalList) {
-            this.nodeAutoApprovalList = nodeAutoApprovalList;
-            return this;
-        }
-
-
-        /**
-         * 字节内部扩展字段
-         * <p> 示例值：{}
-         *
-         * @param byteExtra
-         * @return
-         */
-        public Builder byteExtra(String byteExtra) {
-            this.byteExtra = byteExtra;
-            return this;
-        }
-
-
-        /**
-         * 是否可选返回链接
-         * <p> 示例值：
-         *
-         * @param withLink
-         * @return
-         */
-        public Builder withLink(Boolean withLink) {
-            this.withLink = withLink;
-            return this;
-        }
-
-
-        public InstanceCreate build() {
-            return new InstanceCreate(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

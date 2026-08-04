@@ -13,543 +13,598 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyMessage {
+  /**
+   * 消息 ID
+   *
+   * <p>示例值：message_4df45f2xknvcc
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 会话 ID
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @SerializedName("session_id")
+  private String sessionId;
+
+  /**
+   * 运行 ID
+   *
+   * <p>示例值：run_4dfrxvctjqzzj
+   */
+  @SerializedName("run_id")
+  private String runId;
+
+  /**
+   * 消息内容类型
+   *
+   * <p>示例值：MDX
+   */
+  @SerializedName("content_type")
+  private String contentType;
+
+  /**
+   * 消息内容
+   *
+   * <p>示例值：你好
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 消息中包含的文件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private AilyMessageFile[] files;
+
+  /**
+   * 引用的消息 ID
+   *
+   * <p>示例值：message_4de9bpg70qskh
+   */
+  @SerializedName("quote_message_id")
+  private String quoteMessageId;
+
+  /**
+   * 发送者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender")
+  private AilySender sender;
+
+  /**
+   * 被@的实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mentions")
+  private AilyMention[] mentions;
+
+  /**
+   * 消息体的纯文本表达
+   *
+   * <p>示例值：你好
+   */
+  @SerializedName("plain_text")
+  private String plainText;
+
+  /**
+   * 消息的创建时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：COMPLETED
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 推理内容
+   *
+   * <p>示例值：推理内容
+   */
+  @SerializedName("reasoning_content")
+  private String reasoningContent;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getSessionId() {
+    return this.sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
+  public String getRunId() {
+    return this.runId;
+  }
+
+  public void setRunId(String runId) {
+    this.runId = runId;
+  }
+
+  public String getContentType() {
+    return this.contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public AilyMessageFile[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(AilyMessageFile[] files) {
+    this.files = files;
+  }
+
+  public String getQuoteMessageId() {
+    return this.quoteMessageId;
+  }
+
+  public void setQuoteMessageId(String quoteMessageId) {
+    this.quoteMessageId = quoteMessageId;
+  }
+
+  public AilySender getSender() {
+    return this.sender;
+  }
+
+  public void setSender(AilySender sender) {
+    this.sender = sender;
+  }
+
+  public AilyMention[] getMentions() {
+    return this.mentions;
+  }
+
+  public void setMentions(AilyMention[] mentions) {
+    this.mentions = mentions;
+  }
+
+  public String getPlainText() {
+    return this.plainText;
+  }
+
+  public void setPlainText(String plainText) {
+    this.plainText = plainText;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getReasoningContent() {
+    return this.reasoningContent;
+  }
+
+  public void setReasoningContent(String reasoningContent) {
+    this.reasoningContent = reasoningContent;
+  }
+
+  // builder 开始
+  public AilyMessage() {}
+
+  public AilyMessage(Builder builder) {
     /**
      * 消息 ID
-     * <p> 示例值：message_4df45f2xknvcc
+     *
+     * <p>示例值：message_4df45f2xknvcc
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @SerializedName("session_id")
-    private String sessionId;
+    this.sessionId = builder.sessionId;
     /**
      * 运行 ID
-     * <p> 示例值：run_4dfrxvctjqzzj
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
      */
-    @SerializedName("run_id")
-    private String runId;
+    this.runId = builder.runId;
     /**
      * 消息内容类型
-     * <p> 示例值：MDX
+     *
+     * <p>示例值：MDX
      */
-    @SerializedName("content_type")
-    private String contentType;
+    this.contentType = builder.contentType;
     /**
      * 消息内容
-     * <p> 示例值：你好
+     *
+     * <p>示例值：你好
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 消息中包含的文件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
-    private AilyMessageFile[] files;
+    this.files = builder.files;
     /**
      * 引用的消息 ID
-     * <p> 示例值：message_4de9bpg70qskh
+     *
+     * <p>示例值：message_4de9bpg70qskh
      */
-    @SerializedName("quote_message_id")
-    private String quoteMessageId;
+    this.quoteMessageId = builder.quoteMessageId;
     /**
      * 发送者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender")
-    private AilySender sender;
+    this.sender = builder.sender;
     /**
      * 被@的实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mentions")
-    private AilyMention[] mentions;
+    this.mentions = builder.mentions;
     /**
      * 消息体的纯文本表达
-     * <p> 示例值：你好
+     *
+     * <p>示例值：你好
      */
-    @SerializedName("plain_text")
-    private String plainText;
+    this.plainText = builder.plainText;
     /**
      * 消息的创建时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 状态
-     * <p> 示例值：IN_PROGRESS
+     *
+     * <p>示例值：COMPLETED
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 推理内容
-     * <p> 示例值：推理内容
+     *
+     * <p>示例值：推理内容
      */
-    @SerializedName("reasoning_content")
+    this.reasoningContent = builder.reasoningContent;
+  }
+
+  public static class Builder {
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：message_4df45f2xknvcc
+     */
+    private String id;
+
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     */
+    private String sessionId;
+
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     */
+    private String runId;
+
+    /**
+     * 消息内容类型
+     *
+     * <p>示例值：MDX
+     */
+    private String contentType;
+
+    /**
+     * 消息内容
+     *
+     * <p>示例值：你好
+     */
+    private String content;
+
+    /**
+     * 消息中包含的文件
+     *
+     * <p>示例值：
+     */
+    private AilyMessageFile[] files;
+
+    /**
+     * 引用的消息 ID
+     *
+     * <p>示例值：message_4de9bpg70qskh
+     */
+    private String quoteMessageId;
+
+    /**
+     * 发送者
+     *
+     * <p>示例值：
+     */
+    private AilySender sender;
+
+    /**
+     * 被@的实体
+     *
+     * <p>示例值：
+     */
+    private AilyMention[] mentions;
+
+    /**
+     * 消息体的纯文本表达
+     *
+     * <p>示例值：你好
+     */
+    private String plainText;
+
+    /**
+     * 消息的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
+    private String createdAt;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：COMPLETED
+     */
+    private String status;
+
+    /**
+     * 推理内容
+     *
+     * <p>示例值：推理内容
+     */
     private String reasoningContent;
 
-    // builder 开始
-    public AilyMessage() {
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：message_4df45f2xknvcc
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AilyMessage(Builder builder) {
-        /**
-         * 消息 ID
-         * <p> 示例值：message_4df45f2xknvcc
-         */
-        this.id = builder.id;
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.sessionId = builder.sessionId;
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        this.runId = builder.runId;
-        /**
-         * 消息内容类型
-         * <p> 示例值：MDX
-         */
-        this.contentType = builder.contentType;
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         */
-        this.content = builder.content;
-        /**
-         * 消息中包含的文件
-         * <p> 示例值：
-         */
-        this.files = builder.files;
-        /**
-         * 引用的消息 ID
-         * <p> 示例值：message_4de9bpg70qskh
-         */
-        this.quoteMessageId = builder.quoteMessageId;
-        /**
-         * 发送者
-         * <p> 示例值：
-         */
-        this.sender = builder.sender;
-        /**
-         * 被@的实体
-         * <p> 示例值：
-         */
-        this.mentions = builder.mentions;
-        /**
-         * 消息体的纯文本表达
-         * <p> 示例值：你好
-         */
-        this.plainText = builder.plainText;
-        /**
-         * 消息的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         */
-        this.status = builder.status;
-        /**
-         * 推理内容
-         * <p> 示例值：推理内容
-         */
-        this.reasoningContent = builder.reasoningContent;
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param sessionId
+     * @return
+     */
+    public Builder sessionId(String sessionId) {
+      this.sessionId = sessionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     *
+     * @param runId
+     * @return
+     */
+    public Builder runId(String runId) {
+      this.runId = runId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 消息内容类型
+     *
+     * <p>示例值：MDX
+     *
+     * @param contentType
+     * @return
+     */
+    public Builder contentType(String contentType) {
+      this.contentType = contentType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 消息内容类型
+     *
+     * <p>示例值：MDX
+     *
+     * @param contentType {@link
+     *     com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum}
+     * @return
+     */
+    public Builder contentType(
+        com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum contentType) {
+      this.contentType = contentType.getValue();
+      return this;
     }
 
-    public String getSessionId() {
-        return this.sessionId;
+    /**
+     * 消息内容
+     *
+     * <p>示例值：你好
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
+    /**
+     * 消息中包含的文件
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(AilyMessageFile[] files) {
+      this.files = files;
+      return this;
     }
 
-    public String getRunId() {
-        return this.runId;
+    /**
+     * 引用的消息 ID
+     *
+     * <p>示例值：message_4de9bpg70qskh
+     *
+     * @param quoteMessageId
+     * @return
+     */
+    public Builder quoteMessageId(String quoteMessageId) {
+      this.quoteMessageId = quoteMessageId;
+      return this;
     }
 
-    public void setRunId(String runId) {
-        this.runId = runId;
+    /**
+     * 发送者
+     *
+     * <p>示例值：
+     *
+     * @param sender
+     * @return
+     */
+    public Builder sender(AilySender sender) {
+      this.sender = sender;
+      return this;
     }
 
-    public String getContentType() {
-        return this.contentType;
+    /**
+     * 被@的实体
+     *
+     * <p>示例值：
+     *
+     * @param mentions
+     * @return
+     */
+    public Builder mentions(AilyMention[] mentions) {
+      this.mentions = mentions;
+      return this;
     }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    /**
+     * 消息体的纯文本表达
+     *
+     * <p>示例值：你好
+     *
+     * @param plainText
+     * @return
+     */
+    public Builder plainText(String plainText) {
+      this.plainText = plainText;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 消息的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 状态
+     *
+     * <p>示例值：COMPLETED
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public AilyMessageFile[] getFiles() {
-        return this.files;
+    /**
+     * 状态
+     *
+     * <p>示例值：COMPLETED
+     *
+     * @param status {@link com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setFiles(AilyMessageFile[] files) {
-        this.files = files;
+    /**
+     * 推理内容
+     *
+     * <p>示例值：推理内容
+     *
+     * @param reasoningContent
+     * @return
+     */
+    public Builder reasoningContent(String reasoningContent) {
+      this.reasoningContent = reasoningContent;
+      return this;
     }
 
-    public String getQuoteMessageId() {
-        return this.quoteMessageId;
+    public AilyMessage build() {
+      return new AilyMessage(this);
     }
+  }
 
-    public void setQuoteMessageId(String quoteMessageId) {
-        this.quoteMessageId = quoteMessageId;
-    }
-
-    public AilySender getSender() {
-        return this.sender;
-    }
-
-    public void setSender(AilySender sender) {
-        this.sender = sender;
-    }
-
-    public AilyMention[] getMentions() {
-        return this.mentions;
-    }
-
-    public void setMentions(AilyMention[] mentions) {
-        this.mentions = mentions;
-    }
-
-    public String getPlainText() {
-        return this.plainText;
-    }
-
-    public void setPlainText(String plainText) {
-        this.plainText = plainText;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getReasoningContent() {
-        return this.reasoningContent;
-    }
-
-    public void setReasoningContent(String reasoningContent) {
-        this.reasoningContent = reasoningContent;
-    }
-
-    public static class Builder {
-        /**
-         * 消息 ID
-         * <p> 示例值：message_4df45f2xknvcc
-         */
-        private String id;
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        private String sessionId;
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        private String runId;
-        /**
-         * 消息内容类型
-         * <p> 示例值：MDX
-         */
-        private String contentType;
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         */
-        private String content;
-        /**
-         * 消息中包含的文件
-         * <p> 示例值：
-         */
-        private AilyMessageFile[] files;
-        /**
-         * 引用的消息 ID
-         * <p> 示例值：message_4de9bpg70qskh
-         */
-        private String quoteMessageId;
-        /**
-         * 发送者
-         * <p> 示例值：
-         */
-        private AilySender sender;
-        /**
-         * 被@的实体
-         * <p> 示例值：
-         */
-        private AilyMention[] mentions;
-        /**
-         * 消息体的纯文本表达
-         * <p> 示例值：你好
-         */
-        private String plainText;
-        /**
-         * 消息的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String createdAt;
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         */
-        private String status;
-        /**
-         * 推理内容
-         * <p> 示例值：推理内容
-         */
-        private String reasoningContent;
-
-        /**
-         * 消息 ID
-         * <p> 示例值：message_4df45f2xknvcc
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param sessionId
-         * @return
-         */
-        public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
-        }
-
-
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         *
-         * @param runId
-         * @return
-         */
-        public Builder runId(String runId) {
-            this.runId = runId;
-            return this;
-        }
-
-
-        /**
-         * 消息内容类型
-         * <p> 示例值：MDX
-         *
-         * @param contentType
-         * @return
-         */
-        public Builder contentType(String contentType) {
-            this.contentType = contentType;
-            return this;
-        }
-
-        /**
-         * 消息内容类型
-         * <p> 示例值：MDX
-         *
-         * @param contentType {@link com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum}
-         * @return
-         */
-        public Builder contentType(com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageContentTypeEnum contentType) {
-            this.contentType = contentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 消息内容
-         * <p> 示例值：你好
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 消息中包含的文件
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(AilyMessageFile[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        /**
-         * 引用的消息 ID
-         * <p> 示例值：message_4de9bpg70qskh
-         *
-         * @param quoteMessageId
-         * @return
-         */
-        public Builder quoteMessageId(String quoteMessageId) {
-            this.quoteMessageId = quoteMessageId;
-            return this;
-        }
-
-
-        /**
-         * 发送者
-         * <p> 示例值：
-         *
-         * @param sender
-         * @return
-         */
-        public Builder sender(AilySender sender) {
-            this.sender = sender;
-            return this;
-        }
-
-
-        /**
-         * 被@的实体
-         * <p> 示例值：
-         *
-         * @param mentions
-         * @return
-         */
-        public Builder mentions(AilyMention[] mentions) {
-            this.mentions = mentions;
-            return this;
-        }
-
-
-        /**
-         * 消息体的纯文本表达
-         * <p> 示例值：你好
-         *
-         * @param plainText
-         * @return
-         */
-        public Builder plainText(String plainText) {
-            this.plainText = plainText;
-            return this;
-        }
-
-
-        /**
-         * 消息的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：IN_PROGRESS
-         *
-         * @param status {@link com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.aily.v1.enums.AilyMessageAilyMessageStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 推理内容
-         * <p> 示例值：推理内容
-         *
-         * @param reasoningContent
-         * @return
-         */
-        public Builder reasoningContent(String reasoningContent) {
-            this.reasoningContent = reasoningContent;
-            return this;
-        }
-
-
-        public AilyMessage build() {
-            return new AilyMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

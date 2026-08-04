@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentTag {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：7140517838785481004
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 标签类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public TalentTag() {}
+
+  public TalentTag(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：7140517838785481004
+     *
+     * <p>示例值：7140517838785481004
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 标签名称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 描述名称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 标签类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7140517838785481004
+     */
+    private String id;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 标签类型
+     *
+     * <p>示例值：1
+     */
     private Integer type;
 
-    // builder 开始
-    public TalentTag() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7140517838785481004
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentTag(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：7140517838785481004
-         */
-        this.id = builder.id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 描述名称
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 标签类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 标签类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TalentTag build() {
+      return new TalentTag(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：7140517838785481004
-         */
-        private String id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 描述名称
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 标签类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：7140517838785481004
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标签名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 描述名称
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 标签类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public TalentTag build() {
-            return new TalentTag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AttachmentDownloadUrlItem {
+  /**
+   * 附件 id
+   *
+   * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+   */
+  @SerializedName("attachment_id")
+  private String attachmentId;
+
+  /**
+   * 下载链接
+   *
+   * <p>示例值：https://api-drive-stream.blmpb.com/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
+   */
+  @SerializedName("download_url")
+  private String downloadUrl;
+
+  public String getAttachmentId() {
+    return this.attachmentId;
+  }
+
+  public void setAttachmentId(String attachmentId) {
+    this.attachmentId = attachmentId;
+  }
+
+  public String getDownloadUrl() {
+    return this.downloadUrl;
+  }
+
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+  }
+
+  // builder 开始
+  public AttachmentDownloadUrlItem() {}
+
+  public AttachmentDownloadUrlItem(Builder builder) {
     /**
      * 附件 id
-     * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
      */
-    @SerializedName("attachment_id")
-    private String attachmentId;
+    this.attachmentId = builder.attachmentId;
     /**
      * 下载链接
-     * <p> 示例值：https://api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
+     *
+     * <p>示例值：https://api-drive-stream.blmpb.com/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
      */
-    @SerializedName("download_url")
+    this.downloadUrl = builder.downloadUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 附件 id
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     */
+    private String attachmentId;
+
+    /**
+     * 下载链接
+     *
+     * <p>示例值：https://api-drive-stream.blmpb.com/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
+     */
     private String downloadUrl;
 
-    // builder 开始
-    public AttachmentDownloadUrlItem() {
+    /**
+     * 附件 id
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * @param attachmentId
+     * @return
+     */
+    public Builder attachmentId(String attachmentId) {
+      this.attachmentId = attachmentId;
+      return this;
     }
 
-    public AttachmentDownloadUrlItem(Builder builder) {
-        /**
-         * 附件 id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        this.attachmentId = builder.attachmentId;
-        /**
-         * 下载链接
-         * <p> 示例值：https://api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
-         */
-        this.downloadUrl = builder.downloadUrl;
+    /**
+     * 下载链接
+     *
+     * <p>示例值：https://api-drive-stream.blmpb.com/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
+     *
+     * @param downloadUrl
+     * @return
+     */
+    public Builder downloadUrl(String downloadUrl) {
+      this.downloadUrl = downloadUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AttachmentDownloadUrlItem build() {
+      return new AttachmentDownloadUrlItem(this);
     }
+  }
 
-    public String getAttachmentId() {
-        return this.attachmentId;
-    }
-
-    public void setAttachmentId(String attachmentId) {
-        this.attachmentId = attachmentId;
-    }
-
-    public String getDownloadUrl() {
-        return this.downloadUrl;
-    }
-
-    public void setDownloadUrl(String downloadUrl) {
-        this.downloadUrl = downloadUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 附件 id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        private String attachmentId;
-        /**
-         * 下载链接
-         * <p> 示例值：https://api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
-         */
-        private String downloadUrl;
-
-        /**
-         * 附件 id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         *
-         * @param attachmentId
-         * @return
-         */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
-
-
-        /**
-         * 下载链接
-         * <p> 示例值：https://api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=YTZiZGViMDg3NzRjMzEwOWRkMGI1MTJlYmQxYTFmYTBfZTA5ZjZiOWU4NDYzMzkxMDUyOTIxMzBmNTVjMjAyZTFfSUQ6NzI4MTE4Nzg1OTE5NTc3Mjk0N18xNjk1ODg4NjQyOjE2OTU4ODg3MDJfVjM
-         *
-         * @param downloadUrl
-         * @return
-         */
-        public Builder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
-        }
-
-
-        public AttachmentDownloadUrlItem build() {
-            return new AttachmentDownloadUrlItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

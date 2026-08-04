@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
+  /**
+   * 周期中文名称
+   *
+   * <p>示例值：2024 全年周期
+   */
+  @SerializedName("zh-CN")
+  private String zhCN;
+
+  /**
+   * 周期英文名称
+   *
+   * <p>示例值：2024 Full year semester
+   */
+  @SerializedName("en-US")
+  private String enUS;
+
+  public String getZhCN() {
+    return this.zhCN;
+  }
+
+  public void setZhCN(String zhCN) {
+    this.zhCN = zhCN;
+  }
+
+  public String getEnUS() {
+    return this.enUS;
+  }
+
+  public void setEnUS(String enUS) {
+    this.enUS = enUS;
+  }
+
+  // builder 开始
+  public I18n() {}
+
+  public I18n(Builder builder) {
     /**
-     * 中文
-     * <p> 示例值：体验
+     * 周期中文名称
+     *
+     * <p>示例值：2024 全年周期
      */
-    @SerializedName("zh-CN")
+    this.zhCN = builder.zhCN;
+    /**
+     * 周期英文名称
+     *
+     * <p>示例值：2024 Full year semester
+     */
+    this.enUS = builder.enUS;
+  }
+
+  public static class Builder {
+    /**
+     * 周期中文名称
+     *
+     * <p>示例值：2024 全年周期
+     */
     private String zhCN;
+
     /**
-     * 英文
-     * <p> 示例值：Interactive experience
+     * 周期英文名称
+     *
+     * <p>示例值：2024 Full year semester
      */
-    @SerializedName("en-US")
     private String enUS;
 
-    // builder 开始
-    public I18n() {
+    /**
+     * 周期中文名称
+     *
+     * <p>示例值：2024 全年周期
+     *
+     * @param zhCN
+     * @return
+     */
+    public Builder zhCN(String zhCN) {
+      this.zhCN = zhCN;
+      return this;
     }
 
-    public I18n(Builder builder) {
-        /**
-         * 中文
-         * <p> 示例值：体验
-         */
-        this.zhCN = builder.zhCN;
-        /**
-         * 英文
-         * <p> 示例值：Interactive experience
-         */
-        this.enUS = builder.enUS;
+    /**
+     * 周期英文名称
+     *
+     * <p>示例值：2024 Full year semester
+     *
+     * @param enUS
+     * @return
+     */
+    public Builder enUS(String enUS) {
+      this.enUS = enUS;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18n build() {
+      return new I18n(this);
     }
+  }
 
-    public String getZhCN() {
-        return this.zhCN;
-    }
-
-    public void setZhCN(String zhCN) {
-        this.zhCN = zhCN;
-    }
-
-    public String getEnUS() {
-        return this.enUS;
-    }
-
-    public void setEnUS(String enUS) {
-        this.enUS = enUS;
-    }
-
-    public static class Builder {
-        /**
-         * 中文
-         * <p> 示例值：体验
-         */
-        private String zhCN;
-        /**
-         * 英文
-         * <p> 示例值：Interactive experience
-         */
-        private String enUS;
-
-        /**
-         * 中文
-         * <p> 示例值：体验
-         *
-         * @param zhCN
-         * @return
-         */
-        public Builder zhCN(String zhCN) {
-            this.zhCN = zhCN;
-            return this;
-        }
-
-
-        /**
-         * 英文
-         * <p> 示例值：Interactive experience
-         *
-         * @param enUS
-         * @return
-         */
-        public Builder enUS(String enUS) {
-            this.enUS = enUS;
-            return this;
-        }
-
-
-        public I18n build() {
-            return new I18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,259 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PhoneForUpdate {
+  /**
+   * 手机区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：phone;- custom_api_name：international_area_code
+   *
+   * <p>示例值：
+   */
+  @SerializedName("international_area_code")
+  private String internationalAreaCode;
+
+  /** 示例值：178xxxx1234 */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：phone;- custom_api_name：device_type
+   *
+   * <p>示例值：mobile_phone
+   */
+  @SerializedName("device_type")
+  private String deviceType;
+
+  /**
+   * 电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * custom_api_name：phone_usage;- object_api_name：phone
+   *
+   * <p>示例值：work
+   */
+  @SerializedName("phone_usage")
+  private String phoneUsage;
+
+  /**
+   * 主要电话，若有多个电话，只能有一个电话的「is_primary」为true
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  /** 示例值： */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  public String getInternationalAreaCode() {
+    return this.internationalAreaCode;
+  }
+
+  public void setInternationalAreaCode(String internationalAreaCode) {
+    this.internationalAreaCode = internationalAreaCode;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getDeviceType() {
+    return this.deviceType;
+  }
+
+  public void setDeviceType(String deviceType) {
+    this.deviceType = deviceType;
+  }
+
+  public String getPhoneUsage() {
+    return this.phoneUsage;
+  }
+
+  public void setPhoneUsage(String phoneUsage) {
+    this.phoneUsage = phoneUsage;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  // builder 开始
+  public PhoneForUpdate() {}
+
+  public PhoneForUpdate(Builder builder) {
     /**
-     * 国家区号,枚举值
-     * <p> 示例值：86_china
+     * 手机区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：international_area_code
+     *
+     * <p>示例值：
      */
-    @SerializedName("international_area_code")
+    this.internationalAreaCode = builder.internationalAreaCode;
+    /** 示例值：178xxxx1234 */
+    this.phoneNumber = builder.phoneNumber;
+    /**
+     * 设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：device_type
+     *
+     * <p>示例值：mobile_phone
+     */
+    this.deviceType = builder.deviceType;
+    /**
+     * 电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * custom_api_name：phone_usage;- object_api_name：phone
+     *
+     * <p>示例值：work
+     */
+    this.phoneUsage = builder.phoneUsage;
+    /**
+     * 主要电话，若有多个电话，只能有一个电话的「is_primary」为true
+     *
+     * <p>示例值：
+     */
+    this.isPrimary = builder.isPrimary;
+    /** 示例值： */
+    this.isPublic = builder.isPublic;
+  }
+
+  public static class Builder {
+    /**
+     * 手机区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：international_area_code
+     *
+     * <p>示例值：
+     */
     private String internationalAreaCode;
-    /**
-     * 电话号码
-     * <p> 示例值：010-12345678
-     */
-    @SerializedName("phone_number")
+
+    /** 示例值：178xxxx1234 */
     private String phoneNumber;
+
     /**
-     * 设备类型，枚举值
-     * <p> 示例值：mobile_phone
+     * 设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：device_type
+     *
+     * <p>示例值：mobile_phone
      */
-    @SerializedName("device_type")
     private String deviceType;
+
     /**
-     * 电话用途,枚举值
-     * <p> 示例值：home
+     * 电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * custom_api_name：phone_usage;- object_api_name：phone
+     *
+     * <p>示例值：work
      */
-    @SerializedName("phone_usage")
     private String phoneUsage;
+
     /**
-     * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-     * <p> 示例值：true
+     * 主要电话，若有多个电话，只能有一个电话的「is_primary」为true
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_primary")
     private Boolean isPrimary;
-    /**
-     * 公开电话
-     * <p> 示例值：true
-     */
-    @SerializedName("is_public")
+
+    /** 示例值： */
     private Boolean isPublic;
 
-    // builder 开始
-    public PhoneForUpdate() {
+    /**
+     * 手机区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：international_area_code
+     *
+     * <p>示例值：
+     *
+     * @param internationalAreaCode
+     * @return
+     */
+    public Builder internationalAreaCode(String internationalAreaCode) {
+      this.internationalAreaCode = internationalAreaCode;
+      return this;
     }
 
-    public PhoneForUpdate(Builder builder) {
-        /**
-         * 国家区号,枚举值
-         * <p> 示例值：86_china
-         */
-        this.internationalAreaCode = builder.internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 设备类型，枚举值
-         * <p> 示例值：mobile_phone
-         */
-        this.deviceType = builder.deviceType;
-        /**
-         * 电话用途,枚举值
-         * <p> 示例值：home
-         */
-        this.phoneUsage = builder.phoneUsage;
-        /**
-         * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         */
-        this.isPublic = builder.isPublic;
+    /**
+     * 示例值：178xxxx1234
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：phone;- custom_api_name：device_type
+     *
+     * <p>示例值：mobile_phone
+     *
+     * @param deviceType
+     * @return
+     */
+    public Builder deviceType(String deviceType) {
+      this.deviceType = deviceType;
+      return this;
     }
 
-    public String getInternationalAreaCode() {
-        return this.internationalAreaCode;
+    /**
+     * 电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * custom_api_name：phone_usage;- object_api_name：phone
+     *
+     * <p>示例值：work
+     *
+     * @param phoneUsage
+     * @return
+     */
+    public Builder phoneUsage(String phoneUsage) {
+      this.phoneUsage = phoneUsage;
+      return this;
     }
 
-    public void setInternationalAreaCode(String internationalAreaCode) {
-        this.internationalAreaCode = internationalAreaCode;
+    /**
+     * 主要电话，若有多个电话，只能有一个电话的「is_primary」为true
+     *
+     * <p>示例值：
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public String getPhoneNumber() {
-        return this.phoneNumber;
+    /**
+     * 示例值：
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public PhoneForUpdate build() {
+      return new PhoneForUpdate(this);
     }
+  }
 
-    public String getDeviceType() {
-        return this.deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public String getPhoneUsage() {
-        return this.phoneUsage;
-    }
-
-    public void setPhoneUsage(String phoneUsage) {
-        this.phoneUsage = phoneUsage;
-    }
-
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public static class Builder {
-        /**
-         * 国家区号,枚举值
-         * <p> 示例值：86_china
-         */
-        private String internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        private String phoneNumber;
-        /**
-         * 设备类型，枚举值
-         * <p> 示例值：mobile_phone
-         */
-        private String deviceType;
-        /**
-         * 电话用途,枚举值
-         * <p> 示例值：home
-         */
-        private String phoneUsage;
-        /**
-         * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-         * <p> 示例值：true
-         */
-        private Boolean isPrimary;
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         */
-        private Boolean isPublic;
-
-        /**
-         * 国家区号,枚举值
-         * <p> 示例值：86_china
-         *
-         * @param internationalAreaCode
-         * @return
-         */
-        public Builder internationalAreaCode(String internationalAreaCode) {
-            this.internationalAreaCode = internationalAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 设备类型，枚举值
-         * <p> 示例值：mobile_phone
-         *
-         * @param deviceType
-         * @return
-         */
-        public Builder deviceType(String deviceType) {
-            this.deviceType = deviceType;
-            return this;
-        }
-
-
-        /**
-         * 电话用途,枚举值
-         * <p> 示例值：home
-         *
-         * @param phoneUsage
-         * @return
-         */
-        public Builder phoneUsage(String phoneUsage) {
-            this.phoneUsage = phoneUsage;
-            return this;
-        }
-
-
-        /**
-         * 主要电话,若有多个电话，只能有一个电话的「is_primary」为true
-         * <p> 示例值：true
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        public PhoneForUpdate build() {
-            return new PhoneForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

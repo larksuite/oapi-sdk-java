@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CooperationProject {
+  /**
+   * 合作项目 ID
+   *
+   * <p>示例值：7309457114076807188
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 合作项目角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("roles")
+  private CooperationRole[] roles;
+
+  /**
+   * 评估人项目角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_roles")
+  private CooperationUserRole[] userRoles;
+
+  /**
+   * 被评估人项目角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("underling_roles")
+  private CooperationUserRole[] underlingRoles;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public CooperationRole[] getRoles() {
+    return this.roles;
+  }
+
+  public void setRoles(CooperationRole[] roles) {
+    this.roles = roles;
+  }
+
+  public CooperationUserRole[] getUserRoles() {
+    return this.userRoles;
+  }
+
+  public void setUserRoles(CooperationUserRole[] userRoles) {
+    this.userRoles = userRoles;
+  }
+
+  public CooperationUserRole[] getUnderlingRoles() {
+    return this.underlingRoles;
+  }
+
+  public void setUnderlingRoles(CooperationUserRole[] underlingRoles) {
+    this.underlingRoles = underlingRoles;
+  }
+
+  // builder 开始
+  public CooperationProject() {}
+
+  public CooperationProject(Builder builder) {
     /**
      * 合作项目 ID
-     * <p> 示例值：7309457114076807188
+     *
+     * <p>示例值：7309457114076807188
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 合作项目的名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 项目角色
-     * <p> 示例值：
+     * 合作项目角色
+     *
+     * <p>示例值：
      */
-    @SerializedName("roles")
-    private CooperationRole[] roles;
+    this.roles = builder.roles;
     /**
      * 评估人项目角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_roles")
-    private CooperationUserRole[] userRoles;
+    this.userRoles = builder.userRoles;
     /**
      * 被评估人项目角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("underling_roles")
+    this.underlingRoles = builder.underlingRoles;
+  }
+
+  public static class Builder {
+    /**
+     * 合作项目 ID
+     *
+     * <p>示例值：7309457114076807188
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 合作项目角色
+     *
+     * <p>示例值：
+     */
+    private CooperationRole[] roles;
+
+    /**
+     * 评估人项目角色
+     *
+     * <p>示例值：
+     */
+    private CooperationUserRole[] userRoles;
+
+    /**
+     * 被评估人项目角色
+     *
+     * <p>示例值：
+     */
     private CooperationUserRole[] underlingRoles;
 
-    // builder 开始
-    public CooperationProject() {
+    /**
+     * 合作项目 ID
+     *
+     * <p>示例值：7309457114076807188
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CooperationProject(Builder builder) {
-        /**
-         * 合作项目 ID
-         * <p> 示例值：7309457114076807188
-         */
-        this.id = builder.id;
-        /**
-         * 合作项目的名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 项目角色
-         * <p> 示例值：
-         */
-        this.roles = builder.roles;
-        /**
-         * 评估人项目角色
-         * <p> 示例值：
-         */
-        this.userRoles = builder.userRoles;
-        /**
-         * 被评估人项目角色
-         * <p> 示例值：
-         */
-        this.underlingRoles = builder.underlingRoles;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 合作项目角色
+     *
+     * <p>示例值：
+     *
+     * @param roles
+     * @return
+     */
+    public Builder roles(CooperationRole[] roles) {
+      this.roles = roles;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 评估人项目角色
+     *
+     * <p>示例值：
+     *
+     * @param userRoles
+     * @return
+     */
+    public Builder userRoles(CooperationUserRole[] userRoles) {
+      this.userRoles = userRoles;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 被评估人项目角色
+     *
+     * <p>示例值：
+     *
+     * @param underlingRoles
+     * @return
+     */
+    public Builder underlingRoles(CooperationUserRole[] underlingRoles) {
+      this.underlingRoles = underlingRoles;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    public CooperationProject build() {
+      return new CooperationProject(this);
     }
+  }
 
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public CooperationRole[] getRoles() {
-        return this.roles;
-    }
-
-    public void setRoles(CooperationRole[] roles) {
-        this.roles = roles;
-    }
-
-    public CooperationUserRole[] getUserRoles() {
-        return this.userRoles;
-    }
-
-    public void setUserRoles(CooperationUserRole[] userRoles) {
-        this.userRoles = userRoles;
-    }
-
-    public CooperationUserRole[] getUnderlingRoles() {
-        return this.underlingRoles;
-    }
-
-    public void setUnderlingRoles(CooperationUserRole[] underlingRoles) {
-        this.underlingRoles = underlingRoles;
-    }
-
-    public static class Builder {
-        /**
-         * 合作项目 ID
-         * <p> 示例值：7309457114076807188
-         */
-        private String id;
-        /**
-         * 合作项目的名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 项目角色
-         * <p> 示例值：
-         */
-        private CooperationRole[] roles;
-        /**
-         * 评估人项目角色
-         * <p> 示例值：
-         */
-        private CooperationUserRole[] userRoles;
-        /**
-         * 被评估人项目角色
-         * <p> 示例值：
-         */
-        private CooperationUserRole[] underlingRoles;
-
-        /**
-         * 合作项目 ID
-         * <p> 示例值：7309457114076807188
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 合作项目的名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 项目角色
-         * <p> 示例值：
-         *
-         * @param roles
-         * @return
-         */
-        public Builder roles(CooperationRole[] roles) {
-            this.roles = roles;
-            return this;
-        }
-
-
-        /**
-         * 评估人项目角色
-         * <p> 示例值：
-         *
-         * @param userRoles
-         * @return
-         */
-        public Builder userRoles(CooperationUserRole[] userRoles) {
-            this.userRoles = userRoles;
-            return this;
-        }
-
-
-        /**
-         * 被评估人项目角色
-         * <p> 示例值：
-         *
-         * @param underlingRoles
-         * @return
-         */
-        public Builder underlingRoles(CooperationUserRole[] underlingRoles) {
-            this.underlingRoles = underlingRoles;
-            return this;
-        }
-
-
-        public CooperationProject build() {
-            return new CooperationProject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

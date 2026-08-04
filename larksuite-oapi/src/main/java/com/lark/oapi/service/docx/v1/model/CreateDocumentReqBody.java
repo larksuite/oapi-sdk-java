@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDocumentReqBody {
+  /**
+   * 指定文档所在文件夹 的 Token。不传或传空表示根目录。了解如何获取文件夹 Token，参考[如何获取云文档资源相关
+   * Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。;;**提示**：;若应用使用的是
+   * `tenant_access_token` 权限，此处仅可指定应用创建的文件夹。
+   *
+   * <p>示例值：fldcnqquW1svRIYVT2Np6Iabcef
+   */
+  @SerializedName("folder_token")
+  private String folderToken;
+
+  /**
+   * 文档标题，只支持纯文本
+   *
+   * <p>示例值：一篇新的文档
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getFolderToken() {
+    return this.folderToken;
+  }
+
+  public void setFolderToken(String folderToken) {
+    this.folderToken = folderToken;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public CreateDocumentReqBody() {}
+
+  public CreateDocumentReqBody(Builder builder) {
     /**
-     * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-     * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+     * 指定文档所在文件夹 的 Token。不传或传空表示根目录。了解如何获取文件夹 Token，参考[如何获取云文档资源相关
+     * Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。;;**提示**：;若应用使用的是
+     * `tenant_access_token` 权限，此处仅可指定应用创建的文件夹。
+     *
+     * <p>示例值：fldcnqquW1svRIYVT2Np6Iabcef
      */
-    @SerializedName("folder_token")
-    private String folderToken;
+    this.folderToken = builder.folderToken;
     /**
      * 文档标题，只支持纯文本
-     * <p> 示例值：undefined
+     *
+     * <p>示例值：一篇新的文档
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 指定文档所在文件夹 的 Token。不传或传空表示根目录。了解如何获取文件夹 Token，参考[如何获取云文档资源相关
+     * Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。;;**提示**：;若应用使用的是
+     * `tenant_access_token` 权限，此处仅可指定应用创建的文件夹。
+     *
+     * <p>示例值：fldcnqquW1svRIYVT2Np6Iabcef
+     */
+    private String folderToken;
+
+    /**
+     * 文档标题，只支持纯文本
+     *
+     * <p>示例值：一篇新的文档
+     */
     private String title;
 
-    // builder 开始
-    public CreateDocumentReqBody() {
+    /**
+     * 指定文档所在文件夹 的 Token。不传或传空表示根目录。了解如何获取文件夹 Token，参考[如何获取云文档资源相关
+     * Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。;;**提示**：;若应用使用的是
+     * `tenant_access_token` 权限，此处仅可指定应用创建的文件夹。
+     *
+     * <p>示例值：fldcnqquW1svRIYVT2Np6Iabcef
+     *
+     * @param folderToken
+     * @return
+     */
+    public Builder folderToken(String folderToken) {
+      this.folderToken = folderToken;
+      return this;
     }
 
-    public CreateDocumentReqBody(Builder builder) {
-        /**
-         * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-         * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 文档标题，只支持纯文本
-         * <p> 示例值：undefined
-         */
-        this.title = builder.title;
+    /**
+     * 文档标题，只支持纯文本
+     *
+     * <p>示例值：一篇新的文档
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateDocumentReqBody build() {
+      return new CreateDocumentReqBody(this);
     }
+  }
 
-    public String getFolderToken() {
-        return this.folderToken;
-    }
-
-    public void setFolderToken(String folderToken) {
-        this.folderToken = folderToken;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-         * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-         */
-        private String folderToken;
-        /**
-         * 文档标题，只支持纯文本
-         * <p> 示例值：undefined
-         */
-        private String title;
-
-        /**
-         * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
-         * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
-         *
-         * @param folderToken
-         * @return
-         */
-        public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
-        }
-
-
-        /**
-         * 文档标题，只支持纯文本
-         * <p> 示例值：undefined
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public CreateDocumentReqBody build() {
-            return new CreateDocumentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

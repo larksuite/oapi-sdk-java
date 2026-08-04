@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifItem {
+  /**
+   * 数据项id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_name")
+  private IdWithName itemName;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 小数位
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("decimal_places")
+  private Integer decimalPlaces;
+
+  /**
+   * 分段汇总
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("aggregation_type")
+  private Integer aggregationType;
+
+  /**
+   * 顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("seq")
+  private Integer seq;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_type")
+  private Integer sourceType;
+
+  /**
+   * 字段配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source_config")
+  private VerifSourceConfig sourceConfig;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public IdWithName getItemName() {
+    return this.itemName;
+  }
+
+  public void setItemName(IdWithName itemName) {
+    this.itemName = itemName;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public Integer getDecimalPlaces() {
+    return this.decimalPlaces;
+  }
+
+  public void setDecimalPlaces(Integer decimalPlaces) {
+    this.decimalPlaces = decimalPlaces;
+  }
+
+  public Integer getAggregationType() {
+    return this.aggregationType;
+  }
+
+  public void setAggregationType(Integer aggregationType) {
+    this.aggregationType = aggregationType;
+  }
+
+  public Integer getSeq() {
+    return this.seq;
+  }
+
+  public void setSeq(Integer seq) {
+    this.seq = seq;
+  }
+
+  public Integer getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(Integer sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public VerifSourceConfig getSourceConfig() {
+    return this.sourceConfig;
+  }
+
+  public void setSourceConfig(VerifSourceConfig sourceConfig) {
+    this.sourceConfig = sourceConfig;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public VerifItem() {}
+
+  public VerifItem(Builder builder) {
     /**
      * 数据项id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_name")
-    private IdWithName itemName;
+    this.itemName = builder.itemName;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 小数位
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("decimal_places")
-    private Integer decimalPlaces;
+    this.decimalPlaces = builder.decimalPlaces;
     /**
      * 分段汇总
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("aggregation_type")
-    private Integer aggregationType;
+    this.aggregationType = builder.aggregationType;
     /**
      * 顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("seq")
-    private Integer seq;
+    this.seq = builder.seq;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_type")
-    private Integer sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 字段配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source_config")
-    private VerifSourceConfig sourceConfig;
+    this.sourceConfig = builder.sourceConfig;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 数据项id
+     *
+     * <p>示例值：1
+     */
+    private String itemId;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private IdWithName itemName;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 小数位
+     *
+     * <p>示例值：1
+     */
+    private Integer decimalPlaces;
+
+    /**
+     * 分段汇总
+     *
+     * <p>示例值：1
+     */
+    private Integer aggregationType;
+
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     */
+    private Integer seq;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer sourceType;
+
+    /**
+     * 字段配置
+     *
+     * <p>示例值：
+     */
+    private VerifSourceConfig sourceConfig;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public VerifItem() {
+    /**
+     * 数据项id
+     *
+     * <p>示例值：1
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public VerifItem(Builder builder) {
-        /**
-         * 数据项id
-         * <p> 示例值：1
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.itemName = builder.itemName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 小数位
-         * <p> 示例值：1
-         */
-        this.decimalPlaces = builder.decimalPlaces;
-        /**
-         * 分段汇总
-         * <p> 示例值：1
-         */
-        this.aggregationType = builder.aggregationType;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        this.seq = builder.seq;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 字段配置
-         * <p> 示例值：
-         */
-        this.sourceConfig = builder.sourceConfig;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param itemName
+     * @return
+     */
+    public Builder itemName(IdWithName itemName) {
+      this.itemName = itemName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 小数位
+     *
+     * <p>示例值：1
+     *
+     * @param decimalPlaces
+     * @return
+     */
+    public Builder decimalPlaces(Integer decimalPlaces) {
+      this.decimalPlaces = decimalPlaces;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    /**
+     * 分段汇总
+     *
+     * <p>示例值：1
+     *
+     * @param aggregationType
+     * @return
+     */
+    public Builder aggregationType(Integer aggregationType) {
+      this.aggregationType = aggregationType;
+      return this;
     }
 
-    public IdWithName getItemName() {
-        return this.itemName;
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     *
+     * @param seq
+     * @return
+     */
+    public Builder seq(Integer seq) {
+      this.seq = seq;
+      return this;
     }
 
-    public void setItemName(IdWithName itemName) {
-        this.itemName = itemName;
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(Integer sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public Integer getFieldType() {
-        return this.fieldType;
+    /**
+     * 字段配置
+     *
+     * <p>示例值：
+     *
+     * @param sourceConfig
+     * @return
+     */
+    public Builder sourceConfig(VerifSourceConfig sourceConfig) {
+      this.sourceConfig = sourceConfig;
+      return this;
     }
 
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public Integer getDecimalPlaces() {
-        return this.decimalPlaces;
+    public VerifItem build() {
+      return new VerifItem(this);
     }
+  }
 
-    public void setDecimalPlaces(Integer decimalPlaces) {
-        this.decimalPlaces = decimalPlaces;
-    }
-
-    public Integer getAggregationType() {
-        return this.aggregationType;
-    }
-
-    public void setAggregationType(Integer aggregationType) {
-        this.aggregationType = aggregationType;
-    }
-
-    public Integer getSeq() {
-        return this.seq;
-    }
-
-    public void setSeq(Integer seq) {
-        this.seq = seq;
-    }
-
-    public Integer getSourceType() {
-        return this.sourceType;
-    }
-
-    public void setSourceType(Integer sourceType) {
-        this.sourceType = sourceType;
-    }
-
-    public VerifSourceConfig getSourceConfig() {
-        return this.sourceConfig;
-    }
-
-    public void setSourceConfig(VerifSourceConfig sourceConfig) {
-        this.sourceConfig = sourceConfig;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 数据项id
-         * <p> 示例值：1
-         */
-        private String itemId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private IdWithName itemName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 小数位
-         * <p> 示例值：1
-         */
-        private Integer decimalPlaces;
-        /**
-         * 分段汇总
-         * <p> 示例值：1
-         */
-        private Integer aggregationType;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        private Integer seq;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer sourceType;
-        /**
-         * 字段配置
-         * <p> 示例值：
-         */
-        private VerifSourceConfig sourceConfig;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * 数据项id
-         * <p> 示例值：1
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param itemName
-         * @return
-         */
-        public Builder itemName(IdWithName itemName) {
-            this.itemName = itemName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 小数位
-         * <p> 示例值：1
-         *
-         * @param decimalPlaces
-         * @return
-         */
-        public Builder decimalPlaces(Integer decimalPlaces) {
-            this.decimalPlaces = decimalPlaces;
-            return this;
-        }
-
-
-        /**
-         * 分段汇总
-         * <p> 示例值：1
-         *
-         * @param aggregationType
-         * @return
-         */
-        public Builder aggregationType(Integer aggregationType) {
-            this.aggregationType = aggregationType;
-            return this;
-        }
-
-
-        /**
-         * 顺序
-         * <p> 示例值：1
-         *
-         * @param seq
-         * @return
-         */
-        public Builder seq(Integer seq) {
-            this.seq = seq;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-
-        /**
-         * 字段配置
-         * <p> 示例值：
-         *
-         * @param sourceConfig
-         * @return
-         */
-        public Builder sourceConfig(VerifSourceConfig sourceConfig) {
-            this.sourceConfig = sourceConfig;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public VerifItem build() {
-            return new VerifItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

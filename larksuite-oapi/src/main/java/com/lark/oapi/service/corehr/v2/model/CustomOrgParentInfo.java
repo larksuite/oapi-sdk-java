@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgParentInfo {
+  /**
+   * custom_org_id
+   *
+   * <p>示例值：custom_org_id_xxx
+   */
+  @SerializedName("custom_org_id")
+  private String customOrgId;
+
+  /**
+   * custom_org_name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_org_name")
+  private I18n[] customOrgName;
+
+  /**
+   * parent_custom_org_id
+   *
+   * <p>示例值：parent_custom_org_id_xxx
+   */
+  @SerializedName("parent_custom_org_id")
+  private String parentCustomOrgId;
+
+  /**
+   * active
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getCustomOrgId() {
+    return this.customOrgId;
+  }
+
+  public void setCustomOrgId(String customOrgId) {
+    this.customOrgId = customOrgId;
+  }
+
+  public I18n[] getCustomOrgName() {
+    return this.customOrgName;
+  }
+
+  public void setCustomOrgName(I18n[] customOrgName) {
+    this.customOrgName = customOrgName;
+  }
+
+  public String getParentCustomOrgId() {
+    return this.parentCustomOrgId;
+  }
+
+  public void setParentCustomOrgId(String parentCustomOrgId) {
+    this.parentCustomOrgId = parentCustomOrgId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public CustomOrgParentInfo() {}
+
+  public CustomOrgParentInfo(Builder builder) {
     /**
      * custom_org_id
-     * <p> 示例值：custom_org_id_xxx
+     *
+     * <p>示例值：custom_org_id_xxx
      */
-    @SerializedName("custom_org_id")
-    private String customOrgId;
+    this.customOrgId = builder.customOrgId;
     /**
      * custom_org_name
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_org_name")
-    private I18n[] customOrgName;
+    this.customOrgName = builder.customOrgName;
     /**
      * parent_custom_org_id
-     * <p> 示例值：parent_custom_org_id_xxx
+     *
+     * <p>示例值：parent_custom_org_id_xxx
      */
-    @SerializedName("parent_custom_org_id")
-    private String parentCustomOrgId;
+    this.parentCustomOrgId = builder.parentCustomOrgId;
     /**
      * active
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     */
+    private String customOrgId;
+
+    /**
+     * custom_org_name
+     *
+     * <p>示例值：
+     */
+    private I18n[] customOrgName;
+
+    /**
+     * parent_custom_org_id
+     *
+     * <p>示例值：parent_custom_org_id_xxx
+     */
+    private String parentCustomOrgId;
+
+    /**
+     * active
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public CustomOrgParentInfo() {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     *
+     * @param customOrgId
+     * @return
+     */
+    public Builder customOrgId(String customOrgId) {
+      this.customOrgId = customOrgId;
+      return this;
     }
 
-    public CustomOrgParentInfo(Builder builder) {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        this.customOrgId = builder.customOrgId;
-        /**
-         * custom_org_name
-         * <p> 示例值：
-         */
-        this.customOrgName = builder.customOrgName;
-        /**
-         * parent_custom_org_id
-         * <p> 示例值：parent_custom_org_id_xxx
-         */
-        this.parentCustomOrgId = builder.parentCustomOrgId;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * custom_org_name
+     *
+     * <p>示例值：
+     *
+     * @param customOrgName
+     * @return
+     */
+    public Builder customOrgName(I18n[] customOrgName) {
+      this.customOrgName = customOrgName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * parent_custom_org_id
+     *
+     * <p>示例值：parent_custom_org_id_xxx
+     *
+     * @param parentCustomOrgId
+     * @return
+     */
+    public Builder parentCustomOrgId(String parentCustomOrgId) {
+      this.parentCustomOrgId = parentCustomOrgId;
+      return this;
     }
 
-    public String getCustomOrgId() {
-        return this.customOrgId;
+    /**
+     * active
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setCustomOrgId(String customOrgId) {
-        this.customOrgId = customOrgId;
+    public CustomOrgParentInfo build() {
+      return new CustomOrgParentInfo(this);
     }
+  }
 
-    public I18n[] getCustomOrgName() {
-        return this.customOrgName;
-    }
-
-    public void setCustomOrgName(I18n[] customOrgName) {
-        this.customOrgName = customOrgName;
-    }
-
-    public String getParentCustomOrgId() {
-        return this.parentCustomOrgId;
-    }
-
-    public void setParentCustomOrgId(String parentCustomOrgId) {
-        this.parentCustomOrgId = parentCustomOrgId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        private String customOrgId;
-        /**
-         * custom_org_name
-         * <p> 示例值：
-         */
-        private I18n[] customOrgName;
-        /**
-         * parent_custom_org_id
-         * <p> 示例值：parent_custom_org_id_xxx
-         */
-        private String parentCustomOrgId;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         *
-         * @param customOrgId
-         * @return
-         */
-        public Builder customOrgId(String customOrgId) {
-            this.customOrgId = customOrgId;
-            return this;
-        }
-
-
-        /**
-         * custom_org_name
-         * <p> 示例值：
-         *
-         * @param customOrgName
-         * @return
-         */
-        public Builder customOrgName(I18n[] customOrgName) {
-            this.customOrgName = customOrgName;
-            return this;
-        }
-
-
-        /**
-         * parent_custom_org_id
-         * <p> 示例值：parent_custom_org_id_xxx
-         *
-         * @param parentCustomOrgId
-         * @return
-         */
-        public Builder parentCustomOrgId(String parentCustomOrgId) {
-            this.parentCustomOrgId = parentCustomOrgId;
-            return this;
-        }
-
-
-        /**
-         * active
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public CustomOrgParentInfo build() {
-            return new CustomOrgParentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

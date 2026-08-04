@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 标签类型
- */
+/** 标签类型 */
 public enum FeedGroupCreatorFeedGroupTypeEnum {
-    NORMAL("normal"), // 普通标签
-    RULE("rule"), // 规则标签
-    ;
-    private String value;
+  NORMAL("normal"), // 普通标签
+  RULE("rule"), // 规则标签
+  ;
+  private String value;
 
-    FeedGroupCreatorFeedGroupTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupCreatorFeedGroupTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 列表页打开审批实例的方式
- */
+/** 列表页打开审批实例的方式。 */
 public enum CreateExternalInstanceExternalInstanceDisplayMethodEnum {
-    BROWSER("BROWSER"), // 跳转系统默认浏览器打开
-    SIDEBAR("SIDEBAR"), // 飞书中侧边抽屉打开
-    NORMAL("NORMAL"), // 飞书内嵌页面打开
-    TRUSTEESHIP("TRUSTEESHIP"), // 以托管打开
-    ;
-    private String value;
+  BROWSER("BROWSER"), // 跳转系统默认浏览器打开
+  SIDEBAR("SIDEBAR"), // 飞书中侧边抽屉打开
+  NORMAL("NORMAL"), // 飞书内嵌页面打开
+  TRUSTEESHIP("TRUSTEESHIP"), // 以托管打开（即托管在飞书审批中心打开）
+  ;
+  private String value;
 
-    CreateExternalInstanceExternalInstanceDisplayMethodEnum(String value) {
-        this.value = value;
-    }
+  CreateExternalInstanceExternalInstanceDisplayMethodEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

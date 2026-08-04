@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 检测状态
- */
+/** */
 public enum FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum {
-    FINISHED("FINISHED"), // 检测完成
-    FINISHEDWITHERR("FINISHED_WITH_ERR"), // 检测异常
-    ;
-    private String value;
+  FINISHED("FINISHED"), //
+  FINISHEDWITHERR("FINISHED_WITH_ERR"), //
+  ;
+  private String value;
 
-    FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum(String value) {
-        this.value = value;
-    }
+  FileRiskDetectionRecordResultFileRiskDetectionRecordResultStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

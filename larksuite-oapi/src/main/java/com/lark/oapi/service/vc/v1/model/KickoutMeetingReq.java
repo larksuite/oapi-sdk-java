@@ -13,142 +13,146 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class KickoutMeetingReq {
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 会议ID
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @Path
+  @SerializedName("meeting_id")
+  private String meetingId;
+
+  public String getMeetingId() {
+    return this.meetingId;
+  }
+
+  public void setMeetingId(String meetingId) {
+    this.meetingId = meetingId;
+  }
+
+  @Body private KickoutMeetingReqBody body;
+
+  public KickoutMeetingReqBody getKickoutMeetingReqBody() {
+    return this.body;
+  }
+
+  public void setKickoutMeetingReqBody(KickoutMeetingReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public KickoutMeetingReq() {}
+
+  public KickoutMeetingReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 会议ID
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @Path
-    @SerializedName("meeting_id")
-    private String meetingId;
-    @Body
+    this.meetingId = builder.meetingId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String meetingId; // 会议ID
+
+    /**
+     * 会议ID
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param meetingId
+     * @return
+     */
+    public Builder meetingId(String meetingId) {
+      this.meetingId = meetingId;
+      return this;
+    }
+
     private KickoutMeetingReqBody body;
 
-    // builder 开始
-    public KickoutMeetingReq() {
-    }
-
-    public KickoutMeetingReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 会议ID
-         * <p> 示例值：6911188411932033028
-         */
-        this.meetingId = builder.meetingId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getMeetingId() {
-        return this.meetingId;
-    }
-
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
-    }
-
     public KickoutMeetingReqBody getKickoutMeetingReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setKickoutMeetingReqBody(KickoutMeetingReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder kickoutMeetingReqBody(KickoutMeetingReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-        private String meetingId; // 会议ID
-        private KickoutMeetingReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.KickoutMeetingKickoutParticipantUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 会议ID
-         * <p> 示例值：6911188411932033028
-         *
-         * @param meetingId
-         * @return
-         */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
-
-        public KickoutMeetingReqBody getKickoutMeetingReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder kickoutMeetingReqBody(KickoutMeetingReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public KickoutMeetingReq build() {
-            return new KickoutMeetingReq(this);
-        }
+    public KickoutMeetingReq build() {
+      return new KickoutMeetingReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

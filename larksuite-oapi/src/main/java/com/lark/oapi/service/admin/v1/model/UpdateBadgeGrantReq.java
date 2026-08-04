@@ -13,220 +13,235 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.admin.v1.enums.*;
 
 public class UpdateBadgeGrantReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门ID的类型。
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 勋章ID
+   *
+   * <p>示例值：m_DjMzaK
+   */
+  @Path
+  @SerializedName("badge_id")
+  private String badgeId;
+
+  /**
+   * 授予名单ID
+   *
+   * <p>示例值：g_uS4yux
+   */
+  @Path
+  @SerializedName("grant_id")
+  private String grantId;
+
+  public String getBadgeId() {
+    return this.badgeId;
+  }
+
+  public void setBadgeId(String badgeId) {
+    this.badgeId = badgeId;
+  }
+
+  public String getGrantId() {
+    return this.grantId;
+  }
+
+  public void setGrantId(String grantId) {
+    this.grantId = grantId;
+  }
+
+  @Body private Grant body;
+
+  public Grant getGrant() {
+    return this.body;
+  }
+
+  public void setGrant(Grant body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateBadgeGrantReq() {}
+
+  public UpdateBadgeGrantReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门ID的类型。
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 勋章ID
-     * <p> 示例值：m_DjMzaK
+     *
+     * <p>示例值：m_DjMzaK
      */
-    @Path
-    @SerializedName("badge_id")
-    private String badgeId;
+    this.badgeId = builder.badgeId;
     /**
      * 授予名单ID
-     * <p> 示例值：g_uS4yux
+     *
+     * <p>示例值：g_uS4yux
      */
-    @Path
-    @SerializedName("grant_id")
-    private String grantId;
-    @Body
+    this.grantId = builder.grantId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门ID的类型。
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String badgeId; // 勋章ID
+    private String grantId; // 授予名单ID
+
+    /**
+     * 勋章ID
+     *
+     * <p>示例值：m_DjMzaK
+     *
+     * @param badgeId
+     * @return
+     */
+    public Builder badgeId(String badgeId) {
+      this.badgeId = badgeId;
+      return this;
+    }
+
+    /**
+     * 授予名单ID
+     *
+     * <p>示例值：g_uS4yux
+     *
+     * @param grantId
+     * @return
+     */
+    public Builder grantId(String grantId) {
+      this.grantId = grantId;
+      return this;
+    }
+
     private Grant body;
 
-    // builder 开始
-    public UpdateBadgeGrantReq() {
-    }
-
-    public UpdateBadgeGrantReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门ID的类型。
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 勋章ID
-         * <p> 示例值：m_DjMzaK
-         */
-        this.badgeId = builder.badgeId;
-        /**
-         * 授予名单ID
-         * <p> 示例值：g_uS4yux
-         */
-        this.grantId = builder.grantId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getBadgeId() {
-        return this.badgeId;
-    }
-
-    public void setBadgeId(String badgeId) {
-        this.badgeId = badgeId;
-    }
-
-    public String getGrantId() {
-        return this.grantId;
-    }
-
-    public void setGrantId(String grantId) {
-        this.grantId = grantId;
-    }
-
     public Grant getGrant() {
-        return this.body;
+      return this.body;
     }
 
-    public void setGrant(Grant body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder grant(Grant body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门ID的类型。
-        private String badgeId; // 勋章ID
-        private String grantId; // 授予名单ID
-        private Grant body;
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型。
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型。
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.UpdateBadgeGrantUpdateGrantDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 勋章ID
-         * <p> 示例值：m_DjMzaK
-         *
-         * @param badgeId
-         * @return
-         */
-        public Builder badgeId(String badgeId) {
-            this.badgeId = badgeId;
-            return this;
-        }
-
-        /**
-         * 授予名单ID
-         * <p> 示例值：g_uS4yux
-         *
-         * @param grantId
-         * @return
-         */
-        public Builder grantId(String grantId) {
-            this.grantId = grantId;
-            return this;
-        }
-
-        public Grant getGrant() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder grant(Grant body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateBadgeGrantReq build() {
-            return new UpdateBadgeGrantReq(this);
-        }
+    public UpdateBadgeGrantReq build() {
+      return new UpdateBadgeGrantReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

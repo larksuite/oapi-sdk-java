@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscriptionMinuteReqBody {
+  /**
+   * 事件类型;;**可选值有:**;- `minutes.minute.generated_v1`: 妙记生成事件
+   *
+   * <p>示例值：minutes.minute.generated_v1
+   */
+  @SerializedName("event_type")
+  private String eventType;
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
+
+  // builder 开始
+  public SubscriptionMinuteReqBody() {}
+
+  public SubscriptionMinuteReqBody(Builder builder) {
     /**
-     * 事件类型
-     * <p> 示例值：minutes.minute.generated_v1
+     * 事件类型;;**可选值有:**;- `minutes.minute.generated_v1`: 妙记生成事件
+     *
+     * <p>示例值：minutes.minute.generated_v1
      */
-    @SerializedName("event_type")
+    this.eventType = builder.eventType;
+  }
+
+  public static class Builder {
+    /**
+     * 事件类型;;**可选值有:**;- `minutes.minute.generated_v1`: 妙记生成事件
+     *
+     * <p>示例值：minutes.minute.generated_v1
+     */
     private String eventType;
 
-    // builder 开始
-    public SubscriptionMinuteReqBody() {
+    /**
+     * 事件类型;;**可选值有:**;- `minutes.minute.generated_v1`: 妙记生成事件
+     *
+     * <p>示例值：minutes.minute.generated_v1
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(String eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public SubscriptionMinuteReqBody(Builder builder) {
-        /**
-         * 事件类型
-         * <p> 示例值：minutes.minute.generated_v1
-         */
-        this.eventType = builder.eventType;
+    public SubscriptionMinuteReqBody build() {
+      return new SubscriptionMinuteReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public static class Builder {
-        /**
-         * 事件类型
-         * <p> 示例值：minutes.minute.generated_v1
-         */
-        private String eventType;
-
-        /**
-         * 事件类型
-         * <p> 示例值：minutes.minute.generated_v1
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-
-        public SubscriptionMinuteReqBody build() {
-            return new SubscriptionMinuteReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,90 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OutTime {
-    /**
-     * 时间，时间格式为yyyy-MM-dd HH:mm
-     * <p> 示例值：2025-01-01 09:00
-     */
-    @SerializedName("datetime")
+  /** 示例值：2025-01-01 09:00 */
+  @SerializedName("datetime")
+  private String datetime;
+
+  /** 示例值：morning */
+  @SerializedName("day_type")
+  private String dayType;
+
+  public String getDatetime() {
+    return this.datetime;
+  }
+
+  public void setDatetime(String datetime) {
+    this.datetime = datetime;
+  }
+
+  public String getDayType() {
+    return this.dayType;
+  }
+
+  public void setDayType(String dayType) {
+    this.dayType = dayType;
+  }
+
+  // builder 开始
+  public OutTime() {}
+
+  public OutTime(Builder builder) {
+    /** 示例值：2025-01-01 09:00 */
+    this.datetime = builder.datetime;
+    /** 示例值：morning */
+    this.dayType = builder.dayType;
+  }
+
+  public static class Builder {
+    /** 示例值：2025-01-01 09:00 */
     private String datetime;
-    /**
-     * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
-     * <p> 示例值：morning
-     */
-    @SerializedName("day_type")
+
+    /** 示例值：morning */
     private String dayType;
 
-    // builder 开始
-    public OutTime() {
+    /**
+     * 示例值：2025-01-01 09:00
+     *
+     * @param datetime
+     * @return
+     */
+    public Builder datetime(String datetime) {
+      this.datetime = datetime;
+      return this;
     }
 
-    public OutTime(Builder builder) {
-        /**
-         * 时间，时间格式为yyyy-MM-dd HH:mm
-         * <p> 示例值：2025-01-01 09:00
-         */
-        this.datetime = builder.datetime;
-        /**
-         * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
-         * <p> 示例值：morning
-         */
-        this.dayType = builder.dayType;
+    /**
+     * 示例值：morning
+     *
+     * @param dayType
+     * @return
+     */
+    public Builder dayType(String dayType) {
+      this.dayType = dayType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：morning
+     *
+     * @param dayType {@link com.lark.oapi.service.attendance.v1.enums.OutTimeDayTypeEnum}
+     * @return
+     */
+    public Builder dayType(com.lark.oapi.service.attendance.v1.enums.OutTimeDayTypeEnum dayType) {
+      this.dayType = dayType.getValue();
+      return this;
     }
 
-    public String getDatetime() {
-        return this.datetime;
+    public OutTime build() {
+      return new OutTime(this);
     }
+  }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
-    }
-
-    public String getDayType() {
-        return this.dayType;
-    }
-
-    public void setDayType(String dayType) {
-        this.dayType = dayType;
-    }
-
-    public static class Builder {
-        /**
-         * 时间，时间格式为yyyy-MM-dd HH:mm
-         * <p> 示例值：2025-01-01 09:00
-         */
-        private String datetime;
-        /**
-         * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
-         * <p> 示例值：morning
-         */
-        private String dayType;
-
-        /**
-         * 时间，时间格式为yyyy-MM-dd HH:mm
-         * <p> 示例值：2025-01-01 09:00
-         *
-         * @param datetime
-         * @return
-         */
-        public Builder datetime(String datetime) {
-            this.datetime = datetime;
-            return this;
-        }
-
-
-        /**
-         * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
-         * <p> 示例值：morning
-         *
-         * @param dayType
-         * @return
-         */
-        public Builder dayType(String dayType) {
-            this.dayType = dayType;
-            return this;
-        }
-
-        /**
-         * 外出半天类型，枚举值：morning，afternoon，当外出时间单位为half_day时生效
-         * <p> 示例值：morning
-         *
-         * @param dayType {@link com.lark.oapi.service.attendance.v1.enums.OutTimeDayTypeEnum}
-         * @return
-         */
-        public Builder dayType(com.lark.oapi.service.attendance.v1.enums.OutTimeDayTypeEnum dayType) {
-            this.dayType = dayType.getValue();
-            return this;
-        }
-
-
-        public OutTime build() {
-            return new OutTime(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

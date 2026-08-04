@@ -13,445 +13,486 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class DatasetField {
+  /**
+   * 数据集字段的 API ID
+   *
+   * <p>示例值：package_test__c_dataset_aba
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 数据集字段的 API 名称
+   *
+   * <p>示例值：myDatasetField
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+   */
+  @SerializedName("label")
+  private Map<String, String> label;
+
+  /**
+   * 数据集 API ID
+   *
+   * <p>示例值：package_test__c_dataset_adabfa
+   */
+  @SerializedName("dataset_api_id")
+  private String datasetApiId;
+
+  /**
+   * 数据集 API 名称
+   *
+   * <p>示例值：myDataset
+   */
+  @SerializedName("dataset_api_name")
+  private String datasetApiName;
+
+  /**
+   * 字段类型及设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private DatasetFieldType type;
+
+  /**
+   * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
+   *
+   * <p>示例值：rand
+   */
+  @SerializedName("encrypt_type")
+  private String encryptType;
+
+  /**
+   * 创建时间（毫秒时间戳）
+   *
+   * <p>示例值：1681876208313
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("created_by")
+  private DatasetLookupUser createdBy;
+
+  /**
+   * 更新时间（毫秒时间戳）
+   *
+   * <p>示例值：1681876208313
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("updated_by")
+  private DatasetLookupUser updatedBy;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Map<String, String> label) {
+    this.label = label;
+  }
+
+  public String getDatasetApiId() {
+    return this.datasetApiId;
+  }
+
+  public void setDatasetApiId(String datasetApiId) {
+    this.datasetApiId = datasetApiId;
+  }
+
+  public String getDatasetApiName() {
+    return this.datasetApiName;
+  }
+
+  public void setDatasetApiName(String datasetApiName) {
+    this.datasetApiName = datasetApiName;
+  }
+
+  public DatasetFieldType getType() {
+    return this.type;
+  }
+
+  public void setType(DatasetFieldType type) {
+    this.type = type;
+  }
+
+  public String getEncryptType() {
+    return this.encryptType;
+  }
+
+  public void setEncryptType(String encryptType) {
+    this.encryptType = encryptType;
+  }
+
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
+
+  public DatasetLookupUser getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(DatasetLookupUser createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public DatasetLookupUser getUpdatedBy() {
+    return this.updatedBy;
+  }
+
+  public void setUpdatedBy(DatasetLookupUser updatedBy) {
+    this.updatedBy = updatedBy;
+  }
+
+  // builder 开始
+  public DatasetField() {}
+
+  public DatasetField(Builder builder) {
     /**
      * 数据集字段的 API ID
-     * <p> 示例值：package_test__c_dataset_aba
+     *
+     * <p>示例值：package_test__c_dataset_aba
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * 数据集字段的 API 名称
-     * <p> 示例值：myDatasetField
+     *
+     * <p>示例值：myDatasetField
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
      */
-    @SerializedName("label")
-    private Map<String, String> label;
+    this.label = builder.label;
     /**
      * 数据集 API ID
-     * <p> 示例值：package_test__c_dataset_adabfa
+     *
+     * <p>示例值：package_test__c_dataset_adabfa
      */
-    @SerializedName("dataset_api_id")
-    private String datasetApiId;
+    this.datasetApiId = builder.datasetApiId;
     /**
      * 数据集 API 名称
-     * <p> 示例值：myDataset
+     *
+     * <p>示例值：myDataset
      */
-    @SerializedName("dataset_api_name")
-    private String datasetApiName;
+    this.datasetApiName = builder.datasetApiName;
     /**
      * 字段类型及设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private DatasetFieldType type;
+    this.type = builder.type;
     /**
      * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
-     * <p> 示例值：rand
+     *
+     * <p>示例值：rand
      */
-    @SerializedName("encrypt_type")
-    private String encryptType;
+    this.encryptType = builder.encryptType;
     /**
      * 创建时间（毫秒时间戳）
-     * <p> 示例值：1681876208313
+     *
+     * <p>示例值：1681876208313
      */
-    @SerializedName("create_time")
-    private Integer createTime;
+    this.createTime = builder.createTime;
     /**
      * 创建人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("created_by")
-    private DatasetLookupUser createdBy;
+    this.createdBy = builder.createdBy;
     /**
      * 更新时间（毫秒时间戳）
-     * <p> 示例值：1681876208313
+     *
+     * <p>示例值：1681876208313
      */
-    @SerializedName("update_time")
-    private Integer updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 更新人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("updated_by")
+    this.updatedBy = builder.updatedBy;
+  }
+
+  public static class Builder {
+    /**
+     * 数据集字段的 API ID
+     *
+     * <p>示例值：package_test__c_dataset_aba
+     */
+    private String apiId;
+
+    /**
+     * 数据集字段的 API 名称
+     *
+     * <p>示例值：myDatasetField
+     */
+    private String apiName;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     */
+    private Map<String, String> label;
+
+    /**
+     * 数据集 API ID
+     *
+     * <p>示例值：package_test__c_dataset_adabfa
+     */
+    private String datasetApiId;
+
+    /**
+     * 数据集 API 名称
+     *
+     * <p>示例值：myDataset
+     */
+    private String datasetApiName;
+
+    /**
+     * 字段类型及设置
+     *
+     * <p>示例值：
+     */
+    private DatasetFieldType type;
+
+    /**
+     * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
+     *
+     * <p>示例值：rand
+     */
+    private String encryptType;
+
+    /**
+     * 创建时间（毫秒时间戳）
+     *
+     * <p>示例值：1681876208313
+     */
+    private Integer createTime;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：
+     */
+    private DatasetLookupUser createdBy;
+
+    /**
+     * 更新时间（毫秒时间戳）
+     *
+     * <p>示例值：1681876208313
+     */
+    private Integer updateTime;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：
+     */
     private DatasetLookupUser updatedBy;
 
-    // builder 开始
-    public DatasetField() {
+    /**
+     * 数据集字段的 API ID
+     *
+     * <p>示例值：package_test__c_dataset_aba
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public DatasetField(Builder builder) {
-        /**
-         * 数据集字段的 API ID
-         * <p> 示例值：package_test__c_dataset_aba
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 数据集字段的 API 名称
-         * <p> 示例值：myDatasetField
-         */
-        this.apiName = builder.apiName;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 数据集 API ID
-         * <p> 示例值：package_test__c_dataset_adabfa
-         */
-        this.datasetApiId = builder.datasetApiId;
-        /**
-         * 数据集 API 名称
-         * <p> 示例值：myDataset
-         */
-        this.datasetApiName = builder.datasetApiName;
-        /**
-         * 字段类型及设置
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
-         * <p> 示例值：rand
-         */
-        this.encryptType = builder.encryptType;
-        /**
-         * 创建时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 更新人
-         * <p> 示例值：
-         */
-        this.updatedBy = builder.updatedBy;
+    /**
+     * 数据集字段的 API 名称
+     *
+     * <p>示例值：myDatasetField
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Map<String, String> label) {
+      this.label = label;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 数据集 API ID
+     *
+     * <p>示例值：package_test__c_dataset_adabfa
+     *
+     * @param datasetApiId
+     * @return
+     */
+    public Builder datasetApiId(String datasetApiId) {
+      this.datasetApiId = datasetApiId;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    /**
+     * 数据集 API 名称
+     *
+     * <p>示例值：myDataset
+     *
+     * @param datasetApiName
+     * @return
+     */
+    public Builder datasetApiName(String datasetApiName) {
+      this.datasetApiName = datasetApiName;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 字段类型及设置
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(DatasetFieldType type) {
+      this.type = type;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
+     *
+     * <p>示例值：rand
+     *
+     * @param encryptType
+     * @return
+     */
+    public Builder encryptType(String encryptType) {
+      this.encryptType = encryptType;
+      return this;
     }
 
-    public Map<String, String> getLabel() {
-        return this.label;
+    /**
+     * 创建时间（毫秒时间戳）
+     *
+     * <p>示例值：1681876208313
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Integer createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setLabel(Map<String, String> label) {
-        this.label = label;
+    /**
+     * 创建人
+     *
+     * <p>示例值：
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(DatasetLookupUser createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public String getDatasetApiId() {
-        return this.datasetApiId;
+    /**
+     * 更新时间（毫秒时间戳）
+     *
+     * <p>示例值：1681876208313
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(Integer updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setDatasetApiId(String datasetApiId) {
-        this.datasetApiId = datasetApiId;
+    /**
+     * 更新人
+     *
+     * <p>示例值：
+     *
+     * @param updatedBy
+     * @return
+     */
+    public Builder updatedBy(DatasetLookupUser updatedBy) {
+      this.updatedBy = updatedBy;
+      return this;
     }
 
-    public String getDatasetApiName() {
-        return this.datasetApiName;
+    public DatasetField build() {
+      return new DatasetField(this);
     }
+  }
 
-    public void setDatasetApiName(String datasetApiName) {
-        this.datasetApiName = datasetApiName;
-    }
-
-    public DatasetFieldType getType() {
-        return this.type;
-    }
-
-    public void setType(DatasetFieldType type) {
-        this.type = type;
-    }
-
-    public String getEncryptType() {
-        return this.encryptType;
-    }
-
-    public void setEncryptType(String encryptType) {
-        this.encryptType = encryptType;
-    }
-
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public DatasetLookupUser getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(DatasetLookupUser createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public DatasetLookupUser getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public void setUpdatedBy(DatasetLookupUser updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public static class Builder {
-        /**
-         * 数据集字段的 API ID
-         * <p> 示例值：package_test__c_dataset_aba
-         */
-        private String apiId;
-        /**
-         * 数据集字段的 API 名称
-         * <p> 示例值：myDatasetField
-         */
-        private String apiName;
-        /**
-         * <p> 示例值：
-         */
-        private Map<String, String> label;
-        /**
-         * 数据集 API ID
-         * <p> 示例值：package_test__c_dataset_adabfa
-         */
-        private String datasetApiId;
-        /**
-         * 数据集 API 名称
-         * <p> 示例值：myDataset
-         */
-        private String datasetApiName;
-        /**
-         * 字段类型及设置
-         * <p> 示例值：
-         */
-        private DatasetFieldType type;
-        /**
-         * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
-         * <p> 示例值：rand
-         */
-        private String encryptType;
-        /**
-         * 创建时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        private Integer createTime;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        private DatasetLookupUser createdBy;
-        /**
-         * 更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         */
-        private Integer updateTime;
-        /**
-         * 更新人
-         * <p> 示例值：
-         */
-        private DatasetLookupUser updatedBy;
-
-        /**
-         * 数据集字段的 API ID
-         * <p> 示例值：package_test__c_dataset_aba
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 数据集字段的 API 名称
-         * <p> 示例值：myDatasetField
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 数据集 API ID
-         * <p> 示例值：package_test__c_dataset_adabfa
-         *
-         * @param datasetApiId
-         * @return
-         */
-        public Builder datasetApiId(String datasetApiId) {
-            this.datasetApiId = datasetApiId;
-            return this;
-        }
-
-
-        /**
-         * 数据集 API 名称
-         * <p> 示例值：myDataset
-         *
-         * @param datasetApiName
-         * @return
-         */
-        public Builder datasetApiName(String datasetApiName) {
-            this.datasetApiName = datasetApiName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型及设置
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(DatasetFieldType type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 加密类型。包含以下选项： 1. none 不加密 2. rand 非确定性加密 3. fix 固定加密 4. ope 保序加密
-         * <p> 示例值：rand
-         *
-         * @param encryptType
-         * @return
-         */
-        public Builder encryptType(String encryptType) {
-            this.encryptType = encryptType;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(DatasetLookupUser createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 更新时间（毫秒时间戳）
-         * <p> 示例值：1681876208313
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：
-         *
-         * @param updatedBy
-         * @return
-         */
-        public Builder updatedBy(DatasetLookupUser updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
-        }
-
-
-        public DatasetField build() {
-            return new DatasetField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

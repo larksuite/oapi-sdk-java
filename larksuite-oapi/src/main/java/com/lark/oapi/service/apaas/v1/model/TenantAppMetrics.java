@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TenantAppMetrics {
+  /**
+   * aPaaS 应用 namespace
+   *
+   * <p>示例值：package_a__c
+   */
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json
+   * 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"active_user_1dcnt","ValueType":"amount","Value":100},;{"Name":"active_user_7dcnt","ValueType":"amount","Value":200},;...;]
+   *
+   * <p>示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
+   */
+  @SerializedName("data")
+  private String data;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getData() {
+    return this.data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
+  // builder 开始
+  public TenantAppMetrics() {}
+
+  public TenantAppMetrics(Builder builder) {
     /**
      * aPaaS 应用 namespace
-     * <p> 示例值：package_a__c
+     *
+     * <p>示例值：package_a__c
      */
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
-     * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"key1","ValueType":"amount","Value":100},;{"Name":"key2","ValueType":"amount","Value":200};]
-     * <p> 示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
+     * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json
+     * 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"active_user_1dcnt","ValueType":"amount","Value":100},;{"Name":"active_user_7dcnt","ValueType":"amount","Value":200},;...;]
+     *
+     * <p>示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
      */
-    @SerializedName("data")
+    this.data = builder.data;
+  }
+
+  public static class Builder {
+    /**
+     * aPaaS 应用 namespace
+     *
+     * <p>示例值：package_a__c
+     */
+    private String namespace;
+
+    /**
+     * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json
+     * 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"active_user_1dcnt","ValueType":"amount","Value":100},;{"Name":"active_user_7dcnt","ValueType":"amount","Value":200},;...;]
+     *
+     * <p>示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
+     */
     private String data;
 
-    // builder 开始
-    public TenantAppMetrics() {
+    /**
+     * aPaaS 应用 namespace
+     *
+     * <p>示例值：package_a__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public TenantAppMetrics(Builder builder) {
-        /**
-         * aPaaS 应用 namespace
-         * <p> 示例值：package_a__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"key1","ValueType":"amount","Value":100},;{"Name":"key2","ValueType":"amount","Value":200};]
-         * <p> 示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
-         */
-        this.data = builder.data;
+    /**
+     * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json
+     * 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"active_user_1dcnt","ValueType":"amount","Value":100},;{"Name":"active_user_7dcnt","ValueType":"amount","Value":200},;...;]
+     *
+     * <p>示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(String data) {
+      this.data = data;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TenantAppMetrics build() {
+      return new TenantAppMetrics(this);
     }
+  }
 
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getData() {
-        return this.data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public static class Builder {
-        /**
-         * aPaaS 应用 namespace
-         * <p> 示例值：package_a__c
-         */
-        private String namespace;
-        /**
-         * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"key1","ValueType":"amount","Value":100},;{"Name":"key2","ValueType":"amount","Value":200};]
-         * <p> 示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
-         */
-        private String data;
-
-        /**
-         * aPaaS 应用 namespace
-         * <p> 示例值：package_a__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 指定应用的指标详情，对 []map[string]int64 数组进行序列化后得到的 json 字符串。数组每个元素包含名称（Name）、数值类型（ValueType）、数值（Value）三个字段。;;Name枚举值：;active_user_1dcnt（近1日应用用户活跃数）、;active_user_7dcnt（近7日应用用户活跃数）、;active_user_30dcnt（近30日应用用户活跃数）、;function_run_1dcnt（近1日函数运行次数，含线上环境与开发环境）。;;ValueType枚举值：amount（数量）。;;json格式：[{"Name":"key1","ValueType":"amount","Value":100},;{"Name":"key2","ValueType":"amount","Value":200};]
-         * <p> 示例值：[{\"Name\":\"active_user_30dcnt\",\"ValueType\":\"amount\",\"Value\":6000},{\"Name\":\"active_user_7dcnt\",\"ValueType\":\"amount\",\"Value\":1400},{\"Name\":\"active_user_1dcnt\",\"ValueType\":\"amount\",\"Value\":200},{\"Name\":\"function_run_1dcnt\",\"ValueType\":\"amount\",\"Value\":400}]
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(String data) {
-            this.data = data;
-            return this;
-        }
-
-
-        public TenantAppMetrics build() {
-            return new TenantAppMetrics(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

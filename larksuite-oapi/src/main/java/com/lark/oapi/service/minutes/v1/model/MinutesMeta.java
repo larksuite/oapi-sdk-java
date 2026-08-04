@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinutesMeta {
+  /**
+   * 妙记跳转链接
+   *
+   * <p>示例值：https://example.feishu.cn/minutes/xxxxxx
+   */
+  @SerializedName("app_link")
+  private String appLink;
+
+  /**
+   * 妙记封面图片 URL
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 妙记描述
+   *
+   * <p>示例值：产品周会纪要
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getAppLink() {
+    return this.appLink;
+  }
+
+  public void setAppLink(String appLink) {
+    this.appLink = appLink;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public MinutesMeta() {}
+
+  public MinutesMeta(Builder builder) {
     /**
      * 妙记跳转链接
-     * <p> 示例值：https://example.feishu.cn/minutes/xxxxxx
+     *
+     * <p>示例值：https://example.feishu.cn/minutes/xxxxxx
      */
-    @SerializedName("app_link")
-    private String appLink;
+    this.appLink = builder.appLink;
     /**
      * 妙记封面图片 URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 妙记描述
-     * <p> 示例值：产品周会纪要
+     *
+     * <p>示例值：产品周会纪要
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 妙记跳转链接
+     *
+     * <p>示例值：https://example.feishu.cn/minutes/xxxxxx
+     */
+    private String appLink;
+
+    /**
+     * 妙记封面图片 URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
+     */
+    private String avatar;
+
+    /**
+     * 妙记描述
+     *
+     * <p>示例值：产品周会纪要
+     */
     private String description;
 
-    // builder 开始
-    public MinutesMeta() {
+    /**
+     * 妙记跳转链接
+     *
+     * <p>示例值：https://example.feishu.cn/minutes/xxxxxx
+     *
+     * @param appLink
+     * @return
+     */
+    public Builder appLink(String appLink) {
+      this.appLink = appLink;
+      return this;
     }
 
-    public MinutesMeta(Builder builder) {
-        /**
-         * 妙记跳转链接
-         * <p> 示例值：https://example.feishu.cn/minutes/xxxxxx
-         */
-        this.appLink = builder.appLink;
-        /**
-         * 妙记封面图片 URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 妙记描述
-         * <p> 示例值：产品周会纪要
-         */
-        this.description = builder.description;
+    /**
+     * 妙记封面图片 URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 妙记描述
+     *
+     * <p>示例值：产品周会纪要
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAppLink() {
-        return this.appLink;
+    public MinutesMeta build() {
+      return new MinutesMeta(this);
     }
+  }
 
-    public void setAppLink(String appLink) {
-        this.appLink = appLink;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 妙记跳转链接
-         * <p> 示例值：https://example.feishu.cn/minutes/xxxxxx
-         */
-        private String appLink;
-        /**
-         * 妙记封面图片 URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
-         */
-        private String avatar;
-        /**
-         * 妙记描述
-         * <p> 示例值：产品周会纪要
-         */
-        private String description;
-
-        /**
-         * 妙记跳转链接
-         * <p> 示例值：https://example.feishu.cn/minutes/xxxxxx
-         *
-         * @param appLink
-         * @return
-         */
-        public Builder appLink(String appLink) {
-            this.appLink = appLink;
-            return this;
-        }
-
-
-        /**
-         * 妙记封面图片 URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/xxxx.jpg
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 妙记描述
-         * <p> 示例值：产品周会纪要
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public MinutesMeta build() {
-            return new MinutesMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

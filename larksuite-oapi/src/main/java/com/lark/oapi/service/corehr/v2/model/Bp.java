@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Bp {
+  /**
+   * 部门 ID; >
+   * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门 HRBP 的雇佣 ID，不包括上级部门的 HRBP; >
+   * ;如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("hrbp_id")
+  private String hrbpId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getHrbpId() {
+    return this.hrbpId;
+  }
+
+  public void setHrbpId(String hrbpId) {
+    this.hrbpId = hrbpId;
+  }
+
+  // builder 开始
+  public Bp() {}
+
+  public Bp(Builder builder) {
     /**
-     * 部门 ID
-     * <p> 示例值：4719456877659520852
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+    /**
+     * 部门 HRBP 的雇佣 ID，不包括上级部门的 HRBP; >
+     * ;如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
+     */
+    this.hrbpId = builder.hrbpId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
+     */
     private String departmentId;
+
     /**
-     * BP 的雇佣 ID
-     * <p> 示例值：4719456877659520852
+     * 部门 HRBP 的雇佣 ID，不包括上级部门的 HRBP; >
+     * ;如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("hrbp_id")
     private String hrbpId;
 
-    // builder 开始
-    public Bp() {
+    /**
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public Bp(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * BP 的雇佣 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.hrbpId = builder.hrbpId;
+    /**
+     * 部门 HRBP 的雇佣 ID，不包括上级部门的 HRBP; >
+     * ;如想获取员工详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param hrbpId
+     * @return
+     */
+    public Builder hrbpId(String hrbpId) {
+      this.hrbpId = hrbpId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Bp build() {
+      return new Bp(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getHrbpId() {
-        return this.hrbpId;
-    }
-
-    public void setHrbpId(String hrbpId) {
-        this.hrbpId = hrbpId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String departmentId;
-        /**
-         * BP 的雇佣 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String hrbpId;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * BP 的雇佣 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param hrbpId
-         * @return
-         */
-        public Builder hrbpId(String hrbpId) {
-            this.hrbpId = hrbpId;
-            return this;
-        }
-
-
-        public Bp build() {
-            return new Bp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReserveScopeConfig {
+  /**
+   * 是否覆盖子层级及会议室
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("if_cover_child_scope")
+  private Boolean ifCoverChildScope;
+
+  /**
+   * 可预定成员范围，0部分成员，1全部成员
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("allow_all_users")
+  private Integer allowAllUsers;
+
+  /**
+   * 可预定成员列表
+   *
+   * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+   */
+  @SerializedName("allow_users")
+  private SubscribeUser[] allowUsers;
+
+  /**
+   * 可预定部门列表
+   *
+   * <p>示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+   */
+  @SerializedName("allow_depts")
+  private SubscribeDepartment[] allowDepts;
+
+  public Boolean getIfCoverChildScope() {
+    return this.ifCoverChildScope;
+  }
+
+  public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+    this.ifCoverChildScope = ifCoverChildScope;
+  }
+
+  public Integer getAllowAllUsers() {
+    return this.allowAllUsers;
+  }
+
+  public void setAllowAllUsers(Integer allowAllUsers) {
+    this.allowAllUsers = allowAllUsers;
+  }
+
+  public SubscribeUser[] getAllowUsers() {
+    return this.allowUsers;
+  }
+
+  public void setAllowUsers(SubscribeUser[] allowUsers) {
+    this.allowUsers = allowUsers;
+  }
+
+  public SubscribeDepartment[] getAllowDepts() {
+    return this.allowDepts;
+  }
+
+  public void setAllowDepts(SubscribeDepartment[] allowDepts) {
+    this.allowDepts = allowDepts;
+  }
+
+  // builder 开始
+  public ReserveScopeConfig() {}
+
+  public ReserveScopeConfig(Builder builder) {
     /**
      * 是否覆盖子层级及会议室
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("if_cover_child_scope")
-    private Boolean ifCoverChildScope;
+    this.ifCoverChildScope = builder.ifCoverChildScope;
     /**
-     * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
-     * <p> 示例值：0
+     * 可预定成员范围，0部分成员，1全部成员
+     *
+     * <p>示例值：0
      */
-    @SerializedName("allow_all_users")
-    private Integer allowAllUsers;
+    this.allowAllUsers = builder.allowAllUsers;
     /**
      * 可预定成员列表
-     * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
      */
-    @SerializedName("allow_users")
-    private SubscribeUser[] allowUsers;
+    this.allowUsers = builder.allowUsers;
     /**
      * 可预定部门列表
-     * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+     *
+     * <p>示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
      */
-    @SerializedName("allow_depts")
+    this.allowDepts = builder.allowDepts;
+  }
+
+  public static class Builder {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     */
+    private Boolean ifCoverChildScope;
+
+    /**
+     * 可预定成员范围，0部分成员，1全部成员
+     *
+     * <p>示例值：0
+     */
+    private Integer allowAllUsers;
+
+    /**
+     * 可预定成员列表
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     */
+    private SubscribeUser[] allowUsers;
+
+    /**
+     * 可预定部门列表
+     *
+     * <p>示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+     */
     private SubscribeDepartment[] allowDepts;
 
-    // builder 开始
-    public ReserveScopeConfig() {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     *
+     * @param ifCoverChildScope
+     * @return
+     */
+    public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+      this.ifCoverChildScope = ifCoverChildScope;
+      return this;
     }
 
-    public ReserveScopeConfig(Builder builder) {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        this.ifCoverChildScope = builder.ifCoverChildScope;
-        /**
-         * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
-         * <p> 示例值：0
-         */
-        this.allowAllUsers = builder.allowAllUsers;
-        /**
-         * 可预定成员列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        this.allowUsers = builder.allowUsers;
-        /**
-         * 可预定部门列表
-         * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-         */
-        this.allowDepts = builder.allowDepts;
+    /**
+     * 可预定成员范围，0部分成员，1全部成员
+     *
+     * <p>示例值：0
+     *
+     * @param allowAllUsers
+     * @return
+     */
+    public Builder allowAllUsers(Integer allowAllUsers) {
+      this.allowAllUsers = allowAllUsers;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 可预定成员列表
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * @param allowUsers
+     * @return
+     */
+    public Builder allowUsers(SubscribeUser[] allowUsers) {
+      this.allowUsers = allowUsers;
+      return this;
     }
 
-    public Boolean getIfCoverChildScope() {
-        return this.ifCoverChildScope;
+    /**
+     * 可预定部门列表
+     *
+     * <p>示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
+     *
+     * @param allowDepts
+     * @return
+     */
+    public Builder allowDepts(SubscribeDepartment[] allowDepts) {
+      this.allowDepts = allowDepts;
+      return this;
     }
 
-    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
-        this.ifCoverChildScope = ifCoverChildScope;
+    public ReserveScopeConfig build() {
+      return new ReserveScopeConfig(this);
     }
+  }
 
-    public Integer getAllowAllUsers() {
-        return this.allowAllUsers;
-    }
-
-    public void setAllowAllUsers(Integer allowAllUsers) {
-        this.allowAllUsers = allowAllUsers;
-    }
-
-    public SubscribeUser[] getAllowUsers() {
-        return this.allowUsers;
-    }
-
-    public void setAllowUsers(SubscribeUser[] allowUsers) {
-        this.allowUsers = allowUsers;
-    }
-
-    public SubscribeDepartment[] getAllowDepts() {
-        return this.allowDepts;
-    }
-
-    public void setAllowDepts(SubscribeDepartment[] allowDepts) {
-        this.allowDepts = allowDepts;
-    }
-
-    public static class Builder {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        private Boolean ifCoverChildScope;
-        /**
-         * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
-         * <p> 示例值：0
-         */
-        private Integer allowAllUsers;
-        /**
-         * 可预定成员列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        private SubscribeUser[] allowUsers;
-        /**
-         * 可预定部门列表
-         * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-         */
-        private SubscribeDepartment[] allowDepts;
-
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         *
-         * @param ifCoverChildScope
-         * @return
-         */
-        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
-            this.ifCoverChildScope = ifCoverChildScope;
-            return this;
-        }
-
-
-        /**
-         * 可预定成员范围：0 代表部分成员，1 代表全部成员。;<b>说明</b>：;1.  此值必填。;2.  当设置为 0 时，至少需要 1 个预定部门或预定人
-         * <p> 示例值：0
-         *
-         * @param allowAllUsers
-         * @return
-         */
-        public Builder allowAllUsers(Integer allowAllUsers) {
-            this.allowAllUsers = allowAllUsers;
-            return this;
-        }
-
-
-        /**
-         * 可预定成员列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         *
-         * @param allowUsers
-         * @return
-         */
-        public Builder allowUsers(SubscribeUser[] allowUsers) {
-            this.allowUsers = allowUsers;
-            return this;
-        }
-
-
-        /**
-         * 可预定部门列表
-         * <p> 示例值：[{department_id:"od-5c07f0c117cf8795f25610a69363ce31"}]
-         *
-         * @param allowDepts
-         * @return
-         */
-        public Builder allowDepts(SubscribeDepartment[] allowDepts) {
-            this.allowDepts = allowDepts;
-            return this;
-        }
-
-
-        public ReserveScopeConfig build() {
-            return new ReserveScopeConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

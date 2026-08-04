@@ -13,72 +13,64 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.personal_settings.v1.enums.*;
 
 public class DeleteSystemStatusReq {
+  /**
+   * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+   *
+   * <p>示例值：7101214603622940633
+   */
+  @Path
+  @SerializedName("system_status_id")
+  private String systemStatusId;
+
+  public String getSystemStatusId() {
+    return this.systemStatusId;
+  }
+
+  public void setSystemStatusId(String systemStatusId) {
+    this.systemStatusId = systemStatusId;
+  }
+
+  // builder 开始
+  public DeleteSystemStatusReq() {}
+
+  public DeleteSystemStatusReq(Builder builder) {
     /**
      * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-     * <p> 示例值：7101214603622940633
+     *
+     * <p>示例值：7101214603622940633
      */
-    @Path
-    @SerializedName("system_status_id")
-    private String systemStatusId;
+    this.systemStatusId = builder.systemStatusId;
+  }
 
-    // builder 开始
-    public DeleteSystemStatusReq() {
+  public static class Builder {
+
+    private String
+        systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+
+    /**
+     * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+     *
+     * <p>示例值：7101214603622940633
+     *
+     * @param systemStatusId
+     * @return
+     */
+    public Builder systemStatusId(String systemStatusId) {
+      this.systemStatusId = systemStatusId;
+      return this;
     }
 
-    public DeleteSystemStatusReq(Builder builder) {
-        /**
-         * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-         * <p> 示例值：7101214603622940633
-         */
-        this.systemStatusId = builder.systemStatusId;
+    public DeleteSystemStatusReq build() {
+      return new DeleteSystemStatusReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSystemStatusId() {
-        return this.systemStatusId;
-    }
-
-    public void setSystemStatusId(String systemStatusId) {
-        this.systemStatusId = systemStatusId;
-    }
-
-    public static class Builder {
-
-        private String systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-
-        /**
-         * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-         * <p> 示例值：7101214603622940633
-         *
-         * @param systemStatusId
-         * @return
-         */
-        public Builder systemStatusId(String systemStatusId) {
-            this.systemStatusId = systemStatusId;
-            return this;
-        }
-
-
-        public DeleteSystemStatusReq build() {
-            return new DeleteSystemStatusReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

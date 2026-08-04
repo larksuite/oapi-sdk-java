@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 邮件优先级
- */
+/** 邮件优先级 */
 public enum MessagePriorityTypeEnum {
-    UNKNOWN_PRIORITY("0"), // 无优先级
-    HIGH("1"), // 高优先级
-    NORMAL("3"), // 正常优先级
-    LOW("5"), // 低优先级
-    ;
-    private String value;
+  UNKNOWN_PRIORITY("0"), // 无优先级
+  HIGH("1"), // 高优先级
+  NORMAL("3"), // 正常优先级
+  LOW("5"), // 低优先级
+  ;
+  private String value;
 
-    MessagePriorityTypeEnum(String value) {
-        this.value = value;
-    }
+  MessagePriorityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

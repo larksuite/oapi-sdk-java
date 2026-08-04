@@ -13,294 +13,317 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class ListFileCommentReplyReq {
+  /**
+   * 分页大小，每页返回的数据量。默认值为50
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：1654857036541812356
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("need_reaction")
+  private Boolean needReaction;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public Boolean getNeedReaction() {
+    return this.needReaction;
+  }
+
+  public void setNeedReaction(Boolean needReaction) {
+    this.needReaction = needReaction;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+   *
+   * <p>示例值：doxbcdl03Vsxhm7Qmnj110abcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+   *
+   * <p>示例值：1654857036541812356
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  // builder 开始
+  public ListFileCommentReplyReq() {}
+
+  public ListFileCommentReplyReq(Builder builder) {
     /**
-     * 分页大小
-     * <p> 示例值：10
+     * 分页大小，每页返回的数据量。默认值为50
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：1654857036541812356
+     *
+     * <p>示例值：1654857036541812356
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 文档类型
-     * <p> 示例值：docx
+     * 云文档类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
-     * 是否需要获取评论卡片上挂载的Reaction数据
-     * <p> 示例值：
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("need_reaction")
-    private Boolean needReaction;
+    this.needReaction = builder.needReaction;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 文档Token
-     * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：doxbcdl03Vsxhm7Qmnj110abcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
-     * 评论ID
-     * <p> 示例值：1654857036541812356
+     * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+     *
+     * <p>示例值：1654857036541812356
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
+    this.commentId = builder.commentId;
+  }
 
-    // builder 开始
-    public ListFileCommentReplyReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，每页返回的数据量。默认值为50
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String fileType; // 云文档类型
+    private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 分页大小，每页返回的数据量。默认值为50
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListFileCommentReplyReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1654857036541812356
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         */
-        this.needReaction = builder.needReaction;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 文档Token
-         * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 评论ID
-         * <p> 示例值：1654857036541812356
-         */
-        this.commentId = builder.commentId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1654857036541812356
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
+     *
+     * @param needReaction
+     * @return
+     */
+    public Builder needReaction(Boolean needReaction) {
+      this.needReaction = needReaction;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    private String fileToken; // 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+    private String commentId; // 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+
+    /**
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：doxbcdl03Vsxhm7Qmnj110abcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    /**
+     * 评论 ID;;可通过调用 添加评论、获取评论 接口获取
+     *
+     * <p>示例值：1654857036541812356
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
     }
 
-    public Boolean getNeedReaction() {
-        return this.needReaction;
+    public ListFileCommentReplyReq build() {
+      return new ListFileCommentReplyReq(this);
     }
+  }
 
-    public void setNeedReaction(Boolean needReaction) {
-        this.needReaction = needReaction;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String fileType; // 文档类型
-        private Boolean needReaction; // 是否需要获取评论卡片上挂载的Reaction数据
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String fileToken; // 文档Token
-        private String commentId; // 评论ID
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：1654857036541812356
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         *
-         * @param needReaction
-         * @return
-         */
-        public Builder needReaction(Boolean needReaction) {
-            this.needReaction = needReaction;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.ListFileCommentReplyUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 文档Token
-         * <p> 示例值：doxbcdl03Vsxhm7Qmnj110abcef
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 评论ID
-         * <p> 示例值：1654857036541812356
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-
-        public ListFileCommentReplyReq build() {
-            return new ListFileCommentReplyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

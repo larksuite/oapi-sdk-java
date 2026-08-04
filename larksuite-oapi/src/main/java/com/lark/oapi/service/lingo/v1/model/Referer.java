@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Referer {
+  /**
+   * 对应相关信息 ID
+   *
+   * <p>示例值：格式请看请求体示例
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 对应相关信息的描述，如相关联系人的描述、相关链接的标题
+   *
+   * <p>示例值：飞书官网
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 链接地址
+   *
+   * <p>示例值：https://www.feishu.cn/hc/zh-CN
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public Referer() {}
+
+  public Referer(Builder builder) {
     /**
-     * 数据 id
-     * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
+     * 对应相关信息 ID
+     *
+     * <p>示例值：格式请看请求体示例
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 标题
-     * <p> 示例值：飞书官网
+     * 对应相关信息的描述，如相关联系人的描述、相关链接的标题
+     *
+     * <p>示例值：飞书官网
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 链接地址
-     * <p> 示例值：https://www.feishu.cn/hc/zh-CN
+     *
+     * <p>示例值：https://www.feishu.cn/hc/zh-CN
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 对应相关信息 ID
+     *
+     * <p>示例值：格式请看请求体示例
+     */
+    private String id;
+
+    /**
+     * 对应相关信息的描述，如相关联系人的描述、相关链接的标题
+     *
+     * <p>示例值：飞书官网
+     */
+    private String title;
+
+    /**
+     * 链接地址
+     *
+     * <p>示例值：https://www.feishu.cn/hc/zh-CN
+     */
     private String url;
 
-    // builder 开始
-    public Referer() {
+    /**
+     * 对应相关信息 ID
+     *
+     * <p>示例值：格式请看请求体示例
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Referer(Builder builder) {
-        /**
-         * 数据 id
-         * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.id = builder.id;
-        /**
-         * 标题
-         * <p> 示例值：飞书官网
-         */
-        this.title = builder.title;
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         */
-        this.url = builder.url;
+    /**
+     * 对应相关信息的描述，如相关联系人的描述、相关链接的标题
+     *
+     * <p>示例值：飞书官网
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 链接地址
+     *
+     * <p>示例值：https://www.feishu.cn/hc/zh-CN
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Referer build() {
+      return new Referer(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 数据 id
-         * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String id;
-        /**
-         * 标题
-         * <p> 示例值：飞书官网
-         */
-        private String title;
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         */
-        private String url;
-
-        /**
-         * 数据 id
-         * <p> 示例值：7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标题
-         * <p> 示例值：飞书官网
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.feishu.cn/hc/zh-CN
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public Referer build() {
-            return new Referer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

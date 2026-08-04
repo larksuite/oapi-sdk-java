@@ -13,284 +13,303 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MindMapNode {
+  /**
+   * 思维导图节点的父节点，必须为思维导图节点
+   *
+   * <p>示例值：z1:1
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 思维导图节点图形类型
+   *
+   * <p>示例值：mind_map_round_rect
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 思维导图节点在兄弟节点中的位置index
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("z_index")
+  private Integer zIndex;
+
+  /**
+   * 子节点相对根节点的方向（根节点下的子节点设置才生效）
+   *
+   * <p>示例值：left
+   */
+  @SerializedName("layout_position")
+  private String layoutPosition;
+
+  /**
+   * 子节点列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private String[] children;
+
+  /**
+   * 是否收起子节点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("collapsed")
+  private Boolean collapsed;
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Integer getZIndex() {
+    return this.zIndex;
+  }
+
+  public void setZIndex(Integer zIndex) {
+    this.zIndex = zIndex;
+  }
+
+  public String getLayoutPosition() {
+    return this.layoutPosition;
+  }
+
+  public void setLayoutPosition(String layoutPosition) {
+    this.layoutPosition = layoutPosition;
+  }
+
+  public String[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(String[] children) {
+    this.children = children;
+  }
+
+  public Boolean getCollapsed() {
+    return this.collapsed;
+  }
+
+  public void setCollapsed(Boolean collapsed) {
+    this.collapsed = collapsed;
+  }
+
+  // builder 开始
+  public MindMapNode() {}
+
+  public MindMapNode(Builder builder) {
     /**
      * 思维导图节点的父节点，必须为思维导图节点
-     * <p> 示例值：z1:1
+     *
+     * <p>示例值：z1:1
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 思维导图节点图形类型
-     * <p> 示例值：
+     *
+     * <p>示例值：mind_map_round_rect
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 思维导图节点在兄弟节点中的位置index
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("z_index")
-    private Integer zIndex;
+    this.zIndex = builder.zIndex;
     /**
      * 子节点相对根节点的方向（根节点下的子节点设置才生效）
-     * <p> 示例值：left
+     *
+     * <p>示例值：left
      */
-    @SerializedName("layout_position")
-    private String layoutPosition;
+    this.layoutPosition = builder.layoutPosition;
     /**
      * 子节点列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
-    private String[] children;
+    this.children = builder.children;
     /**
      * 是否收起子节点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("collapsed")
+    this.collapsed = builder.collapsed;
+  }
+
+  public static class Builder {
+    /**
+     * 思维导图节点的父节点，必须为思维导图节点
+     *
+     * <p>示例值：z1:1
+     */
+    private String parentId;
+
+    /**
+     * 思维导图节点图形类型
+     *
+     * <p>示例值：mind_map_round_rect
+     */
+    private String type;
+
+    /**
+     * 思维导图节点在兄弟节点中的位置index
+     *
+     * <p>示例值：2
+     */
+    private Integer zIndex;
+
+    /**
+     * 子节点相对根节点的方向（根节点下的子节点设置才生效）
+     *
+     * <p>示例值：left
+     */
+    private String layoutPosition;
+
+    /**
+     * 子节点列表
+     *
+     * <p>示例值：
+     */
+    private String[] children;
+
+    /**
+     * 是否收起子节点
+     *
+     * <p>示例值：
+     */
     private Boolean collapsed;
 
-    // builder 开始
-    public MindMapNode() {
+    /**
+     * 思维导图节点的父节点，必须为思维导图节点
+     *
+     * <p>示例值：z1:1
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public MindMapNode(Builder builder) {
-        /**
-         * 思维导图节点的父节点，必须为思维导图节点
-         * <p> 示例值：z1:1
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 思维导图节点图形类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 思维导图节点在兄弟节点中的位置index
-         * <p> 示例值：2
-         */
-        this.zIndex = builder.zIndex;
-        /**
-         * 子节点相对根节点的方向（根节点下的子节点设置才生效）
-         * <p> 示例值：left
-         */
-        this.layoutPosition = builder.layoutPosition;
-        /**
-         * 子节点列表
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 是否收起子节点
-         * <p> 示例值：
-         */
-        this.collapsed = builder.collapsed;
+    /**
+     * 思维导图节点图形类型
+     *
+     * <p>示例值：mind_map_round_rect
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 思维导图节点图形类型
+     *
+     * <p>示例值：mind_map_round_rect
+     *
+     * @param type {@link com.lark.oapi.service.board.v1.enums.MindMapNodeMindMapTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.board.v1.enums.MindMapNodeMindMapTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 思维导图节点在兄弟节点中的位置index
+     *
+     * <p>示例值：2
+     *
+     * @param zIndex
+     * @return
+     */
+    public Builder zIndex(Integer zIndex) {
+      this.zIndex = zIndex;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    /**
+     * 子节点相对根节点的方向（根节点下的子节点设置才生效）
+     *
+     * <p>示例值：left
+     *
+     * @param layoutPosition
+     * @return
+     */
+    public Builder layoutPosition(String layoutPosition) {
+      this.layoutPosition = layoutPosition;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 子节点相对根节点的方向（根节点下的子节点设置才生效）
+     *
+     * <p>示例值：left
+     *
+     * @param layoutPosition {@link
+     *     com.lark.oapi.service.board.v1.enums.MindMapNodeLayoutPositionEnum}
+     * @return
+     */
+    public Builder layoutPosition(
+        com.lark.oapi.service.board.v1.enums.MindMapNodeLayoutPositionEnum layoutPosition) {
+      this.layoutPosition = layoutPosition.getValue();
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 子节点列表
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(String[] children) {
+      this.children = children;
+      return this;
     }
 
-    public Integer getZIndex() {
-        return this.zIndex;
+    /**
+     * 是否收起子节点
+     *
+     * <p>示例值：
+     *
+     * @param collapsed
+     * @return
+     */
+    public Builder collapsed(Boolean collapsed) {
+      this.collapsed = collapsed;
+      return this;
     }
 
-    public void setZIndex(Integer zIndex) {
-        this.zIndex = zIndex;
+    public MindMapNode build() {
+      return new MindMapNode(this);
     }
+  }
 
-    public String getLayoutPosition() {
-        return this.layoutPosition;
-    }
-
-    public void setLayoutPosition(String layoutPosition) {
-        this.layoutPosition = layoutPosition;
-    }
-
-    public String[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(String[] children) {
-        this.children = children;
-    }
-
-    public Boolean getCollapsed() {
-        return this.collapsed;
-    }
-
-    public void setCollapsed(Boolean collapsed) {
-        this.collapsed = collapsed;
-    }
-
-    public static class Builder {
-        /**
-         * 思维导图节点的父节点，必须为思维导图节点
-         * <p> 示例值：z1:1
-         */
-        private String parentId;
-        /**
-         * 思维导图节点图形类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 思维导图节点在兄弟节点中的位置index
-         * <p> 示例值：2
-         */
-        private Integer zIndex;
-        /**
-         * 子节点相对根节点的方向（根节点下的子节点设置才生效）
-         * <p> 示例值：left
-         */
-        private String layoutPosition;
-        /**
-         * 子节点列表
-         * <p> 示例值：
-         */
-        private String[] children;
-        /**
-         * 是否收起子节点
-         * <p> 示例值：
-         */
-        private Boolean collapsed;
-
-        /**
-         * 思维导图节点的父节点，必须为思维导图节点
-         * <p> 示例值：z1:1
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 思维导图节点图形类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 思维导图节点图形类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.board.v1.enums.MindMapNodeMindMapTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.board.v1.enums.MindMapNodeMindMapTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 思维导图节点在兄弟节点中的位置index
-         * <p> 示例值：2
-         *
-         * @param zIndex
-         * @return
-         */
-        public Builder zIndex(Integer zIndex) {
-            this.zIndex = zIndex;
-            return this;
-        }
-
-
-        /**
-         * 子节点相对根节点的方向（根节点下的子节点设置才生效）
-         * <p> 示例值：left
-         *
-         * @param layoutPosition
-         * @return
-         */
-        public Builder layoutPosition(String layoutPosition) {
-            this.layoutPosition = layoutPosition;
-            return this;
-        }
-
-        /**
-         * 子节点相对根节点的方向（根节点下的子节点设置才生效）
-         * <p> 示例值：left
-         *
-         * @param layoutPosition {@link com.lark.oapi.service.board.v1.enums.MindMapNodeLayoutPositionEnum}
-         * @return
-         */
-        public Builder layoutPosition(com.lark.oapi.service.board.v1.enums.MindMapNodeLayoutPositionEnum layoutPosition) {
-            this.layoutPosition = layoutPosition.getValue();
-            return this;
-        }
-
-
-        /**
-         * 子节点列表
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(String[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        /**
-         * 是否收起子节点
-         * <p> 示例值：
-         *
-         * @param collapsed
-         * @return
-         */
-        public Builder collapsed(Boolean collapsed) {
-            this.collapsed = collapsed;
-            return this;
-        }
-
-
-        public MindMapNode build() {
-            return new MindMapNode(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BotTimeSentiveFeedCardReqBody {
+  /**
+   * 机器人id
+   *
+   * <p>示例值：71616xxxx
+   */
+  @SerializedName("bot_id")
+  private String botId;
+
+  /**
+   * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("time_sensitive")
+  private Boolean timeSensitive;
+
+  /**
+   * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  public Boolean getTimeSensitive() {
+    return this.timeSensitive;
+  }
+
+  public void setTimeSensitive(Boolean timeSensitive) {
+    this.timeSensitive = timeSensitive;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public BotTimeSentiveFeedCardReqBody() {}
+
+  public BotTimeSentiveFeedCardReqBody(Builder builder) {
     /**
      * 机器人id
-     * <p> 示例值：71616xxxx
+     *
+     * <p>示例值：71616xxxx
      */
-    @SerializedName("bot_id")
+    this.botId = builder.botId;
+    /**
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
+     */
+    this.timeSensitive = builder.timeSensitive;
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     */
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 机器人id
+     *
+     * <p>示例值：71616xxxx
+     */
     private String botId;
+
     /**
-     * 临时置顶状态，true-打开，false-关闭
-     * <p> 示例值：true
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("time_sensitive")
     private Boolean timeSensitive;
+
     /**
-     * 用户id 列表
-     * <p> 示例值：
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
     private String[] userIds;
 
-    // builder 开始
-    public BotTimeSentiveFeedCardReqBody() {
+    /**
+     * 机器人id
+     *
+     * <p>示例值：71616xxxx
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public BotTimeSentiveFeedCardReqBody(Builder builder) {
-        /**
-         * 机器人id
-         * <p> 示例值：71616xxxx
-         */
-        this.botId = builder.botId;
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         */
-        this.timeSensitive = builder.timeSensitive;
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    /**
+     * 即时提醒状态（设置为 true 后，卡片在消息列表临时置顶；设置为 false，消息卡片不置顶）
+     *
+     * <p>示例值：true
+     *
+     * @param timeSensitive
+     * @return
+     */
+    public Builder timeSensitive(Boolean timeSensitive) {
+      this.timeSensitive = timeSensitive;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 列表（ID 类型与 user_id_type 的取值一致。如果是商店应用，因不支持获取用户 user ID 权限，所以无法使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public String getBotId() {
-        return this.botId;
+    public BotTimeSentiveFeedCardReqBody build() {
+      return new BotTimeSentiveFeedCardReqBody(this);
     }
+  }
 
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
-    public Boolean getTimeSensitive() {
-        return this.timeSensitive;
-    }
-
-    public void setTimeSensitive(Boolean timeSensitive) {
-        this.timeSensitive = timeSensitive;
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 机器人id
-         * <p> 示例值：71616xxxx
-         */
-        private String botId;
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         */
-        private Boolean timeSensitive;
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 机器人id
-         * <p> 示例值：71616xxxx
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        /**
-         * 临时置顶状态，true-打开，false-关闭
-         * <p> 示例值：true
-         *
-         * @param timeSensitive
-         * @return
-         */
-        public Builder timeSensitive(Boolean timeSensitive) {
-            this.timeSensitive = timeSensitive;
-            return this;
-        }
-
-
-        /**
-         * 用户id 列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public BotTimeSentiveFeedCardReqBody build() {
-            return new BotTimeSentiveFeedCardReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

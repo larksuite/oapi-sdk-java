@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PublishAdvertisementReq {
+  /**
+   * 职位广告
+   * ID，可由[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)接口创建职位后返回获取。
+   *
+   * <p>示例值：6960663240925956660
+   */
+  @Path
+  @SerializedName("advertisement_id")
+  private String advertisementId;
+
+  public String getAdvertisementId() {
+    return this.advertisementId;
+  }
+
+  public void setAdvertisementId(String advertisementId) {
+    this.advertisementId = advertisementId;
+  }
+
+  @Body private PublishAdvertisementReqBody body;
+
+  public PublishAdvertisementReqBody getPublishAdvertisementReqBody() {
+    return this.body;
+  }
+
+  public void setPublishAdvertisementReqBody(PublishAdvertisementReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PublishAdvertisementReq() {}
+
+  public PublishAdvertisementReq(Builder builder) {
     /**
-     * 职位广告 ID
-     * <p> 示例值：6960663240925956660
+     * 职位广告
+     * ID，可由[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)接口创建职位后返回获取。
+     *
+     * <p>示例值：6960663240925956660
      */
-    @Path
-    @SerializedName("advertisement_id")
-    private String advertisementId;
-    @Body
+    this.advertisementId = builder.advertisementId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String advertisementId; // 职位广告
+
+    // ID，可由[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)接口创建职位后返回获取。
+
+    /**
+     * 职位广告
+     * ID，可由[新建职位](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/combined_create)接口创建职位后返回获取。
+     *
+     * <p>示例值：6960663240925956660
+     *
+     * @param advertisementId
+     * @return
+     */
+    public Builder advertisementId(String advertisementId) {
+      this.advertisementId = advertisementId;
+      return this;
+    }
+
     private PublishAdvertisementReqBody body;
 
-    // builder 开始
-    public PublishAdvertisementReq() {
-    }
-
-    public PublishAdvertisementReq(Builder builder) {
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.advertisementId = builder.advertisementId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAdvertisementId() {
-        return this.advertisementId;
-    }
-
-    public void setAdvertisementId(String advertisementId) {
-        this.advertisementId = advertisementId;
-    }
-
     public PublishAdvertisementReqBody getPublishAdvertisementReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPublishAdvertisementReqBody(PublishAdvertisementReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder publishAdvertisementReqBody(PublishAdvertisementReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String advertisementId; // 职位广告 ID
-        private PublishAdvertisementReqBody body;
-
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956660
-         *
-         * @param advertisementId
-         * @return
-         */
-        public Builder advertisementId(String advertisementId) {
-            this.advertisementId = advertisementId;
-            return this;
-        }
-
-        public PublishAdvertisementReqBody getPublishAdvertisementReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder publishAdvertisementReqBody(PublishAdvertisementReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PublishAdvertisementReq build() {
-            return new PublishAdvertisementReq(this);
-        }
+    public PublishAdvertisementReq build() {
+      return new PublishAdvertisementReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

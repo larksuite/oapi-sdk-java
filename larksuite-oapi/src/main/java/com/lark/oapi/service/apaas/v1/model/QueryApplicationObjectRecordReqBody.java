@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryApplicationObjectRecordReqBody {
+  /**
+   * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
+   *
+   * <p>示例值：
+   */
+  @SerializedName("select")
+  private String[] select;
+
+  public String[] getSelect() {
+    return this.select;
+  }
+
+  public void setSelect(String[] select) {
+    this.select = select;
+  }
+
+  // builder 开始
+  public QueryApplicationObjectRecordReqBody() {}
+
+  public QueryApplicationObjectRecordReqBody(Builder builder) {
     /**
      * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("select")
+    this.select = builder.select;
+  }
+
+  public static class Builder {
+    /**
+     * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
+     *
+     * <p>示例值：
+     */
     private String[] select;
 
-    // builder 开始
-    public QueryApplicationObjectRecordReqBody() {
+    /**
+     * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
+     *
+     * <p>示例值：
+     *
+     * @param select
+     * @return
+     */
+    public Builder select(String[] select) {
+      this.select = select;
+      return this;
     }
 
-    public QueryApplicationObjectRecordReqBody(Builder builder) {
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
-         * <p> 示例值：
-         */
-        this.select = builder.select;
+    public QueryApplicationObjectRecordReqBody build() {
+      return new QueryApplicationObjectRecordReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getSelect() {
-        return this.select;
-    }
-
-    public void setSelect(String[] select) {
-        this.select = select;
-    }
-
-    public static class Builder {
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
-         * <p> 示例值：
-         */
-        private String[] select;
-
-        /**
-         * 需要获取的字段，使用字段唯一标识符进行查询，关联字段可使用 . 进行下钻
-         * <p> 示例值：
-         *
-         * @param select
-         * @return
-         */
-        public Builder select(String[] select) {
-            this.select = select;
-            return this;
-        }
-
-
-        public QueryApplicationObjectRecordReqBody build() {
-            return new QueryApplicationObjectRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,556 +13,611 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifPlanSnapshot {
+  /**
+   * 是否追溯
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_retro")
+  private Boolean isRetro;
+
+  /**
+   * 是否汇总
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_collect")
+  private Boolean isCollect;
+
+  /**
+   * 是否分段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_proration")
+  private Boolean isProration;
+
+  /**
+   * 国家/地区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region")
+  private IdWithName countryRegion;
+
+  /**
+   * 币种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency")
+  private IdWithName currency;
+
+  /**
+   * 核对周期日历类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("calendar_type")
+  private Integer calendarType;
+
+  /**
+   * 算薪日历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pay_calendars")
+  private VerifPayCalendar[] payCalendars;
+
+  /**
+   * 核对人员范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("scope_type")
+  private Integer scopeType;
+
+  /**
+   * 薪资组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pay_groups")
+  private IdWithName[] payGroups;
+
+  /**
+   * 数据范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("filter_type")
+  private Integer filterType;
+
+  /**
+   * 筛选条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_rule")
+  private VerifFilterRule filterRule;
+
+  /**
+   * 复核类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_type")
+  private Integer approvalType;
+
+  /**
+   * 数据项配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private VerifItem[] items;
+
+  /**
+   * 数据源配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_source_rule")
+  private VerifDataSourceRule dataSourceRule;
+
+  public Boolean getIsRetro() {
+    return this.isRetro;
+  }
+
+  public void setIsRetro(Boolean isRetro) {
+    this.isRetro = isRetro;
+  }
+
+  public Boolean getIsCollect() {
+    return this.isCollect;
+  }
+
+  public void setIsCollect(Boolean isCollect) {
+    this.isCollect = isCollect;
+  }
+
+  public Boolean getIsProration() {
+    return this.isProration;
+  }
+
+  public void setIsProration(Boolean isProration) {
+    this.isProration = isProration;
+  }
+
+  public IdWithName getCountryRegion() {
+    return this.countryRegion;
+  }
+
+  public void setCountryRegion(IdWithName countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
+  public IdWithName getCurrency() {
+    return this.currency;
+  }
+
+  public void setCurrency(IdWithName currency) {
+    this.currency = currency;
+  }
+
+  public Integer getCalendarType() {
+    return this.calendarType;
+  }
+
+  public void setCalendarType(Integer calendarType) {
+    this.calendarType = calendarType;
+  }
+
+  public VerifPayCalendar[] getPayCalendars() {
+    return this.payCalendars;
+  }
+
+  public void setPayCalendars(VerifPayCalendar[] payCalendars) {
+    this.payCalendars = payCalendars;
+  }
+
+  public Integer getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(Integer scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public IdWithName[] getPayGroups() {
+    return this.payGroups;
+  }
+
+  public void setPayGroups(IdWithName[] payGroups) {
+    this.payGroups = payGroups;
+  }
+
+  public Integer getFilterType() {
+    return this.filterType;
+  }
+
+  public void setFilterType(Integer filterType) {
+    this.filterType = filterType;
+  }
+
+  public VerifFilterRule getFilterRule() {
+    return this.filterRule;
+  }
+
+  public void setFilterRule(VerifFilterRule filterRule) {
+    this.filterRule = filterRule;
+  }
+
+  public Integer getApprovalType() {
+    return this.approvalType;
+  }
+
+  public void setApprovalType(Integer approvalType) {
+    this.approvalType = approvalType;
+  }
+
+  public VerifItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(VerifItem[] items) {
+    this.items = items;
+  }
+
+  public VerifDataSourceRule getDataSourceRule() {
+    return this.dataSourceRule;
+  }
+
+  public void setDataSourceRule(VerifDataSourceRule dataSourceRule) {
+    this.dataSourceRule = dataSourceRule;
+  }
+
+  // builder 开始
+  public VerifPlanSnapshot() {}
+
+  public VerifPlanSnapshot(Builder builder) {
     /**
      * 是否追溯
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_retro")
-    private Boolean isRetro;
+    this.isRetro = builder.isRetro;
     /**
      * 是否汇总
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_collect")
-    private Boolean isCollect;
+    this.isCollect = builder.isCollect;
     /**
      * 是否分段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_proration")
-    private Boolean isProration;
+    this.isProration = builder.isProration;
     /**
      * 国家/地区
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region")
-    private IdWithName countryRegion;
+    this.countryRegion = builder.countryRegion;
     /**
      * 币种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency")
-    private IdWithName currency;
+    this.currency = builder.currency;
     /**
      * 核对周期日历类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("calendar_type")
-    private Integer calendarType;
+    this.calendarType = builder.calendarType;
     /**
      * 算薪日历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pay_calendars")
-    private VerifPayCalendar[] payCalendars;
+    this.payCalendars = builder.payCalendars;
     /**
      * 核对人员范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("scope_type")
-    private Integer scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 薪资组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pay_groups")
-    private IdWithName[] payGroups;
+    this.payGroups = builder.payGroups;
     /**
      * 数据范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("filter_type")
-    private Integer filterType;
+    this.filterType = builder.filterType;
     /**
      * 筛选条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_rule")
-    private VerifFilterRule filterRule;
+    this.filterRule = builder.filterRule;
     /**
      * 复核类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_type")
-    private Integer approvalType;
+    this.approvalType = builder.approvalType;
     /**
      * 数据项配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
-    private VerifItem[] items;
+    this.items = builder.items;
     /**
      * 数据源配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_source_rule")
+    this.dataSourceRule = builder.dataSourceRule;
+  }
+
+  public static class Builder {
+    /**
+     * 是否追溯
+     *
+     * <p>示例值：
+     */
+    private Boolean isRetro;
+
+    /**
+     * 是否汇总
+     *
+     * <p>示例值：
+     */
+    private Boolean isCollect;
+
+    /**
+     * 是否分段
+     *
+     * <p>示例值：
+     */
+    private Boolean isProration;
+
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：
+     */
+    private IdWithName countryRegion;
+
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     */
+    private IdWithName currency;
+
+    /**
+     * 核对周期日历类型
+     *
+     * <p>示例值：1
+     */
+    private Integer calendarType;
+
+    /**
+     * 算薪日历
+     *
+     * <p>示例值：
+     */
+    private VerifPayCalendar[] payCalendars;
+
+    /**
+     * 核对人员范围
+     *
+     * <p>示例值：1
+     */
+    private Integer scopeType;
+
+    /**
+     * 薪资组
+     *
+     * <p>示例值：
+     */
+    private IdWithName[] payGroups;
+
+    /**
+     * 数据范围
+     *
+     * <p>示例值：1
+     */
+    private Integer filterType;
+
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     */
+    private VerifFilterRule filterRule;
+
+    /**
+     * 复核类型
+     *
+     * <p>示例值：1
+     */
+    private Integer approvalType;
+
+    /**
+     * 数据项配置
+     *
+     * <p>示例值：
+     */
+    private VerifItem[] items;
+
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     */
     private VerifDataSourceRule dataSourceRule;
 
-    // builder 开始
-    public VerifPlanSnapshot() {
+    /**
+     * 是否追溯
+     *
+     * <p>示例值：
+     *
+     * @param isRetro
+     * @return
+     */
+    public Builder isRetro(Boolean isRetro) {
+      this.isRetro = isRetro;
+      return this;
     }
 
-    public VerifPlanSnapshot(Builder builder) {
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         */
-        this.isRetro = builder.isRetro;
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         */
-        this.isCollect = builder.isCollect;
-        /**
-         * 是否分段
-         * <p> 示例值：
-         */
-        this.isProration = builder.isProration;
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         */
-        this.countryRegion = builder.countryRegion;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        this.currency = builder.currency;
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         */
-        this.calendarType = builder.calendarType;
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         */
-        this.payCalendars = builder.payCalendars;
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 薪资组
-         * <p> 示例值：
-         */
-        this.payGroups = builder.payGroups;
-        /**
-         * 数据范围
-         * <p> 示例值：1
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.filterRule = builder.filterRule;
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         */
-        this.approvalType = builder.approvalType;
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        this.dataSourceRule = builder.dataSourceRule;
+    /**
+     * 是否汇总
+     *
+     * <p>示例值：
+     *
+     * @param isCollect
+     * @return
+     */
+    public Builder isCollect(Boolean isCollect) {
+      this.isCollect = isCollect;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否分段
+     *
+     * <p>示例值：
+     *
+     * @param isProration
+     * @return
+     */
+    public Builder isProration(Boolean isProration) {
+      this.isProration = isProration;
+      return this;
     }
 
-    public Boolean getIsRetro() {
-        return this.isRetro;
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：
+     *
+     * @param countryRegion
+     * @return
+     */
+    public Builder countryRegion(IdWithName countryRegion) {
+      this.countryRegion = countryRegion;
+      return this;
     }
 
-    public void setIsRetro(Boolean isRetro) {
-        this.isRetro = isRetro;
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     *
+     * @param currency
+     * @return
+     */
+    public Builder currency(IdWithName currency) {
+      this.currency = currency;
+      return this;
     }
 
-    public Boolean getIsCollect() {
-        return this.isCollect;
+    /**
+     * 核对周期日历类型
+     *
+     * <p>示例值：1
+     *
+     * @param calendarType
+     * @return
+     */
+    public Builder calendarType(Integer calendarType) {
+      this.calendarType = calendarType;
+      return this;
     }
 
-    public void setIsCollect(Boolean isCollect) {
-        this.isCollect = isCollect;
+    /**
+     * 算薪日历
+     *
+     * <p>示例值：
+     *
+     * @param payCalendars
+     * @return
+     */
+    public Builder payCalendars(VerifPayCalendar[] payCalendars) {
+      this.payCalendars = payCalendars;
+      return this;
     }
 
-    public Boolean getIsProration() {
-        return this.isProration;
+    /**
+     * 核对人员范围
+     *
+     * <p>示例值：1
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(Integer scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public void setIsProration(Boolean isProration) {
-        this.isProration = isProration;
+    /**
+     * 薪资组
+     *
+     * <p>示例值：
+     *
+     * @param payGroups
+     * @return
+     */
+    public Builder payGroups(IdWithName[] payGroups) {
+      this.payGroups = payGroups;
+      return this;
     }
 
-    public IdWithName getCountryRegion() {
-        return this.countryRegion;
+    /**
+     * 数据范围
+     *
+     * <p>示例值：1
+     *
+     * @param filterType
+     * @return
+     */
+    public Builder filterType(Integer filterType) {
+      this.filterType = filterType;
+      return this;
     }
 
-    public void setCountryRegion(IdWithName countryRegion) {
-        this.countryRegion = countryRegion;
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     *
+     * @param filterRule
+     * @return
+     */
+    public Builder filterRule(VerifFilterRule filterRule) {
+      this.filterRule = filterRule;
+      return this;
     }
 
-    public IdWithName getCurrency() {
-        return this.currency;
+    /**
+     * 复核类型
+     *
+     * <p>示例值：1
+     *
+     * @param approvalType
+     * @return
+     */
+    public Builder approvalType(Integer approvalType) {
+      this.approvalType = approvalType;
+      return this;
     }
 
-    public void setCurrency(IdWithName currency) {
-        this.currency = currency;
+    /**
+     * 数据项配置
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(VerifItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public Integer getCalendarType() {
-        return this.calendarType;
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     *
+     * @param dataSourceRule
+     * @return
+     */
+    public Builder dataSourceRule(VerifDataSourceRule dataSourceRule) {
+      this.dataSourceRule = dataSourceRule;
+      return this;
     }
 
-    public void setCalendarType(Integer calendarType) {
-        this.calendarType = calendarType;
+    public VerifPlanSnapshot build() {
+      return new VerifPlanSnapshot(this);
     }
+  }
 
-    public VerifPayCalendar[] getPayCalendars() {
-        return this.payCalendars;
-    }
-
-    public void setPayCalendars(VerifPayCalendar[] payCalendars) {
-        this.payCalendars = payCalendars;
-    }
-
-    public Integer getScopeType() {
-        return this.scopeType;
-    }
-
-    public void setScopeType(Integer scopeType) {
-        this.scopeType = scopeType;
-    }
-
-    public IdWithName[] getPayGroups() {
-        return this.payGroups;
-    }
-
-    public void setPayGroups(IdWithName[] payGroups) {
-        this.payGroups = payGroups;
-    }
-
-    public Integer getFilterType() {
-        return this.filterType;
-    }
-
-    public void setFilterType(Integer filterType) {
-        this.filterType = filterType;
-    }
-
-    public VerifFilterRule getFilterRule() {
-        return this.filterRule;
-    }
-
-    public void setFilterRule(VerifFilterRule filterRule) {
-        this.filterRule = filterRule;
-    }
-
-    public Integer getApprovalType() {
-        return this.approvalType;
-    }
-
-    public void setApprovalType(Integer approvalType) {
-        this.approvalType = approvalType;
-    }
-
-    public VerifItem[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(VerifItem[] items) {
-        this.items = items;
-    }
-
-    public VerifDataSourceRule getDataSourceRule() {
-        return this.dataSourceRule;
-    }
-
-    public void setDataSourceRule(VerifDataSourceRule dataSourceRule) {
-        this.dataSourceRule = dataSourceRule;
-    }
-
-    public static class Builder {
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         */
-        private Boolean isRetro;
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         */
-        private Boolean isCollect;
-        /**
-         * 是否分段
-         * <p> 示例值：
-         */
-        private Boolean isProration;
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         */
-        private IdWithName countryRegion;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        private IdWithName currency;
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         */
-        private Integer calendarType;
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         */
-        private VerifPayCalendar[] payCalendars;
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         */
-        private Integer scopeType;
-        /**
-         * 薪资组
-         * <p> 示例值：
-         */
-        private IdWithName[] payGroups;
-        /**
-         * 数据范围
-         * <p> 示例值：1
-         */
-        private Integer filterType;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        private VerifFilterRule filterRule;
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         */
-        private Integer approvalType;
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         */
-        private VerifItem[] items;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        private VerifDataSourceRule dataSourceRule;
-
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         *
-         * @param isRetro
-         * @return
-         */
-        public Builder isRetro(Boolean isRetro) {
-            this.isRetro = isRetro;
-            return this;
-        }
-
-
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         *
-         * @param isCollect
-         * @return
-         */
-        public Builder isCollect(Boolean isCollect) {
-            this.isCollect = isCollect;
-            return this;
-        }
-
-
-        /**
-         * 是否分段
-         * <p> 示例值：
-         *
-         * @param isProration
-         * @return
-         */
-        public Builder isProration(Boolean isProration) {
-            this.isProration = isProration;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         *
-         * @param countryRegion
-         * @return
-         */
-        public Builder countryRegion(IdWithName countryRegion) {
-            this.countryRegion = countryRegion;
-            return this;
-        }
-
-
-        /**
-         * 币种
-         * <p> 示例值：
-         *
-         * @param currency
-         * @return
-         */
-        public Builder currency(IdWithName currency) {
-            this.currency = currency;
-            return this;
-        }
-
-
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         *
-         * @param calendarType
-         * @return
-         */
-        public Builder calendarType(Integer calendarType) {
-            this.calendarType = calendarType;
-            return this;
-        }
-
-
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         *
-         * @param payCalendars
-         * @return
-         */
-        public Builder payCalendars(VerifPayCalendar[] payCalendars) {
-            this.payCalendars = payCalendars;
-            return this;
-        }
-
-
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(Integer scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-
-        /**
-         * 薪资组
-         * <p> 示例值：
-         *
-         * @param payGroups
-         * @return
-         */
-        public Builder payGroups(IdWithName[] payGroups) {
-            this.payGroups = payGroups;
-            return this;
-        }
-
-
-        /**
-         * 数据范围
-         * <p> 示例值：1
-         *
-         * @param filterType
-         * @return
-         */
-        public Builder filterType(Integer filterType) {
-            this.filterType = filterType;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         *
-         * @param filterRule
-         * @return
-         */
-        public Builder filterRule(VerifFilterRule filterRule) {
-            this.filterRule = filterRule;
-            return this;
-        }
-
-
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         *
-         * @param approvalType
-         * @return
-         */
-        public Builder approvalType(Integer approvalType) {
-            this.approvalType = approvalType;
-            return this;
-        }
-
-
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(VerifItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         *
-         * @param dataSourceRule
-         * @return
-         */
-        public Builder dataSourceRule(VerifDataSourceRule dataSourceRule) {
-            this.dataSourceRule = dataSourceRule;
-            return this;
-        }
-
-
-        public VerifPlanSnapshot build() {
-            return new VerifPlanSnapshot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetCountryRegionReq {
+  /**
+   * 国家/地区 ID
+   *
+   * <p>示例值：67489937334909845
+   */
+  @Path
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  // builder 开始
+  public GetCountryRegionReq() {}
+
+  public GetCountryRegionReq(Builder builder) {
     /**
      * 国家/地区 ID
-     * <p> 示例值：67489937334909845
+     *
+     * <p>示例值：67489937334909845
      */
-    @Path
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
+  }
 
-    // builder 开始
-    public GetCountryRegionReq() {
+  public static class Builder {
+
+    private String countryRegionId; // 国家/地区 ID
+
+    /**
+     * 国家/地区 ID
+     *
+     * <p>示例值：67489937334909845
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public GetCountryRegionReq(Builder builder) {
-        /**
-         * 国家/地区 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.countryRegionId = builder.countryRegionId;
+    public GetCountryRegionReq build() {
+      return new GetCountryRegionReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public static class Builder {
-
-        private String countryRegionId; // 国家/地区 ID
-
-        /**
-         * 国家/地区 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        public GetCountryRegionReq build() {
-            return new GetCountryRegionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

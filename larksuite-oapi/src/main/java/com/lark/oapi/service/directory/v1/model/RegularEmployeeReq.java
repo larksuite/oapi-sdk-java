@@ -13,220 +13,235 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class RegularEmployeeReq {
+  /**
+   * adminRole鉴权
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("is_admin_role")
+  private Boolean isAdminRole;
+
+  /**
+   * 员工ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("employee_id_type")
+  private String employeeIdType;
+
+  /**
+   * 部门ID类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public Boolean getIsAdminRole() {
+    return this.isAdminRole;
+  }
+
+  public void setIsAdminRole(Boolean isAdminRole) {
+    this.isAdminRole = isAdminRole;
+  }
+
+  public String getEmployeeIdType() {
+    return this.employeeIdType;
+  }
+
+  public void setEmployeeIdType(String employeeIdType) {
+    this.employeeIdType = employeeIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 员工ID，与employee_id_type类型保持一致
+   *
+   * <p>示例值：d2e1jas
+   */
+  @Path
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  @Body private RegularEmployeeReqBody body;
+
+  public RegularEmployeeReqBody getRegularEmployeeReqBody() {
+    return this.body;
+  }
+
+  public void setRegularEmployeeReqBody(RegularEmployeeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RegularEmployeeReq() {}
+
+  public RegularEmployeeReq(Builder builder) {
     /**
      * adminRole鉴权
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("is_admin_role")
-    private Boolean isAdminRole;
+    this.isAdminRole = builder.isAdminRole;
     /**
      * 员工ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("employee_id_type")
-    private String employeeIdType;
+    this.employeeIdType = builder.employeeIdType;
     /**
      * 部门ID类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 雇员ID
-     * <p> 示例值：d2e1jas
+     * 员工ID，与employee_id_type类型保持一致
+     *
+     * <p>示例值：d2e1jas
      */
-    @Path
-    @SerializedName("employee_id")
-    private String employeeId;
-    @Body
+    this.employeeId = builder.employeeId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Boolean isAdminRole; // adminRole鉴权
+    private String employeeIdType; // 员工ID类型
+    private String departmentIdType; // 部门ID类型
+
+    /**
+     * adminRole鉴权
+     *
+     * <p>示例值：
+     *
+     * @param isAdminRole
+     * @return
+     */
+    public Builder isAdminRole(Boolean isAdminRole) {
+      this.isAdminRole = isAdminRole;
+      return this;
+    }
+
+    /**
+     * 员工ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param employeeIdType
+     * @return
+     */
+    public Builder employeeIdType(String employeeIdType) {
+      this.employeeIdType = employeeIdType;
+      return this;
+    }
+
+    /**
+     * 员工ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param employeeIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.RegularEmployeeEmployeeIdTypeEnum}
+     * @return
+     */
+    public Builder employeeIdType(
+        com.lark.oapi.service.directory.v1.enums.RegularEmployeeEmployeeIdTypeEnum employeeIdType) {
+      this.employeeIdType = employeeIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 部门ID类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 部门ID类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.RegularEmployeeDepartmentIdTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.directory.v1.enums.RegularEmployeeDepartmentIdTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String employeeId; // 员工ID，与employee_id_type类型保持一致
+
+    /**
+     * 员工ID，与employee_id_type类型保持一致
+     *
+     * <p>示例值：d2e1jas
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
+    }
+
     private RegularEmployeeReqBody body;
 
-    // builder 开始
-    public RegularEmployeeReq() {
-    }
-
-    public RegularEmployeeReq(Builder builder) {
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         */
-        this.isAdminRole = builder.isAdminRole;
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         */
-        this.employeeIdType = builder.employeeIdType;
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 雇员ID
-         * <p> 示例值：d2e1jas
-         */
-        this.employeeId = builder.employeeId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getIsAdminRole() {
-        return this.isAdminRole;
-    }
-
-    public void setIsAdminRole(Boolean isAdminRole) {
-        this.isAdminRole = isAdminRole;
-    }
-
-    public String getEmployeeIdType() {
-        return this.employeeIdType;
-    }
-
-    public void setEmployeeIdType(String employeeIdType) {
-        this.employeeIdType = employeeIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
     public RegularEmployeeReqBody getRegularEmployeeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRegularEmployeeReqBody(RegularEmployeeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder regularEmployeeReqBody(RegularEmployeeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Boolean isAdminRole; // adminRole鉴权
-        private String employeeIdType; // 员工ID类型
-        private String departmentIdType; // 部门ID类型
-        private String employeeId; // 雇员ID
-        private RegularEmployeeReqBody body;
-
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         *
-         * @param isAdminRole
-         * @return
-         */
-        public Builder isAdminRole(Boolean isAdminRole) {
-            this.isAdminRole = isAdminRole;
-            return this;
-        }
-
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         *
-         * @param employeeIdType
-         * @return
-         */
-        public Builder employeeIdType(String employeeIdType) {
-            this.employeeIdType = employeeIdType;
-            return this;
-        }
-
-        /**
-         * 员工ID类型
-         * <p> 示例值：open_id
-         *
-         * @param employeeIdType {@link com.lark.oapi.service.directory.v1.enums.RegularEmployeeEmployeeIdTypeEnum}
-         * @return
-         */
-        public Builder employeeIdType(com.lark.oapi.service.directory.v1.enums.RegularEmployeeEmployeeIdTypeEnum employeeIdType) {
-            this.employeeIdType = employeeIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.directory.v1.enums.RegularEmployeeDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.directory.v1.enums.RegularEmployeeDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 雇员ID
-         * <p> 示例值：d2e1jas
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-        public RegularEmployeeReqBody getRegularEmployeeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder regularEmployeeReqBody(RegularEmployeeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RegularEmployeeReq build() {
-            return new RegularEmployeeReq(this);
-        }
+    public RegularEmployeeReq build() {
+      return new RegularEmployeeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

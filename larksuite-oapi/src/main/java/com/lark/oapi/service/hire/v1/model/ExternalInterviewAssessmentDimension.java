@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalInterviewAssessmentDimension {
+  /**
+   * 打分题分数（当题目类型为「打分题」时使用）
+   *
+   * <p>示例值：99
+   */
+  @SerializedName("score")
+  private Integer score;
+
+  /**
+   * 单选选项（当题目类型为「单选题」时使用）
+   *
+   * <p>示例值：opt
+   */
+  @SerializedName("option")
+  private String option;
+
+  /**
+   * 多选选项（当题目类型为「多选题」时使用）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private String[] options;
+
+  /**
+   * 描述内容（当题目类型为「描述题」时使用）
+   *
+   * <p>示例值：content
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 题目类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("assessment_type")
+  private Integer assessmentType;
+
+  /**
+   * 题目标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 题目描述
+   *
+   * <p>示例值：desc
+   */
+  @SerializedName("description")
+  private String description;
+
+  public Integer getScore() {
+    return this.score;
+  }
+
+  public void setScore(Integer score) {
+    this.score = score;
+  }
+
+  public String getOption() {
+    return this.option;
+  }
+
+  public void setOption(String option) {
+    this.option = option;
+  }
+
+  public String[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(String[] options) {
+    this.options = options;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Integer getAssessmentType() {
+    return this.assessmentType;
+  }
+
+  public void setAssessmentType(Integer assessmentType) {
+    this.assessmentType = assessmentType;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public ExternalInterviewAssessmentDimension() {}
+
+  public ExternalInterviewAssessmentDimension(Builder builder) {
     /**
      * 打分题分数（当题目类型为「打分题」时使用）
-     * <p> 示例值：99
+     *
+     * <p>示例值：99
      */
-    @SerializedName("score")
-    private Integer score;
+    this.score = builder.score;
     /**
      * 单选选项（当题目类型为「单选题」时使用）
-     * <p> 示例值：opt
+     *
+     * <p>示例值：opt
      */
-    @SerializedName("option")
-    private String option;
+    this.option = builder.option;
     /**
      * 多选选项（当题目类型为「多选题」时使用）
-     * <p> 示例值：6989181065243969836
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private String[] options;
+    this.options = builder.options;
     /**
      * 描述内容（当题目类型为「描述题」时使用）
-     * <p> 示例值：content
+     *
+     * <p>示例值：content
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 题目类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("assessment_type")
-    private Integer assessmentType;
+    this.assessmentType = builder.assessmentType;
     /**
      * 题目标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 题目描述
-     * <p> 示例值：desc
+     *
+     * <p>示例值：desc
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 打分题分数（当题目类型为「打分题」时使用）
+     *
+     * <p>示例值：99
+     */
+    private Integer score;
+
+    /**
+     * 单选选项（当题目类型为「单选题」时使用）
+     *
+     * <p>示例值：opt
+     */
+    private String option;
+
+    /**
+     * 多选选项（当题目类型为「多选题」时使用）
+     *
+     * <p>示例值：
+     */
+    private String[] options;
+
+    /**
+     * 描述内容（当题目类型为「描述题」时使用）
+     *
+     * <p>示例值：content
+     */
+    private String content;
+
+    /**
+     * 题目类型
+     *
+     * <p>示例值：1
+     */
+    private Integer assessmentType;
+
+    /**
+     * 题目标题
+     *
+     * <p>示例值：title
+     */
+    private String title;
+
+    /**
+     * 题目描述
+     *
+     * <p>示例值：desc
+     */
     private String description;
 
-    // builder 开始
-    public ExternalInterviewAssessmentDimension() {
+    /**
+     * 打分题分数（当题目类型为「打分题」时使用）
+     *
+     * <p>示例值：99
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Integer score) {
+      this.score = score;
+      return this;
     }
 
-    public ExternalInterviewAssessmentDimension(Builder builder) {
-        /**
-         * 打分题分数（当题目类型为「打分题」时使用）
-         * <p> 示例值：99
-         */
-        this.score = builder.score;
-        /**
-         * 单选选项（当题目类型为「单选题」时使用）
-         * <p> 示例值：opt
-         */
-        this.option = builder.option;
-        /**
-         * 多选选项（当题目类型为「多选题」时使用）
-         * <p> 示例值：6989181065243969836
-         */
-        this.options = builder.options;
-        /**
-         * 描述内容（当题目类型为「描述题」时使用）
-         * <p> 示例值：content
-         */
-        this.content = builder.content;
-        /**
-         * 题目类型
-         * <p> 示例值：1
-         */
-        this.assessmentType = builder.assessmentType;
-        /**
-         * 题目标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 题目描述
-         * <p> 示例值：desc
-         */
-        this.description = builder.description;
+    /**
+     * 单选选项（当题目类型为「单选题」时使用）
+     *
+     * <p>示例值：opt
+     *
+     * @param option
+     * @return
+     */
+    public Builder option(String option) {
+      this.option = option;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多选选项（当题目类型为「多选题」时使用）
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(String[] options) {
+      this.options = options;
+      return this;
     }
 
-    public Integer getScore() {
-        return this.score;
+    /**
+     * 描述内容（当题目类型为「描述题」时使用）
+     *
+     * <p>示例值：content
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    /**
+     * 题目类型
+     *
+     * <p>示例值：1
+     *
+     * @param assessmentType
+     * @return
+     */
+    public Builder assessmentType(Integer assessmentType) {
+      this.assessmentType = assessmentType;
+      return this;
     }
 
-    public String getOption() {
-        return this.option;
+    /**
+     * 题目标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    /**
+     * 题目描述
+     *
+     * <p>示例值：desc
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String[] getOptions() {
-        return this.options;
+    public ExternalInterviewAssessmentDimension build() {
+      return new ExternalInterviewAssessmentDimension(this);
     }
+  }
 
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getAssessmentType() {
-        return this.assessmentType;
-    }
-
-    public void setAssessmentType(Integer assessmentType) {
-        this.assessmentType = assessmentType;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 打分题分数（当题目类型为「打分题」时使用）
-         * <p> 示例值：99
-         */
-        private Integer score;
-        /**
-         * 单选选项（当题目类型为「单选题」时使用）
-         * <p> 示例值：opt
-         */
-        private String option;
-        /**
-         * 多选选项（当题目类型为「多选题」时使用）
-         * <p> 示例值：6989181065243969836
-         */
-        private String[] options;
-        /**
-         * 描述内容（当题目类型为「描述题」时使用）
-         * <p> 示例值：content
-         */
-        private String content;
-        /**
-         * 题目类型
-         * <p> 示例值：1
-         */
-        private Integer assessmentType;
-        /**
-         * 题目标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 题目描述
-         * <p> 示例值：desc
-         */
-        private String description;
-
-        /**
-         * 打分题分数（当题目类型为「打分题」时使用）
-         * <p> 示例值：99
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Integer score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 单选选项（当题目类型为「单选题」时使用）
-         * <p> 示例值：opt
-         *
-         * @param option
-         * @return
-         */
-        public Builder option(String option) {
-            this.option = option;
-            return this;
-        }
-
-
-        /**
-         * 多选选项（当题目类型为「多选题」时使用）
-         * <p> 示例值：6989181065243969836
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(String[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 描述内容（当题目类型为「描述题」时使用）
-         * <p> 示例值：content
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 题目类型
-         * <p> 示例值：1
-         *
-         * @param assessmentType
-         * @return
-         */
-        public Builder assessmentType(Integer assessmentType) {
-            this.assessmentType = assessmentType;
-            return this;
-        }
-
-
-        /**
-         * 题目标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 题目描述
-         * <p> 示例值：desc
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public ExternalInterviewAssessmentDimension build() {
-            return new ExternalInterviewAssessmentDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

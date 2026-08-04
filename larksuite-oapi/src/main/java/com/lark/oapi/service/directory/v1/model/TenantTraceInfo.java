@@ -13,593 +13,653 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TenantTraceInfo {
+  /**
+   * 租户创建来源
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("create_source")
+  private String createSource;
+
+  /**
+   * SalesforceID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("salesforce_id")
+  private String salesforceId;
+
+  /**
+   * WebID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("web_id")
+  private String webId;
+
+  /**
+   * 创建来源系统
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("source_system")
+  private String sourceSystem;
+
+  /**
+   * 创建来源页
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("source_page")
+  private String sourcePage;
+
+  /**
+   * 客户端IP
+   *
+   * <p>示例值：1.2.3.4
+   */
+  @SerializedName("client_ip")
+  private String clientIp;
+
+  /**
+   * channel
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("channel")
+  private String channel;
+
+  /**
+   * plan
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("plan_id")
+  private String planId;
+
+  /**
+   * 是否订阅邮箱
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("subscribe_email")
+  private Boolean subscribeEmail;
+
+  /**
+   * 追踪码
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("tracking_code")
+  private String trackingCode;
+
+  /**
+   * 邀请人ID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("inviter_id")
+  private String inviterId;
+
+  /**
+   * 邀请token
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("invitation_token")
+  private String invitationToken;
+
+  /**
+   * 验证码信息
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("captcha_info")
+  private String captchaInfo;
+
+  /**
+   * 透传参数
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("reg_params")
+  private String regParams;
+
+  /**
+   * 终端类型
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("terminal_type")
+  private String terminalType;
+
+  public String getCreateSource() {
+    return this.createSource;
+  }
+
+  public void setCreateSource(String createSource) {
+    this.createSource = createSource;
+  }
+
+  public String getSalesforceId() {
+    return this.salesforceId;
+  }
+
+  public void setSalesforceId(String salesforceId) {
+    this.salesforceId = salesforceId;
+  }
+
+  public String getWebId() {
+    return this.webId;
+  }
+
+  public void setWebId(String webId) {
+    this.webId = webId;
+  }
+
+  public String getSourceSystem() {
+    return this.sourceSystem;
+  }
+
+  public void setSourceSystem(String sourceSystem) {
+    this.sourceSystem = sourceSystem;
+  }
+
+  public String getSourcePage() {
+    return this.sourcePage;
+  }
+
+  public void setSourcePage(String sourcePage) {
+    this.sourcePage = sourcePage;
+  }
+
+  public String getClientIp() {
+    return this.clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
+  }
+
+  public String getChannel() {
+    return this.channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
+
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(String planId) {
+    this.planId = planId;
+  }
+
+  public Boolean getSubscribeEmail() {
+    return this.subscribeEmail;
+  }
+
+  public void setSubscribeEmail(Boolean subscribeEmail) {
+    this.subscribeEmail = subscribeEmail;
+  }
+
+  public String getTrackingCode() {
+    return this.trackingCode;
+  }
+
+  public void setTrackingCode(String trackingCode) {
+    this.trackingCode = trackingCode;
+  }
+
+  public String getInviterId() {
+    return this.inviterId;
+  }
+
+  public void setInviterId(String inviterId) {
+    this.inviterId = inviterId;
+  }
+
+  public String getInvitationToken() {
+    return this.invitationToken;
+  }
+
+  public void setInvitationToken(String invitationToken) {
+    this.invitationToken = invitationToken;
+  }
+
+  public String getCaptchaInfo() {
+    return this.captchaInfo;
+  }
+
+  public void setCaptchaInfo(String captchaInfo) {
+    this.captchaInfo = captchaInfo;
+  }
+
+  public String getRegParams() {
+    return this.regParams;
+  }
+
+  public void setRegParams(String regParams) {
+    this.regParams = regParams;
+  }
+
+  public String getTerminalType() {
+    return this.terminalType;
+  }
+
+  public void setTerminalType(String terminalType) {
+    this.terminalType = terminalType;
+  }
+
+  // builder 开始
+  public TenantTraceInfo() {}
+
+  public TenantTraceInfo(Builder builder) {
     /**
      * 租户创建来源
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("create_source")
-    private String createSource;
+    this.createSource = builder.createSource;
     /**
      * SalesforceID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("salesforce_id")
-    private String salesforceId;
+    this.salesforceId = builder.salesforceId;
     /**
      * WebID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("web_id")
-    private String webId;
+    this.webId = builder.webId;
     /**
      * 创建来源系统
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("source_system")
-    private String sourceSystem;
+    this.sourceSystem = builder.sourceSystem;
     /**
      * 创建来源页
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("source_page")
-    private String sourcePage;
+    this.sourcePage = builder.sourcePage;
     /**
      * 客户端IP
-     * <p> 示例值：1.2.3.4
+     *
+     * <p>示例值：1.2.3.4
      */
-    @SerializedName("client_ip")
-    private String clientIp;
+    this.clientIp = builder.clientIp;
     /**
      * channel
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("channel")
-    private String channel;
+    this.channel = builder.channel;
     /**
      * plan
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("plan_id")
-    private String planId;
+    this.planId = builder.planId;
     /**
      * 是否订阅邮箱
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("subscribe_email")
-    private Boolean subscribeEmail;
+    this.subscribeEmail = builder.subscribeEmail;
     /**
      * 追踪码
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("tracking_code")
-    private String trackingCode;
+    this.trackingCode = builder.trackingCode;
     /**
      * 邀请人ID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("inviter_id")
-    private String inviterId;
+    this.inviterId = builder.inviterId;
     /**
      * 邀请token
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("invitation_token")
-    private String invitationToken;
+    this.invitationToken = builder.invitationToken;
     /**
      * 验证码信息
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("captcha_info")
-    private String captchaInfo;
+    this.captchaInfo = builder.captchaInfo;
     /**
      * 透传参数
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("reg_params")
-    private String regParams;
+    this.regParams = builder.regParams;
     /**
      * 终端类型
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("terminal_type")
+    this.terminalType = builder.terminalType;
+  }
+
+  public static class Builder {
+    /**
+     * 租户创建来源
+     *
+     * <p>示例值：无
+     */
+    private String createSource;
+
+    /**
+     * SalesforceID
+     *
+     * <p>示例值：无
+     */
+    private String salesforceId;
+
+    /**
+     * WebID
+     *
+     * <p>示例值：无
+     */
+    private String webId;
+
+    /**
+     * 创建来源系统
+     *
+     * <p>示例值：无
+     */
+    private String sourceSystem;
+
+    /**
+     * 创建来源页
+     *
+     * <p>示例值：无
+     */
+    private String sourcePage;
+
+    /**
+     * 客户端IP
+     *
+     * <p>示例值：1.2.3.4
+     */
+    private String clientIp;
+
+    /**
+     * channel
+     *
+     * <p>示例值：无
+     */
+    private String channel;
+
+    /**
+     * plan
+     *
+     * <p>示例值：无
+     */
+    private String planId;
+
+    /**
+     * 是否订阅邮箱
+     *
+     * <p>示例值：true
+     */
+    private Boolean subscribeEmail;
+
+    /**
+     * 追踪码
+     *
+     * <p>示例值：无
+     */
+    private String trackingCode;
+
+    /**
+     * 邀请人ID
+     *
+     * <p>示例值：无
+     */
+    private String inviterId;
+
+    /**
+     * 邀请token
+     *
+     * <p>示例值：无
+     */
+    private String invitationToken;
+
+    /**
+     * 验证码信息
+     *
+     * <p>示例值：无
+     */
+    private String captchaInfo;
+
+    /**
+     * 透传参数
+     *
+     * <p>示例值：无
+     */
+    private String regParams;
+
+    /**
+     * 终端类型
+     *
+     * <p>示例值：无
+     */
     private String terminalType;
 
-    // builder 开始
-    public TenantTraceInfo() {
+    /**
+     * 租户创建来源
+     *
+     * <p>示例值：无
+     *
+     * @param createSource
+     * @return
+     */
+    public Builder createSource(String createSource) {
+      this.createSource = createSource;
+      return this;
     }
 
-    public TenantTraceInfo(Builder builder) {
-        /**
-         * 租户创建来源
-         * <p> 示例值：无
-         */
-        this.createSource = builder.createSource;
-        /**
-         * SalesforceID
-         * <p> 示例值：无
-         */
-        this.salesforceId = builder.salesforceId;
-        /**
-         * WebID
-         * <p> 示例值：无
-         */
-        this.webId = builder.webId;
-        /**
-         * 创建来源系统
-         * <p> 示例值：无
-         */
-        this.sourceSystem = builder.sourceSystem;
-        /**
-         * 创建来源页
-         * <p> 示例值：无
-         */
-        this.sourcePage = builder.sourcePage;
-        /**
-         * 客户端IP
-         * <p> 示例值：1.2.3.4
-         */
-        this.clientIp = builder.clientIp;
-        /**
-         * channel
-         * <p> 示例值：无
-         */
-        this.channel = builder.channel;
-        /**
-         * plan
-         * <p> 示例值：无
-         */
-        this.planId = builder.planId;
-        /**
-         * 是否订阅邮箱
-         * <p> 示例值：true
-         */
-        this.subscribeEmail = builder.subscribeEmail;
-        /**
-         * 追踪码
-         * <p> 示例值：无
-         */
-        this.trackingCode = builder.trackingCode;
-        /**
-         * 邀请人ID
-         * <p> 示例值：无
-         */
-        this.inviterId = builder.inviterId;
-        /**
-         * 邀请token
-         * <p> 示例值：无
-         */
-        this.invitationToken = builder.invitationToken;
-        /**
-         * 验证码信息
-         * <p> 示例值：无
-         */
-        this.captchaInfo = builder.captchaInfo;
-        /**
-         * 透传参数
-         * <p> 示例值：无
-         */
-        this.regParams = builder.regParams;
-        /**
-         * 终端类型
-         * <p> 示例值：无
-         */
-        this.terminalType = builder.terminalType;
+    /**
+     * SalesforceID
+     *
+     * <p>示例值：无
+     *
+     * @param salesforceId
+     * @return
+     */
+    public Builder salesforceId(String salesforceId) {
+      this.salesforceId = salesforceId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * WebID
+     *
+     * <p>示例值：无
+     *
+     * @param webId
+     * @return
+     */
+    public Builder webId(String webId) {
+      this.webId = webId;
+      return this;
     }
 
-    public String getCreateSource() {
-        return this.createSource;
+    /**
+     * 创建来源系统
+     *
+     * <p>示例值：无
+     *
+     * @param sourceSystem
+     * @return
+     */
+    public Builder sourceSystem(String sourceSystem) {
+      this.sourceSystem = sourceSystem;
+      return this;
     }
 
-    public void setCreateSource(String createSource) {
-        this.createSource = createSource;
+    /**
+     * 创建来源页
+     *
+     * <p>示例值：无
+     *
+     * @param sourcePage
+     * @return
+     */
+    public Builder sourcePage(String sourcePage) {
+      this.sourcePage = sourcePage;
+      return this;
     }
 
-    public String getSalesforceId() {
-        return this.salesforceId;
+    /**
+     * 客户端IP
+     *
+     * <p>示例值：1.2.3.4
+     *
+     * @param clientIp
+     * @return
+     */
+    public Builder clientIp(String clientIp) {
+      this.clientIp = clientIp;
+      return this;
     }
 
-    public void setSalesforceId(String salesforceId) {
-        this.salesforceId = salesforceId;
+    /**
+     * channel
+     *
+     * <p>示例值：无
+     *
+     * @param channel
+     * @return
+     */
+    public Builder channel(String channel) {
+      this.channel = channel;
+      return this;
     }
 
-    public String getWebId() {
-        return this.webId;
+    /**
+     * plan
+     *
+     * <p>示例值：无
+     *
+     * @param planId
+     * @return
+     */
+    public Builder planId(String planId) {
+      this.planId = planId;
+      return this;
     }
 
-    public void setWebId(String webId) {
-        this.webId = webId;
+    /**
+     * 是否订阅邮箱
+     *
+     * <p>示例值：true
+     *
+     * @param subscribeEmail
+     * @return
+     */
+    public Builder subscribeEmail(Boolean subscribeEmail) {
+      this.subscribeEmail = subscribeEmail;
+      return this;
     }
 
-    public String getSourceSystem() {
-        return this.sourceSystem;
+    /**
+     * 追踪码
+     *
+     * <p>示例值：无
+     *
+     * @param trackingCode
+     * @return
+     */
+    public Builder trackingCode(String trackingCode) {
+      this.trackingCode = trackingCode;
+      return this;
     }
 
-    public void setSourceSystem(String sourceSystem) {
-        this.sourceSystem = sourceSystem;
+    /**
+     * 邀请人ID
+     *
+     * <p>示例值：无
+     *
+     * @param inviterId
+     * @return
+     */
+    public Builder inviterId(String inviterId) {
+      this.inviterId = inviterId;
+      return this;
     }
 
-    public String getSourcePage() {
-        return this.sourcePage;
+    /**
+     * 邀请token
+     *
+     * <p>示例值：无
+     *
+     * @param invitationToken
+     * @return
+     */
+    public Builder invitationToken(String invitationToken) {
+      this.invitationToken = invitationToken;
+      return this;
     }
 
-    public void setSourcePage(String sourcePage) {
-        this.sourcePage = sourcePage;
+    /**
+     * 验证码信息
+     *
+     * <p>示例值：无
+     *
+     * @param captchaInfo
+     * @return
+     */
+    public Builder captchaInfo(String captchaInfo) {
+      this.captchaInfo = captchaInfo;
+      return this;
     }
 
-    public String getClientIp() {
-        return this.clientIp;
+    /**
+     * 透传参数
+     *
+     * <p>示例值：无
+     *
+     * @param regParams
+     * @return
+     */
+    public Builder regParams(String regParams) {
+      this.regParams = regParams;
+      return this;
     }
 
-    public void setClientIp(String clientIp) {
-        this.clientIp = clientIp;
+    /**
+     * 终端类型
+     *
+     * <p>示例值：无
+     *
+     * @param terminalType
+     * @return
+     */
+    public Builder terminalType(String terminalType) {
+      this.terminalType = terminalType;
+      return this;
     }
 
-    public String getChannel() {
-        return this.channel;
+    public TenantTraceInfo build() {
+      return new TenantTraceInfo(this);
     }
+  }
 
-    public void setChannel(String channel) {
-        this.channel = channel;
-    }
-
-    public String getPlanId() {
-        return this.planId;
-    }
-
-    public void setPlanId(String planId) {
-        this.planId = planId;
-    }
-
-    public Boolean getSubscribeEmail() {
-        return this.subscribeEmail;
-    }
-
-    public void setSubscribeEmail(Boolean subscribeEmail) {
-        this.subscribeEmail = subscribeEmail;
-    }
-
-    public String getTrackingCode() {
-        return this.trackingCode;
-    }
-
-    public void setTrackingCode(String trackingCode) {
-        this.trackingCode = trackingCode;
-    }
-
-    public String getInviterId() {
-        return this.inviterId;
-    }
-
-    public void setInviterId(String inviterId) {
-        this.inviterId = inviterId;
-    }
-
-    public String getInvitationToken() {
-        return this.invitationToken;
-    }
-
-    public void setInvitationToken(String invitationToken) {
-        this.invitationToken = invitationToken;
-    }
-
-    public String getCaptchaInfo() {
-        return this.captchaInfo;
-    }
-
-    public void setCaptchaInfo(String captchaInfo) {
-        this.captchaInfo = captchaInfo;
-    }
-
-    public String getRegParams() {
-        return this.regParams;
-    }
-
-    public void setRegParams(String regParams) {
-        this.regParams = regParams;
-    }
-
-    public String getTerminalType() {
-        return this.terminalType;
-    }
-
-    public void setTerminalType(String terminalType) {
-        this.terminalType = terminalType;
-    }
-
-    public static class Builder {
-        /**
-         * 租户创建来源
-         * <p> 示例值：无
-         */
-        private String createSource;
-        /**
-         * SalesforceID
-         * <p> 示例值：无
-         */
-        private String salesforceId;
-        /**
-         * WebID
-         * <p> 示例值：无
-         */
-        private String webId;
-        /**
-         * 创建来源系统
-         * <p> 示例值：无
-         */
-        private String sourceSystem;
-        /**
-         * 创建来源页
-         * <p> 示例值：无
-         */
-        private String sourcePage;
-        /**
-         * 客户端IP
-         * <p> 示例值：1.2.3.4
-         */
-        private String clientIp;
-        /**
-         * channel
-         * <p> 示例值：无
-         */
-        private String channel;
-        /**
-         * plan
-         * <p> 示例值：无
-         */
-        private String planId;
-        /**
-         * 是否订阅邮箱
-         * <p> 示例值：true
-         */
-        private Boolean subscribeEmail;
-        /**
-         * 追踪码
-         * <p> 示例值：无
-         */
-        private String trackingCode;
-        /**
-         * 邀请人ID
-         * <p> 示例值：无
-         */
-        private String inviterId;
-        /**
-         * 邀请token
-         * <p> 示例值：无
-         */
-        private String invitationToken;
-        /**
-         * 验证码信息
-         * <p> 示例值：无
-         */
-        private String captchaInfo;
-        /**
-         * 透传参数
-         * <p> 示例值：无
-         */
-        private String regParams;
-        /**
-         * 终端类型
-         * <p> 示例值：无
-         */
-        private String terminalType;
-
-        /**
-         * 租户创建来源
-         * <p> 示例值：无
-         *
-         * @param createSource
-         * @return
-         */
-        public Builder createSource(String createSource) {
-            this.createSource = createSource;
-            return this;
-        }
-
-
-        /**
-         * SalesforceID
-         * <p> 示例值：无
-         *
-         * @param salesforceId
-         * @return
-         */
-        public Builder salesforceId(String salesforceId) {
-            this.salesforceId = salesforceId;
-            return this;
-        }
-
-
-        /**
-         * WebID
-         * <p> 示例值：无
-         *
-         * @param webId
-         * @return
-         */
-        public Builder webId(String webId) {
-            this.webId = webId;
-            return this;
-        }
-
-
-        /**
-         * 创建来源系统
-         * <p> 示例值：无
-         *
-         * @param sourceSystem
-         * @return
-         */
-        public Builder sourceSystem(String sourceSystem) {
-            this.sourceSystem = sourceSystem;
-            return this;
-        }
-
-
-        /**
-         * 创建来源页
-         * <p> 示例值：无
-         *
-         * @param sourcePage
-         * @return
-         */
-        public Builder sourcePage(String sourcePage) {
-            this.sourcePage = sourcePage;
-            return this;
-        }
-
-
-        /**
-         * 客户端IP
-         * <p> 示例值：1.2.3.4
-         *
-         * @param clientIp
-         * @return
-         */
-        public Builder clientIp(String clientIp) {
-            this.clientIp = clientIp;
-            return this;
-        }
-
-
-        /**
-         * channel
-         * <p> 示例值：无
-         *
-         * @param channel
-         * @return
-         */
-        public Builder channel(String channel) {
-            this.channel = channel;
-            return this;
-        }
-
-
-        /**
-         * plan
-         * <p> 示例值：无
-         *
-         * @param planId
-         * @return
-         */
-        public Builder planId(String planId) {
-            this.planId = planId;
-            return this;
-        }
-
-
-        /**
-         * 是否订阅邮箱
-         * <p> 示例值：true
-         *
-         * @param subscribeEmail
-         * @return
-         */
-        public Builder subscribeEmail(Boolean subscribeEmail) {
-            this.subscribeEmail = subscribeEmail;
-            return this;
-        }
-
-
-        /**
-         * 追踪码
-         * <p> 示例值：无
-         *
-         * @param trackingCode
-         * @return
-         */
-        public Builder trackingCode(String trackingCode) {
-            this.trackingCode = trackingCode;
-            return this;
-        }
-
-
-        /**
-         * 邀请人ID
-         * <p> 示例值：无
-         *
-         * @param inviterId
-         * @return
-         */
-        public Builder inviterId(String inviterId) {
-            this.inviterId = inviterId;
-            return this;
-        }
-
-
-        /**
-         * 邀请token
-         * <p> 示例值：无
-         *
-         * @param invitationToken
-         * @return
-         */
-        public Builder invitationToken(String invitationToken) {
-            this.invitationToken = invitationToken;
-            return this;
-        }
-
-
-        /**
-         * 验证码信息
-         * <p> 示例值：无
-         *
-         * @param captchaInfo
-         * @return
-         */
-        public Builder captchaInfo(String captchaInfo) {
-            this.captchaInfo = captchaInfo;
-            return this;
-        }
-
-
-        /**
-         * 透传参数
-         * <p> 示例值：无
-         *
-         * @param regParams
-         * @return
-         */
-        public Builder regParams(String regParams) {
-            this.regParams = regParams;
-            return this;
-        }
-
-
-        /**
-         * 终端类型
-         * <p> 示例值：无
-         *
-         * @param terminalType
-         * @return
-         */
-        public Builder terminalType(String terminalType) {
-            this.terminalType = terminalType;
-            return this;
-        }
-
-
-        public TenantTraceInfo build() {
-            return new TenantTraceInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

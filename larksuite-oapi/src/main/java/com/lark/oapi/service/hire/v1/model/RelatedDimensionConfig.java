@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RelatedDimensionConfig {
+  /**
+   * 关联配置类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 关联的维度设置列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("related_dimension_settings")
+  private RelatedDimensionSetting[] relatedDimensionSettings;
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public RelatedDimensionSetting[] getRelatedDimensionSettings() {
+    return this.relatedDimensionSettings;
+  }
+
+  public void setRelatedDimensionSettings(RelatedDimensionSetting[] relatedDimensionSettings) {
+    this.relatedDimensionSettings = relatedDimensionSettings;
+  }
+
+  // builder 开始
+  public RelatedDimensionConfig() {}
+
+  public RelatedDimensionConfig(Builder builder) {
     /**
      * 关联配置类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 关联的维度设置列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("related_dimension_settings")
+    this.relatedDimensionSettings = builder.relatedDimensionSettings;
+  }
+
+  public static class Builder {
+    /**
+     * 关联配置类型
+     *
+     * <p>示例值：
+     */
+    private Integer type;
+
+    /**
+     * 关联的维度设置列表
+     *
+     * <p>示例值：
+     */
     private RelatedDimensionSetting[] relatedDimensionSettings;
 
-    // builder 开始
-    public RelatedDimensionConfig() {
+    /**
+     * 关联配置类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public RelatedDimensionConfig(Builder builder) {
-        /**
-         * 关联配置类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 关联的维度设置列表
-         * <p> 示例值：
-         */
-        this.relatedDimensionSettings = builder.relatedDimensionSettings;
+    /**
+     * 关联的维度设置列表
+     *
+     * <p>示例值：
+     *
+     * @param relatedDimensionSettings
+     * @return
+     */
+    public Builder relatedDimensionSettings(RelatedDimensionSetting[] relatedDimensionSettings) {
+      this.relatedDimensionSettings = relatedDimensionSettings;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RelatedDimensionConfig build() {
+      return new RelatedDimensionConfig(this);
     }
+  }
 
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public RelatedDimensionSetting[] getRelatedDimensionSettings() {
-        return this.relatedDimensionSettings;
-    }
-
-    public void setRelatedDimensionSettings(RelatedDimensionSetting[] relatedDimensionSettings) {
-        this.relatedDimensionSettings = relatedDimensionSettings;
-    }
-
-    public static class Builder {
-        /**
-         * 关联配置类型
-         * <p> 示例值：
-         */
-        private Integer type;
-        /**
-         * 关联的维度设置列表
-         * <p> 示例值：
-         */
-        private RelatedDimensionSetting[] relatedDimensionSettings;
-
-        /**
-         * 关联配置类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 关联的维度设置列表
-         * <p> 示例值：
-         *
-         * @param relatedDimensionSettings
-         * @return
-         */
-        public Builder relatedDimensionSettings(RelatedDimensionSetting[] relatedDimensionSettings) {
-            this.relatedDimensionSettings = relatedDimensionSettings;
-            return this;
-        }
-
-
-        public RelatedDimensionConfig build() {
-            return new RelatedDimensionConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

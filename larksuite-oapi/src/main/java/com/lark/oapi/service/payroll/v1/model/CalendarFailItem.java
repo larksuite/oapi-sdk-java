@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarFailItem {
+  /**
+   * 日历ID
+   *
+   * <p>示例值：6823630319749580301
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 失败原因
+   *
+   * <p>示例值：calendar not found
+   */
+  @SerializedName("fail_reason")
+  private String failReason;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getFailReason() {
+    return this.failReason;
+  }
+
+  public void setFailReason(String failReason) {
+    this.failReason = failReason;
+  }
+
+  // builder 开始
+  public CalendarFailItem() {}
+
+  public CalendarFailItem(Builder builder) {
     /**
      * 日历ID
-     * <p> 示例值：6823630319749580301
+     *
+     * <p>示例值：6823630319749580301
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 失败原因
-     * <p> 示例值：calendar not found
+     *
+     * <p>示例值：calendar not found
      */
-    @SerializedName("fail_reason")
+    this.failReason = builder.failReason;
+  }
+
+  public static class Builder {
+    /**
+     * 日历ID
+     *
+     * <p>示例值：6823630319749580301
+     */
+    private String id;
+
+    /**
+     * 失败原因
+     *
+     * <p>示例值：calendar not found
+     */
     private String failReason;
 
-    // builder 开始
-    public CalendarFailItem() {
+    /**
+     * 日历ID
+     *
+     * <p>示例值：6823630319749580301
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CalendarFailItem(Builder builder) {
-        /**
-         * 日历ID
-         * <p> 示例值：6823630319749580301
-         */
-        this.id = builder.id;
-        /**
-         * 失败原因
-         * <p> 示例值：calendar not found
-         */
-        this.failReason = builder.failReason;
+    /**
+     * 失败原因
+     *
+     * <p>示例值：calendar not found
+     *
+     * @param failReason
+     * @return
+     */
+    public Builder failReason(String failReason) {
+      this.failReason = failReason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CalendarFailItem build() {
+      return new CalendarFailItem(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFailReason() {
-        return this.failReason;
-    }
-
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public static class Builder {
-        /**
-         * 日历ID
-         * <p> 示例值：6823630319749580301
-         */
-        private String id;
-        /**
-         * 失败原因
-         * <p> 示例值：calendar not found
-         */
-        private String failReason;
-
-        /**
-         * 日历ID
-         * <p> 示例值：6823630319749580301
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 失败原因
-         * <p> 示例值：calendar not found
-         *
-         * @param failReason
-         * @return
-         */
-        public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
-        }
-
-
-        public CalendarFailItem build() {
-            return new CalendarFailItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

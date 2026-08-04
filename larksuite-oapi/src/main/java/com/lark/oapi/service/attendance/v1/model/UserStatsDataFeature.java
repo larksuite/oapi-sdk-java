@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserStatsDataFeature {
+  /**
+   * 统计数据列附加属性的名称
+   *
+   * <p>示例值：Abnormal
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 统计数据列附加属性的值。;;* 先展示上下班的打卡结果，再展示假勤申请时间(如果有)
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public UserStatsDataFeature() {}
+
+  public UserStatsDataFeature(Builder builder) {
     /**
      * 统计数据列附加属性的名称
-     * <p> 示例值：Abnormal
+     *
+     * <p>示例值：Abnormal
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
-     * 统计数据列附加属性的值
-     * <p> 示例值：false
+     * 统计数据列附加属性的值。;;* 先展示上下班的打卡结果，再展示假勤申请时间(如果有)
+     *
+     * <p>示例值：false
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 统计数据列附加属性的名称
+     *
+     * <p>示例值：Abnormal
+     */
+    private String key;
+
+    /**
+     * 统计数据列附加属性的值。;;* 先展示上下班的打卡结果，再展示假勤申请时间(如果有)
+     *
+     * <p>示例值：false
+     */
     private String value;
 
-    // builder 开始
-    public UserStatsDataFeature() {
+    /**
+     * 统计数据列附加属性的名称
+     *
+     * <p>示例值：Abnormal
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public UserStatsDataFeature(Builder builder) {
-        /**
-         * 统计数据列附加属性的名称
-         * <p> 示例值：Abnormal
-         */
-        this.key = builder.key;
-        /**
-         * 统计数据列附加属性的值
-         * <p> 示例值：false
-         */
-        this.value = builder.value;
+    /**
+     * 统计数据列附加属性的值。;;* 先展示上下班的打卡结果，再展示假勤申请时间(如果有)
+     *
+     * <p>示例值：false
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserStatsDataFeature build() {
+      return new UserStatsDataFeature(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 统计数据列附加属性的名称
-         * <p> 示例值：Abnormal
-         */
-        private String key;
-        /**
-         * 统计数据列附加属性的值
-         * <p> 示例值：false
-         */
-        private String value;
-
-        /**
-         * 统计数据列附加属性的名称
-         * <p> 示例值：Abnormal
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 统计数据列附加属性的值
-         * <p> 示例值：false
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public UserStatsDataFeature build() {
-            return new UserStatsDataFeature(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

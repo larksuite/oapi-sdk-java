@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarFreebusy {
+  /**
+   * 忙闲信息开始时间，RFC3339 date_time格式
+   *
+   * <p>示例值：2020-10-28T22:30:00+08:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 忙闲信息结束时间，RFC3339 date_time格式
+   *
+   * <p>示例值：2020-10-28T22:30:00+08:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 日历id
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  // builder 开始
+  public CalendarFreebusy() {}
+
+  public CalendarFreebusy(Builder builder) {
     /**
      * 忙闲信息开始时间，RFC3339 date_time格式
-     * <p> 示例值：2020-10-28T22:30:00+08:00
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 忙闲信息结束时间，RFC3339 date_time格式
-     * <p> 示例值：2020-10-28T22:30:00+08:00
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 日历id
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @SerializedName("calendar_id")
+    this.calendarId = builder.calendarId;
+  }
+
+  public static class Builder {
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time格式
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     */
+    private String startTime;
+
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time格式
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     */
+    private String endTime;
+
+    /**
+     * 日历id
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     private String calendarId;
 
-    // builder 开始
-    public CalendarFreebusy() {
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time格式
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public CalendarFreebusy(Builder builder) {
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 日历id
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time格式
+     *
+     * <p>示例值：2020-10-28T22:30:00+08:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日历id
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    public CalendarFreebusy build() {
+      return new CalendarFreebusy(this);
     }
+  }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public static class Builder {
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        private String startTime;
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         */
-        private String endTime;
-        /**
-         * 日历id
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        private String calendarId;
-
-        /**
-         * 忙闲信息开始时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 忙闲信息结束时间，RFC3339 date_time格式
-         * <p> 示例值：2020-10-28T22:30:00+08:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 日历id
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        public CalendarFreebusy build() {
-            return new CalendarFreebusy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreatePermissionMemberRespBody {
-    /**
-     * 协作者列表
-     * <p> 示例值：
-     */
-    @SerializedName("members")
-    private Member[] members;
+  /**
+   * 添加成功的协作者列表;;**注意**：当只有部分成功时，`members` 会返回成功的部分，在不同场景下，部分成功返回的错误码可能不同，请不要依赖错误码去判断是否为部分成功
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
 
-    public Member[] getMembers() {
-        return this.members;
-    }
+  public Member[] getMembers() {
+    return this.members;
+  }
 
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
 }

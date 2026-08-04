@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum BackgroundCheckStatusEnum {
-    NOTSTARTED(1), // 未开始
-    INPROGRESS(2), // 处理中
-    COMPLETED(3), // 已完成
-    WITHDRAWN(4), // 已撤销
-    ;
-    private Integer value;
+  NOTSTARTED(1), // 未开始
+  INPROGRESS(2), // 处理中
+  COMPLETED(3), // 已完成
+  WITHDRAWN(4), // 已撤销
+  ;
+  private Integer value;
 
-    BackgroundCheckStatusEnum(Integer value) {
-        this.value = value;
-    }
+  BackgroundCheckStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

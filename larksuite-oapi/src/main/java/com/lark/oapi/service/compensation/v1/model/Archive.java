@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Archive {
+  /**
+   * 档案ID
+   *
+   * <p>示例值：7196951947268589113
+   */
+  @SerializedName("archive_id")
+  private String archiveId;
+
+  /**
+   * 档案时间轴版本ID
+   *
+   * <p>示例值：7209959917078201911
+   */
+  @SerializedName("archive_tid")
+  private String archiveTid;
+
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7117649868058789407
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 关联方案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan")
+  private Plan plan;
+
+  /**
+   * 档案生效时间
+   *
+   * <p>示例值：2022-03-18
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String getArchiveId() {
+    return this.archiveId;
+  }
+
+  public void setArchiveId(String archiveId) {
+    this.archiveId = archiveId;
+  }
+
+  public String getArchiveTid() {
+    return this.archiveTid;
+  }
+
+  public void setArchiveTid(String archiveTid) {
+    this.archiveTid = archiveTid;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Plan getPlan() {
+    return this.plan;
+  }
+
+  public void setPlan(Plan plan) {
+    this.plan = plan;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public Archive() {}
+
+  public Archive(Builder builder) {
     /**
      * 档案ID
-     * <p> 示例值：7196951947268589113
+     *
+     * <p>示例值：7196951947268589113
      */
-    @SerializedName("archive_id")
-    private String archiveId;
+    this.archiveId = builder.archiveId;
     /**
      * 档案时间轴版本ID
-     * <p> 示例值：7209959917078201911
+     *
+     * <p>示例值：7209959917078201911
      */
-    @SerializedName("archive_tid")
-    private String archiveTid;
+    this.archiveTid = builder.archiveTid;
     /**
      * 员工ID
-     * <p> 示例值：7117649868058789407
+     *
+     * <p>示例值：7117649868058789407
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 关联方案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan")
-    private Plan plan;
+    this.plan = builder.plan;
     /**
      * 档案生效时间
-     * <p> 示例值：2022-03-18
+     *
+     * <p>示例值：2022-03-18
      */
-    @SerializedName("effective_date")
+    this.effectiveDate = builder.effectiveDate;
+  }
+
+  public static class Builder {
+    /**
+     * 档案ID
+     *
+     * <p>示例值：7196951947268589113
+     */
+    private String archiveId;
+
+    /**
+     * 档案时间轴版本ID
+     *
+     * <p>示例值：7209959917078201911
+     */
+    private String archiveTid;
+
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7117649868058789407
+     */
+    private String userId;
+
+    /**
+     * 关联方案
+     *
+     * <p>示例值：
+     */
+    private Plan plan;
+
+    /**
+     * 档案生效时间
+     *
+     * <p>示例值：2022-03-18
+     */
     private String effectiveDate;
 
-    // builder 开始
-    public Archive() {
+    /**
+     * 档案ID
+     *
+     * <p>示例值：7196951947268589113
+     *
+     * @param archiveId
+     * @return
+     */
+    public Builder archiveId(String archiveId) {
+      this.archiveId = archiveId;
+      return this;
     }
 
-    public Archive(Builder builder) {
-        /**
-         * 档案ID
-         * <p> 示例值：7196951947268589113
-         */
-        this.archiveId = builder.archiveId;
-        /**
-         * 档案时间轴版本ID
-         * <p> 示例值：7209959917078201911
-         */
-        this.archiveTid = builder.archiveTid;
-        /**
-         * 员工ID
-         * <p> 示例值：7117649868058789407
-         */
-        this.userId = builder.userId;
-        /**
-         * 关联方案
-         * <p> 示例值：
-         */
-        this.plan = builder.plan;
-        /**
-         * 档案生效时间
-         * <p> 示例值：2022-03-18
-         */
-        this.effectiveDate = builder.effectiveDate;
+    /**
+     * 档案时间轴版本ID
+     *
+     * <p>示例值：7209959917078201911
+     *
+     * @param archiveTid
+     * @return
+     */
+    public Builder archiveTid(String archiveTid) {
+      this.archiveTid = archiveTid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7117649868058789407
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getArchiveId() {
-        return this.archiveId;
+    /**
+     * 关联方案
+     *
+     * <p>示例值：
+     *
+     * @param plan
+     * @return
+     */
+    public Builder plan(Plan plan) {
+      this.plan = plan;
+      return this;
     }
 
-    public void setArchiveId(String archiveId) {
-        this.archiveId = archiveId;
+    /**
+     * 档案生效时间
+     *
+     * <p>示例值：2022-03-18
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getArchiveTid() {
-        return this.archiveTid;
+    public Archive build() {
+      return new Archive(this);
     }
+  }
 
-    public void setArchiveTid(String archiveTid) {
-        this.archiveTid = archiveTid;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Plan getPlan() {
-        return this.plan;
-    }
-
-    public void setPlan(Plan plan) {
-        this.plan = plan;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public static class Builder {
-        /**
-         * 档案ID
-         * <p> 示例值：7196951947268589113
-         */
-        private String archiveId;
-        /**
-         * 档案时间轴版本ID
-         * <p> 示例值：7209959917078201911
-         */
-        private String archiveTid;
-        /**
-         * 员工ID
-         * <p> 示例值：7117649868058789407
-         */
-        private String userId;
-        /**
-         * 关联方案
-         * <p> 示例值：
-         */
-        private Plan plan;
-        /**
-         * 档案生效时间
-         * <p> 示例值：2022-03-18
-         */
-        private String effectiveDate;
-
-        /**
-         * 档案ID
-         * <p> 示例值：7196951947268589113
-         *
-         * @param archiveId
-         * @return
-         */
-        public Builder archiveId(String archiveId) {
-            this.archiveId = archiveId;
-            return this;
-        }
-
-
-        /**
-         * 档案时间轴版本ID
-         * <p> 示例值：7209959917078201911
-         *
-         * @param archiveTid
-         * @return
-         */
-        public Builder archiveTid(String archiveTid) {
-            this.archiveTid = archiveTid;
-            return this;
-        }
-
-
-        /**
-         * 员工ID
-         * <p> 示例值：7117649868058789407
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 关联方案
-         * <p> 示例值：
-         *
-         * @param plan
-         * @return
-         */
-        public Builder plan(Plan plan) {
-            this.plan = plan;
-            return this;
-        }
-
-
-        /**
-         * 档案生效时间
-         * <p> 示例值：2022-03-18
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        public Archive build() {
-            return new Archive(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

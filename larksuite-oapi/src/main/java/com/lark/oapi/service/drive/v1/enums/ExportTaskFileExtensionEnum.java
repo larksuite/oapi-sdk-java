@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 导出文件扩展名
- */
+/** 导出文件扩展名 */
 public enum ExportTaskFileExtensionEnum {
-    DOCX("docx"), // word docx 格式
-    PDF("pdf"), // pdf 格式
-    XLSX("xlsx"), // excel xlsx 格式
-    CSV("csv"), // csv 格式
-    BASE("base"), // base 文档自定义格式
-    PPTX("pptx"), // pptx格式
-    ;
-    private String value;
+  DOCX("docx"), // Microsoft Word 格式
+  PDF("pdf"), // PDF 格式
+  XLSX("xlsx"), // Microsoft Excel (XLSX) 格式
+  CSV("csv"), // CSV 格式
+  BASE("base"), // base 文档自定义格式
+  PPTX("pptx"), // pptx格式
+  ;
+  private String value;
 
-    ExportTaskFileExtensionEnum(String value) {
-        this.value = value;
-    }
+  ExportTaskFileExtensionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

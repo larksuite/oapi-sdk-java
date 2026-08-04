@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class SubscriptionMeetingReq {
-    @Body
+  @Body private SubscriptionMeetingReqBody body;
+
+  public SubscriptionMeetingReqBody getSubscriptionMeetingReqBody() {
+    return this.body;
+  }
+
+  public void setSubscriptionMeetingReqBody(SubscriptionMeetingReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SubscriptionMeetingReq() {}
+
+  public SubscriptionMeetingReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private SubscriptionMeetingReqBody body;
 
-    // builder 开始
-    public SubscriptionMeetingReq() {
-    }
-
-    public SubscriptionMeetingReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SubscriptionMeetingReqBody getSubscriptionMeetingReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSubscriptionMeetingReqBody(SubscriptionMeetingReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder subscriptionMeetingReqBody(SubscriptionMeetingReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private SubscriptionMeetingReqBody body;
-
-        public SubscriptionMeetingReqBody getSubscriptionMeetingReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder subscriptionMeetingReqBody(SubscriptionMeetingReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SubscriptionMeetingReq build() {
-            return new SubscriptionMeetingReq(this);
-        }
+    public SubscriptionMeetingReq build() {
+      return new SubscriptionMeetingReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

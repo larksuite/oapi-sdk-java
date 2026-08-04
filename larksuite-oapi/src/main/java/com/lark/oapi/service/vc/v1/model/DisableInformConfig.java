@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DisableInformConfig {
+  /**
+   * 是否覆盖子层级及会议室
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("if_cover_child_scope")
+  private Boolean ifCoverChildScope;
+
+  /**
+   * 禁用状态变更通知开关
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("if_inform")
+  private Boolean ifInform;
+
+  /**
+   * 通知成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("informed_users")
+  private SubscribeUser[] informedUsers;
+
+  /**
+   * 通知部门列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("informed_depts")
+  private SubscribeDepartment[] informedDepts;
+
+  public Boolean getIfCoverChildScope() {
+    return this.ifCoverChildScope;
+  }
+
+  public void setIfCoverChildScope(Boolean ifCoverChildScope) {
+    this.ifCoverChildScope = ifCoverChildScope;
+  }
+
+  public Boolean getIfInform() {
+    return this.ifInform;
+  }
+
+  public void setIfInform(Boolean ifInform) {
+    this.ifInform = ifInform;
+  }
+
+  public SubscribeUser[] getInformedUsers() {
+    return this.informedUsers;
+  }
+
+  public void setInformedUsers(SubscribeUser[] informedUsers) {
+    this.informedUsers = informedUsers;
+  }
+
+  public SubscribeDepartment[] getInformedDepts() {
+    return this.informedDepts;
+  }
+
+  public void setInformedDepts(SubscribeDepartment[] informedDepts) {
+    this.informedDepts = informedDepts;
+  }
+
+  // builder 开始
+  public DisableInformConfig() {}
+
+  public DisableInformConfig(Builder builder) {
     /**
      * 是否覆盖子层级及会议室
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("if_cover_child_scope")
-    private Boolean ifCoverChildScope;
+    this.ifCoverChildScope = builder.ifCoverChildScope;
     /**
      * 禁用状态变更通知开关
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("if_inform")
-    private Boolean ifInform;
+    this.ifInform = builder.ifInform;
     /**
      * 通知成员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("informed_users")
-    private SubscribeUser[] informedUsers;
+    this.informedUsers = builder.informedUsers;
     /**
      * 通知部门列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("informed_depts")
+    this.informedDepts = builder.informedDepts;
+  }
+
+  public static class Builder {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     */
+    private Boolean ifCoverChildScope;
+
+    /**
+     * 禁用状态变更通知开关
+     *
+     * <p>示例值：false
+     */
+    private Boolean ifInform;
+
+    /**
+     * 通知成员列表
+     *
+     * <p>示例值：
+     */
+    private SubscribeUser[] informedUsers;
+
+    /**
+     * 通知部门列表
+     *
+     * <p>示例值：
+     */
     private SubscribeDepartment[] informedDepts;
 
-    // builder 开始
-    public DisableInformConfig() {
+    /**
+     * 是否覆盖子层级及会议室
+     *
+     * <p>示例值：true
+     *
+     * @param ifCoverChildScope
+     * @return
+     */
+    public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
+      this.ifCoverChildScope = ifCoverChildScope;
+      return this;
     }
 
-    public DisableInformConfig(Builder builder) {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        this.ifCoverChildScope = builder.ifCoverChildScope;
-        /**
-         * 禁用状态变更通知开关
-         * <p> 示例值：false
-         */
-        this.ifInform = builder.ifInform;
-        /**
-         * 通知成员列表
-         * <p> 示例值：
-         */
-        this.informedUsers = builder.informedUsers;
-        /**
-         * 通知部门列表
-         * <p> 示例值：
-         */
-        this.informedDepts = builder.informedDepts;
+    /**
+     * 禁用状态变更通知开关
+     *
+     * <p>示例值：false
+     *
+     * @param ifInform
+     * @return
+     */
+    public Builder ifInform(Boolean ifInform) {
+      this.ifInform = ifInform;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 通知成员列表
+     *
+     * <p>示例值：
+     *
+     * @param informedUsers
+     * @return
+     */
+    public Builder informedUsers(SubscribeUser[] informedUsers) {
+      this.informedUsers = informedUsers;
+      return this;
     }
 
-    public Boolean getIfCoverChildScope() {
-        return this.ifCoverChildScope;
+    /**
+     * 通知部门列表
+     *
+     * <p>示例值：
+     *
+     * @param informedDepts
+     * @return
+     */
+    public Builder informedDepts(SubscribeDepartment[] informedDepts) {
+      this.informedDepts = informedDepts;
+      return this;
     }
 
-    public void setIfCoverChildScope(Boolean ifCoverChildScope) {
-        this.ifCoverChildScope = ifCoverChildScope;
+    public DisableInformConfig build() {
+      return new DisableInformConfig(this);
     }
+  }
 
-    public Boolean getIfInform() {
-        return this.ifInform;
-    }
-
-    public void setIfInform(Boolean ifInform) {
-        this.ifInform = ifInform;
-    }
-
-    public SubscribeUser[] getInformedUsers() {
-        return this.informedUsers;
-    }
-
-    public void setInformedUsers(SubscribeUser[] informedUsers) {
-        this.informedUsers = informedUsers;
-    }
-
-    public SubscribeDepartment[] getInformedDepts() {
-        return this.informedDepts;
-    }
-
-    public void setInformedDepts(SubscribeDepartment[] informedDepts) {
-        this.informedDepts = informedDepts;
-    }
-
-    public static class Builder {
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         */
-        private Boolean ifCoverChildScope;
-        /**
-         * 禁用状态变更通知开关
-         * <p> 示例值：false
-         */
-        private Boolean ifInform;
-        /**
-         * 通知成员列表
-         * <p> 示例值：
-         */
-        private SubscribeUser[] informedUsers;
-        /**
-         * 通知部门列表
-         * <p> 示例值：
-         */
-        private SubscribeDepartment[] informedDepts;
-
-        /**
-         * 是否覆盖子层级及会议室
-         * <p> 示例值：true
-         *
-         * @param ifCoverChildScope
-         * @return
-         */
-        public Builder ifCoverChildScope(Boolean ifCoverChildScope) {
-            this.ifCoverChildScope = ifCoverChildScope;
-            return this;
-        }
-
-
-        /**
-         * 禁用状态变更通知开关
-         * <p> 示例值：false
-         *
-         * @param ifInform
-         * @return
-         */
-        public Builder ifInform(Boolean ifInform) {
-            this.ifInform = ifInform;
-            return this;
-        }
-
-
-        /**
-         * 通知成员列表
-         * <p> 示例值：
-         *
-         * @param informedUsers
-         * @return
-         */
-        public Builder informedUsers(SubscribeUser[] informedUsers) {
-            this.informedUsers = informedUsers;
-            return this;
-        }
-
-
-        /**
-         * 通知部门列表
-         * <p> 示例值：
-         *
-         * @param informedDepts
-         * @return
-         */
-        public Builder informedDepts(SubscribeDepartment[] informedDepts) {
-            this.informedDepts = informedDepts;
-            return this;
-        }
-
-
-        public DisableInformConfig build() {
-            return new DisableInformConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

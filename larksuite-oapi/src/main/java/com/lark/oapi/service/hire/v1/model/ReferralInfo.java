@@ -13,185 +13,198 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReferralInfo {
+  /**
+   * 内推 ID
+   *
+   * <p>示例值：6930815272790114322
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 投递 ID
+   * 列表，详情请查看[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)。通常情况下1次内推仅有1个投递
+   * ID，即内推原始投递 ID（列表中的第一个 ID）。;若投递发生过转移，还会包含「转移到其他职位后的投递 ID」。;但不包含投递结束后被HR复捞（加入职位）的投递 ID。;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_ids")
+  private String[] applicationIds;
+
+  /**
+   * 内推创建时间，毫秒时间戳
+   *
+   * <p>示例值：1618899376474
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("referral_user")
+  private IdNameObject referralUser;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String[] getApplicationIds() {
+    return this.applicationIds;
+  }
+
+  public void setApplicationIds(String[] applicationIds) {
+    this.applicationIds = applicationIds;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public IdNameObject getReferralUser() {
+    return this.referralUser;
+  }
+
+  public void setReferralUser(IdNameObject referralUser) {
+    this.referralUser = referralUser;
+  }
+
+  // builder 开始
+  public ReferralInfo() {}
+
+  public ReferralInfo(Builder builder) {
     /**
-     * 内推的 ID
-     * <p> 示例值：6930815272790114322
+     * 内推 ID
+     *
+     * <p>示例值：6930815272790114322
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 投递 ID
+     * 列表，详情请查看[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)。通常情况下1次内推仅有1个投递
+     * ID，即内推原始投递 ID（列表中的第一个 ID）。;若投递发生过转移，还会包含「转移到其他职位后的投递 ID」。;但不包含投递结束后被HR复捞（加入职位）的投递 ID。;
+     *
+     * <p>示例值：
+     */
+    this.applicationIds = builder.applicationIds;
+    /**
+     * 内推创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618899376474
+     */
+    this.createTime = builder.createTime;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    this.referralUser = builder.referralUser;
+  }
+
+  public static class Builder {
+    /**
+     * 内推 ID
+     *
+     * <p>示例值：6930815272790114322
+     */
     private String id;
+
     /**
-     * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-     * <p> 示例值：
+     * 投递 ID
+     * 列表，详情请查看[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)。通常情况下1次内推仅有1个投递
+     * ID，即内推原始投递 ID（列表中的第一个 ID）。;若投递发生过转移，还会包含「转移到其他职位后的投递 ID」。;但不包含投递结束后被HR复捞（加入职位）的投递 ID。;
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_ids")
     private String[] applicationIds;
+
     /**
-     * 创建时间（ms）
-     * <p> 示例值：1618899376474
+     * 内推创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618899376474
      */
-    @SerializedName("create_time")
     private String createTime;
+
     /**
-     * 内推人信息
-     * <p> 示例值：
+     * 阶段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("referral_user")
     private IdNameObject referralUser;
 
-    // builder 开始
-    public ReferralInfo() {
+    /**
+     * 内推 ID
+     *
+     * <p>示例值：6930815272790114322
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ReferralInfo(Builder builder) {
-        /**
-         * 内推的 ID
-         * <p> 示例值：6930815272790114322
-         */
-        this.id = builder.id;
-        /**
-         * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-         * <p> 示例值：
-         */
-        this.applicationIds = builder.applicationIds;
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618899376474
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
-        this.referralUser = builder.referralUser;
+    /**
+     * 投递 ID
+     * 列表，详情请查看[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)。通常情况下1次内推仅有1个投递
+     * ID，即内推原始投递 ID（列表中的第一个 ID）。;若投递发生过转移，还会包含「转移到其他职位后的投递 ID」。;但不包含投递结束后被HR复捞（加入职位）的投递 ID。;
+     *
+     * <p>示例值：
+     *
+     * @param applicationIds
+     * @return
+     */
+    public Builder applicationIds(String[] applicationIds) {
+      this.applicationIds = applicationIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 内推创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618899376474
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param referralUser
+     * @return
+     */
+    public Builder referralUser(IdNameObject referralUser) {
+      this.referralUser = referralUser;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ReferralInfo build() {
+      return new ReferralInfo(this);
     }
+  }
 
-    public String[] getApplicationIds() {
-        return this.applicationIds;
-    }
-
-    public void setApplicationIds(String[] applicationIds) {
-        this.applicationIds = applicationIds;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public IdNameObject getReferralUser() {
-        return this.referralUser;
-    }
-
-    public void setReferralUser(IdNameObject referralUser) {
-        this.referralUser = referralUser;
-    }
-
-    public static class Builder {
-        /**
-         * 内推的 ID
-         * <p> 示例值：6930815272790114322
-         */
-        private String id;
-        /**
-         * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-         * <p> 示例值：
-         */
-        private String[] applicationIds;
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618899376474
-         */
-        private String createTime;
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         */
-        private IdNameObject referralUser;
-
-        /**
-         * 内推的 ID
-         * <p> 示例值：6930815272790114322
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID 列表,包含：原始内推的投递 ID、转移到其他职位后的投递 ID、不包含被HR复捞(加入职位）的投递 ID，第一个投递就是原始投递ID
-         * <p> 示例值：
-         *
-         * @param applicationIds
-         * @return
-         */
-        public Builder applicationIds(String[] applicationIds) {
-            this.applicationIds = applicationIds;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618899376474
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 内推人信息
-         * <p> 示例值：
-         *
-         * @param referralUser
-         * @return
-         */
-        public Builder referralUser(IdNameObject referralUser) {
-            this.referralUser = referralUser;
-            return this;
-        }
-
-
-        public ReferralInfo build() {
-            return new ReferralInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

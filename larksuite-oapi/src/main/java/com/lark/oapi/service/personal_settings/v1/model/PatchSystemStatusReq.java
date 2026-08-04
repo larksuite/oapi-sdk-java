@@ -13,98 +13,93 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.personal_settings.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.personal_settings.v1.enums.*;
 
 public class PatchSystemStatusReq {
+  /**
+   * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+   *
+   * <p>示例值：7101214603622940633
+   */
+  @Path
+  @SerializedName("system_status_id")
+  private String systemStatusId;
+
+  public String getSystemStatusId() {
+    return this.systemStatusId;
+  }
+
+  public void setSystemStatusId(String systemStatusId) {
+    this.systemStatusId = systemStatusId;
+  }
+
+  @Body private PatchSystemStatusReqBody body;
+
+  public PatchSystemStatusReqBody getPatchSystemStatusReqBody() {
+    return this.body;
+  }
+
+  public void setPatchSystemStatusReqBody(PatchSystemStatusReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchSystemStatusReq() {}
+
+  public PatchSystemStatusReq(Builder builder) {
     /**
      * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-     * <p> 示例值：7101214603622940633
+     *
+     * <p>示例值：7101214603622940633
      */
-    @Path
-    @SerializedName("system_status_id")
-    private String systemStatusId;
-    @Body
+    this.systemStatusId = builder.systemStatusId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String
+        systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+
+    /**
+     * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
+     *
+     * <p>示例值：7101214603622940633
+     *
+     * @param systemStatusId
+     * @return
+     */
+    public Builder systemStatusId(String systemStatusId) {
+      this.systemStatusId = systemStatusId;
+      return this;
+    }
+
     private PatchSystemStatusReqBody body;
 
-    // builder 开始
-    public PatchSystemStatusReq() {
-    }
-
-    public PatchSystemStatusReq(Builder builder) {
-        /**
-         * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-         * <p> 示例值：7101214603622940633
-         */
-        this.systemStatusId = builder.systemStatusId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSystemStatusId() {
-        return this.systemStatusId;
-    }
-
-    public void setSystemStatusId(String systemStatusId) {
-        this.systemStatusId = systemStatusId;
-    }
-
     public PatchSystemStatusReqBody getPatchSystemStatusReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchSystemStatusReqBody(PatchSystemStatusReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchSystemStatusReqBody(PatchSystemStatusReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String systemStatusId; // 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-        private PatchSystemStatusReqBody body;
-
-        /**
-         * 系统状态ID;;[获取系统状态ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/list)
-         * <p> 示例值：7101214603622940633
-         *
-         * @param systemStatusId
-         * @return
-         */
-        public Builder systemStatusId(String systemStatusId) {
-            this.systemStatusId = systemStatusId;
-            return this;
-        }
-
-        public PatchSystemStatusReqBody getPatchSystemStatusReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchSystemStatusReqBody(PatchSystemStatusReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchSystemStatusReq build() {
-            return new PatchSystemStatusReq(this);
-        }
+    public PatchSystemStatusReq build() {
+      return new PatchSystemStatusReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

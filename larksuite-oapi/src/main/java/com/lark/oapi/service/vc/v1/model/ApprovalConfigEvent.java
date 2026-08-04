@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalConfigEvent {
+  /**
+   * 预定审批开关，0关闭，1打开
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("approval_switch")
+  private Integer approvalSwitch;
+
+  /**
+   * 预定审批条件，0所有预定需要审批，1满足条件需审批
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("approval_condition")
+  private Integer approvalCondition;
+
+  /**
+   * 超过 meeting_duration小时需要审批
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("meeting_duration")
+  private Double meetingDuration;
+
+  /**
+   * 审批人列表
+   *
+   * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+   */
+  @SerializedName("approvers")
+  private SubscribeUserEvent[] approvers;
+
+  public Integer getApprovalSwitch() {
+    return this.approvalSwitch;
+  }
+
+  public void setApprovalSwitch(Integer approvalSwitch) {
+    this.approvalSwitch = approvalSwitch;
+  }
+
+  public Integer getApprovalCondition() {
+    return this.approvalCondition;
+  }
+
+  public void setApprovalCondition(Integer approvalCondition) {
+    this.approvalCondition = approvalCondition;
+  }
+
+  public Double getMeetingDuration() {
+    return this.meetingDuration;
+  }
+
+  public void setMeetingDuration(Double meetingDuration) {
+    this.meetingDuration = meetingDuration;
+  }
+
+  public SubscribeUserEvent[] getApprovers() {
+    return this.approvers;
+  }
+
+  public void setApprovers(SubscribeUserEvent[] approvers) {
+    this.approvers = approvers;
+  }
+
+  // builder 开始
+  public ApprovalConfigEvent() {}
+
+  public ApprovalConfigEvent(Builder builder) {
     /**
      * 预定审批开关，0关闭，1打开
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("approval_switch")
-    private Integer approvalSwitch;
+    this.approvalSwitch = builder.approvalSwitch;
     /**
      * 预定审批条件，0所有预定需要审批，1满足条件需审批
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("approval_condition")
-    private Integer approvalCondition;
+    this.approvalCondition = builder.approvalCondition;
     /**
      * 超过 meeting_duration小时需要审批
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("meeting_duration")
-    private Double meetingDuration;
+    this.meetingDuration = builder.meetingDuration;
     /**
      * 审批人列表
-     * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
      */
-    @SerializedName("approvers")
+    this.approvers = builder.approvers;
+  }
+
+  public static class Builder {
+    /**
+     * 预定审批开关，0关闭，1打开
+     *
+     * <p>示例值：0
+     */
+    private Integer approvalSwitch;
+
+    /**
+     * 预定审批条件，0所有预定需要审批，1满足条件需审批
+     *
+     * <p>示例值：0
+     */
+    private Integer approvalCondition;
+
+    /**
+     * 超过 meeting_duration小时需要审批
+     *
+     * <p>示例值：1
+     */
+    private Double meetingDuration;
+
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     */
     private SubscribeUserEvent[] approvers;
 
-    // builder 开始
-    public ApprovalConfigEvent() {
+    /**
+     * 预定审批开关，0关闭，1打开
+     *
+     * <p>示例值：0
+     *
+     * @param approvalSwitch
+     * @return
+     */
+    public Builder approvalSwitch(Integer approvalSwitch) {
+      this.approvalSwitch = approvalSwitch;
+      return this;
     }
 
-    public ApprovalConfigEvent(Builder builder) {
-        /**
-         * 预定审批开关，0关闭，1打开
-         * <p> 示例值：0
-         */
-        this.approvalSwitch = builder.approvalSwitch;
-        /**
-         * 预定审批条件，0所有预定需要审批，1满足条件需审批
-         * <p> 示例值：0
-         */
-        this.approvalCondition = builder.approvalCondition;
-        /**
-         * 超过 meeting_duration小时需要审批
-         * <p> 示例值：1
-         */
-        this.meetingDuration = builder.meetingDuration;
-        /**
-         * 审批人列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        this.approvers = builder.approvers;
+    /**
+     * 预定审批条件，0所有预定需要审批，1满足条件需审批
+     *
+     * <p>示例值：0
+     *
+     * @param approvalCondition
+     * @return
+     */
+    public Builder approvalCondition(Integer approvalCondition) {
+      this.approvalCondition = approvalCondition;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 超过 meeting_duration小时需要审批
+     *
+     * <p>示例值：1
+     *
+     * @param meetingDuration
+     * @return
+     */
+    public Builder meetingDuration(Double meetingDuration) {
+      this.meetingDuration = meetingDuration;
+      return this;
     }
 
-    public Integer getApprovalSwitch() {
-        return this.approvalSwitch;
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * @param approvers
+     * @return
+     */
+    public Builder approvers(SubscribeUserEvent[] approvers) {
+      this.approvers = approvers;
+      return this;
     }
 
-    public void setApprovalSwitch(Integer approvalSwitch) {
-        this.approvalSwitch = approvalSwitch;
+    public ApprovalConfigEvent build() {
+      return new ApprovalConfigEvent(this);
     }
+  }
 
-    public Integer getApprovalCondition() {
-        return this.approvalCondition;
-    }
-
-    public void setApprovalCondition(Integer approvalCondition) {
-        this.approvalCondition = approvalCondition;
-    }
-
-    public Double getMeetingDuration() {
-        return this.meetingDuration;
-    }
-
-    public void setMeetingDuration(Double meetingDuration) {
-        this.meetingDuration = meetingDuration;
-    }
-
-    public SubscribeUserEvent[] getApprovers() {
-        return this.approvers;
-    }
-
-    public void setApprovers(SubscribeUserEvent[] approvers) {
-        this.approvers = approvers;
-    }
-
-    public static class Builder {
-        /**
-         * 预定审批开关，0关闭，1打开
-         * <p> 示例值：0
-         */
-        private Integer approvalSwitch;
-        /**
-         * 预定审批条件，0所有预定需要审批，1满足条件需审批
-         * <p> 示例值：0
-         */
-        private Integer approvalCondition;
-        /**
-         * 超过 meeting_duration小时需要审批
-         * <p> 示例值：1
-         */
-        private Double meetingDuration;
-        /**
-         * 审批人列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        private SubscribeUserEvent[] approvers;
-
-        /**
-         * 预定审批开关，0关闭，1打开
-         * <p> 示例值：0
-         *
-         * @param approvalSwitch
-         * @return
-         */
-        public Builder approvalSwitch(Integer approvalSwitch) {
-            this.approvalSwitch = approvalSwitch;
-            return this;
-        }
-
-
-        /**
-         * 预定审批条件，0所有预定需要审批，1满足条件需审批
-         * <p> 示例值：0
-         *
-         * @param approvalCondition
-         * @return
-         */
-        public Builder approvalCondition(Integer approvalCondition) {
-            this.approvalCondition = approvalCondition;
-            return this;
-        }
-
-
-        /**
-         * 超过 meeting_duration小时需要审批
-         * <p> 示例值：1
-         *
-         * @param meetingDuration
-         * @return
-         */
-        public Builder meetingDuration(Double meetingDuration) {
-            this.meetingDuration = meetingDuration;
-            return this;
-        }
-
-
-        /**
-         * 审批人列表
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         *
-         * @param approvers
-         * @return
-         */
-        public Builder approvers(SubscribeUserEvent[] approvers) {
-            this.approvers = approvers;
-            return this;
-        }
-
-
-        public ApprovalConfigEvent build() {
-            return new ApprovalConfigEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

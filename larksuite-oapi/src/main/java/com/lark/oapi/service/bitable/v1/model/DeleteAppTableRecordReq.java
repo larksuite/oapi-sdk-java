@@ -13,170 +13,200 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class DeleteAppTableRecordReq {
+  /** 示例值： */
+  @Query
+  @SerializedName("ignore_consistency_check")
+  private Boolean ignoreConsistencyCheck;
+
+  public Boolean getIgnoreConsistencyCheck() {
+    return this.ignoreConsistencyCheck;
+  }
+
+  public void setIgnoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
+    this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+  }
+
+  /**
+   * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+   * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+   * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+   * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+   * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+   * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+   * app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+   *
+   * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+   * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+   * `table_id`;;
+   * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+   *
+   * <p>示例值：tblsRc9GRRXKqhvW
+   */
+  @Path
+  @SerializedName("table_id")
+  private String tableId;
+
+  /**
+   * 数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。
+   *
+   * <p>示例值：recpCsf4ME
+   */
+  @Path
+  @SerializedName("record_id")
+  private String recordId;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  public String getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
+
+  // builder 开始
+  public DeleteAppTableRecordReq() {}
+
+  public DeleteAppTableRecordReq(Builder builder) {
+    /** 示例值： */
+    this.ignoreConsistencyCheck = builder.ignoreConsistencyCheck;
     /**
-     * <p> 示例值：
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    @Query
-    @SerializedName("ignore_consistency_check")
-    private Boolean ignoreConsistencyCheck;
+    this.appToken = builder.appToken;
     /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
+    this.tableId = builder.tableId;
     /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
+     * 数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。
+     *
+     * <p>示例值：recpCsf4ME
      */
-    @Path
-    @SerializedName("table_id")
-    private String tableId;
+    this.recordId = builder.recordId;
+  }
+
+  public static class Builder {
+    private Boolean ignoreConsistencyCheck; //
+
     /**
-     * 单条记录的Id
-     * <p> 示例值：recpCsf4ME
+     * 示例值：
+     *
+     * @param ignoreConsistencyCheck
+     * @return
      */
-    @Path
-    @SerializedName("record_id")
-    private String recordId;
-
-    // builder 开始
-    public DeleteAppTableRecordReq() {
+    public Builder ignoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
+      this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+      return this;
     }
 
-    public DeleteAppTableRecordReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.ignoreConsistencyCheck = builder.ignoreConsistencyCheck;
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * table id
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 单条记录的Id
-         * <p> 示例值：recpCsf4ME
-         */
-        this.recordId = builder.recordId;
+    private String appToken; // 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以
+    // ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：;
+    // ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+    private String
+        tableId; // 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+    // 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`;; ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+    private String
+        recordId; // 数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。
+
+    /**
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public Boolean getIgnoreConsistencyCheck() {
-        return this.ignoreConsistencyCheck;
+    /**
+     * 数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。
+     *
+     * <p>示例值：recpCsf4ME
+     *
+     * @param recordId
+     * @return
+     */
+    public Builder recordId(String recordId) {
+      this.recordId = recordId;
+      return this;
     }
 
-    public void setIgnoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
-        this.ignoreConsistencyCheck = ignoreConsistencyCheck;
+    public DeleteAppTableRecordReq build() {
+      return new DeleteAppTableRecordReq(this);
     }
+  }
 
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getTableId() {
-        return this.tableId;
-    }
-
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
-
-    public String getRecordId() {
-        return this.recordId;
-    }
-
-    public void setRecordId(String recordId) {
-        this.recordId = recordId;
-    }
-
-    public static class Builder {
-        private Boolean ignoreConsistencyCheck; //
-        private String appToken; // bitable app token
-        private String tableId; // table id
-        private String recordId; // 单条记录的Id
-
-        /**
-         * <p> 示例值：
-         *
-         * @param ignoreConsistencyCheck
-         * @return
-         */
-        public Builder ignoreConsistencyCheck(Boolean ignoreConsistencyCheck) {
-            this.ignoreConsistencyCheck = ignoreConsistencyCheck;
-            return this;
-        }
-
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * table id
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        /**
-         * 单条记录的Id
-         * <p> 示例值：recpCsf4ME
-         *
-         * @param recordId
-         * @return
-         */
-        public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
-        }
-
-
-        public DeleteAppTableRecordReq build() {
-            return new DeleteAppTableRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

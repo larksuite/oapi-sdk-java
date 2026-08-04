@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ArchiveFieldData {
+  /**
+   * 字段编码，可根据[查询归档报表表头](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query)
+   * 获取
+   *
+   * <p>示例值：abd754f7
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 字段结果值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public ArchiveFieldData() {}
+
+  public ArchiveFieldData(Builder builder) {
     /**
-     * 字段编码(查询归档报表表头返回)
-     * <p> 示例值：abd754f7
+     * 字段编码，可根据[查询归档报表表头](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query)
+     * 获取
+     *
+     * <p>示例值：abd754f7
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 字段结果值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 字段编码，可根据[查询归档报表表头](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query)
+     * 获取
+     *
+     * <p>示例值：abd754f7
+     */
+    private String code;
+
+    /**
+     * 字段结果值
+     *
+     * <p>示例值：1
+     */
     private String value;
 
-    // builder 开始
-    public ArchiveFieldData() {
+    /**
+     * 字段编码，可根据[查询归档报表表头](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/archive_rule/user_stats_fields_query)
+     * 获取
+     *
+     * <p>示例值：abd754f7
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public ArchiveFieldData(Builder builder) {
-        /**
-         * 字段编码(查询归档报表表头返回)
-         * <p> 示例值：abd754f7
-         */
-        this.code = builder.code;
-        /**
-         * 字段结果值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
+    /**
+     * 字段结果值
+     *
+     * <p>示例值：1
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ArchiveFieldData build() {
+      return new ArchiveFieldData(this);
     }
+  }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 字段编码(查询归档报表表头返回)
-         * <p> 示例值：abd754f7
-         */
-        private String code;
-        /**
-         * 字段结果值
-         * <p> 示例值：1
-         */
-        private String value;
-
-        /**
-         * 字段编码(查询归档报表表头返回)
-         * <p> 示例值：abd754f7
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 字段结果值
-         * <p> 示例值：1
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public ArchiveFieldData build() {
-            return new ArchiveFieldData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

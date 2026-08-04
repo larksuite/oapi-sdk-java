@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchEmployeeFilter {
+  /**
+   * 搜索结果包含离职成员，默认不包含
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contain_resigned_employee")
+  private Boolean containResignedEmployee;
+
+  /**
+   * 搜索接口拓展选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private SearchOptions options;
+
+  public Boolean getContainResignedEmployee() {
+    return this.containResignedEmployee;
+  }
+
+  public void setContainResignedEmployee(Boolean containResignedEmployee) {
+    this.containResignedEmployee = containResignedEmployee;
+  }
+
+  public SearchOptions getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(SearchOptions options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public SearchEmployeeFilter() {}
+
+  public SearchEmployeeFilter(Builder builder) {
     /**
      * 搜索结果包含离职成员，默认不包含
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contain_resigned_employee")
-    private Boolean containResignedEmployee;
+    this.containResignedEmployee = builder.containResignedEmployee;
     /**
      * 搜索接口拓展选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    this.options = builder.options;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索结果包含离职成员，默认不包含
+     *
+     * <p>示例值：
+     */
+    private Boolean containResignedEmployee;
+
+    /**
+     * 搜索接口拓展选项
+     *
+     * <p>示例值：
+     */
     private SearchOptions options;
 
-    // builder 开始
-    public SearchEmployeeFilter() {
+    /**
+     * 搜索结果包含离职成员，默认不包含
+     *
+     * <p>示例值：
+     *
+     * @param containResignedEmployee
+     * @return
+     */
+    public Builder containResignedEmployee(Boolean containResignedEmployee) {
+      this.containResignedEmployee = containResignedEmployee;
+      return this;
     }
 
-    public SearchEmployeeFilter(Builder builder) {
-        /**
-         * 搜索结果包含离职成员，默认不包含
-         * <p> 示例值：
-         */
-        this.containResignedEmployee = builder.containResignedEmployee;
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    /**
+     * 搜索接口拓展选项
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(SearchOptions options) {
+      this.options = options;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchEmployeeFilter build() {
+      return new SearchEmployeeFilter(this);
     }
+  }
 
-    public Boolean getContainResignedEmployee() {
-        return this.containResignedEmployee;
-    }
-
-    public void setContainResignedEmployee(Boolean containResignedEmployee) {
-        this.containResignedEmployee = containResignedEmployee;
-    }
-
-    public SearchOptions getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(SearchOptions options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索结果包含离职成员，默认不包含
-         * <p> 示例值：
-         */
-        private Boolean containResignedEmployee;
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         */
-        private SearchOptions options;
-
-        /**
-         * 搜索结果包含离职成员，默认不包含
-         * <p> 示例值：
-         *
-         * @param containResignedEmployee
-         * @return
-         */
-        public Builder containResignedEmployee(Boolean containResignedEmployee) {
-            this.containResignedEmployee = containResignedEmployee;
-            return this;
-        }
-
-
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(SearchOptions options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public SearchEmployeeFilter build() {
-            return new SearchEmployeeFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

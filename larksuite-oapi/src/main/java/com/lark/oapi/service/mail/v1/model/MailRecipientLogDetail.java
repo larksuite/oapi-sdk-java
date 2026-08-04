@@ -13,704 +13,783 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailRecipientLogDetail {
+  /**
+   * 主题
+   *
+   * <p>示例值：Q3 季度营销活动方案评审
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 方向
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("direction")
+  private Integer direction;
+
+  /**
+   * 发件人
+   *
+   * <p>示例值：zhang.san@example.com
+   */
+  @SerializedName("sender")
+  private String sender;
+
+  /**
+   * 收件人
+   *
+   * <p>示例值：li.si@example.com
+   */
+  @SerializedName("recipient")
+  private String recipient;
+
+  /**
+   * 创建时间戳
+   *
+   * <p>示例值：1698729600
+   */
+  @SerializedName("created_timestamp")
+  private String createdTimestamp;
+
+  /**
+   * 消息ID
+   *
+   * <p>示例值：<1698729600.12345.0@mail.example.com>
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息大小
+   *
+   * <p>示例值：2048000
+   */
+  @SerializedName("message_size")
+  private String messageSize;
+
+  /**
+   * 附件数量
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("attachment_number")
+  private Integer attachmentNumber;
+
+  /**
+   * 最后状态
+   *
+   * <p>示例值：已送达
+   */
+  @SerializedName("last_status")
+  private String lastStatus;
+
+  /**
+   * 最后状态类型
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("last_status_type")
+  private Integer lastStatusType;
+
+  /**
+   * 是否收件人是邮件组
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_recipient_group")
+  private Boolean isRecipientGroup;
+
+  /**
+   * 邮件组成员总数
+   *
+   * <p>示例值：25
+   */
+  @SerializedName("group_total_member")
+  private Integer groupTotalMember;
+
+  /**
+   * 收件人邮件日志
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recipient_mail_log")
+  private MailRecipientLogItem recipientMailLog;
+
+  /**
+   * 发件人邮件位置文本
+   *
+   * <p>示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
+   */
+  @SerializedName("sender_mail_location_text")
+  private String senderMailLocationText;
+
+  /**
+   * 发件人位置文本值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_mail_location_text_values")
+  private MailRecipientLogI18nTextParam[] senderMailLocationTextValues;
+
+  /**
+   * 收件人邮件位置文本
+   *
+   * <p>示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
+   */
+  @SerializedName("recipient_mail_location_text")
+  private String recipientMailLocationText;
+
+  /**
+   * 收件人位置文本值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recipient_mail_location_text_values")
+  private MailRecipientLogI18nTextParam[] recipientMailLocationTextValues;
+
+  /**
+   * 发件人IP
+   *
+   * <p>示例值：192.168.1.100
+   */
+  @SerializedName("sender_ip")
+  private String senderIp;
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public Integer getDirection() {
+    return this.direction;
+  }
+
+  public void setDirection(Integer direction) {
+    this.direction = direction;
+  }
+
+  public String getSender() {
+    return this.sender;
+  }
+
+  public void setSender(String sender) {
+    this.sender = sender;
+  }
+
+  public String getRecipient() {
+    return this.recipient;
+  }
+
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+  public String getCreatedTimestamp() {
+    return this.createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(String createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getMessageSize() {
+    return this.messageSize;
+  }
+
+  public void setMessageSize(String messageSize) {
+    this.messageSize = messageSize;
+  }
+
+  public Integer getAttachmentNumber() {
+    return this.attachmentNumber;
+  }
+
+  public void setAttachmentNumber(Integer attachmentNumber) {
+    this.attachmentNumber = attachmentNumber;
+  }
+
+  public String getLastStatus() {
+    return this.lastStatus;
+  }
+
+  public void setLastStatus(String lastStatus) {
+    this.lastStatus = lastStatus;
+  }
+
+  public Integer getLastStatusType() {
+    return this.lastStatusType;
+  }
+
+  public void setLastStatusType(Integer lastStatusType) {
+    this.lastStatusType = lastStatusType;
+  }
+
+  public Boolean getIsRecipientGroup() {
+    return this.isRecipientGroup;
+  }
+
+  public void setIsRecipientGroup(Boolean isRecipientGroup) {
+    this.isRecipientGroup = isRecipientGroup;
+  }
+
+  public Integer getGroupTotalMember() {
+    return this.groupTotalMember;
+  }
+
+  public void setGroupTotalMember(Integer groupTotalMember) {
+    this.groupTotalMember = groupTotalMember;
+  }
+
+  public MailRecipientLogItem getRecipientMailLog() {
+    return this.recipientMailLog;
+  }
+
+  public void setRecipientMailLog(MailRecipientLogItem recipientMailLog) {
+    this.recipientMailLog = recipientMailLog;
+  }
+
+  public String getSenderMailLocationText() {
+    return this.senderMailLocationText;
+  }
+
+  public void setSenderMailLocationText(String senderMailLocationText) {
+    this.senderMailLocationText = senderMailLocationText;
+  }
+
+  public MailRecipientLogI18nTextParam[] getSenderMailLocationTextValues() {
+    return this.senderMailLocationTextValues;
+  }
+
+  public void setSenderMailLocationTextValues(
+      MailRecipientLogI18nTextParam[] senderMailLocationTextValues) {
+    this.senderMailLocationTextValues = senderMailLocationTextValues;
+  }
+
+  public String getRecipientMailLocationText() {
+    return this.recipientMailLocationText;
+  }
+
+  public void setRecipientMailLocationText(String recipientMailLocationText) {
+    this.recipientMailLocationText = recipientMailLocationText;
+  }
+
+  public MailRecipientLogI18nTextParam[] getRecipientMailLocationTextValues() {
+    return this.recipientMailLocationTextValues;
+  }
+
+  public void setRecipientMailLocationTextValues(
+      MailRecipientLogI18nTextParam[] recipientMailLocationTextValues) {
+    this.recipientMailLocationTextValues = recipientMailLocationTextValues;
+  }
+
+  public String getSenderIp() {
+    return this.senderIp;
+  }
+
+  public void setSenderIp(String senderIp) {
+    this.senderIp = senderIp;
+  }
+
+  // builder 开始
+  public MailRecipientLogDetail() {}
+
+  public MailRecipientLogDetail(Builder builder) {
     /**
      * 主题
-     * <p> 示例值：Q3 季度营销活动方案评审
+     *
+     * <p>示例值：Q3 季度营销活动方案评审
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
      * 方向
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("direction")
-    private Integer direction;
+    this.direction = builder.direction;
     /**
      * 发件人
-     * <p> 示例值：zhang.san@example.com
+     *
+     * <p>示例值：zhang.san@example.com
      */
-    @SerializedName("sender")
-    private String sender;
+    this.sender = builder.sender;
     /**
      * 收件人
-     * <p> 示例值：li.si@example.com
+     *
+     * <p>示例值：li.si@example.com
      */
-    @SerializedName("recipient")
-    private String recipient;
+    this.recipient = builder.recipient;
     /**
      * 创建时间戳
-     * <p> 示例值：1698729600
+     *
+     * <p>示例值：1698729600
      */
-    @SerializedName("created_timestamp")
-    private String createdTimestamp;
+    this.createdTimestamp = builder.createdTimestamp;
     /**
      * 消息ID
-     * <p> 示例值：<1698729600.12345.0@mail.example.com>
+     *
+     * <p>示例值：<1698729600.12345.0@mail.example.com>
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 消息大小
-     * <p> 示例值：2048000
+     *
+     * <p>示例值：2048000
      */
-    @SerializedName("message_size")
-    private String messageSize;
+    this.messageSize = builder.messageSize;
     /**
      * 附件数量
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("attachment_number")
-    private Integer attachmentNumber;
+    this.attachmentNumber = builder.attachmentNumber;
     /**
      * 最后状态
-     * <p> 示例值：已送达
+     *
+     * <p>示例值：已送达
      */
-    @SerializedName("last_status")
-    private String lastStatus;
+    this.lastStatus = builder.lastStatus;
     /**
      * 最后状态类型
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("last_status_type")
-    private Integer lastStatusType;
+    this.lastStatusType = builder.lastStatusType;
     /**
      * 是否收件人是邮件组
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_recipient_group")
-    private Boolean isRecipientGroup;
+    this.isRecipientGroup = builder.isRecipientGroup;
     /**
      * 邮件组成员总数
-     * <p> 示例值：25
+     *
+     * <p>示例值：25
      */
-    @SerializedName("group_total_member")
-    private Integer groupTotalMember;
+    this.groupTotalMember = builder.groupTotalMember;
     /**
      * 收件人邮件日志
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recipient_mail_log")
-    private MailRecipientLogItem recipientMailLog;
+    this.recipientMailLog = builder.recipientMailLog;
     /**
      * 发件人邮件位置文本
-     * <p> 示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
+     *
+     * <p>示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
      */
-    @SerializedName("sender_mail_location_text")
-    private String senderMailLocationText;
+    this.senderMailLocationText = builder.senderMailLocationText;
     /**
      * 发件人位置文本值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender_mail_location_text_values")
-    private MailRecipientLogI18nTextParam[] senderMailLocationTextValues;
+    this.senderMailLocationTextValues = builder.senderMailLocationTextValues;
     /**
      * 收件人邮件位置文本
-     * <p> 示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
+     *
+     * <p>示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
      */
-    @SerializedName("recipient_mail_location_text")
-    private String recipientMailLocationText;
+    this.recipientMailLocationText = builder.recipientMailLocationText;
     /**
      * 收件人位置文本值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recipient_mail_location_text_values")
-    private MailRecipientLogI18nTextParam[] recipientMailLocationTextValues;
+    this.recipientMailLocationTextValues = builder.recipientMailLocationTextValues;
     /**
      * 发件人IP
-     * <p> 示例值：192.168.1.100
+     *
+     * <p>示例值：192.168.1.100
      */
-    @SerializedName("sender_ip")
+    this.senderIp = builder.senderIp;
+  }
+
+  public static class Builder {
+    /**
+     * 主题
+     *
+     * <p>示例值：Q3 季度营销活动方案评审
+     */
+    private String subject;
+
+    /**
+     * 方向
+     *
+     * <p>示例值：1
+     */
+    private Integer direction;
+
+    /**
+     * 发件人
+     *
+     * <p>示例值：zhang.san@example.com
+     */
+    private String sender;
+
+    /**
+     * 收件人
+     *
+     * <p>示例值：li.si@example.com
+     */
+    private String recipient;
+
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1698729600
+     */
+    private String createdTimestamp;
+
+    /**
+     * 消息ID
+     *
+     * <p>示例值：<1698729600.12345.0@mail.example.com>
+     */
+    private String messageId;
+
+    /**
+     * 消息大小
+     *
+     * <p>示例值：2048000
+     */
+    private String messageSize;
+
+    /**
+     * 附件数量
+     *
+     * <p>示例值：3
+     */
+    private Integer attachmentNumber;
+
+    /**
+     * 最后状态
+     *
+     * <p>示例值：已送达
+     */
+    private String lastStatus;
+
+    /**
+     * 最后状态类型
+     *
+     * <p>示例值：2
+     */
+    private Integer lastStatusType;
+
+    /**
+     * 是否收件人是邮件组
+     *
+     * <p>示例值：true
+     */
+    private Boolean isRecipientGroup;
+
+    /**
+     * 邮件组成员总数
+     *
+     * <p>示例值：25
+     */
+    private Integer groupTotalMember;
+
+    /**
+     * 收件人邮件日志
+     *
+     * <p>示例值：
+     */
+    private MailRecipientLogItem recipientMailLog;
+
+    /**
+     * 发件人邮件位置文本
+     *
+     * <p>示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
+     */
+    private String senderMailLocationText;
+
+    /**
+     * 发件人位置文本值
+     *
+     * <p>示例值：
+     */
+    private MailRecipientLogI18nTextParam[] senderMailLocationTextValues;
+
+    /**
+     * 收件人邮件位置文本
+     *
+     * <p>示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
+     */
+    private String recipientMailLocationText;
+
+    /**
+     * 收件人位置文本值
+     *
+     * <p>示例值：
+     */
+    private MailRecipientLogI18nTextParam[] recipientMailLocationTextValues;
+
+    /**
+     * 发件人IP
+     *
+     * <p>示例值：192.168.1.100
+     */
     private String senderIp;
 
-    // builder 开始
-    public MailRecipientLogDetail() {
+    /**
+     * 主题
+     *
+     * <p>示例值：Q3 季度营销活动方案评审
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public MailRecipientLogDetail(Builder builder) {
-        /**
-         * 主题
-         * <p> 示例值：Q3 季度营销活动方案评审
-         */
-        this.subject = builder.subject;
-        /**
-         * 方向
-         * <p> 示例值：1
-         */
-        this.direction = builder.direction;
-        /**
-         * 发件人
-         * <p> 示例值：zhang.san@example.com
-         */
-        this.sender = builder.sender;
-        /**
-         * 收件人
-         * <p> 示例值：li.si@example.com
-         */
-        this.recipient = builder.recipient;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         */
-        this.createdTimestamp = builder.createdTimestamp;
-        /**
-         * 消息ID
-         * <p> 示例值：<1698729600.12345.0@mail.example.com>
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息大小
-         * <p> 示例值：2048000
-         */
-        this.messageSize = builder.messageSize;
-        /**
-         * 附件数量
-         * <p> 示例值：3
-         */
-        this.attachmentNumber = builder.attachmentNumber;
-        /**
-         * 最后状态
-         * <p> 示例值：已送达
-         */
-        this.lastStatus = builder.lastStatus;
-        /**
-         * 最后状态类型
-         * <p> 示例值：2
-         */
-        this.lastStatusType = builder.lastStatusType;
-        /**
-         * 是否收件人是邮件组
-         * <p> 示例值：true
-         */
-        this.isRecipientGroup = builder.isRecipientGroup;
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         */
-        this.groupTotalMember = builder.groupTotalMember;
-        /**
-         * 收件人邮件日志
-         * <p> 示例值：
-         */
-        this.recipientMailLog = builder.recipientMailLog;
-        /**
-         * 发件人邮件位置文本
-         * <p> 示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
-         */
-        this.senderMailLocationText = builder.senderMailLocationText;
-        /**
-         * 发件人位置文本值
-         * <p> 示例值：
-         */
-        this.senderMailLocationTextValues = builder.senderMailLocationTextValues;
-        /**
-         * 收件人邮件位置文本
-         * <p> 示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
-         */
-        this.recipientMailLocationText = builder.recipientMailLocationText;
-        /**
-         * 收件人位置文本值
-         * <p> 示例值：
-         */
-        this.recipientMailLocationTextValues = builder.recipientMailLocationTextValues;
-        /**
-         * 发件人IP
-         * <p> 示例值：192.168.1.100
-         */
-        this.senderIp = builder.senderIp;
+    /**
+     * 方向
+     *
+     * <p>示例值：1
+     *
+     * @param direction
+     * @return
+     */
+    public Builder direction(Integer direction) {
+      this.direction = direction;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发件人
+     *
+     * <p>示例值：zhang.san@example.com
+     *
+     * @param sender
+     * @return
+     */
+    public Builder sender(String sender) {
+      this.sender = sender;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 收件人
+     *
+     * <p>示例值：li.si@example.com
+     *
+     * @param recipient
+     * @return
+     */
+    public Builder recipient(String recipient) {
+      this.recipient = recipient;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1698729600
+     *
+     * @param createdTimestamp
+     * @return
+     */
+    public Builder createdTimestamp(String createdTimestamp) {
+      this.createdTimestamp = createdTimestamp;
+      return this;
     }
 
-    public Integer getDirection() {
-        return this.direction;
+    /**
+     * 消息ID
+     *
+     * <p>示例值：<1698729600.12345.0@mail.example.com>
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public void setDirection(Integer direction) {
-        this.direction = direction;
+    /**
+     * 消息大小
+     *
+     * <p>示例值：2048000
+     *
+     * @param messageSize
+     * @return
+     */
+    public Builder messageSize(String messageSize) {
+      this.messageSize = messageSize;
+      return this;
     }
 
-    public String getSender() {
-        return this.sender;
+    /**
+     * 附件数量
+     *
+     * <p>示例值：3
+     *
+     * @param attachmentNumber
+     * @return
+     */
+    public Builder attachmentNumber(Integer attachmentNumber) {
+      this.attachmentNumber = attachmentNumber;
+      return this;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    /**
+     * 最后状态
+     *
+     * <p>示例值：已送达
+     *
+     * @param lastStatus
+     * @return
+     */
+    public Builder lastStatus(String lastStatus) {
+      this.lastStatus = lastStatus;
+      return this;
     }
 
-    public String getRecipient() {
-        return this.recipient;
+    /**
+     * 最后状态类型
+     *
+     * <p>示例值：2
+     *
+     * @param lastStatusType
+     * @return
+     */
+    public Builder lastStatusType(Integer lastStatusType) {
+      this.lastStatusType = lastStatusType;
+      return this;
     }
 
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    /**
+     * 是否收件人是邮件组
+     *
+     * <p>示例值：true
+     *
+     * @param isRecipientGroup
+     * @return
+     */
+    public Builder isRecipientGroup(Boolean isRecipientGroup) {
+      this.isRecipientGroup = isRecipientGroup;
+      return this;
     }
 
-    public String getCreatedTimestamp() {
-        return this.createdTimestamp;
+    /**
+     * 邮件组成员总数
+     *
+     * <p>示例值：25
+     *
+     * @param groupTotalMember
+     * @return
+     */
+    public Builder groupTotalMember(Integer groupTotalMember) {
+      this.groupTotalMember = groupTotalMember;
+      return this;
     }
 
-    public void setCreatedTimestamp(String createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    /**
+     * 收件人邮件日志
+     *
+     * <p>示例值：
+     *
+     * @param recipientMailLog
+     * @return
+     */
+    public Builder recipientMailLog(MailRecipientLogItem recipientMailLog) {
+      this.recipientMailLog = recipientMailLog;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 发件人邮件位置文本
+     *
+     * <p>示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
+     *
+     * @param senderMailLocationText
+     * @return
+     */
+    public Builder senderMailLocationText(String senderMailLocationText) {
+      this.senderMailLocationText = senderMailLocationText;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 发件人位置文本值
+     *
+     * <p>示例值：
+     *
+     * @param senderMailLocationTextValues
+     * @return
+     */
+    public Builder senderMailLocationTextValues(
+        MailRecipientLogI18nTextParam[] senderMailLocationTextValues) {
+      this.senderMailLocationTextValues = senderMailLocationTextValues;
+      return this;
     }
 
-    public String getMessageSize() {
-        return this.messageSize;
+    /**
+     * 收件人邮件位置文本
+     *
+     * <p>示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
+     *
+     * @param recipientMailLocationText
+     * @return
+     */
+    public Builder recipientMailLocationText(String recipientMailLocationText) {
+      this.recipientMailLocationText = recipientMailLocationText;
+      return this;
     }
 
-    public void setMessageSize(String messageSize) {
-        this.messageSize = messageSize;
+    /**
+     * 收件人位置文本值
+     *
+     * <p>示例值：
+     *
+     * @param recipientMailLocationTextValues
+     * @return
+     */
+    public Builder recipientMailLocationTextValues(
+        MailRecipientLogI18nTextParam[] recipientMailLocationTextValues) {
+      this.recipientMailLocationTextValues = recipientMailLocationTextValues;
+      return this;
     }
 
-    public Integer getAttachmentNumber() {
-        return this.attachmentNumber;
+    /**
+     * 发件人IP
+     *
+     * <p>示例值：192.168.1.100
+     *
+     * @param senderIp
+     * @return
+     */
+    public Builder senderIp(String senderIp) {
+      this.senderIp = senderIp;
+      return this;
     }
 
-    public void setAttachmentNumber(Integer attachmentNumber) {
-        this.attachmentNumber = attachmentNumber;
+    public MailRecipientLogDetail build() {
+      return new MailRecipientLogDetail(this);
     }
+  }
 
-    public String getLastStatus() {
-        return this.lastStatus;
-    }
-
-    public void setLastStatus(String lastStatus) {
-        this.lastStatus = lastStatus;
-    }
-
-    public Integer getLastStatusType() {
-        return this.lastStatusType;
-    }
-
-    public void setLastStatusType(Integer lastStatusType) {
-        this.lastStatusType = lastStatusType;
-    }
-
-    public Boolean getIsRecipientGroup() {
-        return this.isRecipientGroup;
-    }
-
-    public void setIsRecipientGroup(Boolean isRecipientGroup) {
-        this.isRecipientGroup = isRecipientGroup;
-    }
-
-    public Integer getGroupTotalMember() {
-        return this.groupTotalMember;
-    }
-
-    public void setGroupTotalMember(Integer groupTotalMember) {
-        this.groupTotalMember = groupTotalMember;
-    }
-
-    public MailRecipientLogItem getRecipientMailLog() {
-        return this.recipientMailLog;
-    }
-
-    public void setRecipientMailLog(MailRecipientLogItem recipientMailLog) {
-        this.recipientMailLog = recipientMailLog;
-    }
-
-    public String getSenderMailLocationText() {
-        return this.senderMailLocationText;
-    }
-
-    public void setSenderMailLocationText(String senderMailLocationText) {
-        this.senderMailLocationText = senderMailLocationText;
-    }
-
-    public MailRecipientLogI18nTextParam[] getSenderMailLocationTextValues() {
-        return this.senderMailLocationTextValues;
-    }
-
-    public void setSenderMailLocationTextValues(MailRecipientLogI18nTextParam[] senderMailLocationTextValues) {
-        this.senderMailLocationTextValues = senderMailLocationTextValues;
-    }
-
-    public String getRecipientMailLocationText() {
-        return this.recipientMailLocationText;
-    }
-
-    public void setRecipientMailLocationText(String recipientMailLocationText) {
-        this.recipientMailLocationText = recipientMailLocationText;
-    }
-
-    public MailRecipientLogI18nTextParam[] getRecipientMailLocationTextValues() {
-        return this.recipientMailLocationTextValues;
-    }
-
-    public void setRecipientMailLocationTextValues(MailRecipientLogI18nTextParam[] recipientMailLocationTextValues) {
-        this.recipientMailLocationTextValues = recipientMailLocationTextValues;
-    }
-
-    public String getSenderIp() {
-        return this.senderIp;
-    }
-
-    public void setSenderIp(String senderIp) {
-        this.senderIp = senderIp;
-    }
-
-    public static class Builder {
-        /**
-         * 主题
-         * <p> 示例值：Q3 季度营销活动方案评审
-         */
-        private String subject;
-        /**
-         * 方向
-         * <p> 示例值：1
-         */
-        private Integer direction;
-        /**
-         * 发件人
-         * <p> 示例值：zhang.san@example.com
-         */
-        private String sender;
-        /**
-         * 收件人
-         * <p> 示例值：li.si@example.com
-         */
-        private String recipient;
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         */
-        private String createdTimestamp;
-        /**
-         * 消息ID
-         * <p> 示例值：<1698729600.12345.0@mail.example.com>
-         */
-        private String messageId;
-        /**
-         * 消息大小
-         * <p> 示例值：2048000
-         */
-        private String messageSize;
-        /**
-         * 附件数量
-         * <p> 示例值：3
-         */
-        private Integer attachmentNumber;
-        /**
-         * 最后状态
-         * <p> 示例值：已送达
-         */
-        private String lastStatus;
-        /**
-         * 最后状态类型
-         * <p> 示例值：2
-         */
-        private Integer lastStatusType;
-        /**
-         * 是否收件人是邮件组
-         * <p> 示例值：true
-         */
-        private Boolean isRecipientGroup;
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         */
-        private Integer groupTotalMember;
-        /**
-         * 收件人邮件日志
-         * <p> 示例值：
-         */
-        private MailRecipientLogItem recipientMailLog;
-        /**
-         * 发件人邮件位置文本
-         * <p> 示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
-         */
-        private String senderMailLocationText;
-        /**
-         * 发件人位置文本值
-         * <p> 示例值：
-         */
-        private MailRecipientLogI18nTextParam[] senderMailLocationTextValues;
-        /**
-         * 收件人邮件位置文本
-         * <p> 示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
-         */
-        private String recipientMailLocationText;
-        /**
-         * 收件人位置文本值
-         * <p> 示例值：
-         */
-        private MailRecipientLogI18nTextParam[] recipientMailLocationTextValues;
-        /**
-         * 发件人IP
-         * <p> 示例值：192.168.1.100
-         */
-        private String senderIp;
-
-        /**
-         * 主题
-         * <p> 示例值：Q3 季度营销活动方案评审
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 方向
-         * <p> 示例值：1
-         *
-         * @param direction
-         * @return
-         */
-        public Builder direction(Integer direction) {
-            this.direction = direction;
-            return this;
-        }
-
-
-        /**
-         * 发件人
-         * <p> 示例值：zhang.san@example.com
-         *
-         * @param sender
-         * @return
-         */
-        public Builder sender(String sender) {
-            this.sender = sender;
-            return this;
-        }
-
-
-        /**
-         * 收件人
-         * <p> 示例值：li.si@example.com
-         *
-         * @param recipient
-         * @return
-         */
-        public Builder recipient(String recipient) {
-            this.recipient = recipient;
-            return this;
-        }
-
-
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         *
-         * @param createdTimestamp
-         * @return
-         */
-        public Builder createdTimestamp(String createdTimestamp) {
-            this.createdTimestamp = createdTimestamp;
-            return this;
-        }
-
-
-        /**
-         * 消息ID
-         * <p> 示例值：<1698729600.12345.0@mail.example.com>
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息大小
-         * <p> 示例值：2048000
-         *
-         * @param messageSize
-         * @return
-         */
-        public Builder messageSize(String messageSize) {
-            this.messageSize = messageSize;
-            return this;
-        }
-
-
-        /**
-         * 附件数量
-         * <p> 示例值：3
-         *
-         * @param attachmentNumber
-         * @return
-         */
-        public Builder attachmentNumber(Integer attachmentNumber) {
-            this.attachmentNumber = attachmentNumber;
-            return this;
-        }
-
-
-        /**
-         * 最后状态
-         * <p> 示例值：已送达
-         *
-         * @param lastStatus
-         * @return
-         */
-        public Builder lastStatus(String lastStatus) {
-            this.lastStatus = lastStatus;
-            return this;
-        }
-
-
-        /**
-         * 最后状态类型
-         * <p> 示例值：2
-         *
-         * @param lastStatusType
-         * @return
-         */
-        public Builder lastStatusType(Integer lastStatusType) {
-            this.lastStatusType = lastStatusType;
-            return this;
-        }
-
-
-        /**
-         * 是否收件人是邮件组
-         * <p> 示例值：true
-         *
-         * @param isRecipientGroup
-         * @return
-         */
-        public Builder isRecipientGroup(Boolean isRecipientGroup) {
-            this.isRecipientGroup = isRecipientGroup;
-            return this;
-        }
-
-
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         *
-         * @param groupTotalMember
-         * @return
-         */
-        public Builder groupTotalMember(Integer groupTotalMember) {
-            this.groupTotalMember = groupTotalMember;
-            return this;
-        }
-
-
-        /**
-         * 收件人邮件日志
-         * <p> 示例值：
-         *
-         * @param recipientMailLog
-         * @return
-         */
-        public Builder recipientMailLog(MailRecipientLogItem recipientMailLog) {
-            this.recipientMailLog = recipientMailLog;
-            return this;
-        }
-
-
-        /**
-         * 发件人邮件位置文本
-         * <p> 示例值：{"recipient":"marketing-group@example.com","mail_log_text_list":[{"created_timestamp":1698729600,"text":"邮件已送达收件人邮箱","status_type":2,"text_value":[]}]}
-         *
-         * @param senderMailLocationText
-         * @return
-         */
-        public Builder senderMailLocationText(String senderMailLocationText) {
-            this.senderMailLocationText = senderMailLocationText;
-            return this;
-        }
-
-
-        /**
-         * 发件人位置文本值
-         * <p> 示例值：
-         *
-         * @param senderMailLocationTextValues
-         * @return
-         */
-        public Builder senderMailLocationTextValues(MailRecipientLogI18nTextParam[] senderMailLocationTextValues) {
-            this.senderMailLocationTextValues = senderMailLocationTextValues;
-            return this;
-        }
-
-
-        /**
-         * 收件人邮件位置文本
-         * <p> 示例值：[{"param_name":"folder_name","param_type":1,"param_extra":{"zh-CN":"收件箱","en-US":"Inbox"}}]
-         *
-         * @param recipientMailLocationText
-         * @return
-         */
-        public Builder recipientMailLocationText(String recipientMailLocationText) {
-            this.recipientMailLocationText = recipientMailLocationText;
-            return this;
-        }
-
-
-        /**
-         * 收件人位置文本值
-         * <p> 示例值：
-         *
-         * @param recipientMailLocationTextValues
-         * @return
-         */
-        public Builder recipientMailLocationTextValues(MailRecipientLogI18nTextParam[] recipientMailLocationTextValues) {
-            this.recipientMailLocationTextValues = recipientMailLocationTextValues;
-            return this;
-        }
-
-
-        /**
-         * 发件人IP
-         * <p> 示例值：192.168.1.100
-         *
-         * @param senderIp
-         * @return
-         */
-        public Builder senderIp(String senderIp) {
-            this.senderIp = senderIp;
-            return this;
-        }
-
-
-        public MailRecipientLogDetail build() {
-            return new MailRecipientLogDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

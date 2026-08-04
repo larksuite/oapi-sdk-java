@@ -13,112 +13,155 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceMessageReject {
+  /**
+   * 消息 ID 列表。消息 ID 获取方式：;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * message_id 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * message_id。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * message_id 参数获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_ids")
+  private String[] messageIds;
+
+  /**
+   * 群 ID 列表。包括单聊和群组 ID。群 ID 获取方式：;-
+   * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+   * chat_id。;-
+   * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+   * chat_id。;-
+   * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+   * chat_id。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  public String[] getMessageIds() {
+    return this.messageIds;
+  }
+
+  public void setMessageIds(String[] messageIds) {
+    this.messageIds = messageIds;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  // builder 开始
+  public KnowledgeSourceMessageReject() {}
+
+  public KnowledgeSourceMessageReject(Builder builder) {
     /**
-     * 消息 ID 列表
-     * <p> 示例值：
+     * 消息 ID 列表。消息 ID 获取方式：;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * message_id 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * message_id。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * message_id 参数获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_ids")
+    this.messageIds = builder.messageIds;
+    /**
+     * 群 ID 列表。包括单聊和群组 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
+     */
+    this.chatIds = builder.chatIds;
+  }
+
+  public static class Builder {
+    /**
+     * 消息 ID 列表。消息 ID 获取方式：;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * message_id 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * message_id。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * message_id 参数获取。
+     *
+     * <p>示例值：
+     */
     private String[] messageIds;
+
     /**
-     * 会话 ID 列表
-     * <p> 示例值：
+     * 群 ID 列表。包括单聊和群组 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
     private String[] chatIds;
 
-    // builder 开始
-    public KnowledgeSourceMessageReject() {
+    /**
+     * 消息 ID 列表。消息 ID 获取方式：;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * message_id 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * message_id。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * message_id 参数获取。
+     *
+     * <p>示例值：
+     *
+     * @param messageIds
+     * @return
+     */
+    public Builder messageIds(String[] messageIds) {
+      this.messageIds = messageIds;
+      return this;
     }
 
-    public KnowledgeSourceMessageReject(Builder builder) {
-        /**
-         * 消息 ID 列表
-         * <p> 示例值：
-         */
-        this.messageIds = builder.messageIds;
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
+    /**
+     * 群 ID 列表。包括单聊和群组 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KnowledgeSourceMessageReject build() {
+      return new KnowledgeSourceMessageReject(this);
     }
+  }
 
-    public String[] getMessageIds() {
-        return this.messageIds;
-    }
-
-    public void setMessageIds(String[] messageIds) {
-        this.messageIds = messageIds;
-    }
-
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public static class Builder {
-        /**
-         * 消息 ID 列表
-         * <p> 示例值：
-         */
-        private String[] messageIds;
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-
-        /**
-         * 消息 ID 列表
-         * <p> 示例值：
-         *
-         * @param messageIds
-         * @return
-         */
-        public Builder messageIds(String[] messageIds) {
-            this.messageIds = messageIds;
-            return this;
-        }
-
-
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        public KnowledgeSourceMessageReject build() {
-            return new KnowledgeSourceMessageReject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

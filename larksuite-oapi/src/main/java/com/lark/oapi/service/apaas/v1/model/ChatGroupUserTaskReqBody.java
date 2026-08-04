@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatGroupUserTaskReqBody {
+  /**
+   * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("operator_user_id")
+  private String operatorUserId;
+
+  /**
+   * 邀请进群用户KunlunID列表,可通过Apaas用户管理页面获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invite_user_ids")
+  private String[] inviteUserIds;
+
+  /**
+   * 要拉入的群openID，为空则新建群
+   *
+   * <p>示例值：oc_1234
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 要加入的群名称，当chat_id为空时用该名称创建群聊;
+   *
+   * <p>示例值：群名称
+   */
+  @SerializedName("chat_name")
+  private String chatName;
+
+  public String getOperatorUserId() {
+    return this.operatorUserId;
+  }
+
+  public void setOperatorUserId(String operatorUserId) {
+    this.operatorUserId = operatorUserId;
+  }
+
+  public String[] getInviteUserIds() {
+    return this.inviteUserIds;
+  }
+
+  public void setInviteUserIds(String[] inviteUserIds) {
+    this.inviteUserIds = inviteUserIds;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getChatName() {
+    return this.chatName;
+  }
+
+  public void setChatName(String chatName) {
+    this.chatName = chatName;
+  }
+
+  // builder 开始
+  public ChatGroupUserTaskReqBody() {}
+
+  public ChatGroupUserTaskReqBody(Builder builder) {
     /**
-     * 操作人kunlunUserID
-     * <p> 示例值：1234
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("operator_user_id")
-    private String operatorUserId;
+    this.operatorUserId = builder.operatorUserId;
     /**
-     * 要邀请进群用户ID列表
-     * <p> 示例值：
+     * 邀请进群用户KunlunID列表,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("invite_user_ids")
-    private String[] inviteUserIds;
+    this.inviteUserIds = builder.inviteUserIds;
     /**
-     * 要拉入的群ID，为空则新建群
-     * <p> 示例值：oc_1234
+     * 要拉入的群openID，为空则新建群
+     *
+     * <p>示例值：oc_1234
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 要加入的群名称，当chat_id为空时用该名称创建群聊;
-     * <p> 示例值：群名称
+     *
+     * <p>示例值：群名称
      */
-    @SerializedName("chat_name")
+    this.chatName = builder.chatName;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     */
+    private String operatorUserId;
+
+    /**
+     * 邀请进群用户KunlunID列表,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：
+     */
+    private String[] inviteUserIds;
+
+    /**
+     * 要拉入的群openID，为空则新建群
+     *
+     * <p>示例值：oc_1234
+     */
+    private String chatId;
+
+    /**
+     * 要加入的群名称，当chat_id为空时用该名称创建群聊;
+     *
+     * <p>示例值：群名称
+     */
     private String chatName;
 
-    // builder 开始
-    public ChatGroupUserTaskReqBody() {
+    /**
+     * 操作人kunlunUserID,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：1234
+     *
+     * @param operatorUserId
+     * @return
+     */
+    public Builder operatorUserId(String operatorUserId) {
+      this.operatorUserId = operatorUserId;
+      return this;
     }
 
-    public ChatGroupUserTaskReqBody(Builder builder) {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         */
-        this.operatorUserId = builder.operatorUserId;
-        /**
-         * 要邀请进群用户ID列表
-         * <p> 示例值：
-         */
-        this.inviteUserIds = builder.inviteUserIds;
-        /**
-         * 要拉入的群ID，为空则新建群
-         * <p> 示例值：oc_1234
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 要加入的群名称，当chat_id为空时用该名称创建群聊;
-         * <p> 示例值：群名称
-         */
-        this.chatName = builder.chatName;
+    /**
+     * 邀请进群用户KunlunID列表,可通过Apaas用户管理页面获取
+     *
+     * <p>示例值：
+     *
+     * @param inviteUserIds
+     * @return
+     */
+    public Builder inviteUserIds(String[] inviteUserIds) {
+      this.inviteUserIds = inviteUserIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 要拉入的群openID，为空则新建群
+     *
+     * <p>示例值：oc_1234
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getOperatorUserId() {
-        return this.operatorUserId;
+    /**
+     * 要加入的群名称，当chat_id为空时用该名称创建群聊;
+     *
+     * <p>示例值：群名称
+     *
+     * @param chatName
+     * @return
+     */
+    public Builder chatName(String chatName) {
+      this.chatName = chatName;
+      return this;
     }
 
-    public void setOperatorUserId(String operatorUserId) {
-        this.operatorUserId = operatorUserId;
+    public ChatGroupUserTaskReqBody build() {
+      return new ChatGroupUserTaskReqBody(this);
     }
+  }
 
-    public String[] getInviteUserIds() {
-        return this.inviteUserIds;
-    }
-
-    public void setInviteUserIds(String[] inviteUserIds) {
-        this.inviteUserIds = inviteUserIds;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getChatName() {
-        return this.chatName;
-    }
-
-    public void setChatName(String chatName) {
-        this.chatName = chatName;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         */
-        private String operatorUserId;
-        /**
-         * 要邀请进群用户ID列表
-         * <p> 示例值：
-         */
-        private String[] inviteUserIds;
-        /**
-         * 要拉入的群ID，为空则新建群
-         * <p> 示例值：oc_1234
-         */
-        private String chatId;
-        /**
-         * 要加入的群名称，当chat_id为空时用该名称创建群聊;
-         * <p> 示例值：群名称
-         */
-        private String chatName;
-
-        /**
-         * 操作人kunlunUserID
-         * <p> 示例值：1234
-         *
-         * @param operatorUserId
-         * @return
-         */
-        public Builder operatorUserId(String operatorUserId) {
-            this.operatorUserId = operatorUserId;
-            return this;
-        }
-
-
-        /**
-         * 要邀请进群用户ID列表
-         * <p> 示例值：
-         *
-         * @param inviteUserIds
-         * @return
-         */
-        public Builder inviteUserIds(String[] inviteUserIds) {
-            this.inviteUserIds = inviteUserIds;
-            return this;
-        }
-
-
-        /**
-         * 要拉入的群ID，为空则新建群
-         * <p> 示例值：oc_1234
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 要加入的群名称，当chat_id为空时用该名称创建群聊;
-         * <p> 示例值：群名称
-         *
-         * @param chatName
-         * @return
-         */
-        public Builder chatName(String chatName) {
-            this.chatName = chatName;
-            return this;
-        }
-
-
-        public ChatGroupUserTaskReqBody build() {
-            return new ChatGroupUserTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

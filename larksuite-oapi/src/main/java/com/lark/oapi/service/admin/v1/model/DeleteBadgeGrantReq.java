@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.admin.v1.enums.*;
 
 public class DeleteBadgeGrantReq {
+  /**
+   * 企业勋章的唯一ID
+   *
+   * <p>示例值：m_DjMzaK
+   */
+  @Path
+  @SerializedName("badge_id")
+  private String badgeId;
+
+  /**
+   * 租户内授予名单的唯一标识，该值由系统随机生成。
+   *
+   * <p>示例值：g_uS4yux
+   */
+  @Path
+  @SerializedName("grant_id")
+  private String grantId;
+
+  public String getBadgeId() {
+    return this.badgeId;
+  }
+
+  public void setBadgeId(String badgeId) {
+    this.badgeId = badgeId;
+  }
+
+  public String getGrantId() {
+    return this.grantId;
+  }
+
+  public void setGrantId(String grantId) {
+    this.grantId = grantId;
+  }
+
+  // builder 开始
+  public DeleteBadgeGrantReq() {}
+
+  public DeleteBadgeGrantReq(Builder builder) {
     /**
      * 企业勋章的唯一ID
-     * <p> 示例值：m_DjMzaK
+     *
+     * <p>示例值：m_DjMzaK
      */
-    @Path
-    @SerializedName("badge_id")
-    private String badgeId;
+    this.badgeId = builder.badgeId;
     /**
      * 租户内授予名单的唯一标识，该值由系统随机生成。
-     * <p> 示例值：g_uS4yux
+     *
+     * <p>示例值：g_uS4yux
      */
-    @Path
-    @SerializedName("grant_id")
-    private String grantId;
+    this.grantId = builder.grantId;
+  }
 
-    // builder 开始
-    public DeleteBadgeGrantReq() {
+  public static class Builder {
+
+    private String badgeId; // 企业勋章的唯一ID
+    private String grantId; // 租户内授予名单的唯一标识，该值由系统随机生成。
+
+    /**
+     * 企业勋章的唯一ID
+     *
+     * <p>示例值：m_DjMzaK
+     *
+     * @param badgeId
+     * @return
+     */
+    public Builder badgeId(String badgeId) {
+      this.badgeId = badgeId;
+      return this;
     }
 
-    public DeleteBadgeGrantReq(Builder builder) {
-        /**
-         * 企业勋章的唯一ID
-         * <p> 示例值：m_DjMzaK
-         */
-        this.badgeId = builder.badgeId;
-        /**
-         * 租户内授予名单的唯一标识，该值由系统随机生成。
-         * <p> 示例值：g_uS4yux
-         */
-        this.grantId = builder.grantId;
+    /**
+     * 租户内授予名单的唯一标识，该值由系统随机生成。
+     *
+     * <p>示例值：g_uS4yux
+     *
+     * @param grantId
+     * @return
+     */
+    public Builder grantId(String grantId) {
+      this.grantId = grantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteBadgeGrantReq build() {
+      return new DeleteBadgeGrantReq(this);
     }
+  }
 
-    public String getBadgeId() {
-        return this.badgeId;
-    }
-
-    public void setBadgeId(String badgeId) {
-        this.badgeId = badgeId;
-    }
-
-    public String getGrantId() {
-        return this.grantId;
-    }
-
-    public void setGrantId(String grantId) {
-        this.grantId = grantId;
-    }
-
-    public static class Builder {
-
-        private String badgeId; // 企业勋章的唯一ID
-        private String grantId; // 租户内授予名单的唯一标识，该值由系统随机生成。
-
-        /**
-         * 企业勋章的唯一ID
-         * <p> 示例值：m_DjMzaK
-         *
-         * @param badgeId
-         * @return
-         */
-        public Builder badgeId(String badgeId) {
-            this.badgeId = badgeId;
-            return this;
-        }
-
-
-        /**
-         * 租户内授予名单的唯一标识，该值由系统随机生成。
-         * <p> 示例值：g_uS4yux
-         *
-         * @param grantId
-         * @return
-         */
-        public Builder grantId(String grantId) {
-            this.grantId = grantId;
-            return this;
-        }
-
-
-        public DeleteBadgeGrantReq build() {
-            return new DeleteBadgeGrantReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,667 +13,737 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeePersonalAndSocialRelationshipEntity {
+  /**
+   * 出生日期。2007-05-20
+   *
+   * <p>示例值：2007-03-20
+   */
+  @SerializedName("birthday")
+  private String birthday;
+
+  /**
+   * 年龄
+   *
+   * <p>示例值：22
+   */
+  @SerializedName("age")
+  private String age;
+
+  /**
+   * 国籍
+   *
+   * <p>示例值：MDCT00000012
+   */
+  @SerializedName("nationality")
+  private String nationality;
+
+  /**
+   * 籍贯
+   *
+   * <p>示例值：MDCT00000012
+   */
+  @SerializedName("native_place")
+  private String nativePlace;
+
+  /**
+   * 民族
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("ethnicity")
+  private String ethnicity;
+
+  /**
+   * 婚姻状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("marital_status")
+  private String maritalStatus;
+
+  /**
+   * 政治面貌
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("politics_status")
+  private String politicsStatus;
+
+  /**
+   * 银行账户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_accounts")
+  private BankAccount[] bankAccounts;
+
+  /**
+   * 证件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("certificates")
+  private Certificate[] certificates;
+
+  /**
+   * 户口类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("registered_residence_type")
+  private String registeredResidenceType;
+
+  /**
+   * 户口所在地
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("location")
+  private String location;
+
+  /**
+   * 社保账号
+   *
+   * <p>示例值：32494854035302
+   */
+  @SerializedName("social_security_number")
+  private String socialSecurityNumber;
+
+  /**
+   * 公积金账号
+   *
+   * <p>示例值：24835946402142
+   */
+  @SerializedName("provident_fund_number")
+  private String providentFundNumber;
+
+  /**
+   * 紧急联系人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("emergency_contacts")
+  private EmergencyContact[] emergencyContacts;
+
+  /**
+   * 亲属列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dependents")
+  private Dependent[] dependents;
+
+  /**
+   * 纳税身份信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resident_taxs")
+  private String[] residentTaxs;
+
+  /**
+   * 宗教
+   *
+   * <p>示例值：buddism
+   */
+  @SerializedName("religion")
+  private String religion;
+
+  public String getBirthday() {
+    return this.birthday;
+  }
+
+  public void setBirthday(String birthday) {
+    this.birthday = birthday;
+  }
+
+  public String getAge() {
+    return this.age;
+  }
+
+  public void setAge(String age) {
+    this.age = age;
+  }
+
+  public String getNationality() {
+    return this.nationality;
+  }
+
+  public void setNationality(String nationality) {
+    this.nationality = nationality;
+  }
+
+  public String getNativePlace() {
+    return this.nativePlace;
+  }
+
+  public void setNativePlace(String nativePlace) {
+    this.nativePlace = nativePlace;
+  }
+
+  public String getEthnicity() {
+    return this.ethnicity;
+  }
+
+  public void setEthnicity(String ethnicity) {
+    this.ethnicity = ethnicity;
+  }
+
+  public String getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public String getPoliticsStatus() {
+    return this.politicsStatus;
+  }
+
+  public void setPoliticsStatus(String politicsStatus) {
+    this.politicsStatus = politicsStatus;
+  }
+
+  public BankAccount[] getBankAccounts() {
+    return this.bankAccounts;
+  }
+
+  public void setBankAccounts(BankAccount[] bankAccounts) {
+    this.bankAccounts = bankAccounts;
+  }
+
+  public Certificate[] getCertificates() {
+    return this.certificates;
+  }
+
+  public void setCertificates(Certificate[] certificates) {
+    this.certificates = certificates;
+  }
+
+  public String getRegisteredResidenceType() {
+    return this.registeredResidenceType;
+  }
+
+  public void setRegisteredResidenceType(String registeredResidenceType) {
+    this.registeredResidenceType = registeredResidenceType;
+  }
+
+  public String getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getSocialSecurityNumber() {
+    return this.socialSecurityNumber;
+  }
+
+  public void setSocialSecurityNumber(String socialSecurityNumber) {
+    this.socialSecurityNumber = socialSecurityNumber;
+  }
+
+  public String getProvidentFundNumber() {
+    return this.providentFundNumber;
+  }
+
+  public void setProvidentFundNumber(String providentFundNumber) {
+    this.providentFundNumber = providentFundNumber;
+  }
+
+  public EmergencyContact[] getEmergencyContacts() {
+    return this.emergencyContacts;
+  }
+
+  public void setEmergencyContacts(EmergencyContact[] emergencyContacts) {
+    this.emergencyContacts = emergencyContacts;
+  }
+
+  public Dependent[] getDependents() {
+    return this.dependents;
+  }
+
+  public void setDependents(Dependent[] dependents) {
+    this.dependents = dependents;
+  }
+
+  public String[] getResidentTaxs() {
+    return this.residentTaxs;
+  }
+
+  public void setResidentTaxs(String[] residentTaxs) {
+    this.residentTaxs = residentTaxs;
+  }
+
+  public String getReligion() {
+    return this.religion;
+  }
+
+  public void setReligion(String religion) {
+    this.religion = religion;
+  }
+
+  // builder 开始
+  public EmployeePersonalAndSocialRelationshipEntity() {}
+
+  public EmployeePersonalAndSocialRelationshipEntity(Builder builder) {
     /**
      * 出生日期。2007-05-20
-     * <p> 示例值：2007-03-20
+     *
+     * <p>示例值：2007-03-20
      */
-    @SerializedName("birthday")
-    private String birthday;
+    this.birthday = builder.birthday;
     /**
      * 年龄
-     * <p> 示例值：22
+     *
+     * <p>示例值：22
      */
-    @SerializedName("age")
-    private String age;
+    this.age = builder.age;
     /**
      * 国籍
-     * <p> 示例值：MDCT00000012
+     *
+     * <p>示例值：MDCT00000012
      */
-    @SerializedName("nationality")
-    private String nationality;
+    this.nationality = builder.nationality;
     /**
      * 籍贯
-     * <p> 示例值：MDCT00000012
+     *
+     * <p>示例值：MDCT00000012
      */
-    @SerializedName("native_place")
-    private String nativePlace;
+    this.nativePlace = builder.nativePlace;
     /**
      * 民族
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("ethnicity")
-    private String ethnicity;
+    this.ethnicity = builder.ethnicity;
     /**
      * 婚姻状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("marital_status")
-    private String maritalStatus;
+    this.maritalStatus = builder.maritalStatus;
     /**
      * 政治面貌
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("politics_status")
-    private String politicsStatus;
+    this.politicsStatus = builder.politicsStatus;
     /**
      * 银行账户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_accounts")
-    private BankAccount[] bankAccounts;
+    this.bankAccounts = builder.bankAccounts;
     /**
      * 证件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("certificates")
-    private Certificate[] certificates;
+    this.certificates = builder.certificates;
     /**
      * 户口类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("registered_residence_type")
-    private String registeredResidenceType;
+    this.registeredResidenceType = builder.registeredResidenceType;
     /**
      * 户口所在地
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("location")
-    private String location;
+    this.location = builder.location;
     /**
      * 社保账号
-     * <p> 示例值：32494854035302
+     *
+     * <p>示例值：32494854035302
      */
-    @SerializedName("social_security_number")
-    private String socialSecurityNumber;
+    this.socialSecurityNumber = builder.socialSecurityNumber;
     /**
      * 公积金账号
-     * <p> 示例值：24835946402142
+     *
+     * <p>示例值：24835946402142
      */
-    @SerializedName("provident_fund_number")
-    private String providentFundNumber;
+    this.providentFundNumber = builder.providentFundNumber;
     /**
      * 紧急联系人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("emergency_contacts")
-    private EmergencyContact[] emergencyContacts;
+    this.emergencyContacts = builder.emergencyContacts;
     /**
      * 亲属列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dependents")
-    private Dependent[] dependents;
+    this.dependents = builder.dependents;
     /**
      * 纳税身份信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resident_taxs")
-    private String[] residentTaxs;
+    this.residentTaxs = builder.residentTaxs;
     /**
      * 宗教
-     * <p> 示例值：buddism
+     *
+     * <p>示例值：buddism
      */
-    @SerializedName("religion")
+    this.religion = builder.religion;
+  }
+
+  public static class Builder {
+    /**
+     * 出生日期。2007-05-20
+     *
+     * <p>示例值：2007-03-20
+     */
+    private String birthday;
+
+    /**
+     * 年龄
+     *
+     * <p>示例值：22
+     */
+    private String age;
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：MDCT00000012
+     */
+    private String nationality;
+
+    /**
+     * 籍贯
+     *
+     * <p>示例值：MDCT00000012
+     */
+    private String nativePlace;
+
+    /**
+     * 民族
+     *
+     * <p>示例值：1
+     */
+    private String ethnicity;
+
+    /**
+     * 婚姻状态
+     *
+     * <p>示例值：1
+     */
+    private String maritalStatus;
+
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：1
+     */
+    private String politicsStatus;
+
+    /**
+     * 银行账户
+     *
+     * <p>示例值：
+     */
+    private BankAccount[] bankAccounts;
+
+    /**
+     * 证件列表
+     *
+     * <p>示例值：
+     */
+    private Certificate[] certificates;
+
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     */
+    private String registeredResidenceType;
+
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：cn
+     */
+    private String location;
+
+    /**
+     * 社保账号
+     *
+     * <p>示例值：32494854035302
+     */
+    private String socialSecurityNumber;
+
+    /**
+     * 公积金账号
+     *
+     * <p>示例值：24835946402142
+     */
+    private String providentFundNumber;
+
+    /**
+     * 紧急联系人
+     *
+     * <p>示例值：
+     */
+    private EmergencyContact[] emergencyContacts;
+
+    /**
+     * 亲属列表
+     *
+     * <p>示例值：
+     */
+    private Dependent[] dependents;
+
+    /**
+     * 纳税身份信息
+     *
+     * <p>示例值：
+     */
+    private String[] residentTaxs;
+
+    /**
+     * 宗教
+     *
+     * <p>示例值：buddism
+     */
     private String religion;
 
-    // builder 开始
-    public EmployeePersonalAndSocialRelationshipEntity() {
+    /**
+     * 出生日期。2007-05-20
+     *
+     * <p>示例值：2007-03-20
+     *
+     * @param birthday
+     * @return
+     */
+    public Builder birthday(String birthday) {
+      this.birthday = birthday;
+      return this;
     }
 
-    public EmployeePersonalAndSocialRelationshipEntity(Builder builder) {
-        /**
-         * 出生日期。2007-05-20
-         * <p> 示例值：2007-03-20
-         */
-        this.birthday = builder.birthday;
-        /**
-         * 年龄
-         * <p> 示例值：22
-         */
-        this.age = builder.age;
-        /**
-         * 国籍
-         * <p> 示例值：MDCT00000012
-         */
-        this.nationality = builder.nationality;
-        /**
-         * 籍贯
-         * <p> 示例值：MDCT00000012
-         */
-        this.nativePlace = builder.nativePlace;
-        /**
-         * 民族
-         * <p> 示例值：1
-         */
-        this.ethnicity = builder.ethnicity;
-        /**
-         * 婚姻状态
-         * <p> 示例值：1
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 政治面貌
-         * <p> 示例值：1
-         */
-        this.politicsStatus = builder.politicsStatus;
-        /**
-         * 银行账户
-         * <p> 示例值：
-         */
-        this.bankAccounts = builder.bankAccounts;
-        /**
-         * 证件列表
-         * <p> 示例值：
-         */
-        this.certificates = builder.certificates;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        this.registeredResidenceType = builder.registeredResidenceType;
-        /**
-         * 户口所在地
-         * <p> 示例值：cn
-         */
-        this.location = builder.location;
-        /**
-         * 社保账号
-         * <p> 示例值：32494854035302
-         */
-        this.socialSecurityNumber = builder.socialSecurityNumber;
-        /**
-         * 公积金账号
-         * <p> 示例值：24835946402142
-         */
-        this.providentFundNumber = builder.providentFundNumber;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        this.emergencyContacts = builder.emergencyContacts;
-        /**
-         * 亲属列表
-         * <p> 示例值：
-         */
-        this.dependents = builder.dependents;
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         */
-        this.residentTaxs = builder.residentTaxs;
-        /**
-         * 宗教
-         * <p> 示例值：buddism
-         */
-        this.religion = builder.religion;
+    /**
+     * 年龄
+     *
+     * <p>示例值：22
+     *
+     * @param age
+     * @return
+     */
+    public Builder age(String age) {
+      this.age = age;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国籍
+     *
+     * <p>示例值：MDCT00000012
+     *
+     * @param nationality
+     * @return
+     */
+    public Builder nationality(String nationality) {
+      this.nationality = nationality;
+      return this;
     }
 
-    public String getBirthday() {
-        return this.birthday;
+    /**
+     * 籍贯
+     *
+     * <p>示例值：MDCT00000012
+     *
+     * @param nativePlace
+     * @return
+     */
+    public Builder nativePlace(String nativePlace) {
+      this.nativePlace = nativePlace;
+      return this;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    /**
+     * 民族
+     *
+     * <p>示例值：1
+     *
+     * @param ethnicity
+     * @return
+     */
+    public Builder ethnicity(String ethnicity) {
+      this.ethnicity = ethnicity;
+      return this;
     }
 
-    public String getAge() {
-        return this.age;
+    /**
+     * 婚姻状态
+     *
+     * <p>示例值：1
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(String maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：1
+     *
+     * @param politicsStatus
+     * @return
+     */
+    public Builder politicsStatus(String politicsStatus) {
+      this.politicsStatus = politicsStatus;
+      return this;
     }
 
-    public String getNationality() {
-        return this.nationality;
+    /**
+     * 银行账户
+     *
+     * <p>示例值：
+     *
+     * @param bankAccounts
+     * @return
+     */
+    public Builder bankAccounts(BankAccount[] bankAccounts) {
+      this.bankAccounts = bankAccounts;
+      return this;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    /**
+     * 证件列表
+     *
+     * <p>示例值：
+     *
+     * @param certificates
+     * @return
+     */
+    public Builder certificates(Certificate[] certificates) {
+      this.certificates = certificates;
+      return this;
     }
 
-    public String getNativePlace() {
-        return this.nativePlace;
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     *
+     * @param registeredResidenceType
+     * @return
+     */
+    public Builder registeredResidenceType(String registeredResidenceType) {
+      this.registeredResidenceType = registeredResidenceType;
+      return this;
     }
 
-    public void setNativePlace(String nativePlace) {
-        this.nativePlace = nativePlace;
+    /**
+     * 户口所在地
+     *
+     * <p>示例值：cn
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(String location) {
+      this.location = location;
+      return this;
     }
 
-    public String getEthnicity() {
-        return this.ethnicity;
+    /**
+     * 社保账号
+     *
+     * <p>示例值：32494854035302
+     *
+     * @param socialSecurityNumber
+     * @return
+     */
+    public Builder socialSecurityNumber(String socialSecurityNumber) {
+      this.socialSecurityNumber = socialSecurityNumber;
+      return this;
     }
 
-    public void setEthnicity(String ethnicity) {
-        this.ethnicity = ethnicity;
+    /**
+     * 公积金账号
+     *
+     * <p>示例值：24835946402142
+     *
+     * @param providentFundNumber
+     * @return
+     */
+    public Builder providentFundNumber(String providentFundNumber) {
+      this.providentFundNumber = providentFundNumber;
+      return this;
     }
 
-    public String getMaritalStatus() {
-        return this.maritalStatus;
+    /**
+     * 紧急联系人
+     *
+     * <p>示例值：
+     *
+     * @param emergencyContacts
+     * @return
+     */
+    public Builder emergencyContacts(EmergencyContact[] emergencyContacts) {
+      this.emergencyContacts = emergencyContacts;
+      return this;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
+    /**
+     * 亲属列表
+     *
+     * <p>示例值：
+     *
+     * @param dependents
+     * @return
+     */
+    public Builder dependents(Dependent[] dependents) {
+      this.dependents = dependents;
+      return this;
     }
 
-    public String getPoliticsStatus() {
-        return this.politicsStatus;
+    /**
+     * 纳税身份信息
+     *
+     * <p>示例值：
+     *
+     * @param residentTaxs
+     * @return
+     */
+    public Builder residentTaxs(String[] residentTaxs) {
+      this.residentTaxs = residentTaxs;
+      return this;
     }
 
-    public void setPoliticsStatus(String politicsStatus) {
-        this.politicsStatus = politicsStatus;
+    /**
+     * 宗教
+     *
+     * <p>示例值：buddism
+     *
+     * @param religion
+     * @return
+     */
+    public Builder religion(String religion) {
+      this.religion = religion;
+      return this;
     }
 
-    public BankAccount[] getBankAccounts() {
-        return this.bankAccounts;
+    public EmployeePersonalAndSocialRelationshipEntity build() {
+      return new EmployeePersonalAndSocialRelationshipEntity(this);
     }
+  }
 
-    public void setBankAccounts(BankAccount[] bankAccounts) {
-        this.bankAccounts = bankAccounts;
-    }
-
-    public Certificate[] getCertificates() {
-        return this.certificates;
-    }
-
-    public void setCertificates(Certificate[] certificates) {
-        this.certificates = certificates;
-    }
-
-    public String getRegisteredResidenceType() {
-        return this.registeredResidenceType;
-    }
-
-    public void setRegisteredResidenceType(String registeredResidenceType) {
-        this.registeredResidenceType = registeredResidenceType;
-    }
-
-    public String getLocation() {
-        return this.location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getSocialSecurityNumber() {
-        return this.socialSecurityNumber;
-    }
-
-    public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
-    }
-
-    public String getProvidentFundNumber() {
-        return this.providentFundNumber;
-    }
-
-    public void setProvidentFundNumber(String providentFundNumber) {
-        this.providentFundNumber = providentFundNumber;
-    }
-
-    public EmergencyContact[] getEmergencyContacts() {
-        return this.emergencyContacts;
-    }
-
-    public void setEmergencyContacts(EmergencyContact[] emergencyContacts) {
-        this.emergencyContacts = emergencyContacts;
-    }
-
-    public Dependent[] getDependents() {
-        return this.dependents;
-    }
-
-    public void setDependents(Dependent[] dependents) {
-        this.dependents = dependents;
-    }
-
-    public String[] getResidentTaxs() {
-        return this.residentTaxs;
-    }
-
-    public void setResidentTaxs(String[] residentTaxs) {
-        this.residentTaxs = residentTaxs;
-    }
-
-    public String getReligion() {
-        return this.religion;
-    }
-
-    public void setReligion(String religion) {
-        this.religion = religion;
-    }
-
-    public static class Builder {
-        /**
-         * 出生日期。2007-05-20
-         * <p> 示例值：2007-03-20
-         */
-        private String birthday;
-        /**
-         * 年龄
-         * <p> 示例值：22
-         */
-        private String age;
-        /**
-         * 国籍
-         * <p> 示例值：MDCT00000012
-         */
-        private String nationality;
-        /**
-         * 籍贯
-         * <p> 示例值：MDCT00000012
-         */
-        private String nativePlace;
-        /**
-         * 民族
-         * <p> 示例值：1
-         */
-        private String ethnicity;
-        /**
-         * 婚姻状态
-         * <p> 示例值：1
-         */
-        private String maritalStatus;
-        /**
-         * 政治面貌
-         * <p> 示例值：1
-         */
-        private String politicsStatus;
-        /**
-         * 银行账户
-         * <p> 示例值：
-         */
-        private BankAccount[] bankAccounts;
-        /**
-         * 证件列表
-         * <p> 示例值：
-         */
-        private Certificate[] certificates;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        private String registeredResidenceType;
-        /**
-         * 户口所在地
-         * <p> 示例值：cn
-         */
-        private String location;
-        /**
-         * 社保账号
-         * <p> 示例值：32494854035302
-         */
-        private String socialSecurityNumber;
-        /**
-         * 公积金账号
-         * <p> 示例值：24835946402142
-         */
-        private String providentFundNumber;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        private EmergencyContact[] emergencyContacts;
-        /**
-         * 亲属列表
-         * <p> 示例值：
-         */
-        private Dependent[] dependents;
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         */
-        private String[] residentTaxs;
-        /**
-         * 宗教
-         * <p> 示例值：buddism
-         */
-        private String religion;
-
-        /**
-         * 出生日期。2007-05-20
-         * <p> 示例值：2007-03-20
-         *
-         * @param birthday
-         * @return
-         */
-        public Builder birthday(String birthday) {
-            this.birthday = birthday;
-            return this;
-        }
-
-
-        /**
-         * 年龄
-         * <p> 示例值：22
-         *
-         * @param age
-         * @return
-         */
-        public Builder age(String age) {
-            this.age = age;
-            return this;
-        }
-
-
-        /**
-         * 国籍
-         * <p> 示例值：MDCT00000012
-         *
-         * @param nationality
-         * @return
-         */
-        public Builder nationality(String nationality) {
-            this.nationality = nationality;
-            return this;
-        }
-
-
-        /**
-         * 籍贯
-         * <p> 示例值：MDCT00000012
-         *
-         * @param nativePlace
-         * @return
-         */
-        public Builder nativePlace(String nativePlace) {
-            this.nativePlace = nativePlace;
-            return this;
-        }
-
-
-        /**
-         * 民族
-         * <p> 示例值：1
-         *
-         * @param ethnicity
-         * @return
-         */
-        public Builder ethnicity(String ethnicity) {
-            this.ethnicity = ethnicity;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状态
-         * <p> 示例值：1
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(String maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * 政治面貌
-         * <p> 示例值：1
-         *
-         * @param politicsStatus
-         * @return
-         */
-        public Builder politicsStatus(String politicsStatus) {
-            this.politicsStatus = politicsStatus;
-            return this;
-        }
-
-
-        /**
-         * 银行账户
-         * <p> 示例值：
-         *
-         * @param bankAccounts
-         * @return
-         */
-        public Builder bankAccounts(BankAccount[] bankAccounts) {
-            this.bankAccounts = bankAccounts;
-            return this;
-        }
-
-
-        /**
-         * 证件列表
-         * <p> 示例值：
-         *
-         * @param certificates
-         * @return
-         */
-        public Builder certificates(Certificate[] certificates) {
-            this.certificates = certificates;
-            return this;
-        }
-
-
-        /**
-         * 户口类型
-         * <p> 示例值：
-         *
-         * @param registeredResidenceType
-         * @return
-         */
-        public Builder registeredResidenceType(String registeredResidenceType) {
-            this.registeredResidenceType = registeredResidenceType;
-            return this;
-        }
-
-
-        /**
-         * 户口所在地
-         * <p> 示例值：cn
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(String location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * 社保账号
-         * <p> 示例值：32494854035302
-         *
-         * @param socialSecurityNumber
-         * @return
-         */
-        public Builder socialSecurityNumber(String socialSecurityNumber) {
-            this.socialSecurityNumber = socialSecurityNumber;
-            return this;
-        }
-
-
-        /**
-         * 公积金账号
-         * <p> 示例值：24835946402142
-         *
-         * @param providentFundNumber
-         * @return
-         */
-        public Builder providentFundNumber(String providentFundNumber) {
-            this.providentFundNumber = providentFundNumber;
-            return this;
-        }
-
-
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         *
-         * @param emergencyContacts
-         * @return
-         */
-        public Builder emergencyContacts(EmergencyContact[] emergencyContacts) {
-            this.emergencyContacts = emergencyContacts;
-            return this;
-        }
-
-
-        /**
-         * 亲属列表
-         * <p> 示例值：
-         *
-         * @param dependents
-         * @return
-         */
-        public Builder dependents(Dependent[] dependents) {
-            this.dependents = dependents;
-            return this;
-        }
-
-
-        /**
-         * 纳税身份信息
-         * <p> 示例值：
-         *
-         * @param residentTaxs
-         * @return
-         */
-        public Builder residentTaxs(String[] residentTaxs) {
-            this.residentTaxs = residentTaxs;
-            return this;
-        }
-
-
-        /**
-         * 宗教
-         * <p> 示例值：buddism
-         *
-         * @param religion
-         * @return
-         */
-        public Builder religion(String religion) {
-            this.religion = religion;
-            return this;
-        }
-
-
-        public EmployeePersonalAndSocialRelationshipEntity build() {
-            return new EmployeePersonalAndSocialRelationshipEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,106 +13,101 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class DeleteUserMailboxDraftReq {
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：user@example.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 草稿ID，可通过列出草稿列表接口获得
+   *
+   * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+   */
+  @Path
+  @SerializedName("draft_id")
+  private String draftId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  // builder 开始
+  public DeleteUserMailboxDraftReq() {}
+
+  public DeleteUserMailboxDraftReq(Builder builder) {
     /**
-     * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-     * <p> 示例值：aba@aac.com
+     * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@example.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 草稿ID，可通过列出草稿列表接口获得
-     * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
      */
-    @Path
-    @SerializedName("draft_id")
-    private String draftId;
+    this.draftId = builder.draftId;
+  }
 
-    // builder 开始
-    public DeleteUserMailboxDraftReq() {
+  public static class Builder {
+
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+    private String draftId; // 草稿ID，可通过列出草稿列表接口获得
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@example.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public DeleteUserMailboxDraftReq(Builder builder) {
-        /**
-         * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-         * <p> 示例值：aba@aac.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 草稿ID，可通过列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         */
-        this.draftId = builder.draftId;
+    /**
+     * 草稿ID，可通过列出草稿列表接口获得
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteUserMailboxDraftReq build() {
+      return new DeleteUserMailboxDraftReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getDraftId() {
-        return this.draftId;
-    }
-
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-        private String draftId; // 草稿ID，可通过列出草稿列表接口获得
-
-        /**
-         * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-         * <p> 示例值：aba@aac.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 草稿ID，可通过列出草稿列表接口获得
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-
-        public DeleteUserMailboxDraftReq build() {
-            return new DeleteUserMailboxDraftReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

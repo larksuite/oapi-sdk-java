@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingMeta {
+  /**
+   * 跳转链接
+   *
+   * <p>示例值：https://applink.larkoffice.com/*
+   */
+  @SerializedName("app_link")
+  private String appLink;
+
+  /**
+   * 图标url
+   *
+   * <p>示例值：https://lf-packag*
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 描述，包含会议时间、组织者和会议ID
+   *
+   * <p>示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getAppLink() {
+    return this.appLink;
+  }
+
+  public void setAppLink(String appLink) {
+    this.appLink = appLink;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public MeetingMeta() {}
+
+  public MeetingMeta(Builder builder) {
     /**
      * 跳转链接
-     * <p> 示例值：https://applink.larkoffice.com/*
+     *
+     * <p>示例值：https://applink.larkoffice.com/*
      */
-    @SerializedName("app_link")
-    private String appLink;
+    this.appLink = builder.appLink;
     /**
      * 图标url
-     * <p> 示例值：https://lf-packag*
+     *
+     * <p>示例值：https://lf-packag*
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 描述，包含会议时间、组织者和会议ID
-     * <p> 示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
+     *
+     * <p>示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 跳转链接
+     *
+     * <p>示例值：https://applink.larkoffice.com/*
+     */
+    private String appLink;
+
+    /**
+     * 图标url
+     *
+     * <p>示例值：https://lf-packag*
+     */
+    private String avatar;
+
+    /**
+     * 描述，包含会议时间、组织者和会议ID
+     *
+     * <p>示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
+     */
     private String description;
 
-    // builder 开始
-    public MeetingMeta() {
+    /**
+     * 跳转链接
+     *
+     * <p>示例值：https://applink.larkoffice.com/*
+     *
+     * @param appLink
+     * @return
+     */
+    public Builder appLink(String appLink) {
+      this.appLink = appLink;
+      return this;
     }
 
-    public MeetingMeta(Builder builder) {
-        /**
-         * 跳转链接
-         * <p> 示例值：https://applink.larkoffice.com/*
-         */
-        this.appLink = builder.appLink;
-        /**
-         * 图标url
-         * <p> 示例值：https://lf-packag*
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 描述，包含会议时间、组织者和会议ID
-         * <p> 示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
-         */
-        this.description = builder.description;
+    /**
+     * 图标url
+     *
+     * <p>示例值：https://lf-packag*
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述，包含会议时间、组织者和会议ID
+     *
+     * <p>示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAppLink() {
-        return this.appLink;
+    public MeetingMeta build() {
+      return new MeetingMeta(this);
     }
+  }
 
-    public void setAppLink(String appLink) {
-        this.appLink = appLink;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 跳转链接
-         * <p> 示例值：https://applink.larkoffice.com/*
-         */
-        private String appLink;
-        /**
-         * 图标url
-         * <p> 示例值：https://lf-packag*
-         */
-        private String avatar;
-        /**
-         * 描述，包含会议时间、组织者和会议ID
-         * <p> 示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
-         */
-        private String description;
-
-        /**
-         * 跳转链接
-         * <p> 示例值：https://applink.larkoffice.com/*
-         *
-         * @param appLink
-         * @return
-         */
-        public Builder appLink(String appLink) {
-            this.appLink = appLink;
-            return this;
-        }
-
-
-        /**
-         * 图标url
-         * <p> 示例值：https://lf-packag*
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 描述，包含会议时间、组织者和会议ID
-         * <p> 示例值：会议时间 | 组织者：组织者姓名 | ID：123456789
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public MeetingMeta build() {
-            return new MeetingMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

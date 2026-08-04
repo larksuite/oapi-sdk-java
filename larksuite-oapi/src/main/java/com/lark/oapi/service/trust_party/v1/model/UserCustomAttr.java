@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserCustomAttr {
+  /**
+   * 自定义属性类型
+   *
+   * <p>示例值：ENUMERATION
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 自定义属性ID
+   *
+   * <p>示例值：C-7245579267802529811
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 自定义属性取值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private UserCustomAttrValue value;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UserCustomAttrValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(UserCustomAttrValue value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public UserCustomAttr() {}
+
+  public UserCustomAttr(Builder builder) {
     /**
      * 自定义属性类型
-     * <p> 示例值：ENUMERATION
+     *
+     * <p>示例值：ENUMERATION
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 自定义属性ID
-     * <p> 示例值：C-7245579267802529811
+     *
+     * <p>示例值：C-7245579267802529811
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 自定义属性取值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义属性类型
+     *
+     * <p>示例值：ENUMERATION
+     */
+    private String type;
+
+    /**
+     * 自定义属性ID
+     *
+     * <p>示例值：C-7245579267802529811
+     */
+    private String id;
+
+    /**
+     * 自定义属性取值
+     *
+     * <p>示例值：
+     */
     private UserCustomAttrValue value;
 
-    // builder 开始
-    public UserCustomAttr() {
+    /**
+     * 自定义属性类型
+     *
+     * <p>示例值：ENUMERATION
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public UserCustomAttr(Builder builder) {
-        /**
-         * 自定义属性类型
-         * <p> 示例值：ENUMERATION
-         */
-        this.type = builder.type;
-        /**
-         * 自定义属性ID
-         * <p> 示例值：C-7245579267802529811
-         */
-        this.id = builder.id;
-        /**
-         * 自定义属性取值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 自定义属性ID
+     *
+     * <p>示例值：C-7245579267802529811
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义属性取值
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(UserCustomAttrValue value) {
+      this.value = value;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public UserCustomAttr build() {
+      return new UserCustomAttr(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public UserCustomAttrValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(UserCustomAttrValue value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义属性类型
-         * <p> 示例值：ENUMERATION
-         */
-        private String type;
-        /**
-         * 自定义属性ID
-         * <p> 示例值：C-7245579267802529811
-         */
-        private String id;
-        /**
-         * 自定义属性取值
-         * <p> 示例值：
-         */
-        private UserCustomAttrValue value;
-
-        /**
-         * 自定义属性类型
-         * <p> 示例值：ENUMERATION
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 自定义属性ID
-         * <p> 示例值：C-7245579267802529811
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 自定义属性取值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(UserCustomAttrValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public UserCustomAttr build() {
-            return new UserCustomAttr(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

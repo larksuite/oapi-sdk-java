@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingSubtitle {
+  /**
+   * 字幕文本内容
+   *
+   * <p>示例值：你好。
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 语种
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("language")
+  private String language;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("speaker_user_id")
+  private Integer speakerUserId;
+
+  /**
+   * 用户 DID
+   *
+   * <p>示例值：987654321
+   */
+  @SerializedName("speaker_device_id")
+  private Integer speakerDeviceId;
+
+  /**
+   * 说话人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ssd_speaker")
+  private MeetingSubtitleSsdSpeaker ssdSpeaker;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public Integer getSpeakerUserId() {
+    return this.speakerUserId;
+  }
+
+  public void setSpeakerUserId(Integer speakerUserId) {
+    this.speakerUserId = speakerUserId;
+  }
+
+  public Integer getSpeakerDeviceId() {
+    return this.speakerDeviceId;
+  }
+
+  public void setSpeakerDeviceId(Integer speakerDeviceId) {
+    this.speakerDeviceId = speakerDeviceId;
+  }
+
+  public MeetingSubtitleSsdSpeaker getSsdSpeaker() {
+    return this.ssdSpeaker;
+  }
+
+  public void setSsdSpeaker(MeetingSubtitleSsdSpeaker ssdSpeaker) {
+    this.ssdSpeaker = ssdSpeaker;
+  }
+
+  // builder 开始
+  public MeetingSubtitle() {}
+
+  public MeetingSubtitle(Builder builder) {
     /**
      * 字幕文本内容
-     * <p> 示例值：你好。
+     *
+     * <p>示例值：你好。
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 语种
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("language")
-    private String language;
+    this.language = builder.language;
     /**
      * 用户 ID
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("speaker_user_id")
-    private Integer speakerUserId;
+    this.speakerUserId = builder.speakerUserId;
     /**
      * 用户 DID
-     * <p> 示例值：987654321
+     *
+     * <p>示例值：987654321
      */
-    @SerializedName("speaker_device_id")
-    private Integer speakerDeviceId;
+    this.speakerDeviceId = builder.speakerDeviceId;
     /**
      * 说话人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ssd_speaker")
+    this.ssdSpeaker = builder.ssdSpeaker;
+  }
+
+  public static class Builder {
+    /**
+     * 字幕文本内容
+     *
+     * <p>示例值：你好。
+     */
+    private String content;
+
+    /**
+     * 语种
+     *
+     * <p>示例值：zh
+     */
+    private String language;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：123456789
+     */
+    private Integer speakerUserId;
+
+    /**
+     * 用户 DID
+     *
+     * <p>示例值：987654321
+     */
+    private Integer speakerDeviceId;
+
+    /**
+     * 说话人信息
+     *
+     * <p>示例值：
+     */
     private MeetingSubtitleSsdSpeaker ssdSpeaker;
 
-    // builder 开始
-    public MeetingSubtitle() {
+    /**
+     * 字幕文本内容
+     *
+     * <p>示例值：你好。
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public MeetingSubtitle(Builder builder) {
-        /**
-         * 字幕文本内容
-         * <p> 示例值：你好。
-         */
-        this.content = builder.content;
-        /**
-         * 语种
-         * <p> 示例值：zh
-         */
-        this.language = builder.language;
-        /**
-         * 用户 ID
-         * <p> 示例值：123456789
-         */
-        this.speakerUserId = builder.speakerUserId;
-        /**
-         * 用户 DID
-         * <p> 示例值：987654321
-         */
-        this.speakerDeviceId = builder.speakerDeviceId;
-        /**
-         * 说话人信息
-         * <p> 示例值：
-         */
-        this.ssdSpeaker = builder.ssdSpeaker;
+    /**
+     * 语种
+     *
+     * <p>示例值：zh
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：123456789
+     *
+     * @param speakerUserId
+     * @return
+     */
+    public Builder speakerUserId(Integer speakerUserId) {
+      this.speakerUserId = speakerUserId;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 用户 DID
+     *
+     * <p>示例值：987654321
+     *
+     * @param speakerDeviceId
+     * @return
+     */
+    public Builder speakerDeviceId(Integer speakerDeviceId) {
+      this.speakerDeviceId = speakerDeviceId;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 说话人信息
+     *
+     * <p>示例值：
+     *
+     * @param ssdSpeaker
+     * @return
+     */
+    public Builder ssdSpeaker(MeetingSubtitleSsdSpeaker ssdSpeaker) {
+      this.ssdSpeaker = ssdSpeaker;
+      return this;
     }
 
-    public String getLanguage() {
-        return this.language;
+    public MeetingSubtitle build() {
+      return new MeetingSubtitle(this);
     }
+  }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public Integer getSpeakerUserId() {
-        return this.speakerUserId;
-    }
-
-    public void setSpeakerUserId(Integer speakerUserId) {
-        this.speakerUserId = speakerUserId;
-    }
-
-    public Integer getSpeakerDeviceId() {
-        return this.speakerDeviceId;
-    }
-
-    public void setSpeakerDeviceId(Integer speakerDeviceId) {
-        this.speakerDeviceId = speakerDeviceId;
-    }
-
-    public MeetingSubtitleSsdSpeaker getSsdSpeaker() {
-        return this.ssdSpeaker;
-    }
-
-    public void setSsdSpeaker(MeetingSubtitleSsdSpeaker ssdSpeaker) {
-        this.ssdSpeaker = ssdSpeaker;
-    }
-
-    public static class Builder {
-        /**
-         * 字幕文本内容
-         * <p> 示例值：你好。
-         */
-        private String content;
-        /**
-         * 语种
-         * <p> 示例值：zh
-         */
-        private String language;
-        /**
-         * 用户 ID
-         * <p> 示例值：123456789
-         */
-        private Integer speakerUserId;
-        /**
-         * 用户 DID
-         * <p> 示例值：987654321
-         */
-        private Integer speakerDeviceId;
-        /**
-         * 说话人信息
-         * <p> 示例值：
-         */
-        private MeetingSubtitleSsdSpeaker ssdSpeaker;
-
-        /**
-         * 字幕文本内容
-         * <p> 示例值：你好。
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 语种
-         * <p> 示例值：zh
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：123456789
-         *
-         * @param speakerUserId
-         * @return
-         */
-        public Builder speakerUserId(Integer speakerUserId) {
-            this.speakerUserId = speakerUserId;
-            return this;
-        }
-
-
-        /**
-         * 用户 DID
-         * <p> 示例值：987654321
-         *
-         * @param speakerDeviceId
-         * @return
-         */
-        public Builder speakerDeviceId(Integer speakerDeviceId) {
-            this.speakerDeviceId = speakerDeviceId;
-            return this;
-        }
-
-
-        /**
-         * 说话人信息
-         * <p> 示例值：
-         *
-         * @param ssdSpeaker
-         * @return
-         */
-        public Builder ssdSpeaker(MeetingSubtitleSsdSpeaker ssdSpeaker) {
-            this.ssdSpeaker = ssdSpeaker;
-            return this;
-        }
-
-
-        public MeetingSubtitle build() {
-            return new MeetingSubtitle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

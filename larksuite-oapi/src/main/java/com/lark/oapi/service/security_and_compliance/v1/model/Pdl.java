@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Pdl {
+  /**
+   * 人员的
+   * PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("pdl")
+  private Integer pdl;
+
+  /**
+   * 需要查询的时间区间，可选参数。当不传入时，返回所查询用户完整的pdl时间线信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("timestamp_range")
+  private TimestampRange timestampRange;
+
+  public Integer getPdl() {
+    return this.pdl;
+  }
+
+  public void setPdl(Integer pdl) {
+    this.pdl = pdl;
+  }
+
+  public TimestampRange getTimestampRange() {
+    return this.timestampRange;
+  }
+
+  public void setTimestampRange(TimestampRange timestampRange) {
+    this.timestampRange = timestampRange;
+  }
+
+  // builder 开始
+  public Pdl() {}
+
+  public Pdl(Builder builder) {
     /**
-     * 人员的 PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
-     * <p> 示例值：2
+     * 人员的
+     * PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
+     *
+     * <p>示例值：2
      */
-    @SerializedName("pdl")
+    this.pdl = builder.pdl;
+    /**
+     * 需要查询的时间区间，可选参数。当不传入时，返回所查询用户完整的pdl时间线信息。
+     *
+     * <p>示例值：
+     */
+    this.timestampRange = builder.timestampRange;
+  }
+
+  public static class Builder {
+    /**
+     * 人员的
+     * PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
+     *
+     * <p>示例值：2
+     */
     private Integer pdl;
+
     /**
-     * 生效时间区间
-     * <p> 示例值：
+     * 需要查询的时间区间，可选参数。当不传入时，返回所查询用户完整的pdl时间线信息。
+     *
+     * <p>示例值：
      */
-    @SerializedName("timestamp_range")
     private TimestampRange timestampRange;
 
-    // builder 开始
-    public Pdl() {
+    /**
+     * 人员的
+     * PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
+     *
+     * <p>示例值：2
+     *
+     * @param pdl
+     * @return
+     */
+    public Builder pdl(Integer pdl) {
+      this.pdl = pdl;
+      return this;
     }
 
-    public Pdl(Builder builder) {
-        /**
-         * 人员的 PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
-         * <p> 示例值：2
-         */
-        this.pdl = builder.pdl;
-        /**
-         * 生效时间区间
-         * <p> 示例值：
-         */
-        this.timestampRange = builder.timestampRange;
+    /**
+     * 需要查询的时间区间，可选参数。当不传入时，返回所查询用户完整的pdl时间线信息。
+     *
+     * <p>示例值：
+     *
+     * @param timestampRange
+     * @return
+     */
+    public Builder timestampRange(TimestampRange timestampRange) {
+      this.timestampRange = timestampRange;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Pdl build() {
+      return new Pdl(this);
     }
+  }
 
-    public Integer getPdl() {
-        return this.pdl;
-    }
-
-    public void setPdl(Integer pdl) {
-        this.pdl = pdl;
-    }
-
-    public TimestampRange getTimestampRange() {
-        return this.timestampRange;
-    }
-
-    public void setTimestampRange(TimestampRange timestampRange) {
-        this.timestampRange = timestampRange;
-    }
-
-    public static class Builder {
-        /**
-         * 人员的 PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
-         * <p> 示例值：2
-         */
-        private Integer pdl;
-        /**
-         * 生效时间区间
-         * <p> 示例值：
-         */
-        private TimestampRange timestampRange;
-
-        /**
-         * 人员的 PDL的枚举值，[pdl枚举值信息](https://code.byted.org/lark/idl/blob/master/idl/lark/dts/strategy/lark.dts.strategy.thrift#L12-21)
-         * <p> 示例值：2
-         *
-         * @param pdl
-         * @return
-         */
-        public Builder pdl(Integer pdl) {
-            this.pdl = pdl;
-            return this;
-        }
-
-
-        /**
-         * 生效时间区间
-         * <p> 示例值：
-         *
-         * @param timestampRange
-         * @return
-         */
-        public Builder timestampRange(TimestampRange timestampRange) {
-            this.timestampRange = timestampRange;
-            return this;
-        }
-
-
-        public Pdl build() {
-            return new Pdl(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

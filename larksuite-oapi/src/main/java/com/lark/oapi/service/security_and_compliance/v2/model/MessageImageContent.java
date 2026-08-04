@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageImageContent {
+  /**
+   * 图片链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("image_key")
+  private String imageKey;
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  // builder 开始
+  public MessageImageContent() {}
+
+  public MessageImageContent(Builder builder) {
     /**
      * 图片链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("image_key")
+    this.imageKey = builder.imageKey;
+  }
+
+  public static class Builder {
+    /**
+     * 图片链接
+     *
+     * <p>示例值：
+     */
     private String imageKey;
 
-    // builder 开始
-    public MessageImageContent() {
+    /**
+     * 图片链接
+     *
+     * <p>示例值：
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public MessageImageContent(Builder builder) {
-        /**
-         * 图片链接
-         * <p> 示例值：
-         */
-        this.imageKey = builder.imageKey;
+    public MessageImageContent build() {
+      return new MessageImageContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public static class Builder {
-        /**
-         * 图片链接
-         * <p> 示例值：
-         */
-        private String imageKey;
-
-        /**
-         * 图片链接
-         * <p> 示例值：
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        public MessageImageContent build() {
-            return new MessageImageContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

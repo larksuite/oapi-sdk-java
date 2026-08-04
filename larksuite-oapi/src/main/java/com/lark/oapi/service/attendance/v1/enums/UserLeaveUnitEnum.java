@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 假期时长单位
- */
+/** 假期时长单位。假期时长单位若传3，不足半天按照半天计算，以此类推 */
 public enum UserLeaveUnitEnum {
-    DAY(1), // 天
-    HOUR(2), // 小时
-    HALFDAY(3), // 半天
-    HALFHOUR(4), // 半小时
-    ;
-    private Integer value;
+  DAY(1), // 天
+  HOUR(2), // 小时
+  HALFDAY(3), // 半天
+  HALFHOUR(4), // 半小时
+  ;
+  private Integer value;
 
-    UserLeaveUnitEnum(Integer value) {
-        this.value = value;
-    }
+  UserLeaveUnitEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

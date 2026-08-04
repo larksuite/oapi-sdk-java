@@ -13,630 +13,695 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppSlashCommandI18n {
+  /**
+   * 命令的简体中文名称，用于面向中国大陆地区用户展示
+   *
+   * <p>示例值：查询考勤
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 命令的英文名称，用于面向英语地区用户展示
+   *
+   * <p>示例值：Check Attendance
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  /**
+   * 命令的日文名称，用于面向日本地区用户展示
+   *
+   * <p>示例值：勤怠を確認
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  /**
+   * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
+   *
+   * <p>示例值：查詢考勤
+   */
+  @SerializedName("zh_hk")
+  private String zhHk;
+
+  /**
+   * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
+   *
+   * <p>示例值：查詢考勤
+   */
+  @SerializedName("zh_tw")
+  private String zhTw;
+
+  /**
+   * 命令的德文名称，用于面向德国地区用户展示
+   *
+   * <p>示例值：Anwesenheit prüfen
+   */
+  @SerializedName("de_de")
+  private String deDe;
+
+  /**
+   * 命令的西班牙文名称，用于面向西班牙地区用户展示
+   *
+   * <p>示例值：Verificar asistencia
+   */
+  @SerializedName("es_es")
+  private String esEs;
+
+  /**
+   * 命令的法文名称，用于面向法国地区用户展示
+   *
+   * <p>示例值：Vérifier la présence
+   */
+  @SerializedName("fr_fr")
+  private String frFr;
+
+  /**
+   * 命令的印地文名称，用于面向印度地区用户展示
+   *
+   * <p>示例值：उपस्थिति की जांच करें
+   */
+  @SerializedName("hi_in")
+  private String hiIn;
+
+  /**
+   * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
+   *
+   * <p>示例值：Periksa kehadiran
+   */
+  @SerializedName("id_id")
+  private String idId;
+
+  /**
+   * 命令的意大利文名称，用于面向意大利地区用户展示
+   *
+   * <p>示例值：Controlla presenza
+   */
+  @SerializedName("it_it")
+  private String itIt;
+
+  /**
+   * 命令的韩文名称，用于面向韩国地区用户展示
+   *
+   * <p>示例值：출석 확인
+   */
+  @SerializedName("ko_kr")
+  private String koKr;
+
+  /**
+   * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
+   *
+   * <p>示例值：Verificar presença
+   */
+  @SerializedName("pt_br")
+  private String ptBr;
+
+  /**
+   * 命令的俄文名称，用于面向俄罗斯地区用户展示
+   *
+   * <p>示例值：Проверить присутствие
+   */
+  @SerializedName("ru_ru")
+  private String ruRu;
+
+  /**
+   * 命令的泰文名称，用于面向泰国地区用户展示
+   *
+   * <p>示例值：ตรวจสอบการเข้างาน
+   */
+  @SerializedName("th_th")
+  private String thTh;
+
+  /**
+   * 命令的越南文名称，用于面向越南地区用户展示
+   *
+   * <p>示例值：Kiểm tra sự hiện diện
+   */
+  @SerializedName("vi_vn")
+  private String viVn;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  public String getZhHk() {
+    return this.zhHk;
+  }
+
+  public void setZhHk(String zhHk) {
+    this.zhHk = zhHk;
+  }
+
+  public String getZhTw() {
+    return this.zhTw;
+  }
+
+  public void setZhTw(String zhTw) {
+    this.zhTw = zhTw;
+  }
+
+  public String getDeDe() {
+    return this.deDe;
+  }
+
+  public void setDeDe(String deDe) {
+    this.deDe = deDe;
+  }
+
+  public String getEsEs() {
+    return this.esEs;
+  }
+
+  public void setEsEs(String esEs) {
+    this.esEs = esEs;
+  }
+
+  public String getFrFr() {
+    return this.frFr;
+  }
+
+  public void setFrFr(String frFr) {
+    this.frFr = frFr;
+  }
+
+  public String getHiIn() {
+    return this.hiIn;
+  }
+
+  public void setHiIn(String hiIn) {
+    this.hiIn = hiIn;
+  }
+
+  public String getIdId() {
+    return this.idId;
+  }
+
+  public void setIdId(String idId) {
+    this.idId = idId;
+  }
+
+  public String getItIt() {
+    return this.itIt;
+  }
+
+  public void setItIt(String itIt) {
+    this.itIt = itIt;
+  }
+
+  public String getKoKr() {
+    return this.koKr;
+  }
+
+  public void setKoKr(String koKr) {
+    this.koKr = koKr;
+  }
+
+  public String getPtBr() {
+    return this.ptBr;
+  }
+
+  public void setPtBr(String ptBr) {
+    this.ptBr = ptBr;
+  }
+
+  public String getRuRu() {
+    return this.ruRu;
+  }
+
+  public void setRuRu(String ruRu) {
+    this.ruRu = ruRu;
+  }
+
+  public String getThTh() {
+    return this.thTh;
+  }
+
+  public void setThTh(String thTh) {
+    this.thTh = thTh;
+  }
+
+  public String getViVn() {
+    return this.viVn;
+  }
+
+  public void setViVn(String viVn) {
+    this.viVn = viVn;
+  }
+
+  // builder 开始
+  public AppSlashCommandI18n() {}
+
+  public AppSlashCommandI18n(Builder builder) {
     /**
      * 命令的简体中文名称，用于面向中国大陆地区用户展示
-     * <p> 示例值：查询考勤
+     *
+     * <p>示例值：查询考勤
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 命令的英文名称，用于面向英语地区用户展示
-     * <p> 示例值：Check Attendance
+     *
+     * <p>示例值：Check Attendance
      */
-    @SerializedName("en_us")
-    private String enUs;
+    this.enUs = builder.enUs;
     /**
      * 命令的日文名称，用于面向日本地区用户展示
-     * <p> 示例值：勤怠を確認
+     *
+     * <p>示例值：勤怠を確認
      */
-    @SerializedName("ja_jp")
-    private String jaJp;
+    this.jaJp = builder.jaJp;
     /**
      * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
-     * <p> 示例值：查詢考勤
+     *
+     * <p>示例值：查詢考勤
      */
-    @SerializedName("zh_hk")
-    private String zhHk;
+    this.zhHk = builder.zhHk;
     /**
      * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
-     * <p> 示例值：查詢考勤
+     *
+     * <p>示例值：查詢考勤
      */
-    @SerializedName("zh_tw")
-    private String zhTw;
+    this.zhTw = builder.zhTw;
     /**
      * 命令的德文名称，用于面向德国地区用户展示
-     * <p> 示例值：Anwesenheit prüfen
+     *
+     * <p>示例值：Anwesenheit prüfen
      */
-    @SerializedName("de_de")
-    private String deDe;
+    this.deDe = builder.deDe;
     /**
      * 命令的西班牙文名称，用于面向西班牙地区用户展示
-     * <p> 示例值：Verificar asistencia
+     *
+     * <p>示例值：Verificar asistencia
      */
-    @SerializedName("es_es")
-    private String esEs;
+    this.esEs = builder.esEs;
     /**
      * 命令的法文名称，用于面向法国地区用户展示
-     * <p> 示例值：Vérifier la présence
+     *
+     * <p>示例值：Vérifier la présence
      */
-    @SerializedName("fr_fr")
-    private String frFr;
+    this.frFr = builder.frFr;
     /**
      * 命令的印地文名称，用于面向印度地区用户展示
-     * <p> 示例值：उपस्थिति की जांच करें
+     *
+     * <p>示例值：उपस्थिति की जांच करें
      */
-    @SerializedName("hi_in")
-    private String hiIn;
+    this.hiIn = builder.hiIn;
     /**
      * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
-     * <p> 示例值：Periksa kehadiran
+     *
+     * <p>示例值：Periksa kehadiran
      */
-    @SerializedName("id_id")
-    private String idId;
+    this.idId = builder.idId;
     /**
      * 命令的意大利文名称，用于面向意大利地区用户展示
-     * <p> 示例值：Controlla presenza
+     *
+     * <p>示例值：Controlla presenza
      */
-    @SerializedName("it_it")
-    private String itIt;
+    this.itIt = builder.itIt;
     /**
      * 命令的韩文名称，用于面向韩国地区用户展示
-     * <p> 示例值：출석 확인
+     *
+     * <p>示例值：출석 확인
      */
-    @SerializedName("ko_kr")
-    private String koKr;
+    this.koKr = builder.koKr;
     /**
      * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
-     * <p> 示例值：Verificar presença
+     *
+     * <p>示例值：Verificar presença
      */
-    @SerializedName("pt_br")
-    private String ptBr;
+    this.ptBr = builder.ptBr;
     /**
      * 命令的俄文名称，用于面向俄罗斯地区用户展示
-     * <p> 示例值：Проверить присутствие
+     *
+     * <p>示例值：Проверить присутствие
      */
-    @SerializedName("ru_ru")
-    private String ruRu;
+    this.ruRu = builder.ruRu;
     /**
      * 命令的泰文名称，用于面向泰国地区用户展示
-     * <p> 示例值：ตรวจสอบการเข้างาน
+     *
+     * <p>示例值：ตรวจสอบการเข้างาน
      */
-    @SerializedName("th_th")
-    private String thTh;
+    this.thTh = builder.thTh;
     /**
      * 命令的越南文名称，用于面向越南地区用户展示
-     * <p> 示例值：Kiểm tra sự hiện diện
+     *
+     * <p>示例值：Kiểm tra sự hiện diện
      */
-    @SerializedName("vi_vn")
+    this.viVn = builder.viVn;
+  }
+
+  public static class Builder {
+    /**
+     * 命令的简体中文名称，用于面向中国大陆地区用户展示
+     *
+     * <p>示例值：查询考勤
+     */
+    private String zhCn;
+
+    /**
+     * 命令的英文名称，用于面向英语地区用户展示
+     *
+     * <p>示例值：Check Attendance
+     */
+    private String enUs;
+
+    /**
+     * 命令的日文名称，用于面向日本地区用户展示
+     *
+     * <p>示例值：勤怠を確認
+     */
+    private String jaJp;
+
+    /**
+     * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
+     *
+     * <p>示例值：查詢考勤
+     */
+    private String zhHk;
+
+    /**
+     * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
+     *
+     * <p>示例值：查詢考勤
+     */
+    private String zhTw;
+
+    /**
+     * 命令的德文名称，用于面向德国地区用户展示
+     *
+     * <p>示例值：Anwesenheit prüfen
+     */
+    private String deDe;
+
+    /**
+     * 命令的西班牙文名称，用于面向西班牙地区用户展示
+     *
+     * <p>示例值：Verificar asistencia
+     */
+    private String esEs;
+
+    /**
+     * 命令的法文名称，用于面向法国地区用户展示
+     *
+     * <p>示例值：Vérifier la présence
+     */
+    private String frFr;
+
+    /**
+     * 命令的印地文名称，用于面向印度地区用户展示
+     *
+     * <p>示例值：उपस्थिति की जांच करें
+     */
+    private String hiIn;
+
+    /**
+     * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
+     *
+     * <p>示例值：Periksa kehadiran
+     */
+    private String idId;
+
+    /**
+     * 命令的意大利文名称，用于面向意大利地区用户展示
+     *
+     * <p>示例值：Controlla presenza
+     */
+    private String itIt;
+
+    /**
+     * 命令的韩文名称，用于面向韩国地区用户展示
+     *
+     * <p>示例值：출석 확인
+     */
+    private String koKr;
+
+    /**
+     * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
+     *
+     * <p>示例值：Verificar presença
+     */
+    private String ptBr;
+
+    /**
+     * 命令的俄文名称，用于面向俄罗斯地区用户展示
+     *
+     * <p>示例值：Проверить присутствие
+     */
+    private String ruRu;
+
+    /**
+     * 命令的泰文名称，用于面向泰国地区用户展示
+     *
+     * <p>示例值：ตรวจสอบการเข้างาน
+     */
+    private String thTh;
+
+    /**
+     * 命令的越南文名称，用于面向越南地区用户展示
+     *
+     * <p>示例值：Kiểm tra sự hiện diện
+     */
     private String viVn;
 
-    // builder 开始
-    public AppSlashCommandI18n() {
+    /**
+     * 命令的简体中文名称，用于面向中国大陆地区用户展示
+     *
+     * <p>示例值：查询考勤
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public AppSlashCommandI18n(Builder builder) {
-        /**
-         * 命令的简体中文名称，用于面向中国大陆地区用户展示
-         * <p> 示例值：查询考勤
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 命令的英文名称，用于面向英语地区用户展示
-         * <p> 示例值：Check Attendance
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 命令的日文名称，用于面向日本地区用户展示
-         * <p> 示例值：勤怠を確認
-         */
-        this.jaJp = builder.jaJp;
-        /**
-         * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
-         * <p> 示例值：查詢考勤
-         */
-        this.zhHk = builder.zhHk;
-        /**
-         * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
-         * <p> 示例值：查詢考勤
-         */
-        this.zhTw = builder.zhTw;
-        /**
-         * 命令的德文名称，用于面向德国地区用户展示
-         * <p> 示例值：Anwesenheit prüfen
-         */
-        this.deDe = builder.deDe;
-        /**
-         * 命令的西班牙文名称，用于面向西班牙地区用户展示
-         * <p> 示例值：Verificar asistencia
-         */
-        this.esEs = builder.esEs;
-        /**
-         * 命令的法文名称，用于面向法国地区用户展示
-         * <p> 示例值：Vérifier la présence
-         */
-        this.frFr = builder.frFr;
-        /**
-         * 命令的印地文名称，用于面向印度地区用户展示
-         * <p> 示例值：उपस्थिति की जांच करें
-         */
-        this.hiIn = builder.hiIn;
-        /**
-         * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
-         * <p> 示例值：Periksa kehadiran
-         */
-        this.idId = builder.idId;
-        /**
-         * 命令的意大利文名称，用于面向意大利地区用户展示
-         * <p> 示例值：Controlla presenza
-         */
-        this.itIt = builder.itIt;
-        /**
-         * 命令的韩文名称，用于面向韩国地区用户展示
-         * <p> 示例值：출석 확인
-         */
-        this.koKr = builder.koKr;
-        /**
-         * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
-         * <p> 示例值：Verificar presença
-         */
-        this.ptBr = builder.ptBr;
-        /**
-         * 命令的俄文名称，用于面向俄罗斯地区用户展示
-         * <p> 示例值：Проверить присутствие
-         */
-        this.ruRu = builder.ruRu;
-        /**
-         * 命令的泰文名称，用于面向泰国地区用户展示
-         * <p> 示例值：ตรวจสอบการเข้างาน
-         */
-        this.thTh = builder.thTh;
-        /**
-         * 命令的越南文名称，用于面向越南地区用户展示
-         * <p> 示例值：Kiểm tra sự hiện diện
-         */
-        this.viVn = builder.viVn;
+    /**
+     * 命令的英文名称，用于面向英语地区用户展示
+     *
+     * <p>示例值：Check Attendance
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 命令的日文名称，用于面向日本地区用户展示
+     *
+     * <p>示例值：勤怠を確認
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    /**
+     * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
+     *
+     * <p>示例值：查詢考勤
+     *
+     * @param zhHk
+     * @return
+     */
+    public Builder zhHk(String zhHk) {
+      this.zhHk = zhHk;
+      return this;
     }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
+    /**
+     * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
+     *
+     * <p>示例值：查詢考勤
+     *
+     * @param zhTw
+     * @return
+     */
+    public Builder zhTw(String zhTw) {
+      this.zhTw = zhTw;
+      return this;
     }
 
-    public String getEnUs() {
-        return this.enUs;
+    /**
+     * 命令的德文名称，用于面向德国地区用户展示
+     *
+     * <p>示例值：Anwesenheit prüfen
+     *
+     * @param deDe
+     * @return
+     */
+    public Builder deDe(String deDe) {
+      this.deDe = deDe;
+      return this;
     }
 
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
+    /**
+     * 命令的西班牙文名称，用于面向西班牙地区用户展示
+     *
+     * <p>示例值：Verificar asistencia
+     *
+     * @param esEs
+     * @return
+     */
+    public Builder esEs(String esEs) {
+      this.esEs = esEs;
+      return this;
     }
 
-    public String getJaJp() {
-        return this.jaJp;
+    /**
+     * 命令的法文名称，用于面向法国地区用户展示
+     *
+     * <p>示例值：Vérifier la présence
+     *
+     * @param frFr
+     * @return
+     */
+    public Builder frFr(String frFr) {
+      this.frFr = frFr;
+      return this;
     }
 
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
+    /**
+     * 命令的印地文名称，用于面向印度地区用户展示
+     *
+     * <p>示例值：उपस्थिति की जांच करें
+     *
+     * @param hiIn
+     * @return
+     */
+    public Builder hiIn(String hiIn) {
+      this.hiIn = hiIn;
+      return this;
     }
 
-    public String getZhHk() {
-        return this.zhHk;
+    /**
+     * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
+     *
+     * <p>示例值：Periksa kehadiran
+     *
+     * @param idId
+     * @return
+     */
+    public Builder idId(String idId) {
+      this.idId = idId;
+      return this;
     }
 
-    public void setZhHk(String zhHk) {
-        this.zhHk = zhHk;
+    /**
+     * 命令的意大利文名称，用于面向意大利地区用户展示
+     *
+     * <p>示例值：Controlla presenza
+     *
+     * @param itIt
+     * @return
+     */
+    public Builder itIt(String itIt) {
+      this.itIt = itIt;
+      return this;
     }
 
-    public String getZhTw() {
-        return this.zhTw;
+    /**
+     * 命令的韩文名称，用于面向韩国地区用户展示
+     *
+     * <p>示例值：출석 확인
+     *
+     * @param koKr
+     * @return
+     */
+    public Builder koKr(String koKr) {
+      this.koKr = koKr;
+      return this;
     }
 
-    public void setZhTw(String zhTw) {
-        this.zhTw = zhTw;
+    /**
+     * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
+     *
+     * <p>示例值：Verificar presença
+     *
+     * @param ptBr
+     * @return
+     */
+    public Builder ptBr(String ptBr) {
+      this.ptBr = ptBr;
+      return this;
     }
 
-    public String getDeDe() {
-        return this.deDe;
+    /**
+     * 命令的俄文名称，用于面向俄罗斯地区用户展示
+     *
+     * <p>示例值：Проверить присутствие
+     *
+     * @param ruRu
+     * @return
+     */
+    public Builder ruRu(String ruRu) {
+      this.ruRu = ruRu;
+      return this;
     }
 
-    public void setDeDe(String deDe) {
-        this.deDe = deDe;
+    /**
+     * 命令的泰文名称，用于面向泰国地区用户展示
+     *
+     * <p>示例值：ตรวจสอบการเข้างาน
+     *
+     * @param thTh
+     * @return
+     */
+    public Builder thTh(String thTh) {
+      this.thTh = thTh;
+      return this;
     }
 
-    public String getEsEs() {
-        return this.esEs;
+    /**
+     * 命令的越南文名称，用于面向越南地区用户展示
+     *
+     * <p>示例值：Kiểm tra sự hiện diện
+     *
+     * @param viVn
+     * @return
+     */
+    public Builder viVn(String viVn) {
+      this.viVn = viVn;
+      return this;
     }
 
-    public void setEsEs(String esEs) {
-        this.esEs = esEs;
+    public AppSlashCommandI18n build() {
+      return new AppSlashCommandI18n(this);
     }
+  }
 
-    public String getFrFr() {
-        return this.frFr;
-    }
-
-    public void setFrFr(String frFr) {
-        this.frFr = frFr;
-    }
-
-    public String getHiIn() {
-        return this.hiIn;
-    }
-
-    public void setHiIn(String hiIn) {
-        this.hiIn = hiIn;
-    }
-
-    public String getIdId() {
-        return this.idId;
-    }
-
-    public void setIdId(String idId) {
-        this.idId = idId;
-    }
-
-    public String getItIt() {
-        return this.itIt;
-    }
-
-    public void setItIt(String itIt) {
-        this.itIt = itIt;
-    }
-
-    public String getKoKr() {
-        return this.koKr;
-    }
-
-    public void setKoKr(String koKr) {
-        this.koKr = koKr;
-    }
-
-    public String getPtBr() {
-        return this.ptBr;
-    }
-
-    public void setPtBr(String ptBr) {
-        this.ptBr = ptBr;
-    }
-
-    public String getRuRu() {
-        return this.ruRu;
-    }
-
-    public void setRuRu(String ruRu) {
-        this.ruRu = ruRu;
-    }
-
-    public String getThTh() {
-        return this.thTh;
-    }
-
-    public void setThTh(String thTh) {
-        this.thTh = thTh;
-    }
-
-    public String getViVn() {
-        return this.viVn;
-    }
-
-    public void setViVn(String viVn) {
-        this.viVn = viVn;
-    }
-
-    public static class Builder {
-        /**
-         * 命令的简体中文名称，用于面向中国大陆地区用户展示
-         * <p> 示例值：查询考勤
-         */
-        private String zhCn;
-        /**
-         * 命令的英文名称，用于面向英语地区用户展示
-         * <p> 示例值：Check Attendance
-         */
-        private String enUs;
-        /**
-         * 命令的日文名称，用于面向日本地区用户展示
-         * <p> 示例值：勤怠を確認
-         */
-        private String jaJp;
-        /**
-         * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
-         * <p> 示例值：查詢考勤
-         */
-        private String zhHk;
-        /**
-         * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
-         * <p> 示例值：查詢考勤
-         */
-        private String zhTw;
-        /**
-         * 命令的德文名称，用于面向德国地区用户展示
-         * <p> 示例值：Anwesenheit prüfen
-         */
-        private String deDe;
-        /**
-         * 命令的西班牙文名称，用于面向西班牙地区用户展示
-         * <p> 示例值：Verificar asistencia
-         */
-        private String esEs;
-        /**
-         * 命令的法文名称，用于面向法国地区用户展示
-         * <p> 示例值：Vérifier la présence
-         */
-        private String frFr;
-        /**
-         * 命令的印地文名称，用于面向印度地区用户展示
-         * <p> 示例值：उपस्थिति की जांच करें
-         */
-        private String hiIn;
-        /**
-         * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
-         * <p> 示例值：Periksa kehadiran
-         */
-        private String idId;
-        /**
-         * 命令的意大利文名称，用于面向意大利地区用户展示
-         * <p> 示例值：Controlla presenza
-         */
-        private String itIt;
-        /**
-         * 命令的韩文名称，用于面向韩国地区用户展示
-         * <p> 示例值：출석 확인
-         */
-        private String koKr;
-        /**
-         * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
-         * <p> 示例值：Verificar presença
-         */
-        private String ptBr;
-        /**
-         * 命令的俄文名称，用于面向俄罗斯地区用户展示
-         * <p> 示例值：Проверить присутствие
-         */
-        private String ruRu;
-        /**
-         * 命令的泰文名称，用于面向泰国地区用户展示
-         * <p> 示例值：ตรวจสอบการเข้างาน
-         */
-        private String thTh;
-        /**
-         * 命令的越南文名称，用于面向越南地区用户展示
-         * <p> 示例值：Kiểm tra sự hiện diện
-         */
-        private String viVn;
-
-        /**
-         * 命令的简体中文名称，用于面向中国大陆地区用户展示
-         * <p> 示例值：查询考勤
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 命令的英文名称，用于面向英语地区用户展示
-         * <p> 示例值：Check Attendance
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        /**
-         * 命令的日文名称，用于面向日本地区用户展示
-         * <p> 示例值：勤怠を確認
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        /**
-         * 命令的繁体中文（香港）名称，用于面向中国香港地区用户展示
-         * <p> 示例值：查詢考勤
-         *
-         * @param zhHk
-         * @return
-         */
-        public Builder zhHk(String zhHk) {
-            this.zhHk = zhHk;
-            return this;
-        }
-
-
-        /**
-         * 命令的繁体中文（台湾）名称，用于面向中国台湾地区用户展示
-         * <p> 示例值：查詢考勤
-         *
-         * @param zhTw
-         * @return
-         */
-        public Builder zhTw(String zhTw) {
-            this.zhTw = zhTw;
-            return this;
-        }
-
-
-        /**
-         * 命令的德文名称，用于面向德国地区用户展示
-         * <p> 示例值：Anwesenheit prüfen
-         *
-         * @param deDe
-         * @return
-         */
-        public Builder deDe(String deDe) {
-            this.deDe = deDe;
-            return this;
-        }
-
-
-        /**
-         * 命令的西班牙文名称，用于面向西班牙地区用户展示
-         * <p> 示例值：Verificar asistencia
-         *
-         * @param esEs
-         * @return
-         */
-        public Builder esEs(String esEs) {
-            this.esEs = esEs;
-            return this;
-        }
-
-
-        /**
-         * 命令的法文名称，用于面向法国地区用户展示
-         * <p> 示例值：Vérifier la présence
-         *
-         * @param frFr
-         * @return
-         */
-        public Builder frFr(String frFr) {
-            this.frFr = frFr;
-            return this;
-        }
-
-
-        /**
-         * 命令的印地文名称，用于面向印度地区用户展示
-         * <p> 示例值：उपस्थिति की जांच करें
-         *
-         * @param hiIn
-         * @return
-         */
-        public Builder hiIn(String hiIn) {
-            this.hiIn = hiIn;
-            return this;
-        }
-
-
-        /**
-         * 命令的印尼文名称，用于面向印度尼西亚地区用户展示
-         * <p> 示例值：Periksa kehadiran
-         *
-         * @param idId
-         * @return
-         */
-        public Builder idId(String idId) {
-            this.idId = idId;
-            return this;
-        }
-
-
-        /**
-         * 命令的意大利文名称，用于面向意大利地区用户展示
-         * <p> 示例值：Controlla presenza
-         *
-         * @param itIt
-         * @return
-         */
-        public Builder itIt(String itIt) {
-            this.itIt = itIt;
-            return this;
-        }
-
-
-        /**
-         * 命令的韩文名称，用于面向韩国地区用户展示
-         * <p> 示例值：출석 확인
-         *
-         * @param koKr
-         * @return
-         */
-        public Builder koKr(String koKr) {
-            this.koKr = koKr;
-            return this;
-        }
-
-
-        /**
-         * 命令的葡萄牙文（巴西）名称，用于面向巴西地区用户展示
-         * <p> 示例值：Verificar presença
-         *
-         * @param ptBr
-         * @return
-         */
-        public Builder ptBr(String ptBr) {
-            this.ptBr = ptBr;
-            return this;
-        }
-
-
-        /**
-         * 命令的俄文名称，用于面向俄罗斯地区用户展示
-         * <p> 示例值：Проверить присутствие
-         *
-         * @param ruRu
-         * @return
-         */
-        public Builder ruRu(String ruRu) {
-            this.ruRu = ruRu;
-            return this;
-        }
-
-
-        /**
-         * 命令的泰文名称，用于面向泰国地区用户展示
-         * <p> 示例值：ตรวจสอบการเข้างาน
-         *
-         * @param thTh
-         * @return
-         */
-        public Builder thTh(String thTh) {
-            this.thTh = thTh;
-            return this;
-        }
-
-
-        /**
-         * 命令的越南文名称，用于面向越南地区用户展示
-         * <p> 示例值：Kiểm tra sự hiện diện
-         *
-         * @param viVn
-         * @return
-         */
-        public Builder viVn(String viVn) {
-            this.viVn = viVn;
-            return this;
-        }
-
-
-        public AppSlashCommandI18n build() {
-            return new AppSlashCommandI18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

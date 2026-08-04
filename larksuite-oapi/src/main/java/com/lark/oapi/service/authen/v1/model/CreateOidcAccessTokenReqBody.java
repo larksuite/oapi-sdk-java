@@ -13,111 +13,110 @@
 
 package com.lark.oapi.service.authen.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateOidcAccessTokenReqBody {
+  /**
+   * 授权类型，**固定值**
+   *
+   * <p>示例值：authorization_code
+   */
+  @SerializedName("grant_type")
+  private String grantType;
+
+  /**
+   * 登录预授权码，调用[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)
+   * 获取code
+   *
+   * <p>示例值：xMSldislSkdK
+   */
+  @SerializedName("code")
+  private String code;
+
+  public String getGrantType() {
+    return this.grantType;
+  }
+
+  public void setGrantType(String grantType) {
+    this.grantType = grantType;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  // builder 开始
+  public CreateOidcAccessTokenReqBody() {}
+
+  public CreateOidcAccessTokenReqBody(Builder builder) {
     /**
      * 授权类型，**固定值**
-     * <p> 示例值：authorization_code
+     *
+     * <p>示例值：authorization_code
      */
-    @SerializedName("grant_type")
-    private String grantType;
+    this.grantType = builder.grantType;
     /**
-     * 登录预授权码
-     * <p> 示例值：xMSldislSkdK
+     * 登录预授权码，调用[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)
+     * 获取code
+     *
+     * <p>示例值：xMSldislSkdK
      */
-    @SerializedName("code")
+    this.code = builder.code;
+  }
+
+  public static class Builder {
+    /**
+     * 授权类型，**固定值**
+     *
+     * <p>示例值：authorization_code
+     */
+    private String grantType;
+
+    /**
+     * 登录预授权码，调用[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)
+     * 获取code
+     *
+     * <p>示例值：xMSldislSkdK
+     */
     private String code;
 
-    // builder 开始
-    public CreateOidcAccessTokenReqBody() {
+    /**
+     * 授权类型，**固定值**
+     *
+     * <p>示例值：authorization_code
+     *
+     * @param grantType
+     * @return
+     */
+    public Builder grantType(String grantType) {
+      this.grantType = grantType;
+      return this;
     }
 
-    public CreateOidcAccessTokenReqBody(Builder builder) {
-        /**
-         * 授权类型，**固定值**
-         * <p> 示例值：authorization_code
-         */
-        this.grantType = builder.grantType;
-        /**
-         * 登录预授权码
-         * <p> 示例值：xMSldislSkdK
-         */
-        this.code = builder.code;
+    /**
+     * 登录预授权码，调用[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)
+     * 获取code
+     *
+     * <p>示例值：xMSldislSkdK
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateOidcAccessTokenReqBody build() {
+      return new CreateOidcAccessTokenReqBody(this);
     }
+  }
 
-    public String getGrantType() {
-        return this.grantType;
-    }
-
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public static class Builder {
-        /**
-         * 授权类型，**固定值**
-         * <p> 示例值：authorization_code
-         */
-        private String grantType;
-        /**
-         * 登录预授权码
-         * <p> 示例值：xMSldislSkdK
-         */
-        private String code;
-
-        /**
-         * 授权类型，**固定值**
-         * <p> 示例值：authorization_code
-         *
-         * @param grantType
-         * @return
-         */
-        public Builder grantType(String grantType) {
-            this.grantType = grantType;
-            return this;
-        }
-
-
-        /**
-         * 登录预授权码
-         * <p> 示例值：xMSldislSkdK
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        public CreateOidcAccessTokenReqBody build() {
-            return new CreateOidcAccessTokenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

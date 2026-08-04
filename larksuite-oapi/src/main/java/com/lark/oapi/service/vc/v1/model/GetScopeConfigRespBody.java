@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetScopeConfigRespBody {
-    /**
-     * 当前节点的配置，根据层级顺序从底向上进行合并计算后的结果；如果当前节点某个值已配置，则取该节点的值，否则会从该节点的父层级节点获取，如果父节点依然未配置，则继续向上递归获取；若所有节点均未配置，则该值返回为空
-     * <p> 示例值：
-     */
-    @SerializedName("current_config")
-    private ScopeConfig currentConfig;
-    /**
-     * 所有节点的原始配置，按照层级顺序从底向上返回；如果某节点某个值未配置，则该值返回为空
-     * <p> 示例值：
-     */
-    @SerializedName("origin_configs")
-    private ScopeConfig[] originConfigs;
+  /**
+   * 当前节点的配置，根据层级顺序从底向上进行合并计算后的结果；如果当前节点某个值已配置，则取该节点的值，否则会从该节点的父层级节点获取，如果父节点依然未配置，则继续向上递归获取；若所有节点均未配置，则该值返回为空
+   *
+   * <p>示例值：
+   */
+  @SerializedName("current_config")
+  private ScopeConfig currentConfig;
 
-    public ScopeConfig getCurrentConfig() {
-        return this.currentConfig;
-    }
+  /**
+   * 所有节点的原始配置，按照层级顺序从底向上返回；如果某节点某个值未配置，则该值返回为空
+   *
+   * <p>示例值：
+   */
+  @SerializedName("origin_configs")
+  private ScopeConfig[] originConfigs;
 
-    public void setCurrentConfig(ScopeConfig currentConfig) {
-        this.currentConfig = currentConfig;
-    }
+  public ScopeConfig getCurrentConfig() {
+    return this.currentConfig;
+  }
 
-    public ScopeConfig[] getOriginConfigs() {
-        return this.originConfigs;
-    }
+  public void setCurrentConfig(ScopeConfig currentConfig) {
+    this.currentConfig = currentConfig;
+  }
 
-    public void setOriginConfigs(ScopeConfig[] originConfigs) {
-        this.originConfigs = originConfigs;
-    }
+  public ScopeConfig[] getOriginConfigs() {
+    return this.originConfigs;
+  }
 
+  public void setOriginConfigs(ScopeConfig[] originConfigs) {
+    this.originConfigs = originConfigs;
+  }
 }

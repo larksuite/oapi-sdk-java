@@ -13,105 +13,108 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetWebsiteDeliveryTaskReq {
+  /**
+   * 官网
+   * ID，可通过[获取招聘官网列表](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/list)获取
+   *
+   * <p>示例值：7047318856652261676
+   */
+  @Path
+  @SerializedName("website_id")
+  private String websiteId;
+
+  /**
+   * 投递任务
+   * ID，可通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)获取
+   *
+   * <p>示例值：f1c2a0f138ec492d99d7ab73594158ad
+   */
+  @Path
+  @SerializedName("delivery_task_id")
+  private String deliveryTaskId;
+
+  public String getWebsiteId() {
+    return this.websiteId;
+  }
+
+  public void setWebsiteId(String websiteId) {
+    this.websiteId = websiteId;
+  }
+
+  public String getDeliveryTaskId() {
+    return this.deliveryTaskId;
+  }
+
+  public void setDeliveryTaskId(String deliveryTaskId) {
+    this.deliveryTaskId = deliveryTaskId;
+  }
+
+  // builder 开始
+  public GetWebsiteDeliveryTaskReq() {}
+
+  public GetWebsiteDeliveryTaskReq(Builder builder) {
     /**
-     * 官网 ID
-     * <p> 示例值：7047318856652261676
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/list)获取
+     *
+     * <p>示例值：7047318856652261676
      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
+    this.websiteId = builder.websiteId;
     /**
-     * 投递任务 ID
-     * <p> 示例值：f1c2a0f138ec492d99d7ab73594158ad
+     * 投递任务
+     * ID，可通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)获取
+     *
+     * <p>示例值：f1c2a0f138ec492d99d7ab73594158ad
      */
-    @Path
-    @SerializedName("delivery_task_id")
-    private String deliveryTaskId;
+    this.deliveryTaskId = builder.deliveryTaskId;
+  }
 
-    // builder 开始
-    public GetWebsiteDeliveryTaskReq() {
+  public static class Builder {
+
+    private String websiteId; // 官网
+    // ID，可通过[获取招聘官网列表](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/list)获取
+    private String deliveryTaskId; // 投递任务
+
+    // ID，可通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)获取
+
+    /**
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.larkoffice.com/document/server-docs/hire-v1/get-candidates/website/list)获取
+     *
+     * <p>示例值：7047318856652261676
+     *
+     * @param websiteId
+     * @return
+     */
+    public Builder websiteId(String websiteId) {
+      this.websiteId = websiteId;
+      return this;
     }
 
-    public GetWebsiteDeliveryTaskReq(Builder builder) {
-        /**
-         * 官网 ID
-         * <p> 示例值：7047318856652261676
-         */
-        this.websiteId = builder.websiteId;
-        /**
-         * 投递任务 ID
-         * <p> 示例值：f1c2a0f138ec492d99d7ab73594158ad
-         */
-        this.deliveryTaskId = builder.deliveryTaskId;
+    /**
+     * 投递任务
+     * ID，可通过[根据简历附件创建招聘官网投递](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-delivery/create_by_attachment)获取
+     *
+     * <p>示例值：f1c2a0f138ec492d99d7ab73594158ad
+     *
+     * @param deliveryTaskId
+     * @return
+     */
+    public Builder deliveryTaskId(String deliveryTaskId) {
+      this.deliveryTaskId = deliveryTaskId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetWebsiteDeliveryTaskReq build() {
+      return new GetWebsiteDeliveryTaskReq(this);
     }
+  }
 
-    public String getWebsiteId() {
-        return this.websiteId;
-    }
-
-    public void setWebsiteId(String websiteId) {
-        this.websiteId = websiteId;
-    }
-
-    public String getDeliveryTaskId() {
-        return this.deliveryTaskId;
-    }
-
-    public void setDeliveryTaskId(String deliveryTaskId) {
-        this.deliveryTaskId = deliveryTaskId;
-    }
-
-    public static class Builder {
-
-        private String websiteId; // 官网 ID
-        private String deliveryTaskId; // 投递任务 ID
-
-        /**
-         * 官网 ID
-         * <p> 示例值：7047318856652261676
-         *
-         * @param websiteId
-         * @return
-         */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
-
-
-        /**
-         * 投递任务 ID
-         * <p> 示例值：f1c2a0f138ec492d99d7ab73594158ad
-         *
-         * @param deliveryTaskId
-         * @return
-         */
-        public Builder deliveryTaskId(String deliveryTaskId) {
-            this.deliveryTaskId = deliveryTaskId;
-            return this;
-        }
-
-
-        public GetWebsiteDeliveryTaskReq build() {
-            return new GetWebsiteDeliveryTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

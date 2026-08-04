@@ -13,124 +13,125 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EntityInfo {
+  /**
+   * 实体ID。<br>
+   * 如果要指代【全部成员】，则entity_type传1，id传0
+   *
+   * <p>示例值：7259644494420836371
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 实体类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("entity_type")
+  private Integer entityType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(Integer entityType) {
+    this.entityType = entityType;
+  }
+
+  // builder 开始
+  public EntityInfo() {}
+
+  public EntityInfo(Builder builder) {
     /**
-     * 实体ID
-     * <p> 示例值：7259644494420836371
+     * 实体ID。<br>
+     * 如果要指代【全部成员】，则entity_type传1，id传0
+     *
+     * <p>示例值：7259644494420836371
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 实体类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("entity_type")
+    this.entityType = builder.entityType;
+  }
+
+  public static class Builder {
+    /**
+     * 实体ID。<br>
+     * 如果要指代【全部成员】，则entity_type传1，id传0
+     *
+     * <p>示例值：7259644494420836371
+     */
+    private String id;
+
+    /**
+     * 实体类型
+     *
+     * <p>示例值：1
+     */
     private Integer entityType;
 
-    // builder 开始
-    public EntityInfo() {
+    /**
+     * 实体ID。<br>
+     * 如果要指代【全部成员】，则entity_type传1，id传0
+     *
+     * <p>示例值：7259644494420836371
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EntityInfo(Builder builder) {
-        /**
-         * 实体ID
-         * <p> 示例值：7259644494420836371
-         */
-        this.id = builder.id;
-        /**
-         * 实体类型
-         * <p> 示例值：1
-         */
-        this.entityType = builder.entityType;
+    /**
+     * 实体类型
+     *
+     * <p>示例值：1
+     *
+     * @param entityType
+     * @return
+     */
+    public Builder entityType(Integer entityType) {
+      this.entityType = entityType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实体类型
+     *
+     * <p>示例值：1
+     *
+     * @param entityType {@link com.lark.oapi.service.directory.v1.enums.EntityInfoEntityTypeEnum}
+     * @return
+     */
+    public Builder entityType(
+        com.lark.oapi.service.directory.v1.enums.EntityInfoEntityTypeEnum entityType) {
+      this.entityType = entityType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public EntityInfo build() {
+      return new EntityInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getEntityType() {
-        return this.entityType;
-    }
-
-    public void setEntityType(Integer entityType) {
-        this.entityType = entityType;
-    }
-
-    public static class Builder {
-        /**
-         * 实体ID
-         * <p> 示例值：7259644494420836371
-         */
-        private String id;
-        /**
-         * 实体类型
-         * <p> 示例值：1
-         */
-        private Integer entityType;
-
-        /**
-         * 实体ID
-         * <p> 示例值：7259644494420836371
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 实体类型
-         * <p> 示例值：1
-         *
-         * @param entityType
-         * @return
-         */
-        public Builder entityType(Integer entityType) {
-            this.entityType = entityType;
-            return this;
-        }
-
-        /**
-         * 实体类型
-         * <p> 示例值：1
-         *
-         * @param entityType {@link com.lark.oapi.service.directory.v1.enums.EntityInfoEntityTypeEnum}
-         * @return
-         */
-        public Builder entityType(com.lark.oapi.service.directory.v1.enums.EntityInfoEntityTypeEnum entityType) {
-            this.entityType = entityType.getValue();
-            return this;
-        }
-
-
-        public EntityInfo build() {
-            return new EntityInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,118 +13,118 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CommentCreatedV1Data {
-    /**
-     * 评论所属用户ID
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
-    private UserId userId;
-    /**
-     * 评论 ID
-     * <p> 示例值："248381240"
-     */
-    @SerializedName("id")
-    private String id;
-    /**
-     * 评论创建时间
-     * <p> 示例值："2022-05-23T00:00:00+08:00"
-     */
-    @SerializedName("create_time")
-    private String createTime;
-    /**
-     * 评论所属帖子的ID
-     * <p> 示例值："248381241"
-     */
-    @SerializedName("post_id")
-    private String postId;
-    /**
-     * 回复的评论ID
-     * <p> 示例值：""
-     */
-    @SerializedName("reply_comment_id")
-    private String replyCommentId;
-    /**
-     * 根评论ID
-     * <p> 示例值：""
-     */
-    @SerializedName("root_comment_id")
-    private String rootCommentId;
-    /**
-     * 表情回复人类型
-     * <p> 示例值：1
-     */
-    @SerializedName("user_type")
-    private Integer userType;
+  /**
+   * 用户 ID（仅实名下有值）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
 
-    public UserId getUserId() {
-        return this.userId;
-    }
+  /**
+   * 评论 ID
+   *
+   * <p>示例值：248381240
+   */
+  @SerializedName("id")
+  private String id;
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
+  /**
+   * 评论创建时间
+   *
+   * <p>示例值：2022-05-23T00:00:00+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
 
-    public String getId() {
-        return this.id;
-    }
+  /**
+   * 评论所属帖子的ID
+   *
+   * <p>示例值：248381241
+   */
+  @SerializedName("post_id")
+  private String postId;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * 回复的评论ID
+   *
+   * <p>示例值：248381242
+   */
+  @SerializedName("reply_comment_id")
+  private String replyCommentId;
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
+  /**
+   * 根评论ID
+   *
+   * <p>示例值：248381243
+   */
+  @SerializedName("root_comment_id")
+  private String rootCommentId;
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+  /**
+   * 评论人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private Integer userType;
 
-    public String getPostId() {
-        return this.postId;
-    }
+  public UserId getUserId() {
+    return this.userId;
+  }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
-    }
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
 
-    public String getReplyCommentId() {
-        return this.replyCommentId;
-    }
+  public String getId() {
+    return this.id;
+  }
 
-    public void setReplyCommentId(String replyCommentId) {
-        this.replyCommentId = replyCommentId;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getRootCommentId() {
-        return this.rootCommentId;
-    }
+  public String getCreateTime() {
+    return this.createTime;
+  }
 
-    public void setRootCommentId(String rootCommentId) {
-        this.rootCommentId = rootCommentId;
-    }
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
 
-    public Integer getUserType() {
-        return this.userType;
-    }
+  public String getPostId() {
+    return this.postId;
+  }
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
+  public void setPostId(String postId) {
+    this.postId = postId;
+  }
 
+  public String getReplyCommentId() {
+    return this.replyCommentId;
+  }
+
+  public void setReplyCommentId(String replyCommentId) {
+    this.replyCommentId = replyCommentId;
+  }
+
+  public String getRootCommentId() {
+    return this.rootCommentId;
+  }
+
+  public void setRootCommentId(String rootCommentId) {
+    this.rootCommentId = rootCommentId;
+  }
+
+  public Integer getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(Integer userType) {
+    this.userType = userType;
+  }
 }

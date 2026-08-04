@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConditionalFormatRange {
+  /**
+   * 工作表ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sheet_id")
+  private String sheetId;
+
+  /**
+   * 起始行索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("start_row_index")
+  private Integer startRowIndex;
+
+  /**
+   * 结束行索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("end_row_index")
+  private Integer endRowIndex;
+
+  /**
+   * 起始列索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("start_column_index")
+  private Integer startColumnIndex;
+
+  /**
+   * 结束列索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("end_column_index")
+  private Integer endColumnIndex;
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
+  }
+
+  public Integer getStartRowIndex() {
+    return this.startRowIndex;
+  }
+
+  public void setStartRowIndex(Integer startRowIndex) {
+    this.startRowIndex = startRowIndex;
+  }
+
+  public Integer getEndRowIndex() {
+    return this.endRowIndex;
+  }
+
+  public void setEndRowIndex(Integer endRowIndex) {
+    this.endRowIndex = endRowIndex;
+  }
+
+  public Integer getStartColumnIndex() {
+    return this.startColumnIndex;
+  }
+
+  public void setStartColumnIndex(Integer startColumnIndex) {
+    this.startColumnIndex = startColumnIndex;
+  }
+
+  public Integer getEndColumnIndex() {
+    return this.endColumnIndex;
+  }
+
+  public void setEndColumnIndex(Integer endColumnIndex) {
+    this.endColumnIndex = endColumnIndex;
+  }
+
+  // builder 开始
+  public ConditionalFormatRange() {}
+
+  public ConditionalFormatRange(Builder builder) {
     /**
      * 工作表ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sheet_id")
-    private String sheetId;
+    this.sheetId = builder.sheetId;
     /**
      * 起始行索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("start_row_index")
-    private Integer startRowIndex;
+    this.startRowIndex = builder.startRowIndex;
     /**
      * 结束行索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("end_row_index")
-    private Integer endRowIndex;
+    this.endRowIndex = builder.endRowIndex;
     /**
      * 起始列索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("start_column_index")
-    private Integer startColumnIndex;
+    this.startColumnIndex = builder.startColumnIndex;
     /**
      * 结束列索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("end_column_index")
+    this.endColumnIndex = builder.endColumnIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 工作表ID
+     *
+     * <p>示例值：
+     */
+    private String sheetId;
+
+    /**
+     * 起始行索引
+     *
+     * <p>示例值：0
+     */
+    private Integer startRowIndex;
+
+    /**
+     * 结束行索引
+     *
+     * <p>示例值：0
+     */
+    private Integer endRowIndex;
+
+    /**
+     * 起始列索引
+     *
+     * <p>示例值：0
+     */
+    private Integer startColumnIndex;
+
+    /**
+     * 结束列索引
+     *
+     * <p>示例值：0
+     */
     private Integer endColumnIndex;
 
-    // builder 开始
-    public ConditionalFormatRange() {
+    /**
+     * 工作表ID
+     *
+     * <p>示例值：
+     *
+     * @param sheetId
+     * @return
+     */
+    public Builder sheetId(String sheetId) {
+      this.sheetId = sheetId;
+      return this;
     }
 
-    public ConditionalFormatRange(Builder builder) {
-        /**
-         * 工作表ID
-         * <p> 示例值：
-         */
-        this.sheetId = builder.sheetId;
-        /**
-         * 起始行索引
-         * <p> 示例值：0
-         */
-        this.startRowIndex = builder.startRowIndex;
-        /**
-         * 结束行索引
-         * <p> 示例值：0
-         */
-        this.endRowIndex = builder.endRowIndex;
-        /**
-         * 起始列索引
-         * <p> 示例值：0
-         */
-        this.startColumnIndex = builder.startColumnIndex;
-        /**
-         * 结束列索引
-         * <p> 示例值：0
-         */
-        this.endColumnIndex = builder.endColumnIndex;
+    /**
+     * 起始行索引
+     *
+     * <p>示例值：0
+     *
+     * @param startRowIndex
+     * @return
+     */
+    public Builder startRowIndex(Integer startRowIndex) {
+      this.startRowIndex = startRowIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结束行索引
+     *
+     * <p>示例值：0
+     *
+     * @param endRowIndex
+     * @return
+     */
+    public Builder endRowIndex(Integer endRowIndex) {
+      this.endRowIndex = endRowIndex;
+      return this;
     }
 
-    public String getSheetId() {
-        return this.sheetId;
+    /**
+     * 起始列索引
+     *
+     * <p>示例值：0
+     *
+     * @param startColumnIndex
+     * @return
+     */
+    public Builder startColumnIndex(Integer startColumnIndex) {
+      this.startColumnIndex = startColumnIndex;
+      return this;
     }
 
-    public void setSheetId(String sheetId) {
-        this.sheetId = sheetId;
+    /**
+     * 结束列索引
+     *
+     * <p>示例值：0
+     *
+     * @param endColumnIndex
+     * @return
+     */
+    public Builder endColumnIndex(Integer endColumnIndex) {
+      this.endColumnIndex = endColumnIndex;
+      return this;
     }
 
-    public Integer getStartRowIndex() {
-        return this.startRowIndex;
+    public ConditionalFormatRange build() {
+      return new ConditionalFormatRange(this);
     }
+  }
 
-    public void setStartRowIndex(Integer startRowIndex) {
-        this.startRowIndex = startRowIndex;
-    }
-
-    public Integer getEndRowIndex() {
-        return this.endRowIndex;
-    }
-
-    public void setEndRowIndex(Integer endRowIndex) {
-        this.endRowIndex = endRowIndex;
-    }
-
-    public Integer getStartColumnIndex() {
-        return this.startColumnIndex;
-    }
-
-    public void setStartColumnIndex(Integer startColumnIndex) {
-        this.startColumnIndex = startColumnIndex;
-    }
-
-    public Integer getEndColumnIndex() {
-        return this.endColumnIndex;
-    }
-
-    public void setEndColumnIndex(Integer endColumnIndex) {
-        this.endColumnIndex = endColumnIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 工作表ID
-         * <p> 示例值：
-         */
-        private String sheetId;
-        /**
-         * 起始行索引
-         * <p> 示例值：0
-         */
-        private Integer startRowIndex;
-        /**
-         * 结束行索引
-         * <p> 示例值：0
-         */
-        private Integer endRowIndex;
-        /**
-         * 起始列索引
-         * <p> 示例值：0
-         */
-        private Integer startColumnIndex;
-        /**
-         * 结束列索引
-         * <p> 示例值：0
-         */
-        private Integer endColumnIndex;
-
-        /**
-         * 工作表ID
-         * <p> 示例值：
-         *
-         * @param sheetId
-         * @return
-         */
-        public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
-        }
-
-
-        /**
-         * 起始行索引
-         * <p> 示例值：0
-         *
-         * @param startRowIndex
-         * @return
-         */
-        public Builder startRowIndex(Integer startRowIndex) {
-            this.startRowIndex = startRowIndex;
-            return this;
-        }
-
-
-        /**
-         * 结束行索引
-         * <p> 示例值：0
-         *
-         * @param endRowIndex
-         * @return
-         */
-        public Builder endRowIndex(Integer endRowIndex) {
-            this.endRowIndex = endRowIndex;
-            return this;
-        }
-
-
-        /**
-         * 起始列索引
-         * <p> 示例值：0
-         *
-         * @param startColumnIndex
-         * @return
-         */
-        public Builder startColumnIndex(Integer startColumnIndex) {
-            this.startColumnIndex = startColumnIndex;
-            return this;
-        }
-
-
-        /**
-         * 结束列索引
-         * <p> 示例值：0
-         *
-         * @param endColumnIndex
-         * @return
-         */
-        public Builder endColumnIndex(Integer endColumnIndex) {
-            this.endColumnIndex = endColumnIndex;
-            return this;
-        }
-
-
-        public ConditionalFormatRange build() {
-            return new ConditionalFormatRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

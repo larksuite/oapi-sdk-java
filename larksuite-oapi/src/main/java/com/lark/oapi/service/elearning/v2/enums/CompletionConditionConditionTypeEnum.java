@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 学员完成学习条件类型
- */
+/** 学员完成学习条件类型 */
 public enum CompletionConditionConditionTypeEnum {
-    ONLYSIGNIN(1), // 仅需签到
-    ONLYLIVE(2), // 仅需直播时长满足条件
-    LIVEANDPLAYBACK(3), // 直播和回放总时长满足条件
-    LIVEORPLAYBACK(4), // 直播或回放时长之一满足条件
-    ADMIN(5), // 管理员操作完成
-    ;
-    private Integer value;
+  ONLYSIGNIN(1), // 仅需签到
+  ONLYLIVE(2), // 仅需直播时长满足条件
+  LIVEANDPLAYBACK(3), // 直播和回放总时长满足条件
+  LIVEORPLAYBACK(4), // 直播或回放时长之一满足条件
+  ADMIN(5), // 管理员操作完成
+  ;
+  private Integer value;
 
-    CompletionConditionConditionTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CompletionConditionConditionTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

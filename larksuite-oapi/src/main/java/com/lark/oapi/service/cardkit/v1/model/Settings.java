@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Settings {
+  /**
+   * 卡片跳转链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("card_link")
+  private CardLink cardLink;
+
+  /**
+   * 用于配置卡片的属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("config")
+  private Config config;
+
+  public CardLink getCardLink() {
+    return this.cardLink;
+  }
+
+  public void setCardLink(CardLink cardLink) {
+    this.cardLink = cardLink;
+  }
+
+  public Config getConfig() {
+    return this.config;
+  }
+
+  public void setConfig(Config config) {
+    this.config = config;
+  }
+
+  // builder 开始
+  public Settings() {}
+
+  public Settings(Builder builder) {
     /**
      * 卡片跳转链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("card_link")
-    private CardLink cardLink;
+    this.cardLink = builder.cardLink;
     /**
      * 用于配置卡片的属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("config")
+    this.config = builder.config;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片跳转链接
+     *
+     * <p>示例值：
+     */
+    private CardLink cardLink;
+
+    /**
+     * 用于配置卡片的属性
+     *
+     * <p>示例值：
+     */
     private Config config;
 
-    // builder 开始
-    public Settings() {
+    /**
+     * 卡片跳转链接
+     *
+     * <p>示例值：
+     *
+     * @param cardLink
+     * @return
+     */
+    public Builder cardLink(CardLink cardLink) {
+      this.cardLink = cardLink;
+      return this;
     }
 
-    public Settings(Builder builder) {
-        /**
-         * 卡片跳转链接
-         * <p> 示例值：
-         */
-        this.cardLink = builder.cardLink;
-        /**
-         * 用于配置卡片的属性
-         * <p> 示例值：
-         */
-        this.config = builder.config;
+    /**
+     * 用于配置卡片的属性
+     *
+     * <p>示例值：
+     *
+     * @param config
+     * @return
+     */
+    public Builder config(Config config) {
+      this.config = config;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Settings build() {
+      return new Settings(this);
     }
+  }
 
-    public CardLink getCardLink() {
-        return this.cardLink;
-    }
-
-    public void setCardLink(CardLink cardLink) {
-        this.cardLink = cardLink;
-    }
-
-    public Config getConfig() {
-        return this.config;
-    }
-
-    public void setConfig(Config config) {
-        this.config = config;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片跳转链接
-         * <p> 示例值：
-         */
-        private CardLink cardLink;
-        /**
-         * 用于配置卡片的属性
-         * <p> 示例值：
-         */
-        private Config config;
-
-        /**
-         * 卡片跳转链接
-         * <p> 示例值：
-         *
-         * @param cardLink
-         * @return
-         */
-        public Builder cardLink(CardLink cardLink) {
-            this.cardLink = cardLink;
-            return this;
-        }
-
-
-        /**
-         * 用于配置卡片的属性
-         * <p> 示例值：
-         *
-         * @param config
-         * @return
-         */
-        public Builder config(Config config) {
-            this.config = config;
-            return this;
-        }
-
-
-        public Settings build() {
-            return new Settings(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

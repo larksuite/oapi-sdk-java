@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PageResponse {
+  /**
+   * 是否还有后续结果，如果has_more为true，代表还有数据没有完全返回，需要使用响应结果中的page_token，并再次请求才能取得剩下的数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 总记录数，只在page_type=offset 时返回
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("count")
+  private Integer count;
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  // builder 开始
+  public PageResponse() {}
+
+  public PageResponse(Builder builder) {
     /**
-     * 是否还有后续结果
-     * <p> 示例值：
+     * 是否还有后续结果，如果has_more为true，代表还有数据没有完全返回，需要使用响应结果中的page_token，并再次请求才能取得剩下的数据。
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+    this.hasMore = builder.hasMore;
     /**
      * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 总记录数，只在page_type=offset 时返回
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("count")
+    this.count = builder.count;
+  }
+
+  public static class Builder {
+    /**
+     * 是否还有后续结果，如果has_more为true，代表还有数据没有完全返回，需要使用响应结果中的page_token，并再次请求才能取得剩下的数据。
+     *
+     * <p>示例值：
+     */
+    private Boolean hasMore;
+
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     *
+     * <p>示例值：
+     */
+    private String pageToken;
+
+    /**
+     * 总记录数，只在page_type=offset 时返回
+     *
+     * <p>示例值：10
+     */
     private Integer count;
 
-    // builder 开始
-    public PageResponse() {
+    /**
+     * 是否还有后续结果，如果has_more为true，代表还有数据没有完全返回，需要使用响应结果中的page_token，并再次请求才能取得剩下的数据。
+     *
+     * <p>示例值：
+     *
+     * @param hasMore
+     * @return
+     */
+    public Builder hasMore(Boolean hasMore) {
+      this.hasMore = hasMore;
+      return this;
     }
 
-    public PageResponse(Builder builder) {
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         */
-        this.hasMore = builder.hasMore;
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 总记录数，只在page_type=offset 时返回
-         * <p> 示例值：10
-         */
-        this.count = builder.count;
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 总记录数，只在page_type=offset 时返回
+     *
+     * <p>示例值：10
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(Integer count) {
+      this.count = count;
+      return this;
     }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
+    public PageResponse build() {
+      return new PageResponse(this);
     }
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getCount() {
-        return this.count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public static class Builder {
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         */
-        private Boolean hasMore;
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         */
-        private String pageToken;
-        /**
-         * 总记录数，只在page_type=offset 时返回
-         * <p> 示例值：10
-         */
-        private Integer count;
-
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         *
-         * @param hasMore
-         * @return
-         */
-        public Builder hasMore(Boolean hasMore) {
-            this.hasMore = hasMore;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 总记录数，只在page_type=offset 时返回
-         * <p> 示例值：10
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(Integer count) {
-            this.count = count;
-            return this;
-        }
-
-
-        public PageResponse build() {
-            return new PageResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateMailgroupMemberReqBody {
+  /**
+   * 本次添加的邮件组成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private MailgroupMember[] items;
+
+  public MailgroupMember[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(MailgroupMember[] items) {
+    this.items = items;
+  }
+
+  // builder 开始
+  public BatchCreateMailgroupMemberReqBody() {}
+
+  public BatchCreateMailgroupMemberReqBody(Builder builder) {
     /**
      * 本次添加的邮件组成员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
+    this.items = builder.items;
+  }
+
+  public static class Builder {
+    /**
+     * 本次添加的邮件组成员列表
+     *
+     * <p>示例值：
+     */
     private MailgroupMember[] items;
 
-    // builder 开始
-    public BatchCreateMailgroupMemberReqBody() {
+    /**
+     * 本次添加的邮件组成员列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(MailgroupMember[] items) {
+      this.items = items;
+      return this;
     }
 
-    public BatchCreateMailgroupMemberReqBody(Builder builder) {
-        /**
-         * 本次添加的邮件组成员列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
+    public BatchCreateMailgroupMemberReqBody build() {
+      return new BatchCreateMailgroupMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public MailgroupMember[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(MailgroupMember[] items) {
-        this.items = items;
-    }
-
-    public static class Builder {
-        /**
-         * 本次添加的邮件组成员列表
-         * <p> 示例值：
-         */
-        private MailgroupMember[] items;
-
-        /**
-         * 本次添加的邮件组成员列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(MailgroupMember[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        public BatchCreateMailgroupMemberReqBody build() {
-            return new BatchCreateMailgroupMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,250 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMessageReqBody {
+  /**
+   * 消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。;;**注意事项**：;-
+   * 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。例如，你需要给企业全员发送消息，则需要将应用的可用范围设置为全体员工。;-
+   * 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。;- 如果消息接收者为用户，推荐使用用户的 `open_id`。;
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("receive_id")
+  private String receiveId;
+
+  /**
+   * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本;- image：图片;- file：文件;- audio：语音;- media：视频;-
+   * sticker：表情包;- interactive：卡片;- share_chat：分享群名片（被分享的群名片有效期为 7 天）;- share_user：分享个人名片;-
+   * system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。;;
+   * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png);;不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("msg_type")
+  private String msgType;
+
+  /**
+   * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为 `text`，则该参数需要传入文本类型的内容。;;**注意：**;-
+   * JSON 字符串需进行转义。例如，换行符 `\n` 转义后为 `\\n`。;- 文本消息请求体最大不能超过 150 KB。;- 卡片消息、富文本消息请求体最大不能超过 30 KB。; -
+   * 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。; - 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;-
+   * 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的
+   * Key 发消息。;-
+   * 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的
+   * Key
+   * 发消息。注意不能使用云文档[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)接口返回的
+   * file_token。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+   *
+   * <p>示例值：{\"text\":\"test content\"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 自定义设置的唯一字符串序列，用于在发送消息时请求去重。持有相同 uuid 的请求，在 1
+   * 小时内至多成功发送一条消息。;;**注意**：你可以参考示例值自定义参数值。当发送不同的消息内容时，如果传入了该参数，则需要在每次请求时都更换该参数的取值。
+   *
+   * <p>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  public String getReceiveId() {
+    return this.receiveId;
+  }
+
+  public void setReceiveId(String receiveId) {
+    this.receiveId = receiveId;
+  }
+
+  public String getMsgType() {
+    return this.msgType;
+  }
+
+  public void setMsgType(String msgType) {
+    this.msgType = msgType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  // builder 开始
+  public CreateMessageReqBody() {}
+
+  public CreateMessageReqBody(Builder builder) {
     /**
-     * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     * 消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。;;**注意事项**：;-
+     * 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。例如，你需要给企业全员发送消息，则需要将应用的可用范围设置为全体员工。;-
+     * 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。;- 如果消息接收者为用户，推荐使用用户的 `open_id`。;
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @SerializedName("receive_id")
+    this.receiveId = builder.receiveId;
+    /**
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本;- image：图片;- file：文件;- audio：语音;- media：视频;-
+     * sticker：表情包;- interactive：卡片;- share_chat：分享群名片（被分享的群名片有效期为 7 天）;- share_user：分享个人名片;-
+     * system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。;;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png);;不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：text
+     */
+    this.msgType = builder.msgType;
+    /**
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON 字符串需进行转义。例如，换行符 `\n` 转义后为 `\\n`。;- 文本消息请求体最大不能超过 150
+     * KB。;- 卡片消息、富文本消息请求体最大不能超过 30 KB。; - 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。; -
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;-
+     * 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的
+     * Key 发消息。;-
+     * 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的
+     * Key
+     * 发消息。注意不能使用云文档[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)接口返回的
+     * file_token。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
+     */
+    this.content = builder.content;
+    /**
+     * 自定义设置的唯一字符串序列，用于在发送消息时请求去重。持有相同 uuid 的请求，在 1
+     * 小时内至多成功发送一条消息。;;**注意**：你可以参考示例值自定义参数值。当发送不同的消息内容时，如果传入了该参数，则需要在每次请求时都更换该参数的取值。
+     *
+     * <p>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204
+     */
+    this.uuid = builder.uuid;
+  }
+
+  public static class Builder {
+    /**
+     * 消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。;;**注意事项**：;-
+     * 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。例如，你需要给企业全员发送消息，则需要将应用的可用范围设置为全体员工。;-
+     * 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。;- 如果消息接收者为用户，推荐使用用户的 `open_id`。;
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     */
     private String receiveId;
+
     /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：text
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本;- image：图片;- file：文件;- audio：语音;- media：视频;-
+     * sticker：表情包;- interactive：卡片;- share_chat：分享群名片（被分享的群名片有效期为 7 天）;- share_user：分享个人名片;-
+     * system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。;;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png);;不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：text
      */
-    @SerializedName("msg_type")
     private String msgType;
+
     /**
-     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
-     * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON 字符串需进行转义。例如，换行符 `\n` 转义后为 `\\n`。;- 文本消息请求体最大不能超过 150
+     * KB。;- 卡片消息、富文本消息请求体最大不能超过 30 KB。; - 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。; -
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;-
+     * 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的
+     * Key 发消息。;-
+     * 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的
+     * Key
+     * 发消息。注意不能使用云文档[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)接口返回的
+     * file_token。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
      */
-    @SerializedName("content")
     private String content;
+
     /**
-     * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-     * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     * 自定义设置的唯一字符串序列，用于在发送消息时请求去重。持有相同 uuid 的请求，在 1
+     * 小时内至多成功发送一条消息。;;**注意**：你可以参考示例值自定义参数值。当发送不同的消息内容时，如果传入了该参数，则需要在每次请求时都更换该参数的取值。
+     *
+     * <p>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204
      */
-    @SerializedName("uuid")
     private String uuid;
 
-    // builder 开始
-    public CreateMessageReqBody() {
+    /**
+     * 消息接收者的 ID，ID 类型与查询参数 `receive_id_type` 的取值一致。;;**注意事项**：;-
+     * 给用户发送消息时，用户需要在机器人的[可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)内。例如，你需要给企业全员发送消息，则需要将应用的可用范围设置为全体员工。;-
+     * 给群组发送消息时，机器人需要在该群组中，且在群组内拥有发言权限。;- 如果消息接收者为用户，推荐使用用户的 `open_id`。;
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param receiveId
+     * @return
+     */
+    public Builder receiveId(String receiveId) {
+      this.receiveId = receiveId;
+      return this;
     }
 
-    public CreateMessageReqBody(Builder builder) {
-        /**
-         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.receiveId = builder.receiveId;
-        /**
-         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
-         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
-         */
-        this.content = builder.content;
-        /**
-         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         */
-        this.uuid = builder.uuid;
+    /**
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本;- image：图片;- file：文件;- audio：语音;- media：视频;-
+     * sticker：表情包;- interactive：卡片;- share_chat：分享群名片（被分享的群名片有效期为 7 天）;- share_user：分享个人名片;-
+     * system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。;;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png);;不同消息类型的详细介绍，参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：text
+     *
+     * @param msgType
+     * @return
+     */
+    public Builder msgType(String msgType) {
+      this.msgType = msgType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON 字符串需进行转义。例如，换行符 `\n` 转义后为 `\\n`。;- 文本消息请求体最大不能超过 150
+     * KB。;- 卡片消息、富文本消息请求体最大不能超过 30 KB。; - 如果使用卡片模板（template_id）发送消息，实际大小也包含模板对应的卡片数据大小。; -
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;-
+     * 图片需要先[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，然后使用图片的
+     * Key 发消息。;-
+     * 音频、视频、文件需要先[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)，然后使用文件的
+     * Key
+     * 发消息。注意不能使用云文档[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)接口返回的
+     * file_token。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getReceiveId() {
-        return this.receiveId;
+    /**
+     * 自定义设置的唯一字符串序列，用于在发送消息时请求去重。持有相同 uuid 的请求，在 1
+     * 小时内至多成功发送一条消息。;;**注意**：你可以参考示例值自定义参数值。当发送不同的消息内容时，如果传入了该参数，则需要在每次请求时都更换该参数的取值。
+     *
+     * <p>示例值：选填，每次调用前请更换，如a0d69e20-1dd1-458b-k525-dfeca4015204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public void setReceiveId(String receiveId) {
-        this.receiveId = receiveId;
+    public CreateMessageReqBody build() {
+      return new CreateMessageReqBody(this);
     }
+  }
 
-    public String getMsgType() {
-        return this.msgType;
-    }
-
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public static class Builder {
-        /**
-         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        private String receiveId;
-        /**
-         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text
-         */
-        private String msgType;
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
-         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
-         */
-        private String content;
-        /**
-         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         */
-        private String uuid;
-
-        /**
-         * 消息接收者的ID，ID类型应与查询参数==receive_id_type== 对应；当ID类型为`open_id`时，可参考[如何获取 Open ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)来获取消息接收者的Open ID
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param receiveId
-         * @return
-         */
-        public Builder receiveId(String receiveId) {
-            this.receiveId = receiveId;
-            return this;
-        }
-
-
-        /**
-         * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text
-         *
-         * @param msgType
-         * @return
-         */
-        public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
-        }
-
-
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，具体格式说明参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json);;<b>请求体大小限制</b>：;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB
-         * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 由开发者生成的唯一字符串序列，用于发送消息请求去重；持有相同uuid的请求1小时内至多成功执行一次
-         * <p> 示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        public CreateMessageReqBody build() {
-            return new CreateMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

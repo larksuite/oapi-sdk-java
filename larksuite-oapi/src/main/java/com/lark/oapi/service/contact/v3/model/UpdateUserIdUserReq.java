@@ -13,142 +13,146 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class UpdateUserIdUserReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+   *
+   * <p>示例值：ou-938e3e4fdc5e1993bee01250076f0cc2
+   */
+  @Path
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  @Body private UpdateUserIdUserReqBody body;
+
+  public UpdateUserIdUserReqBody getUpdateUserIdUserReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateUserIdUserReqBody(UpdateUserIdUserReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateUserIdUserReq() {}
+
+  public UpdateUserIdUserReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 用户ID
-     * <p> 示例值：
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：ou-938e3e4fdc5e1993bee01250076f0cc2
      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
-    @Body
+    this.userId = builder.userId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String userId; // 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：ou-938e3e4fdc5e1993bee01250076f0cc2
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
+    }
+
     private UpdateUserIdUserReqBody body;
 
-    // builder 开始
-    public UpdateUserIdUserReq() {
-    }
-
-    public UpdateUserIdUserReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public UpdateUserIdUserReqBody getUpdateUserIdUserReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateUserIdUserReqBody(UpdateUserIdUserReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateUserIdUserReqBody(UpdateUserIdUserReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String userId; // 用户ID
-        private UpdateUserIdUserReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UpdateUserIdUserUpdateUserIDV3UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        public UpdateUserIdUserReqBody getUpdateUserIdUserReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateUserIdUserReqBody(UpdateUserIdUserReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateUserIdUserReq build() {
-            return new UpdateUserIdUserReq(this);
-        }
+    public UpdateUserIdUserReq build() {
+      return new UpdateUserIdUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserStatus {
+  /**
+   * 是否冻结
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_frozen")
+  private Boolean isFrozen;
+
+  /**
+   * 是否离职
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_resigned")
+  private Boolean isResigned;
+
+  /**
+   * 是否激活
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_activated")
+  private Boolean isActivated;
+
+  /**
+   * 是否主动退出，主动退出一段时间后用户会自动转为已离职
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_exited")
+  private Boolean isExited;
+
+  /**
+   * 是否未加入，需要用户自主确认才能加入团队
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_unjoin")
+  private Boolean isUnjoin;
+
+  public Boolean getIsFrozen() {
+    return this.isFrozen;
+  }
+
+  public void setIsFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+  }
+
+  public Boolean getIsResigned() {
+    return this.isResigned;
+  }
+
+  public void setIsResigned(Boolean isResigned) {
+    this.isResigned = isResigned;
+  }
+
+  public Boolean getIsActivated() {
+    return this.isActivated;
+  }
+
+  public void setIsActivated(Boolean isActivated) {
+    this.isActivated = isActivated;
+  }
+
+  public Boolean getIsExited() {
+    return this.isExited;
+  }
+
+  public void setIsExited(Boolean isExited) {
+    this.isExited = isExited;
+  }
+
+  public Boolean getIsUnjoin() {
+    return this.isUnjoin;
+  }
+
+  public void setIsUnjoin(Boolean isUnjoin) {
+    this.isUnjoin = isUnjoin;
+  }
+
+  // builder 开始
+  public UserStatus() {}
+
+  public UserStatus(Builder builder) {
     /**
      * 是否冻结
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_frozen")
-    private Boolean isFrozen;
+    this.isFrozen = builder.isFrozen;
     /**
      * 是否离职
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_resigned")
-    private Boolean isResigned;
+    this.isResigned = builder.isResigned;
     /**
      * 是否激活
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_activated")
-    private Boolean isActivated;
+    this.isActivated = builder.isActivated;
     /**
      * 是否主动退出，主动退出一段时间后用户会自动转为已离职
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_exited")
-    private Boolean isExited;
+    this.isExited = builder.isExited;
     /**
      * 是否未加入，需要用户自主确认才能加入团队
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_unjoin")
+    this.isUnjoin = builder.isUnjoin;
+  }
+
+  public static class Builder {
+    /**
+     * 是否冻结
+     *
+     * <p>示例值：false
+     */
+    private Boolean isFrozen;
+
+    /**
+     * 是否离职
+     *
+     * <p>示例值：false
+     */
+    private Boolean isResigned;
+
+    /**
+     * 是否激活
+     *
+     * <p>示例值：true
+     */
+    private Boolean isActivated;
+
+    /**
+     * 是否主动退出，主动退出一段时间后用户会自动转为已离职
+     *
+     * <p>示例值：true
+     */
+    private Boolean isExited;
+
+    /**
+     * 是否未加入，需要用户自主确认才能加入团队
+     *
+     * <p>示例值：false
+     */
     private Boolean isUnjoin;
 
-    // builder 开始
-    public UserStatus() {
+    /**
+     * 是否冻结
+     *
+     * <p>示例值：false
+     *
+     * @param isFrozen
+     * @return
+     */
+    public Builder isFrozen(Boolean isFrozen) {
+      this.isFrozen = isFrozen;
+      return this;
     }
 
-    public UserStatus(Builder builder) {
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         */
-        this.isFrozen = builder.isFrozen;
-        /**
-         * 是否离职
-         * <p> 示例值：
-         */
-        this.isResigned = builder.isResigned;
-        /**
-         * 是否激活
-         * <p> 示例值：
-         */
-        this.isActivated = builder.isActivated;
-        /**
-         * 是否主动退出，主动退出一段时间后用户会自动转为已离职
-         * <p> 示例值：
-         */
-        this.isExited = builder.isExited;
-        /**
-         * 是否未加入，需要用户自主确认才能加入团队
-         * <p> 示例值：
-         */
-        this.isUnjoin = builder.isUnjoin;
+    /**
+     * 是否离职
+     *
+     * <p>示例值：false
+     *
+     * @param isResigned
+     * @return
+     */
+    public Builder isResigned(Boolean isResigned) {
+      this.isResigned = isResigned;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否激活
+     *
+     * <p>示例值：true
+     *
+     * @param isActivated
+     * @return
+     */
+    public Builder isActivated(Boolean isActivated) {
+      this.isActivated = isActivated;
+      return this;
     }
 
-    public Boolean getIsFrozen() {
-        return this.isFrozen;
+    /**
+     * 是否主动退出，主动退出一段时间后用户会自动转为已离职
+     *
+     * <p>示例值：true
+     *
+     * @param isExited
+     * @return
+     */
+    public Builder isExited(Boolean isExited) {
+      this.isExited = isExited;
+      return this;
     }
 
-    public void setIsFrozen(Boolean isFrozen) {
-        this.isFrozen = isFrozen;
+    /**
+     * 是否未加入，需要用户自主确认才能加入团队
+     *
+     * <p>示例值：false
+     *
+     * @param isUnjoin
+     * @return
+     */
+    public Builder isUnjoin(Boolean isUnjoin) {
+      this.isUnjoin = isUnjoin;
+      return this;
     }
 
-    public Boolean getIsResigned() {
-        return this.isResigned;
+    public UserStatus build() {
+      return new UserStatus(this);
     }
+  }
 
-    public void setIsResigned(Boolean isResigned) {
-        this.isResigned = isResigned;
-    }
-
-    public Boolean getIsActivated() {
-        return this.isActivated;
-    }
-
-    public void setIsActivated(Boolean isActivated) {
-        this.isActivated = isActivated;
-    }
-
-    public Boolean getIsExited() {
-        return this.isExited;
-    }
-
-    public void setIsExited(Boolean isExited) {
-        this.isExited = isExited;
-    }
-
-    public Boolean getIsUnjoin() {
-        return this.isUnjoin;
-    }
-
-    public void setIsUnjoin(Boolean isUnjoin) {
-        this.isUnjoin = isUnjoin;
-    }
-
-    public static class Builder {
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         */
-        private Boolean isFrozen;
-        /**
-         * 是否离职
-         * <p> 示例值：
-         */
-        private Boolean isResigned;
-        /**
-         * 是否激活
-         * <p> 示例值：
-         */
-        private Boolean isActivated;
-        /**
-         * 是否主动退出，主动退出一段时间后用户会自动转为已离职
-         * <p> 示例值：
-         */
-        private Boolean isExited;
-        /**
-         * 是否未加入，需要用户自主确认才能加入团队
-         * <p> 示例值：
-         */
-        private Boolean isUnjoin;
-
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         *
-         * @param isFrozen
-         * @return
-         */
-        public Builder isFrozen(Boolean isFrozen) {
-            this.isFrozen = isFrozen;
-            return this;
-        }
-
-
-        /**
-         * 是否离职
-         * <p> 示例值：
-         *
-         * @param isResigned
-         * @return
-         */
-        public Builder isResigned(Boolean isResigned) {
-            this.isResigned = isResigned;
-            return this;
-        }
-
-
-        /**
-         * 是否激活
-         * <p> 示例值：
-         *
-         * @param isActivated
-         * @return
-         */
-        public Builder isActivated(Boolean isActivated) {
-            this.isActivated = isActivated;
-            return this;
-        }
-
-
-        /**
-         * 是否主动退出，主动退出一段时间后用户会自动转为已离职
-         * <p> 示例值：
-         *
-         * @param isExited
-         * @return
-         */
-        public Builder isExited(Boolean isExited) {
-            this.isExited = isExited;
-            return this;
-        }
-
-
-        /**
-         * 是否未加入，需要用户自主确认才能加入团队
-         * <p> 示例值：
-         *
-         * @param isUnjoin
-         * @return
-         */
-        public Builder isUnjoin(Boolean isUnjoin) {
-            this.isUnjoin = isUnjoin;
-            return this;
-        }
-
-
-        public UserStatus build() {
-            return new UserStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

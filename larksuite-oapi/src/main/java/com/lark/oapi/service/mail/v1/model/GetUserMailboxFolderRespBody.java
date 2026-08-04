@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetUserMailboxFolderRespBody {
-    /**
-     * 邮件文件夹的完整信息，包含文件夹ID、名称、归属层级、类型及未读统计数据。
-     * <p> 示例值：{"id":"fld_1234567890abcdef","name":"收件箱","parent_folder_id":"0","folder_type":1,"unread_message_count":12,"unread_thread_count":8}
-     */
-    @SerializedName("folder")
-    private Folder folder;
+  /**
+   * 邮件文件夹的完整信息，包含文件夹ID、名称、归属层级、类型及未读统计数据。
+   *
+   * <p>示例值：{"id":"fld_1234567890abcdef","name":"收件箱","parent_folder_id":"0","folder_type":1,"unread_message_count":12,"unread_thread_count":8}
+   */
+  @SerializedName("folder")
+  private Folder folder;
 
-    public Folder getFolder() {
-        return this.folder;
-    }
+  public Folder getFolder() {
+    return this.folder;
+  }
 
-    public void setFolder(Folder folder) {
-        this.folder = folder;
-    }
-
+  public void setFolder(Folder folder) {
+    this.folder = folder;
+  }
 }

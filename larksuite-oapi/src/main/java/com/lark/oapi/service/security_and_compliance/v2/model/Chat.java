@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Chat {
+  /**
+   * 会话基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_meta")
+  private ChatMeta chatMeta;
+
+  /**
+   * 会话成员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_member")
+  private ChatMember chatMember;
+
+  public ChatMeta getChatMeta() {
+    return this.chatMeta;
+  }
+
+  public void setChatMeta(ChatMeta chatMeta) {
+    this.chatMeta = chatMeta;
+  }
+
+  public ChatMember getChatMember() {
+    return this.chatMember;
+  }
+
+  public void setChatMember(ChatMember chatMember) {
+    this.chatMember = chatMember;
+  }
+
+  // builder 开始
+  public Chat() {}
+
+  public Chat(Builder builder) {
     /**
      * 会话基本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_meta")
-    private ChatMeta chatMeta;
+    this.chatMeta = builder.chatMeta;
     /**
      * 会话成员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_member")
+    this.chatMember = builder.chatMember;
+  }
+
+  public static class Builder {
+    /**
+     * 会话基本信息
+     *
+     * <p>示例值：
+     */
+    private ChatMeta chatMeta;
+
+    /**
+     * 会话成员
+     *
+     * <p>示例值：
+     */
     private ChatMember chatMember;
 
-    // builder 开始
-    public Chat() {
+    /**
+     * 会话基本信息
+     *
+     * <p>示例值：
+     *
+     * @param chatMeta
+     * @return
+     */
+    public Builder chatMeta(ChatMeta chatMeta) {
+      this.chatMeta = chatMeta;
+      return this;
     }
 
-    public Chat(Builder builder) {
-        /**
-         * 会话基本信息
-         * <p> 示例值：
-         */
-        this.chatMeta = builder.chatMeta;
-        /**
-         * 会话成员
-         * <p> 示例值：
-         */
-        this.chatMember = builder.chatMember;
+    /**
+     * 会话成员
+     *
+     * <p>示例值：
+     *
+     * @param chatMember
+     * @return
+     */
+    public Builder chatMember(ChatMember chatMember) {
+      this.chatMember = chatMember;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Chat build() {
+      return new Chat(this);
     }
+  }
 
-    public ChatMeta getChatMeta() {
-        return this.chatMeta;
-    }
-
-    public void setChatMeta(ChatMeta chatMeta) {
-        this.chatMeta = chatMeta;
-    }
-
-    public ChatMember getChatMember() {
-        return this.chatMember;
-    }
-
-    public void setChatMember(ChatMember chatMember) {
-        this.chatMember = chatMember;
-    }
-
-    public static class Builder {
-        /**
-         * 会话基本信息
-         * <p> 示例值：
-         */
-        private ChatMeta chatMeta;
-        /**
-         * 会话成员
-         * <p> 示例值：
-         */
-        private ChatMember chatMember;
-
-        /**
-         * 会话基本信息
-         * <p> 示例值：
-         *
-         * @param chatMeta
-         * @return
-         */
-        public Builder chatMeta(ChatMeta chatMeta) {
-            this.chatMeta = chatMeta;
-            return this;
-        }
-
-
-        /**
-         * 会话成员
-         * <p> 示例值：
-         *
-         * @param chatMember
-         * @return
-         */
-        public Builder chatMember(ChatMember chatMember) {
-            this.chatMember = chatMember;
-            return this;
-        }
-
-
-        public Chat build() {
-            return new Chat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

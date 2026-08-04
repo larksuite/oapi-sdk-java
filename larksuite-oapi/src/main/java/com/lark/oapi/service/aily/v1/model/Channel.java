@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Channel {
+  /**
+   * 自定义传入的变量；可在 Workflow 技能全局变量中消费
+   *
+   * <p>示例值：{"custom_key": "custom_value"}
+   */
+  @SerializedName("variables")
+  private String variables;
+
+  public String getVariables() {
+    return this.variables;
+  }
+
+  public void setVariables(String variables) {
+    this.variables = variables;
+  }
+
+  // builder 开始
+  public Channel() {}
+
+  public Channel(Builder builder) {
     /**
-     * 自定义传入的变量
-     * <p> 示例值：{"custom_key": "custom_value"}
+     * 自定义传入的变量；可在 Workflow 技能全局变量中消费
+     *
+     * <p>示例值：{"custom_key": "custom_value"}
      */
-    @SerializedName("variables")
+    this.variables = builder.variables;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义传入的变量；可在 Workflow 技能全局变量中消费
+     *
+     * <p>示例值：{"custom_key": "custom_value"}
+     */
     private String variables;
 
-    // builder 开始
-    public Channel() {
+    /**
+     * 自定义传入的变量；可在 Workflow 技能全局变量中消费
+     *
+     * <p>示例值：{"custom_key": "custom_value"}
+     *
+     * @param variables
+     * @return
+     */
+    public Builder variables(String variables) {
+      this.variables = variables;
+      return this;
     }
 
-    public Channel(Builder builder) {
-        /**
-         * 自定义传入的变量
-         * <p> 示例值：{"custom_key": "custom_value"}
-         */
-        this.variables = builder.variables;
+    public Channel build() {
+      return new Channel(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getVariables() {
-        return this.variables;
-    }
-
-    public void setVariables(String variables) {
-        this.variables = variables;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义传入的变量
-         * <p> 示例值：{"custom_key": "custom_value"}
-         */
-        private String variables;
-
-        /**
-         * 自定义传入的变量
-         * <p> 示例值：{"custom_key": "custom_value"}
-         *
-         * @param variables
-         * @return
-         */
-        public Builder variables(String variables) {
-            this.variables = variables;
-            return this;
-        }
-
-
-        public Channel build() {
-            return new Channel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

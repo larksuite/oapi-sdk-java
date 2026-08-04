@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AnnualReportMapInt {
+  /**
+   * 年份
+   *
+   * <p>示例值：2023
+   */
+  @SerializedName("year")
+  private String year;
+
+  /**
+   * 全年发出消息数
+   *
+   * <p>示例值：88
+   */
+  @SerializedName("count")
+  private String count;
+
+  public String getYear() {
+    return this.year;
+  }
+
+  public void setYear(String year) {
+    this.year = year;
+  }
+
+  public String getCount() {
+    return this.count;
+  }
+
+  public void setCount(String count) {
+    this.count = count;
+  }
+
+  // builder 开始
+  public AnnualReportMapInt() {}
+
+  public AnnualReportMapInt(Builder builder) {
     /**
      * 年份
-     * <p> 示例值：2024
+     *
+     * <p>示例值：2023
      */
-    @SerializedName("year")
-    private String year;
+    this.year = builder.year;
     /**
-     * int64类型数据
-     * <p> 示例值：88
+     * 全年发出消息数
+     *
+     * <p>示例值：88
      */
-    @SerializedName("count")
+    this.count = builder.count;
+  }
+
+  public static class Builder {
+    /**
+     * 年份
+     *
+     * <p>示例值：2023
+     */
+    private String year;
+
+    /**
+     * 全年发出消息数
+     *
+     * <p>示例值：88
+     */
     private String count;
 
-    // builder 开始
-    public AnnualReportMapInt() {
+    /**
+     * 年份
+     *
+     * <p>示例值：2023
+     *
+     * @param year
+     * @return
+     */
+    public Builder year(String year) {
+      this.year = year;
+      return this;
     }
 
-    public AnnualReportMapInt(Builder builder) {
-        /**
-         * 年份
-         * <p> 示例值：2024
-         */
-        this.year = builder.year;
-        /**
-         * int64类型数据
-         * <p> 示例值：88
-         */
-        this.count = builder.count;
+    /**
+     * 全年发出消息数
+     *
+     * <p>示例值：88
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(String count) {
+      this.count = count;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AnnualReportMapInt build() {
+      return new AnnualReportMapInt(this);
     }
+  }
 
-    public String getYear() {
-        return this.year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getCount() {
-        return this.count;
-    }
-
-    public void setCount(String count) {
-        this.count = count;
-    }
-
-    public static class Builder {
-        /**
-         * 年份
-         * <p> 示例值：2024
-         */
-        private String year;
-        /**
-         * int64类型数据
-         * <p> 示例值：88
-         */
-        private String count;
-
-        /**
-         * 年份
-         * <p> 示例值：2024
-         *
-         * @param year
-         * @return
-         */
-        public Builder year(String year) {
-            this.year = year;
-            return this;
-        }
-
-
-        /**
-         * int64类型数据
-         * <p> 示例值：88
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(String count) {
-            this.count = count;
-            return this;
-        }
-
-
-        public AnnualReportMapInt build() {
-            return new AnnualReportMapInt(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

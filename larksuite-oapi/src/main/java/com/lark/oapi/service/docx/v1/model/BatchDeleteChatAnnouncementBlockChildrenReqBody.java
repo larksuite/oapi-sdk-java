@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteChatAnnouncementBlockChildrenReqBody {
+  /**
+   * 删除的起始索引（操作区间左闭右开）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("start_index")
+  private Integer startIndex;
+
+  /**
+   * 删除的末尾索引（操作区间左闭右开）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("end_index")
+  private Integer endIndex;
+
+  public Integer getStartIndex() {
+    return this.startIndex;
+  }
+
+  public void setStartIndex(Integer startIndex) {
+    this.startIndex = startIndex;
+  }
+
+  public Integer getEndIndex() {
+    return this.endIndex;
+  }
+
+  public void setEndIndex(Integer endIndex) {
+    this.endIndex = endIndex;
+  }
+
+  // builder 开始
+  public BatchDeleteChatAnnouncementBlockChildrenReqBody() {}
+
+  public BatchDeleteChatAnnouncementBlockChildrenReqBody(Builder builder) {
     /**
      * 删除的起始索引（操作区间左闭右开）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("start_index")
-    private Integer startIndex;
+    this.startIndex = builder.startIndex;
     /**
      * 删除的末尾索引（操作区间左闭右开）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("end_index")
+    this.endIndex = builder.endIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 删除的起始索引（操作区间左闭右开）
+     *
+     * <p>示例值：0
+     */
+    private Integer startIndex;
+
+    /**
+     * 删除的末尾索引（操作区间左闭右开）
+     *
+     * <p>示例值：1
+     */
     private Integer endIndex;
 
-    // builder 开始
-    public BatchDeleteChatAnnouncementBlockChildrenReqBody() {
+    /**
+     * 删除的起始索引（操作区间左闭右开）
+     *
+     * <p>示例值：0
+     *
+     * @param startIndex
+     * @return
+     */
+    public Builder startIndex(Integer startIndex) {
+      this.startIndex = startIndex;
+      return this;
     }
 
-    public BatchDeleteChatAnnouncementBlockChildrenReqBody(Builder builder) {
-        /**
-         * 删除的起始索引（操作区间左闭右开）
-         * <p> 示例值：0
-         */
-        this.startIndex = builder.startIndex;
-        /**
-         * 删除的末尾索引（操作区间左闭右开）
-         * <p> 示例值：1
-         */
-        this.endIndex = builder.endIndex;
+    /**
+     * 删除的末尾索引（操作区间左闭右开）
+     *
+     * <p>示例值：1
+     *
+     * @param endIndex
+     * @return
+     */
+    public Builder endIndex(Integer endIndex) {
+      this.endIndex = endIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchDeleteChatAnnouncementBlockChildrenReqBody build() {
+      return new BatchDeleteChatAnnouncementBlockChildrenReqBody(this);
     }
+  }
 
-    public Integer getStartIndex() {
-        return this.startIndex;
-    }
-
-    public void setStartIndex(Integer startIndex) {
-        this.startIndex = startIndex;
-    }
-
-    public Integer getEndIndex() {
-        return this.endIndex;
-    }
-
-    public void setEndIndex(Integer endIndex) {
-        this.endIndex = endIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 删除的起始索引（操作区间左闭右开）
-         * <p> 示例值：0
-         */
-        private Integer startIndex;
-        /**
-         * 删除的末尾索引（操作区间左闭右开）
-         * <p> 示例值：1
-         */
-        private Integer endIndex;
-
-        /**
-         * 删除的起始索引（操作区间左闭右开）
-         * <p> 示例值：0
-         *
-         * @param startIndex
-         * @return
-         */
-        public Builder startIndex(Integer startIndex) {
-            this.startIndex = startIndex;
-            return this;
-        }
-
-
-        /**
-         * 删除的末尾索引（操作区间左闭右开）
-         * <p> 示例值：1
-         *
-         * @param endIndex
-         * @return
-         */
-        public Builder endIndex(Integer endIndex) {
-            this.endIndex = endIndex;
-            return this;
-        }
-
-
-        public BatchDeleteChatAnnouncementBlockChildrenReqBody build() {
-            return new BatchDeleteChatAnnouncementBlockChildrenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,210 +13,220 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilySender {
+  /**
+   * 实体 ID
+   *
+   * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+   */
+  @SerializedName("entity_id")
+  private String entityId;
+
+  /**
+   * 身份提供者
+   *
+   * <p>示例值：FEISHU
+   */
+  @SerializedName("identity_provider")
+  private String identityProvider;
+
+  /**
+   * 发送人类型
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("sender_type")
+  private String senderType;
+
+  /**
+   * 飞书智能伙伴创建平台账号体系下的 ID
+   *
+   * <p>示例值：1794840334557292
+   */
+  @SerializedName("aily_id")
+  private String ailyId;
+
+  public String getEntityId() {
+    return this.entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
+
+  public String getIdentityProvider() {
+    return this.identityProvider;
+  }
+
+  public void setIdentityProvider(String identityProvider) {
+    this.identityProvider = identityProvider;
+  }
+
+  public String getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
+  }
+
+  public String getAilyId() {
+    return this.ailyId;
+  }
+
+  public void setAilyId(String ailyId) {
+    this.ailyId = ailyId;
+  }
+
+  // builder 开始
+  public AilySender() {}
+
+  public AilySender(Builder builder) {
     /**
      * 实体 ID
-     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
      */
-    @SerializedName("entity_id")
-    private String entityId;
+    this.entityId = builder.entityId;
     /**
      * 身份提供者
-     * <p> 示例值：FEISHU
+     *
+     * <p>示例值：FEISHU
      */
-    @SerializedName("identity_provider")
-    private String identityProvider;
+    this.identityProvider = builder.identityProvider;
     /**
      * 发送人类型
-     * <p> 示例值：USER
+     *
+     * <p>示例值：USER
      */
-    @SerializedName("sender_type")
-    private String senderType;
+    this.senderType = builder.senderType;
     /**
-     * Aily 账号体系下的 ID
-     * <p> 示例值：1794840334557292
+     * 飞书智能伙伴创建平台账号体系下的 ID
+     *
+     * <p>示例值：1794840334557292
      */
-    @SerializedName("aily_id")
+    this.ailyId = builder.ailyId;
+  }
+
+  public static class Builder {
+    /**
+     * 实体 ID
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
+    private String entityId;
+
+    /**
+     * 身份提供者
+     *
+     * <p>示例值：FEISHU
+     */
+    private String identityProvider;
+
+    /**
+     * 发送人类型
+     *
+     * <p>示例值：USER
+     */
+    private String senderType;
+
+    /**
+     * 飞书智能伙伴创建平台账号体系下的 ID
+     *
+     * <p>示例值：1794840334557292
+     */
     private String ailyId;
 
-    // builder 开始
-    public AilySender() {
+    /**
+     * 实体 ID
+     *
+     * <p>示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * @param entityId
+     * @return
+     */
+    public Builder entityId(String entityId) {
+      this.entityId = entityId;
+      return this;
     }
 
-    public AilySender(Builder builder) {
-        /**
-         * 实体 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        this.entityId = builder.entityId;
-        /**
-         * 身份提供者
-         * <p> 示例值：FEISHU
-         */
-        this.identityProvider = builder.identityProvider;
-        /**
-         * 发送人类型
-         * <p> 示例值：USER
-         */
-        this.senderType = builder.senderType;
-        /**
-         * Aily 账号体系下的 ID
-         * <p> 示例值：1794840334557292
-         */
-        this.ailyId = builder.ailyId;
+    /**
+     * 身份提供者
+     *
+     * <p>示例值：FEISHU
+     *
+     * @param identityProvider
+     * @return
+     */
+    public Builder identityProvider(String identityProvider) {
+      this.identityProvider = identityProvider;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 身份提供者
+     *
+     * <p>示例值：FEISHU
+     *
+     * @param identityProvider {@link
+     *     com.lark.oapi.service.aily.v1.enums.AilySenderIdentityProviderEnum}
+     * @return
+     */
+    public Builder identityProvider(
+        com.lark.oapi.service.aily.v1.enums.AilySenderIdentityProviderEnum identityProvider) {
+      this.identityProvider = identityProvider.getValue();
+      return this;
     }
 
-    public String getEntityId() {
-        return this.entityId;
+    /**
+     * 发送人类型
+     *
+     * <p>示例值：USER
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(String senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
+    /**
+     * 发送人类型
+     *
+     * <p>示例值：USER
+     *
+     * @param senderType {@link com.lark.oapi.service.aily.v1.enums.AilySenderAilySenderTypeEnum}
+     * @return
+     */
+    public Builder senderType(
+        com.lark.oapi.service.aily.v1.enums.AilySenderAilySenderTypeEnum senderType) {
+      this.senderType = senderType.getValue();
+      return this;
     }
 
-    public String getIdentityProvider() {
-        return this.identityProvider;
+    /**
+     * 飞书智能伙伴创建平台账号体系下的 ID
+     *
+     * <p>示例值：1794840334557292
+     *
+     * @param ailyId
+     * @return
+     */
+    public Builder ailyId(String ailyId) {
+      this.ailyId = ailyId;
+      return this;
     }
 
-    public void setIdentityProvider(String identityProvider) {
-        this.identityProvider = identityProvider;
+    public AilySender build() {
+      return new AilySender(this);
     }
+  }
 
-    public String getSenderType() {
-        return this.senderType;
-    }
-
-    public void setSenderType(String senderType) {
-        this.senderType = senderType;
-    }
-
-    public String getAilyId() {
-        return this.ailyId;
-    }
-
-    public void setAilyId(String ailyId) {
-        this.ailyId = ailyId;
-    }
-
-    public static class Builder {
-        /**
-         * 实体 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         */
-        private String entityId;
-        /**
-         * 身份提供者
-         * <p> 示例值：FEISHU
-         */
-        private String identityProvider;
-        /**
-         * 发送人类型
-         * <p> 示例值：USER
-         */
-        private String senderType;
-        /**
-         * Aily 账号体系下的 ID
-         * <p> 示例值：1794840334557292
-         */
-        private String ailyId;
-
-        /**
-         * 实体 ID
-         * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
-         *
-         * @param entityId
-         * @return
-         */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
-
-
-        /**
-         * 身份提供者
-         * <p> 示例值：FEISHU
-         *
-         * @param identityProvider
-         * @return
-         */
-        public Builder identityProvider(String identityProvider) {
-            this.identityProvider = identityProvider;
-            return this;
-        }
-
-        /**
-         * 身份提供者
-         * <p> 示例值：FEISHU
-         *
-         * @param identityProvider {@link com.lark.oapi.service.aily.v1.enums.AilySenderIdentityProviderEnum}
-         * @return
-         */
-        public Builder identityProvider(com.lark.oapi.service.aily.v1.enums.AilySenderIdentityProviderEnum identityProvider) {
-            this.identityProvider = identityProvider.getValue();
-            return this;
-        }
-
-
-        /**
-         * 发送人类型
-         * <p> 示例值：USER
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(String senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-        /**
-         * 发送人类型
-         * <p> 示例值：USER
-         *
-         * @param senderType {@link com.lark.oapi.service.aily.v1.enums.AilySenderAilySenderTypeEnum}
-         * @return
-         */
-        public Builder senderType(com.lark.oapi.service.aily.v1.enums.AilySenderAilySenderTypeEnum senderType) {
-            this.senderType = senderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * Aily 账号体系下的 ID
-         * <p> 示例值：1794840334557292
-         *
-         * @param ailyId
-         * @return
-         */
-        public Builder ailyId(String ailyId) {
-            this.ailyId = ailyId;
-            return this;
-        }
-
-
-        public AilySender build() {
-            return new AilySender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

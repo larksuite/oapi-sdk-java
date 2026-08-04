@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AskAppKnowledgeReqBody {
+  /**
+   * 输入消息（message包含content参数，当前仅支持纯文本输入）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message")
+  private AilyKnowledgeMessage message;
+
+  /**
+   * 控制知识问答所依据的数据知识范围，默认值为空，此时不限制数据知识范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_asset_ids")
+  private String[] dataAssetIds;
+
+  /**
+   * 控制知识问答所依据的数据知识分类范围，默认值为空，此时不限制数据知识分类范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_asset_tag_ids")
+  private String[] dataAssetTagIds;
+
+  public AilyKnowledgeMessage getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(AilyKnowledgeMessage message) {
+    this.message = message;
+  }
+
+  public String[] getDataAssetIds() {
+    return this.dataAssetIds;
+  }
+
+  public void setDataAssetIds(String[] dataAssetIds) {
+    this.dataAssetIds = dataAssetIds;
+  }
+
+  public String[] getDataAssetTagIds() {
+    return this.dataAssetTagIds;
+  }
+
+  public void setDataAssetTagIds(String[] dataAssetTagIds) {
+    this.dataAssetTagIds = dataAssetTagIds;
+  }
+
+  // builder 开始
+  public AskAppKnowledgeReqBody() {}
+
+  public AskAppKnowledgeReqBody(Builder builder) {
     /**
-     * 输入消息（当前仅支持纯文本输入）
-     * <p> 示例值：
+     * 输入消息（message包含content参数，当前仅支持纯文本输入）
+     *
+     * <p>示例值：
      */
-    @SerializedName("message")
+    this.message = builder.message;
+    /**
+     * 控制知识问答所依据的数据知识范围，默认值为空，此时不限制数据知识范围
+     *
+     * <p>示例值：
+     */
+    this.dataAssetIds = builder.dataAssetIds;
+    /**
+     * 控制知识问答所依据的数据知识分类范围，默认值为空，此时不限制数据知识分类范围
+     *
+     * <p>示例值：
+     */
+    this.dataAssetTagIds = builder.dataAssetTagIds;
+  }
+
+  public static class Builder {
+    /**
+     * 输入消息（message包含content参数，当前仅支持纯文本输入）
+     *
+     * <p>示例值：
+     */
     private AilyKnowledgeMessage message;
+
     /**
-     * 控制知识问答所依据的数据知识范围
-     * <p> 示例值：
+     * 控制知识问答所依据的数据知识范围，默认值为空，此时不限制数据知识范围
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_asset_ids")
     private String[] dataAssetIds;
+
     /**
-     * 控制知识问答所依据的数据知识分类范围
-     * <p> 示例值：
+     * 控制知识问答所依据的数据知识分类范围，默认值为空，此时不限制数据知识分类范围
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_asset_tag_ids")
     private String[] dataAssetTagIds;
 
-    // builder 开始
-    public AskAppKnowledgeReqBody() {
+    /**
+     * 输入消息（message包含content参数，当前仅支持纯文本输入）
+     *
+     * <p>示例值：
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(AilyKnowledgeMessage message) {
+      this.message = message;
+      return this;
     }
 
-    public AskAppKnowledgeReqBody(Builder builder) {
-        /**
-         * 输入消息（当前仅支持纯文本输入）
-         * <p> 示例值：
-         */
-        this.message = builder.message;
-        /**
-         * 控制知识问答所依据的数据知识范围
-         * <p> 示例值：
-         */
-        this.dataAssetIds = builder.dataAssetIds;
-        /**
-         * 控制知识问答所依据的数据知识分类范围
-         * <p> 示例值：
-         */
-        this.dataAssetTagIds = builder.dataAssetTagIds;
+    /**
+     * 控制知识问答所依据的数据知识范围，默认值为空，此时不限制数据知识范围
+     *
+     * <p>示例值：
+     *
+     * @param dataAssetIds
+     * @return
+     */
+    public Builder dataAssetIds(String[] dataAssetIds) {
+      this.dataAssetIds = dataAssetIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 控制知识问答所依据的数据知识分类范围，默认值为空，此时不限制数据知识分类范围
+     *
+     * <p>示例值：
+     *
+     * @param dataAssetTagIds
+     * @return
+     */
+    public Builder dataAssetTagIds(String[] dataAssetTagIds) {
+      this.dataAssetTagIds = dataAssetTagIds;
+      return this;
     }
 
-    public AilyKnowledgeMessage getMessage() {
-        return this.message;
+    public AskAppKnowledgeReqBody build() {
+      return new AskAppKnowledgeReqBody(this);
     }
+  }
 
-    public void setMessage(AilyKnowledgeMessage message) {
-        this.message = message;
-    }
-
-    public String[] getDataAssetIds() {
-        return this.dataAssetIds;
-    }
-
-    public void setDataAssetIds(String[] dataAssetIds) {
-        this.dataAssetIds = dataAssetIds;
-    }
-
-    public String[] getDataAssetTagIds() {
-        return this.dataAssetTagIds;
-    }
-
-    public void setDataAssetTagIds(String[] dataAssetTagIds) {
-        this.dataAssetTagIds = dataAssetTagIds;
-    }
-
-    public static class Builder {
-        /**
-         * 输入消息（当前仅支持纯文本输入）
-         * <p> 示例值：
-         */
-        private AilyKnowledgeMessage message;
-        /**
-         * 控制知识问答所依据的数据知识范围
-         * <p> 示例值：
-         */
-        private String[] dataAssetIds;
-        /**
-         * 控制知识问答所依据的数据知识分类范围
-         * <p> 示例值：
-         */
-        private String[] dataAssetTagIds;
-
-        /**
-         * 输入消息（当前仅支持纯文本输入）
-         * <p> 示例值：
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(AilyKnowledgeMessage message) {
-            this.message = message;
-            return this;
-        }
-
-
-        /**
-         * 控制知识问答所依据的数据知识范围
-         * <p> 示例值：
-         *
-         * @param dataAssetIds
-         * @return
-         */
-        public Builder dataAssetIds(String[] dataAssetIds) {
-            this.dataAssetIds = dataAssetIds;
-            return this;
-        }
-
-
-        /**
-         * 控制知识问答所依据的数据知识分类范围
-         * <p> 示例值：
-         *
-         * @param dataAssetTagIds
-         * @return
-         */
-        public Builder dataAssetTagIds(String[] dataAssetTagIds) {
-            this.dataAssetTagIds = dataAssetTagIds;
-            return this;
-        }
-
-
-        public AskAppKnowledgeReqBody build() {
-            return new AskAppKnowledgeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

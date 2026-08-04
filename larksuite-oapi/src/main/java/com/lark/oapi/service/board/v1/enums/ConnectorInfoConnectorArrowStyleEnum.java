@@ -13,33 +13,31 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 连线端点箭头样式
- */
+/** 连线端点箭头样式 */
 public enum ConnectorInfoConnectorArrowStyleEnum {
-    NONE("none"), // 无箭头样式
-    LINEARROW("line_arrow"), // 线型箭头
-    TRIANGLEARROW("triangle_arrow"), // 三角形箭头
-    EMPTYTRIANGLEARROW("empty_triangle_arrow"), // 空心三角形箭头
-    CIRCLEARROW("circle_arrow"), // 圆形箭头
-    EMPTYCIRCLEARROW("empty_circle_arrow"), // 空心圆形箭头
-    DIAMONDARROW("diamond_arrow"), // 菱形箭头
-    EMPTYDIAMONDARROW("empty_diamond_arrow"), // 空心菱形箭头
-    SINGLEARROW("single_arrow"), // 单箭头
-    MULTIARROW("multi_arrow"), // 多箭头
-    EXACTSINGLEARROW("exact_single_arrow"), // 精确单箭头
-    ZEROORMULTIARROW("zero_or_multi_arrow"), // 零个或多个箭头
-    ZEROORSINGLEARROW("zero_or_single_arrow"), // 零个或单个箭头
-    SINGLEORMULTIARROW("single_or_multi_arrow"), // 单个或多个箭头
-    XARROW("x_arrow"), // x型箭头
-    ;
-    private String value;
+  NONE("none"), // 无箭头样式
+  LINEARROW("line_arrow"), // 线型箭头
+  TRIANGLEARROW("triangle_arrow"), // 三角形箭头
+  EMPTYTRIANGLEARROW("empty_triangle_arrow"), // 空心三角形箭头
+  CIRCLEARROW("circle_arrow"), // 圆形箭头
+  EMPTYCIRCLEARROW("empty_circle_arrow"), // 空心圆形箭头
+  DIAMONDARROW("diamond_arrow"), // 菱形箭头
+  EMPTYDIAMONDARROW("empty_diamond_arrow"), // 空心菱形箭头
+  SINGLEARROW("single_arrow"), // 单箭头
+  MULTIARROW("multi_arrow"), // 多箭头
+  EXACTSINGLEARROW("exact_single_arrow"), // 精确单箭头
+  ZEROORMULTIARROW("zero_or_multi_arrow"), // 零个或多个箭头
+  ZEROORSINGLEARROW("zero_or_single_arrow"), // 零个或单个箭头
+  SINGLEORMULTIARROW("single_or_multi_arrow"), // 单个或多个箭头
+  XARROW("x_arrow"), // x型箭头
+  ;
+  private String value;
 
-    ConnectorInfoConnectorArrowStyleEnum(String value) {
-        this.value = value;
-    }
+  ConnectorInfoConnectorArrowStyleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

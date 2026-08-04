@@ -13,20 +13,21 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 群组排序方式
- */
+/** 群组排序方式 */
 public enum ListChatListChatSortTypeEnum {
-    BYCREATETIMEASC("ByCreateTimeAsc"), // 按群组创建时间升序排列
-    BYACTIVETIMEDESC("ByActiveTimeDesc"), // 按群组活跃时间降序排列
-    ;
-    private String value;
+  BYCREATETIMEASC("ByCreateTimeAsc"), // 按群组创建时间升序排列
+  BYACTIVETIMEDESC(
+      "ByActiveTimeDesc"), // 按群组活跃时间降序排列。因群组活跃时间变动频繁，使用 `ByActiveTimeDesc` 排序方式可能会造成群组遗漏。例如，设置分页大小为
+// 10，发起第一次请求获取到第一页数据后，原本排在第 11 位的群组中有群成员发送了一条消息，那么该群组将被排列到第 1
+// 位，此时发起请求获取第二页数据时，该群组将不能被获取到，需要再从第一页开始获取。
+;
+  private String value;
 
-    ListChatListChatSortTypeEnum(String value) {
-        this.value = value;
-    }
+  ListChatListChatSortTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

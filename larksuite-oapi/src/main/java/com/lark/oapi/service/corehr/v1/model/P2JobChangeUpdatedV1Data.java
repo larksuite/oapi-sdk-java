@@ -13,160 +13,168 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobChangeUpdatedV1Data {
-    /**
-     * 雇员ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
-    /**
-     * 异动记录 id
-     * <p> 示例值：7044427347159746085
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
-    /**
-     * 异动属性/方式
-     * <p> 示例值：1
-     */
-    @SerializedName("transfer_mode")
-    private Integer transferMode;
-    /**
-     * 异动类型唯一标识
-     * <p> 示例值：internal_transfer
-     */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因唯一标识
-     * <p> 示例值：internal_transfer
-     */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
-    /**
-     * 异动发起后的审批流程 id，如果是直接异动，则无需要审批流程id
-     * <p> 示例值：7090409013925398060
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 异动生效日期
-     * <p> 示例值：2022-04-03
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 异动状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 异动记录标识符
-     * <p> 示例值：transfer_3627531
-     */
-    @SerializedName("transfer_key")
-    private String transferKey;
+  /**
+   * 雇员ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 用户
+   * ID，飞书相关ID，;可通过[【通讯录接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 异动记录
+   * id，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+   *
+   * <p>示例值：7044427347159746085
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  /**
+   * 异动属性/方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("transfer_mode")
+  private Integer transferMode;
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  /**
+   * 异动类型唯一标识，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  /**
+   * 异动原因唯一标识，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  /**
+   * 异动发起后的审批流程 id，如果是直接异动，则无需要审批流程id
+   *
+   * <p>示例值：7090409013925398060
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public Integer getTransferMode() {
-        return this.transferMode;
-    }
+  /**
+   * 异动生效日期，格式："YYYY-MM-DD";- 示例：2022-04-03
+   *
+   * <p>示例值：2022-04-03
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public void setTransferMode(Integer transferMode) {
-        this.transferMode = transferMode;
-    }
+  /**
+   * 异动状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
+  /**
+   * 异动记录标识符
+   *
+   * <p>示例值：transfer_3627531
+   */
+  @SerializedName("transfer_key")
+  private String transferKey;
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  public Integer getTransferMode() {
+    return this.transferMode;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setTransferMode(Integer transferMode) {
+    this.transferMode = transferMode;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
 
-    public String getTransferKey() {
-        return this.transferKey;
-    }
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
 
-    public void setTransferKey(String transferKey) {
-        this.transferKey = transferKey;
-    }
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
 
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getTransferKey() {
+    return this.transferKey;
+  }
+
+  public void setTransferKey(String transferKey) {
+    this.transferKey = transferKey;
+  }
 }

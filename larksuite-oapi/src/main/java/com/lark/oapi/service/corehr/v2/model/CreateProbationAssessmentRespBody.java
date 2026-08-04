@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateProbationAssessmentRespBody {
-    /**
-     * 创建的试用期考核记录 ID 列表，有序返回
-     * <p> 示例值：
-     */
-    @SerializedName("assessment_ids")
-    private String[] assessmentIds;
+  /**
+   * 创建的试用期考核记录 ID 列表，有序返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assessment_ids")
+  private String[] assessmentIds;
 
-    public String[] getAssessmentIds() {
-        return this.assessmentIds;
-    }
+  public String[] getAssessmentIds() {
+    return this.assessmentIds;
+  }
 
-    public void setAssessmentIds(String[] assessmentIds) {
-        this.assessmentIds = assessmentIds;
-    }
-
+  public void setAssessmentIds(String[] assessmentIds) {
+    this.assessmentIds = assessmentIds;
+  }
 }

@@ -13,667 +13,737 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserEntity {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 匿名身份，雇员身份，设备身份，应用身份等
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_type")
+  private String userType;
+
+  /**
+   * 是否激活
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_active")
+  private Boolean isActive;
+
+  /**
+   * 是否冻结
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_frozen")
+  private Boolean isFrozen;
+
+  /**
+   * 是否可用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_provisioned")
+  private Boolean isProvisioned;
+
+  /**
+   * 是否暂停
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_pending")
+  private Boolean isPending;
+
+  /**
+   * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
+   *
+   * <p>示例值：1231231
+   */
+  @SerializedName("biz_id")
+  private String bizId;
+
+  /**
+   * 上次登录时间
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("last_login_time")
+  private String lastLoginTime;
+
+  /**
+   * 作为shadow存在时，对应的home user id
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("home_user_id")
+  private String homeUserId;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 登陆凭证
+   *
+   * <p>示例值：
+   */
+  @SerializedName("credentials")
+  private Credential[] credentials;
+
+  /**
+   * 个人名片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("profile_card")
+  private ProfileCard profileCard;
+
+  /**
+   * 员工实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee")
+  private EmployeeEntity employee;
+
+  /**
+   * 应用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app")
+  private App app;
+
+  /**
+   * 访客
+   *
+   * <p>示例值：
+   */
+  @SerializedName("guest")
+  private Guest guest;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(String userType) {
+    this.userType = userType;
+  }
+
+  public Boolean getIsActive() {
+    return this.isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  public Boolean getIsFrozen() {
+    return this.isFrozen;
+  }
+
+  public void setIsFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+  }
+
+  public Boolean getIsProvisioned() {
+    return this.isProvisioned;
+  }
+
+  public void setIsProvisioned(Boolean isProvisioned) {
+    this.isProvisioned = isProvisioned;
+  }
+
+  public Boolean getIsPending() {
+    return this.isPending;
+  }
+
+  public void setIsPending(Boolean isPending) {
+    this.isPending = isPending;
+  }
+
+  public String getBizId() {
+    return this.bizId;
+  }
+
+  public void setBizId(String bizId) {
+    this.bizId = bizId;
+  }
+
+  public String getLastLoginTime() {
+    return this.lastLoginTime;
+  }
+
+  public void setLastLoginTime(String lastLoginTime) {
+    this.lastLoginTime = lastLoginTime;
+  }
+
+  public String getHomeUserId() {
+    return this.homeUserId;
+  }
+
+  public void setHomeUserId(String homeUserId) {
+    this.homeUserId = homeUserId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Credential[] getCredentials() {
+    return this.credentials;
+  }
+
+  public void setCredentials(Credential[] credentials) {
+    this.credentials = credentials;
+  }
+
+  public ProfileCard getProfileCard() {
+    return this.profileCard;
+  }
+
+  public void setProfileCard(ProfileCard profileCard) {
+    this.profileCard = profileCard;
+  }
+
+  public EmployeeEntity getEmployee() {
+    return this.employee;
+  }
+
+  public void setEmployee(EmployeeEntity employee) {
+    this.employee = employee;
+  }
+
+  public App getApp() {
+    return this.app;
+  }
+
+  public void setApp(App app) {
+    this.app = app;
+  }
+
+  public Guest getGuest() {
+    return this.guest;
+  }
+
+  public void setGuest(Guest guest) {
+    this.guest = guest;
+  }
+
+  // builder 开始
+  public UserEntity() {}
+
+  public UserEntity(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 匿名身份，雇员身份，设备身份，应用身份等
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_type")
-    private String userType;
+    this.userType = builder.userType;
     /**
      * 是否激活
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_active")
-    private Boolean isActive;
+    this.isActive = builder.isActive;
     /**
      * 是否冻结
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_frozen")
-    private Boolean isFrozen;
+    this.isFrozen = builder.isFrozen;
     /**
      * 是否可用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_provisioned")
-    private Boolean isProvisioned;
+    this.isProvisioned = builder.isProvisioned;
     /**
      * 是否暂停
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_pending")
-    private Boolean isPending;
+    this.isPending = builder.isPending;
     /**
      * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
-     * <p> 示例值：1231231
+     *
+     * <p>示例值：1231231
      */
-    @SerializedName("biz_id")
-    private String bizId;
+    this.bizId = builder.bizId;
     /**
      * 上次登录时间
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("last_login_time")
-    private String lastLoginTime;
+    this.lastLoginTime = builder.lastLoginTime;
     /**
      * 作为shadow存在时，对应的home user id
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("home_user_id")
-    private String homeUserId;
+    this.homeUserId = builder.homeUserId;
     /**
      * 创建时间
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 登陆凭证
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("credentials")
-    private Credential[] credentials;
+    this.credentials = builder.credentials;
     /**
      * 个人名片
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("profile_card")
-    private ProfileCard profileCard;
+    this.profileCard = builder.profileCard;
     /**
      * 员工实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee")
-    private EmployeeEntity employee;
+    this.employee = builder.employee;
     /**
      * 应用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("app")
-    private App app;
+    this.app = builder.app;
     /**
      * 访客
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("guest")
+    this.guest = builder.guest;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：123123
+     */
+    private String id;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：123123
+     */
+    private String tenantId;
+
+    /**
+     * 匿名身份，雇员身份，设备身份，应用身份等
+     *
+     * <p>示例值：
+     */
+    private String userType;
+
+    /**
+     * 是否激活
+     *
+     * <p>示例值：
+     */
+    private Boolean isActive;
+
+    /**
+     * 是否冻结
+     *
+     * <p>示例值：
+     */
+    private Boolean isFrozen;
+
+    /**
+     * 是否可用
+     *
+     * <p>示例值：
+     */
+    private Boolean isProvisioned;
+
+    /**
+     * 是否暂停
+     *
+     * <p>示例值：
+     */
+    private Boolean isPending;
+
+    /**
+     * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
+     *
+     * <p>示例值：1231231
+     */
+    private String bizId;
+
+    /**
+     * 上次登录时间
+     *
+     * <p>示例值：123123
+     */
+    private String lastLoginTime;
+
+    /**
+     * 作为shadow存在时，对应的home user id
+     *
+     * <p>示例值：123123
+     */
+    private String homeUserId;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：123123
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：123123
+     */
+    private String updateTime;
+
+    /**
+     * 登陆凭证
+     *
+     * <p>示例值：
+     */
+    private Credential[] credentials;
+
+    /**
+     * 个人名片
+     *
+     * <p>示例值：
+     */
+    private ProfileCard profileCard;
+
+    /**
+     * 员工实体
+     *
+     * <p>示例值：
+     */
+    private EmployeeEntity employee;
+
+    /**
+     * 应用
+     *
+     * <p>示例值：
+     */
+    private App app;
+
+    /**
+     * 访客
+     *
+     * <p>示例值：
+     */
     private Guest guest;
 
-    // builder 开始
-    public UserEntity() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserEntity(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：123123
-         */
-        this.id = builder.id;
-        /**
-         * 租户ID
-         * <p> 示例值：123123
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 匿名身份，雇员身份，设备身份，应用身份等
-         * <p> 示例值：
-         */
-        this.userType = builder.userType;
-        /**
-         * 是否激活
-         * <p> 示例值：
-         */
-        this.isActive = builder.isActive;
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         */
-        this.isFrozen = builder.isFrozen;
-        /**
-         * 是否可用
-         * <p> 示例值：
-         */
-        this.isProvisioned = builder.isProvisioned;
-        /**
-         * 是否暂停
-         * <p> 示例值：
-         */
-        this.isPending = builder.isPending;
-        /**
-         * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
-         * <p> 示例值：1231231
-         */
-        this.bizId = builder.bizId;
-        /**
-         * 上次登录时间
-         * <p> 示例值：123123
-         */
-        this.lastLoginTime = builder.lastLoginTime;
-        /**
-         * 作为shadow存在时，对应的home user id
-         * <p> 示例值：123123
-         */
-        this.homeUserId = builder.homeUserId;
-        /**
-         * 创建时间
-         * <p> 示例值：123123
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：123123
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 登陆凭证
-         * <p> 示例值：
-         */
-        this.credentials = builder.credentials;
-        /**
-         * 个人名片
-         * <p> 示例值：
-         */
-        this.profileCard = builder.profileCard;
-        /**
-         * 员工实体
-         * <p> 示例值：
-         */
-        this.employee = builder.employee;
-        /**
-         * 应用
-         * <p> 示例值：
-         */
-        this.app = builder.app;
-        /**
-         * 访客
-         * <p> 示例值：
-         */
-        this.guest = builder.guest;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：123123
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 匿名身份，雇员身份，设备身份，应用身份等
+     *
+     * <p>示例值：
+     *
+     * @param userType
+     * @return
+     */
+    public Builder userType(String userType) {
+      this.userType = userType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否激活
+     *
+     * <p>示例值：
+     *
+     * @param isActive
+     * @return
+     */
+    public Builder isActive(Boolean isActive) {
+      this.isActive = isActive;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否冻结
+     *
+     * <p>示例值：
+     *
+     * @param isFrozen
+     * @return
+     */
+    public Builder isFrozen(Boolean isFrozen) {
+      this.isFrozen = isFrozen;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 是否可用
+     *
+     * <p>示例值：
+     *
+     * @param isProvisioned
+     * @return
+     */
+    public Builder isProvisioned(Boolean isProvisioned) {
+      this.isProvisioned = isProvisioned;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 是否暂停
+     *
+     * <p>示例值：
+     *
+     * @param isPending
+     * @return
+     */
+    public Builder isPending(Boolean isPending) {
+      this.isPending = isPending;
+      return this;
     }
 
-    public String getUserType() {
-        return this.userType;
+    /**
+     * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
+     *
+     * <p>示例值：1231231
+     *
+     * @param bizId
+     * @return
+     */
+    public Builder bizId(String bizId) {
+      this.bizId = bizId;
+      return this;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    /**
+     * 上次登录时间
+     *
+     * <p>示例值：123123
+     *
+     * @param lastLoginTime
+     * @return
+     */
+    public Builder lastLoginTime(String lastLoginTime) {
+      this.lastLoginTime = lastLoginTime;
+      return this;
     }
 
-    public Boolean getIsActive() {
-        return this.isActive;
+    /**
+     * 作为shadow存在时，对应的home user id
+     *
+     * <p>示例值：123123
+     *
+     * @param homeUserId
+     * @return
+     */
+    public Builder homeUserId(String homeUserId) {
+      this.homeUserId = homeUserId;
+      return this;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：123123
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public Boolean getIsFrozen() {
-        return this.isFrozen;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：123123
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setIsFrozen(Boolean isFrozen) {
-        this.isFrozen = isFrozen;
+    /**
+     * 登陆凭证
+     *
+     * <p>示例值：
+     *
+     * @param credentials
+     * @return
+     */
+    public Builder credentials(Credential[] credentials) {
+      this.credentials = credentials;
+      return this;
     }
 
-    public Boolean getIsProvisioned() {
-        return this.isProvisioned;
+    /**
+     * 个人名片
+     *
+     * <p>示例值：
+     *
+     * @param profileCard
+     * @return
+     */
+    public Builder profileCard(ProfileCard profileCard) {
+      this.profileCard = profileCard;
+      return this;
     }
 
-    public void setIsProvisioned(Boolean isProvisioned) {
-        this.isProvisioned = isProvisioned;
+    /**
+     * 员工实体
+     *
+     * <p>示例值：
+     *
+     * @param employee
+     * @return
+     */
+    public Builder employee(EmployeeEntity employee) {
+      this.employee = employee;
+      return this;
     }
 
-    public Boolean getIsPending() {
-        return this.isPending;
+    /**
+     * 应用
+     *
+     * <p>示例值：
+     *
+     * @param app
+     * @return
+     */
+    public Builder app(App app) {
+      this.app = app;
+      return this;
     }
 
-    public void setIsPending(Boolean isPending) {
-        this.isPending = isPending;
+    /**
+     * 访客
+     *
+     * <p>示例值：
+     *
+     * @param guest
+     * @return
+     */
+    public Builder guest(Guest guest) {
+      this.guest = guest;
+      return this;
     }
 
-    public String getBizId() {
-        return this.bizId;
+    public UserEntity build() {
+      return new UserEntity(this);
     }
+  }
 
-    public void setBizId(String bizId) {
-        this.bizId = bizId;
-    }
-
-    public String getLastLoginTime() {
-        return this.lastLoginTime;
-    }
-
-    public void setLastLoginTime(String lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
-    }
-
-    public String getHomeUserId() {
-        return this.homeUserId;
-    }
-
-    public void setHomeUserId(String homeUserId) {
-        this.homeUserId = homeUserId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Credential[] getCredentials() {
-        return this.credentials;
-    }
-
-    public void setCredentials(Credential[] credentials) {
-        this.credentials = credentials;
-    }
-
-    public ProfileCard getProfileCard() {
-        return this.profileCard;
-    }
-
-    public void setProfileCard(ProfileCard profileCard) {
-        this.profileCard = profileCard;
-    }
-
-    public EmployeeEntity getEmployee() {
-        return this.employee;
-    }
-
-    public void setEmployee(EmployeeEntity employee) {
-        this.employee = employee;
-    }
-
-    public App getApp() {
-        return this.app;
-    }
-
-    public void setApp(App app) {
-        this.app = app;
-    }
-
-    public Guest getGuest() {
-        return this.guest;
-    }
-
-    public void setGuest(Guest guest) {
-        this.guest = guest;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：123123
-         */
-        private String id;
-        /**
-         * 租户ID
-         * <p> 示例值：123123
-         */
-        private String tenantId;
-        /**
-         * 匿名身份，雇员身份，设备身份，应用身份等
-         * <p> 示例值：
-         */
-        private String userType;
-        /**
-         * 是否激活
-         * <p> 示例值：
-         */
-        private Boolean isActive;
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         */
-        private Boolean isFrozen;
-        /**
-         * 是否可用
-         * <p> 示例值：
-         */
-        private Boolean isProvisioned;
-        /**
-         * 是否暂停
-         * <p> 示例值：
-         */
-        private Boolean isPending;
-        /**
-         * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
-         * <p> 示例值：1231231
-         */
-        private String bizId;
-        /**
-         * 上次登录时间
-         * <p> 示例值：123123
-         */
-        private String lastLoginTime;
-        /**
-         * 作为shadow存在时，对应的home user id
-         * <p> 示例值：123123
-         */
-        private String homeUserId;
-        /**
-         * 创建时间
-         * <p> 示例值：123123
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：123123
-         */
-        private String updateTime;
-        /**
-         * 登陆凭证
-         * <p> 示例值：
-         */
-        private Credential[] credentials;
-        /**
-         * 个人名片
-         * <p> 示例值：
-         */
-        private ProfileCard profileCard;
-        /**
-         * 员工实体
-         * <p> 示例值：
-         */
-        private EmployeeEntity employee;
-        /**
-         * 应用
-         * <p> 示例值：
-         */
-        private App app;
-        /**
-         * 访客
-         * <p> 示例值：
-         */
-        private Guest guest;
-
-        /**
-         * 用户ID
-         * <p> 示例值：123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：123123
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 匿名身份，雇员身份，设备身份，应用身份等
-         * <p> 示例值：
-         *
-         * @param userType
-         * @return
-         */
-        public Builder userType(String userType) {
-            this.userType = userType;
-            return this;
-        }
-
-
-        /**
-         * 是否激活
-         * <p> 示例值：
-         *
-         * @param isActive
-         * @return
-         */
-        public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
-        }
-
-
-        /**
-         * 是否冻结
-         * <p> 示例值：
-         *
-         * @param isFrozen
-         * @return
-         */
-        public Builder isFrozen(Boolean isFrozen) {
-            this.isFrozen = isFrozen;
-            return this;
-        }
-
-
-        /**
-         * 是否可用
-         * <p> 示例值：
-         *
-         * @param isProvisioned
-         * @return
-         */
-        public Builder isProvisioned(Boolean isProvisioned) {
-            this.isProvisioned = isProvisioned;
-            return this;
-        }
-
-
-        /**
-         * 是否暂停
-         * <p> 示例值：
-         *
-         * @param isPending
-         * @return
-         */
-        public Builder isPending(Boolean isPending) {
-            this.isPending = isPending;
-            return this;
-        }
-
-
-        /**
-         * 关联的 id, 例如应用身份的 AppID, 硬件身份的EquipmentID
-         * <p> 示例值：1231231
-         *
-         * @param bizId
-         * @return
-         */
-        public Builder bizId(String bizId) {
-            this.bizId = bizId;
-            return this;
-        }
-
-
-        /**
-         * 上次登录时间
-         * <p> 示例值：123123
-         *
-         * @param lastLoginTime
-         * @return
-         */
-        public Builder lastLoginTime(String lastLoginTime) {
-            this.lastLoginTime = lastLoginTime;
-            return this;
-        }
-
-
-        /**
-         * 作为shadow存在时，对应的home user id
-         * <p> 示例值：123123
-         *
-         * @param homeUserId
-         * @return
-         */
-        public Builder homeUserId(String homeUserId) {
-            this.homeUserId = homeUserId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：123123
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：123123
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 登陆凭证
-         * <p> 示例值：
-         *
-         * @param credentials
-         * @return
-         */
-        public Builder credentials(Credential[] credentials) {
-            this.credentials = credentials;
-            return this;
-        }
-
-
-        /**
-         * 个人名片
-         * <p> 示例值：
-         *
-         * @param profileCard
-         * @return
-         */
-        public Builder profileCard(ProfileCard profileCard) {
-            this.profileCard = profileCard;
-            return this;
-        }
-
-
-        /**
-         * 员工实体
-         * <p> 示例值：
-         *
-         * @param employee
-         * @return
-         */
-        public Builder employee(EmployeeEntity employee) {
-            this.employee = employee;
-            return this;
-        }
-
-
-        /**
-         * 应用
-         * <p> 示例值：
-         *
-         * @param app
-         * @return
-         */
-        public Builder app(App app) {
-            this.app = app;
-            return this;
-        }
-
-
-        /**
-         * 访客
-         * <p> 示例值：
-         *
-         * @param guest
-         * @return
-         */
-        public Builder guest(Guest guest) {
-            this.guest = guest;
-            return this;
-        }
-
-
-        public UserEntity build() {
-            return new UserEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

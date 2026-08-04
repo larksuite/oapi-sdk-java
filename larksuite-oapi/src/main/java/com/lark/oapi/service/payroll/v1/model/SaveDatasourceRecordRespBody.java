@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SaveDatasourceRecordRespBody {
-    /**
-     * 更新的记录条数
-     * <p> 示例值：1
-     */
-    @SerializedName("affect_counts")
-    private String affectCounts;
+  /**
+   * 变更的记录条数，变更包含新建或者更新记录两种操作。（该字段为数字类型）
+   *
+   * <p>示例值：120
+   */
+  @SerializedName("affect_counts")
+  private String affectCounts;
 
-    public String getAffectCounts() {
-        return this.affectCounts;
-    }
+  public String getAffectCounts() {
+    return this.affectCounts;
+  }
 
-    public void setAffectCounts(String affectCounts) {
-        this.affectCounts = affectCounts;
-    }
-
+  public void setAffectCounts(String affectCounts) {
+    this.affectCounts = affectCounts;
+  }
 }

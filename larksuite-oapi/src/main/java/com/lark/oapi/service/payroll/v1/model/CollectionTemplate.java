@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionTemplate {
+  /**
+   * 填报模板ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 算薪周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_name")
+  private I18n templateName;
+
+  /**
+   * 填报模板版本ID（主键ID）
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 填报项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private CollectionItem[] items;
+
+  /**
+   * 国家地区多值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_regions")
+  private CountryRegion[] countryRegions;
+
+  /**
+   * 启停用状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_active")
+  private Boolean isActive;
+
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 模板创建时间，毫秒时间戳
+   *
+   * <p>示例值：1723797063000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 模板更新时间，毫秒时间戳
+   *
+   * <p>示例值：1723797063000
+   */
+  @SerializedName("modified_time")
+  private String modifiedTime;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public I18n getTemplateName() {
+    return this.templateName;
+  }
+
+  public void setTemplateName(I18n templateName) {
+    this.templateName = templateName;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public CollectionItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(CollectionItem[] items) {
+    this.items = items;
+  }
+
+  public CountryRegion[] getCountryRegions() {
+    return this.countryRegions;
+  }
+
+  public void setCountryRegions(CountryRegion[] countryRegions) {
+    this.countryRegions = countryRegions;
+  }
+
+  public Boolean getIsActive() {
+    return this.isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getModifiedTime() {
+    return this.modifiedTime;
+  }
+
+  public void setModifiedTime(String modifiedTime) {
+    this.modifiedTime = modifiedTime;
+  }
+
+  // builder 开始
+  public CollectionTemplate() {}
+
+  public CollectionTemplate(Builder builder) {
     /**
      * 填报模板ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
-     * 填报模板名称
-     * <p> 示例值：
+     * 算薪周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_name")
-    private I18n templateName;
+    this.templateName = builder.templateName;
     /**
      * 填报模板版本ID（主键ID）
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 填报项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
-    private CollectionItem[] items;
+    this.items = builder.items;
     /**
      * 国家地区多值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_regions")
-    private CountryRegion[] countryRegions;
+    this.countryRegions = builder.countryRegions;
     /**
      * 启停用状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_active")
-    private Boolean isActive;
+    this.isActive = builder.isActive;
     /**
      * 生效日期
-     * <p> 示例值：2022-01-01
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 模板创建时间，毫秒时间戳
-     * <p> 示例值：1723797063000
+     *
+     * <p>示例值：1723797063000
      */
-    @SerializedName("created_time")
-    private String createdTime;
+    this.createdTime = builder.createdTime;
     /**
      * 模板更新时间，毫秒时间戳
-     * <p> 示例值：1723797063000
+     *
+     * <p>示例值：1723797063000
      */
-    @SerializedName("modified_time")
+    this.modifiedTime = builder.modifiedTime;
+  }
+
+  public static class Builder {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateId;
+
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n templateName;
+
+    /**
+     * 填报模板版本ID（主键ID）
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String versionId;
+
+    /**
+     * 填报项列表
+     *
+     * <p>示例值：
+     */
+    private CollectionItem[] items;
+
+    /**
+     * 国家地区多值列表
+     *
+     * <p>示例值：
+     */
+    private CountryRegion[] countryRegions;
+
+    /**
+     * 启停用状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean isActive;
+
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 模板创建时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     */
+    private String createdTime;
+
+    /**
+     * 模板更新时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     */
     private String modifiedTime;
 
-    // builder 开始
-    public CollectionTemplate() {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public CollectionTemplate(Builder builder) {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 国家地区多值列表
-         * <p> 示例值：
-         */
-        this.countryRegions = builder.countryRegions;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
-        this.isActive = builder.isActive;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 模板创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 模板更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.modifiedTime = builder.modifiedTime;
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     *
+     * @param templateName
+     * @return
+     */
+    public Builder templateName(I18n templateName) {
+      this.templateName = templateName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 填报模板版本ID（主键ID）
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 填报项列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(CollectionItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 国家地区多值列表
+     *
+     * <p>示例值：
+     *
+     * @param countryRegions
+     * @return
+     */
+    public Builder countryRegions(CountryRegion[] countryRegions) {
+      this.countryRegions = countryRegions;
+      return this;
     }
 
-    public I18n getTemplateName() {
-        return this.templateName;
+    /**
+     * 启停用状态
+     *
+     * <p>示例值：true
+     *
+     * @param isActive
+     * @return
+     */
+    public Builder isActive(Boolean isActive) {
+      this.isActive = isActive;
+      return this;
     }
 
-    public void setTemplateName(I18n templateName) {
-        this.templateName = templateName;
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 模板创建时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    /**
+     * 模板更新时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     *
+     * @param modifiedTime
+     * @return
+     */
+    public Builder modifiedTime(String modifiedTime) {
+      this.modifiedTime = modifiedTime;
+      return this;
     }
 
-    public CollectionItem[] getItems() {
-        return this.items;
+    public CollectionTemplate build() {
+      return new CollectionTemplate(this);
     }
+  }
 
-    public void setItems(CollectionItem[] items) {
-        this.items = items;
-    }
-
-    public CountryRegion[] getCountryRegions() {
-        return this.countryRegions;
-    }
-
-    public void setCountryRegions(CountryRegion[] countryRegions) {
-        this.countryRegions = countryRegions;
-    }
-
-    public Boolean getIsActive() {
-        return this.isActive;
-    }
-
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getModifiedTime() {
-        return this.modifiedTime;
-    }
-
-    public void setModifiedTime(String modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public static class Builder {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        private I18n templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        private String versionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        private CollectionItem[] items;
-        /**
-         * 国家地区多值列表
-         * <p> 示例值：
-         */
-        private CountryRegion[] countryRegions;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
-        private Boolean isActive;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 模板创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        private String createdTime;
-        /**
-         * 模板更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        private String modifiedTime;
-
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         *
-         * @param templateName
-         * @return
-         */
-        public Builder templateName(I18n templateName) {
-            this.templateName = templateName;
-            return this;
-        }
-
-
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(CollectionItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        /**
-         * 国家地区多值列表
-         * <p> 示例值：
-         *
-         * @param countryRegions
-         * @return
-         */
-        public Builder countryRegions(CountryRegion[] countryRegions) {
-            this.countryRegions = countryRegions;
-            return this;
-        }
-
-
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         *
-         * @param isActive
-         * @return
-         */
-        public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2022-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 模板创建时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 模板更新时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         *
-         * @param modifiedTime
-         * @return
-         */
-        public Builder modifiedTime(String modifiedTime) {
-            this.modifiedTime = modifiedTime;
-            return this;
-        }
-
-
-        public CollectionTemplate build() {
-            return new CollectionTemplate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 用户ID类型
- */
+/** 用户ID类型 */
 public enum GetFileVersionUserIdTypeEnum {
-    OPEN_ID("open_id"), // 用户open_id
-    UNION_ID("union_id"), // 用户union_id
-    USER_ID("user_id"), // 用户user_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 用户open_id
+  UNION_ID("union_id"), // 用户union_id
+  USER_ID("user_id"), // 用户user_id
+  ;
+  private String value;
 
-    GetFileVersionUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  GetFileVersionUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

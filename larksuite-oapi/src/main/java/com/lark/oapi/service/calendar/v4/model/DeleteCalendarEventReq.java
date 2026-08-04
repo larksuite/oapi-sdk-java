@@ -13,150 +13,172 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class DeleteCalendarEventReq {
+  /**
+   * 删除日程是否给日程参与人发送 Bot 通知。;;**默认值**：true
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("need_notification")
+  private String needNotification;
+
+  public String getNeedNotification() {
+    return this.needNotification;
+  }
+
+  public void setNeedNotification(String needNotification) {
+    this.needNotification = needNotification;
+  }
+
+  /**
+   * 日程所在的日历 ID。了解更多，参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。获取方式：;;-
+   * [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)会返回日程
+   * ID;-
+   * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+   * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+   *
+   * <p>示例值：xxxxxxxxx_0
+   */
+  @Path
+  @SerializedName("event_id")
+  private String eventId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  // builder 开始
+  public DeleteCalendarEventReq() {}
+
+  public DeleteCalendarEventReq(Builder builder) {
     /**
-     * 删除日程是否给日程参与人发送bot通知，默认为true
-     * <p> 示例值：
+     * 删除日程是否给日程参与人发送 Bot 通知。;;**默认值**：true
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("need_notification")
-    private String needNotification;
+    this.needNotification = builder.needNotification;
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 日程所在的日历 ID。了解更多，参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-     * <p> 示例值：xxxxxxxxx_0
+     * 日程 ID。获取方式：;;-
+     * [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)会返回日程
+     * ID;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
      */
-    @Path
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
+  }
 
-    // builder 开始
-    public DeleteCalendarEventReq() {
+  public static class Builder {
+    private String needNotification; // 删除日程是否给日程参与人发送 Bot 通知。;;**默认值**：true
+
+    /**
+     * 删除日程是否给日程参与人发送 Bot 通知。;;**默认值**：true
+     *
+     * <p>示例值：false
+     *
+     * @param needNotification
+     * @return
+     */
+    public Builder needNotification(String needNotification) {
+      this.needNotification = needNotification;
+      return this;
     }
 
-    public DeleteCalendarEventReq(Builder builder) {
-        /**
-         * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：
-         */
-        this.needNotification = builder.needNotification;
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         */
-        this.eventId = builder.eventId;
+    /**
+     * 删除日程是否给日程参与人发送 Bot 通知。;;**默认值**：true
+     *
+     * <p>示例值：false
+     *
+     * @param needNotification {@link
+     *     com.lark.oapi.service.calendar.v4.enums.DeleteCalendarEventNeedNotificationEnum}
+     * @return
+     */
+    public Builder needNotification(
+        com.lark.oapi.service.calendar.v4.enums.DeleteCalendarEventNeedNotificationEnum
+            needNotification) {
+      this.needNotification = needNotification.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String calendarId; // 日程所在的日历 ID。了解更多，参见[日历 ID
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+    private String eventId; // 日程 ID。获取方式：;;-
+
+    // [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)会返回日程 ID;- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+
+    /**
+     * 日程所在的日历 ID。了解更多，参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public String getNeedNotification() {
-        return this.needNotification;
+    /**
+     * 日程 ID。获取方式：;;-
+     * [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)会返回日程
+     * ID;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public void setNeedNotification(String needNotification) {
-        this.needNotification = needNotification;
+    public DeleteCalendarEventReq build() {
+      return new DeleteCalendarEventReq(this);
     }
+  }
 
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public static class Builder {
-        private String needNotification; // 删除日程是否给日程参与人发送bot通知，默认为true
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-        private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-
-        /**
-         * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：
-         *
-         * @param needNotification
-         * @return
-         */
-        public Builder needNotification(String needNotification) {
-            this.needNotification = needNotification;
-            return this;
-        }
-
-        /**
-         * 删除日程是否给日程参与人发送bot通知，默认为true
-         * <p> 示例值：
-         *
-         * @param needNotification {@link com.lark.oapi.service.calendar.v4.enums.DeleteCalendarEventNeedNotificationEnum}
-         * @return
-         */
-        public Builder needNotification(com.lark.oapi.service.calendar.v4.enums.DeleteCalendarEventNeedNotificationEnum needNotification) {
-            this.needNotification = needNotification.getValue();
-            return this;
-        }
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        public DeleteCalendarEventReq build() {
-            return new DeleteCalendarEventReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

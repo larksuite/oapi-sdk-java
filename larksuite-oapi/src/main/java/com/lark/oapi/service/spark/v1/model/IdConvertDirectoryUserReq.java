@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class IdConvertDirectoryUserReq {
-    @Body
+  @Body private IdConvertDirectoryUserReqBody body;
+
+  public IdConvertDirectoryUserReqBody getIdConvertDirectoryUserReqBody() {
+    return this.body;
+  }
+
+  public void setIdConvertDirectoryUserReqBody(IdConvertDirectoryUserReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public IdConvertDirectoryUserReq() {}
+
+  public IdConvertDirectoryUserReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private IdConvertDirectoryUserReqBody body;
 
-    // builder 开始
-    public IdConvertDirectoryUserReq() {
-    }
-
-    public IdConvertDirectoryUserReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public IdConvertDirectoryUserReqBody getIdConvertDirectoryUserReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setIdConvertDirectoryUserReqBody(IdConvertDirectoryUserReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder idConvertDirectoryUserReqBody(IdConvertDirectoryUserReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private IdConvertDirectoryUserReqBody body;
-
-        public IdConvertDirectoryUserReqBody getIdConvertDirectoryUserReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder idConvertDirectoryUserReqBody(IdConvertDirectoryUserReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public IdConvertDirectoryUserReq build() {
-            return new IdConvertDirectoryUserReq(this);
-        }
+    public IdConvertDirectoryUserReq build() {
+      return new IdConvertDirectoryUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

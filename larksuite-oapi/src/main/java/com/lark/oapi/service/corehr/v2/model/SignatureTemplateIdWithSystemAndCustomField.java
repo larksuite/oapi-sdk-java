@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateIdWithSystemAndCustomField {
+  /**
+   * 电子签模板ID，可以通过[【获取电子签模板信息列表】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template_info_with_thumbnail/list)获取配置好的模板
+   *
+   * <p>示例值：7278880340130022956
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 该电子签模板对应的系统字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("system_field_info")
+  private SignatureFileSystemField systemFieldInfo;
+
+  /**
+   * 模板对应的自定义字段列表V1版本，不支持多语类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private SignatureCustomFieldV1[] customFields;
+
+  /**
+   * 电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields_v2")
+  private SignatureCustomFieldV2[] customFieldsV2;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SignatureFileSystemField getSystemFieldInfo() {
+    return this.systemFieldInfo;
+  }
+
+  public void setSystemFieldInfo(SignatureFileSystemField systemFieldInfo) {
+    this.systemFieldInfo = systemFieldInfo;
+  }
+
+  public SignatureCustomFieldV1[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(SignatureCustomFieldV1[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public SignatureCustomFieldV2[] getCustomFieldsV2() {
+    return this.customFieldsV2;
+  }
+
+  public void setCustomFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
+    this.customFieldsV2 = customFieldsV2;
+  }
+
+  // builder 开始
+  public SignatureTemplateIdWithSystemAndCustomField() {}
+
+  public SignatureTemplateIdWithSystemAndCustomField(Builder builder) {
     /**
-     * 电子签模板id
-     * <p> 示例值：1231241
+     * 电子签模板ID，可以通过[【获取电子签模板信息列表】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template_info_with_thumbnail/list)获取配置好的模板
+     *
+     * <p>示例值：7278880340130022956
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 该电子签模板对应的系统字段列表
+     *
+     * <p>示例值：
+     */
+    this.systemFieldInfo = builder.systemFieldInfo;
+    /**
+     * 模板对应的自定义字段列表V1版本，不支持多语类型
+     *
+     * <p>示例值：
+     */
+    this.customFields = builder.customFields;
+    /**
+     * 电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
+     *
+     * <p>示例值：
+     */
+    this.customFieldsV2 = builder.customFieldsV2;
+  }
+
+  public static class Builder {
+    /**
+     * 电子签模板ID，可以通过[【获取电子签模板信息列表】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template_info_with_thumbnail/list)获取配置好的模板
+     *
+     * <p>示例值：7278880340130022956
+     */
     private String id;
+
     /**
-     * 该电子签模板对应的系统字段
-     * <p> 示例值：
+     * 该电子签模板对应的系统字段列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("system_field_info")
     private SignatureFileSystemField systemFieldInfo;
+
     /**
-     * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
-     * <p> 示例值：
+     * 模板对应的自定义字段列表V1版本，不支持多语类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
     private SignatureCustomFieldV1[] customFields;
+
     /**
-     * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
-     * <p> 示例值：
+     * 电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields_v2")
     private SignatureCustomFieldV2[] customFieldsV2;
 
-    // builder 开始
-    public SignatureTemplateIdWithSystemAndCustomField() {
+    /**
+     * 电子签模板ID，可以通过[【获取电子签模板信息列表】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template_info_with_thumbnail/list)获取配置好的模板
+     *
+     * <p>示例值：7278880340130022956
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SignatureTemplateIdWithSystemAndCustomField(Builder builder) {
-        /**
-         * 电子签模板id
-         * <p> 示例值：1231241
-         */
-        this.id = builder.id;
-        /**
-         * 该电子签模板对应的系统字段
-         * <p> 示例值：
-         */
-        this.systemFieldInfo = builder.systemFieldInfo;
-        /**
-         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
-         * <p> 示例值：
-         */
-        this.customFieldsV2 = builder.customFieldsV2;
+    /**
+     * 该电子签模板对应的系统字段列表
+     *
+     * <p>示例值：
+     *
+     * @param systemFieldInfo
+     * @return
+     */
+    public Builder systemFieldInfo(SignatureFileSystemField systemFieldInfo) {
+      this.systemFieldInfo = systemFieldInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模板对应的自定义字段列表V1版本，不支持多语类型
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(SignatureCustomFieldV1[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
+     *
+     * <p>示例值：
+     *
+     * @param customFieldsV2
+     * @return
+     */
+    public Builder customFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
+      this.customFieldsV2 = customFieldsV2;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public SignatureTemplateIdWithSystemAndCustomField build() {
+      return new SignatureTemplateIdWithSystemAndCustomField(this);
     }
+  }
 
-    public SignatureFileSystemField getSystemFieldInfo() {
-        return this.systemFieldInfo;
-    }
-
-    public void setSystemFieldInfo(SignatureFileSystemField systemFieldInfo) {
-        this.systemFieldInfo = systemFieldInfo;
-    }
-
-    public SignatureCustomFieldV1[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(SignatureCustomFieldV1[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public SignatureCustomFieldV2[] getCustomFieldsV2() {
-        return this.customFieldsV2;
-    }
-
-    public void setCustomFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
-        this.customFieldsV2 = customFieldsV2;
-    }
-
-    public static class Builder {
-        /**
-         * 电子签模板id
-         * <p> 示例值：1231241
-         */
-        private String id;
-        /**
-         * 该电子签模板对应的系统字段
-         * <p> 示例值：
-         */
-        private SignatureFileSystemField systemFieldInfo;
-        /**
-         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
-         * <p> 示例值：
-         */
-        private SignatureCustomFieldV1[] customFields;
-        /**
-         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
-         * <p> 示例值：
-         */
-        private SignatureCustomFieldV2[] customFieldsV2;
-
-        /**
-         * 电子签模板id
-         * <p> 示例值：1231241
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 该电子签模板对应的系统字段
-         * <p> 示例值：
-         *
-         * @param systemFieldInfo
-         * @return
-         */
-        public Builder systemFieldInfo(SignatureFileSystemField systemFieldInfo) {
-            this.systemFieldInfo = systemFieldInfo;
-            return this;
-        }
-
-
-        /**
-         * 该电子签模板对应的自定义字段列表 v1版本, 不支持多语类型
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(SignatureCustomFieldV1[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 该电子签模板对应的自定义字段列表 v2 版本, 支持多语类型
-         * <p> 示例值：
-         *
-         * @param customFieldsV2
-         * @return
-         */
-        public Builder customFieldsV2(SignatureCustomFieldV2[] customFieldsV2) {
-            this.customFieldsV2 = customFieldsV2;
-            return this;
-        }
-
-
-        public SignatureTemplateIdWithSystemAndCustomField build() {
-            return new SignatureTemplateIdWithSystemAndCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

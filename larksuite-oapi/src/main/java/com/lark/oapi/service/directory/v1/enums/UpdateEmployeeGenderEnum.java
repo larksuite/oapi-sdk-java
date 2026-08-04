@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 性别
- */
+/** 性别 */
 public enum UpdateEmployeeGenderEnum {
-    GENDER_DIRECTORY_UNKNOWN(0), // 未知
-    GENDER_DIRECTORY_MAN(1), // 男
-    GENDER_DIRECTORY_WOMAN(2), // 女
-    GENDER_DIRECTORY_OTHER(3), // 其他
-    ;
-    private Integer value;
+  GENDER_DIRECTORY_UNKNOWN(0), // 未知
+  GENDER_DIRECTORY_MAN(1), // 男
+  GENDER_DIRECTORY_WOMAN(2), // 女
+  GENDER_DIRECTORY_OTHER(3), // 其他
+  ;
+  private Integer value;
 
-    UpdateEmployeeGenderEnum(Integer value) {
-        this.value = value;
-    }
+  UpdateEmployeeGenderEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

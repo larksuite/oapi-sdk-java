@@ -13,481 +13,526 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalApplication {
+  /**
+   * 外部投递 ID
+   *
+   * <p>示例值：6989202908470446380
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 外部系统投递主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一 `external_id` 24小时内仅可创建一次
+   *
+   * <p>示例值：729557715718
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 职位招聘类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("job_recruitment_type")
+  private Integer jobRecruitmentType;
+
+  /**
+   * 职位名称
+   *
+   * <p>示例值：高级 Java
+   */
+  @SerializedName("job_title")
+  private String jobTitle;
+
+  /**
+   * 简历来源
+   *
+   * <p>示例值：内推
+   */
+  @SerializedName("resume_source")
+  private String resumeSource;
+
+  /**
+   * 阶段名称
+   *
+   * <p>示例值：简历初筛
+   */
+  @SerializedName("stage")
+  private String stage;
+
+  /**
+   * 人才 ID
+   *
+   * <p>示例值：6960663240925956459
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 终止原因
+   *
+   * <p>示例值：不合适
+   */
+  @SerializedName("termination_reason")
+  private String terminationReason;
+
+  /**
+   * 投递类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("delivery_type")
+  private Integer deliveryType;
+
+  /**
+   * 投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618500278645
+   */
+  @SerializedName("modify_time")
+  private Long modifyTime;
+
+  /**
+   * 投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618500278644
+   */
+  @SerializedName("create_time")
+  private Long createTime;
+
+  /**
+   * 终止类型
+   *
+   * <p>示例值：HR 主动终止
+   */
+  @SerializedName("termination_type")
+  private String terminationType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public Integer getJobRecruitmentType() {
+    return this.jobRecruitmentType;
+  }
+
+  public void setJobRecruitmentType(Integer jobRecruitmentType) {
+    this.jobRecruitmentType = jobRecruitmentType;
+  }
+
+  public String getJobTitle() {
+    return this.jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public String getResumeSource() {
+    return this.resumeSource;
+  }
+
+  public void setResumeSource(String resumeSource) {
+    this.resumeSource = resumeSource;
+  }
+
+  public String getStage() {
+    return this.stage;
+  }
+
+  public void setStage(String stage) {
+    this.stage = stage;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getTerminationReason() {
+    return this.terminationReason;
+  }
+
+  public void setTerminationReason(String terminationReason) {
+    this.terminationReason = terminationReason;
+  }
+
+  public Integer getDeliveryType() {
+    return this.deliveryType;
+  }
+
+  public void setDeliveryType(Integer deliveryType) {
+    this.deliveryType = deliveryType;
+  }
+
+  public Long getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(Long modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public Long getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Long createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getTerminationType() {
+    return this.terminationType;
+  }
+
+  public void setTerminationType(String terminationType) {
+    this.terminationType = terminationType;
+  }
+
+  // builder 开始
+  public ExternalApplication() {}
+
+  public ExternalApplication(Builder builder) {
     /**
      * 外部投递 ID
-     * <p> 示例值：6989202908470446380
+     *
+     * <p>示例值：6989202908470446380
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 外部系统投递主键 （仅用于幂等）
-     * <p> 示例值：123
+     * 外部系统投递主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一 `external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：729557715718
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 职位招聘类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("job_recruitment_type")
-    private Integer jobRecruitmentType;
+    this.jobRecruitmentType = builder.jobRecruitmentType;
     /**
      * 职位名称
-     * <p> 示例值：高级Java
+     *
+     * <p>示例值：高级 Java
      */
-    @SerializedName("job_title")
-    private String jobTitle;
+    this.jobTitle = builder.jobTitle;
     /**
      * 简历来源
-     * <p> 示例值：lagou
+     *
+     * <p>示例值：内推
      */
-    @SerializedName("resume_source")
-    private String resumeSource;
+    this.resumeSource = builder.resumeSource;
     /**
-     * 阶段
-     * <p> 示例值：1
+     * 阶段名称
+     *
+     * <p>示例值：简历初筛
      */
-    @SerializedName("stage")
-    private String stage;
+    this.stage = builder.stage;
     /**
      * 人才 ID
-     * <p> 示例值：6960663240925956459
+     *
+     * <p>示例值：6960663240925956459
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 终止原因
-     * <p> 示例值：不合适
+     *
+     * <p>示例值：不合适
      */
-    @SerializedName("termination_reason")
-    private String terminationReason;
+    this.terminationReason = builder.terminationReason;
     /**
      * 投递类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("delivery_type")
-    private Integer deliveryType;
+    this.deliveryType = builder.deliveryType;
     /**
-     * 更新时间
-     * <p> 示例值：1618500278645
+     * 投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278645
      */
-    @SerializedName("modify_time")
-    private Long modifyTime;
+    this.modifyTime = builder.modifyTime;
     /**
-     * 投递在外部系统创建时间
-     * <p> 示例值：1618500278644
+     * 投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278644
      */
-    @SerializedName("create_time")
-    private Long createTime;
+    this.createTime = builder.createTime;
     /**
      * 终止类型
-     * <p> 示例值：health
+     *
+     * <p>示例值：HR 主动终止
      */
-    @SerializedName("termination_type")
+    this.terminationType = builder.terminationType;
+  }
+
+  public static class Builder {
+    /**
+     * 外部投递 ID
+     *
+     * <p>示例值：6989202908470446380
+     */
+    private String id;
+
+    /**
+     * 外部系统投递主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一 `external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：729557715718
+     */
+    private String externalId;
+
+    /**
+     * 职位招聘类型
+     *
+     * <p>示例值：1
+     */
+    private Integer jobRecruitmentType;
+
+    /**
+     * 职位名称
+     *
+     * <p>示例值：高级 Java
+     */
+    private String jobTitle;
+
+    /**
+     * 简历来源
+     *
+     * <p>示例值：内推
+     */
+    private String resumeSource;
+
+    /**
+     * 阶段名称
+     *
+     * <p>示例值：简历初筛
+     */
+    private String stage;
+
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：6960663240925956459
+     */
+    private String talentId;
+
+    /**
+     * 终止原因
+     *
+     * <p>示例值：不合适
+     */
+    private String terminationReason;
+
+    /**
+     * 投递类型
+     *
+     * <p>示例值：1
+     */
+    private Integer deliveryType;
+
+    /**
+     * 投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278645
+     */
+    private Long modifyTime;
+
+    /**
+     * 投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278644
+     */
+    private Long createTime;
+
+    /**
+     * 终止类型
+     *
+     * <p>示例值：HR 主动终止
+     */
     private String terminationType;
 
-    // builder 开始
-    public ExternalApplication() {
+    /**
+     * 外部投递 ID
+     *
+     * <p>示例值：6989202908470446380
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ExternalApplication(Builder builder) {
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6989202908470446380
-         */
-        this.id = builder.id;
-        /**
-         * 外部系统投递主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 职位招聘类型
-         * <p> 示例值：1
-         */
-        this.jobRecruitmentType = builder.jobRecruitmentType;
-        /**
-         * 职位名称
-         * <p> 示例值：高级Java
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 简历来源
-         * <p> 示例值：lagou
-         */
-        this.resumeSource = builder.resumeSource;
-        /**
-         * 阶段
-         * <p> 示例值：1
-         */
-        this.stage = builder.stage;
-        /**
-         * 人才 ID
-         * <p> 示例值：6960663240925956459
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 终止原因
-         * <p> 示例值：不合适
-         */
-        this.terminationReason = builder.terminationReason;
-        /**
-         * 投递类型
-         * <p> 示例值：1
-         */
-        this.deliveryType = builder.deliveryType;
-        /**
-         * 更新时间
-         * <p> 示例值：1618500278645
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 投递在外部系统创建时间
-         * <p> 示例值：1618500278644
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 终止类型
-         * <p> 示例值：health
-         */
-        this.terminationType = builder.terminationType;
+    /**
+     * 外部系统投递主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一 `external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：729557715718
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职位招聘类型
+     *
+     * <p>示例值：1
+     *
+     * @param jobRecruitmentType
+     * @return
+     */
+    public Builder jobRecruitmentType(Integer jobRecruitmentType) {
+      this.jobRecruitmentType = jobRecruitmentType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 职位名称
+     *
+     * <p>示例值：高级 Java
+     *
+     * @param jobTitle
+     * @return
+     */
+    public Builder jobTitle(String jobTitle) {
+      this.jobTitle = jobTitle;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 简历来源
+     *
+     * <p>示例值：内推
+     *
+     * @param resumeSource
+     * @return
+     */
+    public Builder resumeSource(String resumeSource) {
+      this.resumeSource = resumeSource;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 阶段名称
+     *
+     * <p>示例值：简历初筛
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(String stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：6960663240925956459
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public Integer getJobRecruitmentType() {
-        return this.jobRecruitmentType;
+    /**
+     * 终止原因
+     *
+     * <p>示例值：不合适
+     *
+     * @param terminationReason
+     * @return
+     */
+    public Builder terminationReason(String terminationReason) {
+      this.terminationReason = terminationReason;
+      return this;
     }
 
-    public void setJobRecruitmentType(Integer jobRecruitmentType) {
-        this.jobRecruitmentType = jobRecruitmentType;
+    /**
+     * 投递类型
+     *
+     * <p>示例值：1
+     *
+     * @param deliveryType
+     * @return
+     */
+    public Builder deliveryType(Integer deliveryType) {
+      this.deliveryType = deliveryType;
+      return this;
     }
 
-    public String getJobTitle() {
-        return this.jobTitle;
+    /**
+     * 投递在外部系统终止时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278645
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(Long modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    /**
+     * 投递在外部系统创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618500278644
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Long createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getResumeSource() {
-        return this.resumeSource;
+    /**
+     * 终止类型
+     *
+     * <p>示例值：HR 主动终止
+     *
+     * @param terminationType
+     * @return
+     */
+    public Builder terminationType(String terminationType) {
+      this.terminationType = terminationType;
+      return this;
     }
 
-    public void setResumeSource(String resumeSource) {
-        this.resumeSource = resumeSource;
+    public ExternalApplication build() {
+      return new ExternalApplication(this);
     }
+  }
 
-    public String getStage() {
-        return this.stage;
-    }
-
-    public void setStage(String stage) {
-        this.stage = stage;
-    }
-
-    public String getTalentId() {
-        return this.talentId;
-    }
-
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public String getTerminationReason() {
-        return this.terminationReason;
-    }
-
-    public void setTerminationReason(String terminationReason) {
-        this.terminationReason = terminationReason;
-    }
-
-    public Integer getDeliveryType() {
-        return this.deliveryType;
-    }
-
-    public void setDeliveryType(Integer deliveryType) {
-        this.deliveryType = deliveryType;
-    }
-
-    public Long getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(Long modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Long getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getTerminationType() {
-        return this.terminationType;
-    }
-
-    public void setTerminationType(String terminationType) {
-        this.terminationType = terminationType;
-    }
-
-    public static class Builder {
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6989202908470446380
-         */
-        private String id;
-        /**
-         * 外部系统投递主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        private String externalId;
-        /**
-         * 职位招聘类型
-         * <p> 示例值：1
-         */
-        private Integer jobRecruitmentType;
-        /**
-         * 职位名称
-         * <p> 示例值：高级Java
-         */
-        private String jobTitle;
-        /**
-         * 简历来源
-         * <p> 示例值：lagou
-         */
-        private String resumeSource;
-        /**
-         * 阶段
-         * <p> 示例值：1
-         */
-        private String stage;
-        /**
-         * 人才 ID
-         * <p> 示例值：6960663240925956459
-         */
-        private String talentId;
-        /**
-         * 终止原因
-         * <p> 示例值：不合适
-         */
-        private String terminationReason;
-        /**
-         * 投递类型
-         * <p> 示例值：1
-         */
-        private Integer deliveryType;
-        /**
-         * 更新时间
-         * <p> 示例值：1618500278645
-         */
-        private Long modifyTime;
-        /**
-         * 投递在外部系统创建时间
-         * <p> 示例值：1618500278644
-         */
-        private Long createTime;
-        /**
-         * 终止类型
-         * <p> 示例值：health
-         */
-        private String terminationType;
-
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6989202908470446380
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 外部系统投递主键 （仅用于幂等）
-         * <p> 示例值：123
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 职位招聘类型
-         * <p> 示例值：1
-         *
-         * @param jobRecruitmentType
-         * @return
-         */
-        public Builder jobRecruitmentType(Integer jobRecruitmentType) {
-            this.jobRecruitmentType = jobRecruitmentType;
-            return this;
-        }
-
-
-        /**
-         * 职位名称
-         * <p> 示例值：高级Java
-         *
-         * @param jobTitle
-         * @return
-         */
-        public Builder jobTitle(String jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
-        }
-
-
-        /**
-         * 简历来源
-         * <p> 示例值：lagou
-         *
-         * @param resumeSource
-         * @return
-         */
-        public Builder resumeSource(String resumeSource) {
-            this.resumeSource = resumeSource;
-            return this;
-        }
-
-
-        /**
-         * 阶段
-         * <p> 示例值：1
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(String stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 人才 ID
-         * <p> 示例值：6960663240925956459
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 终止原因
-         * <p> 示例值：不合适
-         *
-         * @param terminationReason
-         * @return
-         */
-        public Builder terminationReason(String terminationReason) {
-            this.terminationReason = terminationReason;
-            return this;
-        }
-
-
-        /**
-         * 投递类型
-         * <p> 示例值：1
-         *
-         * @param deliveryType
-         * @return
-         */
-        public Builder deliveryType(Integer deliveryType) {
-            this.deliveryType = deliveryType;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1618500278645
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(Long modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 投递在外部系统创建时间
-         * <p> 示例值：1618500278644
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Long createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 终止类型
-         * <p> 示例值：health
-         *
-         * @param terminationType
-         * @return
-         */
-        public Builder terminationType(String terminationType) {
-            this.terminationType = terminationType;
-            return this;
-        }
-
-
-        public ExternalApplication build() {
-            return new ExternalApplication(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

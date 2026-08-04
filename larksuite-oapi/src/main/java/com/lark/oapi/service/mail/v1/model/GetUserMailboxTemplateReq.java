@@ -13,106 +13,101 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetUserMailboxTemplateReq {
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：user@example.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
+   *
+   * <p>示例值：7281187859195772947
+   */
+  @Path
+  @SerializedName("template_id")
+  private String templateId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  // builder 开始
+  public GetUserMailboxTemplateReq() {}
+
+  public GetUserMailboxTemplateReq(Builder builder) {
     /**
      * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
-     * <p> 示例值：user@example.com
+     *
+     * <p>示例值：user@example.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
-     * <p> 示例值：7281187859195772947
+     *
+     * <p>示例值：7281187859195772947
      */
-    @Path
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
+  }
 
-    // builder 开始
-    public GetUserMailboxTemplateReq() {
+  public static class Builder {
+
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+    private String templateId; // 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@example.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public GetUserMailboxTemplateReq(Builder builder) {
-        /**
-         * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
-         * <p> 示例值：user@example.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
-         * <p> 示例值：7281187859195772947
-         */
-        this.templateId = builder.templateId;
+    /**
+     * 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
+     *
+     * <p>示例值：7281187859195772947
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetUserMailboxTemplateReq build() {
+      return new GetUserMailboxTemplateReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getTemplateId() {
-        return this.templateId;
-    }
-
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
-        private String templateId; // 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
-
-        /**
-         * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
-         * <p> 示例值：user@example.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。
-         * <p> 示例值：7281187859195772947
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        public GetUserMailboxTemplateReq build() {
-            return new GetUserMailboxTemplateReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

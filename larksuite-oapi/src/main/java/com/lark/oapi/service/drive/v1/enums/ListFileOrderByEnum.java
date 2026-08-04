@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 排序规则
- */
+/** 定义清单中文件的排序方式 */
 public enum ListFileOrderByEnum {
-    EDITEDTIME("EditedTime"), // 编辑时间排序
-    CREATEDTIME("CreatedTime"), // 创建时间排序
-    ;
-    private String value;
+  EDITEDTIME("EditedTime"), // 按编辑时间排序
+  CREATEDTIME("CreatedTime"), // 按创建时间排序
+  ;
+  private String value;
 
-    ListFileOrderByEnum(String value) {
-        this.value = value;
-    }
+  ListFileOrderByEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

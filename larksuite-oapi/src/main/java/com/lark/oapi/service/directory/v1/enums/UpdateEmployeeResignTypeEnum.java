@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 离职类型
- */
+/** 离职类型 */
 public enum UpdateEmployeeResignTypeEnum {
-    RESIGN_TYPE_DIRECTORY_EMPTY("0"), // 置空
-    RESIGN_TYPE_DIRECTORY_ACITVE("1"), // 主动
-    RESIGN_TYPE_DIRECTORY_PASSIVE("2"), // 被动
-    RESIGN_TYPE_DIRECTORYY_OTHER("3"), // 其他
-    ;
-    private String value;
+  RESIGN_TYPE_DIRECTORY_EMPTY("0"), // 置空
+  RESIGN_TYPE_DIRECTORY_ACITVE("1"), // 主动
+  RESIGN_TYPE_DIRECTORY_PASSIVE("2"), // 被动
+  RESIGN_TYPE_DIRECTORYY_OTHER("3"), // 其他
+  ;
+  private String value;
 
-    UpdateEmployeeResignTypeEnum(String value) {
-        this.value = value;
-    }
+  UpdateEmployeeResignTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

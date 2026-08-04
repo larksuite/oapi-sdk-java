@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AnnualBaseTopAi {
+  /**
+   * 2025年用户多维表格文档使用最多的AI功能名称(中文)
+   *
+   * <p>示例值：AI 字段捷径
+   */
+  @SerializedName("name_cn")
+  private String nameCn;
+
+  /**
+   * 2025年用户多维表格文档使用最多的AI功能名称(英文)
+   *
+   * <p>示例值：AI field shortcuts
+   */
+  @SerializedName("name_en")
+  private String nameEn;
+
+  /**
+   * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
+   *
+   * <p>示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI 浮窗工具栏
+   */
+  @SerializedName("name_cn_list")
+  private String nameCnList;
+
+  /**
+   * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
+   *
+   * <p>示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart
+   * toolbar
+   */
+  @SerializedName("name_en_list")
+  private String nameEnList;
+
+  public String getNameCn() {
+    return this.nameCn;
+  }
+
+  public void setNameCn(String nameCn) {
+    this.nameCn = nameCn;
+  }
+
+  public String getNameEn() {
+    return this.nameEn;
+  }
+
+  public void setNameEn(String nameEn) {
+    this.nameEn = nameEn;
+  }
+
+  public String getNameCnList() {
+    return this.nameCnList;
+  }
+
+  public void setNameCnList(String nameCnList) {
+    this.nameCnList = nameCnList;
+  }
+
+  public String getNameEnList() {
+    return this.nameEnList;
+  }
+
+  public void setNameEnList(String nameEnList) {
+    this.nameEnList = nameEnList;
+  }
+
+  // builder 开始
+  public AnnualBaseTopAi() {}
+
+  public AnnualBaseTopAi(Builder builder) {
     /**
      * 2025年用户多维表格文档使用最多的AI功能名称(中文)
-     * <p> 示例值：AI 字段捷径
+     *
+     * <p>示例值：AI 字段捷径
      */
-    @SerializedName("name_cn")
-    private String nameCn;
+    this.nameCn = builder.nameCn;
     /**
      * 2025年用户多维表格文档使用最多的AI功能名称(英文)
-     * <p> 示例值：AI field shortcuts
+     *
+     * <p>示例值：AI field shortcuts
      */
-    @SerializedName("name_en")
-    private String nameEn;
+    this.nameEn = builder.nameEn;
     /**
      * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
-     * <p> 示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI  浮窗工具栏
+     *
+     * <p>示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI 浮窗工具栏
      */
-    @SerializedName("name_cn_list")
-    private String nameCnList;
+    this.nameCnList = builder.nameCnList;
     /**
      * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
-     * <p> 示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart toolbar
+     *
+     * <p>示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart
+     * toolbar
      */
-    @SerializedName("name_en_list")
+    this.nameEnList = builder.nameEnList;
+  }
+
+  public static class Builder {
+    /**
+     * 2025年用户多维表格文档使用最多的AI功能名称(中文)
+     *
+     * <p>示例值：AI 字段捷径
+     */
+    private String nameCn;
+
+    /**
+     * 2025年用户多维表格文档使用最多的AI功能名称(英文)
+     *
+     * <p>示例值：AI field shortcuts
+     */
+    private String nameEn;
+
+    /**
+     * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
+     *
+     * <p>示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI 浮窗工具栏
+     */
+    private String nameCnList;
+
+    /**
+     * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
+     *
+     * <p>示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart
+     * toolbar
+     */
     private String nameEnList;
 
-    // builder 开始
-    public AnnualBaseTopAi() {
+    /**
+     * 2025年用户多维表格文档使用最多的AI功能名称(中文)
+     *
+     * <p>示例值：AI 字段捷径
+     *
+     * @param nameCn
+     * @return
+     */
+    public Builder nameCn(String nameCn) {
+      this.nameCn = nameCn;
+      return this;
     }
 
-    public AnnualBaseTopAi(Builder builder) {
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(中文)
-         * <p> 示例值：AI 字段捷径
-         */
-        this.nameCn = builder.nameCn;
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(英文)
-         * <p> 示例值：AI field shortcuts
-         */
-        this.nameEn = builder.nameEn;
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
-         * <p> 示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI  浮窗工具栏
-         */
-        this.nameCnList = builder.nameCnList;
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
-         * <p> 示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart toolbar
-         */
-        this.nameEnList = builder.nameEnList;
+    /**
+     * 2025年用户多维表格文档使用最多的AI功能名称(英文)
+     *
+     * <p>示例值：AI field shortcuts
+     *
+     * @param nameEn
+     * @return
+     */
+    public Builder nameEn(String nameEn) {
+      this.nameEn = nameEn;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
+     *
+     * <p>示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI 浮窗工具栏
+     *
+     * @param nameCnList
+     * @return
+     */
+    public Builder nameCnList(String nameCnList) {
+      this.nameCnList = nameCnList;
+      return this;
     }
 
-    public String getNameCn() {
-        return this.nameCn;
+    /**
+     * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
+     *
+     * <p>示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart
+     * toolbar
+     *
+     * @param nameEnList
+     * @return
+     */
+    public Builder nameEnList(String nameEnList) {
+      this.nameEnList = nameEnList;
+      return this;
     }
 
-    public void setNameCn(String nameCn) {
-        this.nameCn = nameCn;
+    public AnnualBaseTopAi build() {
+      return new AnnualBaseTopAi(this);
     }
+  }
 
-    public String getNameEn() {
-        return this.nameEn;
-    }
-
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    public String getNameCnList() {
-        return this.nameCnList;
-    }
-
-    public void setNameCnList(String nameCnList) {
-        this.nameCnList = nameCnList;
-    }
-
-    public String getNameEnList() {
-        return this.nameEnList;
-    }
-
-    public void setNameEnList(String nameEnList) {
-        this.nameEnList = nameEnList;
-    }
-
-    public static class Builder {
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(中文)
-         * <p> 示例值：AI 字段捷径
-         */
-        private String nameCn;
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(英文)
-         * <p> 示例值：AI field shortcuts
-         */
-        private String nameEn;
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
-         * <p> 示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI  浮窗工具栏
-         */
-        private String nameCnList;
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
-         * <p> 示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart toolbar
-         */
-        private String nameEnList;
-
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(中文)
-         * <p> 示例值：AI 字段捷径
-         *
-         * @param nameCn
-         * @return
-         */
-        public Builder nameCn(String nameCn) {
-            this.nameCn = nameCn;
-            return this;
-        }
-
-
-        /**
-         * 2025年用户多维表格文档使用最多的AI功能名称(英文)
-         * <p> 示例值：AI field shortcuts
-         *
-         * @param nameEn
-         * @return
-         */
-        public Builder nameEn(String nameEn) {
-            this.nameEn = nameEn;
-            return this;
-        }
-
-
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(中文)
-         * <p> 示例值：AI 侧边栏,工作流 AI Agent 节点,AI 字段捷径,AI 生成公式,AI  浮窗工具栏
-         *
-         * @param nameCnList
-         * @return
-         */
-        public Builder nameCnList(String nameCnList) {
-            this.nameCnList = nameCnList;
-            return this;
-        }
-
-
-        /**
-         * 2025年用户多维表格文档使用的Top5 AI功能名称(英文)
-         * <p> 示例值：AI sidebar,Workflow AI Agent node,AI field shortcuts,AI-generated formulas,AI smart toolbar
-         *
-         * @param nameEnList
-         * @return
-         */
-        public Builder nameEnList(String nameEnList) {
-            this.nameEnList = nameEnList;
-            return this;
-        }
-
-
-        public AnnualBaseTopAi build() {
-            return new AnnualBaseTopAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskSearchMeta {
+  /**
+   * 任务的 AppLink
+   *
+   * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
+   */
+  @SerializedName("app_link")
+  private String appLink;
+
+  /**
+   * 任务头像
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 任务描述
+   *
+   * <p>示例值：这是一个用来测试的任务
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getAppLink() {
+    return this.appLink;
+  }
+
+  public void setAppLink(String appLink) {
+    this.appLink = appLink;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public TaskSearchMeta() {}
+
+  public TaskSearchMeta(Builder builder) {
     /**
      * 任务的 AppLink
-     * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
      */
-    @SerializedName("app_link")
-    private String appLink;
+    this.appLink = builder.appLink;
     /**
      * 任务头像
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 任务描述
-     * <p> 示例值：这是一个用来测试的任务
+     *
+     * <p>示例值：这是一个用来测试的任务
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 任务的 AppLink
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
+     */
+    private String appLink;
+
+    /**
+     * 任务头像
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     */
+    private String avatar;
+
+    /**
+     * 任务描述
+     *
+     * <p>示例值：这是一个用来测试的任务
+     */
     private String description;
 
-    // builder 开始
-    public TaskSearchMeta() {
+    /**
+     * 任务的 AppLink
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
+     *
+     * @param appLink
+     * @return
+     */
+    public Builder appLink(String appLink) {
+      this.appLink = appLink;
+      return this;
     }
 
-    public TaskSearchMeta(Builder builder) {
-        /**
-         * 任务的 AppLink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
-         */
-        this.appLink = builder.appLink;
-        /**
-         * 任务头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 任务描述
-         * <p> 示例值：这是一个用来测试的任务
-         */
-        this.description = builder.description;
+    /**
+     * 任务头像
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务描述
+     *
+     * <p>示例值：这是一个用来测试的任务
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAppLink() {
-        return this.appLink;
+    public TaskSearchMeta build() {
+      return new TaskSearchMeta(this);
     }
+  }
 
-    public void setAppLink(String appLink) {
-        this.appLink = appLink;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 任务的 AppLink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
-         */
-        private String appLink;
-        /**
-         * 任务头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        private String avatar;
-        /**
-         * 任务描述
-         * <p> 示例值：这是一个用来测试的任务
-         */
-        private String description;
-
-        /**
-         * 任务的 AppLink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/detail?guid=ed03112a-0a25-451e-8453-ba1d80cc1b7e
-         *
-         * @param appLink
-         * @return
-         */
-        public Builder appLink(String appLink) {
-            this.appLink = appLink;
-            return this;
-        }
-
-
-        /**
-         * 任务头像
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 任务描述
-         * <p> 示例值：这是一个用来测试的任务
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public TaskSearchMeta build() {
-            return new TaskSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

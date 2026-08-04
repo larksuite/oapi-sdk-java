@@ -13,105 +13,99 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class QueryTransferTypeReq {
+  /**
+   * 异动类型状态，为空时默认搜索所有状态的异动类型。可选项有:;;-true: 启用;;-false: 停用
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 异动类型唯一标识，用于过滤异动类型，为空时默认搜索所有异动类型，多条时最多数量为10
+   *
+   * <p>示例值：job_status_change
+   */
+  @Query
+  @SerializedName("transfer_type_unique_identifier")
+  private String[] transferTypeUniqueIdentifier;
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String[] getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
+
+  public void setTransferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
+
+  // builder 开始
+  public QueryTransferTypeReq() {}
+
+  public QueryTransferTypeReq(Builder builder) {
     /**
-     * 异动类型状态
-     * <p> 示例值：true
+     * 异动类型状态，为空时默认搜索所有状态的异动类型。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 异动类型唯一标识，多条时最多数量为10
-     * <p> 示例值：job_status_change
+     * 异动类型唯一标识，用于过滤异动类型，为空时默认搜索所有异动类型，多条时最多数量为10
+     *
+     * <p>示例值：job_status_change
      */
-    @Query
-    @SerializedName("transfer_type_unique_identifier")
-    private String[] transferTypeUniqueIdentifier;
+    this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
+  }
 
-    // builder 开始
-    public QueryTransferTypeReq() {
+  public static class Builder {
+    private Boolean active; // 异动类型状态，为空时默认搜索所有状态的异动类型。可选项有:;;-true: 启用;;-false: 停用
+    private String[] transferTypeUniqueIdentifier; // 异动类型唯一标识，用于过滤异动类型，为空时默认搜索所有异动类型，多条时最多数量为10
+
+    /**
+     * 异动类型状态，为空时默认搜索所有状态的异动类型。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public QueryTransferTypeReq(Builder builder) {
-        /**
-         * 异动类型状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 异动类型唯一标识，多条时最多数量为10
-         * <p> 示例值：job_status_change
-         */
-        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
+    /**
+     * 异动类型唯一标识，用于过滤异动类型，为空时默认搜索所有异动类型，多条时最多数量为10
+     *
+     * <p>示例值：job_status_change
+     *
+     * @param transferTypeUniqueIdentifier
+     * @return
+     */
+    public Builder transferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+      this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryTransferTypeReq build() {
+      return new QueryTransferTypeReq(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String[] getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
-
-    public void setTransferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
-
-    public static class Builder {
-        private Boolean active; // 异动类型状态
-        private String[] transferTypeUniqueIdentifier; // 异动类型唯一标识，多条时最多数量为10
-
-        /**
-         * 异动类型状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 异动类型唯一标识，多条时最多数量为10
-         * <p> 示例值：job_status_change
-         *
-         * @param transferTypeUniqueIdentifier
-         * @return
-         */
-        public Builder transferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
-            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-            return this;
-        }
-
-
-        public QueryTransferTypeReq build() {
-            return new QueryTransferTypeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

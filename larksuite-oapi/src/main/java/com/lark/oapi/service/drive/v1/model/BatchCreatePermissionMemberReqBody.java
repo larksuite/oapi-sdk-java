@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreatePermissionMemberReqBody {
+  /**
+   * 本次要增加权限的协作者列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  // builder 开始
+  public BatchCreatePermissionMemberReqBody() {}
+
+  public BatchCreatePermissionMemberReqBody(Builder builder) {
     /**
-     * 协作者列表
-     * <p> 示例值：
+     * 本次要增加权限的协作者列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
+    this.members = builder.members;
+  }
+
+  public static class Builder {
+    /**
+     * 本次要增加权限的协作者列表
+     *
+     * <p>示例值：
+     */
     private Member[] members;
 
-    // builder 开始
-    public BatchCreatePermissionMemberReqBody() {
+    /**
+     * 本次要增加权限的协作者列表
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
     }
 
-    public BatchCreatePermissionMemberReqBody(Builder builder) {
-        /**
-         * 协作者列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
+    public BatchCreatePermissionMemberReqBody build() {
+      return new BatchCreatePermissionMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public static class Builder {
-        /**
-         * 协作者列表
-         * <p> 示例值：
-         */
-        private Member[] members;
-
-        /**
-         * 协作者列表
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        public BatchCreatePermissionMemberReqBody build() {
-            return new BatchCreatePermissionMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMailUser {
+  /**
+   * Owner的UserID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * senders的邮箱
+   *
+   * <p>示例值：
+   */
+  @SerializedName("senders")
+  private String[] senders;
+
+  /**
+   * receivers的邮箱
+   *
+   * <p>示例值：
+   */
+  @SerializedName("receivers")
+  private String[] receivers;
+
+  /**
+   * 邮件id
+   *
+   * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+   */
+  @SerializedName("mail_id")
+  private String mailId;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public String[] getSenders() {
+    return this.senders;
+  }
+
+  public void setSenders(String[] senders) {
+    this.senders = senders;
+  }
+
+  public String[] getReceivers() {
+    return this.receivers;
+  }
+
+  public void setReceivers(String[] receivers) {
+    this.receivers = receivers;
+  }
+
+  public String getMailId() {
+    return this.mailId;
+  }
+
+  public void setMailId(String mailId) {
+    this.mailId = mailId;
+  }
+
+  // builder 开始
+  public ParamMailUser() {}
+
+  public ParamMailUser(Builder builder) {
     /**
      * Owner的UserID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
-    private String[] ownerIds;
+    this.ownerIds = builder.ownerIds;
     /**
      * senders的邮箱
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("senders")
-    private String[] senders;
+    this.senders = builder.senders;
     /**
      * receivers的邮箱
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("receivers")
-    private String[] receivers;
+    this.receivers = builder.receivers;
     /**
      * 邮件id
-     * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
      */
-    @SerializedName("mail_id")
+    this.mailId = builder.mailId;
+  }
+
+  public static class Builder {
+    /**
+     * Owner的UserID
+     *
+     * <p>示例值：
+     */
+    private String[] ownerIds;
+
+    /**
+     * senders的邮箱
+     *
+     * <p>示例值：
+     */
+    private String[] senders;
+
+    /**
+     * receivers的邮箱
+     *
+     * <p>示例值：
+     */
+    private String[] receivers;
+
+    /**
+     * 邮件id
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     */
     private String mailId;
 
-    // builder 开始
-    public ParamMailUser() {
+    /**
+     * Owner的UserID
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public ParamMailUser(Builder builder) {
-        /**
-         * Owner的UserID
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * senders的邮箱
-         * <p> 示例值：
-         */
-        this.senders = builder.senders;
-        /**
-         * receivers的邮箱
-         * <p> 示例值：
-         */
-        this.receivers = builder.receivers;
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         */
-        this.mailId = builder.mailId;
+    /**
+     * senders的邮箱
+     *
+     * <p>示例值：
+     *
+     * @param senders
+     * @return
+     */
+    public Builder senders(String[] senders) {
+      this.senders = senders;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * receivers的邮箱
+     *
+     * <p>示例值：
+     *
+     * @param receivers
+     * @return
+     */
+    public Builder receivers(String[] receivers) {
+      this.receivers = receivers;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    /**
+     * 邮件id
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     *
+     * @param mailId
+     * @return
+     */
+    public Builder mailId(String mailId) {
+      this.mailId = mailId;
+      return this;
     }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
+    public ParamMailUser build() {
+      return new ParamMailUser(this);
     }
+  }
 
-    public String[] getSenders() {
-        return this.senders;
-    }
-
-    public void setSenders(String[] senders) {
-        this.senders = senders;
-    }
-
-    public String[] getReceivers() {
-        return this.receivers;
-    }
-
-    public void setReceivers(String[] receivers) {
-        this.receivers = receivers;
-    }
-
-    public String getMailId() {
-        return this.mailId;
-    }
-
-    public void setMailId(String mailId) {
-        this.mailId = mailId;
-    }
-
-    public static class Builder {
-        /**
-         * Owner的UserID
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * senders的邮箱
-         * <p> 示例值：
-         */
-        private String[] senders;
-        /**
-         * receivers的邮箱
-         * <p> 示例值：
-         */
-        private String[] receivers;
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         */
-        private String mailId;
-
-        /**
-         * Owner的UserID
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * senders的邮箱
-         * <p> 示例值：
-         *
-         * @param senders
-         * @return
-         */
-        public Builder senders(String[] senders) {
-            this.senders = senders;
-            return this;
-        }
-
-
-        /**
-         * receivers的邮箱
-         * <p> 示例值：
-         *
-         * @param receivers
-         * @return
-         */
-        public Builder receivers(String[] receivers) {
-            this.receivers = receivers;
-            return this;
-        }
-
-
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         *
-         * @param mailId
-         * @return
-         */
-        public Builder mailId(String mailId) {
-            this.mailId = mailId;
-            return this;
-        }
-
-
-        public ParamMailUser build() {
-            return new ParamMailUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

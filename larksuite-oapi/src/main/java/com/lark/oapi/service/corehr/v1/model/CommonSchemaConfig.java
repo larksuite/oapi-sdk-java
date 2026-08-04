@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommonSchemaConfig {
+  /**
+   * 文本配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_field_setting")
+  private TextFieldSetting textFieldSetting;
+
+  /**
+   * 数字配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("number_field_setting")
+  private NumberFieldSetting numberFieldSetting;
+
+  /**
+   * 选项配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_field_setting")
+  private EnumFieldSetting enumFieldSetting;
+
+  /**
+   * 查找字段配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lookup_field_setting")
+  private LookupFieldSetting lookupFieldSetting;
+
+  /**
+   * 日期时间配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("date_time_field_setting")
+  private DateTimeFieldSetting dateTimeFieldSetting;
+
+  /**
+   * 附件配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_field_setting")
+  private AttachmentFieldSetting attachmentFieldSetting;
+
+  /**
+   * 图片配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("image_field_setting")
+  private ImageFieldSetting imageFieldSetting;
+
+  /**
+   * 计算字段配置信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calculated_field_setting")
+  private CalculatedFieldSetting calculatedFieldSetting;
+
+  public TextFieldSetting getTextFieldSetting() {
+    return this.textFieldSetting;
+  }
+
+  public void setTextFieldSetting(TextFieldSetting textFieldSetting) {
+    this.textFieldSetting = textFieldSetting;
+  }
+
+  public NumberFieldSetting getNumberFieldSetting() {
+    return this.numberFieldSetting;
+  }
+
+  public void setNumberFieldSetting(NumberFieldSetting numberFieldSetting) {
+    this.numberFieldSetting = numberFieldSetting;
+  }
+
+  public EnumFieldSetting getEnumFieldSetting() {
+    return this.enumFieldSetting;
+  }
+
+  public void setEnumFieldSetting(EnumFieldSetting enumFieldSetting) {
+    this.enumFieldSetting = enumFieldSetting;
+  }
+
+  public LookupFieldSetting getLookupFieldSetting() {
+    return this.lookupFieldSetting;
+  }
+
+  public void setLookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
+    this.lookupFieldSetting = lookupFieldSetting;
+  }
+
+  public DateTimeFieldSetting getDateTimeFieldSetting() {
+    return this.dateTimeFieldSetting;
+  }
+
+  public void setDateTimeFieldSetting(DateTimeFieldSetting dateTimeFieldSetting) {
+    this.dateTimeFieldSetting = dateTimeFieldSetting;
+  }
+
+  public AttachmentFieldSetting getAttachmentFieldSetting() {
+    return this.attachmentFieldSetting;
+  }
+
+  public void setAttachmentFieldSetting(AttachmentFieldSetting attachmentFieldSetting) {
+    this.attachmentFieldSetting = attachmentFieldSetting;
+  }
+
+  public ImageFieldSetting getImageFieldSetting() {
+    return this.imageFieldSetting;
+  }
+
+  public void setImageFieldSetting(ImageFieldSetting imageFieldSetting) {
+    this.imageFieldSetting = imageFieldSetting;
+  }
+
+  public CalculatedFieldSetting getCalculatedFieldSetting() {
+    return this.calculatedFieldSetting;
+  }
+
+  public void setCalculatedFieldSetting(CalculatedFieldSetting calculatedFieldSetting) {
+    this.calculatedFieldSetting = calculatedFieldSetting;
+  }
+
+  // builder 开始
+  public CommonSchemaConfig() {}
+
+  public CommonSchemaConfig(Builder builder) {
     /**
      * 文本配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_field_setting")
-    private TextFieldSetting textFieldSetting;
+    this.textFieldSetting = builder.textFieldSetting;
     /**
      * 数字配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("number_field_setting")
-    private NumberFieldSetting numberFieldSetting;
+    this.numberFieldSetting = builder.numberFieldSetting;
     /**
      * 选项配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_field_setting")
-    private EnumFieldSetting enumFieldSetting;
+    this.enumFieldSetting = builder.enumFieldSetting;
     /**
      * 查找字段配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("lookup_field_setting")
-    private LookupFieldSetting lookupFieldSetting;
+    this.lookupFieldSetting = builder.lookupFieldSetting;
     /**
      * 日期时间配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("date_time_field_setting")
-    private DateTimeFieldSetting dateTimeFieldSetting;
+    this.dateTimeFieldSetting = builder.dateTimeFieldSetting;
     /**
      * 附件配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_field_setting")
-    private AttachmentFieldSetting attachmentFieldSetting;
+    this.attachmentFieldSetting = builder.attachmentFieldSetting;
     /**
      * 图片配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("image_field_setting")
-    private ImageFieldSetting imageFieldSetting;
+    this.imageFieldSetting = builder.imageFieldSetting;
     /**
      * 计算字段配置信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calculated_field_setting")
+    this.calculatedFieldSetting = builder.calculatedFieldSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 文本配置信息
+     *
+     * <p>示例值：
+     */
+    private TextFieldSetting textFieldSetting;
+
+    /**
+     * 数字配置信息
+     *
+     * <p>示例值：
+     */
+    private NumberFieldSetting numberFieldSetting;
+
+    /**
+     * 选项配置信息
+     *
+     * <p>示例值：
+     */
+    private EnumFieldSetting enumFieldSetting;
+
+    /**
+     * 查找字段配置信息
+     *
+     * <p>示例值：
+     */
+    private LookupFieldSetting lookupFieldSetting;
+
+    /**
+     * 日期时间配置信息
+     *
+     * <p>示例值：
+     */
+    private DateTimeFieldSetting dateTimeFieldSetting;
+
+    /**
+     * 附件配置信息
+     *
+     * <p>示例值：
+     */
+    private AttachmentFieldSetting attachmentFieldSetting;
+
+    /**
+     * 图片配置信息
+     *
+     * <p>示例值：
+     */
+    private ImageFieldSetting imageFieldSetting;
+
+    /**
+     * 计算字段配置信息
+     *
+     * <p>示例值：
+     */
     private CalculatedFieldSetting calculatedFieldSetting;
 
-    // builder 开始
-    public CommonSchemaConfig() {
+    /**
+     * 文本配置信息
+     *
+     * <p>示例值：
+     *
+     * @param textFieldSetting
+     * @return
+     */
+    public Builder textFieldSetting(TextFieldSetting textFieldSetting) {
+      this.textFieldSetting = textFieldSetting;
+      return this;
     }
 
-    public CommonSchemaConfig(Builder builder) {
-        /**
-         * 文本配置信息
-         * <p> 示例值：
-         */
-        this.textFieldSetting = builder.textFieldSetting;
-        /**
-         * 数字配置信息
-         * <p> 示例值：
-         */
-        this.numberFieldSetting = builder.numberFieldSetting;
-        /**
-         * 选项配置信息
-         * <p> 示例值：
-         */
-        this.enumFieldSetting = builder.enumFieldSetting;
-        /**
-         * 查找字段配置信息
-         * <p> 示例值：
-         */
-        this.lookupFieldSetting = builder.lookupFieldSetting;
-        /**
-         * 日期时间配置信息
-         * <p> 示例值：
-         */
-        this.dateTimeFieldSetting = builder.dateTimeFieldSetting;
-        /**
-         * 附件配置信息
-         * <p> 示例值：
-         */
-        this.attachmentFieldSetting = builder.attachmentFieldSetting;
-        /**
-         * 图片配置信息
-         * <p> 示例值：
-         */
-        this.imageFieldSetting = builder.imageFieldSetting;
-        /**
-         * 计算字段配置信息
-         * <p> 示例值：
-         */
-        this.calculatedFieldSetting = builder.calculatedFieldSetting;
+    /**
+     * 数字配置信息
+     *
+     * <p>示例值：
+     *
+     * @param numberFieldSetting
+     * @return
+     */
+    public Builder numberFieldSetting(NumberFieldSetting numberFieldSetting) {
+      this.numberFieldSetting = numberFieldSetting;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项配置信息
+     *
+     * <p>示例值：
+     *
+     * @param enumFieldSetting
+     * @return
+     */
+    public Builder enumFieldSetting(EnumFieldSetting enumFieldSetting) {
+      this.enumFieldSetting = enumFieldSetting;
+      return this;
     }
 
-    public TextFieldSetting getTextFieldSetting() {
-        return this.textFieldSetting;
+    /**
+     * 查找字段配置信息
+     *
+     * <p>示例值：
+     *
+     * @param lookupFieldSetting
+     * @return
+     */
+    public Builder lookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
+      this.lookupFieldSetting = lookupFieldSetting;
+      return this;
     }
 
-    public void setTextFieldSetting(TextFieldSetting textFieldSetting) {
-        this.textFieldSetting = textFieldSetting;
+    /**
+     * 日期时间配置信息
+     *
+     * <p>示例值：
+     *
+     * @param dateTimeFieldSetting
+     * @return
+     */
+    public Builder dateTimeFieldSetting(DateTimeFieldSetting dateTimeFieldSetting) {
+      this.dateTimeFieldSetting = dateTimeFieldSetting;
+      return this;
     }
 
-    public NumberFieldSetting getNumberFieldSetting() {
-        return this.numberFieldSetting;
+    /**
+     * 附件配置信息
+     *
+     * <p>示例值：
+     *
+     * @param attachmentFieldSetting
+     * @return
+     */
+    public Builder attachmentFieldSetting(AttachmentFieldSetting attachmentFieldSetting) {
+      this.attachmentFieldSetting = attachmentFieldSetting;
+      return this;
     }
 
-    public void setNumberFieldSetting(NumberFieldSetting numberFieldSetting) {
-        this.numberFieldSetting = numberFieldSetting;
+    /**
+     * 图片配置信息
+     *
+     * <p>示例值：
+     *
+     * @param imageFieldSetting
+     * @return
+     */
+    public Builder imageFieldSetting(ImageFieldSetting imageFieldSetting) {
+      this.imageFieldSetting = imageFieldSetting;
+      return this;
     }
 
-    public EnumFieldSetting getEnumFieldSetting() {
-        return this.enumFieldSetting;
+    /**
+     * 计算字段配置信息
+     *
+     * <p>示例值：
+     *
+     * @param calculatedFieldSetting
+     * @return
+     */
+    public Builder calculatedFieldSetting(CalculatedFieldSetting calculatedFieldSetting) {
+      this.calculatedFieldSetting = calculatedFieldSetting;
+      return this;
     }
 
-    public void setEnumFieldSetting(EnumFieldSetting enumFieldSetting) {
-        this.enumFieldSetting = enumFieldSetting;
+    public CommonSchemaConfig build() {
+      return new CommonSchemaConfig(this);
     }
+  }
 
-    public LookupFieldSetting getLookupFieldSetting() {
-        return this.lookupFieldSetting;
-    }
-
-    public void setLookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
-        this.lookupFieldSetting = lookupFieldSetting;
-    }
-
-    public DateTimeFieldSetting getDateTimeFieldSetting() {
-        return this.dateTimeFieldSetting;
-    }
-
-    public void setDateTimeFieldSetting(DateTimeFieldSetting dateTimeFieldSetting) {
-        this.dateTimeFieldSetting = dateTimeFieldSetting;
-    }
-
-    public AttachmentFieldSetting getAttachmentFieldSetting() {
-        return this.attachmentFieldSetting;
-    }
-
-    public void setAttachmentFieldSetting(AttachmentFieldSetting attachmentFieldSetting) {
-        this.attachmentFieldSetting = attachmentFieldSetting;
-    }
-
-    public ImageFieldSetting getImageFieldSetting() {
-        return this.imageFieldSetting;
-    }
-
-    public void setImageFieldSetting(ImageFieldSetting imageFieldSetting) {
-        this.imageFieldSetting = imageFieldSetting;
-    }
-
-    public CalculatedFieldSetting getCalculatedFieldSetting() {
-        return this.calculatedFieldSetting;
-    }
-
-    public void setCalculatedFieldSetting(CalculatedFieldSetting calculatedFieldSetting) {
-        this.calculatedFieldSetting = calculatedFieldSetting;
-    }
-
-    public static class Builder {
-        /**
-         * 文本配置信息
-         * <p> 示例值：
-         */
-        private TextFieldSetting textFieldSetting;
-        /**
-         * 数字配置信息
-         * <p> 示例值：
-         */
-        private NumberFieldSetting numberFieldSetting;
-        /**
-         * 选项配置信息
-         * <p> 示例值：
-         */
-        private EnumFieldSetting enumFieldSetting;
-        /**
-         * 查找字段配置信息
-         * <p> 示例值：
-         */
-        private LookupFieldSetting lookupFieldSetting;
-        /**
-         * 日期时间配置信息
-         * <p> 示例值：
-         */
-        private DateTimeFieldSetting dateTimeFieldSetting;
-        /**
-         * 附件配置信息
-         * <p> 示例值：
-         */
-        private AttachmentFieldSetting attachmentFieldSetting;
-        /**
-         * 图片配置信息
-         * <p> 示例值：
-         */
-        private ImageFieldSetting imageFieldSetting;
-        /**
-         * 计算字段配置信息
-         * <p> 示例值：
-         */
-        private CalculatedFieldSetting calculatedFieldSetting;
-
-        /**
-         * 文本配置信息
-         * <p> 示例值：
-         *
-         * @param textFieldSetting
-         * @return
-         */
-        public Builder textFieldSetting(TextFieldSetting textFieldSetting) {
-            this.textFieldSetting = textFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 数字配置信息
-         * <p> 示例值：
-         *
-         * @param numberFieldSetting
-         * @return
-         */
-        public Builder numberFieldSetting(NumberFieldSetting numberFieldSetting) {
-            this.numberFieldSetting = numberFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 选项配置信息
-         * <p> 示例值：
-         *
-         * @param enumFieldSetting
-         * @return
-         */
-        public Builder enumFieldSetting(EnumFieldSetting enumFieldSetting) {
-            this.enumFieldSetting = enumFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 查找字段配置信息
-         * <p> 示例值：
-         *
-         * @param lookupFieldSetting
-         * @return
-         */
-        public Builder lookupFieldSetting(LookupFieldSetting lookupFieldSetting) {
-            this.lookupFieldSetting = lookupFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 日期时间配置信息
-         * <p> 示例值：
-         *
-         * @param dateTimeFieldSetting
-         * @return
-         */
-        public Builder dateTimeFieldSetting(DateTimeFieldSetting dateTimeFieldSetting) {
-            this.dateTimeFieldSetting = dateTimeFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 附件配置信息
-         * <p> 示例值：
-         *
-         * @param attachmentFieldSetting
-         * @return
-         */
-        public Builder attachmentFieldSetting(AttachmentFieldSetting attachmentFieldSetting) {
-            this.attachmentFieldSetting = attachmentFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 图片配置信息
-         * <p> 示例值：
-         *
-         * @param imageFieldSetting
-         * @return
-         */
-        public Builder imageFieldSetting(ImageFieldSetting imageFieldSetting) {
-            this.imageFieldSetting = imageFieldSetting;
-            return this;
-        }
-
-
-        /**
-         * 计算字段配置信息
-         * <p> 示例值：
-         *
-         * @param calculatedFieldSetting
-         * @return
-         */
-        public Builder calculatedFieldSetting(CalculatedFieldSetting calculatedFieldSetting) {
-            this.calculatedFieldSetting = calculatedFieldSetting;
-            return this;
-        }
-
-
-        public CommonSchemaConfig build() {
-            return new CommonSchemaConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateCardElementReqBody {
+  /**
+   * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+   *
+   * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * 新的组件的完整的 JSON 数据。;;注意：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 仅支持[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+   *
+   * <p>示例值：{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"这是一段更新后的文本\"}
+   */
+  @SerializedName("element")
+  private String element;
+
+  /**
+   * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+   * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public String getElement() {
+    return this.element;
+  }
+
+  public void setElement(String element) {
+    this.element = element;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  // builder 开始
+  public UpdateCardElementReqBody() {}
+
+  public UpdateCardElementReqBody(Builder builder) {
     /**
-     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-     * <p> 示例值：191857678434
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
-    @SerializedName("uuid")
+    this.uuid = builder.uuid;
+    /**
+     * 新的组件的完整的 JSON 数据。;;注意：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     *
+     * <p>示例值：{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"这是一段更新后的文本\"}
+     */
+    this.element = builder.element;
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     */
+    this.sequence = builder.sequence;
+  }
+
+  public static class Builder {
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     */
     private String uuid;
+
     /**
-     * 新的组件
-     * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
+     * 新的组件的完整的 JSON 数据。;;注意：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     *
+     * <p>示例值：{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"这是一段更新后的文本\"}
      */
-    @SerializedName("element")
     private String element;
+
     /**
-     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-     * <p> 示例值：1712578784
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
     private Integer sequence;
 
-    // builder 开始
-    public UpdateCardElementReqBody() {
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public UpdateCardElementReqBody(Builder builder) {
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 新的组件
-         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-         */
-        this.element = builder.element;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
+    /**
+     * 新的组件的完整的 JSON 数据。;;注意：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     *
+     * <p>示例值：{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"这是一段更新后的文本\"}
+     *
+     * @param element
+     * @return
+     */
+    public Builder element(String element) {
+      this.element = element;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    public UpdateCardElementReqBody build() {
+      return new UpdateCardElementReqBody(this);
     }
+  }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getElement() {
-        return this.element;
-    }
-
-    public void setElement(String element) {
-        this.element = element;
-    }
-
-    public Integer getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public static class Builder {
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        private String uuid;
-        /**
-         * 新的组件
-         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-         */
-        private String element;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        private Integer sequence;
-
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * 新的组件
-         * <p> 示例值：{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"普通文本\"}
-         *
-         * @param element
-         * @return
-         */
-        public Builder element(String element) {
-            this.element = element;
-            return this;
-        }
-
-
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        public UpdateCardElementReqBody build() {
-            return new UpdateCardElementReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

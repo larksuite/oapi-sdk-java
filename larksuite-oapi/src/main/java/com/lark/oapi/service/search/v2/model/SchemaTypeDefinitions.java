@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaTypeDefinitions {
+  /**
+   * 标签类型的定义
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag")
+  private SchemaTagOptions[] tag;
+
+  /**
+   * 用户身份标识
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private SchemaUserIdsOption userIds;
+
+  public SchemaTagOptions[] getTag() {
+    return this.tag;
+  }
+
+  public void setTag(SchemaTagOptions[] tag) {
+    this.tag = tag;
+  }
+
+  public SchemaUserIdsOption getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(SchemaUserIdsOption userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public SchemaTypeDefinitions() {}
+
+  public SchemaTypeDefinitions(Builder builder) {
     /**
      * 标签类型的定义
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag")
-    private SchemaTagOptions[] tag;
+    this.tag = builder.tag;
     /**
      * 用户身份标识
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 标签类型的定义
+     *
+     * <p>示例值：
+     */
+    private SchemaTagOptions[] tag;
+
+    /**
+     * 用户身份标识
+     *
+     * <p>示例值：
+     */
     private SchemaUserIdsOption userIds;
 
-    // builder 开始
-    public SchemaTypeDefinitions() {
+    /**
+     * 标签类型的定义
+     *
+     * <p>示例值：
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(SchemaTagOptions[] tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public SchemaTypeDefinitions(Builder builder) {
-        /**
-         * 标签类型的定义
-         * <p> 示例值：
-         */
-        this.tag = builder.tag;
-        /**
-         * 用户身份标识
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    /**
+     * 用户身份标识
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(SchemaUserIdsOption userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SchemaTypeDefinitions build() {
+      return new SchemaTypeDefinitions(this);
     }
+  }
 
-    public SchemaTagOptions[] getTag() {
-        return this.tag;
-    }
-
-    public void setTag(SchemaTagOptions[] tag) {
-        this.tag = tag;
-    }
-
-    public SchemaUserIdsOption getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(SchemaUserIdsOption userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 标签类型的定义
-         * <p> 示例值：
-         */
-        private SchemaTagOptions[] tag;
-        /**
-         * 用户身份标识
-         * <p> 示例值：
-         */
-        private SchemaUserIdsOption userIds;
-
-        /**
-         * 标签类型的定义
-         * <p> 示例值：
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(SchemaTagOptions[] tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * 用户身份标识
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(SchemaUserIdsOption userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public SchemaTypeDefinitions build() {
-            return new SchemaTypeDefinitions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

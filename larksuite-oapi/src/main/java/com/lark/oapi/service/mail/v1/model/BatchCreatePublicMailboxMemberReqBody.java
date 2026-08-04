@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreatePublicMailboxMemberReqBody {
+  /**
+   * 本次调用添加的公共邮箱成员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private PublicMailboxMember[] items;
+
+  public PublicMailboxMember[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(PublicMailboxMember[] items) {
+    this.items = items;
+  }
+
+  // builder 开始
+  public BatchCreatePublicMailboxMemberReqBody() {}
+
+  public BatchCreatePublicMailboxMemberReqBody(Builder builder) {
     /**
      * 本次调用添加的公共邮箱成员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
+    this.items = builder.items;
+  }
+
+  public static class Builder {
+    /**
+     * 本次调用添加的公共邮箱成员列表
+     *
+     * <p>示例值：
+     */
     private PublicMailboxMember[] items;
 
-    // builder 开始
-    public BatchCreatePublicMailboxMemberReqBody() {
+    /**
+     * 本次调用添加的公共邮箱成员列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(PublicMailboxMember[] items) {
+      this.items = items;
+      return this;
     }
 
-    public BatchCreatePublicMailboxMemberReqBody(Builder builder) {
-        /**
-         * 本次调用添加的公共邮箱成员列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
+    public BatchCreatePublicMailboxMemberReqBody build() {
+      return new BatchCreatePublicMailboxMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public PublicMailboxMember[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(PublicMailboxMember[] items) {
-        this.items = items;
-    }
-
-    public static class Builder {
-        /**
-         * 本次调用添加的公共邮箱成员列表
-         * <p> 示例值：
-         */
-        private PublicMailboxMember[] items;
-
-        /**
-         * 本次调用添加的公共邮箱成员列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(PublicMailboxMember[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        public BatchCreatePublicMailboxMemberReqBody build() {
-            return new BatchCreatePublicMailboxMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

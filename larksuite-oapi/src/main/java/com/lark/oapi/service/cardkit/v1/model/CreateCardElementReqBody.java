@@ -13,235 +13,258 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCardElementReqBody {
+  /**
+   * 添加组件的方式。
+   *
+   * <p>示例值：insert_after
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 目标组件的 ID。 填写规则如下所示：;- 当 `type` 为 `insert_before`、`insert_after` 时，字段必填，为用于定位的目标组件;- 当 `type` 为
+   * `append` 时，该字段仅支持容器类组件，用于指定在末尾添加的目标组件。若未填写，则默认在卡片 body 末尾添加
+   *
+   * <p>示例值：markdown_1
+   */
+  @SerializedName("target_element_id")
+  private String targetElementId;
+
+  /**
+   * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+   *
+   * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+   * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  /**
+   * 添加的组件列表。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 本参数仅支持[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。
+   *
+   * <p>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]
+   */
+  @SerializedName("elements")
+  private String elements;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getTargetElementId() {
+    return this.targetElementId;
+  }
+
+  public void setTargetElementId(String targetElementId) {
+    this.targetElementId = targetElementId;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  public String getElements() {
+    return this.elements;
+  }
+
+  public void setElements(String elements) {
+    this.elements = elements;
+  }
+
+  // builder 开始
+  public CreateCardElementReqBody() {}
+
+  public CreateCardElementReqBody(Builder builder) {
     /**
-     * 添加组件的方式
-     * <p> 示例值：insert_before
+     * 添加组件的方式。
+     *
+     * <p>示例值：insert_after
      */
-    @SerializedName("type")
+    this.type = builder.type;
+    /**
+     * 目标组件的 ID。 填写规则如下所示：;- 当 `type` 为 `insert_before`、`insert_after` 时，字段必填，为用于定位的目标组件;- 当 `type`
+     * 为 `append` 时，该字段仅支持容器类组件，用于指定在末尾添加的目标组件。若未填写，则默认在卡片 body 末尾添加
+     *
+     * <p>示例值：markdown_1
+     */
+    this.targetElementId = builder.targetElementId;
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     */
+    this.uuid = builder.uuid;
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     */
+    this.sequence = builder.sequence;
+    /**
+     * 添加的组件列表。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 本参数仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。
+     *
+     * <p>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]
+     */
+    this.elements = builder.elements;
+  }
+
+  public static class Builder {
+    /**
+     * 添加组件的方式。
+     *
+     * <p>示例值：insert_after
+     */
     private String type;
+
     /**
-     * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-     * <p> 示例值：elem_63529372
+     * 目标组件的 ID。 填写规则如下所示：;- 当 `type` 为 `insert_before`、`insert_after` 时，字段必填，为用于定位的目标组件;- 当 `type`
+     * 为 `append` 时，该字段仅支持容器类组件，用于指定在末尾添加的目标组件。若未填写，则默认在卡片 body 末尾添加
+     *
+     * <p>示例值：markdown_1
      */
-    @SerializedName("target_element_id")
     private String targetElementId;
+
     /**
-     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-     * <p> 示例值：191857678434
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
-    @SerializedName("uuid")
     private String uuid;
+
     /**
-     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-     * <p> 示例值：1712578784
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
     private Integer sequence;
+
     /**
-     * 组件列表
-     * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
+     * 添加的组件列表。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 本参数仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。
+     *
+     * <p>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]
      */
-    @SerializedName("elements")
     private String elements;
 
-    // builder 开始
-    public CreateCardElementReqBody() {
+    /**
+     * 添加组件的方式。
+     *
+     * <p>示例值：insert_after
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public CreateCardElementReqBody(Builder builder) {
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         */
-        this.type = builder.type;
-        /**
-         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-         * <p> 示例值：elem_63529372
-         */
-        this.targetElementId = builder.targetElementId;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 组件列表
-         * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         */
-        this.elements = builder.elements;
+    /**
+     * 添加组件的方式。
+     *
+     * <p>示例值：insert_after
+     *
+     * @param type {@link com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目标组件的 ID。 填写规则如下所示：;- 当 `type` 为 `insert_before`、`insert_after` 时，字段必填，为用于定位的目标组件;- 当 `type`
+     * 为 `append` 时，该字段仅支持容器类组件，用于指定在末尾添加的目标组件。若未填写，则默认在卡片 body 末尾添加
+     *
+     * <p>示例值：markdown_1
+     *
+     * @param targetElementId
+     * @return
+     */
+    public Builder targetElementId(String targetElementId) {
+      this.targetElementId = targetElementId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public String getTargetElementId() {
-        return this.targetElementId;
+    /**
+     * 添加的组件列表。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;- 本参数仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。
+     *
+     * <p>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]
+     *
+     * @param elements
+     * @return
+     */
+    public Builder elements(String elements) {
+      this.elements = elements;
+      return this;
     }
 
-    public void setTargetElementId(String targetElementId) {
-        this.targetElementId = targetElementId;
+    public CreateCardElementReqBody build() {
+      return new CreateCardElementReqBody(this);
     }
+  }
 
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public String getElements() {
-        return this.elements;
-    }
-
-    public void setElements(String elements) {
-        this.elements = elements;
-    }
-
-    public static class Builder {
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         */
-        private String type;
-        /**
-         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-         * <p> 示例值：elem_63529372
-         */
-        private String targetElementId;
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        private String uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        private Integer sequence;
-        /**
-         * 组件列表
-         * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         */
-        private String elements;
-
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 添加组件的方式
-         * <p> 示例值：insert_before
-         *
-         * @param type {@link com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.cardkit.v1.enums.CreateCardElementTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 目标组件的 ID。 当 type 为 insert_before、insert_after 时，为用于定位的目标组件。 当 type 为 append 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件，未填写默认为在卡片 body 末尾添加。
-         * <p> 示例值：elem_63529372
-         *
-         * @param targetElementId
-         * @return
-         */
-        public Builder targetElementId(String targetElementId) {
-            this.targetElementId = targetElementId;
-            return this;
-        }
-
-
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        /**
-         * 组件列表
-         * <p> 示例值：[{\"tag\":\"markdown\",\"id\":\"md_1\",\"content\":\"示例文本\"}]
-         *
-         * @param elements
-         * @return
-         */
-        public Builder elements(String elements) {
-            this.elements = elements;
-            return this;
-        }
-
-
-        public CreateCardElementReqBody build() {
-            return new CreateCardElementReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

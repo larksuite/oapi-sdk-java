@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendAsUserMailboxSettingRespBody {
-    /**
-     * 可发信地址。包括主地址、别名地址、邮件组。
-     * <p> 示例值：
-     */
-    @SerializedName("sendable_addresses")
-    private EmailInfo[] sendableAddresses;
+  /**
+   * 可发信地址。包括主地址、别名地址、邮件组。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sendable_addresses")
+  private EmailInfo[] sendableAddresses;
 
-    public EmailInfo[] getSendableAddresses() {
-        return this.sendableAddresses;
-    }
+  public EmailInfo[] getSendableAddresses() {
+    return this.sendableAddresses;
+  }
 
-    public void setSendableAddresses(EmailInfo[] sendableAddresses) {
-        this.sendableAddresses = sendableAddresses;
-    }
-
+  public void setSendableAddresses(EmailInfo[] sendableAddresses) {
+    this.sendableAddresses = sendableAddresses;
+  }
 }

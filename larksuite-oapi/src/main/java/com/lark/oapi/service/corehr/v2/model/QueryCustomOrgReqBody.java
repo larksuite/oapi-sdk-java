@@ -13,334 +13,457 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryCustomOrgReqBody {
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 需要返回的字段列表。字段可填写的列表如下：;- names： 组织名称;- code：编码;- parent_id：上级自定义组织 ID;- manager_ids：负责人 ID 列表;-
+   * description：自定义组织描述;- effective_time：当前版本生效日期;- org_roles：组织角色列表;- active：自定义组织是否启用;-
+   * org_id：自定义组织 ID;-
+   * custom_fields(自定义字段，需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   * ,比如:"shifouleixing_7795__c"
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_fields")
+  private String[] orgFields;
+
+  /**
+   * 需要返回的组织角色授权信息的列表。;- org_role_fields 可选两种值; - 角色key，可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取;
+   * -
+   * 角色ID，可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+   * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+   * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_role_fields")
+  private String[] orgRoleFields;
+
+  /**
+   * 需要查询的组织 ID 列表。;- ID 为
+   * [获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+   * org_id 字段。;- 不传不做 ID 相关限制
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_ids")
+  private String[] orgIds;
+
+  /**
+   * 只返回和传入编码相同的自定义组织数据。;-
+   * 编码为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+   * code 字段。;- 不传默认不做这个限制
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 只返回 parent_id = 传入值 的自定义组织数据。;- parent_id
+   * 为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+   * org_id 字段。;- 不传默认不做这个限制;- 自定义组织 ID 类型需要为 ==people_corehr_id==
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 只返回启用/停用的自定义组织数据。;- 不传默认不做这个限制
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 是否返回匹配规则。;- 为 true 返回 ==match_rule_groups== 字段，否则不返回。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_match_rule")
+  private Boolean needMatchRule;
+
+  /**
+   * 负责人 ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("manager_id")
+  private String managerId;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String[] getOrgFields() {
+    return this.orgFields;
+  }
+
+  public void setOrgFields(String[] orgFields) {
+    this.orgFields = orgFields;
+  }
+
+  public String[] getOrgRoleFields() {
+    return this.orgRoleFields;
+  }
+
+  public void setOrgRoleFields(String[] orgRoleFields) {
+    this.orgRoleFields = orgRoleFields;
+  }
+
+  public String[] getOrgIds() {
+    return this.orgIds;
+  }
+
+  public void setOrgIds(String[] orgIds) {
+    this.orgIds = orgIds;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Boolean getNeedMatchRule() {
+    return this.needMatchRule;
+  }
+
+  public void setNeedMatchRule(Boolean needMatchRule) {
+    this.needMatchRule = needMatchRule;
+  }
+
+  public String getManagerId() {
+    return this.managerId;
+  }
+
+  public void setManagerId(String managerId) {
+    this.managerId = managerId;
+  }
+
+  // builder 开始
+  public QueryCustomOrgReqBody() {}
+
+  public QueryCustomOrgReqBody(Builder builder) {
     /**
-     * 组织类型编码
-     * <p> 示例值：apiname__c
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
      */
-    @SerializedName("object_api_name")
+    this.objectApiName = builder.objectApiName;
+    /**
+     * 需要返回的字段列表。字段可填写的列表如下：;- names： 组织名称;- code：编码;- parent_id：上级自定义组织 ID;- manager_ids：负责人 ID
+     * 列表;- description：自定义组织描述;- effective_time：当前版本生效日期;- org_roles：组织角色列表;- active：自定义组织是否启用;-
+     * org_id：自定义组织 ID;-
+     * custom_fields(自定义字段，需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c"
+     *
+     * <p>示例值：
+     */
+    this.orgFields = builder.orgFields;
+    /**
+     * 需要返回的组织角色授权信息的列表。;- org_role_fields 可选两种值; -
+     * 角色key，可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取; -
+     * 角色ID，可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：
+     */
+    this.orgRoleFields = builder.orgRoleFields;
+    /**
+     * 需要查询的组织 ID 列表。;- ID 为
+     * [获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传不做 ID 相关限制
+     *
+     * <p>示例值：
+     */
+    this.orgIds = builder.orgIds;
+    /**
+     * 只返回和传入编码相同的自定义组织数据。;-
+     * 编码为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * code 字段。;- 不传默认不做这个限制
+     *
+     * <p>示例值：MDPD00000023
+     */
+    this.code = builder.code;
+    /**
+     * 只返回 parent_id = 传入值 的自定义组织数据。;- parent_id
+     * 为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传默认不做这个限制;- 自定义组织 ID 类型需要为 ==people_corehr_id==
+     *
+     * <p>示例值：7140964208476371111
+     */
+    this.parentId = builder.parentId;
+    /**
+     * 只返回启用/停用的自定义组织数据。;- 不传默认不做这个限制
+     *
+     * <p>示例值：true
+     */
+    this.active = builder.active;
+    /**
+     * 是否返回匹配规则。;- 为 true 返回 ==match_rule_groups== 字段，否则不返回。
+     *
+     * <p>示例值：false
+     */
+    this.needMatchRule = builder.needMatchRule;
+    /**
+     * 负责人 ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    this.managerId = builder.managerId;
+  }
+
+  public static class Builder {
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     */
     private String objectApiName;
+
     /**
-     * 返回基础数据的字段列表
-     * <p> 示例值：
+     * 需要返回的字段列表。字段可填写的列表如下：;- names： 组织名称;- code：编码;- parent_id：上级自定义组织 ID;- manager_ids：负责人 ID
+     * 列表;- description：自定义组织描述;- effective_time：当前版本生效日期;- org_roles：组织角色列表;- active：自定义组织是否启用;-
+     * org_id：自定义组织 ID;-
+     * custom_fields(自定义字段，需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c"
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_fields")
     private String[] orgFields;
+
     /**
-     * 返回org_role数据的字段列表
-     * <p> 示例值：
+     * 需要返回的组织角色授权信息的列表。;- org_role_fields 可选两种值; -
+     * 角色key，可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取; -
+     * 角色ID，可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_role_fields")
     private String[] orgRoleFields;
+
     /**
-     * 组织ID列表
-     * <p> 示例值：
+     * 需要查询的组织 ID 列表。;- ID 为
+     * [获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传不做 ID 相关限制
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_ids")
     private String[] orgIds;
+
     /**
-     * 组织编码
-     * <p> 示例值：MDPD00000023
+     * 只返回和传入编码相同的自定义组织数据。;-
+     * 编码为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * code 字段。;- 不传默认不做这个限制
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
     private String code;
+
     /**
-     * 上级组织ID
-     * <p> 示例值：7140964208476371111
+     * 只返回 parent_id = 传入值 的自定义组织数据。;- parent_id
+     * 为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传默认不做这个限制;- 自定义组织 ID 类型需要为 ==people_corehr_id==
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("parent_id")
     private String parentId;
+
     /**
-     * 是否启用
-     * <p> 示例值：true
+     * 只返回启用/停用的自定义组织数据。;- 不传默认不做这个限制
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
     private Boolean active;
+
     /**
-     * 是否返回匹配规则
-     * <p> 示例值：false
+     * 是否返回匹配规则。;- 为 true 返回 ==match_rule_groups== 字段，否则不返回。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_match_rule")
     private Boolean needMatchRule;
 
-    // builder 开始
-    public QueryCustomOrgReqBody() {
+    /**
+     * 负责人 ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String managerId;
+
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public QueryCustomOrgReqBody(Builder builder) {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 返回基础数据的字段列表
-         * <p> 示例值：
-         */
-        this.orgFields = builder.orgFields;
-        /**
-         * 返回org_role数据的字段列表
-         * <p> 示例值：
-         */
-        this.orgRoleFields = builder.orgRoleFields;
-        /**
-         * 组织ID列表
-         * <p> 示例值：
-         */
-        this.orgIds = builder.orgIds;
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         */
-        this.code = builder.code;
-        /**
-         * 上级组织ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 是否返回匹配规则
-         * <p> 示例值：false
-         */
-        this.needMatchRule = builder.needMatchRule;
+    /**
+     * 需要返回的字段列表。字段可填写的列表如下：;- names： 组织名称;- code：编码;- parent_id：上级自定义组织 ID;- manager_ids：负责人 ID
+     * 列表;- description：自定义组织描述;- effective_time：当前版本生效日期;- org_roles：组织角色列表;- active：自定义组织是否启用;-
+     * org_id：自定义组织 ID;-
+     * custom_fields(自定义字段，需传入具体的"custom_api_name");详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c"
+     *
+     * <p>示例值：
+     *
+     * @param orgFields
+     * @return
+     */
+    public Builder orgFields(String[] orgFields) {
+      this.orgFields = orgFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要返回的组织角色授权信息的列表。;- org_role_fields 可选两种值; -
+     * 角色key，可以通过页面「飞书人事-设置-组织配置」选择对应自定义组织，「字段配置-字段编码」获取; -
+     * 角色ID，可以通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，数据为返回数据中的 data.items.id 值。筛选条件data.items.group_type == 3（组织角色），data.items.org_truncation
+     * 关联的组织有且仅有一个，data.items.org_truncation.org_key 等于当前查询自定义组织 object_api_name
+     *
+     * <p>示例值：
+     *
+     * @param orgRoleFields
+     * @return
+     */
+    public Builder orgRoleFields(String[] orgRoleFields) {
+      this.orgRoleFields = orgRoleFields;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    /**
+     * 需要查询的组织 ID 列表。;- ID 为
+     * [获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传不做 ID 相关限制
+     *
+     * <p>示例值：
+     *
+     * @param orgIds
+     * @return
+     */
+    public Builder orgIds(String[] orgIds) {
+      this.orgIds = orgIds;
+      return this;
     }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
+    /**
+     * 只返回和传入编码相同的自定义组织数据。;-
+     * 编码为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * code 字段。;- 不传默认不做这个限制
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String[] getOrgFields() {
-        return this.orgFields;
+    /**
+     * 只返回 parent_id = 传入值 的自定义组织数据。;- parent_id
+     * 为[获取自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)返回的
+     * org_id 字段。;- 不传默认不做这个限制;- 自定义组织 ID 类型需要为 ==people_corehr_id==
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public void setOrgFields(String[] orgFields) {
-        this.orgFields = orgFields;
+    /**
+     * 只返回启用/停用的自定义组织数据。;- 不传默认不做这个限制
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String[] getOrgRoleFields() {
-        return this.orgRoleFields;
+    /**
+     * 是否返回匹配规则。;- 为 true 返回 ==match_rule_groups== 字段，否则不返回。
+     *
+     * <p>示例值：false
+     *
+     * @param needMatchRule
+     * @return
+     */
+    public Builder needMatchRule(Boolean needMatchRule) {
+      this.needMatchRule = needMatchRule;
+      return this;
     }
 
-    public void setOrgRoleFields(String[] orgRoleFields) {
-        this.orgRoleFields = orgRoleFields;
+    /**
+     * 负责人 ID
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param managerId
+     * @return
+     */
+    public Builder managerId(String managerId) {
+      this.managerId = managerId;
+      return this;
     }
 
-    public String[] getOrgIds() {
-        return this.orgIds;
+    public QueryCustomOrgReqBody build() {
+      return new QueryCustomOrgReqBody(this);
     }
+  }
 
-    public void setOrgIds(String[] orgIds) {
-        this.orgIds = orgIds;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public Boolean getNeedMatchRule() {
-        return this.needMatchRule;
-    }
-
-    public void setNeedMatchRule(Boolean needMatchRule) {
-        this.needMatchRule = needMatchRule;
-    }
-
-    public static class Builder {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        private String objectApiName;
-        /**
-         * 返回基础数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] orgFields;
-        /**
-         * 返回org_role数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] orgRoleFields;
-        /**
-         * 组织ID列表
-         * <p> 示例值：
-         */
-        private String[] orgIds;
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         */
-        private String code;
-        /**
-         * 上级组织ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String parentId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 是否返回匹配规则
-         * <p> 示例值：false
-         */
-        private Boolean needMatchRule;
-
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 返回基础数据的字段列表
-         * <p> 示例值：
-         *
-         * @param orgFields
-         * @return
-         */
-        public Builder orgFields(String[] orgFields) {
-            this.orgFields = orgFields;
-            return this;
-        }
-
-
-        /**
-         * 返回org_role数据的字段列表
-         * <p> 示例值：
-         *
-         * @param orgRoleFields
-         * @return
-         */
-        public Builder orgRoleFields(String[] orgRoleFields) {
-            this.orgRoleFields = orgRoleFields;
-            return this;
-        }
-
-
-        /**
-         * 组织ID列表
-         * <p> 示例值：
-         *
-         * @param orgIds
-         * @return
-         */
-        public Builder orgIds(String[] orgIds) {
-            this.orgIds = orgIds;
-            return this;
-        }
-
-
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 上级组织ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 是否返回匹配规则
-         * <p> 示例值：false
-         *
-         * @param needMatchRule
-         * @return
-         */
-        public Builder needMatchRule(Boolean needMatchRule) {
-            this.needMatchRule = needMatchRule;
-            return this;
-        }
-
-
-        public QueryCustomOrgReqBody build() {
-            return new QueryCustomOrgReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

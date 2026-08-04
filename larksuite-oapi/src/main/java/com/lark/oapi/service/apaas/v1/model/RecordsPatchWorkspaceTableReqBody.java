@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordsPatchWorkspaceTableReqBody {
+  /**
+   * 要更新的数据记录信息
+   *
+   * <p>示例值：{\"age\":10}
+   */
+  @SerializedName("record")
+  private String record;
+
+  public String getRecord() {
+    return this.record;
+  }
+
+  public void setRecord(String record) {
+    this.record = record;
+  }
+
+  // builder 开始
+  public RecordsPatchWorkspaceTableReqBody() {}
+
+  public RecordsPatchWorkspaceTableReqBody(Builder builder) {
     /**
      * 要更新的数据记录信息
-     * <p> 示例值：{\"age\":10}
+     *
+     * <p>示例值：{\"age\":10}
      */
-    @SerializedName("record")
+    this.record = builder.record;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的数据记录信息
+     *
+     * <p>示例值：{\"age\":10}
+     */
     private String record;
 
-    // builder 开始
-    public RecordsPatchWorkspaceTableReqBody() {
+    /**
+     * 要更新的数据记录信息
+     *
+     * <p>示例值：{\"age\":10}
+     *
+     * @param record
+     * @return
+     */
+    public Builder record(String record) {
+      this.record = record;
+      return this;
     }
 
-    public RecordsPatchWorkspaceTableReqBody(Builder builder) {
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         */
-        this.record = builder.record;
+    public RecordsPatchWorkspaceTableReqBody build() {
+      return new RecordsPatchWorkspaceTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRecord() {
-        return this.record;
-    }
-
-    public void setRecord(String record) {
-        this.record = record;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         */
-        private String record;
-
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         *
-         * @param record
-         * @return
-         */
-        public Builder record(String record) {
-            this.record = record;
-            return this;
-        }
-
-
-        public RecordsPatchWorkspaceTableReqBody build() {
-            return new RecordsPatchWorkspaceTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

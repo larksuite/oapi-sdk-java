@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailRecipientLogText {
+  /**
+   * 创建时间戳
+   *
+   * <p>示例值：1766047449
+   */
+  @SerializedName("created_timestamp")
+  private String createdTimestamp;
+
+  /**
+   * 文本
+   *
+   * <p>示例值：邮件已成功送达收件人邮箱
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 状态类型
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("status_type")
+  private Integer statusType;
+
+  /**
+   * 文本参数值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_values")
+  private MailRecipientLogI18nTextParam[] textValues;
+
+  public String getCreatedTimestamp() {
+    return this.createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(String createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public Integer getStatusType() {
+    return this.statusType;
+  }
+
+  public void setStatusType(Integer statusType) {
+    this.statusType = statusType;
+  }
+
+  public MailRecipientLogI18nTextParam[] getTextValues() {
+    return this.textValues;
+  }
+
+  public void setTextValues(MailRecipientLogI18nTextParam[] textValues) {
+    this.textValues = textValues;
+  }
+
+  // builder 开始
+  public MailRecipientLogText() {}
+
+  public MailRecipientLogText(Builder builder) {
     /**
      * 创建时间戳
-     * <p> 示例值：1766047449
+     *
+     * <p>示例值：1766047449
      */
-    @SerializedName("created_timestamp")
-    private String createdTimestamp;
+    this.createdTimestamp = builder.createdTimestamp;
     /**
      * 文本
-     * <p> 示例值：邮件已成功送达收件人邮箱
+     *
+     * <p>示例值：邮件已成功送达收件人邮箱
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 状态类型
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("status_type")
-    private Integer statusType;
+    this.statusType = builder.statusType;
     /**
      * 文本参数值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_values")
+    this.textValues = builder.textValues;
+  }
+
+  public static class Builder {
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1766047449
+     */
+    private String createdTimestamp;
+
+    /**
+     * 文本
+     *
+     * <p>示例值：邮件已成功送达收件人邮箱
+     */
+    private String text;
+
+    /**
+     * 状态类型
+     *
+     * <p>示例值：2
+     */
+    private Integer statusType;
+
+    /**
+     * 文本参数值
+     *
+     * <p>示例值：
+     */
     private MailRecipientLogI18nTextParam[] textValues;
 
-    // builder 开始
-    public MailRecipientLogText() {
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1766047449
+     *
+     * @param createdTimestamp
+     * @return
+     */
+    public Builder createdTimestamp(String createdTimestamp) {
+      this.createdTimestamp = createdTimestamp;
+      return this;
     }
 
-    public MailRecipientLogText(Builder builder) {
-        /**
-         * 创建时间戳
-         * <p> 示例值：1766047449
-         */
-        this.createdTimestamp = builder.createdTimestamp;
-        /**
-         * 文本
-         * <p> 示例值：邮件已成功送达收件人邮箱
-         */
-        this.text = builder.text;
-        /**
-         * 状态类型
-         * <p> 示例值：2
-         */
-        this.statusType = builder.statusType;
-        /**
-         * 文本参数值
-         * <p> 示例值：
-         */
-        this.textValues = builder.textValues;
+    /**
+     * 文本
+     *
+     * <p>示例值：邮件已成功送达收件人邮箱
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 状态类型
+     *
+     * <p>示例值：2
+     *
+     * @param statusType
+     * @return
+     */
+    public Builder statusType(Integer statusType) {
+      this.statusType = statusType;
+      return this;
     }
 
-    public String getCreatedTimestamp() {
-        return this.createdTimestamp;
+    /**
+     * 文本参数值
+     *
+     * <p>示例值：
+     *
+     * @param textValues
+     * @return
+     */
+    public Builder textValues(MailRecipientLogI18nTextParam[] textValues) {
+      this.textValues = textValues;
+      return this;
     }
 
-    public void setCreatedTimestamp(String createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    public MailRecipientLogText build() {
+      return new MailRecipientLogText(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Integer getStatusType() {
-        return this.statusType;
-    }
-
-    public void setStatusType(Integer statusType) {
-        this.statusType = statusType;
-    }
-
-    public MailRecipientLogI18nTextParam[] getTextValues() {
-        return this.textValues;
-    }
-
-    public void setTextValues(MailRecipientLogI18nTextParam[] textValues) {
-        this.textValues = textValues;
-    }
-
-    public static class Builder {
-        /**
-         * 创建时间戳
-         * <p> 示例值：1766047449
-         */
-        private String createdTimestamp;
-        /**
-         * 文本
-         * <p> 示例值：邮件已成功送达收件人邮箱
-         */
-        private String text;
-        /**
-         * 状态类型
-         * <p> 示例值：2
-         */
-        private Integer statusType;
-        /**
-         * 文本参数值
-         * <p> 示例值：
-         */
-        private MailRecipientLogI18nTextParam[] textValues;
-
-        /**
-         * 创建时间戳
-         * <p> 示例值：1766047449
-         *
-         * @param createdTimestamp
-         * @return
-         */
-        public Builder createdTimestamp(String createdTimestamp) {
-            this.createdTimestamp = createdTimestamp;
-            return this;
-        }
-
-
-        /**
-         * 文本
-         * <p> 示例值：邮件已成功送达收件人邮箱
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 状态类型
-         * <p> 示例值：2
-         *
-         * @param statusType
-         * @return
-         */
-        public Builder statusType(Integer statusType) {
-            this.statusType = statusType;
-            return this;
-        }
-
-
-        /**
-         * 文本参数值
-         * <p> 示例值：
-         *
-         * @param textValues
-         * @return
-         */
-        public Builder textValues(MailRecipientLogI18nTextParam[] textValues) {
-            this.textValues = textValues;
-            return this;
-        }
-
-
-        public MailRecipientLogText build() {
-            return new MailRecipientLogText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

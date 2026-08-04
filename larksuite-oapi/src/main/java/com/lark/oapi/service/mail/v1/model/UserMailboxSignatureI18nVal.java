@@ -13,115 +13,108 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UserMailboxSignatureI18nVal {
+  /**
+   * 默认值，当无匹配的国际化语言时使用该值
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("default_val")
+  private String defaultVal;
+
+  /**
+   * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("i18n_vals")
+  private Map<String, String> i18nVals;
+
+  public String getDefaultVal() {
+    return this.defaultVal;
+  }
+
+  public void setDefaultVal(String defaultVal) {
+    this.defaultVal = defaultVal;
+  }
+
+  public Map<String, String> getI18nVals() {
+    return this.i18nVals;
+  }
+
+  public void setI18nVals(Map<String, String> i18nVals) {
+    this.i18nVals = i18nVals;
+  }
+
+  // builder 开始
+  public UserMailboxSignatureI18nVal() {}
+
+  public UserMailboxSignatureI18nVal(Builder builder) {
     /**
      * 默认值，当无匹配的国际化语言时使用该值
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("default_val")
-    private String defaultVal;
+    this.defaultVal = builder.defaultVal;
     /**
      * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
-     * <p> 示例值：
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("i18n_vals")
+    this.i18nVals = builder.i18nVals;
+  }
+
+  public static class Builder {
+    /**
+     * 默认值，当无匹配的国际化语言时使用该值
+     *
+     * <p>示例值：张三
+     */
+    private String defaultVal;
+
+    /**
+     * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
+     *
+     * <p>示例值：zh_cn
+     */
     private Map<String, String> i18nVals;
 
-    // builder 开始
-    public UserMailboxSignatureI18nVal() {
+    /**
+     * 默认值，当无匹配的国际化语言时使用该值
+     *
+     * <p>示例值：张三
+     *
+     * @param defaultVal
+     * @return
+     */
+    public Builder defaultVal(String defaultVal) {
+      this.defaultVal = defaultVal;
+      return this;
     }
 
-    public UserMailboxSignatureI18nVal(Builder builder) {
-        /**
-         * 默认值，当无匹配的国际化语言时使用该值
-         * <p> 示例值：张三
-         */
-        this.defaultVal = builder.defaultVal;
-        /**
-         * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
-         * <p> 示例值：
-         */
-        this.i18nVals = builder.i18nVals;
+    /**
+     * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param i18nVals
+     * @return
+     */
+    public Builder i18nVals(Map<String, String> i18nVals) {
+      this.i18nVals = i18nVals;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserMailboxSignatureI18nVal build() {
+      return new UserMailboxSignatureI18nVal(this);
     }
+  }
 
-    public String getDefaultVal() {
-        return this.defaultVal;
-    }
-
-    public void setDefaultVal(String defaultVal) {
-        this.defaultVal = defaultVal;
-    }
-
-    public Map<String, String> getI18nVals() {
-        return this.i18nVals;
-    }
-
-    public void setI18nVals(Map<String, String> i18nVals) {
-        this.i18nVals = i18nVals;
-    }
-
-    public static class Builder {
-        /**
-         * 默认值，当无匹配的国际化语言时使用该值
-         * <p> 示例值：张三
-         */
-        private String defaultVal;
-        /**
-         * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nVals;
-
-        /**
-         * 默认值，当无匹配的国际化语言时使用该值
-         * <p> 示例值：张三
-         *
-         * @param defaultVal
-         * @return
-         */
-        public Builder defaultVal(String defaultVal) {
-            this.defaultVal = defaultVal;
-            return this;
-        }
-
-
-        /**
-         * 国际化值映射，key 为语言标识（如 zh_cn、en_us），value 为对应语言的值
-         * <p> 示例值：
-         *
-         * @param i18nVals
-         * @return
-         */
-        public Builder i18nVals(Map<String, String> i18nVals) {
-            this.i18nVals = i18nVals;
-            return this;
-        }
-
-
-        public UserMailboxSignatureI18nVal build() {
-            return new UserMailboxSignatureI18nVal(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileCard {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 联系方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contacts")
+  private Credential[] contacts;
+
+  /**
+   * 头像
+   *
+   * <p>示例值：123123123
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 是否自定义头像
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_custom_avatar")
+  private Boolean isCustomAvatar;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 背景图
+   *
+   * <p>示例值：12312123123
+   */
+  @SerializedName("background_image_key")
+  private String backgroundImageKey;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Credential[] getContacts() {
+    return this.contacts;
+  }
+
+  public void setContacts(Credential[] contacts) {
+    this.contacts = contacts;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public Boolean getIsCustomAvatar() {
+    return this.isCustomAvatar;
+  }
+
+  public void setIsCustomAvatar(Boolean isCustomAvatar) {
+    this.isCustomAvatar = isCustomAvatar;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String getBackgroundImageKey() {
+    return this.backgroundImageKey;
+  }
+
+  public void setBackgroundImageKey(String backgroundImageKey) {
+    this.backgroundImageKey = backgroundImageKey;
+  }
+
+  // builder 开始
+  public ProfileCard() {}
+
+  public ProfileCard(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 联系方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contacts")
-    private Credential[] contacts;
+    this.contacts = builder.contacts;
     /**
      * 头像
-     * <p> 示例值：123123123
+     *
+     * <p>示例值：123123123
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 是否自定义头像
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_custom_avatar")
-    private Boolean isCustomAvatar;
+    this.isCustomAvatar = builder.isCustomAvatar;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 背景图
-     * <p> 示例值：12312123123
+     *
+     * <p>示例值：12312123123
      */
-    @SerializedName("background_image_key")
+    this.backgroundImageKey = builder.backgroundImageKey;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 联系方式
+     *
+     * <p>示例值：
+     */
+    private Credential[] contacts;
+
+    /**
+     * 头像
+     *
+     * <p>示例值：123123123
+     */
+    private String avatarKey;
+
+    /**
+     * 是否自定义头像
+     *
+     * <p>示例值：
+     */
+    private Boolean isCustomAvatar;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 背景图
+     *
+     * <p>示例值：12312123123
+     */
     private String backgroundImageKey;
 
-    // builder 开始
-    public ProfileCard() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public ProfileCard(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 联系方式
-         * <p> 示例值：
-         */
-        this.contacts = builder.contacts;
-        /**
-         * 头像
-         * <p> 示例值：123123123
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 是否自定义头像
-         * <p> 示例值：
-         */
-        this.isCustomAvatar = builder.isCustomAvatar;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 背景图
-         * <p> 示例值：12312123123
-         */
-        this.backgroundImageKey = builder.backgroundImageKey;
+    /**
+     * 联系方式
+     *
+     * <p>示例值：
+     *
+     * @param contacts
+     * @return
+     */
+    public Builder contacts(Credential[] contacts) {
+      this.contacts = contacts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 头像
+     *
+     * <p>示例值：123123123
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 是否自定义头像
+     *
+     * <p>示例值：
+     *
+     * @param isCustomAvatar
+     * @return
+     */
+    public Builder isCustomAvatar(Boolean isCustomAvatar) {
+      this.isCustomAvatar = isCustomAvatar;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public Credential[] getContacts() {
-        return this.contacts;
+    /**
+     * 背景图
+     *
+     * <p>示例值：12312123123
+     *
+     * @param backgroundImageKey
+     * @return
+     */
+    public Builder backgroundImageKey(String backgroundImageKey) {
+      this.backgroundImageKey = backgroundImageKey;
+      return this;
     }
 
-    public void setContacts(Credential[] contacts) {
-        this.contacts = contacts;
+    public ProfileCard build() {
+      return new ProfileCard(this);
     }
+  }
 
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public Boolean getIsCustomAvatar() {
-        return this.isCustomAvatar;
-    }
-
-    public void setIsCustomAvatar(Boolean isCustomAvatar) {
-        this.isCustomAvatar = isCustomAvatar;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String getBackgroundImageKey() {
-        return this.backgroundImageKey;
-    }
-
-    public void setBackgroundImageKey(String backgroundImageKey) {
-        this.backgroundImageKey = backgroundImageKey;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 联系方式
-         * <p> 示例值：
-         */
-        private Credential[] contacts;
-        /**
-         * 头像
-         * <p> 示例值：123123123
-         */
-        private String avatarKey;
-        /**
-         * 是否自定义头像
-         * <p> 示例值：
-         */
-        private Boolean isCustomAvatar;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 背景图
-         * <p> 示例值：12312123123
-         */
-        private String backgroundImageKey;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 联系方式
-         * <p> 示例值：
-         *
-         * @param contacts
-         * @return
-         */
-        public Builder contacts(Credential[] contacts) {
-            this.contacts = contacts;
-            return this;
-        }
-
-
-        /**
-         * 头像
-         * <p> 示例值：123123123
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 是否自定义头像
-         * <p> 示例值：
-         *
-         * @param isCustomAvatar
-         * @return
-         */
-        public Builder isCustomAvatar(Boolean isCustomAvatar) {
-            this.isCustomAvatar = isCustomAvatar;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 背景图
-         * <p> 示例值：12312123123
-         *
-         * @param backgroundImageKey
-         * @return
-         */
-        public Builder backgroundImageKey(String backgroundImageKey) {
-            this.backgroundImageKey = backgroundImageKey;
-            return this;
-        }
-
-
-        public ProfileCard build() {
-            return new ProfileCard(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

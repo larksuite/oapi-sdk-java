@@ -13,481 +13,526 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationPrehireOfferBasic {
+  /**
+   * Offer ID
+   *
+   * <p>示例值：11111
+   */
+  @SerializedName("offer_id")
+  private String offerId;
+
+  /**
+   * 候选人 ID
+   *
+   * <p>示例值：11111
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 人才 ID
+   *
+   * <p>示例值：11111
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 职位 ID
+   *
+   * <p>示例值：11111
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 过期时间
+   *
+   * <p>示例值：1111233344
+   */
+  @SerializedName("expire_time")
+  private Long expireTime;
+
+  /**
+   * 入职时间
+   *
+   * <p>示例值：1111233344
+   */
+  @SerializedName("onboard_time")
+  private Integer onboardTime;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offer_type")
+  private Integer offerType;
+
+  /**
+   * Offer状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("offer_status")
+  private Integer offerStatus;
+
+  /**
+   * Offer负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private AppliOfferBasicInfoUser owner;
+
+  /**
+   * Offer职位名称
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("offer_job_title")
+  private String offerJobTitle;
+
+  public String getOfferId() {
+    return this.offerId;
+  }
+
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public Long getExpireTime() {
+    return this.expireTime;
+  }
+
+  public void setExpireTime(Long expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  public Integer getOnboardTime() {
+    return this.onboardTime;
+  }
+
+  public void setOnboardTime(Integer onboardTime) {
+    this.onboardTime = onboardTime;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public Integer getOfferType() {
+    return this.offerType;
+  }
+
+  public void setOfferType(Integer offerType) {
+    this.offerType = offerType;
+  }
+
+  public Integer getOfferStatus() {
+    return this.offerStatus;
+  }
+
+  public void setOfferStatus(Integer offerStatus) {
+    this.offerStatus = offerStatus;
+  }
+
+  public AppliOfferBasicInfoUser getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(AppliOfferBasicInfoUser owner) {
+    this.owner = owner;
+  }
+
+  public String getOfferJobTitle() {
+    return this.offerJobTitle;
+  }
+
+  public void setOfferJobTitle(String offerJobTitle) {
+    this.offerJobTitle = offerJobTitle;
+  }
+
+  // builder 开始
+  public ApplicationPrehireOfferBasic() {}
+
+  public ApplicationPrehireOfferBasic(Builder builder) {
     /**
      * Offer ID
-     * <p> 示例值：11111
+     *
+     * <p>示例值：11111
      */
-    @SerializedName("offer_id")
-    private String offerId;
+    this.offerId = builder.offerId;
     /**
      * 候选人 ID
-     * <p> 示例值：11111
+     *
+     * <p>示例值：11111
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 人才 ID
-     * <p> 示例值：11111
+     *
+     * <p>示例值：11111
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 职位 ID
-     * <p> 示例值：11111
+     *
+     * <p>示例值：11111
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 备注
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 过期时间
-     * <p> 示例值：1111233344
+     *
+     * <p>示例值：1111233344
      */
-    @SerializedName("expire_time")
-    private Long expireTime;
+    this.expireTime = builder.expireTime;
     /**
      * 入职时间
-     * <p> 示例值：1111233344
+     *
+     * <p>示例值：1111233344
      */
-    @SerializedName("onboard_time")
-    private Integer onboardTime;
+    this.onboardTime = builder.onboardTime;
     /**
      * 时区
-     * <p> 示例值：111
+     *
+     * <p>示例值：111
      */
-    @SerializedName("time_zone")
-    private String timeZone;
+    this.timeZone = builder.timeZone;
     /**
      * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offer_type")
-    private Integer offerType;
+    this.offerType = builder.offerType;
     /**
      * Offer状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("offer_status")
-    private Integer offerStatus;
+    this.offerStatus = builder.offerStatus;
     /**
      * Offer负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private AppliOfferBasicInfoUser owner;
+    this.owner = builder.owner;
     /**
      * Offer职位名称
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("offer_job_title")
+    this.offerJobTitle = builder.offerJobTitle;
+  }
+
+  public static class Builder {
+    /**
+     * Offer ID
+     *
+     * <p>示例值：11111
+     */
+    private String offerId;
+
+    /**
+     * 候选人 ID
+     *
+     * <p>示例值：11111
+     */
+    private String applicationId;
+
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：11111
+     */
+    private String talentId;
+
+    /**
+     * 职位 ID
+     *
+     * <p>示例值：11111
+     */
+    private String jobId;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：test
+     */
+    private String remark;
+
+    /**
+     * 过期时间
+     *
+     * <p>示例值：1111233344
+     */
+    private Long expireTime;
+
+    /**
+     * 入职时间
+     *
+     * <p>示例值：1111233344
+     */
+    private Integer onboardTime;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：111
+     */
+    private String timeZone;
+
+    /**
+     * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
+     *
+     * <p>示例值：1
+     */
+    private Integer offerType;
+
+    /**
+     * Offer状态
+     *
+     * <p>示例值：0
+     */
+    private Integer offerStatus;
+
+    /**
+     * Offer负责人
+     *
+     * <p>示例值：
+     */
+    private AppliOfferBasicInfoUser owner;
+
+    /**
+     * Offer职位名称
+     *
+     * <p>示例值：test
+     */
     private String offerJobTitle;
 
-    // builder 开始
-    public ApplicationPrehireOfferBasic() {
+    /**
+     * Offer ID
+     *
+     * <p>示例值：11111
+     *
+     * @param offerId
+     * @return
+     */
+    public Builder offerId(String offerId) {
+      this.offerId = offerId;
+      return this;
     }
 
-    public ApplicationPrehireOfferBasic(Builder builder) {
-        /**
-         * Offer ID
-         * <p> 示例值：11111
-         */
-        this.offerId = builder.offerId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：11111
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 人才 ID
-         * <p> 示例值：11111
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：11111
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 备注
-         * <p> 示例值：test
-         */
-        this.remark = builder.remark;
-        /**
-         * 过期时间
-         * <p> 示例值：1111233344
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * 入职时间
-         * <p> 示例值：1111233344
-         */
-        this.onboardTime = builder.onboardTime;
-        /**
-         * 时区
-         * <p> 示例值：111
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
-         * <p> 示例值：1
-         */
-        this.offerType = builder.offerType;
-        /**
-         * Offer状态
-         * <p> 示例值：0
-         */
-        this.offerStatus = builder.offerStatus;
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * Offer职位名称
-         * <p> 示例值：test
-         */
-        this.offerJobTitle = builder.offerJobTitle;
+    /**
+     * 候选人 ID
+     *
+     * <p>示例值：11111
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人才 ID
+     *
+     * <p>示例值：11111
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public String getOfferId() {
-        return this.offerId;
+    /**
+     * 职位 ID
+     *
+     * <p>示例值：11111
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
+    /**
+     * 备注
+     *
+     * <p>示例值：test
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 过期时间
+     *
+     * <p>示例值：1111233344
+     *
+     * @param expireTime
+     * @return
+     */
+    public Builder expireTime(Long expireTime) {
+      this.expireTime = expireTime;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 入职时间
+     *
+     * <p>示例值：1111233344
+     *
+     * @param onboardTime
+     * @return
+     */
+    public Builder onboardTime(Integer onboardTime) {
+      this.onboardTime = onboardTime;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 时区
+     *
+     * <p>示例值：111
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
+     *
+     * <p>示例值：1
+     *
+     * @param offerType
+     * @return
+     */
+    public Builder offerType(Integer offerType) {
+      this.offerType = offerType;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * Offer状态
+     *
+     * <p>示例值：0
+     *
+     * @param offerStatus
+     * @return
+     */
+    public Builder offerStatus(Integer offerStatus) {
+      this.offerStatus = offerStatus;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    /**
+     * Offer负责人
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(AppliOfferBasicInfoUser owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public String getRemark() {
-        return this.remark;
+    /**
+     * Offer职位名称
+     *
+     * <p>示例值：test
+     *
+     * @param offerJobTitle
+     * @return
+     */
+    public Builder offerJobTitle(String offerJobTitle) {
+      this.offerJobTitle = offerJobTitle;
+      return this;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public ApplicationPrehireOfferBasic build() {
+      return new ApplicationPrehireOfferBasic(this);
     }
+  }
 
-    public Long getExpireTime() {
-        return this.expireTime;
-    }
-
-    public void setExpireTime(Long expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public Integer getOnboardTime() {
-        return this.onboardTime;
-    }
-
-    public void setOnboardTime(Integer onboardTime) {
-        this.onboardTime = onboardTime;
-    }
-
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Integer getOfferType() {
-        return this.offerType;
-    }
-
-    public void setOfferType(Integer offerType) {
-        this.offerType = offerType;
-    }
-
-    public Integer getOfferStatus() {
-        return this.offerStatus;
-    }
-
-    public void setOfferStatus(Integer offerStatus) {
-        this.offerStatus = offerStatus;
-    }
-
-    public AppliOfferBasicInfoUser getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(AppliOfferBasicInfoUser owner) {
-        this.owner = owner;
-    }
-
-    public String getOfferJobTitle() {
-        return this.offerJobTitle;
-    }
-
-    public void setOfferJobTitle(String offerJobTitle) {
-        this.offerJobTitle = offerJobTitle;
-    }
-
-    public static class Builder {
-        /**
-         * Offer ID
-         * <p> 示例值：11111
-         */
-        private String offerId;
-        /**
-         * 候选人 ID
-         * <p> 示例值：11111
-         */
-        private String applicationId;
-        /**
-         * 人才 ID
-         * <p> 示例值：11111
-         */
-        private String talentId;
-        /**
-         * 职位 ID
-         * <p> 示例值：11111
-         */
-        private String jobId;
-        /**
-         * 备注
-         * <p> 示例值：test
-         */
-        private String remark;
-        /**
-         * 过期时间
-         * <p> 示例值：1111233344
-         */
-        private Long expireTime;
-        /**
-         * 入职时间
-         * <p> 示例值：1111233344
-         */
-        private Integer onboardTime;
-        /**
-         * 时区
-         * <p> 示例值：111
-         */
-        private String timeZone;
-        /**
-         * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
-         * <p> 示例值：1
-         */
-        private Integer offerType;
-        /**
-         * Offer状态
-         * <p> 示例值：0
-         */
-        private Integer offerStatus;
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         */
-        private AppliOfferBasicInfoUser owner;
-        /**
-         * Offer职位名称
-         * <p> 示例值：test
-         */
-        private String offerJobTitle;
-
-        /**
-         * Offer ID
-         * <p> 示例值：11111
-         *
-         * @param offerId
-         * @return
-         */
-        public Builder offerId(String offerId) {
-            this.offerId = offerId;
-            return this;
-        }
-
-
-        /**
-         * 候选人 ID
-         * <p> 示例值：11111
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 人才 ID
-         * <p> 示例值：11111
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 职位 ID
-         * <p> 示例值：11111
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：test
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 过期时间
-         * <p> 示例值：1111233344
-         *
-         * @param expireTime
-         * @return
-         */
-        public Builder expireTime(Long expireTime) {
-            this.expireTime = expireTime;
-            return this;
-        }
-
-
-        /**
-         * 入职时间
-         * <p> 示例值：1111233344
-         *
-         * @param onboardTime
-         * @return
-         */
-        public Builder onboardTime(Integer onboardTime) {
-            this.onboardTime = onboardTime;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：111
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * Offer类型 1=Social, 2=Campus, 3=Intern, 4=InternTransfer
-         * <p> 示例值：1
-         *
-         * @param offerType
-         * @return
-         */
-        public Builder offerType(Integer offerType) {
-            this.offerType = offerType;
-            return this;
-        }
-
-
-        /**
-         * Offer状态
-         * <p> 示例值：0
-         *
-         * @param offerStatus
-         * @return
-         */
-        public Builder offerStatus(Integer offerStatus) {
-            this.offerStatus = offerStatus;
-            return this;
-        }
-
-
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(AppliOfferBasicInfoUser owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * Offer职位名称
-         * <p> 示例值：test
-         *
-         * @param offerJobTitle
-         * @return
-         */
-        public Builder offerJobTitle(String offerJobTitle) {
-            this.offerJobTitle = offerJobTitle;
-            return this;
-        }
-
-
-        public ApplicationPrehireOfferBasic build() {
-            return new ApplicationPrehireOfferBasic(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

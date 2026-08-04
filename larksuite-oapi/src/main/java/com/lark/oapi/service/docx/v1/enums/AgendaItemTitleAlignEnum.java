@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 对齐方式
- */
+/** 对齐方式 */
 public enum AgendaItemTitleAlignEnum {
-    LEFT(1), // 居左排版
-    CENTER(2), // 居中排版
-    RIGHT(3), // 居右排版
-    ;
-    private Integer value;
+  LEFT(1), // 居左排版
+  CENTER(2), // 居中排版
+  RIGHT(3), // 居右排版
+  ;
+  private Integer value;
 
-    AgendaItemTitleAlignEnum(Integer value) {
-        this.value = value;
-    }
+  AgendaItemTitleAlignEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

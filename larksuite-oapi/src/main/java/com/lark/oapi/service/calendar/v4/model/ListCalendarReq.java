@@ -13,139 +13,145 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class ListCalendarReq {
+  /**
+   * 一次请求要求返回的最大日历数量。实际返回的日历数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日历。
+   *
+   * <p>示例值：`50`
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：ListCalendarsPageToken_xxx
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+   * 增量获取日历变更数据。;;**默认值**：空
+   *
+   * <p>示例值：ListCalendarsSyncToken_xxx
+   */
+  @Query
+  @SerializedName("sync_token")
+  private String syncToken;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getSyncToken() {
+    return this.syncToken;
+  }
+
+  public void setSyncToken(String syncToken) {
+    this.syncToken = syncToken;
+  }
+
+  // builder 开始
+  public ListCalendarReq() {}
+
+  public ListCalendarReq(Builder builder) {
     /**
-     * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-     * <p> 示例值：50
+     * 一次请求要求返回的最大日历数量。实际返回的日历数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日历。
+     *
+     * <p>示例值：`50`
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 上次请求Response返回的分页标记，首次请求时为空
-     * <p> 示例值：ListCalendarsPageToken_xxx
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：ListCalendarsPageToken_xxx
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-     * <p> 示例值：ListCalendarsSyncToken_xxx
+     * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+     * 增量获取日历变更数据。;;**默认值**：空
+     *
+     * <p>示例值：ListCalendarsSyncToken_xxx
      */
-    @Query
-    @SerializedName("sync_token")
-    private String syncToken;
+    this.syncToken = builder.syncToken;
+  }
 
-    // builder 开始
-    public ListCalendarReq() {
+  public static class Builder {
+    private Integer
+        pageSize; // 一次请求要求返回的最大日历数量。实际返回的日历数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日历。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String
+        syncToken; // 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该
+
+    // sync_token 增量获取日历变更数据。;;**默认值**：空
+
+    /**
+     * 一次请求要求返回的最大日历数量。实际返回的日历数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日历。
+     *
+     * <p>示例值：`50`
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListCalendarReq(Builder builder) {
-        /**
-         * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 上次请求Response返回的分页标记，首次请求时为空
-         * <p> 示例值：ListCalendarsPageToken_xxx
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-         * <p> 示例值：ListCalendarsSyncToken_xxx
-         */
-        this.syncToken = builder.syncToken;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：ListCalendarsPageToken_xxx
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+     * 增量获取日历变更数据。;;**默认值**：空
+     *
+     * <p>示例值：ListCalendarsSyncToken_xxx
+     *
+     * @param syncToken
+     * @return
+     */
+    public Builder syncToken(String syncToken) {
+      this.syncToken = syncToken;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public ListCalendarReq build() {
+      return new ListCalendarReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getSyncToken() {
-        return this.syncToken;
-    }
-
-    public void setSyncToken(String syncToken) {
-        this.syncToken = syncToken;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-        private String pageToken; // 上次请求Response返回的分页标记，首次请求时为空
-        private String syncToken; // 上次请求Response返回的增量同步标记，分页请求未结束时为空
-
-        /**
-         * 一次请求要求返回最大数量，默认500，取值范围为[50. 1000]
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 上次请求Response返回的分页标记，首次请求时为空
-         * <p> 示例值：ListCalendarsPageToken_xxx
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-         * <p> 示例值：ListCalendarsSyncToken_xxx
-         *
-         * @param syncToken
-         * @return
-         */
-        public Builder syncToken(String syncToken) {
-            this.syncToken = syncToken;
-            return this;
-        }
-
-
-        public ListCalendarReq build() {
-            return new ListCalendarReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

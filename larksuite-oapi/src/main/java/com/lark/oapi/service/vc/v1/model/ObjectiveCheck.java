@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectiveCheck {
+  /**
+   * 客观分析类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objective_check_types")
+  private Integer[] objectiveCheckTypes;
+
+  /**
+   * 客观分析参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objective_check_params")
+  private ObjectiveCheckParam[] objectiveCheckParams;
+
+  public Integer[] getObjectiveCheckTypes() {
+    return this.objectiveCheckTypes;
+  }
+
+  public void setObjectiveCheckTypes(Integer[] objectiveCheckTypes) {
+    this.objectiveCheckTypes = objectiveCheckTypes;
+  }
+
+  public ObjectiveCheckParam[] getObjectiveCheckParams() {
+    return this.objectiveCheckParams;
+  }
+
+  public void setObjectiveCheckParams(ObjectiveCheckParam[] objectiveCheckParams) {
+    this.objectiveCheckParams = objectiveCheckParams;
+  }
+
+  // builder 开始
+  public ObjectiveCheck() {}
+
+  public ObjectiveCheck(Builder builder) {
     /**
      * 客观分析类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objective_check_types")
-    private Integer[] objectiveCheckTypes;
+    this.objectiveCheckTypes = builder.objectiveCheckTypes;
     /**
      * 客观分析参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objective_check_params")
+    this.objectiveCheckParams = builder.objectiveCheckParams;
+  }
+
+  public static class Builder {
+    /**
+     * 客观分析类型
+     *
+     * <p>示例值：
+     */
+    private Integer[] objectiveCheckTypes;
+
+    /**
+     * 客观分析参数
+     *
+     * <p>示例值：
+     */
     private ObjectiveCheckParam[] objectiveCheckParams;
 
-    // builder 开始
-    public ObjectiveCheck() {
+    /**
+     * 客观分析类型
+     *
+     * <p>示例值：
+     *
+     * @param objectiveCheckTypes
+     * @return
+     */
+    public Builder objectiveCheckTypes(Integer[] objectiveCheckTypes) {
+      this.objectiveCheckTypes = objectiveCheckTypes;
+      return this;
     }
 
-    public ObjectiveCheck(Builder builder) {
-        /**
-         * 客观分析类型
-         * <p> 示例值：
-         */
-        this.objectiveCheckTypes = builder.objectiveCheckTypes;
-        /**
-         * 客观分析参数
-         * <p> 示例值：
-         */
-        this.objectiveCheckParams = builder.objectiveCheckParams;
+    /**
+     * 客观分析参数
+     *
+     * <p>示例值：
+     *
+     * @param objectiveCheckParams
+     * @return
+     */
+    public Builder objectiveCheckParams(ObjectiveCheckParam[] objectiveCheckParams) {
+      this.objectiveCheckParams = objectiveCheckParams;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectiveCheck build() {
+      return new ObjectiveCheck(this);
     }
+  }
 
-    public Integer[] getObjectiveCheckTypes() {
-        return this.objectiveCheckTypes;
-    }
-
-    public void setObjectiveCheckTypes(Integer[] objectiveCheckTypes) {
-        this.objectiveCheckTypes = objectiveCheckTypes;
-    }
-
-    public ObjectiveCheckParam[] getObjectiveCheckParams() {
-        return this.objectiveCheckParams;
-    }
-
-    public void setObjectiveCheckParams(ObjectiveCheckParam[] objectiveCheckParams) {
-        this.objectiveCheckParams = objectiveCheckParams;
-    }
-
-    public static class Builder {
-        /**
-         * 客观分析类型
-         * <p> 示例值：
-         */
-        private Integer[] objectiveCheckTypes;
-        /**
-         * 客观分析参数
-         * <p> 示例值：
-         */
-        private ObjectiveCheckParam[] objectiveCheckParams;
-
-        /**
-         * 客观分析类型
-         * <p> 示例值：
-         *
-         * @param objectiveCheckTypes
-         * @return
-         */
-        public Builder objectiveCheckTypes(Integer[] objectiveCheckTypes) {
-            this.objectiveCheckTypes = objectiveCheckTypes;
-            return this;
-        }
-
-
-        /**
-         * 客观分析参数
-         * <p> 示例值：
-         *
-         * @param objectiveCheckParams
-         * @return
-         */
-        public Builder objectiveCheckParams(ObjectiveCheckParam[] objectiveCheckParams) {
-            this.objectiveCheckParams = objectiveCheckParams;
-            return this;
-        }
-
-
-        public ObjectiveCheck build() {
-            return new ObjectiveCheck(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

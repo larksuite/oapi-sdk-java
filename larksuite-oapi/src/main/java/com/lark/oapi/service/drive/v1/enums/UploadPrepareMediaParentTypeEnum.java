@@ -14,40 +14,41 @@
 package com.lark.oapi.service.drive.v1.enums;
 
 /**
- * 上传点类型
+ * 上传点的类型。你可根据上传的文件类型与云文档类型确定上传点类型。例如，要将一张图片插入到新版文档（文件类型为 `docx`）中，需指定上传点为
+ * `docx_image`；要将一个附件上传到新版文档中，需指定上传点为 `docx_file`。
  */
 public enum UploadPrepareMediaParentTypeEnum {
-    DOC_IMAGE("doc_image"), // docs图片
-    DOCX_IMAGE("docx_image"), // docx图片
-    SHEET_IMAGE("sheet_image"), // sheet图片
-    DOC_FILE("doc_file"), // doc文件
-    DOCX_FILE("docx_file"), // docx文件
-    SHEET_FILE("sheet_file"), // sheet文件
-    VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc虚拟背景
-    BITABLE_IMAGE("bitable_image"), // bitable图片
-    BITABLE_FILE("bitable_file"), // bitable文件
-    MOMENTS("moments"), // 同事圈
-    CCM_IMPORT_OPEN("ccm_import_open"), // 云文档导入文件
-    CALENDAR("calendar"), // 日历文件
-    BASE_GLOBAL("base_global"), // base文件
-    LARK_AI_MEDIA_ANALYSIS("lark_ai_media_analysis"), // ai素材
-    WHITEBOARD("whiteboard"), // 白板文件
-    MINDNOTE_IMAGE("mindnote_image"), // 思维导图图片
-    COMMENT_IMAGE("comment_image"), // 评论图片
-    SLIDE_IMG("slide_img"), // 幻灯片图片
-    SLIDE_FILE("slide_file"), // 幻灯片文件
-    EMAIL("email"), // 邮箱文件
-    BITABLE_TMP_POINT("bitable_tmp_point"), // 表单临时上传提交附件
-    OFFICE_SHEET_FILE("office_sheet_file"), // 豆包表格文件本地打开AI编辑
-    OFFICE_SLIDE_FILE("office_slide_file"), // 豆包pptx文件本地打开AI编辑
-    ;
-    private String value;
+  DOC_IMAGE("doc_image"), // 旧版文档图片
+  DOCX_IMAGE("docx_image"), // 新版文档图片
+  SHEET_IMAGE("sheet_image"), // 电子表格图片
+  DOC_FILE("doc_file"), // 文档文件
+  DOCX_FILE("docx_file"), // 新版文档文件
+  SHEET_FILE("sheet_file"), // 电子表格文件
+  VC_VIRTUAL_BACKGROUND("vc_virtual_background"), // vc 虚拟背景（灰度中，暂未开放）
+  BITABLE_IMAGE("bitable_image"), // 多维表格图片
+  BITABLE_FILE("bitable_file"), // 多维表格文件
+  MOMENTS("moments"), // 同事圈（灰度中，暂未开放）
+  CCM_IMPORT_OPEN("ccm_import_open"), // 云文档导入文件
+  CALENDAR("calendar"), // 日历文件
+  BASE_GLOBAL("base_global"), // base文件
+  LARK_AI_MEDIA_ANALYSIS("lark_ai_media_analysis"), // ai素材
+  WHITEBOARD("whiteboard"), // 白板文件
+  MINDNOTE_IMAGE("mindnote_image"), // 思维导图图片
+  COMMENT_IMAGE("comment_image"), // 评论图片
+  SLIDE_IMG("slide_img"), // 幻灯片图片
+  SLIDE_FILE("slide_file"), // 幻灯片文件
+  EMAIL("email"), // 邮箱文件
+  BITABLE_TMP_POINT("bitable_tmp_point"), // 表单临时上传提交附件
+  OFFICE_SHEET_FILE("office_sheet_file"), // 豆包表格文件本地打开AI编辑
+  OFFICE_SLIDE_FILE("office_slide_file"), // 豆包pptx文件本地打开AI编辑
+  ;
+  private String value;
 
-    UploadPrepareMediaParentTypeEnum(String value) {
-        this.value = value;
-    }
+  UploadPrepareMediaParentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

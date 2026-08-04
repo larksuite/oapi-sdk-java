@@ -13,445 +13,489 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobFamily {
+  /**
+   * 序列 ID
+   *
+   * <p>示例值：4698019107896524633
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 启用状态，启用为true，停用为false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 是否可被使用，true为可被使用，false为不可被使用;
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("selectable")
+  private Boolean selectable;
+
+  /**
+   * 上级序列
+   * ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得（若查询的是一级序列，则该字段不展示）
+   *
+   * <p>示例值：4698020757495316313
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pathway_ids")
+  private String[] pathwayIds;
+
+  /**
+   * 当前版本生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+   *
+   * <p>示例值：2020-05-01 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 当前版本失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+   *
+   * <p>示例值：2020-05-02 00:00:00
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 编码 (不能与其他记录的编码重复)
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 自定义字段（该字段暂时不支持）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Boolean getSelectable() {
+    return this.selectable;
+  }
+
+  public void setSelectable(Boolean selectable) {
+    this.selectable = selectable;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String[] getPathwayIds() {
+    return this.pathwayIds;
+  }
+
+  public void setPathwayIds(String[] pathwayIds) {
+    this.pathwayIds = pathwayIds;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public JobFamily() {}
+
+  public JobFamily(Builder builder) {
     /**
      * 序列 ID
-     * <p> 示例值：4698019107896524633
+     *
+     * <p>示例值：4698019107896524633
      */
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
-     * 启用
-     * <p> 示例值：true
+     * 启用状态，启用为true，停用为false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 可选
-     * <p> 示例值：true
+     * 是否可被使用，true为可被使用，false为不可被使用;
+     *
+     * <p>示例值：true
      */
-    @SerializedName("selectable")
-    private Boolean selectable;
+    this.selectable = builder.selectable;
     /**
      * 上级序列
-     * <p> 示例值：4698020757495316313
+     * ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得（若查询的是一级序列，则该字段不展示）
+     *
+     * <p>示例值：4698020757495316313
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
-     * 通道ID
-     * <p> 示例值：
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("pathway_ids")
-    private String[] pathwayIds;
+    this.pathwayIds = builder.pathwayIds;
     /**
-     * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
+     * 当前版本生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-01 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
+     * 当前版本失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-02 00:00:00
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
-     * 编码
-     * <p> 示例值：123456
+     * 编码 (不能与其他记录的编码重复)
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段（该字段暂时不支持）
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 序列 ID
+     *
+     * <p>示例值：4698019107896524633
+     */
+    private String jobFamilyId;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 启用状态，启用为true，停用为false
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 是否可被使用，true为可被使用，false为不可被使用;
+     *
+     * <p>示例值：true
+     */
+    private Boolean selectable;
+
+    /**
+     * 上级序列
+     * ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得（若查询的是一级序列，则该字段不展示）
+     *
+     * <p>示例值：4698020757495316313
+     */
+    private String parentId;
+
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
+     */
+    private String[] pathwayIds;
+
+    /**
+     * 当前版本生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 当前版本失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     */
+    private String expirationTime;
+
+    /**
+     * 编码 (不能与其他记录的编码重复)
+     *
+     * <p>示例值：123456
+     */
+    private String code;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 自定义字段（该字段暂时不支持）
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public JobFamily() {
+    /**
+     * 序列 ID
+     *
+     * <p>示例值：4698019107896524633
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
     }
 
-    public JobFamily(Builder builder) {
-        /**
-         * 序列 ID
-         * <p> 示例值：4698019107896524633
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 可选
-         * <p> 示例值：true
-         */
-        this.selectable = builder.selectable;
-        /**
-         * 上级序列
-         * <p> 示例值：4698020757495316313
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 通道ID
-         * <p> 示例值：
-         */
-        this.pathwayIds = builder.pathwayIds;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
-        this.code = builder.code;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 启用状态，启用为true，停用为false
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
+    /**
+     * 是否可被使用，true为可被使用，false为不可被使用;
+     *
+     * <p>示例值：true
+     *
+     * @param selectable
+     * @return
+     */
+    public Builder selectable(Boolean selectable) {
+      this.selectable = selectable;
+      return this;
     }
 
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
+    /**
+     * 上级序列
+     * ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得（若查询的是一级序列，则该字段不展示）
+     *
+     * <p>示例值：4698020757495316313
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
+     *
+     * @param pathwayIds
+     * @return
+     */
+    public Builder pathwayIds(String[] pathwayIds) {
+      this.pathwayIds = pathwayIds;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 当前版本生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    /**
+     * 当前版本失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    /**
+     * 编码 (不能与其他记录的编码重复)
+     *
+     * <p>示例值：123456
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public Boolean getSelectable() {
-        return this.selectable;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public void setSelectable(Boolean selectable) {
-        this.selectable = selectable;
+    /**
+     * 自定义字段（该字段暂时不支持）
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    public JobFamily build() {
+      return new JobFamily(this);
     }
+  }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String[] getPathwayIds() {
-        return this.pathwayIds;
-    }
-
-    public void setPathwayIds(String[] pathwayIds) {
-        this.pathwayIds = pathwayIds;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public I18n[] getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 序列 ID
-         * <p> 示例值：4698019107896524633
-         */
-        private String jobFamilyId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 可选
-         * <p> 示例值：true
-         */
-        private Boolean selectable;
-        /**
-         * 上级序列
-         * <p> 示例值：4698020757495316313
-         */
-        private String parentId;
-        /**
-         * 通道ID
-         * <p> 示例值：
-         */
-        private String[] pathwayIds;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        private String expirationTime;
-        /**
-         * 编码
-         * <p> 示例值：123456
-         */
-        private String code;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 序列 ID
-         * <p> 示例值：4698019107896524633
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 可选
-         * <p> 示例值：true
-         *
-         * @param selectable
-         * @return
-         */
-        public Builder selectable(Boolean selectable) {
-            this.selectable = selectable;
-            return this;
-        }
-
-
-        /**
-         * 上级序列
-         * <p> 示例值：4698020757495316313
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 通道ID
-         * <p> 示例值：
-         *
-         * @param pathwayIds
-         * @return
-         */
-        public Builder pathwayIds(String[] pathwayIds) {
-            this.pathwayIds = pathwayIds;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：123456
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public JobFamily build() {
-            return new JobFamily(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

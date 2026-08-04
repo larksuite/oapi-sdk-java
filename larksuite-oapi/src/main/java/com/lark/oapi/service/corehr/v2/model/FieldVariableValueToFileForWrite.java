@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValueToFileForWrite {
+  /**
+   * 通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID
+   *
+   * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+   */
+  @SerializedName("open_file_id")
+  private String openFileId;
+
+  /**
+   * 文件名称（需带有文件后缀），如果填写，则会覆盖上传文件的名称，否则通过open_file_id获取原始名称
+   *
+   * <p>示例值：file_name.jpg
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 文件大小，单位：Byte，如果填写，则会覆盖上传文件的大小，否则通过open_file_id获取文件原始大小
+   *
+   * <p>示例值：65535
+   */
+  @SerializedName("length")
+  private Integer length;
+
+  public String getOpenFileId() {
+    return this.openFileId;
+  }
+
+  public void setOpenFileId(String openFileId) {
+    this.openFileId = openFileId;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public Integer getLength() {
+    return this.length;
+  }
+
+  public void setLength(Integer length) {
+    this.length = length;
+  }
+
+  // builder 开始
+  public FieldVariableValueToFileForWrite() {}
+
+  public FieldVariableValueToFileForWrite(Builder builder) {
     /**
-     * 主数据的文件id
-     * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     * 通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
      */
-    @SerializedName("open_file_id")
+    this.openFileId = builder.openFileId;
+    /**
+     * 文件名称（需带有文件后缀），如果填写，则会覆盖上传文件的名称，否则通过open_file_id获取原始名称
+     *
+     * <p>示例值：file_name.jpg
+     */
+    this.fileName = builder.fileName;
+    /**
+     * 文件大小，单位：Byte，如果填写，则会覆盖上传文件的大小，否则通过open_file_id获取文件原始大小
+     *
+     * <p>示例值：65535
+     */
+    this.length = builder.length;
+  }
+
+  public static class Builder {
+    /**
+     * 通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     */
     private String openFileId;
+
     /**
-     * 文件名称
-     * <p> 示例值：file_name
+     * 文件名称（需带有文件后缀），如果填写，则会覆盖上传文件的名称，否则通过open_file_id获取原始名称
+     *
+     * <p>示例值：file_name.jpg
      */
-    @SerializedName("file_name")
     private String fileName;
+
     /**
-     * 文件大小，单位：Byte
-     * <p> 示例值：65535
+     * 文件大小，单位：Byte，如果填写，则会覆盖上传文件的大小，否则通过open_file_id获取文件原始大小
+     *
+     * <p>示例值：65535
      */
-    @SerializedName("length")
     private Integer length;
 
-    // builder 开始
-    public FieldVariableValueToFileForWrite() {
+    /**
+     * 通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     *
+     * @param openFileId
+     * @return
+     */
+    public Builder openFileId(String openFileId) {
+      this.openFileId = openFileId;
+      return this;
     }
 
-    public FieldVariableValueToFileForWrite(Builder builder) {
-        /**
-         * 主数据的文件id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         */
-        this.openFileId = builder.openFileId;
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         */
-        this.length = builder.length;
+    /**
+     * 文件名称（需带有文件后缀），如果填写，则会覆盖上传文件的名称，否则通过open_file_id获取原始名称
+     *
+     * <p>示例值：file_name.jpg
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件大小，单位：Byte，如果填写，则会覆盖上传文件的大小，否则通过open_file_id获取文件原始大小
+     *
+     * <p>示例值：65535
+     *
+     * @param length
+     * @return
+     */
+    public Builder length(Integer length) {
+      this.length = length;
+      return this;
     }
 
-    public String getOpenFileId() {
-        return this.openFileId;
+    public FieldVariableValueToFileForWrite build() {
+      return new FieldVariableValueToFileForWrite(this);
     }
+  }
 
-    public void setOpenFileId(String openFileId) {
-        this.openFileId = openFileId;
-    }
-
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Integer getLength() {
-        return this.length;
-    }
-
-    public void setLength(Integer length) {
-        this.length = length;
-    }
-
-    public static class Builder {
-        /**
-         * 主数据的文件id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         */
-        private String openFileId;
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        private String fileName;
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         */
-        private Integer length;
-
-        /**
-         * 主数据的文件id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         *
-         * @param openFileId
-         * @return
-         */
-        public Builder openFileId(String openFileId) {
-            this.openFileId = openFileId;
-            return this;
-        }
-
-
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         *
-         * @param length
-         * @return
-         */
-        public Builder length(Integer length) {
-            this.length = length;
-            return this;
-        }
-
-
-        public FieldVariableValueToFileForWrite build() {
-            return new FieldVariableValueToFileForWrite(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

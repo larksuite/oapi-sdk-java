@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class DeleteAgentSchedulesReq {
+  /**
+   * agent user id
+   *
+   * <p>示例值：12345
+   */
+  @Path
+  @SerializedName("agent_id")
+  private String agentId;
+
+  public String getAgentId() {
+    return this.agentId;
+  }
+
+  public void setAgentId(String agentId) {
+    this.agentId = agentId;
+  }
+
+  // builder 开始
+  public DeleteAgentSchedulesReq() {}
+
+  public DeleteAgentSchedulesReq(Builder builder) {
     /**
      * agent user id
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @Path
-    @SerializedName("agent_id")
-    private String agentId;
+    this.agentId = builder.agentId;
+  }
 
-    // builder 开始
-    public DeleteAgentSchedulesReq() {
+  public static class Builder {
+
+    private String agentId; // agent user id
+
+    /**
+     * agent user id
+     *
+     * <p>示例值：12345
+     *
+     * @param agentId
+     * @return
+     */
+    public Builder agentId(String agentId) {
+      this.agentId = agentId;
+      return this;
     }
 
-    public DeleteAgentSchedulesReq(Builder builder) {
-        /**
-         * agent user id
-         * <p> 示例值：12345
-         */
-        this.agentId = builder.agentId;
+    public DeleteAgentSchedulesReq build() {
+      return new DeleteAgentSchedulesReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAgentId() {
-        return this.agentId;
-    }
-
-    public void setAgentId(String agentId) {
-        this.agentId = agentId;
-    }
-
-    public static class Builder {
-
-        private String agentId; // agent user id
-
-        /**
-         * agent user id
-         * <p> 示例值：12345
-         *
-         * @param agentId
-         * @return
-         */
-        public Builder agentId(String agentId) {
-            this.agentId = agentId;
-            return this;
-        }
-
-
-        public DeleteAgentSchedulesReq build() {
-            return new DeleteAgentSchedulesReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

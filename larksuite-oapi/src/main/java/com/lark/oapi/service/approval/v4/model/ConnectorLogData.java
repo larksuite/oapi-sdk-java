@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConnectorLogData {
+  /**
+   * 时间
+   *
+   * <p>示例值：2023-03-23 10:05:11
+   */
+  @SerializedName("date_time")
+  private String dateTime;
+
+  /**
+   * 数据（脱敏）
+   *
+   * <p>示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
+   */
+  @SerializedName("data")
+  private String data;
+
+  /**
+   * 数据等级
+   *
+   * <p>示例值：INFO
+   */
+  @SerializedName("level")
+  private String level;
+
+  /**
+   * 机器名称
+   *
+   * <p>示例值：C02GD65CMD6R
+   */
+  @SerializedName("pod")
+  private String pod;
+
+  /**
+   * 打印位置（脱敏）
+   *
+   * <p>示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
+   */
+  @SerializedName("location")
+  private String location;
+
+  /**
+   * 数据类型
+   *
+   * <p>示例值：MONITOR
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 版本号
+   *
+   * <p>示例值：2.0.1
+   */
+  @SerializedName("version")
+  private String version;
+
+  public String getDateTime() {
+    return this.dateTime;
+  }
+
+  public void setDateTime(String dateTime) {
+    this.dateTime = dateTime;
+  }
+
+  public String getData() {
+    return this.data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
+  public String getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  public String getPod() {
+    return this.pod;
+  }
+
+  public void setPod(String pod) {
+    this.pod = pod;
+  }
+
+  public String getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  // builder 开始
+  public ConnectorLogData() {}
+
+  public ConnectorLogData(Builder builder) {
     /**
      * 时间
-     * <p> 示例值：2023-03-23 10:05:11
+     *
+     * <p>示例值：2023-03-23 10:05:11
      */
-    @SerializedName("date_time")
-    private String dateTime;
+    this.dateTime = builder.dateTime;
     /**
      * 数据（脱敏）
-     * <p> 示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
+     *
+     * <p>示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
      */
-    @SerializedName("data")
-    private String data;
+    this.data = builder.data;
     /**
      * 数据等级
-     * <p> 示例值：INFO
+     *
+     * <p>示例值：INFO
      */
-    @SerializedName("level")
-    private String level;
+    this.level = builder.level;
     /**
      * 机器名称
-     * <p> 示例值：C02GD65CMD6R
+     *
+     * <p>示例值：C02GD65CMD6R
      */
-    @SerializedName("pod")
-    private String pod;
+    this.pod = builder.pod;
     /**
      * 打印位置（脱敏）
-     * <p> 示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
+     *
+     * <p>示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
      */
-    @SerializedName("location")
-    private String location;
+    this.location = builder.location;
     /**
      * 数据类型
-     * <p> 示例值：MONITOR
+     *
+     * <p>示例值：MONITOR
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 版本号
-     * <p> 示例值：2.0.1
+     *
+     * <p>示例值：2.0.1
      */
-    @SerializedName("version")
+    this.version = builder.version;
+  }
+
+  public static class Builder {
+    /**
+     * 时间
+     *
+     * <p>示例值：2023-03-23 10:05:11
+     */
+    private String dateTime;
+
+    /**
+     * 数据（脱敏）
+     *
+     * <p>示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
+     */
+    private String data;
+
+    /**
+     * 数据等级
+     *
+     * <p>示例值：INFO
+     */
+    private String level;
+
+    /**
+     * 机器名称
+     *
+     * <p>示例值：C02GD65CMD6R
+     */
+    private String pod;
+
+    /**
+     * 打印位置（脱敏）
+     *
+     * <p>示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
+     */
+    private String location;
+
+    /**
+     * 数据类型
+     *
+     * <p>示例值：MONITOR
+     */
+    private String type;
+
+    /**
+     * 版本号
+     *
+     * <p>示例值：2.0.1
+     */
     private String version;
 
-    // builder 开始
-    public ConnectorLogData() {
+    /**
+     * 时间
+     *
+     * <p>示例值：2023-03-23 10:05:11
+     *
+     * @param dateTime
+     * @return
+     */
+    public Builder dateTime(String dateTime) {
+      this.dateTime = dateTime;
+      return this;
     }
 
-    public ConnectorLogData(Builder builder) {
-        /**
-         * 时间
-         * <p> 示例值：2023-03-23 10:05:11
-         */
-        this.dateTime = builder.dateTime;
-        /**
-         * 数据（脱敏）
-         * <p> 示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
-         */
-        this.data = builder.data;
-        /**
-         * 数据等级
-         * <p> 示例值：INFO
-         */
-        this.level = builder.level;
-        /**
-         * 机器名称
-         * <p> 示例值：C02GD65CMD6R
-         */
-        this.pod = builder.pod;
-        /**
-         * 打印位置（脱敏）
-         * <p> 示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
-         */
-        this.location = builder.location;
-        /**
-         * 数据类型
-         * <p> 示例值：MONITOR
-         */
-        this.type = builder.type;
-        /**
-         * 版本号
-         * <p> 示例值：2.0.1
-         */
-        this.version = builder.version;
+    /**
+     * 数据（脱敏）
+     *
+     * <p>示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(String data) {
+      this.data = data;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据等级
+     *
+     * <p>示例值：INFO
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(String level) {
+      this.level = level;
+      return this;
     }
 
-    public String getDateTime() {
-        return this.dateTime;
+    /**
+     * 机器名称
+     *
+     * <p>示例值：C02GD65CMD6R
+     *
+     * @param pod
+     * @return
+     */
+    public Builder pod(String pod) {
+      this.pod = pod;
+      return this;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    /**
+     * 打印位置（脱敏）
+     *
+     * <p>示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(String location) {
+      this.location = location;
+      return this;
     }
 
-    public String getData() {
-        return this.data;
+    /**
+     * 数据类型
+     *
+     * <p>示例值：MONITOR
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    /**
+     * 版本号
+     *
+     * <p>示例值：2.0.1
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public String getLevel() {
-        return this.level;
+    public ConnectorLogData build() {
+      return new ConnectorLogData(this);
     }
+  }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public String getPod() {
-        return this.pod;
-    }
-
-    public void setPod(String pod) {
-        this.pod = pod;
-    }
-
-    public String getLocation() {
-        return this.location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public static class Builder {
-        /**
-         * 时间
-         * <p> 示例值：2023-03-23 10:05:11
-         */
-        private String dateTime;
-        /**
-         * 数据（脱敏）
-         * <p> 示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
-         */
-        private String data;
-        /**
-         * 数据等级
-         * <p> 示例值：INFO
-         */
-        private String level;
-        /**
-         * 机器名称
-         * <p> 示例值：C02GD65CMD6R
-         */
-        private String pod;
-        /**
-         * 打印位置（脱敏）
-         * <p> 示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
-         */
-        private String location;
-        /**
-         * 数据类型
-         * <p> 示例值：MONITOR
-         */
-        private String type;
-        /**
-         * 版本号
-         * <p> 示例值：2.0.1
-         */
-        private String version;
-
-        /**
-         * 时间
-         * <p> 示例值：2023-03-23 10:05:11
-         *
-         * @param dateTime
-         * @return
-         */
-        public Builder dateTime(String dateTime) {
-            this.dateTime = dateTime;
-            return this;
-        }
-
-
-        /**
-         * 数据（脱敏）
-         * <p> 示例值：cwyFtNZSO7wKZ2Bi+WHJVbb6uZ3G2hlsje
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(String data) {
-            this.data = data;
-            return this;
-        }
-
-
-        /**
-         * 数据等级
-         * <p> 示例值：INFO
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(String level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 机器名称
-         * <p> 示例值：C02GD65CMD6R
-         *
-         * @param pod
-         * @return
-         */
-        public Builder pod(String pod) {
-            this.pod = pod;
-            return this;
-        }
-
-
-        /**
-         * 打印位置（脱敏）
-         * <p> 示例值：K+GFMIO+2aTIX8yXkPLK2hoEPof4
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(String location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * 数据类型
-         * <p> 示例值：MONITOR
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 版本号
-         * <p> 示例值：2.0.1
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        public ConnectorLogData build() {
-            return new ConnectorLogData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

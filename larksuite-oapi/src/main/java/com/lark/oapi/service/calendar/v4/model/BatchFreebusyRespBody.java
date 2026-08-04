@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchFreebusyRespBody {
-    /**
-     * 用户忙闲信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("freebusy_lists")
-    private UserFreebusy[] freebusyLists;
+  /**
+   * 用户忙闲信息列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("freebusy_lists")
+  private UserFreebusy[] freebusyLists;
 
-    public UserFreebusy[] getFreebusyLists() {
-        return this.freebusyLists;
-    }
+  public UserFreebusy[] getFreebusyLists() {
+    return this.freebusyLists;
+  }
 
-    public void setFreebusyLists(UserFreebusy[] freebusyLists) {
-        this.freebusyLists = freebusyLists;
-    }
-
+  public void setFreebusyLists(UserFreebusy[] freebusyLists) {
+    this.freebusyLists = freebusyLists;
+  }
 }

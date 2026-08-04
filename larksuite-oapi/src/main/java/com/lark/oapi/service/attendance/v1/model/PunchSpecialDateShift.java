@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PunchSpecialDateShift {
+  /**
+   * 打卡日期，格式为yyyyMMdd
+   *
+   * <p>示例值：20190101
+   */
+  @SerializedName("punch_day")
+  private Integer punchDay;
+
+  /**
+   * 班次
+   * ID，可根据[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list)
+   * ;和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+   * 获得
+   *
+   * <p>示例值：6919668827865513935
+   */
+  @SerializedName("shift_id")
+  private String shiftId;
+
+  public Integer getPunchDay() {
+    return this.punchDay;
+  }
+
+  public void setPunchDay(Integer punchDay) {
+    this.punchDay = punchDay;
+  }
+
+  public String getShiftId() {
+    return this.shiftId;
+  }
+
+  public void setShiftId(String shiftId) {
+    this.shiftId = shiftId;
+  }
+
+  // builder 开始
+  public PunchSpecialDateShift() {}
+
+  public PunchSpecialDateShift(Builder builder) {
     /**
-     * 打卡日期
-     * <p> 示例值：20190101
+     * 打卡日期，格式为yyyyMMdd
+     *
+     * <p>示例值：20190101
      */
-    @SerializedName("punch_day")
+    this.punchDay = builder.punchDay;
+    /**
+     * 班次
+     * ID，可根据[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list)
+     * ;和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 获得
+     *
+     * <p>示例值：6919668827865513935
+     */
+    this.shiftId = builder.shiftId;
+  }
+
+  public static class Builder {
+    /**
+     * 打卡日期，格式为yyyyMMdd
+     *
+     * <p>示例值：20190101
+     */
     private Integer punchDay;
+
     /**
-     * 班次 ID
-     * <p> 示例值：6919668827865513935
+     * 班次
+     * ID，可根据[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list)
+     * ;和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 获得
+     *
+     * <p>示例值：6919668827865513935
      */
-    @SerializedName("shift_id")
     private String shiftId;
 
-    // builder 开始
-    public PunchSpecialDateShift() {
+    /**
+     * 打卡日期，格式为yyyyMMdd
+     *
+     * <p>示例值：20190101
+     *
+     * @param punchDay
+     * @return
+     */
+    public Builder punchDay(Integer punchDay) {
+      this.punchDay = punchDay;
+      return this;
     }
 
-    public PunchSpecialDateShift(Builder builder) {
-        /**
-         * 打卡日期
-         * <p> 示例值：20190101
-         */
-        this.punchDay = builder.punchDay;
-        /**
-         * 班次 ID
-         * <p> 示例值：6919668827865513935
-         */
-        this.shiftId = builder.shiftId;
+    /**
+     * 班次
+     * ID，可根据[查询所有班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list)
+     * ;和[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 获得
+     *
+     * <p>示例值：6919668827865513935
+     *
+     * @param shiftId
+     * @return
+     */
+    public Builder shiftId(String shiftId) {
+      this.shiftId = shiftId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PunchSpecialDateShift build() {
+      return new PunchSpecialDateShift(this);
     }
+  }
 
-    public Integer getPunchDay() {
-        return this.punchDay;
-    }
-
-    public void setPunchDay(Integer punchDay) {
-        this.punchDay = punchDay;
-    }
-
-    public String getShiftId() {
-        return this.shiftId;
-    }
-
-    public void setShiftId(String shiftId) {
-        this.shiftId = shiftId;
-    }
-
-    public static class Builder {
-        /**
-         * 打卡日期
-         * <p> 示例值：20190101
-         */
-        private Integer punchDay;
-        /**
-         * 班次 ID
-         * <p> 示例值：6919668827865513935
-         */
-        private String shiftId;
-
-        /**
-         * 打卡日期
-         * <p> 示例值：20190101
-         *
-         * @param punchDay
-         * @return
-         */
-        public Builder punchDay(Integer punchDay) {
-            this.punchDay = punchDay;
-            return this;
-        }
-
-
-        /**
-         * 班次 ID
-         * <p> 示例值：6919668827865513935
-         *
-         * @param shiftId
-         * @return
-         */
-        public Builder shiftId(String shiftId) {
-            this.shiftId = shiftId;
-            return this;
-        }
-
-
-        public PunchSpecialDateShift build() {
-            return new PunchSpecialDateShift(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

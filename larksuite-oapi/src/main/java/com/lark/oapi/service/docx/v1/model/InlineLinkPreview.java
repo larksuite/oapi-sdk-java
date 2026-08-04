@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InlineLinkPreview {
+  /**
+   * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
+   *
+   * <p>示例值：link title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：https://project.feishu.cn/home
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 链接类型
+   *
+   * <p>示例值：Project
+   */
+  @SerializedName("url_type")
+  private String urlType;
+
+  /**
+   * 文本局部样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element_style")
+  private TextElementStyle textElementStyle;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getUrlType() {
+    return this.urlType;
+  }
+
+  public void setUrlType(String urlType) {
+    this.urlType = urlType;
+  }
+
+  public TextElementStyle getTextElementStyle() {
+    return this.textElementStyle;
+  }
+
+  public void setTextElementStyle(TextElementStyle textElementStyle) {
+    this.textElementStyle = textElementStyle;
+  }
+
+  // builder 开始
+  public InlineLinkPreview() {}
+
+  public InlineLinkPreview(Builder builder) {
     /**
      * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
-     * <p> 示例值：link title
+     *
+     * <p>示例值：link title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 链接
-     * <p> 示例值：https://project.feishu.cn/home
+     *
+     * <p>示例值：https://project.feishu.cn/home
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 链接类型
-     * <p> 示例值：Project
+     *
+     * <p>示例值：Project
      */
-    @SerializedName("url_type")
-    private String urlType;
+    this.urlType = builder.urlType;
     /**
      * 文本局部样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element_style")
+    this.textElementStyle = builder.textElementStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
+     *
+     * <p>示例值：link title
+     */
+    private String title;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：https://project.feishu.cn/home
+     */
+    private String url;
+
+    /**
+     * 链接类型
+     *
+     * <p>示例值：Project
+     */
+    private String urlType;
+
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     */
     private TextElementStyle textElementStyle;
 
-    // builder 开始
-    public InlineLinkPreview() {
+    /**
+     * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
+     *
+     * <p>示例值：link title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public InlineLinkPreview(Builder builder) {
-        /**
-         * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
-         * <p> 示例值：link title
-         */
-        this.title = builder.title;
-        /**
-         * 链接
-         * <p> 示例值：https://project.feishu.cn/home
-         */
-        this.url = builder.url;
-        /**
-         * 链接类型
-         * <p> 示例值：Project
-         */
-        this.urlType = builder.urlType;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
+    /**
+     * 链接
+     *
+     * <p>示例值：https://project.feishu.cn/home
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 链接类型
+     *
+     * <p>示例值：Project
+     *
+     * @param urlType
+     * @return
+     */
+    public Builder urlType(String urlType) {
+      this.urlType = urlType;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 链接类型
+     *
+     * <p>示例值：Project
+     *
+     * @param urlType {@link
+     *     com.lark.oapi.service.docx.v1.enums.InlineLinkPreviewInlineLinkPreviewURLTypeEnum}
+     * @return
+     */
+    public Builder urlType(
+        com.lark.oapi.service.docx.v1.enums.InlineLinkPreviewInlineLinkPreviewURLTypeEnum urlType) {
+      this.urlType = urlType.getValue();
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
+    public Builder textElementStyle(TextElementStyle textElementStyle) {
+      this.textElementStyle = textElementStyle;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    public InlineLinkPreview build() {
+      return new InlineLinkPreview(this);
     }
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUrlType() {
-        return this.urlType;
-    }
-
-    public void setUrlType(String urlType) {
-        this.urlType = urlType;
-    }
-
-    public TextElementStyle getTextElementStyle() {
-        return this.textElementStyle;
-    }
-
-    public void setTextElementStyle(TextElementStyle textElementStyle) {
-        this.textElementStyle = textElementStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
-         * <p> 示例值：link title
-         */
-        private String title;
-        /**
-         * 链接
-         * <p> 示例值：https://project.feishu.cn/home
-         */
-        private String url;
-        /**
-         * 链接类型
-         * <p> 示例值：Project
-         */
-        private String urlType;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        private TextElementStyle textElementStyle;
-
-        /**
-         * 链接解析出的标题（仅展示写入文档时的标题快照，后续不会自动同步最新标题）
-         * <p> 示例值：link title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：https://project.feishu.cn/home
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 链接类型
-         * <p> 示例值：Project
-         *
-         * @param urlType
-         * @return
-         */
-        public Builder urlType(String urlType) {
-            this.urlType = urlType;
-            return this;
-        }
-
-        /**
-         * 链接类型
-         * <p> 示例值：Project
-         *
-         * @param urlType {@link com.lark.oapi.service.docx.v1.enums.InlineLinkPreviewInlineLinkPreviewURLTypeEnum}
-         * @return
-         */
-        public Builder urlType(com.lark.oapi.service.docx.v1.enums.InlineLinkPreviewInlineLinkPreviewURLTypeEnum urlType) {
-            this.urlType = urlType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         *
-         * @param textElementStyle
-         * @return
-         */
-        public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
-        }
-
-
-        public InlineLinkPreview build() {
-            return new InlineLinkPreview(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

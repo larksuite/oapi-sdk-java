@@ -13,161 +13,163 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewStage {
+  /**
+   * 环节类型
+   *
+   * <p>示例值：leader_review
+   */
+  @SerializedName("stage_type")
+  private String stageType;
+
+  /**
+   * 环节状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("progress")
+  private Integer progress;
+
+  /**
+   * 环节填写内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data")
+  private ReviewDetail[] data;
+
+  public String getStageType() {
+    return this.stageType;
+  }
+
+  public void setStageType(String stageType) {
+    this.stageType = stageType;
+  }
+
+  public Integer getProgress() {
+    return this.progress;
+  }
+
+  public void setProgress(Integer progress) {
+    this.progress = progress;
+  }
+
+  public ReviewDetail[] getData() {
+    return this.data;
+  }
+
+  public void setData(ReviewDetail[] data) {
+    this.data = data;
+  }
+
+  // builder 开始
+  public ReviewStage() {}
+
+  public ReviewStage(Builder builder) {
     /**
      * 环节类型
-     * <p> 示例值：leader_review
+     *
+     * <p>示例值：leader_review
      */
-    @SerializedName("stage_type")
-    private String stageType;
+    this.stageType = builder.stageType;
     /**
      * 环节状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("progress")
-    private Integer progress;
+    this.progress = builder.progress;
     /**
      * 环节填写内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data")
+    this.data = builder.data;
+  }
+
+  public static class Builder {
+    /**
+     * 环节类型
+     *
+     * <p>示例值：leader_review
+     */
+    private String stageType;
+
+    /**
+     * 环节状态
+     *
+     * <p>示例值：1
+     */
+    private Integer progress;
+
+    /**
+     * 环节填写内容
+     *
+     * <p>示例值：
+     */
     private ReviewDetail[] data;
 
-    // builder 开始
-    public ReviewStage() {
+    /**
+     * 环节类型
+     *
+     * <p>示例值：leader_review
+     *
+     * @param stageType
+     * @return
+     */
+    public Builder stageType(String stageType) {
+      this.stageType = stageType;
+      return this;
     }
 
-    public ReviewStage(Builder builder) {
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 环节状态
-         * <p> 示例值：1
-         */
-        this.progress = builder.progress;
-        /**
-         * 环节填写内容
-         * <p> 示例值：
-         */
-        this.data = builder.data;
+    /**
+     * 环节状态
+     *
+     * <p>示例值：1
+     *
+     * @param progress
+     * @return
+     */
+    public Builder progress(Integer progress) {
+      this.progress = progress;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节状态
+     *
+     * <p>示例值：1
+     *
+     * @param progress {@link com.lark.oapi.service.performance.v1.enums.ReviewStageProgressEnum}
+     * @return
+     */
+    public Builder progress(
+        com.lark.oapi.service.performance.v1.enums.ReviewStageProgressEnum progress) {
+      this.progress = progress.getValue();
+      return this;
     }
 
-    public String getStageType() {
-        return this.stageType;
+    /**
+     * 环节填写内容
+     *
+     * <p>示例值：
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(ReviewDetail[] data) {
+      this.data = data;
+      return this;
     }
 
-    public void setStageType(String stageType) {
-        this.stageType = stageType;
+    public ReviewStage build() {
+      return new ReviewStage(this);
     }
+  }
 
-    public Integer getProgress() {
-        return this.progress;
-    }
-
-    public void setProgress(Integer progress) {
-        this.progress = progress;
-    }
-
-    public ReviewDetail[] getData() {
-        return this.data;
-    }
-
-    public void setData(ReviewDetail[] data) {
-        this.data = data;
-    }
-
-    public static class Builder {
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         */
-        private String stageType;
-        /**
-         * 环节状态
-         * <p> 示例值：1
-         */
-        private Integer progress;
-        /**
-         * 环节填写内容
-         * <p> 示例值：
-         */
-        private ReviewDetail[] data;
-
-        /**
-         * 环节类型
-         * <p> 示例值：leader_review
-         *
-         * @param stageType
-         * @return
-         */
-        public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
-        }
-
-
-        /**
-         * 环节状态
-         * <p> 示例值：1
-         *
-         * @param progress
-         * @return
-         */
-        public Builder progress(Integer progress) {
-            this.progress = progress;
-            return this;
-        }
-
-        /**
-         * 环节状态
-         * <p> 示例值：1
-         *
-         * @param progress {@link com.lark.oapi.service.performance.v1.enums.ReviewStageProgressEnum}
-         * @return
-         */
-        public Builder progress(com.lark.oapi.service.performance.v1.enums.ReviewStageProgressEnum progress) {
-            this.progress = progress.getValue();
-            return this;
-        }
-
-
-        /**
-         * 环节填写内容
-         * <p> 示例值：
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(ReviewDetail[] data) {
-            this.data = data;
-            return this;
-        }
-
-
-        public ReviewStage build() {
-            return new ReviewStage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

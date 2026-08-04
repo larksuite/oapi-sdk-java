@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentSimilar {
+  /**
+   * 是否相似人才
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_similar_talent")
+  private Boolean isSimilarTalent;
+
+  /**
+   * 相似人才 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("similar_talent_id_list")
+  private String[] similarTalentIdList;
+
+  public Boolean getIsSimilarTalent() {
+    return this.isSimilarTalent;
+  }
+
+  public void setIsSimilarTalent(Boolean isSimilarTalent) {
+    this.isSimilarTalent = isSimilarTalent;
+  }
+
+  public String[] getSimilarTalentIdList() {
+    return this.similarTalentIdList;
+  }
+
+  public void setSimilarTalentIdList(String[] similarTalentIdList) {
+    this.similarTalentIdList = similarTalentIdList;
+  }
+
+  // builder 开始
+  public TalentSimilar() {}
+
+  public TalentSimilar(Builder builder) {
     /**
      * 是否相似人才
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_similar_talent")
-    private Boolean isSimilarTalent;
+    this.isSimilarTalent = builder.isSimilarTalent;
     /**
      * 相似人才 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("similar_talent_id_list")
+    this.similarTalentIdList = builder.similarTalentIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 是否相似人才
+     *
+     * <p>示例值：true
+     */
+    private Boolean isSimilarTalent;
+
+    /**
+     * 相似人才 ID 列表
+     *
+     * <p>示例值：
+     */
     private String[] similarTalentIdList;
 
-    // builder 开始
-    public TalentSimilar() {
+    /**
+     * 是否相似人才
+     *
+     * <p>示例值：true
+     *
+     * @param isSimilarTalent
+     * @return
+     */
+    public Builder isSimilarTalent(Boolean isSimilarTalent) {
+      this.isSimilarTalent = isSimilarTalent;
+      return this;
     }
 
-    public TalentSimilar(Builder builder) {
-        /**
-         * 是否相似人才
-         * <p> 示例值：true
-         */
-        this.isSimilarTalent = builder.isSimilarTalent;
-        /**
-         * 相似人才 ID 列表
-         * <p> 示例值：
-         */
-        this.similarTalentIdList = builder.similarTalentIdList;
+    /**
+     * 相似人才 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param similarTalentIdList
+     * @return
+     */
+    public Builder similarTalentIdList(String[] similarTalentIdList) {
+      this.similarTalentIdList = similarTalentIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TalentSimilar build() {
+      return new TalentSimilar(this);
     }
+  }
 
-    public Boolean getIsSimilarTalent() {
-        return this.isSimilarTalent;
-    }
-
-    public void setIsSimilarTalent(Boolean isSimilarTalent) {
-        this.isSimilarTalent = isSimilarTalent;
-    }
-
-    public String[] getSimilarTalentIdList() {
-        return this.similarTalentIdList;
-    }
-
-    public void setSimilarTalentIdList(String[] similarTalentIdList) {
-        this.similarTalentIdList = similarTalentIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 是否相似人才
-         * <p> 示例值：true
-         */
-        private Boolean isSimilarTalent;
-        /**
-         * 相似人才 ID 列表
-         * <p> 示例值：
-         */
-        private String[] similarTalentIdList;
-
-        /**
-         * 是否相似人才
-         * <p> 示例值：true
-         *
-         * @param isSimilarTalent
-         * @return
-         */
-        public Builder isSimilarTalent(Boolean isSimilarTalent) {
-            this.isSimilarTalent = isSimilarTalent;
-            return this;
-        }
-
-
-        /**
-         * 相似人才 ID 列表
-         * <p> 示例值：
-         *
-         * @param similarTalentIdList
-         * @return
-         */
-        public Builder similarTalentIdList(String[] similarTalentIdList) {
-            this.similarTalentIdList = similarTalentIdList;
-            return this;
-        }
-
-
-        public TalentSimilar build() {
-            return new TalentSimilar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

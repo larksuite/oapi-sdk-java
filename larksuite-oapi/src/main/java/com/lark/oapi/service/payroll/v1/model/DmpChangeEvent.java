@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DmpChangeEvent {
+  /**
+   * 员工工号
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 变更前版本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_version_data")
+  private DmpTimelineField[] oldVersionData;
+
+  /**
+   * 变更后版本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("new_version_data")
+  private DmpTimelineField[] newVersionData;
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public DmpTimelineField[] getOldVersionData() {
+    return this.oldVersionData;
+  }
+
+  public void setOldVersionData(DmpTimelineField[] oldVersionData) {
+    this.oldVersionData = oldVersionData;
+  }
+
+  public DmpTimelineField[] getNewVersionData() {
+    return this.newVersionData;
+  }
+
+  public void setNewVersionData(DmpTimelineField[] newVersionData) {
+    this.newVersionData = newVersionData;
+  }
+
+  // builder 开始
+  public DmpChangeEvent() {}
+
+  public DmpChangeEvent(Builder builder) {
     /**
      * 员工工号
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 变更前版本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("old_version_data")
-    private DmpTimelineField[] oldVersionData;
+    this.oldVersionData = builder.oldVersionData;
     /**
      * 变更后版本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("new_version_data")
+    this.newVersionData = builder.newVersionData;
+  }
+
+  public static class Builder {
+    /**
+     * 员工工号
+     *
+     * <p>示例值：12345
+     */
+    private String employeeNumber;
+
+    /**
+     * 变更前版本信息
+     *
+     * <p>示例值：
+     */
+    private DmpTimelineField[] oldVersionData;
+
+    /**
+     * 变更后版本信息
+     *
+     * <p>示例值：
+     */
     private DmpTimelineField[] newVersionData;
 
-    // builder 开始
-    public DmpChangeEvent() {
+    /**
+     * 员工工号
+     *
+     * <p>示例值：12345
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public DmpChangeEvent(Builder builder) {
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 变更前版本信息
-         * <p> 示例值：
-         */
-        this.oldVersionData = builder.oldVersionData;
-        /**
-         * 变更后版本信息
-         * <p> 示例值：
-         */
-        this.newVersionData = builder.newVersionData;
+    /**
+     * 变更前版本信息
+     *
+     * <p>示例值：
+     *
+     * @param oldVersionData
+     * @return
+     */
+    public Builder oldVersionData(DmpTimelineField[] oldVersionData) {
+      this.oldVersionData = oldVersionData;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 变更后版本信息
+     *
+     * <p>示例值：
+     *
+     * @param newVersionData
+     * @return
+     */
+    public Builder newVersionData(DmpTimelineField[] newVersionData) {
+      this.newVersionData = newVersionData;
+      return this;
     }
 
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
+    public DmpChangeEvent build() {
+      return new DmpChangeEvent(this);
     }
+  }
 
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public DmpTimelineField[] getOldVersionData() {
-        return this.oldVersionData;
-    }
-
-    public void setOldVersionData(DmpTimelineField[] oldVersionData) {
-        this.oldVersionData = oldVersionData;
-    }
-
-    public DmpTimelineField[] getNewVersionData() {
-        return this.newVersionData;
-    }
-
-    public void setNewVersionData(DmpTimelineField[] newVersionData) {
-        this.newVersionData = newVersionData;
-    }
-
-    public static class Builder {
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         */
-        private String employeeNumber;
-        /**
-         * 变更前版本信息
-         * <p> 示例值：
-         */
-        private DmpTimelineField[] oldVersionData;
-        /**
-         * 变更后版本信息
-         * <p> 示例值：
-         */
-        private DmpTimelineField[] newVersionData;
-
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 变更前版本信息
-         * <p> 示例值：
-         *
-         * @param oldVersionData
-         * @return
-         */
-        public Builder oldVersionData(DmpTimelineField[] oldVersionData) {
-            this.oldVersionData = oldVersionData;
-            return this;
-        }
-
-
-        /**
-         * 变更后版本信息
-         * <p> 示例值：
-         *
-         * @param newVersionData
-         * @return
-         */
-        public Builder newVersionData(DmpTimelineField[] newVersionData) {
-            this.newVersionData = newVersionData;
-            return this;
-        }
-
-
-        public DmpChangeEvent build() {
-            return new DmpChangeEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

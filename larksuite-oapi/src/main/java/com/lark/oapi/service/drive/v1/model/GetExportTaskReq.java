@@ -13,104 +13,114 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class GetExportTaskReq {
+  /**
+   * 要导出的云文档的 token。获取方式参考[如何获取云文档相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。
+   *
+   * <p>示例值：docbcZVGtv1papC6jAVGiyabcef
+   */
+  @Query
+  @SerializedName("token")
+  private String token;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  /**
+   * 导出任务
+   * ID。调用[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)
+   * 获取。
+   *
+   * <p>示例值：6933093124755412345
+   */
+  @Path
+  @SerializedName("ticket")
+  private String ticket;
+
+  public String getTicket() {
+    return this.ticket;
+  }
+
+  public void setTicket(String ticket) {
+    this.ticket = ticket;
+  }
+
+  // builder 开始
+  public GetExportTaskReq() {}
+
+  public GetExportTaskReq(Builder builder) {
     /**
-     * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-     * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+     * 要导出的云文档的 token。获取方式参考[如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。
+     *
+     * <p>示例值：docbcZVGtv1papC6jAVGiyabcef
      */
-    @Query
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
-     * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
-     * <p> 示例值：6933093124755423251
+     * 导出任务
+     * ID。调用[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)
+     * 获取。
+     *
+     * <p>示例值：6933093124755412345
      */
-    @Path
-    @SerializedName("ticket")
-    private String ticket;
+    this.ticket = builder.ticket;
+  }
 
-    // builder 开始
-    public GetExportTaskReq() {
+  public static class Builder {
+    private String token; // 要导出的云文档的 token。获取方式参考[如何获取云文档相关
+
+    // token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。
+
+    /**
+     * 要导出的云文档的 token。获取方式参考[如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。
+     *
+     * <p>示例值：docbcZVGtv1papC6jAVGiyabcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public GetExportTaskReq(Builder builder) {
-        /**
-         * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-         * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
-         */
-        this.token = builder.token;
-        /**
-         * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
-         * <p> 示例值：6933093124755423251
-         */
-        this.ticket = builder.ticket;
+    private String ticket; // 导出任务
+
+    // ID。调用[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 获取。
+
+    /**
+     * 导出任务
+     * ID。调用[创建导出任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create)
+     * 获取。
+     *
+     * <p>示例值：6933093124755412345
+     *
+     * @param ticket
+     * @return
+     */
+    public Builder ticket(String ticket) {
+      this.ticket = ticket;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetExportTaskReq build() {
+      return new GetExportTaskReq(this);
     }
+  }
 
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getTicket() {
-        return this.ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
-    public static class Builder {
-        private String token; // 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-        private String ticket; // 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
-
-        /**
-         * 导出文档的 token;;[如何获取文档 otken](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
-         * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-        /**
-         * 导出任务ID，[创建导出任务](/ssl::ttdoc//uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create) 响应中的 ticket 字段
-         * <p> 示例值：6933093124755423251
-         *
-         * @param ticket
-         * @return
-         */
-        public Builder ticket(String ticket) {
-            this.ticket = ticket;
-            return this;
-        }
-
-
-        public GetExportTaskReq build() {
-            return new GetExportTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

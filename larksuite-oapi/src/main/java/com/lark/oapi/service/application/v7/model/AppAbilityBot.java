@@ -13,149 +13,335 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppAbilityBot {
+  /**
+   * 是否开启
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable")
+  private Boolean enable;
+
+  /**
+   * 消息卡片的回调地址
+   *
+   * <p>示例值：https://open.feishu.cn
+   */
+  @SerializedName("message_card_callback_url")
+  private String messageCardCallbackUrl;
+
+  /**
+   * 国际化内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18ns")
+  private AppAbilityBotI18n[] i18ns;
+
+  /**
+   * 机器人菜单状态是否开启。如果不传，则不处理机器人菜单数据变更。如果该字段为true，bot_menu字段为空列表，返回400
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot_menu_enable")
+  private Boolean botMenuEnable;
+
+  /**
+   * 机器人菜单选项列表.非悬浮菜单最多支持两级菜单，一级菜单最多3个节点，二级菜单最多5个节点。悬浮菜单最多支持两级菜单，每级菜单最多支持五个节点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot_menus")
+  private BotMenuNode[] botMenus;
+
+  /**
+   * 菜单展示类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("bot_menu_display_strategy")
+  private Integer botMenuDisplayStrategy;
+
+  /**
+   * 是否允许被其他应用邀请进群
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("allow_invited_to_group_by_other_app_switch_open")
+  private Boolean allowInvitedToGroupByOtherAppSwitchOpen;
+
+  public Boolean getEnable() {
+    return this.enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+  public String getMessageCardCallbackUrl() {
+    return this.messageCardCallbackUrl;
+  }
+
+  public void setMessageCardCallbackUrl(String messageCardCallbackUrl) {
+    this.messageCardCallbackUrl = messageCardCallbackUrl;
+  }
+
+  public AppAbilityBotI18n[] getI18ns() {
+    return this.i18ns;
+  }
+
+  public void setI18ns(AppAbilityBotI18n[] i18ns) {
+    this.i18ns = i18ns;
+  }
+
+  public Boolean getBotMenuEnable() {
+    return this.botMenuEnable;
+  }
+
+  public void setBotMenuEnable(Boolean botMenuEnable) {
+    this.botMenuEnable = botMenuEnable;
+  }
+
+  public BotMenuNode[] getBotMenus() {
+    return this.botMenus;
+  }
+
+  public void setBotMenus(BotMenuNode[] botMenus) {
+    this.botMenus = botMenus;
+  }
+
+  public Integer getBotMenuDisplayStrategy() {
+    return this.botMenuDisplayStrategy;
+  }
+
+  public void setBotMenuDisplayStrategy(Integer botMenuDisplayStrategy) {
+    this.botMenuDisplayStrategy = botMenuDisplayStrategy;
+  }
+
+  public Boolean getAllowInvitedToGroupByOtherAppSwitchOpen() {
+    return this.allowInvitedToGroupByOtherAppSwitchOpen;
+  }
+
+  public void setAllowInvitedToGroupByOtherAppSwitchOpen(
+      Boolean allowInvitedToGroupByOtherAppSwitchOpen) {
+    this.allowInvitedToGroupByOtherAppSwitchOpen = allowInvitedToGroupByOtherAppSwitchOpen;
+  }
+
+  // builder 开始
+  public AppAbilityBot() {}
+
+  public AppAbilityBot(Builder builder) {
     /**
      * 是否开启
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable")
-    private Boolean enable;
+    this.enable = builder.enable;
     /**
      * 消息卡片的回调地址
-     * <p> 示例值：https://open.feishu.cn
+     *
+     * <p>示例值：https://open.feishu.cn
      */
-    @SerializedName("message_card_callback_url")
-    private String messageCardCallbackUrl;
+    this.messageCardCallbackUrl = builder.messageCardCallbackUrl;
     /**
      * 国际化内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18ns")
+    this.i18ns = builder.i18ns;
+    /**
+     * 机器人菜单状态是否开启。如果不传，则不处理机器人菜单数据变更。如果该字段为true，bot_menu字段为空列表，返回400
+     *
+     * <p>示例值：
+     */
+    this.botMenuEnable = builder.botMenuEnable;
+    /**
+     * 机器人菜单选项列表.非悬浮菜单最多支持两级菜单，一级菜单最多3个节点，二级菜单最多5个节点。悬浮菜单最多支持两级菜单，每级菜单最多支持五个节点
+     *
+     * <p>示例值：
+     */
+    this.botMenus = builder.botMenus;
+    /**
+     * 菜单展示类型
+     *
+     * <p>示例值：1
+     */
+    this.botMenuDisplayStrategy = builder.botMenuDisplayStrategy;
+    /**
+     * 是否允许被其他应用邀请进群
+     *
+     * <p>示例值：false
+     */
+    this.allowInvitedToGroupByOtherAppSwitchOpen = builder.allowInvitedToGroupByOtherAppSwitchOpen;
+  }
+
+  public static class Builder {
+    /**
+     * 是否开启
+     *
+     * <p>示例值：true
+     */
+    private Boolean enable;
+
+    /**
+     * 消息卡片的回调地址
+     *
+     * <p>示例值：https://open.feishu.cn
+     */
+    private String messageCardCallbackUrl;
+
+    /**
+     * 国际化内容
+     *
+     * <p>示例值：
+     */
     private AppAbilityBotI18n[] i18ns;
 
-    // builder 开始
-    public AppAbilityBot() {
+    /**
+     * 机器人菜单状态是否开启。如果不传，则不处理机器人菜单数据变更。如果该字段为true，bot_menu字段为空列表，返回400
+     *
+     * <p>示例值：
+     */
+    private Boolean botMenuEnable;
+
+    /**
+     * 机器人菜单选项列表.非悬浮菜单最多支持两级菜单，一级菜单最多3个节点，二级菜单最多5个节点。悬浮菜单最多支持两级菜单，每级菜单最多支持五个节点
+     *
+     * <p>示例值：
+     */
+    private BotMenuNode[] botMenus;
+
+    /**
+     * 菜单展示类型
+     *
+     * <p>示例值：1
+     */
+    private Integer botMenuDisplayStrategy;
+
+    /**
+     * 是否允许被其他应用邀请进群
+     *
+     * <p>示例值：false
+     */
+    private Boolean allowInvitedToGroupByOtherAppSwitchOpen;
+
+    /**
+     * 是否开启
+     *
+     * <p>示例值：true
+     *
+     * @param enable
+     * @return
+     */
+    public Builder enable(Boolean enable) {
+      this.enable = enable;
+      return this;
     }
 
-    public AppAbilityBot(Builder builder) {
-        /**
-         * 是否开启
-         * <p> 示例值：true
-         */
-        this.enable = builder.enable;
-        /**
-         * 消息卡片的回调地址
-         * <p> 示例值：https://open.feishu.cn
-         */
-        this.messageCardCallbackUrl = builder.messageCardCallbackUrl;
-        /**
-         * 国际化内容
-         * <p> 示例值：
-         */
-        this.i18ns = builder.i18ns;
+    /**
+     * 消息卡片的回调地址
+     *
+     * <p>示例值：https://open.feishu.cn
+     *
+     * @param messageCardCallbackUrl
+     * @return
+     */
+    public Builder messageCardCallbackUrl(String messageCardCallbackUrl) {
+      this.messageCardCallbackUrl = messageCardCallbackUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国际化内容
+     *
+     * <p>示例值：
+     *
+     * @param i18ns
+     * @return
+     */
+    public Builder i18ns(AppAbilityBotI18n[] i18ns) {
+      this.i18ns = i18ns;
+      return this;
     }
 
-    public Boolean getEnable() {
-        return this.enable;
+    /**
+     * 机器人菜单状态是否开启。如果不传，则不处理机器人菜单数据变更。如果该字段为true，bot_menu字段为空列表，返回400
+     *
+     * <p>示例值：
+     *
+     * @param botMenuEnable
+     * @return
+     */
+    public Builder botMenuEnable(Boolean botMenuEnable) {
+      this.botMenuEnable = botMenuEnable;
+      return this;
     }
 
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
+    /**
+     * 机器人菜单选项列表.非悬浮菜单最多支持两级菜单，一级菜单最多3个节点，二级菜单最多5个节点。悬浮菜单最多支持两级菜单，每级菜单最多支持五个节点
+     *
+     * <p>示例值：
+     *
+     * @param botMenus
+     * @return
+     */
+    public Builder botMenus(BotMenuNode[] botMenus) {
+      this.botMenus = botMenus;
+      return this;
     }
 
-    public String getMessageCardCallbackUrl() {
-        return this.messageCardCallbackUrl;
+    /**
+     * 菜单展示类型
+     *
+     * <p>示例值：1
+     *
+     * @param botMenuDisplayStrategy
+     * @return
+     */
+    public Builder botMenuDisplayStrategy(Integer botMenuDisplayStrategy) {
+      this.botMenuDisplayStrategy = botMenuDisplayStrategy;
+      return this;
     }
 
-    public void setMessageCardCallbackUrl(String messageCardCallbackUrl) {
-        this.messageCardCallbackUrl = messageCardCallbackUrl;
+    /**
+     * 菜单展示类型
+     *
+     * <p>示例值：1
+     *
+     * @param botMenuDisplayStrategy {@link
+     *     com.lark.oapi.service.application.v7.enums.AppAbilityBotBotMenuDisplayStrategyEnum}
+     * @return
+     */
+    public Builder botMenuDisplayStrategy(
+        com.lark.oapi.service.application.v7.enums.AppAbilityBotBotMenuDisplayStrategyEnum
+            botMenuDisplayStrategy) {
+      this.botMenuDisplayStrategy = botMenuDisplayStrategy.getValue();
+      return this;
     }
 
-    public AppAbilityBotI18n[] getI18ns() {
-        return this.i18ns;
+    /**
+     * 是否允许被其他应用邀请进群
+     *
+     * <p>示例值：false
+     *
+     * @param allowInvitedToGroupByOtherAppSwitchOpen
+     * @return
+     */
+    public Builder allowInvitedToGroupByOtherAppSwitchOpen(
+        Boolean allowInvitedToGroupByOtherAppSwitchOpen) {
+      this.allowInvitedToGroupByOtherAppSwitchOpen = allowInvitedToGroupByOtherAppSwitchOpen;
+      return this;
     }
 
-    public void setI18ns(AppAbilityBotI18n[] i18ns) {
-        this.i18ns = i18ns;
+    public AppAbilityBot build() {
+      return new AppAbilityBot(this);
     }
+  }
 
-    public static class Builder {
-        /**
-         * 是否开启
-         * <p> 示例值：true
-         */
-        private Boolean enable;
-        /**
-         * 消息卡片的回调地址
-         * <p> 示例值：https://open.feishu.cn
-         */
-        private String messageCardCallbackUrl;
-        /**
-         * 国际化内容
-         * <p> 示例值：
-         */
-        private AppAbilityBotI18n[] i18ns;
-
-        /**
-         * 是否开启
-         * <p> 示例值：true
-         *
-         * @param enable
-         * @return
-         */
-        public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
-        }
-
-
-        /**
-         * 消息卡片的回调地址
-         * <p> 示例值：https://open.feishu.cn
-         *
-         * @param messageCardCallbackUrl
-         * @return
-         */
-        public Builder messageCardCallbackUrl(String messageCardCallbackUrl) {
-            this.messageCardCallbackUrl = messageCardCallbackUrl;
-            return this;
-        }
-
-
-        /**
-         * 国际化内容
-         * <p> 示例值：
-         *
-         * @param i18ns
-         * @return
-         */
-        public Builder i18ns(AppAbilityBotI18n[] i18ns) {
-            this.i18ns = i18ns;
-            return this;
-        }
-
-
-        public AppAbilityBot build() {
-            return new AppAbilityBot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

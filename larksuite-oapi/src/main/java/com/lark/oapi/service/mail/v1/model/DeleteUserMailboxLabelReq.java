@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class DeleteUserMailboxLabelReq {
+  /**
+   * 用户邮箱地址，当使用user_access_token访问时，可以填写me
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
+   *
+   * <p>示例值：7620003644728938013
+   */
+  @Path
+  @SerializedName("label_id")
+  private String labelId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getLabelId() {
+    return this.labelId;
+  }
+
+  public void setLabelId(String labelId) {
+    this.labelId = labelId;
+  }
+
+  // builder 开始
+  public DeleteUserMailboxLabelReq() {}
+
+  public DeleteUserMailboxLabelReq(Builder builder) {
     /**
-     * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-     * <p> 示例值：user@xxx.xx 或 me
+     * 用户邮箱地址，当使用user_access_token访问时，可以填写me
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
-     * <p> 示例值：7620003644728938013
+     *
+     * <p>示例值：7620003644728938013
      */
-    @Path
-    @SerializedName("label_id")
-    private String labelId;
+    this.labelId = builder.labelId;
+  }
 
-    // builder 开始
-    public DeleteUserMailboxLabelReq() {
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址，当使用user_access_token访问时，可以填写me
+    private String labelId; // 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
+
+    /**
+     * 用户邮箱地址，当使用user_access_token访问时，可以填写me
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public DeleteUserMailboxLabelReq(Builder builder) {
-        /**
-         * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
-         * <p> 示例值：7620003644728938013
-         */
-        this.labelId = builder.labelId;
+    /**
+     * 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
+     *
+     * <p>示例值：7620003644728938013
+     *
+     * @param labelId
+     * @return
+     */
+    public Builder labelId(String labelId) {
+      this.labelId = labelId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteUserMailboxLabelReq build() {
+      return new DeleteUserMailboxLabelReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getLabelId() {
-        return this.labelId;
-    }
-
-    public void setLabelId(String labelId) {
-        this.labelId = labelId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-        private String labelId; // 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
-
-        /**
-         * 用户邮箱地址不存在，请检查输入的用户邮箱地址是否正确，或确认用户的邮箱处于正常状态
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得
-         * <p> 示例值：7620003644728938013
-         *
-         * @param labelId
-         * @return
-         */
-        public Builder labelId(String labelId) {
-            this.labelId = labelId;
-            return this;
-        }
-
-
-        public DeleteUserMailboxLabelReq build() {
-            return new DeleteUserMailboxLabelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

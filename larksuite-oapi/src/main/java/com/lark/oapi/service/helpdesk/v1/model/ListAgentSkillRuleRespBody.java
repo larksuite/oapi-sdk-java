@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAgentSkillRuleRespBody {
-    /**
-     * rules列表
-     * <p> 示例值：
-     */
-    @SerializedName("rules")
-    private AgentSkillRule[] rules;
+  /**
+   * rules列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rules")
+  private AgentSkillRule[] rules;
 
-    public AgentSkillRule[] getRules() {
-        return this.rules;
-    }
+  public AgentSkillRule[] getRules() {
+    return this.rules;
+  }
 
-    public void setRules(AgentSkillRule[] rules) {
-        this.rules = rules;
-    }
-
+  public void setRules(AgentSkillRule[] rules) {
+    this.rules = rules;
+  }
 }

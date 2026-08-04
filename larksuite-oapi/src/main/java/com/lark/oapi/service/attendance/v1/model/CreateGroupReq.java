@@ -13,154 +13,164 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class CreateGroupReq {
+  /**
+   * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+   *
+   * <p>示例值：employee_id
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  /**
+   * 部门 ID 的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("dept_type")
+  private String deptType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public String getDeptType() {
+    return this.deptType;
+  }
+
+  public void setDeptType(String deptType) {
+    this.deptType = deptType;
+  }
+
+  @Body private CreateGroupReqBody body;
+
+  public CreateGroupReqBody getCreateGroupReqBody() {
+    return this.body;
+  }
+
+  public void setCreateGroupReqBody(CreateGroupReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateGroupReq() {}
+
+  public CreateGroupReq(Builder builder) {
     /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
+    this.employeeType = builder.employeeType;
     /**
      * 部门 ID 的类型
-     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("dept_type")
-    private String deptType;
-    @Body
+    this.deptType = builder.deptType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String employeeType; // 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+    private String deptType; // 部门 ID 的类型
+
+    /**
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
+    }
+
+    /**
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum}
+     * @return
+     */
+    public Builder employeeType(
+        com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum
+            employeeType) {
+      this.employeeType = employeeType.getValue();
+      return this;
+    }
+
+    /**
+     * 部门 ID 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param deptType
+     * @return
+     */
+    public Builder deptType(String deptType) {
+      this.deptType = deptType;
+      return this;
+    }
+
+    /**
+     * 部门 ID 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param deptType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum}
+     * @return
+     */
+    public Builder deptType(
+        com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum deptType) {
+      this.deptType = deptType.getValue();
+      return this;
+    }
+
     private CreateGroupReqBody body;
 
-    // builder 开始
-    public CreateGroupReq() {
-    }
-
-    public CreateGroupReq(Builder builder) {
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-         */
-        this.deptType = builder.deptType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public String getDeptType() {
-        return this.deptType;
-    }
-
-    public void setDeptType(String deptType) {
-        this.deptType = deptType;
-    }
-
     public CreateGroupReqBody getCreateGroupReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateGroupReqBody(CreateGroupReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createGroupReqBody(CreateGroupReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String employeeType; // 用户 ID 的类型
-        private String deptType; // 部门 ID 的类型
-        private CreateGroupReqBody body;
-
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum}
-         * @return
-         */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupEmployeeTypeEnum employeeType) {
-            this.employeeType = employeeType.getValue();
-            return this;
-        }
-
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-         *
-         * @param deptType
-         * @return
-         */
-        public Builder deptType(String deptType) {
-            this.deptType = deptType;
-            return this;
-        }
-
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
-         *
-         * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum}
-         * @return
-         */
-        public Builder deptType(com.lark.oapi.service.attendance.v1.enums.CreateGroupCreateGroupDeptTypeEnum deptType) {
-            this.deptType = deptType.getValue();
-            return this;
-        }
-
-        public CreateGroupReqBody getCreateGroupReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createGroupReqBody(CreateGroupReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateGroupReq build() {
-            return new CreateGroupReq(this);
-        }
+    public CreateGroupReq build() {
+      return new CreateGroupReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.mdm.v1.enums;
 
-/**
- * 模块分组
- */
+/** 模块分组 */
 public enum ConfigModuleEnum {
-    BASE_INFO(0), // 基础信息
-    ADDRESS(1), // 经营地址
-    CONTACT(2), // 联系人
-    ACCOUNT(3), // 银行账户
-    COMPANY_VIEW(4), // 公司视图
-    ELECTRON_TAG(5), // 电子签
-    ;
-    private Integer value;
+  BASE_INFO(0), // 基础信息
+  ADDRESS(1), // 经营地址
+  CONTACT(2), // 联系人
+  ACCOUNT(3), // 银行账户
+  COMPANY_VIEW(4), // 公司视图
+  ELECTRON_TAG(5), // 电子签
+  ;
+  private Integer value;
 
-    ConfigModuleEnum(Integer value) {
-        this.value = value;
-    }
+  ConfigModuleEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

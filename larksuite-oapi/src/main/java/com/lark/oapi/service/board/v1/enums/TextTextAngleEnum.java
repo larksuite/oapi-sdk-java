@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 文字旋转角度
- */
+/** 文字旋转角度 */
 public enum TextTextAngleEnum {
-    TEXTANGLE_0(0), // 文字旋转角度0度
-    TEXTANGLE_90(90), // 文字旋转角度90度
-    TEXTANGLE_180(180), // 文字旋转角度180度
-    TEXTANGLE_270(270), // 文字旋转角度270度
-    ;
-    private Integer value;
+  TEXTANGLE_0(0), // 文字旋转角度0度
+  TEXTANGLE_90(90), // 文字旋转角度90度
+  TEXTANGLE_180(180), // 文字旋转角度180度
+  TEXTANGLE_270(270), // 文字旋转角度270度
+  ;
+  private Integer value;
 
-    TextTextAngleEnum(Integer value) {
-        this.value = value;
-    }
+  TextTextAngleEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

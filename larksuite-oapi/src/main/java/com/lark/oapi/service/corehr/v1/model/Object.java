@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Object {
+  /**
+   * 对象的唯一标识
+   *
+   * <p>示例值：offboarding_info
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private Name name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_open")
+  private Boolean isOpen;
+
+  /**
+   * 创建时间，秒级时间戳
+   *
+   * <p>示例值：1644992809
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间，秒级时间戳
+   *
+   * <p>示例值：1644992809
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public Name getName() {
+    return this.name;
+  }
+
+  public void setName(Name name) {
+    this.name = name;
+  }
+
+  public Boolean getIsOpen() {
+    return this.isOpen;
+  }
+
+  public void setIsOpen(Boolean isOpen) {
+    this.isOpen = isOpen;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public Object() {}
+
+  public Object(Builder builder) {
     /**
      * 对象的唯一标识
-     * <p> 示例值：offboarding_info
+     *
+     * <p>示例值：offboarding_info
      */
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
-     * 对象名称
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private Name name;
+    this.name = builder.name;
     /**
-     * 是否启用;;True 为已启用;;False 为未启用
-     * <p> 示例值：false
+     * 是否启用
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_open")
-    private Boolean isOpen;
+    this.isOpen = builder.isOpen;
     /**
      * 创建时间，秒级时间戳
-     * <p> 示例值：1644992809
+     *
+     * <p>示例值：1644992809
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间，秒级时间戳
-     * <p> 示例值：1644992809
+     *
+     * <p>示例值：1644992809
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 对象的唯一标识
+     *
+     * <p>示例值：offboarding_info
+     */
+    private String objectApiName;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：false
+     */
+    private Boolean isOpen;
+
+    /**
+     * 创建时间，秒级时间戳
+     *
+     * <p>示例值：1644992809
+     */
+    private String createTime;
+
+    /**
+     * 更新时间，秒级时间戳
+     *
+     * <p>示例值：1644992809
+     */
     private String updateTime;
 
-    // builder 开始
-    public Object() {
+    /**
+     * 对象的唯一标识
+     *
+     * <p>示例值：offboarding_info
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public Object(Builder builder) {
-        /**
-         * 对象的唯一标识
-         * <p> 示例值：offboarding_info
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用;;True 为已启用;;False 为未启用
-         * <p> 示例值：false
-         */
-        this.isOpen = builder.isOpen;
-        /**
-         * 创建时间，秒级时间戳
-         * <p> 示例值：1644992809
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间，秒级时间戳
-         * <p> 示例值：1644992809
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Name name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用
+     *
+     * <p>示例值：false
+     *
+     * @param isOpen
+     * @return
+     */
+    public Builder isOpen(Boolean isOpen) {
+      this.isOpen = isOpen;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    /**
+     * 创建时间，秒级时间戳
+     *
+     * <p>示例值：1644992809
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
+    /**
+     * 更新时间，秒级时间戳
+     *
+     * <p>示例值：1644992809
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public Name getName() {
-        return this.name;
+    public Object build() {
+      return new Object(this);
     }
+  }
 
-    public void setName(Name name) {
-        this.name = name;
-    }
-
-    public Boolean getIsOpen() {
-        return this.isOpen;
-    }
-
-    public void setIsOpen(Boolean isOpen) {
-        this.isOpen = isOpen;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 对象的唯一标识
-         * <p> 示例值：offboarding_info
-         */
-        private String objectApiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        private Name name;
-        /**
-         * 是否启用;;True 为已启用;;False 为未启用
-         * <p> 示例值：false
-         */
-        private Boolean isOpen;
-        /**
-         * 创建时间，秒级时间戳
-         * <p> 示例值：1644992809
-         */
-        private String createTime;
-        /**
-         * 更新时间，秒级时间戳
-         * <p> 示例值：1644992809
-         */
-        private String updateTime;
-
-        /**
-         * 对象的唯一标识
-         * <p> 示例值：offboarding_info
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 对象名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用;;True 为已启用;;False 为未启用
-         * <p> 示例值：false
-         *
-         * @param isOpen
-         * @return
-         */
-        public Builder isOpen(Boolean isOpen) {
-            this.isOpen = isOpen;
-            return this;
-        }
-
-
-        /**
-         * 创建时间，秒级时间戳
-         * <p> 示例值：1644992809
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间，秒级时间戳
-         * <p> 示例值：1644992809
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public Object build() {
-            return new Object(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

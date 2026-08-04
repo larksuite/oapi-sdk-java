@@ -13,518 +13,569 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class Language {
+  /**
+   * 自增id（业务无需关心）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("update_by")
+  private String updateBy;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("create_by")
+  private String createBy;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * IETF 编码
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("ietf_language_tag")
+  private String ietfLanguageTag;
+
+  /**
+   * 国家/地区名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nString name;
+
+  /**
+   * 启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enable")
+  private Boolean enable;
+
+  /**
+   * 主数据编码
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("mdm_code")
+  private String mdmCode;
+
+  /**
+   * 是否生效
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 展示状态
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("system_status")
+  private String systemStatus;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 更新原因
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("update_reason")
+  private String updateReason;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUpdateBy() {
+    return this.updateBy;
+  }
+
+  public void setUpdateBy(String updateBy) {
+    this.updateBy = updateBy;
+  }
+
+  public String getCreateBy() {
+    return this.createBy;
+  }
+
+  public void setCreateBy(String createBy) {
+    this.createBy = createBy;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getIetfLanguageTag() {
+    return this.ietfLanguageTag;
+  }
+
+  public void setIetfLanguageTag(String ietfLanguageTag) {
+    this.ietfLanguageTag = ietfLanguageTag;
+  }
+
+  public I18nString getName() {
+    return this.name;
+  }
+
+  public void setName(I18nString name) {
+    this.name = name;
+  }
+
+  public Boolean getEnable() {
+    return this.enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+  public String getMdmCode() {
+    return this.mdmCode;
+  }
+
+  public void setMdmCode(String mdmCode) {
+    this.mdmCode = mdmCode;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getSystemStatus() {
+    return this.systemStatus;
+  }
+
+  public void setSystemStatus(String systemStatus) {
+    this.systemStatus = systemStatus;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getUpdateReason() {
+    return this.updateReason;
+  }
+
+  public void setUpdateReason(String updateReason) {
+    this.updateReason = updateReason;
+  }
+
+  // builder 开始
+  public Language() {}
+
+  public Language(Builder builder) {
     /**
      * 自增id（业务无需关心）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 更新人
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("update_by")
-    private String updateBy;
+    this.updateBy = builder.updateBy;
     /**
      * 创建人
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("create_by")
-    private String createBy;
+    this.createBy = builder.createBy;
     /**
      * 更新时间
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 创建时间
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * IETF 编码
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("ietf_language_tag")
-    private String ietfLanguageTag;
+    this.ietfLanguageTag = builder.ietfLanguageTag;
     /**
-     * 名称
-     * <p> 示例值：
+     * 国家/地区名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nString name;
+    this.name = builder.name;
     /**
      * 启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enable")
-    private Boolean enable;
+    this.enable = builder.enable;
     /**
      * 主数据编码
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("mdm_code")
-    private String mdmCode;
+    this.mdmCode = builder.mdmCode;
     /**
      * 是否生效
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 展示状态
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("system_status")
-    private String systemStatus;
+    this.systemStatus = builder.systemStatus;
     /**
      * 备注
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 更新原因
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("update_reason")
+    this.updateReason = builder.updateReason;
+  }
+
+  public static class Builder {
+    /**
+     * 自增id（业务无需关心）
+     *
+     * <p>示例值：0
+     */
+    private String id;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：-
+     */
+    private String updateBy;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：-
+     */
+    private String createBy;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：-
+     */
+    private String updateTime;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：-
+     */
+    private String createTime;
+
+    /**
+     * IETF 编码
+     *
+     * <p>示例值：-
+     */
+    private String ietfLanguageTag;
+
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：
+     */
+    private I18nString name;
+
+    /**
+     * 启用
+     *
+     * <p>示例值：
+     */
+    private Boolean enable;
+
+    /**
+     * 主数据编码
+     *
+     * <p>示例值：-
+     */
+    private String mdmCode;
+
+    /**
+     * 是否生效
+     *
+     * <p>示例值：-
+     */
+    private String status;
+
+    /**
+     * 展示状态
+     *
+     * <p>示例值：-
+     */
+    private String systemStatus;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：-
+     */
+    private String remark;
+
+    /**
+     * 更新原因
+     *
+     * <p>示例值：-
+     */
     private String updateReason;
 
-    // builder 开始
-    public Language() {
+    /**
+     * 自增id（业务无需关心）
+     *
+     * <p>示例值：0
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Language(Builder builder) {
-        /**
-         * 自增id（业务无需关心）
-         * <p> 示例值：0
-         */
-        this.id = builder.id;
-        /**
-         * 更新人
-         * <p> 示例值：-
-         */
-        this.updateBy = builder.updateBy;
-        /**
-         * 创建人
-         * <p> 示例值：-
-         */
-        this.createBy = builder.createBy;
-        /**
-         * 更新时间
-         * <p> 示例值：-
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建时间
-         * <p> 示例值：-
-         */
-        this.createTime = builder.createTime;
-        /**
-         * IETF 编码
-         * <p> 示例值：-
-         */
-        this.ietfLanguageTag = builder.ietfLanguageTag;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 启用
-         * <p> 示例值：
-         */
-        this.enable = builder.enable;
-        /**
-         * 主数据编码
-         * <p> 示例值：-
-         */
-        this.mdmCode = builder.mdmCode;
-        /**
-         * 是否生效
-         * <p> 示例值：-
-         */
-        this.status = builder.status;
-        /**
-         * 展示状态
-         * <p> 示例值：-
-         */
-        this.systemStatus = builder.systemStatus;
-        /**
-         * 备注
-         * <p> 示例值：-
-         */
-        this.remark = builder.remark;
-        /**
-         * 更新原因
-         * <p> 示例值：-
-         */
-        this.updateReason = builder.updateReason;
+    /**
+     * 更新人
+     *
+     * <p>示例值：-
+     *
+     * @param updateBy
+     * @return
+     */
+    public Builder updateBy(String updateBy) {
+      this.updateBy = updateBy;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建人
+     *
+     * <p>示例值：-
+     *
+     * @param createBy
+     * @return
+     */
+    public Builder createBy(String createBy) {
+      this.createBy = createBy;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：-
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：-
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getUpdateBy() {
-        return this.updateBy;
+    /**
+     * IETF 编码
+     *
+     * <p>示例值：-
+     *
+     * @param ietfLanguageTag
+     * @return
+     */
+    public Builder ietfLanguageTag(String ietfLanguageTag) {
+      this.ietfLanguageTag = ietfLanguageTag;
+      return this;
     }
 
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nString name) {
+      this.name = name;
+      return this;
     }
 
-    public String getCreateBy() {
-        return this.createBy;
+    /**
+     * 启用
+     *
+     * <p>示例值：
+     *
+     * @param enable
+     * @return
+     */
+    public Builder enable(Boolean enable) {
+      this.enable = enable;
+      return this;
     }
 
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
+    /**
+     * 主数据编码
+     *
+     * <p>示例值：-
+     *
+     * @param mdmCode
+     * @return
+     */
+    public Builder mdmCode(String mdmCode) {
+      this.mdmCode = mdmCode;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 是否生效
+     *
+     * <p>示例值：-
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 展示状态
+     *
+     * <p>示例值：-
+     *
+     * @param systemStatus
+     * @return
+     */
+    public Builder systemStatus(String systemStatus) {
+      this.systemStatus = systemStatus;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 备注
+     *
+     * <p>示例值：-
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 更新原因
+     *
+     * <p>示例值：-
+     *
+     * @param updateReason
+     * @return
+     */
+    public Builder updateReason(String updateReason) {
+      this.updateReason = updateReason;
+      return this;
     }
 
-    public String getIetfLanguageTag() {
-        return this.ietfLanguageTag;
+    public Language build() {
+      return new Language(this);
     }
+  }
 
-    public void setIetfLanguageTag(String ietfLanguageTag) {
-        this.ietfLanguageTag = ietfLanguageTag;
-    }
-
-    public I18nString getName() {
-        return this.name;
-    }
-
-    public void setName(I18nString name) {
-        this.name = name;
-    }
-
-    public Boolean getEnable() {
-        return this.enable;
-    }
-
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
-    }
-
-    public String getMdmCode() {
-        return this.mdmCode;
-    }
-
-    public void setMdmCode(String mdmCode) {
-        this.mdmCode = mdmCode;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSystemStatus() {
-        return this.systemStatus;
-    }
-
-    public void setSystemStatus(String systemStatus) {
-        this.systemStatus = systemStatus;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getUpdateReason() {
-        return this.updateReason;
-    }
-
-    public void setUpdateReason(String updateReason) {
-        this.updateReason = updateReason;
-    }
-
-    public static class Builder {
-        /**
-         * 自增id（业务无需关心）
-         * <p> 示例值：0
-         */
-        private String id;
-        /**
-         * 更新人
-         * <p> 示例值：-
-         */
-        private String updateBy;
-        /**
-         * 创建人
-         * <p> 示例值：-
-         */
-        private String createBy;
-        /**
-         * 更新时间
-         * <p> 示例值：-
-         */
-        private String updateTime;
-        /**
-         * 创建时间
-         * <p> 示例值：-
-         */
-        private String createTime;
-        /**
-         * IETF 编码
-         * <p> 示例值：-
-         */
-        private String ietfLanguageTag;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18nString name;
-        /**
-         * 启用
-         * <p> 示例值：
-         */
-        private Boolean enable;
-        /**
-         * 主数据编码
-         * <p> 示例值：-
-         */
-        private String mdmCode;
-        /**
-         * 是否生效
-         * <p> 示例值：-
-         */
-        private String status;
-        /**
-         * 展示状态
-         * <p> 示例值：-
-         */
-        private String systemStatus;
-        /**
-         * 备注
-         * <p> 示例值：-
-         */
-        private String remark;
-        /**
-         * 更新原因
-         * <p> 示例值：-
-         */
-        private String updateReason;
-
-        /**
-         * 自增id（业务无需关心）
-         * <p> 示例值：0
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：-
-         *
-         * @param updateBy
-         * @return
-         */
-        public Builder updateBy(String updateBy) {
-            this.updateBy = updateBy;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：-
-         *
-         * @param createBy
-         * @return
-         */
-        public Builder createBy(String createBy) {
-            this.createBy = createBy;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：-
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：-
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * IETF 编码
-         * <p> 示例值：-
-         *
-         * @param ietfLanguageTag
-         * @return
-         */
-        public Builder ietfLanguageTag(String ietfLanguageTag) {
-            this.ietfLanguageTag = ietfLanguageTag;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nString name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 启用
-         * <p> 示例值：
-         *
-         * @param enable
-         * @return
-         */
-        public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
-        }
-
-
-        /**
-         * 主数据编码
-         * <p> 示例值：-
-         *
-         * @param mdmCode
-         * @return
-         */
-        public Builder mdmCode(String mdmCode) {
-            this.mdmCode = mdmCode;
-            return this;
-        }
-
-
-        /**
-         * 是否生效
-         * <p> 示例值：-
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 展示状态
-         * <p> 示例值：-
-         *
-         * @param systemStatus
-         * @return
-         */
-        public Builder systemStatus(String systemStatus) {
-            this.systemStatus = systemStatus;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：-
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 更新原因
-         * <p> 示例值：-
-         *
-         * @param updateReason
-         * @return
-         */
-        public Builder updateReason(String updateReason) {
-            this.updateReason = updateReason;
-            return this;
-        }
-
-
-        public Language build() {
-            return new Language(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

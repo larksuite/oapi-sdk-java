@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendUserMailboxMessageRespBody {
-    /**
-     * 邮件ID
-     * <p> 示例值：48451e97-4743-4a55-a9a3-b5c656b69c05
-     */
-    @SerializedName("message_id")
-    private String messageId;
-    /**
-     * 会话ID
-     * <p> 示例值：14151e97-4743-4a55-a9a3-b5c656b69c05
-     */
-    @SerializedName("thread_id")
-    private String threadId;
+  /**
+   * 邮件ID
+   *
+   * <p>示例值：48451e97-4743-4a55-a9a3-b5c656b69c05
+   */
+  @SerializedName("message_id")
+  private String messageId;
 
-    public String getMessageId() {
-        return this.messageId;
-    }
+  /**
+   * 会话ID
+   *
+   * <p>示例值：14151e97-4743-4a55-a9a3-b5c656b69c05
+   */
+  @SerializedName("thread_id")
+  private String threadId;
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
+  public String getMessageId() {
+    return this.messageId;
+  }
 
-    public String getThreadId() {
-        return this.threadId;
-    }
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
 
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
+  public String getThreadId() {
+    return this.threadId;
+  }
 
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
 }

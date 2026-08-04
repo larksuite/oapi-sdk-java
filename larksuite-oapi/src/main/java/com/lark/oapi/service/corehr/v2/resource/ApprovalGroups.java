@@ -13,301 +13,441 @@
 
 package com.lark.oapi.service.corehr.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ApprovalGroups {
-    private static final Logger log = LoggerFactory.getLogger(ApprovalGroups.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(ApprovalGroups.class);
+  private final Config config;
 
-    public ApprovalGroups(Config config) {
-        this.config = config;
+  public ApprovalGroups(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 根据流程 ID 查询组织架构调整记录，用户通过『飞书人事-我的团队-组织架构』 发起一个组织架构调整会根据 审批流配置发起 一个或多个审批。 之后用户可通过流程的单据 ID，
+   * 查询到该审批进行的状态， 以及该流程中涉及到的 组织架构信息（包括部门变更、人员变更记录 ID、岗位变更记录 ID）。;如需查询具体变更详情可按需调用以下独立的接口：;;-
+   * 部门变更：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_position_change_list_by_ids);;-
+   * 岗位变更：[批量查询岗位调整内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids);;-
+   * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整流程信息 权限;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java</a>
+   * ;
+   */
+  public GetApprovalGroupsResp get(GetApprovalGroupsReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/approval_groups/:process_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，获取审批组信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java</a> ;
-     */
-    public GetApprovalGroupsResp get(GetApprovalGroupsReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/approval_groups/:process_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        GetApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/:process_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/:process_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取审批组信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java</a> ;
-     */
-    public GetApprovalGroupsResp get(GetApprovalGroupsReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/approval_groups/:process_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/:process_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 根据流程 ID 查询组织架构调整记录，用户通过『飞书人事-我的团队-组织架构』 发起一个组织架构调整会根据 审批流配置发起 一个或多个审批。 之后用户可通过流程的单据 ID，
+   * 查询到该审批进行的状态， 以及该流程中涉及到的 组织架构信息（包括部门变更、人员变更记录 ID、岗位变更记录 ID）。;如需查询具体变更详情可按需调用以下独立的接口：;;-
+   * 部门变更：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_position_change_list_by_ids);;-
+   * 岗位变更：[批量查询岗位调整内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids);;-
+   * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整流程信息 权限;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/GetApprovalGroupsSample.java</a>
+   * ;
+   */
+  public GetApprovalGroupsResp get(GetApprovalGroupsReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/approval_groups/:process_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    GetApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/:process_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取部门调整信息详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryDepartmentChangeListByIdsApprovalGroupsResp openQueryDepartmentChangeListByIds(OpenQueryDepartmentChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        OpenQueryDepartmentChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryDepartmentChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询部门调整内容，根据部门调整记录 ID 批量查询部门调整内容，如：部门调整类型、部门调整前后名称、部门调整前后角色信息 等
+   *
+   * <p>- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryDepartmentChangeListByIdsApprovalGroupsResp openQueryDepartmentChangeListByIds(
+      OpenQueryDepartmentChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，获取部门调整信息详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryDepartmentChangeListByIdsApprovalGroupsResp openQueryDepartmentChangeListByIds(OpenQueryDepartmentChangeListByIdsApprovalGroupsReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        OpenQueryDepartmentChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryDepartmentChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    OpenQueryDepartmentChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryDepartmentChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryJobChangeListByIdsApprovalGroupsResp openQueryJobChangeListByIds(OpenQueryJobChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        OpenQueryJobChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryJobChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量查询部门调整内容，根据部门调整记录 ID 批量查询部门调整内容，如：部门调整类型、部门调整前后名称、部门调整前后角色信息 等
+   *
+   * <p>- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_department_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryDepartmentChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryDepartmentChangeListByIdsApprovalGroupsResp openQueryDepartmentChangeListByIds(
+      OpenQueryDepartmentChangeListByIdsApprovalGroupsReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    OpenQueryDepartmentChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryDepartmentChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_department_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryJobChangeListByIdsApprovalGroupsResp openQueryJobChangeListByIds(OpenQueryJobChangeListByIdsApprovalGroupsReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        OpenQueryJobChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryJobChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询人员调整内容，根据人员异动记录 ID 批量查询人员调整内容
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整流程信息 权限;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryJobChangeListByIdsApprovalGroupsResp openQueryJobChangeListByIds(
+      OpenQueryJobChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，获取岗位调整信息详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryPositionChangeListByIdsApprovalGroupsResp openQueryPositionChangeListByIds(OpenQueryPositionChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        OpenQueryPositionChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryPositionChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    OpenQueryJobChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryJobChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取岗位调整信息详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java</a> ;
-     */
-    public OpenQueryPositionChangeListByIdsApprovalGroupsResp openQueryPositionChangeListByIds(OpenQueryPositionChangeListByIdsApprovalGroupsReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        OpenQueryPositionChangeListByIdsApprovalGroupsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, OpenQueryPositionChangeListByIdsApprovalGroupsResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量查询人员调整内容，根据人员异动记录 ID 批量查询人员调整内容
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整流程信息 权限;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_job_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryJobChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryJobChangeListByIdsApprovalGroupsResp openQueryJobChangeListByIds(
+      OpenQueryJobChangeListByIdsApprovalGroupsReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    OpenQueryJobChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryJobChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_job_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量查询岗位调整内容，根据岗位调整记录 ID 批量查询岗位调整内容
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整岗位调整内容 权限。;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryPositionChangeListByIdsApprovalGroupsResp openQueryPositionChangeListByIds(
+      OpenQueryPositionChangeListByIdsApprovalGroupsReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    OpenQueryPositionChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryPositionChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量查询岗位调整内容，根据岗位调整记录 ID 批量查询岗位调整内容
+   *
+   * <p>- 用户使用该接口前需提前获取 组织架构调整岗位调整内容 权限。;- 延迟说明：数据库主从延迟2s以内，即：用户接收到流程状态变更消息后2s内调用此接口可能查询不到数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=open_query_position_change_list_by_ids&project=corehr&resource=approval_groups&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/OpenQueryPositionChangeListByIdsApprovalGroupsSample.java</a>
+   * ;
+   */
+  public OpenQueryPositionChangeListByIdsApprovalGroupsResp openQueryPositionChangeListByIds(
+      OpenQueryPositionChangeListByIdsApprovalGroupsReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    OpenQueryPositionChangeListByIdsApprovalGroupsResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, OpenQueryPositionChangeListByIdsApprovalGroupsResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

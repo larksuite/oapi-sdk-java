@@ -13,88 +13,78 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCostAllocationDetailRespBody {
-    /**
-     * 报表明细数据
-     * <p> 示例值：
-     */
-    @SerializedName("cost_allocation_report_datas")
-    private CostAllocationReportData[] costAllocationReportDatas;
-    /**
-     * 报表名称
-     * <p> 示例值：
-     */
-    @SerializedName("cost_allocation_report_names")
-    private I18nContent[] costAllocationReportNames;
-    /**
-     * 期间
-     * <p> 示例值：2024-06
-     */
-    @SerializedName("pay_period")
-    private String payPeriod;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 报表明细数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocation_report_datas")
+  private CostAllocationReportData[] costAllocationReportDatas;
 
-    public CostAllocationReportData[] getCostAllocationReportDatas() {
-        return this.costAllocationReportDatas;
-    }
+  /**
+   * 报表名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocation_report_names")
+  private I18nContent[] costAllocationReportNames;
 
-    public void setCostAllocationReportDatas(CostAllocationReportData[] costAllocationReportDatas) {
-        this.costAllocationReportDatas = costAllocationReportDatas;
-    }
+  /**
+   * 期间
+   *
+   * <p>示例值：2024-06
+   */
+  @SerializedName("pay_period")
+  private String payPeriod;
 
-    public I18nContent[] getCostAllocationReportNames() {
-        return this.costAllocationReportNames;
-    }
+  /** 示例值： */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setCostAllocationReportNames(I18nContent[] costAllocationReportNames) {
-        this.costAllocationReportNames = costAllocationReportNames;
-    }
+  /** 示例值： */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPayPeriod() {
-        return this.payPeriod;
-    }
+  public CostAllocationReportData[] getCostAllocationReportDatas() {
+    return this.costAllocationReportDatas;
+  }
 
-    public void setPayPeriod(String payPeriod) {
-        this.payPeriod = payPeriod;
-    }
+  public void setCostAllocationReportDatas(CostAllocationReportData[] costAllocationReportDatas) {
+    this.costAllocationReportDatas = costAllocationReportDatas;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public I18nContent[] getCostAllocationReportNames() {
+    return this.costAllocationReportNames;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setCostAllocationReportNames(I18nContent[] costAllocationReportNames) {
+    this.costAllocationReportNames = costAllocationReportNames;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPayPeriod() {
+    return this.payPeriod;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPayPeriod(String payPeriod) {
+    this.payPeriod = payPeriod;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

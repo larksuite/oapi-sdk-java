@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateAttachmentInfo {
+  /**
+   * 附件id
+   *
+   * <p>示例值：131233213
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附件名称
+   *
+   * <p>示例值：附件test
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 附件大小
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("size")
+  private Integer size;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getSize() {
+    return this.size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  // builder 开始
+  public SignatureTemplateAttachmentInfo() {}
+
+  public SignatureTemplateAttachmentInfo(Builder builder) {
     /**
      * 附件id
-     * <p> 示例值：131233213
+     *
+     * <p>示例值：131233213
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 附件名称
-     * <p> 示例值：附件test
+     *
+     * <p>示例值：附件test
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 附件大小
-     * <p> 示例值：1000
+     *
+     * <p>示例值：1000
      */
-    @SerializedName("size")
+    this.size = builder.size;
+  }
+
+  public static class Builder {
+    /**
+     * 附件id
+     *
+     * <p>示例值：131233213
+     */
+    private String id;
+
+    /**
+     * 附件名称
+     *
+     * <p>示例值：附件test
+     */
+    private String name;
+
+    /**
+     * 附件大小
+     *
+     * <p>示例值：1000
+     */
     private Integer size;
 
-    // builder 开始
-    public SignatureTemplateAttachmentInfo() {
+    /**
+     * 附件id
+     *
+     * <p>示例值：131233213
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SignatureTemplateAttachmentInfo(Builder builder) {
-        /**
-         * 附件id
-         * <p> 示例值：131233213
-         */
-        this.id = builder.id;
-        /**
-         * 附件名称
-         * <p> 示例值：附件test
-         */
-        this.name = builder.name;
-        /**
-         * 附件大小
-         * <p> 示例值：1000
-         */
-        this.size = builder.size;
+    /**
+     * 附件名称
+     *
+     * <p>示例值：附件test
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件大小
+     *
+     * <p>示例值：1000
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public SignatureTemplateAttachmentInfo build() {
+      return new SignatureTemplateAttachmentInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getSize() {
-        return this.size;
-    }
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public static class Builder {
-        /**
-         * 附件id
-         * <p> 示例值：131233213
-         */
-        private String id;
-        /**
-         * 附件名称
-         * <p> 示例值：附件test
-         */
-        private String name;
-        /**
-         * 附件大小
-         * <p> 示例值：1000
-         */
-        private Integer size;
-
-        /**
-         * 附件id
-         * <p> 示例值：131233213
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附件名称
-         * <p> 示例值：附件test
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 附件大小
-         * <p> 示例值：1000
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Integer size) {
-            this.size = size;
-            return this;
-        }
-
-
-        public SignatureTemplateAttachmentInfo build() {
-            return new SignatureTemplateAttachmentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

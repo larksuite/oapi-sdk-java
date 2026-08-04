@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VcInfo {
+  /**
+   * 会议唯一ID
+   *
+   * <p>示例值：7226647229510582291
+   */
+  @SerializedName("unique_id")
+  private String uniqueId;
+
+  /**
+   * 会议号
+   *
+   * <p>示例值：808056935
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  public String getUniqueId() {
+    return this.uniqueId;
+  }
+
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  // builder 开始
+  public VcInfo() {}
+
+  public VcInfo(Builder builder) {
     /**
      * 会议唯一ID
-     * <p> 示例值：7226647229510582291
+     *
+     * <p>示例值：7226647229510582291
      */
-    @SerializedName("unique_id")
-    private String uniqueId;
+    this.uniqueId = builder.uniqueId;
     /**
      * 会议号
-     * <p> 示例值：808056935
+     *
+     * <p>示例值：808056935
      */
-    @SerializedName("meeting_no")
+    this.meetingNo = builder.meetingNo;
+  }
+
+  public static class Builder {
+    /**
+     * 会议唯一ID
+     *
+     * <p>示例值：7226647229510582291
+     */
+    private String uniqueId;
+
+    /**
+     * 会议号
+     *
+     * <p>示例值：808056935
+     */
     private String meetingNo;
 
-    // builder 开始
-    public VcInfo() {
+    /**
+     * 会议唯一ID
+     *
+     * <p>示例值：7226647229510582291
+     *
+     * @param uniqueId
+     * @return
+     */
+    public Builder uniqueId(String uniqueId) {
+      this.uniqueId = uniqueId;
+      return this;
     }
 
-    public VcInfo(Builder builder) {
-        /**
-         * 会议唯一ID
-         * <p> 示例值：7226647229510582291
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 会议号
-         * <p> 示例值：808056935
-         */
-        this.meetingNo = builder.meetingNo;
+    /**
+     * 会议号
+     *
+     * <p>示例值：808056935
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public VcInfo build() {
+      return new VcInfo(this);
     }
+  }
 
-    public String getUniqueId() {
-        return this.uniqueId;
-    }
-
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
-    }
-
-    public String getMeetingNo() {
-        return this.meetingNo;
-    }
-
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
-    }
-
-    public static class Builder {
-        /**
-         * 会议唯一ID
-         * <p> 示例值：7226647229510582291
-         */
-        private String uniqueId;
-        /**
-         * 会议号
-         * <p> 示例值：808056935
-         */
-        private String meetingNo;
-
-        /**
-         * 会议唯一ID
-         * <p> 示例值：7226647229510582291
-         *
-         * @param uniqueId
-         * @return
-         */
-        public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
-        }
-
-
-        /**
-         * 会议号
-         * <p> 示例值：808056935
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        public VcInfo build() {
-            return new VcInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

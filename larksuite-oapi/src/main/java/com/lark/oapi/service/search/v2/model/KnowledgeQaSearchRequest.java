@@ -13,112 +13,109 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaSearchRequest {
+  /**
+   * 用户问题
+   *
+   * <p>示例值：如何申请显示器
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enterprise_knowledge_source")
+  private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public EnterpriseKnowledgeSourceParam getEnterpriseKnowledgeSource() {
+    return this.enterpriseKnowledgeSource;
+  }
+
+  public void setEnterpriseKnowledgeSource(
+      EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
+    this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+  }
+
+  // builder 开始
+  public KnowledgeQaSearchRequest() {}
+
+  public KnowledgeQaSearchRequest(Builder builder) {
     /**
-     * query
-     * <p> 示例值：hello
+     * 用户问题
+     *
+     * <p>示例值：如何申请显示器
      */
-    @SerializedName("query")
+    this.query = builder.query;
+    /**
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
+     */
+    this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
+  }
+
+  public static class Builder {
+    /**
+     * 用户问题
+     *
+     * <p>示例值：如何申请显示器
+     */
     private String query;
+
     /**
-     * enterprise_knowledge_source
-     * <p> 示例值：
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
      */
-    @SerializedName("enterprise_knowledge_source")
     private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
 
-    // builder 开始
-    public KnowledgeQaSearchRequest() {
+    /**
+     * 用户问题
+     *
+     * <p>示例值：如何申请显示器
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public KnowledgeQaSearchRequest(Builder builder) {
-        /**
-         * query
-         * <p> 示例值：hello
-         */
-        this.query = builder.query;
-        /**
-         * enterprise_knowledge_source
-         * <p> 示例值：
-         */
-        this.enterpriseKnowledgeSource = builder.enterpriseKnowledgeSource;
+    /**
+     * 企业知识获取的范围，当==knowledge_scope==选择`enterprise`或`hybrid`时为必填项。
+     *
+     * <p>示例值：
+     *
+     * @param enterpriseKnowledgeSource
+     * @return
+     */
+    public Builder enterpriseKnowledgeSource(
+        EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
+      this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KnowledgeQaSearchRequest build() {
+      return new KnowledgeQaSearchRequest(this);
     }
+  }
 
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public EnterpriseKnowledgeSourceParam getEnterpriseKnowledgeSource() {
-        return this.enterpriseKnowledgeSource;
-    }
-
-    public void setEnterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-        this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-    }
-
-    public static class Builder {
-        /**
-         * query
-         * <p> 示例值：hello
-         */
-        private String query;
-        /**
-         * enterprise_knowledge_source
-         * <p> 示例值：
-         */
-        private EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource;
-
-        /**
-         * query
-         * <p> 示例值：hello
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * enterprise_knowledge_source
-         * <p> 示例值：
-         *
-         * @param enterpriseKnowledgeSource
-         * @return
-         */
-        public Builder enterpriseKnowledgeSource(EnterpriseKnowledgeSourceParam enterpriseKnowledgeSource) {
-            this.enterpriseKnowledgeSource = enterpriseKnowledgeSource;
-            return this;
-        }
-
-
-        public KnowledgeQaSearchRequest build() {
-            return new KnowledgeQaSearchRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

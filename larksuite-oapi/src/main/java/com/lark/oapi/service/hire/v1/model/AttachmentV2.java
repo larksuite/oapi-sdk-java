@@ -13,222 +13,236 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AttachmentV2 {
+  /**
+   * 图片附件
+   * ID，详情请参考[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)
+   *
+   * <p>示例值：7270798542321666364
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 图片附件下载链接，有效期为 30 分钟
+   *
+   * <p>示例值：https://open.feishu.cn/hire/file/blob/xxxx/
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 图片附件文件名
+   *
+   * <p>示例值：成绩单
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 图片附件类型（[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)）
+   *
+   * <p>示例值：image/jpg
+   */
+  @SerializedName("mime")
+  private String mime;
+
+  /**
+   * 图片附件创建时间，毫秒时间戳
+   *
+   * <p>示例值：1693884103327
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMime() {
+    return this.mime;
+  }
+
+  public void setMime(String mime) {
+    this.mime = mime;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public AttachmentV2() {}
+
+  public AttachmentV2(Builder builder) {
     /**
-     * 附件ID
-     * <p> 示例值：7270798542321666364
+     * 图片附件
+     * ID，详情请参考[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)
+     *
+     * <p>示例值：7270798542321666364
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 图片附件下载链接，有效期为 30 分钟
+     *
+     * <p>示例值：https://open.feishu.cn/hire/file/blob/xxxx/
+     */
+    this.url = builder.url;
+    /**
+     * 图片附件文件名
+     *
+     * <p>示例值：成绩单
+     */
+    this.name = builder.name;
+    /**
+     * 图片附件类型（[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)）
+     *
+     * <p>示例值：image/jpg
+     */
+    this.mime = builder.mime;
+    /**
+     * 图片附件创建时间，毫秒时间戳
+     *
+     * <p>示例值：1693884103327
+     */
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 图片附件
+     * ID，详情请参考[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)
+     *
+     * <p>示例值：7270798542321666364
+     */
     private String id;
+
     /**
-     * 附件的url
-     * <p> 示例值：https://open.feishu.cn/hire/file/blob/xxxx/
+     * 图片附件下载链接，有效期为 30 分钟
+     *
+     * <p>示例值：https://open.feishu.cn/hire/file/blob/xxxx/
      */
-    @SerializedName("url")
     private String url;
+
     /**
-     * 附件文件名
-     * <p> 示例值：成绩单
+     * 图片附件文件名
+     *
+     * <p>示例值：成绩单
      */
-    @SerializedName("name")
     private String name;
+
     /**
-     * MIME type
-     * <p> 示例值：image/jpg
+     * 图片附件类型（[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)）
+     *
+     * <p>示例值：image/jpg
      */
-    @SerializedName("mime")
     private String mime;
+
     /**
-     * 附件创建时间(ms)
-     * <p> 示例值：1693884103327
+     * 图片附件创建时间，毫秒时间戳
+     *
+     * <p>示例值：1693884103327
      */
-    @SerializedName("create_time")
     private String createTime;
 
-    // builder 开始
-    public AttachmentV2() {
+    /**
+     * 图片附件
+     * ID，详情请参考[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)
+     *
+     * <p>示例值：7270798542321666364
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AttachmentV2(Builder builder) {
-        /**
-         * 附件ID
-         * <p> 示例值：7270798542321666364
-         */
-        this.id = builder.id;
-        /**
-         * 附件的url
-         * <p> 示例值：https://open.feishu.cn/hire/file/blob/xxxx/
-         */
-        this.url = builder.url;
-        /**
-         * 附件文件名
-         * <p> 示例值：成绩单
-         */
-        this.name = builder.name;
-        /**
-         * MIME type
-         * <p> 示例值：image/jpg
-         */
-        this.mime = builder.mime;
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1693884103327
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 图片附件下载链接，有效期为 30 分钟
+     *
+     * <p>示例值：https://open.feishu.cn/hire/file/blob/xxxx/
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片附件文件名
+     *
+     * <p>示例值：成绩单
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 图片附件类型（[MIME](https://baike.baidu.com/item/MIME/2900607?fr=ge_ala#2)）
+     *
+     * <p>示例值：image/jpg
+     *
+     * @param mime
+     * @return
+     */
+    public Builder mime(String mime) {
+      this.mime = mime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 图片附件创建时间，毫秒时间戳
+     *
+     * <p>示例值：1693884103327
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    public AttachmentV2 build() {
+      return new AttachmentV2(this);
     }
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMime() {
-        return this.mime;
-    }
-
-    public void setMime(String mime) {
-        this.mime = mime;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 附件ID
-         * <p> 示例值：7270798542321666364
-         */
-        private String id;
-        /**
-         * 附件的url
-         * <p> 示例值：https://open.feishu.cn/hire/file/blob/xxxx/
-         */
-        private String url;
-        /**
-         * 附件文件名
-         * <p> 示例值：成绩单
-         */
-        private String name;
-        /**
-         * MIME type
-         * <p> 示例值：image/jpg
-         */
-        private String mime;
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1693884103327
-         */
-        private String createTime;
-
-        /**
-         * 附件ID
-         * <p> 示例值：7270798542321666364
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附件的url
-         * <p> 示例值：https://open.feishu.cn/hire/file/blob/xxxx/
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 附件文件名
-         * <p> 示例值：成绩单
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * MIME type
-         * <p> 示例值：image/jpg
-         *
-         * @param mime
-         * @return
-         */
-        public Builder mime(String mime) {
-            this.mime = mime;
-            return this;
-        }
-
-
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1693884103327
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public AttachmentV2 build() {
-            return new AttachmentV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

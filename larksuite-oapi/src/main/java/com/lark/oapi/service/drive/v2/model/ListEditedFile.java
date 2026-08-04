@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListEditedFile {
+  /**
+   * 文档唯一标识
+   *
+   * <p>示例值：doccnxxxxxxxxxxxxxxxxxabcef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文档标题
+   *
+   * <p>示例值：2026年第一季度OKR
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文档 url 链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 用户对文档的更新的时间，秒级时间戳
+   *
+   * <p>示例值：1772361821
+   */
+  @SerializedName("last_edited_at")
+  private String lastEditedAt;
+
+  /**
+   * 文档所有者 Open ID
+   *
+   * <p>示例值：7539742285739512356
+   */
+  @SerializedName("owner_user_id")
+  private String ownerUserId;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getLastEditedAt() {
+    return this.lastEditedAt;
+  }
+
+  public void setLastEditedAt(String lastEditedAt) {
+    this.lastEditedAt = lastEditedAt;
+  }
+
+  public String getOwnerUserId() {
+    return this.ownerUserId;
+  }
+
+  public void setOwnerUserId(String ownerUserId) {
+    this.ownerUserId = ownerUserId;
+  }
+
+  // builder 开始
+  public ListEditedFile() {}
+
+  public ListEditedFile(Builder builder) {
     /**
      * 文档唯一标识
-     * <p> 示例值：doccnxxxxxxxxxxxxxxxxxabcef
+     *
+     * <p>示例值：doccnxxxxxxxxxxxxxxxxxabcef
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文档标题
-     * <p> 示例值：2026年第一季度OKR
+     *
+     * <p>示例值：2026年第一季度OKR
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文档类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文档 url 链接
-     * <p> 示例值：https://bytedance.larkoffice.com/wiki/LBX6wOWhviGofqkWGfUcIIxnnHc
+     *
+     * <p>示例值：
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 用户对文档的更新的时间，秒级时间戳
-     * <p> 示例值：1772361821
+     *
+     * <p>示例值：1772361821
      */
-    @SerializedName("last_edited_at")
-    private String lastEditedAt;
+    this.lastEditedAt = builder.lastEditedAt;
     /**
      * 文档所有者 Open ID
-     * <p> 示例值：7539742285739512356
+     *
+     * <p>示例值：7539742285739512356
      */
-    @SerializedName("owner_user_id")
+    this.ownerUserId = builder.ownerUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：doccnxxxxxxxxxxxxxxxxxabcef
+     */
+    private String token;
+
+    /**
+     * 文档标题
+     *
+     * <p>示例值：2026年第一季度OKR
+     */
+    private String title;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 文档 url 链接
+     *
+     * <p>示例值：
+     */
+    private String url;
+
+    /**
+     * 用户对文档的更新的时间，秒级时间戳
+     *
+     * <p>示例值：1772361821
+     */
+    private String lastEditedAt;
+
+    /**
+     * 文档所有者 Open ID
+     *
+     * <p>示例值：7539742285739512356
+     */
     private String ownerUserId;
 
-    // builder 开始
-    public ListEditedFile() {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：doccnxxxxxxxxxxxxxxxxxabcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public ListEditedFile(Builder builder) {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxabcef
-         */
-        this.token = builder.token;
-        /**
-         * 文档标题
-         * <p> 示例值：2026年第一季度OKR
-         */
-        this.title = builder.title;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 文档 url 链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/LBX6wOWhviGofqkWGfUcIIxnnHc
-         */
-        this.url = builder.url;
-        /**
-         * 用户对文档的更新的时间，秒级时间戳
-         * <p> 示例值：1772361821
-         */
-        this.lastEditedAt = builder.lastEditedAt;
-        /**
-         * 文档所有者 Open ID
-         * <p> 示例值：7539742285739512356
-         */
-        this.ownerUserId = builder.ownerUserId;
+    /**
+     * 文档标题
+     *
+     * <p>示例值：2026年第一季度OKR
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：
+     *
+     * @param type {@link com.lark.oapi.service.drive.v2.enums.ListEditedFileObjTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v2.enums.ListEditedFileObjTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 文档 url 链接
+     *
+     * <p>示例值：
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 用户对文档的更新的时间，秒级时间戳
+     *
+     * <p>示例值：1772361821
+     *
+     * @param lastEditedAt
+     * @return
+     */
+    public Builder lastEditedAt(String lastEditedAt) {
+      this.lastEditedAt = lastEditedAt;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 文档所有者 Open ID
+     *
+     * <p>示例值：7539742285739512356
+     *
+     * @param ownerUserId
+     * @return
+     */
+    public Builder ownerUserId(String ownerUserId) {
+      this.ownerUserId = ownerUserId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public ListEditedFile build() {
+      return new ListEditedFile(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getLastEditedAt() {
-        return this.lastEditedAt;
-    }
-
-    public void setLastEditedAt(String lastEditedAt) {
-        this.lastEditedAt = lastEditedAt;
-    }
-
-    public String getOwnerUserId() {
-        return this.ownerUserId;
-    }
-
-    public void setOwnerUserId(String ownerUserId) {
-        this.ownerUserId = ownerUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxabcef
-         */
-        private String token;
-        /**
-         * 文档标题
-         * <p> 示例值：2026年第一季度OKR
-         */
-        private String title;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 文档 url 链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/LBX6wOWhviGofqkWGfUcIIxnnHc
-         */
-        private String url;
-        /**
-         * 用户对文档的更新的时间，秒级时间戳
-         * <p> 示例值：1772361821
-         */
-        private String lastEditedAt;
-        /**
-         * 文档所有者 Open ID
-         * <p> 示例值：7539742285739512356
-         */
-        private String ownerUserId;
-
-        /**
-         * 文档唯一标识
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxabcef
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文档标题
-         * <p> 示例值：2026年第一季度OKR
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.drive.v2.enums.ListEditedFileObjTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.drive.v2.enums.ListEditedFileObjTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档 url 链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/LBX6wOWhviGofqkWGfUcIIxnnHc
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 用户对文档的更新的时间，秒级时间戳
-         * <p> 示例值：1772361821
-         *
-         * @param lastEditedAt
-         * @return
-         */
-        public Builder lastEditedAt(String lastEditedAt) {
-            this.lastEditedAt = lastEditedAt;
-            return this;
-        }
-
-
-        /**
-         * 文档所有者 Open ID
-         * <p> 示例值：7539742285739512356
-         *
-         * @param ownerUserId
-         * @return
-         */
-        public Builder ownerUserId(String ownerUserId) {
-            this.ownerUserId = ownerUserId;
-            return this;
-        }
-
-
-        public ListEditedFile build() {
-            return new ListEditedFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

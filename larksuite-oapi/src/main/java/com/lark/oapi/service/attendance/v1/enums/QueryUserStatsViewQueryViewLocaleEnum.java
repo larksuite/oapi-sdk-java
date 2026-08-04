@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 语言类型
- */
+/** 语言类型 */
 public enum QueryUserStatsViewQueryViewLocaleEnum {
-    EN("en"), // 英文
-    JA("ja"), // 日文
-    ZH("zh"), // 中文
-    ;
-    private String value;
+  EN("en"), // 英语
+  JA("ja"), // 日语
+  ZH("zh"), // 中文
+  ;
+  private String value;
 
-    QueryUserStatsViewQueryViewLocaleEnum(String value) {
-        this.value = value;
-    }
+  QueryUserStatsViewQueryViewLocaleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

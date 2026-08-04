@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DownloadUrlUserMailboxTemplateAttachmentRespBody {
-    /**
-     * 下载链接列表
-     * <p> 示例值：
-     */
-    @SerializedName("download_urls")
-    private AttachmentDownloadUrlItem[] downloadUrls;
-    /**
-     * 附件下载链接获取失败原因列表
-     * <p> 示例值：
-     */
-    @SerializedName("failed_reasons")
-    private AttachmentDownloadFailedReason[] failedReasons;
+  /**
+   * 下载链接列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("download_urls")
+  private AttachmentDownloadUrlItem[] downloadUrls;
 
-    public AttachmentDownloadUrlItem[] getDownloadUrls() {
-        return this.downloadUrls;
-    }
+  /**
+   * 附件下载链接获取失败原因列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("failed_reasons")
+  private AttachmentDownloadFailedReason[] failedReasons;
 
-    public void setDownloadUrls(AttachmentDownloadUrlItem[] downloadUrls) {
-        this.downloadUrls = downloadUrls;
-    }
+  public AttachmentDownloadUrlItem[] getDownloadUrls() {
+    return this.downloadUrls;
+  }
 
-    public AttachmentDownloadFailedReason[] getFailedReasons() {
-        return this.failedReasons;
-    }
+  public void setDownloadUrls(AttachmentDownloadUrlItem[] downloadUrls) {
+    this.downloadUrls = downloadUrls;
+  }
 
-    public void setFailedReasons(AttachmentDownloadFailedReason[] failedReasons) {
-        this.failedReasons = failedReasons;
-    }
+  public AttachmentDownloadFailedReason[] getFailedReasons() {
+    return this.failedReasons;
+  }
 
+  public void setFailedReasons(AttachmentDownloadFailedReason[] failedReasons) {
+    this.failedReasons = failedReasons;
+  }
 }

@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 垃圾邮件原因
- */
+/** 垃圾邮件原因 */
 public enum SecurityLevelSpamBannerTypeEnum {
-    USER_REPORT("USER_REPORT"), // 用户曾标记邮件是垃圾邮件
-    USER_BLOCK("USER_BLOCK"), // 用户曾将发件人的邮件标记为垃圾邮件
-    ANTI_SPAM("ANTI_SPAM"), // 系统判为垃圾邮件
-    USER_RULE("USER_RULE"), // 命中收信规则进入垃圾邮件
-    BLOCK_DOMIN("BLOCK_DOMIN"), // 用户已拦截来自该域名的邮件
-    BLOCK_ADDRESS("BLOCK_ADDRESS"), // 用户已拦截来自该邮件地址的邮件
-    ;
-    private String value;
+  USER_REPORT("USER_REPORT"), // 用户曾标记邮件是垃圾邮件
+  USER_BLOCK("USER_BLOCK"), // 用户曾将发件人的邮件标记为垃圾邮件
+  ANTI_SPAM("ANTI_SPAM"), // 系统判为垃圾邮件
+  USER_RULE("USER_RULE"), // 命中收信规则进入垃圾邮件
+  BLOCK_DOMIN("BLOCK_DOMIN"), // 用户已拦截来自该域名的邮件
+  BLOCK_ADDRESS("BLOCK_ADDRESS"), // 用户已拦截来自该邮件地址的邮件
+  ;
+  private String value;
 
-    SecurityLevelSpamBannerTypeEnum(String value) {
-        this.value = value;
-    }
+  SecurityLevelSpamBannerTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

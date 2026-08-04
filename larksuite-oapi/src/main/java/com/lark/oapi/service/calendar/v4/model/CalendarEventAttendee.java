@@ -13,617 +13,689 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventAttendee {
+  /**
+   * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 参与人ID
+   *
+   * <p>示例值：user_xxxxxx
+   */
+  @SerializedName("attendee_id")
+  private String attendeeId;
+
+  /**
+   * 参与人RSVP状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rsvp_status")
+  private String rsvpStatus;
+
+  /**
+   * 参与人是否为「可选参加」，无法编辑群参与人的此字段
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_optional")
+  private Boolean isOptional;
+
+  /**
+   * 参与人是否为日程组织者
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_organizer")
+  private Boolean isOrganizer;
+
+  /**
+   * 参与人是否为外部参与人；外部参与人不支持编辑
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_external")
+  private Boolean isExternal;
+
+  /**
+   * 参与人名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 群中的群成员，当type为Chat时有效；群成员不支持编辑
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_members")
+  private AttendeeChatMember[] chatMembers;
+
+  /**
+   * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
+   *
+   * <p>示例值：ou_xxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * chat类型参与人的群组chat_id
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * resource类型参与人的会议室room_id
+   *
+   * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+   */
+  @SerializedName("room_id")
+  private String roomId;
+
+  /**
+   * third_party类型参与人的邮箱
+   *
+   * <p>示例值：test@example.com
+   */
+  @SerializedName("third_party_email")
+  private String thirdPartyEmail;
+
+  /**
+   * 会议室联系人 ID。传入的用户 ID 类型需要和 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**说明**：如果当前日程是基于应用身份创建的，则在添加会议室类型参与人时，需要通过该参数指定会议室的联系人，该联系人会在日程会议室信息中展示。;;**默认值**：空
+   *
+   * <p>示例值：ou_xxxxxxxx
+   */
+  @SerializedName("operate_id")
+  private String operateId;
+
+  /**
+   * 会议室的个性化配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resource_customization")
+  private CalendarAttendeeResourceCustomization[] resourceCustomization;
+
+  /**
+   * 会议室审批原因
+   *
+   * <p>示例值：申请审批原因
+   */
+  @SerializedName("approval_reason")
+  private String approvalReason;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getAttendeeId() {
+    return this.attendeeId;
+  }
+
+  public void setAttendeeId(String attendeeId) {
+    this.attendeeId = attendeeId;
+  }
+
+  public String getRsvpStatus() {
+    return this.rsvpStatus;
+  }
+
+  public void setRsvpStatus(String rsvpStatus) {
+    this.rsvpStatus = rsvpStatus;
+  }
+
+  public Boolean getIsOptional() {
+    return this.isOptional;
+  }
+
+  public void setIsOptional(Boolean isOptional) {
+    this.isOptional = isOptional;
+  }
+
+  public Boolean getIsOrganizer() {
+    return this.isOrganizer;
+  }
+
+  public void setIsOrganizer(Boolean isOrganizer) {
+    this.isOrganizer = isOrganizer;
+  }
+
+  public Boolean getIsExternal() {
+    return this.isExternal;
+  }
+
+  public void setIsExternal(Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public AttendeeChatMember[] getChatMembers() {
+    return this.chatMembers;
+  }
+
+  public void setChatMembers(AttendeeChatMember[] chatMembers) {
+    this.chatMembers = chatMembers;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  public String getThirdPartyEmail() {
+    return this.thirdPartyEmail;
+  }
+
+  public void setThirdPartyEmail(String thirdPartyEmail) {
+    this.thirdPartyEmail = thirdPartyEmail;
+  }
+
+  public String getOperateId() {
+    return this.operateId;
+  }
+
+  public void setOperateId(String operateId) {
+    this.operateId = operateId;
+  }
+
+  public CalendarAttendeeResourceCustomization[] getResourceCustomization() {
+    return this.resourceCustomization;
+  }
+
+  public void setResourceCustomization(
+      CalendarAttendeeResourceCustomization[] resourceCustomization) {
+    this.resourceCustomization = resourceCustomization;
+  }
+
+  public String getApprovalReason() {
+    return this.approvalReason;
+  }
+
+  public void setApprovalReason(String approvalReason) {
+    this.approvalReason = approvalReason;
+  }
+
+  // builder 开始
+  public CalendarEventAttendee() {}
+
+  public CalendarEventAttendee(Builder builder) {
     /**
-     * 参与人类型
-     * <p> 示例值：user
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-     * <p> 示例值：user_xxxxxx
+     * 参与人ID
+     *
+     * <p>示例值：user_xxxxxx
      */
-    @SerializedName("attendee_id")
-    private String attendeeId;
+    this.attendeeId = builder.attendeeId;
     /**
      * 参与人RSVP状态
-     * <p> 示例值：needs_action
+     *
+     * <p>示例值：
      */
-    @SerializedName("rsvp_status")
-    private String rsvpStatus;
+    this.rsvpStatus = builder.rsvpStatus;
     /**
      * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-     * <p> 示例值：true
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_optional")
-    private Boolean isOptional;
+    this.isOptional = builder.isOptional;
     /**
      * 参与人是否为日程组织者
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_organizer")
-    private Boolean isOrganizer;
+    this.isOrganizer = builder.isOrganizer;
     /**
      * 参与人是否为外部参与人；外部参与人不支持编辑
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_external")
-    private Boolean isExternal;
+    this.isExternal = builder.isExternal;
     /**
      * 参与人名称
-     * <p> 示例值：Zhang San
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
      * 群中的群成员，当type为Chat时有效；群成员不支持编辑
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_members")
-    private AttendeeChatMember[] chatMembers;
+    this.chatMembers = builder.chatMembers;
     /**
-     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxxxx
+     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
+     *
+     * <p>示例值：ou_xxxxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_xxxxxxxxx
+     * chat类型参与人的群组chat_id
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * resource类型参与人的会议室room_id
-     * <p> 示例值：omm_xxxxxxxx
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
      */
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
     /**
      * third_party类型参与人的邮箱
-     * <p> 示例值：wangwu@email.com
+     *
+     * <p>示例值：test@example.com
      */
-    @SerializedName("third_party_email")
-    private String thirdPartyEmail;
+    this.thirdPartyEmail = builder.thirdPartyEmail;
     /**
-     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxxxx
+     * 会议室联系人 ID。传入的用户 ID 类型需要和 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**说明**：如果当前日程是基于应用身份创建的，则在添加会议室类型参与人时，需要通过该参数指定会议室的联系人，该联系人会在日程会议室信息中展示。;;**默认值**：空
+     *
+     * <p>示例值：ou_xxxxxxxx
      */
-    @SerializedName("operate_id")
-    private String operateId;
+    this.operateId = builder.operateId;
     /**
      * 会议室的个性化配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resource_customization")
-    private CalendarAttendeeResourceCustomization[] resourceCustomization;
+    this.resourceCustomization = builder.resourceCustomization;
     /**
      * 会议室审批原因
-     * <p> 示例值：申请审批原因
+     *
+     * <p>示例值：申请审批原因
      */
-    @SerializedName("approval_reason")
+    this.approvalReason = builder.approvalReason;
+  }
+
+  public static class Builder {
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 参与人ID
+     *
+     * <p>示例值：user_xxxxxx
+     */
+    private String attendeeId;
+
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     */
+    private String rsvpStatus;
+
+    /**
+     * 参与人是否为「可选参加」，无法编辑群参与人的此字段
+     *
+     * <p>示例值：false
+     */
+    private Boolean isOptional;
+
+    /**
+     * 参与人是否为日程组织者
+     *
+     * <p>示例值：true
+     */
+    private Boolean isOrganizer;
+
+    /**
+     * 参与人是否为外部参与人；外部参与人不支持编辑
+     *
+     * <p>示例值：false
+     */
+    private Boolean isExternal;
+
+    /**
+     * 参与人名称
+     *
+     * <p>示例值：张三
+     */
+    private String displayName;
+
+    /**
+     * 群中的群成员，当type为Chat时有效；群成员不支持编辑
+     *
+     * <p>示例值：
+     */
+    private AttendeeChatMember[] chatMembers;
+
+    /**
+     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
+     *
+     * <p>示例值：ou_xxxxxxxx
+     */
+    private String userId;
+
+    /**
+     * chat类型参与人的群组chat_id
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    private String chatId;
+
+    /**
+     * resource类型参与人的会议室room_id
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+     */
+    private String roomId;
+
+    /**
+     * third_party类型参与人的邮箱
+     *
+     * <p>示例值：test@example.com
+     */
+    private String thirdPartyEmail;
+
+    /**
+     * 会议室联系人 ID。传入的用户 ID 类型需要和 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**说明**：如果当前日程是基于应用身份创建的，则在添加会议室类型参与人时，需要通过该参数指定会议室的联系人，该联系人会在日程会议室信息中展示。;;**默认值**：空
+     *
+     * <p>示例值：ou_xxxxxxxx
+     */
+    private String operateId;
+
+    /**
+     * 会议室的个性化配置
+     *
+     * <p>示例值：
+     */
+    private CalendarAttendeeResourceCustomization[] resourceCustomization;
+
+    /**
+     * 会议室审批原因
+     *
+     * <p>示例值：申请审批原因
+     */
     private String approvalReason;
 
-    // builder 开始
-    public CalendarEventAttendee() {
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public CalendarEventAttendee(Builder builder) {
-        /**
-         * 参与人类型
-         * <p> 示例值：user
-         */
-        this.type = builder.type;
-        /**
-         * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：user_xxxxxx
-         */
-        this.attendeeId = builder.attendeeId;
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         */
-        this.rsvpStatus = builder.rsvpStatus;
-        /**
-         * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：true
-         */
-        this.isOptional = builder.isOptional;
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         */
-        this.isOrganizer = builder.isOrganizer;
-        /**
-         * 参与人是否为外部参与人；外部参与人不支持编辑
-         * <p> 示例值：false
-         */
-        this.isExternal = builder.isExternal;
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 群中的群成员，当type为Chat时有效；群成员不支持编辑
-         * <p> 示例值：
-         */
-        this.chatMembers = builder.chatMembers;
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-         * <p> 示例值：oc_xxxxxxxxx
-         */
-        this.chatId = builder.chatId;
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         */
-        this.roomId = builder.roomId;
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         */
-        this.thirdPartyEmail = builder.thirdPartyEmail;
-        /**
-         * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        this.operateId = builder.operateId;
-        /**
-         * 会议室的个性化配置
-         * <p> 示例值：
-         */
-        this.resourceCustomization = builder.resourceCustomization;
-        /**
-         * 会议室审批原因
-         * <p> 示例值：申请审批原因
-         */
-        this.approvalReason = builder.approvalReason;
+    /**
+     * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
+     *
+     * <p>示例值：
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeEventAttendeeTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeEventAttendeeTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参与人ID
+     *
+     * <p>示例值：user_xxxxxx
+     *
+     * @param attendeeId
+     * @return
+     */
+    public Builder attendeeId(String attendeeId) {
+      this.attendeeId = attendeeId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus
+     * @return
+     */
+    public Builder rsvpStatus(String rsvpStatus) {
+      this.rsvpStatus = rsvpStatus;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus {@link
+     *     com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeRsvpStatusEnum}
+     * @return
+     */
+    public Builder rsvpStatus(
+        com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeRsvpStatusEnum rsvpStatus) {
+      this.rsvpStatus = rsvpStatus.getValue();
+      return this;
     }
 
-    public String getAttendeeId() {
-        return this.attendeeId;
+    /**
+     * 参与人是否为「可选参加」，无法编辑群参与人的此字段
+     *
+     * <p>示例值：false
+     *
+     * @param isOptional
+     * @return
+     */
+    public Builder isOptional(Boolean isOptional) {
+      this.isOptional = isOptional;
+      return this;
     }
 
-    public void setAttendeeId(String attendeeId) {
-        this.attendeeId = attendeeId;
+    /**
+     * 参与人是否为日程组织者
+     *
+     * <p>示例值：true
+     *
+     * @param isOrganizer
+     * @return
+     */
+    public Builder isOrganizer(Boolean isOrganizer) {
+      this.isOrganizer = isOrganizer;
+      return this;
     }
 
-    public String getRsvpStatus() {
-        return this.rsvpStatus;
+    /**
+     * 参与人是否为外部参与人；外部参与人不支持编辑
+     *
+     * <p>示例值：false
+     *
+     * @param isExternal
+     * @return
+     */
+    public Builder isExternal(Boolean isExternal) {
+      this.isExternal = isExternal;
+      return this;
     }
 
-    public void setRsvpStatus(String rsvpStatus) {
-        this.rsvpStatus = rsvpStatus;
+    /**
+     * 参与人名称
+     *
+     * <p>示例值：张三
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public Boolean getIsOptional() {
-        return this.isOptional;
+    /**
+     * 群中的群成员，当type为Chat时有效；群成员不支持编辑
+     *
+     * <p>示例值：
+     *
+     * @param chatMembers
+     * @return
+     */
+    public Builder chatMembers(AttendeeChatMember[] chatMembers) {
+      this.chatMembers = chatMembers;
+      return this;
     }
 
-    public void setIsOptional(Boolean isOptional) {
-        this.isOptional = isOptional;
+    /**
+     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id
+     *
+     * <p>示例值：ou_xxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public Boolean getIsOrganizer() {
-        return this.isOrganizer;
+    /**
+     * chat类型参与人的群组chat_id
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public void setIsOrganizer(Boolean isOrganizer) {
-        this.isOrganizer = isOrganizer;
+    /**
+     * resource类型参与人的会议室room_id
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public Boolean getIsExternal() {
-        return this.isExternal;
+    /**
+     * third_party类型参与人的邮箱
+     *
+     * <p>示例值：test@example.com
+     *
+     * @param thirdPartyEmail
+     * @return
+     */
+    public Builder thirdPartyEmail(String thirdPartyEmail) {
+      this.thirdPartyEmail = thirdPartyEmail;
+      return this;
     }
 
-    public void setIsExternal(Boolean isExternal) {
-        this.isExternal = isExternal;
+    /**
+     * 会议室联系人 ID。传入的用户 ID 类型需要和 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**说明**：如果当前日程是基于应用身份创建的，则在添加会议室类型参与人时，需要通过该参数指定会议室的联系人，该联系人会在日程会议室信息中展示。;;**默认值**：空
+     *
+     * <p>示例值：ou_xxxxxxxx
+     *
+     * @param operateId
+     * @return
+     */
+    public Builder operateId(String operateId) {
+      this.operateId = operateId;
+      return this;
     }
 
-    public String getDisplayName() {
-        return this.displayName;
+    /**
+     * 会议室的个性化配置
+     *
+     * <p>示例值：
+     *
+     * @param resourceCustomization
+     * @return
+     */
+    public Builder resourceCustomization(
+        CalendarAttendeeResourceCustomization[] resourceCustomization) {
+      this.resourceCustomization = resourceCustomization;
+      return this;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    /**
+     * 会议室审批原因
+     *
+     * <p>示例值：申请审批原因
+     *
+     * @param approvalReason
+     * @return
+     */
+    public Builder approvalReason(String approvalReason) {
+      this.approvalReason = approvalReason;
+      return this;
     }
 
-    public AttendeeChatMember[] getChatMembers() {
-        return this.chatMembers;
+    public CalendarEventAttendee build() {
+      return new CalendarEventAttendee(this);
     }
+  }
 
-    public void setChatMembers(AttendeeChatMember[] chatMembers) {
-        this.chatMembers = chatMembers;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public String getThirdPartyEmail() {
-        return this.thirdPartyEmail;
-    }
-
-    public void setThirdPartyEmail(String thirdPartyEmail) {
-        this.thirdPartyEmail = thirdPartyEmail;
-    }
-
-    public String getOperateId() {
-        return this.operateId;
-    }
-
-    public void setOperateId(String operateId) {
-        this.operateId = operateId;
-    }
-
-    public CalendarAttendeeResourceCustomization[] getResourceCustomization() {
-        return this.resourceCustomization;
-    }
-
-    public void setResourceCustomization(CalendarAttendeeResourceCustomization[] resourceCustomization) {
-        this.resourceCustomization = resourceCustomization;
-    }
-
-    public String getApprovalReason() {
-        return this.approvalReason;
-    }
-
-    public void setApprovalReason(String approvalReason) {
-        this.approvalReason = approvalReason;
-    }
-
-    public static class Builder {
-        /**
-         * 参与人类型
-         * <p> 示例值：user
-         */
-        private String type;
-        /**
-         * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：user_xxxxxx
-         */
-        private String attendeeId;
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         */
-        private String rsvpStatus;
-        /**
-         * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：true
-         */
-        private Boolean isOptional;
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         */
-        private Boolean isOrganizer;
-        /**
-         * 参与人是否为外部参与人；外部参与人不支持编辑
-         * <p> 示例值：false
-         */
-        private Boolean isExternal;
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         */
-        private String displayName;
-        /**
-         * 群中的群成员，当type为Chat时有效；群成员不支持编辑
-         * <p> 示例值：
-         */
-        private AttendeeChatMember[] chatMembers;
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        private String userId;
-        /**
-         * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-         * <p> 示例值：oc_xxxxxxxxx
-         */
-        private String chatId;
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         */
-        private String roomId;
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         */
-        private String thirdPartyEmail;
-        /**
-         * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         */
-        private String operateId;
-        /**
-         * 会议室的个性化配置
-         * <p> 示例值：
-         */
-        private CalendarAttendeeResourceCustomization[] resourceCustomization;
-        /**
-         * 会议室审批原因
-         * <p> 示例值：申请审批原因
-         */
-        private String approvalReason;
-
-        /**
-         * 参与人类型
-         * <p> 示例值：user
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 参与人类型
-         * <p> 示例值：user
-         *
-         * @param type {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeEventAttendeeTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeEventAttendeeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：user_xxxxxx
-         *
-         * @param attendeeId
-         * @return
-         */
-        public Builder attendeeId(String attendeeId) {
-            this.attendeeId = attendeeId;
-            return this;
-        }
-
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         *
-         * @param rsvpStatus
-         * @return
-         */
-        public Builder rsvpStatus(String rsvpStatus) {
-            this.rsvpStatus = rsvpStatus;
-            return this;
-        }
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         *
-         * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeRsvpStatusEnum}
-         * @return
-         */
-        public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeRsvpStatusEnum rsvpStatus) {
-            this.rsvpStatus = rsvpStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为「可选参加」，无法编辑群参与人的此字段
-         * <p> 示例值：true
-         *
-         * @param isOptional
-         * @return
-         */
-        public Builder isOptional(Boolean isOptional) {
-            this.isOptional = isOptional;
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         *
-         * @param isOrganizer
-         * @return
-         */
-        public Builder isOrganizer(Boolean isOrganizer) {
-            this.isOrganizer = isOrganizer;
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为外部参与人；外部参与人不支持编辑
-         * <p> 示例值：false
-         *
-         * @param isExternal
-         * @return
-         */
-        public Builder isExternal(Boolean isExternal) {
-            this.isExternal = isExternal;
-            return this;
-        }
-
-
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 群中的群成员，当type为Chat时有效；群成员不支持编辑
-         * <p> 示例值：
-         *
-         * @param chatMembers
-         * @return
-         */
-        public Builder chatMembers(AttendeeChatMember[] chatMembers) {
-            this.chatMembers = chatMembers;
-            return this;
-        }
-
-
-        /**
-         * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-         * <p> 示例值：oc_xxxxxxxxx
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * resource类型参与人的会议室room_id
-         * <p> 示例值：omm_xxxxxxxx
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        /**
-         * third_party类型参与人的邮箱
-         * <p> 示例值：wangwu@email.com
-         *
-         * @param thirdPartyEmail
-         * @return
-         */
-        public Builder thirdPartyEmail(String thirdPartyEmail) {
-            this.thirdPartyEmail = thirdPartyEmail;
-            return this;
-        }
-
-
-        /**
-         * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxx
-         *
-         * @param operateId
-         * @return
-         */
-        public Builder operateId(String operateId) {
-            this.operateId = operateId;
-            return this;
-        }
-
-
-        /**
-         * 会议室的个性化配置
-         * <p> 示例值：
-         *
-         * @param resourceCustomization
-         * @return
-         */
-        public Builder resourceCustomization(CalendarAttendeeResourceCustomization[] resourceCustomization) {
-            this.resourceCustomization = resourceCustomization;
-            return this;
-        }
-
-
-        /**
-         * 会议室审批原因
-         * <p> 示例值：申请审批原因
-         *
-         * @param approvalReason
-         * @return
-         */
-        public Builder approvalReason(String approvalReason) {
-            this.approvalReason = approvalReason;
-            return this;
-        }
-
-
-        public CalendarEventAttendee build() {
-            return new CalendarEventAttendee(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

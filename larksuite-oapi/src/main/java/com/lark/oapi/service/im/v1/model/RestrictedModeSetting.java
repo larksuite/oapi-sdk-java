@@ -13,222 +13,239 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RestrictedModeSetting {
+  /**
+   * 防泄密模式是否开启
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  /**
+   * 允许截屏录屏
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("screenshot_has_permission_setting")
+  private String screenshotHasPermissionSetting;
+
+  /**
+   * 允许下载消息中图片、视频和文件
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("download_has_permission_setting")
+  private String downloadHasPermissionSetting;
+
+  /**
+   * 允许复制和转发消息
+   *
+   * <p>示例值：all_members
+   */
+  @SerializedName("message_has_permission_setting")
+  private String messageHasPermissionSetting;
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  public String getScreenshotHasPermissionSetting() {
+    return this.screenshotHasPermissionSetting;
+  }
+
+  public void setScreenshotHasPermissionSetting(String screenshotHasPermissionSetting) {
+    this.screenshotHasPermissionSetting = screenshotHasPermissionSetting;
+  }
+
+  public String getDownloadHasPermissionSetting() {
+    return this.downloadHasPermissionSetting;
+  }
+
+  public void setDownloadHasPermissionSetting(String downloadHasPermissionSetting) {
+    this.downloadHasPermissionSetting = downloadHasPermissionSetting;
+  }
+
+  public String getMessageHasPermissionSetting() {
+    return this.messageHasPermissionSetting;
+  }
+
+  public void setMessageHasPermissionSetting(String messageHasPermissionSetting) {
+    this.messageHasPermissionSetting = messageHasPermissionSetting;
+  }
+
+  // builder 开始
+  public RestrictedModeSetting() {}
+
+  public RestrictedModeSetting(Builder builder) {
     /**
      * 防泄密模式是否开启
-     * <p> 示例值：true
+     *
+     * <p>示例值：false
      */
-    @SerializedName("status")
-    private Boolean status;
+    this.status = builder.status;
     /**
      * 允许截屏录屏
-     * <p> 示例值：all_members
+     *
+     * <p>示例值：all_members
      */
-    @SerializedName("screenshot_has_permission_setting")
-    private String screenshotHasPermissionSetting;
+    this.screenshotHasPermissionSetting = builder.screenshotHasPermissionSetting;
     /**
      * 允许下载消息中图片、视频和文件
-     * <p> 示例值：all_members
+     *
+     * <p>示例值：all_members
      */
-    @SerializedName("download_has_permission_setting")
-    private String downloadHasPermissionSetting;
+    this.downloadHasPermissionSetting = builder.downloadHasPermissionSetting;
     /**
      * 允许复制和转发消息
-     * <p> 示例值：all_members
+     *
+     * <p>示例值：all_members
      */
-    @SerializedName("message_has_permission_setting")
+    this.messageHasPermissionSetting = builder.messageHasPermissionSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 防泄密模式是否开启
+     *
+     * <p>示例值：false
+     */
+    private Boolean status;
+
+    /**
+     * 允许截屏录屏
+     *
+     * <p>示例值：all_members
+     */
+    private String screenshotHasPermissionSetting;
+
+    /**
+     * 允许下载消息中图片、视频和文件
+     *
+     * <p>示例值：all_members
+     */
+    private String downloadHasPermissionSetting;
+
+    /**
+     * 允许复制和转发消息
+     *
+     * <p>示例值：all_members
+     */
     private String messageHasPermissionSetting;
 
-    // builder 开始
-    public RestrictedModeSetting() {
+    /**
+     * 防泄密模式是否开启
+     *
+     * <p>示例值：false
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public RestrictedModeSetting(Builder builder) {
-        /**
-         * 防泄密模式是否开启
-         * <p> 示例值：true
-         */
-        this.status = builder.status;
-        /**
-         * 允许截屏录屏
-         * <p> 示例值：all_members
-         */
-        this.screenshotHasPermissionSetting = builder.screenshotHasPermissionSetting;
-        /**
-         * 允许下载消息中图片、视频和文件
-         * <p> 示例值：all_members
-         */
-        this.downloadHasPermissionSetting = builder.downloadHasPermissionSetting;
-        /**
-         * 允许复制和转发消息
-         * <p> 示例值：all_members
-         */
-        this.messageHasPermissionSetting = builder.messageHasPermissionSetting;
+    /**
+     * 允许截屏录屏
+     *
+     * <p>示例值：all_members
+     *
+     * @param screenshotHasPermissionSetting
+     * @return
+     */
+    public Builder screenshotHasPermissionSetting(String screenshotHasPermissionSetting) {
+      this.screenshotHasPermissionSetting = screenshotHasPermissionSetting;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 允许截屏录屏
+     *
+     * <p>示例值：all_members
+     *
+     * @param screenshotHasPermissionSetting {@link
+     *     com.lark.oapi.service.im.v1.enums.RestrictedModeSettingScreenshotHasPermissionSettingEnum}
+     * @return
+     */
+    public Builder screenshotHasPermissionSetting(
+        com.lark.oapi.service.im.v1.enums.RestrictedModeSettingScreenshotHasPermissionSettingEnum
+            screenshotHasPermissionSetting) {
+      this.screenshotHasPermissionSetting = screenshotHasPermissionSetting.getValue();
+      return this;
     }
 
-    public Boolean getStatus() {
-        return this.status;
+    /**
+     * 允许下载消息中图片、视频和文件
+     *
+     * <p>示例值：all_members
+     *
+     * @param downloadHasPermissionSetting
+     * @return
+     */
+    public Builder downloadHasPermissionSetting(String downloadHasPermissionSetting) {
+      this.downloadHasPermissionSetting = downloadHasPermissionSetting;
+      return this;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    /**
+     * 允许下载消息中图片、视频和文件
+     *
+     * <p>示例值：all_members
+     *
+     * @param downloadHasPermissionSetting {@link
+     *     com.lark.oapi.service.im.v1.enums.RestrictedModeSettingDownloadHasPermissionSettingEnum}
+     * @return
+     */
+    public Builder downloadHasPermissionSetting(
+        com.lark.oapi.service.im.v1.enums.RestrictedModeSettingDownloadHasPermissionSettingEnum
+            downloadHasPermissionSetting) {
+      this.downloadHasPermissionSetting = downloadHasPermissionSetting.getValue();
+      return this;
     }
 
-    public String getScreenshotHasPermissionSetting() {
-        return this.screenshotHasPermissionSetting;
+    /**
+     * 允许复制和转发消息
+     *
+     * <p>示例值：all_members
+     *
+     * @param messageHasPermissionSetting
+     * @return
+     */
+    public Builder messageHasPermissionSetting(String messageHasPermissionSetting) {
+      this.messageHasPermissionSetting = messageHasPermissionSetting;
+      return this;
     }
 
-    public void setScreenshotHasPermissionSetting(String screenshotHasPermissionSetting) {
-        this.screenshotHasPermissionSetting = screenshotHasPermissionSetting;
+    /**
+     * 允许复制和转发消息
+     *
+     * <p>示例值：all_members
+     *
+     * @param messageHasPermissionSetting {@link
+     *     com.lark.oapi.service.im.v1.enums.RestrictedModeSettingMessageHasPermissionSettingEnum}
+     * @return
+     */
+    public Builder messageHasPermissionSetting(
+        com.lark.oapi.service.im.v1.enums.RestrictedModeSettingMessageHasPermissionSettingEnum
+            messageHasPermissionSetting) {
+      this.messageHasPermissionSetting = messageHasPermissionSetting.getValue();
+      return this;
     }
 
-    public String getDownloadHasPermissionSetting() {
-        return this.downloadHasPermissionSetting;
+    public RestrictedModeSetting build() {
+      return new RestrictedModeSetting(this);
     }
+  }
 
-    public void setDownloadHasPermissionSetting(String downloadHasPermissionSetting) {
-        this.downloadHasPermissionSetting = downloadHasPermissionSetting;
-    }
-
-    public String getMessageHasPermissionSetting() {
-        return this.messageHasPermissionSetting;
-    }
-
-    public void setMessageHasPermissionSetting(String messageHasPermissionSetting) {
-        this.messageHasPermissionSetting = messageHasPermissionSetting;
-    }
-
-    public static class Builder {
-        /**
-         * 防泄密模式是否开启
-         * <p> 示例值：true
-         */
-        private Boolean status;
-        /**
-         * 允许截屏录屏
-         * <p> 示例值：all_members
-         */
-        private String screenshotHasPermissionSetting;
-        /**
-         * 允许下载消息中图片、视频和文件
-         * <p> 示例值：all_members
-         */
-        private String downloadHasPermissionSetting;
-        /**
-         * 允许复制和转发消息
-         * <p> 示例值：all_members
-         */
-        private String messageHasPermissionSetting;
-
-        /**
-         * 防泄密模式是否开启
-         * <p> 示例值：true
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 允许截屏录屏
-         * <p> 示例值：all_members
-         *
-         * @param screenshotHasPermissionSetting
-         * @return
-         */
-        public Builder screenshotHasPermissionSetting(String screenshotHasPermissionSetting) {
-            this.screenshotHasPermissionSetting = screenshotHasPermissionSetting;
-            return this;
-        }
-
-        /**
-         * 允许截屏录屏
-         * <p> 示例值：all_members
-         *
-         * @param screenshotHasPermissionSetting {@link com.lark.oapi.service.im.v1.enums.RestrictedModeSettingScreenshotHasPermissionSettingEnum}
-         * @return
-         */
-        public Builder screenshotHasPermissionSetting(com.lark.oapi.service.im.v1.enums.RestrictedModeSettingScreenshotHasPermissionSettingEnum screenshotHasPermissionSetting) {
-            this.screenshotHasPermissionSetting = screenshotHasPermissionSetting.getValue();
-            return this;
-        }
-
-
-        /**
-         * 允许下载消息中图片、视频和文件
-         * <p> 示例值：all_members
-         *
-         * @param downloadHasPermissionSetting
-         * @return
-         */
-        public Builder downloadHasPermissionSetting(String downloadHasPermissionSetting) {
-            this.downloadHasPermissionSetting = downloadHasPermissionSetting;
-            return this;
-        }
-
-        /**
-         * 允许下载消息中图片、视频和文件
-         * <p> 示例值：all_members
-         *
-         * @param downloadHasPermissionSetting {@link com.lark.oapi.service.im.v1.enums.RestrictedModeSettingDownloadHasPermissionSettingEnum}
-         * @return
-         */
-        public Builder downloadHasPermissionSetting(com.lark.oapi.service.im.v1.enums.RestrictedModeSettingDownloadHasPermissionSettingEnum downloadHasPermissionSetting) {
-            this.downloadHasPermissionSetting = downloadHasPermissionSetting.getValue();
-            return this;
-        }
-
-
-        /**
-         * 允许复制和转发消息
-         * <p> 示例值：all_members
-         *
-         * @param messageHasPermissionSetting
-         * @return
-         */
-        public Builder messageHasPermissionSetting(String messageHasPermissionSetting) {
-            this.messageHasPermissionSetting = messageHasPermissionSetting;
-            return this;
-        }
-
-        /**
-         * 允许复制和转发消息
-         * <p> 示例值：all_members
-         *
-         * @param messageHasPermissionSetting {@link com.lark.oapi.service.im.v1.enums.RestrictedModeSettingMessageHasPermissionSettingEnum}
-         * @return
-         */
-        public Builder messageHasPermissionSetting(com.lark.oapi.service.im.v1.enums.RestrictedModeSettingMessageHasPermissionSettingEnum messageHasPermissionSetting) {
-            this.messageHasPermissionSetting = messageHasPermissionSetting.getValue();
-            return this;
-        }
-
-
-        public RestrictedModeSetting build() {
-            return new RestrictedModeSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

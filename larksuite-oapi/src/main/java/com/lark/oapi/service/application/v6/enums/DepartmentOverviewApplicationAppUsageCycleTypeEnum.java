@@ -13,21 +13,22 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 活跃周期的统计类型
- */
+/** 活跃周期的统计类型 */
 public enum DepartmentOverviewApplicationAppUsageCycleTypeEnum {
-    DAY(1), // 日活
-    WEEK(2), // 周活， date字段应该填自然周周一的日期
-    MONTH(3), // 月活， date字段应该填自然月1号的日期
-    ;
-    private Integer value;
+  DAY(1), // 日活，指自然日，返回当前日期所在日的数据
+  WEEK(2), // 周活，指自然周，返回当前日期所在周的数据。若到查询时当周还没结束，则返回周一到当前日期的数值。例如在2021/7/15 查询2021/7/5
+  // 这一周的数据，则代表的是2021/7/5 ~ 2021/7/11。但若是在2021/7/8 查询2021/7/5 这一周的数据，则返回的是2021/7/5 ~
+  // 2021/7/7 的数据
+  MONTH(3), // 月活，指自然月，返回当前日期所在月的数据。若不满一个月则返回当月1日到截止日期前的数据。例如在2021/8/15 查询
+// 7月的数据，则代表2021/7/1~2021/7/31。 若在2021/8/15 查询8月的数据，则代表2021/8/1~2021/8/14的数据
+;
+  private Integer value;
 
-    DepartmentOverviewApplicationAppUsageCycleTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DepartmentOverviewApplicationAppUsageCycleTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

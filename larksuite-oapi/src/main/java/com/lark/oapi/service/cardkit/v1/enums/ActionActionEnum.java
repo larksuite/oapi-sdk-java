@@ -14,22 +14,26 @@
 package com.lark.oapi.service.cardkit.v1.enums;
 
 /**
- * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 - add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时 parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
+ * 操作类型 可选值有： - partial_update_setting：更新卡片设置，此时 parmas 结构参考更新卡片设置接口请求体的 config 和 card_link 字段 -
+ * add_elements，此时 parmas 结构参考添加组件接口请求体的 type、target_element_id、element_list 字段 - delete_elements，此时
+ * parmas 结构内仅支持 element_id_list 参数，参数值为组件 ID 数组 - partial_update_element，此时 parmas
+ * 结构包括参考局部更新组件接口的路径参数 element_id 和请求体 partial_element 字段 - update_element，此时 parmas
+ * 结构参考全量更新组件接口的路径参数 element_id 和请求体 element 字段
  */
 public enum ActionActionEnum {
-    PARTIAL_UPDATE_SETTING("partial_update_setting"), // 更新卡片设置
-    ADD_ELEMENTS("add_elements"), // 添加组件
-    DELETE_ELEMENTS("delete_elements"), // 删除组件
-    PARTIAL_UPDATE_ELEMENT("partial_update_element"), // 局部更新
-    UPDATE_ELEMENT("update_element"), // 全量更新组件
-    ;
-    private String value;
+  PARTIAL_UPDATE_SETTING("partial_update_setting"), // 更新卡片设置
+  ADD_ELEMENTS("add_elements"), // 添加组件
+  DELETE_ELEMENTS("delete_elements"), // 删除组件
+  PARTIAL_UPDATE_ELEMENT("partial_update_element"), // 局部更新
+  UPDATE_ELEMENT("update_element"), // 全量更新组件
+  ;
+  private String value;
 
-    ActionActionEnum(String value) {
-        this.value = value;
-    }
+  ActionActionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

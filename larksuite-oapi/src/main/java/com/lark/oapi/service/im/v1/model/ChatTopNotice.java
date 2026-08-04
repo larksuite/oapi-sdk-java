@@ -13,124 +13,145 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatTopNotice {
+  /**
+   * 置顶类型;
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("action_type")
+  private String actionType;
+
+  /**
+   * 消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getActionType() {
+    return this.actionType;
+  }
+
+  public void setActionType(String actionType) {
+    this.actionType = actionType;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public ChatTopNotice() {}
+
+  public ChatTopNotice(Builder builder) {
     /**
-     * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
-     * <p> 示例值：2
+     * 置顶类型;
+     *
+     * <p>示例值：2
      */
-    @SerializedName("action_type")
+    this.actionType = builder.actionType;
+    /**
+     * 消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
+    this.messageId = builder.messageId;
+  }
+
+  public static class Builder {
+    /**
+     * 置顶类型;
+     *
+     * <p>示例值：2
+     */
     private String actionType;
+
     /**
-     * 消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     * 消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @SerializedName("message_id")
     private String messageId;
 
-    // builder 开始
-    public ChatTopNotice() {
+    /**
+     * 置顶类型;
+     *
+     * <p>示例值：2
+     *
+     * @param actionType
+     * @return
+     */
+    public Builder actionType(String actionType) {
+      this.actionType = actionType;
+      return this;
     }
 
-    public ChatTopNotice(Builder builder) {
-        /**
-         * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
-         * <p> 示例值：2
-         */
-        this.actionType = builder.actionType;
-        /**
-         * 消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
+    /**
+     * 置顶类型;
+     *
+     * <p>示例值：2
+     *
+     * @param actionType {@link com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum}
+     * @return
+     */
+    public Builder actionType(
+        com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum actionType) {
+      this.actionType = actionType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public String getActionType() {
-        return this.actionType;
+    public ChatTopNotice build() {
+      return new ChatTopNotice(this);
     }
+  }
 
-    public void setActionType(String actionType) {
-        this.actionType = actionType;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-        /**
-         * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
-         * <p> 示例值：2
-         */
-        private String actionType;
-        /**
-         * 消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        private String messageId;
-
-        /**
-         * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
-         * <p> 示例值：2
-         *
-         * @param actionType
-         * @return
-         */
-        public Builder actionType(String actionType) {
-            this.actionType = actionType;
-            return this;
-        }
-
-        /**
-         * 置顶的类型;;**注意**：;- 选择 ==消息类型== 时必须填写`message_id`字段;- 选择 ==群公告类型== 时填写的`message_id`将被忽略
-         * <p> 示例值：2
-         *
-         * @param actionType {@link com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum}
-         * @return
-         */
-        public Builder actionType(com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum actionType) {
-            this.actionType = actionType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public ChatTopNotice build() {
-            return new ChatTopNotice(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

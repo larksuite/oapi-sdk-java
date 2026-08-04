@@ -13,655 +13,647 @@
 
 package com.lark.oapi;
 
-import com.lark.oapi.service.wiki.WikiService;
-import com.lark.oapi.service.workplace.WorkplaceService;
-import com.lark.oapi.service.apaas.ApaasService;
-import com.lark.oapi.service.base.BaseService;
-import com.lark.oapi.service.sheets.SheetsService;
-import com.lark.oapi.service.docx.DocxService;
-import com.lark.oapi.service.hire.HireService;
-import com.lark.oapi.service.minutes.MinutesService;
-import com.lark.oapi.service.translation.TranslationService;
-import com.lark.oapi.service.verification.VerificationService;
-import com.lark.oapi.service.contact.ContactService;
-import com.lark.oapi.service.corehr.CorehrService;
-import com.lark.oapi.service.mdm.MdmService;
-import com.lark.oapi.service.admin.AdminService;
-import com.lark.oapi.service.application.ApplicationService;
-import com.lark.oapi.service.attendance.AttendanceService;
-import com.lark.oapi.service.authen.AuthenService;
-import com.lark.oapi.service.block.BlockService;
-import com.lark.oapi.service.meeting_room.MeetingRoomService;
-import com.lark.oapi.service.moments.MomentsService;
-import com.lark.oapi.service.trust_party.TrustPartyService;
-import com.lark.oapi.service.board.BoardService;
-import com.lark.oapi.service.elearning.ElearningService;
-import com.lark.oapi.service.calendar.CalendarService;
-import com.lark.oapi.service.docs.DocsService;
-import com.lark.oapi.service.spark.SparkService;
-import com.lark.oapi.service.vc.VcService;
-import com.lark.oapi.service.approval.ApprovalService;
-import com.lark.oapi.service.auth.AuthService;
-import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
-import com.lark.oapi.service.search.SearchService;
-import com.lark.oapi.service.okr.OkrService;
-import com.lark.oapi.service.report.ReportService;
-import com.lark.oapi.service.baike.BaikeService;
-import com.lark.oapi.service.document_ai.DocumentAiService;
-import com.lark.oapi.service.ehr.EhrService;
-import com.lark.oapi.service.im.ImService;
-import com.lark.oapi.service.lingo.LingoService;
-import com.lark.oapi.service.acs.AcsService;
-import com.lark.oapi.service.bitable.BitableService;
-import com.lark.oapi.service.event.EventService;
-import com.lark.oapi.service.mail.MailService;
-import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
-import com.lark.oapi.service.helpdesk.HelpdeskService;
-import com.lark.oapi.service.passport.PassportService;
-import com.lark.oapi.service.performance.PerformanceService;
-import com.lark.oapi.service.tenant.TenantService;
-import com.lark.oapi.service.personal_settings.PersonalSettingsService;
-import com.lark.oapi.service.speech_to_text.SpeechToTextService;
-import com.lark.oapi.service.task.TaskService;
-import com.lark.oapi.service.aily.AilyService;
-import com.lark.oapi.service.drive.DriveService;
-import com.lark.oapi.service.payroll.PayrollService;
-import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
-import com.lark.oapi.service.compensation.CompensationService;
-import com.lark.oapi.service.directory.DirectoryService;
-import com.lark.oapi.service.cardkit.CardkitService;
-
-import com.lark.oapi.service.ext.ExtService;
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.auth.ClientAssertionProvider;
+import com.lark.oapi.core.cache.ICache;
+import com.lark.oapi.core.cache.LocalCache;
+import com.lark.oapi.core.enums.AppType;
+import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
-import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.*;
-import com.lark.oapi.core.utils.Sets;
-import com.lark.oapi.core.enums.AppType;
-import com.lark.oapi.core.Config;
-import com.lark.oapi.okhttp.OkHttpClient;
-import com.lark.oapi.core.cache.ICache;
-import com.lark.oapi.core.cache.LocalCache;
 import com.lark.oapi.core.token.AppTicketManager;
-import com.lark.oapi.core.token.TokenManager;
 import com.lark.oapi.core.token.GlobalAppTicketManager;
 import com.lark.oapi.core.token.GlobalTokenManager;
-
+import com.lark.oapi.core.token.TokenManager;
+import com.lark.oapi.core.utils.OKHttps;
+import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.service.acs.AcsService;
+import com.lark.oapi.service.admin.AdminService;
+import com.lark.oapi.service.aily.AilyService;
+import com.lark.oapi.service.apaas.ApaasService;
+import com.lark.oapi.service.application.ApplicationService;
+import com.lark.oapi.service.approval.ApprovalService;
+import com.lark.oapi.service.attendance.AttendanceService;
+import com.lark.oapi.service.auth.AuthService;
+import com.lark.oapi.service.authen.AuthenService;
+import com.lark.oapi.service.baike.BaikeService;
+import com.lark.oapi.service.base.BaseService;
+import com.lark.oapi.service.bitable.BitableService;
+import com.lark.oapi.service.block.BlockService;
+import com.lark.oapi.service.board.BoardService;
+import com.lark.oapi.service.bot.BotService;
+import com.lark.oapi.service.calendar.CalendarService;
+import com.lark.oapi.service.cardkit.CardkitService;
+import com.lark.oapi.service.compensation.CompensationService;
+import com.lark.oapi.service.contact.ContactService;
+import com.lark.oapi.service.corehr.CorehrService;
+import com.lark.oapi.service.directory.DirectoryService;
+import com.lark.oapi.service.docs.DocsService;
+import com.lark.oapi.service.document_ai.DocumentAiService;
+import com.lark.oapi.service.docx.DocxService;
+import com.lark.oapi.service.drive.DriveService;
+import com.lark.oapi.service.ehr.EhrService;
+import com.lark.oapi.service.elearning.ElearningService;
+import com.lark.oapi.service.event.EventService;
+import com.lark.oapi.service.ext.ExtService;
+import com.lark.oapi.service.helpdesk.HelpdeskService;
+import com.lark.oapi.service.hire.HireService;
+import com.lark.oapi.service.human_authentication.HumanAuthenticationService;
+import com.lark.oapi.service.im.ImService;
+import com.lark.oapi.service.lingo.LingoService;
+import com.lark.oapi.service.mail.MailService;
+import com.lark.oapi.service.mdm.MdmService;
+import com.lark.oapi.service.meeting_room.MeetingRoomService;
+import com.lark.oapi.service.minutes.MinutesService;
+import com.lark.oapi.service.moments.MomentsService;
+import com.lark.oapi.service.okr.OkrService;
+import com.lark.oapi.service.optical_char_recognition.OpticalCharRecognitionService;
+import com.lark.oapi.service.passport.PassportService;
+import com.lark.oapi.service.payroll.PayrollService;
+import com.lark.oapi.service.performance.PerformanceService;
+import com.lark.oapi.service.personal_settings.PersonalSettingsService;
+import com.lark.oapi.service.report.ReportService;
+import com.lark.oapi.service.search.SearchService;
+import com.lark.oapi.service.security_and_compliance.SecurityAndComplianceService;
+import com.lark.oapi.service.sheets.SheetsService;
+import com.lark.oapi.service.spark.SparkService;
+import com.lark.oapi.service.speech_to_text.SpeechToTextService;
+import com.lark.oapi.service.task.TaskService;
+import com.lark.oapi.service.tenant.TenantService;
+import com.lark.oapi.service.translation.TranslationService;
+import com.lark.oapi.service.trust_party.TrustPartyService;
+import com.lark.oapi.service.vc.VcService;
+import com.lark.oapi.service.verification.VerificationService;
+import com.lark.oapi.service.wiki.WikiService;
+import com.lark.oapi.service.workplace.WorkplaceService;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
-import com.lark.oapi.core.utils.OKHttps;
-import com.lark.oapi.core.utils.Strings;
-
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.enums.BaseUrlEnum;
-import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
-import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
-import com.lark.oapi.core.response.AppAccessTokenResp;
-import com.lark.oapi.core.response.TenantAccessTokenResp;
-import com.lark.oapi.core.exception.ObtainAccessTokenException;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.core.Constants;
-
-
 public class Client {
-    private Config config;
-    private WikiService wiki;
-    private WorkplaceService workplace;
-    private ApaasService apaas;
-    private BaseService base;
-    private SheetsService sheets;
-    private DocxService docx;
-    private HireService hire;
-    private MinutesService minutes;
-    private TranslationService translation;
-    private VerificationService verification;
-    private ContactService contact;
-    private CorehrService corehr;
-    private MdmService mdm;
-    private AdminService admin;
-    private ApplicationService application;
-    private AttendanceService attendance;
-    private AuthenService authen;
-    private BlockService block;
-    private MeetingRoomService meetingRoom;
-    private MomentsService moments;
-    private TrustPartyService trustParty;
-    private BoardService board;
-    private ElearningService elearning;
-    private CalendarService calendar;
-    private DocsService docs;
-    private SparkService spark;
-    private VcService vc;
-    private ApprovalService approval;
-    private AuthService auth;
-    private HumanAuthenticationService humanAuthentication;
-    private SearchService search;
-    private OkrService okr;
-    private ReportService report;
-    private BaikeService baike;
-    private DocumentAiService documentAi;
-    private EhrService ehr;
-    private ImService im;
-    private LingoService lingo;
-    private AcsService acs;
-    private BitableService bitable;
-    private EventService event;
-    private MailService mail;
-    private OpticalCharRecognitionService opticalCharRecognition;
-    private HelpdeskService helpdesk;
-    private PassportService passport;
-    private PerformanceService performance;
-    private TenantService tenant;
-    private PersonalSettingsService personalSettings;
-    private SpeechToTextService speechToText;
-    private TaskService task;
-    private AilyService aily;
-    private DriveService drive;
-    private PayrollService payroll;
-    private SecurityAndComplianceService securityAndCompliance;
-    private CompensationService compensation;
-    private DirectoryService directory;
-    private CardkitService cardkit;
-
-    private ExtService extService;
-    private com.lark.oapi.core.accesstoken.AccessToken accessToken;
-
-    public static Builder newBuilder(String appId, String appSecret) {
-        return new Builder(appId, appSecret);
-    }
-
-    public ExtService ext() {
-        return extService;
-    }
-
-    public com.lark.oapi.core.accesstoken.AccessToken accessToken() {
-        return accessToken;
-    }
-
-    public void setConfig(Config config) {
-        this.config = config;
-    }
-
-    public WikiService wiki() {
-        return wiki;
-    }
-
-    public WorkplaceService workplace() {
-        return workplace;
-    }
-
-    public ApaasService apaas() {
-        return apaas;
-    }
-
-    public BaseService base() {
-        return base;
-    }
-
-    public SheetsService sheets() {
-        return sheets;
-    }
-
-    public DocxService docx() {
-        return docx;
-    }
-
-    public HireService hire() {
-        return hire;
-    }
-
-    public MinutesService minutes() {
-        return minutes;
-    }
-
-    public TranslationService translation() {
-        return translation;
-    }
-
-    public VerificationService verification() {
-        return verification;
-    }
-
-    public ContactService contact() {
-        return contact;
-    }
-
-    public CorehrService corehr() {
-        return corehr;
-    }
-
-    public MdmService mdm() {
-        return mdm;
-    }
-
-    public AdminService admin() {
-        return admin;
-    }
-
-    public ApplicationService application() {
-        return application;
-    }
-
-    public AttendanceService attendance() {
-        return attendance;
-    }
-
-    public AuthenService authen() {
-        return authen;
-    }
-
-    public BlockService block() {
-        return block;
-    }
-
-    public MeetingRoomService meetingRoom() {
-        return meetingRoom;
-    }
-
-    public MomentsService moments() {
-        return moments;
-    }
-
-    public TrustPartyService trustParty() {
-        return trustParty;
-    }
-
-    public BoardService board() {
-        return board;
-    }
-
-    public ElearningService elearning() {
-        return elearning;
-    }
-
-    public CalendarService calendar() {
-        return calendar;
-    }
-
-    public DocsService docs() {
-        return docs;
-    }
-
-    public SparkService spark() {
-        return spark;
-    }
-
-    public VcService vc() {
-        return vc;
-    }
-
-    public ApprovalService approval() {
-        return approval;
-    }
-
-    public AuthService auth() {
-        return auth;
-    }
-
-    public HumanAuthenticationService humanAuthentication() {
-        return humanAuthentication;
-    }
-
-    public SearchService search() {
-        return search;
-    }
-
-    public OkrService okr() {
-        return okr;
-    }
+  private Config config;
+  private AcsService acs;
+  private AdminService admin;
+  private AilyService aily;
+  private ApaasService apaas;
+  private ApplicationService application;
+  private ApprovalService approval;
+  private AttendanceService attendance;
+  private AuthService auth;
+  private AuthenService authen;
+  private BaikeService baike;
+  private BaseService base;
+  private BitableService bitable;
+  private BlockService block;
+  private BoardService board;
+  private BotService bot;
+  private CalendarService calendar;
+  private CardkitService cardkit;
+  private CompensationService compensation;
+  private ContactService contact;
+  private CorehrService corehr;
+  private DirectoryService directory;
+  private DocsService docs;
+  private DocumentAiService documentAi;
+  private DocxService docx;
+  private DriveService drive;
+  private EhrService ehr;
+  private ElearningService elearning;
+  private EventService event;
+  private HelpdeskService helpdesk;
+  private HireService hire;
+  private HumanAuthenticationService humanAuthentication;
+  private ImService im;
+  private LingoService lingo;
+  private MailService mail;
+  private MdmService mdm;
+  private MeetingRoomService meetingRoom;
+  private MinutesService minutes;
+  private MomentsService moments;
+  private OkrService okr;
+  private OpticalCharRecognitionService opticalCharRecognition;
+  private PassportService passport;
+  private PayrollService payroll;
+  private PerformanceService performance;
+  private PersonalSettingsService personalSettings;
+  private ReportService report;
+  private SearchService search;
+  private SecurityAndComplianceService securityAndCompliance;
+  private SheetsService sheets;
+  private SparkService spark;
+  private SpeechToTextService speechToText;
+  private TaskService task;
+  private TenantService tenant;
+  private TranslationService translation;
+  private TrustPartyService trustParty;
+  private VcService vc;
+  private VerificationService verification;
+  private WikiService wiki;
+  private WorkplaceService workplace;
+
+  private ExtService extService;
+  private com.lark.oapi.core.accesstoken.AccessToken accessToken;
+
+  public ExtService ext() {
+    return extService;
+  }
+
+  public com.lark.oapi.core.accesstoken.AccessToken accessToken() {
+    return accessToken;
+  }
+
+  public void setConfig(Config config) {
+    this.config = config;
+  }
+
+  public AcsService acs() {
+    return acs;
+  }
+
+  public AdminService admin() {
+    return admin;
+  }
+
+  public AilyService aily() {
+    return aily;
+  }
+
+  public ApaasService apaas() {
+    return apaas;
+  }
+
+  public ApplicationService application() {
+    return application;
+  }
+
+  public ApprovalService approval() {
+    return approval;
+  }
+
+  public AttendanceService attendance() {
+    return attendance;
+  }
+
+  public AuthService auth() {
+    return auth;
+  }
+
+  public AuthenService authen() {
+    return authen;
+  }
+
+  public BaikeService baike() {
+    return baike;
+  }
+
+  public BaseService base() {
+    return base;
+  }
+
+  public BitableService bitable() {
+    return bitable;
+  }
+
+  public BlockService block() {
+    return block;
+  }
+
+  public BoardService board() {
+    return board;
+  }
+
+  public BotService bot() {
+    return bot;
+  }
+
+  public CalendarService calendar() {
+    return calendar;
+  }
+
+  public CardkitService cardkit() {
+    return cardkit;
+  }
+
+  public CompensationService compensation() {
+    return compensation;
+  }
+
+  public ContactService contact() {
+    return contact;
+  }
+
+  public CorehrService corehr() {
+    return corehr;
+  }
+
+  public DirectoryService directory() {
+    return directory;
+  }
+
+  public DocsService docs() {
+    return docs;
+  }
+
+  public DocumentAiService documentAi() {
+    return documentAi;
+  }
+
+  public DocxService docx() {
+    return docx;
+  }
+
+  public DriveService drive() {
+    return drive;
+  }
+
+  public EhrService ehr() {
+    return ehr;
+  }
+
+  public ElearningService elearning() {
+    return elearning;
+  }
+
+  public EventService event() {
+    return event;
+  }
+
+  public HelpdeskService helpdesk() {
+    return helpdesk;
+  }
+
+  public HireService hire() {
+    return hire;
+  }
+
+  public HumanAuthenticationService humanAuthentication() {
+    return humanAuthentication;
+  }
+
+  public ImService im() {
+    return im;
+  }
+
+  public LingoService lingo() {
+    return lingo;
+  }
+
+  public MailService mail() {
+    return mail;
+  }
+
+  public MdmService mdm() {
+    return mdm;
+  }
+
+  public MeetingRoomService meetingRoom() {
+    return meetingRoom;
+  }
+
+  public MinutesService minutes() {
+    return minutes;
+  }
+
+  public MomentsService moments() {
+    return moments;
+  }
+
+  public OkrService okr() {
+    return okr;
+  }
+
+  public OpticalCharRecognitionService opticalCharRecognition() {
+    return opticalCharRecognition;
+  }
+
+  public PassportService passport() {
+    return passport;
+  }
+
+  public PayrollService payroll() {
+    return payroll;
+  }
+
+  public PerformanceService performance() {
+    return performance;
+  }
+
+  public PersonalSettingsService personalSettings() {
+    return personalSettings;
+  }
+
+  public ReportService report() {
+    return report;
+  }
+
+  public SearchService search() {
+    return search;
+  }
+
+  public SecurityAndComplianceService securityAndCompliance() {
+    return securityAndCompliance;
+  }
+
+  public SheetsService sheets() {
+    return sheets;
+  }
+
+  public SparkService spark() {
+    return spark;
+  }
+
+  public SpeechToTextService speechToText() {
+    return speechToText;
+  }
+
+  public TaskService task() {
+    return task;
+  }
+
+  public TenantService tenant() {
+    return tenant;
+  }
+
+  public TranslationService translation() {
+    return translation;
+  }
+
+  public TrustPartyService trustParty() {
+    return trustParty;
+  }
+
+  public VcService vc() {
+    return vc;
+  }
+
+  public VerificationService verification() {
+    return verification;
+  }
+
+  public WikiService wiki() {
+    return wiki;
+  }
+
+  public WorkplaceService workplace() {
+    return workplace;
+  }
+
+  public RawResponse post(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse post(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse get(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse get(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse delete(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse delete(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse put(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse put(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse patch(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
 
-    public ReportService report() {
-        return report;
-    }
-
-    public BaikeService baike() {
-        return baike;
-    }
-
-    public DocumentAiService documentAi() {
-        return documentAi;
-    }
-
-    public EhrService ehr() {
-        return ehr;
-    }
-
-    public ImService im() {
-        return im;
-    }
-
-    public LingoService lingo() {
-        return lingo;
-    }
-
-    public AcsService acs() {
-        return acs;
-    }
-
-    public BitableService bitable() {
-        return bitable;
-    }
-
-    public EventService event() {
-        return event;
-    }
-
-    public MailService mail() {
-        return mail;
-    }
-
-    public OpticalCharRecognitionService opticalCharRecognition() {
-        return opticalCharRecognition;
-    }
-
-    public HelpdeskService helpdesk() {
-        return helpdesk;
-    }
-
-    public PassportService passport() {
-        return passport;
-    }
-
-    public PerformanceService performance() {
-        return performance;
-    }
-
-    public TenantService tenant() {
-        return tenant;
-    }
-
-    public PersonalSettingsService personalSettings() {
-        return personalSettings;
-    }
-
-    public SpeechToTextService speechToText() {
-        return speechToText;
-    }
-
-    public TaskService task() {
-        return task;
-    }
-
-    public AilyService aily() {
-        return aily;
-    }
-
-    public DriveService drive() {
-        return drive;
-    }
-
-    public PayrollService payroll() {
-        return payroll;
-    }
-
-    public SecurityAndComplianceService securityAndCompliance() {
-        return securityAndCompliance;
-    }
-
-    public CompensationService compensation() {
-        return compensation;
-    }
-
-    public DirectoryService directory() {
-        return directory;
-    }
-
-    public CardkitService cardkit() {
-        return cardkit;
-    }
-
-    public RawResponse post(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse post(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-    ) throws Exception {
-        return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse get(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse get(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType) throws Exception {
-        return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse delete(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse delete(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType) throws Exception {
-        return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse put(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
+  public RawResponse patch(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
 
-    public RawResponse put(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType) throws Exception {
-        return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse patch(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse patch(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType) throws Exception {
-        return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse options(String httpPath
-            , Object body
-            , AccessTokenType accessTokenType
-            , RequestOptions requestOptions) throws Exception {
-        return Transport.send(config, requestOptions, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
-
-    public RawResponse options(String httpPath
-            , Object body, AccessTokenType accessTokenType) throws Exception {
-        return Transport.send(config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-    }
+  public RawResponse options(
+      String httpPath, Object body, AccessTokenType accessTokenType, RequestOptions requestOptions)
+      throws Exception {
+    return Transport.send(
+        config, requestOptions, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse options(String httpPath, Object body, AccessTokenType accessTokenType)
+      throws Exception {
+    return Transport.send(
+        config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
 
-    public static final class Builder {
-        private Config config = new Config();
-
-        public Builder(String appId, String appSecret) {
-            config.setAppId(appId);
-            config.setAppSecret(appSecret);
-            config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
-            config.setAppType(AppType.SELF_BUILT);
-            config.setDisableTokenCache(false);
+  public static final class Builder {
+    private Config config = new Config();
+
+    public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
+      config.setHelpDeskToken(helpDeskToken);
+      config.setHelpDeskID(helpDeskId);
+      if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
+        config.setHelpDeskAuthToken(
+            java.util.Base64.getEncoder()
+                .encodeToString(
+                    String.format("%s:%s", helpDeskId, helpDeskToken)
+                        .getBytes(StandardCharsets.UTF_8)));
+      }
+      return this;
+    }
+
+    public Builder appType(AppType appType) {
+      config.setAppType(appType);
+      return this;
+    }
+
+    public Builder marketplaceApp() {
+      config.setAppType(AppType.MARKETPLACE);
+      return this;
+    }
+
+    public Builder disableTokenCache() {
+      config.setDisableTokenCache(true);
+      return this;
+    }
+
+    public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
+      config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
+      return this;
+    }
+
+    public Builder openBaseUrl(String baseUrl) {
+      config.setBaseUrl(baseUrl);
+      return this;
+    }
+
+    public Builder openBaseUrl(BaseUrlEnum baseUrl) {
+      config.setBaseUrl(baseUrl.getUrl());
+      return this;
+    }
+
+    public Builder oauthBaseUrl(String oauthBaseUrl) {
+      config.setOAuthBaseUrl(oauthBaseUrl);
+      return this;
+    }
+
+    public Builder clientAssertionProvider(ClientAssertionProvider provider) {
+      config.setClientAssertionProvider(provider);
+      return this;
+    }
+
+    public Builder tokenCache(ICache cache) {
+      config.setCache(cache);
+      return this;
+    }
+
+    public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
+      config.setRequestTimeOut(timeout);
+      config.setTimeOutTimeUnit(timeUnit);
+      return this;
+    }
+
+    public Builder(String appId, String appSecret) {
+      config.setAppId(appId);
+      config.setAppSecret(appSecret);
+      config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
+      config.setAppType(AppType.SELF_BUILT);
+      config.setDisableTokenCache(false);
+    }
+
+    public Builder httpTransport(IHttpTransport httpTransport) {
+      config.setHttpTransport(httpTransport);
+      return this;
+    }
+
+    public Builder source(String source) {
+      config.setSource(source);
+      return this;
+    }
+
+    private void initCache(Config config) {
+      if (config.getCache() != null) {
+        GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
+        GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
+      } else {
+        ICache cache = LocalCache.getInstance();
+        GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
+        GlobalTokenManager.setTokenManager(new TokenManager(cache));
+      }
+    }
+
+    private void initHttpTransport(Config config) {
+      if (config.getHttpTransport() == null) {
+        if (config.getRequestTimeOut() > 0) {
+          config.setHttpTransport(
+              new OkHttpTransport(
+                  OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
+        } else {
+          config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
         }
-
-        public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
-            config.setHelpDeskToken(helpDeskToken);
-            config.setHelpDeskID(helpDeskId);
-            if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
-                config.setHelpDeskAuthToken(java.util.Base64.getEncoder().encodeToString(String.format("%s:%s", helpDeskId, helpDeskToken).getBytes(StandardCharsets.UTF_8)));
-            }
-            return this;
-        }
-
-        public Builder appType(AppType appType) {
-            config.setAppType(appType);
-            return this;
-        }
-
-        public Builder marketplaceApp() {
-            config.setAppType(AppType.MARKETPLACE);
-            return this;
-        }
-
-        public Builder disableTokenCache() {
-            config.setDisableTokenCache(true);
-            return this;
-        }
-
-        public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
-            config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
-            return this;
-        }
-
-        public Builder openBaseUrl(String baseUrl) {
-            config.setBaseUrl(baseUrl);
-            return this;
-        }
-
-        public Builder openBaseUrl(BaseUrlEnum baseUrl) {
-            config.setBaseUrl(baseUrl.getUrl());
-            return this;
-        }
-
-        public Builder oauthBaseUrl(String oauthBaseUrl) {
-            config.setOAuthBaseUrl(oauthBaseUrl);
-            return this;
-        }
-
-        public Builder clientAssertionProvider(ClientAssertionProvider provider) {
-            config.setClientAssertionProvider(provider);
-            return this;
-        }
-
-        public Builder tokenCache(ICache cache) {
-            config.setCache(cache);
-            return this;
-        }
-
-        public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
-            config.setRequestTimeOut(timeout);
-            config.setTimeOutTimeUnit(timeUnit);
-            return this;
-        }
-
-        public Builder httpTransport(IHttpTransport httpTransport) {
-            config.setHttpTransport(httpTransport);
-            return this;
-        }
-
-        public Builder source(String source) {
-            config.setSource(source);
-            return this;
-        }
-
-        private void initCache(Config config) {
-            if (config.getCache() != null) {
-                GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
-                GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
-            } else {
-                ICache cache = LocalCache.getInstance();
-                GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
-                GlobalTokenManager.setTokenManager(new TokenManager(cache));
-            }
-        }
-
-        private void initHttpTransport(Config config) {
-            if (config.getHttpTransport() == null) {
-                if (config.getRequestTimeOut() > 0) {
-                    config.setHttpTransport(new OkHttpTransport(OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
-                } else {
-                    config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
-                }
-            }
-        }
-
-        public Client build() {
-            Client client = new Client();
-            client.setConfig(config);
-            initCache(config);
-            initHttpTransport(config);
-            client.accessToken = new com.lark.oapi.core.accesstoken.AccessToken(config);
-            client.extService = new ExtService(config);
-            client.wiki = new WikiService(config);
-            client.workplace = new WorkplaceService(config);
-            client.apaas = new ApaasService(config);
-            client.base = new BaseService(config);
-            client.sheets = new SheetsService(config);
-            client.docx = new DocxService(config);
-            client.hire = new HireService(config);
-            client.minutes = new MinutesService(config);
-            client.translation = new TranslationService(config);
-            client.verification = new VerificationService(config);
-            client.contact = new ContactService(config);
-            client.corehr = new CorehrService(config);
-            client.mdm = new MdmService(config);
-            client.admin = new AdminService(config);
-            client.application = new ApplicationService(config);
-            client.attendance = new AttendanceService(config);
-            client.authen = new AuthenService(config);
-            client.block = new BlockService(config);
-            client.meetingRoom = new MeetingRoomService(config);
-            client.moments = new MomentsService(config);
-            client.trustParty = new TrustPartyService(config);
-            client.board = new BoardService(config);
-            client.elearning = new ElearningService(config);
-            client.calendar = new CalendarService(config);
-            client.docs = new DocsService(config);
-            client.spark = new SparkService(config);
-            client.vc = new VcService(config);
-            client.approval = new ApprovalService(config);
-            client.auth = new AuthService(config);
-            client.humanAuthentication = new HumanAuthenticationService(config);
-            client.search = new SearchService(config);
-            client.okr = new OkrService(config);
-            client.report = new ReportService(config);
-            client.baike = new BaikeService(config);
-            client.documentAi = new DocumentAiService(config);
-            client.ehr = new EhrService(config);
-            client.im = new ImService(config);
-            client.lingo = new LingoService(config);
-            client.acs = new AcsService(config);
-            client.bitable = new BitableService(config);
-            client.event = new EventService(config);
-            client.mail = new MailService(config);
-            client.opticalCharRecognition = new OpticalCharRecognitionService(config);
-            client.helpdesk = new HelpdeskService(config);
-            client.passport = new PassportService(config);
-            client.performance = new PerformanceService(config);
-            client.tenant = new TenantService(config);
-            client.personalSettings = new PersonalSettingsService(config);
-            client.speechToText = new SpeechToTextService(config);
-            client.task = new TaskService(config);
-            client.aily = new AilyService(config);
-            client.drive = new DriveService(config);
-            client.payroll = new PayrollService(config);
-            client.securityAndCompliance = new SecurityAndComplianceService(config);
-            client.compensation = new CompensationService(config);
-            client.directory = new DirectoryService(config);
-            client.cardkit = new CardkitService(config);
-
-            return client;
-        }
+      }
     }
+
+    public Client build() {
+      Client client = new Client();
+      client.setConfig(config);
+      initCache(config);
+      initHttpTransport(config);
+      client.accessToken = new com.lark.oapi.core.accesstoken.AccessToken(config);
+      client.extService = new ExtService(config);
+      client.acs = new AcsService(config);
+      client.admin = new AdminService(config);
+      client.aily = new AilyService(config);
+      client.apaas = new ApaasService(config);
+      client.application = new ApplicationService(config);
+      client.approval = new ApprovalService(config);
+      client.attendance = new AttendanceService(config);
+      client.auth = new AuthService(config);
+      client.authen = new AuthenService(config);
+      client.baike = new BaikeService(config);
+      client.base = new BaseService(config);
+      client.bitable = new BitableService(config);
+      client.block = new BlockService(config);
+      client.board = new BoardService(config);
+      client.bot = new BotService(config);
+      client.calendar = new CalendarService(config);
+      client.cardkit = new CardkitService(config);
+      client.compensation = new CompensationService(config);
+      client.contact = new ContactService(config);
+      client.corehr = new CorehrService(config);
+      client.directory = new DirectoryService(config);
+      client.docs = new DocsService(config);
+      client.documentAi = new DocumentAiService(config);
+      client.docx = new DocxService(config);
+      client.drive = new DriveService(config);
+      client.ehr = new EhrService(config);
+      client.elearning = new ElearningService(config);
+      client.event = new EventService(config);
+      client.helpdesk = new HelpdeskService(config);
+      client.hire = new HireService(config);
+      client.humanAuthentication = new HumanAuthenticationService(config);
+      client.im = new ImService(config);
+      client.lingo = new LingoService(config);
+      client.mail = new MailService(config);
+      client.mdm = new MdmService(config);
+      client.meetingRoom = new MeetingRoomService(config);
+      client.minutes = new MinutesService(config);
+      client.moments = new MomentsService(config);
+      client.okr = new OkrService(config);
+      client.opticalCharRecognition = new OpticalCharRecognitionService(config);
+      client.passport = new PassportService(config);
+      client.payroll = new PayrollService(config);
+      client.performance = new PerformanceService(config);
+      client.personalSettings = new PersonalSettingsService(config);
+      client.report = new ReportService(config);
+      client.search = new SearchService(config);
+      client.securityAndCompliance = new SecurityAndComplianceService(config);
+      client.sheets = new SheetsService(config);
+      client.spark = new SparkService(config);
+      client.speechToText = new SpeechToTextService(config);
+      client.task = new TaskService(config);
+      client.tenant = new TenantService(config);
+      client.translation = new TranslationService(config);
+      client.trustParty = new TrustPartyService(config);
+      client.vc = new VcService(config);
+      client.verification = new VerificationService(config);
+      client.wiki = new WikiService(config);
+      client.workplace = new WorkplaceService(config);
+
+      return client;
+    }
+  }
+
+  public static Builder newBuilder(String appId, String appSecret) {
+    return new Builder(appId, appSecret);
+  }
 }

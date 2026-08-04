@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplatePermissionInfo {
+  /**
+   * 读权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("read_permission")
+  private Boolean readPermission;
+
+  /**
+   * 写权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("write_permission")
+  private Boolean writePermission;
+
+  /**
+   * 转换权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("switch_permission")
+  private Boolean switchPermission;
+
+  /**
+   * 复制权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("copy_permission")
+  private Boolean copyPermission;
+
+  /**
+   * 删除权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("delete_permission")
+  private Boolean deletePermission;
+
+  public Boolean getReadPermission() {
+    return this.readPermission;
+  }
+
+  public void setReadPermission(Boolean readPermission) {
+    this.readPermission = readPermission;
+  }
+
+  public Boolean getWritePermission() {
+    return this.writePermission;
+  }
+
+  public void setWritePermission(Boolean writePermission) {
+    this.writePermission = writePermission;
+  }
+
+  public Boolean getSwitchPermission() {
+    return this.switchPermission;
+  }
+
+  public void setSwitchPermission(Boolean switchPermission) {
+    this.switchPermission = switchPermission;
+  }
+
+  public Boolean getCopyPermission() {
+    return this.copyPermission;
+  }
+
+  public void setCopyPermission(Boolean copyPermission) {
+    this.copyPermission = copyPermission;
+  }
+
+  public Boolean getDeletePermission() {
+    return this.deletePermission;
+  }
+
+  public void setDeletePermission(Boolean deletePermission) {
+    this.deletePermission = deletePermission;
+  }
+
+  // builder 开始
+  public SignatureTemplatePermissionInfo() {}
+
+  public SignatureTemplatePermissionInfo(Builder builder) {
     /**
      * 读权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("read_permission")
-    private Boolean readPermission;
+    this.readPermission = builder.readPermission;
     /**
      * 写权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("write_permission")
-    private Boolean writePermission;
+    this.writePermission = builder.writePermission;
     /**
      * 转换权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("switch_permission")
-    private Boolean switchPermission;
+    this.switchPermission = builder.switchPermission;
     /**
      * 复制权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("copy_permission")
-    private Boolean copyPermission;
+    this.copyPermission = builder.copyPermission;
     /**
      * 删除权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("delete_permission")
+    this.deletePermission = builder.deletePermission;
+  }
+
+  public static class Builder {
+    /**
+     * 读权限
+     *
+     * <p>示例值：
+     */
+    private Boolean readPermission;
+
+    /**
+     * 写权限
+     *
+     * <p>示例值：
+     */
+    private Boolean writePermission;
+
+    /**
+     * 转换权限
+     *
+     * <p>示例值：
+     */
+    private Boolean switchPermission;
+
+    /**
+     * 复制权限
+     *
+     * <p>示例值：
+     */
+    private Boolean copyPermission;
+
+    /**
+     * 删除权限
+     *
+     * <p>示例值：
+     */
     private Boolean deletePermission;
 
-    // builder 开始
-    public SignatureTemplatePermissionInfo() {
+    /**
+     * 读权限
+     *
+     * <p>示例值：
+     *
+     * @param readPermission
+     * @return
+     */
+    public Builder readPermission(Boolean readPermission) {
+      this.readPermission = readPermission;
+      return this;
     }
 
-    public SignatureTemplatePermissionInfo(Builder builder) {
-        /**
-         * 读权限
-         * <p> 示例值：
-         */
-        this.readPermission = builder.readPermission;
-        /**
-         * 写权限
-         * <p> 示例值：
-         */
-        this.writePermission = builder.writePermission;
-        /**
-         * 转换权限
-         * <p> 示例值：
-         */
-        this.switchPermission = builder.switchPermission;
-        /**
-         * 复制权限
-         * <p> 示例值：
-         */
-        this.copyPermission = builder.copyPermission;
-        /**
-         * 删除权限
-         * <p> 示例值：
-         */
-        this.deletePermission = builder.deletePermission;
+    /**
+     * 写权限
+     *
+     * <p>示例值：
+     *
+     * @param writePermission
+     * @return
+     */
+    public Builder writePermission(Boolean writePermission) {
+      this.writePermission = writePermission;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 转换权限
+     *
+     * <p>示例值：
+     *
+     * @param switchPermission
+     * @return
+     */
+    public Builder switchPermission(Boolean switchPermission) {
+      this.switchPermission = switchPermission;
+      return this;
     }
 
-    public Boolean getReadPermission() {
-        return this.readPermission;
+    /**
+     * 复制权限
+     *
+     * <p>示例值：
+     *
+     * @param copyPermission
+     * @return
+     */
+    public Builder copyPermission(Boolean copyPermission) {
+      this.copyPermission = copyPermission;
+      return this;
     }
 
-    public void setReadPermission(Boolean readPermission) {
-        this.readPermission = readPermission;
+    /**
+     * 删除权限
+     *
+     * <p>示例值：
+     *
+     * @param deletePermission
+     * @return
+     */
+    public Builder deletePermission(Boolean deletePermission) {
+      this.deletePermission = deletePermission;
+      return this;
     }
 
-    public Boolean getWritePermission() {
-        return this.writePermission;
+    public SignatureTemplatePermissionInfo build() {
+      return new SignatureTemplatePermissionInfo(this);
     }
+  }
 
-    public void setWritePermission(Boolean writePermission) {
-        this.writePermission = writePermission;
-    }
-
-    public Boolean getSwitchPermission() {
-        return this.switchPermission;
-    }
-
-    public void setSwitchPermission(Boolean switchPermission) {
-        this.switchPermission = switchPermission;
-    }
-
-    public Boolean getCopyPermission() {
-        return this.copyPermission;
-    }
-
-    public void setCopyPermission(Boolean copyPermission) {
-        this.copyPermission = copyPermission;
-    }
-
-    public Boolean getDeletePermission() {
-        return this.deletePermission;
-    }
-
-    public void setDeletePermission(Boolean deletePermission) {
-        this.deletePermission = deletePermission;
-    }
-
-    public static class Builder {
-        /**
-         * 读权限
-         * <p> 示例值：
-         */
-        private Boolean readPermission;
-        /**
-         * 写权限
-         * <p> 示例值：
-         */
-        private Boolean writePermission;
-        /**
-         * 转换权限
-         * <p> 示例值：
-         */
-        private Boolean switchPermission;
-        /**
-         * 复制权限
-         * <p> 示例值：
-         */
-        private Boolean copyPermission;
-        /**
-         * 删除权限
-         * <p> 示例值：
-         */
-        private Boolean deletePermission;
-
-        /**
-         * 读权限
-         * <p> 示例值：
-         *
-         * @param readPermission
-         * @return
-         */
-        public Builder readPermission(Boolean readPermission) {
-            this.readPermission = readPermission;
-            return this;
-        }
-
-
-        /**
-         * 写权限
-         * <p> 示例值：
-         *
-         * @param writePermission
-         * @return
-         */
-        public Builder writePermission(Boolean writePermission) {
-            this.writePermission = writePermission;
-            return this;
-        }
-
-
-        /**
-         * 转换权限
-         * <p> 示例值：
-         *
-         * @param switchPermission
-         * @return
-         */
-        public Builder switchPermission(Boolean switchPermission) {
-            this.switchPermission = switchPermission;
-            return this;
-        }
-
-
-        /**
-         * 复制权限
-         * <p> 示例值：
-         *
-         * @param copyPermission
-         * @return
-         */
-        public Builder copyPermission(Boolean copyPermission) {
-            this.copyPermission = copyPermission;
-            return this;
-        }
-
-
-        /**
-         * 删除权限
-         * <p> 示例值：
-         *
-         * @param deletePermission
-         * @return
-         */
-        public Builder deletePermission(Boolean deletePermission) {
-            this.deletePermission = deletePermission;
-            return this;
-        }
-
-
-        public SignatureTemplatePermissionInfo build() {
-            return new SignatureTemplatePermissionInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

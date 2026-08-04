@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMetricFieldReqBody {
+  /**
+   * 指标的字段 ID 列表，填写时获取指定指标字段，不填时获取全部指标字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_ids")
+  private String[] fieldIds;
+
+  public String[] getFieldIds() {
+    return this.fieldIds;
+  }
+
+  public void setFieldIds(String[] fieldIds) {
+    this.fieldIds = fieldIds;
+  }
+
+  // builder 开始
+  public QueryMetricFieldReqBody() {}
+
+  public QueryMetricFieldReqBody(Builder builder) {
     /**
-     * 指标的字段 ID，不传则默认获取全部字段信息
-     * <p> 示例值：
+     * 指标的字段 ID 列表，填写时获取指定指标字段，不填时获取全部指标字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_ids")
+    this.fieldIds = builder.fieldIds;
+  }
+
+  public static class Builder {
+    /**
+     * 指标的字段 ID 列表，填写时获取指定指标字段，不填时获取全部指标字段
+     *
+     * <p>示例值：
+     */
     private String[] fieldIds;
 
-    // builder 开始
-    public QueryMetricFieldReqBody() {
+    /**
+     * 指标的字段 ID 列表，填写时获取指定指标字段，不填时获取全部指标字段
+     *
+     * <p>示例值：
+     *
+     * @param fieldIds
+     * @return
+     */
+    public Builder fieldIds(String[] fieldIds) {
+      this.fieldIds = fieldIds;
+      return this;
     }
 
-    public QueryMetricFieldReqBody(Builder builder) {
-        /**
-         * 指标的字段 ID，不传则默认获取全部字段信息
-         * <p> 示例值：
-         */
-        this.fieldIds = builder.fieldIds;
+    public QueryMetricFieldReqBody build() {
+      return new QueryMetricFieldReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getFieldIds() {
-        return this.fieldIds;
-    }
-
-    public void setFieldIds(String[] fieldIds) {
-        this.fieldIds = fieldIds;
-    }
-
-    public static class Builder {
-        /**
-         * 指标的字段 ID，不传则默认获取全部字段信息
-         * <p> 示例值：
-         */
-        private String[] fieldIds;
-
-        /**
-         * 指标的字段 ID，不传则默认获取全部字段信息
-         * <p> 示例值：
-         *
-         * @param fieldIds
-         * @return
-         */
-        public Builder fieldIds(String[] fieldIds) {
-            this.fieldIds = fieldIds;
-            return this;
-        }
-
-
-        public QueryMetricFieldReqBody build() {
-            return new QueryMetricFieldReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

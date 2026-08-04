@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 字段权限配置模式
- */
+/** 字段权限配置模式 */
 public enum FieldPermissionConfigV2FieldConfigModeEnum {
-    FIELDCONFIGMODEALL("all"), // 拥有全量字段权限
-    FIELDCONFIGMODECUSTOM("custom"), // 自定义
-    FIELDCONFIGMODENONE("none"), // 无字段权限
-    ;
-    private String value;
+  FIELDCONFIGMODEALL("all"), // 拥有全量字段权限
+  FIELDCONFIGMODECUSTOM("custom"), // 自定义
+  FIELDCONFIGMODENONE("none"), // 无字段权限
+  ;
+  private String value;
 
-    FieldPermissionConfigV2FieldConfigModeEnum(String value) {
-        this.value = value;
-    }
+  FieldPermissionConfigV2FieldConfigModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

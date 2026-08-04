@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RestoreFlowInstancePreHireReqBody {
+  /**
+   * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+   *
+   * <p>示例值：7345005664477775407
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  /**
+   * 是否强制占编；true为强制占编；false为非强制占编
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("confirm_workforce")
+  private Boolean confirmWorkforce;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  public Boolean getConfirmWorkforce() {
+    return this.confirmWorkforce;
+  }
+
+  public void setConfirmWorkforce(Boolean confirmWorkforce) {
+    this.confirmWorkforce = confirmWorkforce;
+  }
+
+  // builder 开始
+  public RestoreFlowInstancePreHireReqBody() {}
+
+  public RestoreFlowInstancePreHireReqBody(Builder builder) {
     /**
-     * 待入职ID，可从待入职列表接口获取
-     * <p> 示例值：7345005664477775407
+     * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：7345005664477775407
      */
-    @SerializedName("pre_hire_id")
-    private String preHireId;
+    this.preHireId = builder.preHireId;
     /**
      * 是否强制占编；true为强制占编；false为非强制占编
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("confirm_workforce")
+    this.confirmWorkforce = builder.confirmWorkforce;
+  }
+
+  public static class Builder {
+    /**
+     * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：7345005664477775407
+     */
+    private String preHireId;
+
+    /**
+     * 是否强制占编；true为强制占编；false为非强制占编
+     *
+     * <p>示例值：false
+     */
     private Boolean confirmWorkforce;
 
-    // builder 开始
-    public RestoreFlowInstancePreHireReqBody() {
+    /**
+     * 待入职ID,可从[待入职列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获取
+     *
+     * <p>示例值：7345005664477775407
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
     }
 
-    public RestoreFlowInstancePreHireReqBody(Builder builder) {
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         */
-        this.preHireId = builder.preHireId;
-        /**
-         * 是否强制占编；true为强制占编；false为非强制占编
-         * <p> 示例值：false
-         */
-        this.confirmWorkforce = builder.confirmWorkforce;
+    /**
+     * 是否强制占编；true为强制占编；false为非强制占编
+     *
+     * <p>示例值：false
+     *
+     * @param confirmWorkforce
+     * @return
+     */
+    public Builder confirmWorkforce(Boolean confirmWorkforce) {
+      this.confirmWorkforce = confirmWorkforce;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RestoreFlowInstancePreHireReqBody build() {
+      return new RestoreFlowInstancePreHireReqBody(this);
     }
+  }
 
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public Boolean getConfirmWorkforce() {
-        return this.confirmWorkforce;
-    }
-
-    public void setConfirmWorkforce(Boolean confirmWorkforce) {
-        this.confirmWorkforce = confirmWorkforce;
-    }
-
-    public static class Builder {
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         */
-        private String preHireId;
-        /**
-         * 是否强制占编；true为强制占编；false为非强制占编
-         * <p> 示例值：false
-         */
-        private Boolean confirmWorkforce;
-
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        /**
-         * 是否强制占编；true为强制占编；false为非强制占编
-         * <p> 示例值：false
-         *
-         * @param confirmWorkforce
-         * @return
-         */
-        public Builder confirmWorkforce(Boolean confirmWorkforce) {
-            this.confirmWorkforce = confirmWorkforce;
-            return this;
-        }
-
-
-        public RestoreFlowInstancePreHireReqBody build() {
-            return new RestoreFlowInstancePreHireReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

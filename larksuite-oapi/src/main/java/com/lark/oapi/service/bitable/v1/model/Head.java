@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Head {
+  /**
+   * 请求方的组织，在多租户业务中使用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 请求方的 appid
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public Head() {}
+
+  public Head(Builder builder) {
     /**
      * 请求方的组织，在多租户业务中使用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 请求方的 appid
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("app_id")
+    this.appId = builder.appId;
+  }
+
+  public static class Builder {
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：
+     */
+    private String tenantId;
+
+    /**
+     * 请求方的 appid
+     *
+     * <p>示例值：
+     */
     private String appId;
 
-    // builder 开始
-    public Head() {
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public Head(Builder builder) {
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 请求方的 appid
-         * <p> 示例值：
-         */
-        this.appId = builder.appId;
+    /**
+     * 请求方的 appid
+     *
+     * <p>示例值：
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Head build() {
+      return new Head(this);
     }
+  }
 
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         */
-        private String tenantId;
-        /**
-         * 请求方的 appid
-         * <p> 示例值：
-         */
-        private String appId;
-
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 请求方的 appid
-         * <p> 示例值：
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public Head build() {
-            return new Head(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

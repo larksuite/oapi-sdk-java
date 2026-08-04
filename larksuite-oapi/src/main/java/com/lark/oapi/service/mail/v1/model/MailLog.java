@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailLog {
+  /**
+   * 日志时间戳（毫秒）
+   *
+   * <p>示例值：123456780
+   */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  /**
+   * 日志id
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("initiator")
+  private UserMailEntity initiator;
+
+  /**
+   * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private UserMailEntity operator;
+
+  /**
+   * 邮件信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mail_info")
+  private MailLogMailInfo mailInfo;
+
+  /**
+   * 命中的规则信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rule_infos")
+  private MailFlowRuleInfo[] ruleInfos;
+
+  /**
+   * 日志的标签
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tags")
+  private String[] tags;
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UserMailEntity getInitiator() {
+    return this.initiator;
+  }
+
+  public void setInitiator(UserMailEntity initiator) {
+    this.initiator = initiator;
+  }
+
+  public UserMailEntity getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(UserMailEntity operator) {
+    this.operator = operator;
+  }
+
+  public MailLogMailInfo getMailInfo() {
+    return this.mailInfo;
+  }
+
+  public void setMailInfo(MailLogMailInfo mailInfo) {
+    this.mailInfo = mailInfo;
+  }
+
+  public MailFlowRuleInfo[] getRuleInfos() {
+    return this.ruleInfos;
+  }
+
+  public void setRuleInfos(MailFlowRuleInfo[] ruleInfos) {
+    this.ruleInfos = ruleInfos;
+  }
+
+  public String[] getTags() {
+    return this.tags;
+  }
+
+  public void setTags(String[] tags) {
+    this.tags = tags;
+  }
+
+  // builder 开始
+  public MailLog() {}
+
+  public MailLog(Builder builder) {
     /**
-     * 日志时间戳
-     * <p> 示例值：123456780
+     * 日志时间戳（毫秒）
+     *
+     * <p>示例值：123456780
      */
-    @SerializedName("timestamp")
-    private String timestamp;
+    this.timestamp = builder.timestamp;
     /**
      * 日志id
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 邮箱实体信息
-     * <p> 示例值：
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
      */
-    @SerializedName("initiator")
-    private UserMailEntity initiator;
+    this.initiator = builder.initiator;
     /**
-     * 邮箱实体信息
-     * <p> 示例值：
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private UserMailEntity operator;
+    this.operator = builder.operator;
     /**
      * 邮件信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mail_info")
-    private MailLogMailInfo mailInfo;
+    this.mailInfo = builder.mailInfo;
     /**
      * 命中的规则信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rule_infos")
-    private MailFlowRuleInfo[] ruleInfos;
+    this.ruleInfos = builder.ruleInfos;
     /**
      * 日志的标签
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tags")
+    this.tags = builder.tags;
+  }
+
+  public static class Builder {
+    /**
+     * 日志时间戳（毫秒）
+     *
+     * <p>示例值：123456780
+     */
+    private String timestamp;
+
+    /**
+     * 日志id
+     *
+     * <p>示例值：123456
+     */
+    private String id;
+
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     */
+    private UserMailEntity initiator;
+
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     */
+    private UserMailEntity operator;
+
+    /**
+     * 邮件信息
+     *
+     * <p>示例值：
+     */
+    private MailLogMailInfo mailInfo;
+
+    /**
+     * 命中的规则信息
+     *
+     * <p>示例值：
+     */
+    private MailFlowRuleInfo[] ruleInfos;
+
+    /**
+     * 日志的标签
+     *
+     * <p>示例值：
+     */
     private String[] tags;
 
-    // builder 开始
-    public MailLog() {
+    /**
+     * 日志时间戳（毫秒）
+     *
+     * <p>示例值：123456780
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public MailLog(Builder builder) {
-        /**
-         * 日志时间戳
-         * <p> 示例值：123456780
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * 日志id
-         * <p> 示例值：123456
-         */
-        this.id = builder.id;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        this.initiator = builder.initiator;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 邮件信息
-         * <p> 示例值：
-         */
-        this.mailInfo = builder.mailInfo;
-        /**
-         * 命中的规则信息
-         * <p> 示例值：
-         */
-        this.ruleInfos = builder.ruleInfos;
-        /**
-         * 日志的标签
-         * <p> 示例值：
-         */
-        this.tags = builder.tags;
+    /**
+     * 日志id
+     *
+     * <p>示例值：123456
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     *
+     * @param initiator
+     * @return
+     */
+    public Builder initiator(UserMailEntity initiator) {
+      this.initiator = initiator;
+      return this;
     }
 
-    public String getTimestamp() {
-        return this.timestamp;
+    /**
+     * 邮件流规则的触发实体，用于判断邮件流应用范围;- 使用用户邮箱发信时，为用户邮箱;- 使用公共邮箱发信时，为公共邮箱;- 使用邮件组发信时，为邮件组
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(UserMailEntity operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    /**
+     * 邮件信息
+     *
+     * <p>示例值：
+     *
+     * @param mailInfo
+     * @return
+     */
+    public Builder mailInfo(MailLogMailInfo mailInfo) {
+      this.mailInfo = mailInfo;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 命中的规则信息
+     *
+     * <p>示例值：
+     *
+     * @param ruleInfos
+     * @return
+     */
+    public Builder ruleInfos(MailFlowRuleInfo[] ruleInfos) {
+      this.ruleInfos = ruleInfos;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 日志的标签
+     *
+     * <p>示例值：
+     *
+     * @param tags
+     * @return
+     */
+    public Builder tags(String[] tags) {
+      this.tags = tags;
+      return this;
     }
 
-    public UserMailEntity getInitiator() {
-        return this.initiator;
+    public MailLog build() {
+      return new MailLog(this);
     }
+  }
 
-    public void setInitiator(UserMailEntity initiator) {
-        this.initiator = initiator;
-    }
-
-    public UserMailEntity getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(UserMailEntity operator) {
-        this.operator = operator;
-    }
-
-    public MailLogMailInfo getMailInfo() {
-        return this.mailInfo;
-    }
-
-    public void setMailInfo(MailLogMailInfo mailInfo) {
-        this.mailInfo = mailInfo;
-    }
-
-    public MailFlowRuleInfo[] getRuleInfos() {
-        return this.ruleInfos;
-    }
-
-    public void setRuleInfos(MailFlowRuleInfo[] ruleInfos) {
-        this.ruleInfos = ruleInfos;
-    }
-
-    public String[] getTags() {
-        return this.tags;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
-
-    public static class Builder {
-        /**
-         * 日志时间戳
-         * <p> 示例值：123456780
-         */
-        private String timestamp;
-        /**
-         * 日志id
-         * <p> 示例值：123456
-         */
-        private String id;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        private UserMailEntity initiator;
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         */
-        private UserMailEntity operator;
-        /**
-         * 邮件信息
-         * <p> 示例值：
-         */
-        private MailLogMailInfo mailInfo;
-        /**
-         * 命中的规则信息
-         * <p> 示例值：
-         */
-        private MailFlowRuleInfo[] ruleInfos;
-        /**
-         * 日志的标签
-         * <p> 示例值：
-         */
-        private String[] tags;
-
-        /**
-         * 日志时间戳
-         * <p> 示例值：123456780
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * 日志id
-         * <p> 示例值：123456
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         *
-         * @param initiator
-         * @return
-         */
-        public Builder initiator(UserMailEntity initiator) {
-            this.initiator = initiator;
-            return this;
-        }
-
-
-        /**
-         * 邮箱实体信息
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(UserMailEntity operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 邮件信息
-         * <p> 示例值：
-         *
-         * @param mailInfo
-         * @return
-         */
-        public Builder mailInfo(MailLogMailInfo mailInfo) {
-            this.mailInfo = mailInfo;
-            return this;
-        }
-
-
-        /**
-         * 命中的规则信息
-         * <p> 示例值：
-         *
-         * @param ruleInfos
-         * @return
-         */
-        public Builder ruleInfos(MailFlowRuleInfo[] ruleInfos) {
-            this.ruleInfos = ruleInfos;
-            return this;
-        }
-
-
-        /**
-         * 日志的标签
-         * <p> 示例值：
-         *
-         * @param tags
-         * @return
-         */
-        public Builder tags(String[] tags) {
-            this.tags = tags;
-            return this;
-        }
-
-
-        public MailLog build() {
-            return new MailLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,25 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmployeeRespBody {
-    /**
-     * 员工ID
-     * <p> 示例值：sderdt
-     */
-    @SerializedName("employee_id")
-    private String employeeId;
+  /**
+   * 员工ID<br>
+   * **当`employee_id_type`值为 `employee_id`，字段权限要求**：;<md-perm
+   * name="directory:employee.base.external_id:read" desc="查看员工自定义 ID"
+   * support_app_types="custom,isv" tags="">查看员工自定义 ID</md-perm>; </md-dt-td>;</md-dt-tr>
+   *
+   * <p>示例值：sderdt
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
 
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
 }

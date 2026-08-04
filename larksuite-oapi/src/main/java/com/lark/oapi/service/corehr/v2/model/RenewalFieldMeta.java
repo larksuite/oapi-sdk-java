@@ -13,223 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RenewalFieldMeta {
+  /**
+   * api_name
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nV2 name;
+
+  /**
+   * type
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * sortable
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("sortable")
+  private Boolean sortable;
+
+  /**
+   * filterable
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("filterable")
+  private Boolean filterable;
+
+  /**
+   * 平铺筛选枚举，仅在字段可筛选且下游提供候选值时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enums")
+  private FilterEnum[] enums;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public I18nV2 getName() {
+    return this.name;
+  }
+
+  public void setName(I18nV2 name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Boolean getSortable() {
+    return this.sortable;
+  }
+
+  public void setSortable(Boolean sortable) {
+    this.sortable = sortable;
+  }
+
+  public Boolean getFilterable() {
+    return this.filterable;
+  }
+
+  public void setFilterable(Boolean filterable) {
+    this.filterable = filterable;
+  }
+
+  public FilterEnum[] getEnums() {
+    return this.enums;
+  }
+
+  public void setEnums(FilterEnum[] enums) {
+    this.enums = enums;
+  }
+
+  // builder 开始
+  public RenewalFieldMeta() {}
+
+  public RenewalFieldMeta(Builder builder) {
     /**
      * api_name
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * name
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nV2 name;
+    this.name = builder.name;
     /**
      * type
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * sortable
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("sortable")
-    private Boolean sortable;
+    this.sortable = builder.sortable;
     /**
      * filterable
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("filterable")
+    this.filterable = builder.filterable;
+    /**
+     * 平铺筛选枚举，仅在字段可筛选且下游提供候选值时返回
+     *
+     * <p>示例值：
+     */
+    this.enums = builder.enums;
+  }
+
+  public static class Builder {
+    /**
+     * api_name
+     *
+     * <p>示例值：example
+     */
+    private String apiName;
+
+    /**
+     * name
+     *
+     * <p>示例值：
+     */
+    private I18nV2 name;
+
+    /**
+     * type
+     *
+     * <p>示例值：example
+     */
+    private String type;
+
+    /**
+     * sortable
+     *
+     * <p>示例值：true
+     */
+    private Boolean sortable;
+
+    /**
+     * filterable
+     *
+     * <p>示例值：true
+     */
     private Boolean filterable;
 
-    // builder 开始
-    public RenewalFieldMeta() {
+    /**
+     * 平铺筛选枚举，仅在字段可筛选且下游提供候选值时返回
+     *
+     * <p>示例值：
+     */
+    private FilterEnum[] enums;
+
+    /**
+     * api_name
+     *
+     * <p>示例值：example
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public RenewalFieldMeta(Builder builder) {
-        /**
-         * api_name
-         * <p> 示例值：example
-         */
-        this.apiName = builder.apiName;
-        /**
-         * name
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * type
-         * <p> 示例值：example
-         */
-        this.type = builder.type;
-        /**
-         * sortable
-         * <p> 示例值：true
-         */
-        this.sortable = builder.sortable;
-        /**
-         * filterable
-         * <p> 示例值：true
-         */
-        this.filterable = builder.filterable;
+    /**
+     * name
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nV2 name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * type
+     *
+     * <p>示例值：example
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * sortable
+     *
+     * <p>示例值：true
+     *
+     * @param sortable
+     * @return
+     */
+    public Builder sortable(Boolean sortable) {
+      this.sortable = sortable;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * filterable
+     *
+     * <p>示例值：true
+     *
+     * @param filterable
+     * @return
+     */
+    public Builder filterable(Boolean filterable) {
+      this.filterable = filterable;
+      return this;
     }
 
-    public I18nV2 getName() {
-        return this.name;
+    /**
+     * 平铺筛选枚举，仅在字段可筛选且下游提供候选值时返回
+     *
+     * <p>示例值：
+     *
+     * @param enums
+     * @return
+     */
+    public Builder enums(FilterEnum[] enums) {
+      this.enums = enums;
+      return this;
     }
 
-    public void setName(I18nV2 name) {
-        this.name = name;
+    public RenewalFieldMeta build() {
+      return new RenewalFieldMeta(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Boolean getSortable() {
-        return this.sortable;
-    }
-
-    public void setSortable(Boolean sortable) {
-        this.sortable = sortable;
-    }
-
-    public Boolean getFilterable() {
-        return this.filterable;
-    }
-
-    public void setFilterable(Boolean filterable) {
-        this.filterable = filterable;
-    }
-
-    public static class Builder {
-        /**
-         * api_name
-         * <p> 示例值：example
-         */
-        private String apiName;
-        /**
-         * name
-         * <p> 示例值：
-         */
-        private I18nV2 name;
-        /**
-         * type
-         * <p> 示例值：example
-         */
-        private String type;
-        /**
-         * sortable
-         * <p> 示例值：true
-         */
-        private Boolean sortable;
-        /**
-         * filterable
-         * <p> 示例值：true
-         */
-        private Boolean filterable;
-
-        /**
-         * api_name
-         * <p> 示例值：example
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * name
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nV2 name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * type
-         * <p> 示例值：example
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * sortable
-         * <p> 示例值：true
-         *
-         * @param sortable
-         * @return
-         */
-        public Builder sortable(Boolean sortable) {
-            this.sortable = sortable;
-            return this;
-        }
-
-
-        /**
-         * filterable
-         * <p> 示例值：true
-         *
-         * @param filterable
-         * @return
-         */
-        public Builder filterable(Boolean filterable) {
-            this.filterable = filterable;
-            return this;
-        }
-
-
-        public RenewalFieldMeta build() {
-            return new RenewalFieldMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

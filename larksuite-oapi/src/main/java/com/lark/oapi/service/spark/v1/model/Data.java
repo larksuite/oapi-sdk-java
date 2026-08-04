@@ -13,297 +13,329 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Data {
+  /**
+   * 记录所属的数据平台 workspace 信息
+   *
+   * <p>示例值：workspace_aadjdr45t4ias
+   */
+  @SerializedName("workspace")
+  private String workspace;
+
+  /**
+   * 妙搭或 apaas 的 app id
+   *
+   * <p>示例值：app_4j45921xyju6s
+   */
+  @SerializedName("app")
+  private String app;
+
+  /**
+   * 发生数据记录变更的数据表
+   *
+   * <p>示例值：t1
+   */
+  @SerializedName("table")
+  private String table;
+
+  /**
+   * 变更类型，枚举值：INSERT / UPDATE / DELETE
+   *
+   * <p>示例值：UPDATE
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 变更人
+   *
+   * <p>示例值：(1801755886986304)
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
+   *
+   * <p>示例值："{\"_created_at\":\"2025-10-30
+   * 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30
+   * 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
+   */
+  @SerializedName("before")
+  private String before;
+
+  /**
+   * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
+   *
+   * <p>示例值："{\"_updated_at\":\"2025-10-14
+   * 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
+   */
+  @SerializedName("after")
+  private String after;
+
+  public String getWorkspace() {
+    return this.workspace;
+  }
+
+  public void setWorkspace(String workspace) {
+    this.workspace = workspace;
+  }
+
+  public String getApp() {
+    return this.app;
+  }
+
+  public void setApp(String app) {
+    this.app = app;
+  }
+
+  public String getTable() {
+    return this.table;
+  }
+
+  public void setTable(String table) {
+    this.table = table;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getBefore() {
+    return this.before;
+  }
+
+  public void setBefore(String before) {
+    this.before = before;
+  }
+
+  public String getAfter() {
+    return this.after;
+  }
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+  // builder 开始
+  public Data() {}
+
+  public Data(Builder builder) {
     /**
      * 记录所属的数据平台 workspace 信息
-     * <p> 示例值：workspace_aadjdr45t4ias
+     *
+     * <p>示例值：workspace_aadjdr45t4ias
      */
-    @SerializedName("workspace")
-    private String workspace;
+    this.workspace = builder.workspace;
     /**
      * 妙搭或 apaas 的 app id
-     * <p> 示例值：app_4j45921xyju6s
+     *
+     * <p>示例值：app_4j45921xyju6s
      */
-    @SerializedName("app")
-    private String app;
+    this.app = builder.app;
     /**
      * 发生数据记录变更的数据表
-     * <p> 示例值：t1
+     *
+     * <p>示例值：t1
      */
-    @SerializedName("table")
-    private String table;
+    this.table = builder.table;
     /**
      * 变更类型，枚举值：INSERT / UPDATE / DELETE
-     * <p> 示例值：UPDATE
+     *
+     * <p>示例值：UPDATE
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 变更人
-     * <p> 示例值：(1801755886986304)
+     *
+     * <p>示例值：(1801755886986304)
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
-     * <p> 示例值："{\"_created_at\":\"2025-10-30 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
+     *
+     * <p>示例值："{\"_created_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
      */
-    @SerializedName("before")
-    private String before;
+    this.before = builder.before;
     /**
      * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
-     * <p> 示例值："{\"_updated_at\":\"2025-10-14 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
+     *
+     * <p>示例值："{\"_updated_at\":\"2025-10-14
+     * 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
      */
-    @SerializedName("after")
+    this.after = builder.after;
+  }
+
+  public static class Builder {
+    /**
+     * 记录所属的数据平台 workspace 信息
+     *
+     * <p>示例值：workspace_aadjdr45t4ias
+     */
+    private String workspace;
+
+    /**
+     * 妙搭或 apaas 的 app id
+     *
+     * <p>示例值：app_4j45921xyju6s
+     */
+    private String app;
+
+    /**
+     * 发生数据记录变更的数据表
+     *
+     * <p>示例值：t1
+     */
+    private String table;
+
+    /**
+     * 变更类型，枚举值：INSERT / UPDATE / DELETE
+     *
+     * <p>示例值：UPDATE
+     */
+    private String type;
+
+    /**
+     * 变更人
+     *
+     * <p>示例值：(1801755886986304)
+     */
+    private String operator;
+
+    /**
+     * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
+     *
+     * <p>示例值："{\"_created_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
+     */
+    private String before;
+
+    /**
+     * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
+     *
+     * <p>示例值："{\"_updated_at\":\"2025-10-14
+     * 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
+     */
     private String after;
 
-    // builder 开始
-    public Data() {
+    /**
+     * 记录所属的数据平台 workspace 信息
+     *
+     * <p>示例值：workspace_aadjdr45t4ias
+     *
+     * @param workspace
+     * @return
+     */
+    public Builder workspace(String workspace) {
+      this.workspace = workspace;
+      return this;
     }
 
-    public Data(Builder builder) {
-        /**
-         * 记录所属的数据平台 workspace 信息
-         * <p> 示例值：workspace_aadjdr45t4ias
-         */
-        this.workspace = builder.workspace;
-        /**
-         * 妙搭或 apaas 的 app id
-         * <p> 示例值：app_4j45921xyju6s
-         */
-        this.app = builder.app;
-        /**
-         * 发生数据记录变更的数据表
-         * <p> 示例值：t1
-         */
-        this.table = builder.table;
-        /**
-         * 变更类型，枚举值：INSERT / UPDATE / DELETE
-         * <p> 示例值：UPDATE
-         */
-        this.type = builder.type;
-        /**
-         * 变更人
-         * <p> 示例值：(1801755886986304)
-         */
-        this.operator = builder.operator;
-        /**
-         * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
-         * <p> 示例值："{\"_created_at\":\"2025-10-30 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
-         */
-        this.before = builder.before;
-        /**
-         * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
-         * <p> 示例值："{\"_updated_at\":\"2025-10-14 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
-         */
-        this.after = builder.after;
+    /**
+     * 妙搭或 apaas 的 app id
+     *
+     * <p>示例值：app_4j45921xyju6s
+     *
+     * @param app
+     * @return
+     */
+    public Builder app(String app) {
+      this.app = app;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发生数据记录变更的数据表
+     *
+     * <p>示例值：t1
+     *
+     * @param table
+     * @return
+     */
+    public Builder table(String table) {
+      this.table = table;
+      return this;
     }
 
-    public String getWorkspace() {
-        return this.workspace;
+    /**
+     * 变更类型，枚举值：INSERT / UPDATE / DELETE
+     *
+     * <p>示例值：UPDATE
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setWorkspace(String workspace) {
-        this.workspace = workspace;
+    /**
+     * 变更人
+     *
+     * <p>示例值：(1801755886986304)
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getApp() {
-        return this.app;
+    /**
+     * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
+     *
+     * <p>示例值："{\"_created_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30
+     * 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
+     *
+     * @param before
+     * @return
+     */
+    public Builder before(String before) {
+      this.before = before;
+      return this;
     }
 
-    public void setApp(String app) {
-        this.app = app;
+    /**
+     * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
+     *
+     * <p>示例值："{\"_updated_at\":\"2025-10-14
+     * 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
+     *
+     * @param after
+     * @return
+     */
+    public Builder after(String after) {
+      this.after = after;
+      return this;
     }
 
-    public String getTable() {
-        return this.table;
+    public Data build() {
+      return new Data(this);
     }
+  }
 
-    public void setTable(String table) {
-        this.table = table;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String getBefore() {
-        return this.before;
-    }
-
-    public void setBefore(String before) {
-        this.before = before;
-    }
-
-    public String getAfter() {
-        return this.after;
-    }
-
-    public void setAfter(String after) {
-        this.after = after;
-    }
-
-    public static class Builder {
-        /**
-         * 记录所属的数据平台 workspace 信息
-         * <p> 示例值：workspace_aadjdr45t4ias
-         */
-        private String workspace;
-        /**
-         * 妙搭或 apaas 的 app id
-         * <p> 示例值：app_4j45921xyju6s
-         */
-        private String app;
-        /**
-         * 发生数据记录变更的数据表
-         * <p> 示例值：t1
-         */
-        private String table;
-        /**
-         * 变更类型，枚举值：INSERT / UPDATE / DELETE
-         * <p> 示例值：UPDATE
-         */
-        private String type;
-        /**
-         * 变更人
-         * <p> 示例值：(1801755886986304)
-         */
-        private String operator;
-        /**
-         * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
-         * <p> 示例值："{\"_created_at\":\"2025-10-30 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
-         */
-        private String before;
-        /**
-         * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
-         * <p> 示例值："{\"_updated_at\":\"2025-10-14 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
-         */
-        private String after;
-
-        /**
-         * 记录所属的数据平台 workspace 信息
-         * <p> 示例值：workspace_aadjdr45t4ias
-         *
-         * @param workspace
-         * @return
-         */
-        public Builder workspace(String workspace) {
-            this.workspace = workspace;
-            return this;
-        }
-
-
-        /**
-         * 妙搭或 apaas 的 app id
-         * <p> 示例值：app_4j45921xyju6s
-         *
-         * @param app
-         * @return
-         */
-        public Builder app(String app) {
-            this.app = app;
-            return this;
-        }
-
-
-        /**
-         * 发生数据记录变更的数据表
-         * <p> 示例值：t1
-         *
-         * @param table
-         * @return
-         */
-        public Builder table(String table) {
-            this.table = table;
-            return this;
-        }
-
-
-        /**
-         * 变更类型，枚举值：INSERT / UPDATE / DELETE
-         * <p> 示例值：UPDATE
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 变更人
-         * <p> 示例值：(1801755886986304)
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 变更前的记录数据（INSERT 为 NULL，DELETE 包含全部字段）
-         * <p> 示例值："{\"_created_at\":\"2025-10-30 22:32:56.90873+08\",\"_created_by\":\"(1801755886986304)\",\"_id\":\"6ca55db2-503f-4490-ae6b-76834f9e6d15\",\"_updated_at\":\"2025-10-30 22:32:56.90873+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":123,\"custom_col_2\":0,\"custom_col_3\":\"xxx\",\"custom_col_5\":\"yyy\"}"
-         *
-         * @param before
-         * @return
-         */
-        public Builder before(String before) {
-            this.before = before;
-            return this;
-        }
-
-
-        /**
-         * 变更后数据，仅含变更字段（INSERT 包含全部字段，DELETE 为 NULL）
-         * <p> 示例值："{\"_updated_at\":\"2025-10-14 18:18:26.509353+08\",\"_updated_by\":\"(1801755886986304)\",\"custom_col_1\":456}"
-         *
-         * @param after
-         * @return
-         */
-        public Builder after(String after) {
-            this.after = after;
-            return this;
-        }
-
-
-        public Data build() {
-            return new Data(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

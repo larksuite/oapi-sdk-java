@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadInitializeAppStorageReqBody {
+  /**
+   * 文件的名称，建议最大长度不超过100
+   *
+   * <p>示例值：测试文本文件.txt
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 文件的大小，单位为字节。
+   *
+   * <p>示例值：104857600
+   */
+  @SerializedName("file_size")
+  private Integer fileSize;
+
+  /**
+   * 文件 MIME 类型
+   *
+   * <p>示例值：text/plain; charset=utf-8
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public Integer getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(Integer fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  // builder 开始
+  public UploadInitializeAppStorageReqBody() {}
+
+  public UploadInitializeAppStorageReqBody(Builder builder) {
     /**
-     * 文件名称
-     * <p> 示例值：上传文件名称示例
+     * 文件的名称，建议最大长度不超过100
+     *
+     * <p>示例值：测试文本文件.txt
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
-     * 文件大小（字节）
-     * <p> 示例值：104857600
+     * 文件的大小，单位为字节。
+     *
+     * <p>示例值：104857600
      */
-    @SerializedName("file_size")
-    private Integer fileSize;
+    this.fileSize = builder.fileSize;
     /**
      * 文件 MIME 类型
-     * <p> 示例值：text/plain; charset=utf-8
+     *
+     * <p>示例值：text/plain; charset=utf-8
      */
-    @SerializedName("mime_type")
+    this.mimeType = builder.mimeType;
+  }
+
+  public static class Builder {
+    /**
+     * 文件的名称，建议最大长度不超过100
+     *
+     * <p>示例值：测试文本文件.txt
+     */
+    private String fileName;
+
+    /**
+     * 文件的大小，单位为字节。
+     *
+     * <p>示例值：104857600
+     */
+    private Integer fileSize;
+
+    /**
+     * 文件 MIME 类型
+     *
+     * <p>示例值：text/plain; charset=utf-8
+     */
     private String mimeType;
 
-    // builder 开始
-    public UploadInitializeAppStorageReqBody() {
+    /**
+     * 文件的名称，建议最大长度不超过100
+     *
+     * <p>示例值：测试文本文件.txt
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public UploadInitializeAppStorageReqBody(Builder builder) {
-        /**
-         * 文件名称
-         * <p> 示例值：上传文件名称示例
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件大小（字节）
-         * <p> 示例值：104857600
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 文件 MIME 类型
-         * <p> 示例值：text/plain; charset=utf-8
-         */
-        this.mimeType = builder.mimeType;
+    /**
+     * 文件的大小，单位为字节。
+     *
+     * <p>示例值：104857600
+     *
+     * @param fileSize
+     * @return
+     */
+    public Builder fileSize(Integer fileSize) {
+      this.fileSize = fileSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件 MIME 类型
+     *
+     * <p>示例值：text/plain; charset=utf-8
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    public UploadInitializeAppStorageReqBody build() {
+      return new UploadInitializeAppStorageReqBody(this);
     }
+  }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public static class Builder {
-        /**
-         * 文件名称
-         * <p> 示例值：上传文件名称示例
-         */
-        private String fileName;
-        /**
-         * 文件大小（字节）
-         * <p> 示例值：104857600
-         */
-        private Integer fileSize;
-        /**
-         * 文件 MIME 类型
-         * <p> 示例值：text/plain; charset=utf-8
-         */
-        private String mimeType;
-
-        /**
-         * 文件名称
-         * <p> 示例值：上传文件名称示例
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 文件大小（字节）
-         * <p> 示例值：104857600
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
-            return this;
-        }
-
-
-        /**
-         * 文件 MIME 类型
-         * <p> 示例值：text/plain; charset=utf-8
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        public UploadInitializeAppStorageReqBody build() {
-            return new UploadInitializeAppStorageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

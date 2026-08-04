@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateEmployeeTypeEnum {
+  /**
+   * 枚举ID
+   *
+   * <p>示例值：enum
+   */
+  @SerializedName("enum_id")
+  private String enumId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private I18nText content;
+
+  /**
+   * 枚举状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_status")
+  private String enumStatus;
+
+  public String getEnumId() {
+    return this.enumId;
+  }
+
+  public void setEnumId(String enumId) {
+    this.enumId = enumId;
+  }
+
+  public I18nText getContent() {
+    return this.content;
+  }
+
+  public void setContent(I18nText content) {
+    this.content = content;
+  }
+
+  public String getEnumStatus() {
+    return this.enumStatus;
+  }
+
+  public void setEnumStatus(String enumStatus) {
+    this.enumStatus = enumStatus;
+  }
+
+  // builder 开始
+  public UpdateEmployeeTypeEnum() {}
+
+  public UpdateEmployeeTypeEnum(Builder builder) {
     /**
      * 枚举ID
-     * <p> 示例值：enum
+     *
+     * <p>示例值：enum
      */
-    @SerializedName("enum_id")
-    private String enumId;
+    this.enumId = builder.enumId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private I18nText content;
+    this.content = builder.content;
     /**
      * 枚举状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_status")
+    this.enumStatus = builder.enumStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举ID
+     *
+     * <p>示例值：enum
+     */
+    private String enumId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText content;
+
+    /**
+     * 枚举状态
+     *
+     * <p>示例值：
+     */
     private String enumStatus;
 
-    // builder 开始
-    public UpdateEmployeeTypeEnum() {
+    /**
+     * 枚举ID
+     *
+     * <p>示例值：enum
+     *
+     * @param enumId
+     * @return
+     */
+    public Builder enumId(String enumId) {
+      this.enumId = enumId;
+      return this;
     }
 
-    public UpdateEmployeeTypeEnum(Builder builder) {
-        /**
-         * 枚举ID
-         * <p> 示例值：enum
-         */
-        this.enumId = builder.enumId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 枚举状态
-         * <p> 示例值：
-         */
-        this.enumStatus = builder.enumStatus;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(I18nText content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举状态
+     *
+     * <p>示例值：
+     *
+     * @param enumStatus
+     * @return
+     */
+    public Builder enumStatus(String enumStatus) {
+      this.enumStatus = enumStatus;
+      return this;
     }
 
-    public String getEnumId() {
-        return this.enumId;
+    public UpdateEmployeeTypeEnum build() {
+      return new UpdateEmployeeTypeEnum(this);
     }
+  }
 
-    public void setEnumId(String enumId) {
-        this.enumId = enumId;
-    }
-
-    public I18nText getContent() {
-        return this.content;
-    }
-
-    public void setContent(I18nText content) {
-        this.content = content;
-    }
-
-    public String getEnumStatus() {
-        return this.enumStatus;
-    }
-
-    public void setEnumStatus(String enumStatus) {
-        this.enumStatus = enumStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举ID
-         * <p> 示例值：enum
-         */
-        private String enumId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText content;
-        /**
-         * 枚举状态
-         * <p> 示例值：
-         */
-        private String enumStatus;
-
-        /**
-         * 枚举ID
-         * <p> 示例值：enum
-         *
-         * @param enumId
-         * @return
-         */
-        public Builder enumId(String enumId) {
-            this.enumId = enumId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(I18nText content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 枚举状态
-         * <p> 示例值：
-         *
-         * @param enumStatus
-         * @return
-         */
-        public Builder enumStatus(String enumStatus) {
-            this.enumStatus = enumStatus;
-            return this;
-        }
-
-
-        public UpdateEmployeeTypeEnum build() {
-            return new UpdateEmployeeTypeEnum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

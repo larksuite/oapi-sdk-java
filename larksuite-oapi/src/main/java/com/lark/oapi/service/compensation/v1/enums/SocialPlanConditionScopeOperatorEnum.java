@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 适用范围操作
- */
+/** 适用范围操作 */
 public enum SocialPlanConditionScopeOperatorEnum {
-    INCLUDE(1), // 包含
-    NOTINCLUDE(2), // 不包含
-    ;
-    private Integer value;
+  INCLUDE(1), // 包含
+  NOTINCLUDE(2), // 不包含
+  ;
+  private Integer value;
 
-    SocialPlanConditionScopeOperatorEnum(Integer value) {
-        this.value = value;
-    }
+  SocialPlanConditionScopeOperatorEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

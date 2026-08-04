@@ -13,223 +13,245 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentParentInfo {
+  /**
+   * 部门 ID
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_name")
+  private I18n[] departmentName;
+
+  /**
+   * 上级部门 ID（若查询的是一级部门，则该字段不展示）;-
+   * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：4719456877659520111
+   */
+  @SerializedName("parent_department_id")
+  private String parentDepartmentId;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 是否根部门
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_root")
+  private Boolean isRoot;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public I18n[] getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(I18n[] departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  public String getParentDepartmentId() {
+    return this.parentDepartmentId;
+  }
+
+  public void setParentDepartmentId(String parentDepartmentId) {
+    this.parentDepartmentId = parentDepartmentId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Boolean getIsRoot() {
+    return this.isRoot;
+  }
+
+  public void setIsRoot(Boolean isRoot) {
+    this.isRoot = isRoot;
+  }
+
+  // builder 开始
+  public DepartmentParentInfo() {}
+
+  public DepartmentParentInfo(Builder builder) {
     /**
      * 部门 ID
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_name")
-    private I18n[] departmentName;
+    this.departmentName = builder.departmentName;
     /**
-     * 上级部门 ID
-     * <p> 示例值：4719456877659520111
+     * 上级部门 ID（若查询的是一级部门，则该字段不展示）;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520111
      */
-    @SerializedName("parent_department_id")
-    private String parentDepartmentId;
+    this.parentDepartmentId = builder.parentDepartmentId;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 是否根部门
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_root")
+    this.isRoot = builder.isRoot;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String departmentId;
+
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] departmentName;
+
+    /**
+     * 上级部门 ID（若查询的是一级部门，则该字段不展示）;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520111
+     */
+    private String parentDepartmentId;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 是否根部门
+     *
+     * <p>示例值：true
+     */
     private Boolean isRoot;
 
-    // builder 开始
-    public DepartmentParentInfo() {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public DepartmentParentInfo(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 是否根部门
-         * <p> 示例值：true
-         */
-        this.isRoot = builder.isRoot;
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(I18n[] departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上级部门 ID（若查询的是一级部门，则该字段不展示）;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520111
+     *
+     * @param parentDepartmentId
+     * @return
+     */
+    public Builder parentDepartmentId(String parentDepartmentId) {
+      this.parentDepartmentId = parentDepartmentId;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 是否根部门
+     *
+     * <p>示例值：true
+     *
+     * @param isRoot
+     * @return
+     */
+    public Builder isRoot(Boolean isRoot) {
+      this.isRoot = isRoot;
+      return this;
     }
 
-    public I18n[] getDepartmentName() {
-        return this.departmentName;
+    public DepartmentParentInfo build() {
+      return new DepartmentParentInfo(this);
     }
+  }
 
-    public void setDepartmentName(I18n[] departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public String getParentDepartmentId() {
-        return this.parentDepartmentId;
-    }
-
-    public void setParentDepartmentId(String parentDepartmentId) {
-        this.parentDepartmentId = parentDepartmentId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public Boolean getIsRoot() {
-        return this.isRoot;
-    }
-
-    public void setIsRoot(Boolean isRoot) {
-        this.isRoot = isRoot;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String departmentId;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        private I18n[] departmentName;
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         */
-        private String parentDepartmentId;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 是否根部门
-         * <p> 示例值：true
-         */
-        private Boolean isRoot;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门名称
-         * <p> 示例值：
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(I18n[] departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        /**
-         * 上级部门 ID
-         * <p> 示例值：4719456877659520111
-         *
-         * @param parentDepartmentId
-         * @return
-         */
-        public Builder parentDepartmentId(String parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 是否根部门
-         * <p> 示例值：true
-         *
-         * @param isRoot
-         * @return
-         */
-        public Builder isRoot(Boolean isRoot) {
-            this.isRoot = isRoot;
-            return this;
-        }
-
-
-        public DepartmentParentInfo build() {
-            return new DepartmentParentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

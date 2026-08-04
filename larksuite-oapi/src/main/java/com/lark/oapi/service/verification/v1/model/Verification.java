@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.verification.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Verification {
+  /**
+   * 企业主体名称
+   *
+   * <p>示例值：无限未来科技公司
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_verification")
+  private Boolean hasVerification;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getHasVerification() {
+    return this.hasVerification;
+  }
+
+  public void setHasVerification(Boolean hasVerification) {
+    this.hasVerification = hasVerification;
+  }
+
+  // builder 开始
+  public Verification() {}
+
+  public Verification(Builder builder) {
     /**
      * 企业主体名称
-     * <p> 示例值：无限未来科技公司
+     *
+     * <p>示例值：无限未来科技公司
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_verification")
+    this.hasVerification = builder.hasVerification;
+  }
+
+  public static class Builder {
+    /**
+     * 企业主体名称
+     *
+     * <p>示例值：无限未来科技公司
+     */
+    private String name;
+
+    /**
+     * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
+     *
+     * <p>示例值：
+     */
     private Boolean hasVerification;
 
-    // builder 开始
-    public Verification() {
+    /**
+     * 企业主体名称
+     *
+     * <p>示例值：无限未来科技公司
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public Verification(Builder builder) {
-        /**
-         * 企业主体名称
-         * <p> 示例值：无限未来科技公司
-         */
-        this.name = builder.name;
-        /**
-         * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
-         * <p> 示例值：
-         */
-        this.hasVerification = builder.hasVerification;
+    /**
+     * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
+     *
+     * <p>示例值：
+     *
+     * @param hasVerification
+     * @return
+     */
+    public Builder hasVerification(Boolean hasVerification) {
+      this.hasVerification = hasVerification;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Verification build() {
+      return new Verification(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getHasVerification() {
-        return this.hasVerification;
-    }
-
-    public void setHasVerification(Boolean hasVerification) {
-        this.hasVerification = hasVerification;
-    }
-
-    public static class Builder {
-        /**
-         * 企业主体名称
-         * <p> 示例值：无限未来科技公司
-         */
-        private String name;
-        /**
-         * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
-         * <p> 示例值：
-         */
-        private Boolean hasVerification;
-
-        /**
-         * 企业主体名称
-         * <p> 示例值：无限未来科技公司
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 企业是否完成认证； true 表示已经完成认证，false 表示未认证
-         * <p> 示例值：
-         *
-         * @param hasVerification
-         * @return
-         */
-        public Builder hasVerification(Boolean hasVerification) {
-            this.hasVerification = hasVerification;
-            return this;
-        }
-
-
-        public Verification build() {
-            return new Verification(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

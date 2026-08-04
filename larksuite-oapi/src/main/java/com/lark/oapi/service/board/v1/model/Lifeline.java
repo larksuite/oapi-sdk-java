@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Lifeline {
+  /**
+   * 生命线长度，单位 px
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("size")
+  private Double size;
+
+  /**
+   * 生命线类型
+   *
+   * <p>示例值：actor_lifeline
+   */
+  @SerializedName("type")
+  private String type;
+
+  public Double getSize() {
+    return this.size;
+  }
+
+  public void setSize(Double size) {
+    this.size = size;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Lifeline() {}
+
+  public Lifeline(Builder builder) {
     /**
-     * 生命线长度
-     * <p> 示例值：10
+     * 生命线长度，单位 px
+     *
+     * <p>示例值：10
      */
-    @SerializedName("size")
-    private Double size;
+    this.size = builder.size;
     /**
      * 生命线类型
-     * <p> 示例值：actor_lifeline
+     *
+     * <p>示例值：actor_lifeline
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 生命线长度，单位 px
+     *
+     * <p>示例值：10
+     */
+    private Double size;
+
+    /**
+     * 生命线类型
+     *
+     * <p>示例值：actor_lifeline
+     */
     private String type;
 
-    // builder 开始
-    public Lifeline() {
+    /**
+     * 生命线长度，单位 px
+     *
+     * <p>示例值：10
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Double size) {
+      this.size = size;
+      return this;
     }
 
-    public Lifeline(Builder builder) {
-        /**
-         * 生命线长度
-         * <p> 示例值：10
-         */
-        this.size = builder.size;
-        /**
-         * 生命线类型
-         * <p> 示例值：actor_lifeline
-         */
-        this.type = builder.type;
+    /**
+     * 生命线类型
+     *
+     * <p>示例值：actor_lifeline
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Lifeline build() {
+      return new Lifeline(this);
     }
+  }
 
-    public Double getSize() {
-        return this.size;
-    }
-
-    public void setSize(Double size) {
-        this.size = size;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 生命线长度
-         * <p> 示例值：10
-         */
-        private Double size;
-        /**
-         * 生命线类型
-         * <p> 示例值：actor_lifeline
-         */
-        private String type;
-
-        /**
-         * 生命线长度
-         * <p> 示例值：10
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Double size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 生命线类型
-         * <p> 示例值：actor_lifeline
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public Lifeline build() {
-            return new Lifeline(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

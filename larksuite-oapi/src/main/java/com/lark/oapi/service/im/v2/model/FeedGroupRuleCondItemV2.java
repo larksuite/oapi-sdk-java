@@ -13,259 +13,281 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedGroupRuleCondItemV2 {
+  /**
+   * 条件类型
+   *
+   * <p>示例值：keyword
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 操作符
+   *
+   * <p>示例值：contain
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 关键词
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_685fae31552ae88681bc69b4a15502df
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 会话类型
+   *
+   * <p>示例值：p2p
+   */
+  @SerializedName("chat_type")
+  private String chatType;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(String chatType) {
+    this.chatType = chatType;
+  }
+
+  // builder 开始
+  public FeedGroupRuleCondItemV2() {}
+
+  public FeedGroupRuleCondItemV2(Builder builder) {
     /**
      * 条件类型
-     * <p> 示例值：keyword
+     *
+     * <p>示例值：keyword
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 操作符
-     * <p> 示例值：contain
+     *
+     * <p>示例值：contain
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 关键词
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
      * 用户 ID
-     * <p> 示例值：ou_685fae31552ae88681bc69b4a15502df
+     *
+     * <p>示例值：ou_685fae31552ae88681bc69b4a15502df
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 会话类型
-     * <p> 示例值：p2p
+     *
+     * <p>示例值：p2p
      */
-    @SerializedName("chat_type")
+    this.chatType = builder.chatType;
+  }
+
+  public static class Builder {
+    /**
+     * 条件类型
+     *
+     * <p>示例值：keyword
+     */
+    private String type;
+
+    /**
+     * 操作符
+     *
+     * <p>示例值：contain
+     */
+    private String operator;
+
+    /**
+     * 关键词
+     *
+     * <p>示例值：test
+     */
+    private String keyword;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_685fae31552ae88681bc69b4a15502df
+     */
+    private String userId;
+
+    /**
+     * 会话类型
+     *
+     * <p>示例值：p2p
+     */
     private String chatType;
 
-    // builder 开始
-    public FeedGroupRuleCondItemV2() {
+    /**
+     * 条件类型
+     *
+     * <p>示例值：keyword
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public FeedGroupRuleCondItemV2(Builder builder) {
-        /**
-         * 条件类型
-         * <p> 示例值：keyword
-         */
-        this.type = builder.type;
-        /**
-         * 操作符
-         * <p> 示例值：contain
-         */
-        this.operator = builder.operator;
-        /**
-         * 关键词
-         * <p> 示例值：test
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_685fae31552ae88681bc69b4a15502df
-         */
-        this.userId = builder.userId;
-        /**
-         * 会话类型
-         * <p> 示例值：p2p
-         */
-        this.chatType = builder.chatType;
+    /**
+     * 条件类型
+     *
+     * <p>示例值：keyword
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemTypeEnum
+            type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作符
+     *
+     * <p>示例值：contain
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 操作符
+     *
+     * <p>示例值：contain
+     *
+     * @param operator {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemOperatorEnum}
+     * @return
+     */
+    public Builder operator(
+        com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemOperatorEnum
+            operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 关键词
+     *
+     * <p>示例值：test
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_685fae31552ae88681bc69b4a15502df
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    /**
+     * 会话类型
+     *
+     * <p>示例值：p2p
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(String chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public String getKeyword() {
-        return this.keyword;
+    /**
+     * 会话类型
+     *
+     * <p>示例值：p2p
+     *
+     * @param chatType {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum}
+     * @return
+     */
+    public Builder chatType(
+        com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum
+            chatType) {
+      this.chatType = chatType.getValue();
+      return this;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public FeedGroupRuleCondItemV2 build() {
+      return new FeedGroupRuleCondItemV2(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(String chatType) {
-        this.chatType = chatType;
-    }
-
-    public static class Builder {
-        /**
-         * 条件类型
-         * <p> 示例值：keyword
-         */
-        private String type;
-        /**
-         * 操作符
-         * <p> 示例值：contain
-         */
-        private String operator;
-        /**
-         * 关键词
-         * <p> 示例值：test
-         */
-        private String keyword;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_685fae31552ae88681bc69b4a15502df
-         */
-        private String userId;
-        /**
-         * 会话类型
-         * <p> 示例值：p2p
-         */
-        private String chatType;
-
-        /**
-         * 条件类型
-         * <p> 示例值：keyword
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 条件类型
-         * <p> 示例值：keyword
-         *
-         * @param type {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作符
-         * <p> 示例值：contain
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-        /**
-         * 操作符
-         * <p> 示例值：contain
-         *
-         * @param operator {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemOperatorEnum}
-         * @return
-         */
-        public Builder operator(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 关键词
-         * <p> 示例值：test
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_685fae31552ae88681bc69b4a15502df
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 会话类型
-         * <p> 示例值：p2p
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(String chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-        /**
-         * 会话类型
-         * <p> 示例值：p2p
-         *
-         * @param chatType {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum}
-         * @return
-         */
-        public Builder chatType(com.lark.oapi.service.im.v2.enums.FeedGroupRuleCondItemV2FeedGroupRuleCondItemChatTypeEnum chatType) {
-            this.chatType = chatType.getValue();
-            return this;
-        }
-
-
-        public FeedGroupRuleCondItemV2 build() {
-            return new FeedGroupRuleCondItemV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

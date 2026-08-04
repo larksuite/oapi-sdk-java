@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 日程响应状态
- */
+/** 日程响应状态 */
 public enum ParticipantAcceptStatusEnum {
-    ACCEPT(1), // 接受
-    DECLINE(2), // 拒绝
-    TENTATIVE(3), // 待确认
-    NEED_ACTION(4), // 未响应
-    ;
-    private Integer value;
+  ACCEPT(1), // 接受
+  DECLINE(2), // 拒绝
+  TENTATIVE(3), // 待确认
+  NEED_ACTION(4), // 未响应
+  ;
+  private Integer value;
 
-    ParticipantAcceptStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ParticipantAcceptStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

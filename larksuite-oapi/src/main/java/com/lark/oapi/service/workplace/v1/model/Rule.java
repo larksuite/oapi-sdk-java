@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.workplace.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Rule {
+  /**
+   * 是否全员接收通知
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_all_visible")
+  private Boolean isAllVisible;
+
+  /**
+   * 可接收通知的部门id列表，上限为500个
+   *
+   * <p>示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
+   */
+  @SerializedName("visible_department_ids")
+  private String[] visibleDepartmentIds;
+
+  public Boolean getIsAllVisible() {
+    return this.isAllVisible;
+  }
+
+  public void setIsAllVisible(Boolean isAllVisible) {
+    this.isAllVisible = isAllVisible;
+  }
+
+  public String[] getVisibleDepartmentIds() {
+    return this.visibleDepartmentIds;
+  }
+
+  public void setVisibleDepartmentIds(String[] visibleDepartmentIds) {
+    this.visibleDepartmentIds = visibleDepartmentIds;
+  }
+
+  // builder 开始
+  public Rule() {}
+
+  public Rule(Builder builder) {
     /**
      * 是否全员接收通知
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_all_visible")
-    private Boolean isAllVisible;
+    this.isAllVisible = builder.isAllVisible;
     /**
      * 可接收通知的部门id列表，上限为500个
-     * <p> 示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
+     *
+     * <p>示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
      */
-    @SerializedName("visible_department_ids")
+    this.visibleDepartmentIds = builder.visibleDepartmentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 是否全员接收通知
+     *
+     * <p>示例值：false
+     */
+    private Boolean isAllVisible;
+
+    /**
+     * 可接收通知的部门id列表，上限为500个
+     *
+     * <p>示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
+     */
     private String[] visibleDepartmentIds;
 
-    // builder 开始
-    public Rule() {
+    /**
+     * 是否全员接收通知
+     *
+     * <p>示例值：false
+     *
+     * @param isAllVisible
+     * @return
+     */
+    public Builder isAllVisible(Boolean isAllVisible) {
+      this.isAllVisible = isAllVisible;
+      return this;
     }
 
-    public Rule(Builder builder) {
-        /**
-         * 是否全员接收通知
-         * <p> 示例值：false
-         */
-        this.isAllVisible = builder.isAllVisible;
-        /**
-         * 可接收通知的部门id列表，上限为500个
-         * <p> 示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
-         */
-        this.visibleDepartmentIds = builder.visibleDepartmentIds;
+    /**
+     * 可接收通知的部门id列表，上限为500个
+     *
+     * <p>示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
+     *
+     * @param visibleDepartmentIds
+     * @return
+     */
+    public Builder visibleDepartmentIds(String[] visibleDepartmentIds) {
+      this.visibleDepartmentIds = visibleDepartmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Rule build() {
+      return new Rule(this);
     }
+  }
 
-    public Boolean getIsAllVisible() {
-        return this.isAllVisible;
-    }
-
-    public void setIsAllVisible(Boolean isAllVisible) {
-        this.isAllVisible = isAllVisible;
-    }
-
-    public String[] getVisibleDepartmentIds() {
-        return this.visibleDepartmentIds;
-    }
-
-    public void setVisibleDepartmentIds(String[] visibleDepartmentIds) {
-        this.visibleDepartmentIds = visibleDepartmentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 是否全员接收通知
-         * <p> 示例值：false
-         */
-        private Boolean isAllVisible;
-        /**
-         * 可接收通知的部门id列表，上限为500个
-         * <p> 示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
-         */
-        private String[] visibleDepartmentIds;
-
-        /**
-         * 是否全员接收通知
-         * <p> 示例值：false
-         *
-         * @param isAllVisible
-         * @return
-         */
-        public Builder isAllVisible(Boolean isAllVisible) {
-            this.isAllVisible = isAllVisible;
-            return this;
-        }
-
-
-        /**
-         * 可接收通知的部门id列表，上限为500个
-         * <p> 示例值：["a3ed9ece96ff2b1a","a3ed9ece96ff2b1b"]
-         *
-         * @param visibleDepartmentIds
-         * @return
-         */
-        public Builder visibleDepartmentIds(String[] visibleDepartmentIds) {
-            this.visibleDepartmentIds = visibleDepartmentIds;
-            return this;
-        }
-
-
-        public Rule build() {
-            return new Rule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,98 +13,97 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class CopyAppReq {
+  /**
+   * 要复制的多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。;
+   *
+   * <p>示例值：AW3Qbtr2cakCnesXzXVbbsrIcVT
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  @Body private CopyAppReqBody body;
+
+  public CopyAppReqBody getCopyAppReqBody() {
+    return this.body;
+  }
+
+  public void setCopyAppReqBody(CopyAppReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CopyAppReq() {}
+
+  public CopyAppReq(Builder builder) {
     /**
-     * 多维表格 App token
-     * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
+     * 要复制的多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。;
+     *
+     * <p>示例值：AW3Qbtr2cakCnesXzXVbbsrIcVT
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
-    @Body
+    this.appToken = builder.appToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appToken; // 要复制的多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token
+
+    // 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。;
+
+    /**
+     * 要复制的多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同，参考[多维表格 app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview)获取。;
+     *
+     * <p>示例值：AW3Qbtr2cakCnesXzXVbbsrIcVT
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
+    }
+
     private CopyAppReqBody body;
 
-    // builder 开始
-    public CopyAppReq() {
-    }
-
-    public CopyAppReq(Builder builder) {
-        /**
-         * 多维表格 App token
-         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
-         */
-        this.appToken = builder.appToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
     public CopyAppReqBody getCopyAppReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCopyAppReqBody(CopyAppReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder copyAppReqBody(CopyAppReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appToken; // 多维表格 App token
-        private CopyAppReqBody body;
-
-        /**
-         * 多维表格 App token
-         * <p> 示例值：S404b*****e9PQsYDWYcNryFn0g
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-        public CopyAppReqBody getCopyAppReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder copyAppReqBody(CopyAppReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CopyAppReq build() {
-            return new CopyAppReq(this);
-        }
+    public CopyAppReq build() {
+      return new CopyAppReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

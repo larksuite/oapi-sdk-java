@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReadStatus {
+  /**
+   * 消息id open_message_id
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 阅读状态;;**枚举值：**;* read：已读;* unread：未读;* unexpected：其他
+   *
+   * <p>示例值：unexpected
+   */
+  @SerializedName("read_status")
+  private String readStatus;
+
+  /**
+   * unexpected原因;;**枚举值：**;* invalid：传入的消息id无效;* no_permission：传入的消息id无权限;*
+   * not_support：传入的消息id不支持查看阅读状态，比如系统消息
+   *
+   * <p>示例值：no_permission
+   */
+  @SerializedName("unexpected_reason")
+  private String unexpectedReason;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getReadStatus() {
+    return this.readStatus;
+  }
+
+  public void setReadStatus(String readStatus) {
+    this.readStatus = readStatus;
+  }
+
+  public String getUnexpectedReason() {
+    return this.unexpectedReason;
+  }
+
+  public void setUnexpectedReason(String unexpectedReason) {
+    this.unexpectedReason = unexpectedReason;
+  }
+
+  // builder 开始
+  public ReadStatus() {}
+
+  public ReadStatus(Builder builder) {
     /**
      * 消息id open_message_id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @SerializedName("message_id")
+    this.messageId = builder.messageId;
+    /**
+     * 阅读状态;;**枚举值：**;* read：已读;* unread：未读;* unexpected：其他
+     *
+     * <p>示例值：unexpected
+     */
+    this.readStatus = builder.readStatus;
+    /**
+     * unexpected原因;;**枚举值：**;* invalid：传入的消息id无效;* no_permission：传入的消息id无权限;*
+     * not_support：传入的消息id不支持查看阅读状态，比如系统消息
+     *
+     * <p>示例值：no_permission
+     */
+    this.unexpectedReason = builder.unexpectedReason;
+  }
+
+  public static class Builder {
+    /**
+     * 消息id open_message_id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
     private String messageId;
+
     /**
-     * 阅读状态，包含read、unread、unexpected
-     * <p> 示例值：read
+     * 阅读状态;;**枚举值：**;* read：已读;* unread：未读;* unexpected：其他
+     *
+     * <p>示例值：unexpected
      */
-    @SerializedName("read_status")
     private String readStatus;
+
     /**
-     * unexpected原因，包含invalid、no_permission、not_support
-     * <p> 示例值：no_permission
+     * unexpected原因;;**枚举值：**;* invalid：传入的消息id无效;* no_permission：传入的消息id无权限;*
+     * not_support：传入的消息id不支持查看阅读状态，比如系统消息
+     *
+     * <p>示例值：no_permission
      */
-    @SerializedName("unexpected_reason")
     private String unexpectedReason;
 
-    // builder 开始
-    public ReadStatus() {
+    /**
+     * 消息id open_message_id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public ReadStatus(Builder builder) {
-        /**
-         * 消息id open_message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 阅读状态，包含read、unread、unexpected
-         * <p> 示例值：read
-         */
-        this.readStatus = builder.readStatus;
-        /**
-         * unexpected原因，包含invalid、no_permission、not_support
-         * <p> 示例值：no_permission
-         */
-        this.unexpectedReason = builder.unexpectedReason;
+    /**
+     * 阅读状态;;**枚举值：**;* read：已读;* unread：未读;* unexpected：其他
+     *
+     * <p>示例值：unexpected
+     *
+     * @param readStatus
+     * @return
+     */
+    public Builder readStatus(String readStatus) {
+      this.readStatus = readStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * unexpected原因;;**枚举值：**;* invalid：传入的消息id无效;* no_permission：传入的消息id无权限;*
+     * not_support：传入的消息id不支持查看阅读状态，比如系统消息
+     *
+     * <p>示例值：no_permission
+     *
+     * @param unexpectedReason
+     * @return
+     */
+    public Builder unexpectedReason(String unexpectedReason) {
+      this.unexpectedReason = unexpectedReason;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public ReadStatus build() {
+      return new ReadStatus(this);
     }
+  }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getReadStatus() {
-        return this.readStatus;
-    }
-
-    public void setReadStatus(String readStatus) {
-        this.readStatus = readStatus;
-    }
-
-    public String getUnexpectedReason() {
-        return this.unexpectedReason;
-    }
-
-    public void setUnexpectedReason(String unexpectedReason) {
-        this.unexpectedReason = unexpectedReason;
-    }
-
-    public static class Builder {
-        /**
-         * 消息id open_message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        private String messageId;
-        /**
-         * 阅读状态，包含read、unread、unexpected
-         * <p> 示例值：read
-         */
-        private String readStatus;
-        /**
-         * unexpected原因，包含invalid、no_permission、not_support
-         * <p> 示例值：no_permission
-         */
-        private String unexpectedReason;
-
-        /**
-         * 消息id open_message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 阅读状态，包含read、unread、unexpected
-         * <p> 示例值：read
-         *
-         * @param readStatus
-         * @return
-         */
-        public Builder readStatus(String readStatus) {
-            this.readStatus = readStatus;
-            return this;
-        }
-
-
-        /**
-         * unexpected原因，包含invalid、no_permission、not_support
-         * <p> 示例值：no_permission
-         *
-         * @param unexpectedReason
-         * @return
-         */
-        public Builder unexpectedReason(String unexpectedReason) {
-            this.unexpectedReason = unexpectedReason;
-            return this;
-        }
-
-
-        public ReadStatus build() {
-            return new ReadStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

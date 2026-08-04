@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocumentToken {
+  /**
+   * 对象Token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 对象类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public DocumentToken() {}
+
+  public DocumentToken(Builder builder) {
     /**
      * 对象Token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 对象类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 对象Token
+     *
+     * <p>示例值：
+     */
+    private String token;
+
+    /**
+     * 对象类型
+     *
+     * <p>示例值：
+     */
     private Integer type;
 
-    // builder 开始
-    public DocumentToken() {
+    /**
+     * 对象Token
+     *
+     * <p>示例值：
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public DocumentToken(Builder builder) {
-        /**
-         * 对象Token
-         * <p> 示例值：
-         */
-        this.token = builder.token;
-        /**
-         * 对象类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 对象类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DocumentToken build() {
+      return new DocumentToken(this);
     }
+  }
 
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 对象Token
-         * <p> 示例值：
-         */
-        private String token;
-        /**
-         * 对象类型
-         * <p> 示例值：
-         */
-        private Integer type;
-
-        /**
-         * 对象Token
-         * <p> 示例值：
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 对象类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public DocumentToken build() {
-            return new DocumentToken(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

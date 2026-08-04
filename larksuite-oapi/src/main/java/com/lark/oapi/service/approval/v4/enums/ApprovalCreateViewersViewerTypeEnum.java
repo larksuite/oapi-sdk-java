@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 可见人类型
- */
+/** 审批定义的可见范围 */
 public enum ApprovalCreateViewersViewerTypeEnum {
-    TENANT("TENANT"), // 租户内可见
-    DEPARTMENT("DEPARTMENT"), // 指定部门
-    USER("USER"), // 指定用户
-    NONE("NONE"), // 任何人都不可见
-    ;
-    private String value;
+  TENANT("TENANT"), // 当前企业内可见
+  DEPARTMENT("DEPARTMENT"), // 指定部门可见
+  USER("USER"), // 指定用户可见
+  NONE("NONE"), // 任何人都不可见
+  ;
+  private String value;
 
-    ApprovalCreateViewersViewerTypeEnum(String value) {
-        this.value = value;
-    }
+  ApprovalCreateViewersViewerTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

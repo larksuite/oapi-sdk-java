@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageAudioContent {
+  /**
+   * 视频链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("audio_key")
+  private String audioKey;
+
+  public String getAudioKey() {
+    return this.audioKey;
+  }
+
+  public void setAudioKey(String audioKey) {
+    this.audioKey = audioKey;
+  }
+
+  // builder 开始
+  public MessageAudioContent() {}
+
+  public MessageAudioContent(Builder builder) {
     /**
      * 视频链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("audio_key")
+    this.audioKey = builder.audioKey;
+  }
+
+  public static class Builder {
+    /**
+     * 视频链接
+     *
+     * <p>示例值：
+     */
     private String audioKey;
 
-    // builder 开始
-    public MessageAudioContent() {
+    /**
+     * 视频链接
+     *
+     * <p>示例值：
+     *
+     * @param audioKey
+     * @return
+     */
+    public Builder audioKey(String audioKey) {
+      this.audioKey = audioKey;
+      return this;
     }
 
-    public MessageAudioContent(Builder builder) {
-        /**
-         * 视频链接
-         * <p> 示例值：
-         */
-        this.audioKey = builder.audioKey;
+    public MessageAudioContent build() {
+      return new MessageAudioContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAudioKey() {
-        return this.audioKey;
-    }
-
-    public void setAudioKey(String audioKey) {
-        this.audioKey = audioKey;
-    }
-
-    public static class Builder {
-        /**
-         * 视频链接
-         * <p> 示例值：
-         */
-        private String audioKey;
-
-        /**
-         * 视频链接
-         * <p> 示例值：
-         *
-         * @param audioKey
-         * @return
-         */
-        public Builder audioKey(String audioKey) {
-            this.audioKey = audioKey;
-            return this;
-        }
-
-
-        public MessageAudioContent build() {
-            return new MessageAudioContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

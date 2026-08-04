@@ -13,227 +13,246 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetMeetingReq {
+  /**
+   * 是否返回参会人列表，默认值为 false，不返回参会人列表；设为 true 时返回参会人列表。当 user_id_type 为 user_id 时，参会人列表仅能获取 Lark 用户。
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_participants")
+  private Boolean withParticipants;
+
+  /**
+   * 是否返回会中使用能力统计，默认值为 false，不返回能力统计；设为 true 时返回会中使用能力统计（仅限tenant_access_token）
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_meeting_ability")
+  private Boolean withMeetingAbility;
+
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("query_mode")
+  private Integer queryMode;
+
+  public Boolean getWithParticipants() {
+    return this.withParticipants;
+  }
+
+  public void setWithParticipants(Boolean withParticipants) {
+    this.withParticipants = withParticipants;
+  }
+
+  public Boolean getWithMeetingAbility() {
+    return this.withMeetingAbility;
+  }
+
+  public void setWithMeetingAbility(Boolean withMeetingAbility) {
+    this.withMeetingAbility = withMeetingAbility;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Integer getQueryMode() {
+    return this.queryMode;
+  }
+
+  public void setQueryMode(Integer queryMode) {
+    this.queryMode = queryMode;
+  }
+
+  /**
+   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）可通过调用[获取与会议号关联的会议列表](https://open.larkoffice.com/document/server-docs/vc-v1/meeting/list_by_no)获取
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @Path
+  @SerializedName("meeting_id")
+  private String meetingId;
+
+  public String getMeetingId() {
+    return this.meetingId;
+  }
+
+  public void setMeetingId(String meetingId) {
+    this.meetingId = meetingId;
+  }
+
+  // builder 开始
+  public GetMeetingReq() {}
+
+  public GetMeetingReq(Builder builder) {
     /**
-     * 是否需要参会人列表
-     * <p> 示例值：false
+     * 是否返回参会人列表，默认值为 false，不返回参会人列表；设为 true 时返回参会人列表。当 user_id_type 为 user_id 时，参会人列表仅能获取 Lark 用户。
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_participants")
-    private Boolean withParticipants;
+    this.withParticipants = builder.withParticipants;
     /**
-     * 是否需要会中使用能力统计（仅限tenant_access_token）
-     * <p> 示例值：false
+     * 是否返回会中使用能力统计，默认值为 false，不返回能力统计；设为 true 时返回会中使用能力统计（仅限tenant_access_token）
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_meeting_ability")
-    private Boolean withMeetingAbility;
+    this.withMeetingAbility = builder.withMeetingAbility;
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("query_mode")
-    private Integer queryMode;
+    this.queryMode = builder.queryMode;
     /**
-     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）可通过调用[获取与会议号关联的会议列表](https://open.larkoffice.com/document/server-docs/vc-v1/meeting/list_by_no)获取
+     *
+     * <p>示例值：6911188411932033028
      */
-    @Path
-    @SerializedName("meeting_id")
-    private String meetingId;
+    this.meetingId = builder.meetingId;
+  }
 
-    // builder 开始
-    public GetMeetingReq() {
+  public static class Builder {
+    private Boolean
+        withParticipants; // 是否返回参会人列表，默认值为 false，不返回参会人列表；设为 true 时返回参会人列表。当 user_id_type 为 user_id
+    // 时，参会人列表仅能获取 Lark 用户。
+    private Boolean withMeetingAbility; // 是否返回会中使用能力统计，默认值为 false，不返回能力统计；设为 true
+    // 时返回会中使用能力统计（仅限tenant_access_token）
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+    private Integer queryMode; // 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+
+    /**
+     * 是否返回参会人列表，默认值为 false，不返回参会人列表；设为 true 时返回参会人列表。当 user_id_type 为 user_id 时，参会人列表仅能获取 Lark 用户。
+     *
+     * <p>示例值：false
+     *
+     * @param withParticipants
+     * @return
+     */
+    public Builder withParticipants(Boolean withParticipants) {
+      this.withParticipants = withParticipants;
+      return this;
     }
 
-    public GetMeetingReq(Builder builder) {
-        /**
-         * 是否需要参会人列表
-         * <p> 示例值：false
-         */
-        this.withParticipants = builder.withParticipants;
-        /**
-         * 是否需要会中使用能力统计（仅限tenant_access_token）
-         * <p> 示例值：false
-         */
-        this.withMeetingAbility = builder.withMeetingAbility;
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
-         * <p> 示例值：
-         */
-        this.queryMode = builder.queryMode;
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         */
-        this.meetingId = builder.meetingId;
+    /**
+     * 是否返回会中使用能力统计，默认值为 false，不返回能力统计；设为 true 时返回会中使用能力统计（仅限tenant_access_token）
+     *
+     * <p>示例值：false
+     *
+     * @param withMeetingAbility
+     * @return
+     */
+    public Builder withMeetingAbility(Boolean withMeetingAbility) {
+      this.withMeetingAbility = withMeetingAbility;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public Boolean getWithParticipants() {
-        return this.withParticipants;
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIDUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIDUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setWithParticipants(Boolean withParticipants) {
-        this.withParticipants = withParticipants;
+    /**
+     * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+     *
+     * <p>示例值：
+     *
+     * @param queryMode
+     * @return
+     */
+    public Builder queryMode(Integer queryMode) {
+      this.queryMode = queryMode;
+      return this;
     }
 
-    public Boolean getWithMeetingAbility() {
-        return this.withMeetingAbility;
+    /**
+     * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
+     *
+     * <p>示例值：
+     *
+     * @param queryMode {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum}
+     * @return
+     */
+    public Builder queryMode(
+        com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum queryMode) {
+      this.queryMode = queryMode.getValue();
+      return this;
     }
 
-    public void setWithMeetingAbility(Boolean withMeetingAbility) {
-        this.withMeetingAbility = withMeetingAbility;
+    private String
+        meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）可通过调用[获取与会议号关联的会议列表](https://open.larkoffice.com/document/server-docs/vc-v1/meeting/list_by_no)获取
+
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）可通过调用[获取与会议号关联的会议列表](https://open.larkoffice.com/document/server-docs/vc-v1/meeting/list_by_no)获取
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param meetingId
+     * @return
+     */
+    public Builder meetingId(String meetingId) {
+      this.meetingId = meetingId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetMeetingReq build() {
+      return new GetMeetingReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Integer getQueryMode() {
-        return this.queryMode;
-    }
-
-    public void setQueryMode(Integer queryMode) {
-        this.queryMode = queryMode;
-    }
-
-    public String getMeetingId() {
-        return this.meetingId;
-    }
-
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
-    }
-
-    public static class Builder {
-        private Boolean withParticipants; // 是否需要参会人列表
-        private Boolean withMeetingAbility; // 是否需要会中使用能力统计（仅限tenant_access_token）
-        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-        private Integer queryMode; // 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
-        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-
-        /**
-         * 是否需要参会人列表
-         * <p> 示例值：false
-         *
-         * @param withParticipants
-         * @return
-         */
-        public Builder withParticipants(Boolean withParticipants) {
-            this.withParticipants = withParticipants;
-            return this;
-        }
-
-        /**
-         * 是否需要会中使用能力统计（仅限tenant_access_token）
-         * <p> 示例值：false
-         *
-         * @param withMeetingAbility
-         * @return
-         */
-        public Builder withMeetingAbility(Boolean withMeetingAbility) {
-            this.withMeetingAbility = withMeetingAbility;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIDUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIDUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
-         * <p> 示例值：
-         *
-         * @param queryMode
-         * @return
-         */
-        public Builder queryMode(Integer queryMode) {
-            this.queryMode = queryMode;
-            return this;
-        }
-
-        /**
-         * 此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物
-         * <p> 示例值：
-         *
-         * @param queryMode {@link com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum}
-         * @return
-         */
-        public Builder queryMode(com.lark.oapi.service.vc.v1.enums.GetMeetingGetMeetingByIdQueryModeEnum queryMode) {
-            this.queryMode = queryMode.getValue();
-            return this;
-        }
-
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         *
-         * @param meetingId
-         * @return
-         */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
-
-
-        public GetMeetingReq build() {
-            return new GetMeetingReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

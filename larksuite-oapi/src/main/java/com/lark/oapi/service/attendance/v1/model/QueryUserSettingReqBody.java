@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserSettingReqBody {
+  /**
+   * employee_no 或 employee_id 列表，对应employee_type
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public QueryUserSettingReqBody() {}
+
+  public QueryUserSettingReqBody(Builder builder) {
     /**
-     * employee_no 或 employee_id 列表
-     * <p> 示例值：["abd754f7"]
+     * employee_no 或 employee_id 列表，对应employee_type
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * employee_no 或 employee_id 列表，对应employee_type
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public QueryUserSettingReqBody() {
+    /**
+     * employee_no 或 employee_id 列表，对应employee_type
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public QueryUserSettingReqBody(Builder builder) {
-        /**
-         * employee_no 或 employee_id 列表
-         * <p> 示例值：["abd754f7"]
-         */
-        this.userIds = builder.userIds;
+    public QueryUserSettingReqBody build() {
+      return new QueryUserSettingReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * employee_no 或 employee_id 列表
-         * <p> 示例值：["abd754f7"]
-         */
-        private String[] userIds;
-
-        /**
-         * employee_no 或 employee_id 列表
-         * <p> 示例值：["abd754f7"]
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public QueryUserSettingReqBody build() {
-            return new QueryUserSettingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

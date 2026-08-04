@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetProgressRecordRespBody {
-    /**
-     * OKR 进展ID
-     * <p> 示例值：7041469619902693396
-     */
-    @SerializedName("progress_id")
-    private String progressId;
-    /**
-     * 进展更新时间 毫秒
-     * <p> 示例值：1618500278663
-     */
-    @SerializedName("modify_time")
-    private String modifyTime;
-    /**
-     * 进展 对应的 Content 详细内容
-     * <p> 示例值：
-     */
-    @SerializedName("content")
-    private ContentBlock content;
-    /**
-     * 进展，包括百分比和状态
-     * <p> 示例值：
-     */
-    @SerializedName("progress_rate")
-    private ProgressRateNew progressRate;
+  /**
+   * OKR 进展ID
+   *
+   * <p>示例值：7041469619902693396
+   */
+  @SerializedName("progress_id")
+  private String progressId;
 
-    public String getProgressId() {
-        return this.progressId;
-    }
+  /**
+   * 进展更新时间 毫秒
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
 
-    public void setProgressId(String progressId) {
-        this.progressId = progressId;
-    }
+  /**
+   * 进展 对应的 Content 详细内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private ContentBlock content;
 
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
+  /**
+   * 进展，包括百分比和状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_rate")
+  private ProgressRateNew progressRate;
 
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
+  public String getProgressId() {
+    return this.progressId;
+  }
 
-    public ContentBlock getContent() {
-        return this.content;
-    }
+  public void setProgressId(String progressId) {
+    this.progressId = progressId;
+  }
 
-    public void setContent(ContentBlock content) {
-        this.content = content;
-    }
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
 
-    public ProgressRateNew getProgressRate() {
-        return this.progressRate;
-    }
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
 
-    public void setProgressRate(ProgressRateNew progressRate) {
-        this.progressRate = progressRate;
-    }
+  public ContentBlock getContent() {
+    return this.content;
+  }
 
+  public void setContent(ContentBlock content) {
+    this.content = content;
+  }
+
+  public ProgressRateNew getProgressRate() {
+    return this.progressRate;
+  }
+
+  public void setProgressRate(ProgressRateNew progressRate) {
+    this.progressRate = progressRate;
+  }
 }

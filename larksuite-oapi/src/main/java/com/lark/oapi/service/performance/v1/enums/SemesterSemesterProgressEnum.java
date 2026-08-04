@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.performance.v1.enums;
 
-/**
- * 绩效评估周期 状态
- */
+/** 周期状态 */
 public enum SemesterSemesterProgressEnum {
-    SEMESTERPROGRESSINITIATING("initiating"), // 初始化
-    SEMESTERPROGRESSENABLED("enabled"), // 已启动
-    ;
-    private String value;
+  SEMESTERPROGRESSINITIATING("initiating"), // 初始化
+  SEMESTERPROGRESSENABLED("enabled"), // 已启动
+  ;
+  private String value;
 
-    SemesterSemesterProgressEnum(String value) {
-        this.value = value;
-    }
+  SemesterSemesterProgressEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IdWithName {
+  /**
+   * id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 中文名
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  // builder 开始
+  public IdWithName() {}
+
+  public IdWithName(Builder builder) {
     /**
      * id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 中文名
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 英文名
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("en_name")
+    this.enName = builder.enName;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 中文名
+     *
+     * <p>示例值：1
+     */
+    private String zhName;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：1
+     */
     private String enName;
 
-    // builder 开始
-    public IdWithName() {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public IdWithName(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 中文名
-         * <p> 示例值：1
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名
-         * <p> 示例值：1
-         */
-        this.enName = builder.enName;
+    /**
+     * 中文名
+     *
+     * <p>示例值：1
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名
+     *
+     * <p>示例值：1
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public IdWithName build() {
+      return new IdWithName(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 中文名
-         * <p> 示例值：1
-         */
-        private String zhName;
-        /**
-         * 英文名
-         * <p> 示例值：1
-         */
-        private String enName;
-
-        /**
-         * id
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 中文名
-         * <p> 示例值：1
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：1
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        public IdWithName build() {
-            return new IdWithName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

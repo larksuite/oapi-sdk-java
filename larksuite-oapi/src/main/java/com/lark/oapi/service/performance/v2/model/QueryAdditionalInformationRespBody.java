@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryAdditionalInformationRespBody {
-    /**
-     * 补充信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("additional_informations")
-    private AdditionalInformation[] additionalInformations;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 补充信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_informations")
+  private AdditionalInformation[] additionalInformations;
 
-    public AdditionalInformation[] getAdditionalInformations() {
-        return this.additionalInformations;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setAdditionalInformations(AdditionalInformation[] additionalInformations) {
-        this.additionalInformations = additionalInformations;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public AdditionalInformation[] getAdditionalInformations() {
+    return this.additionalInformations;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setAdditionalInformations(AdditionalInformation[] additionalInformations) {
+    this.additionalInformations = additionalInformations;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

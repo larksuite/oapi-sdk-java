@@ -13,337 +13,360 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ApprovalInstance {
+  /**
+   * 审批实例id
+   *
+   * <p>示例值：1642460702045203
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 审批流程名
+   *
+   * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+   */
+  @SerializedName("label")
+  private Map<String, String> label;
+
+  /**
+   * 审批发起人
+   *
+   * <p>示例值：1637300992976924
+   */
+  @SerializedName("initiator")
+  private String initiator;
+
+  /**
+   * 审批创建时间
+   *
+   * <p>示例值：1566378665835
+   */
+  @SerializedName("instance_start_time")
+  private String instanceStartTime;
+
+  /**
+   * 流程状态
+   *
+   * <p>示例值：agreed
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 审批任务列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tasks")
+  private ApprovalTask[] tasks;
+
+  /**
+   * 评论列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("comments")
+  private ApprovalComment[] comments;
+
+  /**
+   * Api id
+   *
+   * <p>示例值：package_b40c28__c__action_aadfv6lfu6kai
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Map<String, String> getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Map<String, String> label) {
+    this.label = label;
+  }
+
+  public String getInitiator() {
+    return this.initiator;
+  }
+
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
+
+  public String getInstanceStartTime() {
+    return this.instanceStartTime;
+  }
+
+  public void setInstanceStartTime(String instanceStartTime) {
+    this.instanceStartTime = instanceStartTime;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public ApprovalTask[] getTasks() {
+    return this.tasks;
+  }
+
+  public void setTasks(ApprovalTask[] tasks) {
+    this.tasks = tasks;
+  }
+
+  public ApprovalComment[] getComments() {
+    return this.comments;
+  }
+
+  public void setComments(ApprovalComment[] comments) {
+    this.comments = comments;
+  }
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  // builder 开始
+  public ApprovalInstance() {}
+
+  public ApprovalInstance(Builder builder) {
     /**
      * 审批实例id
-     * <p> 示例值：1642460702045203
+     *
+     * <p>示例值：1642460702045203
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 审批流程名
-     * <p> 示例值：
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
      */
-    @SerializedName("label")
-    private Map<String, String> label;
+    this.label = builder.label;
     /**
      * 审批发起人
-     * <p> 示例值：1637300992976924
+     *
+     * <p>示例值：1637300992976924
      */
-    @SerializedName("initiator")
-    private String initiator;
+    this.initiator = builder.initiator;
     /**
      * 审批创建时间
-     * <p> 示例值：1566378665835
+     *
+     * <p>示例值：1566378665835
      */
-    @SerializedName("instance_start_time")
-    private String instanceStartTime;
+    this.instanceStartTime = builder.instanceStartTime;
     /**
      * 流程状态
-     * <p> 示例值：agreed
+     *
+     * <p>示例值：agreed
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 审批任务列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tasks")
-    private ApprovalTask[] tasks;
+    this.tasks = builder.tasks;
     /**
      * 评论列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("comments")
-    private ApprovalComment[] comments;
+    this.comments = builder.comments;
     /**
      * Api id
-     * <p> 示例值：package_b40c28__c__action_aadfv6lfu6kai
+     *
+     * <p>示例值：package_b40c28__c__action_aadfv6lfu6kai
      */
-    @SerializedName("api_id")
+    this.apiId = builder.apiId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：1642460702045203
+     */
+    private String id;
+
+    /**
+     * 审批流程名
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     */
+    private Map<String, String> label;
+
+    /**
+     * 审批发起人
+     *
+     * <p>示例值：1637300992976924
+     */
+    private String initiator;
+
+    /**
+     * 审批创建时间
+     *
+     * <p>示例值：1566378665835
+     */
+    private String instanceStartTime;
+
+    /**
+     * 流程状态
+     *
+     * <p>示例值：agreed
+     */
+    private String status;
+
+    /**
+     * 审批任务列表
+     *
+     * <p>示例值：
+     */
+    private ApprovalTask[] tasks;
+
+    /**
+     * 评论列表
+     *
+     * <p>示例值：
+     */
+    private ApprovalComment[] comments;
+
+    /**
+     * Api id
+     *
+     * <p>示例值：package_b40c28__c__action_aadfv6lfu6kai
+     */
     private String apiId;
 
-    // builder 开始
-    public ApprovalInstance() {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：1642460702045203
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApprovalInstance(Builder builder) {
-        /**
-         * 审批实例id
-         * <p> 示例值：1642460702045203
-         */
-        this.id = builder.id;
-        /**
-         * 审批流程名
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 审批发起人
-         * <p> 示例值：1637300992976924
-         */
-        this.initiator = builder.initiator;
-        /**
-         * 审批创建时间
-         * <p> 示例值：1566378665835
-         */
-        this.instanceStartTime = builder.instanceStartTime;
-        /**
-         * 流程状态
-         * <p> 示例值：agreed
-         */
-        this.status = builder.status;
-        /**
-         * 审批任务列表
-         * <p> 示例值：
-         */
-        this.tasks = builder.tasks;
-        /**
-         * 评论列表
-         * <p> 示例值：
-         */
-        this.comments = builder.comments;
-        /**
-         * Api id
-         * <p> 示例值：package_b40c28__c__action_aadfv6lfu6kai
-         */
-        this.apiId = builder.apiId;
+    /**
+     * 审批流程名
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Map<String, String> label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批发起人
+     *
+     * <p>示例值：1637300992976924
+     *
+     * @param initiator
+     * @return
+     */
+    public Builder initiator(String initiator) {
+      this.initiator = initiator;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 审批创建时间
+     *
+     * <p>示例值：1566378665835
+     *
+     * @param instanceStartTime
+     * @return
+     */
+    public Builder instanceStartTime(String instanceStartTime) {
+      this.instanceStartTime = instanceStartTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 流程状态
+     *
+     * <p>示例值：agreed
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public Map<String, String> getLabel() {
-        return this.label;
+    /**
+     * 审批任务列表
+     *
+     * <p>示例值：
+     *
+     * @param tasks
+     * @return
+     */
+    public Builder tasks(ApprovalTask[] tasks) {
+      this.tasks = tasks;
+      return this;
     }
 
-    public void setLabel(Map<String, String> label) {
-        this.label = label;
+    /**
+     * 评论列表
+     *
+     * <p>示例值：
+     *
+     * @param comments
+     * @return
+     */
+    public Builder comments(ApprovalComment[] comments) {
+      this.comments = comments;
+      return this;
     }
 
-    public String getInitiator() {
-        return this.initiator;
+    /**
+     * Api id
+     *
+     * <p>示例值：package_b40c28__c__action_aadfv6lfu6kai
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public void setInitiator(String initiator) {
-        this.initiator = initiator;
+    public ApprovalInstance build() {
+      return new ApprovalInstance(this);
     }
+  }
 
-    public String getInstanceStartTime() {
-        return this.instanceStartTime;
-    }
-
-    public void setInstanceStartTime(String instanceStartTime) {
-        this.instanceStartTime = instanceStartTime;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public ApprovalTask[] getTasks() {
-        return this.tasks;
-    }
-
-    public void setTasks(ApprovalTask[] tasks) {
-        this.tasks = tasks;
-    }
-
-    public ApprovalComment[] getComments() {
-        return this.comments;
-    }
-
-    public void setComments(ApprovalComment[] comments) {
-        this.comments = comments;
-    }
-
-    public String getApiId() {
-        return this.apiId;
-    }
-
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例id
-         * <p> 示例值：1642460702045203
-         */
-        private String id;
-        /**
-         * 审批流程名
-         * <p> 示例值：
-         */
-        private Map<String, String> label;
-        /**
-         * 审批发起人
-         * <p> 示例值：1637300992976924
-         */
-        private String initiator;
-        /**
-         * 审批创建时间
-         * <p> 示例值：1566378665835
-         */
-        private String instanceStartTime;
-        /**
-         * 流程状态
-         * <p> 示例值：agreed
-         */
-        private String status;
-        /**
-         * 审批任务列表
-         * <p> 示例值：
-         */
-        private ApprovalTask[] tasks;
-        /**
-         * 评论列表
-         * <p> 示例值：
-         */
-        private ApprovalComment[] comments;
-        /**
-         * Api id
-         * <p> 示例值：package_b40c28__c__action_aadfv6lfu6kai
-         */
-        private String apiId;
-
-        /**
-         * 审批实例id
-         * <p> 示例值：1642460702045203
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 审批流程名
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 审批发起人
-         * <p> 示例值：1637300992976924
-         *
-         * @param initiator
-         * @return
-         */
-        public Builder initiator(String initiator) {
-            this.initiator = initiator;
-            return this;
-        }
-
-
-        /**
-         * 审批创建时间
-         * <p> 示例值：1566378665835
-         *
-         * @param instanceStartTime
-         * @return
-         */
-        public Builder instanceStartTime(String instanceStartTime) {
-            this.instanceStartTime = instanceStartTime;
-            return this;
-        }
-
-
-        /**
-         * 流程状态
-         * <p> 示例值：agreed
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 审批任务列表
-         * <p> 示例值：
-         *
-         * @param tasks
-         * @return
-         */
-        public Builder tasks(ApprovalTask[] tasks) {
-            this.tasks = tasks;
-            return this;
-        }
-
-
-        /**
-         * 评论列表
-         * <p> 示例值：
-         *
-         * @param comments
-         * @return
-         */
-        public Builder comments(ApprovalComment[] comments) {
-            this.comments = comments;
-            return this;
-        }
-
-
-        /**
-         * Api id
-         * <p> 示例值：package_b40c28__c__action_aadfv6lfu6kai
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        public ApprovalInstance build() {
-            return new ApprovalInstance(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

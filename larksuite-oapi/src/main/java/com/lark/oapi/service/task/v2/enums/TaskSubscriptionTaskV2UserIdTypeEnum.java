@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- *
- */
+/** */
 public enum TaskSubscriptionTaskV2UserIdTypeEnum {
-    UNION_ID("union_id"), // union_id
-    USER_ID("user_id"), // user_id
-    OPEN_ID("open_id"), // open_id
-    ;
-    private String value;
+  UNION_ID("union_id"), // union_id
+  USER_ID("user_id"), // user_id
+  OPEN_ID("open_id"), // open_id
+  ;
+  private String value;
 
-    TaskSubscriptionTaskV2UserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  TaskSubscriptionTaskV2UserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

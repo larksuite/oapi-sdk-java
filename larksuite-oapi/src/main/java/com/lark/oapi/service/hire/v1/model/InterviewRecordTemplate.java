@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewRecordTemplate {
+  /**
+   * 面试评价表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assessment_template")
+  private InterviewAssessmentTemplate assessmentTemplate;
+
+  public InterviewAssessmentTemplate getAssessmentTemplate() {
+    return this.assessmentTemplate;
+  }
+
+  public void setAssessmentTemplate(InterviewAssessmentTemplate assessmentTemplate) {
+    this.assessmentTemplate = assessmentTemplate;
+  }
+
+  // builder 开始
+  public InterviewRecordTemplate() {}
+
+  public InterviewRecordTemplate(Builder builder) {
     /**
      * 面试评价表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assessment_template")
+    this.assessmentTemplate = builder.assessmentTemplate;
+  }
+
+  public static class Builder {
+    /**
+     * 面试评价表
+     *
+     * <p>示例值：
+     */
     private InterviewAssessmentTemplate assessmentTemplate;
 
-    // builder 开始
-    public InterviewRecordTemplate() {
+    /**
+     * 面试评价表
+     *
+     * <p>示例值：
+     *
+     * @param assessmentTemplate
+     * @return
+     */
+    public Builder assessmentTemplate(InterviewAssessmentTemplate assessmentTemplate) {
+      this.assessmentTemplate = assessmentTemplate;
+      return this;
     }
 
-    public InterviewRecordTemplate(Builder builder) {
-        /**
-         * 面试评价表
-         * <p> 示例值：
-         */
-        this.assessmentTemplate = builder.assessmentTemplate;
+    public InterviewRecordTemplate build() {
+      return new InterviewRecordTemplate(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public InterviewAssessmentTemplate getAssessmentTemplate() {
-        return this.assessmentTemplate;
-    }
-
-    public void setAssessmentTemplate(InterviewAssessmentTemplate assessmentTemplate) {
-        this.assessmentTemplate = assessmentTemplate;
-    }
-
-    public static class Builder {
-        /**
-         * 面试评价表
-         * <p> 示例值：
-         */
-        private InterviewAssessmentTemplate assessmentTemplate;
-
-        /**
-         * 面试评价表
-         * <p> 示例值：
-         *
-         * @param assessmentTemplate
-         * @return
-         */
-        public Builder assessmentTemplate(InterviewAssessmentTemplate assessmentTemplate) {
-            this.assessmentTemplate = assessmentTemplate;
-            return this;
-        }
-
-
-        public InterviewRecordTemplate build() {
-            return new InterviewRecordTemplate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

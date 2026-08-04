@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmployeeReqBody {
+  /**
+   * 创建员工对象
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee")
+  private CreateEmployee employee;
+
+  /**
+   * 接口拓展选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private CreateEmployeeOptions options;
+
+  public CreateEmployee getEmployee() {
+    return this.employee;
+  }
+
+  public void setEmployee(CreateEmployee employee) {
+    this.employee = employee;
+  }
+
+  public CreateEmployeeOptions getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(CreateEmployeeOptions options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public CreateEmployeeReqBody() {}
+
+  public CreateEmployeeReqBody(Builder builder) {
     /**
      * 创建员工对象
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee")
-    private CreateEmployee employee;
+    this.employee = builder.employee;
     /**
      * 接口拓展选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    this.options = builder.options;
+  }
+
+  public static class Builder {
+    /**
+     * 创建员工对象
+     *
+     * <p>示例值：
+     */
+    private CreateEmployee employee;
+
+    /**
+     * 接口拓展选项
+     *
+     * <p>示例值：
+     */
     private CreateEmployeeOptions options;
 
-    // builder 开始
-    public CreateEmployeeReqBody() {
+    /**
+     * 创建员工对象
+     *
+     * <p>示例值：
+     *
+     * @param employee
+     * @return
+     */
+    public Builder employee(CreateEmployee employee) {
+      this.employee = employee;
+      return this;
     }
 
-    public CreateEmployeeReqBody(Builder builder) {
-        /**
-         * 创建员工对象
-         * <p> 示例值：
-         */
-        this.employee = builder.employee;
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    /**
+     * 接口拓展选项
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(CreateEmployeeOptions options) {
+      this.options = options;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateEmployeeReqBody build() {
+      return new CreateEmployeeReqBody(this);
     }
+  }
 
-    public CreateEmployee getEmployee() {
-        return this.employee;
-    }
-
-    public void setEmployee(CreateEmployee employee) {
-        this.employee = employee;
-    }
-
-    public CreateEmployeeOptions getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(CreateEmployeeOptions options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 创建员工对象
-         * <p> 示例值：
-         */
-        private CreateEmployee employee;
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         */
-        private CreateEmployeeOptions options;
-
-        /**
-         * 创建员工对象
-         * <p> 示例值：
-         *
-         * @param employee
-         * @return
-         */
-        public Builder employee(CreateEmployee employee) {
-            this.employee = employee;
-            return this;
-        }
-
-
-        /**
-         * 接口拓展选项
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(CreateEmployeeOptions options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public CreateEmployeeReqBody build() {
-            return new CreateEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

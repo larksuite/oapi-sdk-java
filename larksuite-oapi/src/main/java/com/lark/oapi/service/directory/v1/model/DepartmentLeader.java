@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentLeader {
+  /**
+   * 部门负责人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leader_type")
+  private Integer leaderType;
+
+  /**
+   * 部门负责人ID
+   *
+   * <p>示例值：u273y71
+   */
+  @SerializedName("leader_id")
+  private String leaderId;
+
+  public Integer getLeaderType() {
+    return this.leaderType;
+  }
+
+  public void setLeaderType(Integer leaderType) {
+    this.leaderType = leaderType;
+  }
+
+  public String getLeaderId() {
+    return this.leaderId;
+  }
+
+  public void setLeaderId(String leaderId) {
+    this.leaderId = leaderId;
+  }
+
+  // builder 开始
+  public DepartmentLeader() {}
+
+  public DepartmentLeader(Builder builder) {
     /**
      * 部门负责人类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("leader_type")
-    private Integer leaderType;
+    this.leaderType = builder.leaderType;
     /**
      * 部门负责人ID
-     * <p> 示例值：u273y71
+     *
+     * <p>示例值：u273y71
      */
-    @SerializedName("leader_id")
+    this.leaderId = builder.leaderId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门负责人类型
+     *
+     * <p>示例值：1
+     */
+    private Integer leaderType;
+
+    /**
+     * 部门负责人ID
+     *
+     * <p>示例值：u273y71
+     */
     private String leaderId;
 
-    // builder 开始
-    public DepartmentLeader() {
+    /**
+     * 部门负责人类型
+     *
+     * <p>示例值：1
+     *
+     * @param leaderType
+     * @return
+     */
+    public Builder leaderType(Integer leaderType) {
+      this.leaderType = leaderType;
+      return this;
     }
 
-    public DepartmentLeader(Builder builder) {
-        /**
-         * 部门负责人类型
-         * <p> 示例值：1
-         */
-        this.leaderType = builder.leaderType;
-        /**
-         * 部门负责人ID
-         * <p> 示例值：u273y71
-         */
-        this.leaderId = builder.leaderId;
+    /**
+     * 部门负责人类型
+     *
+     * <p>示例值：1
+     *
+     * @param leaderType {@link
+     *     com.lark.oapi.service.directory.v1.enums.DepartmentLeaderLeaderTypeEnum}
+     * @return
+     */
+    public Builder leaderType(
+        com.lark.oapi.service.directory.v1.enums.DepartmentLeaderLeaderTypeEnum leaderType) {
+      this.leaderType = leaderType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门负责人ID
+     *
+     * <p>示例值：u273y71
+     *
+     * @param leaderId
+     * @return
+     */
+    public Builder leaderId(String leaderId) {
+      this.leaderId = leaderId;
+      return this;
     }
 
-    public Integer getLeaderType() {
-        return this.leaderType;
+    public DepartmentLeader build() {
+      return new DepartmentLeader(this);
     }
+  }
 
-    public void setLeaderType(Integer leaderType) {
-        this.leaderType = leaderType;
-    }
-
-    public String getLeaderId() {
-        return this.leaderId;
-    }
-
-    public void setLeaderId(String leaderId) {
-        this.leaderId = leaderId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门负责人类型
-         * <p> 示例值：1
-         */
-        private Integer leaderType;
-        /**
-         * 部门负责人ID
-         * <p> 示例值：u273y71
-         */
-        private String leaderId;
-
-        /**
-         * 部门负责人类型
-         * <p> 示例值：1
-         *
-         * @param leaderType
-         * @return
-         */
-        public Builder leaderType(Integer leaderType) {
-            this.leaderType = leaderType;
-            return this;
-        }
-
-        /**
-         * 部门负责人类型
-         * <p> 示例值：1
-         *
-         * @param leaderType {@link com.lark.oapi.service.directory.v1.enums.DepartmentLeaderLeaderTypeEnum}
-         * @return
-         */
-        public Builder leaderType(com.lark.oapi.service.directory.v1.enums.DepartmentLeaderLeaderTypeEnum leaderType) {
-            this.leaderType = leaderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 部门负责人ID
-         * <p> 示例值：u273y71
-         *
-         * @param leaderId
-         * @return
-         */
-        public Builder leaderId(String leaderId) {
-            this.leaderId = leaderId;
-            return this;
-        }
-
-
-        public DepartmentLeader build() {
-            return new DepartmentLeader(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

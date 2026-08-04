@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCorrectDetail {
+  /**
+   * 员工employeeID
+   *
+   * <p>示例值：7433424967234601004
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 生效状态，1生效，2失效
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 员工汇总维度值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimensions")
+  private DimensionValue[] dimensions;
+
+  /**
+   * 员工成本项值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_items")
+  private CostItemValue[] costItems;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public DimensionValue[] getDimensions() {
+    return this.dimensions;
+  }
+
+  public void setDimensions(DimensionValue[] dimensions) {
+    this.dimensions = dimensions;
+  }
+
+  public CostItemValue[] getCostItems() {
+    return this.costItems;
+  }
+
+  public void setCostItems(CostItemValue[] costItems) {
+    this.costItems = costItems;
+  }
+
+  // builder 开始
+  public CostCorrectDetail() {}
+
+  public CostCorrectDetail(Builder builder) {
     /**
      * 员工employeeID
-     * <p> 示例值：7433424967234601004
+     *
+     * <p>示例值：7433424967234601004
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 生效状态，1生效，2失效
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
      * 员工汇总维度值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimensions")
-    private DimensionValue[] dimensions;
+    this.dimensions = builder.dimensions;
     /**
      * 员工成本项值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_items")
+    this.costItems = builder.costItems;
+  }
+
+  public static class Builder {
+    /**
+     * 员工employeeID
+     *
+     * <p>示例值：7433424967234601004
+     */
+    private String employeeId;
+
+    /**
+     * 生效状态，1生效，2失效
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 员工汇总维度值列表
+     *
+     * <p>示例值：
+     */
+    private DimensionValue[] dimensions;
+
+    /**
+     * 员工成本项值列表
+     *
+     * <p>示例值：
+     */
     private CostItemValue[] costItems;
 
-    // builder 开始
-    public CostCorrectDetail() {
+    /**
+     * 员工employeeID
+     *
+     * <p>示例值：7433424967234601004
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public CostCorrectDetail(Builder builder) {
-        /**
-         * 员工employeeID
-         * <p> 示例值：7433424967234601004
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 生效状态，1生效，2失效
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 员工汇总维度值列表
-         * <p> 示例值：
-         */
-        this.dimensions = builder.dimensions;
-        /**
-         * 员工成本项值列表
-         * <p> 示例值：
-         */
-        this.costItems = builder.costItems;
+    /**
+     * 生效状态，1生效，2失效
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工汇总维度值列表
+     *
+     * <p>示例值：
+     *
+     * @param dimensions
+     * @return
+     */
+    public Builder dimensions(DimensionValue[] dimensions) {
+      this.dimensions = dimensions;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 员工成本项值列表
+     *
+     * <p>示例值：
+     *
+     * @param costItems
+     * @return
+     */
+    public Builder costItems(CostItemValue[] costItems) {
+      this.costItems = costItems;
+      return this;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public CostCorrectDetail build() {
+      return new CostCorrectDetail(this);
     }
+  }
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public DimensionValue[] getDimensions() {
-        return this.dimensions;
-    }
-
-    public void setDimensions(DimensionValue[] dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public CostItemValue[] getCostItems() {
-        return this.costItems;
-    }
-
-    public void setCostItems(CostItemValue[] costItems) {
-        this.costItems = costItems;
-    }
-
-    public static class Builder {
-        /**
-         * 员工employeeID
-         * <p> 示例值：7433424967234601004
-         */
-        private String employeeId;
-        /**
-         * 生效状态，1生效，2失效
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 员工汇总维度值列表
-         * <p> 示例值：
-         */
-        private DimensionValue[] dimensions;
-        /**
-         * 员工成本项值列表
-         * <p> 示例值：
-         */
-        private CostItemValue[] costItems;
-
-        /**
-         * 员工employeeID
-         * <p> 示例值：7433424967234601004
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 生效状态，1生效，2失效
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 员工汇总维度值列表
-         * <p> 示例值：
-         *
-         * @param dimensions
-         * @return
-         */
-        public Builder dimensions(DimensionValue[] dimensions) {
-            this.dimensions = dimensions;
-            return this;
-        }
-
-
-        /**
-         * 员工成本项值列表
-         * <p> 示例值：
-         *
-         * @param costItems
-         * @return
-         */
-        public Builder costItems(CostItemValue[] costItems) {
-            this.costItems = costItems;
-            return this;
-        }
-
-
-        public CostCorrectDetail build() {
-            return new CostCorrectDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

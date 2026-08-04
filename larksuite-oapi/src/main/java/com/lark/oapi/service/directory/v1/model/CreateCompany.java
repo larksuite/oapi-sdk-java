@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCompany {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 外部ID 未指定则自动生成
+   *
+   * <p>示例值：SFWGDEFGDFD
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public CreateCompany() {}
+
+  public CreateCompany(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 外部ID 未指定则自动生成
-     * <p> 示例值：SFWGDEFGDFD
+     *
+     * <p>示例值：SFWGDEFGDFD
      */
-    @SerializedName("external_id")
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 外部ID 未指定则自动生成
+     *
+     * <p>示例值：SFWGDEFGDFD
+     */
     private String externalId;
 
-    // builder 开始
-    public CreateCompany() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateCompany(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 外部ID 未指定则自动生成
-         * <p> 示例值：SFWGDEFGDFD
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部ID 未指定则自动生成
+     *
+     * <p>示例值：SFWGDEFGDFD
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    public CreateCompany build() {
+      return new CreateCompany(this);
     }
+  }
 
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-        /**
-         * 外部ID 未指定则自动生成
-         * <p> 示例值：SFWGDEFGDFD
-         */
-        private String externalId;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 外部ID 未指定则自动生成
-         * <p> 示例值：SFWGDEFGDFD
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public CreateCompany build() {
-            return new CreateCompany(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

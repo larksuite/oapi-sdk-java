@@ -13,395 +13,430 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalNode {
+  /**
+   * 节点 ID。;;- 开始节点的 ID 为 START;- 结束节点的 ID 为 END;;开始和结束节点不需要指定 name、node_type 以及 approver。
+   *
+   * <p>示例值：START
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 节点名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+   *
+   * <p>示例值：@i18n@node_name
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 当前节点的审批方式。;;**注意**：当该参数取值为依次审批（SEQUENTIAL）时，审批人类型（approver.type）必须为发起人自选（Free）。
+   *
+   * <p>示例值：AND
+   */
+  @SerializedName("node_type")
+  private String nodeType;
+
+  /**
+   * 审批人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver")
+  private ApprovalApproverCcer[] approver;
+
+  /**
+   * 抄送人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ccer")
+  private ApprovalApproverCcer[] ccer;
+
+  /**
+   * 表单内的控件权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("privilege_field")
+  private FieldGroup privilegeField;
+
+  /**
+   * 发起人自选审批人时，是否允许多选。;;- true：允许;- false：不允许
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("approver_chosen_multi")
+  private Boolean approverChosenMulti;
+
+  /**
+   * 发起人自选审批人时，可选择的范围。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver_chosen_range")
+  private ApproverRange[] approverChosenRange;
+
+  /**
+   * 审批人为提交人本人时的操作
+   *
+   * <p>示例值：STARTER
+   */
+  @SerializedName("starter_assignee")
+  private String starterAssignee;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getNodeType() {
+    return this.nodeType;
+  }
+
+  public void setNodeType(String nodeType) {
+    this.nodeType = nodeType;
+  }
+
+  public ApprovalApproverCcer[] getApprover() {
+    return this.approver;
+  }
+
+  public void setApprover(ApprovalApproverCcer[] approver) {
+    this.approver = approver;
+  }
+
+  public ApprovalApproverCcer[] getCcer() {
+    return this.ccer;
+  }
+
+  public void setCcer(ApprovalApproverCcer[] ccer) {
+    this.ccer = ccer;
+  }
+
+  public FieldGroup getPrivilegeField() {
+    return this.privilegeField;
+  }
+
+  public void setPrivilegeField(FieldGroup privilegeField) {
+    this.privilegeField = privilegeField;
+  }
+
+  public Boolean getApproverChosenMulti() {
+    return this.approverChosenMulti;
+  }
+
+  public void setApproverChosenMulti(Boolean approverChosenMulti) {
+    this.approverChosenMulti = approverChosenMulti;
+  }
+
+  public ApproverRange[] getApproverChosenRange() {
+    return this.approverChosenRange;
+  }
+
+  public void setApproverChosenRange(ApproverRange[] approverChosenRange) {
+    this.approverChosenRange = approverChosenRange;
+  }
+
+  public String getStarterAssignee() {
+    return this.starterAssignee;
+  }
+
+  public void setStarterAssignee(String starterAssignee) {
+    this.starterAssignee = starterAssignee;
+  }
+
+  // builder 开始
+  public ApprovalNode() {}
+
+  public ApprovalNode(Builder builder) {
     /**
-     * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
-     * <p> 示例值：START
+     * 节点 ID。;;- 开始节点的 ID 为 START;- 结束节点的 ID 为 END;;开始和结束节点不需要指定 name、node_type 以及 approver。
+     *
+     * <p>示例值：START
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-     * <p> 示例值：@i18n@node_name
+     * 节点名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@node_name
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
-     * <p> 示例值：AND
+     * 当前节点的审批方式。;;**注意**：当该参数取值为依次审批（SEQUENTIAL）时，审批人类型（approver.type）必须为发起人自选（Free）。
+     *
+     * <p>示例值：AND
      */
-    @SerializedName("node_type")
-    private String nodeType;
+    this.nodeType = builder.nodeType;
     /**
      * 审批人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approver")
-    private ApprovalApproverCcer[] approver;
+    this.approver = builder.approver;
     /**
      * 抄送人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ccer")
+    this.ccer = builder.ccer;
+    /**
+     * 表单内的控件权限
+     *
+     * <p>示例值：
+     */
+    this.privilegeField = builder.privilegeField;
+    /**
+     * 发起人自选审批人时，是否允许多选。;;- true：允许;- false：不允许
+     *
+     * <p>示例值：false
+     */
+    this.approverChosenMulti = builder.approverChosenMulti;
+    /**
+     * 发起人自选审批人时，可选择的范围。
+     *
+     * <p>示例值：
+     */
+    this.approverChosenRange = builder.approverChosenRange;
+    /**
+     * 审批人为提交人本人时的操作
+     *
+     * <p>示例值：STARTER
+     */
+    this.starterAssignee = builder.starterAssignee;
+  }
+
+  public static class Builder {
+    /**
+     * 节点 ID。;;- 开始节点的 ID 为 START;- 结束节点的 ID 为 END;;开始和结束节点不需要指定 name、node_type 以及 approver。
+     *
+     * <p>示例值：START
+     */
+    private String id;
+
+    /**
+     * 节点名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@node_name
+     */
+    private String name;
+
+    /**
+     * 当前节点的审批方式。;;**注意**：当该参数取值为依次审批（SEQUENTIAL）时，审批人类型（approver.type）必须为发起人自选（Free）。
+     *
+     * <p>示例值：AND
+     */
+    private String nodeType;
+
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：
+     */
+    private ApprovalApproverCcer[] approver;
+
+    /**
+     * 抄送人列表
+     *
+     * <p>示例值：
+     */
     private ApprovalApproverCcer[] ccer;
+
     /**
-     * 表单项的控件权限
-     * <p> 示例值：
+     * 表单内的控件权限
+     *
+     * <p>示例值：
      */
-    @SerializedName("privilege_field")
     private FieldGroup privilegeField;
+
     /**
-     * 自选审批人是否允许多选
-     * <p> 示例值：false
+     * 发起人自选审批人时，是否允许多选。;;- true：允许;- false：不允许
+     *
+     * <p>示例值：false
      */
-    @SerializedName("approver_chosen_multi")
     private Boolean approverChosenMulti;
+
     /**
-     * 自选审批人选择范围
-     * <p> 示例值：
+     * 发起人自选审批人时，可选择的范围。
+     *
+     * <p>示例值：
      */
-    @SerializedName("approver_chosen_range")
     private ApproverRange[] approverChosenRange;
+
     /**
-     * 审批人为提交人时的操作
-     * <p> 示例值：STARTER
+     * 审批人为提交人本人时的操作
+     *
+     * <p>示例值：STARTER
      */
-    @SerializedName("starter_assignee")
     private String starterAssignee;
 
-    // builder 开始
-    public ApprovalNode() {
+    /**
+     * 节点 ID。;;- 开始节点的 ID 为 START;- 结束节点的 ID 为 END;;开始和结束节点不需要指定 name、node_type 以及 approver。
+     *
+     * <p>示例值：START
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApprovalNode(Builder builder) {
-        /**
-         * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
-         * <p> 示例值：START
-         */
-        this.id = builder.id;
-        /**
-         * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@node_name
-         */
-        this.name = builder.name;
-        /**
-         * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
-         * <p> 示例值：AND
-         */
-        this.nodeType = builder.nodeType;
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         */
-        this.approver = builder.approver;
-        /**
-         * 抄送人列表
-         * <p> 示例值：
-         */
-        this.ccer = builder.ccer;
-        /**
-         * 表单项的控件权限
-         * <p> 示例值：
-         */
-        this.privilegeField = builder.privilegeField;
-        /**
-         * 自选审批人是否允许多选
-         * <p> 示例值：false
-         */
-        this.approverChosenMulti = builder.approverChosenMulti;
-        /**
-         * 自选审批人选择范围
-         * <p> 示例值：
-         */
-        this.approverChosenRange = builder.approverChosenRange;
-        /**
-         * 审批人为提交人时的操作
-         * <p> 示例值：STARTER
-         */
-        this.starterAssignee = builder.starterAssignee;
+    /**
+     * 节点名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@node_name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 当前节点的审批方式。;;**注意**：当该参数取值为依次审批（SEQUENTIAL）时，审批人类型（approver.type）必须为发起人自选（Free）。
+     *
+     * <p>示例值：AND
+     *
+     * @param nodeType
+     * @return
+     */
+    public Builder nodeType(String nodeType) {
+      this.nodeType = nodeType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 当前节点的审批方式。;;**注意**：当该参数取值为依次审批（SEQUENTIAL）时，审批人类型（approver.type）必须为发起人自选（Free）。
+     *
+     * <p>示例值：AND
+     *
+     * @param nodeType {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum}
+     * @return
+     */
+    public Builder nodeType(
+        com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum nodeType) {
+      this.nodeType = nodeType.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：
+     *
+     * @param approver
+     * @return
+     */
+    public Builder approver(ApprovalApproverCcer[] approver) {
+      this.approver = approver;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 抄送人列表
+     *
+     * <p>示例值：
+     *
+     * @param ccer
+     * @return
+     */
+    public Builder ccer(ApprovalApproverCcer[] ccer) {
+      this.ccer = ccer;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 表单内的控件权限
+     *
+     * <p>示例值：
+     *
+     * @param privilegeField
+     * @return
+     */
+    public Builder privilegeField(FieldGroup privilegeField) {
+      this.privilegeField = privilegeField;
+      return this;
     }
 
-    public String getNodeType() {
-        return this.nodeType;
+    /**
+     * 发起人自选审批人时，是否允许多选。;;- true：允许;- false：不允许
+     *
+     * <p>示例值：false
+     *
+     * @param approverChosenMulti
+     * @return
+     */
+    public Builder approverChosenMulti(Boolean approverChosenMulti) {
+      this.approverChosenMulti = approverChosenMulti;
+      return this;
     }
 
-    public void setNodeType(String nodeType) {
-        this.nodeType = nodeType;
+    /**
+     * 发起人自选审批人时，可选择的范围。
+     *
+     * <p>示例值：
+     *
+     * @param approverChosenRange
+     * @return
+     */
+    public Builder approverChosenRange(ApproverRange[] approverChosenRange) {
+      this.approverChosenRange = approverChosenRange;
+      return this;
     }
 
-    public ApprovalApproverCcer[] getApprover() {
-        return this.approver;
+    /**
+     * 审批人为提交人本人时的操作
+     *
+     * <p>示例值：STARTER
+     *
+     * @param starterAssignee
+     * @return
+     */
+    public Builder starterAssignee(String starterAssignee) {
+      this.starterAssignee = starterAssignee;
+      return this;
     }
 
-    public void setApprover(ApprovalApproverCcer[] approver) {
-        this.approver = approver;
+    /**
+     * 审批人为提交人本人时的操作
+     *
+     * <p>示例值：STARTER
+     *
+     * @param starterAssignee {@link
+     *     com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum}
+     * @return
+     */
+    public Builder starterAssignee(
+        com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum starterAssignee) {
+      this.starterAssignee = starterAssignee.getValue();
+      return this;
     }
 
-    public ApprovalApproverCcer[] getCcer() {
-        return this.ccer;
+    public ApprovalNode build() {
+      return new ApprovalNode(this);
     }
+  }
 
-    public void setCcer(ApprovalApproverCcer[] ccer) {
-        this.ccer = ccer;
-    }
-
-    public FieldGroup getPrivilegeField() {
-        return this.privilegeField;
-    }
-
-    public void setPrivilegeField(FieldGroup privilegeField) {
-        this.privilegeField = privilegeField;
-    }
-
-    public Boolean getApproverChosenMulti() {
-        return this.approverChosenMulti;
-    }
-
-    public void setApproverChosenMulti(Boolean approverChosenMulti) {
-        this.approverChosenMulti = approverChosenMulti;
-    }
-
-    public ApproverRange[] getApproverChosenRange() {
-        return this.approverChosenRange;
-    }
-
-    public void setApproverChosenRange(ApproverRange[] approverChosenRange) {
-        this.approverChosenRange = approverChosenRange;
-    }
-
-    public String getStarterAssignee() {
-        return this.starterAssignee;
-    }
-
-    public void setStarterAssignee(String starterAssignee) {
-        this.starterAssignee = starterAssignee;
-    }
-
-    public static class Builder {
-        /**
-         * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
-         * <p> 示例值：START
-         */
-        private String id;
-        /**
-         * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@node_name
-         */
-        private String name;
-        /**
-         * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
-         * <p> 示例值：AND
-         */
-        private String nodeType;
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         */
-        private ApprovalApproverCcer[] approver;
-        /**
-         * 抄送人列表
-         * <p> 示例值：
-         */
-        private ApprovalApproverCcer[] ccer;
-        /**
-         * 表单项的控件权限
-         * <p> 示例值：
-         */
-        private FieldGroup privilegeField;
-        /**
-         * 自选审批人是否允许多选
-         * <p> 示例值：false
-         */
-        private Boolean approverChosenMulti;
-        /**
-         * 自选审批人选择范围
-         * <p> 示例值：
-         */
-        private ApproverRange[] approverChosenRange;
-        /**
-         * 审批人为提交人时的操作
-         * <p> 示例值：STARTER
-         */
-        private String starterAssignee;
-
-        /**
-         * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
-         * <p> 示例值：START
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@node_name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
-         * <p> 示例值：AND
-         *
-         * @param nodeType
-         * @return
-         */
-        public Builder nodeType(String nodeType) {
-            this.nodeType = nodeType;
-            return this;
-        }
-
-        /**
-         * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
-         * <p> 示例值：AND
-         *
-         * @param nodeType {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum}
-         * @return
-         */
-        public Builder nodeType(com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum nodeType) {
-            this.nodeType = nodeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         *
-         * @param approver
-         * @return
-         */
-        public Builder approver(ApprovalApproverCcer[] approver) {
-            this.approver = approver;
-            return this;
-        }
-
-
-        /**
-         * 抄送人列表
-         * <p> 示例值：
-         *
-         * @param ccer
-         * @return
-         */
-        public Builder ccer(ApprovalApproverCcer[] ccer) {
-            this.ccer = ccer;
-            return this;
-        }
-
-
-        /**
-         * 表单项的控件权限
-         * <p> 示例值：
-         *
-         * @param privilegeField
-         * @return
-         */
-        public Builder privilegeField(FieldGroup privilegeField) {
-            this.privilegeField = privilegeField;
-            return this;
-        }
-
-
-        /**
-         * 自选审批人是否允许多选
-         * <p> 示例值：false
-         *
-         * @param approverChosenMulti
-         * @return
-         */
-        public Builder approverChosenMulti(Boolean approverChosenMulti) {
-            this.approverChosenMulti = approverChosenMulti;
-            return this;
-        }
-
-
-        /**
-         * 自选审批人选择范围
-         * <p> 示例值：
-         *
-         * @param approverChosenRange
-         * @return
-         */
-        public Builder approverChosenRange(ApproverRange[] approverChosenRange) {
-            this.approverChosenRange = approverChosenRange;
-            return this;
-        }
-
-
-        /**
-         * 审批人为提交人时的操作
-         * <p> 示例值：STARTER
-         *
-         * @param starterAssignee
-         * @return
-         */
-        public Builder starterAssignee(String starterAssignee) {
-            this.starterAssignee = starterAssignee;
-            return this;
-        }
-
-        /**
-         * 审批人为提交人时的操作
-         * <p> 示例值：STARTER
-         *
-         * @param starterAssignee {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum}
-         * @return
-         */
-        public Builder starterAssignee(com.lark.oapi.service.approval.v4.enums.ApprovalNodeStarterAssigneeEnum starterAssignee) {
-            this.starterAssignee = starterAssignee.getValue();
-            return this;
-        }
-
-
-        public ApprovalNode build() {
-            return new ApprovalNode(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

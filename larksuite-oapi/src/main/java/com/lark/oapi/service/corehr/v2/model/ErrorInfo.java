@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ErrorInfo {
+  /**
+   * 错误码
+   *
+   * <p>示例值：30000001
+   */
+  @SerializedName("err_code")
+  private Integer errCode;
+
+  /**
+   * 错误描述
+   *
+   * <p>示例值：示例错误信息
+   */
+  @SerializedName("err_msg")
+  private String errMsg;
+
+  public Integer getErrCode() {
+    return this.errCode;
+  }
+
+  public void setErrCode(Integer errCode) {
+    this.errCode = errCode;
+  }
+
+  public String getErrMsg() {
+    return this.errMsg;
+  }
+
+  public void setErrMsg(String errMsg) {
+    this.errMsg = errMsg;
+  }
+
+  // builder 开始
+  public ErrorInfo() {}
+
+  public ErrorInfo(Builder builder) {
     /**
      * 错误码
-     * <p> 示例值：30000001
+     *
+     * <p>示例值：30000001
      */
-    @SerializedName("err_code")
-    private Integer errCode;
+    this.errCode = builder.errCode;
     /**
      * 错误描述
-     * <p> 示例值：示例错误信息
+     *
+     * <p>示例值：示例错误信息
      */
-    @SerializedName("err_msg")
+    this.errMsg = builder.errMsg;
+  }
+
+  public static class Builder {
+    /**
+     * 错误码
+     *
+     * <p>示例值：30000001
+     */
+    private Integer errCode;
+
+    /**
+     * 错误描述
+     *
+     * <p>示例值：示例错误信息
+     */
     private String errMsg;
 
-    // builder 开始
-    public ErrorInfo() {
+    /**
+     * 错误码
+     *
+     * <p>示例值：30000001
+     *
+     * @param errCode
+     * @return
+     */
+    public Builder errCode(Integer errCode) {
+      this.errCode = errCode;
+      return this;
     }
 
-    public ErrorInfo(Builder builder) {
-        /**
-         * 错误码
-         * <p> 示例值：30000001
-         */
-        this.errCode = builder.errCode;
-        /**
-         * 错误描述
-         * <p> 示例值：示例错误信息
-         */
-        this.errMsg = builder.errMsg;
+    /**
+     * 错误描述
+     *
+     * <p>示例值：示例错误信息
+     *
+     * @param errMsg
+     * @return
+     */
+    public Builder errMsg(String errMsg) {
+      this.errMsg = errMsg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ErrorInfo build() {
+      return new ErrorInfo(this);
     }
+  }
 
-    public Integer getErrCode() {
-        return this.errCode;
-    }
-
-    public void setErrCode(Integer errCode) {
-        this.errCode = errCode;
-    }
-
-    public String getErrMsg() {
-        return this.errMsg;
-    }
-
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
-    }
-
-    public static class Builder {
-        /**
-         * 错误码
-         * <p> 示例值：30000001
-         */
-        private Integer errCode;
-        /**
-         * 错误描述
-         * <p> 示例值：示例错误信息
-         */
-        private String errMsg;
-
-        /**
-         * 错误码
-         * <p> 示例值：30000001
-         *
-         * @param errCode
-         * @return
-         */
-        public Builder errCode(Integer errCode) {
-            this.errCode = errCode;
-            return this;
-        }
-
-
-        /**
-         * 错误描述
-         * <p> 示例值：示例错误信息
-         *
-         * @param errMsg
-         * @return
-         */
-        public Builder errMsg(String errMsg) {
-            this.errMsg = errMsg;
-            return this;
-        }
-
-
-        public ErrorInfo build() {
-            return new ErrorInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

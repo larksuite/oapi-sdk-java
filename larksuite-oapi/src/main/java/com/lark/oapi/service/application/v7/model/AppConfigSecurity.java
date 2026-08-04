@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppConfigSecurity {
+  /**
+   * 新增项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add")
+  private AppConfigSecurityItem add;
+
+  /**
+   * 删除列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("remove")
+  private AppConfigSecurityItem remove;
+
+  /**
+   * 是否允许刷新 user_access_token
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("allow_refresh_token")
+  private Boolean allowRefreshToken;
+
+  public AppConfigSecurityItem getAdd() {
+    return this.add;
+  }
+
+  public void setAdd(AppConfigSecurityItem add) {
+    this.add = add;
+  }
+
+  public AppConfigSecurityItem getRemove() {
+    return this.remove;
+  }
+
+  public void setRemove(AppConfigSecurityItem remove) {
+    this.remove = remove;
+  }
+
+  public Boolean getAllowRefreshToken() {
+    return this.allowRefreshToken;
+  }
+
+  public void setAllowRefreshToken(Boolean allowRefreshToken) {
+    this.allowRefreshToken = allowRefreshToken;
+  }
+
+  // builder 开始
+  public AppConfigSecurity() {}
+
+  public AppConfigSecurity(Builder builder) {
     /**
      * 新增项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("add")
-    private AppConfigSecurityItem add;
+    this.add = builder.add;
     /**
      * 删除列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("remove")
-    private AppConfigSecurityItem remove;
+    this.remove = builder.remove;
     /**
      * 是否允许刷新 user_access_token
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("allow_refresh_token")
+    this.allowRefreshToken = builder.allowRefreshToken;
+  }
+
+  public static class Builder {
+    /**
+     * 新增项
+     *
+     * <p>示例值：
+     */
+    private AppConfigSecurityItem add;
+
+    /**
+     * 删除列表
+     *
+     * <p>示例值：
+     */
+    private AppConfigSecurityItem remove;
+
+    /**
+     * 是否允许刷新 user_access_token
+     *
+     * <p>示例值：false
+     */
     private Boolean allowRefreshToken;
 
-    // builder 开始
-    public AppConfigSecurity() {
+    /**
+     * 新增项
+     *
+     * <p>示例值：
+     *
+     * @param add
+     * @return
+     */
+    public Builder add(AppConfigSecurityItem add) {
+      this.add = add;
+      return this;
     }
 
-    public AppConfigSecurity(Builder builder) {
-        /**
-         * 新增项
-         * <p> 示例值：
-         */
-        this.add = builder.add;
-        /**
-         * 删除列表
-         * <p> 示例值：
-         */
-        this.remove = builder.remove;
-        /**
-         * 是否允许刷新 user_access_token
-         * <p> 示例值：
-         */
-        this.allowRefreshToken = builder.allowRefreshToken;
+    /**
+     * 删除列表
+     *
+     * <p>示例值：
+     *
+     * @param remove
+     * @return
+     */
+    public Builder remove(AppConfigSecurityItem remove) {
+      this.remove = remove;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否允许刷新 user_access_token
+     *
+     * <p>示例值：false
+     *
+     * @param allowRefreshToken
+     * @return
+     */
+    public Builder allowRefreshToken(Boolean allowRefreshToken) {
+      this.allowRefreshToken = allowRefreshToken;
+      return this;
     }
 
-    public AppConfigSecurityItem getAdd() {
-        return this.add;
+    public AppConfigSecurity build() {
+      return new AppConfigSecurity(this);
     }
+  }
 
-    public void setAdd(AppConfigSecurityItem add) {
-        this.add = add;
-    }
-
-    public AppConfigSecurityItem getRemove() {
-        return this.remove;
-    }
-
-    public void setRemove(AppConfigSecurityItem remove) {
-        this.remove = remove;
-    }
-
-    public Boolean getAllowRefreshToken() {
-        return this.allowRefreshToken;
-    }
-
-    public void setAllowRefreshToken(Boolean allowRefreshToken) {
-        this.allowRefreshToken = allowRefreshToken;
-    }
-
-    public static class Builder {
-        /**
-         * 新增项
-         * <p> 示例值：
-         */
-        private AppConfigSecurityItem add;
-        /**
-         * 删除列表
-         * <p> 示例值：
-         */
-        private AppConfigSecurityItem remove;
-        /**
-         * 是否允许刷新 user_access_token
-         * <p> 示例值：
-         */
-        private Boolean allowRefreshToken;
-
-        /**
-         * 新增项
-         * <p> 示例值：
-         *
-         * @param add
-         * @return
-         */
-        public Builder add(AppConfigSecurityItem add) {
-            this.add = add;
-            return this;
-        }
-
-
-        /**
-         * 删除列表
-         * <p> 示例值：
-         *
-         * @param remove
-         * @return
-         */
-        public Builder remove(AppConfigSecurityItem remove) {
-            this.remove = remove;
-            return this;
-        }
-
-
-        /**
-         * 是否允许刷新 user_access_token
-         * <p> 示例值：
-         *
-         * @param allowRefreshToken
-         * @return
-         */
-        public Builder allowRefreshToken(Boolean allowRefreshToken) {
-            this.allowRefreshToken = allowRefreshToken;
-            return this;
-        }
-
-
-        public AppConfigSecurity build() {
-            return new AppConfigSecurity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

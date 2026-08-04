@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CombinedUpdateTalentRespBody {
-    /**
-     * 人才 ID
-     * <p> 示例值：7021471300428613932
-     */
-    @SerializedName("talent_id")
-    private String talentId;
-    /**
-     * 更新人 ID
-     * <p> 示例值：ou_xxx
-     */
-    @SerializedName("operator_id")
-    private String operatorId;
-    /**
-     * 更新人类型
-     * <p> 示例值：1
-     */
-    @SerializedName("operator_account_type")
-    private Integer operatorAccountType;
+  /**
+   * 人才 ID
+   *
+   * <p>示例值：7021471300428613932
+   */
+  @SerializedName("talent_id")
+  private String talentId;
 
-    public String getTalentId() {
-        return this.talentId;
-    }
+  /**
+   * 更新人 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：ou_84aad35d084aa403a838cf73ee18467
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
+  /**
+   * 更新人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator_account_type")
+  private Integer operatorAccountType;
 
-    public String getOperatorId() {
-        return this.operatorId;
-    }
+  public String getTalentId() {
+    return this.talentId;
+  }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
 
-    public Integer getOperatorAccountType() {
-        return this.operatorAccountType;
-    }
+  public String getOperatorId() {
+    return this.operatorId;
+  }
 
-    public void setOperatorAccountType(Integer operatorAccountType) {
-        this.operatorAccountType = operatorAccountType;
-    }
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
 
+  public Integer getOperatorAccountType() {
+    return this.operatorAccountType;
+  }
+
+  public void setOperatorAccountType(Integer operatorAccountType) {
+    this.operatorAccountType = operatorAccountType;
+  }
 }

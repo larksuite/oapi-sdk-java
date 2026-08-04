@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordsPostWorkspaceTableReqBody {
+  /**
+   * 要插入的数据记录列表，单次支持最多 500 条
+   *
+   * <p>示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
+   */
+  @SerializedName("records")
+  private String records;
+
+  public String getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(String records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public RecordsPostWorkspaceTableReqBody() {}
+
+  public RecordsPostWorkspaceTableReqBody(Builder builder) {
     /**
      * 要插入的数据记录列表，单次支持最多 500 条
-     * <p> 示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
+     *
+     * <p>示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 要插入的数据记录列表，单次支持最多 500 条
+     *
+     * <p>示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
+     */
     private String records;
 
-    // builder 开始
-    public RecordsPostWorkspaceTableReqBody() {
+    /**
+     * 要插入的数据记录列表，单次支持最多 500 条
+     *
+     * <p>示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(String records) {
+      this.records = records;
+      return this;
     }
 
-    public RecordsPostWorkspaceTableReqBody(Builder builder) {
-        /**
-         * 要插入的数据记录列表，单次支持最多 500 条
-         * <p> 示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
-         */
-        this.records = builder.records;
+    public RecordsPostWorkspaceTableReqBody build() {
+      return new RecordsPostWorkspaceTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(String records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 要插入的数据记录列表，单次支持最多 500 条
-         * <p> 示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
-         */
-        private String records;
-
-        /**
-         * 要插入的数据记录列表，单次支持最多 500 条
-         * <p> 示例值：[{\"name\":\"王一一\",\"gender\":\"male\",\"age\":10},{\"name\":\"王二二\",\"gender\":\"female\",\"age\":10}]
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(String records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public RecordsPostWorkspaceTableReqBody build() {
-            return new RecordsPostWorkspaceTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

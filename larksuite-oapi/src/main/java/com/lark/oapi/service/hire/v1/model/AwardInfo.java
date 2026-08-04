@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AwardInfo {
+  /**
+   * 获奖时间
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("award_time")
+  private Long awardTime;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("title")
+  private String title;
+
+  public Long getAwardTime() {
+    return this.awardTime;
+  }
+
+  public void setAwardTime(Long awardTime) {
+    this.awardTime = awardTime;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public AwardInfo() {}
+
+  public AwardInfo(Builder builder) {
     /**
      * 获奖时间
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("award_time")
-    private Long awardTime;
+    this.awardTime = builder.awardTime;
     /**
      * 描述
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 名称
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：123
+     */
+    private Long awardTime;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：123
+     */
+    private String desc;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：123
+     */
     private String title;
 
-    // builder 开始
-    public AwardInfo() {
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：123
+     *
+     * @param awardTime
+     * @return
+     */
+    public Builder awardTime(Long awardTime) {
+      this.awardTime = awardTime;
+      return this;
     }
 
-    public AwardInfo(Builder builder) {
-        /**
-         * 获奖时间
-         * <p> 示例值：123
-         */
-        this.awardTime = builder.awardTime;
-        /**
-         * 描述
-         * <p> 示例值：123
-         */
-        this.desc = builder.desc;
-        /**
-         * 名称
-         * <p> 示例值：123
-         */
-        this.title = builder.title;
+    /**
+     * 描述
+     *
+     * <p>示例值：123
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 名称
+     *
+     * <p>示例值：123
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public Long getAwardTime() {
-        return this.awardTime;
+    public AwardInfo build() {
+      return new AwardInfo(this);
     }
+  }
 
-    public void setAwardTime(Long awardTime) {
-        this.awardTime = awardTime;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 获奖时间
-         * <p> 示例值：123
-         */
-        private Long awardTime;
-        /**
-         * 描述
-         * <p> 示例值：123
-         */
-        private String desc;
-        /**
-         * 名称
-         * <p> 示例值：123
-         */
-        private String title;
-
-        /**
-         * 获奖时间
-         * <p> 示例值：123
-         *
-         * @param awardTime
-         * @return
-         */
-        public Builder awardTime(Long awardTime) {
-            this.awardTime = awardTime;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：123
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：123
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public AwardInfo build() {
-            return new AwardInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

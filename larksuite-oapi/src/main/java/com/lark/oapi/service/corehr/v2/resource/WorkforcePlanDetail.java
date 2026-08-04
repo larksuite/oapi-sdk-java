@@ -13,169 +13,236 @@
 
 package com.lark.oapi.service.corehr.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class WorkforcePlanDetail {
-    private static final Logger log = LoggerFactory.getLogger(WorkforcePlanDetail.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(WorkforcePlanDetail.class);
+  private final Config config;
 
-    public WorkforcePlanDetail(Config config) {
-        this.config = config;
+  public WorkforcePlanDetail(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 查询编制规划明细信息（不支持自定义组织），查询编制规划明细，包括维度信息、编制数和预估在职人数
+   *
+   * <p>延迟说明：搜索同步延迟 10s 以内，即：直接创建编制明细后 10s 内调用此接口可能查询不到数据。;;该接口会按照应用拥有的「部门数据」的权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中有申请「部门资源」权限范围;;- 本接口可查询编制规划或集中填报明细信息。;- 请求体入参如果没有特殊说明，不填写默认为空，不参与筛选。;-
+   * 所有筛选项可一起使用，之间为 AND 关系。如部门 + 人员类型，则返回同时满足部门及人员类型的编制规划明细数据。;-
+   * 本接口不支持自定义组织，如需使用自定义组织，可调用[查询编制规划明细信息（支持自定义组织）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch_v2)。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java</a>
+   * ;
+   */
+  public BatchWorkforcePlanDetailResp batch(
+      BatchWorkforcePlanDetailReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_details/batch",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java</a> ;
-     */
-    public BatchWorkforcePlanDetailResp batch(BatchWorkforcePlanDetailReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_details/batch"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        BatchWorkforcePlanDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchWorkforcePlanDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_details/batch"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    BatchWorkforcePlanDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchWorkforcePlanDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_details/batch",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java</a> ;
-     */
-    public BatchWorkforcePlanDetailResp batch(BatchWorkforcePlanDetailReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_details/batch"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        BatchWorkforcePlanDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchWorkforcePlanDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_details/batch"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 查询编制规划明细信息（不支持自定义组织），查询编制规划明细，包括维度信息、编制数和预估在职人数
+   *
+   * <p>延迟说明：搜索同步延迟 10s 以内，即：直接创建编制明细后 10s 内调用此接口可能查询不到数据。;;该接口会按照应用拥有的「部门数据」的权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中有申请「部门资源」权限范围;;- 本接口可查询编制规划或集中填报明细信息。;- 请求体入参如果没有特殊说明，不填写默认为空，不参与筛选。;-
+   * 所有筛选项可一起使用，之间为 AND 关系。如部门 + 人员类型，则返回同时满足部门及人员类型的编制规划明细数据。;-
+   * 本接口不支持自定义组织，如需使用自定义组织，可调用[查询编制规划明细信息（支持自定义组织）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan_detail/batch_v2)。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch&project=corehr&resource=workforce_plan_detail&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchWorkforcePlanDetailSample.java</a>
+   * ;
+   */
+  public BatchWorkforcePlanDetailResp batch(BatchWorkforcePlanDetailReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_details/batch",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    BatchWorkforcePlanDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchWorkforcePlanDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_details/batch",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java</a> ;
-     */
-    public BatchV2WorkforcePlanDetailResp batchV2(BatchV2WorkforcePlanDetailReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        BatchV2WorkforcePlanDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchV2WorkforcePlanDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 查询编制规划明细信息（支持自定义组织），查询编制规划明细，包括维度信息、编制数、预估在职人数、在职人数和预增/预减人数。
+   *
+   * <p>延迟说明：搜索同步延迟 10s 以内，即：直接创建编制明细后 10s 内调用此接口可能查询不到数据。;;该接口会按照应用拥有的「部门数据」的权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中有申请「部门资源」权限范围;- 本接口可查询编制规划或集中填报明细信息。;- 请求体入参如果没有特殊说明，不填写默认为空，不参与筛选。;-
+   * 所有筛选项可一起使用，之间为 AND 关系。如部门 + 人员类型，则返回同时满足部门及人员类型的编制规划明细数据。; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java</a>
+   * ;
+   */
+  public BatchV2WorkforcePlanDetailResp batchV2(
+      BatchV2WorkforcePlanDetailReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java</a> ;
-     */
-    public BatchV2WorkforcePlanDetailResp batchV2(BatchV2WorkforcePlanDetailReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_details/batch_v2",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        BatchV2WorkforcePlanDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchV2WorkforcePlanDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/workforce_plan_details/batch_v2"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    BatchV2WorkforcePlanDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchV2WorkforcePlanDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_details/batch_v2",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 查询编制规划明细信息（支持自定义组织），查询编制规划明细，包括维度信息、编制数、预估在职人数、在职人数和预增/预减人数。
+   *
+   * <p>延迟说明：搜索同步延迟 10s 以内，即：直接创建编制明细后 10s 内调用此接口可能查询不到数据。;;该接口会按照应用拥有的「部门数据」的权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中有申请「部门资源」权限范围;- 本接口可查询编制规划或集中填报明细信息。;- 请求体入参如果没有特殊说明，不填写默认为空，不参与筛选。;-
+   * 所有筛选项可一起使用，之间为 AND 关系。如部门 + 人员类型，则返回同时满足部门及人员类型的编制规划明细数据。; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_v2&project=corehr&resource=workforce_plan_detail&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/BatchV2WorkforcePlanDetailSample.java</a>
+   * ;
+   */
+  public BatchV2WorkforcePlanDetailResp batchV2(BatchV2WorkforcePlanDetailReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/workforce_plan_details/batch_v2",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    BatchV2WorkforcePlanDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, BatchV2WorkforcePlanDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/workforce_plan_details/batch_v2",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

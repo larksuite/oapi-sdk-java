@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicUser {
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_b3b46653c99f1f6177a478974bdabb72
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户国际化名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nName i18nName;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public I18nName getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nName i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  // builder 开始
+  public BasicUser() {}
+
+  public BasicUser(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：
+     * 用户 ID
+     *
+     * <p>示例值：ou_b3b46653c99f1f6177a478974bdabb72
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户名
-     * <p> 示例值：用户名
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户国际化名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
+    this.i18nName = builder.i18nName;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_b3b46653c99f1f6177a478974bdabb72
+     */
+    private String userId;
+
+    /**
+     * 用户名
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 用户国际化名
+     *
+     * <p>示例值：
+     */
     private I18nName i18nName;
 
-    // builder 开始
-    public BasicUser() {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_b3b46653c99f1f6177a478974bdabb72
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public BasicUser(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名
-         * <p> 示例值：用户名
-         */
-        this.name = builder.name;
-        /**
-         * 用户国际化名
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
+    /**
+     * 用户名
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户国际化名
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nName i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public BasicUser build() {
+      return new BasicUser(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public I18nName getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18nName i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 用户名
-         * <p> 示例值：用户名
-         */
-        private String name;
-        /**
-         * 用户国际化名
-         * <p> 示例值：
-         */
-        private I18nName i18nName;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户名
-         * <p> 示例值：用户名
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户国际化名
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nName i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        public BasicUser build() {
-            return new BasicUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

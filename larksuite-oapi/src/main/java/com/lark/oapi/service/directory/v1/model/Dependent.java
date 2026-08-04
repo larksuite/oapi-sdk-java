@@ -13,408 +13,445 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Dependent {
+  /**
+   * ID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 姓名
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 关系
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("relationship")
+  private String relationship;
+
+  /**
+   * 性别
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("gender")
+  private Integer gender;
+
+  /**
+   * 生日
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("date_of_birth")
+  private String dateOfBirth;
+
+  /**
+   * 国籍
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("nationality_id")
+  private String nationalityId;
+
+  /**
+   * 证件号码
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("national_id_list")
+  private String nationalIdList;
+
+  /**
+   * 配偶工作状态
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("spouses_working_status")
+  private String spousesWorkingStatus;
+
+  /**
+   * 包含家属医疗保险
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_this_person_covered_by_health_insurance")
+  private Boolean isThisPersonCoveredByHealthInsurance;
+
+  /**
+   * 允许家属抵扣税款
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_this_person_allowed_for_tax_deduction")
+  private Boolean isThisPersonAllowedForTaxDeduction;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getRelationship() {
+    return this.relationship;
+  }
+
+  public void setRelationship(String relationship) {
+    this.relationship = relationship;
+  }
+
+  public Integer getGender() {
+    return this.gender;
+  }
+
+  public void setGender(Integer gender) {
+    this.gender = gender;
+  }
+
+  public String getDateOfBirth() {
+    return this.dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public String getNationalityId() {
+    return this.nationalityId;
+  }
+
+  public void setNationalityId(String nationalityId) {
+    this.nationalityId = nationalityId;
+  }
+
+  public String getNationalIdList() {
+    return this.nationalIdList;
+  }
+
+  public void setNationalIdList(String nationalIdList) {
+    this.nationalIdList = nationalIdList;
+  }
+
+  public String getSpousesWorkingStatus() {
+    return this.spousesWorkingStatus;
+  }
+
+  public void setSpousesWorkingStatus(String spousesWorkingStatus) {
+    this.spousesWorkingStatus = spousesWorkingStatus;
+  }
+
+  public Boolean getIsThisPersonCoveredByHealthInsurance() {
+    return this.isThisPersonCoveredByHealthInsurance;
+  }
+
+  public void setIsThisPersonCoveredByHealthInsurance(
+      Boolean isThisPersonCoveredByHealthInsurance) {
+    this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+  }
+
+  public Boolean getIsThisPersonAllowedForTaxDeduction() {
+    return this.isThisPersonAllowedForTaxDeduction;
+  }
+
+  public void setIsThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+    this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+  }
+
+  // builder 开始
+  public Dependent() {}
+
+  public Dependent(Builder builder) {
     /**
      * ID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 姓名
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 关系
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("relationship")
-    private String relationship;
+    this.relationship = builder.relationship;
     /**
      * 性别
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("gender")
-    private Integer gender;
+    this.gender = builder.gender;
     /**
      * 生日
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("date_of_birth")
-    private String dateOfBirth;
+    this.dateOfBirth = builder.dateOfBirth;
     /**
      * 国籍
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("nationality_id")
-    private String nationalityId;
+    this.nationalityId = builder.nationalityId;
     /**
      * 证件号码
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("national_id_list")
-    private String nationalIdList;
+    this.nationalIdList = builder.nationalIdList;
     /**
      * 配偶工作状态
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("spouses_working_status")
-    private String spousesWorkingStatus;
+    this.spousesWorkingStatus = builder.spousesWorkingStatus;
     /**
      * 包含家属医疗保险
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_this_person_covered_by_health_insurance")
-    private Boolean isThisPersonCoveredByHealthInsurance;
+    this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
     /**
      * 允许家属抵扣税款
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_this_person_allowed_for_tax_deduction")
+    this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：无
+     */
+    private String id;
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：无
+     */
+    private String name;
+
+    /**
+     * 关系
+     *
+     * <p>示例值：无
+     */
+    private String relationship;
+
+    /**
+     * 性别
+     *
+     * <p>示例值：无
+     */
+    private Integer gender;
+
+    /**
+     * 生日
+     *
+     * <p>示例值：无
+     */
+    private String dateOfBirth;
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：无
+     */
+    private String nationalityId;
+
+    /**
+     * 证件号码
+     *
+     * <p>示例值：无
+     */
+    private String nationalIdList;
+
+    /**
+     * 配偶工作状态
+     *
+     * <p>示例值：无
+     */
+    private String spousesWorkingStatus;
+
+    /**
+     * 包含家属医疗保险
+     *
+     * <p>示例值：true
+     */
+    private Boolean isThisPersonCoveredByHealthInsurance;
+
+    /**
+     * 允许家属抵扣税款
+     *
+     * <p>示例值：true
+     */
     private Boolean isThisPersonAllowedForTaxDeduction;
 
-    // builder 开始
-    public Dependent() {
+    /**
+     * ID
+     *
+     * <p>示例值：无
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Dependent(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：无
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：无
-         */
-        this.name = builder.name;
-        /**
-         * 关系
-         * <p> 示例值：无
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 性别
-         * <p> 示例值：无
-         */
-        this.gender = builder.gender;
-        /**
-         * 生日
-         * <p> 示例值：无
-         */
-        this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 国籍
-         * <p> 示例值：无
-         */
-        this.nationalityId = builder.nationalityId;
-        /**
-         * 证件号码
-         * <p> 示例值：无
-         */
-        this.nationalIdList = builder.nationalIdList;
-        /**
-         * 配偶工作状态
-         * <p> 示例值：无
-         */
-        this.spousesWorkingStatus = builder.spousesWorkingStatus;
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         */
-        this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：true
-         */
-        this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
+    /**
+     * 姓名
+     *
+     * <p>示例值：无
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关系
+     *
+     * <p>示例值：无
+     *
+     * @param relationship
+     * @return
+     */
+    public Builder relationship(String relationship) {
+      this.relationship = relationship;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 性别
+     *
+     * <p>示例值：无
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(Integer gender) {
+      this.gender = gender;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 生日
+     *
+     * <p>示例值：无
+     *
+     * @param dateOfBirth
+     * @return
+     */
+    public Builder dateOfBirth(String dateOfBirth) {
+      this.dateOfBirth = dateOfBirth;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 国籍
+     *
+     * <p>示例值：无
+     *
+     * @param nationalityId
+     * @return
+     */
+    public Builder nationalityId(String nationalityId) {
+      this.nationalityId = nationalityId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 证件号码
+     *
+     * <p>示例值：无
+     *
+     * @param nationalIdList
+     * @return
+     */
+    public Builder nationalIdList(String nationalIdList) {
+      this.nationalIdList = nationalIdList;
+      return this;
     }
 
-    public String getRelationship() {
-        return this.relationship;
+    /**
+     * 配偶工作状态
+     *
+     * <p>示例值：无
+     *
+     * @param spousesWorkingStatus
+     * @return
+     */
+    public Builder spousesWorkingStatus(String spousesWorkingStatus) {
+      this.spousesWorkingStatus = spousesWorkingStatus;
+      return this;
     }
 
-    public void setRelationship(String relationship) {
-        this.relationship = relationship;
+    /**
+     * 包含家属医疗保险
+     *
+     * <p>示例值：true
+     *
+     * @param isThisPersonCoveredByHealthInsurance
+     * @return
+     */
+    public Builder isThisPersonCoveredByHealthInsurance(
+        Boolean isThisPersonCoveredByHealthInsurance) {
+      this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+      return this;
     }
 
-    public Integer getGender() {
-        return this.gender;
+    /**
+     * 允许家属抵扣税款
+     *
+     * <p>示例值：true
+     *
+     * @param isThisPersonAllowedForTaxDeduction
+     * @return
+     */
+    public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+      this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+      return this;
     }
 
-    public void setGender(Integer gender) {
-        this.gender = gender;
+    public Dependent build() {
+      return new Dependent(this);
     }
+  }
 
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getNationalityId() {
-        return this.nationalityId;
-    }
-
-    public void setNationalityId(String nationalityId) {
-        this.nationalityId = nationalityId;
-    }
-
-    public String getNationalIdList() {
-        return this.nationalIdList;
-    }
-
-    public void setNationalIdList(String nationalIdList) {
-        this.nationalIdList = nationalIdList;
-    }
-
-    public String getSpousesWorkingStatus() {
-        return this.spousesWorkingStatus;
-    }
-
-    public void setSpousesWorkingStatus(String spousesWorkingStatus) {
-        this.spousesWorkingStatus = spousesWorkingStatus;
-    }
-
-    public Boolean getIsThisPersonCoveredByHealthInsurance() {
-        return this.isThisPersonCoveredByHealthInsurance;
-    }
-
-    public void setIsThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
-        this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
-    }
-
-    public Boolean getIsThisPersonAllowedForTaxDeduction() {
-        return this.isThisPersonAllowedForTaxDeduction;
-    }
-
-    public void setIsThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
-        this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：无
-         */
-        private String id;
-        /**
-         * 姓名
-         * <p> 示例值：无
-         */
-        private String name;
-        /**
-         * 关系
-         * <p> 示例值：无
-         */
-        private String relationship;
-        /**
-         * 性别
-         * <p> 示例值：无
-         */
-        private Integer gender;
-        /**
-         * 生日
-         * <p> 示例值：无
-         */
-        private String dateOfBirth;
-        /**
-         * 国籍
-         * <p> 示例值：无
-         */
-        private String nationalityId;
-        /**
-         * 证件号码
-         * <p> 示例值：无
-         */
-        private String nationalIdList;
-        /**
-         * 配偶工作状态
-         * <p> 示例值：无
-         */
-        private String spousesWorkingStatus;
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         */
-        private Boolean isThisPersonCoveredByHealthInsurance;
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：true
-         */
-        private Boolean isThisPersonAllowedForTaxDeduction;
-
-        /**
-         * ID
-         * <p> 示例值：无
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：无
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 关系
-         * <p> 示例值：无
-         *
-         * @param relationship
-         * @return
-         */
-        public Builder relationship(String relationship) {
-            this.relationship = relationship;
-            return this;
-        }
-
-
-        /**
-         * 性别
-         * <p> 示例值：无
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(Integer gender) {
-            this.gender = gender;
-            return this;
-        }
-
-
-        /**
-         * 生日
-         * <p> 示例值：无
-         *
-         * @param dateOfBirth
-         * @return
-         */
-        public Builder dateOfBirth(String dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 国籍
-         * <p> 示例值：无
-         *
-         * @param nationalityId
-         * @return
-         */
-        public Builder nationalityId(String nationalityId) {
-            this.nationalityId = nationalityId;
-            return this;
-        }
-
-
-        /**
-         * 证件号码
-         * <p> 示例值：无
-         *
-         * @param nationalIdList
-         * @return
-         */
-        public Builder nationalIdList(String nationalIdList) {
-            this.nationalIdList = nationalIdList;
-            return this;
-        }
-
-
-        /**
-         * 配偶工作状态
-         * <p> 示例值：无
-         *
-         * @param spousesWorkingStatus
-         * @return
-         */
-        public Builder spousesWorkingStatus(String spousesWorkingStatus) {
-            this.spousesWorkingStatus = spousesWorkingStatus;
-            return this;
-        }
-
-
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         *
-         * @param isThisPersonCoveredByHealthInsurance
-         * @return
-         */
-        public Builder isThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
-            this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
-            return this;
-        }
-
-
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：true
-         *
-         * @param isThisPersonAllowedForTaxDeduction
-         * @return
-         */
-        public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
-            this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
-            return this;
-        }
-
-
-        public Dependent build() {
-            return new Dependent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

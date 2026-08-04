@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserNormalLeaveType {
+  /**
+   * 用户ID列表(用户id类型 open_id/union_id/user_id)
+   *
+   * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 适用假期范围的假期ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_type_ids")
+  private String[] leaveTypeIds;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getLeaveTypeIds() {
+    return this.leaveTypeIds;
+  }
+
+  public void setLeaveTypeIds(String[] leaveTypeIds) {
+    this.leaveTypeIds = leaveTypeIds;
+  }
+
+  // builder 开始
+  public UserNormalLeaveType() {}
+
+  public UserNormalLeaveType(Builder builder) {
     /**
      * 用户ID列表(用户id类型 open_id/union_id/user_id)
-     * <p> 示例值：
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 适用假期范围的假期ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leave_type_ids")
+    this.leaveTypeIds = builder.leaveTypeIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID列表(用户id类型 open_id/union_id/user_id)
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+     */
+    private String userId;
+
+    /**
+     * 适用假期范围的假期ID
+     *
+     * <p>示例值：
+     */
     private String[] leaveTypeIds;
 
-    // builder 开始
-    public UserNormalLeaveType() {
+    /**
+     * 用户ID列表(用户id类型 open_id/union_id/user_id)
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserNormalLeaveType(Builder builder) {
-        /**
-         * 用户ID列表(用户id类型 open_id/union_id/user_id)
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 适用假期范围的假期ID
-         * <p> 示例值：
-         */
-        this.leaveTypeIds = builder.leaveTypeIds;
+    /**
+     * 适用假期范围的假期ID
+     *
+     * <p>示例值：
+     *
+     * @param leaveTypeIds
+     * @return
+     */
+    public Builder leaveTypeIds(String[] leaveTypeIds) {
+      this.leaveTypeIds = leaveTypeIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserNormalLeaveType build() {
+      return new UserNormalLeaveType(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String[] getLeaveTypeIds() {
-        return this.leaveTypeIds;
-    }
-
-    public void setLeaveTypeIds(String[] leaveTypeIds) {
-        this.leaveTypeIds = leaveTypeIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID列表(用户id类型 open_id/union_id/user_id)
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 适用假期范围的假期ID
-         * <p> 示例值：
-         */
-        private String[] leaveTypeIds;
-
-        /**
-         * 用户ID列表(用户id类型 open_id/union_id/user_id)
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 适用假期范围的假期ID
-         * <p> 示例值：
-         *
-         * @param leaveTypeIds
-         * @return
-         */
-        public Builder leaveTypeIds(String[] leaveTypeIds) {
-            this.leaveTypeIds = leaveTypeIds;
-            return this;
-        }
-
-
-        public UserNormalLeaveType build() {
-            return new UserNormalLeaveType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

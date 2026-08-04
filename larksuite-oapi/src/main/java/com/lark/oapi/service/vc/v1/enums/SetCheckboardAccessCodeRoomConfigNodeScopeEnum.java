@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 设置节点范围
- */
+/** 设置节点范围 */
 public enum SetCheckboardAccessCodeRoomConfigNodeScopeEnum {
-    TENANT(1), // 租户
-    COUNTRY_DISTRICT(2), // 国家/地区
-    CITY(3), // 城市
-    BUILDING(4), // 建筑
-    FLOOR(5), // 楼层
-    ROOM(6), // 会议室
-    ;
-    private Integer value;
+  TENANT(1), // 租户
+  COUNTRY_DISTRICT(2), // 国家/地区
+  CITY(3), // 城市
+  BUILDING(4), // 建筑
+  FLOOR(5), // 楼层
+  ROOM(6), // 会议室
+  ;
+  private Integer value;
 
-    SetCheckboardAccessCodeRoomConfigNodeScopeEnum(Integer value) {
-        this.value = value;
-    }
+  SetCheckboardAccessCodeRoomConfigNodeScopeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

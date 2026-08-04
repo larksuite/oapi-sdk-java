@@ -13,140 +13,137 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class DeleteApplicationObjectRecordReq {
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 对象唯一标识
+   *
+   * <p>示例值：user
+   */
+  @Path
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 记录ID
+   *
+   * <p>示例值：1764024447556775
+   */
+  @Path
+  @SerializedName("id")
+  private String id;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public DeleteApplicationObjectRecordReq() {}
+
+  public DeleteApplicationObjectRecordReq(Builder builder) {
     /**
      * 应用命名空间
-     * <p> 示例值：package_test__c
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 对象唯一标识
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @Path
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
      * 记录ID
-     * <p> 示例值：1764024447556775
+     *
+     * <p>示例值：1764024447556775
      */
-    @Path
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
+  }
 
-    // builder 开始
-    public DeleteApplicationObjectRecordReq() {
+  public static class Builder {
+
+    private String namespace; // 应用命名空间
+    private String objectApiName; // 对象唯一标识
+    private String id; // 记录ID
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public DeleteApplicationObjectRecordReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 对象唯一标识
-         * <p> 示例值：user
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 记录ID
-         * <p> 示例值：1764024447556775
-         */
-        this.id = builder.id;
+    /**
+     * 对象唯一标识
+     *
+     * <p>示例值：user
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 记录ID
+     *
+     * <p>示例值：1764024447556775
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    public DeleteApplicationObjectRecordReq build() {
+      return new DeleteApplicationObjectRecordReq(this);
     }
+  }
 
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-
-        private String namespace; // 应用命名空间
-        private String objectApiName; // 对象唯一标识
-        private String id; // 记录ID
-
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 对象唯一标识
-         * <p> 示例值：user
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 记录ID
-         * <p> 示例值：1764024447556775
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public DeleteApplicationObjectRecordReq build() {
-            return new DeleteApplicationObjectRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

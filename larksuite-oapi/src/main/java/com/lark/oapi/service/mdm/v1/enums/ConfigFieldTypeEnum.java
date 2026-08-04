@@ -13,28 +13,26 @@
 
 package com.lark.oapi.service.mdm.v1.enums;
 
-/**
- * 字段类型
- */
+/** 字段类型 */
 public enum ConfigFieldTypeEnum {
-    INPUT(0), // 单行文本框
-    TEXTAREA(1), // 多行文本框
-    INPUTNUMBER(2), // 数字
-    SINGLESELECT(3), // 单选框
-    MULTISELECT(4), // 多选框
-    DROPSINGLESELECT(5), // 下拉单选
-    DROPMULTISELECT(6), // 下拉多选
-    DATEPICKER(7), // 日期
-    RANGEPICKER(8), // 日期区间
-    APPENDIX(12), // 附件
-    ;
-    private Integer value;
+  INPUT(0), // 单行文本框
+  TEXTAREA(1), // 多行文本框
+  INPUTNUMBER(2), // 数字
+  SINGLESELECT(3), // 单选框
+  MULTISELECT(4), // 多选框
+  DROPSINGLESELECT(5), // 下拉单选
+  DROPMULTISELECT(6), // 下拉多选
+  DATEPICKER(7), // 日期
+  RANGEPICKER(8), // 日期区间
+  APPENDIX(12), // 附件
+  ;
+  private Integer value;
 
-    ConfigFieldTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ConfigFieldTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

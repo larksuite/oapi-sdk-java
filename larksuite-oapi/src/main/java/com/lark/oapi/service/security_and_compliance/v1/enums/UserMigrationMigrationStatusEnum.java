@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 用户迁移状态
- */
+/** 用户迁移状态 */
 public enum UserMigrationMigrationStatusEnum {
-    INPROGRESS("0"), // 进行中
-    COMPLETED("1"), // 已完成
-    CANCELED("2"), // 已取消
-    ;
-    private String value;
+  INPROGRESS("0"), // 用户迁移进行中
+  COMPLETED("1"), // 用户迁移已完成
+  CANCELED("2"), // 用户迁移已取消
+  ;
+  private String value;
 
-    UserMigrationMigrationStatusEnum(String value) {
-        this.value = value;
-    }
+  UserMigrationMigrationStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

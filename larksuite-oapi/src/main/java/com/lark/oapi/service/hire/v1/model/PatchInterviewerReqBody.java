@@ -13,74 +13,50 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchInterviewerReqBody {
-    /**
-     * 面试官信息
-     * <p> 示例值：
-     */
-    @SerializedName("interviewer")
+  /** 示例值： */
+  @SerializedName("interviewer")
+  private Interviewer interviewer;
+
+  public Interviewer getInterviewer() {
+    return this.interviewer;
+  }
+
+  public void setInterviewer(Interviewer interviewer) {
+    this.interviewer = interviewer;
+  }
+
+  // builder 开始
+  public PatchInterviewerReqBody() {}
+
+  public PatchInterviewerReqBody(Builder builder) {
+    /** 示例值： */
+    this.interviewer = builder.interviewer;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Interviewer interviewer;
 
-    // builder 开始
-    public PatchInterviewerReqBody() {
+    /**
+     * 示例值：
+     *
+     * @param interviewer
+     * @return
+     */
+    public Builder interviewer(Interviewer interviewer) {
+      this.interviewer = interviewer;
+      return this;
     }
 
-    public PatchInterviewerReqBody(Builder builder) {
-        /**
-         * 面试官信息
-         * <p> 示例值：
-         */
-        this.interviewer = builder.interviewer;
+    public PatchInterviewerReqBody build() {
+      return new PatchInterviewerReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Interviewer getInterviewer() {
-        return this.interviewer;
-    }
-
-    public void setInterviewer(Interviewer interviewer) {
-        this.interviewer = interviewer;
-    }
-
-    public static class Builder {
-        /**
-         * 面试官信息
-         * <p> 示例值：
-         */
-        private Interviewer interviewer;
-
-        /**
-         * 面试官信息
-         * <p> 示例值：
-         *
-         * @param interviewer
-         * @return
-         */
-        public Builder interviewer(Interviewer interviewer) {
-            this.interviewer = interviewer;
-            return this;
-        }
-
-
-        public PatchInterviewerReqBody build() {
-            return new PatchInterviewerReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

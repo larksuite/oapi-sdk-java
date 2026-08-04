@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockChangeInfos {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("changes")
+  /** 示例值： */
+  @SerializedName("changes")
+  private BlockChangeInfo[] changes;
+
+  /** 示例值： */
+  @SerializedName("start_time")
+  private String startTime;
+
+  public BlockChangeInfo[] getChanges() {
+    return this.changes;
+  }
+
+  public void setChanges(BlockChangeInfo[] changes) {
+    this.changes = changes;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  // builder 开始
+  public BlockChangeInfos() {}
+
+  public BlockChangeInfos(Builder builder) {
+    /** 示例值： */
+    this.changes = builder.changes;
+    /** 示例值： */
+    this.startTime = builder.startTime;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private BlockChangeInfo[] changes;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("start_time")
+
+    /** 示例值： */
     private String startTime;
 
-    // builder 开始
-    public BlockChangeInfos() {
+    /**
+     * 示例值：
+     *
+     * @param changes
+     * @return
+     */
+    public Builder changes(BlockChangeInfo[] changes) {
+      this.changes = changes;
+      return this;
     }
 
-    public BlockChangeInfos(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.changes = builder.changes;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
+    /**
+     * 示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BlockChangeInfos build() {
+      return new BlockChangeInfos(this);
     }
+  }
 
-    public BlockChangeInfo[] getChanges() {
-        return this.changes;
-    }
-
-    public void setChanges(BlockChangeInfo[] changes) {
-        this.changes = changes;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private BlockChangeInfo[] changes;
-        /**
-         * <p> 示例值：
-         */
-        private String startTime;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param changes
-         * @return
-         */
-        public Builder changes(BlockChangeInfo[] changes) {
-            this.changes = changes;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        public BlockChangeInfos build() {
-            return new BlockChangeInfos(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

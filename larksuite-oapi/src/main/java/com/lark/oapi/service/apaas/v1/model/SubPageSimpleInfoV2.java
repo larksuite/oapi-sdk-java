@@ -13,115 +13,108 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class SubPageSimpleInfoV2 {
+  /**
+   * 子页面的apiName;;长度范围：0～255字符;;获取方式： 通过元数据权限查询接口获取
+   *
+   * <p>示例值：sub_page_apiName
+   */
+  @SerializedName("sub_page_key")
+  private String subPageKey;
+
+  /**
+   * 子页面的名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("name")
+  private Map<String, String> name;
+
+  public String getSubPageKey() {
+    return this.subPageKey;
+  }
+
+  public void setSubPageKey(String subPageKey) {
+    this.subPageKey = subPageKey;
+  }
+
+  public Map<String, String> getName() {
+    return this.name;
+  }
+
+  public void setName(Map<String, String> name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public SubPageSimpleInfoV2() {}
+
+  public SubPageSimpleInfoV2(Builder builder) {
     /**
-     * 子页面的key
-     * <p> 示例值：sub_page_key
+     * 子页面的apiName;;长度范围：0～255字符;;获取方式： 通过元数据权限查询接口获取
+     *
+     * <p>示例值：sub_page_apiName
      */
-    @SerializedName("sub_page_key")
-    private String subPageKey;
+    this.subPageKey = builder.subPageKey;
     /**
      * 子页面的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 子页面的apiName;;长度范围：0～255字符;;获取方式： 通过元数据权限查询接口获取
+     *
+     * <p>示例值：sub_page_apiName
+     */
+    private String subPageKey;
+
+    /**
+     * 子页面的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> name;
 
-    // builder 开始
-    public SubPageSimpleInfoV2() {
+    /**
+     * 子页面的apiName;;长度范围：0～255字符;;获取方式： 通过元数据权限查询接口获取
+     *
+     * <p>示例值：sub_page_apiName
+     *
+     * @param subPageKey
+     * @return
+     */
+    public Builder subPageKey(String subPageKey) {
+      this.subPageKey = subPageKey;
+      return this;
     }
 
-    public SubPageSimpleInfoV2(Builder builder) {
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_key
-         */
-        this.subPageKey = builder.subPageKey;
-        /**
-         * 子页面的名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 子页面的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Map<String, String> name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SubPageSimpleInfoV2 build() {
+      return new SubPageSimpleInfoV2(this);
     }
+  }
 
-    public String getSubPageKey() {
-        return this.subPageKey;
-    }
-
-    public void setSubPageKey(String subPageKey) {
-        this.subPageKey = subPageKey;
-    }
-
-    public Map<String, String> getName() {
-        return this.name;
-    }
-
-    public void setName(Map<String, String> name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_key
-         */
-        private String subPageKey;
-        /**
-         * 子页面的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> name;
-
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_key
-         *
-         * @param subPageKey
-         * @return
-         */
-        public Builder subPageKey(String subPageKey) {
-            this.subPageKey = subPageKey;
-            return this;
-        }
-
-
-        /**
-         * 子页面的名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Map<String, String> name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public SubPageSimpleInfoV2 build() {
-            return new SubPageSimpleInfoV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

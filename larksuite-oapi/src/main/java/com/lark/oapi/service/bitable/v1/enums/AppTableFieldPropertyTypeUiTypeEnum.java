@@ -14,22 +14,22 @@
 package com.lark.oapi.service.bitable.v1.enums;
 
 /**
- * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态
+ * 公式字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
  */
 public enum AppTableFieldPropertyTypeUiTypeEnum {
-    NUMBER("Number"), // 数字
-    PROGRESS("Progress"), // 进度
-    CURRENCY("Currency"), // 货币
-    RATING("Rating"), // 评分
-    DATETIME("DateTime"), // 日期
-    ;
-    private String value;
+  NUMBER("Number"), // 数字
+  PROGRESS("Progress"), // 进度
+  CURRENCY("Currency"), // 货币
+  RATING("Rating"), // 评分
+  DATETIME("DateTime"), // 日期
+  ;
+  private String value;
 
-    AppTableFieldPropertyTypeUiTypeEnum(String value) {
-        this.value = value;
-    }
+  AppTableFieldPropertyTypeUiTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

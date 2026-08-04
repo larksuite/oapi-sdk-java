@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppTableFieldGroupReqBody {
+  /**
+   * 要新增字段编组列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_groups")
+  private FieldGroup[] fieldGroups;
+
+  public FieldGroup[] getFieldGroups() {
+    return this.fieldGroups;
+  }
+
+  public void setFieldGroups(FieldGroup[] fieldGroups) {
+    this.fieldGroups = fieldGroups;
+  }
+
+  // builder 开始
+  public CreateAppTableFieldGroupReqBody() {}
+
+  public CreateAppTableFieldGroupReqBody(Builder builder) {
     /**
      * 要新增字段编组列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_groups")
+    this.fieldGroups = builder.fieldGroups;
+  }
+
+  public static class Builder {
+    /**
+     * 要新增字段编组列表
+     *
+     * <p>示例值：
+     */
     private FieldGroup[] fieldGroups;
 
-    // builder 开始
-    public CreateAppTableFieldGroupReqBody() {
+    /**
+     * 要新增字段编组列表
+     *
+     * <p>示例值：
+     *
+     * @param fieldGroups
+     * @return
+     */
+    public Builder fieldGroups(FieldGroup[] fieldGroups) {
+      this.fieldGroups = fieldGroups;
+      return this;
     }
 
-    public CreateAppTableFieldGroupReqBody(Builder builder) {
-        /**
-         * 要新增字段编组列表
-         * <p> 示例值：
-         */
-        this.fieldGroups = builder.fieldGroups;
+    public CreateAppTableFieldGroupReqBody build() {
+      return new CreateAppTableFieldGroupReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FieldGroup[] getFieldGroups() {
-        return this.fieldGroups;
-    }
-
-    public void setFieldGroups(FieldGroup[] fieldGroups) {
-        this.fieldGroups = fieldGroups;
-    }
-
-    public static class Builder {
-        /**
-         * 要新增字段编组列表
-         * <p> 示例值：
-         */
-        private FieldGroup[] fieldGroups;
-
-        /**
-         * 要新增字段编组列表
-         * <p> 示例值：
-         *
-         * @param fieldGroups
-         * @return
-         */
-        public Builder fieldGroups(FieldGroup[] fieldGroups) {
-            this.fieldGroups = fieldGroups;
-            return this;
-        }
-
-
-        public CreateAppTableFieldGroupReqBody build() {
-            return new CreateAppTableFieldGroupReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

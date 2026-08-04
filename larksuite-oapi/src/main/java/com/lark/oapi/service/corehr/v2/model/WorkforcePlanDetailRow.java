@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkforcePlanDetailRow {
+  /**
+   * 集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。;;通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。;;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimensions")
+  private DimensionEntity[] dimensions;
+
+  /**
+   * 预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX-集中填报」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量删除填报行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。（该字段无效，可忽略）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("eai_details")
+  private WorkforcePlanEaiDetail[] eaiDetails;
+
+  /**
+   * 编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。（该字段无效，可忽略）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_value")
+  private String planValue;
+
+  /**
+   * 自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multi_period_values")
+  private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
+
+  public DimensionEntity[] getDimensions() {
+    return this.dimensions;
+  }
+
+  public void setDimensions(DimensionEntity[] dimensions) {
+    this.dimensions = dimensions;
+  }
+
+  public WorkforcePlanEaiDetail[] getEaiDetails() {
+    return this.eaiDetails;
+  }
+
+  public void setEaiDetails(WorkforcePlanEaiDetail[] eaiDetails) {
+    this.eaiDetails = eaiDetails;
+  }
+
+  public String getPlanValue() {
+    return this.planValue;
+  }
+
+  public void setPlanValue(String planValue) {
+    this.planValue = planValue;
+  }
+
+  public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
+    return this.multiPeriodValues;
+  }
+
+  public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+    this.multiPeriodValues = multiPeriodValues;
+  }
+
+  // builder 开始
+  public WorkforcePlanDetailRow() {}
+
+  public WorkforcePlanDetailRow(Builder builder) {
     /**
-     * 维度信息
-     * <p> 示例值：
+     * 集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。;;通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。;;
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimensions")
+    this.dimensions = builder.dimensions;
+    /**
+     * 预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX-集中填报」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量删除填报行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。（该字段无效，可忽略）
+     *
+     * <p>示例值：
+     */
+    this.eaiDetails = builder.eaiDetails;
+    /**
+     * 编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。（该字段无效，可忽略）
+     *
+     * <p>示例值：
+     */
+    this.planValue = builder.planValue;
+    /**
+     * 自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。
+     *
+     * <p>示例值：
+     */
+    this.multiPeriodValues = builder.multiPeriodValues;
+  }
+
+  public static class Builder {
+    /**
+     * 集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。;;通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。;;
+     *
+     * <p>示例值：
+     */
     private DimensionEntity[] dimensions;
+
     /**
-     * 预估在职人数
-     * <p> 示例值：
+     * 预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX-集中填报」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量删除填报行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。（该字段无效，可忽略）
+     *
+     * <p>示例值：
      */
-    @SerializedName("eai_details")
     private WorkforcePlanEaiDetail[] eaiDetails;
+
     /**
-     * 编制规划值
-     * <p> 示例值：12
+     * 编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。（该字段无效，可忽略）
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_value")
     private String planValue;
+
     /**
-     * 多周期编制规划信息
-     * <p> 示例值：
+     * 自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。
+     *
+     * <p>示例值：
      */
-    @SerializedName("multi_period_values")
     private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
-    // builder 开始
-    public WorkforcePlanDetailRow() {
+    /**
+     * 集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。;;通过「设置-编制规划设置-编制规划XXX」查看该编制规划有哪些维度。;;
+     *
+     * <p>示例值：
+     *
+     * @param dimensions
+     * @return
+     */
+    public Builder dimensions(DimensionEntity[] dimensions) {
+      this.dimensions = dimensions;
+      return this;
     }
 
-    public WorkforcePlanDetailRow(Builder builder) {
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        this.dimensions = builder.dimensions;
-        /**
-         * 预估在职人数
-         * <p> 示例值：
-         */
-        this.eaiDetails = builder.eaiDetails;
-        /**
-         * 编制规划值
-         * <p> 示例值：12
-         */
-        this.planValue = builder.planValue;
-        /**
-         * 多周期编制规划信息
-         * <p> 示例值：
-         */
-        this.multiPeriodValues = builder.multiPeriodValues;
+    /**
+     * 预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX-集中填报」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量删除填报行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。（该字段无效，可忽略）
+     *
+     * <p>示例值：
+     *
+     * @param eaiDetails
+     * @return
+     */
+    public Builder eaiDetails(WorkforcePlanEaiDetail[] eaiDetails) {
+      this.eaiDetails = eaiDetails;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。（该字段无效，可忽略）
+     *
+     * <p>示例值：
+     *
+     * @param planValue
+     * @return
+     */
+    public Builder planValue(String planValue) {
+      this.planValue = planValue;
+      return this;
     }
 
-    public DimensionEntity[] getDimensions() {
-        return this.dimensions;
+    /**
+     * 自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。
+     *
+     * <p>示例值：
+     *
+     * @param multiPeriodValues
+     * @return
+     */
+    public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+      this.multiPeriodValues = multiPeriodValues;
+      return this;
     }
 
-    public void setDimensions(DimensionEntity[] dimensions) {
-        this.dimensions = dimensions;
+    public WorkforcePlanDetailRow build() {
+      return new WorkforcePlanDetailRow(this);
     }
+  }
 
-    public WorkforcePlanEaiDetail[] getEaiDetails() {
-        return this.eaiDetails;
-    }
-
-    public void setEaiDetails(WorkforcePlanEaiDetail[] eaiDetails) {
-        this.eaiDetails = eaiDetails;
-    }
-
-    public String getPlanValue() {
-        return this.planValue;
-    }
-
-    public void setPlanValue(String planValue) {
-        this.planValue = planValue;
-    }
-
-    public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
-        return this.multiPeriodValues;
-    }
-
-    public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
-        this.multiPeriodValues = multiPeriodValues;
-    }
-
-    public static class Builder {
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        private DimensionEntity[] dimensions;
-        /**
-         * 预估在职人数
-         * <p> 示例值：
-         */
-        private WorkforcePlanEaiDetail[] eaiDetails;
-        /**
-         * 编制规划值
-         * <p> 示例值：12
-         */
-        private String planValue;
-        /**
-         * 多周期编制规划信息
-         * <p> 示例值：
-         */
-        private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
-
-        /**
-         * 维度信息
-         * <p> 示例值：
-         *
-         * @param dimensions
-         * @return
-         */
-        public Builder dimensions(DimensionEntity[] dimensions) {
-            this.dimensions = dimensions;
-            return this;
-        }
-
-
-        /**
-         * 预估在职人数
-         * <p> 示例值：
-         *
-         * @param eaiDetails
-         * @return
-         */
-        public Builder eaiDetails(WorkforcePlanEaiDetail[] eaiDetails) {
-            this.eaiDetails = eaiDetails;
-            return this;
-        }
-
-
-        /**
-         * 编制规划值
-         * <p> 示例值：12
-         *
-         * @param planValue
-         * @return
-         */
-        public Builder planValue(String planValue) {
-            this.planValue = planValue;
-            return this;
-        }
-
-
-        /**
-         * 多周期编制规划信息
-         * <p> 示例值：
-         *
-         * @param multiPeriodValues
-         * @return
-         */
-        public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
-            this.multiPeriodValues = multiPeriodValues;
-            return this;
-        }
-
-
-        public WorkforcePlanDetailRow build() {
-            return new WorkforcePlanDetailRow(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

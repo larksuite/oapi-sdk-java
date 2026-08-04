@@ -13,186 +13,167 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmailForUpdate {
+  /** 示例值： */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 是否为主要邮箱，若有多个邮箱，只能有一个邮箱的「is_primary」为true
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  /** 示例值： */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  /**
+   * 邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：email;- custom_api_name：email_usage
+   *
+   * <p>示例值：
+   */
+  @SerializedName("email_usage")
+  private String emailUsage;
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  public String getEmailUsage() {
+    return this.emailUsage;
+  }
+
+  public void setEmailUsage(String emailUsage) {
+    this.emailUsage = emailUsage;
+  }
+
+  // builder 开始
+  public EmailForUpdate() {}
+
+  public EmailForUpdate(Builder builder) {
+    /** 示例值： */
+    this.email = builder.email;
     /**
-     * 邮箱地址
-     * <p> 示例值：1234567@bytedance.com
+     * 是否为主要邮箱，若有多个邮箱，只能有一个邮箱的「is_primary」为true
+     *
+     * <p>示例值：
      */
-    @SerializedName("email")
+    this.isPrimary = builder.isPrimary;
+    /** 示例值： */
+    this.isPublic = builder.isPublic;
+    /**
+     * 邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：email;- custom_api_name：email_usage
+     *
+     * <p>示例值：
+     */
+    this.emailUsage = builder.emailUsage;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String email;
+
     /**
-     * 是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true
-     * <p> 示例值：true
+     * 是否为主要邮箱，若有多个邮箱，只能有一个邮箱的「is_primary」为true
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_primary")
     private Boolean isPrimary;
-    /**
-     * 是否为公开邮箱
-     * <p> 示例值：true
-     */
-    @SerializedName("is_public")
+
+    /** 示例值： */
     private Boolean isPublic;
+
     /**
-     * 邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得
-     * <p> 示例值：work
+     * 邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：email;- custom_api_name：email_usage
+     *
+     * <p>示例值：
      */
-    @SerializedName("email_usage")
     private String emailUsage;
 
-    // builder 开始
-    public EmailForUpdate() {
+    /**
+     * 示例值：
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public EmailForUpdate(Builder builder) {
-        /**
-         * 邮箱地址
-         * <p> 示例值：1234567@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * 是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 是否为公开邮箱
-         * <p> 示例值：true
-         */
-        this.isPublic = builder.isPublic;
-        /**
-         * 邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得
-         * <p> 示例值：work
-         */
-        this.emailUsage = builder.emailUsage;
+    /**
+     * 是否为主要邮箱，若有多个邮箱，只能有一个邮箱的「is_primary」为true
+     *
+     * <p>示例值：
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：email;- custom_api_name：email_usage
+     *
+     * <p>示例值：
+     *
+     * @param emailUsage
+     * @return
+     */
+    public Builder emailUsage(String emailUsage) {
+      this.emailUsage = emailUsage;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public EmailForUpdate build() {
+      return new EmailForUpdate(this);
     }
+  }
 
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public String getEmailUsage() {
-        return this.emailUsage;
-    }
-
-    public void setEmailUsage(String emailUsage) {
-        this.emailUsage = emailUsage;
-    }
-
-    public static class Builder {
-        /**
-         * 邮箱地址
-         * <p> 示例值：1234567@bytedance.com
-         */
-        private String email;
-        /**
-         * 是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true
-         * <p> 示例值：true
-         */
-        private Boolean isPrimary;
-        /**
-         * 是否为公开邮箱
-         * <p> 示例值：true
-         */
-        private Boolean isPublic;
-        /**
-         * 邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得
-         * <p> 示例值：work
-         */
-        private String emailUsage;
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：1234567@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true
-         * <p> 示例值：true
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        /**
-         * 是否为公开邮箱
-         * <p> 示例值：true
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        /**
-         * 邮箱用途，枚举值可通过文档【飞书人事枚举常量】邮箱用途（email_usage）枚举定义获得
-         * <p> 示例值：work
-         *
-         * @param emailUsage
-         * @return
-         */
-        public Builder emailUsage(String emailUsage) {
-            this.emailUsage = emailUsage;
-            return this;
-        }
-
-
-        public EmailForUpdate build() {
-            return new EmailForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

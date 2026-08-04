@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompositeTalentLanguageInfo {
+  /**
+   * 语言
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Integer language;
+
+  /**
+   * 熟练程度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("proficiency")
+  private Integer proficiency;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data_list")
+  private TalentCustomizedDataChild[] customizedDataList;
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  public Integer getProficiency() {
+    return this.proficiency;
+  }
+
+  public void setProficiency(Integer proficiency) {
+    this.proficiency = proficiency;
+  }
+
+  public TalentCustomizedDataChild[] getCustomizedDataList() {
+    return this.customizedDataList;
+  }
+
+  public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+    this.customizedDataList = customizedDataList;
+  }
+
+  // builder 开始
+  public CompositeTalentLanguageInfo() {}
+
+  public CompositeTalentLanguageInfo(Builder builder) {
     /**
      * 语言
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
-    private Integer language;
+    this.language = builder.language;
     /**
      * 熟练程度
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("proficiency")
-    private Integer proficiency;
+    this.proficiency = builder.proficiency;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data_list")
+    this.customizedDataList = builder.customizedDataList;
+  }
+
+  public static class Builder {
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     */
+    private Integer language;
+
+    /**
+     * 熟练程度
+     *
+     * <p>示例值：1
+     */
+    private Integer proficiency;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataChild[] customizedDataList;
 
-    // builder 开始
-    public CompositeTalentLanguageInfo() {
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public CompositeTalentLanguageInfo(Builder builder) {
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         */
-        this.proficiency = builder.proficiency;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
+    /**
+     * 熟练程度
+     *
+     * <p>示例值：1
+     *
+     * @param proficiency
+     * @return
+     */
+    public Builder proficiency(Integer proficiency) {
+      this.proficiency = proficiency;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedDataList
+     * @return
+     */
+    public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+      this.customizedDataList = customizedDataList;
+      return this;
     }
 
-    public Integer getLanguage() {
-        return this.language;
+    public CompositeTalentLanguageInfo build() {
+      return new CompositeTalentLanguageInfo(this);
     }
+  }
 
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
-
-    public Integer getProficiency() {
-        return this.proficiency;
-    }
-
-    public void setProficiency(Integer proficiency) {
-        this.proficiency = proficiency;
-    }
-
-    public TalentCustomizedDataChild[] getCustomizedDataList() {
-        return this.customizedDataList;
-    }
-
-    public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-        this.customizedDataList = customizedDataList;
-    }
-
-    public static class Builder {
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        private Integer language;
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         */
-        private Integer proficiency;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataChild[] customizedDataList;
-
-        /**
-         * 语言
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         *
-         * @param proficiency
-         * @return
-         */
-        public Builder proficiency(Integer proficiency) {
-            this.proficiency = proficiency;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedDataList
-         * @return
-         */
-        public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
-        }
-
-
-        public CompositeTalentLanguageInfo build() {
-            return new CompositeTalentLanguageInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

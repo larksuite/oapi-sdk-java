@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OptionField {
+  /**
+   * 选项的key
+   *
+   * <p>示例值：paymod
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 选项的名称
+   *
+   * <p>示例值：方式
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 选项的描述
+   *
+   * <p>示例值：描述
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  // builder 开始
+  public OptionField() {}
+
+  public OptionField(Builder builder) {
     /**
      * 选项的key
-     * <p> 示例值：paymod
+     *
+     * <p>示例值：paymod
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 选项的名称
-     * <p> 示例值：方式
+     *
+     * <p>示例值：方式
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 选项的描述
-     * <p> 示例值：描述
+     *
+     * <p>示例值：描述
      */
-    @SerializedName("desc")
+    this.desc = builder.desc;
+  }
+
+  public static class Builder {
+    /**
+     * 选项的key
+     *
+     * <p>示例值：paymod
+     */
+    private String key;
+
+    /**
+     * 选项的名称
+     *
+     * <p>示例值：方式
+     */
+    private String name;
+
+    /**
+     * 选项的描述
+     *
+     * <p>示例值：描述
+     */
     private String desc;
 
-    // builder 开始
-    public OptionField() {
+    /**
+     * 选项的key
+     *
+     * <p>示例值：paymod
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public OptionField(Builder builder) {
-        /**
-         * 选项的key
-         * <p> 示例值：paymod
-         */
-        this.key = builder.key;
-        /**
-         * 选项的名称
-         * <p> 示例值：方式
-         */
-        this.name = builder.name;
-        /**
-         * 选项的描述
-         * <p> 示例值：描述
-         */
-        this.desc = builder.desc;
+    /**
+     * 选项的名称
+     *
+     * <p>示例值：方式
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项的描述
+     *
+     * <p>示例值：描述
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getKey() {
-        return this.key;
+    public OptionField build() {
+      return new OptionField(this);
     }
+  }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public static class Builder {
-        /**
-         * 选项的key
-         * <p> 示例值：paymod
-         */
-        private String key;
-        /**
-         * 选项的名称
-         * <p> 示例值：方式
-         */
-        private String name;
-        /**
-         * 选项的描述
-         * <p> 示例值：描述
-         */
-        private String desc;
-
-        /**
-         * 选项的key
-         * <p> 示例值：paymod
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 选项的名称
-         * <p> 示例值：方式
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项的描述
-         * <p> 示例值：描述
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        public OptionField build() {
-            return new OptionField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

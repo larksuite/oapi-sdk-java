@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 消息发送者的角色
- */
+/** 消息发送者的角色 */
 public enum KnowledgeQaMessageRoleEnum {
-    HUMAN(1), // 人
-    AI(2), // 智能体
-    ;
-    private Integer value;
+  HUMAN(1), // 人
+  AI(2), // 智能体
+  ;
+  private Integer value;
 
-    KnowledgeQaMessageRoleEnum(Integer value) {
-        this.value = value;
-    }
+  KnowledgeQaMessageRoleEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

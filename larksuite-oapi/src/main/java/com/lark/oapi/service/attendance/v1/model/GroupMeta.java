@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupMeta {
+  /**
+   * 考勤组id
+   *
+   * <p>示例值：6919358128597097404
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  /**
+   * 考勤组名称
+   *
+   * <p>示例值：考勤组1
+   */
+  @SerializedName("group_name")
+  private String groupName;
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public String getGroupName() {
+    return this.groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
+
+  // builder 开始
+  public GroupMeta() {}
+
+  public GroupMeta(Builder builder) {
     /**
-     * 考勤组 ID
-     * <p> 示例值：6919358128597097404
+     * 考勤组id
+     *
+     * <p>示例值：6919358128597097404
      */
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
     /**
      * 考勤组名称
-     * <p> 示例值：考勤组1
+     *
+     * <p>示例值：考勤组1
      */
-    @SerializedName("group_name")
+    this.groupName = builder.groupName;
+  }
+
+  public static class Builder {
+    /**
+     * 考勤组id
+     *
+     * <p>示例值：6919358128597097404
+     */
+    private String groupId;
+
+    /**
+     * 考勤组名称
+     *
+     * <p>示例值：考勤组1
+     */
     private String groupName;
 
-    // builder 开始
-    public GroupMeta() {
+    /**
+     * 考勤组id
+     *
+     * <p>示例值：6919358128597097404
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public GroupMeta(Builder builder) {
-        /**
-         * 考勤组 ID
-         * <p> 示例值：6919358128597097404
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         */
-        this.groupName = builder.groupName;
+    /**
+     * 考勤组名称
+     *
+     * <p>示例值：考勤组1
+     *
+     * @param groupName
+     * @return
+     */
+    public Builder groupName(String groupName) {
+      this.groupName = groupName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GroupMeta build() {
+      return new GroupMeta(this);
     }
+  }
 
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getGroupName() {
-        return this.groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public static class Builder {
-        /**
-         * 考勤组 ID
-         * <p> 示例值：6919358128597097404
-         */
-        private String groupId;
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         */
-        private String groupName;
-
-        /**
-         * 考勤组 ID
-         * <p> 示例值：6919358128597097404
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         *
-         * @param groupName
-         * @return
-         */
-        public Builder groupName(String groupName) {
-            this.groupName = groupName;
-            return this;
-        }
-
-
-        public GroupMeta build() {
-            return new GroupMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

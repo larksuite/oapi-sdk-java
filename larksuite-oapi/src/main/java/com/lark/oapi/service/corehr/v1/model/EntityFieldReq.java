@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EntityFieldReq {
+  /**
+   * 实体下的所属属性key，如：id、name
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("entity_key")
+  private String entityKey;
+
+  /**
+   * 实体的字段Key
+   *
+   * <p>示例值：id
+   */
+  @SerializedName("field_key")
+  private String fieldKey;
+
+  public String getEntityKey() {
+    return this.entityKey;
+  }
+
+  public void setEntityKey(String entityKey) {
+    this.entityKey = entityKey;
+  }
+
+  public String getFieldKey() {
+    return this.fieldKey;
+  }
+
+  public void setFieldKey(String fieldKey) {
+    this.fieldKey = fieldKey;
+  }
+
+  // builder 开始
+  public EntityFieldReq() {}
+
+  public EntityFieldReq(Builder builder) {
     /**
      * 实体下的所属属性key，如：id、name
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("entity_key")
-    private String entityKey;
+    this.entityKey = builder.entityKey;
     /**
      * 实体的字段Key
-     * <p> 示例值：id
+     *
+     * <p>示例值：id
      */
-    @SerializedName("field_key")
+    this.fieldKey = builder.fieldKey;
+  }
+
+  public static class Builder {
+    /**
+     * 实体下的所属属性key，如：id、name
+     *
+     * <p>示例值：user
+     */
+    private String entityKey;
+
+    /**
+     * 实体的字段Key
+     *
+     * <p>示例值：id
+     */
     private String fieldKey;
 
-    // builder 开始
-    public EntityFieldReq() {
+    /**
+     * 实体下的所属属性key，如：id、name
+     *
+     * <p>示例值：user
+     *
+     * @param entityKey
+     * @return
+     */
+    public Builder entityKey(String entityKey) {
+      this.entityKey = entityKey;
+      return this;
     }
 
-    public EntityFieldReq(Builder builder) {
-        /**
-         * 实体下的所属属性key，如：id、name
-         * <p> 示例值：user
-         */
-        this.entityKey = builder.entityKey;
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         */
-        this.fieldKey = builder.fieldKey;
+    /**
+     * 实体的字段Key
+     *
+     * <p>示例值：id
+     *
+     * @param fieldKey
+     * @return
+     */
+    public Builder fieldKey(String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EntityFieldReq build() {
+      return new EntityFieldReq(this);
     }
+  }
 
-    public String getEntityKey() {
-        return this.entityKey;
-    }
-
-    public void setEntityKey(String entityKey) {
-        this.entityKey = entityKey;
-    }
-
-    public String getFieldKey() {
-        return this.fieldKey;
-    }
-
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    public static class Builder {
-        /**
-         * 实体下的所属属性key，如：id、name
-         * <p> 示例值：user
-         */
-        private String entityKey;
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         */
-        private String fieldKey;
-
-        /**
-         * 实体下的所属属性key，如：id、name
-         * <p> 示例值：user
-         *
-         * @param entityKey
-         * @return
-         */
-        public Builder entityKey(String entityKey) {
-            this.entityKey = entityKey;
-            return this;
-        }
-
-
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         *
-         * @param fieldKey
-         * @return
-         */
-        public Builder fieldKey(String fieldKey) {
-            this.fieldKey = fieldKey;
-            return this;
-        }
-
-
-        public EntityFieldReq build() {
-            return new EntityFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

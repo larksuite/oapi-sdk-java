@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.okr.v1.enums;
 
-/**
- * 图片使用的目标类型
- */
+/** 插入图片所在的待创建/修改的进展记录对应的目标类型 */
 public enum UploadImageOpenAPIUploadImageTargetTypeEnum {
-    OBJECTIVE(2), // okr的O
-    KEY_RESULT(3), // okr的KR
-    ;
-    private Integer value;
+  OBJECTIVE(2), // okr的O
+  KEY_RESULT(3), // okr的KR
+  ;
+  private Integer value;
 
-    UploadImageOpenAPIUploadImageTargetTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UploadImageOpenAPIUploadImageTargetTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

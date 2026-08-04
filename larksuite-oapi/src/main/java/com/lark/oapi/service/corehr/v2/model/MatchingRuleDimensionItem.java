@@ -13,186 +13,223 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MatchingRuleDimensionItem {
+  /**
+   * 维度APIName;- 可通过
+   * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+   * 获取
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("dimension_api_name")
+  private String dimensionApiName;
+
+  /**
+   * 布尔类型的字段值;- 可通过
+   * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+   * 获取
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("value_boolean")
+  private Boolean valueBoolean;
+
+  /**
+   * 枚举类型的字段值列表;- 可通过
+   * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+   * 获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value_enum_ids")
+  private String[] valueEnumIds;
+
+  /**
+   * 查找类型的字段值列表;- 可通过
+   * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+   * 获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value_lookup_ids")
+  private String[] valueLookupIds;
+
+  public String getDimensionApiName() {
+    return this.dimensionApiName;
+  }
+
+  public void setDimensionApiName(String dimensionApiName) {
+    this.dimensionApiName = dimensionApiName;
+  }
+
+  public Boolean getValueBoolean() {
+    return this.valueBoolean;
+  }
+
+  public void setValueBoolean(Boolean valueBoolean) {
+    this.valueBoolean = valueBoolean;
+  }
+
+  public String[] getValueEnumIds() {
+    return this.valueEnumIds;
+  }
+
+  public void setValueEnumIds(String[] valueEnumIds) {
+    this.valueEnumIds = valueEnumIds;
+  }
+
+  public String[] getValueLookupIds() {
+    return this.valueLookupIds;
+  }
+
+  public void setValueLookupIds(String[] valueLookupIds) {
+    this.valueLookupIds = valueLookupIds;
+  }
+
+  // builder 开始
+  public MatchingRuleDimensionItem() {}
+
+  public MatchingRuleDimensionItem(Builder builder) {
     /**
-     * 维度APIName
-     * <p> 示例值：department
+     * 维度APIName;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：department
      */
-    @SerializedName("dimension_api_name")
+    this.dimensionApiName = builder.dimensionApiName;
+    /**
+     * 布尔类型的字段值;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：false
+     */
+    this.valueBoolean = builder.valueBoolean;
+    /**
+     * 枚举类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
+     */
+    this.valueEnumIds = builder.valueEnumIds;
+    /**
+     * 查找类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
+     */
+    this.valueLookupIds = builder.valueLookupIds;
+  }
+
+  public static class Builder {
+    /**
+     * 维度APIName;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：department
+     */
     private String dimensionApiName;
+
     /**
-     * 布尔类型的字段值
-     * <p> 示例值：false
+     * 布尔类型的字段值;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：false
      */
-    @SerializedName("value_boolean")
     private Boolean valueBoolean;
+
     /**
-     * 枚举类型的字段值列表
-     * <p> 示例值：
+     * 枚举类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("value_enum_ids")
     private String[] valueEnumIds;
+
     /**
-     * 查找类型的字段值列表
-     * <p> 示例值：
+     * 查找类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("value_lookup_ids")
     private String[] valueLookupIds;
 
-    // builder 开始
-    public MatchingRuleDimensionItem() {
+    /**
+     * 维度APIName;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：department
+     *
+     * @param dimensionApiName
+     * @return
+     */
+    public Builder dimensionApiName(String dimensionApiName) {
+      this.dimensionApiName = dimensionApiName;
+      return this;
     }
 
-    public MatchingRuleDimensionItem(Builder builder) {
-        /**
-         * 维度APIName
-         * <p> 示例值：department
-         */
-        this.dimensionApiName = builder.dimensionApiName;
-        /**
-         * 布尔类型的字段值
-         * <p> 示例值：false
-         */
-        this.valueBoolean = builder.valueBoolean;
-        /**
-         * 枚举类型的字段值列表
-         * <p> 示例值：
-         */
-        this.valueEnumIds = builder.valueEnumIds;
-        /**
-         * 查找类型的字段值列表
-         * <p> 示例值：
-         */
-        this.valueLookupIds = builder.valueLookupIds;
+    /**
+     * 布尔类型的字段值;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：false
+     *
+     * @param valueBoolean
+     * @return
+     */
+    public Builder valueBoolean(Boolean valueBoolean) {
+      this.valueBoolean = valueBoolean;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
+     *
+     * @param valueEnumIds
+     * @return
+     */
+    public Builder valueEnumIds(String[] valueEnumIds) {
+      this.valueEnumIds = valueEnumIds;
+      return this;
     }
 
-    public String getDimensionApiName() {
-        return this.dimensionApiName;
+    /**
+     * 查找类型的字段值列表;- 可通过
+     * [【查询公司匹配规则的划分维度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/query_matching_rule_dimension)
+     * 获取
+     *
+     * <p>示例值：
+     *
+     * @param valueLookupIds
+     * @return
+     */
+    public Builder valueLookupIds(String[] valueLookupIds) {
+      this.valueLookupIds = valueLookupIds;
+      return this;
     }
 
-    public void setDimensionApiName(String dimensionApiName) {
-        this.dimensionApiName = dimensionApiName;
+    public MatchingRuleDimensionItem build() {
+      return new MatchingRuleDimensionItem(this);
     }
+  }
 
-    public Boolean getValueBoolean() {
-        return this.valueBoolean;
-    }
-
-    public void setValueBoolean(Boolean valueBoolean) {
-        this.valueBoolean = valueBoolean;
-    }
-
-    public String[] getValueEnumIds() {
-        return this.valueEnumIds;
-    }
-
-    public void setValueEnumIds(String[] valueEnumIds) {
-        this.valueEnumIds = valueEnumIds;
-    }
-
-    public String[] getValueLookupIds() {
-        return this.valueLookupIds;
-    }
-
-    public void setValueLookupIds(String[] valueLookupIds) {
-        this.valueLookupIds = valueLookupIds;
-    }
-
-    public static class Builder {
-        /**
-         * 维度APIName
-         * <p> 示例值：department
-         */
-        private String dimensionApiName;
-        /**
-         * 布尔类型的字段值
-         * <p> 示例值：false
-         */
-        private Boolean valueBoolean;
-        /**
-         * 枚举类型的字段值列表
-         * <p> 示例值：
-         */
-        private String[] valueEnumIds;
-        /**
-         * 查找类型的字段值列表
-         * <p> 示例值：
-         */
-        private String[] valueLookupIds;
-
-        /**
-         * 维度APIName
-         * <p> 示例值：department
-         *
-         * @param dimensionApiName
-         * @return
-         */
-        public Builder dimensionApiName(String dimensionApiName) {
-            this.dimensionApiName = dimensionApiName;
-            return this;
-        }
-
-
-        /**
-         * 布尔类型的字段值
-         * <p> 示例值：false
-         *
-         * @param valueBoolean
-         * @return
-         */
-        public Builder valueBoolean(Boolean valueBoolean) {
-            this.valueBoolean = valueBoolean;
-            return this;
-        }
-
-
-        /**
-         * 枚举类型的字段值列表
-         * <p> 示例值：
-         *
-         * @param valueEnumIds
-         * @return
-         */
-        public Builder valueEnumIds(String[] valueEnumIds) {
-            this.valueEnumIds = valueEnumIds;
-            return this;
-        }
-
-
-        /**
-         * 查找类型的字段值列表
-         * <p> 示例值：
-         *
-         * @param valueLookupIds
-         * @return
-         */
-        public Builder valueLookupIds(String[] valueLookupIds) {
-            this.valueLookupIds = valueLookupIds;
-            return this;
-        }
-
-
-        public MatchingRuleDimensionItem build() {
-            return new MatchingRuleDimensionItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,321 +13,345 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExportJob {
+  /**
+   * 导出文件扩展名
+   *
+   * <p>示例值：larkdoc
+   */
+  @SerializedName("file_extension")
+  private String fileExtension;
+
+  /**
+   * 导出文档 token
+   *
+   * <p>示例值：doccnxe5OxxxxxxxSNdsJviENsk
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 导出文档类型
+   *
+   * <p>示例值：sheet
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 导出文件名
+   *
+   * <p>示例值：docName
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 导出文件 Drive Token
+   *
+   * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 任务失败原因
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("job_error_msg")
+  private String jobErrorMsg;
+
+  /**
+   * 任务状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("job_status")
+  private Integer jobStatus;
+
+  public String getFileExtension() {
+    return this.fileExtension;
+  }
+
+  public void setFileExtension(String fileExtension) {
+    this.fileExtension = fileExtension;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getJobErrorMsg() {
+    return this.jobErrorMsg;
+  }
+
+  public void setJobErrorMsg(String jobErrorMsg) {
+    this.jobErrorMsg = jobErrorMsg;
+  }
+
+  public Integer getJobStatus() {
+    return this.jobStatus;
+  }
+
+  public void setJobStatus(Integer jobStatus) {
+    this.jobStatus = jobStatus;
+  }
+
+  // builder 开始
+  public ExportJob() {}
+
+  public ExportJob(Builder builder) {
     /**
      * 导出文件扩展名
-     * <p> 示例值：larkdoc
+     *
+     * <p>示例值：larkdoc
      */
-    @SerializedName("file_extension")
-    private String fileExtension;
+    this.fileExtension = builder.fileExtension;
     /**
      * 导出文档 token
-     * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     *
+     * <p>示例值：doccnxe5OxxxxxxxSNdsJviENsk
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 导出文档类型
-     * <p> 示例值：sheet
+     *
+     * <p>示例值：sheet
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 导出文件名
-     * <p> 示例值：docName
+     *
+     * <p>示例值：docName
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 导出文件 Drive Token
-     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
      */
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 任务失败原因
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("job_error_msg")
-    private String jobErrorMsg;
+    this.jobErrorMsg = builder.jobErrorMsg;
     /**
      * 任务状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("job_status")
+    this.jobStatus = builder.jobStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 导出文件扩展名
+     *
+     * <p>示例值：larkdoc
+     */
+    private String fileExtension;
+
+    /**
+     * 导出文档 token
+     *
+     * <p>示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     */
+    private String token;
+
+    /**
+     * 导出文档类型
+     *
+     * <p>示例值：sheet
+     */
+    private String type;
+
+    /**
+     * 导出文件名
+     *
+     * <p>示例值：docName
+     */
+    private String fileName;
+
+    /**
+     * 导出文件 Drive Token
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     */
+    private String fileToken;
+
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：success
+     */
+    private String jobErrorMsg;
+
+    /**
+     * 任务状态
+     *
+     * <p>示例值：0
+     */
     private Integer jobStatus;
 
-    // builder 开始
-    public ExportJob() {
+    /**
+     * 导出文件扩展名
+     *
+     * <p>示例值：larkdoc
+     *
+     * @param fileExtension
+     * @return
+     */
+    public Builder fileExtension(String fileExtension) {
+      this.fileExtension = fileExtension;
+      return this;
     }
 
-    public ExportJob(Builder builder) {
-        /**
-         * 导出文件扩展名
-         * <p> 示例值：larkdoc
-         */
-        this.fileExtension = builder.fileExtension;
-        /**
-         * 导出文档 token
-         * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
-         */
-        this.token = builder.token;
-        /**
-         * 导出文档类型
-         * <p> 示例值：sheet
-         */
-        this.type = builder.type;
-        /**
-         * 导出文件名
-         * <p> 示例值：docName
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 导出文件 Drive Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        this.jobErrorMsg = builder.jobErrorMsg;
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         */
-        this.jobStatus = builder.jobStatus;
+    /**
+     * 导出文件扩展名
+     *
+     * <p>示例值：larkdoc
+     *
+     * @param fileExtension {@link com.lark.oapi.service.drive.v2.enums.ExportJobFileExtensionEnum}
+     * @return
+     */
+    public Builder fileExtension(
+        com.lark.oapi.service.drive.v2.enums.ExportJobFileExtensionEnum fileExtension) {
+      this.fileExtension = fileExtension.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 导出文档 token
+     *
+     * <p>示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getFileExtension() {
-        return this.fileExtension;
+    /**
+     * 导出文档类型
+     *
+     * <p>示例值：sheet
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
+    /**
+     * 导出文件名
+     *
+     * <p>示例值：docName
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 导出文件 Drive Token
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：success
+     *
+     * @param jobErrorMsg
+     * @return
+     */
+    public Builder jobErrorMsg(String jobErrorMsg) {
+      this.jobErrorMsg = jobErrorMsg;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：0
+     *
+     * @param jobStatus
+     * @return
+     */
+    public Builder jobStatus(Integer jobStatus) {
+      this.jobStatus = jobStatus;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：0
+     *
+     * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ExportJobJobStatusEnum}
+     * @return
+     */
+    public Builder jobStatus(
+        com.lark.oapi.service.drive.v2.enums.ExportJobJobStatusEnum jobStatus) {
+      this.jobStatus = jobStatus.getValue();
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    public ExportJob build() {
+      return new ExportJob(this);
     }
+  }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getJobErrorMsg() {
-        return this.jobErrorMsg;
-    }
-
-    public void setJobErrorMsg(String jobErrorMsg) {
-        this.jobErrorMsg = jobErrorMsg;
-    }
-
-    public Integer getJobStatus() {
-        return this.jobStatus;
-    }
-
-    public void setJobStatus(Integer jobStatus) {
-        this.jobStatus = jobStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 导出文件扩展名
-         * <p> 示例值：larkdoc
-         */
-        private String fileExtension;
-        /**
-         * 导出文档 token
-         * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
-         */
-        private String token;
-        /**
-         * 导出文档类型
-         * <p> 示例值：sheet
-         */
-        private String type;
-        /**
-         * 导出文件名
-         * <p> 示例值：docName
-         */
-        private String fileName;
-        /**
-         * 导出文件 Drive Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        private String fileToken;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        private String jobErrorMsg;
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         */
-        private Integer jobStatus;
-
-        /**
-         * 导出文件扩展名
-         * <p> 示例值：larkdoc
-         *
-         * @param fileExtension
-         * @return
-         */
-        public Builder fileExtension(String fileExtension) {
-            this.fileExtension = fileExtension;
-            return this;
-        }
-
-        /**
-         * 导出文件扩展名
-         * <p> 示例值：larkdoc
-         *
-         * @param fileExtension {@link com.lark.oapi.service.drive.v2.enums.ExportJobFileExtensionEnum}
-         * @return
-         */
-        public Builder fileExtension(com.lark.oapi.service.drive.v2.enums.ExportJobFileExtensionEnum fileExtension) {
-            this.fileExtension = fileExtension.getValue();
-            return this;
-        }
-
-
-        /**
-         * 导出文档 token
-         * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 导出文档类型
-         * <p> 示例值：sheet
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 导出文件名
-         * <p> 示例值：docName
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 导出文件 Drive Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         *
-         * @param jobErrorMsg
-         * @return
-         */
-        public Builder jobErrorMsg(String jobErrorMsg) {
-            this.jobErrorMsg = jobErrorMsg;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         *
-         * @param jobStatus
-         * @return
-         */
-        public Builder jobStatus(Integer jobStatus) {
-            this.jobStatus = jobStatus;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         *
-         * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ExportJobJobStatusEnum}
-         * @return
-         */
-        public Builder jobStatus(com.lark.oapi.service.drive.v2.enums.ExportJobJobStatusEnum jobStatus) {
-            this.jobStatus = jobStatus.getValue();
-            return this;
-        }
-
-
-        public ExportJob build() {
-            return new ExportJob(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

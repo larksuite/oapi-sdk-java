@@ -13,38 +13,36 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum VehicleEntityVehicleEntityTypeEnum {
-    PLATENUMBER("plate_number"), // 号牌号码
-    VEHICLETYPE("vehicle_type"), // 车辆类型
-    OWNER("owner"), // 所有人
-    ADDRESS("address"), // 住址
-    USECHARACTER("use_character"), // 使用性质
-    MODEL("model"), // 品牌型号
-    VIN("vin"), // 车辆识别代号
-    ENGINENUMBER("engine_number"), // 发动机号码
-    REGISTERDATE("register_date"), // 注册日期
-    ISSUEDATE("issue_date"), // 发证日期
-    LICENSEISSUINGAUTHORITY("license_issuing_authority"), // 发证机关
-    DOCUMENTID("document_id"), // 档案编号
-    APPROVEDPASSENGERSCAPACITY("approved_passengers_capacity"), // 核定载人数
-    TOTALMASS("total_mass"), // 总质量
-    CURBWEIGHT("curb_weight"), // 整备质量
-    RATIFIEDLOADCAPACITY("ratified_load_capacity"), // 核定载质量
-    GABARITE("gabarite"), // 外廓尺寸
-    TRACTIONMASS("traction_mass"), // 准牵引总质量
-    REMARKS("remarks"), // 备注
-    INSPECTIONRECORD("inspection_record"), // 检验记录
-    ;
-    private String value;
+  PLATENUMBER("plate_number"), // 号牌号码
+  VEHICLETYPE("vehicle_type"), // 车辆类型
+  OWNER("owner"), // 所有人
+  ADDRESS("address"), // 住址
+  USECHARACTER("use_character"), // 使用性质
+  MODEL("model"), // 品牌型号
+  VIN("vin"), // 车辆识别代号
+  ENGINENUMBER("engine_number"), // 发动机号码
+  REGISTERDATE("register_date"), // 注册日期
+  ISSUEDATE("issue_date"), // 发证日期
+  LICENSEISSUINGAUTHORITY("license_issuing_authority"), // 发证机关
+  DOCUMENTID("document_id"), // 档案编号
+  APPROVEDPASSENGERSCAPACITY("approved_passengers_capacity"), // 核定载人数
+  TOTALMASS("total_mass"), // 总质量
+  CURBWEIGHT("curb_weight"), // 整备质量
+  RATIFIEDLOADCAPACITY("ratified_load_capacity"), // 核定载质量
+  GABARITE("gabarite"), // 外廓尺寸
+  TRACTIONMASS("traction_mass"), // 准牵引总质量
+  REMARKS("remarks"), // 备注
+  INSPECTIONRECORD("inspection_record"), // 检验记录
+  ;
+  private String value;
 
-    VehicleEntityVehicleEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  VehicleEntityVehicleEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Summary {
+  /**
+   * 卡片摘要
+   *
+   * <p>示例值：摘要生产中
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public Summary() {}
+
+  public Summary(Builder builder) {
     /**
      * 卡片摘要
-     * <p> 示例值：摘要生产中
+     *
+     * <p>示例值：摘要生产中
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片摘要
+     *
+     * <p>示例值：摘要生产中
+     */
     private String content;
 
-    // builder 开始
-    public Summary() {
+    /**
+     * 卡片摘要
+     *
+     * <p>示例值：摘要生产中
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Summary(Builder builder) {
-        /**
-         * 卡片摘要
-         * <p> 示例值：摘要生产中
-         */
-        this.content = builder.content;
+    public Summary build() {
+      return new Summary(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片摘要
-         * <p> 示例值：摘要生产中
-         */
-        private String content;
-
-        /**
-         * 卡片摘要
-         * <p> 示例值：摘要生产中
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public Summary build() {
-            return new Summary(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

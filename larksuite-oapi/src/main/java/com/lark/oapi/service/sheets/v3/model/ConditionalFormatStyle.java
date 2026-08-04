@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConditionalFormatStyle {
+  /**
+   * 背景颜色
+   *
+   * <p>示例值：#ff00ff
+   */
+  @SerializedName("background_color")
+  private String backgroundColor;
+
+  /**
+   * 字体颜色
+   *
+   * <p>示例值：#ff00ff
+   */
+  @SerializedName("foreground_color")
+  private String foregroundColor;
+
+  /**
+   * 是否设置下划线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("underline")
+  private Boolean underline;
+
+  /**
+   * 是否加粗
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("bold")
+  private Boolean bold;
+
+  /**
+   * 是否设置斜体
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("italic")
+  private Boolean italic;
+
+  /**
+   * 是否设置删除线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("strikethrough")
+  private Boolean strikethrough;
+
+  public String getBackgroundColor() {
+    return this.backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  public String getForegroundColor() {
+    return this.foregroundColor;
+  }
+
+  public void setForegroundColor(String foregroundColor) {
+    this.foregroundColor = foregroundColor;
+  }
+
+  public Boolean getUnderline() {
+    return this.underline;
+  }
+
+  public void setUnderline(Boolean underline) {
+    this.underline = underline;
+  }
+
+  public Boolean getBold() {
+    return this.bold;
+  }
+
+  public void setBold(Boolean bold) {
+    this.bold = bold;
+  }
+
+  public Boolean getItalic() {
+    return this.italic;
+  }
+
+  public void setItalic(Boolean italic) {
+    this.italic = italic;
+  }
+
+  public Boolean getStrikethrough() {
+    return this.strikethrough;
+  }
+
+  public void setStrikethrough(Boolean strikethrough) {
+    this.strikethrough = strikethrough;
+  }
+
+  // builder 开始
+  public ConditionalFormatStyle() {}
+
+  public ConditionalFormatStyle(Builder builder) {
     /**
      * 背景颜色
-     * <p> 示例值：#ff00ff
+     *
+     * <p>示例值：#ff00ff
      */
-    @SerializedName("background_color")
-    private String backgroundColor;
+    this.backgroundColor = builder.backgroundColor;
     /**
      * 字体颜色
-     * <p> 示例值：#ff00ff
+     *
+     * <p>示例值：#ff00ff
      */
-    @SerializedName("foreground_color")
-    private String foregroundColor;
+    this.foregroundColor = builder.foregroundColor;
     /**
      * 是否设置下划线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("underline")
-    private Boolean underline;
+    this.underline = builder.underline;
     /**
      * 是否加粗
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("bold")
-    private Boolean bold;
+    this.bold = builder.bold;
     /**
      * 是否设置斜体
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("italic")
-    private Boolean italic;
+    this.italic = builder.italic;
     /**
      * 是否设置删除线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("strikethrough")
+    this.strikethrough = builder.strikethrough;
+  }
+
+  public static class Builder {
+    /**
+     * 背景颜色
+     *
+     * <p>示例值：#ff00ff
+     */
+    private String backgroundColor;
+
+    /**
+     * 字体颜色
+     *
+     * <p>示例值：#ff00ff
+     */
+    private String foregroundColor;
+
+    /**
+     * 是否设置下划线
+     *
+     * <p>示例值：true
+     */
+    private Boolean underline;
+
+    /**
+     * 是否加粗
+     *
+     * <p>示例值：true
+     */
+    private Boolean bold;
+
+    /**
+     * 是否设置斜体
+     *
+     * <p>示例值：true
+     */
+    private Boolean italic;
+
+    /**
+     * 是否设置删除线
+     *
+     * <p>示例值：true
+     */
     private Boolean strikethrough;
 
-    // builder 开始
-    public ConditionalFormatStyle() {
+    /**
+     * 背景颜色
+     *
+     * <p>示例值：#ff00ff
+     *
+     * @param backgroundColor
+     * @return
+     */
+    public Builder backgroundColor(String backgroundColor) {
+      this.backgroundColor = backgroundColor;
+      return this;
     }
 
-    public ConditionalFormatStyle(Builder builder) {
-        /**
-         * 背景颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.backgroundColor = builder.backgroundColor;
-        /**
-         * 字体颜色
-         * <p> 示例值：#ff00ff
-         */
-        this.foregroundColor = builder.foregroundColor;
-        /**
-         * 是否设置下划线
-         * <p> 示例值：true
-         */
-        this.underline = builder.underline;
-        /**
-         * 是否加粗
-         * <p> 示例值：true
-         */
-        this.bold = builder.bold;
-        /**
-         * 是否设置斜体
-         * <p> 示例值：true
-         */
-        this.italic = builder.italic;
-        /**
-         * 是否设置删除线
-         * <p> 示例值：true
-         */
-        this.strikethrough = builder.strikethrough;
+    /**
+     * 字体颜色
+     *
+     * <p>示例值：#ff00ff
+     *
+     * @param foregroundColor
+     * @return
+     */
+    public Builder foregroundColor(String foregroundColor) {
+      this.foregroundColor = foregroundColor;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否设置下划线
+     *
+     * <p>示例值：true
+     *
+     * @param underline
+     * @return
+     */
+    public Builder underline(Boolean underline) {
+      this.underline = underline;
+      return this;
     }
 
-    public String getBackgroundColor() {
-        return this.backgroundColor;
+    /**
+     * 是否加粗
+     *
+     * <p>示例值：true
+     *
+     * @param bold
+     * @return
+     */
+    public Builder bold(Boolean bold) {
+      this.bold = bold;
+      return this;
     }
 
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    /**
+     * 是否设置斜体
+     *
+     * <p>示例值：true
+     *
+     * @param italic
+     * @return
+     */
+    public Builder italic(Boolean italic) {
+      this.italic = italic;
+      return this;
     }
 
-    public String getForegroundColor() {
-        return this.foregroundColor;
+    /**
+     * 是否设置删除线
+     *
+     * <p>示例值：true
+     *
+     * @param strikethrough
+     * @return
+     */
+    public Builder strikethrough(Boolean strikethrough) {
+      this.strikethrough = strikethrough;
+      return this;
     }
 
-    public void setForegroundColor(String foregroundColor) {
-        this.foregroundColor = foregroundColor;
+    public ConditionalFormatStyle build() {
+      return new ConditionalFormatStyle(this);
     }
+  }
 
-    public Boolean getUnderline() {
-        return this.underline;
-    }
-
-    public void setUnderline(Boolean underline) {
-        this.underline = underline;
-    }
-
-    public Boolean getBold() {
-        return this.bold;
-    }
-
-    public void setBold(Boolean bold) {
-        this.bold = bold;
-    }
-
-    public Boolean getItalic() {
-        return this.italic;
-    }
-
-    public void setItalic(Boolean italic) {
-        this.italic = italic;
-    }
-
-    public Boolean getStrikethrough() {
-        return this.strikethrough;
-    }
-
-    public void setStrikethrough(Boolean strikethrough) {
-        this.strikethrough = strikethrough;
-    }
-
-    public static class Builder {
-        /**
-         * 背景颜色
-         * <p> 示例值：#ff00ff
-         */
-        private String backgroundColor;
-        /**
-         * 字体颜色
-         * <p> 示例值：#ff00ff
-         */
-        private String foregroundColor;
-        /**
-         * 是否设置下划线
-         * <p> 示例值：true
-         */
-        private Boolean underline;
-        /**
-         * 是否加粗
-         * <p> 示例值：true
-         */
-        private Boolean bold;
-        /**
-         * 是否设置斜体
-         * <p> 示例值：true
-         */
-        private Boolean italic;
-        /**
-         * 是否设置删除线
-         * <p> 示例值：true
-         */
-        private Boolean strikethrough;
-
-        /**
-         * 背景颜色
-         * <p> 示例值：#ff00ff
-         *
-         * @param backgroundColor
-         * @return
-         */
-        public Builder backgroundColor(String backgroundColor) {
-            this.backgroundColor = backgroundColor;
-            return this;
-        }
-
-
-        /**
-         * 字体颜色
-         * <p> 示例值：#ff00ff
-         *
-         * @param foregroundColor
-         * @return
-         */
-        public Builder foregroundColor(String foregroundColor) {
-            this.foregroundColor = foregroundColor;
-            return this;
-        }
-
-
-        /**
-         * 是否设置下划线
-         * <p> 示例值：true
-         *
-         * @param underline
-         * @return
-         */
-        public Builder underline(Boolean underline) {
-            this.underline = underline;
-            return this;
-        }
-
-
-        /**
-         * 是否加粗
-         * <p> 示例值：true
-         *
-         * @param bold
-         * @return
-         */
-        public Builder bold(Boolean bold) {
-            this.bold = bold;
-            return this;
-        }
-
-
-        /**
-         * 是否设置斜体
-         * <p> 示例值：true
-         *
-         * @param italic
-         * @return
-         */
-        public Builder italic(Boolean italic) {
-            this.italic = italic;
-            return this;
-        }
-
-
-        /**
-         * 是否设置删除线
-         * <p> 示例值：true
-         *
-         * @param strikethrough
-         * @return
-         */
-        public Builder strikethrough(Boolean strikethrough) {
-            this.strikethrough = strikethrough;
-            return this;
-        }
-
-
-        public ConditionalFormatStyle build() {
-            return new ConditionalFormatStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

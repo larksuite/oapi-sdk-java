@@ -13,263 +13,276 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class BotDisplayInfo {
+  /**
+   * botID
+   *
+   * <p>示例值：7331683233945616413
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * bot name
+   *
+   * <p>示例值：机器人
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * bot avatar
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 租户信息
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private Map<String, String> i18nNames;
+
+  /**
+   * 多语言描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_descriptions")
+  private Map<String, String> i18nDescriptions;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public Map<String, String> getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(Map<String, String> i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public Map<String, String> getI18nDescriptions() {
+    return this.i18nDescriptions;
+  }
+
+  public void setI18nDescriptions(Map<String, String> i18nDescriptions) {
+    this.i18nDescriptions = i18nDescriptions;
+  }
+
+  // builder 开始
+  public BotDisplayInfo() {}
+
+  public BotDisplayInfo(Builder builder) {
     /**
      * botID
-     * <p> 示例值：7331683233945616413
+     *
+     * <p>示例值：7331683233945616413
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * bot name
-     * <p> 示例值：机器人
+     *
+     * <p>示例值：机器人
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * bot avatar
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
      * 租户信息
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private Map<String, String> i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 多语言描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_descriptions")
+    this.i18nDescriptions = builder.i18nDescriptions;
+  }
+
+  public static class Builder {
+    /**
+     * botID
+     *
+     * <p>示例值：7331683233945616413
+     */
+    private String id;
+
+    /**
+     * bot name
+     *
+     * <p>示例值：机器人
+     */
+    private String name;
+
+    /**
+     * bot avatar
+     *
+     * <p>示例值：1
+     */
+    private String avatarUrl;
+
+    /**
+     * 租户信息
+     *
+     * <p>示例值：2
+     */
+    private String tenantId;
+
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> i18nNames;
+
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     */
     private Map<String, String> i18nDescriptions;
 
-    // builder 开始
-    public BotDisplayInfo() {
+    /**
+     * botID
+     *
+     * <p>示例值：7331683233945616413
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BotDisplayInfo(Builder builder) {
-        /**
-         * botID
-         * <p> 示例值：7331683233945616413
-         */
-        this.id = builder.id;
-        /**
-         * bot name
-         * <p> 示例值：机器人
-         */
-        this.name = builder.name;
-        /**
-         * bot avatar
-         * <p> 示例值：1
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 租户信息
-         * <p> 示例值：2
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        this.i18nDescriptions = builder.i18nDescriptions;
+    /**
+     * bot name
+     *
+     * <p>示例值：机器人
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * bot avatar
+     *
+     * <p>示例值：1
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 租户信息
+     *
+     * <p>示例值：2
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(Map<String, String> i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     *
+     * @param i18nDescriptions
+     * @return
+     */
+    public Builder i18nDescriptions(Map<String, String> i18nDescriptions) {
+      this.i18nDescriptions = i18nDescriptions;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public BotDisplayInfo build() {
+      return new BotDisplayInfo(this);
     }
+  }
 
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public Map<String, String> getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(Map<String, String> i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public Map<String, String> getI18nDescriptions() {
-        return this.i18nDescriptions;
-    }
-
-    public void setI18nDescriptions(Map<String, String> i18nDescriptions) {
-        this.i18nDescriptions = i18nDescriptions;
-    }
-
-    public static class Builder {
-        /**
-         * botID
-         * <p> 示例值：7331683233945616413
-         */
-        private String id;
-        /**
-         * bot name
-         * <p> 示例值：机器人
-         */
-        private String name;
-        /**
-         * bot avatar
-         * <p> 示例值：1
-         */
-        private String avatarUrl;
-        /**
-         * 租户信息
-         * <p> 示例值：2
-         */
-        private String tenantId;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nNames;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nDescriptions;
-
-        /**
-         * botID
-         * <p> 示例值：7331683233945616413
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * bot name
-         * <p> 示例值：机器人
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * bot avatar
-         * <p> 示例值：1
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 租户信息
-         * <p> 示例值：2
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(Map<String, String> i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         *
-         * @param i18nDescriptions
-         * @return
-         */
-        public Builder i18nDescriptions(Map<String, String> i18nDescriptions) {
-            this.i18nDescriptions = i18nDescriptions;
-            return this;
-        }
-
-
-        public BotDisplayInfo build() {
-            return new BotDisplayInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

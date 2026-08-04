@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditPcContext {
+  /**
+   * UDID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("udid")
+  private String udid;
+
+  /**
+   * 设备ID
+   *
+   * <p>示例值：7204623689634104876
+   */
+  @SerializedName("did")
+  private String did;
+
+  /**
+   * app的版本
+   *
+   * <p>示例值：7.26.0
+   */
+  @SerializedName("app_ver")
+  private String appVer;
+
+  /**
+   * SecSDK版本
+   *
+   * <p>示例值：3.0.0.0
+   */
+  @SerializedName("ver")
+  private String ver;
+
+  /**
+   * 客户端类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("os")
+  private String os;
+
+  /**
+   * wifi ip
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("wifip")
+  private String wifip;
+
+  /**
+   * 设备区域
+   *
+   * <p>示例值：zh_CN
+   */
+  @SerializedName("region")
+  private String region;
+
+  /**
+   * 公网ip
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("IP")
+  private String iP;
+
+  public String getUdid() {
+    return this.udid;
+  }
+
+  public void setUdid(String udid) {
+    this.udid = udid;
+  }
+
+  public String getDid() {
+    return this.did;
+  }
+
+  public void setDid(String did) {
+    this.did = did;
+  }
+
+  public String getAppVer() {
+    return this.appVer;
+  }
+
+  public void setAppVer(String appVer) {
+    this.appVer = appVer;
+  }
+
+  public String getVer() {
+    return this.ver;
+  }
+
+  public void setVer(String ver) {
+    this.ver = ver;
+  }
+
+  public String getOs() {
+    return this.os;
+  }
+
+  public void setOs(String os) {
+    this.os = os;
+  }
+
+  public String getWifip() {
+    return this.wifip;
+  }
+
+  public void setWifip(String wifip) {
+    this.wifip = wifip;
+  }
+
+  public String getRegion() {
+    return this.region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public String getIP() {
+    return this.iP;
+  }
+
+  public void setIP(String iP) {
+    this.iP = iP;
+  }
+
+  // builder 开始
+  public AuditPcContext() {}
+
+  public AuditPcContext(Builder builder) {
     /**
      * UDID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("udid")
-    private String udid;
+    this.udid = builder.udid;
     /**
      * 设备ID
-     * <p> 示例值：7204623689634104876
+     *
+     * <p>示例值：7204623689634104876
      */
-    @SerializedName("did")
-    private String did;
+    this.did = builder.did;
     /**
      * app的版本
-     * <p> 示例值：7.26.0
+     *
+     * <p>示例值：7.26.0
      */
-    @SerializedName("app_ver")
-    private String appVer;
+    this.appVer = builder.appVer;
     /**
      * SecSDK版本
-     * <p> 示例值：3.0.0.0
+     *
+     * <p>示例值：3.0.0.0
      */
-    @SerializedName("ver")
-    private String ver;
+    this.ver = builder.ver;
     /**
      * 客户端类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("os")
-    private String os;
+    this.os = builder.os;
     /**
      * wifi ip
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("wifip")
-    private String wifip;
+    this.wifip = builder.wifip;
     /**
      * 设备区域
-     * <p> 示例值：zh_CN
+     *
+     * <p>示例值：zh_CN
      */
-    @SerializedName("region")
-    private String region;
+    this.region = builder.region;
     /**
      * 公网ip
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("IP")
+    this.iP = builder.iP;
+  }
+
+  public static class Builder {
+    /**
+     * UDID
+     *
+     * <p>示例值：
+     */
+    private String udid;
+
+    /**
+     * 设备ID
+     *
+     * <p>示例值：7204623689634104876
+     */
+    private String did;
+
+    /**
+     * app的版本
+     *
+     * <p>示例值：7.26.0
+     */
+    private String appVer;
+
+    /**
+     * SecSDK版本
+     *
+     * <p>示例值：3.0.0.0
+     */
+    private String ver;
+
+    /**
+     * 客户端类型
+     *
+     * <p>示例值：
+     */
+    private String os;
+
+    /**
+     * wifi ip
+     *
+     * <p>示例值：1.1.1.1
+     */
+    private String wifip;
+
+    /**
+     * 设备区域
+     *
+     * <p>示例值：zh_CN
+     */
+    private String region;
+
+    /**
+     * 公网ip
+     *
+     * <p>示例值：1.1.1.1
+     */
     private String iP;
 
-    // builder 开始
-    public AuditPcContext() {
+    /**
+     * UDID
+     *
+     * <p>示例值：
+     *
+     * @param udid
+     * @return
+     */
+    public Builder udid(String udid) {
+      this.udid = udid;
+      return this;
     }
 
-    public AuditPcContext(Builder builder) {
-        /**
-         * UDID
-         * <p> 示例值：
-         */
-        this.udid = builder.udid;
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         */
-        this.did = builder.did;
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0
-         */
-        this.appVer = builder.appVer;
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         */
-        this.ver = builder.ver;
-        /**
-         * 客户端类型
-         * <p> 示例值：
-         */
-        this.os = builder.os;
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         */
-        this.wifip = builder.wifip;
-        /**
-         * 设备区域
-         * <p> 示例值：zh_CN
-         */
-        this.region = builder.region;
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         */
-        this.iP = builder.iP;
+    /**
+     * 设备ID
+     *
+     * <p>示例值：7204623689634104876
+     *
+     * @param did
+     * @return
+     */
+    public Builder did(String did) {
+      this.did = did;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * app的版本
+     *
+     * <p>示例值：7.26.0
+     *
+     * @param appVer
+     * @return
+     */
+    public Builder appVer(String appVer) {
+      this.appVer = appVer;
+      return this;
     }
 
-    public String getUdid() {
-        return this.udid;
+    /**
+     * SecSDK版本
+     *
+     * <p>示例值：3.0.0.0
+     *
+     * @param ver
+     * @return
+     */
+    public Builder ver(String ver) {
+      this.ver = ver;
+      return this;
     }
 
-    public void setUdid(String udid) {
-        this.udid = udid;
+    /**
+     * 客户端类型
+     *
+     * <p>示例值：
+     *
+     * @param os
+     * @return
+     */
+    public Builder os(String os) {
+      this.os = os;
+      return this;
     }
 
-    public String getDid() {
-        return this.did;
+    /**
+     * wifi ip
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param wifip
+     * @return
+     */
+    public Builder wifip(String wifip) {
+      this.wifip = wifip;
+      return this;
     }
 
-    public void setDid(String did) {
-        this.did = did;
+    /**
+     * 设备区域
+     *
+     * <p>示例值：zh_CN
+     *
+     * @param region
+     * @return
+     */
+    public Builder region(String region) {
+      this.region = region;
+      return this;
     }
 
-    public String getAppVer() {
-        return this.appVer;
+    /**
+     * 公网ip
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param iP
+     * @return
+     */
+    public Builder iP(String iP) {
+      this.iP = iP;
+      return this;
     }
 
-    public void setAppVer(String appVer) {
-        this.appVer = appVer;
+    public AuditPcContext build() {
+      return new AuditPcContext(this);
     }
+  }
 
-    public String getVer() {
-        return this.ver;
-    }
-
-    public void setVer(String ver) {
-        this.ver = ver;
-    }
-
-    public String getOs() {
-        return this.os;
-    }
-
-    public void setOs(String os) {
-        this.os = os;
-    }
-
-    public String getWifip() {
-        return this.wifip;
-    }
-
-    public void setWifip(String wifip) {
-        this.wifip = wifip;
-    }
-
-    public String getRegion() {
-        return this.region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getIP() {
-        return this.iP;
-    }
-
-    public void setIP(String iP) {
-        this.iP = iP;
-    }
-
-    public static class Builder {
-        /**
-         * UDID
-         * <p> 示例值：
-         */
-        private String udid;
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         */
-        private String did;
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0
-         */
-        private String appVer;
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         */
-        private String ver;
-        /**
-         * 客户端类型
-         * <p> 示例值：
-         */
-        private String os;
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         */
-        private String wifip;
-        /**
-         * 设备区域
-         * <p> 示例值：zh_CN
-         */
-        private String region;
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         */
-        private String iP;
-
-        /**
-         * UDID
-         * <p> 示例值：
-         *
-         * @param udid
-         * @return
-         */
-        public Builder udid(String udid) {
-            this.udid = udid;
-            return this;
-        }
-
-
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         *
-         * @param did
-         * @return
-         */
-        public Builder did(String did) {
-            this.did = did;
-            return this;
-        }
-
-
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0
-         *
-         * @param appVer
-         * @return
-         */
-        public Builder appVer(String appVer) {
-            this.appVer = appVer;
-            return this;
-        }
-
-
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         *
-         * @param ver
-         * @return
-         */
-        public Builder ver(String ver) {
-            this.ver = ver;
-            return this;
-        }
-
-
-        /**
-         * 客户端类型
-         * <p> 示例值：
-         *
-         * @param os
-         * @return
-         */
-        public Builder os(String os) {
-            this.os = os;
-            return this;
-        }
-
-
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         *
-         * @param wifip
-         * @return
-         */
-        public Builder wifip(String wifip) {
-            this.wifip = wifip;
-            return this;
-        }
-
-
-        /**
-         * 设备区域
-         * <p> 示例值：zh_CN
-         *
-         * @param region
-         * @return
-         */
-        public Builder region(String region) {
-            this.region = region;
-            return this;
-        }
-
-
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         *
-         * @param iP
-         * @return
-         */
-        public Builder iP(String iP) {
-            this.iP = iP;
-            return this;
-        }
-
-
-        public AuditPcContext build() {
-            return new AuditPcContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RuleActionItem {
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 当 type 为移动到文件夹时，该字段填文件夹的 id
+   *
+   * <p>示例值：283412371233
+   */
+  @SerializedName("input")
+  private String input;
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getInput() {
+    return this.input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
+  }
+
+  // builder 开始
+  public RuleActionItem() {}
+
+  public RuleActionItem(Builder builder) {
     /**
      * 操作类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 当 type 为移动到文件夹时，该字段填文件夹的 id
-     * <p> 示例值：283412371233
+     *
+     * <p>示例值：283412371233
      */
-    @SerializedName("input")
+    this.input = builder.input;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 当 type 为移动到文件夹时，该字段填文件夹的 id
+     *
+     * <p>示例值：283412371233
+     */
     private String input;
 
-    // builder 开始
-    public RuleActionItem() {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public RuleActionItem(Builder builder) {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 当 type 为移动到文件夹时，该字段填文件夹的 id
-         * <p> 示例值：283412371233
-         */
-        this.input = builder.input;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.mail.v1.enums.RuleActionItemRuleActionItemTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.mail.v1.enums.RuleActionItemRuleActionItemTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 当 type 为移动到文件夹时，该字段填文件夹的 id
+     *
+     * <p>示例值：283412371233
+     *
+     * @param input
+     * @return
+     */
+    public Builder input(String input) {
+      this.input = input;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    public RuleActionItem build() {
+      return new RuleActionItem(this);
     }
+  }
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getInput() {
-        return this.input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 当 type 为移动到文件夹时，该字段填文件夹的 id
-         * <p> 示例值：283412371233
-         */
-        private String input;
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.RuleActionItemRuleActionItemTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.RuleActionItemRuleActionItemTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 当 type 为移动到文件夹时，该字段填文件夹的 id
-         * <p> 示例值：283412371233
-         *
-         * @param input
-         * @return
-         */
-        public Builder input(String input) {
-            this.input = input;
-            return this;
-        }
-
-
-        public RuleActionItem build() {
-            return new RuleActionItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

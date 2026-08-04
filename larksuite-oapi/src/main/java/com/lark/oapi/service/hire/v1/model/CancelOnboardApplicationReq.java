@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CancelOnboardApplicationReq {
+  /**
+   * 投递 ID，如何获取投递 ID
+   * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+   *
+   * <p>示例值：1111111111
+   */
+  @Path
+  @SerializedName("application_id")
+  private String applicationId;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  @Body private CancelOnboardApplicationReqBody body;
+
+  public CancelOnboardApplicationReqBody getCancelOnboardApplicationReqBody() {
+    return this.body;
+  }
+
+  public void setCancelOnboardApplicationReqBody(CancelOnboardApplicationReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CancelOnboardApplicationReq() {}
+
+  public CancelOnboardApplicationReq(Builder builder) {
     /**
-     * 投递 ID
-     * <p> 示例值：1111111111
+     * 投递 ID，如何获取投递 ID
+     * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+     *
+     * <p>示例值：1111111111
      */
-    @Path
-    @SerializedName("application_id")
-    private String applicationId;
-    @Body
+    this.applicationId = builder.applicationId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String applicationId; // 投递 ID，如何获取投递 ID
+
+    // 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+
+    /**
+     * 投递 ID，如何获取投递 ID
+     * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+     *
+     * <p>示例值：1111111111
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
+    }
+
     private CancelOnboardApplicationReqBody body;
 
-    // builder 开始
-    public CancelOnboardApplicationReq() {
-    }
-
-    public CancelOnboardApplicationReq(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：1111111111
-         */
-        this.applicationId = builder.applicationId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
     public CancelOnboardApplicationReqBody getCancelOnboardApplicationReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCancelOnboardApplicationReqBody(CancelOnboardApplicationReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder cancelOnboardApplicationReqBody(CancelOnboardApplicationReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String applicationId; // 投递 ID
-        private CancelOnboardApplicationReqBody body;
-
-        /**
-         * 投递 ID
-         * <p> 示例值：1111111111
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-        public CancelOnboardApplicationReqBody getCancelOnboardApplicationReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder cancelOnboardApplicationReqBody(CancelOnboardApplicationReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CancelOnboardApplicationReq build() {
-            return new CancelOnboardApplicationReq(this);
-        }
+    public CancelOnboardApplicationReq build() {
+      return new CancelOnboardApplicationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

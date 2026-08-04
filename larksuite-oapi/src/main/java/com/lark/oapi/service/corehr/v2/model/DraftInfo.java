@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DraftInfo {
+  /**
+   * 组织架构调整草稿 ID
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("draft_id")
+  private String draftId;
+
+  /**
+   * 调整主题
+   *
+   * <p>示例值：测试组织架构调整
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  /**
+   * 调整原因
+   *
+   * <p>示例值：测试
+   */
+  @SerializedName("adjust_reason")
+  private String adjustReason;
+
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 关联的部门调整记录 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_adjust_record_ids")
+  private String[] departmentAdjustRecordIds;
+
+  /**
+   * 关联的人员调整记录 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_change_adjust_record_ids")
+  private String[] jobChangeAdjustRecordIds;
+
+  /**
+   * 关联的岗位调整记录 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position_adjust_record_ids")
+  private String[] positionAdjustRecordIds;
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  public String getAdjustReason() {
+    return this.adjustReason;
+  }
+
+  public void setAdjustReason(String adjustReason) {
+    this.adjustReason = adjustReason;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String[] getDepartmentAdjustRecordIds() {
+    return this.departmentAdjustRecordIds;
+  }
+
+  public void setDepartmentAdjustRecordIds(String[] departmentAdjustRecordIds) {
+    this.departmentAdjustRecordIds = departmentAdjustRecordIds;
+  }
+
+  public String[] getJobChangeAdjustRecordIds() {
+    return this.jobChangeAdjustRecordIds;
+  }
+
+  public void setJobChangeAdjustRecordIds(String[] jobChangeAdjustRecordIds) {
+    this.jobChangeAdjustRecordIds = jobChangeAdjustRecordIds;
+  }
+
+  public String[] getPositionAdjustRecordIds() {
+    return this.positionAdjustRecordIds;
+  }
+
+  public void setPositionAdjustRecordIds(String[] positionAdjustRecordIds) {
+    this.positionAdjustRecordIds = positionAdjustRecordIds;
+  }
+
+  // builder 开始
+  public DraftInfo() {}
+
+  public DraftInfo(Builder builder) {
     /**
      * 组织架构调整草稿 ID
-     * <p> 示例值：6991776076699549697
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("draft_id")
-    private String draftId;
+    this.draftId = builder.draftId;
     /**
      * 调整主题
-     * <p> 示例值：测试组织架构调整
+     *
+     * <p>示例值：测试组织架构调整
      */
-    @SerializedName("topic")
-    private String topic;
+    this.topic = builder.topic;
     /**
      * 调整原因
-     * <p> 示例值：测试
+     *
+     * <p>示例值：测试
      */
-    @SerializedName("adjust_reason")
-    private String adjustReason;
+    this.adjustReason = builder.adjustReason;
     /**
      * 生效日期
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 关联的部门调整记录 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_adjust_record_ids")
-    private String[] departmentAdjustRecordIds;
+    this.departmentAdjustRecordIds = builder.departmentAdjustRecordIds;
     /**
      * 关联的人员调整记录 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_change_adjust_record_ids")
-    private String[] jobChangeAdjustRecordIds;
+    this.jobChangeAdjustRecordIds = builder.jobChangeAdjustRecordIds;
     /**
      * 关联的岗位调整记录 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("position_adjust_record_ids")
+    this.positionAdjustRecordIds = builder.positionAdjustRecordIds;
+  }
+
+  public static class Builder {
+    /**
+     * 组织架构调整草稿 ID
+     *
+     * <p>示例值：6991776076699549697
+     */
+    private String draftId;
+
+    /**
+     * 调整主题
+     *
+     * <p>示例值：测试组织架构调整
+     */
+    private String topic;
+
+    /**
+     * 调整原因
+     *
+     * <p>示例值：测试
+     */
+    private String adjustReason;
+
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 关联的部门调整记录 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] departmentAdjustRecordIds;
+
+    /**
+     * 关联的人员调整记录 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] jobChangeAdjustRecordIds;
+
+    /**
+     * 关联的岗位调整记录 ID 列表
+     *
+     * <p>示例值：
+     */
     private String[] positionAdjustRecordIds;
 
-    // builder 开始
-    public DraftInfo() {
+    /**
+     * 组织架构调整草稿 ID
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
     }
 
-    public DraftInfo(Builder builder) {
-        /**
-         * 组织架构调整草稿 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.draftId = builder.draftId;
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         */
-        this.topic = builder.topic;
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         */
-        this.adjustReason = builder.adjustReason;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentAdjustRecordIds = builder.departmentAdjustRecordIds;
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.jobChangeAdjustRecordIds = builder.jobChangeAdjustRecordIds;
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.positionAdjustRecordIds = builder.positionAdjustRecordIds;
+    /**
+     * 调整主题
+     *
+     * <p>示例值：测试组织架构调整
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 调整原因
+     *
+     * <p>示例值：测试
+     *
+     * @param adjustReason
+     * @return
+     */
+    public Builder adjustReason(String adjustReason) {
+      this.adjustReason = adjustReason;
+      return this;
     }
 
-    public String getDraftId() {
-        return this.draftId;
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
+    /**
+     * 关联的部门调整记录 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param departmentAdjustRecordIds
+     * @return
+     */
+    public Builder departmentAdjustRecordIds(String[] departmentAdjustRecordIds) {
+      this.departmentAdjustRecordIds = departmentAdjustRecordIds;
+      return this;
     }
 
-    public String getTopic() {
-        return this.topic;
+    /**
+     * 关联的人员调整记录 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param jobChangeAdjustRecordIds
+     * @return
+     */
+    public Builder jobChangeAdjustRecordIds(String[] jobChangeAdjustRecordIds) {
+      this.jobChangeAdjustRecordIds = jobChangeAdjustRecordIds;
+      return this;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    /**
+     * 关联的岗位调整记录 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param positionAdjustRecordIds
+     * @return
+     */
+    public Builder positionAdjustRecordIds(String[] positionAdjustRecordIds) {
+      this.positionAdjustRecordIds = positionAdjustRecordIds;
+      return this;
     }
 
-    public String getAdjustReason() {
-        return this.adjustReason;
+    public DraftInfo build() {
+      return new DraftInfo(this);
     }
+  }
 
-    public void setAdjustReason(String adjustReason) {
-        this.adjustReason = adjustReason;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String[] getDepartmentAdjustRecordIds() {
-        return this.departmentAdjustRecordIds;
-    }
-
-    public void setDepartmentAdjustRecordIds(String[] departmentAdjustRecordIds) {
-        this.departmentAdjustRecordIds = departmentAdjustRecordIds;
-    }
-
-    public String[] getJobChangeAdjustRecordIds() {
-        return this.jobChangeAdjustRecordIds;
-    }
-
-    public void setJobChangeAdjustRecordIds(String[] jobChangeAdjustRecordIds) {
-        this.jobChangeAdjustRecordIds = jobChangeAdjustRecordIds;
-    }
-
-    public String[] getPositionAdjustRecordIds() {
-        return this.positionAdjustRecordIds;
-    }
-
-    public void setPositionAdjustRecordIds(String[] positionAdjustRecordIds) {
-        this.positionAdjustRecordIds = positionAdjustRecordIds;
-    }
-
-    public static class Builder {
-        /**
-         * 组织架构调整草稿 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String draftId;
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         */
-        private String topic;
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         */
-        private String adjustReason;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        private String effectiveDate;
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentAdjustRecordIds;
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobChangeAdjustRecordIds;
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] positionAdjustRecordIds;
-
-        /**
-         * 组织架构调整草稿 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         *
-         * @param adjustReason
-         * @return
-         */
-        public Builder adjustReason(String adjustReason) {
-            this.adjustReason = adjustReason;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentAdjustRecordIds
-         * @return
-         */
-        public Builder departmentAdjustRecordIds(String[] departmentAdjustRecordIds) {
-            this.departmentAdjustRecordIds = departmentAdjustRecordIds;
-            return this;
-        }
-
-
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobChangeAdjustRecordIds
-         * @return
-         */
-        public Builder jobChangeAdjustRecordIds(String[] jobChangeAdjustRecordIds) {
-            this.jobChangeAdjustRecordIds = jobChangeAdjustRecordIds;
-            return this;
-        }
-
-
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param positionAdjustRecordIds
-         * @return
-         */
-        public Builder positionAdjustRecordIds(String[] positionAdjustRecordIds) {
-            this.positionAdjustRecordIds = positionAdjustRecordIds;
-            return this;
-        }
-
-
-        public DraftInfo build() {
-            return new DraftInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

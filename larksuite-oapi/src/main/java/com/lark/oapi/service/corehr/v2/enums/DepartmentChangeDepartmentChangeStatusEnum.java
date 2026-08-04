@@ -13,25 +13,24 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 调整状态
- */
+/** 调整状态 */
 public enum DepartmentChangeDepartmentChangeStatusEnum {
-    APPROVING(0), // 发起审批
-    APPROVED(1), // 审批通过
-    REJECTED(2), // 审批被拒绝
-    WITHDRAWN(3), // 审批被撤销
-    SUCCESS(4), // 执行成功
-    FAILED(5), // 执行失败
-    PENDING(6), // 待执行
-    ;
-    private Integer value;
+  APPROVING(0), // 发起审批，流程成功发起，并等待审批人审批。
+  APPROVED(1), // 审批通过。
+  REJECTED(2), // 审批被拒绝，审批未通过。
+  WITHDRAWN(3), // 审批被撤销，用户主动撤销审批，调整会进入已撤销状态。
+  SUCCESS(4), // 执行成功，调整已经执行成功。
+  FAILED(5), // 执行失败，调整已经执行失败。
+  PENDING(
+      6), // 待执行，调整依赖其他流程完成，等待执行。字节租户或者商业化租户且配置拆分审批流(合单) 才会触发，调整所在审批单执行生效依赖另一个同时发起的还处于审批中状态审批单的执行结果。
+  ;
+  private Integer value;
 
-    DepartmentChangeDepartmentChangeStatusEnum(Integer value) {
-        this.value = value;
-    }
+  DepartmentChangeDepartmentChangeStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

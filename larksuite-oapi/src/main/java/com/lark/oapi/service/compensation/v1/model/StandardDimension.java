@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StandardDimension {
+  /**
+   * 资源名
+   *
+   * <p>示例值：cpst_plan
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private I18n label;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public I18n getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(I18n label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public StandardDimension() {}
+
+  public StandardDimension(Builder builder) {
     /**
      * 资源名
-     * <p> 示例值：cpst_plan
+     *
+     * <p>示例值：cpst_plan
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 名称
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     */
+    private String apiName;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
     private I18n label;
 
-    // builder 开始
-    public StandardDimension() {
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public StandardDimension(Builder builder) {
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName {@link
+     *     com.lark.oapi.service.compensation.v1.enums.StandardDimensionApiNameEnum}
+     * @return
+     */
+    public Builder apiName(
+        com.lark.oapi.service.compensation.v1.enums.StandardDimensionApiNameEnum apiName) {
+      this.apiName = apiName.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(I18n label) {
+      this.label = label;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    public StandardDimension build() {
+      return new StandardDimension(this);
     }
+  }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public I18n getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(I18n label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         */
-        private String apiName;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n label;
-
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         *
-         * @param apiName {@link com.lark.oapi.service.compensation.v1.enums.StandardDimensionApiNameEnum}
-         * @return
-         */
-        public Builder apiName(com.lark.oapi.service.compensation.v1.enums.StandardDimensionApiNameEnum apiName) {
-            this.apiName = apiName.getValue();
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(I18n label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public StandardDimension build() {
-            return new StandardDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

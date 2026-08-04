@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableBoolValue {
+  /**
+   * 布尔变量的值
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("value")
+  private Boolean value;
+
+  public Boolean getValue() {
+    return this.value;
+  }
+
+  public void setValue(Boolean value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FormFieldVariableBoolValue() {}
+
+  public FormFieldVariableBoolValue(Builder builder) {
     /**
      * 布尔变量的值
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 布尔变量的值
+     *
+     * <p>示例值：true
+     */
     private Boolean value;
 
-    // builder 开始
-    public FormFieldVariableBoolValue() {
+    /**
+     * 布尔变量的值
+     *
+     * <p>示例值：true
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(Boolean value) {
+      this.value = value;
+      return this;
     }
 
-    public FormFieldVariableBoolValue(Builder builder) {
-        /**
-         * 布尔变量的值
-         * <p> 示例值：true
-         */
-        this.value = builder.value;
+    public FormFieldVariableBoolValue build() {
+      return new FormFieldVariableBoolValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getValue() {
-        return this.value;
-    }
-
-    public void setValue(Boolean value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 布尔变量的值
-         * <p> 示例值：true
-         */
-        private Boolean value;
-
-        /**
-         * 布尔变量的值
-         * <p> 示例值：true
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(Boolean value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FormFieldVariableBoolValue build() {
-            return new FormFieldVariableBoolValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

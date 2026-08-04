@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageShareCalendarEventContent {
+  /**
+   * 概要
+   *
+   * <p>示例值：
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  // builder 开始
+  public MessageShareCalendarEventContent() {}
+
+  public MessageShareCalendarEventContent(Builder builder) {
     /**
      * 概要
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("summary")
+    this.summary = builder.summary;
+  }
+
+  public static class Builder {
+    /**
+     * 概要
+     *
+     * <p>示例值：
+     */
     private String summary;
 
-    // builder 开始
-    public MessageShareCalendarEventContent() {
+    /**
+     * 概要
+     *
+     * <p>示例值：
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
     }
 
-    public MessageShareCalendarEventContent(Builder builder) {
-        /**
-         * 概要
-         * <p> 示例值：
-         */
-        this.summary = builder.summary;
+    public MessageShareCalendarEventContent build() {
+      return new MessageShareCalendarEventContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public static class Builder {
-        /**
-         * 概要
-         * <p> 示例值：
-         */
-        private String summary;
-
-        /**
-         * 概要
-         * <p> 示例值：
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        public MessageShareCalendarEventContent build() {
-            return new MessageShareCalendarEventContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,21 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * 任务类型
- */
+/** 任务类型 */
 public enum GetTaskTaskTypeEnum {
-    MOVE("move"), // MoveDocsToWiki任务
-    DELETESPACE("delete_space"), // 删除知识空间任务
-    DELETENODE("delete_node"), // 删除知识库节点
-    ;
-    private String value;
+  MOVE(
+      "move"), // [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务
+  DELETESPACE("delete_space"), // 删除知识空间任务
+  DELETENODE("delete_node"), // 删除知识库节点
+  MOVEWIKITODOCS("move_wiki_to_docs"), // 移动知识库节点至云空间任务
+  ;
+  private String value;
 
-    GetTaskTaskTypeEnum(String value) {
-        this.value = value;
-    }
+  GetTaskTaskTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

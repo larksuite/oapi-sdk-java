@@ -13,888 +13,988 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckOrder {
+  /**
+   * 背调订单 ID
+   *
+   * <p>示例值：7037986982531778860
+   */
+  @SerializedName("order_id")
+  private String orderId;
+
+  /**
+   * 投递 ID
+   *
+   * <p>示例值：6985833807195212076
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 背调状态
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("order_status")
+  private Integer orderStatus;
+
+  /**
+   * 供应商类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("account_third_type")
+  private Integer accountThirdType;
+
+  /**
+   * 背调套餐名称
+   *
+   * <p>示例值：基础版
+   */
+  @SerializedName("package")
+  private String package_;
+
+  /**
+   * 背调名称（仅用户手动录入的背调结果支持返回该字段）
+   *
+   * <p>示例值：录入的背调
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告
+   *
+   * <p>示例值：
+   */
+  @SerializedName("feedback_info_list")
+  private BackgroundCheckOrderFeedbackInfo[] feedbackInfoList;
+
+  /**
+   * 背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_info_list")
+  private BackgroundCheckOrderProcessInfo[] processInfoList;
+
+  /**
+   * 录入时间毫秒时间戳（仅用户手动录入的背调结果支持返回该字段）
+   *
+   * <p>示例值：1662476247755
+   */
+  @SerializedName("upload_time")
+  private String uploadTime;
+
+  /**
+   * 候选人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("candidate_info")
+  private UserContactInfo candidateInfo;
+
+  /**
+   * 背调发起人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator_info")
+  private BackgroundCheckOrderCreator creatorInfo;
+
+  /**
+   * 背调联系人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contactor_info")
+  private UserContactInfo contactorInfo;
+
+  /**
+   * 背调发起时间
+   *
+   * <p>示例值：1686297649024
+   */
+  @SerializedName("begin_time")
+  private String beginTime;
+
+  /**
+   * 背调结束时间
+   *
+   * <p>示例值：1686297649024
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 背调结论。为最后一次背调报告的结果
+   *
+   * <p>示例值：绿灯
+   */
+  @SerializedName("conclusion")
+  private String conclusion;
+
+  /**
+   * 供应商信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("provider_info")
+  private ProviderIdNameObject providerInfo;
+
+  /**
+   * 自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_list")
+  private EcoBackgroundCheckCustomFieldData[] customFieldList;
+
+  /**
+   * 自定义字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_data_list")
+  private BackgroundCheckCustomFieldDataValue[] customDataList;
+
+  /**
+   * 背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ext_item_info_list")
+  private BackgroundCheckItemInfo[] extItemInfoList;
+
+  /**
+   * 订单更新时间
+   *
+   * <p>示例值：1686809576215
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 属地
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo")
+  private String geo;
+
+  /**
+   * 预计入职地点的编码，详见[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+   *
+   * <p>示例值：CN_1
+   */
+  @SerializedName("location_code")
+  private String locationCode;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：候选人很优秀
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  public String getOrderId() {
+    return this.orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public Integer getOrderStatus() {
+    return this.orderStatus;
+  }
+
+  public void setOrderStatus(Integer orderStatus) {
+    this.orderStatus = orderStatus;
+  }
+
+  public Integer getAccountThirdType() {
+    return this.accountThirdType;
+  }
+
+  public void setAccountThirdType(Integer accountThirdType) {
+    this.accountThirdType = accountThirdType;
+  }
+
+  public String getPackage() {
+    return this.package_;
+  }
+
+  public void setPackage(String package_) {
+    this.package_ = package_;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public BackgroundCheckOrderFeedbackInfo[] getFeedbackInfoList() {
+    return this.feedbackInfoList;
+  }
+
+  public void setFeedbackInfoList(BackgroundCheckOrderFeedbackInfo[] feedbackInfoList) {
+    this.feedbackInfoList = feedbackInfoList;
+  }
+
+  public BackgroundCheckOrderProcessInfo[] getProcessInfoList() {
+    return this.processInfoList;
+  }
+
+  public void setProcessInfoList(BackgroundCheckOrderProcessInfo[] processInfoList) {
+    this.processInfoList = processInfoList;
+  }
+
+  public String getUploadTime() {
+    return this.uploadTime;
+  }
+
+  public void setUploadTime(String uploadTime) {
+    this.uploadTime = uploadTime;
+  }
+
+  public UserContactInfo getCandidateInfo() {
+    return this.candidateInfo;
+  }
+
+  public void setCandidateInfo(UserContactInfo candidateInfo) {
+    this.candidateInfo = candidateInfo;
+  }
+
+  public BackgroundCheckOrderCreator getCreatorInfo() {
+    return this.creatorInfo;
+  }
+
+  public void setCreatorInfo(BackgroundCheckOrderCreator creatorInfo) {
+    this.creatorInfo = creatorInfo;
+  }
+
+  public UserContactInfo getContactorInfo() {
+    return this.contactorInfo;
+  }
+
+  public void setContactorInfo(UserContactInfo contactorInfo) {
+    this.contactorInfo = contactorInfo;
+  }
+
+  public String getBeginTime() {
+    return this.beginTime;
+  }
+
+  public void setBeginTime(String beginTime) {
+    this.beginTime = beginTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getConclusion() {
+    return this.conclusion;
+  }
+
+  public void setConclusion(String conclusion) {
+    this.conclusion = conclusion;
+  }
+
+  public ProviderIdNameObject getProviderInfo() {
+    return this.providerInfo;
+  }
+
+  public void setProviderInfo(ProviderIdNameObject providerInfo) {
+    this.providerInfo = providerInfo;
+  }
+
+  public EcoBackgroundCheckCustomFieldData[] getCustomFieldList() {
+    return this.customFieldList;
+  }
+
+  public void setCustomFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
+    this.customFieldList = customFieldList;
+  }
+
+  public BackgroundCheckCustomFieldDataValue[] getCustomDataList() {
+    return this.customDataList;
+  }
+
+  public void setCustomDataList(BackgroundCheckCustomFieldDataValue[] customDataList) {
+    this.customDataList = customDataList;
+  }
+
+  public BackgroundCheckItemInfo[] getExtItemInfoList() {
+    return this.extItemInfoList;
+  }
+
+  public void setExtItemInfoList(BackgroundCheckItemInfo[] extItemInfoList) {
+    this.extItemInfoList = extItemInfoList;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getGeo() {
+    return this.geo;
+  }
+
+  public void setGeo(String geo) {
+    this.geo = geo;
+  }
+
+  public String getLocationCode() {
+    return this.locationCode;
+  }
+
+  public void setLocationCode(String locationCode) {
+    this.locationCode = locationCode;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  // builder 开始
+  public BackgroundCheckOrder() {}
+
+  public BackgroundCheckOrder(Builder builder) {
     /**
-     * 背调 ID
-     * <p> 示例值：7037986982531778860
+     * 背调订单 ID
+     *
+     * <p>示例值：7037986982531778860
      */
-    @SerializedName("order_id")
-    private String orderId;
+    this.orderId = builder.orderId;
     /**
      * 投递 ID
-     * <p> 示例值：6985833807195212076
+     *
+     * <p>示例值：6985833807195212076
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 背调状态
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("order_status")
-    private Integer orderStatus;
+    this.orderStatus = builder.orderStatus;
     /**
-     * 供应商名称
-     * <p> 示例值：1
+     * 供应商类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("account_third_type")
-    private Integer accountThirdType;
+    this.accountThirdType = builder.accountThirdType;
     /**
-     * 背调套餐
-     * <p> 示例值：基础版
+     * 背调套餐名称
+     *
+     * <p>示例值：基础版
      */
-    @SerializedName("package")
-    private String package_;
+    this.package_ = builder.package_;
     /**
-     * 背调名称（仅手动录入的背调结果具有）
-     * <p> 示例值：录入的背调
+     * 背调名称（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：录入的背调
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 背调报告信息
-     * <p> 示例值：
+     * 背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告
+     *
+     * <p>示例值：
      */
-    @SerializedName("feedback_info_list")
-    private BackgroundCheckOrderFeedbackInfo[] feedbackInfoList;
+    this.feedbackInfoList = builder.feedbackInfoList;
     /**
-     * 进度
-     * <p> 示例值：
+     * 背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度
+     *
+     * <p>示例值：
      */
-    @SerializedName("process_info_list")
-    private BackgroundCheckOrderProcessInfo[] processInfoList;
+    this.processInfoList = builder.processInfoList;
     /**
-     * 录入时间（仅手动录入的背调结果具有）
-     * <p> 示例值：1662476247755
+     * 录入时间毫秒时间戳（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：1662476247755
      */
-    @SerializedName("upload_time")
-    private String uploadTime;
+    this.uploadTime = builder.uploadTime;
     /**
      * 候选人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("candidate_info")
-    private UserContactInfo candidateInfo;
+    this.candidateInfo = builder.candidateInfo;
     /**
      * 背调发起人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator_info")
-    private BackgroundCheckOrderCreator creatorInfo;
+    this.creatorInfo = builder.creatorInfo;
     /**
      * 背调联系人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contactor_info")
-    private UserContactInfo contactorInfo;
+    this.contactorInfo = builder.contactorInfo;
     /**
      * 背调发起时间
-     * <p> 示例值：1686297649024
+     *
+     * <p>示例值：1686297649024
      */
-    @SerializedName("begin_time")
-    private String beginTime;
+    this.beginTime = builder.beginTime;
     /**
      * 背调结束时间
-     * <p> 示例值：1686297649024
+     *
+     * <p>示例值：1686297649024
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
-     * 背调结论
-     * <p> 示例值：绿灯
+     * 背调结论。为最后一次背调报告的结果
+     *
+     * <p>示例值：绿灯
      */
-    @SerializedName("conclusion")
-    private String conclusion;
+    this.conclusion = builder.conclusion;
     /**
      * 供应商信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("provider_info")
-    private ProviderIdNameObject providerInfo;
+    this.providerInfo = builder.providerInfo;
     /**
-     * 自定义字段模板
-     * <p> 示例值：
+     * 自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_list")
-    private EcoBackgroundCheckCustomFieldData[] customFieldList;
+    this.customFieldList = builder.customFieldList;
     /**
      * 自定义字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_data_list")
-    private BackgroundCheckCustomFieldDataValue[] customDataList;
+    this.customDataList = builder.customDataList;
     /**
-     * 背调调查附加项
-     * <p> 示例值：
+     * 背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)
+     *
+     * <p>示例值：
      */
-    @SerializedName("ext_item_info_list")
-    private BackgroundCheckItemInfo[] extItemInfoList;
+    this.extItemInfoList = builder.extItemInfoList;
     /**
      * 订单更新时间
-     * <p> 示例值：1686809576215
+     *
+     * <p>示例值：1686809576215
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 属地
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo")
-    private String geo;
+    this.geo = builder.geo;
     /**
-     * 国家城市编码
-     * <p> 示例值：CN_1
+     * 预计入职地点的编码，详见[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CN_1
      */
-    @SerializedName("location_code")
-    private String locationCode;
+    this.locationCode = builder.locationCode;
     /**
      * 备注
-     * <p> 示例值：候选人很优秀
+     *
+     * <p>示例值：候选人很优秀
      */
-    @SerializedName("remark")
+    this.remark = builder.remark;
+  }
+
+  public static class Builder {
+    /**
+     * 背调订单 ID
+     *
+     * <p>示例值：7037986982531778860
+     */
+    private String orderId;
+
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6985833807195212076
+     */
+    private String applicationId;
+
+    /**
+     * 背调状态
+     *
+     * <p>示例值：2
+     */
+    private Integer orderStatus;
+
+    /**
+     * 供应商类型
+     *
+     * <p>示例值：1
+     */
+    private Integer accountThirdType;
+
+    /**
+     * 背调套餐名称
+     *
+     * <p>示例值：基础版
+     */
+    private String package_;
+
+    /**
+     * 背调名称（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：录入的背调
+     */
+    private String name;
+
+    /**
+     * 背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckOrderFeedbackInfo[] feedbackInfoList;
+
+    /**
+     * 背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckOrderProcessInfo[] processInfoList;
+
+    /**
+     * 录入时间毫秒时间戳（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：1662476247755
+     */
+    private String uploadTime;
+
+    /**
+     * 候选人信息
+     *
+     * <p>示例值：
+     */
+    private UserContactInfo candidateInfo;
+
+    /**
+     * 背调发起人信息
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckOrderCreator creatorInfo;
+
+    /**
+     * 背调联系人信息
+     *
+     * <p>示例值：
+     */
+    private UserContactInfo contactorInfo;
+
+    /**
+     * 背调发起时间
+     *
+     * <p>示例值：1686297649024
+     */
+    private String beginTime;
+
+    /**
+     * 背调结束时间
+     *
+     * <p>示例值：1686297649024
+     */
+    private String endTime;
+
+    /**
+     * 背调结论。为最后一次背调报告的结果
+     *
+     * <p>示例值：绿灯
+     */
+    private String conclusion;
+
+    /**
+     * 供应商信息
+     *
+     * <p>示例值：
+     */
+    private ProviderIdNameObject providerInfo;
+
+    /**
+     * 自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)
+     *
+     * <p>示例值：
+     */
+    private EcoBackgroundCheckCustomFieldData[] customFieldList;
+
+    /**
+     * 自定义字段值
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckCustomFieldDataValue[] customDataList;
+
+    /**
+     * 背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)
+     *
+     * <p>示例值：
+     */
+    private BackgroundCheckItemInfo[] extItemInfoList;
+
+    /**
+     * 订单更新时间
+     *
+     * <p>示例值：1686809576215
+     */
+    private String updateTime;
+
+    /**
+     * 属地
+     *
+     * <p>示例值：cn
+     */
+    private String geo;
+
+    /**
+     * 预计入职地点的编码，详见[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CN_1
+     */
+    private String locationCode;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：候选人很优秀
+     */
     private String remark;
 
-    // builder 开始
-    public BackgroundCheckOrder() {
+    /**
+     * 背调订单 ID
+     *
+     * <p>示例值：7037986982531778860
+     *
+     * @param orderId
+     * @return
+     */
+    public Builder orderId(String orderId) {
+      this.orderId = orderId;
+      return this;
     }
 
-    public BackgroundCheckOrder(Builder builder) {
-        /**
-         * 背调 ID
-         * <p> 示例值：7037986982531778860
-         */
-        this.orderId = builder.orderId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6985833807195212076
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 背调状态
-         * <p> 示例值：2
-         */
-        this.orderStatus = builder.orderStatus;
-        /**
-         * 供应商名称
-         * <p> 示例值：1
-         */
-        this.accountThirdType = builder.accountThirdType;
-        /**
-         * 背调套餐
-         * <p> 示例值：基础版
-         */
-        this.package_ = builder.package_;
-        /**
-         * 背调名称（仅手动录入的背调结果具有）
-         * <p> 示例值：录入的背调
-         */
-        this.name = builder.name;
-        /**
-         * 背调报告信息
-         * <p> 示例值：
-         */
-        this.feedbackInfoList = builder.feedbackInfoList;
-        /**
-         * 进度
-         * <p> 示例值：
-         */
-        this.processInfoList = builder.processInfoList;
-        /**
-         * 录入时间（仅手动录入的背调结果具有）
-         * <p> 示例值：1662476247755
-         */
-        this.uploadTime = builder.uploadTime;
-        /**
-         * 候选人信息
-         * <p> 示例值：
-         */
-        this.candidateInfo = builder.candidateInfo;
-        /**
-         * 背调发起人信息
-         * <p> 示例值：
-         */
-        this.creatorInfo = builder.creatorInfo;
-        /**
-         * 背调联系人信息
-         * <p> 示例值：
-         */
-        this.contactorInfo = builder.contactorInfo;
-        /**
-         * 背调发起时间
-         * <p> 示例值：1686297649024
-         */
-        this.beginTime = builder.beginTime;
-        /**
-         * 背调结束时间
-         * <p> 示例值：1686297649024
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 背调结论
-         * <p> 示例值：绿灯
-         */
-        this.conclusion = builder.conclusion;
-        /**
-         * 供应商信息
-         * <p> 示例值：
-         */
-        this.providerInfo = builder.providerInfo;
-        /**
-         * 自定义字段模板
-         * <p> 示例值：
-         */
-        this.customFieldList = builder.customFieldList;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
-        this.customDataList = builder.customDataList;
-        /**
-         * 背调调查附加项
-         * <p> 示例值：
-         */
-        this.extItemInfoList = builder.extItemInfoList;
-        /**
-         * 订单更新时间
-         * <p> 示例值：1686809576215
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 属地
-         * <p> 示例值：cn
-         */
-        this.geo = builder.geo;
-        /**
-         * 国家城市编码
-         * <p> 示例值：CN_1
-         */
-        this.locationCode = builder.locationCode;
-        /**
-         * 备注
-         * <p> 示例值：候选人很优秀
-         */
-        this.remark = builder.remark;
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6985833807195212076
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 背调状态
+     *
+     * <p>示例值：2
+     *
+     * @param orderStatus
+     * @return
+     */
+    public Builder orderStatus(Integer orderStatus) {
+      this.orderStatus = orderStatus;
+      return this;
     }
 
-    public String getOrderId() {
-        return this.orderId;
+    /**
+     * 供应商类型
+     *
+     * <p>示例值：1
+     *
+     * @param accountThirdType
+     * @return
+     */
+    public Builder accountThirdType(Integer accountThirdType) {
+      this.accountThirdType = accountThirdType;
+      return this;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    /**
+     * 背调套餐名称
+     *
+     * <p>示例值：基础版
+     *
+     * @param package_
+     * @return
+     */
+    public Builder package_(String package_) {
+      this.package_ = package_;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 背调名称（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：录入的背调
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 背调报告列表，按照报告创建时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新报告
+     *
+     * <p>示例值：
+     *
+     * @param feedbackInfoList
+     * @return
+     */
+    public Builder feedbackInfoList(BackgroundCheckOrderFeedbackInfo[] feedbackInfoList) {
+      this.feedbackInfoList = feedbackInfoList;
+      return this;
     }
 
-    public Integer getOrderStatus() {
-        return this.orderStatus;
+    /**
+     * 背调进度列表，按照更新时间降序排列。可通过[更新背调订单进度](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/update_progress)更新进度
+     *
+     * <p>示例值：
+     *
+     * @param processInfoList
+     * @return
+     */
+    public Builder processInfoList(BackgroundCheckOrderProcessInfo[] processInfoList) {
+      this.processInfoList = processInfoList;
+      return this;
     }
 
-    public void setOrderStatus(Integer orderStatus) {
-        this.orderStatus = orderStatus;
+    /**
+     * 录入时间毫秒时间戳（仅用户手动录入的背调结果支持返回该字段）
+     *
+     * <p>示例值：1662476247755
+     *
+     * @param uploadTime
+     * @return
+     */
+    public Builder uploadTime(String uploadTime) {
+      this.uploadTime = uploadTime;
+      return this;
     }
 
-    public Integer getAccountThirdType() {
-        return this.accountThirdType;
+    /**
+     * 候选人信息
+     *
+     * <p>示例值：
+     *
+     * @param candidateInfo
+     * @return
+     */
+    public Builder candidateInfo(UserContactInfo candidateInfo) {
+      this.candidateInfo = candidateInfo;
+      return this;
     }
 
-    public void setAccountThirdType(Integer accountThirdType) {
-        this.accountThirdType = accountThirdType;
+    /**
+     * 背调发起人信息
+     *
+     * <p>示例值：
+     *
+     * @param creatorInfo
+     * @return
+     */
+    public Builder creatorInfo(BackgroundCheckOrderCreator creatorInfo) {
+      this.creatorInfo = creatorInfo;
+      return this;
     }
 
-    public String getPackage() {
-        return this.package_;
+    /**
+     * 背调联系人信息
+     *
+     * <p>示例值：
+     *
+     * @param contactorInfo
+     * @return
+     */
+    public Builder contactorInfo(UserContactInfo contactorInfo) {
+      this.contactorInfo = contactorInfo;
+      return this;
     }
 
-    public void setPackage(String package_) {
-        this.package_ = package_;
+    /**
+     * 背调发起时间
+     *
+     * <p>示例值：1686297649024
+     *
+     * @param beginTime
+     * @return
+     */
+    public Builder beginTime(String beginTime) {
+      this.beginTime = beginTime;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 背调结束时间
+     *
+     * <p>示例值：1686297649024
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 背调结论。为最后一次背调报告的结果
+     *
+     * <p>示例值：绿灯
+     *
+     * @param conclusion
+     * @return
+     */
+    public Builder conclusion(String conclusion) {
+      this.conclusion = conclusion;
+      return this;
     }
 
-    public BackgroundCheckOrderFeedbackInfo[] getFeedbackInfoList() {
-        return this.feedbackInfoList;
+    /**
+     * 供应商信息
+     *
+     * <p>示例值：
+     *
+     * @param providerInfo
+     * @return
+     */
+    public Builder providerInfo(ProviderIdNameObject providerInfo) {
+      this.providerInfo = providerInfo;
+      return this;
     }
 
-    public void setFeedbackInfoList(BackgroundCheckOrderFeedbackInfo[] feedbackInfoList) {
-        this.feedbackInfoList = feedbackInfoList;
+    /**
+     * 自定义字段模板。数据来源于[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)
+     *
+     * <p>示例值：
+     *
+     * @param customFieldList
+     * @return
+     */
+    public Builder customFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
+      this.customFieldList = customFieldList;
+      return this;
     }
 
-    public BackgroundCheckOrderProcessInfo[] getProcessInfoList() {
-        return this.processInfoList;
+    /**
+     * 自定义字段值
+     *
+     * <p>示例值：
+     *
+     * @param customDataList
+     * @return
+     */
+    public Builder customDataList(BackgroundCheckCustomFieldDataValue[] customDataList) {
+      this.customDataList = customDataList;
+      return this;
     }
 
-    public void setProcessInfoList(BackgroundCheckOrderProcessInfo[] processInfoList) {
-        this.processInfoList = processInfoList;
+    /**
+     * 背调调查附加项列表。数据来源于[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)
+     *
+     * <p>示例值：
+     *
+     * @param extItemInfoList
+     * @return
+     */
+    public Builder extItemInfoList(BackgroundCheckItemInfo[] extItemInfoList) {
+      this.extItemInfoList = extItemInfoList;
+      return this;
     }
 
-    public String getUploadTime() {
-        return this.uploadTime;
+    /**
+     * 订单更新时间
+     *
+     * <p>示例值：1686809576215
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setUploadTime(String uploadTime) {
-        this.uploadTime = uploadTime;
+    /**
+     * 属地
+     *
+     * <p>示例值：cn
+     *
+     * @param geo
+     * @return
+     */
+    public Builder geo(String geo) {
+      this.geo = geo;
+      return this;
     }
 
-    public UserContactInfo getCandidateInfo() {
-        return this.candidateInfo;
+    /**
+     * 预计入职地点的编码，详见[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：CN_1
+     *
+     * @param locationCode
+     * @return
+     */
+    public Builder locationCode(String locationCode) {
+      this.locationCode = locationCode;
+      return this;
     }
 
-    public void setCandidateInfo(UserContactInfo candidateInfo) {
-        this.candidateInfo = candidateInfo;
+    /**
+     * 备注
+     *
+     * <p>示例值：候选人很优秀
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public BackgroundCheckOrderCreator getCreatorInfo() {
-        return this.creatorInfo;
+    public BackgroundCheckOrder build() {
+      return new BackgroundCheckOrder(this);
     }
-
-    public void setCreatorInfo(BackgroundCheckOrderCreator creatorInfo) {
-        this.creatorInfo = creatorInfo;
-    }
-
-    public UserContactInfo getContactorInfo() {
-        return this.contactorInfo;
-    }
-
-    public void setContactorInfo(UserContactInfo contactorInfo) {
-        this.contactorInfo = contactorInfo;
-    }
-
-    public String getBeginTime() {
-        return this.beginTime;
-    }
-
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getConclusion() {
-        return this.conclusion;
-    }
-
-    public void setConclusion(String conclusion) {
-        this.conclusion = conclusion;
-    }
-
-    public ProviderIdNameObject getProviderInfo() {
-        return this.providerInfo;
-    }
-
-    public void setProviderInfo(ProviderIdNameObject providerInfo) {
-        this.providerInfo = providerInfo;
-    }
-
-    public EcoBackgroundCheckCustomFieldData[] getCustomFieldList() {
-        return this.customFieldList;
-    }
-
-    public void setCustomFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
-        this.customFieldList = customFieldList;
-    }
-
-    public BackgroundCheckCustomFieldDataValue[] getCustomDataList() {
-        return this.customDataList;
-    }
-
-    public void setCustomDataList(BackgroundCheckCustomFieldDataValue[] customDataList) {
-        this.customDataList = customDataList;
-    }
-
-    public BackgroundCheckItemInfo[] getExtItemInfoList() {
-        return this.extItemInfoList;
-    }
-
-    public void setExtItemInfoList(BackgroundCheckItemInfo[] extItemInfoList) {
-        this.extItemInfoList = extItemInfoList;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getGeo() {
-        return this.geo;
-    }
-
-    public void setGeo(String geo) {
-        this.geo = geo;
-    }
-
-    public String getLocationCode() {
-        return this.locationCode;
-    }
-
-    public void setLocationCode(String locationCode) {
-        this.locationCode = locationCode;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public static class Builder {
-        /**
-         * 背调 ID
-         * <p> 示例值：7037986982531778860
-         */
-        private String orderId;
-        /**
-         * 投递 ID
-         * <p> 示例值：6985833807195212076
-         */
-        private String applicationId;
-        /**
-         * 背调状态
-         * <p> 示例值：2
-         */
-        private Integer orderStatus;
-        /**
-         * 供应商名称
-         * <p> 示例值：1
-         */
-        private Integer accountThirdType;
-        /**
-         * 背调套餐
-         * <p> 示例值：基础版
-         */
-        private String package_;
-        /**
-         * 背调名称（仅手动录入的背调结果具有）
-         * <p> 示例值：录入的背调
-         */
-        private String name;
-        /**
-         * 背调报告信息
-         * <p> 示例值：
-         */
-        private BackgroundCheckOrderFeedbackInfo[] feedbackInfoList;
-        /**
-         * 进度
-         * <p> 示例值：
-         */
-        private BackgroundCheckOrderProcessInfo[] processInfoList;
-        /**
-         * 录入时间（仅手动录入的背调结果具有）
-         * <p> 示例值：1662476247755
-         */
-        private String uploadTime;
-        /**
-         * 候选人信息
-         * <p> 示例值：
-         */
-        private UserContactInfo candidateInfo;
-        /**
-         * 背调发起人信息
-         * <p> 示例值：
-         */
-        private BackgroundCheckOrderCreator creatorInfo;
-        /**
-         * 背调联系人信息
-         * <p> 示例值：
-         */
-        private UserContactInfo contactorInfo;
-        /**
-         * 背调发起时间
-         * <p> 示例值：1686297649024
-         */
-        private String beginTime;
-        /**
-         * 背调结束时间
-         * <p> 示例值：1686297649024
-         */
-        private String endTime;
-        /**
-         * 背调结论
-         * <p> 示例值：绿灯
-         */
-        private String conclusion;
-        /**
-         * 供应商信息
-         * <p> 示例值：
-         */
-        private ProviderIdNameObject providerInfo;
-        /**
-         * 自定义字段模板
-         * <p> 示例值：
-         */
-        private EcoBackgroundCheckCustomFieldData[] customFieldList;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
-        private BackgroundCheckCustomFieldDataValue[] customDataList;
-        /**
-         * 背调调查附加项
-         * <p> 示例值：
-         */
-        private BackgroundCheckItemInfo[] extItemInfoList;
-        /**
-         * 订单更新时间
-         * <p> 示例值：1686809576215
-         */
-        private String updateTime;
-        /**
-         * 属地
-         * <p> 示例值：cn
-         */
-        private String geo;
-        /**
-         * 国家城市编码
-         * <p> 示例值：CN_1
-         */
-        private String locationCode;
-        /**
-         * 备注
-         * <p> 示例值：候选人很优秀
-         */
-        private String remark;
-
-        /**
-         * 背调 ID
-         * <p> 示例值：7037986982531778860
-         *
-         * @param orderId
-         * @return
-         */
-        public Builder orderId(String orderId) {
-            this.orderId = orderId;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6985833807195212076
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 背调状态
-         * <p> 示例值：2
-         *
-         * @param orderStatus
-         * @return
-         */
-        public Builder orderStatus(Integer orderStatus) {
-            this.orderStatus = orderStatus;
-            return this;
-        }
-
-
-        /**
-         * 供应商名称
-         * <p> 示例值：1
-         *
-         * @param accountThirdType
-         * @return
-         */
-        public Builder accountThirdType(Integer accountThirdType) {
-            this.accountThirdType = accountThirdType;
-            return this;
-        }
-
-
-        /**
-         * 背调套餐
-         * <p> 示例值：基础版
-         *
-         * @param package_
-         * @return
-         */
-        public Builder package_(String package_) {
-            this.package_ = package_;
-            return this;
-        }
-
-
-        /**
-         * 背调名称（仅手动录入的背调结果具有）
-         * <p> 示例值：录入的背调
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 背调报告信息
-         * <p> 示例值：
-         *
-         * @param feedbackInfoList
-         * @return
-         */
-        public Builder feedbackInfoList(BackgroundCheckOrderFeedbackInfo[] feedbackInfoList) {
-            this.feedbackInfoList = feedbackInfoList;
-            return this;
-        }
-
-
-        /**
-         * 进度
-         * <p> 示例值：
-         *
-         * @param processInfoList
-         * @return
-         */
-        public Builder processInfoList(BackgroundCheckOrderProcessInfo[] processInfoList) {
-            this.processInfoList = processInfoList;
-            return this;
-        }
-
-
-        /**
-         * 录入时间（仅手动录入的背调结果具有）
-         * <p> 示例值：1662476247755
-         *
-         * @param uploadTime
-         * @return
-         */
-        public Builder uploadTime(String uploadTime) {
-            this.uploadTime = uploadTime;
-            return this;
-        }
-
-
-        /**
-         * 候选人信息
-         * <p> 示例值：
-         *
-         * @param candidateInfo
-         * @return
-         */
-        public Builder candidateInfo(UserContactInfo candidateInfo) {
-            this.candidateInfo = candidateInfo;
-            return this;
-        }
-
-
-        /**
-         * 背调发起人信息
-         * <p> 示例值：
-         *
-         * @param creatorInfo
-         * @return
-         */
-        public Builder creatorInfo(BackgroundCheckOrderCreator creatorInfo) {
-            this.creatorInfo = creatorInfo;
-            return this;
-        }
-
-
-        /**
-         * 背调联系人信息
-         * <p> 示例值：
-         *
-         * @param contactorInfo
-         * @return
-         */
-        public Builder contactorInfo(UserContactInfo contactorInfo) {
-            this.contactorInfo = contactorInfo;
-            return this;
-        }
-
-
-        /**
-         * 背调发起时间
-         * <p> 示例值：1686297649024
-         *
-         * @param beginTime
-         * @return
-         */
-        public Builder beginTime(String beginTime) {
-            this.beginTime = beginTime;
-            return this;
-        }
-
-
-        /**
-         * 背调结束时间
-         * <p> 示例值：1686297649024
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 背调结论
-         * <p> 示例值：绿灯
-         *
-         * @param conclusion
-         * @return
-         */
-        public Builder conclusion(String conclusion) {
-            this.conclusion = conclusion;
-            return this;
-        }
-
-
-        /**
-         * 供应商信息
-         * <p> 示例值：
-         *
-         * @param providerInfo
-         * @return
-         */
-        public Builder providerInfo(ProviderIdNameObject providerInfo) {
-            this.providerInfo = providerInfo;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段模板
-         * <p> 示例值：
-         *
-         * @param customFieldList
-         * @return
-         */
-        public Builder customFieldList(EcoBackgroundCheckCustomFieldData[] customFieldList) {
-            this.customFieldList = customFieldList;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         *
-         * @param customDataList
-         * @return
-         */
-        public Builder customDataList(BackgroundCheckCustomFieldDataValue[] customDataList) {
-            this.customDataList = customDataList;
-            return this;
-        }
-
-
-        /**
-         * 背调调查附加项
-         * <p> 示例值：
-         *
-         * @param extItemInfoList
-         * @return
-         */
-        public Builder extItemInfoList(BackgroundCheckItemInfo[] extItemInfoList) {
-            this.extItemInfoList = extItemInfoList;
-            return this;
-        }
-
-
-        /**
-         * 订单更新时间
-         * <p> 示例值：1686809576215
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 属地
-         * <p> 示例值：cn
-         *
-         * @param geo
-         * @return
-         */
-        public Builder geo(String geo) {
-            this.geo = geo;
-            return this;
-        }
-
-
-        /**
-         * 国家城市编码
-         * <p> 示例值：CN_1
-         *
-         * @param locationCode
-         * @return
-         */
-        public Builder locationCode(String locationCode) {
-            this.locationCode = locationCode;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：候选人很优秀
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        public BackgroundCheckOrder build() {
-            return new BackgroundCheckOrder(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

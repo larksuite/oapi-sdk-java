@@ -13,494 +13,542 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaProperty {
+  /**
+   * 属性名
+   *
+   * <p>示例值：summary
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 属性类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 该属性是否可用作搜索，默认为 false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_searchable")
+  private Boolean isSearchable;
+
+  /**
+   * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_sortable")
+  private Boolean isSortable;
+
+  /**
+   * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_returnable")
+  private Boolean isReturnable;
+
+  /**
+   * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sort_options")
+  private SchemaSortOptions sortOptions;
+
+  /**
+   * 相关类型数据的定义和约束
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type_definitions")
+  private SchemaTypeDefinitions typeDefinitions;
+
+  /**
+   * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("search_options")
+  private SchemaSearchOptions searchOptions;
+
+  /**
+   * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_filterable")
+  private Boolean isFilterable;
+
+  /**
+   * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_options")
+  private SchemaFilterOptions filterOptions;
+
+  /**
+   * 问答产品设置，仅在datasource中enable_answer为true时生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("answer_option")
+  private SchemaFieldAnswerOption answerOption;
+
+  /**
+   * 字段描述
+   *
+   * <p>示例值：desc
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Boolean getIsSearchable() {
+    return this.isSearchable;
+  }
+
+  public void setIsSearchable(Boolean isSearchable) {
+    this.isSearchable = isSearchable;
+  }
+
+  public Boolean getIsSortable() {
+    return this.isSortable;
+  }
+
+  public void setIsSortable(Boolean isSortable) {
+    this.isSortable = isSortable;
+  }
+
+  public Boolean getIsReturnable() {
+    return this.isReturnable;
+  }
+
+  public void setIsReturnable(Boolean isReturnable) {
+    this.isReturnable = isReturnable;
+  }
+
+  public SchemaSortOptions getSortOptions() {
+    return this.sortOptions;
+  }
+
+  public void setSortOptions(SchemaSortOptions sortOptions) {
+    this.sortOptions = sortOptions;
+  }
+
+  public SchemaTypeDefinitions getTypeDefinitions() {
+    return this.typeDefinitions;
+  }
+
+  public void setTypeDefinitions(SchemaTypeDefinitions typeDefinitions) {
+    this.typeDefinitions = typeDefinitions;
+  }
+
+  public SchemaSearchOptions getSearchOptions() {
+    return this.searchOptions;
+  }
+
+  public void setSearchOptions(SchemaSearchOptions searchOptions) {
+    this.searchOptions = searchOptions;
+  }
+
+  public Boolean getIsFilterable() {
+    return this.isFilterable;
+  }
+
+  public void setIsFilterable(Boolean isFilterable) {
+    this.isFilterable = isFilterable;
+  }
+
+  public SchemaFilterOptions getFilterOptions() {
+    return this.filterOptions;
+  }
+
+  public void setFilterOptions(SchemaFilterOptions filterOptions) {
+    this.filterOptions = filterOptions;
+  }
+
+  public SchemaFieldAnswerOption getAnswerOption() {
+    return this.answerOption;
+  }
+
+  public void setAnswerOption(SchemaFieldAnswerOption answerOption) {
+    this.answerOption = answerOption;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  // builder 开始
+  public SchemaProperty() {}
+
+  public SchemaProperty(Builder builder) {
     /**
      * 属性名
-     * <p> 示例值：summary
+     *
+     * <p>示例值：summary
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 属性类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 该属性是否可用作搜索，默认为 false
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_searchable")
-    private Boolean isSearchable;
+    this.isSearchable = builder.isSearchable;
     /**
      * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_sortable")
-    private Boolean isSortable;
+    this.isSortable = builder.isSortable;
     /**
      * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_returnable")
-    private Boolean isReturnable;
+    this.isReturnable = builder.isReturnable;
     /**
      * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sort_options")
-    private SchemaSortOptions sortOptions;
+    this.sortOptions = builder.sortOptions;
     /**
      * 相关类型数据的定义和约束
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type_definitions")
-    private SchemaTypeDefinitions typeDefinitions;
+    this.typeDefinitions = builder.typeDefinitions;
     /**
      * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("search_options")
-    private SchemaSearchOptions searchOptions;
+    this.searchOptions = builder.searchOptions;
     /**
      * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_filterable")
-    private Boolean isFilterable;
+    this.isFilterable = builder.isFilterable;
     /**
      * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_options")
-    private SchemaFilterOptions filterOptions;
+    this.filterOptions = builder.filterOptions;
     /**
      * 问答产品设置，仅在datasource中enable_answer为true时生效
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("answer_option")
-    private SchemaFieldAnswerOption answerOption;
+    this.answerOption = builder.answerOption;
     /**
      * 字段描述
-     * <p> 示例值：desc
+     *
+     * <p>示例值：desc
      */
-    @SerializedName("desc")
+    this.desc = builder.desc;
+  }
+
+  public static class Builder {
+    /**
+     * 属性名
+     *
+     * <p>示例值：summary
+     */
+    private String name;
+
+    /**
+     * 属性类型
+     *
+     * <p>示例值：text
+     */
+    private String type;
+
+    /**
+     * 该属性是否可用作搜索，默认为 false
+     *
+     * <p>示例值：true
+     */
+    private Boolean isSearchable;
+
+    /**
+     * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
+     *
+     * <p>示例值：false
+     */
+    private Boolean isSortable;
+
+    /**
+     * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
+     *
+     * <p>示例值：true
+     */
+    private Boolean isReturnable;
+
+    /**
+     * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
+     *
+     * <p>示例值：
+     */
+    private SchemaSortOptions sortOptions;
+
+    /**
+     * 相关类型数据的定义和约束
+     *
+     * <p>示例值：
+     */
+    private SchemaTypeDefinitions typeDefinitions;
+
+    /**
+     * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+     *
+     * <p>示例值：
+     */
+    private SchemaSearchOptions searchOptions;
+
+    /**
+     * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+     *
+     * <p>示例值：false
+     */
+    private Boolean isFilterable;
+
+    /**
+     * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+     *
+     * <p>示例值：
+     */
+    private SchemaFilterOptions filterOptions;
+
+    /**
+     * 问答产品设置，仅在datasource中enable_answer为true时生效
+     *
+     * <p>示例值：
+     */
+    private SchemaFieldAnswerOption answerOption;
+
+    /**
+     * 字段描述
+     *
+     * <p>示例值：desc
+     */
     private String desc;
 
-    // builder 开始
-    public SchemaProperty() {
+    /**
+     * 属性名
+     *
+     * <p>示例值：summary
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public SchemaProperty(Builder builder) {
-        /**
-         * 属性名
-         * <p> 示例值：summary
-         */
-        this.name = builder.name;
-        /**
-         * 属性类型
-         * <p> 示例值：text
-         */
-        this.type = builder.type;
-        /**
-         * 该属性是否可用作搜索，默认为 false
-         * <p> 示例值：true
-         */
-        this.isSearchable = builder.isSearchable;
-        /**
-         * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
-         * <p> 示例值：false
-         */
-        this.isSortable = builder.isSortable;
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
-         * <p> 示例值：true
-         */
-        this.isReturnable = builder.isReturnable;
-        /**
-         * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
-         * <p> 示例值：
-         */
-        this.sortOptions = builder.sortOptions;
-        /**
-         * 相关类型数据的定义和约束
-         * <p> 示例值：
-         */
-        this.typeDefinitions = builder.typeDefinitions;
-        /**
-         * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         */
-        this.searchOptions = builder.searchOptions;
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
-         * <p> 示例值：false
-         */
-        this.isFilterable = builder.isFilterable;
-        /**
-         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         */
-        this.filterOptions = builder.filterOptions;
-        /**
-         * 问答产品设置，仅在datasource中enable_answer为true时生效
-         * <p> 示例值：
-         */
-        this.answerOption = builder.answerOption;
-        /**
-         * 字段描述
-         * <p> 示例值：desc
-         */
-        this.desc = builder.desc;
+    /**
+     * 属性类型
+     *
+     * <p>示例值：text
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 属性类型
+     *
+     * <p>示例值：text
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaPropertySchemaPropertyTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.search.v2.enums.SchemaPropertySchemaPropertyTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 该属性是否可用作搜索，默认为 false
+     *
+     * <p>示例值：true
+     *
+     * @param isSearchable
+     * @return
+     */
+    public Builder isSearchable(Boolean isSearchable) {
+      this.isSearchable = isSearchable;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
+     *
+     * <p>示例值：false
+     *
+     * @param isSortable
+     * @return
+     */
+    public Builder isSortable(Boolean isSortable) {
+      this.isSortable = isSortable;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
+     *
+     * <p>示例值：true
+     *
+     * @param isReturnable
+     * @return
+     */
+    public Builder isReturnable(Boolean isReturnable) {
+      this.isReturnable = isReturnable;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
+     *
+     * <p>示例值：
+     *
+     * @param sortOptions
+     * @return
+     */
+    public Builder sortOptions(SchemaSortOptions sortOptions) {
+      this.sortOptions = sortOptions;
+      return this;
     }
 
-    public Boolean getIsSearchable() {
-        return this.isSearchable;
+    /**
+     * 相关类型数据的定义和约束
+     *
+     * <p>示例值：
+     *
+     * @param typeDefinitions
+     * @return
+     */
+    public Builder typeDefinitions(SchemaTypeDefinitions typeDefinitions) {
+      this.typeDefinitions = typeDefinitions;
+      return this;
     }
 
-    public void setIsSearchable(Boolean isSearchable) {
-        this.isSearchable = isSearchable;
+    /**
+     * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+     *
+     * <p>示例值：
+     *
+     * @param searchOptions
+     * @return
+     */
+    public Builder searchOptions(SchemaSearchOptions searchOptions) {
+      this.searchOptions = searchOptions;
+      return this;
     }
 
-    public Boolean getIsSortable() {
-        return this.isSortable;
+    /**
+     * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
+     *
+     * <p>示例值：false
+     *
+     * @param isFilterable
+     * @return
+     */
+    public Builder isFilterable(Boolean isFilterable) {
+      this.isFilterable = isFilterable;
+      return this;
     }
 
-    public void setIsSortable(Boolean isSortable) {
-        this.isSortable = isSortable;
+    /**
+     * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
+     *
+     * <p>示例值：
+     *
+     * @param filterOptions
+     * @return
+     */
+    public Builder filterOptions(SchemaFilterOptions filterOptions) {
+      this.filterOptions = filterOptions;
+      return this;
     }
 
-    public Boolean getIsReturnable() {
-        return this.isReturnable;
+    /**
+     * 问答产品设置，仅在datasource中enable_answer为true时生效
+     *
+     * <p>示例值：
+     *
+     * @param answerOption
+     * @return
+     */
+    public Builder answerOption(SchemaFieldAnswerOption answerOption) {
+      this.answerOption = answerOption;
+      return this;
     }
 
-    public void setIsReturnable(Boolean isReturnable) {
-        this.isReturnable = isReturnable;
+    /**
+     * 字段描述
+     *
+     * <p>示例值：desc
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public SchemaSortOptions getSortOptions() {
-        return this.sortOptions;
+    public SchemaProperty build() {
+      return new SchemaProperty(this);
     }
+  }
 
-    public void setSortOptions(SchemaSortOptions sortOptions) {
-        this.sortOptions = sortOptions;
-    }
-
-    public SchemaTypeDefinitions getTypeDefinitions() {
-        return this.typeDefinitions;
-    }
-
-    public void setTypeDefinitions(SchemaTypeDefinitions typeDefinitions) {
-        this.typeDefinitions = typeDefinitions;
-    }
-
-    public SchemaSearchOptions getSearchOptions() {
-        return this.searchOptions;
-    }
-
-    public void setSearchOptions(SchemaSearchOptions searchOptions) {
-        this.searchOptions = searchOptions;
-    }
-
-    public Boolean getIsFilterable() {
-        return this.isFilterable;
-    }
-
-    public void setIsFilterable(Boolean isFilterable) {
-        this.isFilterable = isFilterable;
-    }
-
-    public SchemaFilterOptions getFilterOptions() {
-        return this.filterOptions;
-    }
-
-    public void setFilterOptions(SchemaFilterOptions filterOptions) {
-        this.filterOptions = filterOptions;
-    }
-
-    public SchemaFieldAnswerOption getAnswerOption() {
-        return this.answerOption;
-    }
-
-    public void setAnswerOption(SchemaFieldAnswerOption answerOption) {
-        this.answerOption = answerOption;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public static class Builder {
-        /**
-         * 属性名
-         * <p> 示例值：summary
-         */
-        private String name;
-        /**
-         * 属性类型
-         * <p> 示例值：text
-         */
-        private String type;
-        /**
-         * 该属性是否可用作搜索，默认为 false
-         * <p> 示例值：true
-         */
-        private Boolean isSearchable;
-        /**
-         * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
-         * <p> 示例值：false
-         */
-        private Boolean isSortable;
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
-         * <p> 示例值：true
-         */
-        private Boolean isReturnable;
-        /**
-         * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
-         * <p> 示例值：
-         */
-        private SchemaSortOptions sortOptions;
-        /**
-         * 相关类型数据的定义和约束
-         * <p> 示例值：
-         */
-        private SchemaTypeDefinitions typeDefinitions;
-        /**
-         * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         */
-        private SchemaSearchOptions searchOptions;
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
-         * <p> 示例值：false
-         */
-        private Boolean isFilterable;
-        /**
-         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         */
-        private SchemaFilterOptions filterOptions;
-        /**
-         * 问答产品设置，仅在datasource中enable_answer为true时生效
-         * <p> 示例值：
-         */
-        private SchemaFieldAnswerOption answerOption;
-        /**
-         * 字段描述
-         * <p> 示例值：desc
-         */
-        private String desc;
-
-        /**
-         * 属性名
-         * <p> 示例值：summary
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 属性类型
-         * <p> 示例值：text
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 属性类型
-         * <p> 示例值：text
-         *
-         * @param type {@link com.lark.oapi.service.search.v2.enums.SchemaPropertySchemaPropertyTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.search.v2.enums.SchemaPropertySchemaPropertyTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 该属性是否可用作搜索，默认为 false
-         * <p> 示例值：true
-         *
-         * @param isSearchable
-         * @return
-         */
-        public Builder isSearchable(Boolean isSearchable) {
-            this.isSearchable = isSearchable;
-            return this;
-        }
-
-
-        /**
-         * 该属性是否可用作搜索结果排序，默认为 false。如果为 true，需要再配置 sortOptions
-         * <p> 示例值：false
-         *
-         * @param isSortable
-         * @return
-         */
-        public Builder isSortable(Boolean isSortable) {
-            this.isSortable = isSortable;
-            return this;
-        }
-
-
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被召回和展示。默认为 false
-         * <p> 示例值：true
-         *
-         * @param isReturnable
-         * @return
-         */
-        public Builder isReturnable(Boolean isReturnable) {
-            this.isReturnable = isReturnable;
-            return this;
-        }
-
-
-        /**
-         * 属性排序的可选配置，当 is_sortable 为 true 时，该字段为必填字段
-         * <p> 示例值：
-         *
-         * @param sortOptions
-         * @return
-         */
-        public Builder sortOptions(SchemaSortOptions sortOptions) {
-            this.sortOptions = sortOptions;
-            return this;
-        }
-
-
-        /**
-         * 相关类型数据的定义和约束
-         * <p> 示例值：
-         *
-         * @param typeDefinitions
-         * @return
-         */
-        public Builder typeDefinitions(SchemaTypeDefinitions typeDefinitions) {
-            this.typeDefinitions = typeDefinitions;
-            return this;
-        }
-
-
-        /**
-         * 属性搜索的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         *
-         * @param searchOptions
-         * @return
-         */
-        public Builder searchOptions(SchemaSearchOptions searchOptions) {
-            this.searchOptions = searchOptions;
-            return this;
-        }
-
-
-        /**
-         * 该属性是否可用作返回字段，为 false 时，该字段不会被筛选。默认为 false
-         * <p> 示例值：false
-         *
-         * @param isFilterable
-         * @return
-         */
-        public Builder isFilterable(Boolean isFilterable) {
-            this.isFilterable = isFilterable;
-            return this;
-        }
-
-
-        /**
-         * 属性筛选的可选配置，当 is_searchable 为 true 时，该字段为必填参数
-         * <p> 示例值：
-         *
-         * @param filterOptions
-         * @return
-         */
-        public Builder filterOptions(SchemaFilterOptions filterOptions) {
-            this.filterOptions = filterOptions;
-            return this;
-        }
-
-
-        /**
-         * 问答产品设置，仅在datasource中enable_answer为true时生效
-         * <p> 示例值：
-         *
-         * @param answerOption
-         * @return
-         */
-        public Builder answerOption(SchemaFieldAnswerOption answerOption) {
-            this.answerOption = answerOption;
-            return this;
-        }
-
-
-        /**
-         * 字段描述
-         * <p> 示例值：desc
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        public SchemaProperty build() {
-            return new SchemaProperty(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

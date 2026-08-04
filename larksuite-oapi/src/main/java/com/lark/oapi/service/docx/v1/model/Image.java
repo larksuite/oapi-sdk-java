@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Image {
+  /**
+   * 宽度单位 px
+   *
+   * <p>示例值：4069
+   */
+  @SerializedName("width")
+  private Integer width;
+
+  /**
+   * 高度单位 px
+   *
+   * <p>示例值：2480
+   */
+  @SerializedName("height")
+  private Integer height;
+
+  /**
+   * 图片 Token
+   *
+   * <p>示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("align")
+  private Integer align;
+
+  /**
+   * 图片描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("caption")
+  private Caption caption;
+
+  /**
+   * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+   *
+   * <p>示例值：0.8427495291902072
+   */
+  @SerializedName("scale")
+  private Double scale;
+
+  public Integer getWidth() {
+    return this.width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public Integer getHeight() {
+    return this.height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getAlign() {
+    return this.align;
+  }
+
+  public void setAlign(Integer align) {
+    this.align = align;
+  }
+
+  public Caption getCaption() {
+    return this.caption;
+  }
+
+  public void setCaption(Caption caption) {
+    this.caption = caption;
+  }
+
+  public Double getScale() {
+    return this.scale;
+  }
+
+  public void setScale(Double scale) {
+    this.scale = scale;
+  }
+
+  // builder 开始
+  public Image() {}
+
+  public Image(Builder builder) {
     /**
      * 宽度单位 px
-     * <p> 示例值：4069
+     *
+     * <p>示例值：4069
      */
-    @SerializedName("width")
-    private Integer width;
+    this.width = builder.width;
     /**
-     * 高度
-     * <p> 示例值：2480
+     * 高度单位 px
+     *
+     * <p>示例值：2480
      */
-    @SerializedName("height")
-    private Integer height;
+    this.height = builder.height;
     /**
      * 图片 Token
-     * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     *
+     * <p>示例值：boxbcVA91JtFgNhaCgy6s6wK4he
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 对齐方式
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("align")
-    private Integer align;
+    this.align = builder.align;
     /**
      * 图片描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("caption")
-    private Caption caption;
+    this.caption = builder.caption;
     /**
      * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-     * <p> 示例值：0.8427495291902072
+     *
+     * <p>示例值：0.8427495291902072
      */
-    @SerializedName("scale")
+    this.scale = builder.scale;
+  }
+
+  public static class Builder {
+    /**
+     * 宽度单位 px
+     *
+     * <p>示例值：4069
+     */
+    private Integer width;
+
+    /**
+     * 高度单位 px
+     *
+     * <p>示例值：2480
+     */
+    private Integer height;
+
+    /**
+     * 图片 Token
+     *
+     * <p>示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     */
+    private String token;
+
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     */
+    private Integer align;
+
+    /**
+     * 图片描述
+     *
+     * <p>示例值：
+     */
+    private Caption caption;
+
+    /**
+     * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+     *
+     * <p>示例值：0.8427495291902072
+     */
     private Double scale;
 
-    // builder 开始
-    public Image() {
+    /**
+     * 宽度单位 px
+     *
+     * <p>示例值：4069
+     *
+     * @param width
+     * @return
+     */
+    public Builder width(Integer width) {
+      this.width = width;
+      return this;
     }
 
-    public Image(Builder builder) {
-        /**
-         * 宽度单位 px
-         * <p> 示例值：4069
-         */
-        this.width = builder.width;
-        /**
-         * 高度
-         * <p> 示例值：2480
-         */
-        this.height = builder.height;
-        /**
-         * 图片 Token
-         * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
-         */
-        this.token = builder.token;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        this.align = builder.align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
-        this.caption = builder.caption;
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         */
-        this.scale = builder.scale;
+    /**
+     * 高度单位 px
+     *
+     * <p>示例值：2480
+     *
+     * @param height
+     * @return
+     */
+    public Builder height(Integer height) {
+      this.height = height;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片 Token
+     *
+     * <p>示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public Integer getWidth() {
-        return this.width;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align
+     * @return
+     */
+    public Builder align(Integer align) {
+      this.align = align;
+      return this;
     }
 
-    public void setWidth(Integer width) {
-        this.width = width;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.ImageAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.ImageAlignEnum align) {
+      this.align = align.getValue();
+      return this;
     }
 
-    public Integer getHeight() {
-        return this.height;
+    /**
+     * 图片描述
+     *
+     * <p>示例值：
+     *
+     * @param caption
+     * @return
+     */
+    public Builder caption(Caption caption) {
+      this.caption = caption;
+      return this;
     }
 
-    public void setHeight(Integer height) {
-        this.height = height;
+    /**
+     * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+     *
+     * <p>示例值：0.8427495291902072
+     *
+     * @param scale
+     * @return
+     */
+    public Builder scale(Double scale) {
+      this.scale = scale;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public Image build() {
+      return new Image(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Integer getAlign() {
-        return this.align;
-    }
-
-    public void setAlign(Integer align) {
-        this.align = align;
-    }
-
-    public Caption getCaption() {
-        return this.caption;
-    }
-
-    public void setCaption(Caption caption) {
-        this.caption = caption;
-    }
-
-    public Double getScale() {
-        return this.scale;
-    }
-
-    public void setScale(Double scale) {
-        this.scale = scale;
-    }
-
-    public static class Builder {
-        /**
-         * 宽度单位 px
-         * <p> 示例值：4069
-         */
-        private Integer width;
-        /**
-         * 高度
-         * <p> 示例值：2480
-         */
-        private Integer height;
-        /**
-         * 图片 Token
-         * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
-         */
-        private String token;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        private Integer align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
-        private Caption caption;
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         */
-        private Double scale;
-
-        /**
-         * 宽度单位 px
-         * <p> 示例值：4069
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(Integer width) {
-            this.width = width;
-            return this;
-        }
-
-
-        /**
-         * 高度
-         * <p> 示例值：2480
-         *
-         * @param height
-         * @return
-         */
-        public Builder height(Integer height) {
-            this.height = height;
-            return this;
-        }
-
-
-        /**
-         * 图片 Token
-         * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align
-         * @return
-         */
-        public Builder align(Integer align) {
-            this.align = align;
-            return this;
-        }
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align {@link com.lark.oapi.service.docx.v1.enums.ImageAlignEnum}
-         * @return
-         */
-        public Builder align(com.lark.oapi.service.docx.v1.enums.ImageAlignEnum align) {
-            this.align = align.getValue();
-            return this;
-        }
-
-
-        /**
-         * 图片描述
-         * <p> 示例值：
-         *
-         * @param caption
-         * @return
-         */
-        public Builder caption(Caption caption) {
-            this.caption = caption;
-            return this;
-        }
-
-
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         *
-         * @param scale
-         * @return
-         */
-        public Builder scale(Double scale) {
-            this.scale = scale;
-            return this;
-        }
-
-
-        public Image build() {
-            return new Image(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

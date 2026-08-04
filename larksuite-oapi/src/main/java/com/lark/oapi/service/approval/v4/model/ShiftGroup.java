@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShiftGroup {
+  /**
+   * 事件类型
+   *
+   * <p>示例值：shift_approval_v2
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 审批实例code
+   *
+   * <p>示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 发起人用户ID
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 换班人用户ID
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("swap_shift_user_id")
+  private String swapShiftUserId;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1695643504
+   */
+  @SerializedName("start_time")
+  private Integer startTime;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1695643504
+   */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  /**
+   * 换班原因
+   *
+   * <p>示例值：临时有事申请换班
+   */
+  @SerializedName("shift_reason")
+  private String shiftReason;
+
+  /**
+   * 换班详情
+   *
+   * <p>示例值：""
+   */
+  @SerializedName("swap_shift_details")
+  private SwapShiftDetail[] swapShiftDetails;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getSwapShiftUserId() {
+    return this.swapShiftUserId;
+  }
+
+  public void setSwapShiftUserId(String swapShiftUserId) {
+    this.swapShiftUserId = swapShiftUserId;
+  }
+
+  public Integer getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Integer startTime) {
+    this.startTime = startTime;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getShiftReason() {
+    return this.shiftReason;
+  }
+
+  public void setShiftReason(String shiftReason) {
+    this.shiftReason = shiftReason;
+  }
+
+  public SwapShiftDetail[] getSwapShiftDetails() {
+    return this.swapShiftDetails;
+  }
+
+  public void setSwapShiftDetails(SwapShiftDetail[] swapShiftDetails) {
+    this.swapShiftDetails = swapShiftDetails;
+  }
+
+  // builder 开始
+  public ShiftGroup() {}
+
+  public ShiftGroup(Builder builder) {
     /**
      * 事件类型
-     * <p> 示例值：shift_approval_v2
+     *
+     * <p>示例值：shift_approval_v2
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 审批实例code
-     * <p> 示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
+     *
+     * <p>示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
      */
-    @SerializedName("instance_code")
-    private String instanceCode;
+    this.instanceCode = builder.instanceCode;
     /**
      * 发起人用户ID
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 换班人用户ID
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("swap_shift_user_id")
-    private String swapShiftUserId;
+    this.swapShiftUserId = builder.swapShiftUserId;
     /**
      * 开始时间
-     * <p> 示例值：1695643504
+     *
+     * <p>示例值：1695643504
      */
-    @SerializedName("start_time")
-    private Integer startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间
-     * <p> 示例值：1695643504
+     *
+     * <p>示例值：1695643504
      */
-    @SerializedName("end_time")
-    private Integer endTime;
+    this.endTime = builder.endTime;
     /**
      * 换班原因
-     * <p> 示例值：临时有事申请换班
+     *
+     * <p>示例值：临时有事申请换班
      */
-    @SerializedName("shift_reason")
-    private String shiftReason;
+    this.shiftReason = builder.shiftReason;
     /**
      * 换班详情
-     * <p> 示例值：""
+     *
+     * <p>示例值：""
      */
-    @SerializedName("swap_shift_details")
+    this.swapShiftDetails = builder.swapShiftDetails;
+  }
+
+  public static class Builder {
+    /**
+     * 事件类型
+     *
+     * <p>示例值：shift_approval_v2
+     */
+    private String type;
+
+    /**
+     * 审批实例code
+     *
+     * <p>示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
+     */
+    private String instanceCode;
+
+    /**
+     * 发起人用户ID
+     *
+     * <p>示例值：xxx
+     */
+    private String userId;
+
+    /**
+     * 换班人用户ID
+     *
+     * <p>示例值：xxx
+     */
+    private String swapShiftUserId;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1695643504
+     */
+    private Integer startTime;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1695643504
+     */
+    private Integer endTime;
+
+    /**
+     * 换班原因
+     *
+     * <p>示例值：临时有事申请换班
+     */
+    private String shiftReason;
+
+    /**
+     * 换班详情
+     *
+     * <p>示例值：""
+     */
     private SwapShiftDetail[] swapShiftDetails;
 
-    // builder 开始
-    public ShiftGroup() {
+    /**
+     * 事件类型
+     *
+     * <p>示例值：shift_approval_v2
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ShiftGroup(Builder builder) {
-        /**
-         * 事件类型
-         * <p> 示例值：shift_approval_v2
-         */
-        this.type = builder.type;
-        /**
-         * 审批实例code
-         * <p> 示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 发起人用户ID
-         * <p> 示例值：xxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 换班人用户ID
-         * <p> 示例值：xxx
-         */
-        this.swapShiftUserId = builder.swapShiftUserId;
-        /**
-         * 开始时间
-         * <p> 示例值：1695643504
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1695643504
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 换班原因
-         * <p> 示例值：临时有事申请换班
-         */
-        this.shiftReason = builder.shiftReason;
-        /**
-         * 换班详情
-         * <p> 示例值：""
-         */
-        this.swapShiftDetails = builder.swapShiftDetails;
+    /**
+     * 审批实例code
+     *
+     * <p>示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发起人用户ID
+     *
+     * <p>示例值：xxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 换班人用户ID
+     *
+     * <p>示例值：xxx
+     *
+     * @param swapShiftUserId
+     * @return
+     */
+    public Builder swapShiftUserId(String swapShiftUserId) {
+      this.swapShiftUserId = swapShiftUserId;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1695643504
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Integer startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1695643504
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    /**
+     * 换班原因
+     *
+     * <p>示例值：临时有事申请换班
+     *
+     * @param shiftReason
+     * @return
+     */
+    public Builder shiftReason(String shiftReason) {
+      this.shiftReason = shiftReason;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 换班详情
+     *
+     * <p>示例值：""
+     *
+     * @param swapShiftDetails
+     * @return
+     */
+    public Builder swapShiftDetails(SwapShiftDetail[] swapShiftDetails) {
+      this.swapShiftDetails = swapShiftDetails;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public ShiftGroup build() {
+      return new ShiftGroup(this);
     }
+  }
 
-    public String getSwapShiftUserId() {
-        return this.swapShiftUserId;
-    }
-
-    public void setSwapShiftUserId(String swapShiftUserId) {
-        this.swapShiftUserId = swapShiftUserId;
-    }
-
-    public Integer getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getShiftReason() {
-        return this.shiftReason;
-    }
-
-    public void setShiftReason(String shiftReason) {
-        this.shiftReason = shiftReason;
-    }
-
-    public SwapShiftDetail[] getSwapShiftDetails() {
-        return this.swapShiftDetails;
-    }
-
-    public void setSwapShiftDetails(SwapShiftDetail[] swapShiftDetails) {
-        this.swapShiftDetails = swapShiftDetails;
-    }
-
-    public static class Builder {
-        /**
-         * 事件类型
-         * <p> 示例值：shift_approval_v2
-         */
-        private String type;
-        /**
-         * 审批实例code
-         * <p> 示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
-         */
-        private String instanceCode;
-        /**
-         * 发起人用户ID
-         * <p> 示例值：xxx
-         */
-        private String userId;
-        /**
-         * 换班人用户ID
-         * <p> 示例值：xxx
-         */
-        private String swapShiftUserId;
-        /**
-         * 开始时间
-         * <p> 示例值：1695643504
-         */
-        private Integer startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1695643504
-         */
-        private Integer endTime;
-        /**
-         * 换班原因
-         * <p> 示例值：临时有事申请换班
-         */
-        private String shiftReason;
-        /**
-         * 换班详情
-         * <p> 示例值：""
-         */
-        private SwapShiftDetail[] swapShiftDetails;
-
-        /**
-         * 事件类型
-         * <p> 示例值：shift_approval_v2
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 审批实例code
-         * <p> 示例值：4EAA9FD6-71E6-4661-A2C8-92CF68D2A0A0
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 发起人用户ID
-         * <p> 示例值：xxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 换班人用户ID
-         * <p> 示例值：xxx
-         *
-         * @param swapShiftUserId
-         * @return
-         */
-        public Builder swapShiftUserId(String swapShiftUserId) {
-            this.swapShiftUserId = swapShiftUserId;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1695643504
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Integer startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1695643504
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 换班原因
-         * <p> 示例值：临时有事申请换班
-         *
-         * @param shiftReason
-         * @return
-         */
-        public Builder shiftReason(String shiftReason) {
-            this.shiftReason = shiftReason;
-            return this;
-        }
-
-
-        /**
-         * 换班详情
-         * <p> 示例值：""
-         *
-         * @param swapShiftDetails
-         * @return
-         */
-        public Builder swapShiftDetails(SwapShiftDetail[] swapShiftDetails) {
-            this.swapShiftDetails = swapShiftDetails;
-            return this;
-        }
-
-
-        public ShiftGroup build() {
-            return new ShiftGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

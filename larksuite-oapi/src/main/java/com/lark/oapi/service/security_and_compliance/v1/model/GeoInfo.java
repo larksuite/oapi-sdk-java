@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GeoInfo {
+  /**
+   * 实体ID，使用open_id等对外标识id
+   *
+   * <p>示例值：oc_b696f25e40213bf3e5be752bd9f123d4
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
+   *
+   * <p>示例值：boe-cn
+   */
+  @SerializedName("geo")
+  private String geo;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getGeo() {
+    return this.geo;
+  }
+
+  public void setGeo(String geo) {
+    this.geo = geo;
+  }
+
+  // builder 开始
+  public GeoInfo() {}
+
+  public GeoInfo(Builder builder) {
     /**
      * 实体ID，使用open_id等对外标识id
-     * <p> 示例值：oc_75a1e78d8ba768dded4df6b7550bb981
+     *
+     * <p>示例值：oc_b696f25e40213bf3e5be752bd9f123d4
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
-     * <p> 示例值：boe-cn
+     *
+     * <p>示例值：boe-cn
      */
-    @SerializedName("geo")
+    this.geo = builder.geo;
+  }
+
+  public static class Builder {
+    /**
+     * 实体ID，使用open_id等对外标识id
+     *
+     * <p>示例值：oc_b696f25e40213bf3e5be752bd9f123d4
+     */
+    private String id;
+
+    /**
+     * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
+     *
+     * <p>示例值：boe-cn
+     */
     private String geo;
 
-    // builder 开始
-    public GeoInfo() {
+    /**
+     * 实体ID，使用open_id等对外标识id
+     *
+     * <p>示例值：oc_b696f25e40213bf3e5be752bd9f123d4
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public GeoInfo(Builder builder) {
-        /**
-         * 实体ID，使用open_id等对外标识id
-         * <p> 示例值：oc_75a1e78d8ba768dded4df6b7550bb981
-         */
-        this.id = builder.id;
-        /**
-         * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
-         * <p> 示例值：boe-cn
-         */
-        this.geo = builder.geo;
+    /**
+     * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
+     *
+     * <p>示例值：boe-cn
+     *
+     * @param geo
+     * @return
+     */
+    public Builder geo(String geo) {
+      this.geo = geo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GeoInfo build() {
+      return new GeoInfo(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getGeo() {
-        return this.geo;
-    }
-
-    public void setGeo(String geo) {
-        this.geo = geo;
-    }
-
-    public static class Builder {
-        /**
-         * 实体ID，使用open_id等对外标识id
-         * <p> 示例值：oc_75a1e78d8ba768dded4df6b7550bb981
-         */
-        private String id;
-        /**
-         * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
-         * <p> 示例值：boe-cn
-         */
-        private String geo;
-
-        /**
-         * 实体ID，使用open_id等对外标识id
-         * <p> 示例值：oc_75a1e78d8ba768dded4df6b7550bb981
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 地理信息位置枚举，枚举信息请查看：https://code.byted.org/gerrit/lark/gopkg/dimension/-/blob/eco_unit/geo.go
-         * <p> 示例值：boe-cn
-         *
-         * @param geo
-         * @return
-         */
-        public Builder geo(String geo) {
-            this.geo = geo;
-            return this;
-        }
-
-
-        public GeoInfo build() {
-            return new GeoInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

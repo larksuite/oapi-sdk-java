@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationUserId {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：1dfsads
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户open ID
+   *
+   * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 用户union ID
+   *
+   * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+   */
+  @SerializedName("union_id")
+  private String unionId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  // builder 开始
+  public CollaborationUserId() {}
+
+  public CollaborationUserId(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：1dfsads
+     *
+     * <p>示例值：1dfsads
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户open ID
-     * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 用户union ID
-     * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
      */
-    @SerializedName("union_id")
+    this.unionId = builder.unionId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：1dfsads
+     */
+    private String userId;
+
+    /**
+     * 用户open ID
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     */
+    private String openId;
+
+    /**
+     * 用户union ID
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     */
     private String unionId;
 
-    // builder 开始
-    public CollaborationUserId() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：1dfsads
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public CollaborationUserId(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：1dfsads
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         */
-        this.openId = builder.openId;
-        /**
-         * 用户union ID
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         */
-        this.unionId = builder.unionId;
+    /**
+     * 用户open ID
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户union ID
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     *
+     * @param unionId
+     * @return
+     */
+    public Builder unionId(String unionId) {
+      this.unionId = unionId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public CollaborationUserId build() {
+      return new CollaborationUserId(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getUnionId() {
-        return this.unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：1dfsads
-         */
-        private String userId;
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         */
-        private String openId;
-        /**
-         * 用户union ID
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         */
-        private String unionId;
-
-        /**
-         * 用户ID
-         * <p> 示例值：1dfsads
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 用户union ID
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         *
-         * @param unionId
-         * @return
-         */
-        public Builder unionId(String unionId) {
-            this.unionId = unionId;
-            return this;
-        }
-
-
-        public CollaborationUserId build() {
-            return new CollaborationUserId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

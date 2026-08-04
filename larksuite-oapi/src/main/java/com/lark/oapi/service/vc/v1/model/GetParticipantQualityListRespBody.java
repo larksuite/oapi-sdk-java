@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetParticipantQualityListRespBody {
-    /**
-     * 参会人参会质量列表
-     * <p> 示例值：
-     */
-    @SerializedName("participant_quality_list")
-    private ParticipantQuality[] participantQualityList;
-    /**
-     * 下一页分页的token，下次请求时传入
-     * <p> 示例值：20
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 参会人参会质量列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_quality_list")
+  private ParticipantQuality[] participantQualityList;
 
-    public ParticipantQuality[] getParticipantQualityList() {
-        return this.participantQualityList;
-    }
+  /**
+   * 下一页分页的token，下次请求时传入
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setParticipantQualityList(ParticipantQuality[] participantQualityList) {
-        this.participantQualityList = participantQualityList;
-    }
+  /**
+   * 是否还有数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public ParticipantQuality[] getParticipantQualityList() {
+    return this.participantQualityList;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setParticipantQualityList(ParticipantQuality[] participantQualityList) {
+    this.participantQualityList = participantQualityList;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

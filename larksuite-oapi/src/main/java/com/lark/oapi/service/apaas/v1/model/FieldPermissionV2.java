@@ -13,263 +13,276 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class FieldPermissionV2 {
+  /**
+   * 字段的APIName
+   *
+   * <p>示例值：field_asdfjio
+   */
+  @SerializedName("field_api_name")
+  private String fieldApiName;
+
+  /**
+   * 字段的权限列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_permissions")
+  private Integer[] fieldPermissions;
+
+  /**
+   * 是否是子对象的字段
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_sub_object_field")
+  private Boolean isSubObjectField;
+
+  /**
+   * 子对象 APIName
+   *
+   * <p>示例值：sub_obj_123nanwk
+   */
+  @SerializedName("sub_object_api_name")
+  private String subObjectApiName;
+
+  /**
+   * 子对象的名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("sub_object_name")
+  private Map<String, String> subObjectName;
+
+  /**
+   * 字段的名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("field_name")
+  private Map<String, String> fieldName;
+
+  public String getFieldApiName() {
+    return this.fieldApiName;
+  }
+
+  public void setFieldApiName(String fieldApiName) {
+    this.fieldApiName = fieldApiName;
+  }
+
+  public Integer[] getFieldPermissions() {
+    return this.fieldPermissions;
+  }
+
+  public void setFieldPermissions(Integer[] fieldPermissions) {
+    this.fieldPermissions = fieldPermissions;
+  }
+
+  public Boolean getIsSubObjectField() {
+    return this.isSubObjectField;
+  }
+
+  public void setIsSubObjectField(Boolean isSubObjectField) {
+    this.isSubObjectField = isSubObjectField;
+  }
+
+  public String getSubObjectApiName() {
+    return this.subObjectApiName;
+  }
+
+  public void setSubObjectApiName(String subObjectApiName) {
+    this.subObjectApiName = subObjectApiName;
+  }
+
+  public Map<String, String> getSubObjectName() {
+    return this.subObjectName;
+  }
+
+  public void setSubObjectName(Map<String, String> subObjectName) {
+    this.subObjectName = subObjectName;
+  }
+
+  public Map<String, String> getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(Map<String, String> fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  // builder 开始
+  public FieldPermissionV2() {}
+
+  public FieldPermissionV2(Builder builder) {
     /**
      * 字段的APIName
-     * <p> 示例值：field_asdfjio
+     *
+     * <p>示例值：field_asdfjio
      */
-    @SerializedName("field_api_name")
-    private String fieldApiName;
+    this.fieldApiName = builder.fieldApiName;
     /**
      * 字段的权限列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_permissions")
-    private Integer[] fieldPermissions;
+    this.fieldPermissions = builder.fieldPermissions;
     /**
      * 是否是子对象的字段
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_sub_object_field")
-    private Boolean isSubObjectField;
+    this.isSubObjectField = builder.isSubObjectField;
     /**
      * 子对象 APIName
-     * <p> 示例值：sub_obj_123nanwk
+     *
+     * <p>示例值：sub_obj_123nanwk
      */
-    @SerializedName("sub_object_api_name")
-    private String subObjectApiName;
+    this.subObjectApiName = builder.subObjectApiName;
     /**
      * 子对象的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("sub_object_name")
-    private Map<String, String> subObjectName;
+    this.subObjectName = builder.subObjectName;
     /**
      * 字段的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("field_name")
+    this.fieldName = builder.fieldName;
+  }
+
+  public static class Builder {
+    /**
+     * 字段的APIName
+     *
+     * <p>示例值：field_asdfjio
+     */
+    private String fieldApiName;
+
+    /**
+     * 字段的权限列表
+     *
+     * <p>示例值：
+     */
+    private Integer[] fieldPermissions;
+
+    /**
+     * 是否是子对象的字段
+     *
+     * <p>示例值：false
+     */
+    private Boolean isSubObjectField;
+
+    /**
+     * 子对象 APIName
+     *
+     * <p>示例值：sub_obj_123nanwk
+     */
+    private String subObjectApiName;
+
+    /**
+     * 子对象的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> subObjectName;
+
+    /**
+     * 字段的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> fieldName;
 
-    // builder 开始
-    public FieldPermissionV2() {
+    /**
+     * 字段的APIName
+     *
+     * <p>示例值：field_asdfjio
+     *
+     * @param fieldApiName
+     * @return
+     */
+    public Builder fieldApiName(String fieldApiName) {
+      this.fieldApiName = fieldApiName;
+      return this;
     }
 
-    public FieldPermissionV2(Builder builder) {
-        /**
-         * 字段的APIName
-         * <p> 示例值：field_asdfjio
-         */
-        this.fieldApiName = builder.fieldApiName;
-        /**
-         * 字段的权限列表
-         * <p> 示例值：
-         */
-        this.fieldPermissions = builder.fieldPermissions;
-        /**
-         * 是否是子对象的字段
-         * <p> 示例值：
-         */
-        this.isSubObjectField = builder.isSubObjectField;
-        /**
-         * 子对象 APIName
-         * <p> 示例值：sub_obj_123nanwk
-         */
-        this.subObjectApiName = builder.subObjectApiName;
-        /**
-         * 子对象的名称
-         * <p> 示例值：
-         */
-        this.subObjectName = builder.subObjectName;
-        /**
-         * 字段的名称
-         * <p> 示例值：
-         */
-        this.fieldName = builder.fieldName;
+    /**
+     * 字段的权限列表
+     *
+     * <p>示例值：
+     *
+     * @param fieldPermissions
+     * @return
+     */
+    public Builder fieldPermissions(Integer[] fieldPermissions) {
+      this.fieldPermissions = fieldPermissions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否是子对象的字段
+     *
+     * <p>示例值：false
+     *
+     * @param isSubObjectField
+     * @return
+     */
+    public Builder isSubObjectField(Boolean isSubObjectField) {
+      this.isSubObjectField = isSubObjectField;
+      return this;
     }
 
-    public String getFieldApiName() {
-        return this.fieldApiName;
+    /**
+     * 子对象 APIName
+     *
+     * <p>示例值：sub_obj_123nanwk
+     *
+     * @param subObjectApiName
+     * @return
+     */
+    public Builder subObjectApiName(String subObjectApiName) {
+      this.subObjectApiName = subObjectApiName;
+      return this;
     }
 
-    public void setFieldApiName(String fieldApiName) {
-        this.fieldApiName = fieldApiName;
+    /**
+     * 子对象的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param subObjectName
+     * @return
+     */
+    public Builder subObjectName(Map<String, String> subObjectName) {
+      this.subObjectName = subObjectName;
+      return this;
     }
 
-    public Integer[] getFieldPermissions() {
-        return this.fieldPermissions;
+    /**
+     * 字段的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(Map<String, String> fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public void setFieldPermissions(Integer[] fieldPermissions) {
-        this.fieldPermissions = fieldPermissions;
+    public FieldPermissionV2 build() {
+      return new FieldPermissionV2(this);
     }
+  }
 
-    public Boolean getIsSubObjectField() {
-        return this.isSubObjectField;
-    }
-
-    public void setIsSubObjectField(Boolean isSubObjectField) {
-        this.isSubObjectField = isSubObjectField;
-    }
-
-    public String getSubObjectApiName() {
-        return this.subObjectApiName;
-    }
-
-    public void setSubObjectApiName(String subObjectApiName) {
-        this.subObjectApiName = subObjectApiName;
-    }
-
-    public Map<String, String> getSubObjectName() {
-        return this.subObjectName;
-    }
-
-    public void setSubObjectName(Map<String, String> subObjectName) {
-        this.subObjectName = subObjectName;
-    }
-
-    public Map<String, String> getFieldName() {
-        return this.fieldName;
-    }
-
-    public void setFieldName(Map<String, String> fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public static class Builder {
-        /**
-         * 字段的APIName
-         * <p> 示例值：field_asdfjio
-         */
-        private String fieldApiName;
-        /**
-         * 字段的权限列表
-         * <p> 示例值：
-         */
-        private Integer[] fieldPermissions;
-        /**
-         * 是否是子对象的字段
-         * <p> 示例值：
-         */
-        private Boolean isSubObjectField;
-        /**
-         * 子对象 APIName
-         * <p> 示例值：sub_obj_123nanwk
-         */
-        private String subObjectApiName;
-        /**
-         * 子对象的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> subObjectName;
-        /**
-         * 字段的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> fieldName;
-
-        /**
-         * 字段的APIName
-         * <p> 示例值：field_asdfjio
-         *
-         * @param fieldApiName
-         * @return
-         */
-        public Builder fieldApiName(String fieldApiName) {
-            this.fieldApiName = fieldApiName;
-            return this;
-        }
-
-
-        /**
-         * 字段的权限列表
-         * <p> 示例值：
-         *
-         * @param fieldPermissions
-         * @return
-         */
-        public Builder fieldPermissions(Integer[] fieldPermissions) {
-            this.fieldPermissions = fieldPermissions;
-            return this;
-        }
-
-
-        /**
-         * 是否是子对象的字段
-         * <p> 示例值：
-         *
-         * @param isSubObjectField
-         * @return
-         */
-        public Builder isSubObjectField(Boolean isSubObjectField) {
-            this.isSubObjectField = isSubObjectField;
-            return this;
-        }
-
-
-        /**
-         * 子对象 APIName
-         * <p> 示例值：sub_obj_123nanwk
-         *
-         * @param subObjectApiName
-         * @return
-         */
-        public Builder subObjectApiName(String subObjectApiName) {
-            this.subObjectApiName = subObjectApiName;
-            return this;
-        }
-
-
-        /**
-         * 子对象的名称
-         * <p> 示例值：
-         *
-         * @param subObjectName
-         * @return
-         */
-        public Builder subObjectName(Map<String, String> subObjectName) {
-            this.subObjectName = subObjectName;
-            return this;
-        }
-
-
-        /**
-         * 字段的名称
-         * <p> 示例值：
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(Map<String, String> fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        public FieldPermissionV2 build() {
-            return new FieldPermissionV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

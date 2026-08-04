@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.workplace.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkplaceAccessData {
+  /**
+   * 时间,精确到天,格式yyyy-MM-dd
+   *
+   * <p>示例值：2023-03-12
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("all_workplace")
+  private AccessData allWorkplace;
+
+  /**
+   * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("default_workplace")
+  private AccessData defaultWorkplace;
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public AccessData getAllWorkplace() {
+    return this.allWorkplace;
+  }
+
+  public void setAllWorkplace(AccessData allWorkplace) {
+    this.allWorkplace = allWorkplace;
+  }
+
+  public AccessData getDefaultWorkplace() {
+    return this.defaultWorkplace;
+  }
+
+  public void setDefaultWorkplace(AccessData defaultWorkplace) {
+    this.defaultWorkplace = defaultWorkplace;
+  }
+
+  // builder 开始
+  public WorkplaceAccessData() {}
+
+  public WorkplaceAccessData(Builder builder) {
     /**
      * 时间,精确到天,格式yyyy-MM-dd
-     * <p> 示例值：2023-03-12
+     *
+     * <p>示例值：2023-03-12
      */
-    @SerializedName("date")
+    this.date = builder.date;
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：20
+     */
+    this.allWorkplace = builder.allWorkplace;
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：10
+     */
+    this.defaultWorkplace = builder.defaultWorkplace;
+  }
+
+  public static class Builder {
+    /**
+     * 时间,精确到天,格式yyyy-MM-dd
+     *
+     * <p>示例值：2023-03-12
+     */
     private String date;
+
     /**
-     * 全部工作台的访问数据
-     * <p> 示例值：20
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：20
      */
-    @SerializedName("all_workplace")
     private AccessData allWorkplace;
+
     /**
-     * 默认工作台的访问数据
-     * <p> 示例值：10
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：10
      */
-    @SerializedName("default_workplace")
     private AccessData defaultWorkplace;
 
-    // builder 开始
-    public WorkplaceAccessData() {
+    /**
+     * 时间,精确到天,格式yyyy-MM-dd
+     *
+     * <p>示例值：2023-03-12
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public WorkplaceAccessData(Builder builder) {
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
-        this.date = builder.date;
-        /**
-         * 全部工作台的访问数据
-         * <p> 示例值：20
-         */
-        this.allWorkplace = builder.allWorkplace;
-        /**
-         * 默认工作台的访问数据
-         * <p> 示例值：10
-         */
-        this.defaultWorkplace = builder.defaultWorkplace;
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：20
+     *
+     * @param allWorkplace
+     * @return
+     */
+    public Builder allWorkplace(AccessData allWorkplace) {
+      this.allWorkplace = allWorkplace;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：10
+     *
+     * @param defaultWorkplace
+     * @return
+     */
+    public Builder defaultWorkplace(AccessData defaultWorkplace) {
+      this.defaultWorkplace = defaultWorkplace;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    public WorkplaceAccessData build() {
+      return new WorkplaceAccessData(this);
     }
+  }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public AccessData getAllWorkplace() {
-        return this.allWorkplace;
-    }
-
-    public void setAllWorkplace(AccessData allWorkplace) {
-        this.allWorkplace = allWorkplace;
-    }
-
-    public AccessData getDefaultWorkplace() {
-        return this.defaultWorkplace;
-    }
-
-    public void setDefaultWorkplace(AccessData defaultWorkplace) {
-        this.defaultWorkplace = defaultWorkplace;
-    }
-
-    public static class Builder {
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
-        private String date;
-        /**
-         * 全部工作台的访问数据
-         * <p> 示例值：20
-         */
-        private AccessData allWorkplace;
-        /**
-         * 默认工作台的访问数据
-         * <p> 示例值：10
-         */
-        private AccessData defaultWorkplace;
-
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 全部工作台的访问数据
-         * <p> 示例值：20
-         *
-         * @param allWorkplace
-         * @return
-         */
-        public Builder allWorkplace(AccessData allWorkplace) {
-            this.allWorkplace = allWorkplace;
-            return this;
-        }
-
-
-        /**
-         * 默认工作台的访问数据
-         * <p> 示例值：10
-         *
-         * @param defaultWorkplace
-         * @return
-         */
-        public Builder defaultWorkplace(AccessData defaultWorkplace) {
-            this.defaultWorkplace = defaultWorkplace;
-            return this;
-        }
-
-
-        public WorkplaceAccessData build() {
-            return new WorkplaceAccessData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

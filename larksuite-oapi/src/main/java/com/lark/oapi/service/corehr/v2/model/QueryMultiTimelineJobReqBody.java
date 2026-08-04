@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineJobReqBody {
+  /**
+   * 职务 ID 列表;-
+   * 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_ids")
+  private String[] jobIds;
+
+  /**
+   * 查询开始时间（包含），注意事项：;- start_date 不能大于 end_date;- 必填字段，无默认值
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 查询结束时间(不包含)，注意事项：;- 必填字段，无默认值
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 返回数据的字段列表，可选;- job_name：职务名称;- code：编码 ;- active：是否启用;- parent_job：（该字段无效，请忽略）;-
+   * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- job_title：职务头衔;-
+   * job_family：序列;- job_level：职级;- pathway：通道;- working_hours_type：工时制度;;注意事项：;- 为空时只能查询到ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getJobIds() {
+    return this.jobIds;
+  }
+
+  public void setJobIds(String[] jobIds) {
+    this.jobIds = jobIds;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineJobReqBody() {}
+
+  public QueryMultiTimelineJobReqBody(Builder builder) {
     /**
-     * 职务 ID 列表
-     * <p> 示例值：
+     * 职务 ID 列表;-
+     * 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_ids")
+    this.jobIds = builder.jobIds;
+    /**
+     * 查询开始时间（包含），注意事项：;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.startDate = builder.startDate;
+    /**
+     * 查询结束时间(不包含)，注意事项：;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
+     */
+    this.endDate = builder.endDate;
+    /**
+     * 返回数据的字段列表，可选;- job_name：职务名称;- code：编码 ;- active：是否启用;- parent_job：（该字段无效，请忽略）;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- job_title：职务头衔;-
+     * job_family：序列;- job_level：职级;- pathway：通道;- working_hours_type：工时制度;;注意事项：;- 为空时只能查询到ID
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 职务 ID 列表;-
+     * 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取ID
+     *
+     * <p>示例值：
+     */
     private String[] jobIds;
+
     /**
-     * 查询开始时间（包含）
-     * <p> 示例值：2024-01-01
+     * 查询开始时间（包含），注意事项：;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("start_date")
     private String startDate;
+
     /**
-     * 查询结束时间(包含)
-     * <p> 示例值：2024-12-31
+     * 查询结束时间(不包含)，注意事项：;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("end_date")
     private String endDate;
+
     /**
-     * 返回数据的字段列表，可选["job_name", "code", "active", "parent_job", "description", "effective_date", "expiration_date"]
-     * <p> 示例值：
+     * 返回数据的字段列表，可选;- job_name：职务名称;- code：编码 ;- active：是否启用;- parent_job：（该字段无效，请忽略）;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- job_title：职务头衔;-
+     * job_family：序列;- job_level：职级;- pathway：通道;- working_hours_type：工时制度;;注意事项：;- 为空时只能查询到ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryMultiTimelineJobReqBody() {
+    /**
+     * 职务 ID 列表;-
+     * 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取ID
+     *
+     * <p>示例值：
+     *
+     * @param jobIds
+     * @return
+     */
+    public Builder jobIds(String[] jobIds) {
+      this.jobIds = jobIds;
+      return this;
     }
 
-    public QueryMultiTimelineJobReqBody(Builder builder) {
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         */
-        this.jobIds = builder.jobIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 返回数据的字段列表，可选["job_name", "code", "active", "parent_job", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 查询开始时间（包含），注意事项：;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询结束时间(不包含)，注意事项：;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public String[] getJobIds() {
-        return this.jobIds;
+    /**
+     * 返回数据的字段列表，可选;- job_name：职务名称;- code：编码 ;- active：是否启用;- parent_job：（该字段无效，请忽略）;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- job_title：职务头衔;-
+     * job_family：序列;- job_level：职级;- pathway：通道;- working_hours_type：工时制度;;注意事项：;- 为空时只能查询到ID
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setJobIds(String[] jobIds) {
-        this.jobIds = jobIds;
+    public QueryMultiTimelineJobReqBody build() {
+      return new QueryMultiTimelineJobReqBody(this);
     }
+  }
 
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        private String startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        private String endDate;
-        /**
-         * 返回数据的字段列表，可选["job_name", "code", "active", "parent_job", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 职务 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobIds
-         * @return
-         */
-        public Builder jobIds(String[] jobIds) {
-            this.jobIds = jobIds;
-            return this;
-        }
-
-
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["job_name", "code", "active", "parent_job", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryMultiTimelineJobReqBody build() {
-            return new QueryMultiTimelineJobReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

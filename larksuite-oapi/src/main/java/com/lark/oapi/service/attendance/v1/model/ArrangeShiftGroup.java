@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ArrangeShiftGroup {
+  /**
+   * 班组id
+   *
+   * <p>示例值：7071200888781537300
+   */
+  @SerializedName("shift_group_id")
+  private String shiftGroupId;
+
+  /**
+   * 考勤组id
+   *
+   * <p>示例值：7171200888781537301
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  /**
+   * 班组名称
+   *
+   * <p>示例值：班组-测试班组
+   */
+  @SerializedName("shift_group_name")
+  private String shiftGroupName;
+
+  public String getShiftGroupId() {
+    return this.shiftGroupId;
+  }
+
+  public void setShiftGroupId(String shiftGroupId) {
+    this.shiftGroupId = shiftGroupId;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public String getShiftGroupName() {
+    return this.shiftGroupName;
+  }
+
+  public void setShiftGroupName(String shiftGroupName) {
+    this.shiftGroupName = shiftGroupName;
+  }
+
+  // builder 开始
+  public ArrangeShiftGroup() {}
+
+  public ArrangeShiftGroup(Builder builder) {
     /**
      * 班组id
-     * <p> 示例值：7071200888781537300
+     *
+     * <p>示例值：7071200888781537300
      */
-    @SerializedName("shift_group_id")
-    private String shiftGroupId;
+    this.shiftGroupId = builder.shiftGroupId;
     /**
      * 考勤组id
-     * <p> 示例值：7171200888781537301
+     *
+     * <p>示例值：7171200888781537301
      */
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
     /**
      * 班组名称
-     * <p> 示例值：班组-测试班组
+     *
+     * <p>示例值：班组-测试班组
      */
-    @SerializedName("shift_group_name")
+    this.shiftGroupName = builder.shiftGroupName;
+  }
+
+  public static class Builder {
+    /**
+     * 班组id
+     *
+     * <p>示例值：7071200888781537300
+     */
+    private String shiftGroupId;
+
+    /**
+     * 考勤组id
+     *
+     * <p>示例值：7171200888781537301
+     */
+    private String groupId;
+
+    /**
+     * 班组名称
+     *
+     * <p>示例值：班组-测试班组
+     */
     private String shiftGroupName;
 
-    // builder 开始
-    public ArrangeShiftGroup() {
+    /**
+     * 班组id
+     *
+     * <p>示例值：7071200888781537300
+     *
+     * @param shiftGroupId
+     * @return
+     */
+    public Builder shiftGroupId(String shiftGroupId) {
+      this.shiftGroupId = shiftGroupId;
+      return this;
     }
 
-    public ArrangeShiftGroup(Builder builder) {
-        /**
-         * 班组id
-         * <p> 示例值：7071200888781537300
-         */
-        this.shiftGroupId = builder.shiftGroupId;
-        /**
-         * 考勤组id
-         * <p> 示例值：7171200888781537301
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 班组名称
-         * <p> 示例值：班组-测试班组
-         */
-        this.shiftGroupName = builder.shiftGroupName;
+    /**
+     * 考勤组id
+     *
+     * <p>示例值：7171200888781537301
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 班组名称
+     *
+     * <p>示例值：班组-测试班组
+     *
+     * @param shiftGroupName
+     * @return
+     */
+    public Builder shiftGroupName(String shiftGroupName) {
+      this.shiftGroupName = shiftGroupName;
+      return this;
     }
 
-    public String getShiftGroupId() {
-        return this.shiftGroupId;
+    public ArrangeShiftGroup build() {
+      return new ArrangeShiftGroup(this);
     }
+  }
 
-    public void setShiftGroupId(String shiftGroupId) {
-        this.shiftGroupId = shiftGroupId;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getShiftGroupName() {
-        return this.shiftGroupName;
-    }
-
-    public void setShiftGroupName(String shiftGroupName) {
-        this.shiftGroupName = shiftGroupName;
-    }
-
-    public static class Builder {
-        /**
-         * 班组id
-         * <p> 示例值：7071200888781537300
-         */
-        private String shiftGroupId;
-        /**
-         * 考勤组id
-         * <p> 示例值：7171200888781537301
-         */
-        private String groupId;
-        /**
-         * 班组名称
-         * <p> 示例值：班组-测试班组
-         */
-        private String shiftGroupName;
-
-        /**
-         * 班组id
-         * <p> 示例值：7071200888781537300
-         *
-         * @param shiftGroupId
-         * @return
-         */
-        public Builder shiftGroupId(String shiftGroupId) {
-            this.shiftGroupId = shiftGroupId;
-            return this;
-        }
-
-
-        /**
-         * 考勤组id
-         * <p> 示例值：7171200888781537301
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        /**
-         * 班组名称
-         * <p> 示例值：班组-测试班组
-         *
-         * @param shiftGroupName
-         * @return
-         */
-        public Builder shiftGroupName(String shiftGroupName) {
-            this.shiftGroupName = shiftGroupName;
-            return this;
-        }
-
-
-        public ArrangeShiftGroup build() {
-            return new ArrangeShiftGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

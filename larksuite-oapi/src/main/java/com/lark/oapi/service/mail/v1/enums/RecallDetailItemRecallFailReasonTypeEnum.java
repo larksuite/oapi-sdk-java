@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 撤回失败原因，仅status为fail时有值
- */
+/** 撤回失败原因，仅status为fail时有值 */
 public enum RecallDetailItemRecallFailReasonTypeEnum {
-    MESSAGE_HAS_BEEN_READ("message_has_been_read"), // 邮件已读
-    NOT_USING_LARK_MAIL("not_using_lark_mail"), // 不支持撤回发往外部的邮件
-    NOT_IN_THE_SAME_TENANT("not_in_the_same_tenant"), // 收件人域名为外部域名
-    INVALID_ADDRESS("invalid_address"), // 地址已失效
-    UNKNOWN("unknown"), // 其他原因
-    ;
-    private String value;
+  MESSAGE_HAS_BEEN_READ("message_has_been_read"), // 邮件已读
+  NOT_USING_LARK_MAIL("not_using_lark_mail"), // 不支持撤回发往外部的邮件
+  NOT_IN_THE_SAME_TENANT("not_in_the_same_tenant"), // 收件人域名为外部域名
+  INVALID_ADDRESS("invalid_address"), // 地址已失效
+  UNKNOWN("unknown"), // 其他原因
+  ;
+  private String value;
 
-    RecallDetailItemRecallFailReasonTypeEnum(String value) {
-        this.value = value;
-    }
+  RecallDetailItemRecallFailReasonTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

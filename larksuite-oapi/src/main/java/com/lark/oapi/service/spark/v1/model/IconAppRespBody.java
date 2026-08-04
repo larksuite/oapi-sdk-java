@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IconAppRespBody {
-    /**
-     * IconURL 上传成功后的图标访问 URL。
-     * <p> 示例值：https://spark-cdn.example.com/tenant/10001/app-icons/20240520/abcdef123456.png
-     */
-    @SerializedName("icon_url")
-    private String iconUrl;
+  /**
+   * IconURL 上传成功后的图标访问 URL。
+   *
+   * <p>示例值：https://spark-cdn.example.com/tenant/10001/app-icons/20240520/abcdef123456.png
+   */
+  @SerializedName("icon_url")
+  private String iconUrl;
 
-    public String getIconUrl() {
-        return this.iconUrl;
-    }
+  public String getIconUrl() {
+    return this.iconUrl;
+  }
 
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
+  }
 }

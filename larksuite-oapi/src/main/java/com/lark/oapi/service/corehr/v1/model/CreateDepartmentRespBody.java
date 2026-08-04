@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDepartmentRespBody {
-    /**
-     * 创建成功的部门信息
-     * <p> 示例值：
-     */
-    @SerializedName("department")
-    private DepartmentCreate department;
+  /**
+   * 创建成功的部门信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department")
+  private DepartmentCreate department;
 
-    public DepartmentCreate getDepartment() {
-        return this.department;
-    }
+  public DepartmentCreate getDepartment() {
+    return this.department;
+  }
 
-    public void setDepartment(DepartmentCreate department) {
-        this.department = department;
-    }
-
+  public void setDepartment(DepartmentCreate department) {
+    this.department = department;
+  }
 }

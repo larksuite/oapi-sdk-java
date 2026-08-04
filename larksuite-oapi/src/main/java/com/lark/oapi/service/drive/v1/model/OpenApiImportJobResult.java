@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenApiImportJobResult {
+  /**
+   * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_status")
+  private String jobStatus;
+
+  /**
+   * 任务处理失败原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_error_msg")
+  private String jobErrorMsg;
+
+  /**
+   * 导入生成的云文档 Token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 导入生成的云文档链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 透传额外信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private String[] extra;
+
+  /**
+   * 导入生成的云文档类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getJobStatus() {
+    return this.jobStatus;
+  }
+
+  public void setJobStatus(String jobStatus) {
+    this.jobStatus = jobStatus;
+  }
+
+  public String getJobErrorMsg() {
+    return this.jobErrorMsg;
+  }
+
+  public void setJobErrorMsg(String jobErrorMsg) {
+    this.jobErrorMsg = jobErrorMsg;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String[] getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String[] extra) {
+    this.extra = extra;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public OpenApiImportJobResult() {}
+
+  public OpenApiImportJobResult(Builder builder) {
     /**
-     * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-     * <p> 示例值：
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_status")
-    private String jobStatus;
+    this.jobStatus = builder.jobStatus;
     /**
      * 任务处理失败原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_error_msg")
-    private String jobErrorMsg;
+    this.jobErrorMsg = builder.jobErrorMsg;
     /**
      * 导入生成的云文档 Token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 导入生成的云文档链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 透传额外信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
-    private String[] extra;
+    this.extra = builder.extra;
     /**
      * 导入生成的云文档类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
+     */
+    private String jobStatus;
+
+    /**
+     * 任务处理失败原因
+     *
+     * <p>示例值：
+     */
+    private String jobErrorMsg;
+
+    /**
+     * 导入生成的云文档 Token
+     *
+     * <p>示例值：
+     */
+    private String token;
+
+    /**
+     * 导入生成的云文档链接
+     *
+     * <p>示例值：
+     */
+    private String url;
+
+    /**
+     * 透传额外信息
+     *
+     * <p>示例值：
+     */
+    private String[] extra;
+
+    /**
+     * 导入生成的云文档类型
+     *
+     * <p>示例值：
+     */
     private String type;
 
-    // builder 开始
-    public OpenApiImportJobResult() {
+    /**
+     * 提供给业务方任务状态, 0-成功 1-新建 2-处理中 其他-失败
+     *
+     * <p>示例值：
+     *
+     * @param jobStatus
+     * @return
+     */
+    public Builder jobStatus(String jobStatus) {
+      this.jobStatus = jobStatus;
+      return this;
     }
 
-    public OpenApiImportJobResult(Builder builder) {
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         */
-        this.jobStatus = builder.jobStatus;
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         */
-        this.jobErrorMsg = builder.jobErrorMsg;
-        /**
-         * 导入生成的云文档 Token
-         * <p> 示例值：
-         */
-        this.token = builder.token;
-        /**
-         * 导入生成的云文档链接
-         * <p> 示例值：
-         */
-        this.url = builder.url;
-        /**
-         * 透传额外信息
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
-        /**
-         * 导入生成的云文档类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 任务处理失败原因
+     *
+     * <p>示例值：
+     *
+     * @param jobErrorMsg
+     * @return
+     */
+    public Builder jobErrorMsg(String jobErrorMsg) {
+      this.jobErrorMsg = jobErrorMsg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 导入生成的云文档 Token
+     *
+     * <p>示例值：
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getJobStatus() {
-        return this.jobStatus;
+    /**
+     * 导入生成的云文档链接
+     *
+     * <p>示例值：
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setJobStatus(String jobStatus) {
-        this.jobStatus = jobStatus;
+    /**
+     * 透传额外信息
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String[] extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getJobErrorMsg() {
-        return this.jobErrorMsg;
+    /**
+     * 导入生成的云文档类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setJobErrorMsg(String jobErrorMsg) {
-        this.jobErrorMsg = jobErrorMsg;
+    public OpenApiImportJobResult build() {
+      return new OpenApiImportJobResult(this);
     }
+  }
 
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String[] getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String[] extra) {
-        this.extra = extra;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         */
-        private String jobStatus;
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         */
-        private String jobErrorMsg;
-        /**
-         * 导入生成的云文档 Token
-         * <p> 示例值：
-         */
-        private String token;
-        /**
-         * 导入生成的云文档链接
-         * <p> 示例值：
-         */
-        private String url;
-        /**
-         * 透传额外信息
-         * <p> 示例值：
-         */
-        private String[] extra;
-        /**
-         * 导入生成的云文档类型
-         * <p> 示例值：
-         */
-        private String type;
-
-        /**
-         * 提供给业务方任务状态,  0-成功  1-新建 2-处理中 其他-失败
-         * <p> 示例值：
-         *
-         * @param jobStatus
-         * @return
-         */
-        public Builder jobStatus(String jobStatus) {
-            this.jobStatus = jobStatus;
-            return this;
-        }
-
-
-        /**
-         * 任务处理失败原因
-         * <p> 示例值：
-         *
-         * @param jobErrorMsg
-         * @return
-         */
-        public Builder jobErrorMsg(String jobErrorMsg) {
-            this.jobErrorMsg = jobErrorMsg;
-            return this;
-        }
-
-
-        /**
-         * 导入生成的云文档 Token
-         * <p> 示例值：
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 导入生成的云文档链接
-         * <p> 示例值：
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 透传额外信息
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String[] extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 导入生成的云文档类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public OpenApiImportJobResult build() {
-            return new OpenApiImportJobResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

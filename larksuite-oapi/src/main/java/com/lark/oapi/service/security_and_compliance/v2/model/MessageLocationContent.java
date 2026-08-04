@@ -13,37 +13,23 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageLocationContent {
 
-    // builder 开始
-    public MessageLocationContent() {
-    }
+  // builder 开始
+  public MessageLocationContent() {}
 
-    public MessageLocationContent(Builder builder) {
-    }
+  public MessageLocationContent(Builder builder) {}
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
+  public static class Builder {
 
-    public static class Builder {
-
-        public MessageLocationContent build() {
-            return new MessageLocationContent(this);
-        }
+    public MessageLocationContent build() {
+      return new MessageLocationContent(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

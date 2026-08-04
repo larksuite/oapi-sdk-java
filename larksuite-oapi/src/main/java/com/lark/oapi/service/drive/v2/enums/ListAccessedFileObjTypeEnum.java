@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 文档类型
- */
+/** 文档类型 */
 public enum ListAccessedFileObjTypeEnum {
-    DOC("doc"), // 旧版文档
-    SHEET("sheet"), // 表格
-    MINDNOTE("mindnote"), // 思维导图
-    BITABLE("bitable"), // 多维表格
-    FILE("file"), // 文件
-    DOCX("docx"), // 新版文档
-    SLIDES("slides"), // 幻灯片
-    ;
-    private String value;
+  DOC("doc"), // 旧版文档
+  SHEET("sheet"), // 表格
+  MINDNOTE("mindnote"), // 思维导图
+  BITABLE("bitable"), // 多维表格
+  FILE("file"), // 文件
+  DOCX("docx"), // 新版文档
+  SLIDES("slides"), // 幻灯片
+  ;
+  private String value;
 
-    ListAccessedFileObjTypeEnum(String value) {
-        this.value = value;
-    }
+  ListAccessedFileObjTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

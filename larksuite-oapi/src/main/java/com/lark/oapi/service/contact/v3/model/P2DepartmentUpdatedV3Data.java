@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2DepartmentUpdatedV3Data {
-    /**
-     * 更新后信息
-     * <p> 示例值：
-     */
-    @SerializedName("object")
-    private DepartmentEvent object;
-    /**
-     * 更新前信息
-     * <p> 示例值：
-     */
-    @SerializedName("old_object")
-    private DepartmentEvent oldObject;
+  /**
+   * 部门更新前的信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object")
+  private DepartmentEvent object;
 
-    public DepartmentEvent getObject() {
-        return this.object;
-    }
+  /**
+   * 部门更新前的信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_object")
+  private DepartmentEvent oldObject;
 
-    public void setObject(DepartmentEvent object) {
-        this.object = object;
-    }
+  public DepartmentEvent getObject() {
+    return this.object;
+  }
 
-    public DepartmentEvent getOldObject() {
-        return this.oldObject;
-    }
+  public void setObject(DepartmentEvent object) {
+    this.object = object;
+  }
 
-    public void setOldObject(DepartmentEvent oldObject) {
-        this.oldObject = oldObject;
-    }
+  public DepartmentEvent getOldObject() {
+    return this.oldObject;
+  }
 
+  public void setOldObject(DepartmentEvent oldObject) {
+    this.oldObject = oldObject;
+  }
 }

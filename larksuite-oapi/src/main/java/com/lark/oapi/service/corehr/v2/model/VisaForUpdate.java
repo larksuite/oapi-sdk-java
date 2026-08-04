@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisaForUpdate {
+  /**
+   * ID
+   *
+   * <p>示例值：7624287918708785155
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 国家 / 地区
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * Visa 类型
+   *
+   * <p>示例值：6863330041896371725
+   */
+  @SerializedName("national_id_type_id")
+  private String nationalIdTypeId;
+
+  /**
+   * Visa 号码
+   *
+   * <p>示例值：1231131333
+   */
+  @SerializedName("visa_number")
+  private String visaNumber;
+
+  /**
+   * Visa 签发日期
+   *
+   * <p>示例值：2020-04-01
+   */
+  @SerializedName("issued_date")
+  private String issuedDate;
+
+  /**
+   * Visa 到期日期
+   *
+   * <p>示例值：2020-05-21
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * Visa 签发机构
+   *
+   * <p>示例值：北京市公安局
+   */
+  @SerializedName("issued_by")
+  private String issuedBy;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public String getNationalIdTypeId() {
+    return this.nationalIdTypeId;
+  }
+
+  public void setNationalIdTypeId(String nationalIdTypeId) {
+    this.nationalIdTypeId = nationalIdTypeId;
+  }
+
+  public String getVisaNumber() {
+    return this.visaNumber;
+  }
+
+  public void setVisaNumber(String visaNumber) {
+    this.visaNumber = visaNumber;
+  }
+
+  public String getIssuedDate() {
+    return this.issuedDate;
+  }
+
+  public void setIssuedDate(String issuedDate) {
+    this.issuedDate = issuedDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public String getIssuedBy() {
+    return this.issuedBy;
+  }
+
+  public void setIssuedBy(String issuedBy) {
+    this.issuedBy = issuedBy;
+  }
+
+  // builder 开始
+  public VisaForUpdate() {}
+
+  public VisaForUpdate(Builder builder) {
     /**
      * ID
-     * <p> 示例值：7624287918708785155
+     *
+     * <p>示例值：7624287918708785155
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 国家 / 地区
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * Visa 类型
-     * <p> 示例值：6863330041896371725
+     *
+     * <p>示例值：6863330041896371725
      */
-    @SerializedName("national_id_type_id")
-    private String nationalIdTypeId;
+    this.nationalIdTypeId = builder.nationalIdTypeId;
     /**
      * Visa 号码
-     * <p> 示例值：1231131333
+     *
+     * <p>示例值：1231131333
      */
-    @SerializedName("visa_number")
-    private String visaNumber;
+    this.visaNumber = builder.visaNumber;
     /**
      * Visa 签发日期
-     * <p> 示例值：2020-04-01
+     *
+     * <p>示例值：2020-04-01
      */
-    @SerializedName("issued_date")
-    private String issuedDate;
+    this.issuedDate = builder.issuedDate;
     /**
      * Visa 到期日期
-     * <p> 示例值：2020-05-21
+     *
+     * <p>示例值：2020-05-21
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * Visa 签发机构
-     * <p> 示例值：北京市公安局
+     *
+     * <p>示例值：北京市公安局
      */
-    @SerializedName("issued_by")
+    this.issuedBy = builder.issuedBy;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：7624287918708785155
+     */
+    private String wkId;
+
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String countryRegionId;
+
+    /**
+     * Visa 类型
+     *
+     * <p>示例值：6863330041896371725
+     */
+    private String nationalIdTypeId;
+
+    /**
+     * Visa 号码
+     *
+     * <p>示例值：1231131333
+     */
+    private String visaNumber;
+
+    /**
+     * Visa 签发日期
+     *
+     * <p>示例值：2020-04-01
+     */
+    private String issuedDate;
+
+    /**
+     * Visa 到期日期
+     *
+     * <p>示例值：2020-05-21
+     */
+    private String expirationDate;
+
+    /**
+     * Visa 签发机构
+     *
+     * <p>示例值：北京市公安局
+     */
     private String issuedBy;
 
-    // builder 开始
-    public VisaForUpdate() {
+    /**
+     * ID
+     *
+     * <p>示例值：7624287918708785155
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public VisaForUpdate(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：7624287918708785155
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * Visa 类型
-         * <p> 示例值：6863330041896371725
-         */
-        this.nationalIdTypeId = builder.nationalIdTypeId;
-        /**
-         * Visa 号码
-         * <p> 示例值：1231131333
-         */
-        this.visaNumber = builder.visaNumber;
-        /**
-         * Visa 签发日期
-         * <p> 示例值：2020-04-01
-         */
-        this.issuedDate = builder.issuedDate;
-        /**
-         * Visa 到期日期
-         * <p> 示例值：2020-05-21
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * Visa 签发机构
-         * <p> 示例值：北京市公安局
-         */
-        this.issuedBy = builder.issuedBy;
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Visa 类型
+     *
+     * <p>示例值：6863330041896371725
+     *
+     * @param nationalIdTypeId
+     * @return
+     */
+    public Builder nationalIdTypeId(String nationalIdTypeId) {
+      this.nationalIdTypeId = nationalIdTypeId;
+      return this;
     }
 
-    public String getWkId() {
-        return this.wkId;
+    /**
+     * Visa 号码
+     *
+     * <p>示例值：1231131333
+     *
+     * @param visaNumber
+     * @return
+     */
+    public Builder visaNumber(String visaNumber) {
+      this.visaNumber = visaNumber;
+      return this;
     }
 
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
+    /**
+     * Visa 签发日期
+     *
+     * <p>示例值：2020-04-01
+     *
+     * @param issuedDate
+     * @return
+     */
+    public Builder issuedDate(String issuedDate) {
+      this.issuedDate = issuedDate;
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * Visa 到期日期
+     *
+     * <p>示例值：2020-05-21
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    /**
+     * Visa 签发机构
+     *
+     * <p>示例值：北京市公安局
+     *
+     * @param issuedBy
+     * @return
+     */
+    public Builder issuedBy(String issuedBy) {
+      this.issuedBy = issuedBy;
+      return this;
     }
 
-    public String getNationalIdTypeId() {
-        return this.nationalIdTypeId;
+    public VisaForUpdate build() {
+      return new VisaForUpdate(this);
     }
+  }
 
-    public void setNationalIdTypeId(String nationalIdTypeId) {
-        this.nationalIdTypeId = nationalIdTypeId;
-    }
-
-    public String getVisaNumber() {
-        return this.visaNumber;
-    }
-
-    public void setVisaNumber(String visaNumber) {
-        this.visaNumber = visaNumber;
-    }
-
-    public String getIssuedDate() {
-        return this.issuedDate;
-    }
-
-    public void setIssuedDate(String issuedDate) {
-        this.issuedDate = issuedDate;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public String getIssuedBy() {
-        return this.issuedBy;
-    }
-
-    public void setIssuedBy(String issuedBy) {
-        this.issuedBy = issuedBy;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：7624287918708785155
-         */
-        private String wkId;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegionId;
-        /**
-         * Visa 类型
-         * <p> 示例值：6863330041896371725
-         */
-        private String nationalIdTypeId;
-        /**
-         * Visa 号码
-         * <p> 示例值：1231131333
-         */
-        private String visaNumber;
-        /**
-         * Visa 签发日期
-         * <p> 示例值：2020-04-01
-         */
-        private String issuedDate;
-        /**
-         * Visa 到期日期
-         * <p> 示例值：2020-05-21
-         */
-        private String expirationDate;
-        /**
-         * Visa 签发机构
-         * <p> 示例值：北京市公安局
-         */
-        private String issuedBy;
-
-        /**
-         * ID
-         * <p> 示例值：7624287918708785155
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * Visa 类型
-         * <p> 示例值：6863330041896371725
-         *
-         * @param nationalIdTypeId
-         * @return
-         */
-        public Builder nationalIdTypeId(String nationalIdTypeId) {
-            this.nationalIdTypeId = nationalIdTypeId;
-            return this;
-        }
-
-
-        /**
-         * Visa 号码
-         * <p> 示例值：1231131333
-         *
-         * @param visaNumber
-         * @return
-         */
-        public Builder visaNumber(String visaNumber) {
-            this.visaNumber = visaNumber;
-            return this;
-        }
-
-
-        /**
-         * Visa 签发日期
-         * <p> 示例值：2020-04-01
-         *
-         * @param issuedDate
-         * @return
-         */
-        public Builder issuedDate(String issuedDate) {
-            this.issuedDate = issuedDate;
-            return this;
-        }
-
-
-        /**
-         * Visa 到期日期
-         * <p> 示例值：2020-05-21
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * Visa 签发机构
-         * <p> 示例值：北京市公安局
-         *
-         * @param issuedBy
-         * @return
-         */
-        public Builder issuedBy(String issuedBy) {
-            this.issuedBy = issuedBy;
-            return this;
-        }
-
-
-        public VisaForUpdate build() {
-            return new VisaForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

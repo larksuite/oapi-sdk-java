@@ -13,130 +13,144 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class PatchPathwayReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：1245464678
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 通道ID。ID获取方式;-
+   * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+   * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @Path
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  @Body private PathwayUpdate body;
+
+  public PathwayUpdate getPathwayUpdate() {
+    return this.body;
+  }
+
+  public void setPathwayUpdate(PathwayUpdate body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchPathwayReq() {}
+
+  public PatchPathwayReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：1245464678
+     *
+     * <p>示例值：1245464678
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 通道ID
-     * <p> 示例值：6862995757234914824
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914824
      */
-    @Path
-    @SerializedName("pathway_id")
-    private String pathwayId;
-    @Body
+    this.pathwayId = builder.pathwayId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：1245464678
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String pathwayId; // 通道ID。ID获取方式;-
+
+    // 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;- 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;- 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;- 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+
+    /**
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
+    }
+
     private PathwayUpdate body;
 
-    // builder 开始
-    public PatchPathwayReq() {
-    }
-
-    public PatchPathwayReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：1245464678
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.pathwayId = builder.pathwayId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
-
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
     public PathwayUpdate getPathwayUpdate() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPathwayUpdate(PathwayUpdate body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder pathwayUpdate(PathwayUpdate body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String pathwayId; // 通道ID
-        private PathwayUpdate body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：1245464678
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-        public PathwayUpdate getPathwayUpdate() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder pathwayUpdate(PathwayUpdate body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchPathwayReq build() {
-            return new PatchPathwayReq(this);
-        }
+    public PatchPathwayReq build() {
+      return new PatchPathwayReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,703 +13,862 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationDetailBasicInfo {
+  /**
+   * 投递 ID
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 投递的职位 ID
+   *
+   * <p>示例值：6843547872837273223
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 投递的人才 ID
+   *
+   * <p>示例值：6843547872837273223
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage")
+  private ApplicationStageInfo stage;
+
+  /**
+   * 投递活跃状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 投递方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("delivery_type")
+  private Integer deliveryType;
+
+  /**
+   * 投递来源信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resume_source_info")
+  private ApplicationResumeSource resumeSourceInfo;
+
+  /**
+   * 官网投递来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("website_resume_source")
+  private ApplicationWebsiteResumeSource websiteResumeSource;
+
+  /**
+   * 简历附件 ID
+   *
+   * <p>示例值：6960663240925956415
+   */
+  @SerializedName("talent_attachment_resume_id")
+  private String talentAttachmentResumeId;
+
+  /**
+   * 投递阶段变更时间列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage_time_list")
+  private ApplicationStageTime[] stageTimeList;
+
+  /**
+   * 投递入职状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("onboard_status")
+  private Integer onboardStatus;
+
+  /**
+   * 意向投递城市列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_preferred_city_list")
+  private CodeNameObject[] applicationPreferredCityList;
+
+  /**
+   * 投递终止原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("termination_reason")
+  private TerminationReasonInfo terminationReason;
+
+  /**
+   * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+   *
+   * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 投递所有者 ID
+   *
+   * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 投递终止者 ID
+   *
+   * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+   */
+  @SerializedName("terminator_id")
+  private String terminatorId;
+
+  /**
+   * 创建时间戳（单位：毫秒）
+   *
+   * <p>示例值：1632990774278
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 修改时间戳（单位：毫秒）
+   *
+   * <p>示例值：1634801678103
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 锁定状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("lock_status")
+  private Integer lockStatus;
+
+  /**
+   * 终止备注
+   *
+   * <p>示例值：其他投递已入职
+   */
+  @SerializedName("termination_reason_note")
+  private String terminationReasonNote;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public ApplicationStageInfo getStage() {
+    return this.stage;
+  }
+
+  public void setStage(ApplicationStageInfo stage) {
+    this.stage = stage;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public Integer getDeliveryType() {
+    return this.deliveryType;
+  }
+
+  public void setDeliveryType(Integer deliveryType) {
+    this.deliveryType = deliveryType;
+  }
+
+  public ApplicationResumeSource getResumeSourceInfo() {
+    return this.resumeSourceInfo;
+  }
+
+  public void setResumeSourceInfo(ApplicationResumeSource resumeSourceInfo) {
+    this.resumeSourceInfo = resumeSourceInfo;
+  }
+
+  public ApplicationWebsiteResumeSource getWebsiteResumeSource() {
+    return this.websiteResumeSource;
+  }
+
+  public void setWebsiteResumeSource(ApplicationWebsiteResumeSource websiteResumeSource) {
+    this.websiteResumeSource = websiteResumeSource;
+  }
+
+  public String getTalentAttachmentResumeId() {
+    return this.talentAttachmentResumeId;
+  }
+
+  public void setTalentAttachmentResumeId(String talentAttachmentResumeId) {
+    this.talentAttachmentResumeId = talentAttachmentResumeId;
+  }
+
+  public ApplicationStageTime[] getStageTimeList() {
+    return this.stageTimeList;
+  }
+
+  public void setStageTimeList(ApplicationStageTime[] stageTimeList) {
+    this.stageTimeList = stageTimeList;
+  }
+
+  public Integer getOnboardStatus() {
+    return this.onboardStatus;
+  }
+
+  public void setOnboardStatus(Integer onboardStatus) {
+    this.onboardStatus = onboardStatus;
+  }
+
+  public CodeNameObject[] getApplicationPreferredCityList() {
+    return this.applicationPreferredCityList;
+  }
+
+  public void setApplicationPreferredCityList(CodeNameObject[] applicationPreferredCityList) {
+    this.applicationPreferredCityList = applicationPreferredCityList;
+  }
+
+  public TerminationReasonInfo getTerminationReason() {
+    return this.terminationReason;
+  }
+
+  public void setTerminationReason(TerminationReasonInfo terminationReason) {
+    this.terminationReason = terminationReason;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getTerminatorId() {
+    return this.terminatorId;
+  }
+
+  public void setTerminatorId(String terminatorId) {
+    this.terminatorId = terminatorId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public Integer getLockStatus() {
+    return this.lockStatus;
+  }
+
+  public void setLockStatus(Integer lockStatus) {
+    this.lockStatus = lockStatus;
+  }
+
+  public String getTerminationReasonNote() {
+    return this.terminationReasonNote;
+  }
+
+  public void setTerminationReasonNote(String terminationReasonNote) {
+    this.terminationReasonNote = terminationReasonNote;
+  }
+
+  // builder 开始
+  public ApplicationDetailBasicInfo() {}
+
+  public ApplicationDetailBasicInfo(Builder builder) {
     /**
      * 投递 ID
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 投递的职位 ID
-     * <p> 示例值：6843547872837273223
+     *
+     * <p>示例值：6843547872837273223
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 投递的人才 ID
-     * <p> 示例值：6843547872837273223
+     *
+     * <p>示例值：6843547872837273223
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
-     * 投递处于的阶段
-     * <p> 示例值：
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage")
-    private ApplicationStageInfo stage;
+    this.stage = builder.stage;
     /**
      * 投递活跃状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
      * 投递方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("delivery_type")
-    private Integer deliveryType;
+    this.deliveryType = builder.deliveryType;
     /**
      * 投递来源信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resume_source_info")
-    private ApplicationResumeSource resumeSourceInfo;
+    this.resumeSourceInfo = builder.resumeSourceInfo;
     /**
      * 官网投递来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("website_resume_source")
-    private ApplicationWebsiteResumeSource websiteResumeSource;
+    this.websiteResumeSource = builder.websiteResumeSource;
     /**
      * 简历附件 ID
-     * <p> 示例值：6960663240925956415
+     *
+     * <p>示例值：6960663240925956415
      */
-    @SerializedName("talent_attachment_resume_id")
-    private String talentAttachmentResumeId;
+    this.talentAttachmentResumeId = builder.talentAttachmentResumeId;
     /**
      * 投递阶段变更时间列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage_time_list")
-    private ApplicationStageTime[] stageTimeList;
+    this.stageTimeList = builder.stageTimeList;
     /**
      * 投递入职状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("onboard_status")
-    private Integer onboardStatus;
+    this.onboardStatus = builder.onboardStatus;
     /**
      * 意向投递城市列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_preferred_city_list")
-    private CodeNameObject[] applicationPreferredCityList;
+    this.applicationPreferredCityList = builder.applicationPreferredCityList;
     /**
      * 投递终止原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("termination_reason")
-    private TerminationReasonInfo terminationReason;
+    this.terminationReason = builder.terminationReason;
     /**
      * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
-     * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 投递所有者 ID
-     * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 投递终止者 ID
-     * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
      */
-    @SerializedName("terminator_id")
-    private String terminatorId;
+    this.terminatorId = builder.terminatorId;
     /**
      * 创建时间戳（单位：毫秒）
-     * <p> 示例值：1632990774278
+     *
+     * <p>示例值：1632990774278
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 修改时间戳（单位：毫秒）
-     * <p> 示例值：1634801678103
+     *
+     * <p>示例值：1634801678103
      */
-    @SerializedName("modify_time")
+    this.modifyTime = builder.modifyTime;
+    /**
+     * 锁定状态
+     *
+     * <p>示例值：1
+     */
+    this.lockStatus = builder.lockStatus;
+    /**
+     * 终止备注
+     *
+     * <p>示例值：其他投递已入职
+     */
+    this.terminationReasonNote = builder.terminationReasonNote;
+  }
+
+  public static class Builder {
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 投递的职位 ID
+     *
+     * <p>示例值：6843547872837273223
+     */
+    private String jobId;
+
+    /**
+     * 投递的人才 ID
+     *
+     * <p>示例值：6843547872837273223
+     */
+    private String talentId;
+
+    /**
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
+     */
+    private ApplicationStageInfo stage;
+
+    /**
+     * 投递活跃状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 投递方式
+     *
+     * <p>示例值：1
+     */
+    private Integer deliveryType;
+
+    /**
+     * 投递来源信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationResumeSource resumeSourceInfo;
+
+    /**
+     * 官网投递来源
+     *
+     * <p>示例值：
+     */
+    private ApplicationWebsiteResumeSource websiteResumeSource;
+
+    /**
+     * 简历附件 ID
+     *
+     * <p>示例值：6960663240925956415
+     */
+    private String talentAttachmentResumeId;
+
+    /**
+     * 投递阶段变更时间列表
+     *
+     * <p>示例值：
+     */
+    private ApplicationStageTime[] stageTimeList;
+
+    /**
+     * 投递入职状态
+     *
+     * <p>示例值：1
+     */
+    private Integer onboardStatus;
+
+    /**
+     * 意向投递城市列表
+     *
+     * <p>示例值：
+     */
+    private CodeNameObject[] applicationPreferredCityList;
+
+    /**
+     * 投递终止原因
+     *
+     * <p>示例值：
+     */
+    private TerminationReasonInfo terminationReason;
+
+    /**
+     * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     */
+    private String creatorId;
+
+    /**
+     * 投递所有者 ID
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+     */
+    private String ownerId;
+
+    /**
+     * 投递终止者 ID
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+     */
+    private String terminatorId;
+
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1632990774278
+     */
+    private String createTime;
+
+    /**
+     * 修改时间戳（单位：毫秒）
+     *
+     * <p>示例值：1634801678103
+     */
     private String modifyTime;
 
-    // builder 开始
-    public ApplicationDetailBasicInfo() {
+    /**
+     * 锁定状态
+     *
+     * <p>示例值：1
+     */
+    private Integer lockStatus;
+
+    /**
+     * 终止备注
+     *
+     * <p>示例值：其他投递已入职
+     */
+    private String terminationReasonNote;
+
+    /**
+     * 投递 ID
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationDetailBasicInfo(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 投递的职位 ID
-         * <p> 示例值：6843547872837273223
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 投递的人才 ID
-         * <p> 示例值：6843547872837273223
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 投递处于的阶段
-         * <p> 示例值：
-         */
-        this.stage = builder.stage;
-        /**
-         * 投递活跃状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         */
-        this.deliveryType = builder.deliveryType;
-        /**
-         * 投递来源信息
-         * <p> 示例值：
-         */
-        this.resumeSourceInfo = builder.resumeSourceInfo;
-        /**
-         * 官网投递来源
-         * <p> 示例值：
-         */
-        this.websiteResumeSource = builder.websiteResumeSource;
-        /**
-         * 简历附件 ID
-         * <p> 示例值：6960663240925956415
-         */
-        this.talentAttachmentResumeId = builder.talentAttachmentResumeId;
-        /**
-         * 投递阶段变更时间列表
-         * <p> 示例值：
-         */
-        this.stageTimeList = builder.stageTimeList;
-        /**
-         * 投递入职状态
-         * <p> 示例值：1
-         */
-        this.onboardStatus = builder.onboardStatus;
-        /**
-         * 意向投递城市列表
-         * <p> 示例值：
-         */
-        this.applicationPreferredCityList = builder.applicationPreferredCityList;
-        /**
-         * 投递终止原因
-         * <p> 示例值：
-         */
-        this.terminationReason = builder.terminationReason;
-        /**
-         * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 投递所有者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 投递终止者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         */
-        this.terminatorId = builder.terminatorId;
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1632990774278
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 修改时间戳（单位：毫秒）
-         * <p> 示例值：1634801678103
-         */
-        this.modifyTime = builder.modifyTime;
+    /**
+     * 投递的职位 ID
+     *
+     * <p>示例值：6843547872837273223
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递的人才 ID
+     *
+     * <p>示例值：6843547872837273223
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(ApplicationStageInfo stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 投递活跃状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 投递方式
+     *
+     * <p>示例值：1
+     *
+     * @param deliveryType
+     * @return
+     */
+    public Builder deliveryType(Integer deliveryType) {
+      this.deliveryType = deliveryType;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    /**
+     * 投递来源信息
+     *
+     * <p>示例值：
+     *
+     * @param resumeSourceInfo
+     * @return
+     */
+    public Builder resumeSourceInfo(ApplicationResumeSource resumeSourceInfo) {
+      this.resumeSourceInfo = resumeSourceInfo;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 官网投递来源
+     *
+     * <p>示例值：
+     *
+     * @param websiteResumeSource
+     * @return
+     */
+    public Builder websiteResumeSource(ApplicationWebsiteResumeSource websiteResumeSource) {
+      this.websiteResumeSource = websiteResumeSource;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 简历附件 ID
+     *
+     * <p>示例值：6960663240925956415
+     *
+     * @param talentAttachmentResumeId
+     * @return
+     */
+    public Builder talentAttachmentResumeId(String talentAttachmentResumeId) {
+      this.talentAttachmentResumeId = talentAttachmentResumeId;
+      return this;
     }
 
-    public ApplicationStageInfo getStage() {
-        return this.stage;
+    /**
+     * 投递阶段变更时间列表
+     *
+     * <p>示例值：
+     *
+     * @param stageTimeList
+     * @return
+     */
+    public Builder stageTimeList(ApplicationStageTime[] stageTimeList) {
+      this.stageTimeList = stageTimeList;
+      return this;
     }
 
-    public void setStage(ApplicationStageInfo stage) {
-        this.stage = stage;
+    /**
+     * 投递入职状态
+     *
+     * <p>示例值：1
+     *
+     * @param onboardStatus
+     * @return
+     */
+    public Builder onboardStatus(Integer onboardStatus) {
+      this.onboardStatus = onboardStatus;
+      return this;
     }
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
+    /**
+     * 意向投递城市列表
+     *
+     * <p>示例值：
+     *
+     * @param applicationPreferredCityList
+     * @return
+     */
+    public Builder applicationPreferredCityList(CodeNameObject[] applicationPreferredCityList) {
+      this.applicationPreferredCityList = applicationPreferredCityList;
+      return this;
     }
 
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
+    /**
+     * 投递终止原因
+     *
+     * <p>示例值：
+     *
+     * @param terminationReason
+     * @return
+     */
+    public Builder terminationReason(TerminationReasonInfo terminationReason) {
+      this.terminationReason = terminationReason;
+      return this;
     }
 
-    public Integer getDeliveryType() {
-        return this.deliveryType;
+    /**
+     * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setDeliveryType(Integer deliveryType) {
-        this.deliveryType = deliveryType;
+    /**
+     * 投递所有者 ID
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public ApplicationResumeSource getResumeSourceInfo() {
-        return this.resumeSourceInfo;
+    /**
+     * 投递终止者 ID
+     *
+     * <p>示例值：ou_ce913028fe74123221f5dc320bb9c709
+     *
+     * @param terminatorId
+     * @return
+     */
+    public Builder terminatorId(String terminatorId) {
+      this.terminatorId = terminatorId;
+      return this;
     }
 
-    public void setResumeSourceInfo(ApplicationResumeSource resumeSourceInfo) {
-        this.resumeSourceInfo = resumeSourceInfo;
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1632990774278
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public ApplicationWebsiteResumeSource getWebsiteResumeSource() {
-        return this.websiteResumeSource;
+    /**
+     * 修改时间戳（单位：毫秒）
+     *
+     * <p>示例值：1634801678103
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public void setWebsiteResumeSource(ApplicationWebsiteResumeSource websiteResumeSource) {
-        this.websiteResumeSource = websiteResumeSource;
+    /**
+     * 锁定状态
+     *
+     * <p>示例值：1
+     *
+     * @param lockStatus
+     * @return
+     */
+    public Builder lockStatus(Integer lockStatus) {
+      this.lockStatus = lockStatus;
+      return this;
     }
 
-    public String getTalentAttachmentResumeId() {
-        return this.talentAttachmentResumeId;
+    /**
+     * 终止备注
+     *
+     * <p>示例值：其他投递已入职
+     *
+     * @param terminationReasonNote
+     * @return
+     */
+    public Builder terminationReasonNote(String terminationReasonNote) {
+      this.terminationReasonNote = terminationReasonNote;
+      return this;
     }
 
-    public void setTalentAttachmentResumeId(String talentAttachmentResumeId) {
-        this.talentAttachmentResumeId = talentAttachmentResumeId;
+    public ApplicationDetailBasicInfo build() {
+      return new ApplicationDetailBasicInfo(this);
     }
+  }
 
-    public ApplicationStageTime[] getStageTimeList() {
-        return this.stageTimeList;
-    }
-
-    public void setStageTimeList(ApplicationStageTime[] stageTimeList) {
-        this.stageTimeList = stageTimeList;
-    }
-
-    public Integer getOnboardStatus() {
-        return this.onboardStatus;
-    }
-
-    public void setOnboardStatus(Integer onboardStatus) {
-        this.onboardStatus = onboardStatus;
-    }
-
-    public CodeNameObject[] getApplicationPreferredCityList() {
-        return this.applicationPreferredCityList;
-    }
-
-    public void setApplicationPreferredCityList(CodeNameObject[] applicationPreferredCityList) {
-        this.applicationPreferredCityList = applicationPreferredCityList;
-    }
-
-    public TerminationReasonInfo getTerminationReason() {
-        return this.terminationReason;
-    }
-
-    public void setTerminationReason(TerminationReasonInfo terminationReason) {
-        this.terminationReason = terminationReason;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String getTerminatorId() {
-        return this.terminatorId;
-    }
-
-    public void setTerminatorId(String terminatorId) {
-        this.terminatorId = terminatorId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public static class Builder {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 投递的职位 ID
-         * <p> 示例值：6843547872837273223
-         */
-        private String jobId;
-        /**
-         * 投递的人才 ID
-         * <p> 示例值：6843547872837273223
-         */
-        private String talentId;
-        /**
-         * 投递处于的阶段
-         * <p> 示例值：
-         */
-        private ApplicationStageInfo stage;
-        /**
-         * 投递活跃状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         */
-        private Integer deliveryType;
-        /**
-         * 投递来源信息
-         * <p> 示例值：
-         */
-        private ApplicationResumeSource resumeSourceInfo;
-        /**
-         * 官网投递来源
-         * <p> 示例值：
-         */
-        private ApplicationWebsiteResumeSource websiteResumeSource;
-        /**
-         * 简历附件 ID
-         * <p> 示例值：6960663240925956415
-         */
-        private String talentAttachmentResumeId;
-        /**
-         * 投递阶段变更时间列表
-         * <p> 示例值：
-         */
-        private ApplicationStageTime[] stageTimeList;
-        /**
-         * 投递入职状态
-         * <p> 示例值：1
-         */
-        private Integer onboardStatus;
-        /**
-         * 意向投递城市列表
-         * <p> 示例值：
-         */
-        private CodeNameObject[] applicationPreferredCityList;
-        /**
-         * 投递终止原因
-         * <p> 示例值：
-         */
-        private TerminationReasonInfo terminationReason;
-        /**
-         * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        private String creatorId;
-        /**
-         * 投递所有者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         */
-        private String ownerId;
-        /**
-         * 投递终止者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         */
-        private String terminatorId;
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1632990774278
-         */
-        private String createTime;
-        /**
-         * 修改时间戳（单位：毫秒）
-         * <p> 示例值：1634801678103
-         */
-        private String modifyTime;
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 投递的职位 ID
-         * <p> 示例值：6843547872837273223
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 投递的人才 ID
-         * <p> 示例值：6843547872837273223
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 投递处于的阶段
-         * <p> 示例值：
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(ApplicationStageInfo stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 投递活跃状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         *
-         * @param deliveryType
-         * @return
-         */
-        public Builder deliveryType(Integer deliveryType) {
-            this.deliveryType = deliveryType;
-            return this;
-        }
-
-
-        /**
-         * 投递来源信息
-         * <p> 示例值：
-         *
-         * @param resumeSourceInfo
-         * @return
-         */
-        public Builder resumeSourceInfo(ApplicationResumeSource resumeSourceInfo) {
-            this.resumeSourceInfo = resumeSourceInfo;
-            return this;
-        }
-
-
-        /**
-         * 官网投递来源
-         * <p> 示例值：
-         *
-         * @param websiteResumeSource
-         * @return
-         */
-        public Builder websiteResumeSource(ApplicationWebsiteResumeSource websiteResumeSource) {
-            this.websiteResumeSource = websiteResumeSource;
-            return this;
-        }
-
-
-        /**
-         * 简历附件 ID
-         * <p> 示例值：6960663240925956415
-         *
-         * @param talentAttachmentResumeId
-         * @return
-         */
-        public Builder talentAttachmentResumeId(String talentAttachmentResumeId) {
-            this.talentAttachmentResumeId = talentAttachmentResumeId;
-            return this;
-        }
-
-
-        /**
-         * 投递阶段变更时间列表
-         * <p> 示例值：
-         *
-         * @param stageTimeList
-         * @return
-         */
-        public Builder stageTimeList(ApplicationStageTime[] stageTimeList) {
-            this.stageTimeList = stageTimeList;
-            return this;
-        }
-
-
-        /**
-         * 投递入职状态
-         * <p> 示例值：1
-         *
-         * @param onboardStatus
-         * @return
-         */
-        public Builder onboardStatus(Integer onboardStatus) {
-            this.onboardStatus = onboardStatus;
-            return this;
-        }
-
-
-        /**
-         * 意向投递城市列表
-         * <p> 示例值：
-         *
-         * @param applicationPreferredCityList
-         * @return
-         */
-        public Builder applicationPreferredCityList(CodeNameObject[] applicationPreferredCityList) {
-            this.applicationPreferredCityList = applicationPreferredCityList;
-            return this;
-        }
-
-
-        /**
-         * 投递终止原因
-         * <p> 示例值：
-         *
-         * @param terminationReason
-         * @return
-         */
-        public Builder terminationReason(TerminationReasonInfo terminationReason) {
-            this.terminationReason = terminationReason;
-            return this;
-        }
-
-
-        /**
-         * 投递创建者 ID，仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 投递所有者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 投递终止者 ID
-         * <p> 示例值：ou_ce913028fe74123221f5dc320bb9c709
-         *
-         * @param terminatorId
-         * @return
-         */
-        public Builder terminatorId(String terminatorId) {
-            this.terminatorId = terminatorId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1632990774278
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 修改时间戳（单位：毫秒）
-         * <p> 示例值：1634801678103
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        public ApplicationDetailBasicInfo build() {
-            return new ApplicationDetailBasicInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

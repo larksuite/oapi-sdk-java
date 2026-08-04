@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMailPublicMail {
+  /**
+   * 公共邮箱列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mail_box")
+  private String[] mailBox;
+
+  /**
+   * 邮件id
+   *
+   * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+   */
+  @SerializedName("mail_id")
+  private String mailId;
+
+  public String[] getMailBox() {
+    return this.mailBox;
+  }
+
+  public void setMailBox(String[] mailBox) {
+    this.mailBox = mailBox;
+  }
+
+  public String getMailId() {
+    return this.mailId;
+  }
+
+  public void setMailId(String mailId) {
+    this.mailId = mailId;
+  }
+
+  // builder 开始
+  public ParamMailPublicMail() {}
+
+  public ParamMailPublicMail(Builder builder) {
     /**
      * 公共邮箱列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mail_box")
-    private String[] mailBox;
+    this.mailBox = builder.mailBox;
     /**
      * 邮件id
-     * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
      */
-    @SerializedName("mail_id")
+    this.mailId = builder.mailId;
+  }
+
+  public static class Builder {
+    /**
+     * 公共邮箱列表
+     *
+     * <p>示例值：
+     */
+    private String[] mailBox;
+
+    /**
+     * 邮件id
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     */
     private String mailId;
 
-    // builder 开始
-    public ParamMailPublicMail() {
+    /**
+     * 公共邮箱列表
+     *
+     * <p>示例值：
+     *
+     * @param mailBox
+     * @return
+     */
+    public Builder mailBox(String[] mailBox) {
+      this.mailBox = mailBox;
+      return this;
     }
 
-    public ParamMailPublicMail(Builder builder) {
-        /**
-         * 公共邮箱列表
-         * <p> 示例值：
-         */
-        this.mailBox = builder.mailBox;
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         */
-        this.mailId = builder.mailId;
+    /**
+     * 邮件id
+     *
+     * <p>示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
+     *
+     * @param mailId
+     * @return
+     */
+    public Builder mailId(String mailId) {
+      this.mailId = mailId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ParamMailPublicMail build() {
+      return new ParamMailPublicMail(this);
     }
+  }
 
-    public String[] getMailBox() {
-        return this.mailBox;
-    }
-
-    public void setMailBox(String[] mailBox) {
-        this.mailBox = mailBox;
-    }
-
-    public String getMailId() {
-        return this.mailId;
-    }
-
-    public void setMailId(String mailId) {
-        this.mailId = mailId;
-    }
-
-    public static class Builder {
-        /**
-         * 公共邮箱列表
-         * <p> 示例值：
-         */
-        private String[] mailBox;
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         */
-        private String mailId;
-
-        /**
-         * 公共邮箱列表
-         * <p> 示例值：
-         *
-         * @param mailBox
-         * @return
-         */
-        public Builder mailBox(String[] mailBox) {
-            this.mailBox = mailBox;
-            return this;
-        }
-
-
-        /**
-         * 邮件id
-         * <p> 示例值：7ed2741f931c1d2bb56385aff27697c7e287f40e.053204ce.b7c2.4518.b762.2802a8888741@test.feishu.cn
-         *
-         * @param mailId
-         * @return
-         */
-        public Builder mailId(String mailId) {
-            this.mailId = mailId;
-            return this;
-        }
-
-
-        public ParamMailPublicMail build() {
-            return new ParamMailPublicMail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

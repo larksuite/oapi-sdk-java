@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingFilter {
+  /**
+   * 按会议组织者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("organizer_ids")
+  private String[] organizerIds;
+
+  /**
+   * 按参会人过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_ids")
+  private String[] participantIds;
+
+  /**
+   * 按会议室过滤，传入会议室 open_id 列表，可通过会议室查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_room_ids")
+  private String[] openRoomIds;
+
+  /**
+   * 按会议开始时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time（即 meeting_filter.start_time.end_time）。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start_time")
+  private TimeRange startTime;
+
+  public String[] getOrganizerIds() {
+    return this.organizerIds;
+  }
+
+  public void setOrganizerIds(String[] organizerIds) {
+    this.organizerIds = organizerIds;
+  }
+
+  public String[] getParticipantIds() {
+    return this.participantIds;
+  }
+
+  public void setParticipantIds(String[] participantIds) {
+    this.participantIds = participantIds;
+  }
+
+  public String[] getOpenRoomIds() {
+    return this.openRoomIds;
+  }
+
+  public void setOpenRoomIds(String[] openRoomIds) {
+    this.openRoomIds = openRoomIds;
+  }
+
+  public TimeRange getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(TimeRange startTime) {
+    this.startTime = startTime;
+  }
+
+  // builder 开始
+  public MeetingFilter() {}
+
+  public MeetingFilter(Builder builder) {
     /**
-     * 组织者OpenID
-     * <p> 示例值：
+     * 按会议组织者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
      */
-    @SerializedName("organizer_ids")
+    this.organizerIds = builder.organizerIds;
+    /**
+     * 按参会人过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
+     */
+    this.participantIds = builder.participantIds;
+    /**
+     * 按会议室过滤，传入会议室 open_id 列表，可通过会议室查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
+     */
+    this.openRoomIds = builder.openRoomIds;
+    /**
+     * 按会议开始时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time（即 meeting_filter.start_time.end_time）。
+     *
+     * <p>示例值：
+     */
+    this.startTime = builder.startTime;
+  }
+
+  public static class Builder {
+    /**
+     * 按会议组织者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     */
     private String[] organizerIds;
+
     /**
-     * 参与者OpenID
-     * <p> 示例值：
+     * 按参会人过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant_ids")
     private String[] participantIds;
+
     /**
-     * 会议室ID;
-     * <p> 示例值：
+     * 按会议室过滤，传入会议室 open_id 列表，可通过会议室查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_room_ids")
     private String[] openRoomIds;
+
     /**
-     * 会议开始时间区间（iso8601格式）
-     * <p> 示例值：
+     * 按会议开始时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time（即 meeting_filter.start_time.end_time）。
+     *
+     * <p>示例值：
      */
-    @SerializedName("start_time")
     private TimeRange startTime;
 
-    // builder 开始
-    public MeetingFilter() {
+    /**
+     * 按会议组织者过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。
+     *
+     * <p>示例值：
+     *
+     * @param organizerIds
+     * @return
+     */
+    public Builder organizerIds(String[] organizerIds) {
+      this.organizerIds = organizerIds;
+      return this;
     }
 
-    public MeetingFilter(Builder builder) {
-        /**
-         * 组织者OpenID
-         * <p> 示例值：
-         */
-        this.organizerIds = builder.organizerIds;
-        /**
-         * 参与者OpenID
-         * <p> 示例值：
-         */
-        this.participantIds = builder.participantIds;
-        /**
-         * 会议室ID;
-         * <p> 示例值：
-         */
-        this.openRoomIds = builder.openRoomIds;
-        /**
-         * 会议开始时间区间（iso8601格式）
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
+    /**
+     * 按参会人过滤，传入用户 open_id 列表，可通过用户查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
+     *
+     * @param participantIds
+     * @return
+     */
+    public Builder participantIds(String[] participantIds) {
+      this.participantIds = participantIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 按会议室过滤，传入会议室 open_id 列表，可通过会议室查询接口获取。默认值为空数组，不设置时不过滤该条件。长度范围：0～128。
+     *
+     * <p>示例值：
+     *
+     * @param openRoomIds
+     * @return
+     */
+    public Builder openRoomIds(String[] openRoomIds) {
+      this.openRoomIds = openRoomIds;
+      return this;
     }
 
-    public String[] getOrganizerIds() {
-        return this.organizerIds;
+    /**
+     * 按会议开始时间过滤，传入时间范围对象。其中 start_time 必须小于等于 end_time（即 meeting_filter.start_time.end_time）。
+     *
+     * <p>示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(TimeRange startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setOrganizerIds(String[] organizerIds) {
-        this.organizerIds = organizerIds;
+    public MeetingFilter build() {
+      return new MeetingFilter(this);
     }
+  }
 
-    public String[] getParticipantIds() {
-        return this.participantIds;
-    }
-
-    public void setParticipantIds(String[] participantIds) {
-        this.participantIds = participantIds;
-    }
-
-    public String[] getOpenRoomIds() {
-        return this.openRoomIds;
-    }
-
-    public void setOpenRoomIds(String[] openRoomIds) {
-        this.openRoomIds = openRoomIds;
-    }
-
-    public TimeRange getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(TimeRange startTime) {
-        this.startTime = startTime;
-    }
-
-    public static class Builder {
-        /**
-         * 组织者OpenID
-         * <p> 示例值：
-         */
-        private String[] organizerIds;
-        /**
-         * 参与者OpenID
-         * <p> 示例值：
-         */
-        private String[] participantIds;
-        /**
-         * 会议室ID;
-         * <p> 示例值：
-         */
-        private String[] openRoomIds;
-        /**
-         * 会议开始时间区间（iso8601格式）
-         * <p> 示例值：
-         */
-        private TimeRange startTime;
-
-        /**
-         * 组织者OpenID
-         * <p> 示例值：
-         *
-         * @param organizerIds
-         * @return
-         */
-        public Builder organizerIds(String[] organizerIds) {
-            this.organizerIds = organizerIds;
-            return this;
-        }
-
-
-        /**
-         * 参与者OpenID
-         * <p> 示例值：
-         *
-         * @param participantIds
-         * @return
-         */
-        public Builder participantIds(String[] participantIds) {
-            this.participantIds = participantIds;
-            return this;
-        }
-
-
-        /**
-         * 会议室ID;
-         * <p> 示例值：
-         *
-         * @param openRoomIds
-         * @return
-         */
-        public Builder openRoomIds(String[] openRoomIds) {
-            this.openRoomIds = openRoomIds;
-            return this;
-        }
-
-
-        /**
-         * 会议开始时间区间（iso8601格式）
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(TimeRange startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        public MeetingFilter build() {
-            return new MeetingFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class DeleteMailgroupAliasReq {
+  /**
+   * 邮件组id或邮件组邮箱地址
+   *
+   * <p>示例值：xxxxxx 或 test_group@xx.xxx
+   */
+  @Path
+  @SerializedName("mailgroup_id")
+  private String mailgroupId;
+
+  /**
+   * 邮件组别名邮箱地址
+   *
+   * <p>示例值：xxx@xx.xxx
+   */
+  @Path
+  @SerializedName("alias_id")
+  private String aliasId;
+
+  public String getMailgroupId() {
+    return this.mailgroupId;
+  }
+
+  public void setMailgroupId(String mailgroupId) {
+    this.mailgroupId = mailgroupId;
+  }
+
+  public String getAliasId() {
+    return this.aliasId;
+  }
+
+  public void setAliasId(String aliasId) {
+    this.aliasId = aliasId;
+  }
+
+  // builder 开始
+  public DeleteMailgroupAliasReq() {}
+
+  public DeleteMailgroupAliasReq(Builder builder) {
     /**
      * 邮件组id或邮件组邮箱地址
-     * <p> 示例值：xxxxxx 或 test_group@xx.xxx
+     *
+     * <p>示例值：xxxxxx 或 test_group@xx.xxx
      */
-    @Path
-    @SerializedName("mailgroup_id")
-    private String mailgroupId;
+    this.mailgroupId = builder.mailgroupId;
     /**
      * 邮件组别名邮箱地址
-     * <p> 示例值：xxx@xx.xxx
+     *
+     * <p>示例值：xxx@xx.xxx
      */
-    @Path
-    @SerializedName("alias_id")
-    private String aliasId;
+    this.aliasId = builder.aliasId;
+  }
 
-    // builder 开始
-    public DeleteMailgroupAliasReq() {
+  public static class Builder {
+
+    private String mailgroupId; // 邮件组id或邮件组邮箱地址
+    private String aliasId; // 邮件组别名邮箱地址
+
+    /**
+     * 邮件组id或邮件组邮箱地址
+     *
+     * <p>示例值：xxxxxx 或 test_group@xx.xxx
+     *
+     * @param mailgroupId
+     * @return
+     */
+    public Builder mailgroupId(String mailgroupId) {
+      this.mailgroupId = mailgroupId;
+      return this;
     }
 
-    public DeleteMailgroupAliasReq(Builder builder) {
-        /**
-         * 邮件组id或邮件组邮箱地址
-         * <p> 示例值：xxxxxx 或 test_group@xx.xxx
-         */
-        this.mailgroupId = builder.mailgroupId;
-        /**
-         * 邮件组别名邮箱地址
-         * <p> 示例值：xxx@xx.xxx
-         */
-        this.aliasId = builder.aliasId;
+    /**
+     * 邮件组别名邮箱地址
+     *
+     * <p>示例值：xxx@xx.xxx
+     *
+     * @param aliasId
+     * @return
+     */
+    public Builder aliasId(String aliasId) {
+      this.aliasId = aliasId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteMailgroupAliasReq build() {
+      return new DeleteMailgroupAliasReq(this);
     }
+  }
 
-    public String getMailgroupId() {
-        return this.mailgroupId;
-    }
-
-    public void setMailgroupId(String mailgroupId) {
-        this.mailgroupId = mailgroupId;
-    }
-
-    public String getAliasId() {
-        return this.aliasId;
-    }
-
-    public void setAliasId(String aliasId) {
-        this.aliasId = aliasId;
-    }
-
-    public static class Builder {
-
-        private String mailgroupId; // 邮件组id或邮件组邮箱地址
-        private String aliasId; // 邮件组别名邮箱地址
-
-        /**
-         * 邮件组id或邮件组邮箱地址
-         * <p> 示例值：xxxxxx 或 test_group@xx.xxx
-         *
-         * @param mailgroupId
-         * @return
-         */
-        public Builder mailgroupId(String mailgroupId) {
-            this.mailgroupId = mailgroupId;
-            return this;
-        }
-
-
-        /**
-         * 邮件组别名邮箱地址
-         * <p> 示例值：xxx@xx.xxx
-         *
-         * @param aliasId
-         * @return
-         */
-        public Builder aliasId(String aliasId) {
-            this.aliasId = aliasId;
-            return this;
-        }
-
-
-        public DeleteMailgroupAliasReq build() {
-            return new DeleteMailgroupAliasReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

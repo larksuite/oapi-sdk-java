@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class AskAppKnowledgeReq {
+  /**
+   * 飞书 Aily 平台的AppID，通过飞书 Aily 平台创建应用获取
+   *
+   * <p>示例值：spring_5862e4fea8__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private AskAppKnowledgeReqBody body;
+
+  public AskAppKnowledgeReqBody getAskAppKnowledgeReqBody() {
+    return this.body;
+  }
+
+  public void setAskAppKnowledgeReqBody(AskAppKnowledgeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AskAppKnowledgeReq() {}
+
+  public AskAppKnowledgeReq(Builder builder) {
     /**
-     * 飞书智能伙伴搭建平台的AppID
-     * <p> 示例值：spring_5862e4fea8__c
+     * 飞书 Aily 平台的AppID，通过飞书 Aily 平台创建应用获取
+     *
+     * <p>示例值：spring_5862e4fea8__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appId; // 飞书 Aily 平台的AppID，通过飞书 Aily 平台创建应用获取
+
+    /**
+     * 飞书 Aily 平台的AppID，通过飞书 Aily 平台创建应用获取
+     *
+     * <p>示例值：spring_5862e4fea8__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private AskAppKnowledgeReqBody body;
 
-    // builder 开始
-    public AskAppKnowledgeReq() {
-    }
-
-    public AskAppKnowledgeReq(Builder builder) {
-        /**
-         * 飞书智能伙伴搭建平台的AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public AskAppKnowledgeReqBody getAskAppKnowledgeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAskAppKnowledgeReqBody(AskAppKnowledgeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder askAppKnowledgeReqBody(AskAppKnowledgeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 飞书智能伙伴搭建平台的AppID
-        private AskAppKnowledgeReqBody body;
-
-        /**
-         * 飞书智能伙伴搭建平台的AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public AskAppKnowledgeReqBody getAskAppKnowledgeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder askAppKnowledgeReqBody(AskAppKnowledgeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AskAppKnowledgeReq build() {
-            return new AskAppKnowledgeReq(this);
-        }
+    public AskAppKnowledgeReq build() {
+      return new AskAppKnowledgeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

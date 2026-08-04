@@ -13,26 +13,24 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会话所处的业务场景
- */
+/** 会话所处的业务场景 */
 public enum MyAiVcMeetingScenarioContextScenarioEnum {
-    IM("IM"), // 飞书消息
-    DOC("Doc"), // 飞书文档
-    SHEET("Sheet"), // 飞书表格
-    BASE("Base"), // 飞书多维表格
-    VC("VC"), // 视频会议
-    CALENDAR("Calendar"), // 飞书日程
-    EMAIL("Email"), // 邮箱
-    MEEGO("Meego"), // 飞书项目
-    ;
-    private String value;
+  IM("IM"), // 飞书消息
+  DOC("Doc"), // 飞书文档
+  SHEET("Sheet"), // 飞书表格
+  BASE("Base"), // 飞书多维表格
+  VC("VC"), // 视频会议
+  CALENDAR("Calendar"), // 飞书日程
+  EMAIL("Email"), // 邮箱
+  MEEGO("Meego"), // 飞书项目
+  ;
+  private String value;
 
-    MyAiVcMeetingScenarioContextScenarioEnum(String value) {
-        this.value = value;
-    }
+  MyAiVcMeetingScenarioContextScenarioEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

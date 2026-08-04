@@ -13,149 +13,165 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryOperationLogsDepartmentReqBody {
+  /**
+   * 部门ID列表，ID获取方式：;-
+   * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)、[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口可以返回部门ID;-
+   * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)、[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+   * 获取部门ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
+   *
+   * <p>示例值：2023-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 查询的截止操作日期，注意事项：;- 格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。;-
+   * 查询截止日期end_date应大于起始日期start_date，起止日期跨度最大为366天
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  // builder 开始
+  public QueryOperationLogsDepartmentReqBody() {}
+
+  public QueryOperationLogsDepartmentReqBody(Builder builder) {
     /**
-     * 部门ID列表
-     * <p> 示例值：
+     * 部门ID列表，ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)、[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)、[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
+    this.departmentIds = builder.departmentIds;
     /**
      * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
-     * <p> 示例值：2023-01-01
+     *
+     * <p>示例值：2023-01-01
      */
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
-     * 查询的截止操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。查询截止日期应大于起始日期，起止日期跨度最大为366天
-     * <p> 示例值：2024-01-01
+     * 查询的截止操作日期，注意事项：;- 格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。;-
+     * 查询截止日期end_date应大于起始日期start_date，起止日期跨度最大为366天
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("end_date")
+    this.endDate = builder.endDate;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID列表，ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)、[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)、[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID
+     *
+     * <p>示例值：
+     */
+    private String[] departmentIds;
+
+    /**
+     * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
+     *
+     * <p>示例值：2023-01-01
+     */
+    private String startDate;
+
+    /**
+     * 查询的截止操作日期，注意事项：;- 格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。;-
+     * 查询截止日期end_date应大于起始日期start_date，起止日期跨度最大为366天
+     *
+     * <p>示例值：2024-01-01
+     */
     private String endDate;
 
-    // builder 开始
-    public QueryOperationLogsDepartmentReqBody() {
+    /**
+     * 部门ID列表，ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)、[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)、[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public QueryOperationLogsDepartmentReqBody(Builder builder) {
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
-         * <p> 示例值：2023-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询的截止操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。查询截止日期应大于起始日期，起止日期跨度最大为366天
-         * <p> 示例值：2024-01-01
-         */
-        this.endDate = builder.endDate;
+    /**
+     * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
+     *
+     * <p>示例值：2023-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询的截止操作日期，注意事项：;- 格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。;-
+     * 查询截止日期end_date应大于起始日期start_date，起止日期跨度最大为366天
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
+    public QueryOperationLogsDepartmentReqBody build() {
+      return new QueryOperationLogsDepartmentReqBody(this);
     }
+  }
 
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
-         * <p> 示例值：2023-01-01
-         */
-        private String startDate;
-        /**
-         * 查询的截止操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。查询截止日期应大于起始日期，起止日期跨度最大为366天
-         * <p> 示例值：2024-01-01
-         */
-        private String endDate;
-
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询
-         * <p> 示例值：2023-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询的截止操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。查询截止日期应大于起始日期，起止日期跨度最大为366天
-         * <p> 示例值：2024-01-01
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        public QueryOperationLogsDepartmentReqBody build() {
-            return new QueryOperationLogsDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

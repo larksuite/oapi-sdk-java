@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeleteProbationAssessmentReq {
+  /**
+   * 考核结果 ID
+   *
+   * <p>示例值：7140964208476371331
+   */
+  @Path
+  @SerializedName("assessment_id")
+  private String assessmentId;
+
+  public String getAssessmentId() {
+    return this.assessmentId;
+  }
+
+  public void setAssessmentId(String assessmentId) {
+    this.assessmentId = assessmentId;
+  }
+
+  // builder 开始
+  public DeleteProbationAssessmentReq() {}
+
+  public DeleteProbationAssessmentReq(Builder builder) {
     /**
      * 考核结果 ID
-     * <p> 示例值：7140964208476371331
+     *
+     * <p>示例值：7140964208476371331
      */
-    @Path
-    @SerializedName("assessment_id")
-    private String assessmentId;
+    this.assessmentId = builder.assessmentId;
+  }
 
-    // builder 开始
-    public DeleteProbationAssessmentReq() {
+  public static class Builder {
+
+    private String assessmentId; // 考核结果 ID
+
+    /**
+     * 考核结果 ID
+     *
+     * <p>示例值：7140964208476371331
+     *
+     * @param assessmentId
+     * @return
+     */
+    public Builder assessmentId(String assessmentId) {
+      this.assessmentId = assessmentId;
+      return this;
     }
 
-    public DeleteProbationAssessmentReq(Builder builder) {
-        /**
-         * 考核结果 ID
-         * <p> 示例值：7140964208476371331
-         */
-        this.assessmentId = builder.assessmentId;
+    public DeleteProbationAssessmentReq build() {
+      return new DeleteProbationAssessmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAssessmentId() {
-        return this.assessmentId;
-    }
-
-    public void setAssessmentId(String assessmentId) {
-        this.assessmentId = assessmentId;
-    }
-
-    public static class Builder {
-
-        private String assessmentId; // 考核结果 ID
-
-        /**
-         * 考核结果 ID
-         * <p> 示例值：7140964208476371331
-         *
-         * @param assessmentId
-         * @return
-         */
-        public Builder assessmentId(String assessmentId) {
-            this.assessmentId = assessmentId;
-            return this;
-        }
-
-
-        public DeleteProbationAssessmentReq build() {
-            return new DeleteProbationAssessmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

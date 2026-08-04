@@ -13,118 +13,118 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryReviewDataRespBody {
-    /**
-     * 绩效评估周期列表
-     * <p> 示例值：
-     */
-    @SerializedName("semesters")
-    private Semester[] semesters;
-    /**
-     * 绩效评估项目列表
-     * <p> 示例值：
-     */
-    @SerializedName("activities")
-    private Activity[] activities;
-    /**
-     * 评估项列表
-     * <p> 示例值：
-     */
-    @SerializedName("indicators")
-    private Indicator[] indicators;
-    /**
-     * 评估模板列表
-     * <p> 示例值：
-     */
-    @SerializedName("templates")
-    private Template[] templates;
-    /**
-     * 评估内容列表
-     * <p> 示例值：
-     */
-    @SerializedName("units")
-    private Unit[] units;
-    /**
-     * 填写项列表
-     * <p> 示例值：
-     */
-    @SerializedName("fields")
-    private Field[] fields;
-    /**
-     * 评估数据列表
-     * <p> 示例值：
-     */
-    @SerializedName("datas")
-    private ReviewProfile[] datas;
+  /**
+   * 周期列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("semesters")
+  private Semester[] semesters;
 
-    public Semester[] getSemesters() {
-        return this.semesters;
-    }
+  /**
+   * 绩效评估项目列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activities")
+  private Activity[] activities;
 
-    public void setSemesters(Semester[] semesters) {
-        this.semesters = semesters;
-    }
+  /**
+   * 评估项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indicators")
+  private Indicator[] indicators;
 
-    public Activity[] getActivities() {
-        return this.activities;
-    }
+  /**
+   * 评估模板列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("templates")
+  private Template[] templates;
 
-    public void setActivities(Activity[] activities) {
-        this.activities = activities;
-    }
+  /**
+   * 评估内容列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("units")
+  private Unit[] units;
 
-    public Indicator[] getIndicators() {
-        return this.indicators;
-    }
+  /**
+   * 评估字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private Field[] fields;
 
-    public void setIndicators(Indicator[] indicators) {
-        this.indicators = indicators;
-    }
+  /**
+   * 评估数据列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datas")
+  private ReviewProfile[] datas;
 
-    public Template[] getTemplates() {
-        return this.templates;
-    }
+  public Semester[] getSemesters() {
+    return this.semesters;
+  }
 
-    public void setTemplates(Template[] templates) {
-        this.templates = templates;
-    }
+  public void setSemesters(Semester[] semesters) {
+    this.semesters = semesters;
+  }
 
-    public Unit[] getUnits() {
-        return this.units;
-    }
+  public Activity[] getActivities() {
+    return this.activities;
+  }
 
-    public void setUnits(Unit[] units) {
-        this.units = units;
-    }
+  public void setActivities(Activity[] activities) {
+    this.activities = activities;
+  }
 
-    public Field[] getFields() {
-        return this.fields;
-    }
+  public Indicator[] getIndicators() {
+    return this.indicators;
+  }
 
-    public void setFields(Field[] fields) {
-        this.fields = fields;
-    }
+  public void setIndicators(Indicator[] indicators) {
+    this.indicators = indicators;
+  }
 
-    public ReviewProfile[] getDatas() {
-        return this.datas;
-    }
+  public Template[] getTemplates() {
+    return this.templates;
+  }
 
-    public void setDatas(ReviewProfile[] datas) {
-        this.datas = datas;
-    }
+  public void setTemplates(Template[] templates) {
+    this.templates = templates;
+  }
 
+  public Unit[] getUnits() {
+    return this.units;
+  }
+
+  public void setUnits(Unit[] units) {
+    this.units = units;
+  }
+
+  public Field[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(Field[] fields) {
+    this.fields = fields;
+  }
+
+  public ReviewProfile[] getDatas() {
+    return this.datas;
+  }
+
+  public void setDatas(ReviewProfile[] datas) {
+    this.datas = datas;
+  }
 }

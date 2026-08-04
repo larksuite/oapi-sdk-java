@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OptionValue {
+  /**
+   * 选项ID
+   *
+   * <p>示例值：124112
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_value")
+  private I18nText optionValue;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getOptionValue() {
+    return this.optionValue;
+  }
+
+  public void setOptionValue(I18nText optionValue) {
+    this.optionValue = optionValue;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  // builder 开始
+  public OptionValue() {}
+
+  public OptionValue(Builder builder) {
     /**
      * 选项ID
-     * <p> 示例值：124112
+     *
+     * <p>示例值：124112
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_value")
-    private I18nText optionValue;
+    this.optionValue = builder.optionValue;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 是否删除
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_deleted")
+    this.isDeleted = builder.isDeleted;
+  }
+
+  public static class Builder {
+    /**
+     * 选项ID
+     *
+     * <p>示例值：124112
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText optionValue;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     */
     private Boolean isDeleted;
 
-    // builder 开始
-    public OptionValue() {
+    /**
+     * 选项ID
+     *
+     * <p>示例值：124112
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OptionValue(Builder builder) {
-        /**
-         * 选项ID
-         * <p> 示例值：124112
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.optionValue = builder.optionValue;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        this.isDeleted = builder.isDeleted;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param optionValue
+     * @return
+     */
+    public Builder optionValue(I18nText optionValue) {
+      this.optionValue = optionValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public I18nText getOptionValue() {
-        return this.optionValue;
+    public OptionValue build() {
+      return new OptionValue(this);
     }
+  }
 
-    public void setOptionValue(I18nText optionValue) {
-        this.optionValue = optionValue;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public static class Builder {
-        /**
-         * 选项ID
-         * <p> 示例值：124112
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText optionValue;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean isEnabled;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        private Boolean isDeleted;
-
-        /**
-         * 选项ID
-         * <p> 示例值：124112
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param optionValue
-         * @return
-         */
-        public Builder optionValue(I18nText optionValue) {
-            this.optionValue = optionValue;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        public OptionValue build() {
-            return new OptionValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

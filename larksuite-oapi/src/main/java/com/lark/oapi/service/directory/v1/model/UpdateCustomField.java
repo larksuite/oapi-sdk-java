@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateCustomField {
+  /**
+   * 字段id
+   *
+   * <p>示例值：7036181931599499700
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_name")
+  private I18nText fieldName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private EnumOption[] options;
+
+  /**
+   * 是否启用\n多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(I18nText fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public EnumOption[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(EnumOption[] options) {
+    this.options = options;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  // builder 开始
+  public UpdateCustomField() {}
+
+  public UpdateCustomField(Builder builder) {
     /**
      * 字段id
-     * <p> 示例值：7036181931599499700
+     *
+     * <p>示例值：7036181931599499700
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_name")
-    private I18nText fieldName;
+    this.fieldName = builder.fieldName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private EnumOption[] options;
+    this.options = builder.options;
     /**
      * 是否启用\n多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
+    this.isEnabled = builder.isEnabled;
+  }
+
+  public static class Builder {
+    /**
+     * 字段id
+     *
+     * <p>示例值：7036181931599499700
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText fieldName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
+     *
+     * <p>示例值：
+     */
+    private EnumOption[] options;
+
+    /**
+     * 是否启用\n多语言名称
+     *
+     * <p>示例值：
+     */
     private Boolean isEnabled;
 
-    // builder 开始
-    public UpdateCustomField() {
+    /**
+     * 字段id
+     *
+     * <p>示例值：7036181931599499700
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateCustomField(Builder builder) {
-        /**
-         * 字段id
-         * <p> 示例值：7036181931599499700
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 是否启用\n多语言名称
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(I18nText fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(EnumOption[] options) {
+      this.options = options;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否启用\n多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public I18nText getFieldName() {
-        return this.fieldName;
+    public UpdateCustomField build() {
+      return new UpdateCustomField(this);
     }
+  }
 
-    public void setFieldName(I18nText fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public EnumOption[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(EnumOption[] options) {
-        this.options = options;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public static class Builder {
-        /**
-         * 字段id
-         * <p> 示例值：7036181931599499700
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText fieldName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
-         * <p> 示例值：
-         */
-        private EnumOption[] options;
-        /**
-         * 是否启用\n多语言名称
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-
-        /**
-         * 字段id
-         * <p> 示例值：7036181931599499700
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(I18nText fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 枚举值有序列表，全量覆盖更新，更新的枚举项需要传选项ID，选项ID为空认为是创建新的枚举项，原枚举项中不在此列表中的直接删除
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(EnumOption[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 是否启用\n多语言名称
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        public UpdateCustomField build() {
-            return new UpdateCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

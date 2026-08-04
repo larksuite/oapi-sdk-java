@@ -13,182 +13,202 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class InstanceViewCalendarEventReq {
+  /**
+   * 开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。
+   *
+   * <p>示例值：1631777271
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。
+   *
+   * <p>示例值：1631777271
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 日历 ID。关于日历 ID 可参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  // builder 开始
+  public InstanceViewCalendarEventReq() {}
+
+  public InstanceViewCalendarEventReq(Builder builder) {
     /**
-     * 日程开始Unix时间戳，单位为秒
-     * <p> 示例值：1631777271
+     * 开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。
+     *
+     * <p>示例值：1631777271
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 日程结束Unix时间戳，单位为秒
-     * <p> 示例值：1631777271
+     * 结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40
+     * 天。
+     *
+     * <p>示例值：1631777271
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 日历ID
-     * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
+  }
 
-    // builder 开始
-    public InstanceViewCalendarEventReq() {
+  public static class Builder {
+    private String
+        startTime; // 开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time
+    // 之间的时间区间需要小于 40 天。
+    private String
+        endTime; // 结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time
+    // 之间的时间区间需要小于 40 天。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 开始时间，Unix 时间戳，单位为秒。该参数与 end_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40 天。
+     *
+     * <p>示例值：1631777271
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public InstanceViewCalendarEventReq(Builder builder) {
-        /**
-         * 日程开始Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 日程结束Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
+    /**
+     * 结束时间，Unix 时间戳，单位为秒。该参数与 start_time 用于设置查询的时间范围。;;**注意**：start_time 与 end_time 之间的时间区间需要小于 40
+     * 天。
+     *
+     * <p>示例值：1631777271
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.InstanceViewCalendarEventUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.InstanceViewCalendarEventUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    private String calendarId; // 日历 ID。关于日历 ID 可参见[日历 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+
+    /**
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    public InstanceViewCalendarEventReq build() {
+      return new InstanceViewCalendarEventReq(this);
     }
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public static class Builder {
-        private String startTime; // 日程开始Unix时间戳，单位为秒
-        private String endTime; // 日程结束Unix时间戳，单位为秒
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String calendarId; // 日历ID
-
-        /**
-         * 日程开始Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-        /**
-         * 日程结束Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.InstanceViewCalendarEventUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.InstanceViewCalendarEventUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        public InstanceViewCalendarEventReq build() {
-            return new InstanceViewCalendarEventReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

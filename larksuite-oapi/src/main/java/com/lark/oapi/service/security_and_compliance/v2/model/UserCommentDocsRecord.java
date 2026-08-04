@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserCommentDocsRecord {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("docs")
+  /** 示例值： */
+  @SerializedName("docs")
+  private Docs docs;
+
+  /** 示例值： */
+  @SerializedName("latest_comment_time")
+  private String latestCommentTime;
+
+  public Docs getDocs() {
+    return this.docs;
+  }
+
+  public void setDocs(Docs docs) {
+    this.docs = docs;
+  }
+
+  public String getLatestCommentTime() {
+    return this.latestCommentTime;
+  }
+
+  public void setLatestCommentTime(String latestCommentTime) {
+    this.latestCommentTime = latestCommentTime;
+  }
+
+  // builder 开始
+  public UserCommentDocsRecord() {}
+
+  public UserCommentDocsRecord(Builder builder) {
+    /** 示例值： */
+    this.docs = builder.docs;
+    /** 示例值： */
+    this.latestCommentTime = builder.latestCommentTime;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Docs docs;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("latest_comment_time")
+
+    /** 示例值： */
     private String latestCommentTime;
 
-    // builder 开始
-    public UserCommentDocsRecord() {
+    /**
+     * 示例值：
+     *
+     * @param docs
+     * @return
+     */
+    public Builder docs(Docs docs) {
+      this.docs = docs;
+      return this;
     }
 
-    public UserCommentDocsRecord(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.docs = builder.docs;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.latestCommentTime = builder.latestCommentTime;
+    /**
+     * 示例值：
+     *
+     * @param latestCommentTime
+     * @return
+     */
+    public Builder latestCommentTime(String latestCommentTime) {
+      this.latestCommentTime = latestCommentTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserCommentDocsRecord build() {
+      return new UserCommentDocsRecord(this);
     }
+  }
 
-    public Docs getDocs() {
-        return this.docs;
-    }
-
-    public void setDocs(Docs docs) {
-        this.docs = docs;
-    }
-
-    public String getLatestCommentTime() {
-        return this.latestCommentTime;
-    }
-
-    public void setLatestCommentTime(String latestCommentTime) {
-        this.latestCommentTime = latestCommentTime;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Docs docs;
-        /**
-         * <p> 示例值：
-         */
-        private String latestCommentTime;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param docs
-         * @return
-         */
-        public Builder docs(Docs docs) {
-            this.docs = docs;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param latestCommentTime
-         * @return
-         */
-        public Builder latestCommentTime(String latestCommentTime) {
-            this.latestCommentTime = latestCommentTime;
-            return this;
-        }
-
-
-        public UserCommentDocsRecord build() {
-            return new UserCommentDocsRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

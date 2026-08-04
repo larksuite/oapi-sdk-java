@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDataCostCenter {
+  /**
+   * 成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 分摊比例
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("rate")
+  private Integer rate;
+
+  /**
+   * 自定义字段;-
+   * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public Integer getRate() {
+    return this.rate;
+  }
+
+  public void setRate(Integer rate) {
+    this.rate = rate;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public JobDataCostCenter() {}
+
+  public JobDataCostCenter(Builder builder) {
     /**
-     * 成本中心id，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-     * <p> 示例值：6950635856373745165
+     * 成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * 分摊比例
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("rate")
-    private Integer rate;
+    this.rate = builder.rate;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String costCenterId;
+
+    /**
+     * 分摊比例
+     *
+     * <p>示例值：100
+     */
+    private Integer rate;
+
+    /**
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] customFields;
 
-    // builder 开始
-    public JobDataCostCenter() {
+    /**
+     * 成本中心id，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获取详细信息
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public JobDataCostCenter(Builder builder) {
-        /**
-         * 成本中心id，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
-        this.rate = builder.rate;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 分摊比例
+     *
+     * <p>示例值：100
+     *
+     * @param rate
+     * @return
+     */
+    public Builder rate(Integer rate) {
+      this.rate = rate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    public JobDataCostCenter build() {
+      return new JobDataCostCenter(this);
     }
+  }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public Integer getRate() {
-        return this.rate;
-    }
-
-    public void setRate(Integer rate) {
-        this.rate = rate;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心id，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
-        private String costCenterId;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
-        private Integer rate;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-
-        /**
-         * 成本中心id，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         *
-         * @param rate
-         * @return
-         */
-        public Builder rate(Integer rate) {
-            this.rate = rate;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public JobDataCostCenter build() {
-            return new JobDataCostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

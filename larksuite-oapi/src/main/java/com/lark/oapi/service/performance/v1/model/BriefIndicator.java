@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BriefIndicator {
+  /**
+   * 评估项id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 是否被终评环节使用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_final_review_stage_used")
+  private Boolean isFinalReviewStageUsed;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Boolean getIsFinalReviewStageUsed() {
+    return this.isFinalReviewStageUsed;
+  }
+
+  public void setIsFinalReviewStageUsed(Boolean isFinalReviewStageUsed) {
+    this.isFinalReviewStageUsed = isFinalReviewStageUsed;
+  }
+
+  // builder 开始
+  public BriefIndicator() {}
+
+  public BriefIndicator(Builder builder) {
     /**
      * 评估项id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 是否被终评环节使用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_final_review_stage_used")
+    this.isFinalReviewStageUsed = builder.isFinalReviewStageUsed;
+  }
+
+  public static class Builder {
+    /**
+     * 评估项id
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 是否被终评环节使用
+     *
+     * <p>示例值：true
+     */
     private Boolean isFinalReviewStageUsed;
 
-    // builder 开始
-    public BriefIndicator() {
+    /**
+     * 评估项id
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BriefIndicator(Builder builder) {
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 是否被终评环节使用
-         * <p> 示例值：true
-         */
-        this.isFinalReviewStageUsed = builder.isFinalReviewStageUsed;
+    /**
+     * 是否被终评环节使用
+     *
+     * <p>示例值：true
+     *
+     * @param isFinalReviewStageUsed
+     * @return
+     */
+    public Builder isFinalReviewStageUsed(Boolean isFinalReviewStageUsed) {
+      this.isFinalReviewStageUsed = isFinalReviewStageUsed;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BriefIndicator build() {
+      return new BriefIndicator(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Boolean getIsFinalReviewStageUsed() {
-        return this.isFinalReviewStageUsed;
-    }
-
-    public void setIsFinalReviewStageUsed(Boolean isFinalReviewStageUsed) {
-        this.isFinalReviewStageUsed = isFinalReviewStageUsed;
-    }
-
-    public static class Builder {
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 是否被终评环节使用
-         * <p> 示例值：true
-         */
-        private Boolean isFinalReviewStageUsed;
-
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 是否被终评环节使用
-         * <p> 示例值：true
-         *
-         * @param isFinalReviewStageUsed
-         * @return
-         */
-        public Builder isFinalReviewStageUsed(Boolean isFinalReviewStageUsed) {
-            this.isFinalReviewStageUsed = isFinalReviewStageUsed;
-            return this;
-        }
-
-
-        public BriefIndicator build() {
-            return new BriefIndicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

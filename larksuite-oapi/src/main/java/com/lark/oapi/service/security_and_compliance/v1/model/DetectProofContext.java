@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DetectProofContext {
+  /**
+   * 检测器名称
+   *
+   * <p>示例值：手机号
+   */
+  @SerializedName("detect_name")
+  private String detectName;
+
+  /**
+   * 证据上下文
+   *
+   * <p>示例值：
+   */
+  @SerializedName("proof_contexts")
+  private ProofContext[] proofContexts;
+
+  public String getDetectName() {
+    return this.detectName;
+  }
+
+  public void setDetectName(String detectName) {
+    this.detectName = detectName;
+  }
+
+  public ProofContext[] getProofContexts() {
+    return this.proofContexts;
+  }
+
+  public void setProofContexts(ProofContext[] proofContexts) {
+    this.proofContexts = proofContexts;
+  }
+
+  // builder 开始
+  public DetectProofContext() {}
+
+  public DetectProofContext(Builder builder) {
     /**
      * 检测器名称
-     * <p> 示例值：手机号
+     *
+     * <p>示例值：手机号
      */
-    @SerializedName("detect_name")
-    private String detectName;
+    this.detectName = builder.detectName;
     /**
      * 证据上下文
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("proof_contexts")
+    this.proofContexts = builder.proofContexts;
+  }
+
+  public static class Builder {
+    /**
+     * 检测器名称
+     *
+     * <p>示例值：手机号
+     */
+    private String detectName;
+
+    /**
+     * 证据上下文
+     *
+     * <p>示例值：
+     */
     private ProofContext[] proofContexts;
 
-    // builder 开始
-    public DetectProofContext() {
+    /**
+     * 检测器名称
+     *
+     * <p>示例值：手机号
+     *
+     * @param detectName
+     * @return
+     */
+    public Builder detectName(String detectName) {
+      this.detectName = detectName;
+      return this;
     }
 
-    public DetectProofContext(Builder builder) {
-        /**
-         * 检测器名称
-         * <p> 示例值：手机号
-         */
-        this.detectName = builder.detectName;
-        /**
-         * 证据上下文
-         * <p> 示例值：
-         */
-        this.proofContexts = builder.proofContexts;
+    /**
+     * 证据上下文
+     *
+     * <p>示例值：
+     *
+     * @param proofContexts
+     * @return
+     */
+    public Builder proofContexts(ProofContext[] proofContexts) {
+      this.proofContexts = proofContexts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DetectProofContext build() {
+      return new DetectProofContext(this);
     }
+  }
 
-    public String getDetectName() {
-        return this.detectName;
-    }
-
-    public void setDetectName(String detectName) {
-        this.detectName = detectName;
-    }
-
-    public ProofContext[] getProofContexts() {
-        return this.proofContexts;
-    }
-
-    public void setProofContexts(ProofContext[] proofContexts) {
-        this.proofContexts = proofContexts;
-    }
-
-    public static class Builder {
-        /**
-         * 检测器名称
-         * <p> 示例值：手机号
-         */
-        private String detectName;
-        /**
-         * 证据上下文
-         * <p> 示例值：
-         */
-        private ProofContext[] proofContexts;
-
-        /**
-         * 检测器名称
-         * <p> 示例值：手机号
-         *
-         * @param detectName
-         * @return
-         */
-        public Builder detectName(String detectName) {
-            this.detectName = detectName;
-            return this;
-        }
-
-
-        /**
-         * 证据上下文
-         * <p> 示例值：
-         *
-         * @param proofContexts
-         * @return
-         */
-        public Builder proofContexts(ProofContext[] proofContexts) {
-            this.proofContexts = proofContexts;
-            return this;
-        }
-
-
-        public DetectProofContext build() {
-            return new DetectProofContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

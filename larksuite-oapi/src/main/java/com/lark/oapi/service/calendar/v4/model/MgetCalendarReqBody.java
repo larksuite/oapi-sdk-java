@@ -13,75 +13,77 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetCalendarReqBody {
+  /**
+   * 日历 ID 列表，多个 ID 传入格式为 `["xxx1", "xxx2"]`。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+   * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+   * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+   * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calendar_ids")
+  private String[] calendarIds;
+
+  public String[] getCalendarIds() {
+    return this.calendarIds;
+  }
+
+  public void setCalendarIds(String[] calendarIds) {
+    this.calendarIds = calendarIds;
+  }
+
+  // builder 开始
+  public MgetCalendarReqBody() {}
+
+  public MgetCalendarReqBody(Builder builder) {
     /**
-     * 日历ID列表
-     * <p> 示例值：
+     * 日历 ID 列表，多个 ID 传入格式为 `["xxx1", "xxx2"]`。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+     * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+     * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+     *
+     * <p>示例值：
      */
-    @SerializedName("calendar_ids")
+    this.calendarIds = builder.calendarIds;
+  }
+
+  public static class Builder {
+    /**
+     * 日历 ID 列表，多个 ID 传入格式为 `["xxx1", "xxx2"]`。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+     * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+     * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+     *
+     * <p>示例值：
+     */
     private String[] calendarIds;
 
-    // builder 开始
-    public MgetCalendarReqBody() {
+    /**
+     * 日历 ID 列表，多个 ID 传入格式为 `["xxx1", "xxx2"]`。;;创建共享日历时会返回日历 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary);-
+     * [查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list);-
+     * [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)
+     *
+     * <p>示例值：
+     *
+     * @param calendarIds
+     * @return
+     */
+    public Builder calendarIds(String[] calendarIds) {
+      this.calendarIds = calendarIds;
+      return this;
     }
 
-    public MgetCalendarReqBody(Builder builder) {
-        /**
-         * 日历ID列表
-         * <p> 示例值：
-         */
-        this.calendarIds = builder.calendarIds;
+    public MgetCalendarReqBody build() {
+      return new MgetCalendarReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getCalendarIds() {
-        return this.calendarIds;
-    }
-
-    public void setCalendarIds(String[] calendarIds) {
-        this.calendarIds = calendarIds;
-    }
-
-    public static class Builder {
-        /**
-         * 日历ID列表
-         * <p> 示例值：
-         */
-        private String[] calendarIds;
-
-        /**
-         * 日历ID列表
-         * <p> 示例值：
-         *
-         * @param calendarIds
-         * @return
-         */
-        public Builder calendarIds(String[] calendarIds) {
-            this.calendarIds = calendarIds;
-            return this;
-        }
-
-
-        public MgetCalendarReqBody build() {
-            return new MgetCalendarReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

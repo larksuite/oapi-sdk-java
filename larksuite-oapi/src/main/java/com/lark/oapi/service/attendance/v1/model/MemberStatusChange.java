@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MemberStatusChange {
+  /**
+   * 是否入职日上班无需打卡，默认为空
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("onboarding_on_no_need_punch")
+  private Boolean onboardingOnNoNeedPunch;
+
+  /**
+   * 是否入职日下班无需打卡，默认为空
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("onboarding_off_no_need_punch")
+  private Boolean onboardingOffNoNeedPunch;
+
+  /**
+   * 是否离职日上班无需打卡，默认为空
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("offboarding_on_no_need_punch")
+  private Boolean offboardingOnNoNeedPunch;
+
+  /**
+   * 是否离职日下班无需打卡，默认为空
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("offboarding_off_no_need_punch")
+  private Boolean offboardingOffNoNeedPunch;
+
+  public Boolean getOnboardingOnNoNeedPunch() {
+    return this.onboardingOnNoNeedPunch;
+  }
+
+  public void setOnboardingOnNoNeedPunch(Boolean onboardingOnNoNeedPunch) {
+    this.onboardingOnNoNeedPunch = onboardingOnNoNeedPunch;
+  }
+
+  public Boolean getOnboardingOffNoNeedPunch() {
+    return this.onboardingOffNoNeedPunch;
+  }
+
+  public void setOnboardingOffNoNeedPunch(Boolean onboardingOffNoNeedPunch) {
+    this.onboardingOffNoNeedPunch = onboardingOffNoNeedPunch;
+  }
+
+  public Boolean getOffboardingOnNoNeedPunch() {
+    return this.offboardingOnNoNeedPunch;
+  }
+
+  public void setOffboardingOnNoNeedPunch(Boolean offboardingOnNoNeedPunch) {
+    this.offboardingOnNoNeedPunch = offboardingOnNoNeedPunch;
+  }
+
+  public Boolean getOffboardingOffNoNeedPunch() {
+    return this.offboardingOffNoNeedPunch;
+  }
+
+  public void setOffboardingOffNoNeedPunch(Boolean offboardingOffNoNeedPunch) {
+    this.offboardingOffNoNeedPunch = offboardingOffNoNeedPunch;
+  }
+
+  // builder 开始
+  public MemberStatusChange() {}
+
+  public MemberStatusChange(Builder builder) {
     /**
-     * 是否入职日上班无需打卡
-     * <p> 示例值：false
+     * 是否入职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
      */
-    @SerializedName("onboarding_on_no_need_punch")
+    this.onboardingOnNoNeedPunch = builder.onboardingOnNoNeedPunch;
+    /**
+     * 是否入职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     */
+    this.onboardingOffNoNeedPunch = builder.onboardingOffNoNeedPunch;
+    /**
+     * 是否离职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     */
+    this.offboardingOnNoNeedPunch = builder.offboardingOnNoNeedPunch;
+    /**
+     * 是否离职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     */
+    this.offboardingOffNoNeedPunch = builder.offboardingOffNoNeedPunch;
+  }
+
+  public static class Builder {
+    /**
+     * 是否入职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     */
     private Boolean onboardingOnNoNeedPunch;
+
     /**
-     * 是否入职日下班无需打卡
-     * <p> 示例值：false
+     * 是否入职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
      */
-    @SerializedName("onboarding_off_no_need_punch")
     private Boolean onboardingOffNoNeedPunch;
+
     /**
-     * 是否离职日上班无需打卡
-     * <p> 示例值：false
+     * 是否离职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
      */
-    @SerializedName("offboarding_on_no_need_punch")
     private Boolean offboardingOnNoNeedPunch;
+
     /**
-     * 是否离职日下班无需打卡
-     * <p> 示例值：false
+     * 是否离职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
      */
-    @SerializedName("offboarding_off_no_need_punch")
     private Boolean offboardingOffNoNeedPunch;
 
-    // builder 开始
-    public MemberStatusChange() {
+    /**
+     * 是否入职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     *
+     * @param onboardingOnNoNeedPunch
+     * @return
+     */
+    public Builder onboardingOnNoNeedPunch(Boolean onboardingOnNoNeedPunch) {
+      this.onboardingOnNoNeedPunch = onboardingOnNoNeedPunch;
+      return this;
     }
 
-    public MemberStatusChange(Builder builder) {
-        /**
-         * 是否入职日上班无需打卡
-         * <p> 示例值：false
-         */
-        this.onboardingOnNoNeedPunch = builder.onboardingOnNoNeedPunch;
-        /**
-         * 是否入职日下班无需打卡
-         * <p> 示例值：false
-         */
-        this.onboardingOffNoNeedPunch = builder.onboardingOffNoNeedPunch;
-        /**
-         * 是否离职日上班无需打卡
-         * <p> 示例值：false
-         */
-        this.offboardingOnNoNeedPunch = builder.offboardingOnNoNeedPunch;
-        /**
-         * 是否离职日下班无需打卡
-         * <p> 示例值：false
-         */
-        this.offboardingOffNoNeedPunch = builder.offboardingOffNoNeedPunch;
+    /**
+     * 是否入职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     *
+     * @param onboardingOffNoNeedPunch
+     * @return
+     */
+    public Builder onboardingOffNoNeedPunch(Boolean onboardingOffNoNeedPunch) {
+      this.onboardingOffNoNeedPunch = onboardingOffNoNeedPunch;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否离职日上班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     *
+     * @param offboardingOnNoNeedPunch
+     * @return
+     */
+    public Builder offboardingOnNoNeedPunch(Boolean offboardingOnNoNeedPunch) {
+      this.offboardingOnNoNeedPunch = offboardingOnNoNeedPunch;
+      return this;
     }
 
-    public Boolean getOnboardingOnNoNeedPunch() {
-        return this.onboardingOnNoNeedPunch;
+    /**
+     * 是否离职日下班无需打卡，默认为空
+     *
+     * <p>示例值：false
+     *
+     * @param offboardingOffNoNeedPunch
+     * @return
+     */
+    public Builder offboardingOffNoNeedPunch(Boolean offboardingOffNoNeedPunch) {
+      this.offboardingOffNoNeedPunch = offboardingOffNoNeedPunch;
+      return this;
     }
 
-    public void setOnboardingOnNoNeedPunch(Boolean onboardingOnNoNeedPunch) {
-        this.onboardingOnNoNeedPunch = onboardingOnNoNeedPunch;
+    public MemberStatusChange build() {
+      return new MemberStatusChange(this);
     }
+  }
 
-    public Boolean getOnboardingOffNoNeedPunch() {
-        return this.onboardingOffNoNeedPunch;
-    }
-
-    public void setOnboardingOffNoNeedPunch(Boolean onboardingOffNoNeedPunch) {
-        this.onboardingOffNoNeedPunch = onboardingOffNoNeedPunch;
-    }
-
-    public Boolean getOffboardingOnNoNeedPunch() {
-        return this.offboardingOnNoNeedPunch;
-    }
-
-    public void setOffboardingOnNoNeedPunch(Boolean offboardingOnNoNeedPunch) {
-        this.offboardingOnNoNeedPunch = offboardingOnNoNeedPunch;
-    }
-
-    public Boolean getOffboardingOffNoNeedPunch() {
-        return this.offboardingOffNoNeedPunch;
-    }
-
-    public void setOffboardingOffNoNeedPunch(Boolean offboardingOffNoNeedPunch) {
-        this.offboardingOffNoNeedPunch = offboardingOffNoNeedPunch;
-    }
-
-    public static class Builder {
-        /**
-         * 是否入职日上班无需打卡
-         * <p> 示例值：false
-         */
-        private Boolean onboardingOnNoNeedPunch;
-        /**
-         * 是否入职日下班无需打卡
-         * <p> 示例值：false
-         */
-        private Boolean onboardingOffNoNeedPunch;
-        /**
-         * 是否离职日上班无需打卡
-         * <p> 示例值：false
-         */
-        private Boolean offboardingOnNoNeedPunch;
-        /**
-         * 是否离职日下班无需打卡
-         * <p> 示例值：false
-         */
-        private Boolean offboardingOffNoNeedPunch;
-
-        /**
-         * 是否入职日上班无需打卡
-         * <p> 示例值：false
-         *
-         * @param onboardingOnNoNeedPunch
-         * @return
-         */
-        public Builder onboardingOnNoNeedPunch(Boolean onboardingOnNoNeedPunch) {
-            this.onboardingOnNoNeedPunch = onboardingOnNoNeedPunch;
-            return this;
-        }
-
-
-        /**
-         * 是否入职日下班无需打卡
-         * <p> 示例值：false
-         *
-         * @param onboardingOffNoNeedPunch
-         * @return
-         */
-        public Builder onboardingOffNoNeedPunch(Boolean onboardingOffNoNeedPunch) {
-            this.onboardingOffNoNeedPunch = onboardingOffNoNeedPunch;
-            return this;
-        }
-
-
-        /**
-         * 是否离职日上班无需打卡
-         * <p> 示例值：false
-         *
-         * @param offboardingOnNoNeedPunch
-         * @return
-         */
-        public Builder offboardingOnNoNeedPunch(Boolean offboardingOnNoNeedPunch) {
-            this.offboardingOnNoNeedPunch = offboardingOnNoNeedPunch;
-            return this;
-        }
-
-
-        /**
-         * 是否离职日下班无需打卡
-         * <p> 示例值：false
-         *
-         * @param offboardingOffNoNeedPunch
-         * @return
-         */
-        public Builder offboardingOffNoNeedPunch(Boolean offboardingOffNoNeedPunch) {
-            this.offboardingOffNoNeedPunch = offboardingOffNoNeedPunch;
-            return this;
-        }
-
-
-        public MemberStatusChange build() {
-            return new MemberStatusChange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

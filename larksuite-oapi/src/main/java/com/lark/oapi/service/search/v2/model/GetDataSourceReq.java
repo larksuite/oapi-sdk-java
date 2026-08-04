@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.search.v2.enums.*;
 
 public class GetDataSourceReq {
+  /**
+   * 数据源的唯一标识
+   *
+   * <p>示例值：6953903108179099667
+   */
+  @Path
+  @SerializedName("data_source_id")
+  private String dataSourceId;
+
+  public String getDataSourceId() {
+    return this.dataSourceId;
+  }
+
+  public void setDataSourceId(String dataSourceId) {
+    this.dataSourceId = dataSourceId;
+  }
+
+  // builder 开始
+  public GetDataSourceReq() {}
+
+  public GetDataSourceReq(Builder builder) {
     /**
      * 数据源的唯一标识
-     * <p> 示例值：service_ticket
+     *
+     * <p>示例值：6953903108179099667
      */
-    @Path
-    @SerializedName("data_source_id")
-    private String dataSourceId;
+    this.dataSourceId = builder.dataSourceId;
+  }
 
-    // builder 开始
-    public GetDataSourceReq() {
+  public static class Builder {
+
+    private String dataSourceId; // 数据源的唯一标识
+
+    /**
+     * 数据源的唯一标识
+     *
+     * <p>示例值：6953903108179099667
+     *
+     * @param dataSourceId
+     * @return
+     */
+    public Builder dataSourceId(String dataSourceId) {
+      this.dataSourceId = dataSourceId;
+      return this;
     }
 
-    public GetDataSourceReq(Builder builder) {
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：service_ticket
-         */
-        this.dataSourceId = builder.dataSourceId;
+    public GetDataSourceReq build() {
+      return new GetDataSourceReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDataSourceId() {
-        return this.dataSourceId;
-    }
-
-    public void setDataSourceId(String dataSourceId) {
-        this.dataSourceId = dataSourceId;
-    }
-
-    public static class Builder {
-
-        private String dataSourceId; // 数据源的唯一标识
-
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：service_ticket
-         *
-         * @param dataSourceId
-         * @return
-         */
-        public Builder dataSourceId(String dataSourceId) {
-            this.dataSourceId = dataSourceId;
-            return this;
-        }
-
-
-        public GetDataSourceReq build() {
-            return new GetDataSourceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

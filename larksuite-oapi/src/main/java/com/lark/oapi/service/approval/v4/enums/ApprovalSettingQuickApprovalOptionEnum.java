@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 快捷审批配置项，开启后可在卡片上直接审批。默认值1为启用， 0为禁用
- */
+/** 快捷审批配置项，开启后可在卡片上直接审批。;;**默认值**：1 */
 public enum ApprovalSettingQuickApprovalOptionEnum {
-    CLOSE(0), // 禁用
-    OPEN(1), // 启用
-    ;
-    private Integer value;
+  CLOSE(0), //
+  OPEN(1), //
+  ;
+  private Integer value;
 
-    ApprovalSettingQuickApprovalOptionEnum(Integer value) {
-        this.value = value;
-    }
+  ApprovalSettingQuickApprovalOptionEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

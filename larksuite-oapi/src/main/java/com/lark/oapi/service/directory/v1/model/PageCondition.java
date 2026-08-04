@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PageCondition {
+  /**
+   * 本次请求条数，默认为cursor分页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_type")
+  private String pageType;
+
+  /**
+   * 本次请求条数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。;第一次传空字符串或者不传，后面传上一次的返回值中的page_token。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 偏移量，支持跳页查询
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offset")
+  private Integer offset;
+
+  public String getPageType() {
+    return this.pageType;
+  }
+
+  public void setPageType(String pageType) {
+    this.pageType = pageType;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  // builder 开始
+  public PageCondition() {}
+
+  public PageCondition(Builder builder) {
     /**
      * 本次请求条数，默认为cursor分页
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_type")
-    private String pageType;
+    this.pageType = builder.pageType;
     /**
      * 本次请求条数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。第一次传空字符串或者不传，后面传上一次的返回值中的page_token
-     * <p> 示例值：
+     * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。;第一次传空字符串或者不传，后面传上一次的返回值中的page_token。
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 偏移量，支持跳页查询
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offset")
+    this.offset = builder.offset;
+  }
+
+  public static class Builder {
+    /**
+     * 本次请求条数，默认为cursor分页
+     *
+     * <p>示例值：
+     */
+    private String pageType;
+
+    /**
+     * 本次请求条数
+     *
+     * <p>示例值：
+     */
+    private Integer pageSize;
+
+    /**
+     * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。;第一次传空字符串或者不传，后面传上一次的返回值中的page_token。
+     *
+     * <p>示例值：
+     */
+    private String pageToken;
+
+    /**
+     * 偏移量，支持跳页查询
+     *
+     * <p>示例值：1
+     */
     private Integer offset;
 
-    // builder 开始
-    public PageCondition() {
+    /**
+     * 本次请求条数，默认为cursor分页
+     *
+     * <p>示例值：
+     *
+     * @param pageType
+     * @return
+     */
+    public Builder pageType(String pageType) {
+      this.pageType = pageType;
+      return this;
     }
 
-    public PageCondition(Builder builder) {
-        /**
-         * 本次请求条数，默认为cursor分页
-         * <p> 示例值：
-         */
-        this.pageType = builder.pageType;
-        /**
-         * 本次请求条数
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。第一次传空字符串或者不传，后面传上一次的返回值中的page_token
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 偏移量，支持跳页查询
-         * <p> 示例值：1
-         */
-        this.offset = builder.offset;
+    /**
+     * 本次请求条数
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。;第一次传空字符串或者不传，后面传上一次的返回值中的page_token。
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getPageType() {
-        return this.pageType;
+    /**
+     * 偏移量，支持跳页查询
+     *
+     * <p>示例值：1
+     *
+     * @param offset
+     * @return
+     */
+    public Builder offset(Integer offset) {
+      this.offset = offset;
+      return this;
     }
 
-    public void setPageType(String pageType) {
-        this.pageType = pageType;
+    public PageCondition build() {
+      return new PageCondition(this);
     }
+  }
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getOffset() {
-        return this.offset;
-    }
-
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    public static class Builder {
-        /**
-         * 本次请求条数，默认为cursor分页
-         * <p> 示例值：
-         */
-        private String pageType;
-        /**
-         * 本次请求条数
-         * <p> 示例值：
-         */
-        private Integer pageSize;
-        /**
-         * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。第一次传空字符串或者不传，后面传上一次的返回值中的page_token
-         * <p> 示例值：
-         */
-        private String pageToken;
-        /**
-         * 偏移量，支持跳页查询
-         * <p> 示例值：1
-         */
-        private Integer offset;
-
-        /**
-         * 本次请求条数，默认为cursor分页
-         * <p> 示例值：
-         *
-         * @param pageType
-         * @return
-         */
-        public Builder pageType(String pageType) {
-            this.pageType = pageType;
-            return this;
-        }
-
-
-        /**
-         * 本次请求条数
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 顺序分页查询，不能跳页查询，支持深分页，在需要遍历全部数据的场景只能使用该方式。第一次传空字符串或者不传，后面传上一次的返回值中的page_token
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 偏移量，支持跳页查询
-         * <p> 示例值：1
-         *
-         * @param offset
-         * @return
-         */
-        public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
-        }
-
-
-        public PageCondition build() {
-            return new PageCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

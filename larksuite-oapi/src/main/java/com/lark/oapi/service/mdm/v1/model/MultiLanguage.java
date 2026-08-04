@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MultiLanguage {
+  /**
+   * 语言枚举
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("language")
+  private String language;
+
+  /**
+   * 语言对应的value
+   *
+   * <p>示例值：haha
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public MultiLanguage() {}
+
+  public MultiLanguage(Builder builder) {
     /**
      * 语言枚举
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("language")
-    private String language;
+    this.language = builder.language;
     /**
      * 语言对应的value
-     * <p> 示例值：haha
+     *
+     * <p>示例值：haha
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 语言枚举
+     *
+     * <p>示例值：zh
+     */
+    private String language;
+
+    /**
+     * 语言对应的value
+     *
+     * <p>示例值：haha
+     */
     private String value;
 
-    // builder 开始
-    public MultiLanguage() {
+    /**
+     * 语言枚举
+     *
+     * <p>示例值：zh
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public MultiLanguage(Builder builder) {
-        /**
-         * 语言枚举
-         * <p> 示例值：zh
-         */
-        this.language = builder.language;
-        /**
-         * 语言对应的value
-         * <p> 示例值：haha
-         */
-        this.value = builder.value;
+    /**
+     * 语言枚举
+     *
+     * <p>示例值：zh
+     *
+     * @param language {@link com.lark.oapi.service.mdm.v1.enums.MultiLanguageLanguageEnum}
+     * @return
+     */
+    public Builder language(com.lark.oapi.service.mdm.v1.enums.MultiLanguageLanguageEnum language) {
+      this.language = language.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 语言对应的value
+     *
+     * <p>示例值：haha
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getLanguage() {
-        return this.language;
+    public MultiLanguage build() {
+      return new MultiLanguage(this);
     }
+  }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 语言枚举
-         * <p> 示例值：zh
-         */
-        private String language;
-        /**
-         * 语言对应的value
-         * <p> 示例值：haha
-         */
-        private String value;
-
-        /**
-         * 语言枚举
-         * <p> 示例值：zh
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-        /**
-         * 语言枚举
-         * <p> 示例值：zh
-         *
-         * @param language {@link com.lark.oapi.service.mdm.v1.enums.MultiLanguageLanguageEnum}
-         * @return
-         */
-        public Builder language(com.lark.oapi.service.mdm.v1.enums.MultiLanguageLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
-        }
-
-
-        /**
-         * 语言对应的value
-         * <p> 示例值：haha
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public MultiLanguage build() {
-            return new MultiLanguage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordScopeV2 {
+  /**
+   * 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数
+   *
+   * <p>示例值：all
+   */
+  @SerializedName("record_scope_mode")
+  private String recordScopeMode;
+
+  /**
+   * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据哪个字段来判断。字段需要是user类型的。如"_createBy"、"_updateBy"
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private FieldApiNameSimpleInfo[] fields;
+
+  public String getRecordScopeMode() {
+    return this.recordScopeMode;
+  }
+
+  public void setRecordScopeMode(String recordScopeMode) {
+    this.recordScopeMode = recordScopeMode;
+  }
+
+  public FieldApiNameSimpleInfo[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(FieldApiNameSimpleInfo[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public RecordScopeV2() {}
+
+  public RecordScopeV2(Builder builder) {
     /**
-     * 记录权限的模式
-     * <p> 示例值：
+     * 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数
+     *
+     * <p>示例值：all
      */
-    @SerializedName("record_scope_mode")
+    this.recordScopeMode = builder.recordScopeMode;
+    /**
+     * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据哪个字段来判断。字段需要是user类型的。如"_createBy"、"_updateBy"
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数
+     *
+     * <p>示例值：all
+     */
     private String recordScopeMode;
+
     /**
-     * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据"创建人"还是"更新人"字段判断
-     * <p> 示例值：
+     * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据哪个字段来判断。字段需要是user类型的。如"_createBy"、"_updateBy"
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private FieldApiNameSimpleInfo[] fields;
 
-    // builder 开始
-    public RecordScopeV2() {
+    /**
+     * 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数
+     *
+     * <p>示例值：all
+     *
+     * @param recordScopeMode
+     * @return
+     */
+    public Builder recordScopeMode(String recordScopeMode) {
+      this.recordScopeMode = recordScopeMode;
+      return this;
     }
 
-    public RecordScopeV2(Builder builder) {
-        /**
-         * 记录权限的模式
-         * <p> 示例值：
-         */
-        this.recordScopeMode = builder.recordScopeMode;
-        /**
-         * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据"创建人"还是"更新人"字段判断
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数
+     *
+     * <p>示例值：all
+     *
+     * @param recordScopeMode {@link
+     *     com.lark.oapi.service.apaas.v1.enums.RecordScopeV2RecordScopeModeEnum}
+     * @return
+     */
+    public Builder recordScopeMode(
+        com.lark.oapi.service.apaas.v1.enums.RecordScopeV2RecordScopeModeEnum recordScopeMode) {
+      this.recordScopeMode = recordScopeMode.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据哪个字段来判断。字段需要是user类型的。如"_createBy"、"_updateBy"
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(FieldApiNameSimpleInfo[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getRecordScopeMode() {
-        return this.recordScopeMode;
+    public RecordScopeV2 build() {
+      return new RecordScopeV2(this);
     }
+  }
 
-    public void setRecordScopeMode(String recordScopeMode) {
-        this.recordScopeMode = recordScopeMode;
-    }
-
-    public FieldApiNameSimpleInfo[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(FieldApiNameSimpleInfo[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 记录权限的模式
-         * <p> 示例值：
-         */
-        private String recordScopeMode;
-        /**
-         * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据"创建人"还是"更新人"字段判断
-         * <p> 示例值：
-         */
-        private FieldApiNameSimpleInfo[] fields;
-
-        /**
-         * 记录权限的模式
-         * <p> 示例值：
-         *
-         * @param recordScopeMode
-         * @return
-         */
-        public Builder recordScopeMode(String recordScopeMode) {
-            this.recordScopeMode = recordScopeMode;
-            return this;
-        }
-
-        /**
-         * 记录权限的模式
-         * <p> 示例值：
-         *
-         * @param recordScopeMode {@link com.lark.oapi.service.apaas.v1.enums.RecordScopeV2RecordScopeModeEnum}
-         * @return
-         */
-        public Builder recordScopeMode(com.lark.oapi.service.apaas.v1.enums.RecordScopeV2RecordScopeModeEnum recordScopeMode) {
-            this.recordScopeMode = recordScopeMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字段信息，如果选择的record_scope_mode是"currentAndSubordinates"或"currentUser"，需要给出是根据"创建人"还是"更新人"字段判断
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(FieldApiNameSimpleInfo[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public RecordScopeV2 build() {
-            return new RecordScopeV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

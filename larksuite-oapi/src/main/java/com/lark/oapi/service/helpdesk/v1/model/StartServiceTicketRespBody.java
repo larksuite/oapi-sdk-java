@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StartServiceTicketRespBody {
-    /**
-     * 客服群open ID
-     * <p> 示例值：创建的 chat-id
-     */
-    @SerializedName("chat_id")
-    private String chatId;
-    /**
-     * ticket id
-     * <p> 示例值：7474857595946745884
-     */
-    @SerializedName("ticket_id")
-    private String ticketId;
+  /**
+   * 客服群open ID
+   *
+   * <p>示例值：创建的 chat-id
+   */
+  @SerializedName("chat_id")
+  private String chatId;
 
-    public String getChatId() {
-        return this.chatId;
-    }
+  /**
+   * 创建的工单 ID（仅人工工单返回该参数）
+   *
+   * <p>示例值：7474857595946745884
+   */
+  @SerializedName("ticket_id")
+  private String ticketId;
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
+  public String getChatId() {
+    return this.chatId;
+  }
 
-    public String getTicketId() {
-        return this.ticketId;
-    }
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
 
-    public void setTicketId(String ticketId) {
-        this.ticketId = ticketId;
-    }
+  public String getTicketId() {
+    return this.ticketId;
+  }
 
+  public void setTicketId(String ticketId) {
+    this.ticketId = ticketId;
+  }
 }

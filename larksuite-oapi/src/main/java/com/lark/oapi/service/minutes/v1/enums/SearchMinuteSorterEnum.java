@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.minutes.v1.enums;
 
-/**
- * sorter
- */
+/** sorter */
 public enum SearchMinuteSorterEnum {
-    CREATE_TIME_DESC("create_time_desc"), // 按照妙记创建时间降序排序
-    ;
-    private String value;
+  CREATE_TIME_DESC("create_time_desc"), // 按照妙记创建时间降序排序
+  ;
+  private String value;
 
-    SearchMinuteSorterEnum(String value) {
-        this.value = value;
-    }
+  SearchMinuteSorterEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

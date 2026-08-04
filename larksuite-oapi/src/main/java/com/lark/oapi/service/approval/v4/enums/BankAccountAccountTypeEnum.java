@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 账户类型
- */
+/** 账户类型 */
 public enum BankAccountAccountTypeEnum {
-    CORPORATE("Corporate"), // 对公账户
-    PERSONAL("Personal"), // 个人账户
-    ;
-    private String value;
+  CORPORATE("Corporate"), // 对公账户
+  PERSONAL("Personal"), // 个人账户
+  ;
+  private String value;
 
-    BankAccountAccountTypeEnum(String value) {
-        this.value = value;
-    }
+  BankAccountAccountTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

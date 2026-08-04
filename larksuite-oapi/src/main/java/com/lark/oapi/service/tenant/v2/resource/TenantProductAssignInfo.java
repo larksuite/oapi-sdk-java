@@ -13,101 +13,117 @@
 
 package com.lark.oapi.service.tenant.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.tenant.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.tenant.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class TenantProductAssignInfo {
-    private static final Logger log = LoggerFactory.getLogger(TenantProductAssignInfo.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(TenantProductAssignInfo.class);
+  private final Config config;
 
-    public TenantProductAssignInfo(Config config) {
-        this.config = config;
+  public TenantProductAssignInfo(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取企业席位信息，获取租户下待分配的席位列表（仅返回未满的席位），包含席位名称、席位ID、数量及对应有效期。;返回的待分配席位范围为：​;1.
+   * 客户当前已订阅且处于生效状态的席位（注：不包含增购的、尚未生效的未来席位）；​;2. 客户已订阅且未来生效的全新订阅席位。​;;即增购的未来席位不在本接口返回的待分配席位列表范围内。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a>
+   * ;
+   */
+  public QueryTenantProductAssignInfoResp query(RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/tenant/v2/tenant/assign_info_list/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            null);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a> ;
-     */
-    public QueryTenantProductAssignInfoResp query(RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 反序列化
+    QueryTenantProductAssignInfoResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/tenant/v2/tenant/assign_info_list/query",
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/tenant/v2/tenant/assign_info_list/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
-
-        // 反序列化
-        QueryTenantProductAssignInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/assign_info_list/query"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        return resp;
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a> ;
-     */
-    public QueryTenantProductAssignInfoResp query() throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    return resp;
+  }
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/tenant/v2/tenant/assign_info_list/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
+  /**
+   * 获取企业席位信息，获取租户下待分配的席位列表（仅返回未满的席位），包含席位名称、席位ID、数量及对应有效期。;返回的待分配席位范围为：​;1.
+   * 客户当前已订阅且处于生效状态的席位（注：不包含增购的、尚未生效的未来席位）；​;2. 客户已订阅且未来生效的全新订阅席位。​;;即增购的未来席位不在本接口返回的待分配席位列表范围内。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=tenant&resource=tenant.product_assign_info&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantProductAssignInfoSample.java</a>
+   * ;
+   */
+  public QueryTenantProductAssignInfoResp query() throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        // 反序列化
-        QueryTenantProductAssignInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/tenant/v2/tenant/assign_info_list/query"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/tenant/v2/tenant/assign_info_list/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            null);
 
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+    // 反序列化
+    QueryTenantProductAssignInfoResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantProductAssignInfoResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/tenant/v2/tenant/assign_info_list/query",
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
 
-        resp.setRawResponse(httpResponse);
-        return resp;
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    return resp;
+  }
 }

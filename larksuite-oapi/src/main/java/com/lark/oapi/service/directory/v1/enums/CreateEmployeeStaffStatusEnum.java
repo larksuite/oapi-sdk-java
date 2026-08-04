@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 员工人事状态
- */
+/** 员工人事状态 */
 public enum CreateEmployeeStaffStatusEnum {
-    EMPLOYEE_STAFF_STATUS_DIRECTORY_UN_RESIGNED(1), // 在职
-    EMPLOYEE_STAFF_STATUS_DIRECTORY_RESIGNED(2), // 离职
-    EMPLOYEE_STAFF_STATUS_DIRECTORY_PRE_ENTRY(3), // 待入职
-    EMPLOYEE_STAFF_STATUS_DIRECTORY_CANCELLED_ENTRY(4), // 取消入职
-    EMPLOYEE_STAFF_STATUS_DIRECTORY_PRE_RESIGNED(5), // 待离职
-    ;
-    private Integer value;
+  EMPLOYEE_STAFF_STATUS_DIRECTORY_UN_RESIGNED(1), // 在职
+  EMPLOYEE_STAFF_STATUS_DIRECTORY_RESIGNED(2), // 离职
+  EMPLOYEE_STAFF_STATUS_DIRECTORY_PRE_ENTRY(3), // 待入职
+  EMPLOYEE_STAFF_STATUS_DIRECTORY_CANCELLED_ENTRY(4), // 取消入职
+  EMPLOYEE_STAFF_STATUS_DIRECTORY_PRE_RESIGNED(5), // 待离职
+  ;
+  private Integer value;
 
-    CreateEmployeeStaffStatusEnum(Integer value) {
-        this.value = value;
-    }
+  CreateEmployeeStaffStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

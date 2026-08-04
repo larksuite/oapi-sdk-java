@@ -13,103 +13,136 @@
 
 package com.lark.oapi.service.approval.v4.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.approval.v4.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.approval.v4.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ExternalTask {
-    private static final Logger log = LoggerFactory.getLogger(ExternalTask.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(ExternalTask.class);
+  private final Config config;
 
-    public ExternalTask(Config config) {
-        this.config = config;
+  public ExternalTask(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取三方审批任务状态，该接口用于获取三方审批的状态。支持传入三方审批定义 Code、三方审批实例 ID、审批人 ID 或 审批任务状态查询条件，获取满足条件的三方审批任务状态。
+   *
+   * <p>## 使用示例;;该接口支持多种参数的组合，具体请参考请求体示例：;;- 通过 instance_ids 获取指定实例的任务状态时，instance_ids为必须字段;;
+   * ```json; {; "instance_ids": ["oa_159160304"]; }; ```;;- 通过 user_ids
+   * 获取指定用户的任务状态时，approval_codes、user_ids、status为必须字段;; ```json; {; "approval_codes":
+   * ["B7B65FFE-C2GC-452F-9F0F-9AA8352363D6"],; "user_ids": ["112321"],; "status": "PENDING"; };
+   * ```;;- 通过 status 获取指定状态的所有任务时，approval_codes、status为必须字段;; ``` json; {; "approval_codes": [;
+   * "E78F1022-A166-447C-8320-E151DA90D70F"; ],; "status": "PENDING"; }; ```;;- 通过
+   * page_token获取下一批数据时，page_token为必须字段 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=external_task&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=external_task&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java</a>
+   * ;
+   */
+  public ListExternalTaskResp list(ListExternalTaskReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/approval/v4/external_tasks",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * 获取三方审批任务状态，该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：;;1.通过 instance_ids 获取指定实例的任务状态;;2.通过 user_ids 获取指定用户的任务状态;;3.通过 status 获取指定状态的所有任务;;4.通过page_token获取下一批数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java</a> ;
-     */
-    public ListExternalTaskResp list(ListExternalTaskReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/approval/v4/external_tasks"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        ListExternalTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalTaskResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_tasks"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListExternalTaskResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalTaskResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/external_tasks",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 获取三方审批任务状态，该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：;;1.通过 instance_ids 获取指定实例的任务状态;;2.通过 user_ids 获取指定用户的任务状态;;3.通过 status 获取指定状态的所有任务;;4.通过page_token获取下一批数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java</a> ;
-     */
-    public ListExternalTaskResp list(ListExternalTaskReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/approval/v4/external_tasks"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListExternalTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalTaskResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/external_tasks"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取三方审批任务状态，该接口用于获取三方审批的状态。支持传入三方审批定义 Code、三方审批实例 ID、审批人 ID 或 审批任务状态查询条件，获取满足条件的三方审批任务状态。
+   *
+   * <p>## 使用示例;;该接口支持多种参数的组合，具体请参考请求体示例：;;- 通过 instance_ids 获取指定实例的任务状态时，instance_ids为必须字段;;
+   * ```json; {; "instance_ids": ["oa_159160304"]; }; ```;;- 通过 user_ids
+   * 获取指定用户的任务状态时，approval_codes、user_ids、status为必须字段;; ```json; {; "approval_codes":
+   * ["B7B65FFE-C2GC-452F-9F0F-9AA8352363D6"],; "user_ids": ["112321"],; "status": "PENDING"; };
+   * ```;;- 通过 status 获取指定状态的所有任务时，approval_codes、status为必须字段;; ``` json; {; "approval_codes": [;
+   * "E78F1022-A166-447C-8320-E151DA90D70F"; ],; "status": "PENDING"; }; ```;;- 通过
+   * page_token获取下一批数据时，page_token为必须字段 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=external_task&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=external_task&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListExternalTaskSample.java</a>
+   * ;
+   */
+  public ListExternalTaskResp list(ListExternalTaskReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/approval/v4/external_tasks",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    ListExternalTaskResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListExternalTaskResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/external_tasks",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

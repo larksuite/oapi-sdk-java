@@ -13,432 +13,474 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Activity {
+  /**
+   * 项目 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 周期
+   * ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 项目模式
+   *
+   * <p>示例值：performance_review
+   */
+  @SerializedName("mode")
+  private String mode;
+
+  /**
+   * 项目状态
+   *
+   * <p>示例值：configurable
+   */
+  @SerializedName("progress")
+  private String progress;
+
+  /**
+   * 项目创建时间，毫秒时间戳
+   *
+   * <p>示例值：1691951256000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 项目更新时间，毫秒时间戳
+   *
+   * <p>示例值：1691951256000
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 项目创建人 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：6924187793321444877
+   */
+  @SerializedName("create_user_id")
+  private String createUserId;
+
+  /**
+   * 项目更新人 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：6924187793321444877
+   */
+  @SerializedName("modify_user_id")
+  private String modifyUserId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String getMode() {
+    return this.mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
+  }
+
+  public String getProgress() {
+    return this.progress;
+  }
+
+  public void setProgress(String progress) {
+    this.progress = progress;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
+  public String getModifyUserId() {
+    return this.modifyUserId;
+  }
+
+  public void setModifyUserId(String modifyUserId) {
+    this.modifyUserId = modifyUserId;
+  }
+
+  // builder 开始
+  public Activity() {}
+
+  public Activity(Builder builder) {
     /**
      * 项目 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 项目名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 项目描述
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
-     * 周期 ID
-     * <p> 示例值：7343513161666707459
+     * 周期
+     * ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("semester_id")
-    private String semesterId;
+    this.semesterId = builder.semesterId;
     /**
      * 项目模式
-     * <p> 示例值：performance_review
+     *
+     * <p>示例值：performance_review
      */
-    @SerializedName("mode")
-    private String mode;
+    this.mode = builder.mode;
     /**
      * 项目状态
-     * <p> 示例值：configurable
+     *
+     * <p>示例值：configurable
      */
-    @SerializedName("progress")
-    private String progress;
+    this.progress = builder.progress;
     /**
      * 项目创建时间，毫秒时间戳
-     * <p> 示例值：1691951256000
+     *
+     * <p>示例值：1691951256000
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 项目更新时间，毫秒时间戳
-     * <p> 示例值：1691951256000
+     *
+     * <p>示例值：1691951256000
      */
-    @SerializedName("modify_time")
+    this.modifyTime = builder.modifyTime;
+    /**
+     * 项目创建人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
+     */
+    this.createUserId = builder.createUserId;
+    /**
+     * 项目更新人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
+     */
+    this.modifyUserId = builder.modifyUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 项目 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String semesterId;
+
+    /**
+     * 项目模式
+     *
+     * <p>示例值：performance_review
+     */
+    private String mode;
+
+    /**
+     * 项目状态
+     *
+     * <p>示例值：configurable
+     */
+    private String progress;
+
+    /**
+     * 项目创建时间，毫秒时间戳
+     *
+     * <p>示例值：1691951256000
+     */
+    private String createTime;
+
+    /**
+     * 项目更新时间，毫秒时间戳
+     *
+     * <p>示例值：1691951256000
+     */
     private String modifyTime;
+
     /**
-     * 项目创建人 ID
-     * <p> 示例值：6924187793321444877
+     * 项目创建人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
      */
-    @SerializedName("create_user_id")
     private String createUserId;
+
     /**
-     * 项目更新人 ID
-     * <p> 示例值：6924187793321444877
+     * 项目更新人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
      */
-    @SerializedName("modify_user_id")
     private String modifyUserId;
 
-    // builder 开始
-    public Activity() {
+    /**
+     * 项目 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Activity(Builder builder) {
-        /**
-         * 项目 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 项目名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 项目描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 项目模式
-         * <p> 示例值：performance_review
-         */
-        this.mode = builder.mode;
-        /**
-         * 项目状态
-         * <p> 示例值：configurable
-         */
-        this.progress = builder.progress;
-        /**
-         * 项目创建时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 项目更新时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 项目创建人 ID
-         * <p> 示例值：6924187793321444877
-         */
-        this.createUserId = builder.createUserId;
-        /**
-         * 项目更新人 ID
-         * <p> 示例值：6924187793321444877
-         */
-        this.modifyUserId = builder.modifyUserId;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 项目模式
+     *
+     * <p>示例值：performance_review
+     *
+     * @param mode
+     * @return
+     */
+    public Builder mode(String mode) {
+      this.mode = mode;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 项目模式
+     *
+     * <p>示例值：performance_review
+     *
+     * @param mode {@link com.lark.oapi.service.performance.v2.enums.ActivityModeEnum}
+     * @return
+     */
+    public Builder mode(com.lark.oapi.service.performance.v2.enums.ActivityModeEnum mode) {
+      this.mode = mode.getValue();
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 项目状态
+     *
+     * <p>示例值：configurable
+     *
+     * @param progress
+     * @return
+     */
+    public Builder progress(String progress) {
+      this.progress = progress;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    /**
+     * 项目状态
+     *
+     * <p>示例值：configurable
+     *
+     * @param progress {@link com.lark.oapi.service.performance.v2.enums.ActivityProgressEnum}
+     * @return
+     */
+    public Builder progress(
+        com.lark.oapi.service.performance.v2.enums.ActivityProgressEnum progress) {
+      this.progress = progress.getValue();
+      return this;
     }
 
-    public void setDescription(I18n description) {
-        this.description = description;
+    /**
+     * 项目创建时间，毫秒时间戳
+     *
+     * <p>示例值：1691951256000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    /**
+     * 项目更新时间，毫秒时间戳
+     *
+     * <p>示例值：1691951256000
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
+    /**
+     * 项目创建人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
+     *
+     * @param createUserId
+     * @return
+     */
+    public Builder createUserId(String createUserId) {
+      this.createUserId = createUserId;
+      return this;
     }
 
-    public String getMode() {
-        return this.mode;
+    /**
+     * 项目更新人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：6924187793321444877
+     *
+     * @param modifyUserId
+     * @return
+     */
+    public Builder modifyUserId(String modifyUserId) {
+      this.modifyUserId = modifyUserId;
+      return this;
     }
 
-    public void setMode(String mode) {
-        this.mode = mode;
+    public Activity build() {
+      return new Activity(this);
     }
+  }
 
-    public String getProgress() {
-        return this.progress;
-    }
-
-    public void setProgress(String progress) {
-        this.progress = progress;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public String getCreateUserId() {
-        return this.createUserId;
-    }
-
-    public void setCreateUserId(String createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public String getModifyUserId() {
-        return this.modifyUserId;
-    }
-
-    public void setModifyUserId(String modifyUserId) {
-        this.modifyUserId = modifyUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 项目 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String id;
-        /**
-         * 项目名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 项目描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String semesterId;
-        /**
-         * 项目模式
-         * <p> 示例值：performance_review
-         */
-        private String mode;
-        /**
-         * 项目状态
-         * <p> 示例值：configurable
-         */
-        private String progress;
-        /**
-         * 项目创建时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         */
-        private String createTime;
-        /**
-         * 项目更新时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         */
-        private String modifyTime;
-        /**
-         * 项目创建人 ID
-         * <p> 示例值：6924187793321444877
-         */
-        private String createUserId;
-        /**
-         * 项目更新人 ID
-         * <p> 示例值：6924187793321444877
-         */
-        private String modifyUserId;
-
-        /**
-         * 项目 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 项目名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 项目描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 周期 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 项目模式
-         * <p> 示例值：performance_review
-         *
-         * @param mode
-         * @return
-         */
-        public Builder mode(String mode) {
-            this.mode = mode;
-            return this;
-        }
-
-        /**
-         * 项目模式
-         * <p> 示例值：performance_review
-         *
-         * @param mode {@link com.lark.oapi.service.performance.v2.enums.ActivityModeEnum}
-         * @return
-         */
-        public Builder mode(com.lark.oapi.service.performance.v2.enums.ActivityModeEnum mode) {
-            this.mode = mode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 项目状态
-         * <p> 示例值：configurable
-         *
-         * @param progress
-         * @return
-         */
-        public Builder progress(String progress) {
-            this.progress = progress;
-            return this;
-        }
-
-        /**
-         * 项目状态
-         * <p> 示例值：configurable
-         *
-         * @param progress {@link com.lark.oapi.service.performance.v2.enums.ActivityProgressEnum}
-         * @return
-         */
-        public Builder progress(com.lark.oapi.service.performance.v2.enums.ActivityProgressEnum progress) {
-            this.progress = progress.getValue();
-            return this;
-        }
-
-
-        /**
-         * 项目创建时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 项目更新时间，毫秒时间戳
-         * <p> 示例值：1691951256000
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 项目创建人 ID
-         * <p> 示例值：6924187793321444877
-         *
-         * @param createUserId
-         * @return
-         */
-        public Builder createUserId(String createUserId) {
-            this.createUserId = createUserId;
-            return this;
-        }
-
-
-        /**
-         * 项目更新人 ID
-         * <p> 示例值：6924187793321444877
-         *
-         * @param modifyUserId
-         * @return
-         */
-        public Builder modifyUserId(String modifyUserId) {
-            this.modifyUserId = modifyUserId;
-            return this;
-        }
-
-
-        public Activity build() {
-            return new Activity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

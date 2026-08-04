@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class HitContent {
+  /**
+   * 命中内容的key
+   *
+   * <p>示例值：FileID
+   */
+  @SerializedName("field_key")
+  private String fieldKey;
+
+  /**
+   * 命中内容的值
+   *
+   * <p>示例值：'Vt2nScFweBnwsshsnIFfpL9C'
+   */
+  @SerializedName("field_value")
+  private String fieldValue;
+
+  public String getFieldKey() {
+    return this.fieldKey;
+  }
+
+  public void setFieldKey(String fieldKey) {
+    this.fieldKey = fieldKey;
+  }
+
+  public String getFieldValue() {
+    return this.fieldValue;
+  }
+
+  public void setFieldValue(String fieldValue) {
+    this.fieldValue = fieldValue;
+  }
+
+  // builder 开始
+  public HitContent() {}
+
+  public HitContent(Builder builder) {
     /**
      * 命中内容的key
-     * <p> 示例值：FileID
+     *
+     * <p>示例值：FileID
      */
-    @SerializedName("field_key")
-    private String fieldKey;
+    this.fieldKey = builder.fieldKey;
     /**
      * 命中内容的值
-     * <p> 示例值：'Vt2nScFweBnwsshsnIFfpL9C'
+     *
+     * <p>示例值：'Vt2nScFweBnwsshsnIFfpL9C'
      */
-    @SerializedName("field_value")
+    this.fieldValue = builder.fieldValue;
+  }
+
+  public static class Builder {
+    /**
+     * 命中内容的key
+     *
+     * <p>示例值：FileID
+     */
+    private String fieldKey;
+
+    /**
+     * 命中内容的值
+     *
+     * <p>示例值：'Vt2nScFweBnwsshsnIFfpL9C'
+     */
     private String fieldValue;
 
-    // builder 开始
-    public HitContent() {
+    /**
+     * 命中内容的key
+     *
+     * <p>示例值：FileID
+     *
+     * @param fieldKey
+     * @return
+     */
+    public Builder fieldKey(String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    public HitContent(Builder builder) {
-        /**
-         * 命中内容的key
-         * <p> 示例值：FileID
-         */
-        this.fieldKey = builder.fieldKey;
-        /**
-         * 命中内容的值
-         * <p> 示例值：'Vt2nScFweBnwsshsnIFfpL9C'
-         */
-        this.fieldValue = builder.fieldValue;
+    /**
+     * 命中内容的值
+     *
+     * <p>示例值：'Vt2nScFweBnwsshsnIFfpL9C'
+     *
+     * @param fieldValue
+     * @return
+     */
+    public Builder fieldValue(String fieldValue) {
+      this.fieldValue = fieldValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public HitContent build() {
+      return new HitContent(this);
     }
+  }
 
-    public String getFieldKey() {
-        return this.fieldKey;
-    }
-
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    public String getFieldValue() {
-        return this.fieldValue;
-    }
-
-    public void setFieldValue(String fieldValue) {
-        this.fieldValue = fieldValue;
-    }
-
-    public static class Builder {
-        /**
-         * 命中内容的key
-         * <p> 示例值：FileID
-         */
-        private String fieldKey;
-        /**
-         * 命中内容的值
-         * <p> 示例值：'Vt2nScFweBnwsshsnIFfpL9C'
-         */
-        private String fieldValue;
-
-        /**
-         * 命中内容的key
-         * <p> 示例值：FileID
-         *
-         * @param fieldKey
-         * @return
-         */
-        public Builder fieldKey(String fieldKey) {
-            this.fieldKey = fieldKey;
-            return this;
-        }
-
-
-        /**
-         * 命中内容的值
-         * <p> 示例值：'Vt2nScFweBnwsshsnIFfpL9C'
-         *
-         * @param fieldValue
-         * @return
-         */
-        public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
-        }
-
-
-        public HitContent build() {
-            return new HitContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

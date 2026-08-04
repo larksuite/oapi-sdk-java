@@ -13,2702 +13,3047 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireForAi {
+  /**
+   * 待入职ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  /**
+   * 个人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_id")
+  private PreHirePersonId personId;
+
+  /**
+   * 工号
+   *
+   * <p>示例值：89076543
+   */
+  @SerializedName("worker_id")
+  private String workerId;
+
+  /**
+   * 入职日期
+   *
+   * <p>示例值：2023-01-01
+   */
+  @SerializedName("hire_date")
+  private String hireDate;
+
+  /**
+   * 部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department")
+  private PreHireDepartment department;
+
+  /**
+   * 人员类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type")
+  private PreHireField employeeType;
+
+  /**
+   * Offer负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offer_hr")
+  private PreHireEmployee offerHr;
+
+  /**
+   * 直属上级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("direct_manager")
+  private PreHireEmployee directManager;
+
+  /**
+   * 流程发起时间
+   *
+   * <p>示例值：2023-01-01 12:32
+   */
+  @SerializedName("wk_created_at")
+  private String wkCreatedAt;
+
+  /**
+   * 是否复职
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("is_rehire")
+  private String isRehire;
+
+  /**
+   * 复职前雇佣ID
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("employment_id_before_rehire")
+  private String employmentIdBeforeRehire;
+
+  /**
+   * 是否疑似复职
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("suspected_rehiring")
+  private Boolean suspectedRehiring;
+
+  /**
+   * 是否复用飞书账号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reuse_feishu_account")
+  private PreHireField reuseFeishuAccount;
+
+  /**
+   * 复用的飞书账号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reused_feishu_account")
+  private PreHireEmployee reusedFeishuAccount;
+
+  /**
+   * 入职流程阶段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage")
+  private PreHireField stage;
+
+  /**
+   * 当前处理人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("current_assignees")
+  private PreHireEmployee[] currentAssignees;
+
+  /**
+   * 最后更新时间
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("last_update")
+  private String lastUpdate;
+
+  /**
+   * 流程进度列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progresses")
+  private Integer[] progresses;
+
+  /**
+   * 是否新流程待入职
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("new_flow_pre_hire")
+  private Boolean newFlowPreHire;
+
+  /**
+   * 信息是否异常
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_info_err")
+  private Boolean isInfoErr;
+
+  /**
+   * 异常原因列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("err_reasons")
+  private PreHireField[] errReasons;
+
+  /**
+   * 岗位名称
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("job_name")
+  private String jobName;
+
+  /**
+   * 工作地点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_location")
+  private PreHireField workLocation;
+
+  /**
+   * 办公地点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("office_location")
+  private PreHireField officeLocation;
+
+  /**
+   * 手机号码
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 个人邮箱
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("personal_email")
+  private String personalEmail;
+
+  /**
+   * 工作邮箱
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("work_email")
+  private String workEmail;
+
+  /**
+   * 所属公司
+   *
+   * <p>示例值：
+   */
+  @SerializedName("company")
+  private PreHireField company;
+
+  /**
+   * 服务公司
+   *
+   * <p>示例值：
+   */
+  @SerializedName("service_company")
+  private PreHireField serviceCompany;
+
+  /**
+   * 部门全路径
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_full_path")
+  private PreHireField departmentFullPath;
+
+  /**
+   * 岗位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job")
+  private PreHireField job;
+
+  /**
+   * 岗位职级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level")
+  private PreHireField jobLevel;
+
+  /**
+   * 岗位职等
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_grade")
+  private PreHireField jobGrade;
+
+  /**
+   * 职位序列
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family")
+  private PreHireField jobFamily;
+
+  /**
+   * 职业发展通道
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pathway")
+  private PreHireField pathway;
+
+  /**
+   * 虚线上级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dotted_line_manager")
+  private PreHireEmployee dottedLineManager;
+
+  /**
+   * 人员子类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_sub_type")
+  private PreHireField employeeSubType;
+
+  /**
+   * 合同信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contract_info")
+  private ContractInfoForAi contractInfo;
+
+  /**
+   * 试用期信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("probation_info")
+  private ProbationInfo probationInfo;
+
+  /**
+   * 社保缴纳城市
+   *
+   * <p>示例值：
+   */
+  @SerializedName("social_security_city")
+  private PreHireField socialSecurityCity;
+
+  /**
+   * 工时制度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("working_hours_type")
+  private PreHireField workingHoursType;
+
+  /**
+   * 是否逾期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_overdue")
+  private PreHireField isOverdue;
+
+  /**
+   * 办公地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("office_address")
+  private PreHireField officeAddress;
+
+  /**
+   * 工作日历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("working_calendar")
+  private PreHireField workingCalendar;
+
+  /**
+   * 雇佣类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_type")
+  private PreHireField employmentType;
+
+  /**
+   * 每周工作时长
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("weekly_working_hours")
+  private String weeklyWorkingHours;
+
+  /**
+   * 班次
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_shift")
+  private PreHireField workShift;
+
+  /**
+   * 招聘类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recruitment_type")
+  private PreHireField recruitmentType;
+
+  /**
+   * 薪酬类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("compensation_type")
+  private PreHireField compensationType;
+
+  /**
+   * 成本中心列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_centers")
+  private PreHireField[] costCenters;
+
+  /**
+   * 职位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position")
+  private PreHireField position;
+
+  /**
+   * 司龄计算日期
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("seniority_date")
+  private String seniorityDate;
+
+  /**
+   * 格式化司龄计算日期
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("seniority_date_formatted")
+  private String seniorityDateFormatted;
+
+  /**
+   * 工作国家
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_country")
+  private PreHireField workCountry;
+
+  /**
+   * 入职方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboard_type")
+  private PreHireField onboardType;
+
+  /**
+   * 入职地点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboard_location")
+  private PreHireField onboardLocation;
+
+  /**
+   * 入职办理地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_address")
+  private PreHireField onboardingAddress;
+
+  /**
+   * 签到方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("check_in_method")
+  private PreHireField checkInMethod;
+
+  /**
+   * 签到时间
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("check_in_time")
+  private String checkInTime;
+
+  /**
+   * 试用期主动离职通知期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_period_probation_voluntary")
+  private PreHireField noticePeriodProbationVoluntary;
+
+  /**
+   * 试用期被动离职通知期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_period_probation_in_voluntary")
+  private PreHireField noticePeriodProbationInVoluntary;
+
+  /**
+   * 正式期主动离职通知期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_period_positive_voluntary")
+  private PreHireField noticePeriodPositiveVoluntary;
+
+  /**
+   * 正式期被动离职通知期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_period_positive_in_voluntary")
+  private PreHireField noticePeriodPositiveInVoluntary;
+
+  /**
+   * 默认成本中心
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_cost_center")
+  private PreHireField defaultCostCenter;
+
+  /**
+   * 成本分摊列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocations")
+  private PreHireField[] costAllocations;
+
+  /**
+   * 成本分摊生效时间
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("cost_allocation_effective_time")
+  private String costAllocationEffectiveTime;
+
+  /**
+   * 成本分摊失效时间
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("cost_allocation_expiration_time")
+  private String costAllocationExpirationTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 复职前雇佣信息
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("employment_before_rehire")
+  private PreHireEmployee employmentBeforeRehire;
+
+  /**
+   * 任务状态列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_statuses")
+  private PreHireField[] taskStatuses;
+
+  /**
+   * 是否分配至待入职人员
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("assignee_to_pre_hire")
+  private Boolean assigneeToPreHire;
+
+  /**
+   * 流程名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("flow_instance_name")
+  private PreHireField flowInstanceName;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  public PreHirePersonId getPersonId() {
+    return this.personId;
+  }
+
+  public void setPersonId(PreHirePersonId personId) {
+    this.personId = personId;
+  }
+
+  public String getWorkerId() {
+    return this.workerId;
+  }
+
+  public void setWorkerId(String workerId) {
+    this.workerId = workerId;
+  }
+
+  public String getHireDate() {
+    return this.hireDate;
+  }
+
+  public void setHireDate(String hireDate) {
+    this.hireDate = hireDate;
+  }
+
+  public PreHireDepartment getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(PreHireDepartment department) {
+    this.department = department;
+  }
+
+  public PreHireField getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(PreHireField employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public PreHireEmployee getOfferHr() {
+    return this.offerHr;
+  }
+
+  public void setOfferHr(PreHireEmployee offerHr) {
+    this.offerHr = offerHr;
+  }
+
+  public PreHireEmployee getDirectManager() {
+    return this.directManager;
+  }
+
+  public void setDirectManager(PreHireEmployee directManager) {
+    this.directManager = directManager;
+  }
+
+  public String getWkCreatedAt() {
+    return this.wkCreatedAt;
+  }
+
+  public void setWkCreatedAt(String wkCreatedAt) {
+    this.wkCreatedAt = wkCreatedAt;
+  }
+
+  public String getIsRehire() {
+    return this.isRehire;
+  }
+
+  public void setIsRehire(String isRehire) {
+    this.isRehire = isRehire;
+  }
+
+  public String getEmploymentIdBeforeRehire() {
+    return this.employmentIdBeforeRehire;
+  }
+
+  public void setEmploymentIdBeforeRehire(String employmentIdBeforeRehire) {
+    this.employmentIdBeforeRehire = employmentIdBeforeRehire;
+  }
+
+  public Boolean getSuspectedRehiring() {
+    return this.suspectedRehiring;
+  }
+
+  public void setSuspectedRehiring(Boolean suspectedRehiring) {
+    this.suspectedRehiring = suspectedRehiring;
+  }
+
+  public PreHireField getReuseFeishuAccount() {
+    return this.reuseFeishuAccount;
+  }
+
+  public void setReuseFeishuAccount(PreHireField reuseFeishuAccount) {
+    this.reuseFeishuAccount = reuseFeishuAccount;
+  }
+
+  public PreHireEmployee getReusedFeishuAccount() {
+    return this.reusedFeishuAccount;
+  }
+
+  public void setReusedFeishuAccount(PreHireEmployee reusedFeishuAccount) {
+    this.reusedFeishuAccount = reusedFeishuAccount;
+  }
+
+  public PreHireField getStage() {
+    return this.stage;
+  }
+
+  public void setStage(PreHireField stage) {
+    this.stage = stage;
+  }
+
+  public PreHireEmployee[] getCurrentAssignees() {
+    return this.currentAssignees;
+  }
+
+  public void setCurrentAssignees(PreHireEmployee[] currentAssignees) {
+    this.currentAssignees = currentAssignees;
+  }
+
+  public String getLastUpdate() {
+    return this.lastUpdate;
+  }
+
+  public void setLastUpdate(String lastUpdate) {
+    this.lastUpdate = lastUpdate;
+  }
+
+  public Integer[] getProgresses() {
+    return this.progresses;
+  }
+
+  public void setProgresses(Integer[] progresses) {
+    this.progresses = progresses;
+  }
+
+  public Boolean getNewFlowPreHire() {
+    return this.newFlowPreHire;
+  }
+
+  public void setNewFlowPreHire(Boolean newFlowPreHire) {
+    this.newFlowPreHire = newFlowPreHire;
+  }
+
+  public Boolean getIsInfoErr() {
+    return this.isInfoErr;
+  }
+
+  public void setIsInfoErr(Boolean isInfoErr) {
+    this.isInfoErr = isInfoErr;
+  }
+
+  public PreHireField[] getErrReasons() {
+    return this.errReasons;
+  }
+
+  public void setErrReasons(PreHireField[] errReasons) {
+    this.errReasons = errReasons;
+  }
+
+  public String getJobName() {
+    return this.jobName;
+  }
+
+  public void setJobName(String jobName) {
+    this.jobName = jobName;
+  }
+
+  public PreHireField getWorkLocation() {
+    return this.workLocation;
+  }
+
+  public void setWorkLocation(PreHireField workLocation) {
+    this.workLocation = workLocation;
+  }
+
+  public PreHireField getOfficeLocation() {
+    return this.officeLocation;
+  }
+
+  public void setOfficeLocation(PreHireField officeLocation) {
+    this.officeLocation = officeLocation;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getPersonalEmail() {
+    return this.personalEmail;
+  }
+
+  public void setPersonalEmail(String personalEmail) {
+    this.personalEmail = personalEmail;
+  }
+
+  public String getWorkEmail() {
+    return this.workEmail;
+  }
+
+  public void setWorkEmail(String workEmail) {
+    this.workEmail = workEmail;
+  }
+
+  public PreHireField getCompany() {
+    return this.company;
+  }
+
+  public void setCompany(PreHireField company) {
+    this.company = company;
+  }
+
+  public PreHireField getServiceCompany() {
+    return this.serviceCompany;
+  }
+
+  public void setServiceCompany(PreHireField serviceCompany) {
+    this.serviceCompany = serviceCompany;
+  }
+
+  public PreHireField getDepartmentFullPath() {
+    return this.departmentFullPath;
+  }
+
+  public void setDepartmentFullPath(PreHireField departmentFullPath) {
+    this.departmentFullPath = departmentFullPath;
+  }
+
+  public PreHireField getJob() {
+    return this.job;
+  }
+
+  public void setJob(PreHireField job) {
+    this.job = job;
+  }
+
+  public PreHireField getJobLevel() {
+    return this.jobLevel;
+  }
+
+  public void setJobLevel(PreHireField jobLevel) {
+    this.jobLevel = jobLevel;
+  }
+
+  public PreHireField getJobGrade() {
+    return this.jobGrade;
+  }
+
+  public void setJobGrade(PreHireField jobGrade) {
+    this.jobGrade = jobGrade;
+  }
+
+  public PreHireField getJobFamily() {
+    return this.jobFamily;
+  }
+
+  public void setJobFamily(PreHireField jobFamily) {
+    this.jobFamily = jobFamily;
+  }
+
+  public PreHireField getPathway() {
+    return this.pathway;
+  }
+
+  public void setPathway(PreHireField pathway) {
+    this.pathway = pathway;
+  }
+
+  public PreHireEmployee getDottedLineManager() {
+    return this.dottedLineManager;
+  }
+
+  public void setDottedLineManager(PreHireEmployee dottedLineManager) {
+    this.dottedLineManager = dottedLineManager;
+  }
+
+  public PreHireField getEmployeeSubType() {
+    return this.employeeSubType;
+  }
+
+  public void setEmployeeSubType(PreHireField employeeSubType) {
+    this.employeeSubType = employeeSubType;
+  }
+
+  public ContractInfoForAi getContractInfo() {
+    return this.contractInfo;
+  }
+
+  public void setContractInfo(ContractInfoForAi contractInfo) {
+    this.contractInfo = contractInfo;
+  }
+
+  public ProbationInfo getProbationInfo() {
+    return this.probationInfo;
+  }
+
+  public void setProbationInfo(ProbationInfo probationInfo) {
+    this.probationInfo = probationInfo;
+  }
+
+  public PreHireField getSocialSecurityCity() {
+    return this.socialSecurityCity;
+  }
+
+  public void setSocialSecurityCity(PreHireField socialSecurityCity) {
+    this.socialSecurityCity = socialSecurityCity;
+  }
+
+  public PreHireField getWorkingHoursType() {
+    return this.workingHoursType;
+  }
+
+  public void setWorkingHoursType(PreHireField workingHoursType) {
+    this.workingHoursType = workingHoursType;
+  }
+
+  public PreHireField getIsOverdue() {
+    return this.isOverdue;
+  }
+
+  public void setIsOverdue(PreHireField isOverdue) {
+    this.isOverdue = isOverdue;
+  }
+
+  public PreHireField getOfficeAddress() {
+    return this.officeAddress;
+  }
+
+  public void setOfficeAddress(PreHireField officeAddress) {
+    this.officeAddress = officeAddress;
+  }
+
+  public PreHireField getWorkingCalendar() {
+    return this.workingCalendar;
+  }
+
+  public void setWorkingCalendar(PreHireField workingCalendar) {
+    this.workingCalendar = workingCalendar;
+  }
+
+  public PreHireField getEmploymentType() {
+    return this.employmentType;
+  }
+
+  public void setEmploymentType(PreHireField employmentType) {
+    this.employmentType = employmentType;
+  }
+
+  public String getWeeklyWorkingHours() {
+    return this.weeklyWorkingHours;
+  }
+
+  public void setWeeklyWorkingHours(String weeklyWorkingHours) {
+    this.weeklyWorkingHours = weeklyWorkingHours;
+  }
+
+  public PreHireField getWorkShift() {
+    return this.workShift;
+  }
+
+  public void setWorkShift(PreHireField workShift) {
+    this.workShift = workShift;
+  }
+
+  public PreHireField getRecruitmentType() {
+    return this.recruitmentType;
+  }
+
+  public void setRecruitmentType(PreHireField recruitmentType) {
+    this.recruitmentType = recruitmentType;
+  }
+
+  public PreHireField getCompensationType() {
+    return this.compensationType;
+  }
+
+  public void setCompensationType(PreHireField compensationType) {
+    this.compensationType = compensationType;
+  }
+
+  public PreHireField[] getCostCenters() {
+    return this.costCenters;
+  }
+
+  public void setCostCenters(PreHireField[] costCenters) {
+    this.costCenters = costCenters;
+  }
+
+  public PreHireField getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(PreHireField position) {
+    this.position = position;
+  }
+
+  public String getSeniorityDate() {
+    return this.seniorityDate;
+  }
+
+  public void setSeniorityDate(String seniorityDate) {
+    this.seniorityDate = seniorityDate;
+  }
+
+  public String getSeniorityDateFormatted() {
+    return this.seniorityDateFormatted;
+  }
+
+  public void setSeniorityDateFormatted(String seniorityDateFormatted) {
+    this.seniorityDateFormatted = seniorityDateFormatted;
+  }
+
+  public PreHireField getWorkCountry() {
+    return this.workCountry;
+  }
+
+  public void setWorkCountry(PreHireField workCountry) {
+    this.workCountry = workCountry;
+  }
+
+  public PreHireField getOnboardType() {
+    return this.onboardType;
+  }
+
+  public void setOnboardType(PreHireField onboardType) {
+    this.onboardType = onboardType;
+  }
+
+  public PreHireField getOnboardLocation() {
+    return this.onboardLocation;
+  }
+
+  public void setOnboardLocation(PreHireField onboardLocation) {
+    this.onboardLocation = onboardLocation;
+  }
+
+  public PreHireField getOnboardingAddress() {
+    return this.onboardingAddress;
+  }
+
+  public void setOnboardingAddress(PreHireField onboardingAddress) {
+    this.onboardingAddress = onboardingAddress;
+  }
+
+  public PreHireField getCheckInMethod() {
+    return this.checkInMethod;
+  }
+
+  public void setCheckInMethod(PreHireField checkInMethod) {
+    this.checkInMethod = checkInMethod;
+  }
+
+  public String getCheckInTime() {
+    return this.checkInTime;
+  }
+
+  public void setCheckInTime(String checkInTime) {
+    this.checkInTime = checkInTime;
+  }
+
+  public PreHireField getNoticePeriodProbationVoluntary() {
+    return this.noticePeriodProbationVoluntary;
+  }
+
+  public void setNoticePeriodProbationVoluntary(PreHireField noticePeriodProbationVoluntary) {
+    this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
+  }
+
+  public PreHireField getNoticePeriodProbationInVoluntary() {
+    return this.noticePeriodProbationInVoluntary;
+  }
+
+  public void setNoticePeriodProbationInVoluntary(PreHireField noticePeriodProbationInVoluntary) {
+    this.noticePeriodProbationInVoluntary = noticePeriodProbationInVoluntary;
+  }
+
+  public PreHireField getNoticePeriodPositiveVoluntary() {
+    return this.noticePeriodPositiveVoluntary;
+  }
+
+  public void setNoticePeriodPositiveVoluntary(PreHireField noticePeriodPositiveVoluntary) {
+    this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+  }
+
+  public PreHireField getNoticePeriodPositiveInVoluntary() {
+    return this.noticePeriodPositiveInVoluntary;
+  }
+
+  public void setNoticePeriodPositiveInVoluntary(PreHireField noticePeriodPositiveInVoluntary) {
+    this.noticePeriodPositiveInVoluntary = noticePeriodPositiveInVoluntary;
+  }
+
+  public PreHireField getDefaultCostCenter() {
+    return this.defaultCostCenter;
+  }
+
+  public void setDefaultCostCenter(PreHireField defaultCostCenter) {
+    this.defaultCostCenter = defaultCostCenter;
+  }
+
+  public PreHireField[] getCostAllocations() {
+    return this.costAllocations;
+  }
+
+  public void setCostAllocations(PreHireField[] costAllocations) {
+    this.costAllocations = costAllocations;
+  }
+
+  public String getCostAllocationEffectiveTime() {
+    return this.costAllocationEffectiveTime;
+  }
+
+  public void setCostAllocationEffectiveTime(String costAllocationEffectiveTime) {
+    this.costAllocationEffectiveTime = costAllocationEffectiveTime;
+  }
+
+  public String getCostAllocationExpirationTime() {
+    return this.costAllocationExpirationTime;
+  }
+
+  public void setCostAllocationExpirationTime(String costAllocationExpirationTime) {
+    this.costAllocationExpirationTime = costAllocationExpirationTime;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public PreHireEmployee getEmploymentBeforeRehire() {
+    return this.employmentBeforeRehire;
+  }
+
+  public void setEmploymentBeforeRehire(PreHireEmployee employmentBeforeRehire) {
+    this.employmentBeforeRehire = employmentBeforeRehire;
+  }
+
+  public PreHireField[] getTaskStatuses() {
+    return this.taskStatuses;
+  }
+
+  public void setTaskStatuses(PreHireField[] taskStatuses) {
+    this.taskStatuses = taskStatuses;
+  }
+
+  public Boolean getAssigneeToPreHire() {
+    return this.assigneeToPreHire;
+  }
+
+  public void setAssigneeToPreHire(Boolean assigneeToPreHire) {
+    this.assigneeToPreHire = assigneeToPreHire;
+  }
+
+  public PreHireField getFlowInstanceName() {
+    return this.flowInstanceName;
+  }
+
+  public void setFlowInstanceName(PreHireField flowInstanceName) {
+    this.flowInstanceName = flowInstanceName;
+  }
+
+  // builder 开始
+  public PreHireForAi() {}
+
+  public PreHireForAi(Builder builder) {
     /**
      * 待入职ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("pre_hire_id")
-    private String preHireId;
+    this.preHireId = builder.preHireId;
     /**
      * 个人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_id")
-    private PreHirePersonId personId;
+    this.personId = builder.personId;
     /**
      * 工号
-     * <p> 示例值：89076543
+     *
+     * <p>示例值：89076543
      */
-    @SerializedName("worker_id")
-    private String workerId;
+    this.workerId = builder.workerId;
     /**
      * 入职日期
-     * <p> 示例值：2023-01-01
+     *
+     * <p>示例值：2023-01-01
      */
-    @SerializedName("hire_date")
-    private String hireDate;
+    this.hireDate = builder.hireDate;
     /**
      * 部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department")
-    private PreHireDepartment department;
+    this.department = builder.department;
     /**
      * 人员类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type")
-    private PreHireField employeeType;
+    this.employeeType = builder.employeeType;
     /**
      * Offer负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("offer_hr")
-    private PreHireEmployee offerHr;
+    this.offerHr = builder.offerHr;
     /**
      * 直属上级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("direct_manager")
-    private PreHireEmployee directManager;
+    this.directManager = builder.directManager;
     /**
      * 流程发起时间
-     * <p> 示例值：2023-01-01 12:32
+     *
+     * <p>示例值：2023-01-01 12:32
      */
-    @SerializedName("wk_created_at")
-    private String wkCreatedAt;
+    this.wkCreatedAt = builder.wkCreatedAt;
     /**
      * 是否复职
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("is_rehire")
-    private String isRehire;
+    this.isRehire = builder.isRehire;
     /**
      * 复职前雇佣ID
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("employment_id_before_rehire")
-    private String employmentIdBeforeRehire;
+    this.employmentIdBeforeRehire = builder.employmentIdBeforeRehire;
     /**
      * 是否疑似复职
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("suspected_rehiring")
-    private Boolean suspectedRehiring;
+    this.suspectedRehiring = builder.suspectedRehiring;
     /**
      * 是否复用飞书账号
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reuse_feishu_account")
-    private PreHireField reuseFeishuAccount;
+    this.reuseFeishuAccount = builder.reuseFeishuAccount;
     /**
      * 复用的飞书账号
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reused_feishu_account")
-    private PreHireEmployee reusedFeishuAccount;
+    this.reusedFeishuAccount = builder.reusedFeishuAccount;
     /**
      * 入职流程阶段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage")
-    private PreHireField stage;
+    this.stage = builder.stage;
     /**
      * 当前处理人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("current_assignees")
-    private PreHireEmployee[] currentAssignees;
+    this.currentAssignees = builder.currentAssignees;
     /**
      * 最后更新时间
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("last_update")
-    private String lastUpdate;
+    this.lastUpdate = builder.lastUpdate;
     /**
      * 流程进度列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progresses")
-    private Integer[] progresses;
+    this.progresses = builder.progresses;
     /**
      * 是否新流程待入职
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("new_flow_pre_hire")
-    private Boolean newFlowPreHire;
+    this.newFlowPreHire = builder.newFlowPreHire;
     /**
      * 信息是否异常
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_info_err")
-    private Boolean isInfoErr;
+    this.isInfoErr = builder.isInfoErr;
     /**
      * 异常原因列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("err_reasons")
-    private PreHireField[] errReasons;
+    this.errReasons = builder.errReasons;
     /**
      * 岗位名称
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("job_name")
-    private String jobName;
+    this.jobName = builder.jobName;
     /**
      * 工作地点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_location")
-    private PreHireField workLocation;
+    this.workLocation = builder.workLocation;
     /**
      * 办公地点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("office_location")
-    private PreHireField officeLocation;
+    this.officeLocation = builder.officeLocation;
     /**
      * 手机号码
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    this.phoneNumber = builder.phoneNumber;
     /**
      * 个人邮箱
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("personal_email")
-    private String personalEmail;
+    this.personalEmail = builder.personalEmail;
     /**
      * 工作邮箱
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("work_email")
-    private String workEmail;
+    this.workEmail = builder.workEmail;
     /**
      * 所属公司
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("company")
-    private PreHireField company;
+    this.company = builder.company;
     /**
      * 服务公司
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("service_company")
-    private PreHireField serviceCompany;
+    this.serviceCompany = builder.serviceCompany;
     /**
      * 部门全路径
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_full_path")
-    private PreHireField departmentFullPath;
+    this.departmentFullPath = builder.departmentFullPath;
     /**
      * 岗位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job")
-    private PreHireField job;
+    this.job = builder.job;
     /**
      * 岗位职级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level")
-    private PreHireField jobLevel;
+    this.jobLevel = builder.jobLevel;
     /**
      * 岗位职等
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_grade")
-    private PreHireField jobGrade;
+    this.jobGrade = builder.jobGrade;
     /**
      * 职位序列
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family")
-    private PreHireField jobFamily;
+    this.jobFamily = builder.jobFamily;
     /**
      * 职业发展通道
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pathway")
-    private PreHireField pathway;
+    this.pathway = builder.pathway;
     /**
      * 虚线上级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dotted_line_manager")
-    private PreHireEmployee dottedLineManager;
+    this.dottedLineManager = builder.dottedLineManager;
     /**
      * 人员子类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_sub_type")
-    private PreHireField employeeSubType;
+    this.employeeSubType = builder.employeeSubType;
     /**
      * 合同信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contract_info")
-    private ContractInfoForAi contractInfo;
+    this.contractInfo = builder.contractInfo;
     /**
      * 试用期信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("probation_info")
-    private ProbationInfo probationInfo;
+    this.probationInfo = builder.probationInfo;
     /**
      * 社保缴纳城市
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("social_security_city")
-    private PreHireField socialSecurityCity;
+    this.socialSecurityCity = builder.socialSecurityCity;
     /**
      * 工时制度
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("working_hours_type")
-    private PreHireField workingHoursType;
+    this.workingHoursType = builder.workingHoursType;
     /**
      * 是否逾期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_overdue")
-    private PreHireField isOverdue;
+    this.isOverdue = builder.isOverdue;
     /**
      * 办公地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("office_address")
-    private PreHireField officeAddress;
+    this.officeAddress = builder.officeAddress;
     /**
      * 工作日历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("working_calendar")
-    private PreHireField workingCalendar;
+    this.workingCalendar = builder.workingCalendar;
     /**
      * 雇佣类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_type")
-    private PreHireField employmentType;
+    this.employmentType = builder.employmentType;
     /**
      * 每周工作时长
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("weekly_working_hours")
-    private String weeklyWorkingHours;
+    this.weeklyWorkingHours = builder.weeklyWorkingHours;
     /**
      * 班次
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_shift")
-    private PreHireField workShift;
+    this.workShift = builder.workShift;
     /**
      * 招聘类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recruitment_type")
-    private PreHireField recruitmentType;
+    this.recruitmentType = builder.recruitmentType;
     /**
      * 薪酬类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("compensation_type")
-    private PreHireField compensationType;
+    this.compensationType = builder.compensationType;
     /**
      * 成本中心列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_centers")
-    private PreHireField[] costCenters;
+    this.costCenters = builder.costCenters;
     /**
      * 职位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("position")
-    private PreHireField position;
+    this.position = builder.position;
     /**
      * 司龄计算日期
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("seniority_date")
-    private String seniorityDate;
+    this.seniorityDate = builder.seniorityDate;
     /**
      * 格式化司龄计算日期
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("seniority_date_formatted")
-    private String seniorityDateFormatted;
+    this.seniorityDateFormatted = builder.seniorityDateFormatted;
     /**
      * 工作国家
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_country")
-    private PreHireField workCountry;
+    this.workCountry = builder.workCountry;
     /**
      * 入职方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboard_type")
-    private PreHireField onboardType;
+    this.onboardType = builder.onboardType;
     /**
      * 入职地点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboard_location")
-    private PreHireField onboardLocation;
+    this.onboardLocation = builder.onboardLocation;
     /**
      * 入职办理地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboarding_address")
-    private PreHireField onboardingAddress;
+    this.onboardingAddress = builder.onboardingAddress;
     /**
      * 签到方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("check_in_method")
-    private PreHireField checkInMethod;
+    this.checkInMethod = builder.checkInMethod;
     /**
      * 签到时间
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("check_in_time")
-    private String checkInTime;
+    this.checkInTime = builder.checkInTime;
     /**
      * 试用期主动离职通知期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("notice_period_probation_voluntary")
-    private PreHireField noticePeriodProbationVoluntary;
+    this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
     /**
      * 试用期被动离职通知期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("notice_period_probation_in_voluntary")
-    private PreHireField noticePeriodProbationInVoluntary;
+    this.noticePeriodProbationInVoluntary = builder.noticePeriodProbationInVoluntary;
     /**
      * 正式期主动离职通知期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("notice_period_positive_voluntary")
-    private PreHireField noticePeriodPositiveVoluntary;
+    this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
     /**
      * 正式期被动离职通知期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("notice_period_positive_in_voluntary")
-    private PreHireField noticePeriodPositiveInVoluntary;
+    this.noticePeriodPositiveInVoluntary = builder.noticePeriodPositiveInVoluntary;
     /**
      * 默认成本中心
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_cost_center")
-    private PreHireField defaultCostCenter;
+    this.defaultCostCenter = builder.defaultCostCenter;
     /**
      * 成本分摊列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_allocations")
-    private PreHireField[] costAllocations;
+    this.costAllocations = builder.costAllocations;
     /**
      * 成本分摊生效时间
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("cost_allocation_effective_time")
-    private String costAllocationEffectiveTime;
+    this.costAllocationEffectiveTime = builder.costAllocationEffectiveTime;
     /**
      * 成本分摊失效时间
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("cost_allocation_expiration_time")
-    private String costAllocationExpirationTime;
+    this.costAllocationExpirationTime = builder.costAllocationExpirationTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 复职前雇佣信息
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("employment_before_rehire")
-    private PreHireEmployee employmentBeforeRehire;
+    this.employmentBeforeRehire = builder.employmentBeforeRehire;
     /**
      * 任务状态列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("task_statuses")
-    private PreHireField[] taskStatuses;
+    this.taskStatuses = builder.taskStatuses;
     /**
      * 是否分配至待入职人员
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("assignee_to_pre_hire")
-    private Boolean assigneeToPreHire;
+    this.assigneeToPreHire = builder.assigneeToPreHire;
     /**
      * 流程名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("flow_instance_name")
+    this.flowInstanceName = builder.flowInstanceName;
+  }
+
+  public static class Builder {
+    /**
+     * 待入职ID
+     *
+     * <p>示例值：123
+     */
+    private String preHireId;
+
+    /**
+     * 个人信息
+     *
+     * <p>示例值：
+     */
+    private PreHirePersonId personId;
+
+    /**
+     * 工号
+     *
+     * <p>示例值：89076543
+     */
+    private String workerId;
+
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2023-01-01
+     */
+    private String hireDate;
+
+    /**
+     * 部门
+     *
+     * <p>示例值：
+     */
+    private PreHireDepartment department;
+
+    /**
+     * 人员类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField employeeType;
+
+    /**
+     * Offer负责人
+     *
+     * <p>示例值：
+     */
+    private PreHireEmployee offerHr;
+
+    /**
+     * 直属上级
+     *
+     * <p>示例值：
+     */
+    private PreHireEmployee directManager;
+
+    /**
+     * 流程发起时间
+     *
+     * <p>示例值：2023-01-01 12:32
+     */
+    private String wkCreatedAt;
+
+    /**
+     * 是否复职
+     *
+     * <p>示例值：example
+     */
+    private String isRehire;
+
+    /**
+     * 复职前雇佣ID
+     *
+     * <p>示例值：example
+     */
+    private String employmentIdBeforeRehire;
+
+    /**
+     * 是否疑似复职
+     *
+     * <p>示例值：true
+     */
+    private Boolean suspectedRehiring;
+
+    /**
+     * 是否复用飞书账号
+     *
+     * <p>示例值：
+     */
+    private PreHireField reuseFeishuAccount;
+
+    /**
+     * 复用的飞书账号
+     *
+     * <p>示例值：
+     */
+    private PreHireEmployee reusedFeishuAccount;
+
+    /**
+     * 入职流程阶段
+     *
+     * <p>示例值：
+     */
+    private PreHireField stage;
+
+    /**
+     * 当前处理人列表
+     *
+     * <p>示例值：
+     */
+    private PreHireEmployee[] currentAssignees;
+
+    /**
+     * 最后更新时间
+     *
+     * <p>示例值：example
+     */
+    private String lastUpdate;
+
+    /**
+     * 流程进度列表
+     *
+     * <p>示例值：
+     */
+    private Integer[] progresses;
+
+    /**
+     * 是否新流程待入职
+     *
+     * <p>示例值：true
+     */
+    private Boolean newFlowPreHire;
+
+    /**
+     * 信息是否异常
+     *
+     * <p>示例值：true
+     */
+    private Boolean isInfoErr;
+
+    /**
+     * 异常原因列表
+     *
+     * <p>示例值：
+     */
+    private PreHireField[] errReasons;
+
+    /**
+     * 岗位名称
+     *
+     * <p>示例值：example
+     */
+    private String jobName;
+
+    /**
+     * 工作地点
+     *
+     * <p>示例值：
+     */
+    private PreHireField workLocation;
+
+    /**
+     * 办公地点
+     *
+     * <p>示例值：
+     */
+    private PreHireField officeLocation;
+
+    /**
+     * 手机号码
+     *
+     * <p>示例值：example
+     */
+    private String phoneNumber;
+
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：example
+     */
+    private String personalEmail;
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：example
+     */
+    private String workEmail;
+
+    /**
+     * 所属公司
+     *
+     * <p>示例值：
+     */
+    private PreHireField company;
+
+    /**
+     * 服务公司
+     *
+     * <p>示例值：
+     */
+    private PreHireField serviceCompany;
+
+    /**
+     * 部门全路径
+     *
+     * <p>示例值：
+     */
+    private PreHireField departmentFullPath;
+
+    /**
+     * 岗位
+     *
+     * <p>示例值：
+     */
+    private PreHireField job;
+
+    /**
+     * 岗位职级
+     *
+     * <p>示例值：
+     */
+    private PreHireField jobLevel;
+
+    /**
+     * 岗位职等
+     *
+     * <p>示例值：
+     */
+    private PreHireField jobGrade;
+
+    /**
+     * 职位序列
+     *
+     * <p>示例值：
+     */
+    private PreHireField jobFamily;
+
+    /**
+     * 职业发展通道
+     *
+     * <p>示例值：
+     */
+    private PreHireField pathway;
+
+    /**
+     * 虚线上级
+     *
+     * <p>示例值：
+     */
+    private PreHireEmployee dottedLineManager;
+
+    /**
+     * 人员子类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField employeeSubType;
+
+    /**
+     * 合同信息
+     *
+     * <p>示例值：
+     */
+    private ContractInfoForAi contractInfo;
+
+    /**
+     * 试用期信息
+     *
+     * <p>示例值：
+     */
+    private ProbationInfo probationInfo;
+
+    /**
+     * 社保缴纳城市
+     *
+     * <p>示例值：
+     */
+    private PreHireField socialSecurityCity;
+
+    /**
+     * 工时制度
+     *
+     * <p>示例值：
+     */
+    private PreHireField workingHoursType;
+
+    /**
+     * 是否逾期
+     *
+     * <p>示例值：
+     */
+    private PreHireField isOverdue;
+
+    /**
+     * 办公地址
+     *
+     * <p>示例值：
+     */
+    private PreHireField officeAddress;
+
+    /**
+     * 工作日历
+     *
+     * <p>示例值：
+     */
+    private PreHireField workingCalendar;
+
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField employmentType;
+
+    /**
+     * 每周工作时长
+     *
+     * <p>示例值：example
+     */
+    private String weeklyWorkingHours;
+
+    /**
+     * 班次
+     *
+     * <p>示例值：
+     */
+    private PreHireField workShift;
+
+    /**
+     * 招聘类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField recruitmentType;
+
+    /**
+     * 薪酬类型
+     *
+     * <p>示例值：
+     */
+    private PreHireField compensationType;
+
+    /**
+     * 成本中心列表
+     *
+     * <p>示例值：
+     */
+    private PreHireField[] costCenters;
+
+    /**
+     * 职位
+     *
+     * <p>示例值：
+     */
+    private PreHireField position;
+
+    /**
+     * 司龄计算日期
+     *
+     * <p>示例值：example
+     */
+    private String seniorityDate;
+
+    /**
+     * 格式化司龄计算日期
+     *
+     * <p>示例值：example
+     */
+    private String seniorityDateFormatted;
+
+    /**
+     * 工作国家
+     *
+     * <p>示例值：
+     */
+    private PreHireField workCountry;
+
+    /**
+     * 入职方式
+     *
+     * <p>示例值：
+     */
+    private PreHireField onboardType;
+
+    /**
+     * 入职地点
+     *
+     * <p>示例值：
+     */
+    private PreHireField onboardLocation;
+
+    /**
+     * 入职办理地址
+     *
+     * <p>示例值：
+     */
+    private PreHireField onboardingAddress;
+
+    /**
+     * 签到方式
+     *
+     * <p>示例值：
+     */
+    private PreHireField checkInMethod;
+
+    /**
+     * 签到时间
+     *
+     * <p>示例值：example
+     */
+    private String checkInTime;
+
+    /**
+     * 试用期主动离职通知期
+     *
+     * <p>示例值：
+     */
+    private PreHireField noticePeriodProbationVoluntary;
+
+    /**
+     * 试用期被动离职通知期
+     *
+     * <p>示例值：
+     */
+    private PreHireField noticePeriodProbationInVoluntary;
+
+    /**
+     * 正式期主动离职通知期
+     *
+     * <p>示例值：
+     */
+    private PreHireField noticePeriodPositiveVoluntary;
+
+    /**
+     * 正式期被动离职通知期
+     *
+     * <p>示例值：
+     */
+    private PreHireField noticePeriodPositiveInVoluntary;
+
+    /**
+     * 默认成本中心
+     *
+     * <p>示例值：
+     */
+    private PreHireField defaultCostCenter;
+
+    /**
+     * 成本分摊列表
+     *
+     * <p>示例值：
+     */
+    private PreHireField[] costAllocations;
+
+    /**
+     * 成本分摊生效时间
+     *
+     * <p>示例值：example
+     */
+    private String costAllocationEffectiveTime;
+
+    /**
+     * 成本分摊失效时间
+     *
+     * <p>示例值：example
+     */
+    private String costAllocationExpirationTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData[] customFields;
+
+    /**
+     * 复职前雇佣信息
+     *
+     * <p>示例值：example
+     */
+    private PreHireEmployee employmentBeforeRehire;
+
+    /**
+     * 任务状态列表
+     *
+     * <p>示例值：
+     */
+    private PreHireField[] taskStatuses;
+
+    /**
+     * 是否分配至待入职人员
+     *
+     * <p>示例值：true
+     */
+    private Boolean assigneeToPreHire;
+
+    /**
+     * 流程名称
+     *
+     * <p>示例值：
+     */
     private PreHireField flowInstanceName;
 
-    // builder 开始
-    public PreHireForAi() {
-    }
-
-    public PreHireForAi(Builder builder) {
-        /**
-         * 待入职ID
-         * <p> 示例值：123
-         */
-        this.preHireId = builder.preHireId;
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
-        this.personId = builder.personId;
-        /**
-         * 工号
-         * <p> 示例值：89076543
-         */
-        this.workerId = builder.workerId;
-        /**
-         * 入职日期
-         * <p> 示例值：2023-01-01
-         */
-        this.hireDate = builder.hireDate;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         */
-        this.offerHr = builder.offerHr;
-        /**
-         * 直属上级
-         * <p> 示例值：
-         */
-        this.directManager = builder.directManager;
-        /**
-         * 流程发起时间
-         * <p> 示例值：2023-01-01 12:32
-         */
-        this.wkCreatedAt = builder.wkCreatedAt;
-        /**
-         * 是否复职
-         * <p> 示例值：example
-         */
-        this.isRehire = builder.isRehire;
-        /**
-         * 复职前雇佣ID
-         * <p> 示例值：example
-         */
-        this.employmentIdBeforeRehire = builder.employmentIdBeforeRehire;
-        /**
-         * 是否疑似复职
-         * <p> 示例值：true
-         */
-        this.suspectedRehiring = builder.suspectedRehiring;
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：
-         */
-        this.reuseFeishuAccount = builder.reuseFeishuAccount;
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：
-         */
-        this.reusedFeishuAccount = builder.reusedFeishuAccount;
-        /**
-         * 入职流程阶段
-         * <p> 示例值：
-         */
-        this.stage = builder.stage;
-        /**
-         * 当前处理人列表
-         * <p> 示例值：
-         */
-        this.currentAssignees = builder.currentAssignees;
-        /**
-         * 最后更新时间
-         * <p> 示例值：example
-         */
-        this.lastUpdate = builder.lastUpdate;
-        /**
-         * 流程进度列表
-         * <p> 示例值：
-         */
-        this.progresses = builder.progresses;
-        /**
-         * 是否新流程待入职
-         * <p> 示例值：true
-         */
-        this.newFlowPreHire = builder.newFlowPreHire;
-        /**
-         * 信息是否异常
-         * <p> 示例值：true
-         */
-        this.isInfoErr = builder.isInfoErr;
-        /**
-         * 异常原因列表
-         * <p> 示例值：
-         */
-        this.errReasons = builder.errReasons;
-        /**
-         * 岗位名称
-         * <p> 示例值：example
-         */
-        this.jobName = builder.jobName;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        this.workLocation = builder.workLocation;
-        /**
-         * 办公地点
-         * <p> 示例值：
-         */
-        this.officeLocation = builder.officeLocation;
-        /**
-         * 手机号码
-         * <p> 示例值：example
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 个人邮箱
-         * <p> 示例值：example
-         */
-        this.personalEmail = builder.personalEmail;
-        /**
-         * 工作邮箱
-         * <p> 示例值：example
-         */
-        this.workEmail = builder.workEmail;
-        /**
-         * 所属公司
-         * <p> 示例值：
-         */
-        this.company = builder.company;
-        /**
-         * 服务公司
-         * <p> 示例值：
-         */
-        this.serviceCompany = builder.serviceCompany;
-        /**
-         * 部门全路径
-         * <p> 示例值：
-         */
-        this.departmentFullPath = builder.departmentFullPath;
-        /**
-         * 岗位
-         * <p> 示例值：
-         */
-        this.job = builder.job;
-        /**
-         * 岗位职级
-         * <p> 示例值：
-         */
-        this.jobLevel = builder.jobLevel;
-        /**
-         * 岗位职等
-         * <p> 示例值：
-         */
-        this.jobGrade = builder.jobGrade;
-        /**
-         * 职位序列
-         * <p> 示例值：
-         */
-        this.jobFamily = builder.jobFamily;
-        /**
-         * 职业发展通道
-         * <p> 示例值：
-         */
-        this.pathway = builder.pathway;
-        /**
-         * 虚线上级
-         * <p> 示例值：
-         */
-        this.dottedLineManager = builder.dottedLineManager;
-        /**
-         * 人员子类型
-         * <p> 示例值：
-         */
-        this.employeeSubType = builder.employeeSubType;
-        /**
-         * 合同信息
-         * <p> 示例值：
-         */
-        this.contractInfo = builder.contractInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
-        this.probationInfo = builder.probationInfo;
-        /**
-         * 社保缴纳城市
-         * <p> 示例值：
-         */
-        this.socialSecurityCity = builder.socialSecurityCity;
-        /**
-         * 工时制度
-         * <p> 示例值：
-         */
-        this.workingHoursType = builder.workingHoursType;
-        /**
-         * 是否逾期
-         * <p> 示例值：
-         */
-        this.isOverdue = builder.isOverdue;
-        /**
-         * 办公地址
-         * <p> 示例值：
-         */
-        this.officeAddress = builder.officeAddress;
-        /**
-         * 工作日历
-         * <p> 示例值：
-         */
-        this.workingCalendar = builder.workingCalendar;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        this.employmentType = builder.employmentType;
-        /**
-         * 每周工作时长
-         * <p> 示例值：example
-         */
-        this.weeklyWorkingHours = builder.weeklyWorkingHours;
-        /**
-         * 班次
-         * <p> 示例值：
-         */
-        this.workShift = builder.workShift;
-        /**
-         * 招聘类型
-         * <p> 示例值：
-         */
-        this.recruitmentType = builder.recruitmentType;
-        /**
-         * 薪酬类型
-         * <p> 示例值：
-         */
-        this.compensationType = builder.compensationType;
-        /**
-         * 成本中心列表
-         * <p> 示例值：
-         */
-        this.costCenters = builder.costCenters;
-        /**
-         * 职位
-         * <p> 示例值：
-         */
-        this.position = builder.position;
-        /**
-         * 司龄计算日期
-         * <p> 示例值：example
-         */
-        this.seniorityDate = builder.seniorityDate;
-        /**
-         * 格式化司龄计算日期
-         * <p> 示例值：example
-         */
-        this.seniorityDateFormatted = builder.seniorityDateFormatted;
-        /**
-         * 工作国家
-         * <p> 示例值：
-         */
-        this.workCountry = builder.workCountry;
-        /**
-         * 入职方式
-         * <p> 示例值：
-         */
-        this.onboardType = builder.onboardType;
-        /**
-         * 入职地点
-         * <p> 示例值：
-         */
-        this.onboardLocation = builder.onboardLocation;
-        /**
-         * 入职办理地址
-         * <p> 示例值：
-         */
-        this.onboardingAddress = builder.onboardingAddress;
-        /**
-         * 签到方式
-         * <p> 示例值：
-         */
-        this.checkInMethod = builder.checkInMethod;
-        /**
-         * 签到时间
-         * <p> 示例值：example
-         */
-        this.checkInTime = builder.checkInTime;
-        /**
-         * 试用期主动离职通知期
-         * <p> 示例值：
-         */
-        this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
-        /**
-         * 试用期被动离职通知期
-         * <p> 示例值：
-         */
-        this.noticePeriodProbationInVoluntary = builder.noticePeriodProbationInVoluntary;
-        /**
-         * 正式期主动离职通知期
-         * <p> 示例值：
-         */
-        this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
-        /**
-         * 正式期被动离职通知期
-         * <p> 示例值：
-         */
-        this.noticePeriodPositiveInVoluntary = builder.noticePeriodPositiveInVoluntary;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        this.defaultCostCenter = builder.defaultCostCenter;
-        /**
-         * 成本分摊列表
-         * <p> 示例值：
-         */
-        this.costAllocations = builder.costAllocations;
-        /**
-         * 成本分摊生效时间
-         * <p> 示例值：example
-         */
-        this.costAllocationEffectiveTime = builder.costAllocationEffectiveTime;
-        /**
-         * 成本分摊失效时间
-         * <p> 示例值：example
-         */
-        this.costAllocationExpirationTime = builder.costAllocationExpirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 复职前雇佣信息
-         * <p> 示例值：example
-         */
-        this.employmentBeforeRehire = builder.employmentBeforeRehire;
-        /**
-         * 任务状态列表
-         * <p> 示例值：
-         */
-        this.taskStatuses = builder.taskStatuses;
-        /**
-         * 是否分配至待入职人员
-         * <p> 示例值：true
-         */
-        this.assigneeToPreHire = builder.assigneeToPreHire;
-        /**
-         * 流程名称
-         * <p> 示例值：
-         */
-        this.flowInstanceName = builder.flowInstanceName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public PreHirePersonId getPersonId() {
-        return this.personId;
-    }
-
-    public void setPersonId(PreHirePersonId personId) {
-        this.personId = personId;
-    }
-
-    public String getWorkerId() {
-        return this.workerId;
-    }
-
-    public void setWorkerId(String workerId) {
-        this.workerId = workerId;
-    }
-
-    public String getHireDate() {
-        return this.hireDate;
-    }
-
-    public void setHireDate(String hireDate) {
-        this.hireDate = hireDate;
-    }
-
-    public PreHireDepartment getDepartment() {
-        return this.department;
-    }
-
-    public void setDepartment(PreHireDepartment department) {
-        this.department = department;
-    }
-
-    public PreHireField getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(PreHireField employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public PreHireEmployee getOfferHr() {
-        return this.offerHr;
-    }
-
-    public void setOfferHr(PreHireEmployee offerHr) {
-        this.offerHr = offerHr;
-    }
-
-    public PreHireEmployee getDirectManager() {
-        return this.directManager;
-    }
-
-    public void setDirectManager(PreHireEmployee directManager) {
-        this.directManager = directManager;
-    }
-
-    public String getWkCreatedAt() {
-        return this.wkCreatedAt;
-    }
-
-    public void setWkCreatedAt(String wkCreatedAt) {
-        this.wkCreatedAt = wkCreatedAt;
-    }
-
-    public String getIsRehire() {
-        return this.isRehire;
-    }
-
-    public void setIsRehire(String isRehire) {
-        this.isRehire = isRehire;
-    }
-
-    public String getEmploymentIdBeforeRehire() {
-        return this.employmentIdBeforeRehire;
-    }
-
-    public void setEmploymentIdBeforeRehire(String employmentIdBeforeRehire) {
-        this.employmentIdBeforeRehire = employmentIdBeforeRehire;
-    }
-
-    public Boolean getSuspectedRehiring() {
-        return this.suspectedRehiring;
-    }
-
-    public void setSuspectedRehiring(Boolean suspectedRehiring) {
-        this.suspectedRehiring = suspectedRehiring;
-    }
-
-    public PreHireField getReuseFeishuAccount() {
-        return this.reuseFeishuAccount;
-    }
-
-    public void setReuseFeishuAccount(PreHireField reuseFeishuAccount) {
-        this.reuseFeishuAccount = reuseFeishuAccount;
-    }
-
-    public PreHireEmployee getReusedFeishuAccount() {
-        return this.reusedFeishuAccount;
-    }
-
-    public void setReusedFeishuAccount(PreHireEmployee reusedFeishuAccount) {
-        this.reusedFeishuAccount = reusedFeishuAccount;
-    }
-
-    public PreHireField getStage() {
-        return this.stage;
-    }
-
-    public void setStage(PreHireField stage) {
-        this.stage = stage;
-    }
-
-    public PreHireEmployee[] getCurrentAssignees() {
-        return this.currentAssignees;
-    }
-
-    public void setCurrentAssignees(PreHireEmployee[] currentAssignees) {
-        this.currentAssignees = currentAssignees;
-    }
-
-    public String getLastUpdate() {
-        return this.lastUpdate;
-    }
-
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public Integer[] getProgresses() {
-        return this.progresses;
-    }
-
-    public void setProgresses(Integer[] progresses) {
-        this.progresses = progresses;
-    }
-
-    public Boolean getNewFlowPreHire() {
-        return this.newFlowPreHire;
-    }
-
-    public void setNewFlowPreHire(Boolean newFlowPreHire) {
-        this.newFlowPreHire = newFlowPreHire;
-    }
-
-    public Boolean getIsInfoErr() {
-        return this.isInfoErr;
-    }
-
-    public void setIsInfoErr(Boolean isInfoErr) {
-        this.isInfoErr = isInfoErr;
-    }
-
-    public PreHireField[] getErrReasons() {
-        return this.errReasons;
-    }
-
-    public void setErrReasons(PreHireField[] errReasons) {
-        this.errReasons = errReasons;
-    }
-
-    public String getJobName() {
-        return this.jobName;
-    }
-
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
-    }
-
-    public PreHireField getWorkLocation() {
-        return this.workLocation;
-    }
-
-    public void setWorkLocation(PreHireField workLocation) {
-        this.workLocation = workLocation;
-    }
-
-    public PreHireField getOfficeLocation() {
-        return this.officeLocation;
-    }
-
-    public void setOfficeLocation(PreHireField officeLocation) {
-        this.officeLocation = officeLocation;
-    }
-
-    public String getPhoneNumber() {
-        return this.phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPersonalEmail() {
-        return this.personalEmail;
-    }
-
-    public void setPersonalEmail(String personalEmail) {
-        this.personalEmail = personalEmail;
-    }
-
-    public String getWorkEmail() {
-        return this.workEmail;
-    }
-
-    public void setWorkEmail(String workEmail) {
-        this.workEmail = workEmail;
-    }
-
-    public PreHireField getCompany() {
-        return this.company;
-    }
-
-    public void setCompany(PreHireField company) {
-        this.company = company;
-    }
-
-    public PreHireField getServiceCompany() {
-        return this.serviceCompany;
-    }
-
-    public void setServiceCompany(PreHireField serviceCompany) {
-        this.serviceCompany = serviceCompany;
-    }
-
-    public PreHireField getDepartmentFullPath() {
-        return this.departmentFullPath;
-    }
-
-    public void setDepartmentFullPath(PreHireField departmentFullPath) {
-        this.departmentFullPath = departmentFullPath;
-    }
-
-    public PreHireField getJob() {
-        return this.job;
-    }
-
-    public void setJob(PreHireField job) {
-        this.job = job;
-    }
-
-    public PreHireField getJobLevel() {
-        return this.jobLevel;
-    }
-
-    public void setJobLevel(PreHireField jobLevel) {
-        this.jobLevel = jobLevel;
-    }
-
-    public PreHireField getJobGrade() {
-        return this.jobGrade;
-    }
-
-    public void setJobGrade(PreHireField jobGrade) {
-        this.jobGrade = jobGrade;
-    }
-
-    public PreHireField getJobFamily() {
-        return this.jobFamily;
-    }
-
-    public void setJobFamily(PreHireField jobFamily) {
-        this.jobFamily = jobFamily;
-    }
-
-    public PreHireField getPathway() {
-        return this.pathway;
-    }
-
-    public void setPathway(PreHireField pathway) {
-        this.pathway = pathway;
-    }
-
-    public PreHireEmployee getDottedLineManager() {
-        return this.dottedLineManager;
-    }
-
-    public void setDottedLineManager(PreHireEmployee dottedLineManager) {
-        this.dottedLineManager = dottedLineManager;
-    }
-
-    public PreHireField getEmployeeSubType() {
-        return this.employeeSubType;
-    }
-
-    public void setEmployeeSubType(PreHireField employeeSubType) {
-        this.employeeSubType = employeeSubType;
-    }
-
-    public ContractInfoForAi getContractInfo() {
-        return this.contractInfo;
-    }
-
-    public void setContractInfo(ContractInfoForAi contractInfo) {
-        this.contractInfo = contractInfo;
-    }
-
-    public ProbationInfo getProbationInfo() {
-        return this.probationInfo;
-    }
-
-    public void setProbationInfo(ProbationInfo probationInfo) {
-        this.probationInfo = probationInfo;
-    }
-
-    public PreHireField getSocialSecurityCity() {
-        return this.socialSecurityCity;
-    }
-
-    public void setSocialSecurityCity(PreHireField socialSecurityCity) {
-        this.socialSecurityCity = socialSecurityCity;
-    }
-
-    public PreHireField getWorkingHoursType() {
-        return this.workingHoursType;
-    }
-
-    public void setWorkingHoursType(PreHireField workingHoursType) {
-        this.workingHoursType = workingHoursType;
-    }
-
-    public PreHireField getIsOverdue() {
-        return this.isOverdue;
-    }
-
-    public void setIsOverdue(PreHireField isOverdue) {
-        this.isOverdue = isOverdue;
-    }
-
-    public PreHireField getOfficeAddress() {
-        return this.officeAddress;
-    }
-
-    public void setOfficeAddress(PreHireField officeAddress) {
-        this.officeAddress = officeAddress;
-    }
-
-    public PreHireField getWorkingCalendar() {
-        return this.workingCalendar;
-    }
-
-    public void setWorkingCalendar(PreHireField workingCalendar) {
-        this.workingCalendar = workingCalendar;
-    }
-
-    public PreHireField getEmploymentType() {
-        return this.employmentType;
-    }
-
-    public void setEmploymentType(PreHireField employmentType) {
-        this.employmentType = employmentType;
-    }
-
-    public String getWeeklyWorkingHours() {
-        return this.weeklyWorkingHours;
-    }
-
-    public void setWeeklyWorkingHours(String weeklyWorkingHours) {
-        this.weeklyWorkingHours = weeklyWorkingHours;
-    }
-
-    public PreHireField getWorkShift() {
-        return this.workShift;
-    }
-
-    public void setWorkShift(PreHireField workShift) {
-        this.workShift = workShift;
-    }
-
-    public PreHireField getRecruitmentType() {
-        return this.recruitmentType;
-    }
-
-    public void setRecruitmentType(PreHireField recruitmentType) {
-        this.recruitmentType = recruitmentType;
-    }
-
-    public PreHireField getCompensationType() {
-        return this.compensationType;
-    }
-
-    public void setCompensationType(PreHireField compensationType) {
-        this.compensationType = compensationType;
-    }
-
-    public PreHireField[] getCostCenters() {
-        return this.costCenters;
-    }
-
-    public void setCostCenters(PreHireField[] costCenters) {
-        this.costCenters = costCenters;
-    }
-
-    public PreHireField getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(PreHireField position) {
-        this.position = position;
-    }
-
-    public String getSeniorityDate() {
-        return this.seniorityDate;
-    }
-
-    public void setSeniorityDate(String seniorityDate) {
-        this.seniorityDate = seniorityDate;
-    }
-
-    public String getSeniorityDateFormatted() {
-        return this.seniorityDateFormatted;
-    }
-
-    public void setSeniorityDateFormatted(String seniorityDateFormatted) {
-        this.seniorityDateFormatted = seniorityDateFormatted;
-    }
-
-    public PreHireField getWorkCountry() {
-        return this.workCountry;
-    }
-
-    public void setWorkCountry(PreHireField workCountry) {
-        this.workCountry = workCountry;
-    }
-
-    public PreHireField getOnboardType() {
-        return this.onboardType;
-    }
-
-    public void setOnboardType(PreHireField onboardType) {
-        this.onboardType = onboardType;
-    }
-
-    public PreHireField getOnboardLocation() {
-        return this.onboardLocation;
-    }
-
-    public void setOnboardLocation(PreHireField onboardLocation) {
-        this.onboardLocation = onboardLocation;
-    }
-
-    public PreHireField getOnboardingAddress() {
-        return this.onboardingAddress;
-    }
-
-    public void setOnboardingAddress(PreHireField onboardingAddress) {
-        this.onboardingAddress = onboardingAddress;
-    }
-
-    public PreHireField getCheckInMethod() {
-        return this.checkInMethod;
-    }
-
-    public void setCheckInMethod(PreHireField checkInMethod) {
-        this.checkInMethod = checkInMethod;
-    }
-
-    public String getCheckInTime() {
-        return this.checkInTime;
-    }
-
-    public void setCheckInTime(String checkInTime) {
-        this.checkInTime = checkInTime;
-    }
-
-    public PreHireField getNoticePeriodProbationVoluntary() {
-        return this.noticePeriodProbationVoluntary;
-    }
-
-    public void setNoticePeriodProbationVoluntary(PreHireField noticePeriodProbationVoluntary) {
-        this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
-    }
-
-    public PreHireField getNoticePeriodProbationInVoluntary() {
-        return this.noticePeriodProbationInVoluntary;
-    }
-
-    public void setNoticePeriodProbationInVoluntary(PreHireField noticePeriodProbationInVoluntary) {
-        this.noticePeriodProbationInVoluntary = noticePeriodProbationInVoluntary;
-    }
-
-    public PreHireField getNoticePeriodPositiveVoluntary() {
-        return this.noticePeriodPositiveVoluntary;
-    }
-
-    public void setNoticePeriodPositiveVoluntary(PreHireField noticePeriodPositiveVoluntary) {
-        this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
-    }
-
-    public PreHireField getNoticePeriodPositiveInVoluntary() {
-        return this.noticePeriodPositiveInVoluntary;
-    }
-
-    public void setNoticePeriodPositiveInVoluntary(PreHireField noticePeriodPositiveInVoluntary) {
-        this.noticePeriodPositiveInVoluntary = noticePeriodPositiveInVoluntary;
-    }
-
-    public PreHireField getDefaultCostCenter() {
-        return this.defaultCostCenter;
-    }
-
-    public void setDefaultCostCenter(PreHireField defaultCostCenter) {
-        this.defaultCostCenter = defaultCostCenter;
-    }
-
-    public PreHireField[] getCostAllocations() {
-        return this.costAllocations;
-    }
-
-    public void setCostAllocations(PreHireField[] costAllocations) {
-        this.costAllocations = costAllocations;
-    }
-
-    public String getCostAllocationEffectiveTime() {
-        return this.costAllocationEffectiveTime;
-    }
-
-    public void setCostAllocationEffectiveTime(String costAllocationEffectiveTime) {
-        this.costAllocationEffectiveTime = costAllocationEffectiveTime;
-    }
-
-    public String getCostAllocationExpirationTime() {
-        return this.costAllocationExpirationTime;
-    }
-
-    public void setCostAllocationExpirationTime(String costAllocationExpirationTime) {
-        this.costAllocationExpirationTime = costAllocationExpirationTime;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public PreHireEmployee getEmploymentBeforeRehire() {
-        return this.employmentBeforeRehire;
-    }
-
-    public void setEmploymentBeforeRehire(PreHireEmployee employmentBeforeRehire) {
-        this.employmentBeforeRehire = employmentBeforeRehire;
-    }
-
-    public PreHireField[] getTaskStatuses() {
-        return this.taskStatuses;
-    }
-
-    public void setTaskStatuses(PreHireField[] taskStatuses) {
-        this.taskStatuses = taskStatuses;
-    }
-
-    public Boolean getAssigneeToPreHire() {
-        return this.assigneeToPreHire;
-    }
-
-    public void setAssigneeToPreHire(Boolean assigneeToPreHire) {
-        this.assigneeToPreHire = assigneeToPreHire;
-    }
-
-    public PreHireField getFlowInstanceName() {
-        return this.flowInstanceName;
-    }
-
-    public void setFlowInstanceName(PreHireField flowInstanceName) {
-        this.flowInstanceName = flowInstanceName;
-    }
-
-    public static class Builder {
-        /**
-         * 待入职ID
-         * <p> 示例值：123
-         */
-        private String preHireId;
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
-        private PreHirePersonId personId;
-        /**
-         * 工号
-         * <p> 示例值：89076543
-         */
-        private String workerId;
-        /**
-         * 入职日期
-         * <p> 示例值：2023-01-01
-         */
-        private String hireDate;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
-        private PreHireDepartment department;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        private PreHireField employeeType;
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         */
-        private PreHireEmployee offerHr;
-        /**
-         * 直属上级
-         * <p> 示例值：
-         */
-        private PreHireEmployee directManager;
-        /**
-         * 流程发起时间
-         * <p> 示例值：2023-01-01 12:32
-         */
-        private String wkCreatedAt;
-        /**
-         * 是否复职
-         * <p> 示例值：example
-         */
-        private String isRehire;
-        /**
-         * 复职前雇佣ID
-         * <p> 示例值：example
-         */
-        private String employmentIdBeforeRehire;
-        /**
-         * 是否疑似复职
-         * <p> 示例值：true
-         */
-        private Boolean suspectedRehiring;
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：
-         */
-        private PreHireField reuseFeishuAccount;
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：
-         */
-        private PreHireEmployee reusedFeishuAccount;
-        /**
-         * 入职流程阶段
-         * <p> 示例值：
-         */
-        private PreHireField stage;
-        /**
-         * 当前处理人列表
-         * <p> 示例值：
-         */
-        private PreHireEmployee[] currentAssignees;
-        /**
-         * 最后更新时间
-         * <p> 示例值：example
-         */
-        private String lastUpdate;
-        /**
-         * 流程进度列表
-         * <p> 示例值：
-         */
-        private Integer[] progresses;
-        /**
-         * 是否新流程待入职
-         * <p> 示例值：true
-         */
-        private Boolean newFlowPreHire;
-        /**
-         * 信息是否异常
-         * <p> 示例值：true
-         */
-        private Boolean isInfoErr;
-        /**
-         * 异常原因列表
-         * <p> 示例值：
-         */
-        private PreHireField[] errReasons;
-        /**
-         * 岗位名称
-         * <p> 示例值：example
-         */
-        private String jobName;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        private PreHireField workLocation;
-        /**
-         * 办公地点
-         * <p> 示例值：
-         */
-        private PreHireField officeLocation;
-        /**
-         * 手机号码
-         * <p> 示例值：example
-         */
-        private String phoneNumber;
-        /**
-         * 个人邮箱
-         * <p> 示例值：example
-         */
-        private String personalEmail;
-        /**
-         * 工作邮箱
-         * <p> 示例值：example
-         */
-        private String workEmail;
-        /**
-         * 所属公司
-         * <p> 示例值：
-         */
-        private PreHireField company;
-        /**
-         * 服务公司
-         * <p> 示例值：
-         */
-        private PreHireField serviceCompany;
-        /**
-         * 部门全路径
-         * <p> 示例值：
-         */
-        private PreHireField departmentFullPath;
-        /**
-         * 岗位
-         * <p> 示例值：
-         */
-        private PreHireField job;
-        /**
-         * 岗位职级
-         * <p> 示例值：
-         */
-        private PreHireField jobLevel;
-        /**
-         * 岗位职等
-         * <p> 示例值：
-         */
-        private PreHireField jobGrade;
-        /**
-         * 职位序列
-         * <p> 示例值：
-         */
-        private PreHireField jobFamily;
-        /**
-         * 职业发展通道
-         * <p> 示例值：
-         */
-        private PreHireField pathway;
-        /**
-         * 虚线上级
-         * <p> 示例值：
-         */
-        private PreHireEmployee dottedLineManager;
-        /**
-         * 人员子类型
-         * <p> 示例值：
-         */
-        private PreHireField employeeSubType;
-        /**
-         * 合同信息
-         * <p> 示例值：
-         */
-        private ContractInfoForAi contractInfo;
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         */
-        private ProbationInfo probationInfo;
-        /**
-         * 社保缴纳城市
-         * <p> 示例值：
-         */
-        private PreHireField socialSecurityCity;
-        /**
-         * 工时制度
-         * <p> 示例值：
-         */
-        private PreHireField workingHoursType;
-        /**
-         * 是否逾期
-         * <p> 示例值：
-         */
-        private PreHireField isOverdue;
-        /**
-         * 办公地址
-         * <p> 示例值：
-         */
-        private PreHireField officeAddress;
-        /**
-         * 工作日历
-         * <p> 示例值：
-         */
-        private PreHireField workingCalendar;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        private PreHireField employmentType;
-        /**
-         * 每周工作时长
-         * <p> 示例值：example
-         */
-        private String weeklyWorkingHours;
-        /**
-         * 班次
-         * <p> 示例值：
-         */
-        private PreHireField workShift;
-        /**
-         * 招聘类型
-         * <p> 示例值：
-         */
-        private PreHireField recruitmentType;
-        /**
-         * 薪酬类型
-         * <p> 示例值：
-         */
-        private PreHireField compensationType;
-        /**
-         * 成本中心列表
-         * <p> 示例值：
-         */
-        private PreHireField[] costCenters;
-        /**
-         * 职位
-         * <p> 示例值：
-         */
-        private PreHireField position;
-        /**
-         * 司龄计算日期
-         * <p> 示例值：example
-         */
-        private String seniorityDate;
-        /**
-         * 格式化司龄计算日期
-         * <p> 示例值：example
-         */
-        private String seniorityDateFormatted;
-        /**
-         * 工作国家
-         * <p> 示例值：
-         */
-        private PreHireField workCountry;
-        /**
-         * 入职方式
-         * <p> 示例值：
-         */
-        private PreHireField onboardType;
-        /**
-         * 入职地点
-         * <p> 示例值：
-         */
-        private PreHireField onboardLocation;
-        /**
-         * 入职办理地址
-         * <p> 示例值：
-         */
-        private PreHireField onboardingAddress;
-        /**
-         * 签到方式
-         * <p> 示例值：
-         */
-        private PreHireField checkInMethod;
-        /**
-         * 签到时间
-         * <p> 示例值：example
-         */
-        private String checkInTime;
-        /**
-         * 试用期主动离职通知期
-         * <p> 示例值：
-         */
-        private PreHireField noticePeriodProbationVoluntary;
-        /**
-         * 试用期被动离职通知期
-         * <p> 示例值：
-         */
-        private PreHireField noticePeriodProbationInVoluntary;
-        /**
-         * 正式期主动离职通知期
-         * <p> 示例值：
-         */
-        private PreHireField noticePeriodPositiveVoluntary;
-        /**
-         * 正式期被动离职通知期
-         * <p> 示例值：
-         */
-        private PreHireField noticePeriodPositiveInVoluntary;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        private PreHireField defaultCostCenter;
-        /**
-         * 成本分摊列表
-         * <p> 示例值：
-         */
-        private PreHireField[] costAllocations;
-        /**
-         * 成本分摊生效时间
-         * <p> 示例值：example
-         */
-        private String costAllocationEffectiveTime;
-        /**
-         * 成本分摊失效时间
-         * <p> 示例值：example
-         */
-        private String costAllocationExpirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 复职前雇佣信息
-         * <p> 示例值：example
-         */
-        private PreHireEmployee employmentBeforeRehire;
-        /**
-         * 任务状态列表
-         * <p> 示例值：
-         */
-        private PreHireField[] taskStatuses;
-        /**
-         * 是否分配至待入职人员
-         * <p> 示例值：true
-         */
-        private Boolean assigneeToPreHire;
-        /**
-         * 流程名称
-         * <p> 示例值：
-         */
-        private PreHireField flowInstanceName;
-
-        /**
-         * 待入职ID
-         * <p> 示例值：123
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        /**
-         * 个人信息
-         * <p> 示例值：
-         *
-         * @param personId
-         * @return
-         */
-        public Builder personId(PreHirePersonId personId) {
-            this.personId = personId;
-            return this;
-        }
-
-
-        /**
-         * 工号
-         * <p> 示例值：89076543
-         *
-         * @param workerId
-         * @return
-         */
-        public Builder workerId(String workerId) {
-            this.workerId = workerId;
-            return this;
-        }
-
-
-        /**
-         * 入职日期
-         * <p> 示例值：2023-01-01
-         *
-         * @param hireDate
-         * @return
-         */
-        public Builder hireDate(String hireDate) {
-            this.hireDate = hireDate;
-            return this;
-        }
-
-
-        /**
-         * 部门
-         * <p> 示例值：
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(PreHireDepartment department) {
-            this.department = department;
-            return this;
-        }
-
-
-        /**
-         * 人员类型
-         * <p> 示例值：
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(PreHireField employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-
-        /**
-         * Offer负责人
-         * <p> 示例值：
-         *
-         * @param offerHr
-         * @return
-         */
-        public Builder offerHr(PreHireEmployee offerHr) {
-            this.offerHr = offerHr;
-            return this;
-        }
-
-
-        /**
-         * 直属上级
-         * <p> 示例值：
-         *
-         * @param directManager
-         * @return
-         */
-        public Builder directManager(PreHireEmployee directManager) {
-            this.directManager = directManager;
-            return this;
-        }
-
-
-        /**
-         * 流程发起时间
-         * <p> 示例值：2023-01-01 12:32
-         *
-         * @param wkCreatedAt
-         * @return
-         */
-        public Builder wkCreatedAt(String wkCreatedAt) {
-            this.wkCreatedAt = wkCreatedAt;
-            return this;
-        }
-
-
-        /**
-         * 是否复职
-         * <p> 示例值：example
-         *
-         * @param isRehire
-         * @return
-         */
-        public Builder isRehire(String isRehire) {
-            this.isRehire = isRehire;
-            return this;
-        }
-
-
-        /**
-         * 复职前雇佣ID
-         * <p> 示例值：example
-         *
-         * @param employmentIdBeforeRehire
-         * @return
-         */
-        public Builder employmentIdBeforeRehire(String employmentIdBeforeRehire) {
-            this.employmentIdBeforeRehire = employmentIdBeforeRehire;
-            return this;
-        }
-
-
-        /**
-         * 是否疑似复职
-         * <p> 示例值：true
-         *
-         * @param suspectedRehiring
-         * @return
-         */
-        public Builder suspectedRehiring(Boolean suspectedRehiring) {
-            this.suspectedRehiring = suspectedRehiring;
-            return this;
-        }
-
-
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：
-         *
-         * @param reuseFeishuAccount
-         * @return
-         */
-        public Builder reuseFeishuAccount(PreHireField reuseFeishuAccount) {
-            this.reuseFeishuAccount = reuseFeishuAccount;
-            return this;
-        }
-
-
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：
-         *
-         * @param reusedFeishuAccount
-         * @return
-         */
-        public Builder reusedFeishuAccount(PreHireEmployee reusedFeishuAccount) {
-            this.reusedFeishuAccount = reusedFeishuAccount;
-            return this;
-        }
-
-
-        /**
-         * 入职流程阶段
-         * <p> 示例值：
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(PreHireField stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 当前处理人列表
-         * <p> 示例值：
-         *
-         * @param currentAssignees
-         * @return
-         */
-        public Builder currentAssignees(PreHireEmployee[] currentAssignees) {
-            this.currentAssignees = currentAssignees;
-            return this;
-        }
-
-
-        /**
-         * 最后更新时间
-         * <p> 示例值：example
-         *
-         * @param lastUpdate
-         * @return
-         */
-        public Builder lastUpdate(String lastUpdate) {
-            this.lastUpdate = lastUpdate;
-            return this;
-        }
-
-
-        /**
-         * 流程进度列表
-         * <p> 示例值：
-         *
-         * @param progresses
-         * @return
-         */
-        public Builder progresses(Integer[] progresses) {
-            this.progresses = progresses;
-            return this;
-        }
-
-
-        /**
-         * 是否新流程待入职
-         * <p> 示例值：true
-         *
-         * @param newFlowPreHire
-         * @return
-         */
-        public Builder newFlowPreHire(Boolean newFlowPreHire) {
-            this.newFlowPreHire = newFlowPreHire;
-            return this;
-        }
-
-
-        /**
-         * 信息是否异常
-         * <p> 示例值：true
-         *
-         * @param isInfoErr
-         * @return
-         */
-        public Builder isInfoErr(Boolean isInfoErr) {
-            this.isInfoErr = isInfoErr;
-            return this;
-        }
-
-
-        /**
-         * 异常原因列表
-         * <p> 示例值：
-         *
-         * @param errReasons
-         * @return
-         */
-        public Builder errReasons(PreHireField[] errReasons) {
-            this.errReasons = errReasons;
-            return this;
-        }
-
-
-        /**
-         * 岗位名称
-         * <p> 示例值：example
-         *
-         * @param jobName
-         * @return
-         */
-        public Builder jobName(String jobName) {
-            this.jobName = jobName;
-            return this;
-        }
-
-
-        /**
-         * 工作地点
-         * <p> 示例值：
-         *
-         * @param workLocation
-         * @return
-         */
-        public Builder workLocation(PreHireField workLocation) {
-            this.workLocation = workLocation;
-            return this;
-        }
-
-
-        /**
-         * 办公地点
-         * <p> 示例值：
-         *
-         * @param officeLocation
-         * @return
-         */
-        public Builder officeLocation(PreHireField officeLocation) {
-            this.officeLocation = officeLocation;
-            return this;
-        }
-
-
-        /**
-         * 手机号码
-         * <p> 示例值：example
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 个人邮箱
-         * <p> 示例值：example
-         *
-         * @param personalEmail
-         * @return
-         */
-        public Builder personalEmail(String personalEmail) {
-            this.personalEmail = personalEmail;
-            return this;
-        }
-
-
-        /**
-         * 工作邮箱
-         * <p> 示例值：example
-         *
-         * @param workEmail
-         * @return
-         */
-        public Builder workEmail(String workEmail) {
-            this.workEmail = workEmail;
-            return this;
-        }
-
-
-        /**
-         * 所属公司
-         * <p> 示例值：
-         *
-         * @param company
-         * @return
-         */
-        public Builder company(PreHireField company) {
-            this.company = company;
-            return this;
-        }
-
-
-        /**
-         * 服务公司
-         * <p> 示例值：
-         *
-         * @param serviceCompany
-         * @return
-         */
-        public Builder serviceCompany(PreHireField serviceCompany) {
-            this.serviceCompany = serviceCompany;
-            return this;
-        }
-
-
-        /**
-         * 部门全路径
-         * <p> 示例值：
-         *
-         * @param departmentFullPath
-         * @return
-         */
-        public Builder departmentFullPath(PreHireField departmentFullPath) {
-            this.departmentFullPath = departmentFullPath;
-            return this;
-        }
-
-
-        /**
-         * 岗位
-         * <p> 示例值：
-         *
-         * @param job
-         * @return
-         */
-        public Builder job(PreHireField job) {
-            this.job = job;
-            return this;
-        }
-
-
-        /**
-         * 岗位职级
-         * <p> 示例值：
-         *
-         * @param jobLevel
-         * @return
-         */
-        public Builder jobLevel(PreHireField jobLevel) {
-            this.jobLevel = jobLevel;
-            return this;
-        }
-
-
-        /**
-         * 岗位职等
-         * <p> 示例值：
-         *
-         * @param jobGrade
-         * @return
-         */
-        public Builder jobGrade(PreHireField jobGrade) {
-            this.jobGrade = jobGrade;
-            return this;
-        }
-
-
-        /**
-         * 职位序列
-         * <p> 示例值：
-         *
-         * @param jobFamily
-         * @return
-         */
-        public Builder jobFamily(PreHireField jobFamily) {
-            this.jobFamily = jobFamily;
-            return this;
-        }
-
-
-        /**
-         * 职业发展通道
-         * <p> 示例值：
-         *
-         * @param pathway
-         * @return
-         */
-        public Builder pathway(PreHireField pathway) {
-            this.pathway = pathway;
-            return this;
-        }
-
-
-        /**
-         * 虚线上级
-         * <p> 示例值：
-         *
-         * @param dottedLineManager
-         * @return
-         */
-        public Builder dottedLineManager(PreHireEmployee dottedLineManager) {
-            this.dottedLineManager = dottedLineManager;
-            return this;
-        }
-
-
-        /**
-         * 人员子类型
-         * <p> 示例值：
-         *
-         * @param employeeSubType
-         * @return
-         */
-        public Builder employeeSubType(PreHireField employeeSubType) {
-            this.employeeSubType = employeeSubType;
-            return this;
-        }
-
-
-        /**
-         * 合同信息
-         * <p> 示例值：
-         *
-         * @param contractInfo
-         * @return
-         */
-        public Builder contractInfo(ContractInfoForAi contractInfo) {
-            this.contractInfo = contractInfo;
-            return this;
-        }
-
-
-        /**
-         * 试用期信息
-         * <p> 示例值：
-         *
-         * @param probationInfo
-         * @return
-         */
-        public Builder probationInfo(ProbationInfo probationInfo) {
-            this.probationInfo = probationInfo;
-            return this;
-        }
-
-
-        /**
-         * 社保缴纳城市
-         * <p> 示例值：
-         *
-         * @param socialSecurityCity
-         * @return
-         */
-        public Builder socialSecurityCity(PreHireField socialSecurityCity) {
-            this.socialSecurityCity = socialSecurityCity;
-            return this;
-        }
-
-
-        /**
-         * 工时制度
-         * <p> 示例值：
-         *
-         * @param workingHoursType
-         * @return
-         */
-        public Builder workingHoursType(PreHireField workingHoursType) {
-            this.workingHoursType = workingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 是否逾期
-         * <p> 示例值：
-         *
-         * @param isOverdue
-         * @return
-         */
-        public Builder isOverdue(PreHireField isOverdue) {
-            this.isOverdue = isOverdue;
-            return this;
-        }
-
-
-        /**
-         * 办公地址
-         * <p> 示例值：
-         *
-         * @param officeAddress
-         * @return
-         */
-        public Builder officeAddress(PreHireField officeAddress) {
-            this.officeAddress = officeAddress;
-            return this;
-        }
-
-
-        /**
-         * 工作日历
-         * <p> 示例值：
-         *
-         * @param workingCalendar
-         * @return
-         */
-        public Builder workingCalendar(PreHireField workingCalendar) {
-            this.workingCalendar = workingCalendar;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         *
-         * @param employmentType
-         * @return
-         */
-        public Builder employmentType(PreHireField employmentType) {
-            this.employmentType = employmentType;
-            return this;
-        }
-
-
-        /**
-         * 每周工作时长
-         * <p> 示例值：example
-         *
-         * @param weeklyWorkingHours
-         * @return
-         */
-        public Builder weeklyWorkingHours(String weeklyWorkingHours) {
-            this.weeklyWorkingHours = weeklyWorkingHours;
-            return this;
-        }
-
-
-        /**
-         * 班次
-         * <p> 示例值：
-         *
-         * @param workShift
-         * @return
-         */
-        public Builder workShift(PreHireField workShift) {
-            this.workShift = workShift;
-            return this;
-        }
-
-
-        /**
-         * 招聘类型
-         * <p> 示例值：
-         *
-         * @param recruitmentType
-         * @return
-         */
-        public Builder recruitmentType(PreHireField recruitmentType) {
-            this.recruitmentType = recruitmentType;
-            return this;
-        }
-
-
-        /**
-         * 薪酬类型
-         * <p> 示例值：
-         *
-         * @param compensationType
-         * @return
-         */
-        public Builder compensationType(PreHireField compensationType) {
-            this.compensationType = compensationType;
-            return this;
-        }
-
-
-        /**
-         * 成本中心列表
-         * <p> 示例值：
-         *
-         * @param costCenters
-         * @return
-         */
-        public Builder costCenters(PreHireField[] costCenters) {
-            this.costCenters = costCenters;
-            return this;
-        }
-
-
-        /**
-         * 职位
-         * <p> 示例值：
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(PreHireField position) {
-            this.position = position;
-            return this;
-        }
-
-
-        /**
-         * 司龄计算日期
-         * <p> 示例值：example
-         *
-         * @param seniorityDate
-         * @return
-         */
-        public Builder seniorityDate(String seniorityDate) {
-            this.seniorityDate = seniorityDate;
-            return this;
-        }
-
-
-        /**
-         * 格式化司龄计算日期
-         * <p> 示例值：example
-         *
-         * @param seniorityDateFormatted
-         * @return
-         */
-        public Builder seniorityDateFormatted(String seniorityDateFormatted) {
-            this.seniorityDateFormatted = seniorityDateFormatted;
-            return this;
-        }
-
-
-        /**
-         * 工作国家
-         * <p> 示例值：
-         *
-         * @param workCountry
-         * @return
-         */
-        public Builder workCountry(PreHireField workCountry) {
-            this.workCountry = workCountry;
-            return this;
-        }
-
-
-        /**
-         * 入职方式
-         * <p> 示例值：
-         *
-         * @param onboardType
-         * @return
-         */
-        public Builder onboardType(PreHireField onboardType) {
-            this.onboardType = onboardType;
-            return this;
-        }
-
-
-        /**
-         * 入职地点
-         * <p> 示例值：
-         *
-         * @param onboardLocation
-         * @return
-         */
-        public Builder onboardLocation(PreHireField onboardLocation) {
-            this.onboardLocation = onboardLocation;
-            return this;
-        }
-
-
-        /**
-         * 入职办理地址
-         * <p> 示例值：
-         *
-         * @param onboardingAddress
-         * @return
-         */
-        public Builder onboardingAddress(PreHireField onboardingAddress) {
-            this.onboardingAddress = onboardingAddress;
-            return this;
-        }
-
-
-        /**
-         * 签到方式
-         * <p> 示例值：
-         *
-         * @param checkInMethod
-         * @return
-         */
-        public Builder checkInMethod(PreHireField checkInMethod) {
-            this.checkInMethod = checkInMethod;
-            return this;
-        }
-
-
-        /**
-         * 签到时间
-         * <p> 示例值：example
-         *
-         * @param checkInTime
-         * @return
-         */
-        public Builder checkInTime(String checkInTime) {
-            this.checkInTime = checkInTime;
-            return this;
-        }
-
-
-        /**
-         * 试用期主动离职通知期
-         * <p> 示例值：
-         *
-         * @param noticePeriodProbationVoluntary
-         * @return
-         */
-        public Builder noticePeriodProbationVoluntary(PreHireField noticePeriodProbationVoluntary) {
-            this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 试用期被动离职通知期
-         * <p> 示例值：
-         *
-         * @param noticePeriodProbationInVoluntary
-         * @return
-         */
-        public Builder noticePeriodProbationInVoluntary(PreHireField noticePeriodProbationInVoluntary) {
-            this.noticePeriodProbationInVoluntary = noticePeriodProbationInVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 正式期主动离职通知期
-         * <p> 示例值：
-         *
-         * @param noticePeriodPositiveVoluntary
-         * @return
-         */
-        public Builder noticePeriodPositiveVoluntary(PreHireField noticePeriodPositiveVoluntary) {
-            this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 正式期被动离职通知期
-         * <p> 示例值：
-         *
-         * @param noticePeriodPositiveInVoluntary
-         * @return
-         */
-        public Builder noticePeriodPositiveInVoluntary(PreHireField noticePeriodPositiveInVoluntary) {
-            this.noticePeriodPositiveInVoluntary = noticePeriodPositiveInVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         *
-         * @param defaultCostCenter
-         * @return
-         */
-        public Builder defaultCostCenter(PreHireField defaultCostCenter) {
-            this.defaultCostCenter = defaultCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊列表
-         * <p> 示例值：
-         *
-         * @param costAllocations
-         * @return
-         */
-        public Builder costAllocations(PreHireField[] costAllocations) {
-            this.costAllocations = costAllocations;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊生效时间
-         * <p> 示例值：example
-         *
-         * @param costAllocationEffectiveTime
-         * @return
-         */
-        public Builder costAllocationEffectiveTime(String costAllocationEffectiveTime) {
-            this.costAllocationEffectiveTime = costAllocationEffectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊失效时间
-         * <p> 示例值：example
-         *
-         * @param costAllocationExpirationTime
-         * @return
-         */
-        public Builder costAllocationExpirationTime(String costAllocationExpirationTime) {
-            this.costAllocationExpirationTime = costAllocationExpirationTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 复职前雇佣信息
-         * <p> 示例值：example
-         *
-         * @param employmentBeforeRehire
-         * @return
-         */
-        public Builder employmentBeforeRehire(PreHireEmployee employmentBeforeRehire) {
-            this.employmentBeforeRehire = employmentBeforeRehire;
-            return this;
-        }
-
-
-        /**
-         * 任务状态列表
-         * <p> 示例值：
-         *
-         * @param taskStatuses
-         * @return
-         */
-        public Builder taskStatuses(PreHireField[] taskStatuses) {
-            this.taskStatuses = taskStatuses;
-            return this;
-        }
-
-
-        /**
-         * 是否分配至待入职人员
-         * <p> 示例值：true
-         *
-         * @param assigneeToPreHire
-         * @return
-         */
-        public Builder assigneeToPreHire(Boolean assigneeToPreHire) {
-            this.assigneeToPreHire = assigneeToPreHire;
-            return this;
-        }
-
-
-        /**
-         * 流程名称
-         * <p> 示例值：
-         *
-         * @param flowInstanceName
-         * @return
-         */
-        public Builder flowInstanceName(PreHireField flowInstanceName) {
-            this.flowInstanceName = flowInstanceName;
-            return this;
-        }
-
-
-        public PreHireForAi build() {
-            return new PreHireForAi(this);
-        }
-    }
+    /**
+     * 待入职ID
+     *
+     * <p>示例值：123
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
+    }
+
+    /**
+     * 个人信息
+     *
+     * <p>示例值：
+     *
+     * @param personId
+     * @return
+     */
+    public Builder personId(PreHirePersonId personId) {
+      this.personId = personId;
+      return this;
+    }
+
+    /**
+     * 工号
+     *
+     * <p>示例值：89076543
+     *
+     * @param workerId
+     * @return
+     */
+    public Builder workerId(String workerId) {
+      this.workerId = workerId;
+      return this;
+    }
+
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2023-01-01
+     *
+     * @param hireDate
+     * @return
+     */
+    public Builder hireDate(String hireDate) {
+      this.hireDate = hireDate;
+      return this;
+    }
+
+    /**
+     * 部门
+     *
+     * <p>示例值：
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(PreHireDepartment department) {
+      this.department = department;
+      return this;
+    }
+
+    /**
+     * 人员类型
+     *
+     * <p>示例值：
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(PreHireField employeeType) {
+      this.employeeType = employeeType;
+      return this;
+    }
+
+    /**
+     * Offer负责人
+     *
+     * <p>示例值：
+     *
+     * @param offerHr
+     * @return
+     */
+    public Builder offerHr(PreHireEmployee offerHr) {
+      this.offerHr = offerHr;
+      return this;
+    }
+
+    /**
+     * 直属上级
+     *
+     * <p>示例值：
+     *
+     * @param directManager
+     * @return
+     */
+    public Builder directManager(PreHireEmployee directManager) {
+      this.directManager = directManager;
+      return this;
+    }
+
+    /**
+     * 流程发起时间
+     *
+     * <p>示例值：2023-01-01 12:32
+     *
+     * @param wkCreatedAt
+     * @return
+     */
+    public Builder wkCreatedAt(String wkCreatedAt) {
+      this.wkCreatedAt = wkCreatedAt;
+      return this;
+    }
+
+    /**
+     * 是否复职
+     *
+     * <p>示例值：example
+     *
+     * @param isRehire
+     * @return
+     */
+    public Builder isRehire(String isRehire) {
+      this.isRehire = isRehire;
+      return this;
+    }
+
+    /**
+     * 复职前雇佣ID
+     *
+     * <p>示例值：example
+     *
+     * @param employmentIdBeforeRehire
+     * @return
+     */
+    public Builder employmentIdBeforeRehire(String employmentIdBeforeRehire) {
+      this.employmentIdBeforeRehire = employmentIdBeforeRehire;
+      return this;
+    }
+
+    /**
+     * 是否疑似复职
+     *
+     * <p>示例值：true
+     *
+     * @param suspectedRehiring
+     * @return
+     */
+    public Builder suspectedRehiring(Boolean suspectedRehiring) {
+      this.suspectedRehiring = suspectedRehiring;
+      return this;
+    }
+
+    /**
+     * 是否复用飞书账号
+     *
+     * <p>示例值：
+     *
+     * @param reuseFeishuAccount
+     * @return
+     */
+    public Builder reuseFeishuAccount(PreHireField reuseFeishuAccount) {
+      this.reuseFeishuAccount = reuseFeishuAccount;
+      return this;
+    }
+
+    /**
+     * 复用的飞书账号
+     *
+     * <p>示例值：
+     *
+     * @param reusedFeishuAccount
+     * @return
+     */
+    public Builder reusedFeishuAccount(PreHireEmployee reusedFeishuAccount) {
+      this.reusedFeishuAccount = reusedFeishuAccount;
+      return this;
+    }
+
+    /**
+     * 入职流程阶段
+     *
+     * <p>示例值：
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(PreHireField stage) {
+      this.stage = stage;
+      return this;
+    }
+
+    /**
+     * 当前处理人列表
+     *
+     * <p>示例值：
+     *
+     * @param currentAssignees
+     * @return
+     */
+    public Builder currentAssignees(PreHireEmployee[] currentAssignees) {
+      this.currentAssignees = currentAssignees;
+      return this;
+    }
+
+    /**
+     * 最后更新时间
+     *
+     * <p>示例值：example
+     *
+     * @param lastUpdate
+     * @return
+     */
+    public Builder lastUpdate(String lastUpdate) {
+      this.lastUpdate = lastUpdate;
+      return this;
+    }
+
+    /**
+     * 流程进度列表
+     *
+     * <p>示例值：
+     *
+     * @param progresses
+     * @return
+     */
+    public Builder progresses(Integer[] progresses) {
+      this.progresses = progresses;
+      return this;
+    }
+
+    /**
+     * 是否新流程待入职
+     *
+     * <p>示例值：true
+     *
+     * @param newFlowPreHire
+     * @return
+     */
+    public Builder newFlowPreHire(Boolean newFlowPreHire) {
+      this.newFlowPreHire = newFlowPreHire;
+      return this;
+    }
+
+    /**
+     * 信息是否异常
+     *
+     * <p>示例值：true
+     *
+     * @param isInfoErr
+     * @return
+     */
+    public Builder isInfoErr(Boolean isInfoErr) {
+      this.isInfoErr = isInfoErr;
+      return this;
+    }
+
+    /**
+     * 异常原因列表
+     *
+     * <p>示例值：
+     *
+     * @param errReasons
+     * @return
+     */
+    public Builder errReasons(PreHireField[] errReasons) {
+      this.errReasons = errReasons;
+      return this;
+    }
+
+    /**
+     * 岗位名称
+     *
+     * <p>示例值：example
+     *
+     * @param jobName
+     * @return
+     */
+    public Builder jobName(String jobName) {
+      this.jobName = jobName;
+      return this;
+    }
+
+    /**
+     * 工作地点
+     *
+     * <p>示例值：
+     *
+     * @param workLocation
+     * @return
+     */
+    public Builder workLocation(PreHireField workLocation) {
+      this.workLocation = workLocation;
+      return this;
+    }
+
+    /**
+     * 办公地点
+     *
+     * <p>示例值：
+     *
+     * @param officeLocation
+     * @return
+     */
+    public Builder officeLocation(PreHireField officeLocation) {
+      this.officeLocation = officeLocation;
+      return this;
+    }
+
+    /**
+     * 手机号码
+     *
+     * <p>示例值：example
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
+    }
+
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：example
+     *
+     * @param personalEmail
+     * @return
+     */
+    public Builder personalEmail(String personalEmail) {
+      this.personalEmail = personalEmail;
+      return this;
+    }
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：example
+     *
+     * @param workEmail
+     * @return
+     */
+    public Builder workEmail(String workEmail) {
+      this.workEmail = workEmail;
+      return this;
+    }
+
+    /**
+     * 所属公司
+     *
+     * <p>示例值：
+     *
+     * @param company
+     * @return
+     */
+    public Builder company(PreHireField company) {
+      this.company = company;
+      return this;
+    }
+
+    /**
+     * 服务公司
+     *
+     * <p>示例值：
+     *
+     * @param serviceCompany
+     * @return
+     */
+    public Builder serviceCompany(PreHireField serviceCompany) {
+      this.serviceCompany = serviceCompany;
+      return this;
+    }
+
+    /**
+     * 部门全路径
+     *
+     * <p>示例值：
+     *
+     * @param departmentFullPath
+     * @return
+     */
+    public Builder departmentFullPath(PreHireField departmentFullPath) {
+      this.departmentFullPath = departmentFullPath;
+      return this;
+    }
+
+    /**
+     * 岗位
+     *
+     * <p>示例值：
+     *
+     * @param job
+     * @return
+     */
+    public Builder job(PreHireField job) {
+      this.job = job;
+      return this;
+    }
+
+    /**
+     * 岗位职级
+     *
+     * <p>示例值：
+     *
+     * @param jobLevel
+     * @return
+     */
+    public Builder jobLevel(PreHireField jobLevel) {
+      this.jobLevel = jobLevel;
+      return this;
+    }
+
+    /**
+     * 岗位职等
+     *
+     * <p>示例值：
+     *
+     * @param jobGrade
+     * @return
+     */
+    public Builder jobGrade(PreHireField jobGrade) {
+      this.jobGrade = jobGrade;
+      return this;
+    }
+
+    /**
+     * 职位序列
+     *
+     * <p>示例值：
+     *
+     * @param jobFamily
+     * @return
+     */
+    public Builder jobFamily(PreHireField jobFamily) {
+      this.jobFamily = jobFamily;
+      return this;
+    }
+
+    /**
+     * 职业发展通道
+     *
+     * <p>示例值：
+     *
+     * @param pathway
+     * @return
+     */
+    public Builder pathway(PreHireField pathway) {
+      this.pathway = pathway;
+      return this;
+    }
+
+    /**
+     * 虚线上级
+     *
+     * <p>示例值：
+     *
+     * @param dottedLineManager
+     * @return
+     */
+    public Builder dottedLineManager(PreHireEmployee dottedLineManager) {
+      this.dottedLineManager = dottedLineManager;
+      return this;
+    }
+
+    /**
+     * 人员子类型
+     *
+     * <p>示例值：
+     *
+     * @param employeeSubType
+     * @return
+     */
+    public Builder employeeSubType(PreHireField employeeSubType) {
+      this.employeeSubType = employeeSubType;
+      return this;
+    }
+
+    /**
+     * 合同信息
+     *
+     * <p>示例值：
+     *
+     * @param contractInfo
+     * @return
+     */
+    public Builder contractInfo(ContractInfoForAi contractInfo) {
+      this.contractInfo = contractInfo;
+      return this;
+    }
+
+    /**
+     * 试用期信息
+     *
+     * <p>示例值：
+     *
+     * @param probationInfo
+     * @return
+     */
+    public Builder probationInfo(ProbationInfo probationInfo) {
+      this.probationInfo = probationInfo;
+      return this;
+    }
+
+    /**
+     * 社保缴纳城市
+     *
+     * <p>示例值：
+     *
+     * @param socialSecurityCity
+     * @return
+     */
+    public Builder socialSecurityCity(PreHireField socialSecurityCity) {
+      this.socialSecurityCity = socialSecurityCity;
+      return this;
+    }
+
+    /**
+     * 工时制度
+     *
+     * <p>示例值：
+     *
+     * @param workingHoursType
+     * @return
+     */
+    public Builder workingHoursType(PreHireField workingHoursType) {
+      this.workingHoursType = workingHoursType;
+      return this;
+    }
+
+    /**
+     * 是否逾期
+     *
+     * <p>示例值：
+     *
+     * @param isOverdue
+     * @return
+     */
+    public Builder isOverdue(PreHireField isOverdue) {
+      this.isOverdue = isOverdue;
+      return this;
+    }
+
+    /**
+     * 办公地址
+     *
+     * <p>示例值：
+     *
+     * @param officeAddress
+     * @return
+     */
+    public Builder officeAddress(PreHireField officeAddress) {
+      this.officeAddress = officeAddress;
+      return this;
+    }
+
+    /**
+     * 工作日历
+     *
+     * <p>示例值：
+     *
+     * @param workingCalendar
+     * @return
+     */
+    public Builder workingCalendar(PreHireField workingCalendar) {
+      this.workingCalendar = workingCalendar;
+      return this;
+    }
+
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     *
+     * @param employmentType
+     * @return
+     */
+    public Builder employmentType(PreHireField employmentType) {
+      this.employmentType = employmentType;
+      return this;
+    }
+
+    /**
+     * 每周工作时长
+     *
+     * <p>示例值：example
+     *
+     * @param weeklyWorkingHours
+     * @return
+     */
+    public Builder weeklyWorkingHours(String weeklyWorkingHours) {
+      this.weeklyWorkingHours = weeklyWorkingHours;
+      return this;
+    }
+
+    /**
+     * 班次
+     *
+     * <p>示例值：
+     *
+     * @param workShift
+     * @return
+     */
+    public Builder workShift(PreHireField workShift) {
+      this.workShift = workShift;
+      return this;
+    }
+
+    /**
+     * 招聘类型
+     *
+     * <p>示例值：
+     *
+     * @param recruitmentType
+     * @return
+     */
+    public Builder recruitmentType(PreHireField recruitmentType) {
+      this.recruitmentType = recruitmentType;
+      return this;
+    }
+
+    /**
+     * 薪酬类型
+     *
+     * <p>示例值：
+     *
+     * @param compensationType
+     * @return
+     */
+    public Builder compensationType(PreHireField compensationType) {
+      this.compensationType = compensationType;
+      return this;
+    }
+
+    /**
+     * 成本中心列表
+     *
+     * <p>示例值：
+     *
+     * @param costCenters
+     * @return
+     */
+    public Builder costCenters(PreHireField[] costCenters) {
+      this.costCenters = costCenters;
+      return this;
+    }
+
+    /**
+     * 职位
+     *
+     * <p>示例值：
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(PreHireField position) {
+      this.position = position;
+      return this;
+    }
+
+    /**
+     * 司龄计算日期
+     *
+     * <p>示例值：example
+     *
+     * @param seniorityDate
+     * @return
+     */
+    public Builder seniorityDate(String seniorityDate) {
+      this.seniorityDate = seniorityDate;
+      return this;
+    }
+
+    /**
+     * 格式化司龄计算日期
+     *
+     * <p>示例值：example
+     *
+     * @param seniorityDateFormatted
+     * @return
+     */
+    public Builder seniorityDateFormatted(String seniorityDateFormatted) {
+      this.seniorityDateFormatted = seniorityDateFormatted;
+      return this;
+    }
+
+    /**
+     * 工作国家
+     *
+     * <p>示例值：
+     *
+     * @param workCountry
+     * @return
+     */
+    public Builder workCountry(PreHireField workCountry) {
+      this.workCountry = workCountry;
+      return this;
+    }
+
+    /**
+     * 入职方式
+     *
+     * <p>示例值：
+     *
+     * @param onboardType
+     * @return
+     */
+    public Builder onboardType(PreHireField onboardType) {
+      this.onboardType = onboardType;
+      return this;
+    }
+
+    /**
+     * 入职地点
+     *
+     * <p>示例值：
+     *
+     * @param onboardLocation
+     * @return
+     */
+    public Builder onboardLocation(PreHireField onboardLocation) {
+      this.onboardLocation = onboardLocation;
+      return this;
+    }
+
+    /**
+     * 入职办理地址
+     *
+     * <p>示例值：
+     *
+     * @param onboardingAddress
+     * @return
+     */
+    public Builder onboardingAddress(PreHireField onboardingAddress) {
+      this.onboardingAddress = onboardingAddress;
+      return this;
+    }
+
+    /**
+     * 签到方式
+     *
+     * <p>示例值：
+     *
+     * @param checkInMethod
+     * @return
+     */
+    public Builder checkInMethod(PreHireField checkInMethod) {
+      this.checkInMethod = checkInMethod;
+      return this;
+    }
+
+    /**
+     * 签到时间
+     *
+     * <p>示例值：example
+     *
+     * @param checkInTime
+     * @return
+     */
+    public Builder checkInTime(String checkInTime) {
+      this.checkInTime = checkInTime;
+      return this;
+    }
+
+    /**
+     * 试用期主动离职通知期
+     *
+     * <p>示例值：
+     *
+     * @param noticePeriodProbationVoluntary
+     * @return
+     */
+    public Builder noticePeriodProbationVoluntary(PreHireField noticePeriodProbationVoluntary) {
+      this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
+      return this;
+    }
+
+    /**
+     * 试用期被动离职通知期
+     *
+     * <p>示例值：
+     *
+     * @param noticePeriodProbationInVoluntary
+     * @return
+     */
+    public Builder noticePeriodProbationInVoluntary(PreHireField noticePeriodProbationInVoluntary) {
+      this.noticePeriodProbationInVoluntary = noticePeriodProbationInVoluntary;
+      return this;
+    }
+
+    /**
+     * 正式期主动离职通知期
+     *
+     * <p>示例值：
+     *
+     * @param noticePeriodPositiveVoluntary
+     * @return
+     */
+    public Builder noticePeriodPositiveVoluntary(PreHireField noticePeriodPositiveVoluntary) {
+      this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+      return this;
+    }
+
+    /**
+     * 正式期被动离职通知期
+     *
+     * <p>示例值：
+     *
+     * @param noticePeriodPositiveInVoluntary
+     * @return
+     */
+    public Builder noticePeriodPositiveInVoluntary(PreHireField noticePeriodPositiveInVoluntary) {
+      this.noticePeriodPositiveInVoluntary = noticePeriodPositiveInVoluntary;
+      return this;
+    }
+
+    /**
+     * 默认成本中心
+     *
+     * <p>示例值：
+     *
+     * @param defaultCostCenter
+     * @return
+     */
+    public Builder defaultCostCenter(PreHireField defaultCostCenter) {
+      this.defaultCostCenter = defaultCostCenter;
+      return this;
+    }
+
+    /**
+     * 成本分摊列表
+     *
+     * <p>示例值：
+     *
+     * @param costAllocations
+     * @return
+     */
+    public Builder costAllocations(PreHireField[] costAllocations) {
+      this.costAllocations = costAllocations;
+      return this;
+    }
+
+    /**
+     * 成本分摊生效时间
+     *
+     * <p>示例值：example
+     *
+     * @param costAllocationEffectiveTime
+     * @return
+     */
+    public Builder costAllocationEffectiveTime(String costAllocationEffectiveTime) {
+      this.costAllocationEffectiveTime = costAllocationEffectiveTime;
+      return this;
+    }
+
+    /**
+     * 成本分摊失效时间
+     *
+     * <p>示例值：example
+     *
+     * @param costAllocationExpirationTime
+     * @return
+     */
+    public Builder costAllocationExpirationTime(String costAllocationExpirationTime) {
+      this.costAllocationExpirationTime = costAllocationExpirationTime;
+      return this;
+    }
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
+    }
+
+    /**
+     * 复职前雇佣信息
+     *
+     * <p>示例值：example
+     *
+     * @param employmentBeforeRehire
+     * @return
+     */
+    public Builder employmentBeforeRehire(PreHireEmployee employmentBeforeRehire) {
+      this.employmentBeforeRehire = employmentBeforeRehire;
+      return this;
+    }
+
+    /**
+     * 任务状态列表
+     *
+     * <p>示例值：
+     *
+     * @param taskStatuses
+     * @return
+     */
+    public Builder taskStatuses(PreHireField[] taskStatuses) {
+      this.taskStatuses = taskStatuses;
+      return this;
+    }
+
+    /**
+     * 是否分配至待入职人员
+     *
+     * <p>示例值：true
+     *
+     * @param assigneeToPreHire
+     * @return
+     */
+    public Builder assigneeToPreHire(Boolean assigneeToPreHire) {
+      this.assigneeToPreHire = assigneeToPreHire;
+      return this;
+    }
+
+    /**
+     * 流程名称
+     *
+     * <p>示例值：
+     *
+     * @param flowInstanceName
+     * @return
+     */
+    public Builder flowInstanceName(PreHireField flowInstanceName) {
+      this.flowInstanceName = flowInstanceName;
+      return this;
+    }
+
+    public PreHireForAi build() {
+      return new PreHireForAi(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

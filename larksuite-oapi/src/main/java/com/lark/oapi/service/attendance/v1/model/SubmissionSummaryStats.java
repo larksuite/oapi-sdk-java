@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmissionSummaryStats {
+  /**
+   * 标签，总时长或工时类型统计名称
+   *
+   * <p>示例值：5月加班时长
+   */
+  @SerializedName("label")
+  private String label;
+
+  /**
+   * 时长，包含单位
+   *
+   * <p>示例值：34 小时
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 工时类型统计列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("detail_stats_lists")
+  private SubmissionSummaryStatsDetail[] detailStatsLists;
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public SubmissionSummaryStatsDetail[] getDetailStatsLists() {
+    return this.detailStatsLists;
+  }
+
+  public void setDetailStatsLists(SubmissionSummaryStatsDetail[] detailStatsLists) {
+    this.detailStatsLists = detailStatsLists;
+  }
+
+  // builder 开始
+  public SubmissionSummaryStats() {}
+
+  public SubmissionSummaryStats(Builder builder) {
     /**
      * 标签，总时长或工时类型统计名称
-     * <p> 示例值：5月加班时长
+     *
+     * <p>示例值：5月加班时长
      */
-    @SerializedName("label")
-    private String label;
+    this.label = builder.label;
     /**
      * 时长，包含单位
-     * <p> 示例值：34 小时
+     *
+     * <p>示例值：34 小时
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 工时类型统计列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("detail_stats_lists")
+    this.detailStatsLists = builder.detailStatsLists;
+  }
+
+  public static class Builder {
+    /**
+     * 标签，总时长或工时类型统计名称
+     *
+     * <p>示例值：5月加班时长
+     */
+    private String label;
+
+    /**
+     * 时长，包含单位
+     *
+     * <p>示例值：34 小时
+     */
+    private String value;
+
+    /**
+     * 工时类型统计列表
+     *
+     * <p>示例值：
+     */
     private SubmissionSummaryStatsDetail[] detailStatsLists;
 
-    // builder 开始
-    public SubmissionSummaryStats() {
+    /**
+     * 标签，总时长或工时类型统计名称
+     *
+     * <p>示例值：5月加班时长
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(String label) {
+      this.label = label;
+      return this;
     }
 
-    public SubmissionSummaryStats(Builder builder) {
-        /**
-         * 标签，总时长或工时类型统计名称
-         * <p> 示例值：5月加班时长
-         */
-        this.label = builder.label;
-        /**
-         * 时长，包含单位
-         * <p> 示例值：34 小时
-         */
-        this.value = builder.value;
-        /**
-         * 工时类型统计列表
-         * <p> 示例值：
-         */
-        this.detailStatsLists = builder.detailStatsLists;
+    /**
+     * 时长，包含单位
+     *
+     * <p>示例值：34 小时
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工时类型统计列表
+     *
+     * <p>示例值：
+     *
+     * @param detailStatsLists
+     * @return
+     */
+    public Builder detailStatsLists(SubmissionSummaryStatsDetail[] detailStatsLists) {
+      this.detailStatsLists = detailStatsLists;
+      return this;
     }
 
-    public String getLabel() {
-        return this.label;
+    public SubmissionSummaryStats build() {
+      return new SubmissionSummaryStats(this);
     }
+  }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public SubmissionSummaryStatsDetail[] getDetailStatsLists() {
-        return this.detailStatsLists;
-    }
-
-    public void setDetailStatsLists(SubmissionSummaryStatsDetail[] detailStatsLists) {
-        this.detailStatsLists = detailStatsLists;
-    }
-
-    public static class Builder {
-        /**
-         * 标签，总时长或工时类型统计名称
-         * <p> 示例值：5月加班时长
-         */
-        private String label;
-        /**
-         * 时长，包含单位
-         * <p> 示例值：34 小时
-         */
-        private String value;
-        /**
-         * 工时类型统计列表
-         * <p> 示例值：
-         */
-        private SubmissionSummaryStatsDetail[] detailStatsLists;
-
-        /**
-         * 标签，总时长或工时类型统计名称
-         * <p> 示例值：5月加班时长
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(String label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 时长，包含单位
-         * <p> 示例值：34 小时
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 工时类型统计列表
-         * <p> 示例值：
-         *
-         * @param detailStatsLists
-         * @return
-         */
-        public Builder detailStatsLists(SubmissionSummaryStatsDetail[] detailStatsLists) {
-            this.detailStatsLists = detailStatsLists;
-            return this;
-        }
-
-
-        public SubmissionSummaryStats build() {
-            return new SubmissionSummaryStats(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

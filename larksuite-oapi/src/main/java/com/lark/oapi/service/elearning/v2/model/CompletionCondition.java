@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompletionCondition {
+  /**
+   * 学员完成学习条件类型
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("condition_type")
+  private Integer conditionType;
+
+  /**
+   * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
+   *
+   * <p>示例值：1800
+   */
+  @SerializedName("duration")
+  private Integer duration;
+
+  /**
+   * 学员完成学习条件，回放参与时长（单位：秒）
+   *
+   * <p>示例值：300
+   */
+  @SerializedName("playback_duration")
+  private Integer playbackDuration;
+
+  public Integer getConditionType() {
+    return this.conditionType;
+  }
+
+  public void setConditionType(Integer conditionType) {
+    this.conditionType = conditionType;
+  }
+
+  public Integer getDuration() {
+    return this.duration;
+  }
+
+  public void setDuration(Integer duration) {
+    this.duration = duration;
+  }
+
+  public Integer getPlaybackDuration() {
+    return this.playbackDuration;
+  }
+
+  public void setPlaybackDuration(Integer playbackDuration) {
+    this.playbackDuration = playbackDuration;
+  }
+
+  // builder 开始
+  public CompletionCondition() {}
+
+  public CompletionCondition(Builder builder) {
     /**
      * 学员完成学习条件类型
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("condition_type")
-    private Integer conditionType;
+    this.conditionType = builder.conditionType;
     /**
      * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
-     * <p> 示例值：1800
+     *
+     * <p>示例值：1800
      */
-    @SerializedName("duration")
-    private Integer duration;
+    this.duration = builder.duration;
     /**
      * 学员完成学习条件，回放参与时长（单位：秒）
-     * <p> 示例值：300
+     *
+     * <p>示例值：300
      */
-    @SerializedName("playback_duration")
+    this.playbackDuration = builder.playbackDuration;
+  }
+
+  public static class Builder {
+    /**
+     * 学员完成学习条件类型
+     *
+     * <p>示例值：4
+     */
+    private Integer conditionType;
+
+    /**
+     * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
+     *
+     * <p>示例值：1800
+     */
+    private Integer duration;
+
+    /**
+     * 学员完成学习条件，回放参与时长（单位：秒）
+     *
+     * <p>示例值：300
+     */
     private Integer playbackDuration;
 
-    // builder 开始
-    public CompletionCondition() {
+    /**
+     * 学员完成学习条件类型
+     *
+     * <p>示例值：4
+     *
+     * @param conditionType
+     * @return
+     */
+    public Builder conditionType(Integer conditionType) {
+      this.conditionType = conditionType;
+      return this;
     }
 
-    public CompletionCondition(Builder builder) {
-        /**
-         * 学员完成学习条件类型
-         * <p> 示例值：4
-         */
-        this.conditionType = builder.conditionType;
-        /**
-         * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
-         * <p> 示例值：1800
-         */
-        this.duration = builder.duration;
-        /**
-         * 学员完成学习条件，回放参与时长（单位：秒）
-         * <p> 示例值：300
-         */
-        this.playbackDuration = builder.playbackDuration;
+    /**
+     * 学员完成学习条件类型
+     *
+     * <p>示例值：4
+     *
+     * @param conditionType {@link
+     *     com.lark.oapi.service.elearning.v2.enums.CompletionConditionConditionTypeEnum}
+     * @return
+     */
+    public Builder conditionType(
+        com.lark.oapi.service.elearning.v2.enums.CompletionConditionConditionTypeEnum
+            conditionType) {
+      this.conditionType = conditionType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
+     *
+     * <p>示例值：1800
+     *
+     * @param duration
+     * @return
+     */
+    public Builder duration(Integer duration) {
+      this.duration = duration;
+      return this;
     }
 
-    public Integer getConditionType() {
-        return this.conditionType;
+    /**
+     * 学员完成学习条件，回放参与时长（单位：秒）
+     *
+     * <p>示例值：300
+     *
+     * @param playbackDuration
+     * @return
+     */
+    public Builder playbackDuration(Integer playbackDuration) {
+      this.playbackDuration = playbackDuration;
+      return this;
     }
 
-    public void setConditionType(Integer conditionType) {
-        this.conditionType = conditionType;
+    public CompletionCondition build() {
+      return new CompletionCondition(this);
     }
+  }
 
-    public Integer getDuration() {
-        return this.duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    public Integer getPlaybackDuration() {
-        return this.playbackDuration;
-    }
-
-    public void setPlaybackDuration(Integer playbackDuration) {
-        this.playbackDuration = playbackDuration;
-    }
-
-    public static class Builder {
-        /**
-         * 学员完成学习条件类型
-         * <p> 示例值：4
-         */
-        private Integer conditionType;
-        /**
-         * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
-         * <p> 示例值：1800
-         */
-        private Integer duration;
-        /**
-         * 学员完成学习条件，回放参与时长（单位：秒）
-         * <p> 示例值：300
-         */
-        private Integer playbackDuration;
-
-        /**
-         * 学员完成学习条件类型
-         * <p> 示例值：4
-         *
-         * @param conditionType
-         * @return
-         */
-        public Builder conditionType(Integer conditionType) {
-            this.conditionType = conditionType;
-            return this;
-        }
-
-        /**
-         * 学员完成学习条件类型
-         * <p> 示例值：4
-         *
-         * @param conditionType {@link com.lark.oapi.service.elearning.v2.enums.CompletionConditionConditionTypeEnum}
-         * @return
-         */
-        public Builder conditionType(com.lark.oapi.service.elearning.v2.enums.CompletionConditionConditionTypeEnum conditionType) {
-            this.conditionType = conditionType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 学员完成学习条件，直播或直播+回放参与时长。当condition_type为2或4时，duration表示直播时长；当condition_type为3时，duration表示直播和回放的总时长（单位：秒）
-         * <p> 示例值：1800
-         *
-         * @param duration
-         * @return
-         */
-        public Builder duration(Integer duration) {
-            this.duration = duration;
-            return this;
-        }
-
-
-        /**
-         * 学员完成学习条件，回放参与时长（单位：秒）
-         * <p> 示例值：300
-         *
-         * @param playbackDuration
-         * @return
-         */
-        public Builder playbackDuration(Integer playbackDuration) {
-            this.playbackDuration = playbackDuration;
-            return this;
-        }
-
-
-        public CompletionCondition build() {
-            return new CompletionCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

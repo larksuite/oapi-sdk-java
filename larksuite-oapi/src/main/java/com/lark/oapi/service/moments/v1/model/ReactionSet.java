@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.moments.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReactionSet {
+  /**
+   * reaction列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reactions")
+  private ReactionList[] reactions;
+
+  /**
+   * 所有 reaction的数量
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("total_count")
+  private Integer totalCount;
+
+  public ReactionList[] getReactions() {
+    return this.reactions;
+  }
+
+  public void setReactions(ReactionList[] reactions) {
+    this.reactions = reactions;
+  }
+
+  public Integer getTotalCount() {
+    return this.totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
+  // builder 开始
+  public ReactionSet() {}
+
+  public ReactionSet(Builder builder) {
     /**
-     * 表情列表
-     * <p> 示例值：
+     * reaction列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("reactions")
+    this.reactions = builder.reactions;
+    /**
+     * 所有 reaction的数量
+     *
+     * <p>示例值：12
+     */
+    this.totalCount = builder.totalCount;
+  }
+
+  public static class Builder {
+    /**
+     * reaction列表
+     *
+     * <p>示例值：
+     */
     private ReactionList[] reactions;
+
     /**
-     * 全部表情计数
-     * <p> 示例值：20
+     * 所有 reaction的数量
+     *
+     * <p>示例值：12
      */
-    @SerializedName("total_count")
     private Integer totalCount;
 
-    // builder 开始
-    public ReactionSet() {
+    /**
+     * reaction列表
+     *
+     * <p>示例值：
+     *
+     * @param reactions
+     * @return
+     */
+    public Builder reactions(ReactionList[] reactions) {
+      this.reactions = reactions;
+      return this;
     }
 
-    public ReactionSet(Builder builder) {
-        /**
-         * 表情列表
-         * <p> 示例值：
-         */
-        this.reactions = builder.reactions;
-        /**
-         * 全部表情计数
-         * <p> 示例值：20
-         */
-        this.totalCount = builder.totalCount;
+    /**
+     * 所有 reaction的数量
+     *
+     * <p>示例值：12
+     *
+     * @param totalCount
+     * @return
+     */
+    public Builder totalCount(Integer totalCount) {
+      this.totalCount = totalCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ReactionSet build() {
+      return new ReactionSet(this);
     }
+  }
 
-    public ReactionList[] getReactions() {
-        return this.reactions;
-    }
-
-    public void setReactions(ReactionList[] reactions) {
-        this.reactions = reactions;
-    }
-
-    public Integer getTotalCount() {
-        return this.totalCount;
-    }
-
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
-
-    public static class Builder {
-        /**
-         * 表情列表
-         * <p> 示例值：
-         */
-        private ReactionList[] reactions;
-        /**
-         * 全部表情计数
-         * <p> 示例值：20
-         */
-        private Integer totalCount;
-
-        /**
-         * 表情列表
-         * <p> 示例值：
-         *
-         * @param reactions
-         * @return
-         */
-        public Builder reactions(ReactionList[] reactions) {
-            this.reactions = reactions;
-            return this;
-        }
-
-
-        /**
-         * 全部表情计数
-         * <p> 示例值：20
-         *
-         * @param totalCount
-         * @return
-         */
-        public Builder totalCount(Integer totalCount) {
-            this.totalCount = totalCount;
-            return this;
-        }
-
-
-        public ReactionSet build() {
-            return new ReactionSet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

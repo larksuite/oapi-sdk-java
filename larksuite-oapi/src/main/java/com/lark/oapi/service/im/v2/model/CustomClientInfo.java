@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomClientInfo {
+  /**
+   * depracated 请求的平台
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("Platform")
+  private String platform;
+
+  /**
+   * depracated 如果是来自Feisu, 这里是飞书的Version
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("LarkVersion")
+  private String larkVersion;
+
+  /**
+   * depracated 应用形态 1-小程序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("AppForm")
+  private Integer appForm;
+
+  /**
+   * depracated 应用版本
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("AppVersion")
+  private String appVersion;
+
+  /**
+   * depracated 操作系统
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("OS")
+  private String oS;
+
+  /**
+   * 客户端IP
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("ClientIP")
+  private String clientIP;
+
+  /**
+   * depracated DeviceID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("DeviceID")
+  private String deviceID;
+
+  public String getPlatform() {
+    return this.platform;
+  }
+
+  public void setPlatform(String platform) {
+    this.platform = platform;
+  }
+
+  public String getLarkVersion() {
+    return this.larkVersion;
+  }
+
+  public void setLarkVersion(String larkVersion) {
+    this.larkVersion = larkVersion;
+  }
+
+  public Integer getAppForm() {
+    return this.appForm;
+  }
+
+  public void setAppForm(Integer appForm) {
+    this.appForm = appForm;
+  }
+
+  public String getAppVersion() {
+    return this.appVersion;
+  }
+
+  public void setAppVersion(String appVersion) {
+    this.appVersion = appVersion;
+  }
+
+  public String getOS() {
+    return this.oS;
+  }
+
+  public void setOS(String oS) {
+    this.oS = oS;
+  }
+
+  public String getClientIP() {
+    return this.clientIP;
+  }
+
+  public void setClientIP(String clientIP) {
+    this.clientIP = clientIP;
+  }
+
+  public String getDeviceID() {
+    return this.deviceID;
+  }
+
+  public void setDeviceID(String deviceID) {
+    this.deviceID = deviceID;
+  }
+
+  // builder 开始
+  public CustomClientInfo() {}
+
+  public CustomClientInfo(Builder builder) {
     /**
      * depracated 请求的平台
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("Platform")
-    private String platform;
+    this.platform = builder.platform;
     /**
      * depracated 如果是来自Feisu, 这里是飞书的Version
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("LarkVersion")
-    private String larkVersion;
+    this.larkVersion = builder.larkVersion;
     /**
      * depracated 应用形态 1-小程序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("AppForm")
-    private Integer appForm;
+    this.appForm = builder.appForm;
     /**
      * depracated 应用版本
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("AppVersion")
-    private String appVersion;
+    this.appVersion = builder.appVersion;
     /**
      * depracated 操作系统
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("OS")
-    private String oS;
+    this.oS = builder.oS;
     /**
      * 客户端IP
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("ClientIP")
-    private String clientIP;
+    this.clientIP = builder.clientIP;
     /**
      * depracated DeviceID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("DeviceID")
+    this.deviceID = builder.deviceID;
+  }
+
+  public static class Builder {
+    /**
+     * depracated 请求的平台
+     *
+     * <p>示例值：1
+     */
+    private String platform;
+
+    /**
+     * depracated 如果是来自Feisu, 这里是飞书的Version
+     *
+     * <p>示例值：1
+     */
+    private String larkVersion;
+
+    /**
+     * depracated 应用形态 1-小程序
+     *
+     * <p>示例值：1
+     */
+    private Integer appForm;
+
+    /**
+     * depracated 应用版本
+     *
+     * <p>示例值：1
+     */
+    private String appVersion;
+
+    /**
+     * depracated 操作系统
+     *
+     * <p>示例值：1
+     */
+    private String oS;
+
+    /**
+     * 客户端IP
+     *
+     * <p>示例值：1
+     */
+    private String clientIP;
+
+    /**
+     * depracated DeviceID
+     *
+     * <p>示例值：1
+     */
     private String deviceID;
 
-    // builder 开始
-    public CustomClientInfo() {
+    /**
+     * depracated 请求的平台
+     *
+     * <p>示例值：1
+     *
+     * @param platform
+     * @return
+     */
+    public Builder platform(String platform) {
+      this.platform = platform;
+      return this;
     }
 
-    public CustomClientInfo(Builder builder) {
-        /**
-         * depracated 请求的平台
-         * <p> 示例值：1
-         */
-        this.platform = builder.platform;
-        /**
-         * depracated 如果是来自Feisu, 这里是飞书的Version
-         * <p> 示例值：1
-         */
-        this.larkVersion = builder.larkVersion;
-        /**
-         * depracated 应用形态 1-小程序
-         * <p> 示例值：1
-         */
-        this.appForm = builder.appForm;
-        /**
-         * depracated 应用版本
-         * <p> 示例值：1
-         */
-        this.appVersion = builder.appVersion;
-        /**
-         * depracated 操作系统
-         * <p> 示例值：1
-         */
-        this.oS = builder.oS;
-        /**
-         * 客户端IP
-         * <p> 示例值：1
-         */
-        this.clientIP = builder.clientIP;
-        /**
-         * depracated DeviceID
-         * <p> 示例值：1
-         */
-        this.deviceID = builder.deviceID;
+    /**
+     * depracated 如果是来自Feisu, 这里是飞书的Version
+     *
+     * <p>示例值：1
+     *
+     * @param larkVersion
+     * @return
+     */
+    public Builder larkVersion(String larkVersion) {
+      this.larkVersion = larkVersion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * depracated 应用形态 1-小程序
+     *
+     * <p>示例值：1
+     *
+     * @param appForm
+     * @return
+     */
+    public Builder appForm(Integer appForm) {
+      this.appForm = appForm;
+      return this;
     }
 
-    public String getPlatform() {
-        return this.platform;
+    /**
+     * depracated 应用版本
+     *
+     * <p>示例值：1
+     *
+     * @param appVersion
+     * @return
+     */
+    public Builder appVersion(String appVersion) {
+      this.appVersion = appVersion;
+      return this;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    /**
+     * depracated 操作系统
+     *
+     * <p>示例值：1
+     *
+     * @param oS
+     * @return
+     */
+    public Builder oS(String oS) {
+      this.oS = oS;
+      return this;
     }
 
-    public String getLarkVersion() {
-        return this.larkVersion;
+    /**
+     * 客户端IP
+     *
+     * <p>示例值：1
+     *
+     * @param clientIP
+     * @return
+     */
+    public Builder clientIP(String clientIP) {
+      this.clientIP = clientIP;
+      return this;
     }
 
-    public void setLarkVersion(String larkVersion) {
-        this.larkVersion = larkVersion;
+    /**
+     * depracated DeviceID
+     *
+     * <p>示例值：1
+     *
+     * @param deviceID
+     * @return
+     */
+    public Builder deviceID(String deviceID) {
+      this.deviceID = deviceID;
+      return this;
     }
 
-    public Integer getAppForm() {
-        return this.appForm;
+    public CustomClientInfo build() {
+      return new CustomClientInfo(this);
     }
+  }
 
-    public void setAppForm(Integer appForm) {
-        this.appForm = appForm;
-    }
-
-    public String getAppVersion() {
-        return this.appVersion;
-    }
-
-    public void setAppVersion(String appVersion) {
-        this.appVersion = appVersion;
-    }
-
-    public String getOS() {
-        return this.oS;
-    }
-
-    public void setOS(String oS) {
-        this.oS = oS;
-    }
-
-    public String getClientIP() {
-        return this.clientIP;
-    }
-
-    public void setClientIP(String clientIP) {
-        this.clientIP = clientIP;
-    }
-
-    public String getDeviceID() {
-        return this.deviceID;
-    }
-
-    public void setDeviceID(String deviceID) {
-        this.deviceID = deviceID;
-    }
-
-    public static class Builder {
-        /**
-         * depracated 请求的平台
-         * <p> 示例值：1
-         */
-        private String platform;
-        /**
-         * depracated 如果是来自Feisu, 这里是飞书的Version
-         * <p> 示例值：1
-         */
-        private String larkVersion;
-        /**
-         * depracated 应用形态 1-小程序
-         * <p> 示例值：1
-         */
-        private Integer appForm;
-        /**
-         * depracated 应用版本
-         * <p> 示例值：1
-         */
-        private String appVersion;
-        /**
-         * depracated 操作系统
-         * <p> 示例值：1
-         */
-        private String oS;
-        /**
-         * 客户端IP
-         * <p> 示例值：1
-         */
-        private String clientIP;
-        /**
-         * depracated DeviceID
-         * <p> 示例值：1
-         */
-        private String deviceID;
-
-        /**
-         * depracated 请求的平台
-         * <p> 示例值：1
-         *
-         * @param platform
-         * @return
-         */
-        public Builder platform(String platform) {
-            this.platform = platform;
-            return this;
-        }
-
-
-        /**
-         * depracated 如果是来自Feisu, 这里是飞书的Version
-         * <p> 示例值：1
-         *
-         * @param larkVersion
-         * @return
-         */
-        public Builder larkVersion(String larkVersion) {
-            this.larkVersion = larkVersion;
-            return this;
-        }
-
-
-        /**
-         * depracated 应用形态 1-小程序
-         * <p> 示例值：1
-         *
-         * @param appForm
-         * @return
-         */
-        public Builder appForm(Integer appForm) {
-            this.appForm = appForm;
-            return this;
-        }
-
-
-        /**
-         * depracated 应用版本
-         * <p> 示例值：1
-         *
-         * @param appVersion
-         * @return
-         */
-        public Builder appVersion(String appVersion) {
-            this.appVersion = appVersion;
-            return this;
-        }
-
-
-        /**
-         * depracated 操作系统
-         * <p> 示例值：1
-         *
-         * @param oS
-         * @return
-         */
-        public Builder oS(String oS) {
-            this.oS = oS;
-            return this;
-        }
-
-
-        /**
-         * 客户端IP
-         * <p> 示例值：1
-         *
-         * @param clientIP
-         * @return
-         */
-        public Builder clientIP(String clientIP) {
-            this.clientIP = clientIP;
-            return this;
-        }
-
-
-        /**
-         * depracated DeviceID
-         * <p> 示例值：1
-         *
-         * @param deviceID
-         * @return
-         */
-        public Builder deviceID(String deviceID) {
-            this.deviceID = deviceID;
-            return this;
-        }
-
-
-        public CustomClientInfo build() {
-            return new CustomClientInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

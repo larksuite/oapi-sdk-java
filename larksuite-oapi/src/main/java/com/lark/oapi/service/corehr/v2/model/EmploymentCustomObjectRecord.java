@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentCustomObjectRecord {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：7185135991475144236
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 记录列表
+   *
+   * <p>示例值：json 序列化后的返回值
+   */
+  @SerializedName("record_list")
+  private String recordList;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getRecordList() {
+    return this.recordList;
+  }
+
+  public void setRecordList(String recordList) {
+    this.recordList = recordList;
+  }
+
+  // builder 开始
+  public EmploymentCustomObjectRecord() {}
+
+  public EmploymentCustomObjectRecord(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：7185135991475144236
+     *
+     * <p>示例值：7185135991475144236
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 记录列表
-     * <p> 示例值：json 序列化后的返回值
+     *
+     * <p>示例值：json 序列化后的返回值
      */
-    @SerializedName("record_list")
+    this.recordList = builder.recordList;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7185135991475144236
+     */
+    private String employmentId;
+
+    /**
+     * 记录列表
+     *
+     * <p>示例值：json 序列化后的返回值
+     */
     private String recordList;
 
-    // builder 开始
-    public EmploymentCustomObjectRecord() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7185135991475144236
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmploymentCustomObjectRecord(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：7185135991475144236
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 记录列表
-         * <p> 示例值：json 序列化后的返回值
-         */
-        this.recordList = builder.recordList;
+    /**
+     * 记录列表
+     *
+     * <p>示例值：json 序列化后的返回值
+     *
+     * @param recordList
+     * @return
+     */
+    public Builder recordList(String recordList) {
+      this.recordList = recordList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmploymentCustomObjectRecord build() {
+      return new EmploymentCustomObjectRecord(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public String getRecordList() {
-        return this.recordList;
-    }
-
-    public void setRecordList(String recordList) {
-        this.recordList = recordList;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：7185135991475144236
-         */
-        private String employmentId;
-        /**
-         * 记录列表
-         * <p> 示例值：json 序列化后的返回值
-         */
-        private String recordList;
-
-        /**
-         * 用户ID
-         * <p> 示例值：7185135991475144236
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 记录列表
-         * <p> 示例值：json 序列化后的返回值
-         *
-         * @param recordList
-         * @return
-         */
-        public Builder recordList(String recordList) {
-            this.recordList = recordList;
-            return this;
-        }
-
-
-        public EmploymentCustomObjectRecord build() {
-            return new EmploymentCustomObjectRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

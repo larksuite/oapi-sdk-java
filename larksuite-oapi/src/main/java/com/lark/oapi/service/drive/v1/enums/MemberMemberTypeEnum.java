@@ -13,27 +13,27 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 协作者 ID 类型，与协作者 ID 需要对应
- */
+/** 协作者ID类型 */
 public enum MemberMemberTypeEnum {
-    EMAIL("email"), // 飞书邮箱
-    OPEN_ID("openid"), // 开放平台OpenID
-    UNION_ID("unionid"), // 开放平台UnionID
-    OPEN_CHAT("openchat"), // 开放平台群组ID
-    OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
-    USER_ID("userid"), // 用户自定义ID
-    GROUP_ID("groupid"), // 自定义用户组ID
-    WIKI_SPACE_ID("wikispaceid"), // 知识空间的唯一标识
-    APP_ID("appid"), // 应用 ID
-    ;
-    private String value;
+  EMAIL("email"), // 飞书邮箱
+  OPEN_ID("openid"), // 开放平台OpenID
+  UNION_ID("unionid"), // 开放平台 Union ID。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  OPEN_CHAT("openchat"), // 开放平台群组ID
+  OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
+  USER_ID("userid"), // 用户自定义ID
+  GROUP_ID("groupid"), // 自定义用户组ID
+  WIKI_SPACE_ID("wikispaceid"), // 知识空间
+  // ID。仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数。获取方式参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
+  APP_ID("appid"), // 应用 ID
+  ;
+  private String value;
 
-    MemberMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  MemberMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

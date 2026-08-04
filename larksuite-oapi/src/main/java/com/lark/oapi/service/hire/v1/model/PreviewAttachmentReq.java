@@ -13,71 +13,70 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreviewAttachmentReq {
+  /**
+   * 附件
+   * ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才简历附件
+   * ID。
+   *
+   * <p>示例值：64352523512563462
+   */
+  @Path
+  @SerializedName("attachment_id")
+  private String attachmentId;
+
+  public String getAttachmentId() {
+    return this.attachmentId;
+  }
+
+  public void setAttachmentId(String attachmentId) {
+    this.attachmentId = attachmentId;
+  }
+
+  // builder 开始
+  public PreviewAttachmentReq() {}
+
+  public PreviewAttachmentReq(Builder builder) {
     /**
-     * 附件id
-     * <p> 示例值：11111
+     * 附件
+     * ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才简历附件
+     * ID。
+     *
+     * <p>示例值：64352523512563462
      */
-    @Path
-    @SerializedName("attachment_id")
-    private String attachmentId;
+    this.attachmentId = builder.attachmentId;
+  }
 
-    // builder 开始
-    public PreviewAttachmentReq() {
+  public static class Builder {
+
+    private String attachmentId; // 附件
+
+    // ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才简历附件 ID。
+
+    /**
+     * 附件
+     * ID，可通过[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)接口返回数据中获取人才简历附件
+     * ID。
+     *
+     * <p>示例值：64352523512563462
+     *
+     * @param attachmentId
+     * @return
+     */
+    public Builder attachmentId(String attachmentId) {
+      this.attachmentId = attachmentId;
+      return this;
     }
 
-    public PreviewAttachmentReq(Builder builder) {
-        /**
-         * 附件id
-         * <p> 示例值：11111
-         */
-        this.attachmentId = builder.attachmentId;
+    public PreviewAttachmentReq build() {
+      return new PreviewAttachmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAttachmentId() {
-        return this.attachmentId;
-    }
-
-    public void setAttachmentId(String attachmentId) {
-        this.attachmentId = attachmentId;
-    }
-
-    public static class Builder {
-
-        private String attachmentId; // 附件id
-
-        /**
-         * 附件id
-         * <p> 示例值：11111
-         *
-         * @param attachmentId
-         * @return
-         */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
-
-
-        public PreviewAttachmentReq build() {
-            return new PreviewAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

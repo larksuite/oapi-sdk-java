@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventCheckIn {
+  /**
+   * 是否启用日程签到。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable_check_in")
+  private Boolean enableCheckIn;
+
+  /**
+   * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("check_in_start_time")
+  private CheckInTime checkInStartTime;
+
+  /**
+   * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("check_in_end_time")
+  private CheckInTime checkInEndTime;
+
+  /**
+   * 签到开始时是否自动发送签到通知给参与者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_notify_attendees")
+  private Boolean needNotifyAttendees;
+
+  public Boolean getEnableCheckIn() {
+    return this.enableCheckIn;
+  }
+
+  public void setEnableCheckIn(Boolean enableCheckIn) {
+    this.enableCheckIn = enableCheckIn;
+  }
+
+  public CheckInTime getCheckInStartTime() {
+    return this.checkInStartTime;
+  }
+
+  public void setCheckInStartTime(CheckInTime checkInStartTime) {
+    this.checkInStartTime = checkInStartTime;
+  }
+
+  public CheckInTime getCheckInEndTime() {
+    return this.checkInEndTime;
+  }
+
+  public void setCheckInEndTime(CheckInTime checkInEndTime) {
+    this.checkInEndTime = checkInEndTime;
+  }
+
+  public Boolean getNeedNotifyAttendees() {
+    return this.needNotifyAttendees;
+  }
+
+  public void setNeedNotifyAttendees(Boolean needNotifyAttendees) {
+    this.needNotifyAttendees = needNotifyAttendees;
+  }
+
+  // builder 开始
+  public EventCheckIn() {}
+
+  public EventCheckIn(Builder builder) {
     /**
-     * 是否启用日程签到
-     * <p> 示例值：
+     * 是否启用日程签到。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable_check_in")
-    private Boolean enableCheckIn;
+    this.enableCheckIn = builder.enableCheckIn;
     /**
-     * 日程签到开始时间
-     * <p> 示例值：
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
      */
-    @SerializedName("check_in_start_time")
-    private CheckInTime checkInStartTime;
+    this.checkInStartTime = builder.checkInStartTime;
     /**
-     * 日程签到结束时间
-     * <p> 示例值：
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
      */
-    @SerializedName("check_in_end_time")
-    private CheckInTime checkInEndTime;
+    this.checkInEndTime = builder.checkInEndTime;
     /**
      * 签到开始时是否自动发送签到通知给参与者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_notify_attendees")
+    this.needNotifyAttendees = builder.needNotifyAttendees;
+  }
+
+  public static class Builder {
+    /**
+     * 是否启用日程签到。
+     *
+     * <p>示例值：true
+     */
+    private Boolean enableCheckIn;
+
+    /**
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
+     */
+    private CheckInTime checkInStartTime;
+
+    /**
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
+     */
+    private CheckInTime checkInEndTime;
+
+    /**
+     * 签到开始时是否自动发送签到通知给参与者
+     *
+     * <p>示例值：
+     */
     private Boolean needNotifyAttendees;
 
-    // builder 开始
-    public EventCheckIn() {
+    /**
+     * 是否启用日程签到。
+     *
+     * <p>示例值：true
+     *
+     * @param enableCheckIn
+     * @return
+     */
+    public Builder enableCheckIn(Boolean enableCheckIn) {
+      this.enableCheckIn = enableCheckIn;
+      return this;
     }
 
-    public EventCheckIn(Builder builder) {
-        /**
-         * 是否启用日程签到
-         * <p> 示例值：
-         */
-        this.enableCheckIn = builder.enableCheckIn;
-        /**
-         * 日程签到开始时间
-         * <p> 示例值：
-         */
-        this.checkInStartTime = builder.checkInStartTime;
-        /**
-         * 日程签到结束时间
-         * <p> 示例值：
-         */
-        this.checkInEndTime = builder.checkInEndTime;
-        /**
-         * 签到开始时是否自动发送签到通知给参与者
-         * <p> 示例值：
-         */
-        this.needNotifyAttendees = builder.needNotifyAttendees;
+    /**
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
+     *
+     * @param checkInStartTime
+     * @return
+     */
+    public Builder checkInStartTime(CheckInTime checkInStartTime) {
+      this.checkInStartTime = checkInStartTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程签到开始时间。;;**注意**：签到开始时间不能大于或者等于签到结束时间。
+     *
+     * <p>示例值：
+     *
+     * @param checkInEndTime
+     * @return
+     */
+    public Builder checkInEndTime(CheckInTime checkInEndTime) {
+      this.checkInEndTime = checkInEndTime;
+      return this;
     }
 
-    public Boolean getEnableCheckIn() {
-        return this.enableCheckIn;
+    /**
+     * 签到开始时是否自动发送签到通知给参与者
+     *
+     * <p>示例值：
+     *
+     * @param needNotifyAttendees
+     * @return
+     */
+    public Builder needNotifyAttendees(Boolean needNotifyAttendees) {
+      this.needNotifyAttendees = needNotifyAttendees;
+      return this;
     }
 
-    public void setEnableCheckIn(Boolean enableCheckIn) {
-        this.enableCheckIn = enableCheckIn;
+    public EventCheckIn build() {
+      return new EventCheckIn(this);
     }
+  }
 
-    public CheckInTime getCheckInStartTime() {
-        return this.checkInStartTime;
-    }
-
-    public void setCheckInStartTime(CheckInTime checkInStartTime) {
-        this.checkInStartTime = checkInStartTime;
-    }
-
-    public CheckInTime getCheckInEndTime() {
-        return this.checkInEndTime;
-    }
-
-    public void setCheckInEndTime(CheckInTime checkInEndTime) {
-        this.checkInEndTime = checkInEndTime;
-    }
-
-    public Boolean getNeedNotifyAttendees() {
-        return this.needNotifyAttendees;
-    }
-
-    public void setNeedNotifyAttendees(Boolean needNotifyAttendees) {
-        this.needNotifyAttendees = needNotifyAttendees;
-    }
-
-    public static class Builder {
-        /**
-         * 是否启用日程签到
-         * <p> 示例值：
-         */
-        private Boolean enableCheckIn;
-        /**
-         * 日程签到开始时间
-         * <p> 示例值：
-         */
-        private CheckInTime checkInStartTime;
-        /**
-         * 日程签到结束时间
-         * <p> 示例值：
-         */
-        private CheckInTime checkInEndTime;
-        /**
-         * 签到开始时是否自动发送签到通知给参与者
-         * <p> 示例值：
-         */
-        private Boolean needNotifyAttendees;
-
-        /**
-         * 是否启用日程签到
-         * <p> 示例值：
-         *
-         * @param enableCheckIn
-         * @return
-         */
-        public Builder enableCheckIn(Boolean enableCheckIn) {
-            this.enableCheckIn = enableCheckIn;
-            return this;
-        }
-
-
-        /**
-         * 日程签到开始时间
-         * <p> 示例值：
-         *
-         * @param checkInStartTime
-         * @return
-         */
-        public Builder checkInStartTime(CheckInTime checkInStartTime) {
-            this.checkInStartTime = checkInStartTime;
-            return this;
-        }
-
-
-        /**
-         * 日程签到结束时间
-         * <p> 示例值：
-         *
-         * @param checkInEndTime
-         * @return
-         */
-        public Builder checkInEndTime(CheckInTime checkInEndTime) {
-            this.checkInEndTime = checkInEndTime;
-            return this;
-        }
-
-
-        /**
-         * 签到开始时是否自动发送签到通知给参与者
-         * <p> 示例值：
-         *
-         * @param needNotifyAttendees
-         * @return
-         */
-        public Builder needNotifyAttendees(Boolean needNotifyAttendees) {
-            this.needNotifyAttendees = needNotifyAttendees;
-            return this;
-        }
-
-
-        public EventCheckIn build() {
-            return new EventCheckIn(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserViewDetail {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户的最近查看时间timestamp（ms级别）
+   *
+   * <p>示例值：1669121332000
+   */
+  @SerializedName("view_time")
+  private String viewTime;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getViewTime() {
+    return this.viewTime;
+  }
+
+  public void setViewTime(String viewTime) {
+    this.viewTime = viewTime;
+  }
+
+  // builder 开始
+  public UserViewDetail() {}
+
+  public UserViewDetail(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户的最近查看时间timestamp（ms级别）
-     * <p> 示例值：1669121332000
+     *
+     * <p>示例值：1669121332000
      */
-    @SerializedName("view_time")
+    this.viewTime = builder.viewTime;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+     */
+    private String userId;
+
+    /**
+     * 用户的最近查看时间timestamp（ms级别）
+     *
+     * <p>示例值：1669121332000
+     */
     private String viewTime;
 
-    // builder 开始
-    public UserViewDetail() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserViewDetail(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户的最近查看时间timestamp（ms级别）
-         * <p> 示例值：1669121332000
-         */
-        this.viewTime = builder.viewTime;
+    /**
+     * 用户的最近查看时间timestamp（ms级别）
+     *
+     * <p>示例值：1669121332000
+     *
+     * @param viewTime
+     * @return
+     */
+    public Builder viewTime(String viewTime) {
+      this.viewTime = viewTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserViewDetail build() {
+      return new UserViewDetail(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getViewTime() {
-        return this.viewTime;
-    }
-
-    public void setViewTime(String viewTime) {
-        this.viewTime = viewTime;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         */
-        private String userId;
-        /**
-         * 用户的最近查看时间timestamp（ms级别）
-         * <p> 示例值：1669121332000
-         */
-        private String viewTime;
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户的最近查看时间timestamp（ms级别）
-         * <p> 示例值：1669121332000
-         *
-         * @param viewTime
-         * @return
-         */
-        public Builder viewTime(String viewTime) {
-            this.viewTime = viewTime;
-            return this;
-        }
-
-
-        public UserViewDetail build() {
-            return new UserViewDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Isv {
+  /**
+   * 团队互动应用唯一ID。该 ID 可通过调用[创建
+   * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+   * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+   *
+   * <p>示例值：7056882725002051603
+   */
+  @SerializedName("component_id")
+  private String componentId;
+
+  /**
+   * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+   * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+   *
+   * <p>示例值：blk_5f992038c64240015d280958
+   */
+  @SerializedName("component_type_id")
+  private String componentTypeId;
+
+  public String getComponentId() {
+    return this.componentId;
+  }
+
+  public void setComponentId(String componentId) {
+    this.componentId = componentId;
+  }
+
+  public String getComponentTypeId() {
+    return this.componentTypeId;
+  }
+
+  public void setComponentTypeId(String componentTypeId) {
+    this.componentTypeId = componentTypeId;
+  }
+
+  // builder 开始
+  public Isv() {}
+
+  public Isv(Builder builder) {
     /**
-     * 团队互动应用唯一ID
-     * <p> 示例值：7056882725002051603
+     * 团队互动应用唯一ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
      */
-    @SerializedName("component_id")
+    this.componentId = builder.componentId;
+    /**
+     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_5f992038c64240015d280958
+     */
+    this.componentTypeId = builder.componentTypeId;
+  }
+
+  public static class Builder {
+    /**
+     * 团队互动应用唯一ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
+     */
     private String componentId;
+
     /**
-     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-     * <p> 示例值：blk_5f992038c64240015d280958
+     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_5f992038c64240015d280958
      */
-    @SerializedName("component_type_id")
     private String componentTypeId;
 
-    // builder 开始
-    public Isv() {
+    /**
+     * 团队互动应用唯一ID。该 ID 可通过调用[创建
+     * BlockEntity](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create)
+     * 接口，并从响应体中的 block_id 中获取，创建时使用的 `block_type_id` 需要与 `component_type_id` 一致。
+     *
+     * <p>示例值：7056882725002051603
+     *
+     * @param componentId
+     * @return
+     */
+    public Builder componentId(String componentId) {
+      this.componentId = componentId;
+      return this;
     }
 
-    public Isv(Builder builder) {
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         */
-        this.componentId = builder.componentId;
-        /**
-         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-         * <p> 示例值：blk_5f992038c64240015d280958
-         */
-        this.componentTypeId = builder.componentTypeId;
+    /**
+     * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"。该 ID 可在 [开发者后台](https://open.feishu.cn/app) >
+     * **应用详情页** > **应用能力** > **云文档小组件** > **BlockTypeID** 获取。
+     *
+     * <p>示例值：blk_5f992038c64240015d280958
+     *
+     * @param componentTypeId
+     * @return
+     */
+    public Builder componentTypeId(String componentTypeId) {
+      this.componentTypeId = componentTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Isv build() {
+      return new Isv(this);
     }
+  }
 
-    public String getComponentId() {
-        return this.componentId;
-    }
-
-    public void setComponentId(String componentId) {
-        this.componentId = componentId;
-    }
-
-    public String getComponentTypeId() {
-        return this.componentTypeId;
-    }
-
-    public void setComponentTypeId(String componentTypeId) {
-        this.componentTypeId = componentTypeId;
-    }
-
-    public static class Builder {
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         */
-        private String componentId;
-        /**
-         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-         * <p> 示例值：blk_5f992038c64240015d280958
-         */
-        private String componentTypeId;
-
-        /**
-         * 团队互动应用唯一ID
-         * <p> 示例值：7056882725002051603
-         *
-         * @param componentId
-         * @return
-         */
-        public Builder componentId(String componentId) {
-            this.componentId = componentId;
-            return this;
-        }
-
-
-        /**
-         * 团队互动应用类型，比如信息收集"blk_5f992038c64240015d280958"
-         * <p> 示例值：blk_5f992038c64240015d280958
-         *
-         * @param componentTypeId
-         * @return
-         */
-        public Builder componentTypeId(String componentTypeId) {
-            this.componentTypeId = componentTypeId;
-            return this;
-        }
-
-
-        public Isv build() {
-            return new Isv(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

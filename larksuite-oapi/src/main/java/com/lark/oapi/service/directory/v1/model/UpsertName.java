@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpsertName {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("last_name")
+  private I18nText lastName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("first_name")
+  private I18nText firstName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 别名，最多可输入 64 字;
+   *
+   * <p>示例值：jack
+   */
+  @SerializedName("another_name")
+  private String anotherName;
+
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：tony
+   */
+  @SerializedName("legal_name")
+  private String legalName;
+
+  public I18nText getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(I18nText lastName) {
+    this.lastName = lastName;
+  }
+
+  public I18nText getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(I18nText firstName) {
+    this.firstName = firstName;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getAnotherName() {
+    return this.anotherName;
+  }
+
+  public void setAnotherName(String anotherName) {
+    this.anotherName = anotherName;
+  }
+
+  public String getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(String legalName) {
+    this.legalName = legalName;
+  }
+
+  // builder 开始
+  public UpsertName() {}
+
+  public UpsertName(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("last_name")
-    private I18nText lastName;
+    this.lastName = builder.lastName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("first_name")
-    private I18nText firstName;
+    this.firstName = builder.firstName;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
-     * 别名
-     * <p> 示例值：jack
+     * 别名，最多可输入 64 字;
+     *
+     * <p>示例值：jack
      */
-    @SerializedName("another_name")
-    private String anotherName;
+    this.anotherName = builder.anotherName;
     /**
      * 法定姓名
-     * <p> 示例值：tony
+     *
+     * <p>示例值：tony
      */
-    @SerializedName("legal_name")
+    this.legalName = builder.legalName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText lastName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText firstName;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 别名，最多可输入 64 字;
+     *
+     * <p>示例值：jack
+     */
+    private String anotherName;
+
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：tony
+     */
     private String legalName;
 
-    // builder 开始
-    public UpsertName() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param lastName
+     * @return
+     */
+    public Builder lastName(I18nText lastName) {
+      this.lastName = lastName;
+      return this;
     }
 
-    public UpsertName(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.lastName = builder.lastName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.firstName = builder.firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 别名
-         * <p> 示例值：jack
-         */
-        this.anotherName = builder.anotherName;
-        /**
-         * 法定姓名
-         * <p> 示例值：tony
-         */
-        this.legalName = builder.legalName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(I18nText firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public I18nText getLastName() {
-        return this.lastName;
+    /**
+     * 别名，最多可输入 64 字;
+     *
+     * <p>示例值：jack
+     *
+     * @param anotherName
+     * @return
+     */
+    public Builder anotherName(String anotherName) {
+      this.anotherName = anotherName;
+      return this;
     }
 
-    public void setLastName(I18nText lastName) {
-        this.lastName = lastName;
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：tony
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(String legalName) {
+      this.legalName = legalName;
+      return this;
     }
 
-    public I18nText getFirstName() {
-        return this.firstName;
+    public UpsertName build() {
+      return new UpsertName(this);
     }
+  }
 
-    public void setFirstName(I18nText firstName) {
-        this.firstName = firstName;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getAnotherName() {
-        return this.anotherName;
-    }
-
-    public void setAnotherName(String anotherName) {
-        this.anotherName = anotherName;
-    }
-
-    public String getLegalName() {
-        return this.legalName;
-    }
-
-    public void setLegalName(String legalName) {
-        this.legalName = legalName;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText lastName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 别名
-         * <p> 示例值：jack
-         */
-        private String anotherName;
-        /**
-         * 法定姓名
-         * <p> 示例值：tony
-         */
-        private String legalName;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param lastName
-         * @return
-         */
-        public Builder lastName(I18nText lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(I18nText firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 别名
-         * <p> 示例值：jack
-         *
-         * @param anotherName
-         * @return
-         */
-        public Builder anotherName(String anotherName) {
-            this.anotherName = anotherName;
-            return this;
-        }
-
-
-        /**
-         * 法定姓名
-         * <p> 示例值：tony
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(String legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        public UpsertName build() {
-            return new UpsertName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

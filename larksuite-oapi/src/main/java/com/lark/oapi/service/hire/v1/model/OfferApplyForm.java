@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferApplyForm {
+  /**
+   * 申请表ID
+   *
+   * <p>示例值：1213213123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1628512038000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public OfferApplyForm() {}
+
+  public OfferApplyForm(Builder builder) {
     /**
-     * ID
-     * <p> 示例值：1213213123123
+     * 申请表ID
+     *
+     * <p>示例值：1213213123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 创建时间
-     * <p> 示例值：1628512038000
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1628512038000
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 申请表ID
+     *
+     * <p>示例值：1213213123123
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1628512038000
+     */
     private String createTime;
 
-    // builder 开始
-    public OfferApplyForm() {
+    /**
+     * 申请表ID
+     *
+     * <p>示例值：1213213123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OfferApplyForm(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1213213123123
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1628512038000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public OfferApplyForm build() {
+      return new OfferApplyForm(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1213213123123
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
-        private String createTime;
-
-        /**
-         * ID
-         * <p> 示例值：1213213123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public OfferApplyForm build() {
-            return new OfferApplyForm(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

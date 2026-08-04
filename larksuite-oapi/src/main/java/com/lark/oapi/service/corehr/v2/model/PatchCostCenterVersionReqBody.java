@@ -13,334 +13,383 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchCostCenterVersionReqBody {
+  /**
+   * 成本中心名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 成本中心编码 (不能与其他记录的编码重复);- 开启自动编码时，以自动生成的编码值为准，传入值不生效;- 未开启自动编码时，编码字段值以传入值为准
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 上级成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("parent_cost_center_id")
+  private String parentCostCenterId;
+
+  /**
+   * 成本中心负责人ID 列表。ID获取方式：;-
+   * 调用[【添加人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create)返回雇佣信息ID;-
+   * 调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口返回雇佣信息ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("managers")
+  private String[] managers;
+
+  /**
+   * 成本中心描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 版本生效日期;- 填写格式：YYYY-MM-DD（系统会自动将时分秒改为00:00:00）;- 本次编辑的记录版本生效的时间，
+   * 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 失效;- 日期范围要求:1900-01-01
+   * ～9999-12-31;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 操作原因
+   *
+   * <p>示例值：强行操作
+   */
+  @SerializedName("operation_reason")
+  private String operationReason;
+
+  /**
+   * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+   * 或未传入时，遵循系统默认的编码策略。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_prefer_manual_encoding")
+  private Boolean isPreferManualEncoding;
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getParentCostCenterId() {
+    return this.parentCostCenterId;
+  }
+
+  public void setParentCostCenterId(String parentCostCenterId) {
+    this.parentCostCenterId = parentCostCenterId;
+  }
+
+  public String[] getManagers() {
+    return this.managers;
+  }
+
+  public void setManagers(String[] managers) {
+    this.managers = managers;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getOperationReason() {
+    return this.operationReason;
+  }
+
+  public void setOperationReason(String operationReason) {
+    this.operationReason = operationReason;
+  }
+
+  public Boolean getIsPreferManualEncoding() {
+    return this.isPreferManualEncoding;
+  }
+
+  public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+    this.isPreferManualEncoding = isPreferManualEncoding;
+  }
+
+  // builder 开始
+  public PatchCostCenterVersionReqBody() {}
+
+  public PatchCostCenterVersionReqBody(Builder builder) {
     /**
      * 成本中心名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
-     * 成本中心编码
-     * <p> 示例值：MDPD00000023
+     * 成本中心编码 (不能与其他记录的编码重复);- 开启自动编码时，以自动生成的编码值为准，传入值不生效;- 未开启自动编码时，编码字段值以传入值为准
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
-     * 上级成本中心ID
-     * <p> 示例值：6862995757234914824
+     * 上级成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("parent_cost_center_id")
-    private String parentCostCenterId;
+    this.parentCostCenterId = builder.parentCostCenterId;
     /**
-     * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-     * <p> 示例值：
+     * 成本中心负责人ID 列表。ID获取方式：;-
+     * 调用[【添加人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create)返回雇佣信息ID;-
+     * 调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口返回雇佣信息ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("managers")
-    private String[] managers;
+    this.managers = builder.managers;
     /**
      * 成本中心描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 版本生效日期;- 填写格式：YYYY-MM-DD（系统会自动将时分秒改为00:00:00）;- 本次编辑的记录版本生效的时间，
+     * 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 失效;- 日期范围要求:1900-01-01
+     * ～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 操作原因
-     * <p> 示例值：强行操作
+     *
+     * <p>示例值：强行操作
      */
-    @SerializedName("operation_reason")
-    private String operationReason;
+    this.operationReason = builder.operationReason;
     /**
-     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-     * <p> 示例值：
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_prefer_manual_encoding")
+    this.isPreferManualEncoding = builder.isPreferManualEncoding;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 成本中心编码 (不能与其他记录的编码重复);- 开启自动编码时，以自动生成的编码值为准，传入值不生效;- 未开启自动编码时，编码字段值以传入值为准
+     *
+     * <p>示例值：MDPD00000023
+     */
+    private String code;
+
+    /**
+     * 上级成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String parentCostCenterId;
+
+    /**
+     * 成本中心负责人ID 列表。ID获取方式：;-
+     * 调用[【添加人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create)返回雇佣信息ID;-
+     * 调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口返回雇佣信息ID
+     *
+     * <p>示例值：
+     */
+    private String[] managers;
+
+    /**
+     * 成本中心描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD（系统会自动将时分秒改为00:00:00）;- 本次编辑的记录版本生效的时间，
+     * 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 失效;- 日期范围要求:1900-01-01
+     * ～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 操作原因
+     *
+     * <p>示例值：强行操作
+     */
+    private String operationReason;
+
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     */
     private Boolean isPreferManualEncoding;
 
-    // builder 开始
-    public PatchCostCenterVersionReqBody() {
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public PatchCostCenterVersionReqBody(Builder builder) {
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         */
-        this.code = builder.code;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.parentCostCenterId = builder.parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
-        this.managers = builder.managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        this.operationReason = builder.operationReason;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        this.isPreferManualEncoding = builder.isPreferManualEncoding;
+    /**
+     * 成本中心编码 (不能与其他记录的编码重复);- 开启自动编码时，以自动生成的编码值为准，传入值不生效;- 未开启自动编码时，编码字段值以传入值为准
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上级成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param parentCostCenterId
+     * @return
+     */
+    public Builder parentCostCenterId(String parentCostCenterId) {
+      this.parentCostCenterId = parentCostCenterId;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 成本中心负责人ID 列表。ID获取方式：;-
+     * 调用[【添加人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/create)返回雇佣信息ID;-
+     * 调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口返回雇佣信息ID
+     *
+     * <p>示例值：
+     *
+     * @param managers
+     * @return
+     */
+    public Builder managers(String[] managers) {
+      this.managers = managers;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 成本中心描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD（系统会自动将时分秒改为00:00:00）;- 本次编辑的记录版本生效的时间，
+     * 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 失效;- 日期范围要求:1900-01-01
+     * ～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 操作原因
+     *
+     * <p>示例值：强行操作
+     *
+     * @param operationReason
+     * @return
+     */
+    public Builder operationReason(String operationReason) {
+      this.operationReason = operationReason;
+      return this;
     }
 
-    public String getParentCostCenterId() {
-        return this.parentCostCenterId;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     *
+     * @param isPreferManualEncoding
+     * @return
+     */
+    public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+      this.isPreferManualEncoding = isPreferManualEncoding;
+      return this;
     }
 
-    public void setParentCostCenterId(String parentCostCenterId) {
-        this.parentCostCenterId = parentCostCenterId;
+    public PatchCostCenterVersionReqBody build() {
+      return new PatchCostCenterVersionReqBody(this);
     }
+  }
 
-    public String[] getManagers() {
-        return this.managers;
-    }
-
-    public void setManagers(String[] managers) {
-        this.managers = managers;
-    }
-
-    public I18n[] getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getOperationReason() {
-        return this.operationReason;
-    }
-
-    public void setOperationReason(String operationReason) {
-        this.operationReason = operationReason;
-    }
-
-    public Boolean getIsPreferManualEncoding() {
-        return this.isPreferManualEncoding;
-    }
-
-    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
-        this.isPreferManualEncoding = isPreferManualEncoding;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         */
-        private String code;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
-        private String[] managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        private String operationReason;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        private Boolean isPreferManualEncoding;
-
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param parentCostCenterId
-         * @return
-         */
-        public Builder parentCostCenterId(String parentCostCenterId) {
-            this.parentCostCenterId = parentCostCenterId;
-            return this;
-        }
-
-
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         *
-         * @param managers
-         * @return
-         */
-        public Builder managers(String[] managers) {
-            this.managers = managers;
-            return this;
-        }
-
-
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         *
-         * @param operationReason
-         * @return
-         */
-        public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
-        }
-
-
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         *
-         * @param isPreferManualEncoding
-         * @return
-         */
-        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
-            this.isPreferManualEncoding = isPreferManualEncoding;
-            return this;
-        }
-
-
-        public PatchCostCenterVersionReqBody build() {
-            return new PatchCostCenterVersionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

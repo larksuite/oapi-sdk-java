@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.acs.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpeningTimePeriodExternal {
+  /**
+   * 起始时间
+   *
+   * <p>示例值：1200
+   */
+  @SerializedName("start_hhmm")
+  private Integer startHhmm;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1400
+   */
+  @SerializedName("end_hhmm")
+  private Integer endHhmm;
+
+  public Integer getStartHhmm() {
+    return this.startHhmm;
+  }
+
+  public void setStartHhmm(Integer startHhmm) {
+    this.startHhmm = startHhmm;
+  }
+
+  public Integer getEndHhmm() {
+    return this.endHhmm;
+  }
+
+  public void setEndHhmm(Integer endHhmm) {
+    this.endHhmm = endHhmm;
+  }
+
+  // builder 开始
+  public OpeningTimePeriodExternal() {}
+
+  public OpeningTimePeriodExternal(Builder builder) {
     /**
      * 起始时间
-     * <p> 示例值：1200
+     *
+     * <p>示例值：1200
      */
-    @SerializedName("start_hhmm")
-    private Integer startHhmm;
+    this.startHhmm = builder.startHhmm;
     /**
      * 结束时间
-     * <p> 示例值：1400
+     *
+     * <p>示例值：1400
      */
-    @SerializedName("end_hhmm")
+    this.endHhmm = builder.endHhmm;
+  }
+
+  public static class Builder {
+    /**
+     * 起始时间
+     *
+     * <p>示例值：1200
+     */
+    private Integer startHhmm;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1400
+     */
     private Integer endHhmm;
 
-    // builder 开始
-    public OpeningTimePeriodExternal() {
+    /**
+     * 起始时间
+     *
+     * <p>示例值：1200
+     *
+     * @param startHhmm
+     * @return
+     */
+    public Builder startHhmm(Integer startHhmm) {
+      this.startHhmm = startHhmm;
+      return this;
     }
 
-    public OpeningTimePeriodExternal(Builder builder) {
-        /**
-         * 起始时间
-         * <p> 示例值：1200
-         */
-        this.startHhmm = builder.startHhmm;
-        /**
-         * 结束时间
-         * <p> 示例值：1400
-         */
-        this.endHhmm = builder.endHhmm;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1400
+     *
+     * @param endHhmm
+     * @return
+     */
+    public Builder endHhmm(Integer endHhmm) {
+      this.endHhmm = endHhmm;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OpeningTimePeriodExternal build() {
+      return new OpeningTimePeriodExternal(this);
     }
+  }
 
-    public Integer getStartHhmm() {
-        return this.startHhmm;
-    }
-
-    public void setStartHhmm(Integer startHhmm) {
-        this.startHhmm = startHhmm;
-    }
-
-    public Integer getEndHhmm() {
-        return this.endHhmm;
-    }
-
-    public void setEndHhmm(Integer endHhmm) {
-        this.endHhmm = endHhmm;
-    }
-
-    public static class Builder {
-        /**
-         * 起始时间
-         * <p> 示例值：1200
-         */
-        private Integer startHhmm;
-        /**
-         * 结束时间
-         * <p> 示例值：1400
-         */
-        private Integer endHhmm;
-
-        /**
-         * 起始时间
-         * <p> 示例值：1200
-         *
-         * @param startHhmm
-         * @return
-         */
-        public Builder startHhmm(Integer startHhmm) {
-            this.startHhmm = startHhmm;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1400
-         *
-         * @param endHhmm
-         * @return
-         */
-        public Builder endHhmm(Integer endHhmm) {
-            this.endHhmm = endHhmm;
-            return this;
-        }
-
-
-        public OpeningTimePeriodExternal build() {
-            return new OpeningTimePeriodExternal(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

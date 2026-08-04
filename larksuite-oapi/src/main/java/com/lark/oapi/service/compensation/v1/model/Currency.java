@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Currency {
+  /**
+   * 编码
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 币种ID
+   *
+   * <p>示例值：6863329932261459464
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  // builder 开始
+  public Currency() {}
+
+  public Currency(Builder builder) {
     /**
      * 编码
-     * <p> 示例值：CNY
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 币种ID
-     * <p> 示例值：6863329932261459464
+     *
+     * <p>示例值：6863329932261459464
      */
-    @SerializedName("currency_id")
+    this.currencyId = builder.currencyId;
+  }
+
+  public static class Builder {
+    /**
+     * 编码
+     *
+     * <p>示例值：CNY
+     */
+    private String code;
+
+    /**
+     * 币种ID
+     *
+     * <p>示例值：6863329932261459464
+     */
     private String currencyId;
 
-    // builder 开始
-    public Currency() {
+    /**
+     * 编码
+     *
+     * <p>示例值：CNY
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public Currency(Builder builder) {
-        /**
-         * 编码
-         * <p> 示例值：CNY
-         */
-        this.code = builder.code;
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
+    /**
+     * 币种ID
+     *
+     * <p>示例值：6863329932261459464
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Currency build() {
+      return new Currency(this);
     }
+  }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCurrencyId() {
-        return this.currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public static class Builder {
-        /**
-         * 编码
-         * <p> 示例值：CNY
-         */
-        private String code;
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         */
-        private String currencyId;
-
-        /**
-         * 编码
-         * <p> 示例值：CNY
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        public Currency build() {
-            return new Currency(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

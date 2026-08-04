@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.application.v5.resource.Application;
 
 public class V5 {
-    private final Application application; // application
+  private final Application application; // application
 
-    public V5(Config config) {
-        this.application = new Application(config);
-    }
+  public V5(Config config) {
+    this.application = new Application(config);
+  }
 
-    public Application application() {
-        return application;
-    }
+  public Application application() {
+    return application;
+  }
 }

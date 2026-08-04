@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRichDescriptionSegment {
+  /**
+   * 元素类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("segment_type")
+  private String segmentType;
+
+  /**
+   * 文本值
+   *
+   * <p>示例值：这是一个开放性问题
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：https://open.larkoffice.com/
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getSegmentType() {
+    return this.segmentType;
+  }
+
+  public void setSegmentType(String segmentType) {
+    this.segmentType = segmentType;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public AppRichDescriptionSegment() {}
+
+  public AppRichDescriptionSegment(Builder builder) {
     /**
      * 元素类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("segment_type")
-    private String segmentType;
+    this.segmentType = builder.segmentType;
     /**
      * 文本值
-     * <p> 示例值：这是一个开放性问题
+     *
+     * <p>示例值：这是一个开放性问题
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 链接
-     * <p> 示例值：https://open.larkoffice.com/
+     *
+     * <p>示例值：https://open.larkoffice.com/
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * 元素类型
+     *
+     * <p>示例值：text
+     */
+    private String segmentType;
+
+    /**
+     * 文本值
+     *
+     * <p>示例值：这是一个开放性问题
+     */
+    private String text;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：https://open.larkoffice.com/
+     */
     private String link;
 
-    // builder 开始
-    public AppRichDescriptionSegment() {
+    /**
+     * 元素类型
+     *
+     * <p>示例值：text
+     *
+     * @param segmentType
+     * @return
+     */
+    public Builder segmentType(String segmentType) {
+      this.segmentType = segmentType;
+      return this;
     }
 
-    public AppRichDescriptionSegment(Builder builder) {
-        /**
-         * 元素类型
-         * <p> 示例值：text
-         */
-        this.segmentType = builder.segmentType;
-        /**
-         * 文本值
-         * <p> 示例值：这是一个开放性问题
-         */
-        this.text = builder.text;
-        /**
-         * 链接
-         * <p> 示例值：https://open.larkoffice.com/
-         */
-        this.link = builder.link;
+    /**
+     * 元素类型
+     *
+     * <p>示例值：text
+     *
+     * @param segmentType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.AppRichDescriptionSegmentSegmentTypeEnum}
+     * @return
+     */
+    public Builder segmentType(
+        com.lark.oapi.service.bitable.v1.enums.AppRichDescriptionSegmentSegmentTypeEnum
+            segmentType) {
+      this.segmentType = segmentType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文本值
+     *
+     * <p>示例值：这是一个开放性问题
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public String getSegmentType() {
-        return this.segmentType;
+    /**
+     * 链接
+     *
+     * <p>示例值：https://open.larkoffice.com/
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public void setSegmentType(String segmentType) {
-        this.segmentType = segmentType;
+    public AppRichDescriptionSegment build() {
+      return new AppRichDescriptionSegment(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * 元素类型
-         * <p> 示例值：text
-         */
-        private String segmentType;
-        /**
-         * 文本值
-         * <p> 示例值：这是一个开放性问题
-         */
-        private String text;
-        /**
-         * 链接
-         * <p> 示例值：https://open.larkoffice.com/
-         */
-        private String link;
-
-        /**
-         * 元素类型
-         * <p> 示例值：text
-         *
-         * @param segmentType
-         * @return
-         */
-        public Builder segmentType(String segmentType) {
-            this.segmentType = segmentType;
-            return this;
-        }
-
-        /**
-         * 元素类型
-         * <p> 示例值：text
-         *
-         * @param segmentType {@link com.lark.oapi.service.bitable.v1.enums.AppRichDescriptionSegmentSegmentTypeEnum}
-         * @return
-         */
-        public Builder segmentType(com.lark.oapi.service.bitable.v1.enums.AppRichDescriptionSegmentSegmentTypeEnum segmentType) {
-            this.segmentType = segmentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本值
-         * <p> 示例值：这是一个开放性问题
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：https://open.larkoffice.com/
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public AppRichDescriptionSegment build() {
-            return new AppRichDescriptionSegment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

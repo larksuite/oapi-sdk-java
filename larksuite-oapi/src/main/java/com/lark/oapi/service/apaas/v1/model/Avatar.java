@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Avatar {
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("source")
+  private String source;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("color")
+  private String color;
+
+  /**
+   * -
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contents")
+  private I18n[] contents;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("color_id")
+  private String colorId;
+
+  public String getSource() {
+    return this.source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public I18n[] getContents() {
+    return this.contents;
+  }
+
+  public void setContents(I18n[] contents) {
+    this.contents = contents;
+  }
+
+  public String getColorId() {
+    return this.colorId;
+  }
+
+  public void setColorId(String colorId) {
+    this.colorId = colorId;
+  }
+
+  // builder 开始
+  public Avatar() {}
+
+  public Avatar(Builder builder) {
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("source")
+    this.source = builder.source;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.color = builder.color;
+    /**
+     * -
+     *
+     * <p>示例值：
+     */
+    this.contents = builder.contents;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.colorId = builder.colorId;
+  }
+
+  public static class Builder {
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
     private String source;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("color")
     private String color;
+
     /**
      * -
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contents")
     private I18n[] contents;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("color_id")
     private String colorId;
 
-    // builder 开始
-    public Avatar() {
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(String source) {
+      this.source = source;
+      return this;
     }
 
-    public Avatar(Builder builder) {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.source = builder.source;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.color = builder.color;
-        /**
-         * -
-         * <p> 示例值：
-         */
-        this.contents = builder.contents;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.colorId = builder.colorId;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * -
+     *
+     * <p>示例值：
+     *
+     * @param contents
+     * @return
+     */
+    public Builder contents(I18n[] contents) {
+      this.contents = contents;
+      return this;
     }
 
-    public String getSource() {
-        return this.source;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param colorId
+     * @return
+     */
+    public Builder colorId(String colorId) {
+      this.colorId = colorId;
+      return this;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public Avatar build() {
+      return new Avatar(this);
     }
+  }
 
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public I18n[] getContents() {
-        return this.contents;
-    }
-
-    public void setContents(I18n[] contents) {
-        this.contents = contents;
-    }
-
-    public String getColorId() {
-        return this.colorId;
-    }
-
-    public void setColorId(String colorId) {
-        this.colorId = colorId;
-    }
-
-    public static class Builder {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String source;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String color;
-        /**
-         * -
-         * <p> 示例值：
-         */
-        private I18n[] contents;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String colorId;
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(String source) {
-            this.source = source;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：
-         *
-         * @param contents
-         * @return
-         */
-        public Builder contents(I18n[] contents) {
-            this.contents = contents;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param colorId
-         * @return
-         */
-        public Builder colorId(String colorId) {
-            this.colorId = colorId;
-            return this;
-        }
-
-
-        public Avatar build() {
-            return new Avatar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

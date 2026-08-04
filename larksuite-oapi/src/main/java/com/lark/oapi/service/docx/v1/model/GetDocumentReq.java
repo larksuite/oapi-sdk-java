@@ -13,72 +13,86 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.docx.v1.enums.*;
 
 public class GetDocumentReq {
+  /**
+   * 文档的唯一标识。你可通过以下方式获取文档的
+   * `document_id`。了解更多，参考[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview#e18a49a1)。;;-
+   * 若文档存储在云盘中，你可通过 URL
+   * 地址或通过[获取文件夹下文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+   * 获取其中文档资源的 `document_id`。;;-
+   * 若文档挂载在知识库中，你需通过知识库相关接口[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)获取该节点下挂载的云资源的
+   * `obj_token` 和 `obj_type`。在该情况下，`obj_type` 为 `docx` 时，其对应的 `obj_token` 即为文档的
+   * `document_id`。;;**注意**：;;对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。
+   *
+   * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+   */
+  @Path
+  @SerializedName("document_id")
+  private String documentId;
+
+  public String getDocumentId() {
+    return this.documentId;
+  }
+
+  public void setDocumentId(String documentId) {
+    this.documentId = documentId;
+  }
+
+  // builder 开始
+  public GetDocumentReq() {}
+
+  public GetDocumentReq(Builder builder) {
     /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     * 文档的唯一标识。你可通过以下方式获取文档的
+     * `document_id`。了解更多，参考[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview#e18a49a1)。;;-
+     * 若文档存储在云盘中，你可通过 URL
+     * 地址或通过[获取文件夹下文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     * 获取其中文档资源的 `document_id`。;;-
+     * 若文档挂载在知识库中，你需通过知识库相关接口[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)获取该节点下挂载的云资源的
+     * `obj_token` 和 `obj_type`。在该情况下，`obj_type` 为 `docx` 时，其对应的 `obj_token` 即为文档的
+     * `document_id`。;;**注意**：;;对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
      */
-    @Path
-    @SerializedName("document_id")
-    private String documentId;
+    this.documentId = builder.documentId;
+  }
 
-    // builder 开始
-    public GetDocumentReq() {
+  public static class Builder {
+
+    private String documentId; // 文档的唯一标识。你可通过以下方式获取文档的
+
+    // `document_id`。了解更多，参考[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview#e18a49a1)。;;- 若文档存储在云盘中，你可通过 URL 地址或通过[获取文件夹下文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list) 获取其中文档资源的 `document_id`。;;- 若文档挂载在知识库中，你需通过知识库相关接口[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)获取该节点下挂载的云资源的 `obj_token` 和 `obj_type`。在该情况下，`obj_type` 为 `docx` 时，其对应的 `obj_token` 即为文档的 `document_id`。;;**注意**：;;对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。
+
+    /**
+     * 文档的唯一标识。你可通过以下方式获取文档的
+     * `document_id`。了解更多，参考[文档概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview#e18a49a1)。;;-
+     * 若文档存储在云盘中，你可通过 URL
+     * 地址或通过[获取文件夹下文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     * 获取其中文档资源的 `document_id`。;;-
+     * 若文档挂载在知识库中，你需通过知识库相关接口[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)获取该节点下挂载的云资源的
+     * `obj_token` 和 `obj_type`。在该情况下，`obj_type` 为 `docx` 时，其对应的 `obj_token` 即为文档的
+     * `document_id`。;;**注意**：;;对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+     *
+     * @param documentId
+     * @return
+     */
+    public Builder documentId(String documentId) {
+      this.documentId = documentId;
+      return this;
     }
 
-    public GetDocumentReq(Builder builder) {
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         */
-        this.documentId = builder.documentId;
+    public GetDocumentReq build() {
+      return new GetDocumentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDocumentId() {
-        return this.documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
-    }
-
-    public static class Builder {
-
-        private String documentId; // 文档的唯一标识
-
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         *
-         * @param documentId
-         * @return
-         */
-        public Builder documentId(String documentId) {
-            this.documentId = documentId;
-            return this;
-        }
-
-
-        public GetDocumentReq build() {
-            return new GetDocumentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

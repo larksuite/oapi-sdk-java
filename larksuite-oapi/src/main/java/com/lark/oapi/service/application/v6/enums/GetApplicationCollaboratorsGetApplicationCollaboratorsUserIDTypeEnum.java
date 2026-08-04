@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 用户 ID 类型
- */
+/** 用户 ID 类型 */
 public enum GetApplicationCollaboratorsGetApplicationCollaboratorsUserIDTypeEnum {
-    OPEN_ID("open_id"), // 用户 open_id
-    UNION_ID("union_id"), // 用户 union_id
-    USER_ID("user_id"), // 用户 user_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 用户 open_id
+  UNION_ID("union_id"), // 用户 union_id
+  USER_ID("user_id"), // 用户 user_id
+  ;
+  private String value;
 
-    GetApplicationCollaboratorsGetApplicationCollaboratorsUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  GetApplicationCollaboratorsGetApplicationCollaboratorsUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

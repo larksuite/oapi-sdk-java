@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.performance.v1.enums;
 
-/**
- * 环节状态
- */
+/** 环节状态 */
 public enum ReviewStageProgressEnum {
-    VALUE_0(0), // 未开始，任务的开始时间未到达或查看绩效结果环节被评估人绩效结果已经开通，且不需要确认，并且未发起复议
-    VALUE_1(1), // 待完成，任务的开始时间到达而截止时间未到达，且任务未完成或查看绩效结果环节结果已开通，被评估人使用的模板开启了结果确认的功能配置，但目前员工还没有点击确认，确认时间未截止
-    VALUE_2(2), // 已截止，任务的截止时间已到达，且任务未完成或查看绩效结果环节结果已开通，被评估人使用的模板开启了结果确认的功能配置，但目前员工还没有点击确认，确认时间已截止
-    VALUE_3(3), // 已完成，任务已完成或查看绩效结果环节结果已开通，被评估人使用的模板开启了结果确认的功能配置，且员工已经点击确认
-    VALUE_4(4), // 查看绩效结果环节结果已开通，且被评估人已发起复议
-    ;
-    private Integer value;
+  VALUE_0(0), // 未开始，任务的开始时间未到达
+  VALUE_1(1), // 待完成，任务的开始时间到达而截止时间未到达，且任务未完成
+  VALUE_2(2), // 已截止，任务的截止时间已到达，且任务未完成
+  VALUE_3(3), // 已完成，任务已完成
+  VALUE_4(4), // 已复议，绩效结果已开通，且被评估人已发起复议
+  ;
+  private Integer value;
 
-    ReviewStageProgressEnum(Integer value) {
-        this.value = value;
-    }
+  ReviewStageProgressEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

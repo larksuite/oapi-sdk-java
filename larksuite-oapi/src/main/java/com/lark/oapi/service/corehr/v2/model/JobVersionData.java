@@ -13,519 +13,589 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobVersionData {
+  /**
+   * 职务 ID
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 职务版本 ID
+   *
+   * <p>示例值：7238516215202170412
+   */
+  @SerializedName("job_version_id")
+  private String jobVersionId;
+
+  /**
+   * 职务名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_names")
+  private I18n[] jobNames;
+
+  /**
+   * 当前版本生效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+   *
+   * <p>示例值：2020-05-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 当前版本失效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+   *
+   * <p>示例值：2020-05-02
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：BD38591
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 职务头衔
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_titles")
+  private I18n[] jobTitles;
+
+  /**
+   * 序列ID;-
+   * 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_ids")
+  private String[] jobFamilyIds;
+
+  /**
+   * 职级ID;-
+   * 可通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level_ids")
+  private String[] jobLevelIds;
+
+  /**
+   * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  /**
+   * 工时制度
+   * ID，详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getJobVersionId() {
+    return this.jobVersionId;
+  }
+
+  public void setJobVersionId(String jobVersionId) {
+    this.jobVersionId = jobVersionId;
+  }
+
+  public I18n[] getJobNames() {
+    return this.jobNames;
+  }
+
+  public void setJobNames(I18n[] jobNames) {
+    this.jobNames = jobNames;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getJobTitles() {
+    return this.jobTitles;
+  }
+
+  public void setJobTitles(I18n[] jobTitles) {
+    this.jobTitles = jobTitles;
+  }
+
+  public String[] getJobFamilyIds() {
+    return this.jobFamilyIds;
+  }
+
+  public void setJobFamilyIds(String[] jobFamilyIds) {
+    this.jobFamilyIds = jobFamilyIds;
+  }
+
+  public String[] getJobLevelIds() {
+    return this.jobLevelIds;
+  }
+
+  public void setJobLevelIds(String[] jobLevelIds) {
+    this.jobLevelIds = jobLevelIds;
+  }
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  // builder 开始
+  public JobVersionData() {}
+
+  public JobVersionData(Builder builder) {
     /**
      * 职务 ID
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 职务版本 ID
-     * <p> 示例值：7238516215202170412
+     *
+     * <p>示例值：7238516215202170412
      */
-    @SerializedName("job_version_id")
-    private String jobVersionId;
+    this.jobVersionId = builder.jobVersionId;
     /**
      * 职务名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_names")
-    private I18n[] jobNames;
+    this.jobNames = builder.jobNames;
     /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
+     * 当前版本生效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
-     * 失效时间
-     * <p> 示例值：2020-05-02
+     * 当前版本失效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-02
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
      * 编码
-     * <p> 示例值：BD38591
+     *
+     * <p>示例值：BD38591
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 职务头衔
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_titles")
+    this.jobTitles = builder.jobTitles;
+    /**
+     * 序列ID;-
+     * 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情
+     *
+     * <p>示例值：
+     */
+    this.jobFamilyIds = builder.jobFamilyIds;
+    /**
+     * 职级ID;-
+     * 可通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     */
+    this.jobLevelIds = builder.jobLevelIds;
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：4719519211875096301
+     */
+    this.pathwayId = builder.pathwayId;
+    /**
+     * 工时制度
+     * ID，详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6890452208593372679
+     */
+    this.workingHoursTypeId = builder.workingHoursTypeId;
+  }
+
+  public static class Builder {
+    /**
+     * 职务 ID
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String jobId;
+
+    /**
+     * 职务版本 ID
+     *
+     * <p>示例值：7238516215202170412
+     */
+    private String jobVersionId;
+
+    /**
+     * 职务名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] jobNames;
+
+    /**
+     * 当前版本生效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 当前版本失效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-02
+     */
+    private String expirationDate;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：BD38591
+     */
+    private String code;
+
+    /**
+     * 职务头衔
+     *
+     * <p>示例值：
+     */
     private I18n[] jobTitles;
+
     /**
-     * 序列
-     * <p> 示例值：
+     * 序列ID;-
+     * 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_ids")
     private String[] jobFamilyIds;
+
     /**
-     * 职级
-     * <p> 示例值：
+     * 职级ID;-
+     * 可通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level_ids")
     private String[] jobLevelIds;
+
     /**
-     * 通道ID
-     * <p> 示例值：4719519211875096301
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("pathway_id")
     private String pathwayId;
+
     /**
-     * 工时制度，引用WorkingHoursType的ID
-     * <p> 示例值：6890452208593372679
+     * 工时制度
+     * ID，详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("working_hours_type_id")
     private String workingHoursTypeId;
 
-    // builder 开始
-    public JobVersionData() {
+    /**
+     * 职务 ID
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public JobVersionData(Builder builder) {
-        /**
-         * 职务 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 职务版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        this.jobVersionId = builder.jobVersionId;
-        /**
-         * 职务名称
-         * <p> 示例值：
-         */
-        this.jobNames = builder.jobNames;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 编码
-         * <p> 示例值：BD38591
-         */
-        this.code = builder.code;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
-        this.jobTitles = builder.jobTitles;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        this.jobFamilyIds = builder.jobFamilyIds;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
-        this.jobLevelIds = builder.jobLevelIds;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
-        this.pathwayId = builder.pathwayId;
-        /**
-         * 工时制度，引用WorkingHoursType的ID
-         * <p> 示例值：6890452208593372679
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
+    /**
+     * 职务版本 ID
+     *
+     * <p>示例值：7238516215202170412
+     *
+     * @param jobVersionId
+     * @return
+     */
+    public Builder jobVersionId(String jobVersionId) {
+      this.jobVersionId = jobVersionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职务名称
+     *
+     * <p>示例值：
+     *
+     * @param jobNames
+     * @return
+     */
+    public Builder jobNames(I18n[] jobNames) {
+      this.jobNames = jobNames;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 当前版本生效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    /**
+     * 当前版本失效日期;- 返回格式：YYYY-MM-DD （最小单位到日）;- 日期范围:1900-01-01 ～9999-12-31 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-05-02
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public String getJobVersionId() {
-        return this.jobVersionId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setJobVersionId(String jobVersionId) {
-        this.jobVersionId = jobVersionId;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public I18n[] getJobNames() {
-        return this.jobNames;
+    /**
+     * 编码
+     *
+     * <p>示例值：BD38591
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public void setJobNames(I18n[] jobNames) {
-        this.jobNames = jobNames;
+    /**
+     * 职务头衔
+     *
+     * <p>示例值：
+     *
+     * @param jobTitles
+     * @return
+     */
+    public Builder jobTitles(I18n[] jobTitles) {
+      this.jobTitles = jobTitles;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 序列ID;-
+     * 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIds
+     * @return
+     */
+    public Builder jobFamilyIds(String[] jobFamilyIds) {
+      this.jobFamilyIds = jobFamilyIds;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    /**
+     * 职级ID;-
+     * 可通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelIds
+     * @return
+     */
+    public Builder jobLevelIds(String[] jobLevelIds) {
+      this.jobLevelIds = jobLevelIds;
+      return this;
     }
 
-    public String getExpirationDate() {
-        return this.expirationDate;
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
     }
 
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
+    /**
+     * 工时制度
+     * ID，详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    public JobVersionData build() {
+      return new JobVersionData(this);
     }
+  }
 
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public I18n[] getJobTitles() {
-        return this.jobTitles;
-    }
-
-    public void setJobTitles(I18n[] jobTitles) {
-        this.jobTitles = jobTitles;
-    }
-
-    public String[] getJobFamilyIds() {
-        return this.jobFamilyIds;
-    }
-
-    public void setJobFamilyIds(String[] jobFamilyIds) {
-        this.jobFamilyIds = jobFamilyIds;
-    }
-
-    public String[] getJobLevelIds() {
-        return this.jobLevelIds;
-    }
-
-    public void setJobLevelIds(String[] jobLevelIds) {
-        this.jobLevelIds = jobLevelIds;
-    }
-
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
-
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
-    }
-
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public static class Builder {
-        /**
-         * 职务 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String jobId;
-        /**
-         * 职务版本 ID
-         * <p> 示例值：7238516215202170412
-         */
-        private String jobVersionId;
-        /**
-         * 职务名称
-         * <p> 示例值：
-         */
-        private I18n[] jobNames;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        private String effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         */
-        private String expirationDate;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 编码
-         * <p> 示例值：BD38591
-         */
-        private String code;
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         */
-        private I18n[] jobTitles;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        private String[] jobFamilyIds;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
-        private String[] jobLevelIds;
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         */
-        private String pathwayId;
-        /**
-         * 工时制度，引用WorkingHoursType的ID
-         * <p> 示例值：6890452208593372679
-         */
-        private String workingHoursTypeId;
-
-        /**
-         * 职务 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 职务版本 ID
-         * <p> 示例值：7238516215202170412
-         *
-         * @param jobVersionId
-         * @return
-         */
-        public Builder jobVersionId(String jobVersionId) {
-            this.jobVersionId = jobVersionId;
-            return this;
-        }
-
-
-        /**
-         * 职务名称
-         * <p> 示例值：
-         *
-         * @param jobNames
-         * @return
-         */
-        public Builder jobNames(I18n[] jobNames) {
-            this.jobNames = jobNames;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：BD38591
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 职务头衔
-         * <p> 示例值：
-         *
-         * @param jobTitles
-         * @return
-         */
-        public Builder jobTitles(I18n[] jobTitles) {
-            this.jobTitles = jobTitles;
-            return this;
-        }
-
-
-        /**
-         * 序列
-         * <p> 示例值：
-         *
-         * @param jobFamilyIds
-         * @return
-         */
-        public Builder jobFamilyIds(String[] jobFamilyIds) {
-            this.jobFamilyIds = jobFamilyIds;
-            return this;
-        }
-
-
-        /**
-         * 职级
-         * <p> 示例值：
-         *
-         * @param jobLevelIds
-         * @return
-         */
-        public Builder jobLevelIds(String[] jobLevelIds) {
-            this.jobLevelIds = jobLevelIds;
-            return this;
-        }
-
-
-        /**
-         * 通道ID
-         * <p> 示例值：4719519211875096301
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-
-        /**
-         * 工时制度，引用WorkingHoursType的ID
-         * <p> 示例值：6890452208593372679
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        public JobVersionData build() {
-            return new JobVersionData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileDetail {
+  /**
+   * 飞书云文档内部对文件的标记
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文件名
+   *
+   * <p>示例值：文件
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 临时下载链接 （24小时内部链接）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("links")
+  private String[] links;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String[] getLinks() {
+    return this.links;
+  }
+
+  public void setLinks(String[] links) {
+    this.links = links;
+  }
+
+  // builder 开始
+  public FileDetail() {}
+
+  public FileDetail(Builder builder) {
     /**
      * 飞书云文档内部对文件的标记
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文件名
-     * <p> 示例值：文件
+     *
+     * <p>示例值：文件
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 临时下载链接 （24小时内部链接）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("links")
+    this.links = builder.links;
+  }
+
+  public static class Builder {
+    /**
+     * 飞书云文档内部对文件的标记
+     *
+     * <p>示例值：xxx
+     */
+    private String token;
+
+    /**
+     * 文件名
+     *
+     * <p>示例值：文件
+     */
+    private String name;
+
+    /**
+     * 临时下载链接 （24小时内部链接）
+     *
+     * <p>示例值：
+     */
     private String[] links;
 
-    // builder 开始
-    public FileDetail() {
+    /**
+     * 飞书云文档内部对文件的标记
+     *
+     * <p>示例值：xxx
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public FileDetail(Builder builder) {
-        /**
-         * 飞书云文档内部对文件的标记
-         * <p> 示例值：xxx
-         */
-        this.token = builder.token;
-        /**
-         * 文件名
-         * <p> 示例值：文件
-         */
-        this.name = builder.name;
-        /**
-         * 临时下载链接 （24小时内部链接）
-         * <p> 示例值：
-         */
-        this.links = builder.links;
+    /**
+     * 文件名
+     *
+     * <p>示例值：文件
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 临时下载链接 （24小时内部链接）
+     *
+     * <p>示例值：
+     *
+     * @param links
+     * @return
+     */
+    public Builder links(String[] links) {
+      this.links = links;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public FileDetail build() {
+      return new FileDetail(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String[] getLinks() {
-        return this.links;
-    }
-
-    public void setLinks(String[] links) {
-        this.links = links;
-    }
-
-    public static class Builder {
-        /**
-         * 飞书云文档内部对文件的标记
-         * <p> 示例值：xxx
-         */
-        private String token;
-        /**
-         * 文件名
-         * <p> 示例值：文件
-         */
-        private String name;
-        /**
-         * 临时下载链接 （24小时内部链接）
-         * <p> 示例值：
-         */
-        private String[] links;
-
-        /**
-         * 飞书云文档内部对文件的标记
-         * <p> 示例值：xxx
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文件名
-         * <p> 示例值：文件
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 临时下载链接 （24小时内部链接）
-         * <p> 示例值：
-         *
-         * @param links
-         * @return
-         */
-        public Builder links(String[] links) {
-            this.links = links;
-            return this;
-        }
-
-
-        public FileDetail build() {
-            return new FileDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

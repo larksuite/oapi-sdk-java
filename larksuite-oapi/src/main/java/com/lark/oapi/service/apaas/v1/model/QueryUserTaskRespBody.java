@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserTaskRespBody {
-    /**
-     * 总任务条数;
-     * <p> 示例值：10
-     */
-    @SerializedName("count")
-    private String count;
-    /**
-     * 任务信息
-     * <p> 示例值：
-     */
-    @SerializedName("tasks")
-    private UserTask[] tasks;
+  /**
+   * 总任务条数;
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("count")
+  private String count;
 
-    public String getCount() {
-        return this.count;
-    }
+  /**
+   * 任务信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tasks")
+  private UserTask[] tasks;
 
-    public void setCount(String count) {
-        this.count = count;
-    }
+  public String getCount() {
+    return this.count;
+  }
 
-    public UserTask[] getTasks() {
-        return this.tasks;
-    }
+  public void setCount(String count) {
+    this.count = count;
+  }
 
-    public void setTasks(UserTask[] tasks) {
-        this.tasks = tasks;
-    }
+  public UserTask[] getTasks() {
+    return this.tasks;
+  }
 
+  public void setTasks(UserTask[] tasks) {
+    this.tasks = tasks;
+  }
 }

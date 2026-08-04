@@ -13,118 +13,122 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTimeoffEventRespBody {
-    /**
-     * 休假申请的唯一标识id
-     * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
-     */
-    @SerializedName("timeoff_event_id")
-    private String timeoffEventId;
-    /**
-     * 用户的user id
-     * <p> 示例值：ou_XXXXXXXXXX
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 休假人的时区
-     * <p> 示例值：Asia/Shanghai
-     */
-    @SerializedName("timezone")
-    private String timezone;
-    /**
-     * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
-     * <p> 示例值：2021-01-01
-     */
-    @SerializedName("start_time")
-    private String startTime;
-    /**
-     * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
-     * <p> 示例值：2021-01-02
-     */
-    @SerializedName("end_time")
-    private String endTime;
-    /**
-     * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of Absence"，"请假中"
-     * <p> 示例值：请假日程标题
-     */
-    @SerializedName("title")
-    private String title;
-    /**
-     * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the time off system will not be revoked."
-     * <p> 示例值：请假日程描述
-     */
-    @SerializedName("description")
-    private String description;
+  /**
+   * 休假申请的唯一标识id
+   *
+   * <p>示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
+   */
+  @SerializedName("timeoff_event_id")
+  private String timeoffEventId;
 
-    public String getTimeoffEventId() {
-        return this.timeoffEventId;
-    }
+  /**
+   * 用户 ID。关于用户 ID 可参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：ou_XXXXXXXXXX
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public void setTimeoffEventId(String timeoffEventId) {
-        this.timeoffEventId = timeoffEventId;
-    }
+  /**
+   * 休假人的时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("timezone")
+  private String timezone;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  /**
+   * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+   *
+   * <p>示例值：2021-01-01
+   */
+  @SerializedName("start_time")
+  private String startTime;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  /**
+   * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+   *
+   * <p>示例值：2021-01-02
+   */
+  @SerializedName("end_time")
+  private String endTime;
 
-    public String getTimezone() {
-        return this.timezone;
-    }
+  /**
+   * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+   * Absence"，"请假中"
+   *
+   * <p>示例值：请假日程标题
+   */
+  @SerializedName("title")
+  private String title;
 
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
-    }
+  /**
+   * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+   * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the
+   * time off system will not be revoked."
+   *
+   * <p>示例值：请假日程描述
+   */
+  @SerializedName("description")
+  private String description;
 
-    public String getStartTime() {
-        return this.startTime;
-    }
+  public String getTimeoffEventId() {
+    return this.timeoffEventId;
+  }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
+  public void setTimeoffEventId(String timeoffEventId) {
+    this.timeoffEventId = timeoffEventId;
+  }
 
-    public String getEndTime() {
-        return this.endTime;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
+  public String getTimezone() {
+    return this.timezone;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
+  public String getStartTime() {
+    return this.startTime;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
 
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 }

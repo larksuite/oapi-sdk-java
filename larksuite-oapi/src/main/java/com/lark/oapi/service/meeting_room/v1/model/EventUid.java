@@ -14,98 +14,106 @@
 package com.lark.oapi.service.meeting_room.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.service.meeting_room.v1.enums.*;
 
 public class EventUid {
+  /**
+   * 日程唯一ID
+   *
+   * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+   */
+  @SerializedName("uid")
+  private String uid;
+
+  /**
+   * original_time
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("original_time")
+  private Integer originalTime;
+
+  public String getUid() {
+    return this.uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  public Integer getOriginalTime() {
+    return this.originalTime;
+  }
+
+  public void setOriginalTime(Integer originalTime) {
+    this.originalTime = originalTime;
+  }
+
+  // builder 开始
+  public EventUid() {}
+
+  public EventUid(Builder builder) {
     /**
      * 日程唯一ID
-     * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
      */
-    @SerializedName("uid")
-    private String uid;
+    this.uid = builder.uid;
     /**
      * original_time
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("original_time")
+    this.originalTime = builder.originalTime;
+  }
+
+  public static class Builder {
+    /**
+     * 日程唯一ID
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     */
+    private String uid;
+
+    /**
+     * original_time
+     *
+     * <p>示例值：0
+     */
     private Integer originalTime;
 
-    // builder 开始
-    public EventUid() {
+    /**
+     * 日程唯一ID
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     *
+     * @param uid
+     * @return
+     */
+    public Builder uid(String uid) {
+      this.uid = uid;
+      return this;
     }
 
-    public EventUid(Builder builder) {
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         */
-        this.uid = builder.uid;
-        /**
-         * original_time
-         * <p> 示例值：0
-         */
-        this.originalTime = builder.originalTime;
+    /**
+     * original_time
+     *
+     * <p>示例值：0
+     *
+     * @param originalTime
+     * @return
+     */
+    public Builder originalTime(Integer originalTime) {
+      this.originalTime = originalTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EventUid build() {
+      return new EventUid(this);
     }
+  }
 
-    public String getUid() {
-        return this.uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
-    public Integer getOriginalTime() {
-        return this.originalTime;
-    }
-
-    public void setOriginalTime(Integer originalTime) {
-        this.originalTime = originalTime;
-    }
-
-    public static class Builder {
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         */
-        private String uid;
-        /**
-         * original_time
-         * <p> 示例值：0
-         */
-        private Integer originalTime;
-
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         *
-         * @param uid
-         * @return
-         */
-        public Builder uid(String uid) {
-            this.uid = uid;
-            return this;
-        }
-
-
-        /**
-         * original_time
-         * <p> 示例值：0
-         *
-         * @param originalTime
-         * @return
-         */
-        public Builder originalTime(Integer originalTime) {
-            this.originalTime = originalTime;
-            return this;
-        }
-
-
-        public EventUid build() {
-            return new EventUid(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,198 +13,230 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListExternalTaskReqBody {
+  /**
+   * 三方审批定义 Code，用于指定只获取这些定义下的数据。获取方式：;;-
+   * 调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时，会返回审批定义
+   * Code。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+   */
+  @SerializedName("approval_codes")
+  private String[] approvalCodes;
+
+  /**
+   * 三方审批实例 ID，用于指定只获取这些实例下的数据，最多支持 20 个。;;**说明**：三方审批实例 ID
+   * 是调用[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)、[校验三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)时自定义的实例
+   * ID（instance_id）。
+   *
+   * <p>示例值：oa_159160304
+   */
+  @SerializedName("instance_ids")
+  private String[] instanceIds;
+
+  /**
+   * 审批人 user_id，用于指定只获取这些用户的数据。其为user_id_type=user_id的用户ID，获取方式参见[如何获取用户的 User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+   *
+   * <p>示例值：112321
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 审批任务状态，用于指定获取该状态下的数据。
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String[] getApprovalCodes() {
+    return this.approvalCodes;
+  }
+
+  public void setApprovalCodes(String[] approvalCodes) {
+    this.approvalCodes = approvalCodes;
+  }
+
+  public String[] getInstanceIds() {
+    return this.instanceIds;
+  }
+
+  public void setInstanceIds(String[] instanceIds) {
+    this.instanceIds = instanceIds;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public ListExternalTaskReqBody() {}
+
+  public ListExternalTaskReqBody(Builder builder) {
     /**
-     * 审批定义 Code，用于指定只获取这些定义下的数据
-     * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+     * 三方审批定义 Code，用于指定只获取这些定义下的数据。获取方式：;;-
+     * 调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时，会返回审批定义
+     * Code。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
      */
-    @SerializedName("approval_codes")
+    this.approvalCodes = builder.approvalCodes;
+    /**
+     * 三方审批实例 ID，用于指定只获取这些实例下的数据，最多支持 20 个。;;**说明**：三方审批实例 ID
+     * 是调用[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)、[校验三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)时自定义的实例
+     * ID（instance_id）。
+     *
+     * <p>示例值：oa_159160304
+     */
+    this.instanceIds = builder.instanceIds;
+    /**
+     * 审批人 user_id，用于指定只获取这些用户的数据。其为user_id_type=user_id的用户ID，获取方式参见[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：112321
+     */
+    this.userIds = builder.userIds;
+    /**
+     * 审批任务状态，用于指定获取该状态下的数据。
+     *
+     * <p>示例值：PENDING
+     */
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 三方审批定义 Code，用于指定只获取这些定义下的数据。获取方式：;;-
+     * 调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时，会返回审批定义
+     * Code。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+     */
     private String[] approvalCodes;
+
     /**
-     * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-     * <p> 示例值：oa_159160304
+     * 三方审批实例 ID，用于指定只获取这些实例下的数据，最多支持 20 个。;;**说明**：三方审批实例 ID
+     * 是调用[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)、[校验三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)时自定义的实例
+     * ID（instance_id）。
+     *
+     * <p>示例值：oa_159160304
      */
-    @SerializedName("instance_ids")
     private String[] instanceIds;
+
     /**
-     * 审批人 user_id，用于指定只获取这些用户的数据
-     * <p> 示例值：112321
+     * 审批人 user_id，用于指定只获取这些用户的数据。其为user_id_type=user_id的用户ID，获取方式参见[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：112321
      */
-    @SerializedName("user_ids")
     private String[] userIds;
+
     /**
-     * 审批任务状态，用于指定获取该状态下的数据
-     * <p> 示例值：PENDING
+     * 审批任务状态，用于指定获取该状态下的数据。
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("status")
     private String status;
 
-    // builder 开始
-    public ListExternalTaskReqBody() {
+    /**
+     * 三方审批定义 Code，用于指定只获取这些定义下的数据。获取方式：;;-
+     * 调用[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)时，会返回审批定义
+     * Code。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
+     *
+     * @param approvalCodes
+     * @return
+     */
+    public Builder approvalCodes(String[] approvalCodes) {
+      this.approvalCodes = approvalCodes;
+      return this;
     }
 
-    public ListExternalTaskReqBody(Builder builder) {
-        /**
-         * 审批定义 Code，用于指定只获取这些定义下的数据
-         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         */
-        this.approvalCodes = builder.approvalCodes;
-        /**
-         * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-         * <p> 示例值：oa_159160304
-         */
-        this.instanceIds = builder.instanceIds;
-        /**
-         * 审批人 user_id，用于指定只获取这些用户的数据
-         * <p> 示例值：112321
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
+    /**
+     * 三方审批实例 ID，用于指定只获取这些实例下的数据，最多支持 20 个。;;**说明**：三方审批实例 ID
+     * 是调用[同步三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create)、[校验三方审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check)时自定义的实例
+     * ID（instance_id）。
+     *
+     * <p>示例值：oa_159160304
+     *
+     * @param instanceIds
+     * @return
+     */
+    public Builder instanceIds(String[] instanceIds) {
+      this.instanceIds = instanceIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批人 user_id，用于指定只获取这些用户的数据。其为user_id_type=user_id的用户ID，获取方式参见[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：112321
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public String[] getApprovalCodes() {
-        return this.approvalCodes;
+    /**
+     * 审批任务状态，用于指定获取该状态下的数据。
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setApprovalCodes(String[] approvalCodes) {
-        this.approvalCodes = approvalCodes;
+    /**
+     * 审批任务状态，用于指定获取该状态下的数据。
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String[] getInstanceIds() {
-        return this.instanceIds;
+    public ListExternalTaskReqBody build() {
+      return new ListExternalTaskReqBody(this);
     }
+  }
 
-    public void setInstanceIds(String[] instanceIds) {
-        this.instanceIds = instanceIds;
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义 Code，用于指定只获取这些定义下的数据
-         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         */
-        private String[] approvalCodes;
-        /**
-         * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-         * <p> 示例值：oa_159160304
-         */
-        private String[] instanceIds;
-        /**
-         * 审批人 user_id，用于指定只获取这些用户的数据
-         * <p> 示例值：112321
-         */
-        private String[] userIds;
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         */
-        private String status;
-
-        /**
-         * 审批定义 Code，用于指定只获取这些定义下的数据
-         * <p> 示例值：B7B65FFE-C2GC-452F-9F0F-9AA8352363D6
-         *
-         * @param approvalCodes
-         * @return
-         */
-        public Builder approvalCodes(String[] approvalCodes) {
-            this.approvalCodes = approvalCodes;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 ID, 用于指定只获取这些实例下的数据，最多支持 20 个
-         * <p> 示例值：oa_159160304
-         *
-         * @param instanceIds
-         * @return
-         */
-        public Builder instanceIds(String[] instanceIds) {
-            this.instanceIds = instanceIds;
-            return this;
-        }
-
-
-        /**
-         * 审批人 user_id，用于指定只获取这些用户的数据
-         * <p> 示例值：112321
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 审批任务状态，用于指定获取该状态下的数据
-         * <p> 示例值：PENDING
-         *
-         * @param status {@link com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.approval.v4.enums.ListExternalTaskExternalTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public ListExternalTaskReqBody build() {
-            return new ListExternalTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

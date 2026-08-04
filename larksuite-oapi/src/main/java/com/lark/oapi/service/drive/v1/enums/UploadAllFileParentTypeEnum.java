@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 上传点类型。
- */
+/** 上传点的类型。取固定值 `explorer`，表示将文件上传至云空间中。 */
 public enum UploadAllFileParentTypeEnum {
-    EXPLORER("explorer"), // 云空间
-    WIKI("wiki"), // 知识库
-    ;
-    private String value;
+  EXPLORER("explorer"), // 云空间
+  WIKI("wiki"), // 知识库
+  ;
+  private String value;
 
-    UploadAllFileParentTypeEnum(String value) {
-        this.value = value;
-    }
+  UploadAllFileParentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

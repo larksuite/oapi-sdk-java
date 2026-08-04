@@ -13,98 +13,100 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class UpdateEmployeeTypeEnumReq {
+  /**
+   * 自定义人员类型的选项
+   * ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的
+   * ID。
+   *
+   * <p>示例值：exGeIjow7zIqWMy+ONkFxA==
+   */
+  @Path
+  @SerializedName("enum_id")
+  private String enumId;
+
+  public String getEnumId() {
+    return this.enumId;
+  }
+
+  public void setEnumId(String enumId) {
+    this.enumId = enumId;
+  }
+
+  @Body private EmployeeTypeEnum body;
+
+  public EmployeeTypeEnum getEmployeeTypeEnum() {
+    return this.body;
+  }
+
+  public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateEmployeeTypeEnumReq() {}
+
+  public UpdateEmployeeTypeEnumReq(Builder builder) {
     /**
-     * 枚举值id
-     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     * 自定义人员类型的选项
+     * ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的
+     * ID。
+     *
+     * <p>示例值：exGeIjow7zIqWMy+ONkFxA==
      */
-    @Path
-    @SerializedName("enum_id")
-    private String enumId;
-    @Body
+    this.enumId = builder.enumId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String enumId; // 自定义人员类型的选项
+
+    // ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的 ID。
+
+    /**
+     * 自定义人员类型的选项
+     * ID。你可以在新建人员类型时从返回值中获取，你也可以调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口，获取选项的
+     * ID。
+     *
+     * <p>示例值：exGeIjow7zIqWMy+ONkFxA==
+     *
+     * @param enumId
+     * @return
+     */
+    public Builder enumId(String enumId) {
+      this.enumId = enumId;
+      return this;
+    }
+
     private EmployeeTypeEnum body;
 
-    // builder 开始
-    public UpdateEmployeeTypeEnumReq() {
-    }
-
-    public UpdateEmployeeTypeEnumReq(Builder builder) {
-        /**
-         * 枚举值id
-         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-         */
-        this.enumId = builder.enumId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEnumId() {
-        return this.enumId;
-    }
-
-    public void setEnumId(String enumId) {
-        this.enumId = enumId;
-    }
-
     public EmployeeTypeEnum getEmployeeTypeEnum() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder employeeTypeEnum(EmployeeTypeEnum body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String enumId; // 枚举值id
-        private EmployeeTypeEnum body;
-
-        /**
-         * 枚举值id
-         * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
-         *
-         * @param enumId
-         * @return
-         */
-        public Builder enumId(String enumId) {
-            this.enumId = enumId;
-            return this;
-        }
-
-        public EmployeeTypeEnum getEmployeeTypeEnum() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder employeeTypeEnum(EmployeeTypeEnum body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateEmployeeTypeEnumReq build() {
-            return new UpdateEmployeeTypeEnumReq(this);
-        }
+    public UpdateEmployeeTypeEnumReq build() {
+      return new UpdateEmployeeTypeEnumReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

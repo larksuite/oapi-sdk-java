@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RawContentDocumentRespBody {
-    /**
-     * 文档纯文本
-     * <p> 示例值：test
-     */
-    @SerializedName("content")
-    private String content;
+  /**
+   * 文档纯文本
+   *
+   * <p>示例值：云文档\n多人实时协同，插入一切元素。不仅是在线文档，更是强大的创作和互动工具\n云文档：专为协作而生\n
+   */
+  @SerializedName("content")
+  private String content;
 
-    public String getContent() {
-        return this.content;
-    }
+  public String getContent() {
+    return this.content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
+  public void setContent(String content) {
+    this.content = content;
+  }
 }

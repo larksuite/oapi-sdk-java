@@ -13,138 +13,143 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetInterviewRecordAttachmentReq {
+  /**
+   * 投递
+   * ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口获取
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @Query
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 面试评价
+   * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，若不填该参数，则会获取入参投递下所有的面试评价
+   *
+   * <p>示例值：6969137186734393644
+   */
+  @Query
+  @SerializedName("interview_record_id")
+  private String interviewRecordId;
+
+  /**
+   * 面试评价语言，用于指定附件的语言
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("language")
+  private Integer language;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getInterviewRecordId() {
+    return this.interviewRecordId;
+  }
+
+  public void setInterviewRecordId(String interviewRecordId) {
+    this.interviewRecordId = interviewRecordId;
+  }
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  // builder 开始
+  public GetInterviewRecordAttachmentReq() {}
+
+  public GetInterviewRecordAttachmentReq(Builder builder) {
     /**
-     * 投递 ID
-     * <p> 示例值：6949805467799537964
+     * 投递
+     * ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口获取
+     *
+     * <p>示例值：6949805467799537964
      */
-    @Query
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
-     * 面试记录 ID
-     * <p> 示例值：6969137186734393644
+     * 面试评价
+     * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，若不填该参数，则会获取入参投递下所有的面试评价
+     *
+     * <p>示例值：6969137186734393644
      */
-    @Query
-    @SerializedName("interview_record_id")
-    private String interviewRecordId;
+    this.interviewRecordId = builder.interviewRecordId;
     /**
-     * 面试记录语言
-     * <p> 示例值：
+     * 面试评价语言，用于指定附件的语言
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("language")
-    private Integer language;
+    this.language = builder.language;
+  }
 
-    // builder 开始
-    public GetInterviewRecordAttachmentReq() {
+  public static class Builder {
+    private String applicationId; // 投递
+    // ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口获取
+    private String interviewRecordId; // 面试评价
+    // ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，若不填该参数，则会获取入参投递下所有的面试评价
+    private Integer language; // 面试评价语言，用于指定附件的语言
+
+    /**
+     * 投递
+     * ID，可通过[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)接口获取
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public GetInterviewRecordAttachmentReq(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 面试记录 ID
-         * <p> 示例值：6969137186734393644
-         */
-        this.interviewRecordId = builder.interviewRecordId;
-        /**
-         * 面试记录语言
-         * <p> 示例值：
-         */
-        this.language = builder.language;
+    /**
+     * 面试评价
+     * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取，若不填该参数，则会获取入参投递下所有的面试评价
+     *
+     * <p>示例值：6969137186734393644
+     *
+     * @param interviewRecordId
+     * @return
+     */
+    public Builder interviewRecordId(String interviewRecordId) {
+      this.interviewRecordId = interviewRecordId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 面试评价语言，用于指定附件的语言
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    public GetInterviewRecordAttachmentReq build() {
+      return new GetInterviewRecordAttachmentReq(this);
     }
+  }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public String getInterviewRecordId() {
-        return this.interviewRecordId;
-    }
-
-    public void setInterviewRecordId(String interviewRecordId) {
-        this.interviewRecordId = interviewRecordId;
-    }
-
-    public Integer getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
-
-    public static class Builder {
-        private String applicationId; // 投递 ID
-        private String interviewRecordId; // 面试记录 ID
-        private Integer language; // 面试记录语言
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 面试记录 ID
-         * <p> 示例值：6969137186734393644
-         *
-         * @param interviewRecordId
-         * @return
-         */
-        public Builder interviewRecordId(String interviewRecordId) {
-            this.interviewRecordId = interviewRecordId;
-            return this;
-        }
-
-
-        /**
-         * 面试记录语言
-         * <p> 示例值：
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-
-        public GetInterviewRecordAttachmentReq build() {
-            return new GetInterviewRecordAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

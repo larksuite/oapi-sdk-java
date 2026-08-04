@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureEnumInfoLabel {
+  /**
+   * 当前节点的操作名称中文展示，如：发起
+   *
+   * <p>示例值：发起
+   */
+  @SerializedName("zh")
+  private String zh;
+
+  /**
+   * 当前节点的操作名称英文展示，如：Initiate
+   *
+   * <p>示例值：Initiate
+   */
+  @SerializedName("en")
+  private String en;
+
+  public String getZh() {
+    return this.zh;
+  }
+
+  public void setZh(String zh) {
+    this.zh = zh;
+  }
+
+  public String getEn() {
+    return this.en;
+  }
+
+  public void setEn(String en) {
+    this.en = en;
+  }
+
+  // builder 开始
+  public SignatureEnumInfoLabel() {}
+
+  public SignatureEnumInfoLabel(Builder builder) {
     /**
-     * zh-CN
-     * <p> 示例值：中文
+     * 当前节点的操作名称中文展示，如：发起
+     *
+     * <p>示例值：发起
      */
-    @SerializedName("zh")
+    this.zh = builder.zh;
+    /**
+     * 当前节点的操作名称英文展示，如：Initiate
+     *
+     * <p>示例值：Initiate
+     */
+    this.en = builder.en;
+  }
+
+  public static class Builder {
+    /**
+     * 当前节点的操作名称中文展示，如：发起
+     *
+     * <p>示例值：发起
+     */
     private String zh;
+
     /**
-     * en-US
-     * <p> 示例值：英文
+     * 当前节点的操作名称英文展示，如：Initiate
+     *
+     * <p>示例值：Initiate
      */
-    @SerializedName("en")
     private String en;
 
-    // builder 开始
-    public SignatureEnumInfoLabel() {
+    /**
+     * 当前节点的操作名称中文展示，如：发起
+     *
+     * <p>示例值：发起
+     *
+     * @param zh
+     * @return
+     */
+    public Builder zh(String zh) {
+      this.zh = zh;
+      return this;
     }
 
-    public SignatureEnumInfoLabel(Builder builder) {
-        /**
-         * zh-CN
-         * <p> 示例值：中文
-         */
-        this.zh = builder.zh;
-        /**
-         * en-US
-         * <p> 示例值：英文
-         */
-        this.en = builder.en;
+    /**
+     * 当前节点的操作名称英文展示，如：Initiate
+     *
+     * <p>示例值：Initiate
+     *
+     * @param en
+     * @return
+     */
+    public Builder en(String en) {
+      this.en = en;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SignatureEnumInfoLabel build() {
+      return new SignatureEnumInfoLabel(this);
     }
+  }
 
-    public String getZh() {
-        return this.zh;
-    }
-
-    public void setZh(String zh) {
-        this.zh = zh;
-    }
-
-    public String getEn() {
-        return this.en;
-    }
-
-    public void setEn(String en) {
-        this.en = en;
-    }
-
-    public static class Builder {
-        /**
-         * zh-CN
-         * <p> 示例值：中文
-         */
-        private String zh;
-        /**
-         * en-US
-         * <p> 示例值：英文
-         */
-        private String en;
-
-        /**
-         * zh-CN
-         * <p> 示例值：中文
-         *
-         * @param zh
-         * @return
-         */
-        public Builder zh(String zh) {
-            this.zh = zh;
-            return this;
-        }
-
-
-        /**
-         * en-US
-         * <p> 示例值：英文
-         *
-         * @param en
-         * @return
-         */
-        public Builder en(String en) {
-            this.en = en;
-            return this;
-        }
-
-
-        public SignatureEnumInfoLabel build() {
-            return new SignatureEnumInfoLabel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserMailEntity {
+  /**
+   * 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 邮箱地址
+   *
+   * <p>示例值：Alice_group@outlook.com
+   */
+  @SerializedName("email_address")
+  private String emailAddress;
+
+  /**
+   * 当邮箱类型为公共邮箱和邮件组时非空，表示公共邮箱的ID或邮件组ID
+   *
+   * <p>示例值：VZ1O1Z2PE0W486E
+   */
+  @SerializedName("entity_id")
+  private String entityId;
+
+  /**
+   * 邮箱类型为个人邮箱时非空，邮箱所有者的用户ID，根据`user_id_type`返回对应的类型
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getEmailAddress() {
+    return this.emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public String getEntityId() {
+    return this.entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public UserMailEntity() {}
+
+  public UserMailEntity(Builder builder) {
     /**
-     * 邮箱类型
-     * <p> 示例值：
+     * 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组
+     *
+     * <p>示例值：3
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 邮箱地址
-     * <p> 示例值：user@xxx.xx
+     *
+     * <p>示例值：Alice_group@outlook.com
      */
-    @SerializedName("email_address")
+    this.emailAddress = builder.emailAddress;
+    /**
+     * 当邮箱类型为公共邮箱和邮件组时非空，表示公共邮箱的ID或邮件组ID
+     *
+     * <p>示例值：VZ1O1Z2PE0W486E
+     */
+    this.entityId = builder.entityId;
+    /**
+     * 邮箱类型为个人邮箱时非空，邮箱所有者的用户ID，根据`user_id_type`返回对应的类型
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+     */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组
+     *
+     * <p>示例值：3
+     */
+    private Integer type;
+
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：Alice_group@outlook.com
+     */
     private String emailAddress;
+
     /**
-     * 公共邮箱、邮件组实体ID
-     * <p> 示例值：xxxxx
+     * 当邮箱类型为公共邮箱和邮件组时非空，表示公共邮箱的ID或邮件组ID
+     *
+     * <p>示例值：VZ1O1Z2PE0W486E
      */
-    @SerializedName("entity_id")
     private String entityId;
+
     /**
-     * 个人邮箱，用户ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+     * 邮箱类型为个人邮箱时非空，邮箱所有者的用户ID，根据`user_id_type`返回对应的类型
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
      */
-    @SerializedName("user_id")
     private String userId;
 
-    // builder 开始
-    public UserMailEntity() {
+    /**
+     * 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组
+     *
+     * <p>示例值：3
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public UserMailEntity(Builder builder) {
-        /**
-         * 邮箱类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        this.emailAddress = builder.emailAddress;
-        /**
-         * 公共邮箱、邮件组实体ID
-         * <p> 示例值：xxxxx
-         */
-        this.entityId = builder.entityId;
-        /**
-         * 个人邮箱，用户ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-         */
-        this.userId = builder.userId;
+    /**
+     * 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组
+     *
+     * <p>示例值：3
+     *
+     * @param type {@link com.lark.oapi.service.mail.v1.enums.UserMailEntityEntityTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.mail.v1.enums.UserMailEntityEntityTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：Alice_group@outlook.com
+     *
+     * @param emailAddress
+     * @return
+     */
+    public Builder emailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    /**
+     * 当邮箱类型为公共邮箱和邮件组时非空，表示公共邮箱的ID或邮件组ID
+     *
+     * <p>示例值：VZ1O1Z2PE0W486E
+     *
+     * @param entityId
+     * @return
+     */
+    public Builder entityId(String entityId) {
+      this.entityId = entityId;
+      return this;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    /**
+     * 邮箱类型为个人邮箱时非空，邮箱所有者的用户ID，根据`user_id_type`返回对应的类型
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getEmailAddress() {
-        return this.emailAddress;
+    public UserMailEntity build() {
+      return new UserMailEntity(this);
     }
+  }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getEntityId() {
-        return this.entityId;
-    }
-
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 邮箱类型
-         * <p> 示例值：
-         */
-        private Integer type;
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        private String emailAddress;
-        /**
-         * 公共邮箱、邮件组实体ID
-         * <p> 示例值：xxxxx
-         */
-        private String entityId;
-        /**
-         * 个人邮箱，用户ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-         */
-        private String userId;
-
-        /**
-         * 邮箱类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 邮箱类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.UserMailEntityEntityTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.UserMailEntityEntityTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         *
-         * @param emailAddress
-         * @return
-         */
-        public Builder emailAddress(String emailAddress) {
-            this.emailAddress = emailAddress;
-            return this;
-        }
-
-
-        /**
-         * 公共邮箱、邮件组实体ID
-         * <p> 示例值：xxxxx
-         *
-         * @param entityId
-         * @return
-         */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
-
-
-        /**
-         * 个人邮箱，用户ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad115d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public UserMailEntity build() {
-            return new UserMailEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

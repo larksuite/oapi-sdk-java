@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 日期类型
- */
+/** 日期类型 */
 public enum WkCalendarDateWorkCalendarDateTypeEnum {
-    DAYOFF("day_off"), // 休息日
-    PUBLICHOLIDAY("public_holiday"), // 公共假日
-    WORKDAY("workday"), // 工作日
-    ;
-    private String value;
+  DAYOFF("day_off"), // 休息日
+  PUBLICHOLIDAY("public_holiday"), // 公共假日
+  WORKDAY("workday"), // 工作日
+  ;
+  private String value;
 
-    WkCalendarDateWorkCalendarDateTypeEnum(String value) {
-        this.value = value;
-    }
+  WkCalendarDateWorkCalendarDateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

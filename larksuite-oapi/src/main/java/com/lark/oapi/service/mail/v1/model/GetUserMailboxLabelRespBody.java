@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetUserMailboxLabelRespBody {
-    /**
-     * 标签
-     * <p> 示例值：
-     */
-    @SerializedName("label")
-    private Label label;
+  /**
+   * 邮件标签，必须填写名字或颜色中的至少一个字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Label label;
 
-    public Label getLabel() {
-        return this.label;
-    }
+  public Label getLabel() {
+    return this.label;
+  }
 
-    public void setLabel(Label label) {
-        this.label = label;
-    }
-
+  public void setLabel(Label label) {
+    this.label = label;
+  }
 }

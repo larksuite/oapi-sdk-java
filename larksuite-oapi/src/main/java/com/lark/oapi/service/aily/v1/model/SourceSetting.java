@@ -13,324 +13,349 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class SourceSetting {
+  /**
+   * 分表数据源api_id
+   *
+   * <p>示例值："source_api_id"
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 分表数据源api_name
+   *
+   * <p>示例值："source_api_name"
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 分表数据源名称，国际化文本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Map<String, String> label;
+
+  /**
+   * 数据源具体来源
+   *
+   * <p>示例值："mysql"
+   */
+  @SerializedName("from_type")
+  private String fromType;
+
+  /**
+   * 外部数据源的凭证key
+   *
+   * <p>示例值："auth_key_001"
+   */
+  @SerializedName("auth_key")
+  private String authKey;
+
+  /**
+   * 外部数据源的凭证名称，国际化文本（同上）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth_name")
+  private Map<String, String> authName;
+
+  /**
+   * 外部数据源和对接方式 - direct: 直连 - Import: 导入
+   *
+   * <p>示例值："Import"
+   */
+  @SerializedName("data_source_integration_type")
+  private String dataSourceIntegrationType;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Map<String, String> label) {
+    this.label = label;
+  }
+
+  public String getFromType() {
+    return this.fromType;
+  }
+
+  public void setFromType(String fromType) {
+    this.fromType = fromType;
+  }
+
+  public String getAuthKey() {
+    return this.authKey;
+  }
+
+  public void setAuthKey(String authKey) {
+    this.authKey = authKey;
+  }
+
+  public Map<String, String> getAuthName() {
+    return this.authName;
+  }
+
+  public void setAuthName(Map<String, String> authName) {
+    this.authName = authName;
+  }
+
+  public String getDataSourceIntegrationType() {
+    return this.dataSourceIntegrationType;
+  }
+
+  public void setDataSourceIntegrationType(String dataSourceIntegrationType) {
+    this.dataSourceIntegrationType = dataSourceIntegrationType;
+  }
+
+  // builder 开始
+  public SourceSetting() {}
+
+  public SourceSetting(Builder builder) {
     /**
      * 分表数据源api_id
-     * <p> 示例值："source_api_id"
+     *
+     * <p>示例值："source_api_id"
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * 分表数据源api_name
-     * <p> 示例值："source_api_name"
+     *
+     * <p>示例值："source_api_name"
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 分表数据源名称，国际化文本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
-    private Map<String, String> label;
+    this.label = builder.label;
     /**
      * 数据源具体来源
-     * <p> 示例值："mysql"
+     *
+     * <p>示例值："mysql"
      */
-    @SerializedName("from_type")
-    private String fromType;
+    this.fromType = builder.fromType;
     /**
      * 外部数据源的凭证key
-     * <p> 示例值："auth_key_001"
+     *
+     * <p>示例值："auth_key_001"
      */
-    @SerializedName("auth_key")
-    private String authKey;
+    this.authKey = builder.authKey;
     /**
      * 外部数据源的凭证名称，国际化文本（同上）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth_name")
-    private Map<String, String> authName;
+    this.authName = builder.authName;
     /**
      * 外部数据源和对接方式 - direct: 直连 - Import: 导入
-     * <p> 示例值："Import"
+     *
+     * <p>示例值："Import"
      */
-    @SerializedName("data_source_integration_type")
+    this.dataSourceIntegrationType = builder.dataSourceIntegrationType;
+  }
+
+  public static class Builder {
+    /**
+     * 分表数据源api_id
+     *
+     * <p>示例值："source_api_id"
+     */
+    private String apiId;
+
+    /**
+     * 分表数据源api_name
+     *
+     * <p>示例值："source_api_name"
+     */
+    private String apiName;
+
+    /**
+     * 分表数据源名称，国际化文本
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> label;
+
+    /**
+     * 数据源具体来源
+     *
+     * <p>示例值："mysql"
+     */
+    private String fromType;
+
+    /**
+     * 外部数据源的凭证key
+     *
+     * <p>示例值："auth_key_001"
+     */
+    private String authKey;
+
+    /**
+     * 外部数据源的凭证名称，国际化文本（同上）
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> authName;
+
+    /**
+     * 外部数据源和对接方式 - direct: 直连 - Import: 导入
+     *
+     * <p>示例值："Import"
+     */
     private String dataSourceIntegrationType;
 
-    // builder 开始
-    public SourceSetting() {
+    /**
+     * 分表数据源api_id
+     *
+     * <p>示例值："source_api_id"
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public SourceSetting(Builder builder) {
-        /**
-         * 分表数据源api_id
-         * <p> 示例值："source_api_id"
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 分表数据源api_name
-         * <p> 示例值："source_api_name"
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 分表数据源名称，国际化文本
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 数据源具体来源
-         * <p> 示例值："mysql"
-         */
-        this.fromType = builder.fromType;
-        /**
-         * 外部数据源的凭证key
-         * <p> 示例值："auth_key_001"
-         */
-        this.authKey = builder.authKey;
-        /**
-         * 外部数据源的凭证名称，国际化文本（同上）
-         * <p> 示例值：
-         */
-        this.authName = builder.authName;
-        /**
-         * 外部数据源和对接方式 - direct: 直连 - Import: 导入
-         * <p> 示例值："Import"
-         */
-        this.dataSourceIntegrationType = builder.dataSourceIntegrationType;
+    /**
+     * 分表数据源api_name
+     *
+     * <p>示例值："source_api_name"
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分表数据源名称，国际化文本
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Map<String, String> label) {
+      this.label = label;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 数据源具体来源
+     *
+     * <p>示例值："mysql"
+     *
+     * @param fromType
+     * @return
+     */
+    public Builder fromType(String fromType) {
+      this.fromType = fromType;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    /**
+     * 数据源具体来源
+     *
+     * <p>示例值："mysql"
+     *
+     * @param fromType {@link
+     *     com.lark.oapi.service.aily.v1.enums.SourceSettingDatasetSourceFromTypeEnum}
+     * @return
+     */
+    public Builder fromType(
+        com.lark.oapi.service.aily.v1.enums.SourceSettingDatasetSourceFromTypeEnum fromType) {
+      this.fromType = fromType.getValue();
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 外部数据源的凭证key
+     *
+     * <p>示例值："auth_key_001"
+     *
+     * @param authKey
+     * @return
+     */
+    public Builder authKey(String authKey) {
+      this.authKey = authKey;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 外部数据源的凭证名称，国际化文本（同上）
+     *
+     * <p>示例值：
+     *
+     * @param authName
+     * @return
+     */
+    public Builder authName(Map<String, String> authName) {
+      this.authName = authName;
+      return this;
     }
 
-    public Map<String, String> getLabel() {
-        return this.label;
+    /**
+     * 外部数据源和对接方式 - direct: 直连 - Import: 导入
+     *
+     * <p>示例值："Import"
+     *
+     * @param dataSourceIntegrationType
+     * @return
+     */
+    public Builder dataSourceIntegrationType(String dataSourceIntegrationType) {
+      this.dataSourceIntegrationType = dataSourceIntegrationType;
+      return this;
     }
 
-    public void setLabel(Map<String, String> label) {
-        this.label = label;
+    /**
+     * 外部数据源和对接方式 - direct: 直连 - Import: 导入
+     *
+     * <p>示例值："Import"
+     *
+     * @param dataSourceIntegrationType {@link
+     *     com.lark.oapi.service.aily.v1.enums.SourceSettingDataSourceIntegrationTypeEnum}
+     * @return
+     */
+    public Builder dataSourceIntegrationType(
+        com.lark.oapi.service.aily.v1.enums.SourceSettingDataSourceIntegrationTypeEnum
+            dataSourceIntegrationType) {
+      this.dataSourceIntegrationType = dataSourceIntegrationType.getValue();
+      return this;
     }
 
-    public String getFromType() {
-        return this.fromType;
+    public SourceSetting build() {
+      return new SourceSetting(this);
     }
+  }
 
-    public void setFromType(String fromType) {
-        this.fromType = fromType;
-    }
-
-    public String getAuthKey() {
-        return this.authKey;
-    }
-
-    public void setAuthKey(String authKey) {
-        this.authKey = authKey;
-    }
-
-    public Map<String, String> getAuthName() {
-        return this.authName;
-    }
-
-    public void setAuthName(Map<String, String> authName) {
-        this.authName = authName;
-    }
-
-    public String getDataSourceIntegrationType() {
-        return this.dataSourceIntegrationType;
-    }
-
-    public void setDataSourceIntegrationType(String dataSourceIntegrationType) {
-        this.dataSourceIntegrationType = dataSourceIntegrationType;
-    }
-
-    public static class Builder {
-        /**
-         * 分表数据源api_id
-         * <p> 示例值："source_api_id"
-         */
-        private String apiId;
-        /**
-         * 分表数据源api_name
-         * <p> 示例值："source_api_name"
-         */
-        private String apiName;
-        /**
-         * 分表数据源名称，国际化文本
-         * <p> 示例值：
-         */
-        private Map<String, String> label;
-        /**
-         * 数据源具体来源
-         * <p> 示例值："mysql"
-         */
-        private String fromType;
-        /**
-         * 外部数据源的凭证key
-         * <p> 示例值："auth_key_001"
-         */
-        private String authKey;
-        /**
-         * 外部数据源的凭证名称，国际化文本（同上）
-         * <p> 示例值：
-         */
-        private Map<String, String> authName;
-        /**
-         * 外部数据源和对接方式 - direct: 直连 - Import: 导入
-         * <p> 示例值："Import"
-         */
-        private String dataSourceIntegrationType;
-
-        /**
-         * 分表数据源api_id
-         * <p> 示例值："source_api_id"
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 分表数据源api_name
-         * <p> 示例值："source_api_name"
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 分表数据源名称，国际化文本
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 数据源具体来源
-         * <p> 示例值："mysql"
-         *
-         * @param fromType
-         * @return
-         */
-        public Builder fromType(String fromType) {
-            this.fromType = fromType;
-            return this;
-        }
-
-        /**
-         * 数据源具体来源
-         * <p> 示例值："mysql"
-         *
-         * @param fromType {@link com.lark.oapi.service.aily.v1.enums.SourceSettingDatasetSourceFromTypeEnum}
-         * @return
-         */
-        public Builder fromType(com.lark.oapi.service.aily.v1.enums.SourceSettingDatasetSourceFromTypeEnum fromType) {
-            this.fromType = fromType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 外部数据源的凭证key
-         * <p> 示例值："auth_key_001"
-         *
-         * @param authKey
-         * @return
-         */
-        public Builder authKey(String authKey) {
-            this.authKey = authKey;
-            return this;
-        }
-
-
-        /**
-         * 外部数据源的凭证名称，国际化文本（同上）
-         * <p> 示例值：
-         *
-         * @param authName
-         * @return
-         */
-        public Builder authName(Map<String, String> authName) {
-            this.authName = authName;
-            return this;
-        }
-
-
-        /**
-         * 外部数据源和对接方式 - direct: 直连 - Import: 导入
-         * <p> 示例值："Import"
-         *
-         * @param dataSourceIntegrationType
-         * @return
-         */
-        public Builder dataSourceIntegrationType(String dataSourceIntegrationType) {
-            this.dataSourceIntegrationType = dataSourceIntegrationType;
-            return this;
-        }
-
-        /**
-         * 外部数据源和对接方式 - direct: 直连 - Import: 导入
-         * <p> 示例值："Import"
-         *
-         * @param dataSourceIntegrationType {@link com.lark.oapi.service.aily.v1.enums.SourceSettingDataSourceIntegrationTypeEnum}
-         * @return
-         */
-        public Builder dataSourceIntegrationType(com.lark.oapi.service.aily.v1.enums.SourceSettingDataSourceIntegrationTypeEnum dataSourceIntegrationType) {
-            this.dataSourceIntegrationType = dataSourceIntegrationType.getValue();
-            return this;
-        }
-
-
-        public SourceSetting build() {
-            return new SourceSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

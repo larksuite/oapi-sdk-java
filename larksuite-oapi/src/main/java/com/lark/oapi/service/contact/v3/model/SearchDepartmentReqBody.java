@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDepartmentReqBody {
+  /**
+   * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）。
+   *
+   * <p>示例值：DemoName
+   */
+  @SerializedName("query")
+  private String query;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  // builder 开始
+  public SearchDepartmentReqBody() {}
+
+  public SearchDepartmentReqBody(Builder builder) {
     /**
-     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
-     * <p> 示例值：DemoName
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）。
+     *
+     * <p>示例值：DemoName
      */
-    @SerializedName("query")
+    this.query = builder.query;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）。
+     *
+     * <p>示例值：DemoName
+     */
     private String query;
 
-    // builder 开始
-    public SearchDepartmentReqBody() {
+    /**
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）。
+     *
+     * <p>示例值：DemoName
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchDepartmentReqBody(Builder builder) {
-        /**
-         * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
-         * <p> 示例值：DemoName
-         */
-        this.query = builder.query;
+    public SearchDepartmentReqBody build() {
+      return new SearchDepartmentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
-         * <p> 示例值：DemoName
-         */
-        private String query;
-
-        /**
-         * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
-         * <p> 示例值：DemoName
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        public SearchDepartmentReqBody build() {
-            return new SearchDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

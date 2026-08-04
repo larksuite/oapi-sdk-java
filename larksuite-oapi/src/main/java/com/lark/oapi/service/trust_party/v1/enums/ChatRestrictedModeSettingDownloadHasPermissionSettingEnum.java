@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.trust_party.v1.enums;
 
-/**
- * 允许下载消息中图片、视频和文件
- */
+/** 允许下载消息中图片、视频和文件 */
 public enum ChatRestrictedModeSettingDownloadHasPermissionSettingEnum {
-    ALLMEMBERS("all_members"), // 所有成员允许下载资源
-    NOTANYONE("not_anyone"), // 所有成员禁止下载资源
-    ;
-    private String value;
+  ALLMEMBERS("all_members"), // 所有成员允许下载资源
+  NOTANYONE("not_anyone"), // 所有成员禁止下载资源
+  ;
+  private String value;
 
-    ChatRestrictedModeSettingDownloadHasPermissionSettingEnum(String value) {
-        this.value = value;
-    }
+  ChatRestrictedModeSettingDownloadHasPermissionSettingEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Subdivision {
+  /**
+   * 省份/行政区id
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 省份/行政区名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subdivision_type")
+  private Enum subdivisionType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public Enum getSubdivisionType() {
+    return this.subdivisionType;
+  }
+
+  public void setSubdivisionType(Enum subdivisionType) {
+    this.subdivisionType = subdivisionType;
+  }
+
+  // builder 开始
+  public Subdivision() {}
+
+  public Subdivision(Builder builder) {
     /**
      * 省份/行政区id
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 省份/行政区名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subdivision_type")
+    this.subdivisionType = builder.subdivisionType;
+  }
+
+  public static class Builder {
+    /**
+     * 省份/行政区id
+     *
+     * <p>示例值：12
+     */
+    private String id;
+
+    /**
+     * 省份/行政区名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+     *
+     * <p>示例值：12
+     */
+    private String countryRegionId;
+
+    /**
+     * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+     *
+     * <p>示例值：
+     */
     private Enum subdivisionType;
 
-    // builder 开始
-    public Subdivision() {
+    /**
+     * 省份/行政区id
+     *
+     * <p>示例值：12
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Subdivision(Builder builder) {
-        /**
-         * 省份/行政区id
-         * <p> 示例值：12
-         */
-        this.id = builder.id;
-        /**
-         * 省份/行政区名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.subdivisionType = builder.subdivisionType;
+    /**
+     * 省份/行政区名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
+     *
+     * <p>示例值：12
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param subdivisionType
+     * @return
+     */
+    public Builder subdivisionType(Enum subdivisionType) {
+      this.subdivisionType = subdivisionType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Subdivision build() {
+      return new Subdivision(this);
     }
+  }
 
-    public I18n[] getName() {
-        return this.name;
-    }
-
-    public void setName(I18n[] name) {
-        this.name = name;
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public Enum getSubdivisionType() {
-        return this.subdivisionType;
-    }
-
-    public void setSubdivisionType(Enum subdivisionType) {
-        this.subdivisionType = subdivisionType;
-    }
-
-    public static class Builder {
-        /**
-         * 省份/行政区id
-         * <p> 示例值：12
-         */
-        private String id;
-        /**
-         * 省份/行政区名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        private String countryRegionId;
-        /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum subdivisionType;
-
-        /**
-         * 省份/行政区id
-         * <p> 示例值：12
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 省份/行政区名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 行政区类型，枚举值可通过文档【飞书人事枚举常量】行政区类型（subdivision_type）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param subdivisionType
-         * @return
-         */
-        public Builder subdivisionType(Enum subdivisionType) {
-            this.subdivisionType = subdivisionType;
-            return this;
-        }
-
-
-        public Subdivision build() {
-            return new Subdivision(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

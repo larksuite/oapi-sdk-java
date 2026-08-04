@@ -13,75 +13,73 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SortChatMenuTreeReqBody {
+  /**
+   * 通过一级菜单的 ID 进行排序。数组内的元素排序对应群组内一级菜单从左往右的排序。ID 可通过
+   * [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get)
+   * 接口获取。;;**说明**：进行排序的 ID 列表需要跟群内存在的一级菜单 ID 列表对齐。
+   *
+   * <p>示例值：7156553273518882844
+   */
+  @SerializedName("chat_menu_top_level_ids")
+  private String[] chatMenuTopLevelIds;
+
+  public String[] getChatMenuTopLevelIds() {
+    return this.chatMenuTopLevelIds;
+  }
+
+  public void setChatMenuTopLevelIds(String[] chatMenuTopLevelIds) {
+    this.chatMenuTopLevelIds = chatMenuTopLevelIds;
+  }
+
+  // builder 开始
+  public SortChatMenuTreeReqBody() {}
+
+  public SortChatMenuTreeReqBody(Builder builder) {
     /**
-     * 新的一级菜单的顺序，进行排序ID列表需要跟群内目前存在的一级菜单ID列表对齐。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-     * <p> 示例值：7156553273518882844
+     * 通过一级菜单的 ID 进行排序。数组内的元素排序对应群组内一级菜单从左往右的排序。ID 可通过
+     * [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get)
+     * 接口获取。;;**说明**：进行排序的 ID 列表需要跟群内存在的一级菜单 ID 列表对齐。
+     *
+     * <p>示例值：7156553273518882844
      */
-    @SerializedName("chat_menu_top_level_ids")
+    this.chatMenuTopLevelIds = builder.chatMenuTopLevelIds;
+  }
+
+  public static class Builder {
+    /**
+     * 通过一级菜单的 ID 进行排序。数组内的元素排序对应群组内一级菜单从左往右的排序。ID 可通过
+     * [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get)
+     * 接口获取。;;**说明**：进行排序的 ID 列表需要跟群内存在的一级菜单 ID 列表对齐。
+     *
+     * <p>示例值：7156553273518882844
+     */
     private String[] chatMenuTopLevelIds;
 
-    // builder 开始
-    public SortChatMenuTreeReqBody() {
+    /**
+     * 通过一级菜单的 ID 进行排序。数组内的元素排序对应群组内一级菜单从左往右的排序。ID 可通过
+     * [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get)
+     * 接口获取。;;**说明**：进行排序的 ID 列表需要跟群内存在的一级菜单 ID 列表对齐。
+     *
+     * <p>示例值：7156553273518882844
+     *
+     * @param chatMenuTopLevelIds
+     * @return
+     */
+    public Builder chatMenuTopLevelIds(String[] chatMenuTopLevelIds) {
+      this.chatMenuTopLevelIds = chatMenuTopLevelIds;
+      return this;
     }
 
-    public SortChatMenuTreeReqBody(Builder builder) {
-        /**
-         * 新的一级菜单的顺序，进行排序ID列表需要跟群内目前存在的一级菜单ID列表对齐。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-         * <p> 示例值：7156553273518882844
-         */
-        this.chatMenuTopLevelIds = builder.chatMenuTopLevelIds;
+    public SortChatMenuTreeReqBody build() {
+      return new SortChatMenuTreeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getChatMenuTopLevelIds() {
-        return this.chatMenuTopLevelIds;
-    }
-
-    public void setChatMenuTopLevelIds(String[] chatMenuTopLevelIds) {
-        this.chatMenuTopLevelIds = chatMenuTopLevelIds;
-    }
-
-    public static class Builder {
-        /**
-         * 新的一级菜单的顺序，进行排序ID列表需要跟群内目前存在的一级菜单ID列表对齐。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-         * <p> 示例值：7156553273518882844
-         */
-        private String[] chatMenuTopLevelIds;
-
-        /**
-         * 新的一级菜单的顺序，进行排序ID列表需要跟群内目前存在的一级菜单ID列表对齐。通过 [获取群菜单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-menu_tree/get) 接口获取群内菜单详情。
-         * <p> 示例值：7156553273518882844
-         *
-         * @param chatMenuTopLevelIds
-         * @return
-         */
-        public Builder chatMenuTopLevelIds(String[] chatMenuTopLevelIds) {
-            this.chatMenuTopLevelIds = chatMenuTopLevelIds;
-            return this;
-        }
-
-
-        public SortChatMenuTreeReqBody build() {
-            return new SortChatMenuTreeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

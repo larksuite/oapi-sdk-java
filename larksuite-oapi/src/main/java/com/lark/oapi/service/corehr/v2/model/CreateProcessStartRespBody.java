@@ -13,34 +13,23 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateProcessStartRespBody {
-    /**
-     * 流程实例id
-     * <p> 示例值：7437118147624175148
-     */
-    @SerializedName("process_id")
-    private String processId;
+  /**
+   * 流程运行实例
+   * id，详细信息可通过[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)获取
+   *
+   * <p>示例值：7437118147624175148
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 }

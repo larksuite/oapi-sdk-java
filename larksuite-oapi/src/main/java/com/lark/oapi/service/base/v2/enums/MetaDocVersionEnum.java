@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 文档版本
- */
+/** 文档版本 */
 public enum MetaDocVersionEnum {
-    V1(1), // Doc 1.0
-    V2(2), // Doc 2.0
-    ;
-    private Integer value;
+  V1(1), // Doc 1.0
+  V2(2), // Doc 2.0
+  ;
+  private Integer value;
 
-    MetaDocVersionEnum(Integer value) {
-        this.value = value;
-    }
+  MetaDocVersionEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

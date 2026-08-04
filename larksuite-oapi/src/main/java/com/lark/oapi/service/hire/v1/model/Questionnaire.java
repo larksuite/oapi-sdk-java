@@ -13,296 +13,324 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Questionnaire {
+  /**
+   * 满意度问卷 ID
+   *
+   * <p>示例值：7037986982531778860
+   */
+  @SerializedName("questionnaire_id")
+  private String questionnaireId;
+
+  /**
+   * 投递
+   * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6985833807195212076
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 面试
+   * ID，详情可查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+   *
+   * <p>示例值：7038435261598763308
+   */
+  @SerializedName("interview_id")
+  private String interviewId;
+
+  /**
+   * 满意度问卷版本
+   *
+   * <p>示例值：59
+   */
+  @SerializedName("version")
+  private Integer version;
+
+  /**
+   * 题目列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("questions")
+  private Question[] questions;
+
+  /**
+   * 是否完成作答
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_answers")
+  private Boolean hasAnswers;
+
+  /**
+   * 满意度问卷更新时间，毫秒时间戳
+   *
+   * <p>示例值：1644412504000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getQuestionnaireId() {
+    return this.questionnaireId;
+  }
+
+  public void setQuestionnaireId(String questionnaireId) {
+    this.questionnaireId = questionnaireId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getInterviewId() {
+    return this.interviewId;
+  }
+
+  public void setInterviewId(String interviewId) {
+    this.interviewId = interviewId;
+  }
+
+  public Integer getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+  public Question[] getQuestions() {
+    return this.questions;
+  }
+
+  public void setQuestions(Question[] questions) {
+    this.questions = questions;
+  }
+
+  public Boolean getHasAnswers() {
+    return this.hasAnswers;
+  }
+
+  public void setHasAnswers(Boolean hasAnswers) {
+    this.hasAnswers = hasAnswers;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public Questionnaire() {}
+
+  public Questionnaire(Builder builder) {
     /**
-     * 问卷 ID
-     * <p> 示例值：7037986982531778860
+     * 满意度问卷 ID
+     *
+     * <p>示例值：7037986982531778860
      */
-    @SerializedName("questionnaire_id")
-    private String questionnaireId;
+    this.questionnaireId = builder.questionnaireId;
     /**
-     * 投递 ID；当「面试满意度问卷发送时间」选项选择「面试流程结束后」，将返回 投递 ID
-     * <p> 示例值：6985833807195212076
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6985833807195212076
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
-     * 面试 ID；当「面试满意度问卷发送时间」选项选择「第一次面试后」、「每次面试后」将返回 面试 ID
-     * <p> 示例值：7038435261598763308
+     * 面试
+     * ID，详情可查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：7038435261598763308
      */
-    @SerializedName("interview_id")
-    private String interviewId;
+    this.interviewId = builder.interviewId;
     /**
-     * 问卷版本
-     * <p> 示例值：59
+     * 满意度问卷版本
+     *
+     * <p>示例值：59
      */
-    @SerializedName("version")
-    private Integer version;
+    this.version = builder.version;
     /**
      * 题目列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("questions")
-    private Question[] questions;
+    this.questions = builder.questions;
     /**
      * 是否完成作答
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("has_answers")
-    private Boolean hasAnswers;
+    this.hasAnswers = builder.hasAnswers;
     /**
-     * 更新时间
-     * <p> 示例值：1644412504000
+     * 满意度问卷更新时间，毫秒时间戳
+     *
+     * <p>示例值：1644412504000
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 满意度问卷 ID
+     *
+     * <p>示例值：7037986982531778860
+     */
+    private String questionnaireId;
+
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6985833807195212076
+     */
+    private String applicationId;
+
+    /**
+     * 面试
+     * ID，详情可查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：7038435261598763308
+     */
+    private String interviewId;
+
+    /**
+     * 满意度问卷版本
+     *
+     * <p>示例值：59
+     */
+    private Integer version;
+
+    /**
+     * 题目列表
+     *
+     * <p>示例值：
+     */
+    private Question[] questions;
+
+    /**
+     * 是否完成作答
+     *
+     * <p>示例值：true
+     */
+    private Boolean hasAnswers;
+
+    /**
+     * 满意度问卷更新时间，毫秒时间戳
+     *
+     * <p>示例值：1644412504000
+     */
     private String updateTime;
 
-    // builder 开始
-    public Questionnaire() {
+    /**
+     * 满意度问卷 ID
+     *
+     * <p>示例值：7037986982531778860
+     *
+     * @param questionnaireId
+     * @return
+     */
+    public Builder questionnaireId(String questionnaireId) {
+      this.questionnaireId = questionnaireId;
+      return this;
     }
 
-    public Questionnaire(Builder builder) {
-        /**
-         * 问卷 ID
-         * <p> 示例值：7037986982531778860
-         */
-        this.questionnaireId = builder.questionnaireId;
-        /**
-         * 投递 ID；当「面试满意度问卷发送时间」选项选择「面试流程结束后」，将返回 投递 ID
-         * <p> 示例值：6985833807195212076
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 面试 ID；当「面试满意度问卷发送时间」选项选择「第一次面试后」、「每次面试后」将返回 面试 ID
-         * <p> 示例值：7038435261598763308
-         */
-        this.interviewId = builder.interviewId;
-        /**
-         * 问卷版本
-         * <p> 示例值：59
-         */
-        this.version = builder.version;
-        /**
-         * 题目列表
-         * <p> 示例值：
-         */
-        this.questions = builder.questions;
-        /**
-         * 是否完成作答
-         * <p> 示例值：true
-         */
-        this.hasAnswers = builder.hasAnswers;
-        /**
-         * 更新时间
-         * <p> 示例值：1644412504000
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 投递
+     * ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6985833807195212076
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 面试
+     * ID，详情可查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：7038435261598763308
+     *
+     * @param interviewId
+     * @return
+     */
+    public Builder interviewId(String interviewId) {
+      this.interviewId = interviewId;
+      return this;
     }
 
-    public String getQuestionnaireId() {
-        return this.questionnaireId;
+    /**
+     * 满意度问卷版本
+     *
+     * <p>示例值：59
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(Integer version) {
+      this.version = version;
+      return this;
     }
 
-    public void setQuestionnaireId(String questionnaireId) {
-        this.questionnaireId = questionnaireId;
+    /**
+     * 题目列表
+     *
+     * <p>示例值：
+     *
+     * @param questions
+     * @return
+     */
+    public Builder questions(Question[] questions) {
+      this.questions = questions;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 是否完成作答
+     *
+     * <p>示例值：true
+     *
+     * @param hasAnswers
+     * @return
+     */
+    public Builder hasAnswers(Boolean hasAnswers) {
+      this.hasAnswers = hasAnswers;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 满意度问卷更新时间，毫秒时间戳
+     *
+     * <p>示例值：1644412504000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getInterviewId() {
-        return this.interviewId;
+    public Questionnaire build() {
+      return new Questionnaire(this);
     }
+  }
 
-    public void setInterviewId(String interviewId) {
-        this.interviewId = interviewId;
-    }
-
-    public Integer getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public Question[] getQuestions() {
-        return this.questions;
-    }
-
-    public void setQuestions(Question[] questions) {
-        this.questions = questions;
-    }
-
-    public Boolean getHasAnswers() {
-        return this.hasAnswers;
-    }
-
-    public void setHasAnswers(Boolean hasAnswers) {
-        this.hasAnswers = hasAnswers;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 问卷 ID
-         * <p> 示例值：7037986982531778860
-         */
-        private String questionnaireId;
-        /**
-         * 投递 ID；当「面试满意度问卷发送时间」选项选择「面试流程结束后」，将返回 投递 ID
-         * <p> 示例值：6985833807195212076
-         */
-        private String applicationId;
-        /**
-         * 面试 ID；当「面试满意度问卷发送时间」选项选择「第一次面试后」、「每次面试后」将返回 面试 ID
-         * <p> 示例值：7038435261598763308
-         */
-        private String interviewId;
-        /**
-         * 问卷版本
-         * <p> 示例值：59
-         */
-        private Integer version;
-        /**
-         * 题目列表
-         * <p> 示例值：
-         */
-        private Question[] questions;
-        /**
-         * 是否完成作答
-         * <p> 示例值：true
-         */
-        private Boolean hasAnswers;
-        /**
-         * 更新时间
-         * <p> 示例值：1644412504000
-         */
-        private String updateTime;
-
-        /**
-         * 问卷 ID
-         * <p> 示例值：7037986982531778860
-         *
-         * @param questionnaireId
-         * @return
-         */
-        public Builder questionnaireId(String questionnaireId) {
-            this.questionnaireId = questionnaireId;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID；当「面试满意度问卷发送时间」选项选择「面试流程结束后」，将返回 投递 ID
-         * <p> 示例值：6985833807195212076
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 面试 ID；当「面试满意度问卷发送时间」选项选择「第一次面试后」、「每次面试后」将返回 面试 ID
-         * <p> 示例值：7038435261598763308
-         *
-         * @param interviewId
-         * @return
-         */
-        public Builder interviewId(String interviewId) {
-            this.interviewId = interviewId;
-            return this;
-        }
-
-
-        /**
-         * 问卷版本
-         * <p> 示例值：59
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(Integer version) {
-            this.version = version;
-            return this;
-        }
-
-
-        /**
-         * 题目列表
-         * <p> 示例值：
-         *
-         * @param questions
-         * @return
-         */
-        public Builder questions(Question[] questions) {
-            this.questions = questions;
-            return this;
-        }
-
-
-        /**
-         * 是否完成作答
-         * <p> 示例值：true
-         *
-         * @param hasAnswers
-         * @return
-         */
-        public Builder hasAnswers(Boolean hasAnswers) {
-            this.hasAnswers = hasAnswers;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1644412504000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public Questionnaire build() {
-            return new Questionnaire(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

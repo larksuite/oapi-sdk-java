@@ -13,182 +13,197 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetByCardUserMailboxMessageReq {
+  /**
+   * 邮件卡片ID，可通过[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件的推送获取
+   *
+   * <p>示例值：512ca581-6059-4449-8150-5522e6641d32
+   */
+  @Query
+  @SerializedName("card_id")
+  private String cardId;
+
+  /**
+   * 邮件卡片Owner ID，可通过[接收消息](
+   * https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）
+   *
+   * <p>示例值：1234567890
+   */
+  @Query
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getCardId() {
+    return this.cardId;
+  }
+
+  public void setCardId(String cardId) {
+    this.cardId = cardId;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 用户邮箱地址 或 输入me代表当前调用接口用户
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  // builder 开始
+  public GetByCardUserMailboxMessageReq() {}
+
+  public GetByCardUserMailboxMessageReq(Builder builder) {
     /**
-     * 卡片ID
-     * <p> 示例值：512ca581-6059-4449-8150-5522e6641d32
+     * 邮件卡片ID，可通过[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件的推送获取
+     *
+     * <p>示例值：512ca581-6059-4449-8150-5522e6641d32
      */
-    @Query
-    @SerializedName("card_id")
-    private String cardId;
+    this.cardId = builder.cardId;
     /**
-     * 卡片OwnerID
-     * <p> 示例值：1234567890
+     * 邮件卡片Owner ID，可通过[接收消息](
+     * https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）
+     *
+     * <p>示例值：1234567890
      */
-    @Query
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 用户邮箱地址 或 输入me代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
+  }
 
-    // builder 开始
-    public GetByCardUserMailboxMessageReq() {
+  public static class Builder {
+    private String
+        cardId; // 邮件卡片ID，可通过[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件的推送获取
+    private String ownerId; // 邮件卡片Owner ID，可通过[接收消息](
+    // https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 邮件卡片ID，可通过[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件的推送获取
+     *
+     * <p>示例值：512ca581-6059-4449-8150-5522e6641d32
+     *
+     * @param cardId
+     * @return
+     */
+    public Builder cardId(String cardId) {
+      this.cardId = cardId;
+      return this;
     }
 
-    public GetByCardUserMailboxMessageReq(Builder builder) {
-        /**
-         * 卡片ID
-         * <p> 示例值：512ca581-6059-4449-8150-5522e6641d32
-         */
-        this.cardId = builder.cardId;
-        /**
-         * 卡片OwnerID
-         * <p> 示例值：1234567890
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
+    /**
+     * 邮件卡片Owner ID，可通过[接收消息](
+     * https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）
+     *
+     * <p>示例值：1234567890
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getCardId() {
-        return this.cardId;
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.mail.v1.enums.GetByCardUserMailboxMessageGetByCardUserMailboxMessageUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums
+                .GetByCardUserMailboxMessageGetByCardUserMailboxMessageUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
+    private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
+
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    public GetByCardUserMailboxMessageReq build() {
+      return new GetByCardUserMailboxMessageReq(this);
     }
+  }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public static class Builder {
-        private String cardId; // 卡片ID
-        private String ownerId; // 卡片OwnerID
-        private String userIdType; // 用户ID类型
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-
-        /**
-         * 卡片ID
-         * <p> 示例值：512ca581-6059-4449-8150-5522e6641d32
-         *
-         * @param cardId
-         * @return
-         */
-        public Builder cardId(String cardId) {
-            this.cardId = cardId;
-            return this;
-        }
-
-        /**
-         * 卡片OwnerID
-         * <p> 示例值：1234567890
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.GetByCardUserMailboxMessageGetByCardUserMailboxMessageUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.mail.v1.enums.GetByCardUserMailboxMessageGetByCardUserMailboxMessageUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        public GetByCardUserMailboxMessageReq build() {
-            return new GetByCardUserMailboxMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

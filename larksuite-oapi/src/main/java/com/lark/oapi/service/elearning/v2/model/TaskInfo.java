@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：62cfee8e5bc95317542b989e
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：任务1
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum#f1ca4c56)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 是否已停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_disable")
+  private Boolean isDisable;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Boolean getIsDisable() {
+    return this.isDisable;
+  }
+
+  public void setIsDisable(Boolean isDisable) {
+    this.isDisable = isDisable;
+  }
+
+  // builder 开始
+  public TaskInfo() {}
+
+  public TaskInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：62cfee8e5bc95317542b989e
+     *
+     * <p>示例值：62cfee8e5bc95317542b989e
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名字
-     * <p> 示例值：任务1
+     *
+     * <p>示例值：任务1
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 类型
-     * <p> 示例值：1
+     * 类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum#f1ca4c56)
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 是否已停用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_disable")
+    this.isDisable = builder.isDisable;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：62cfee8e5bc95317542b989e
+     */
+    private String id;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：任务1
+     */
+    private String name;
+
+    /**
+     * 类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum#f1ca4c56)
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 是否已停用
+     *
+     * <p>示例值：true
+     */
     private Boolean isDisable;
 
-    // builder 开始
-    public TaskInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：62cfee8e5bc95317542b989e
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TaskInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：62cfee8e5bc95317542b989e
-         */
-        this.id = builder.id;
-        /**
-         * 名字
-         * <p> 示例值：任务1
-         */
-        this.name = builder.name;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 是否已停用
-         * <p> 示例值：true
-         */
-        this.isDisable = builder.isDisable;
+    /**
+     * 名字
+     *
+     * <p>示例值：任务1
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum#f1ca4c56)
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否已停用
+     *
+     * <p>示例值：true
+     *
+     * @param isDisable
+     * @return
+     */
+    public Builder isDisable(Boolean isDisable) {
+      this.isDisable = isDisable;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TaskInfo build() {
+      return new TaskInfo(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Boolean getIsDisable() {
-        return this.isDisable;
-    }
-
-    public void setIsDisable(Boolean isDisable) {
-        this.isDisable = isDisable;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：62cfee8e5bc95317542b989e
-         */
-        private String id;
-        /**
-         * 名字
-         * <p> 示例值：任务1
-         */
-        private String name;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 是否已停用
-         * <p> 示例值：true
-         */
-        private Boolean isDisable;
-
-        /**
-         * ID
-         * <p> 示例值：62cfee8e5bc95317542b989e
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：任务1
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 是否已停用
-         * <p> 示例值：true
-         *
-         * @param isDisable
-         * @return
-         */
-        public Builder isDisable(Boolean isDisable) {
-            this.isDisable = isDisable;
-            return this;
-        }
-
-
-        public TaskInfo build() {
-            return new TaskInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

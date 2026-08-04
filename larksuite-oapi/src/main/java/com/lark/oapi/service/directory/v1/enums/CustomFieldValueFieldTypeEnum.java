@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 自定义字段类型
- */
+/** 自定义字段类型 */
 public enum CustomFieldValueFieldTypeEnum {
-    CUSTOM_FIELD_VALUE_TYPE_TEXT("1"), // 多行文本
-    CUSTOM_FIELD_VALUE_TYPE_URL("2"), // 网页链接
-    CUSTOM_FIELD_VALUE_TYPE_ENUM("3"), // 枚举选项
-    CUSTOM_FIELD_VALUE_TYPE_GENERIC_USER("4"), // 人员
-    CUSTOM_FIELD_VALUE_TYPE_PHONE("9"), // 电话
-    CUSTOM_FIELD_FIELD_TYPE_DIRECTORY_MULTI_ENUM("10"), // 多选枚举类型(目前仅支持文本类型)
-    CUSTOM_FIELD_FIELD_TYPE_DIRECTORY_MULTI_GENERIC_USER("11"), // 人员列表
-    ;
-    private String value;
+  CUSTOM_FIELD_VALUE_TYPE_TEXT("1"), // 多行文本
+  CUSTOM_FIELD_VALUE_TYPE_URL("2"), // 网页链接
+  CUSTOM_FIELD_VALUE_TYPE_ENUM("3"), // 枚举选项
+  CUSTOM_FIELD_VALUE_TYPE_GENERIC_USER("4"), // 人员
+  CUSTOM_FIELD_VALUE_TYPE_PHONE("9"), // 电话
+  CUSTOM_FIELD_FIELD_TYPE_DIRECTORY_MULTI_ENUM("10"), // 多选枚举类型(目前仅支持文本类型)
+  CUSTOM_FIELD_FIELD_TYPE_DIRECTORY_MULTI_GENERIC_USER("11"), // 人员列表
+  ;
+  private String value;
 
-    CustomFieldValueFieldTypeEnum(String value) {
-        this.value = value;
-    }
+  CustomFieldValueFieldTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

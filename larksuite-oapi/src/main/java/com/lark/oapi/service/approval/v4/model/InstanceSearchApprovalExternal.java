@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceSearchApprovalExternal {
+  /**
+   * 是否支持批量读
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("batch_cc_read")
+  private Boolean batchCcRead;
+
+  public Boolean getBatchCcRead() {
+    return this.batchCcRead;
+  }
+
+  public void setBatchCcRead(Boolean batchCcRead) {
+    this.batchCcRead = batchCcRead;
+  }
+
+  // builder 开始
+  public InstanceSearchApprovalExternal() {}
+
+  public InstanceSearchApprovalExternal(Builder builder) {
     /**
      * 是否支持批量读
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("batch_cc_read")
+    this.batchCcRead = builder.batchCcRead;
+  }
+
+  public static class Builder {
+    /**
+     * 是否支持批量读
+     *
+     * <p>示例值：false
+     */
     private Boolean batchCcRead;
 
-    // builder 开始
-    public InstanceSearchApprovalExternal() {
+    /**
+     * 是否支持批量读
+     *
+     * <p>示例值：false
+     *
+     * @param batchCcRead
+     * @return
+     */
+    public Builder batchCcRead(Boolean batchCcRead) {
+      this.batchCcRead = batchCcRead;
+      return this;
     }
 
-    public InstanceSearchApprovalExternal(Builder builder) {
-        /**
-         * 是否支持批量读
-         * <p> 示例值：false
-         */
-        this.batchCcRead = builder.batchCcRead;
+    public InstanceSearchApprovalExternal build() {
+      return new InstanceSearchApprovalExternal(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getBatchCcRead() {
-        return this.batchCcRead;
-    }
-
-    public void setBatchCcRead(Boolean batchCcRead) {
-        this.batchCcRead = batchCcRead;
-    }
-
-    public static class Builder {
-        /**
-         * 是否支持批量读
-         * <p> 示例值：false
-         */
-        private Boolean batchCcRead;
-
-        /**
-         * 是否支持批量读
-         * <p> 示例值：false
-         *
-         * @param batchCcRead
-         * @return
-         */
-        public Builder batchCcRead(Boolean batchCcRead) {
-            this.batchCcRead = batchCcRead;
-            return this;
-        }
-
-
-        public InstanceSearchApprovalExternal build() {
-            return new InstanceSearchApprovalExternal(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

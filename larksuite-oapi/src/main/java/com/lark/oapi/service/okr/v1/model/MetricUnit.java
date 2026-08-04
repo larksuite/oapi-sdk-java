@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MetricUnit {
+  /**
+   * 指标单位中文
+   *
+   * <p>示例值：小明
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 指标单位英文
+   *
+   * <p>示例值：jack
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  /**
+   * 指标单位日文
+   *
+   * <p>示例值：シャオ・ミン
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  // builder 开始
+  public MetricUnit() {}
+
+  public MetricUnit(Builder builder) {
     /**
      * 指标单位中文
-     * <p> 示例值：小明
+     *
+     * <p>示例值：小明
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 指标单位英文
-     * <p> 示例值：jack
+     *
+     * <p>示例值：jack
      */
-    @SerializedName("en_us")
-    private String enUs;
+    this.enUs = builder.enUs;
     /**
      * 指标单位日文
-     * <p> 示例值：シャオ・ミン
+     *
+     * <p>示例值：シャオ・ミン
      */
-    @SerializedName("ja_jp")
+    this.jaJp = builder.jaJp;
+  }
+
+  public static class Builder {
+    /**
+     * 指标单位中文
+     *
+     * <p>示例值：小明
+     */
+    private String zhCn;
+
+    /**
+     * 指标单位英文
+     *
+     * <p>示例值：jack
+     */
+    private String enUs;
+
+    /**
+     * 指标单位日文
+     *
+     * <p>示例值：シャオ・ミン
+     */
     private String jaJp;
 
-    // builder 开始
-    public MetricUnit() {
+    /**
+     * 指标单位中文
+     *
+     * <p>示例值：小明
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public MetricUnit(Builder builder) {
-        /**
-         * 指标单位中文
-         * <p> 示例值：小明
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 指标单位英文
-         * <p> 示例值：jack
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 指标单位日文
-         * <p> 示例值：シャオ・ミン
-         */
-        this.jaJp = builder.jaJp;
+    /**
+     * 指标单位英文
+     *
+     * <p>示例值：jack
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指标单位日文
+     *
+     * <p>示例值：シャオ・ミン
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    public MetricUnit build() {
+      return new MetricUnit(this);
     }
+  }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public String getJaJp() {
-        return this.jaJp;
-    }
-
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
-    }
-
-    public static class Builder {
-        /**
-         * 指标单位中文
-         * <p> 示例值：小明
-         */
-        private String zhCn;
-        /**
-         * 指标单位英文
-         * <p> 示例值：jack
-         */
-        private String enUs;
-        /**
-         * 指标单位日文
-         * <p> 示例值：シャオ・ミン
-         */
-        private String jaJp;
-
-        /**
-         * 指标单位中文
-         * <p> 示例值：小明
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 指标单位英文
-         * <p> 示例值：jack
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        /**
-         * 指标单位日文
-         * <p> 示例值：シャオ・ミン
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        public MetricUnit build() {
-            return new MetricUnit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,272 +13,291 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DashboardShareConfig {
+  /**
+   * 是否开启分享(可读可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("share_flag")
+  private Boolean shareFlag;
+
+  /**
+   * 分享范围(可读可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("share_scope_type")
+  private String shareScopeType;
+
+  /**
+   * 分享 Meta Token(可读不可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("share_token")
+  private String shareToken;
+
+  /**
+   * 分享链接(可读不可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("share_link")
+  private String shareLink;
+
+  /**
+   * 是否允许从分享的仪表盘返回原多维表格(可读可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("show_source")
+  private Boolean showSource;
+
+  /**
+   * 跳转回源仪表盘的链接(可读不可写)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source_link")
+  private String sourceLink;
+
+  public Boolean getShareFlag() {
+    return this.shareFlag;
+  }
+
+  public void setShareFlag(Boolean shareFlag) {
+    this.shareFlag = shareFlag;
+  }
+
+  public String getShareScopeType() {
+    return this.shareScopeType;
+  }
+
+  public void setShareScopeType(String shareScopeType) {
+    this.shareScopeType = shareScopeType;
+  }
+
+  public String getShareToken() {
+    return this.shareToken;
+  }
+
+  public void setShareToken(String shareToken) {
+    this.shareToken = shareToken;
+  }
+
+  public String getShareLink() {
+    return this.shareLink;
+  }
+
+  public void setShareLink(String shareLink) {
+    this.shareLink = shareLink;
+  }
+
+  public Boolean getShowSource() {
+    return this.showSource;
+  }
+
+  public void setShowSource(Boolean showSource) {
+    this.showSource = showSource;
+  }
+
+  public String getSourceLink() {
+    return this.sourceLink;
+  }
+
+  public void setSourceLink(String sourceLink) {
+    this.sourceLink = sourceLink;
+  }
+
+  // builder 开始
+  public DashboardShareConfig() {}
+
+  public DashboardShareConfig(Builder builder) {
     /**
      * 是否开启分享(可读可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("share_flag")
-    private Boolean shareFlag;
+    this.shareFlag = builder.shareFlag;
     /**
      * 分享范围(可读可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("share_scope_type")
-    private String shareScopeType;
+    this.shareScopeType = builder.shareScopeType;
     /**
      * 分享 Meta Token(可读不可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("share_token")
-    private String shareToken;
+    this.shareToken = builder.shareToken;
     /**
      * 分享链接(可读不可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("share_link")
-    private String shareLink;
+    this.shareLink = builder.shareLink;
     /**
      * 是否允许从分享的仪表盘返回原多维表格(可读可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("show_source")
-    private Boolean showSource;
+    this.showSource = builder.showSource;
     /**
      * 跳转回源仪表盘的链接(可读不可写)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source_link")
+    this.sourceLink = builder.sourceLink;
+  }
+
+  public static class Builder {
+    /**
+     * 是否开启分享(可读可写)
+     *
+     * <p>示例值：
+     */
+    private Boolean shareFlag;
+
+    /**
+     * 分享范围(可读可写)
+     *
+     * <p>示例值：
+     */
+    private String shareScopeType;
+
+    /**
+     * 分享 Meta Token(可读不可写)
+     *
+     * <p>示例值：
+     */
+    private String shareToken;
+
+    /**
+     * 分享链接(可读不可写)
+     *
+     * <p>示例值：
+     */
+    private String shareLink;
+
+    /**
+     * 是否允许从分享的仪表盘返回原多维表格(可读可写)
+     *
+     * <p>示例值：
+     */
+    private Boolean showSource;
+
+    /**
+     * 跳转回源仪表盘的链接(可读不可写)
+     *
+     * <p>示例值：
+     */
     private String sourceLink;
 
-    // builder 开始
-    public DashboardShareConfig() {
+    /**
+     * 是否开启分享(可读可写)
+     *
+     * <p>示例值：
+     *
+     * @param shareFlag
+     * @return
+     */
+    public Builder shareFlag(Boolean shareFlag) {
+      this.shareFlag = shareFlag;
+      return this;
     }
 
-    public DashboardShareConfig(Builder builder) {
-        /**
-         * 是否开启分享(可读可写)
-         * <p> 示例值：
-         */
-        this.shareFlag = builder.shareFlag;
-        /**
-         * 分享范围(可读可写)
-         * <p> 示例值：
-         */
-        this.shareScopeType = builder.shareScopeType;
-        /**
-         * 分享 Meta Token(可读不可写)
-         * <p> 示例值：
-         */
-        this.shareToken = builder.shareToken;
-        /**
-         * 分享链接(可读不可写)
-         * <p> 示例值：
-         */
-        this.shareLink = builder.shareLink;
-        /**
-         * 是否允许从分享的仪表盘返回原多维表格(可读可写)
-         * <p> 示例值：
-         */
-        this.showSource = builder.showSource;
-        /**
-         * 跳转回源仪表盘的链接(可读不可写)
-         * <p> 示例值：
-         */
-        this.sourceLink = builder.sourceLink;
+    /**
+     * 分享范围(可读可写)
+     *
+     * <p>示例值：
+     *
+     * @param shareScopeType
+     * @return
+     */
+    public Builder shareScopeType(String shareScopeType) {
+      this.shareScopeType = shareScopeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分享范围(可读可写)
+     *
+     * <p>示例值：
+     *
+     * @param shareScopeType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.DashboardShareConfigShareScopeTypeEnum}
+     * @return
+     */
+    public Builder shareScopeType(
+        com.lark.oapi.service.bitable.v1.enums.DashboardShareConfigShareScopeTypeEnum
+            shareScopeType) {
+      this.shareScopeType = shareScopeType.getValue();
+      return this;
     }
 
-    public Boolean getShareFlag() {
-        return this.shareFlag;
+    /**
+     * 分享 Meta Token(可读不可写)
+     *
+     * <p>示例值：
+     *
+     * @param shareToken
+     * @return
+     */
+    public Builder shareToken(String shareToken) {
+      this.shareToken = shareToken;
+      return this;
     }
 
-    public void setShareFlag(Boolean shareFlag) {
-        this.shareFlag = shareFlag;
+    /**
+     * 分享链接(可读不可写)
+     *
+     * <p>示例值：
+     *
+     * @param shareLink
+     * @return
+     */
+    public Builder shareLink(String shareLink) {
+      this.shareLink = shareLink;
+      return this;
     }
 
-    public String getShareScopeType() {
-        return this.shareScopeType;
+    /**
+     * 是否允许从分享的仪表盘返回原多维表格(可读可写)
+     *
+     * <p>示例值：
+     *
+     * @param showSource
+     * @return
+     */
+    public Builder showSource(Boolean showSource) {
+      this.showSource = showSource;
+      return this;
     }
 
-    public void setShareScopeType(String shareScopeType) {
-        this.shareScopeType = shareScopeType;
+    /**
+     * 跳转回源仪表盘的链接(可读不可写)
+     *
+     * <p>示例值：
+     *
+     * @param sourceLink
+     * @return
+     */
+    public Builder sourceLink(String sourceLink) {
+      this.sourceLink = sourceLink;
+      return this;
     }
 
-    public String getShareToken() {
-        return this.shareToken;
+    public DashboardShareConfig build() {
+      return new DashboardShareConfig(this);
     }
+  }
 
-    public void setShareToken(String shareToken) {
-        this.shareToken = shareToken;
-    }
-
-    public String getShareLink() {
-        return this.shareLink;
-    }
-
-    public void setShareLink(String shareLink) {
-        this.shareLink = shareLink;
-    }
-
-    public Boolean getShowSource() {
-        return this.showSource;
-    }
-
-    public void setShowSource(Boolean showSource) {
-        this.showSource = showSource;
-    }
-
-    public String getSourceLink() {
-        return this.sourceLink;
-    }
-
-    public void setSourceLink(String sourceLink) {
-        this.sourceLink = sourceLink;
-    }
-
-    public static class Builder {
-        /**
-         * 是否开启分享(可读可写)
-         * <p> 示例值：
-         */
-        private Boolean shareFlag;
-        /**
-         * 分享范围(可读可写)
-         * <p> 示例值：
-         */
-        private String shareScopeType;
-        /**
-         * 分享 Meta Token(可读不可写)
-         * <p> 示例值：
-         */
-        private String shareToken;
-        /**
-         * 分享链接(可读不可写)
-         * <p> 示例值：
-         */
-        private String shareLink;
-        /**
-         * 是否允许从分享的仪表盘返回原多维表格(可读可写)
-         * <p> 示例值：
-         */
-        private Boolean showSource;
-        /**
-         * 跳转回源仪表盘的链接(可读不可写)
-         * <p> 示例值：
-         */
-        private String sourceLink;
-
-        /**
-         * 是否开启分享(可读可写)
-         * <p> 示例值：
-         *
-         * @param shareFlag
-         * @return
-         */
-        public Builder shareFlag(Boolean shareFlag) {
-            this.shareFlag = shareFlag;
-            return this;
-        }
-
-
-        /**
-         * 分享范围(可读可写)
-         * <p> 示例值：
-         *
-         * @param shareScopeType
-         * @return
-         */
-        public Builder shareScopeType(String shareScopeType) {
-            this.shareScopeType = shareScopeType;
-            return this;
-        }
-
-        /**
-         * 分享范围(可读可写)
-         * <p> 示例值：
-         *
-         * @param shareScopeType {@link com.lark.oapi.service.bitable.v1.enums.DashboardShareConfigShareScopeTypeEnum}
-         * @return
-         */
-        public Builder shareScopeType(com.lark.oapi.service.bitable.v1.enums.DashboardShareConfigShareScopeTypeEnum shareScopeType) {
-            this.shareScopeType = shareScopeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分享 Meta Token(可读不可写)
-         * <p> 示例值：
-         *
-         * @param shareToken
-         * @return
-         */
-        public Builder shareToken(String shareToken) {
-            this.shareToken = shareToken;
-            return this;
-        }
-
-
-        /**
-         * 分享链接(可读不可写)
-         * <p> 示例值：
-         *
-         * @param shareLink
-         * @return
-         */
-        public Builder shareLink(String shareLink) {
-            this.shareLink = shareLink;
-            return this;
-        }
-
-
-        /**
-         * 是否允许从分享的仪表盘返回原多维表格(可读可写)
-         * <p> 示例值：
-         *
-         * @param showSource
-         * @return
-         */
-        public Builder showSource(Boolean showSource) {
-            this.showSource = showSource;
-            return this;
-        }
-
-
-        /**
-         * 跳转回源仪表盘的链接(可读不可写)
-         * <p> 示例值：
-         *
-         * @param sourceLink
-         * @return
-         */
-        public Builder sourceLink(String sourceLink) {
-            this.sourceLink = sourceLink;
-            return this;
-        }
-
-
-        public DashboardShareConfig build() {
-            return new DashboardShareConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

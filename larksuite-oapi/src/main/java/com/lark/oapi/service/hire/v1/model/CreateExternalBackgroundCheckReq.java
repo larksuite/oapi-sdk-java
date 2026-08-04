@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateExternalBackgroundCheckReq {
-    @Body
+  @Body private ExternalBackgroundCheck body;
+
+  public ExternalBackgroundCheck getExternalBackgroundCheck() {
+    return this.body;
+  }
+
+  public void setExternalBackgroundCheck(ExternalBackgroundCheck body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateExternalBackgroundCheckReq() {}
+
+  public CreateExternalBackgroundCheckReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private ExternalBackgroundCheck body;
 
-    // builder 开始
-    public CreateExternalBackgroundCheckReq() {
-    }
-
-    public CreateExternalBackgroundCheckReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ExternalBackgroundCheck getExternalBackgroundCheck() {
-        return this.body;
+      return this.body;
     }
 
-    public void setExternalBackgroundCheck(ExternalBackgroundCheck body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder externalBackgroundCheck(ExternalBackgroundCheck body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private ExternalBackgroundCheck body;
-
-        public ExternalBackgroundCheck getExternalBackgroundCheck() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder externalBackgroundCheck(ExternalBackgroundCheck body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateExternalBackgroundCheckReq build() {
-            return new CreateExternalBackgroundCheckReq(this);
-        }
+    public CreateExternalBackgroundCheckReq build() {
+      return new CreateExternalBackgroundCheckReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

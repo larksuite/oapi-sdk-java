@@ -13,97 +13,93 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class AddEnumOptionCommonDataMetaDataReq {
+  /**
+   * 用户若希望避免重试导致多次重复请求，可填写随机字符串，系统根据 client_token 是否一致来判断是否为同一请求
+   *
+   * <p>示例值：6727817538283013641
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  @Body private AddEnumOptionCommonDataMetaDataReqBody body;
+
+  public AddEnumOptionCommonDataMetaDataReqBody getAddEnumOptionCommonDataMetaDataReqBody() {
+    return this.body;
+  }
+
+  public void setAddEnumOptionCommonDataMetaDataReqBody(
+      AddEnumOptionCommonDataMetaDataReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AddEnumOptionCommonDataMetaDataReq() {}
+
+  public AddEnumOptionCommonDataMetaDataReq(Builder builder) {
     /**
-     * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：6727817538283013641
+     * 用户若希望避免重试导致多次重复请求，可填写随机字符串，系统根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：6727817538283013641
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
-    @Body
+    this.clientToken = builder.clientToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 用户若希望避免重试导致多次重复请求，可填写随机字符串，系统根据 client_token 是否一致来判断是否为同一请求
+
+    /**
+     * 用户若希望避免重试导致多次重复请求，可填写随机字符串，系统根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：6727817538283013641
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
     private AddEnumOptionCommonDataMetaDataReqBody body;
 
-    // builder 开始
-    public AddEnumOptionCommonDataMetaDataReq() {
-    }
-
-    public AddEnumOptionCommonDataMetaDataReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：6727817538283013641
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
     public AddEnumOptionCommonDataMetaDataReqBody getAddEnumOptionCommonDataMetaDataReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAddEnumOptionCommonDataMetaDataReqBody(AddEnumOptionCommonDataMetaDataReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder addEnumOptionCommonDataMetaDataReqBody(
+        AddEnumOptionCommonDataMetaDataReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private AddEnumOptionCommonDataMetaDataReqBody body;
-
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：6727817538283013641
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        public AddEnumOptionCommonDataMetaDataReqBody getAddEnumOptionCommonDataMetaDataReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder addEnumOptionCommonDataMetaDataReqBody(AddEnumOptionCommonDataMetaDataReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AddEnumOptionCommonDataMetaDataReq build() {
-            return new AddEnumOptionCommonDataMetaDataReq(this);
-        }
+    public AddEnumOptionCommonDataMetaDataReq build() {
+      return new AddEnumOptionCommonDataMetaDataReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

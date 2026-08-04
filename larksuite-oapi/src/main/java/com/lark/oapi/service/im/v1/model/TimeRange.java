@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeRange {
+  /**
+   * 开始时间(iso8601，需要小于end_time)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间(iso8601，需要大于start_time)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public TimeRange() {}
+
+  public TimeRange(Builder builder) {
     /**
-     * 开始时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     * 开始时间(iso8601，需要小于end_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("start_time")
+    this.startTime = builder.startTime;
+    /**
+     * 结束时间(iso8601，需要大于start_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间(iso8601，需要小于end_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
     private String startTime;
+
     /**
-     * 结束时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     * 结束时间(iso8601，需要大于start_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("end_time")
     private String endTime;
 
-    // builder 开始
-    public TimeRange() {
+    /**
+     * 开始时间(iso8601，需要小于end_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public TimeRange(Builder builder) {
-        /**
-         * 开始时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 结束时间(iso8601，需要大于start_time)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TimeRange build() {
+      return new TimeRange(this);
     }
+  }
 
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String startTime;
-        /**
-         * 结束时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String endTime;
-
-        /**
-         * 开始时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public TimeRange build() {
-            return new TimeRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

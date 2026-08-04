@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeletePreHireReq {
+  /**
+   * 需要删除的待入职人员信息ID
+   *
+   * <p>示例值：76534545454
+   */
+  @Path
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  // builder 开始
+  public DeletePreHireReq() {}
+
+  public DeletePreHireReq(Builder builder) {
     /**
      * 需要删除的待入职人员信息ID
-     * <p> 示例值：76534545454
+     *
+     * <p>示例值：76534545454
      */
-    @Path
-    @SerializedName("pre_hire_id")
-    private String preHireId;
+    this.preHireId = builder.preHireId;
+  }
 
-    // builder 开始
-    public DeletePreHireReq() {
+  public static class Builder {
+
+    private String preHireId; // 需要删除的待入职人员信息ID
+
+    /**
+     * 需要删除的待入职人员信息ID
+     *
+     * <p>示例值：76534545454
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
     }
 
-    public DeletePreHireReq(Builder builder) {
-        /**
-         * 需要删除的待入职人员信息ID
-         * <p> 示例值：76534545454
-         */
-        this.preHireId = builder.preHireId;
+    public DeletePreHireReq build() {
+      return new DeletePreHireReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public static class Builder {
-
-        private String preHireId; // 需要删除的待入职人员信息ID
-
-        /**
-         * 需要删除的待入职人员信息ID
-         * <p> 示例值：76534545454
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        public DeletePreHireReq build() {
-            return new DeletePreHireReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

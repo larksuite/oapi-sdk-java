@@ -13,531 +13,582 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocMeta {
+  /**
+   * 文档类型
+   *
+   * <p>示例值：SHORTCUT
+   */
+  @SerializedName("doc_types")
+  private String docTypes;
+
+  /**
+   * 更新时间戳（秒）
+   *
+   * <p>示例值：1766567446
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
+
+  /**
+   * 文档链接
+   *
+   * <p>示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 所有者名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("owner_name")
+  private String ownerName;
+
+  /**
+   * 所有者OpenID
+   *
+   * <p>示例值：ou-7890123456abcdef
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 是否跨租户
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_cross_tenant")
+  private Boolean isCrossTenant;
+
+  /**
+   * 文档创建时间戳（秒）
+   *
+   * <p>示例值：1766567446
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
+
+  /**
+   * 上次打开时间戳（秒）
+   *
+   * <p>示例值：1766567446
+   */
+  @SerializedName("last_open_time")
+  private Integer lastOpenTime;
+
+  /**
+   * 最后一次编辑用户OpenID
+   *
+   * <p>示例值：ou-1122334455aabbcc
+   */
+  @SerializedName("edit_user_id")
+  private String editUserId;
+
+  /**
+   * 最后一次编辑用户名称
+   *
+   * <p>示例值：李四
+   */
+  @SerializedName("edit_user_name")
+  private String editUserName;
+
+  /**
+   * 文档token
+   *
+   * <p>示例值：dox_9876543210fedcba
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：pdf
+   */
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 文档icon
+   *
+   * <p>示例值：{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}
+   */
+  @SerializedName("icon_info")
+  private String iconInfo;
+
+  public String getDocTypes() {
+    return this.docTypes;
+  }
+
+  public void setDocTypes(String docTypes) {
+    this.docTypes = docTypes;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getOwnerName() {
+    return this.ownerName;
+  }
+
+  public void setOwnerName(String ownerName) {
+    this.ownerName = ownerName;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public Boolean getIsCrossTenant() {
+    return this.isCrossTenant;
+  }
+
+  public void setIsCrossTenant(Boolean isCrossTenant) {
+    this.isCrossTenant = isCrossTenant;
+  }
+
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
+
+  public Integer getLastOpenTime() {
+    return this.lastOpenTime;
+  }
+
+  public void setLastOpenTime(Integer lastOpenTime) {
+    this.lastOpenTime = lastOpenTime;
+  }
+
+  public String getEditUserId() {
+    return this.editUserId;
+  }
+
+  public void setEditUserId(String editUserId) {
+    this.editUserId = editUserId;
+  }
+
+  public String getEditUserName() {
+    return this.editUserName;
+  }
+
+  public void setEditUserName(String editUserName) {
+    this.editUserName = editUserName;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getIconInfo() {
+    return this.iconInfo;
+  }
+
+  public void setIconInfo(String iconInfo) {
+    this.iconInfo = iconInfo;
+  }
+
+  // builder 开始
+  public DocMeta() {}
+
+  public DocMeta(Builder builder) {
     /**
      * 文档类型
-     * <p> 示例值：SHORTCUT
+     *
+     * <p>示例值：SHORTCUT
      */
-    @SerializedName("doc_types")
-    private String docTypes;
+    this.docTypes = builder.docTypes;
     /**
      * 更新时间戳（秒）
-     * <p> 示例值：1766567446
+     *
+     * <p>示例值：1766567446
      */
-    @SerializedName("update_time")
-    private Integer updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 文档链接
-     * <p> 示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
+     *
+     * <p>示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 所有者名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("owner_name")
-    private String ownerName;
+    this.ownerName = builder.ownerName;
     /**
      * 所有者OpenID
-     * <p> 示例值：ou-7890123456abcdef
+     *
+     * <p>示例值：ou-7890123456abcdef
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 是否跨租户
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_cross_tenant")
-    private Boolean isCrossTenant;
+    this.isCrossTenant = builder.isCrossTenant;
     /**
      * 文档创建时间戳（秒）
-     * <p> 示例值：1766567446
+     *
+     * <p>示例值：1766567446
      */
-    @SerializedName("create_time")
-    private Integer createTime;
+    this.createTime = builder.createTime;
     /**
      * 上次打开时间戳（秒）
-     * <p> 示例值：1766567446
+     *
+     * <p>示例值：1766567446
      */
-    @SerializedName("last_open_time")
-    private Integer lastOpenTime;
+    this.lastOpenTime = builder.lastOpenTime;
     /**
      * 最后一次编辑用户OpenID
-     * <p> 示例值：ou-1122334455aabbcc
+     *
+     * <p>示例值：ou-1122334455aabbcc
      */
-    @SerializedName("edit_user_id")
-    private String editUserId;
+    this.editUserId = builder.editUserId;
     /**
      * 最后一次编辑用户名称
-     * <p> 示例值：李四
+     *
+     * <p>示例值：李四
      */
-    @SerializedName("edit_user_name")
-    private String editUserName;
+    this.editUserName = builder.editUserName;
     /**
      * 文档token
-     * <p> 示例值：dox_9876543210fedcba
+     *
+     * <p>示例值：dox_9876543210fedcba
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文件类型
-     * <p> 示例值：pdf
+     *
+     * <p>示例值：pdf
      */
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 文档icon
-     * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
+     *
+     * <p>示例值：{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}
      */
-    @SerializedName("icon_info")
+    this.iconInfo = builder.iconInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     */
+    private String docTypes;
+
+    /**
+     * 更新时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     */
+    private Integer updateTime;
+
+    /**
+     * 文档链接
+     *
+     * <p>示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
+     */
+    private String url;
+
+    /**
+     * 所有者名称
+     *
+     * <p>示例值：张三
+     */
+    private String ownerName;
+
+    /**
+     * 所有者OpenID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     */
+    private String ownerId;
+
+    /**
+     * 是否跨租户
+     *
+     * <p>示例值：false
+     */
+    private Boolean isCrossTenant;
+
+    /**
+     * 文档创建时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     */
+    private Integer createTime;
+
+    /**
+     * 上次打开时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     */
+    private Integer lastOpenTime;
+
+    /**
+     * 最后一次编辑用户OpenID
+     *
+     * <p>示例值：ou-1122334455aabbcc
+     */
+    private String editUserId;
+
+    /**
+     * 最后一次编辑用户名称
+     *
+     * <p>示例值：李四
+     */
+    private String editUserName;
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：dox_9876543210fedcba
+     */
+    private String token;
+
+    /**
+     * 文件类型
+     *
+     * <p>示例值：pdf
+     */
+    private String fileType;
+
+    /**
+     * 文档icon
+     *
+     * <p>示例值：{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}
+     */
     private String iconInfo;
 
-    // builder 开始
-    public DocMeta() {
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     *
+     * @param docTypes
+     * @return
+     */
+    public Builder docTypes(String docTypes) {
+      this.docTypes = docTypes;
+      return this;
     }
 
-    public DocMeta(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         */
-        this.docTypes = builder.docTypes;
-        /**
-         * 更新时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 文档链接
-         * <p> 示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
-         */
-        this.url = builder.url;
-        /**
-         * 所有者名称
-         * <p> 示例值：张三
-         */
-        this.ownerName = builder.ownerName;
-        /**
-         * 所有者OpenID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 是否跨租户
-         * <p> 示例值：false
-         */
-        this.isCrossTenant = builder.isCrossTenant;
-        /**
-         * 文档创建时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 上次打开时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        this.lastOpenTime = builder.lastOpenTime;
-        /**
-         * 最后一次编辑用户OpenID
-         * <p> 示例值：ou-1122334455aabbcc
-         */
-        this.editUserId = builder.editUserId;
-        /**
-         * 最后一次编辑用户名称
-         * <p> 示例值：李四
-         */
-        this.editUserName = builder.editUserName;
-        /**
-         * 文档token
-         * <p> 示例值：dox_9876543210fedcba
-         */
-        this.token = builder.token;
-        /**
-         * 文件类型
-         * <p> 示例值：pdf
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 文档icon
-         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
-         */
-        this.iconInfo = builder.iconInfo;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     *
+     * @param docTypes {@link com.lark.oapi.service.search.v2.enums.DocMetaDocTypesEnum}
+     * @return
+     */
+    public Builder docTypes(com.lark.oapi.service.search.v2.enums.DocMetaDocTypesEnum docTypes) {
+      this.docTypes = docTypes.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 更新时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(Integer updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getDocTypes() {
-        return this.docTypes;
+    /**
+     * 文档链接
+     *
+     * <p>示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setDocTypes(String docTypes) {
-        this.docTypes = docTypes;
+    /**
+     * 所有者名称
+     *
+     * <p>示例值：张三
+     *
+     * @param ownerName
+     * @return
+     */
+    public Builder ownerName(String ownerName) {
+      this.ownerName = ownerName;
+      return this;
     }
 
-    public Integer getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 所有者OpenID
+     *
+     * <p>示例值：ou-7890123456abcdef
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 是否跨租户
+     *
+     * <p>示例值：false
+     *
+     * @param isCrossTenant
+     * @return
+     */
+    public Builder isCrossTenant(Boolean isCrossTenant) {
+      this.isCrossTenant = isCrossTenant;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 文档创建时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Integer createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    /**
+     * 上次打开时间戳（秒）
+     *
+     * <p>示例值：1766567446
+     *
+     * @param lastOpenTime
+     * @return
+     */
+    public Builder lastOpenTime(Integer lastOpenTime) {
+      this.lastOpenTime = lastOpenTime;
+      return this;
     }
 
-    public String getOwnerName() {
-        return this.ownerName;
+    /**
+     * 最后一次编辑用户OpenID
+     *
+     * <p>示例值：ou-1122334455aabbcc
+     *
+     * @param editUserId
+     * @return
+     */
+    public Builder editUserId(String editUserId) {
+      this.editUserId = editUserId;
+      return this;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    /**
+     * 最后一次编辑用户名称
+     *
+     * <p>示例值：李四
+     *
+     * @param editUserName
+     * @return
+     */
+    public Builder editUserName(String editUserName) {
+      this.editUserName = editUserName;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 文档token
+     *
+     * <p>示例值：dox_9876543210fedcba
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    /**
+     * 文件类型
+     *
+     * <p>示例值：pdf
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public Boolean getIsCrossTenant() {
-        return this.isCrossTenant;
+    /**
+     * 文档icon
+     *
+     * <p>示例值：{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}
+     *
+     * @param iconInfo
+     * @return
+     */
+    public Builder iconInfo(String iconInfo) {
+      this.iconInfo = iconInfo;
+      return this;
     }
 
-    public void setIsCrossTenant(Boolean isCrossTenant) {
-        this.isCrossTenant = isCrossTenant;
+    public DocMeta build() {
+      return new DocMeta(this);
     }
+  }
 
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getLastOpenTime() {
-        return this.lastOpenTime;
-    }
-
-    public void setLastOpenTime(Integer lastOpenTime) {
-        this.lastOpenTime = lastOpenTime;
-    }
-
-    public String getEditUserId() {
-        return this.editUserId;
-    }
-
-    public void setEditUserId(String editUserId) {
-        this.editUserId = editUserId;
-    }
-
-    public String getEditUserName() {
-        return this.editUserName;
-    }
-
-    public void setEditUserName(String editUserName) {
-        this.editUserName = editUserName;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getFileType() {
-        return this.fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getIconInfo() {
-        return this.iconInfo;
-    }
-
-    public void setIconInfo(String iconInfo) {
-        this.iconInfo = iconInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         */
-        private String docTypes;
-        /**
-         * 更新时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        private Integer updateTime;
-        /**
-         * 文档链接
-         * <p> 示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
-         */
-        private String url;
-        /**
-         * 所有者名称
-         * <p> 示例值：张三
-         */
-        private String ownerName;
-        /**
-         * 所有者OpenID
-         * <p> 示例值：ou-7890123456abcdef
-         */
-        private String ownerId;
-        /**
-         * 是否跨租户
-         * <p> 示例值：false
-         */
-        private Boolean isCrossTenant;
-        /**
-         * 文档创建时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        private Integer createTime;
-        /**
-         * 上次打开时间戳（秒）
-         * <p> 示例值：1766567446
-         */
-        private Integer lastOpenTime;
-        /**
-         * 最后一次编辑用户OpenID
-         * <p> 示例值：ou-1122334455aabbcc
-         */
-        private String editUserId;
-        /**
-         * 最后一次编辑用户名称
-         * <p> 示例值：李四
-         */
-        private String editUserName;
-        /**
-         * 文档token
-         * <p> 示例值：dox_9876543210fedcba
-         */
-        private String token;
-        /**
-         * 文件类型
-         * <p> 示例值：pdf
-         */
-        private String fileType;
-        /**
-         * 文档icon
-         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
-         */
-        private String iconInfo;
-
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         *
-         * @param docTypes
-         * @return
-         */
-        public Builder docTypes(String docTypes) {
-            this.docTypes = docTypes;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         *
-         * @param docTypes {@link com.lark.oapi.service.search.v2.enums.DocMetaDocTypesEnum}
-         * @return
-         */
-        public Builder docTypes(com.lark.oapi.service.search.v2.enums.DocMetaDocTypesEnum docTypes) {
-            this.docTypes = docTypes.getValue();
-            return this;
-        }
-
-
-        /**
-         * 更新时间戳（秒）
-         * <p> 示例值：1766567446
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 文档链接
-         * <p> 示例值：https://www.feishu.cn/docs/dox-1234567890abcdef
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 所有者名称
-         * <p> 示例值：张三
-         *
-         * @param ownerName
-         * @return
-         */
-        public Builder ownerName(String ownerName) {
-            this.ownerName = ownerName;
-            return this;
-        }
-
-
-        /**
-         * 所有者OpenID
-         * <p> 示例值：ou-7890123456abcdef
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 是否跨租户
-         * <p> 示例值：false
-         *
-         * @param isCrossTenant
-         * @return
-         */
-        public Builder isCrossTenant(Boolean isCrossTenant) {
-            this.isCrossTenant = isCrossTenant;
-            return this;
-        }
-
-
-        /**
-         * 文档创建时间戳（秒）
-         * <p> 示例值：1766567446
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 上次打开时间戳（秒）
-         * <p> 示例值：1766567446
-         *
-         * @param lastOpenTime
-         * @return
-         */
-        public Builder lastOpenTime(Integer lastOpenTime) {
-            this.lastOpenTime = lastOpenTime;
-            return this;
-        }
-
-
-        /**
-         * 最后一次编辑用户OpenID
-         * <p> 示例值：ou-1122334455aabbcc
-         *
-         * @param editUserId
-         * @return
-         */
-        public Builder editUserId(String editUserId) {
-            this.editUserId = editUserId;
-            return this;
-        }
-
-
-        /**
-         * 最后一次编辑用户名称
-         * <p> 示例值：李四
-         *
-         * @param editUserName
-         * @return
-         */
-        public Builder editUserName(String editUserName) {
-            this.editUserName = editUserName;
-            return this;
-        }
-
-
-        /**
-         * 文档token
-         * <p> 示例值：dox_9876543210fedcba
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：pdf
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-
-        /**
-         * 文档icon
-         * <p> 示例值：{"type":0,"key":"","obj_type":22,"file_type":null,"token":"FM78ddvYPo11I1xN7gjcSo1Ynuh","version":10191}
-         *
-         * @param iconInfo
-         * @return
-         */
-        public Builder iconInfo(String iconInfo) {
-            this.iconInfo = iconInfo;
-            return this;
-        }
-
-
-        public DocMeta build() {
-            return new DocMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

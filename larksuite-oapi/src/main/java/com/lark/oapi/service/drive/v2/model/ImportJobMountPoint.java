@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportJobMountPoint {
+  /**
+   * 挂载类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mount_type")
+  private Integer mountType;
+
+  /**
+   * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
+   *
+   * <p>示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
+   */
+  @SerializedName("mount_key")
+  private String mountKey;
+
+  public Integer getMountType() {
+    return this.mountType;
+  }
+
+  public void setMountType(Integer mountType) {
+    this.mountType = mountType;
+  }
+
+  public String getMountKey() {
+    return this.mountKey;
+  }
+
+  public void setMountKey(String mountKey) {
+    this.mountKey = mountKey;
+  }
+
+  // builder 开始
+  public ImportJobMountPoint() {}
+
+  public ImportJobMountPoint(Builder builder) {
     /**
      * 挂载类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mount_type")
-    private Integer mountType;
+    this.mountType = builder.mountType;
     /**
      * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
-     * <p> 示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
+     *
+     * <p>示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
      */
-    @SerializedName("mount_key")
+    this.mountKey = builder.mountKey;
+  }
+
+  public static class Builder {
+    /**
+     * 挂载类型
+     *
+     * <p>示例值：
+     */
+    private Integer mountType;
+
+    /**
+     * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
+     *
+     * <p>示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
+     */
     private String mountKey;
 
-    // builder 开始
-    public ImportJobMountPoint() {
+    /**
+     * 挂载类型
+     *
+     * <p>示例值：
+     *
+     * @param mountType
+     * @return
+     */
+    public Builder mountType(Integer mountType) {
+      this.mountType = mountType;
+      return this;
     }
 
-    public ImportJobMountPoint(Builder builder) {
-        /**
-         * 挂载类型
-         * <p> 示例值：
-         */
-        this.mountType = builder.mountType;
-        /**
-         * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
-         * <p> 示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
-         */
-        this.mountKey = builder.mountKey;
+    /**
+     * 挂载类型
+     *
+     * <p>示例值：
+     *
+     * @param mountType {@link
+     *     com.lark.oapi.service.drive.v2.enums.ImportJobMountPointMountTypeEnum}
+     * @return
+     */
+    public Builder mountType(
+        com.lark.oapi.service.drive.v2.enums.ImportJobMountPointMountTypeEnum mountType) {
+      this.mountType = mountType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
+     *
+     * <p>示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
+     *
+     * @param mountKey
+     * @return
+     */
+    public Builder mountKey(String mountKey) {
+      this.mountKey = mountKey;
+      return this;
     }
 
-    public Integer getMountType() {
-        return this.mountType;
+    public ImportJobMountPoint build() {
+      return new ImportJobMountPoint(this);
     }
+  }
 
-    public void setMountType(Integer mountType) {
-        this.mountType = mountType;
-    }
-
-    public String getMountKey() {
-        return this.mountKey;
-    }
-
-    public void setMountKey(String mountKey) {
-        this.mountKey = mountKey;
-    }
-
-    public static class Builder {
-        /**
-         * 挂载类型
-         * <p> 示例值：
-         */
-        private Integer mountType;
-        /**
-         * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
-         * <p> 示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
-         */
-        private String mountKey;
-
-        /**
-         * 挂载类型
-         * <p> 示例值：
-         *
-         * @param mountType
-         * @return
-         */
-        public Builder mountType(Integer mountType) {
-            this.mountType = mountType;
-            return this;
-        }
-
-        /**
-         * 挂载类型
-         * <p> 示例值：
-         *
-         * @param mountType {@link com.lark.oapi.service.drive.v2.enums.ImportJobMountPointMountTypeEnum}
-         * @return
-         */
-        public Builder mountType(com.lark.oapi.service.drive.v2.enums.ImportJobMountPointMountTypeEnum mountType) {
-            this.mountType = mountType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 挂载位置，对于 mount_type=1 ，云空间目录 Token ，空表示根目录
-         * <p> 示例值：Y1HiwCGd8iOYixkLRUvb6viVcoZ
-         *
-         * @param mountKey
-         * @return
-         */
-        public Builder mountKey(String mountKey) {
-            this.mountKey = mountKey;
-            return this;
-        }
-
-
-        public ImportJobMountPoint build() {
-            return new ImportJobMountPoint(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

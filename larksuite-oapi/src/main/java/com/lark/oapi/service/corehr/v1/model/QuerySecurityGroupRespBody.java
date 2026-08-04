@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySecurityGroupRespBody {
-    /**
-     * HRBP/属地 BP 信息
-     * <p> 示例值：
-     */
-    @SerializedName("hrbp_list")
-    private Hrbp[] hrbpList;
+  /**
+   * HRBP/属地 BP 信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hrbp_list")
+  private Hrbp[] hrbpList;
 
-    public Hrbp[] getHrbpList() {
-        return this.hrbpList;
-    }
+  public Hrbp[] getHrbpList() {
+    return this.hrbpList;
+  }
 
-    public void setHrbpList(Hrbp[] hrbpList) {
-        this.hrbpList = hrbpList;
-    }
-
+  public void setHrbpList(Hrbp[] hrbpList) {
+    this.hrbpList = hrbpList;
+  }
 }

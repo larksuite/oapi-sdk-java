@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.baike.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractEntityReqBody {
+  /**
+   * 需要被提取词条的文本（不会过滤租户中已成为词条的内容）
+   *
+   * <p>示例值：飞书词典是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线词典
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public ExtractEntityReqBody() {}
+
+  public ExtractEntityReqBody(Builder builder) {
     /**
-     * 需要被提取百科实体词的文本（不会过滤租户已成为百科词条的内容）
-     * <p> 示例值：企业百科是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线百科全书
+     * 需要被提取词条的文本（不会过滤租户中已成为词条的内容）
+     *
+     * <p>示例值：飞书词典是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线词典
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 需要被提取词条的文本（不会过滤租户中已成为词条的内容）
+     *
+     * <p>示例值：飞书词典是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线词典
+     */
     private String text;
 
-    // builder 开始
-    public ExtractEntityReqBody() {
+    /**
+     * 需要被提取词条的文本（不会过滤租户中已成为词条的内容）
+     *
+     * <p>示例值：飞书词典是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线词典
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public ExtractEntityReqBody(Builder builder) {
-        /**
-         * 需要被提取百科实体词的文本（不会过滤租户已成为百科词条的内容）
-         * <p> 示例值：企业百科是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线百科全书
-         */
-        this.text = builder.text;
+    public ExtractEntityReqBody build() {
+      return new ExtractEntityReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 需要被提取百科实体词的文本（不会过滤租户已成为百科词条的内容）
-         * <p> 示例值：企业百科是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线百科全书
-         */
-        private String text;
-
-        /**
-         * 需要被提取百科实体词的文本（不会过滤租户已成为百科词条的内容）
-         * <p> 示例值：企业百科是一部高效汇聚企业内各类信息，并可由企业成员参与编辑的在线百科全书
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public ExtractEntityReqBody build() {
-            return new ExtractEntityReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

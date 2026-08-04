@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StorageTask {
+  /**
+   * 策略ID，固定1100
+   *
+   * <p>示例值：1100
+   */
+  @SerializedName("policy_id")
+  private Integer policyId;
+
+  /**
+   * 清理任务名称
+   *
+   * <p>示例值：清理任务1
+   */
+  @SerializedName("task_name")
+  private String taskName;
+
+  /**
+   * 任务条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("config")
+  private TaskConfig config;
+
+  /**
+   * 回收站保留时间
+   *
+   * <p>示例值：30
+   */
+  @SerializedName("trash_remain_days")
+  private Integer trashRemainDays;
+
+  public Integer getPolicyId() {
+    return this.policyId;
+  }
+
+  public void setPolicyId(Integer policyId) {
+    this.policyId = policyId;
+  }
+
+  public String getTaskName() {
+    return this.taskName;
+  }
+
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
+  }
+
+  public TaskConfig getConfig() {
+    return this.config;
+  }
+
+  public void setConfig(TaskConfig config) {
+    this.config = config;
+  }
+
+  public Integer getTrashRemainDays() {
+    return this.trashRemainDays;
+  }
+
+  public void setTrashRemainDays(Integer trashRemainDays) {
+    this.trashRemainDays = trashRemainDays;
+  }
+
+  // builder 开始
+  public StorageTask() {}
+
+  public StorageTask(Builder builder) {
     /**
      * 策略ID，固定1100
-     * <p> 示例值：1100
+     *
+     * <p>示例值：1100
      */
-    @SerializedName("policy_id")
-    private Integer policyId;
+    this.policyId = builder.policyId;
     /**
      * 清理任务名称
-     * <p> 示例值：清理任务1
+     *
+     * <p>示例值：清理任务1
      */
-    @SerializedName("task_name")
-    private String taskName;
+    this.taskName = builder.taskName;
     /**
      * 任务条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("config")
-    private TaskConfig config;
+    this.config = builder.config;
     /**
      * 回收站保留时间
-     * <p> 示例值：30
+     *
+     * <p>示例值：30
      */
-    @SerializedName("trash_remain_days")
+    this.trashRemainDays = builder.trashRemainDays;
+  }
+
+  public static class Builder {
+    /**
+     * 策略ID，固定1100
+     *
+     * <p>示例值：1100
+     */
+    private Integer policyId;
+
+    /**
+     * 清理任务名称
+     *
+     * <p>示例值：清理任务1
+     */
+    private String taskName;
+
+    /**
+     * 任务条件
+     *
+     * <p>示例值：
+     */
+    private TaskConfig config;
+
+    /**
+     * 回收站保留时间
+     *
+     * <p>示例值：30
+     */
     private Integer trashRemainDays;
 
-    // builder 开始
-    public StorageTask() {
+    /**
+     * 策略ID，固定1100
+     *
+     * <p>示例值：1100
+     *
+     * @param policyId
+     * @return
+     */
+    public Builder policyId(Integer policyId) {
+      this.policyId = policyId;
+      return this;
     }
 
-    public StorageTask(Builder builder) {
-        /**
-         * 策略ID，固定1100
-         * <p> 示例值：1100
-         */
-        this.policyId = builder.policyId;
-        /**
-         * 清理任务名称
-         * <p> 示例值：清理任务1
-         */
-        this.taskName = builder.taskName;
-        /**
-         * 任务条件
-         * <p> 示例值：
-         */
-        this.config = builder.config;
-        /**
-         * 回收站保留时间
-         * <p> 示例值：30
-         */
-        this.trashRemainDays = builder.trashRemainDays;
+    /**
+     * 清理任务名称
+     *
+     * <p>示例值：清理任务1
+     *
+     * @param taskName
+     * @return
+     */
+    public Builder taskName(String taskName) {
+      this.taskName = taskName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务条件
+     *
+     * <p>示例值：
+     *
+     * @param config
+     * @return
+     */
+    public Builder config(TaskConfig config) {
+      this.config = config;
+      return this;
     }
 
-    public Integer getPolicyId() {
-        return this.policyId;
+    /**
+     * 回收站保留时间
+     *
+     * <p>示例值：30
+     *
+     * @param trashRemainDays
+     * @return
+     */
+    public Builder trashRemainDays(Integer trashRemainDays) {
+      this.trashRemainDays = trashRemainDays;
+      return this;
     }
 
-    public void setPolicyId(Integer policyId) {
-        this.policyId = policyId;
+    public StorageTask build() {
+      return new StorageTask(this);
     }
+  }
 
-    public String getTaskName() {
-        return this.taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public TaskConfig getConfig() {
-        return this.config;
-    }
-
-    public void setConfig(TaskConfig config) {
-        this.config = config;
-    }
-
-    public Integer getTrashRemainDays() {
-        return this.trashRemainDays;
-    }
-
-    public void setTrashRemainDays(Integer trashRemainDays) {
-        this.trashRemainDays = trashRemainDays;
-    }
-
-    public static class Builder {
-        /**
-         * 策略ID，固定1100
-         * <p> 示例值：1100
-         */
-        private Integer policyId;
-        /**
-         * 清理任务名称
-         * <p> 示例值：清理任务1
-         */
-        private String taskName;
-        /**
-         * 任务条件
-         * <p> 示例值：
-         */
-        private TaskConfig config;
-        /**
-         * 回收站保留时间
-         * <p> 示例值：30
-         */
-        private Integer trashRemainDays;
-
-        /**
-         * 策略ID，固定1100
-         * <p> 示例值：1100
-         *
-         * @param policyId
-         * @return
-         */
-        public Builder policyId(Integer policyId) {
-            this.policyId = policyId;
-            return this;
-        }
-
-
-        /**
-         * 清理任务名称
-         * <p> 示例值：清理任务1
-         *
-         * @param taskName
-         * @return
-         */
-        public Builder taskName(String taskName) {
-            this.taskName = taskName;
-            return this;
-        }
-
-
-        /**
-         * 任务条件
-         * <p> 示例值：
-         *
-         * @param config
-         * @return
-         */
-        public Builder config(TaskConfig config) {
-            this.config = config;
-            return this;
-        }
-
-
-        /**
-         * 回收站保留时间
-         * <p> 示例值：30
-         *
-         * @param trashRemainDays
-         * @return
-         */
-        public Builder trashRemainDays(Integer trashRemainDays) {
-            this.trashRemainDays = trashRemainDays;
-            return this;
-        }
-
-
-        public StorageTask build() {
-            return new StorageTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

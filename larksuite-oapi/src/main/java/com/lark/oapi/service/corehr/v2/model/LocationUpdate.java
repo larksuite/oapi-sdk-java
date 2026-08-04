@@ -13,482 +13,531 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationUpdate {
+  /**
+   * 上级地点 ID
+   *
+   * <p>示例值：4719168654814483759
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 地点名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2020-05-02
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 地点编码
+   *
+   * <p>示例值：12456
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 地点描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 地点用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_usages")
+  private Enum[] locationUsages;
+
+  /**
+   * 工时制度 ID
+   *
+   * <p>示例值：4690238309151997779
+   */
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  /**
+   * 区域设置
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("locale")
+  private Enum locale;
+
+  /**
+   * 时区 ID
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("time_zone_id")
+  private String timeZoneId;
+
+  /**
+   * 默认显示语言 ID
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("display_language_id")
+  private String displayLanguageId;
+
+  /**
+   * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+   * 或未传入时，遵循系统默认的编码策略。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_prefer_manual_encoding")
+  private Boolean isPreferManualEncoding;
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public Enum[] getLocationUsages() {
+    return this.locationUsages;
+  }
+
+  public void setLocationUsages(Enum[] locationUsages) {
+    this.locationUsages = locationUsages;
+  }
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  public Enum getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(Enum locale) {
+    this.locale = locale;
+  }
+
+  public String getTimeZoneId() {
+    return this.timeZoneId;
+  }
+
+  public void setTimeZoneId(String timeZoneId) {
+    this.timeZoneId = timeZoneId;
+  }
+
+  public String getDisplayLanguageId() {
+    return this.displayLanguageId;
+  }
+
+  public void setDisplayLanguageId(String displayLanguageId) {
+    this.displayLanguageId = displayLanguageId;
+  }
+
+  public Boolean getIsPreferManualEncoding() {
+    return this.isPreferManualEncoding;
+  }
+
+  public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+    this.isPreferManualEncoding = isPreferManualEncoding;
+  }
+
+  // builder 开始
+  public LocationUpdate() {}
+
+  public LocationUpdate(Builder builder) {
     /**
      * 上级地点 ID
-     * <p> 示例值：4719168654814483759
+     *
+     * <p>示例值：4719168654814483759
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 地点名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 生效时间
-     * <p> 示例值：2020-05-02
+     *
+     * <p>示例值：2020-05-02
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 地点编码
-     * <p> 示例值：12456
+     *
+     * <p>示例值：12456
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 地点描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
      * 地点用途
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("location_usages")
-    private Enum[] locationUsages;
+    this.locationUsages = builder.locationUsages;
     /**
      * 工时制度 ID
-     * <p> 示例值：4690238309151997779
+     *
+     * <p>示例值：4690238309151997779
      */
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
+    this.workingHoursTypeId = builder.workingHoursTypeId;
     /**
      * 区域设置
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("locale")
-    private Enum locale;
+    this.locale = builder.locale;
     /**
      * 时区 ID
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("time_zone_id")
-    private String timeZoneId;
+    this.timeZoneId = builder.timeZoneId;
     /**
      * 默认显示语言 ID
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("display_language_id")
-    private String displayLanguageId;
+    this.displayLanguageId = builder.displayLanguageId;
     /**
-     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-     * <p> 示例值：
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_prefer_manual_encoding")
+    this.isPreferManualEncoding = builder.isPreferManualEncoding;
+  }
+
+  public static class Builder {
+    /**
+     * 上级地点 ID
+     *
+     * <p>示例值：4719168654814483759
+     */
+    private String parentId;
+
+    /**
+     * 地点名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-05-02
+     */
+    private String effectiveTime;
+
+    /**
+     * 地点编码
+     *
+     * <p>示例值：12456
+     */
+    private String code;
+
+    /**
+     * 地点描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 地点用途
+     *
+     * <p>示例值：
+     */
+    private Enum[] locationUsages;
+
+    /**
+     * 工时制度 ID
+     *
+     * <p>示例值：4690238309151997779
+     */
+    private String workingHoursTypeId;
+
+    /**
+     * 区域设置
+     *
+     * <p>示例值：zh_cn
+     */
+    private Enum locale;
+
+    /**
+     * 时区 ID
+     *
+     * <p>示例值：123456789
+     */
+    private String timeZoneId;
+
+    /**
+     * 默认显示语言 ID
+     *
+     * <p>示例值：123456789
+     */
+    private String displayLanguageId;
+
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     */
     private Boolean isPreferManualEncoding;
 
-    // builder 开始
-    public LocationUpdate() {
+    /**
+     * 上级地点 ID
+     *
+     * <p>示例值：4719168654814483759
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public LocationUpdate(Builder builder) {
-        /**
-         * 上级地点 ID
-         * <p> 示例值：4719168654814483759
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 地点名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-02
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 地点编码
-         * <p> 示例值：12456
-         */
-        this.code = builder.code;
-        /**
-         * 地点描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 地点用途
-         * <p> 示例值：
-         */
-        this.locationUsages = builder.locationUsages;
-        /**
-         * 工时制度 ID
-         * <p> 示例值：4690238309151997779
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * 时区 ID
-         * <p> 示例值：123456789
-         */
-        this.timeZoneId = builder.timeZoneId;
-        /**
-         * 默认显示语言 ID
-         * <p> 示例值：123456789
-         */
-        this.displayLanguageId = builder.displayLanguageId;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        this.isPreferManualEncoding = builder.isPreferManualEncoding;
+    /**
+     * 地点名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-05-02
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    /**
+     * 地点编码
+     *
+     * <p>示例值：12456
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public I18n[] getNames() {
-        return this.names;
+    /**
+     * 地点描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public void setNames(I18n[] names) {
-        this.names = names;
+    /**
+     * 地点用途
+     *
+     * <p>示例值：
+     *
+     * @param locationUsages
+     * @return
+     */
+    public Builder locationUsages(Enum[] locationUsages) {
+      this.locationUsages = locationUsages;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    /**
+     * 工时制度 ID
+     *
+     * <p>示例值：4690238309151997779
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    /**
+     * 区域设置
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(Enum locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    /**
+     * 时区 ID
+     *
+     * <p>示例值：123456789
+     *
+     * @param timeZoneId
+     * @return
+     */
+    public Builder timeZoneId(String timeZoneId) {
+      this.timeZoneId = timeZoneId;
+      return this;
     }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
+    /**
+     * 默认显示语言 ID
+     *
+     * <p>示例值：123456789
+     *
+     * @param displayLanguageId
+     * @return
+     */
+    public Builder displayLanguageId(String displayLanguageId) {
+      this.displayLanguageId = displayLanguageId;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     *
+     * @param isPreferManualEncoding
+     * @return
+     */
+    public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+      this.isPreferManualEncoding = isPreferManualEncoding;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public LocationUpdate build() {
+      return new LocationUpdate(this);
     }
+  }
 
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public Enum[] getLocationUsages() {
-        return this.locationUsages;
-    }
-
-    public void setLocationUsages(Enum[] locationUsages) {
-        this.locationUsages = locationUsages;
-    }
-
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
-    }
-
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public Enum getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(Enum locale) {
-        this.locale = locale;
-    }
-
-    public String getTimeZoneId() {
-        return this.timeZoneId;
-    }
-
-    public void setTimeZoneId(String timeZoneId) {
-        this.timeZoneId = timeZoneId;
-    }
-
-    public String getDisplayLanguageId() {
-        return this.displayLanguageId;
-    }
-
-    public void setDisplayLanguageId(String displayLanguageId) {
-        this.displayLanguageId = displayLanguageId;
-    }
-
-    public Boolean getIsPreferManualEncoding() {
-        return this.isPreferManualEncoding;
-    }
-
-    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
-        this.isPreferManualEncoding = isPreferManualEncoding;
-    }
-
-    public static class Builder {
-        /**
-         * 上级地点 ID
-         * <p> 示例值：4719168654814483759
-         */
-        private String parentId;
-        /**
-         * 地点名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-02
-         */
-        private String effectiveTime;
-        /**
-         * 地点编码
-         * <p> 示例值：12456
-         */
-        private String code;
-        /**
-         * 地点描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 地点用途
-         * <p> 示例值：
-         */
-        private Enum[] locationUsages;
-        /**
-         * 工时制度 ID
-         * <p> 示例值：4690238309151997779
-         */
-        private String workingHoursTypeId;
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         */
-        private Enum locale;
-        /**
-         * 时区 ID
-         * <p> 示例值：123456789
-         */
-        private String timeZoneId;
-        /**
-         * 默认显示语言 ID
-         * <p> 示例值：123456789
-         */
-        private String displayLanguageId;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        private Boolean isPreferManualEncoding;
-
-        /**
-         * 上级地点 ID
-         * <p> 示例值：4719168654814483759
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 地点名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-02
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 地点编码
-         * <p> 示例值：12456
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 地点描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 地点用途
-         * <p> 示例值：
-         *
-         * @param locationUsages
-         * @return
-         */
-        public Builder locationUsages(Enum[] locationUsages) {
-            this.locationUsages = locationUsages;
-            return this;
-        }
-
-
-        /**
-         * 工时制度 ID
-         * <p> 示例值：4690238309151997779
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(Enum locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * 时区 ID
-         * <p> 示例值：123456789
-         *
-         * @param timeZoneId
-         * @return
-         */
-        public Builder timeZoneId(String timeZoneId) {
-            this.timeZoneId = timeZoneId;
-            return this;
-        }
-
-
-        /**
-         * 默认显示语言 ID
-         * <p> 示例值：123456789
-         *
-         * @param displayLanguageId
-         * @return
-         */
-        public Builder displayLanguageId(String displayLanguageId) {
-            this.displayLanguageId = displayLanguageId;
-            return this;
-        }
-
-
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         *
-         * @param isPreferManualEncoding
-         * @return
-         */
-        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
-            this.isPreferManualEncoding = isPreferManualEncoding;
-            return this;
-        }
-
-
-        public LocationUpdate build() {
-            return new LocationUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

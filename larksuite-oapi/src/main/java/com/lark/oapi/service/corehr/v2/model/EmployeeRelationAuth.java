@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeRelationAuth {
+  /**
+   * 鉴权实体信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("grantee")
+  private EmployeeGrantee grantee;
+
+  /**
+   * domainKey列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("domain_keys")
+  private String[] domainKeys;
+
+  /**
+   * 鉴权实体
+   *
+   * <p>示例值：employment
+   */
+  @SerializedName("entity")
+  private String entity;
+
+  /**
+   * 关联鉴权实体字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("related_fields")
+  private String[] relatedFields;
+
+  /**
+   * 关联对象权限
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("related_entity_action")
+  private Integer relatedEntityAction;
+
+  public EmployeeGrantee getGrantee() {
+    return this.grantee;
+  }
+
+  public void setGrantee(EmployeeGrantee grantee) {
+    this.grantee = grantee;
+  }
+
+  public String[] getDomainKeys() {
+    return this.domainKeys;
+  }
+
+  public void setDomainKeys(String[] domainKeys) {
+    this.domainKeys = domainKeys;
+  }
+
+  public String getEntity() {
+    return this.entity;
+  }
+
+  public void setEntity(String entity) {
+    this.entity = entity;
+  }
+
+  public String[] getRelatedFields() {
+    return this.relatedFields;
+  }
+
+  public void setRelatedFields(String[] relatedFields) {
+    this.relatedFields = relatedFields;
+  }
+
+  public Integer getRelatedEntityAction() {
+    return this.relatedEntityAction;
+  }
+
+  public void setRelatedEntityAction(Integer relatedEntityAction) {
+    this.relatedEntityAction = relatedEntityAction;
+  }
+
+  // builder 开始
+  public EmployeeRelationAuth() {}
+
+  public EmployeeRelationAuth(Builder builder) {
     /**
      * 鉴权实体信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("grantee")
-    private EmployeeGrantee grantee;
+    this.grantee = builder.grantee;
     /**
      * domainKey列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("domain_keys")
-    private String[] domainKeys;
+    this.domainKeys = builder.domainKeys;
     /**
      * 鉴权实体
-     * <p> 示例值：employment
+     *
+     * <p>示例值：employment
      */
-    @SerializedName("entity")
-    private String entity;
+    this.entity = builder.entity;
     /**
      * 关联鉴权实体字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("related_fields")
-    private String[] relatedFields;
+    this.relatedFields = builder.relatedFields;
     /**
      * 关联对象权限
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("related_entity_action")
+    this.relatedEntityAction = builder.relatedEntityAction;
+  }
+
+  public static class Builder {
+    /**
+     * 鉴权实体信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeGrantee grantee;
+
+    /**
+     * domainKey列表
+     *
+     * <p>示例值：
+     */
+    private String[] domainKeys;
+
+    /**
+     * 鉴权实体
+     *
+     * <p>示例值：employment
+     */
+    private String entity;
+
+    /**
+     * 关联鉴权实体字段
+     *
+     * <p>示例值：
+     */
+    private String[] relatedFields;
+
+    /**
+     * 关联对象权限
+     *
+     * <p>示例值：1
+     */
     private Integer relatedEntityAction;
 
-    // builder 开始
-    public EmployeeRelationAuth() {
+    /**
+     * 鉴权实体信息
+     *
+     * <p>示例值：
+     *
+     * @param grantee
+     * @return
+     */
+    public Builder grantee(EmployeeGrantee grantee) {
+      this.grantee = grantee;
+      return this;
     }
 
-    public EmployeeRelationAuth(Builder builder) {
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         */
-        this.grantee = builder.grantee;
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         */
-        this.domainKeys = builder.domainKeys;
-        /**
-         * 鉴权实体
-         * <p> 示例值：employment
-         */
-        this.entity = builder.entity;
-        /**
-         * 关联鉴权实体字段
-         * <p> 示例值：
-         */
-        this.relatedFields = builder.relatedFields;
-        /**
-         * 关联对象权限
-         * <p> 示例值：1
-         */
-        this.relatedEntityAction = builder.relatedEntityAction;
+    /**
+     * domainKey列表
+     *
+     * <p>示例值：
+     *
+     * @param domainKeys
+     * @return
+     */
+    public Builder domainKeys(String[] domainKeys) {
+      this.domainKeys = domainKeys;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 鉴权实体
+     *
+     * <p>示例值：employment
+     *
+     * @param entity
+     * @return
+     */
+    public Builder entity(String entity) {
+      this.entity = entity;
+      return this;
     }
 
-    public EmployeeGrantee getGrantee() {
-        return this.grantee;
+    /**
+     * 关联鉴权实体字段
+     *
+     * <p>示例值：
+     *
+     * @param relatedFields
+     * @return
+     */
+    public Builder relatedFields(String[] relatedFields) {
+      this.relatedFields = relatedFields;
+      return this;
     }
 
-    public void setGrantee(EmployeeGrantee grantee) {
-        this.grantee = grantee;
+    /**
+     * 关联对象权限
+     *
+     * <p>示例值：1
+     *
+     * @param relatedEntityAction
+     * @return
+     */
+    public Builder relatedEntityAction(Integer relatedEntityAction) {
+      this.relatedEntityAction = relatedEntityAction;
+      return this;
     }
 
-    public String[] getDomainKeys() {
-        return this.domainKeys;
+    public EmployeeRelationAuth build() {
+      return new EmployeeRelationAuth(this);
     }
+  }
 
-    public void setDomainKeys(String[] domainKeys) {
-        this.domainKeys = domainKeys;
-    }
-
-    public String getEntity() {
-        return this.entity;
-    }
-
-    public void setEntity(String entity) {
-        this.entity = entity;
-    }
-
-    public String[] getRelatedFields() {
-        return this.relatedFields;
-    }
-
-    public void setRelatedFields(String[] relatedFields) {
-        this.relatedFields = relatedFields;
-    }
-
-    public Integer getRelatedEntityAction() {
-        return this.relatedEntityAction;
-    }
-
-    public void setRelatedEntityAction(Integer relatedEntityAction) {
-        this.relatedEntityAction = relatedEntityAction;
-    }
-
-    public static class Builder {
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         */
-        private EmployeeGrantee grantee;
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         */
-        private String[] domainKeys;
-        /**
-         * 鉴权实体
-         * <p> 示例值：employment
-         */
-        private String entity;
-        /**
-         * 关联鉴权实体字段
-         * <p> 示例值：
-         */
-        private String[] relatedFields;
-        /**
-         * 关联对象权限
-         * <p> 示例值：1
-         */
-        private Integer relatedEntityAction;
-
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         *
-         * @param grantee
-         * @return
-         */
-        public Builder grantee(EmployeeGrantee grantee) {
-            this.grantee = grantee;
-            return this;
-        }
-
-
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         *
-         * @param domainKeys
-         * @return
-         */
-        public Builder domainKeys(String[] domainKeys) {
-            this.domainKeys = domainKeys;
-            return this;
-        }
-
-
-        /**
-         * 鉴权实体
-         * <p> 示例值：employment
-         *
-         * @param entity
-         * @return
-         */
-        public Builder entity(String entity) {
-            this.entity = entity;
-            return this;
-        }
-
-
-        /**
-         * 关联鉴权实体字段
-         * <p> 示例值：
-         *
-         * @param relatedFields
-         * @return
-         */
-        public Builder relatedFields(String[] relatedFields) {
-            this.relatedFields = relatedFields;
-            return this;
-        }
-
-
-        /**
-         * 关联对象权限
-         * <p> 示例值：1
-         *
-         * @param relatedEntityAction
-         * @return
-         */
-        public Builder relatedEntityAction(Integer relatedEntityAction) {
-            this.relatedEntityAction = relatedEntityAction;
-            return this;
-        }
-
-
-        public EmployeeRelationAuth build() {
-            return new EmployeeRelationAuth(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

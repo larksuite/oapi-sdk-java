@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableDepartmentValue {
+  /**
+   * 部门ID
+   *
+   * <p>示例值：201933311
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FormFieldVariableDepartmentValue() {}
+
+  public FormFieldVariableDepartmentValue(Builder builder) {
     /**
      * 部门ID
-     * <p> 示例值：201933311
+     *
+     * <p>示例值：201933311
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：201933311
+     */
     private String value;
 
-    // builder 开始
-    public FormFieldVariableDepartmentValue() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：201933311
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public FormFieldVariableDepartmentValue(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：201933311
-         */
-        this.value = builder.value;
+    public FormFieldVariableDepartmentValue build() {
+      return new FormFieldVariableDepartmentValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：201933311
-         */
-        private String value;
-
-        /**
-         * 部门ID
-         * <p> 示例值：201933311
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FormFieldVariableDepartmentValue build() {
-            return new FormFieldVariableDepartmentValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

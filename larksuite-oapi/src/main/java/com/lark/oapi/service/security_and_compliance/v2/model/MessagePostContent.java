@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessagePostContent {
+  /**
+   * 标题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 图片链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("image_key_list")
+  private String[] imageKeyList;
+
+  /**
+   * 媒体链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("media_key_list")
+  private String[] mediaKeyList;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String[] getImageKeyList() {
+    return this.imageKeyList;
+  }
+
+  public void setImageKeyList(String[] imageKeyList) {
+    this.imageKeyList = imageKeyList;
+  }
+
+  public String[] getMediaKeyList() {
+    return this.mediaKeyList;
+  }
+
+  public void setMediaKeyList(String[] mediaKeyList) {
+    this.mediaKeyList = mediaKeyList;
+  }
+
+  // builder 开始
+  public MessagePostContent() {}
+
+  public MessagePostContent(Builder builder) {
     /**
      * 标题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 图片链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("image_key_list")
-    private String[] imageKeyList;
+    this.imageKeyList = builder.imageKeyList;
     /**
      * 媒体链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("media_key_list")
+    this.mediaKeyList = builder.mediaKeyList;
+  }
+
+  public static class Builder {
+    /**
+     * 标题
+     *
+     * <p>示例值：
+     */
+    private String title;
+
+    /**
+     * 文本
+     *
+     * <p>示例值：
+     */
+    private String text;
+
+    /**
+     * 图片链接
+     *
+     * <p>示例值：
+     */
+    private String[] imageKeyList;
+
+    /**
+     * 媒体链接
+     *
+     * <p>示例值：
+     */
     private String[] mediaKeyList;
 
-    // builder 开始
-    public MessagePostContent() {
+    /**
+     * 标题
+     *
+     * <p>示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public MessagePostContent(Builder builder) {
-        /**
-         * 标题
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 文本
-         * <p> 示例值：
-         */
-        this.text = builder.text;
-        /**
-         * 图片链接
-         * <p> 示例值：
-         */
-        this.imageKeyList = builder.imageKeyList;
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         */
-        this.mediaKeyList = builder.mediaKeyList;
+    /**
+     * 文本
+     *
+     * <p>示例值：
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片链接
+     *
+     * <p>示例值：
+     *
+     * @param imageKeyList
+     * @return
+     */
+    public Builder imageKeyList(String[] imageKeyList) {
+      this.imageKeyList = imageKeyList;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 媒体链接
+     *
+     * <p>示例值：
+     *
+     * @param mediaKeyList
+     * @return
+     */
+    public Builder mediaKeyList(String[] mediaKeyList) {
+      this.mediaKeyList = mediaKeyList;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public MessagePostContent build() {
+      return new MessagePostContent(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String[] getImageKeyList() {
-        return this.imageKeyList;
-    }
-
-    public void setImageKeyList(String[] imageKeyList) {
-        this.imageKeyList = imageKeyList;
-    }
-
-    public String[] getMediaKeyList() {
-        return this.mediaKeyList;
-    }
-
-    public void setMediaKeyList(String[] mediaKeyList) {
-        this.mediaKeyList = mediaKeyList;
-    }
-
-    public static class Builder {
-        /**
-         * 标题
-         * <p> 示例值：
-         */
-        private String title;
-        /**
-         * 文本
-         * <p> 示例值：
-         */
-        private String text;
-        /**
-         * 图片链接
-         * <p> 示例值：
-         */
-        private String[] imageKeyList;
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         */
-        private String[] mediaKeyList;
-
-        /**
-         * 标题
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文本
-         * <p> 示例值：
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 图片链接
-         * <p> 示例值：
-         *
-         * @param imageKeyList
-         * @return
-         */
-        public Builder imageKeyList(String[] imageKeyList) {
-            this.imageKeyList = imageKeyList;
-            return this;
-        }
-
-
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         *
-         * @param mediaKeyList
-         * @return
-         */
-        public Builder mediaKeyList(String[] mediaKeyList) {
-            this.mediaKeyList = mediaKeyList;
-            return this;
-        }
-
-
-        public MessagePostContent build() {
-            return new MessagePostContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

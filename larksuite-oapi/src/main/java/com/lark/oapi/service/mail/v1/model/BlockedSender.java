@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockedSender {
+  /**
+   * 发件人地址
+   *
+   * <p>示例值：spam@example.com
+   */
+  @SerializedName("address")
+  private String address;
+
+  /**
+   * 黑名单发件人 id
+   *
+   * <p>示例值：7001234567890
+   */
+  @SerializedName("blocked_sender_id")
+  private String blockedSenderId;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：垃圾邮件发件人
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 创建时间（Unix 时间戳，单位：秒）
+   *
+   * <p>示例值：1710000000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 最后更新时间（Unix 时间戳，单位：秒）
+   *
+   * <p>示例值：1710000000
+   */
+  @SerializedName("last_updated_time")
+  private String lastUpdatedTime;
+
+  public String getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getBlockedSenderId() {
+    return this.blockedSenderId;
+  }
+
+  public void setBlockedSenderId(String blockedSenderId) {
+    this.blockedSenderId = blockedSenderId;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getLastUpdatedTime() {
+    return this.lastUpdatedTime;
+  }
+
+  public void setLastUpdatedTime(String lastUpdatedTime) {
+    this.lastUpdatedTime = lastUpdatedTime;
+  }
+
+  // builder 开始
+  public BlockedSender() {}
+
+  public BlockedSender(Builder builder) {
     /**
      * 发件人地址
-     * <p> 示例值：spam@example.com
+     *
+     * <p>示例值：spam@example.com
      */
-    @SerializedName("address")
-    private String address;
+    this.address = builder.address;
     /**
      * 黑名单发件人 id
-     * <p> 示例值：7001234567890
+     *
+     * <p>示例值：7001234567890
      */
-    @SerializedName("blocked_sender_id")
-    private String blockedSenderId;
+    this.blockedSenderId = builder.blockedSenderId;
     /**
      * 描述
-     * <p> 示例值：垃圾邮件发件人
+     *
+     * <p>示例值：垃圾邮件发件人
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 创建时间（Unix 时间戳，单位：秒）
-     * <p> 示例值：1710000000
+     *
+     * <p>示例值：1710000000
      */
-    @SerializedName("created_time")
-    private String createdTime;
+    this.createdTime = builder.createdTime;
     /**
      * 最后更新时间（Unix 时间戳，单位：秒）
-     * <p> 示例值：1710000000
+     *
+     * <p>示例值：1710000000
      */
-    @SerializedName("last_updated_time")
+    this.lastUpdatedTime = builder.lastUpdatedTime;
+  }
+
+  public static class Builder {
+    /**
+     * 发件人地址
+     *
+     * <p>示例值：spam@example.com
+     */
+    private String address;
+
+    /**
+     * 黑名单发件人 id
+     *
+     * <p>示例值：7001234567890
+     */
+    private String blockedSenderId;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：垃圾邮件发件人
+     */
+    private String description;
+
+    /**
+     * 创建时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     */
+    private String createdTime;
+
+    /**
+     * 最后更新时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     */
     private String lastUpdatedTime;
 
-    // builder 开始
-    public BlockedSender() {
+    /**
+     * 发件人地址
+     *
+     * <p>示例值：spam@example.com
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(String address) {
+      this.address = address;
+      return this;
     }
 
-    public BlockedSender(Builder builder) {
-        /**
-         * 发件人地址
-         * <p> 示例值：spam@example.com
-         */
-        this.address = builder.address;
-        /**
-         * 黑名单发件人 id
-         * <p> 示例值：7001234567890
-         */
-        this.blockedSenderId = builder.blockedSenderId;
-        /**
-         * 描述
-         * <p> 示例值：垃圾邮件发件人
-         */
-        this.description = builder.description;
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        this.lastUpdatedTime = builder.lastUpdatedTime;
+    /**
+     * 黑名单发件人 id
+     *
+     * <p>示例值：7001234567890
+     *
+     * @param blockedSenderId
+     * @return
+     */
+    public Builder blockedSenderId(String blockedSenderId) {
+      this.blockedSenderId = blockedSenderId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：垃圾邮件发件人
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAddress() {
-        return this.address;
+    /**
+     * 创建时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    /**
+     * 最后更新时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     *
+     * @param lastUpdatedTime
+     * @return
+     */
+    public Builder lastUpdatedTime(String lastUpdatedTime) {
+      this.lastUpdatedTime = lastUpdatedTime;
+      return this;
     }
 
-    public String getBlockedSenderId() {
-        return this.blockedSenderId;
+    public BlockedSender build() {
+      return new BlockedSender(this);
     }
+  }
 
-    public void setBlockedSenderId(String blockedSenderId) {
-        this.blockedSenderId = blockedSenderId;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getLastUpdatedTime() {
-        return this.lastUpdatedTime;
-    }
-
-    public void setLastUpdatedTime(String lastUpdatedTime) {
-        this.lastUpdatedTime = lastUpdatedTime;
-    }
-
-    public static class Builder {
-        /**
-         * 发件人地址
-         * <p> 示例值：spam@example.com
-         */
-        private String address;
-        /**
-         * 黑名单发件人 id
-         * <p> 示例值：7001234567890
-         */
-        private String blockedSenderId;
-        /**
-         * 描述
-         * <p> 示例值：垃圾邮件发件人
-         */
-        private String description;
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        private String createdTime;
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        private String lastUpdatedTime;
-
-        /**
-         * 发件人地址
-         * <p> 示例值：spam@example.com
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(String address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 黑名单发件人 id
-         * <p> 示例值：7001234567890
-         *
-         * @param blockedSenderId
-         * @return
-         */
-        public Builder blockedSenderId(String blockedSenderId) {
-            this.blockedSenderId = blockedSenderId;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：垃圾邮件发件人
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         *
-         * @param lastUpdatedTime
-         * @return
-         */
-        public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = lastUpdatedTime;
-            return this;
-        }
-
-
-        public BlockedSender build() {
-            return new BlockedSender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

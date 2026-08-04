@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class RejectApprovalTaskReq {
+  /**
+   * 人工任务 ID
+   *
+   * <p>示例值：1785996265147395
+   */
+  @Path
+  @SerializedName("approval_task_id")
+  private String approvalTaskId;
+
+  public String getApprovalTaskId() {
+    return this.approvalTaskId;
+  }
+
+  public void setApprovalTaskId(String approvalTaskId) {
+    this.approvalTaskId = approvalTaskId;
+  }
+
+  @Body private RejectApprovalTaskReqBody body;
+
+  public RejectApprovalTaskReqBody getRejectApprovalTaskReqBody() {
+    return this.body;
+  }
+
+  public void setRejectApprovalTaskReqBody(RejectApprovalTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RejectApprovalTaskReq() {}
+
+  public RejectApprovalTaskReq(Builder builder) {
     /**
-     * 审批任务id
-     * <p> 示例值：1785996265147395
+     * 人工任务 ID
+     *
+     * <p>示例值：1785996265147395
      */
-    @Path
-    @SerializedName("approval_task_id")
-    private String approvalTaskId;
-    @Body
+    this.approvalTaskId = builder.approvalTaskId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String approvalTaskId; // 人工任务 ID
+
+    /**
+     * 人工任务 ID
+     *
+     * <p>示例值：1785996265147395
+     *
+     * @param approvalTaskId
+     * @return
+     */
+    public Builder approvalTaskId(String approvalTaskId) {
+      this.approvalTaskId = approvalTaskId;
+      return this;
+    }
+
     private RejectApprovalTaskReqBody body;
 
-    // builder 开始
-    public RejectApprovalTaskReq() {
-    }
-
-    public RejectApprovalTaskReq(Builder builder) {
-        /**
-         * 审批任务id
-         * <p> 示例值：1785996265147395
-         */
-        this.approvalTaskId = builder.approvalTaskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApprovalTaskId() {
-        return this.approvalTaskId;
-    }
-
-    public void setApprovalTaskId(String approvalTaskId) {
-        this.approvalTaskId = approvalTaskId;
-    }
-
     public RejectApprovalTaskReqBody getRejectApprovalTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRejectApprovalTaskReqBody(RejectApprovalTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder rejectApprovalTaskReqBody(RejectApprovalTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String approvalTaskId; // 审批任务id
-        private RejectApprovalTaskReqBody body;
-
-        /**
-         * 审批任务id
-         * <p> 示例值：1785996265147395
-         *
-         * @param approvalTaskId
-         * @return
-         */
-        public Builder approvalTaskId(String approvalTaskId) {
-            this.approvalTaskId = approvalTaskId;
-            return this;
-        }
-
-        public RejectApprovalTaskReqBody getRejectApprovalTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder rejectApprovalTaskReqBody(RejectApprovalTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RejectApprovalTaskReq build() {
-            return new RejectApprovalTaskReq(this);
-        }
+    public RejectApprovalTaskReq build() {
+      return new RejectApprovalTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

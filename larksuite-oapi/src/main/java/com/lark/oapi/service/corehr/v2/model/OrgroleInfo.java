@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgroleInfo {
+  /**
+   * 角色ID;-
+   * 通过[【批量获取角色列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/security_group/list)获取角色其他信息
+   *
+   * <p>示例值：hrbp
+   */
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 原组织角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("origin_orgroles")
+  private OrgdraftOrgroleAssignment[] originOrgroles;
+
+  /**
+   * 新组织角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_orgroles")
+  private OrgdraftOrgroleAssignment[] targetOrgroles;
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public OrgdraftOrgroleAssignment[] getOriginOrgroles() {
+    return this.originOrgroles;
+  }
+
+  public void setOriginOrgroles(OrgdraftOrgroleAssignment[] originOrgroles) {
+    this.originOrgroles = originOrgroles;
+  }
+
+  public OrgdraftOrgroleAssignment[] getTargetOrgroles() {
+    return this.targetOrgroles;
+  }
+
+  public void setTargetOrgroles(OrgdraftOrgroleAssignment[] targetOrgroles) {
+    this.targetOrgroles = targetOrgroles;
+  }
+
+  // builder 开始
+  public OrgroleInfo() {}
+
+  public OrgroleInfo(Builder builder) {
     /**
-     * 角色ID
-     * <p> 示例值：hrbp
+     * 角色ID;-
+     * 通过[【批量获取角色列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/security_group/list)获取角色其他信息
+     *
+     * <p>示例值：hrbp
      */
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
     /**
      * 原组织角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("origin_orgroles")
-    private OrgdraftOrgroleAssignment[] originOrgroles;
+    this.originOrgroles = builder.originOrgroles;
     /**
      * 新组织角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_orgroles")
+    this.targetOrgroles = builder.targetOrgroles;
+  }
+
+  public static class Builder {
+    /**
+     * 角色ID;-
+     * 通过[【批量获取角色列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/security_group/list)获取角色其他信息
+     *
+     * <p>示例值：hrbp
+     */
+    private String roleId;
+
+    /**
+     * 原组织角色
+     *
+     * <p>示例值：
+     */
+    private OrgdraftOrgroleAssignment[] originOrgroles;
+
+    /**
+     * 新组织角色
+     *
+     * <p>示例值：
+     */
     private OrgdraftOrgroleAssignment[] targetOrgroles;
 
-    // builder 开始
-    public OrgroleInfo() {
+    /**
+     * 角色ID;-
+     * 通过[【批量获取角色列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/security_group/list)获取角色其他信息
+     *
+     * <p>示例值：hrbp
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public OrgroleInfo(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：hrbp
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 原组织角色
-         * <p> 示例值：
-         */
-        this.originOrgroles = builder.originOrgroles;
-        /**
-         * 新组织角色
-         * <p> 示例值：
-         */
-        this.targetOrgroles = builder.targetOrgroles;
+    /**
+     * 原组织角色
+     *
+     * <p>示例值：
+     *
+     * @param originOrgroles
+     * @return
+     */
+    public Builder originOrgroles(OrgdraftOrgroleAssignment[] originOrgroles) {
+      this.originOrgroles = originOrgroles;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 新组织角色
+     *
+     * <p>示例值：
+     *
+     * @param targetOrgroles
+     * @return
+     */
+    public Builder targetOrgroles(OrgdraftOrgroleAssignment[] targetOrgroles) {
+      this.targetOrgroles = targetOrgroles;
+      return this;
     }
 
-    public String getRoleId() {
-        return this.roleId;
+    public OrgroleInfo build() {
+      return new OrgroleInfo(this);
     }
+  }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public OrgdraftOrgroleAssignment[] getOriginOrgroles() {
-        return this.originOrgroles;
-    }
-
-    public void setOriginOrgroles(OrgdraftOrgroleAssignment[] originOrgroles) {
-        this.originOrgroles = originOrgroles;
-    }
-
-    public OrgdraftOrgroleAssignment[] getTargetOrgroles() {
-        return this.targetOrgroles;
-    }
-
-    public void setTargetOrgroles(OrgdraftOrgroleAssignment[] targetOrgroles) {
-        this.targetOrgroles = targetOrgroles;
-    }
-
-    public static class Builder {
-        /**
-         * 角色ID
-         * <p> 示例值：hrbp
-         */
-        private String roleId;
-        /**
-         * 原组织角色
-         * <p> 示例值：
-         */
-        private OrgdraftOrgroleAssignment[] originOrgroles;
-        /**
-         * 新组织角色
-         * <p> 示例值：
-         */
-        private OrgdraftOrgroleAssignment[] targetOrgroles;
-
-        /**
-         * 角色ID
-         * <p> 示例值：hrbp
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * 原组织角色
-         * <p> 示例值：
-         *
-         * @param originOrgroles
-         * @return
-         */
-        public Builder originOrgroles(OrgdraftOrgroleAssignment[] originOrgroles) {
-            this.originOrgroles = originOrgroles;
-            return this;
-        }
-
-
-        /**
-         * 新组织角色
-         * <p> 示例值：
-         *
-         * @param targetOrgroles
-         * @return
-         */
-        public Builder targetOrgroles(OrgdraftOrgroleAssignment[] targetOrgroles) {
-            this.targetOrgroles = targetOrgroles;
-            return this;
-        }
-
-
-        public OrgroleInfo build() {
-            return new OrgroleInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

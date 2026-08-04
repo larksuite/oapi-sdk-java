@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class File {
+  /**
+   * 附件路径
+   *
+   * <p>示例值：https://xxxxx.xxx
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 资源大小（字节数）
+   *
+   * <p>示例值：55555
+   */
+  @SerializedName("file_size")
+  private Integer fileSize;
+
+  /**
+   * 附件标题
+   *
+   * <p>示例值：文件名称
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 附件类别;;- image：图片;- attachment：附件，与上传时选择的类型一致
+   *
+   * <p>示例值：image
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public Integer getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(Integer fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public File() {}
+
+  public File(Builder builder) {
     /**
      * 附件路径
-     * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
+     *
+     * <p>示例值：https://xxxxx.xxx
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
-     * 附件大小
-     * <p> 示例值：186823
+     * 资源大小（字节数）
+     *
+     * <p>示例值：55555
      */
-    @SerializedName("file_size")
-    private Integer fileSize;
+    this.fileSize = builder.fileSize;
     /**
      * 附件标题
-     * <p> 示例值：e018906140ed9388234bd03b0.png
+     *
+     * <p>示例值：文件名称
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 附件类别
-     * <p> 示例值：image
+     * 附件类别;;- image：图片;- attachment：附件，与上传时选择的类型一致
+     *
+     * <p>示例值：image
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 附件路径
+     *
+     * <p>示例值：https://xxxxx.xxx
+     */
+    private String url;
+
+    /**
+     * 资源大小（字节数）
+     *
+     * <p>示例值：55555
+     */
+    private Integer fileSize;
+
+    /**
+     * 附件标题
+     *
+     * <p>示例值：文件名称
+     */
+    private String title;
+
+    /**
+     * 附件类别;;- image：图片;- attachment：附件，与上传时选择的类型一致
+     *
+     * <p>示例值：image
+     */
     private String type;
 
-    // builder 开始
-    public File() {
+    /**
+     * 附件路径
+     *
+     * <p>示例值：https://xxxxx.xxx
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public File(Builder builder) {
-        /**
-         * 附件路径
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
-         */
-        this.url = builder.url;
-        /**
-         * 附件大小
-         * <p> 示例值：186823
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 附件标题
-         * <p> 示例值：e018906140ed9388234bd03b0.png
-         */
-        this.title = builder.title;
-        /**
-         * 附件类别
-         * <p> 示例值：image
-         */
-        this.type = builder.type;
+    /**
+     * 资源大小（字节数）
+     *
+     * <p>示例值：55555
+     *
+     * @param fileSize
+     * @return
+     */
+    public Builder fileSize(Integer fileSize) {
+      this.fileSize = fileSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件标题
+     *
+     * <p>示例值：文件名称
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 附件类别;;- image：图片;- attachment：附件，与上传时选择的类型一致
+     *
+     * <p>示例值：image
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public File build() {
+      return new File(this);
     }
+  }
 
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 附件路径
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
-         */
-        private String url;
-        /**
-         * 附件大小
-         * <p> 示例值：186823
-         */
-        private Integer fileSize;
-        /**
-         * 附件标题
-         * <p> 示例值：e018906140ed9388234bd03b0.png
-         */
-        private String title;
-        /**
-         * 附件类别
-         * <p> 示例值：image
-         */
-        private String type;
-
-        /**
-         * 附件路径
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 附件大小
-         * <p> 示例值：186823
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
-            return this;
-        }
-
-
-        /**
-         * 附件标题
-         * <p> 示例值：e018906140ed9388234bd03b0.png
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 附件类别
-         * <p> 示例值：image
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public File build() {
-            return new File(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

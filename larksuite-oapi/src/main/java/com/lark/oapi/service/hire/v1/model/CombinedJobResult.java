@@ -13,296 +13,322 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CombinedJobResult {
+  /**
+   * 职位广告
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_job_post")
+  private CombinedJobResultDefaultJobPost defaultJobPost;
+
+  /**
+   * 职位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job")
+  private Job job;
+
+  /**
+   * 职位负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_manager")
+  private JobManager jobManager;
+
+  /**
+   * 面试登记表信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interview_registration_schema_info")
+  private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
+
+  /**
+   * 面试登记表信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboard_registration_schema_info")
+  private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
+
+  /**
+   * 目标专业
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_major_list")
+  private TargetMajorInfo[] targetMajorList;
+
+  /**
+   * 面试登记表信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("portal_website_apply_form_schema_info")
+  private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
+
+  public CombinedJobResultDefaultJobPost getDefaultJobPost() {
+    return this.defaultJobPost;
+  }
+
+  public void setDefaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
+    this.defaultJobPost = defaultJobPost;
+  }
+
+  public Job getJob() {
+    return this.job;
+  }
+
+  public void setJob(Job job) {
+    this.job = job;
+  }
+
+  public JobManager getJobManager() {
+    return this.jobManager;
+  }
+
+  public void setJobManager(JobManager jobManager) {
+    this.jobManager = jobManager;
+  }
+
+  public RegistrationSchemaInfo getInterviewRegistrationSchemaInfo() {
+    return this.interviewRegistrationSchemaInfo;
+  }
+
+  public void setInterviewRegistrationSchemaInfo(
+      RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
+    this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
+  }
+
+  public RegistrationSchemaInfo getOnboardRegistrationSchemaInfo() {
+    return this.onboardRegistrationSchemaInfo;
+  }
+
+  public void setOnboardRegistrationSchemaInfo(
+      RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
+    this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
+  }
+
+  public TargetMajorInfo[] getTargetMajorList() {
+    return this.targetMajorList;
+  }
+
+  public void setTargetMajorList(TargetMajorInfo[] targetMajorList) {
+    this.targetMajorList = targetMajorList;
+  }
+
+  public RegistrationSchemaInfo getPortalWebsiteApplyFormSchemaInfo() {
+    return this.portalWebsiteApplyFormSchemaInfo;
+  }
+
+  public void setPortalWebsiteApplyFormSchemaInfo(
+      RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
+    this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
+  }
+
+  // builder 开始
+  public CombinedJobResult() {}
+
+  public CombinedJobResult(Builder builder) {
     /**
      * 职位广告
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_job_post")
-    private CombinedJobResultDefaultJobPost defaultJobPost;
+    this.defaultJobPost = builder.defaultJobPost;
     /**
      * 职位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job")
-    private Job job;
+    this.job = builder.job;
     /**
      * 职位负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_manager")
-    private JobManager jobManager;
+    this.jobManager = builder.jobManager;
     /**
-     * 面试登记表
-     * <p> 示例值：
+     * 面试登记表信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("interview_registration_schema_info")
-    private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
+    this.interviewRegistrationSchemaInfo = builder.interviewRegistrationSchemaInfo;
     /**
-     * 入职登记表
-     * <p> 示例值：
+     * 面试登记表信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboard_registration_schema_info")
-    private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
+    this.onboardRegistrationSchemaInfo = builder.onboardRegistrationSchemaInfo;
     /**
      * 目标专业
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_major_list")
-    private TargetMajorInfo[] targetMajorList;
+    this.targetMajorList = builder.targetMajorList;
     /**
-     * 官网申请表
-     * <p> 示例值：
+     * 面试登记表信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("portal_website_apply_form_schema_info")
+    this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 职位广告
+     *
+     * <p>示例值：
+     */
+    private CombinedJobResultDefaultJobPost defaultJobPost;
+
+    /**
+     * 职位
+     *
+     * <p>示例值：
+     */
+    private Job job;
+
+    /**
+     * 职位负责人
+     *
+     * <p>示例值：
+     */
+    private JobManager jobManager;
+
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     */
+    private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
+
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     */
+    private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
+
+    /**
+     * 目标专业
+     *
+     * <p>示例值：
+     */
+    private TargetMajorInfo[] targetMajorList;
+
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     */
     private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
 
-    // builder 开始
-    public CombinedJobResult() {
+    /**
+     * 职位广告
+     *
+     * <p>示例值：
+     *
+     * @param defaultJobPost
+     * @return
+     */
+    public Builder defaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
+      this.defaultJobPost = defaultJobPost;
+      return this;
     }
 
-    public CombinedJobResult(Builder builder) {
-        /**
-         * 职位广告
-         * <p> 示例值：
-         */
-        this.defaultJobPost = builder.defaultJobPost;
-        /**
-         * 职位
-         * <p> 示例值：
-         */
-        this.job = builder.job;
-        /**
-         * 职位负责人
-         * <p> 示例值：
-         */
-        this.jobManager = builder.jobManager;
-        /**
-         * 面试登记表
-         * <p> 示例值：
-         */
-        this.interviewRegistrationSchemaInfo = builder.interviewRegistrationSchemaInfo;
-        /**
-         * 入职登记表
-         * <p> 示例值：
-         */
-        this.onboardRegistrationSchemaInfo = builder.onboardRegistrationSchemaInfo;
-        /**
-         * 目标专业
-         * <p> 示例值：
-         */
-        this.targetMajorList = builder.targetMajorList;
-        /**
-         * 官网申请表
-         * <p> 示例值：
-         */
-        this.portalWebsiteApplyFormSchemaInfo = builder.portalWebsiteApplyFormSchemaInfo;
+    /**
+     * 职位
+     *
+     * <p>示例值：
+     *
+     * @param job
+     * @return
+     */
+    public Builder job(Job job) {
+      this.job = job;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职位负责人
+     *
+     * <p>示例值：
+     *
+     * @param jobManager
+     * @return
+     */
+    public Builder jobManager(JobManager jobManager) {
+      this.jobManager = jobManager;
+      return this;
     }
 
-    public CombinedJobResultDefaultJobPost getDefaultJobPost() {
-        return this.defaultJobPost;
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     *
+     * @param interviewRegistrationSchemaInfo
+     * @return
+     */
+    public Builder interviewRegistrationSchemaInfo(
+        RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
+      this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
+      return this;
     }
 
-    public void setDefaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
-        this.defaultJobPost = defaultJobPost;
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     *
+     * @param onboardRegistrationSchemaInfo
+     * @return
+     */
+    public Builder onboardRegistrationSchemaInfo(
+        RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
+      this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
+      return this;
     }
 
-    public Job getJob() {
-        return this.job;
+    /**
+     * 目标专业
+     *
+     * <p>示例值：
+     *
+     * @param targetMajorList
+     * @return
+     */
+    public Builder targetMajorList(TargetMajorInfo[] targetMajorList) {
+      this.targetMajorList = targetMajorList;
+      return this;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    /**
+     * 面试登记表信息
+     *
+     * <p>示例值：
+     *
+     * @param portalWebsiteApplyFormSchemaInfo
+     * @return
+     */
+    public Builder portalWebsiteApplyFormSchemaInfo(
+        RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
+      this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
+      return this;
     }
 
-    public JobManager getJobManager() {
-        return this.jobManager;
+    public CombinedJobResult build() {
+      return new CombinedJobResult(this);
     }
+  }
 
-    public void setJobManager(JobManager jobManager) {
-        this.jobManager = jobManager;
-    }
-
-    public RegistrationSchemaInfo getInterviewRegistrationSchemaInfo() {
-        return this.interviewRegistrationSchemaInfo;
-    }
-
-    public void setInterviewRegistrationSchemaInfo(RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
-        this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
-    }
-
-    public RegistrationSchemaInfo getOnboardRegistrationSchemaInfo() {
-        return this.onboardRegistrationSchemaInfo;
-    }
-
-    public void setOnboardRegistrationSchemaInfo(RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
-        this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
-    }
-
-    public TargetMajorInfo[] getTargetMajorList() {
-        return this.targetMajorList;
-    }
-
-    public void setTargetMajorList(TargetMajorInfo[] targetMajorList) {
-        this.targetMajorList = targetMajorList;
-    }
-
-    public RegistrationSchemaInfo getPortalWebsiteApplyFormSchemaInfo() {
-        return this.portalWebsiteApplyFormSchemaInfo;
-    }
-
-    public void setPortalWebsiteApplyFormSchemaInfo(RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
-        this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 职位广告
-         * <p> 示例值：
-         */
-        private CombinedJobResultDefaultJobPost defaultJobPost;
-        /**
-         * 职位
-         * <p> 示例值：
-         */
-        private Job job;
-        /**
-         * 职位负责人
-         * <p> 示例值：
-         */
-        private JobManager jobManager;
-        /**
-         * 面试登记表
-         * <p> 示例值：
-         */
-        private RegistrationSchemaInfo interviewRegistrationSchemaInfo;
-        /**
-         * 入职登记表
-         * <p> 示例值：
-         */
-        private RegistrationSchemaInfo onboardRegistrationSchemaInfo;
-        /**
-         * 目标专业
-         * <p> 示例值：
-         */
-        private TargetMajorInfo[] targetMajorList;
-        /**
-         * 官网申请表
-         * <p> 示例值：
-         */
-        private RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo;
-
-        /**
-         * 职位广告
-         * <p> 示例值：
-         *
-         * @param defaultJobPost
-         * @return
-         */
-        public Builder defaultJobPost(CombinedJobResultDefaultJobPost defaultJobPost) {
-            this.defaultJobPost = defaultJobPost;
-            return this;
-        }
-
-
-        /**
-         * 职位
-         * <p> 示例值：
-         *
-         * @param job
-         * @return
-         */
-        public Builder job(Job job) {
-            this.job = job;
-            return this;
-        }
-
-
-        /**
-         * 职位负责人
-         * <p> 示例值：
-         *
-         * @param jobManager
-         * @return
-         */
-        public Builder jobManager(JobManager jobManager) {
-            this.jobManager = jobManager;
-            return this;
-        }
-
-
-        /**
-         * 面试登记表
-         * <p> 示例值：
-         *
-         * @param interviewRegistrationSchemaInfo
-         * @return
-         */
-        public Builder interviewRegistrationSchemaInfo(RegistrationSchemaInfo interviewRegistrationSchemaInfo) {
-            this.interviewRegistrationSchemaInfo = interviewRegistrationSchemaInfo;
-            return this;
-        }
-
-
-        /**
-         * 入职登记表
-         * <p> 示例值：
-         *
-         * @param onboardRegistrationSchemaInfo
-         * @return
-         */
-        public Builder onboardRegistrationSchemaInfo(RegistrationSchemaInfo onboardRegistrationSchemaInfo) {
-            this.onboardRegistrationSchemaInfo = onboardRegistrationSchemaInfo;
-            return this;
-        }
-
-
-        /**
-         * 目标专业
-         * <p> 示例值：
-         *
-         * @param targetMajorList
-         * @return
-         */
-        public Builder targetMajorList(TargetMajorInfo[] targetMajorList) {
-            this.targetMajorList = targetMajorList;
-            return this;
-        }
-
-
-        /**
-         * 官网申请表
-         * <p> 示例值：
-         *
-         * @param portalWebsiteApplyFormSchemaInfo
-         * @return
-         */
-        public Builder portalWebsiteApplyFormSchemaInfo(RegistrationSchemaInfo portalWebsiteApplyFormSchemaInfo) {
-            this.portalWebsiteApplyFormSchemaInfo = portalWebsiteApplyFormSchemaInfo;
-            return this;
-        }
-
-
-        public CombinedJobResult build() {
-            return new CombinedJobResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

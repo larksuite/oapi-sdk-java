@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrObjectiveProgressRate {
+  /**
+   * Objective 进度百分比 >= 0
+   *
+   * <p>示例值：50
+   */
+  @SerializedName("percent")
+  private Integer percent;
+
+  /**
+   * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private String status;
+
+  public Integer getPercent() {
+    return this.percent;
+  }
+
+  public void setPercent(Integer percent) {
+    this.percent = percent;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public OkrObjectiveProgressRate() {}
+
+  public OkrObjectiveProgressRate(Builder builder) {
     /**
      * Objective 进度百分比 >= 0
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @SerializedName("percent")
-    private Integer percent;
+    this.percent = builder.percent;
     /**
      * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * Objective 进度百分比 >= 0
+     *
+     * <p>示例值：50
+     */
+    private Integer percent;
+
+    /**
+     * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
+     *
+     * <p>示例值：1
+     */
     private String status;
 
-    // builder 开始
-    public OkrObjectiveProgressRate() {
+    /**
+     * Objective 进度百分比 >= 0
+     *
+     * <p>示例值：50
+     *
+     * @param percent
+     * @return
+     */
+    public Builder percent(Integer percent) {
+      this.percent = percent;
+      return this;
     }
 
-    public OkrObjectiveProgressRate(Builder builder) {
-        /**
-         * Objective 进度百分比 >= 0
-         * <p> 示例值：50
-         */
-        this.percent = builder.percent;
-        /**
-         * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OkrObjectiveProgressRate build() {
+      return new OkrObjectiveProgressRate(this);
     }
+  }
 
-    public Integer getPercent() {
-        return this.percent;
-    }
-
-    public void setPercent(Integer percent) {
-        this.percent = percent;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * Objective 进度百分比 >= 0
-         * <p> 示例值：50
-         */
-        private Integer percent;
-        /**
-         * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
-         * <p> 示例值：1
-         */
-        private String status;
-
-        /**
-         * Objective 进度百分比 >= 0
-         * <p> 示例值：50
-         *
-         * @param percent
-         * @return
-         */
-        public Builder percent(Integer percent) {
-            this.percent = percent;
-            return this;
-        }
-
-
-        /**
-         * Objective 进度状态:;- "-1" 暂无;- "0" 正常;- "1" 风险;- "2" 延期
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public OkrObjectiveProgressRate build() {
-            return new OkrObjectiveProgressRate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

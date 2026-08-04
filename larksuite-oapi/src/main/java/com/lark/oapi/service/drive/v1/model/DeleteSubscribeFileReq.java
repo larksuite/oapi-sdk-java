@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DeleteSubscribeFileReq {
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 事件类型，`file_type` 为 `folder`（文件夹）时必填 `file.created_in_folder_v1`
+   *
+   * <p>示例值：file.created_in_folder_v1
+   */
+  @Query
+  @SerializedName("event_type")
+  private String eventType;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
+
+  /**
+   * 云文档的
+   * token。了解如何获取各类云文档的token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。
+   *
+   * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DeleteSubscribeFileReq() {}
+
+  public DeleteSubscribeFileReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc
+     * 云文档类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
-     * 事件类型
-     * <p> 示例值：file.created_in_folder_v1
+     * 事件类型，`file_type` 为 `folder`（文件夹）时必填 `file.created_in_folder_v1`
+     *
+     * <p>示例值：file.created_in_folder_v1
      */
-    @Query
-    @SerializedName("event_type")
-    private String eventType;
+    this.eventType = builder.eventType;
     /**
-     * 文档token
-     * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
+     * 云文档的
+     * token。了解如何获取各类云文档的token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。
+     *
+     * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DeleteSubscribeFileReq() {
+  public static class Builder {
+    private String fileType; // 云文档类型
+    private String eventType; // 事件类型，`file_type` 为 `folder`（文件夹）时必填 `file.created_in_folder_v1`
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public DeleteSubscribeFileReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 事件类型
-         * <p> 示例值：file.created_in_folder_v1
-         */
-        this.eventType = builder.eventType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-         */
-        this.fileToken = builder.fileToken;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.DeleteSubscribeFileFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.DeleteSubscribeFileFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 事件类型，`file_type` 为 `folder`（文件夹）时必填 `file.created_in_folder_v1`
+     *
+     * <p>示例值：file.created_in_folder_v1
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(String eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    private String fileToken; // 云文档的
+
+    // token。了解如何获取各类云文档的token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。
+
+    /**
+     * 云文档的
+     * token。了解如何获取各类云文档的token，参考[云空间常见问题](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/faq)。
+     *
+     * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    public DeleteSubscribeFileReq build() {
+      return new DeleteSubscribeFileReq(this);
     }
+  }
 
-    public String getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        private String fileType; // 文档类型
-        private String eventType; // 事件类型
-        private String fileToken; // 文档token
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.DeleteSubscribeFileFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.DeleteSubscribeFileFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 事件类型
-         * <p> 示例值：file.created_in_folder_v1
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-        /**
-         * 文档token
-         * <p> 示例值：doccnxxxxxxxxxxxxxxxxxxxxxx
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DeleteSubscribeFileReq build() {
-            return new DeleteSubscribeFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

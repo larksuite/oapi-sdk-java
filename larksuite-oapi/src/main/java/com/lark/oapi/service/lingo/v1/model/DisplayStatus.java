@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DisplayStatus {
+  /**
+   * 是否允许在 IM 和 Doc 等场景进行高亮提示
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_highlight")
+  private Boolean allowHighlight;
+
+  /**
+   * 对应名称是否在搜索结果中展示
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_search")
+  private Boolean allowSearch;
+
+  public Boolean getAllowHighlight() {
+    return this.allowHighlight;
+  }
+
+  public void setAllowHighlight(Boolean allowHighlight) {
+    this.allowHighlight = allowHighlight;
+  }
+
+  public Boolean getAllowSearch() {
+    return this.allowSearch;
+  }
+
+  public void setAllowSearch(Boolean allowSearch) {
+    this.allowSearch = allowSearch;
+  }
+
+  // builder 开始
+  public DisplayStatus() {}
+
+  public DisplayStatus(Builder builder) {
     /**
      * 是否允许在 IM 和 Doc 等场景进行高亮提示
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_highlight")
-    private Boolean allowHighlight;
+    this.allowHighlight = builder.allowHighlight;
     /**
-     * 是否允许在飞书中被搜索到
-     * <p> 示例值：true
+     * 对应名称是否在搜索结果中展示
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_search")
+    this.allowSearch = builder.allowSearch;
+  }
+
+  public static class Builder {
+    /**
+     * 是否允许在 IM 和 Doc 等场景进行高亮提示
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowHighlight;
+
+    /**
+     * 对应名称是否在搜索结果中展示
+     *
+     * <p>示例值：true
+     */
     private Boolean allowSearch;
 
-    // builder 开始
-    public DisplayStatus() {
+    /**
+     * 是否允许在 IM 和 Doc 等场景进行高亮提示
+     *
+     * <p>示例值：true
+     *
+     * @param allowHighlight
+     * @return
+     */
+    public Builder allowHighlight(Boolean allowHighlight) {
+      this.allowHighlight = allowHighlight;
+      return this;
     }
 
-    public DisplayStatus(Builder builder) {
-        /**
-         * 是否允许在 IM 和 Doc 等场景进行高亮提示
-         * <p> 示例值：true
-         */
-        this.allowHighlight = builder.allowHighlight;
-        /**
-         * 是否允许在飞书中被搜索到
-         * <p> 示例值：true
-         */
-        this.allowSearch = builder.allowSearch;
+    /**
+     * 对应名称是否在搜索结果中展示
+     *
+     * <p>示例值：true
+     *
+     * @param allowSearch
+     * @return
+     */
+    public Builder allowSearch(Boolean allowSearch) {
+      this.allowSearch = allowSearch;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DisplayStatus build() {
+      return new DisplayStatus(this);
     }
+  }
 
-    public Boolean getAllowHighlight() {
-        return this.allowHighlight;
-    }
-
-    public void setAllowHighlight(Boolean allowHighlight) {
-        this.allowHighlight = allowHighlight;
-    }
-
-    public Boolean getAllowSearch() {
-        return this.allowSearch;
-    }
-
-    public void setAllowSearch(Boolean allowSearch) {
-        this.allowSearch = allowSearch;
-    }
-
-    public static class Builder {
-        /**
-         * 是否允许在 IM 和 Doc 等场景进行高亮提示
-         * <p> 示例值：true
-         */
-        private Boolean allowHighlight;
-        /**
-         * 是否允许在飞书中被搜索到
-         * <p> 示例值：true
-         */
-        private Boolean allowSearch;
-
-        /**
-         * 是否允许在 IM 和 Doc 等场景进行高亮提示
-         * <p> 示例值：true
-         *
-         * @param allowHighlight
-         * @return
-         */
-        public Builder allowHighlight(Boolean allowHighlight) {
-            this.allowHighlight = allowHighlight;
-            return this;
-        }
-
-
-        /**
-         * 是否允许在飞书中被搜索到
-         * <p> 示例值：true
-         *
-         * @param allowSearch
-         * @return
-         */
-        public Builder allowSearch(Boolean allowSearch) {
-            this.allowSearch = allowSearch;
-            return this;
-        }
-
-
-        public DisplayStatus build() {
-            return new DisplayStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

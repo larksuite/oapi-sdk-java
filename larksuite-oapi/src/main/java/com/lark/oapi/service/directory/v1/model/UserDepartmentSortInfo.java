@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserDepartmentSortInfo {
+  /**
+   * 部门id，部门id类型为 open_department_id，了解部门 ID
+   * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+   *
+   * <p>示例值：h12921
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 用户在部门内的排序权重
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order_weight_in_deparment")
+  private String orderWeightInDeparment;
+
+  /**
+   * 用户多个部门间的排序权重
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order_weight_among_deparments")
+  private String orderWeightAmongDeparments;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOrderWeightInDeparment() {
+    return this.orderWeightInDeparment;
+  }
+
+  public void setOrderWeightInDeparment(String orderWeightInDeparment) {
+    this.orderWeightInDeparment = orderWeightInDeparment;
+  }
+
+  public String getOrderWeightAmongDeparments() {
+    return this.orderWeightAmongDeparments;
+  }
+
+  public void setOrderWeightAmongDeparments(String orderWeightAmongDeparments) {
+    this.orderWeightAmongDeparments = orderWeightAmongDeparments;
+  }
+
+  // builder 开始
+  public UserDepartmentSortInfo() {}
+
+  public UserDepartmentSortInfo(Builder builder) {
     /**
-     * 部门id
-     * <p> 示例值：h12921
+     * 部门id，部门id类型为 open_department_id，了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：h12921
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 用户在部门内的排序权重
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order_weight_in_deparment")
-    private String orderWeightInDeparment;
+    this.orderWeightInDeparment = builder.orderWeightInDeparment;
     /**
      * 用户多个部门间的排序权重
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order_weight_among_deparments")
+    this.orderWeightAmongDeparments = builder.orderWeightAmongDeparments;
+  }
+
+  public static class Builder {
+    /**
+     * 部门id，部门id类型为 open_department_id，了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：h12921
+     */
+    private String departmentId;
+
+    /**
+     * 用户在部门内的排序权重
+     *
+     * <p>示例值：100
+     */
+    private String orderWeightInDeparment;
+
+    /**
+     * 用户多个部门间的排序权重
+     *
+     * <p>示例值：100
+     */
     private String orderWeightAmongDeparments;
 
-    // builder 开始
-    public UserDepartmentSortInfo() {
+    /**
+     * 部门id，部门id类型为 open_department_id，了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：h12921
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public UserDepartmentSortInfo(Builder builder) {
-        /**
-         * 部门id
-         * <p> 示例值：h12921
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         */
-        this.orderWeightInDeparment = builder.orderWeightInDeparment;
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：100
-         */
-        this.orderWeightAmongDeparments = builder.orderWeightAmongDeparments;
+    /**
+     * 用户在部门内的排序权重
+     *
+     * <p>示例值：100
+     *
+     * @param orderWeightInDeparment
+     * @return
+     */
+    public Builder orderWeightInDeparment(String orderWeightInDeparment) {
+      this.orderWeightInDeparment = orderWeightInDeparment;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户多个部门间的排序权重
+     *
+     * <p>示例值：100
+     *
+     * @param orderWeightAmongDeparments
+     * @return
+     */
+    public Builder orderWeightAmongDeparments(String orderWeightAmongDeparments) {
+      this.orderWeightAmongDeparments = orderWeightAmongDeparments;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    public UserDepartmentSortInfo build() {
+      return new UserDepartmentSortInfo(this);
     }
+  }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getOrderWeightInDeparment() {
-        return this.orderWeightInDeparment;
-    }
-
-    public void setOrderWeightInDeparment(String orderWeightInDeparment) {
-        this.orderWeightInDeparment = orderWeightInDeparment;
-    }
-
-    public String getOrderWeightAmongDeparments() {
-        return this.orderWeightAmongDeparments;
-    }
-
-    public void setOrderWeightAmongDeparments(String orderWeightAmongDeparments) {
-        this.orderWeightAmongDeparments = orderWeightAmongDeparments;
-    }
-
-    public static class Builder {
-        /**
-         * 部门id
-         * <p> 示例值：h12921
-         */
-        private String departmentId;
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         */
-        private String orderWeightInDeparment;
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：100
-         */
-        private String orderWeightAmongDeparments;
-
-        /**
-         * 部门id
-         * <p> 示例值：h12921
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 用户在部门内的排序权重
-         * <p> 示例值：100
-         *
-         * @param orderWeightInDeparment
-         * @return
-         */
-        public Builder orderWeightInDeparment(String orderWeightInDeparment) {
-            this.orderWeightInDeparment = orderWeightInDeparment;
-            return this;
-        }
-
-
-        /**
-         * 用户多个部门间的排序权重
-         * <p> 示例值：100
-         *
-         * @param orderWeightAmongDeparments
-         * @return
-         */
-        public Builder orderWeightAmongDeparments(String orderWeightAmongDeparments) {
-            this.orderWeightAmongDeparments = orderWeightAmongDeparments;
-            return this;
-        }
-
-
-        public UserDepartmentSortInfo build() {
-            return new UserDepartmentSortInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

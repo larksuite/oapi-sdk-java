@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldGroupChild {
+  /**
+   * 编组成员类型
+   *
+   * <p>示例值：field
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 编组成员ID，必须与type的取值一致（如type为field时，id为字段的ID）；字段ID可以通过调用[获取字段列表]接口获取
+   *
+   * <p>示例值：fldPTb0U2y
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public FieldGroupChild() {}
+
+  public FieldGroupChild(Builder builder) {
     /**
      * 编组成员类型
-     * <p> 示例值：
+     *
+     * <p>示例值：field
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 编组成员ID
-     * <p> 示例值：fldPTb0U2y
+     * 编组成员ID，必须与type的取值一致（如type为field时，id为字段的ID）；字段ID可以通过调用[获取字段列表]接口获取
+     *
+     * <p>示例值：fldPTb0U2y
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 编组成员类型
+     *
+     * <p>示例值：field
+     */
+    private String type;
+
+    /**
+     * 编组成员ID，必须与type的取值一致（如type为field时，id为字段的ID）；字段ID可以通过调用[获取字段列表]接口获取
+     *
+     * <p>示例值：fldPTb0U2y
+     */
     private String id;
 
-    // builder 开始
-    public FieldGroupChild() {
+    /**
+     * 编组成员类型
+     *
+     * <p>示例值：field
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public FieldGroupChild(Builder builder) {
-        /**
-         * 编组成员类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 编组成员ID
-         * <p> 示例值：fldPTb0U2y
-         */
-        this.id = builder.id;
+    /**
+     * 编组成员类型
+     *
+     * <p>示例值：field
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.bitable.v1.enums.FieldGroupChildFieldGroupChildTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.bitable.v1.enums.FieldGroupChildFieldGroupChildTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编组成员ID，必须与type的取值一致（如type为field时，id为字段的ID）；字段ID可以通过调用[获取字段列表]接口获取
+     *
+     * <p>示例值：fldPTb0U2y
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public FieldGroupChild build() {
+      return new FieldGroupChild(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 编组成员类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 编组成员ID
-         * <p> 示例值：fldPTb0U2y
-         */
-        private String id;
-
-        /**
-         * 编组成员类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 编组成员类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.bitable.v1.enums.FieldGroupChildFieldGroupChildTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.bitable.v1.enums.FieldGroupChildFieldGroupChildTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 编组成员ID
-         * <p> 示例值：fldPTb0U2y
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public FieldGroupChild build() {
-            return new FieldGroupChild(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

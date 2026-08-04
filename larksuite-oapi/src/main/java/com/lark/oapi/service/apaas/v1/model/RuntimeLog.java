@@ -13,445 +13,485 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RuntimeLog {
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("level")
+  private String level;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("tags")
+  private RuntimeLogTag[] tags;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("node_api_name")
+  private String nodeApiName;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("basic_log")
+  private String basicLog;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("basic_log_to_show")
+  private String basicLogToShow;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("json_log")
+  private String jsonLog;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("json_log_to_show")
+  private String jsonLogToShow;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("uri")
+  private String uri;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("uri_labels")
+  private I18n[] uriLabels;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  public RuntimeLogTag[] getTags() {
+    return this.tags;
+  }
+
+  public void setTags(RuntimeLogTag[] tags) {
+    this.tags = tags;
+  }
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public String getNodeApiName() {
+    return this.nodeApiName;
+  }
+
+  public void setNodeApiName(String nodeApiName) {
+    this.nodeApiName = nodeApiName;
+  }
+
+  public String getBasicLog() {
+    return this.basicLog;
+  }
+
+  public void setBasicLog(String basicLog) {
+    this.basicLog = basicLog;
+  }
+
+  public String getBasicLogToShow() {
+    return this.basicLogToShow;
+  }
+
+  public void setBasicLogToShow(String basicLogToShow) {
+    this.basicLogToShow = basicLogToShow;
+  }
+
+  public String getJsonLog() {
+    return this.jsonLog;
+  }
+
+  public void setJsonLog(String jsonLog) {
+    this.jsonLog = jsonLog;
+  }
+
+  public String getJsonLogToShow() {
+    return this.jsonLogToShow;
+  }
+
+  public void setJsonLogToShow(String jsonLogToShow) {
+    this.jsonLogToShow = jsonLogToShow;
+  }
+
+  public String getUri() {
+    return this.uri;
+  }
+
+  public void setUri(String uri) {
+    this.uri = uri;
+  }
+
+  public I18n[] getUriLabels() {
+    return this.uriLabels;
+  }
+
+  public void setUriLabels(I18n[] uriLabels) {
+    this.uriLabels = uriLabels;
+  }
+
+  // builder 开始
+  public RuntimeLog() {}
+
+  public RuntimeLog(Builder builder) {
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("title")
+    this.title = builder.title;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.level = builder.level;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.tags = builder.tags;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.timestamp = builder.timestamp;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.nodeApiName = builder.nodeApiName;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.basicLog = builder.basicLog;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.basicLogToShow = builder.basicLogToShow;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.jsonLog = builder.jsonLog;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.jsonLogToShow = builder.jsonLogToShow;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.uri = builder.uri;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.uriLabels = builder.uriLabels;
+  }
+
+  public static class Builder {
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
     private String title;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("level")
     private String level;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("tags")
     private RuntimeLogTag[] tags;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("timestamp")
     private String timestamp;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("node_api_name")
     private String nodeApiName;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("basic_log")
     private String basicLog;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("basic_log_to_show")
     private String basicLogToShow;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("json_log")
     private String jsonLog;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("json_log_to_show")
     private String jsonLogToShow;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("uri")
     private String uri;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("uri_labels")
     private I18n[] uriLabels;
 
-    // builder 开始
-    public RuntimeLog() {
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public RuntimeLog(Builder builder) {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.title = builder.title;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.level = builder.level;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.tags = builder.tags;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.nodeApiName = builder.nodeApiName;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.basicLog = builder.basicLog;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.basicLogToShow = builder.basicLogToShow;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.jsonLog = builder.jsonLog;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.jsonLogToShow = builder.jsonLogToShow;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.uri = builder.uri;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.uriLabels = builder.uriLabels;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(String level) {
+      this.level = level;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param tags
+     * @return
+     */
+    public Builder tags(RuntimeLogTag[] tags) {
+      this.tags = tags;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param nodeApiName
+     * @return
+     */
+    public Builder nodeApiName(String nodeApiName) {
+      this.nodeApiName = nodeApiName;
+      return this;
     }
 
-    public String getLevel() {
-        return this.level;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param basicLog
+     * @return
+     */
+    public Builder basicLog(String basicLog) {
+      this.basicLog = basicLog;
+      return this;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param basicLogToShow
+     * @return
+     */
+    public Builder basicLogToShow(String basicLogToShow) {
+      this.basicLogToShow = basicLogToShow;
+      return this;
     }
 
-    public RuntimeLogTag[] getTags() {
-        return this.tags;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param jsonLog
+     * @return
+     */
+    public Builder jsonLog(String jsonLog) {
+      this.jsonLog = jsonLog;
+      return this;
     }
 
-    public void setTags(RuntimeLogTag[] tags) {
-        this.tags = tags;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param jsonLogToShow
+     * @return
+     */
+    public Builder jsonLogToShow(String jsonLogToShow) {
+      this.jsonLogToShow = jsonLogToShow;
+      return this;
     }
 
-    public String getTimestamp() {
-        return this.timestamp;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param uri
+     * @return
+     */
+    public Builder uri(String uri) {
+      this.uri = uri;
+      return this;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param uriLabels
+     * @return
+     */
+    public Builder uriLabels(I18n[] uriLabels) {
+      this.uriLabels = uriLabels;
+      return this;
     }
 
-    public String getNodeApiName() {
-        return this.nodeApiName;
+    public RuntimeLog build() {
+      return new RuntimeLog(this);
     }
+  }
 
-    public void setNodeApiName(String nodeApiName) {
-        this.nodeApiName = nodeApiName;
-    }
-
-    public String getBasicLog() {
-        return this.basicLog;
-    }
-
-    public void setBasicLog(String basicLog) {
-        this.basicLog = basicLog;
-    }
-
-    public String getBasicLogToShow() {
-        return this.basicLogToShow;
-    }
-
-    public void setBasicLogToShow(String basicLogToShow) {
-        this.basicLogToShow = basicLogToShow;
-    }
-
-    public String getJsonLog() {
-        return this.jsonLog;
-    }
-
-    public void setJsonLog(String jsonLog) {
-        this.jsonLog = jsonLog;
-    }
-
-    public String getJsonLogToShow() {
-        return this.jsonLogToShow;
-    }
-
-    public void setJsonLogToShow(String jsonLogToShow) {
-        this.jsonLogToShow = jsonLogToShow;
-    }
-
-    public String getUri() {
-        return this.uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    public I18n[] getUriLabels() {
-        return this.uriLabels;
-    }
-
-    public void setUriLabels(I18n[] uriLabels) {
-        this.uriLabels = uriLabels;
-    }
-
-    public static class Builder {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String title;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String level;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private RuntimeLogTag[] tags;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String timestamp;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String nodeApiName;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String basicLog;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String basicLogToShow;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String jsonLog;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String jsonLogToShow;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String uri;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private I18n[] uriLabels;
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(String level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param tags
-         * @return
-         */
-        public Builder tags(RuntimeLogTag[] tags) {
-            this.tags = tags;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param nodeApiName
-         * @return
-         */
-        public Builder nodeApiName(String nodeApiName) {
-            this.nodeApiName = nodeApiName;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param basicLog
-         * @return
-         */
-        public Builder basicLog(String basicLog) {
-            this.basicLog = basicLog;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param basicLogToShow
-         * @return
-         */
-        public Builder basicLogToShow(String basicLogToShow) {
-            this.basicLogToShow = basicLogToShow;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param jsonLog
-         * @return
-         */
-        public Builder jsonLog(String jsonLog) {
-            this.jsonLog = jsonLog;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param jsonLogToShow
-         * @return
-         */
-        public Builder jsonLogToShow(String jsonLogToShow) {
-            this.jsonLogToShow = jsonLogToShow;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param uri
-         * @return
-         */
-        public Builder uri(String uri) {
-            this.uri = uri;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param uriLabels
-         * @return
-         */
-        public Builder uriLabels(I18n[] uriLabels) {
-            this.uriLabels = uriLabels;
-            return this;
-        }
-
-
-        public RuntimeLog build() {
-            return new RuntimeLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

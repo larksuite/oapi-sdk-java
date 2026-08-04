@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BotMeetingInfo {
+  /**
+   * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
+   *
+   * <p>示例值：mtg_1698745200_8a9b7c6d
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
+   *
+   * <p>示例值：87654321
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
+   *
+   * <p>示例值：2023-10-31 14:30:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
+   *
+   * <p>示例值：Q4季度产品规划评审会
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  // builder 开始
+  public BotMeetingInfo() {}
+
+  public BotMeetingInfo(Builder builder) {
     /**
      * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
-     * <p> 示例值：mtg_1698745200_8a9b7c6d
+     *
+     * <p>示例值：mtg_1698745200_8a9b7c6d
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
-     * <p> 示例值：87654321
+     *
+     * <p>示例值：87654321
      */
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
      * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
-     * <p> 示例值：2023-10-31 14:30:00
+     *
+     * <p>示例值：2023-10-31 14:30:00
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
-     * <p> 示例值：Q4季度产品规划评审会
+     *
+     * <p>示例值：Q4季度产品规划评审会
      */
-    @SerializedName("topic")
+    this.topic = builder.topic;
+  }
+
+  public static class Builder {
+    /**
+     * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
+     *
+     * <p>示例值：mtg_1698745200_8a9b7c6d
+     */
+    private String id;
+
+    /**
+     * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
+     *
+     * <p>示例值：87654321
+     */
+    private String meetingNo;
+
+    /**
+     * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
+     *
+     * <p>示例值：2023-10-31 14:30:00
+     */
+    private String startTime;
+
+    /**
+     * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
+     *
+     * <p>示例值：Q4季度产品规划评审会
+     */
     private String topic;
 
-    // builder 开始
-    public BotMeetingInfo() {
+    /**
+     * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
+     *
+     * <p>示例值：mtg_1698745200_8a9b7c6d
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BotMeetingInfo(Builder builder) {
-        /**
-         * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
-         * <p> 示例值：mtg_1698745200_8a9b7c6d
-         */
-        this.id = builder.id;
-        /**
-         * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
-         * <p> 示例值：87654321
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
-         * <p> 示例值：2023-10-31 14:30:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
-         * <p> 示例值：Q4季度产品规划评审会
-         */
-        this.topic = builder.topic;
+    /**
+     * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
+     *
+     * <p>示例值：87654321
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
+     *
+     * <p>示例值：2023-10-31 14:30:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
+     *
+     * <p>示例值：Q4季度产品规划评审会
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public BotMeetingInfo build() {
+      return new BotMeetingInfo(this);
     }
+  }
 
-    public String getMeetingNo() {
-        return this.meetingNo;
-    }
-
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getTopic() {
-        return this.topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public static class Builder {
-        /**
-         * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
-         * <p> 示例值：mtg_1698745200_8a9b7c6d
-         */
-        private String id;
-        /**
-         * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
-         * <p> 示例值：87654321
-         */
-        private String meetingNo;
-        /**
-         * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
-         * <p> 示例值：2023-10-31 14:30:00
-         */
-        private String startTime;
-        /**
-         * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
-         * <p> 示例值：Q4季度产品规划评审会
-         */
-        private String topic;
-
-        /**
-         * 会议唯一标识ID，系统自动生成，全局唯一。可通过会议创建接口或会议列表查询接口获取
-         * <p> 示例值：mtg_1698745200_8a9b7c6d
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 会议号，用于用户快速加入会议，支持数字或字母组合格式。可在会议创建时指定或由系统自动生成
-         * <p> 示例值：87654321
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 会议开始时间，格式为YYYY-MM-DD HH:mm:ss，时区为UTC+8
-         * <p> 示例值：2023-10-31 14:30:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 会议主题，用于标识会议内容，支持中英文及特殊字符，长度不超过128个字符
-         * <p> 示例值：Q4季度产品规划评审会
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        public BotMeetingInfo build() {
-            return new BotMeetingInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

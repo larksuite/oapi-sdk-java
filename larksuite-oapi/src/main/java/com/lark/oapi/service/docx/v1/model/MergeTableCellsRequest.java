@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MergeTableCellsRequest {
+  /**
+   * 行起始索引（区间左闭右开）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("row_start_index")
+  private Integer rowStartIndex;
+
+  /**
+   * 行结束索引（区间左闭右开）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("row_end_index")
+  private Integer rowEndIndex;
+
+  /**
+   * 列起始索引（区间左闭右开）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("column_start_index")
+  private Integer columnStartIndex;
+
+  /**
+   * 列结束索引（区间左闭右开）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("column_end_index")
+  private Integer columnEndIndex;
+
+  public Integer getRowStartIndex() {
+    return this.rowStartIndex;
+  }
+
+  public void setRowStartIndex(Integer rowStartIndex) {
+    this.rowStartIndex = rowStartIndex;
+  }
+
+  public Integer getRowEndIndex() {
+    return this.rowEndIndex;
+  }
+
+  public void setRowEndIndex(Integer rowEndIndex) {
+    this.rowEndIndex = rowEndIndex;
+  }
+
+  public Integer getColumnStartIndex() {
+    return this.columnStartIndex;
+  }
+
+  public void setColumnStartIndex(Integer columnStartIndex) {
+    this.columnStartIndex = columnStartIndex;
+  }
+
+  public Integer getColumnEndIndex() {
+    return this.columnEndIndex;
+  }
+
+  public void setColumnEndIndex(Integer columnEndIndex) {
+    this.columnEndIndex = columnEndIndex;
+  }
+
+  // builder 开始
+  public MergeTableCellsRequest() {}
+
+  public MergeTableCellsRequest(Builder builder) {
     /**
      * 行起始索引（区间左闭右开）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("row_start_index")
-    private Integer rowStartIndex;
+    this.rowStartIndex = builder.rowStartIndex;
     /**
      * 行结束索引（区间左闭右开）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("row_end_index")
-    private Integer rowEndIndex;
+    this.rowEndIndex = builder.rowEndIndex;
     /**
      * 列起始索引（区间左闭右开）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("column_start_index")
-    private Integer columnStartIndex;
+    this.columnStartIndex = builder.columnStartIndex;
     /**
      * 列结束索引（区间左闭右开）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("column_end_index")
+    this.columnEndIndex = builder.columnEndIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 行起始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     */
+    private Integer rowStartIndex;
+
+    /**
+     * 行结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     */
+    private Integer rowEndIndex;
+
+    /**
+     * 列起始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     */
+    private Integer columnStartIndex;
+
+    /**
+     * 列结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     */
     private Integer columnEndIndex;
 
-    // builder 开始
-    public MergeTableCellsRequest() {
+    /**
+     * 行起始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     *
+     * @param rowStartIndex
+     * @return
+     */
+    public Builder rowStartIndex(Integer rowStartIndex) {
+      this.rowStartIndex = rowStartIndex;
+      return this;
     }
 
-    public MergeTableCellsRequest(Builder builder) {
-        /**
-         * 行起始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        this.rowStartIndex = builder.rowStartIndex;
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        this.rowEndIndex = builder.rowEndIndex;
-        /**
-         * 列起始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        this.columnStartIndex = builder.columnStartIndex;
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        this.columnEndIndex = builder.columnEndIndex;
+    /**
+     * 行结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     *
+     * @param rowEndIndex
+     * @return
+     */
+    public Builder rowEndIndex(Integer rowEndIndex) {
+      this.rowEndIndex = rowEndIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 列起始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     *
+     * @param columnStartIndex
+     * @return
+     */
+    public Builder columnStartIndex(Integer columnStartIndex) {
+      this.columnStartIndex = columnStartIndex;
+      return this;
     }
 
-    public Integer getRowStartIndex() {
-        return this.rowStartIndex;
+    /**
+     * 列结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     *
+     * @param columnEndIndex
+     * @return
+     */
+    public Builder columnEndIndex(Integer columnEndIndex) {
+      this.columnEndIndex = columnEndIndex;
+      return this;
     }
 
-    public void setRowStartIndex(Integer rowStartIndex) {
-        this.rowStartIndex = rowStartIndex;
+    public MergeTableCellsRequest build() {
+      return new MergeTableCellsRequest(this);
     }
+  }
 
-    public Integer getRowEndIndex() {
-        return this.rowEndIndex;
-    }
-
-    public void setRowEndIndex(Integer rowEndIndex) {
-        this.rowEndIndex = rowEndIndex;
-    }
-
-    public Integer getColumnStartIndex() {
-        return this.columnStartIndex;
-    }
-
-    public void setColumnStartIndex(Integer columnStartIndex) {
-        this.columnStartIndex = columnStartIndex;
-    }
-
-    public Integer getColumnEndIndex() {
-        return this.columnEndIndex;
-    }
-
-    public void setColumnEndIndex(Integer columnEndIndex) {
-        this.columnEndIndex = columnEndIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 行起始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        private Integer rowStartIndex;
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        private Integer rowEndIndex;
-        /**
-         * 列起始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        private Integer columnStartIndex;
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        private Integer columnEndIndex;
-
-        /**
-         * 行起始索引（区间左闭右开）
-         * <p> 示例值：0
-         *
-         * @param rowStartIndex
-         * @return
-         */
-        public Builder rowStartIndex(Integer rowStartIndex) {
-            this.rowStartIndex = rowStartIndex;
-            return this;
-        }
-
-
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         *
-         * @param rowEndIndex
-         * @return
-         */
-        public Builder rowEndIndex(Integer rowEndIndex) {
-            this.rowEndIndex = rowEndIndex;
-            return this;
-        }
-
-
-        /**
-         * 列起始索引（区间左闭右开）
-         * <p> 示例值：0
-         *
-         * @param columnStartIndex
-         * @return
-         */
-        public Builder columnStartIndex(Integer columnStartIndex) {
-            this.columnStartIndex = columnStartIndex;
-            return this;
-        }
-
-
-        /**
-         * 列结束索引（区间左闭右开）
-         * <p> 示例值：1
-         *
-         * @param columnEndIndex
-         * @return
-         */
-        public Builder columnEndIndex(Integer columnEndIndex) {
-            this.columnEndIndex = columnEndIndex;
-            return this;
-        }
-
-
-        public MergeTableCellsRequest build() {
-            return new MergeTableCellsRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

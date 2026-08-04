@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum NormalLeaveBalanceGrantStatusEnum {
-    ACTIVE("active"), // 生效中
-    WAITACTIVE("waitActive"), // 待生效
-    EXPIRED("expired"), // 已过期
-    ;
-    private String value;
+  ACTIVE("active"), // 生效中
+  WAITACTIVE("waitActive"), // 待生效
+  EXPIRED("expired"), // 已过期
+  ;
+  private String value;
 
-    NormalLeaveBalanceGrantStatusEnum(String value) {
-        this.value = value;
-    }
+  NormalLeaveBalanceGrantStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

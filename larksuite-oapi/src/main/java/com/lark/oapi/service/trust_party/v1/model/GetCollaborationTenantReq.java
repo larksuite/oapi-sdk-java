@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.trust_party.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.trust_party.v1.enums.*;
 
 public class GetCollaborationTenantReq {
+  /**
+   * 对方关联组织的tenant
+   * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  // builder 开始
+  public GetCollaborationTenantReq() {}
+
+  public GetCollaborationTenantReq(Builder builder) {
     /**
-     * 对方关联组织的租户key
-     * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
+  }
 
-    // builder 开始
-    public GetCollaborationTenantReq() {
+  public static class Builder {
+
+    private String targetTenantKey; // 对方关联组织的tenant
+
+    // key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+
+    /**
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public GetCollaborationTenantReq(Builder builder) {
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetTenantKey = builder.targetTenantKey;
+    public GetCollaborationTenantReq build() {
+      return new GetCollaborationTenantReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
-    }
-
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
-    }
-
-    public static class Builder {
-
-        private String targetTenantKey; // 对方关联组织的租户key
-
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-
-        public GetCollaborationTenantReq build() {
-            return new GetCollaborationTenantReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

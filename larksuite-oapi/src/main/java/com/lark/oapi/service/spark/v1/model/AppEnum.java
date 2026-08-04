@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppEnum {
+  /**
+   * 枚举名称
+   *
+   * <p>示例值：enum_demo
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 枚举描述
+   *
+   * <p>示例值：enum_demo的描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 枚举值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private String[] options;
+
+  /**
+   * 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1765524810744
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(String[] options) {
+    this.options = options;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  // builder 开始
+  public AppEnum() {}
+
+  public AppEnum(Builder builder) {
     /**
      * 枚举名称
-     * <p> 示例值：enum_demo
+     *
+     * <p>示例值：enum_demo
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 枚举描述
-     * <p> 示例值：enum_demo的描述
+     *
+     * <p>示例值：enum_demo的描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 枚举值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private String[] options;
+    this.options = builder.options;
     /**
      * 创建时间，毫秒时间戳
-     * <p> 示例值：1765524810744
+     *
+     * <p>示例值：1765524810744
      */
-    @SerializedName("created_at")
+    this.createdAt = builder.createdAt;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举名称
+     *
+     * <p>示例值：enum_demo
+     */
+    private String name;
+
+    /**
+     * 枚举描述
+     *
+     * <p>示例值：enum_demo的描述
+     */
+    private String description;
+
+    /**
+     * 枚举值列表
+     *
+     * <p>示例值：
+     */
+    private String[] options;
+
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1765524810744
+     */
     private Integer createdAt;
 
-    // builder 开始
-    public AppEnum() {
+    /**
+     * 枚举名称
+     *
+     * <p>示例值：enum_demo
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public AppEnum(Builder builder) {
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo
-         */
-        this.name = builder.name;
-        /**
-         * 枚举描述
-         * <p> 示例值：enum_demo的描述
-         */
-        this.description = builder.description;
-        /**
-         * 枚举值列表
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1765524810744
-         */
-        this.createdAt = builder.createdAt;
+    /**
+     * 枚举描述
+     *
+     * <p>示例值：enum_demo的描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举值列表
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(String[] options) {
+      this.options = options;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1765524810744
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public AppEnum build() {
+      return new AppEnum(this);
     }
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo
-         */
-        private String name;
-        /**
-         * 枚举描述
-         * <p> 示例值：enum_demo的描述
-         */
-        private String description;
-        /**
-         * 枚举值列表
-         * <p> 示例值：
-         */
-        private String[] options;
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1765524810744
-         */
-        private Integer createdAt;
-
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 枚举描述
-         * <p> 示例值：enum_demo的描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 枚举值列表
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(String[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 创建时间，毫秒时间戳
-         * <p> 示例值：1765524810744
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        public AppEnum build() {
-            return new AppEnum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

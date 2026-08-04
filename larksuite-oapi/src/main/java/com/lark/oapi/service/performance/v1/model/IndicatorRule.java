@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IndicatorRule {
+  /**
+   * id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估类型
+   *
+   * <p>示例值：level
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 等级配置，评估类型为level时必填
+   *
+   * <p>示例值：
+   */
+  @SerializedName("level_setting")
+  private LevelSetting levelSetting;
+
+  /**
+   * 评分映射等级配置，评估类型为评分映射等级时必填
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score_level_setting")
+  private ScoreLevelSetting scoreLevelSetting;
+
+  /**
+   * 评分配置，评估规则类型为评分时必填
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score_setting")
+  private ScoreSetting scoreSetting;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public LevelSetting getLevelSetting() {
+    return this.levelSetting;
+  }
+
+  public void setLevelSetting(LevelSetting levelSetting) {
+    this.levelSetting = levelSetting;
+  }
+
+  public ScoreLevelSetting getScoreLevelSetting() {
+    return this.scoreLevelSetting;
+  }
+
+  public void setScoreLevelSetting(ScoreLevelSetting scoreLevelSetting) {
+    this.scoreLevelSetting = scoreLevelSetting;
+  }
+
+  public ScoreSetting getScoreSetting() {
+    return this.scoreSetting;
+  }
+
+  public void setScoreSetting(ScoreSetting scoreSetting) {
+    this.scoreSetting = scoreSetting;
+  }
+
+  // builder 开始
+  public IndicatorRule() {}
+
+  public IndicatorRule(Builder builder) {
     /**
      * id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 评估类型
-     * <p> 示例值：level
+     *
+     * <p>示例值：level
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 等级配置，评估类型为level时必填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("level_setting")
-    private LevelSetting levelSetting;
+    this.levelSetting = builder.levelSetting;
     /**
      * 评分映射等级配置，评估类型为评分映射等级时必填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("score_level_setting")
-    private ScoreLevelSetting scoreLevelSetting;
+    this.scoreLevelSetting = builder.scoreLevelSetting;
     /**
      * 评分配置，评估规则类型为评分时必填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("score_setting")
+    this.scoreSetting = builder.scoreSetting;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估类型
+     *
+     * <p>示例值：level
+     */
+    private String type;
+
+    /**
+     * 等级配置，评估类型为level时必填
+     *
+     * <p>示例值：
+     */
+    private LevelSetting levelSetting;
+
+    /**
+     * 评分映射等级配置，评估类型为评分映射等级时必填
+     *
+     * <p>示例值：
+     */
+    private ScoreLevelSetting scoreLevelSetting;
+
+    /**
+     * 评分配置，评估规则类型为评分时必填
+     *
+     * <p>示例值：
+     */
     private ScoreSetting scoreSetting;
 
-    // builder 开始
-    public IndicatorRule() {
+    /**
+     * id
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public IndicatorRule(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估类型
-         * <p> 示例值：level
-         */
-        this.type = builder.type;
-        /**
-         * 等级配置，评估类型为level时必填
-         * <p> 示例值：
-         */
-        this.levelSetting = builder.levelSetting;
-        /**
-         * 评分映射等级配置，评估类型为评分映射等级时必填
-         * <p> 示例值：
-         */
-        this.scoreLevelSetting = builder.scoreLevelSetting;
-        /**
-         * 评分配置，评估规则类型为评分时必填
-         * <p> 示例值：
-         */
-        this.scoreSetting = builder.scoreSetting;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估类型
+     *
+     * <p>示例值：level
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 等级配置，评估类型为level时必填
+     *
+     * <p>示例值：
+     *
+     * @param levelSetting
+     * @return
+     */
+    public Builder levelSetting(LevelSetting levelSetting) {
+      this.levelSetting = levelSetting;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 评分映射等级配置，评估类型为评分映射等级时必填
+     *
+     * <p>示例值：
+     *
+     * @param scoreLevelSetting
+     * @return
+     */
+    public Builder scoreLevelSetting(ScoreLevelSetting scoreLevelSetting) {
+      this.scoreLevelSetting = scoreLevelSetting;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 评分配置，评估规则类型为评分时必填
+     *
+     * <p>示例值：
+     *
+     * @param scoreSetting
+     * @return
+     */
+    public Builder scoreSetting(ScoreSetting scoreSetting) {
+      this.scoreSetting = scoreSetting;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    public IndicatorRule build() {
+      return new IndicatorRule(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public LevelSetting getLevelSetting() {
-        return this.levelSetting;
-    }
-
-    public void setLevelSetting(LevelSetting levelSetting) {
-        this.levelSetting = levelSetting;
-    }
-
-    public ScoreLevelSetting getScoreLevelSetting() {
-        return this.scoreLevelSetting;
-    }
-
-    public void setScoreLevelSetting(ScoreLevelSetting scoreLevelSetting) {
-        this.scoreLevelSetting = scoreLevelSetting;
-    }
-
-    public ScoreSetting getScoreSetting() {
-        return this.scoreSetting;
-    }
-
-    public void setScoreSetting(ScoreSetting scoreSetting) {
-        this.scoreSetting = scoreSetting;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估类型
-         * <p> 示例值：level
-         */
-        private String type;
-        /**
-         * 等级配置，评估类型为level时必填
-         * <p> 示例值：
-         */
-        private LevelSetting levelSetting;
-        /**
-         * 评分映射等级配置，评估类型为评分映射等级时必填
-         * <p> 示例值：
-         */
-        private ScoreLevelSetting scoreLevelSetting;
-        /**
-         * 评分配置，评估规则类型为评分时必填
-         * <p> 示例值：
-         */
-        private ScoreSetting scoreSetting;
-
-        /**
-         * id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估类型
-         * <p> 示例值：level
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 等级配置，评估类型为level时必填
-         * <p> 示例值：
-         *
-         * @param levelSetting
-         * @return
-         */
-        public Builder levelSetting(LevelSetting levelSetting) {
-            this.levelSetting = levelSetting;
-            return this;
-        }
-
-
-        /**
-         * 评分映射等级配置，评估类型为评分映射等级时必填
-         * <p> 示例值：
-         *
-         * @param scoreLevelSetting
-         * @return
-         */
-        public Builder scoreLevelSetting(ScoreLevelSetting scoreLevelSetting) {
-            this.scoreLevelSetting = scoreLevelSetting;
-            return this;
-        }
-
-
-        /**
-         * 评分配置，评估规则类型为评分时必填
-         * <p> 示例值：
-         *
-         * @param scoreSetting
-         * @return
-         */
-        public Builder scoreSetting(ScoreSetting scoreSetting) {
-            this.scoreSetting = scoreSetting;
-            return this;
-        }
-
-
-        public IndicatorRule build() {
-            return new IndicatorRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

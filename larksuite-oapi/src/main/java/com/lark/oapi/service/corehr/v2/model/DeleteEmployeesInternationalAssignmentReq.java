@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeleteEmployeesInternationalAssignmentReq {
+  /**
+   * 外派ID;-
+   * 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取
+   *
+   * <p>示例值：7127921432117937708
+   */
+  @Path
+  @SerializedName("international_assignment_id")
+  private String internationalAssignmentId;
+
+  public String getInternationalAssignmentId() {
+    return this.internationalAssignmentId;
+  }
+
+  public void setInternationalAssignmentId(String internationalAssignmentId) {
+    this.internationalAssignmentId = internationalAssignmentId;
+  }
+
+  // builder 开始
+  public DeleteEmployeesInternationalAssignmentReq() {}
+
+  public DeleteEmployeesInternationalAssignmentReq(Builder builder) {
     /**
-     * 外派ID
-     * <p> 示例值：7127921432117937708
+     * 外派ID;-
+     * 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取
+     *
+     * <p>示例值：7127921432117937708
      */
-    @Path
-    @SerializedName("international_assignment_id")
-    private String internationalAssignmentId;
+    this.internationalAssignmentId = builder.internationalAssignmentId;
+  }
 
-    // builder 开始
-    public DeleteEmployeesInternationalAssignmentReq() {
+  public static class Builder {
+
+    private String internationalAssignmentId; // 外派ID;-
+
+    // 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取
+
+    /**
+     * 外派ID;-
+     * 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取
+     *
+     * <p>示例值：7127921432117937708
+     *
+     * @param internationalAssignmentId
+     * @return
+     */
+    public Builder internationalAssignmentId(String internationalAssignmentId) {
+      this.internationalAssignmentId = internationalAssignmentId;
+      return this;
     }
 
-    public DeleteEmployeesInternationalAssignmentReq(Builder builder) {
-        /**
-         * 外派ID
-         * <p> 示例值：7127921432117937708
-         */
-        this.internationalAssignmentId = builder.internationalAssignmentId;
+    public DeleteEmployeesInternationalAssignmentReq build() {
+      return new DeleteEmployeesInternationalAssignmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getInternationalAssignmentId() {
-        return this.internationalAssignmentId;
-    }
-
-    public void setInternationalAssignmentId(String internationalAssignmentId) {
-        this.internationalAssignmentId = internationalAssignmentId;
-    }
-
-    public static class Builder {
-
-        private String internationalAssignmentId; // 外派ID
-
-        /**
-         * 外派ID
-         * <p> 示例值：7127921432117937708
-         *
-         * @param internationalAssignmentId
-         * @return
-         */
-        public Builder internationalAssignmentId(String internationalAssignmentId) {
-            this.internationalAssignmentId = internationalAssignmentId;
-            return this;
-        }
-
-
-        public DeleteEmployeesInternationalAssignmentReq build() {
-            return new DeleteEmployeesInternationalAssignmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

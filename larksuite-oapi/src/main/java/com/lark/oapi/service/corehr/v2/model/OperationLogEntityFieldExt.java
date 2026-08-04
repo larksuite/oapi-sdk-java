@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OperationLogEntityFieldExt {
+  /**
+   * id
+   *
+   * <p>示例值：7525039829561198124_add_name_0
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用途
+   *
+   * <p>示例值：preferred_name
+   */
+  @SerializedName("usage")
+  private String usage;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUsage() {
+    return this.usage;
+  }
+
+  public void setUsage(String usage) {
+    this.usage = usage;
+  }
+
+  // builder 开始
+  public OperationLogEntityFieldExt() {}
+
+  public OperationLogEntityFieldExt(Builder builder) {
     /**
      * id
-     * <p> 示例值：7525039829561198124_add_name_0
+     *
+     * <p>示例值：7525039829561198124_add_name_0
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用途
-     * <p> 示例值：preferred_name
+     *
+     * <p>示例值：preferred_name
      */
-    @SerializedName("usage")
+    this.usage = builder.usage;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：7525039829561198124_add_name_0
+     */
+    private String id;
+
+    /**
+     * 用途
+     *
+     * <p>示例值：preferred_name
+     */
     private String usage;
 
-    // builder 开始
-    public OperationLogEntityFieldExt() {
+    /**
+     * id
+     *
+     * <p>示例值：7525039829561198124_add_name_0
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OperationLogEntityFieldExt(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：7525039829561198124_add_name_0
-         */
-        this.id = builder.id;
-        /**
-         * 用途
-         * <p> 示例值：preferred_name
-         */
-        this.usage = builder.usage;
+    /**
+     * 用途
+     *
+     * <p>示例值：preferred_name
+     *
+     * @param usage
+     * @return
+     */
+    public Builder usage(String usage) {
+      this.usage = usage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OperationLogEntityFieldExt build() {
+      return new OperationLogEntityFieldExt(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsage() {
-        return this.usage;
-    }
-
-    public void setUsage(String usage) {
-        this.usage = usage;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：7525039829561198124_add_name_0
-         */
-        private String id;
-        /**
-         * 用途
-         * <p> 示例值：preferred_name
-         */
-        private String usage;
-
-        /**
-         * id
-         * <p> 示例值：7525039829561198124_add_name_0
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用途
-         * <p> 示例值：preferred_name
-         *
-         * @param usage
-         * @return
-         */
-        public Builder usage(String usage) {
-            this.usage = usage;
-            return this;
-        }
-
-
-        public OperationLogEntityFieldExt build() {
-            return new OperationLogEntityFieldExt(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

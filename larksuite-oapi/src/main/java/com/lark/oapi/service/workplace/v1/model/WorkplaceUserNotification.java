@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.workplace.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkplaceUserNotification {
+  /**
+   * 通知 id
+   *
+   * <p>示例值：own_xxxxxxxxxxxxxxxx
+   */
+  @SerializedName("notification_id")
+  private String notificationId;
+
+  /**
+   * 通知内容 json 格式
+   *
+   * <p>示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"default\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}],\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 自动过期删除的时间戳(秒)
+   *
+   * <p>示例值：1739717852
+   */
+  @SerializedName("expire_time")
+  private String expireTime;
+
+  public String getNotificationId() {
+    return this.notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getExpireTime() {
+    return this.expireTime;
+  }
+
+  public void setExpireTime(String expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  // builder 开始
+  public WorkplaceUserNotification() {}
+
+  public WorkplaceUserNotification(Builder builder) {
     /**
      * 通知 id
-     * <p> 示例值：own_xxxxxxxxxxxxxxxx
+     *
+     * <p>示例值：own_xxxxxxxxxxxxxxxx
      */
-    @SerializedName("notification_id")
-    private String notificationId;
+    this.notificationId = builder.notificationId;
     /**
      * 通知内容 json 格式
-     * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+     *
+     * <p>示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"default\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}],\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 自动过期删除的时间戳(秒)
-     * <p> 示例值：1739717852
+     *
+     * <p>示例值：1739717852
      */
-    @SerializedName("expire_time")
+    this.expireTime = builder.expireTime;
+  }
+
+  public static class Builder {
+    /**
+     * 通知 id
+     *
+     * <p>示例值：own_xxxxxxxxxxxxxxxx
+     */
+    private String notificationId;
+
+    /**
+     * 通知内容 json 格式
+     *
+     * <p>示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"default\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}],\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+     */
+    private String content;
+
+    /**
+     * 自动过期删除的时间戳(秒)
+     *
+     * <p>示例值：1739717852
+     */
     private String expireTime;
 
-    // builder 开始
-    public WorkplaceUserNotification() {
+    /**
+     * 通知 id
+     *
+     * <p>示例值：own_xxxxxxxxxxxxxxxx
+     *
+     * @param notificationId
+     * @return
+     */
+    public Builder notificationId(String notificationId) {
+      this.notificationId = notificationId;
+      return this;
     }
 
-    public WorkplaceUserNotification(Builder builder) {
-        /**
-         * 通知 id
-         * <p> 示例值：own_xxxxxxxxxxxxxxxx
-         */
-        this.notificationId = builder.notificationId;
-        /**
-         * 通知内容 json 格式
-         * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-         */
-        this.content = builder.content;
-        /**
-         * 自动过期删除的时间戳(秒)
-         * <p> 示例值：1739717852
-         */
-        this.expireTime = builder.expireTime;
+    /**
+     * 通知内容 json 格式
+     *
+     * <p>示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"default\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}],\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自动过期删除的时间戳(秒)
+     *
+     * <p>示例值：1739717852
+     *
+     * @param expireTime
+     * @return
+     */
+    public Builder expireTime(String expireTime) {
+      this.expireTime = expireTime;
+      return this;
     }
 
-    public String getNotificationId() {
-        return this.notificationId;
+    public WorkplaceUserNotification build() {
+      return new WorkplaceUserNotification(this);
     }
+  }
 
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getExpireTime() {
-        return this.expireTime;
-    }
-
-    public void setExpireTime(String expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public static class Builder {
-        /**
-         * 通知 id
-         * <p> 示例值：own_xxxxxxxxxxxxxxxx
-         */
-        private String notificationId;
-        /**
-         * 通知内容 json 格式
-         * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-         */
-        private String content;
-        /**
-         * 自动过期删除的时间戳(秒)
-         * <p> 示例值：1739717852
-         */
-        private String expireTime;
-
-        /**
-         * 通知 id
-         * <p> 示例值：own_xxxxxxxxxxxxxxxx
-         *
-         * @param notificationId
-         * @return
-         */
-        public Builder notificationId(String notificationId) {
-            this.notificationId = notificationId;
-            return this;
-        }
-
-
-        /**
-         * 通知内容 json 格式
-         * <p> 示例值：{\"pc_notification\":{\"config\":{\"width\":500,\"height\":500},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"img\",\"url\":\"https://www.feishu.cn\",\"img_key\":\"test\"}]}}}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 自动过期删除的时间戳(秒)
-         * <p> 示例值：1739717852
-         *
-         * @param expireTime
-         * @return
-         */
-        public Builder expireTime(String expireTime) {
-            this.expireTime = expireTime;
-            return this;
-        }
-
-
-        public WorkplaceUserNotification build() {
-            return new WorkplaceUserNotification(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

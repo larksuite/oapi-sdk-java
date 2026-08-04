@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTable {
+  /**
+   * 数据表 ID
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("table_id")
+  private String tableId;
+
+  /**
+   * 数据表的版本号。对数据表进行修改时更新，如新增、删除记录，修改数据表名称等，初始为 1，每次更新+1
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("revision")
+  private Integer revision;
+
+  /**
+   * 数据表名称
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  public Integer getRevision() {
+    return this.revision;
+  }
+
+  public void setRevision(Integer revision) {
+    this.revision = revision;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public AppTable() {}
+
+  public AppTable(Builder builder) {
     /**
-     * 表格Id
-     * <p> 示例值：
+     * 数据表 ID
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("table_id")
+    this.tableId = builder.tableId;
+    /**
+     * 数据表的版本号。对数据表进行修改时更新，如新增、删除记录，修改数据表名称等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
+     */
+    this.revision = builder.revision;
+    /**
+     * 数据表名称
+     *
+     * <p>示例值：\-
+     */
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表 ID
+     *
+     * <p>示例值：\-
+     */
     private String tableId;
+
     /**
-     * 数据表 版本号
-     * <p> 示例值：
+     * 数据表的版本号。对数据表进行修改时更新，如新增、删除记录，修改数据表名称等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("revision")
     private Integer revision;
+
     /**
-     * 数据表 名字
-     * <p> 示例值：
+     * 数据表名称
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("name")
     private String name;
 
-    // builder 开始
-    public AppTable() {
+    /**
+     * 数据表 ID
+     *
+     * <p>示例值：\-
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public AppTable(Builder builder) {
-        /**
-         * 表格Id
-         * <p> 示例值：
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 数据表 版本号
-         * <p> 示例值：
-         */
-        this.revision = builder.revision;
-        /**
-         * 数据表 名字
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 数据表的版本号。对数据表进行修改时更新，如新增、删除记录，修改数据表名称等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
+     *
+     * @param revision
+     * @return
+     */
+    public Builder revision(Integer revision) {
+      this.revision = revision;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据表名称
+     *
+     * <p>示例值：\-
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getTableId() {
-        return this.tableId;
+    public AppTable build() {
+      return new AppTable(this);
     }
+  }
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
-
-    public Integer getRevision() {
-        return this.revision;
-    }
-
-    public void setRevision(Integer revision) {
-        this.revision = revision;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 表格Id
-         * <p> 示例值：
-         */
-        private String tableId;
-        /**
-         * 数据表 版本号
-         * <p> 示例值：
-         */
-        private Integer revision;
-        /**
-         * 数据表 名字
-         * <p> 示例值：
-         */
-        private String name;
-
-        /**
-         * 表格Id
-         * <p> 示例值：
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        /**
-         * 数据表 版本号
-         * <p> 示例值：
-         *
-         * @param revision
-         * @return
-         */
-        public Builder revision(Integer revision) {
-            this.revision = revision;
-            return this;
-        }
-
-
-        /**
-         * 数据表 名字
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public AppTable build() {
-            return new AppTable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

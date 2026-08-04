@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUserMailboxTemplateReqBody {
+  /**
+   * 待创建的模板内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template")
+  private Template template;
+
+  public Template getTemplate() {
+    return this.template;
+  }
+
+  public void setTemplate(Template template) {
+    this.template = template;
+  }
+
+  // builder 开始
+  public CreateUserMailboxTemplateReqBody() {}
+
+  public CreateUserMailboxTemplateReqBody(Builder builder) {
     /**
      * 待创建的模板内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("template")
+    this.template = builder.template;
+  }
+
+  public static class Builder {
+    /**
+     * 待创建的模板内容
+     *
+     * <p>示例值：
+     */
     private Template template;
 
-    // builder 开始
-    public CreateUserMailboxTemplateReqBody() {
+    /**
+     * 待创建的模板内容
+     *
+     * <p>示例值：
+     *
+     * @param template
+     * @return
+     */
+    public Builder template(Template template) {
+      this.template = template;
+      return this;
     }
 
-    public CreateUserMailboxTemplateReqBody(Builder builder) {
-        /**
-         * 待创建的模板内容
-         * <p> 示例值：
-         */
-        this.template = builder.template;
+    public CreateUserMailboxTemplateReqBody build() {
+      return new CreateUserMailboxTemplateReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Template getTemplate() {
-        return this.template;
-    }
-
-    public void setTemplate(Template template) {
-        this.template = template;
-    }
-
-    public static class Builder {
-        /**
-         * 待创建的模板内容
-         * <p> 示例值：
-         */
-        private Template template;
-
-        /**
-         * 待创建的模板内容
-         * <p> 示例值：
-         *
-         * @param template
-         * @return
-         */
-        public Builder template(Template template) {
-            this.template = template;
-            return this;
-        }
-
-
-        public CreateUserMailboxTemplateReqBody build() {
-            return new CreateUserMailboxTemplateReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,296 +13,321 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisibleAssistRule {
+  /**
+   * 规则ID
+   *
+   * <p>示例值："7259644494420885523"
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 规则集类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("assist_rule_type")
+  private Integer assistRuleType;
+
+  /**
+   * 规则主体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subjects")
+  private EntityInfo[] subjects;
+
+  /**
+   * 规则客体，类型只能为部门、用户、单位。不能为用户组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objects")
+  private EntityInfo[] objects;
+
+  /**
+   * 权限操作
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("effect")
+  private Integer effect;
+
+  /**
+   * 匹配条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("match_condition")
+  private Integer matchCondition;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getAssistRuleType() {
+    return this.assistRuleType;
+  }
+
+  public void setAssistRuleType(Integer assistRuleType) {
+    this.assistRuleType = assistRuleType;
+  }
+
+  public EntityInfo[] getSubjects() {
+    return this.subjects;
+  }
+
+  public void setSubjects(EntityInfo[] subjects) {
+    this.subjects = subjects;
+  }
+
+  public EntityInfo[] getObjects() {
+    return this.objects;
+  }
+
+  public void setObjects(EntityInfo[] objects) {
+    this.objects = objects;
+  }
+
+  public Integer getEffect() {
+    return this.effect;
+  }
+
+  public void setEffect(Integer effect) {
+    this.effect = effect;
+  }
+
+  public Integer getMatchCondition() {
+    return this.matchCondition;
+  }
+
+  public void setMatchCondition(Integer matchCondition) {
+    this.matchCondition = matchCondition;
+  }
+
+  // builder 开始
+  public VisibleAssistRule() {}
+
+  public VisibleAssistRule(Builder builder) {
     /**
      * 规则ID
-     * <p> 示例值："7259644494420885523"
+     *
+     * <p>示例值："7259644494420885523"
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 规则集类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("assist_rule_type")
-    private Integer assistRuleType;
+    this.assistRuleType = builder.assistRuleType;
     /**
      * 规则主体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subjects")
-    private EntityInfo[] subjects;
+    this.subjects = builder.subjects;
     /**
      * 规则客体，类型只能为部门、用户、单位。不能为用户组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objects")
-    private EntityInfo[] objects;
+    this.objects = builder.objects;
     /**
      * 权限操作
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("effect")
-    private Integer effect;
+    this.effect = builder.effect;
     /**
      * 匹配条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("match_condition")
+    this.matchCondition = builder.matchCondition;
+  }
+
+  public static class Builder {
+    /**
+     * 规则ID
+     *
+     * <p>示例值："7259644494420885523"
+     */
+    private String id;
+
+    /**
+     * 规则集类型
+     *
+     * <p>示例值：1
+     */
+    private Integer assistRuleType;
+
+    /**
+     * 规则主体
+     *
+     * <p>示例值：
+     */
+    private EntityInfo[] subjects;
+
+    /**
+     * 规则客体，类型只能为部门、用户、单位。不能为用户组
+     *
+     * <p>示例值：
+     */
+    private EntityInfo[] objects;
+
+    /**
+     * 权限操作
+     *
+     * <p>示例值：1
+     */
+    private Integer effect;
+
+    /**
+     * 匹配条件
+     *
+     * <p>示例值：
+     */
     private Integer matchCondition;
 
-    // builder 开始
-    public VisibleAssistRule() {
+    /**
+     * 规则ID
+     *
+     * <p>示例值："7259644494420885523"
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public VisibleAssistRule(Builder builder) {
-        /**
-         * 规则ID
-         * <p> 示例值："7259644494420885523"
-         */
-        this.id = builder.id;
-        /**
-         * 规则集类型
-         * <p> 示例值：1
-         */
-        this.assistRuleType = builder.assistRuleType;
-        /**
-         * 规则主体
-         * <p> 示例值：
-         */
-        this.subjects = builder.subjects;
-        /**
-         * 规则客体，类型只能为部门、用户、单位。不能为用户组
-         * <p> 示例值：
-         */
-        this.objects = builder.objects;
-        /**
-         * 权限操作
-         * <p> 示例值：1
-         */
-        this.effect = builder.effect;
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         */
-        this.matchCondition = builder.matchCondition;
+    /**
+     * 规则集类型
+     *
+     * <p>示例值：1
+     *
+     * @param assistRuleType
+     * @return
+     */
+    public Builder assistRuleType(Integer assistRuleType) {
+      this.assistRuleType = assistRuleType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 规则集类型
+     *
+     * <p>示例值：1
+     *
+     * @param assistRuleType {@link
+     *     com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleAssistRuleTypeEnum}
+     * @return
+     */
+    public Builder assistRuleType(
+        com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleAssistRuleTypeEnum
+            assistRuleType) {
+      this.assistRuleType = assistRuleType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 规则主体
+     *
+     * <p>示例值：
+     *
+     * @param subjects
+     * @return
+     */
+    public Builder subjects(EntityInfo[] subjects) {
+      this.subjects = subjects;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 规则客体，类型只能为部门、用户、单位。不能为用户组
+     *
+     * <p>示例值：
+     *
+     * @param objects
+     * @return
+     */
+    public Builder objects(EntityInfo[] objects) {
+      this.objects = objects;
+      return this;
     }
 
-    public Integer getAssistRuleType() {
-        return this.assistRuleType;
+    /**
+     * 权限操作
+     *
+     * <p>示例值：1
+     *
+     * @param effect
+     * @return
+     */
+    public Builder effect(Integer effect) {
+      this.effect = effect;
+      return this;
     }
 
-    public void setAssistRuleType(Integer assistRuleType) {
-        this.assistRuleType = assistRuleType;
+    /**
+     * 权限操作
+     *
+     * <p>示例值：1
+     *
+     * @param effect {@link com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleEffectEnum}
+     * @return
+     */
+    public Builder effect(
+        com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleEffectEnum effect) {
+      this.effect = effect.getValue();
+      return this;
     }
 
-    public EntityInfo[] getSubjects() {
-        return this.subjects;
+    /**
+     * 匹配条件
+     *
+     * <p>示例值：
+     *
+     * @param matchCondition
+     * @return
+     */
+    public Builder matchCondition(Integer matchCondition) {
+      this.matchCondition = matchCondition;
+      return this;
     }
 
-    public void setSubjects(EntityInfo[] subjects) {
-        this.subjects = subjects;
+    /**
+     * 匹配条件
+     *
+     * <p>示例值：
+     *
+     * @param matchCondition {@link
+     *     com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleMatchConditionEnum}
+     * @return
+     */
+    public Builder matchCondition(
+        com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleMatchConditionEnum
+            matchCondition) {
+      this.matchCondition = matchCondition.getValue();
+      return this;
     }
 
-    public EntityInfo[] getObjects() {
-        return this.objects;
+    public VisibleAssistRule build() {
+      return new VisibleAssistRule(this);
     }
+  }
 
-    public void setObjects(EntityInfo[] objects) {
-        this.objects = objects;
-    }
-
-    public Integer getEffect() {
-        return this.effect;
-    }
-
-    public void setEffect(Integer effect) {
-        this.effect = effect;
-    }
-
-    public Integer getMatchCondition() {
-        return this.matchCondition;
-    }
-
-    public void setMatchCondition(Integer matchCondition) {
-        this.matchCondition = matchCondition;
-    }
-
-    public static class Builder {
-        /**
-         * 规则ID
-         * <p> 示例值："7259644494420885523"
-         */
-        private String id;
-        /**
-         * 规则集类型
-         * <p> 示例值：1
-         */
-        private Integer assistRuleType;
-        /**
-         * 规则主体
-         * <p> 示例值：
-         */
-        private EntityInfo[] subjects;
-        /**
-         * 规则客体，类型只能为部门、用户、单位。不能为用户组
-         * <p> 示例值：
-         */
-        private EntityInfo[] objects;
-        /**
-         * 权限操作
-         * <p> 示例值：1
-         */
-        private Integer effect;
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         */
-        private Integer matchCondition;
-
-        /**
-         * 规则ID
-         * <p> 示例值："7259644494420885523"
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 规则集类型
-         * <p> 示例值：1
-         *
-         * @param assistRuleType
-         * @return
-         */
-        public Builder assistRuleType(Integer assistRuleType) {
-            this.assistRuleType = assistRuleType;
-            return this;
-        }
-
-        /**
-         * 规则集类型
-         * <p> 示例值：1
-         *
-         * @param assistRuleType {@link com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleAssistRuleTypeEnum}
-         * @return
-         */
-        public Builder assistRuleType(com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleAssistRuleTypeEnum assistRuleType) {
-            this.assistRuleType = assistRuleType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 规则主体
-         * <p> 示例值：
-         *
-         * @param subjects
-         * @return
-         */
-        public Builder subjects(EntityInfo[] subjects) {
-            this.subjects = subjects;
-            return this;
-        }
-
-
-        /**
-         * 规则客体，类型只能为部门、用户、单位。不能为用户组
-         * <p> 示例值：
-         *
-         * @param objects
-         * @return
-         */
-        public Builder objects(EntityInfo[] objects) {
-            this.objects = objects;
-            return this;
-        }
-
-
-        /**
-         * 权限操作
-         * <p> 示例值：1
-         *
-         * @param effect
-         * @return
-         */
-        public Builder effect(Integer effect) {
-            this.effect = effect;
-            return this;
-        }
-
-        /**
-         * 权限操作
-         * <p> 示例值：1
-         *
-         * @param effect {@link com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleEffectEnum}
-         * @return
-         */
-        public Builder effect(com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleEffectEnum effect) {
-            this.effect = effect.getValue();
-            return this;
-        }
-
-
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         *
-         * @param matchCondition
-         * @return
-         */
-        public Builder matchCondition(Integer matchCondition) {
-            this.matchCondition = matchCondition;
-            return this;
-        }
-
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         *
-         * @param matchCondition {@link com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleMatchConditionEnum}
-         * @return
-         */
-        public Builder matchCondition(com.lark.oapi.service.directory.v1.enums.VisibleAssistRuleMatchConditionEnum matchCondition) {
-            this.matchCondition = matchCondition.getValue();
-            return this;
-        }
-
-
-        public VisibleAssistRule build() {
-            return new VisibleAssistRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,222 +13,244 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDelivery {
+  /**
+   * 职位广告
+   * ID，可通过[搜索招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search)或者[获取招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+   *
+   * <p>示例值：6960663240925956636
+   */
+  @SerializedName("job_post_id")
+  private String jobPostId;
+
+  /**
+   * 人才信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resume")
+  private WebsiteDeliveryResume resume;
+
+  /**
+   * 官网用户
+   * ID，需通过[新建招聘官网用户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-site_user/create)生成
+   *
+   * <p>示例值：6960663240925956634
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_preferred_city_code_list")
+  private String[] applicationPreferredCityCodeList;
+
+  /**
+   * 官网推广渠道
+   * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("channel_id")
+  private String channelId;
+
+  public String getJobPostId() {
+    return this.jobPostId;
+  }
+
+  public void setJobPostId(String jobPostId) {
+    this.jobPostId = jobPostId;
+  }
+
+  public WebsiteDeliveryResume getResume() {
+    return this.resume;
+  }
+
+  public void setResume(WebsiteDeliveryResume resume) {
+    this.resume = resume;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getApplicationPreferredCityCodeList() {
+    return this.applicationPreferredCityCodeList;
+  }
+
+  public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+    this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+  }
+
+  public String getChannelId() {
+    return this.channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
+  // builder 开始
+  public WebsiteDelivery() {}
+
+  public WebsiteDelivery(Builder builder) {
     /**
-     * 职位广告 ID
-     * <p> 示例值：6960663240925956636
+     * 职位广告
+     * ID，可通过[搜索招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search)或者[获取招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
      */
-    @SerializedName("job_post_id")
-    private String jobPostId;
+    this.jobPostId = builder.jobPostId;
     /**
      * 人才信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resume")
+    this.resume = builder.resume;
+    /**
+     * 官网用户
+     * ID，需通过[新建招聘官网用户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-site_user/create)生成
+     *
+     * <p>示例值：6960663240925956634
+     */
+    this.userId = builder.userId;
+    /**
+     * 意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
+     */
+    this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
+    /**
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
+     */
+    this.channelId = builder.channelId;
+  }
+
+  public static class Builder {
+    /**
+     * 职位广告
+     * ID，可通过[搜索招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search)或者[获取招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
+     */
+    private String jobPostId;
+
+    /**
+     * 人才信息
+     *
+     * <p>示例值：
+     */
     private WebsiteDeliveryResume resume;
+
     /**
-     * 官网用户 ID
-     * <p> 示例值：6960663240925956634
+     * 官网用户
+     * ID，需通过[新建招聘官网用户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-site_user/create)生成
+     *
+     * <p>示例值：6960663240925956634
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-     * <p> 示例值：CT_11
+     * 意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_preferred_city_code_list")
     private String[] applicationPreferredCityCodeList;
+
     /**
-     * 官网推广渠道 ID
-     * <p> 示例值：6891560630172518670
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("channel_id")
     private String channelId;
 
-    // builder 开始
-    public WebsiteDelivery() {
+    /**
+     * 职位广告
+     * ID，可通过[搜索招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/search)或者[获取招聘官网下的职位广告列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-job_post/list)获取
+     *
+     * <p>示例值：6960663240925956636
+     *
+     * @param jobPostId
+     * @return
+     */
+    public Builder jobPostId(String jobPostId) {
+      this.jobPostId = jobPostId;
+      return this;
     }
 
-    public WebsiteDelivery(Builder builder) {
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         */
-        this.jobPostId = builder.jobPostId;
-        /**
-         * 人才信息
-         * <p> 示例值：
-         */
-        this.resume = builder.resume;
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         */
-        this.userId = builder.userId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_11
-         */
-        this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.channelId = builder.channelId;
+    /**
+     * 人才信息
+     *
+     * <p>示例值：
+     *
+     * @param resume
+     * @return
+     */
+    public Builder resume(WebsiteDeliveryResume resume) {
+      this.resume = resume;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 官网用户
+     * ID，需通过[新建招聘官网用户](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-site_user/create)生成
+     *
+     * <p>示例值：6960663240925956634
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getJobPostId() {
-        return this.jobPostId;
+    /**
+     * 意向投递城市列表，可通过[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)获取
+     *
+     * <p>示例值：
+     *
+     * @param applicationPreferredCityCodeList
+     * @return
+     */
+    public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+      this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+      return this;
     }
 
-    public void setJobPostId(String jobPostId) {
-        this.jobPostId = jobPostId;
+    /**
+     * 官网推广渠道
+     * ID，可通过[获取招聘官网推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param channelId
+     * @return
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
+      return this;
     }
 
-    public WebsiteDeliveryResume getResume() {
-        return this.resume;
+    public WebsiteDelivery build() {
+      return new WebsiteDelivery(this);
     }
+  }
 
-    public void setResume(WebsiteDeliveryResume resume) {
-        this.resume = resume;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String[] getApplicationPreferredCityCodeList() {
-        return this.applicationPreferredCityCodeList;
-    }
-
-    public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-        this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-    }
-
-    public String getChannelId() {
-        return this.channelId;
-    }
-
-    public void setChannelId(String channelId) {
-        this.channelId = channelId;
-    }
-
-    public static class Builder {
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         */
-        private String jobPostId;
-        /**
-         * 人才信息
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryResume resume;
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         */
-        private String userId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_11
-         */
-        private String[] applicationPreferredCityCodeList;
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String channelId;
-
-        /**
-         * 职位广告 ID
-         * <p> 示例值：6960663240925956636
-         *
-         * @param jobPostId
-         * @return
-         */
-        public Builder jobPostId(String jobPostId) {
-            this.jobPostId = jobPostId;
-            return this;
-        }
-
-
-        /**
-         * 人才信息
-         * <p> 示例值：
-         *
-         * @param resume
-         * @return
-         */
-        public Builder resume(WebsiteDeliveryResume resume) {
-            this.resume = resume;
-            return this;
-        }
-
-
-        /**
-         * 官网用户 ID
-         * <p> 示例值：6960663240925956634
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：CT_11
-         *
-         * @param applicationPreferredCityCodeList
-         * @return
-         */
-        public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-            this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-            return this;
-        }
-
-
-        /**
-         * 官网推广渠道 ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param channelId
-         * @return
-         */
-        public Builder channelId(String channelId) {
-            this.channelId = channelId;
-            return this;
-        }
-
-
-        public WebsiteDelivery build() {
-            return new WebsiteDelivery(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

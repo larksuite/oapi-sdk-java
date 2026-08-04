@@ -13,138 +13,138 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class DeleteCalendarEventMeetingChatReq {
+  /**
+   * 会议群 ID。在创建会议群时会返回会议群 ID。
+   *
+   * <p>示例值：oc_xxx
+   */
+  @Query
+  @SerializedName("meeting_chat_id")
+  private String meetingChatId;
+
+  public String getMeetingChatId() {
+    return this.meetingChatId;
+  }
+
+  public void setMeetingChatId(String meetingChatId) {
+    this.meetingChatId = meetingChatId;
+  }
+
+  /**
+   * 日程所在的日历 ID。
+   *
+   * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。
+   *
+   * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
+   */
+  @Path
+  @SerializedName("event_id")
+  private String eventId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  // builder 开始
+  public DeleteCalendarEventMeetingChatReq() {}
+
+  public DeleteCalendarEventMeetingChatReq(Builder builder) {
     /**
-     * 会议群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     * 会议群 ID。在创建会议群时会返回会议群 ID。
+     *
+     * <p>示例值：oc_xxx
      */
-    @Query
-    @SerializedName("meeting_chat_id")
-    private String meetingChatId;
+    this.meetingChatId = builder.meetingChatId;
     /**
-     * 日历ID
-     * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+     * 日程所在的日历 ID。
+     *
+     * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * 日程ID
-     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+     * 日程 ID。
+     *
+     * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
      */
-    @Path
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
+  }
 
-    // builder 开始
-    public DeleteCalendarEventMeetingChatReq() {
+  public static class Builder {
+    private String meetingChatId; // 会议群 ID。在创建会议群时会返回会议群 ID。
+
+    /**
+     * 会议群 ID。在创建会议群时会返回会议群 ID。
+     *
+     * <p>示例值：oc_xxx
+     *
+     * @param meetingChatId
+     * @return
+     */
+    public Builder meetingChatId(String meetingChatId) {
+      this.meetingChatId = meetingChatId;
+      return this;
     }
 
-    public DeleteCalendarEventMeetingChatReq(Builder builder) {
-        /**
-         * 会议群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.meetingChatId = builder.meetingChatId;
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
-         */
-        this.eventId = builder.eventId;
+    private String calendarId; // 日程所在的日历 ID。
+    private String eventId; // 日程 ID。
+
+    /**
+     * 日程所在的日历 ID。
+     *
+     * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程 ID。
+     *
+     * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public String getMeetingChatId() {
-        return this.meetingChatId;
+    public DeleteCalendarEventMeetingChatReq build() {
+      return new DeleteCalendarEventMeetingChatReq(this);
     }
+  }
 
-    public void setMeetingChatId(String meetingChatId) {
-        this.meetingChatId = meetingChatId;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public static class Builder {
-        private String meetingChatId; // 会议群ID
-        private String calendarId; // 日历ID
-        private String eventId; // 日程ID
-
-        /**
-         * 会议群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param meetingChatId
-         * @return
-         */
-        public Builder meetingChatId(String meetingChatId) {
-            this.meetingChatId = meetingChatId;
-            return this;
-        }
-
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        public DeleteCalendarEventMeetingChatReq build() {
-            return new DeleteCalendarEventMeetingChatReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

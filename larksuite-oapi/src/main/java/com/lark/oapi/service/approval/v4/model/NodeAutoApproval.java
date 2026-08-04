@@ -13,124 +13,130 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NodeAutoApproval {
+  /**
+   * 节点 ID 类型
+   *
+   * <p>示例值：NON_CUSTOM
+   */
+  @SerializedName("node_id_type")
+  private String nodeIdType;
+
+  /**
+   * 节点 ID 值，可调用
+   * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+   * 接口，从接口返回的 node_list 参数中获取。
+   *
+   * <p>示例值：manager_node_id
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  public String getNodeIdType() {
+    return this.nodeIdType;
+  }
+
+  public void setNodeIdType(String nodeIdType) {
+    this.nodeIdType = nodeIdType;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  // builder 开始
+  public NodeAutoApproval() {}
+
+  public NodeAutoApproval(Builder builder) {
     /**
-     * 节点id的类型
-     * <p> 示例值：NON_CUSTOM
+     * 节点 ID 类型
+     *
+     * <p>示例值：NON_CUSTOM
      */
-    @SerializedName("node_id_type")
+    this.nodeIdType = builder.nodeIdType;
+    /**
+     * 节点 ID 值，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：manager_node_id
+     */
+    this.nodeId = builder.nodeId;
+  }
+
+  public static class Builder {
+    /**
+     * 节点 ID 类型
+     *
+     * <p>示例值：NON_CUSTOM
+     */
     private String nodeIdType;
+
     /**
-     * 节点id
-     * <p> 示例值：manager_node_id
+     * 节点 ID 值，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：manager_node_id
      */
-    @SerializedName("node_id")
     private String nodeId;
 
-    // builder 开始
-    public NodeAutoApproval() {
+    /**
+     * 节点 ID 类型
+     *
+     * <p>示例值：NON_CUSTOM
+     *
+     * @param nodeIdType
+     * @return
+     */
+    public Builder nodeIdType(String nodeIdType) {
+      this.nodeIdType = nodeIdType;
+      return this;
     }
 
-    public NodeAutoApproval(Builder builder) {
-        /**
-         * 节点id的类型
-         * <p> 示例值：NON_CUSTOM
-         */
-        this.nodeIdType = builder.nodeIdType;
-        /**
-         * 节点id
-         * <p> 示例值：manager_node_id
-         */
-        this.nodeId = builder.nodeId;
+    /**
+     * 节点 ID 类型
+     *
+     * <p>示例值：NON_CUSTOM
+     *
+     * @param nodeIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.NodeAutoApprovalNodeIdTypeEnum}
+     * @return
+     */
+    public Builder nodeIdType(
+        com.lark.oapi.service.approval.v4.enums.NodeAutoApprovalNodeIdTypeEnum nodeIdType) {
+      this.nodeIdType = nodeIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 节点 ID 值，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：manager_node_id
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public String getNodeIdType() {
-        return this.nodeIdType;
+    public NodeAutoApproval build() {
+      return new NodeAutoApproval(this);
     }
+  }
 
-    public void setNodeIdType(String nodeIdType) {
-        this.nodeIdType = nodeIdType;
-    }
-
-    public String getNodeId() {
-        return this.nodeId;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
-
-    public static class Builder {
-        /**
-         * 节点id的类型
-         * <p> 示例值：NON_CUSTOM
-         */
-        private String nodeIdType;
-        /**
-         * 节点id
-         * <p> 示例值：manager_node_id
-         */
-        private String nodeId;
-
-        /**
-         * 节点id的类型
-         * <p> 示例值：NON_CUSTOM
-         *
-         * @param nodeIdType
-         * @return
-         */
-        public Builder nodeIdType(String nodeIdType) {
-            this.nodeIdType = nodeIdType;
-            return this;
-        }
-
-        /**
-         * 节点id的类型
-         * <p> 示例值：NON_CUSTOM
-         *
-         * @param nodeIdType {@link com.lark.oapi.service.approval.v4.enums.NodeAutoApprovalNodeIdTypeEnum}
-         * @return
-         */
-        public Builder nodeIdType(com.lark.oapi.service.approval.v4.enums.NodeAutoApprovalNodeIdTypeEnum nodeIdType) {
-            this.nodeIdType = nodeIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 节点id
-         * <p> 示例值：manager_node_id
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        public NodeAutoApproval build() {
-            return new NodeAutoApproval(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

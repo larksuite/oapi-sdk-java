@@ -13,116 +13,119 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class GetCustomFieldReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建,
+   * 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。
+   *
+   * <p>示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+   */
+  @Path
+  @SerializedName("custom_field_guid")
+  private String customFieldGuid;
+
+  public String getCustomFieldGuid() {
+    return this.customFieldGuid;
+  }
+
+  public void setCustomFieldGuid(String customFieldGuid) {
+    this.customFieldGuid = customFieldGuid;
+  }
+
+  // builder 开始
+  public GetCustomFieldReq() {}
+
+  public GetCustomFieldReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 自定义字段GUID
-     * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+     * 自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建,
+     * 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。
+     *
+     * <p>示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
      */
-    @Path
-    @SerializedName("custom_field_guid")
-    private String customFieldGuid;
+    this.customFieldGuid = builder.customFieldGuid;
+  }
 
-    // builder 开始
-    public GetCustomFieldReq() {
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetCustomFieldReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 自定义字段GUID
-         * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-         */
-        this.customFieldGuid = builder.customFieldGuid;
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.task.v2.enums.GetCustomFieldUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.GetCustomFieldUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        customFieldGuid; // 自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建, 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。
+
+    /**
+     * 自定义字段GUID。可以通过[创建自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/create)接口创建,
+     * 或者通过[列取自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/list)接口查询得到。
+     *
+     * <p>示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
+     *
+     * @param customFieldGuid
+     * @return
+     */
+    public Builder customFieldGuid(String customFieldGuid) {
+      this.customFieldGuid = customFieldGuid;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetCustomFieldReq build() {
+      return new GetCustomFieldReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getCustomFieldGuid() {
-        return this.customFieldGuid;
-    }
-
-    public void setCustomFieldGuid(String customFieldGuid) {
-        this.customFieldGuid = customFieldGuid;
-    }
-
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String customFieldGuid; // 自定义字段GUID
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.GetCustomFieldUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.GetCustomFieldUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 自定义字段GUID
-         * <p> 示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8
-         *
-         * @param customFieldGuid
-         * @return
-         */
-        public Builder customFieldGuid(String customFieldGuid) {
-            this.customFieldGuid = customFieldGuid;
-            return this;
-        }
-
-
-        public GetCustomFieldReq build() {
-            return new GetCustomFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

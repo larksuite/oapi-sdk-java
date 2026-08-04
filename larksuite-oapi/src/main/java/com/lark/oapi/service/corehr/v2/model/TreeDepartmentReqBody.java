@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TreeDepartmentReqBody {
+  /**
+   * 部门 ID，默认根部门
+   *
+   * <p>示例值：6893014062142064111
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 是否包含失效部门，默认false
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_inactive")
+  private Boolean needInactive;
+
+  /**
+   * 日期，格式yyyy-mm-dd，默认当前日期;- 传2024-01-01，即为返回2024-01-01的组织架构
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public Boolean getNeedInactive() {
+    return this.needInactive;
+  }
+
+  public void setNeedInactive(Boolean needInactive) {
+    this.needInactive = needInactive;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public TreeDepartmentReqBody() {}
+
+  public TreeDepartmentReqBody(Builder builder) {
     /**
      * 部门 ID，默认根部门
-     * <p> 示例值：6893014062142064111
+     *
+     * <p>示例值：6893014062142064111
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 是否包含失效部门，默认false
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_inactive")
-    private Boolean needInactive;
+    this.needInactive = builder.needInactive;
     /**
-     * 生效日期，格式yyyy-mm-dd，默认当前日期
-     * <p> 示例值：2024-01-01
+     * 日期，格式yyyy-mm-dd，默认当前日期;- 传2024-01-01，即为返回2024-01-01的组织架构
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date")
+    this.effectiveDate = builder.effectiveDate;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID，默认根部门
+     *
+     * <p>示例值：6893014062142064111
+     */
+    private String departmentId;
+
+    /**
+     * 是否包含失效部门，默认false
+     *
+     * <p>示例值：false
+     */
+    private Boolean needInactive;
+
+    /**
+     * 日期，格式yyyy-mm-dd，默认当前日期;- 传2024-01-01，即为返回2024-01-01的组织架构
+     *
+     * <p>示例值：2024-01-01
+     */
     private String effectiveDate;
 
-    // builder 开始
-    public TreeDepartmentReqBody() {
+    /**
+     * 部门 ID，默认根部门
+     *
+     * <p>示例值：6893014062142064111
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public TreeDepartmentReqBody(Builder builder) {
-        /**
-         * 部门 ID，默认根部门
-         * <p> 示例值：6893014062142064111
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 是否包含失效部门，默认false
-         * <p> 示例值：false
-         */
-        this.needInactive = builder.needInactive;
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
+    /**
+     * 是否包含失效部门，默认false
+     *
+     * <p>示例值：false
+     *
+     * @param needInactive
+     * @return
+     */
+    public Builder needInactive(Boolean needInactive) {
+      this.needInactive = needInactive;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日期，格式yyyy-mm-dd，默认当前日期;- 传2024-01-01，即为返回2024-01-01的组织架构
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    public TreeDepartmentReqBody build() {
+      return new TreeDepartmentReqBody(this);
     }
+  }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public Boolean getNeedInactive() {
-        return this.needInactive;
-    }
-
-    public void setNeedInactive(Boolean needInactive) {
-        this.needInactive = needInactive;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID，默认根部门
-         * <p> 示例值：6893014062142064111
-         */
-        private String departmentId;
-        /**
-         * 是否包含失效部门，默认false
-         * <p> 示例值：false
-         */
-        private Boolean needInactive;
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDate;
-
-        /**
-         * 部门 ID，默认根部门
-         * <p> 示例值：6893014062142064111
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 是否包含失效部门，默认false
-         * <p> 示例值：false
-         *
-         * @param needInactive
-         * @return
-         */
-        public Builder needInactive(Boolean needInactive) {
-            this.needInactive = needInactive;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，格式yyyy-mm-dd，默认当前日期
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        public TreeDepartmentReqBody build() {
-            return new TreeDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

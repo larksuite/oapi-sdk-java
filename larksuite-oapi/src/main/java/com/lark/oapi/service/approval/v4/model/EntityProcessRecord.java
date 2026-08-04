@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EntityProcessRecord {
+  /**
+   * 新增的条数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("insert_num")
+  private Integer insertNum;
+
+  /**
+   * 更新的条数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("update_num")
+  private Integer updateNum;
+
+  /**
+   * 删除的条数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("delete_num")
+  private Integer deleteNum;
+
+  public Integer getInsertNum() {
+    return this.insertNum;
+  }
+
+  public void setInsertNum(Integer insertNum) {
+    this.insertNum = insertNum;
+  }
+
+  public Integer getUpdateNum() {
+    return this.updateNum;
+  }
+
+  public void setUpdateNum(Integer updateNum) {
+    this.updateNum = updateNum;
+  }
+
+  public Integer getDeleteNum() {
+    return this.deleteNum;
+  }
+
+  public void setDeleteNum(Integer deleteNum) {
+    this.deleteNum = deleteNum;
+  }
+
+  // builder 开始
+  public EntityProcessRecord() {}
+
+  public EntityProcessRecord(Builder builder) {
     /**
      * 新增的条数
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("insert_num")
-    private Integer insertNum;
+    this.insertNum = builder.insertNum;
     /**
      * 更新的条数
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("update_num")
-    private Integer updateNum;
+    this.updateNum = builder.updateNum;
     /**
      * 删除的条数
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("delete_num")
+    this.deleteNum = builder.deleteNum;
+  }
+
+  public static class Builder {
+    /**
+     * 新增的条数
+     *
+     * <p>示例值：10
+     */
+    private Integer insertNum;
+
+    /**
+     * 更新的条数
+     *
+     * <p>示例值：10
+     */
+    private Integer updateNum;
+
+    /**
+     * 删除的条数
+     *
+     * <p>示例值：10
+     */
     private Integer deleteNum;
 
-    // builder 开始
-    public EntityProcessRecord() {
+    /**
+     * 新增的条数
+     *
+     * <p>示例值：10
+     *
+     * @param insertNum
+     * @return
+     */
+    public Builder insertNum(Integer insertNum) {
+      this.insertNum = insertNum;
+      return this;
     }
 
-    public EntityProcessRecord(Builder builder) {
-        /**
-         * 新增的条数
-         * <p> 示例值：10
-         */
-        this.insertNum = builder.insertNum;
-        /**
-         * 更新的条数
-         * <p> 示例值：10
-         */
-        this.updateNum = builder.updateNum;
-        /**
-         * 删除的条数
-         * <p> 示例值：10
-         */
-        this.deleteNum = builder.deleteNum;
+    /**
+     * 更新的条数
+     *
+     * <p>示例值：10
+     *
+     * @param updateNum
+     * @return
+     */
+    public Builder updateNum(Integer updateNum) {
+      this.updateNum = updateNum;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 删除的条数
+     *
+     * <p>示例值：10
+     *
+     * @param deleteNum
+     * @return
+     */
+    public Builder deleteNum(Integer deleteNum) {
+      this.deleteNum = deleteNum;
+      return this;
     }
 
-    public Integer getInsertNum() {
-        return this.insertNum;
+    public EntityProcessRecord build() {
+      return new EntityProcessRecord(this);
     }
+  }
 
-    public void setInsertNum(Integer insertNum) {
-        this.insertNum = insertNum;
-    }
-
-    public Integer getUpdateNum() {
-        return this.updateNum;
-    }
-
-    public void setUpdateNum(Integer updateNum) {
-        this.updateNum = updateNum;
-    }
-
-    public Integer getDeleteNum() {
-        return this.deleteNum;
-    }
-
-    public void setDeleteNum(Integer deleteNum) {
-        this.deleteNum = deleteNum;
-    }
-
-    public static class Builder {
-        /**
-         * 新增的条数
-         * <p> 示例值：10
-         */
-        private Integer insertNum;
-        /**
-         * 更新的条数
-         * <p> 示例值：10
-         */
-        private Integer updateNum;
-        /**
-         * 删除的条数
-         * <p> 示例值：10
-         */
-        private Integer deleteNum;
-
-        /**
-         * 新增的条数
-         * <p> 示例值：10
-         *
-         * @param insertNum
-         * @return
-         */
-        public Builder insertNum(Integer insertNum) {
-            this.insertNum = insertNum;
-            return this;
-        }
-
-
-        /**
-         * 更新的条数
-         * <p> 示例值：10
-         *
-         * @param updateNum
-         * @return
-         */
-        public Builder updateNum(Integer updateNum) {
-            this.updateNum = updateNum;
-            return this;
-        }
-
-
-        /**
-         * 删除的条数
-         * <p> 示例值：10
-         *
-         * @param deleteNum
-         * @return
-         */
-        public Builder deleteNum(Integer deleteNum) {
-            this.deleteNum = deleteNum;
-            return this;
-        }
-
-
-        public EntityProcessRecord build() {
-            return new EntityProcessRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,161 +13,162 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContentBlockElement {
+  /**
+   * 文档元素类型
+   *
+   * <p>示例值：paragraph
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文本段落
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paragraph")
+  private ContentParagraph paragraph;
+
+  /**
+   * 图片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("gallery")
+  private ContentGallery gallery;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ContentParagraph getParagraph() {
+    return this.paragraph;
+  }
+
+  public void setParagraph(ContentParagraph paragraph) {
+    this.paragraph = paragraph;
+  }
+
+  public ContentGallery getGallery() {
+    return this.gallery;
+  }
+
+  public void setGallery(ContentGallery gallery) {
+    this.gallery = gallery;
+  }
+
+  // builder 开始
+  public ContentBlockElement() {}
+
+  public ContentBlockElement(Builder builder) {
     /**
      * 文档元素类型
-     * <p> 示例值：paragraph
+     *
+     * <p>示例值：paragraph
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文本段落
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("paragraph")
-    private ContentParagraph paragraph;
+    this.paragraph = builder.paragraph;
     /**
      * 图片
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("gallery")
+    this.gallery = builder.gallery;
+  }
+
+  public static class Builder {
+    /**
+     * 文档元素类型
+     *
+     * <p>示例值：paragraph
+     */
+    private String type;
+
+    /**
+     * 文本段落
+     *
+     * <p>示例值：
+     */
+    private ContentParagraph paragraph;
+
+    /**
+     * 图片
+     *
+     * <p>示例值：
+     */
     private ContentGallery gallery;
 
-    // builder 开始
-    public ContentBlockElement() {
+    /**
+     * 文档元素类型
+     *
+     * <p>示例值：paragraph
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ContentBlockElement(Builder builder) {
-        /**
-         * 文档元素类型
-         * <p> 示例值：paragraph
-         */
-        this.type = builder.type;
-        /**
-         * 文本段落
-         * <p> 示例值：
-         */
-        this.paragraph = builder.paragraph;
-        /**
-         * 图片
-         * <p> 示例值：
-         */
-        this.gallery = builder.gallery;
+    /**
+     * 文档元素类型
+     *
+     * <p>示例值：paragraph
+     *
+     * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文本段落
+     *
+     * <p>示例值：
+     *
+     * @param paragraph
+     * @return
+     */
+    public Builder paragraph(ContentParagraph paragraph) {
+      this.paragraph = paragraph;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 图片
+     *
+     * <p>示例值：
+     *
+     * @param gallery
+     * @return
+     */
+    public Builder gallery(ContentGallery gallery) {
+      this.gallery = gallery;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public ContentBlockElement build() {
+      return new ContentBlockElement(this);
     }
+  }
 
-    public ContentParagraph getParagraph() {
-        return this.paragraph;
-    }
-
-    public void setParagraph(ContentParagraph paragraph) {
-        this.paragraph = paragraph;
-    }
-
-    public ContentGallery getGallery() {
-        return this.gallery;
-    }
-
-    public void setGallery(ContentGallery gallery) {
-        this.gallery = gallery;
-    }
-
-    public static class Builder {
-        /**
-         * 文档元素类型
-         * <p> 示例值：paragraph
-         */
-        private String type;
-        /**
-         * 文本段落
-         * <p> 示例值：
-         */
-        private ContentParagraph paragraph;
-        /**
-         * 图片
-         * <p> 示例值：
-         */
-        private ContentGallery gallery;
-
-        /**
-         * 文档元素类型
-         * <p> 示例值：paragraph
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 文档元素类型
-         * <p> 示例值：paragraph
-         *
-         * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.okr.v1.enums.ContentBlockElementTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本段落
-         * <p> 示例值：
-         *
-         * @param paragraph
-         * @return
-         */
-        public Builder paragraph(ContentParagraph paragraph) {
-            this.paragraph = paragraph;
-            return this;
-        }
-
-
-        /**
-         * 图片
-         * <p> 示例值：
-         *
-         * @param gallery
-         * @return
-         */
-        public Builder gallery(ContentGallery gallery) {
-            this.gallery = gallery;
-            return this;
-        }
-
-
-        public ContentBlockElement build() {
-            return new ContentBlockElement(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

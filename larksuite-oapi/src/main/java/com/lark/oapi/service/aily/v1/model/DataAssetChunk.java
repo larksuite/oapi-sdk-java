@@ -13,361 +13,392 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class DataAssetChunk {
+  /**
+   * 切片内容
+   *
+   * <p>示例值：这是一段数据切片内容
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 切片所属的数据知识ID
+   *
+   * <p>示例值：asset_id_casdfh1
+   */
+  @SerializedName("data_asset_id")
+  private String dataAssetId;
+
+  /**
+   * 相关性分数
+   *
+   * <p>示例值：0.74
+   */
+  @SerializedName("score")
+  private Double score;
+
+  /**
+   * 切片所归属的数据知识名称
+   *
+   * <p>示例值：{"zh_cn":"电影数据"}
+   */
+  @SerializedName("data_asset_label")
+  private Map<String, String> dataAssetLabel;
+
+  /**
+   * 归属数据知识的源链接。如云文档链接、文件链接等
+   *
+   * <p>示例值：https://doclink.com/1
+   */
+  @SerializedName("data_asset_source_url")
+  private String dataAssetSourceUrl;
+
+  /**
+   * 归属数据知识的数据资源类型
+   *
+   * <p>示例值：excel
+   */
+  @SerializedName("data_asset_data_source_type")
+  private String dataAssetDataSourceType;
+
+  /**
+   * 归属数据知识的数据连接类型
+   *
+   * <p>示例值：direct
+   */
+  @SerializedName("data_asset_connect_type")
+  private String dataAssetConnectType;
+
+  /**
+   * 切片所归属数据源信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source_info")
+  private DataAssetChunkSourceInfo sourceInfo;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getDataAssetId() {
+    return this.dataAssetId;
+  }
+
+  public void setDataAssetId(String dataAssetId) {
+    this.dataAssetId = dataAssetId;
+  }
+
+  public Double getScore() {
+    return this.score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public Map<String, String> getDataAssetLabel() {
+    return this.dataAssetLabel;
+  }
+
+  public void setDataAssetLabel(Map<String, String> dataAssetLabel) {
+    this.dataAssetLabel = dataAssetLabel;
+  }
+
+  public String getDataAssetSourceUrl() {
+    return this.dataAssetSourceUrl;
+  }
+
+  public void setDataAssetSourceUrl(String dataAssetSourceUrl) {
+    this.dataAssetSourceUrl = dataAssetSourceUrl;
+  }
+
+  public String getDataAssetDataSourceType() {
+    return this.dataAssetDataSourceType;
+  }
+
+  public void setDataAssetDataSourceType(String dataAssetDataSourceType) {
+    this.dataAssetDataSourceType = dataAssetDataSourceType;
+  }
+
+  public String getDataAssetConnectType() {
+    return this.dataAssetConnectType;
+  }
+
+  public void setDataAssetConnectType(String dataAssetConnectType) {
+    this.dataAssetConnectType = dataAssetConnectType;
+  }
+
+  public DataAssetChunkSourceInfo getSourceInfo() {
+    return this.sourceInfo;
+  }
+
+  public void setSourceInfo(DataAssetChunkSourceInfo sourceInfo) {
+    this.sourceInfo = sourceInfo;
+  }
+
+  // builder 开始
+  public DataAssetChunk() {}
+
+  public DataAssetChunk(Builder builder) {
     /**
      * 切片内容
-     * <p> 示例值：这是一段数据切片内容
+     *
+     * <p>示例值：这是一段数据切片内容
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 切片所属的数据知识ID
-     * <p> 示例值：asset_id_casdfh1
+     *
+     * <p>示例值：asset_id_casdfh1
      */
-    @SerializedName("data_asset_id")
-    private String dataAssetId;
+    this.dataAssetId = builder.dataAssetId;
     /**
      * 相关性分数
-     * <p> 示例值：0.74
+     *
+     * <p>示例值：0.74
      */
-    @SerializedName("score")
-    private Double score;
+    this.score = builder.score;
     /**
      * 切片所归属的数据知识名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{"zh_cn":"电影数据"}
      */
-    @SerializedName("data_asset_label")
-    private Map<String, String> dataAssetLabel;
+    this.dataAssetLabel = builder.dataAssetLabel;
     /**
      * 归属数据知识的源链接。如云文档链接、文件链接等
-     * <p> 示例值：https://doclink.com/1
+     *
+     * <p>示例值：https://doclink.com/1
      */
-    @SerializedName("data_asset_source_url")
-    private String dataAssetSourceUrl;
+    this.dataAssetSourceUrl = builder.dataAssetSourceUrl;
     /**
      * 归属数据知识的数据资源类型
-     * <p> 示例值：excel
+     *
+     * <p>示例值：excel
      */
-    @SerializedName("data_asset_data_source_type")
-    private String dataAssetDataSourceType;
+    this.dataAssetDataSourceType = builder.dataAssetDataSourceType;
     /**
      * 归属数据知识的数据连接类型
-     * <p> 示例值：direct
+     *
+     * <p>示例值：direct
      */
-    @SerializedName("data_asset_connect_type")
-    private String dataAssetConnectType;
+    this.dataAssetConnectType = builder.dataAssetConnectType;
     /**
      * 切片所归属数据源信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source_info")
+    this.sourceInfo = builder.sourceInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 切片内容
+     *
+     * <p>示例值：这是一段数据切片内容
+     */
+    private String content;
+
+    /**
+     * 切片所属的数据知识ID
+     *
+     * <p>示例值：asset_id_casdfh1
+     */
+    private String dataAssetId;
+
+    /**
+     * 相关性分数
+     *
+     * <p>示例值：0.74
+     */
+    private Double score;
+
+    /**
+     * 切片所归属的数据知识名称
+     *
+     * <p>示例值：{"zh_cn":"电影数据"}
+     */
+    private Map<String, String> dataAssetLabel;
+
+    /**
+     * 归属数据知识的源链接。如云文档链接、文件链接等
+     *
+     * <p>示例值：https://doclink.com/1
+     */
+    private String dataAssetSourceUrl;
+
+    /**
+     * 归属数据知识的数据资源类型
+     *
+     * <p>示例值：excel
+     */
+    private String dataAssetDataSourceType;
+
+    /**
+     * 归属数据知识的数据连接类型
+     *
+     * <p>示例值：direct
+     */
+    private String dataAssetConnectType;
+
+    /**
+     * 切片所归属数据源信息
+     *
+     * <p>示例值：
+     */
     private DataAssetChunkSourceInfo sourceInfo;
 
-    // builder 开始
-    public DataAssetChunk() {
+    /**
+     * 切片内容
+     *
+     * <p>示例值：这是一段数据切片内容
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public DataAssetChunk(Builder builder) {
-        /**
-         * 切片内容
-         * <p> 示例值：这是一段数据切片内容
-         */
-        this.content = builder.content;
-        /**
-         * 切片所属的数据知识ID
-         * <p> 示例值：asset_id_casdfh1
-         */
-        this.dataAssetId = builder.dataAssetId;
-        /**
-         * 相关性分数
-         * <p> 示例值：0.74
-         */
-        this.score = builder.score;
-        /**
-         * 切片所归属的数据知识名称
-         * <p> 示例值：
-         */
-        this.dataAssetLabel = builder.dataAssetLabel;
-        /**
-         * 归属数据知识的源链接。如云文档链接、文件链接等
-         * <p> 示例值：https://doclink.com/1
-         */
-        this.dataAssetSourceUrl = builder.dataAssetSourceUrl;
-        /**
-         * 归属数据知识的数据资源类型
-         * <p> 示例值：excel
-         */
-        this.dataAssetDataSourceType = builder.dataAssetDataSourceType;
-        /**
-         * 归属数据知识的数据连接类型
-         * <p> 示例值：direct
-         */
-        this.dataAssetConnectType = builder.dataAssetConnectType;
-        /**
-         * 切片所归属数据源信息
-         * <p> 示例值：
-         */
-        this.sourceInfo = builder.sourceInfo;
+    /**
+     * 切片所属的数据知识ID
+     *
+     * <p>示例值：asset_id_casdfh1
+     *
+     * @param dataAssetId
+     * @return
+     */
+    public Builder dataAssetId(String dataAssetId) {
+      this.dataAssetId = dataAssetId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 相关性分数
+     *
+     * <p>示例值：0.74
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Double score) {
+      this.score = score;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 切片所归属的数据知识名称
+     *
+     * <p>示例值：{"zh_cn":"电影数据"}
+     *
+     * @param dataAssetLabel
+     * @return
+     */
+    public Builder dataAssetLabel(Map<String, String> dataAssetLabel) {
+      this.dataAssetLabel = dataAssetLabel;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 归属数据知识的源链接。如云文档链接、文件链接等
+     *
+     * <p>示例值：https://doclink.com/1
+     *
+     * @param dataAssetSourceUrl
+     * @return
+     */
+    public Builder dataAssetSourceUrl(String dataAssetSourceUrl) {
+      this.dataAssetSourceUrl = dataAssetSourceUrl;
+      return this;
     }
 
-    public String getDataAssetId() {
-        return this.dataAssetId;
+    /**
+     * 归属数据知识的数据资源类型
+     *
+     * <p>示例值：excel
+     *
+     * @param dataAssetDataSourceType
+     * @return
+     */
+    public Builder dataAssetDataSourceType(String dataAssetDataSourceType) {
+      this.dataAssetDataSourceType = dataAssetDataSourceType;
+      return this;
     }
 
-    public void setDataAssetId(String dataAssetId) {
-        this.dataAssetId = dataAssetId;
+    /**
+     * 归属数据知识的数据资源类型
+     *
+     * <p>示例值：excel
+     *
+     * @param dataAssetDataSourceType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum}
+     * @return
+     */
+    public Builder dataAssetDataSourceType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum
+            dataAssetDataSourceType) {
+      this.dataAssetDataSourceType = dataAssetDataSourceType.getValue();
+      return this;
     }
 
-    public Double getScore() {
-        return this.score;
+    /**
+     * 归属数据知识的数据连接类型
+     *
+     * <p>示例值：direct
+     *
+     * @param dataAssetConnectType
+     * @return
+     */
+    public Builder dataAssetConnectType(String dataAssetConnectType) {
+      this.dataAssetConnectType = dataAssetConnectType;
+      return this;
     }
 
-    public void setScore(Double score) {
-        this.score = score;
+    /**
+     * 归属数据知识的数据连接类型
+     *
+     * <p>示例值：direct
+     *
+     * @param dataAssetConnectType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum}
+     * @return
+     */
+    public Builder dataAssetConnectType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum
+            dataAssetConnectType) {
+      this.dataAssetConnectType = dataAssetConnectType.getValue();
+      return this;
     }
 
-    public Map<String, String> getDataAssetLabel() {
-        return this.dataAssetLabel;
+    /**
+     * 切片所归属数据源信息
+     *
+     * <p>示例值：
+     *
+     * @param sourceInfo
+     * @return
+     */
+    public Builder sourceInfo(DataAssetChunkSourceInfo sourceInfo) {
+      this.sourceInfo = sourceInfo;
+      return this;
     }
 
-    public void setDataAssetLabel(Map<String, String> dataAssetLabel) {
-        this.dataAssetLabel = dataAssetLabel;
+    public DataAssetChunk build() {
+      return new DataAssetChunk(this);
     }
+  }
 
-    public String getDataAssetSourceUrl() {
-        return this.dataAssetSourceUrl;
-    }
-
-    public void setDataAssetSourceUrl(String dataAssetSourceUrl) {
-        this.dataAssetSourceUrl = dataAssetSourceUrl;
-    }
-
-    public String getDataAssetDataSourceType() {
-        return this.dataAssetDataSourceType;
-    }
-
-    public void setDataAssetDataSourceType(String dataAssetDataSourceType) {
-        this.dataAssetDataSourceType = dataAssetDataSourceType;
-    }
-
-    public String getDataAssetConnectType() {
-        return this.dataAssetConnectType;
-    }
-
-    public void setDataAssetConnectType(String dataAssetConnectType) {
-        this.dataAssetConnectType = dataAssetConnectType;
-    }
-
-    public DataAssetChunkSourceInfo getSourceInfo() {
-        return this.sourceInfo;
-    }
-
-    public void setSourceInfo(DataAssetChunkSourceInfo sourceInfo) {
-        this.sourceInfo = sourceInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 切片内容
-         * <p> 示例值：这是一段数据切片内容
-         */
-        private String content;
-        /**
-         * 切片所属的数据知识ID
-         * <p> 示例值：asset_id_casdfh1
-         */
-        private String dataAssetId;
-        /**
-         * 相关性分数
-         * <p> 示例值：0.74
-         */
-        private Double score;
-        /**
-         * 切片所归属的数据知识名称
-         * <p> 示例值：
-         */
-        private Map<String, String> dataAssetLabel;
-        /**
-         * 归属数据知识的源链接。如云文档链接、文件链接等
-         * <p> 示例值：https://doclink.com/1
-         */
-        private String dataAssetSourceUrl;
-        /**
-         * 归属数据知识的数据资源类型
-         * <p> 示例值：excel
-         */
-        private String dataAssetDataSourceType;
-        /**
-         * 归属数据知识的数据连接类型
-         * <p> 示例值：direct
-         */
-        private String dataAssetConnectType;
-        /**
-         * 切片所归属数据源信息
-         * <p> 示例值：
-         */
-        private DataAssetChunkSourceInfo sourceInfo;
-
-        /**
-         * 切片内容
-         * <p> 示例值：这是一段数据切片内容
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 切片所属的数据知识ID
-         * <p> 示例值：asset_id_casdfh1
-         *
-         * @param dataAssetId
-         * @return
-         */
-        public Builder dataAssetId(String dataAssetId) {
-            this.dataAssetId = dataAssetId;
-            return this;
-        }
-
-
-        /**
-         * 相关性分数
-         * <p> 示例值：0.74
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Double score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 切片所归属的数据知识名称
-         * <p> 示例值：
-         *
-         * @param dataAssetLabel
-         * @return
-         */
-        public Builder dataAssetLabel(Map<String, String> dataAssetLabel) {
-            this.dataAssetLabel = dataAssetLabel;
-            return this;
-        }
-
-
-        /**
-         * 归属数据知识的源链接。如云文档链接、文件链接等
-         * <p> 示例值：https://doclink.com/1
-         *
-         * @param dataAssetSourceUrl
-         * @return
-         */
-        public Builder dataAssetSourceUrl(String dataAssetSourceUrl) {
-            this.dataAssetSourceUrl = dataAssetSourceUrl;
-            return this;
-        }
-
-
-        /**
-         * 归属数据知识的数据资源类型
-         * <p> 示例值：excel
-         *
-         * @param dataAssetDataSourceType
-         * @return
-         */
-        public Builder dataAssetDataSourceType(String dataAssetDataSourceType) {
-            this.dataAssetDataSourceType = dataAssetDataSourceType;
-            return this;
-        }
-
-        /**
-         * 归属数据知识的数据资源类型
-         * <p> 示例值：excel
-         *
-         * @param dataAssetDataSourceType {@link com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum}
-         * @return
-         */
-        public Builder dataAssetDataSourceType(com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetDataSourceTypeEnum dataAssetDataSourceType) {
-            this.dataAssetDataSourceType = dataAssetDataSourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 归属数据知识的数据连接类型
-         * <p> 示例值：direct
-         *
-         * @param dataAssetConnectType
-         * @return
-         */
-        public Builder dataAssetConnectType(String dataAssetConnectType) {
-            this.dataAssetConnectType = dataAssetConnectType;
-            return this;
-        }
-
-        /**
-         * 归属数据知识的数据连接类型
-         * <p> 示例值：direct
-         *
-         * @param dataAssetConnectType {@link com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum}
-         * @return
-         */
-        public Builder dataAssetConnectType(com.lark.oapi.service.aily.v1.enums.DataAssetChunkDataAssetConnectTypeEnum dataAssetConnectType) {
-            this.dataAssetConnectType = dataAssetConnectType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 切片所归属数据源信息
-         * <p> 示例值：
-         *
-         * @param sourceInfo
-         * @return
-         */
-        public Builder sourceInfo(DataAssetChunkSourceInfo sourceInfo) {
-            this.sourceInfo = sourceInfo;
-            return this;
-        }
-
-
-        public DataAssetChunk build() {
-            return new DataAssetChunk(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

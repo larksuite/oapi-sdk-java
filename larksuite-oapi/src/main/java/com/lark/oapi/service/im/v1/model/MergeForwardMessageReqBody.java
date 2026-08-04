@@ -13,112 +13,131 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MergeForwardMessageReqBody {
+  /**
+   * 消息接收者 ID，ID 类型与 `receive_id_type` 的值一致。
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("receive_id")
+  private String receiveId;
+
+  /**
+   * 待转发的消息 ID 列表，列表内的消息必须来自同一个会话。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_id_list")
+  private String[] messageIdList;
+
+  public String getReceiveId() {
+    return this.receiveId;
+  }
+
+  public void setReceiveId(String receiveId) {
+    this.receiveId = receiveId;
+  }
+
+  public String[] getMessageIdList() {
+    return this.messageIdList;
+  }
+
+  public void setMessageIdList(String[] messageIdList) {
+    this.messageIdList = messageIdList;
+  }
+
+  // builder 开始
+  public MergeForwardMessageReqBody() {}
+
+  public MergeForwardMessageReqBody(Builder builder) {
     /**
-     * 依据receive_id_type的值，填写对应的转发目标的ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     * 消息接收者 ID，ID 类型与 `receive_id_type` 的值一致。
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("receive_id")
+    this.receiveId = builder.receiveId;
+    /**
+     * 待转发的消息 ID 列表，列表内的消息必须来自同一个会话。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：
+     */
+    this.messageIdList = builder.messageIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 消息接收者 ID，ID 类型与 `receive_id_type` 的值一致。
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     private String receiveId;
+
     /**
-     * 要转发的消息ID列表
-     * <p> 示例值：
+     * 待转发的消息 ID 列表，列表内的消息必须来自同一个会话。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_id_list")
     private String[] messageIdList;
 
-    // builder 开始
-    public MergeForwardMessageReqBody() {
+    /**
+     * 消息接收者 ID，ID 类型与 `receive_id_type` 的值一致。
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param receiveId
+     * @return
+     */
+    public Builder receiveId(String receiveId) {
+      this.receiveId = receiveId;
+      return this;
     }
 
-    public MergeForwardMessageReqBody(Builder builder) {
-        /**
-         * 依据receive_id_type的值，填写对应的转发目标的ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.receiveId = builder.receiveId;
-        /**
-         * 要转发的消息ID列表
-         * <p> 示例值：
-         */
-        this.messageIdList = builder.messageIdList;
+    /**
+     * 待转发的消息 ID 列表，列表内的消息必须来自同一个会话。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：
+     *
+     * @param messageIdList
+     * @return
+     */
+    public Builder messageIdList(String[] messageIdList) {
+      this.messageIdList = messageIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MergeForwardMessageReqBody build() {
+      return new MergeForwardMessageReqBody(this);
     }
+  }
 
-    public String getReceiveId() {
-        return this.receiveId;
-    }
-
-    public void setReceiveId(String receiveId) {
-        this.receiveId = receiveId;
-    }
-
-    public String[] getMessageIdList() {
-        return this.messageIdList;
-    }
-
-    public void setMessageIdList(String[] messageIdList) {
-        this.messageIdList = messageIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 依据receive_id_type的值，填写对应的转发目标的ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String receiveId;
-        /**
-         * 要转发的消息ID列表
-         * <p> 示例值：
-         */
-        private String[] messageIdList;
-
-        /**
-         * 依据receive_id_type的值，填写对应的转发目标的ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param receiveId
-         * @return
-         */
-        public Builder receiveId(String receiveId) {
-            this.receiveId = receiveId;
-            return this;
-        }
-
-
-        /**
-         * 要转发的消息ID列表
-         * <p> 示例值：
-         *
-         * @param messageIdList
-         * @return
-         */
-        public Builder messageIdList(String[] messageIdList) {
-            this.messageIdList = messageIdList;
-            return this;
-        }
-
-
-        public MergeForwardMessageReqBody build() {
-            return new MergeForwardMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

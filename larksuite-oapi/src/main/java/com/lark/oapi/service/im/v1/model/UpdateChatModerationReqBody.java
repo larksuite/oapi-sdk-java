@@ -13,149 +13,185 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateChatModerationReqBody {
+  /**
+   * 群发言模式;;**可选值有**：;- all_members：所有群成员可发言;- only_owner：仅群主或管理员可发言;-
+   * moderator_list：指定群成员可发言，取该值时需要选择设置 `moderator_added_list` 和 `moderator_removed_list`
+   *
+   * <p>示例值：moderator_list
+   */
+  @SerializedName("moderation_setting")
+  private String moderationSetting;
+
+  /**
+   * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式添加可发言的用户。;;**注意**：;;- ID 类型与查询参数
+   * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+   * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+   * 不重复。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("moderator_added_list")
+  private String[] moderatorAddedList;
+
+  /**
+   * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式移除可发言的用户。;;**注意**：;;- ID 类型与查询参数
+   * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+   * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+   * 不重复。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("moderator_removed_list")
+  private String[] moderatorRemovedList;
+
+  public String getModerationSetting() {
+    return this.moderationSetting;
+  }
+
+  public void setModerationSetting(String moderationSetting) {
+    this.moderationSetting = moderationSetting;
+  }
+
+  public String[] getModeratorAddedList() {
+    return this.moderatorAddedList;
+  }
+
+  public void setModeratorAddedList(String[] moderatorAddedList) {
+    this.moderatorAddedList = moderatorAddedList;
+  }
+
+  public String[] getModeratorRemovedList() {
+    return this.moderatorRemovedList;
+  }
+
+  public void setModeratorRemovedList(String[] moderatorRemovedList) {
+    this.moderatorRemovedList = moderatorRemovedList;
+  }
+
+  // builder 开始
+  public UpdateChatModerationReqBody() {}
+
+  public UpdateChatModerationReqBody(Builder builder) {
     /**
-     * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
-     * <p> 示例值：moderator_list
+     * 群发言模式;;**可选值有**：;- all_members：所有群成员可发言;- only_owner：仅群主或管理员可发言;-
+     * moderator_list：指定群成员可发言，取该值时需要选择设置 `moderator_added_list` 和 `moderator_removed_list`
+     *
+     * <p>示例值：moderator_list
      */
-    @SerializedName("moderation_setting")
+    this.moderationSetting = builder.moderationSetting;
+    /**
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式添加可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
+     */
+    this.moderatorAddedList = builder.moderatorAddedList;
+    /**
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式移除可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
+     */
+    this.moderatorRemovedList = builder.moderatorRemovedList;
+  }
+
+  public static class Builder {
+    /**
+     * 群发言模式;;**可选值有**：;- all_members：所有群成员可发言;- only_owner：仅群主或管理员可发言;-
+     * moderator_list：指定群成员可发言，取该值时需要选择设置 `moderator_added_list` 和 `moderator_removed_list`
+     *
+     * <p>示例值：moderator_list
+     */
     private String moderationSetting;
+
     /**
-     * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3c6g"]
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式添加可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
      */
-    @SerializedName("moderator_added_list")
     private String[] moderatorAddedList;
+
     /**
-     * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3ih6"]
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式移除可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
      */
-    @SerializedName("moderator_removed_list")
     private String[] moderatorRemovedList;
 
-    // builder 开始
-    public UpdateChatModerationReqBody() {
+    /**
+     * 群发言模式;;**可选值有**：;- all_members：所有群成员可发言;- only_owner：仅群主或管理员可发言;-
+     * moderator_list：指定群成员可发言，取该值时需要选择设置 `moderator_added_list` 和 `moderator_removed_list`
+     *
+     * <p>示例值：moderator_list
+     *
+     * @param moderationSetting
+     * @return
+     */
+    public Builder moderationSetting(String moderationSetting) {
+      this.moderationSetting = moderationSetting;
+      return this;
     }
 
-    public UpdateChatModerationReqBody(Builder builder) {
-        /**
-         * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
-         * <p> 示例值：moderator_list
-         */
-        this.moderationSetting = builder.moderationSetting;
-        /**
-         * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3c6g"]
-         */
-        this.moderatorAddedList = builder.moderatorAddedList;
-        /**
-         * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3ih6"]
-         */
-        this.moderatorRemovedList = builder.moderatorRemovedList;
+    /**
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式添加可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
+     *
+     * @param moderatorAddedList
+     * @return
+     */
+    public Builder moderatorAddedList(String[] moderatorAddedList) {
+      this.moderatorAddedList = moderatorAddedList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 当 `moderation_setting ` 取值为 `moderator_list` 时，以 ID 列表形式移除可发言的用户。;;**注意**：;;- ID 类型与查询参数
+     * user_id_type 取值一致，推荐使用 OpenID，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;-
+     * 列表内的用户如果不在群组内，则会被自动过滤掉。;- 请求时，请确保 `moderator_added_list` 和 `moderator_removed_list` 两个参数内的 ID
+     * 不重复。
+     *
+     * <p>示例值：
+     *
+     * @param moderatorRemovedList
+     * @return
+     */
+    public Builder moderatorRemovedList(String[] moderatorRemovedList) {
+      this.moderatorRemovedList = moderatorRemovedList;
+      return this;
     }
 
-    public String getModerationSetting() {
-        return this.moderationSetting;
+    public UpdateChatModerationReqBody build() {
+      return new UpdateChatModerationReqBody(this);
     }
+  }
 
-    public void setModerationSetting(String moderationSetting) {
-        this.moderationSetting = moderationSetting;
-    }
-
-    public String[] getModeratorAddedList() {
-        return this.moderatorAddedList;
-    }
-
-    public void setModeratorAddedList(String[] moderatorAddedList) {
-        this.moderatorAddedList = moderatorAddedList;
-    }
-
-    public String[] getModeratorRemovedList() {
-        return this.moderatorRemovedList;
-    }
-
-    public void setModeratorRemovedList(String[] moderatorRemovedList) {
-        this.moderatorRemovedList = moderatorRemovedList;
-    }
-
-    public static class Builder {
-        /**
-         * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
-         * <p> 示例值：moderator_list
-         */
-        private String moderationSetting;
-        /**
-         * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3c6g"]
-         */
-        private String[] moderatorAddedList;
-        /**
-         * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3ih6"]
-         */
-        private String[] moderatorRemovedList;
-
-        /**
-         * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
-         * <p> 示例值：moderator_list
-         *
-         * @param moderationSetting
-         * @return
-         */
-        public Builder moderationSetting(String moderationSetting) {
-            this.moderationSetting = moderationSetting;
-            return this;
-        }
-
-
-        /**
-         * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3c6g"]
-         *
-         * @param moderatorAddedList
-         * @return
-         */
-        public Builder moderatorAddedList(String[] moderatorAddedList) {
-            this.moderatorAddedList = moderatorAddedList;
-            return this;
-        }
-
-
-        /**
-         * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-         * <p> 示例值：["4d7a3ih6"]
-         *
-         * @param moderatorRemovedList
-         * @return
-         */
-        public Builder moderatorRemovedList(String[] moderatorRemovedList) {
-            this.moderatorRemovedList = moderatorRemovedList;
-            return this;
-        }
-
-
-        public UpdateChatModerationReqBody build() {
-            return new UpdateChatModerationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -14,20 +14,23 @@
 package com.lark.oapi.service.corehr.v2.enums;
 
 /**
- * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
+ * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+ * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+ * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+ * 需同时指定「试用期结果」为「延期」。
  */
 public enum EditProbationEditProbationExtendedProbationPeriodUnitEnum {
-    DAY("day"), // 天
-    WEEK("week"), // 周
-    MONTH("month"), // 月
-    ;
-    private String value;
+  DAY("day"), // 天
+  WEEK("week"), // 周
+  MONTH("month"), // 月
+  ;
+  private String value;
 
-    EditProbationEditProbationExtendedProbationPeriodUnitEnum(String value) {
-        this.value = value;
-    }
+  EditProbationEditProbationExtendedProbationPeriodUnitEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

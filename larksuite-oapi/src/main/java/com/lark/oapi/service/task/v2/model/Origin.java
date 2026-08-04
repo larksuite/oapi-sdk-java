@@ -13,112 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Origin {
+  /**
+   * 自定义完成的弹出提示
+   *
+   * <p>示例值：
+   */
+  @SerializedName("platform_i18n_name")
+  private I18nText platformI18nName;
+
+  /**
+   * 任务关联的来源平台详情页链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("href")
+  private Href href;
+
+  /**
+   * 任务来源关联资源。群聊消息创建任务时，这里返回消息资源上下文。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("refer_resources")
+  private OriginReferResource[] referResources;
+
+  public I18nText getPlatformI18nName() {
+    return this.platformI18nName;
+  }
+
+  public void setPlatformI18nName(I18nText platformI18nName) {
+    this.platformI18nName = platformI18nName;
+  }
+
+  public Href getHref() {
+    return this.href;
+  }
+
+  public void setHref(Href href) {
+    this.href = href;
+  }
+
+  public OriginReferResource[] getReferResources() {
+    return this.referResources;
+  }
+
+  public void setReferResources(OriginReferResource[] referResources) {
+    this.referResources = referResources;
+  }
+
+  // builder 开始
+  public Origin() {}
+
+  public Origin(Builder builder) {
     /**
-     * 任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。
-     * <p> 示例值：
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
      */
-    @SerializedName("platform_i18n_name")
-    private I18nText platformI18nName;
+    this.platformI18nName = builder.platformI18nName;
     /**
      * 任务关联的来源平台详情页链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("href")
+    this.href = builder.href;
+    /**
+     * 任务来源关联资源。群聊消息创建任务时，这里返回消息资源上下文。
+     *
+     * <p>示例值：
+     */
+    this.referResources = builder.referResources;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
+     */
+    private I18nText platformI18nName;
+
+    /**
+     * 任务关联的来源平台详情页链接
+     *
+     * <p>示例值：
+     */
     private Href href;
 
-    // builder 开始
-    public Origin() {
+    /**
+     * 任务来源关联资源。群聊消息创建任务时，这里返回消息资源上下文。
+     *
+     * <p>示例值：
+     */
+    private OriginReferResource[] referResources;
+
+    /**
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
+     *
+     * @param platformI18nName
+     * @return
+     */
+    public Builder platformI18nName(I18nText platformI18nName) {
+      this.platformI18nName = platformI18nName;
+      return this;
     }
 
-    public Origin(Builder builder) {
-        /**
-         * 任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。
-         * <p> 示例值：
-         */
-        this.platformI18nName = builder.platformI18nName;
-        /**
-         * 任务关联的来源平台详情页链接
-         * <p> 示例值：
-         */
-        this.href = builder.href;
+    /**
+     * 任务关联的来源平台详情页链接
+     *
+     * <p>示例值：
+     *
+     * @param href
+     * @return
+     */
+    public Builder href(Href href) {
+      this.href = href;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务来源关联资源。群聊消息创建任务时，这里返回消息资源上下文。
+     *
+     * <p>示例值：
+     *
+     * @param referResources
+     * @return
+     */
+    public Builder referResources(OriginReferResource[] referResources) {
+      this.referResources = referResources;
+      return this;
     }
 
-    public I18nText getPlatformI18nName() {
-        return this.platformI18nName;
+    public Origin build() {
+      return new Origin(this);
     }
+  }
 
-    public void setPlatformI18nName(I18nText platformI18nName) {
-        this.platformI18nName = platformI18nName;
-    }
-
-    public Href getHref() {
-        return this.href;
-    }
-
-    public void setHref(Href href) {
-        this.href = href;
-    }
-
-    public static class Builder {
-        /**
-         * 任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。
-         * <p> 示例值：
-         */
-        private I18nText platformI18nName;
-        /**
-         * 任务关联的来源平台详情页链接
-         * <p> 示例值：
-         */
-        private Href href;
-
-        /**
-         * 任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。
-         * <p> 示例值：
-         *
-         * @param platformI18nName
-         * @return
-         */
-        public Builder platformI18nName(I18nText platformI18nName) {
-            this.platformI18nName = platformI18nName;
-            return this;
-        }
-
-
-        /**
-         * 任务关联的来源平台详情页链接
-         * <p> 示例值：
-         *
-         * @param href
-         * @return
-         */
-        public Builder href(Href href) {
-            this.href = href;
-            return this;
-        }
-
-
-        public Origin build() {
-            return new Origin(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

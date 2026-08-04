@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 托管预缓存策略
- */
+/** 托管预缓存策略。 */
 public enum TrusteeshipInstanceCacheConfigFormPolicyEnum {
-    DISABLE("DISABLE"), // 不启用，默认
-    IMMUTABLE("IMMUTABLE"), // 表单不会随流程进行改变
-    BYNODE("BY_NODE"), // 跟随流程节点变更更新缓存
-    BYUSER("BY_USER"), // 对于每个待办任务存储一份
-    ;
-    private String value;
+  DISABLE("DISABLE"), // 不启用，默认
+  IMMUTABLE("IMMUTABLE"), // 表单不会随流程进行改变
+  BYNODE("BY_NODE"), // 跟随流程节点变更更新缓存
+  BYUSER("BY_USER"), // 对于每个待办任务存储一份
+  ;
+  private String value;
 
-    TrusteeshipInstanceCacheConfigFormPolicyEnum(String value) {
-        this.value = value;
-    }
+  TrusteeshipInstanceCacheConfigFormPolicyEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

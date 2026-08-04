@@ -13,104 +13,102 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PreHireOnboardingTaskChangedV2Data {
-    /**
-     * 飞书人事租户ID
-     * <p> 示例值：6685321562717324807
-     */
-    @SerializedName("tenant_id")
-    private String tenantId;
-    /**
-     * 待入职ID
-     * <p> 示例值：7225204420787144236
-     */
-    @SerializedName("pre_hire_id")
-    private String preHireId;
-    /**
-     * 入职任务状态变更
-     * <p> 示例值：
-     */
-    @SerializedName("onboarding_task_changes")
-    private OnboardingTaskChange[] onboardingTaskChanges;
-    /**
-     * 入职流程状态变更
-     * <p> 示例值：
-     */
-    @SerializedName("onboarding_flow_change")
-    private OnboardingFlowChange onboardingFlowChange;
-    /**
-     * 待入职流程ID
-     * <p> 示例值：65c245b7859c6e77d2290e00
-     */
-    @SerializedName("onboarding_flow_id")
-    private String onboardingFlowId;
-    /**
-     * 流程信息
-     * <p> 示例值：
-     */
-    @SerializedName("flow_info")
-    private OnboardingFlow flowInfo;
+  /**
+   * 飞书人事租户ID
+   *
+   * <p>示例值：6685321562717324807
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
 
-    public String getTenantId() {
-        return this.tenantId;
-    }
+  /**
+   * 待入职ID
+   *
+   * <p>示例值：7225204420787144236
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
+  /**
+   * 入职任务状态变更
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_task_changes")
+  private OnboardingTaskChange[] onboardingTaskChanges;
 
-    public String getPreHireId() {
-        return this.preHireId;
-    }
+  /**
+   * 入职流程状态变更;- 当流程状态无变更，仅有任务状态变更时，此字段的会返回空
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_flow_change")
+  private OnboardingFlowChange onboardingFlowChange;
 
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
+  /**
+   * 待入职流程ID
+   *
+   * <p>示例值：65c245b7859c6e77d2290e00
+   */
+  @SerializedName("onboarding_flow_id")
+  private String onboardingFlowId;
 
-    public OnboardingTaskChange[] getOnboardingTaskChanges() {
-        return this.onboardingTaskChanges;
-    }
+  /**
+   * 流程信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("flow_info")
+  private OnboardingFlow flowInfo;
 
-    public void setOnboardingTaskChanges(OnboardingTaskChange[] onboardingTaskChanges) {
-        this.onboardingTaskChanges = onboardingTaskChanges;
-    }
+  public String getTenantId() {
+    return this.tenantId;
+  }
 
-    public OnboardingFlowChange getOnboardingFlowChange() {
-        return this.onboardingFlowChange;
-    }
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
 
-    public void setOnboardingFlowChange(OnboardingFlowChange onboardingFlowChange) {
-        this.onboardingFlowChange = onboardingFlowChange;
-    }
+  public String getPreHireId() {
+    return this.preHireId;
+  }
 
-    public String getOnboardingFlowId() {
-        return this.onboardingFlowId;
-    }
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
 
-    public void setOnboardingFlowId(String onboardingFlowId) {
-        this.onboardingFlowId = onboardingFlowId;
-    }
+  public OnboardingTaskChange[] getOnboardingTaskChanges() {
+    return this.onboardingTaskChanges;
+  }
 
-    public OnboardingFlow getFlowInfo() {
-        return this.flowInfo;
-    }
+  public void setOnboardingTaskChanges(OnboardingTaskChange[] onboardingTaskChanges) {
+    this.onboardingTaskChanges = onboardingTaskChanges;
+  }
 
-    public void setFlowInfo(OnboardingFlow flowInfo) {
-        this.flowInfo = flowInfo;
-    }
+  public OnboardingFlowChange getOnboardingFlowChange() {
+    return this.onboardingFlowChange;
+  }
 
+  public void setOnboardingFlowChange(OnboardingFlowChange onboardingFlowChange) {
+    this.onboardingFlowChange = onboardingFlowChange;
+  }
+
+  public String getOnboardingFlowId() {
+    return this.onboardingFlowId;
+  }
+
+  public void setOnboardingFlowId(String onboardingFlowId) {
+    this.onboardingFlowId = onboardingFlowId;
+  }
+
+  public OnboardingFlow getFlowInfo() {
+    return this.flowInfo;
+  }
+
+  public void setFlowInfo(OnboardingFlow flowInfo) {
+    this.flowInfo = flowInfo;
+  }
 }

@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateNotificationRespBody {
-    /**
-     * 创建成功后的唯一id
-     * <p> 示例值：6985032626234982420
-     */
-    @SerializedName("notification_id")
-    private String notificationId;
-    /**
-     * 当前状态
-     * <p> 示例值：0
-     */
-    @SerializedName("status")
-    private Integer status;
+  /**
+   * 创建成功后的唯一id
+   *
+   * <p>示例值：6985032626234982420
+   */
+  @SerializedName("notification_id")
+  private String notificationId;
 
-    public String getNotificationId() {
-        return this.notificationId;
-    }
+  /**
+   * 当前状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
-    }
+  public String getNotificationId() {
+    return this.notificationId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 }

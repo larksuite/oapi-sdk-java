@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Attachment {
+  /**
+   * 附件guid
+   *
+   * <p>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 附件在云文档系统中的token
+   *
+   * <p>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 附件名
+   *
+   * <p>示例值：foo.jpg
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 附件的字节大小
+   *
+   * <p>示例值：62232
+   */
+  @SerializedName("size")
+  private Integer size;
+
+  /**
+   * 附件归属的资源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resource")
+  private Resource resource;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("uploader")
+  private Member uploader;
+
+  /**
+   * 是否是封面图
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_cover")
+  private Boolean isCover;
+
+  /**
+   * 上传时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("uploaded_at")
+  private String uploadedAt;
+
+  /**
+   * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。
+   *
+   * <p>示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getSize() {
+    return this.size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public Resource getResource() {
+    return this.resource;
+  }
+
+  public void setResource(Resource resource) {
+    this.resource = resource;
+  }
+
+  public Member getUploader() {
+    return this.uploader;
+  }
+
+  public void setUploader(Member uploader) {
+    this.uploader = uploader;
+  }
+
+  public Boolean getIsCover() {
+    return this.isCover;
+  }
+
+  public void setIsCover(Boolean isCover) {
+    this.isCover = isCover;
+  }
+
+  public String getUploadedAt() {
+    return this.uploadedAt;
+  }
+
+  public void setUploadedAt(String uploadedAt) {
+    this.uploadedAt = uploadedAt;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public Attachment() {}
+
+  public Attachment(Builder builder) {
     /**
      * 附件guid
-     * <p> 示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
+     *
+     * <p>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
      * 附件在云文档系统中的token
-     * <p> 示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
+     *
+     * <p>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
      */
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 附件名
-     * <p> 示例值：foo.jpg
+     *
+     * <p>示例值：foo.jpg
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 附件的字节大小
-     * <p> 示例值：62232
+     *
+     * <p>示例值：62232
      */
-    @SerializedName("size")
-    private Integer size;
+    this.size = builder.size;
     /**
      * 附件归属的资源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resource")
-    private Resource resource;
+    this.resource = builder.resource;
     /**
-     * 附件上传者
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("uploader")
-    private Member uploader;
+    this.uploader = builder.uploader;
     /**
      * 是否是封面图
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_cover")
-    private Boolean isCover;
+    this.isCover = builder.isCover;
     /**
      * 上传时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("uploaded_at")
-    private String uploadedAt;
+    this.uploadedAt = builder.uploadedAt;
     /**
-     * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。只有在获取附件时会动态生成。
-     * <p> 示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
+     * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。
+     *
+     * <p>示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 附件guid
+     *
+     * <p>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
+     */
+    private String guid;
+
+    /**
+     * 附件在云文档系统中的token
+     *
+     * <p>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
+     */
+    private String fileToken;
+
+    /**
+     * 附件名
+     *
+     * <p>示例值：foo.jpg
+     */
+    private String name;
+
+    /**
+     * 附件的字节大小
+     *
+     * <p>示例值：62232
+     */
+    private Integer size;
+
+    /**
+     * 附件归属的资源
+     *
+     * <p>示例值：
+     */
+    private Resource resource;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member uploader;
+
+    /**
+     * 是否是封面图
+     *
+     * <p>示例值：false
+     */
+    private Boolean isCover;
+
+    /**
+     * 上传时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String uploadedAt;
+
+    /**
+     * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。
+     *
+     * <p>示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
+     */
     private String url;
 
-    // builder 开始
-    public Attachment() {
+    /**
+     * 附件guid
+     *
+     * <p>示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public Attachment(Builder builder) {
-        /**
-         * 附件guid
-         * <p> 示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
-         */
-        this.guid = builder.guid;
-        /**
-         * 附件在云文档系统中的token
-         * <p> 示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 附件名
-         * <p> 示例值：foo.jpg
-         */
-        this.name = builder.name;
-        /**
-         * 附件的字节大小
-         * <p> 示例值：62232
-         */
-        this.size = builder.size;
-        /**
-         * 附件归属的资源
-         * <p> 示例值：
-         */
-        this.resource = builder.resource;
-        /**
-         * 附件上传者
-         * <p> 示例值：
-         */
-        this.uploader = builder.uploader;
-        /**
-         * 是否是封面图
-         * <p> 示例值：false
-         */
-        this.isCover = builder.isCover;
-        /**
-         * 上传时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.uploadedAt = builder.uploadedAt;
-        /**
-         * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。只有在获取附件时会动态生成。
-         * <p> 示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
-         */
-        this.url = builder.url;
+    /**
+     * 附件在云文档系统中的token
+     *
+     * <p>示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件名
+     *
+     * <p>示例值：foo.jpg
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    /**
+     * 附件的字节大小
+     *
+     * <p>示例值：62232
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    /**
+     * 附件归属的资源
+     *
+     * <p>示例值：
+     *
+     * @param resource
+     * @return
+     */
+    public Builder resource(Resource resource) {
+      this.resource = resource;
+      return this;
     }
 
-    public String getFileToken() {
-        return this.fileToken;
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param uploader
+     * @return
+     */
+    public Builder uploader(Member uploader) {
+      this.uploader = uploader;
+      return this;
     }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
+    /**
+     * 是否是封面图
+     *
+     * <p>示例值：false
+     *
+     * @param isCover
+     * @return
+     */
+    public Builder isCover(Boolean isCover) {
+      this.isCover = isCover;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 上传时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param uploadedAt
+     * @return
+     */
+    public Builder uploadedAt(String uploadedAt) {
+      this.uploadedAt = uploadedAt;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。
+     *
+     * <p>示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public Integer getSize() {
-        return this.size;
+    public Attachment build() {
+      return new Attachment(this);
     }
+  }
 
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public Resource getResource() {
-        return this.resource;
-    }
-
-    public void setResource(Resource resource) {
-        this.resource = resource;
-    }
-
-    public Member getUploader() {
-        return this.uploader;
-    }
-
-    public void setUploader(Member uploader) {
-        this.uploader = uploader;
-    }
-
-    public Boolean getIsCover() {
-        return this.isCover;
-    }
-
-    public void setIsCover(Boolean isCover) {
-        this.isCover = isCover;
-    }
-
-    public String getUploadedAt() {
-        return this.uploadedAt;
-    }
-
-    public void setUploadedAt(String uploadedAt) {
-        this.uploadedAt = uploadedAt;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 附件guid
-         * <p> 示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
-         */
-        private String guid;
-        /**
-         * 附件在云文档系统中的token
-         * <p> 示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
-         */
-        private String fileToken;
-        /**
-         * 附件名
-         * <p> 示例值：foo.jpg
-         */
-        private String name;
-        /**
-         * 附件的字节大小
-         * <p> 示例值：62232
-         */
-        private Integer size;
-        /**
-         * 附件归属的资源
-         * <p> 示例值：
-         */
-        private Resource resource;
-        /**
-         * 附件上传者
-         * <p> 示例值：
-         */
-        private Member uploader;
-        /**
-         * 是否是封面图
-         * <p> 示例值：false
-         */
-        private Boolean isCover;
-        /**
-         * 上传时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String uploadedAt;
-        /**
-         * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。只有在获取附件时会动态生成。
-         * <p> 示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
-         */
-        private String url;
-
-        /**
-         * 附件guid
-         * <p> 示例值：f860de3e-6881-4ddd-9321-070f36d1af0b
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 附件在云文档系统中的token
-         * <p> 示例值：boxcnTDqPaRA6JbYnzQsZ2doB2b
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 附件名
-         * <p> 示例值：foo.jpg
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 附件的字节大小
-         * <p> 示例值：62232
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Integer size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 附件归属的资源
-         * <p> 示例值：
-         *
-         * @param resource
-         * @return
-         */
-        public Builder resource(Resource resource) {
-            this.resource = resource;
-            return this;
-        }
-
-
-        /**
-         * 附件上传者
-         * <p> 示例值：
-         *
-         * @param uploader
-         * @return
-         */
-        public Builder uploader(Member uploader) {
-            this.uploader = uploader;
-            return this;
-        }
-
-
-        /**
-         * 是否是封面图
-         * <p> 示例值：false
-         *
-         * @param isCover
-         * @return
-         */
-        public Builder isCover(Boolean isCover) {
-            this.isCover = isCover;
-            return this;
-        }
-
-
-        /**
-         * 上传时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param uploadedAt
-         * @return
-         */
-        public Builder uploadedAt(String uploadedAt) {
-            this.uploadedAt = uploadedAt;
-            return this;
-        }
-
-
-        /**
-         * 附件的临时下载url，有效时间3分钟，且只允许调用3次进行附件下载。只有在获取附件时会动态生成。
-         * <p> 示例值：https://example.com/download/authcode/?code=OWMzNDlmMjJmZThkYzZkZGJlMjYwZTI0OTUxZTE2MDJfMDZmZmMwOWVj
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public Attachment build() {
-            return new Attachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

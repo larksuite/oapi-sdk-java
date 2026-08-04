@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrderField {
+  /**
+   * 字段名
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 排序方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("order_type")
+  private Integer orderType;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public Integer getOrderType() {
+    return this.orderType;
+  }
+
+  public void setOrderType(Integer orderType) {
+    this.orderType = orderType;
+  }
+
+  // builder 开始
+  public OrderField() {}
+
+  public OrderField(Builder builder) {
     /**
      * 字段名
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 排序方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("order_type")
+    this.orderType = builder.orderType;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名
+     *
+     * <p>示例值：test
+     */
+    private String field;
+
+    /**
+     * 排序方式
+     *
+     * <p>示例值：
+     */
     private Integer orderType;
 
-    // builder 开始
-    public OrderField() {
+    /**
+     * 字段名
+     *
+     * <p>示例值：test
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public OrderField(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：test
-         */
-        this.field = builder.field;
-        /**
-         * 排序方式
-         * <p> 示例值：
-         */
-        this.orderType = builder.orderType;
+    /**
+     * 排序方式
+     *
+     * <p>示例值：
+     *
+     * @param orderType
+     * @return
+     */
+    public Builder orderType(Integer orderType) {
+      this.orderType = orderType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OrderField build() {
+      return new OrderField(this);
     }
+  }
 
-    public String getField() {
-        return this.field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public Integer getOrderType() {
-        return this.orderType;
-    }
-
-    public void setOrderType(Integer orderType) {
-        this.orderType = orderType;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：test
-         */
-        private String field;
-        /**
-         * 排序方式
-         * <p> 示例值：
-         */
-        private Integer orderType;
-
-        /**
-         * 字段名
-         * <p> 示例值：test
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 排序方式
-         * <p> 示例值：
-         *
-         * @param orderType
-         * @return
-         */
-        public Builder orderType(Integer orderType) {
-            this.orderType = orderType;
-            return this;
-        }
-
-
-        public OrderField build() {
-            return new OrderField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

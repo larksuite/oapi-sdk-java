@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.meeting_room.v1.enums;
 
-/**
- * 视频会议类型
- */
+/** 视频会议类型 */
 public enum VchatVcTypeEnum {
-    VC("vc"), // 飞书视频会议，取该类型时，其他字段无效。
-    THIRD_PARTY("third_party"), // 第三方链接视频会议，取该类型时，icon_type、description、meeting_url字段生效。
-    NO_MEETING("no_meeting"), // 无视频会议，取该类型时，其他字段无效。
-    LARK_LIVE("lark_live"), // 飞书直播，内部类型，飞书客户端使用，API不支持创建，只读。
-    ;
-    private String value;
+  VC("vc"), // 飞书视频会议，取该类型时，其他字段无效。
+  THIRD_PARTY("third_party"), // 第三方链接视频会议，取该类型时，icon_type、description、meeting_url字段生效。
+  NO_MEETING("no_meeting"), // 无视频会议，取该类型时，其他字段无效。
+  LARK_LIVE("lark_live"), // 飞书直播，内部类型，飞书客户端使用，API不支持创建，只读。
+  ;
+  private String value;
 
-    VchatVcTypeEnum(String value) {
-        this.value = value;
-    }
+  VchatVcTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

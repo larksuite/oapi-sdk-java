@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserInfoRespBody {
-    /**
-     * 评估周期 ID
-     * <p> 示例值：6992035450862224940
-     */
-    @SerializedName("semester_id")
-    private String semesterId;
-    /**
-     * 人员的快照信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_infos")
-    private UserInfo[] userInfos;
+  /**
+   * 评估周期 ID
+   *
+   * <p>示例值：6992035450862224940
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
+  /**
+   * 人员的快照信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_infos")
+  private UserInfo[] userInfos;
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
+  public String getSemesterId() {
+    return this.semesterId;
+  }
 
-    public UserInfo[] getUserInfos() {
-        return this.userInfos;
-    }
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
 
-    public void setUserInfos(UserInfo[] userInfos) {
-        this.userInfos = userInfos;
-    }
+  public UserInfo[] getUserInfos() {
+    return this.userInfos;
+  }
 
+  public void setUserInfos(UserInfo[] userInfos) {
+    this.userInfos = userInfos;
+  }
 }

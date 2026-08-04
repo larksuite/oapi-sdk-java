@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NumberFieldSetting {
+  /**
+   * 数字类型;;**可选值有：**;- `1`：Percent 百分比（定点小数）;- `2`：Integer 整数;- `3`：Value 数值（定点小数）;- `4`：Money
+   * 金额（定点小数）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("number_field_type")
+  private Integer numberFieldType;
+
+  /**
+   * 小数点后的位数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("decimal_places")
+  private Integer decimalPlaces;
+
+  /**
+   * 四舍五入规则;;**可选值有：**;- `0`：Round 四舍五入;- `1`：Ceil 向上舍入;- `2`：Floor 向下舍入
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("round_type")
+  private Integer roundType;
+
+  /**
+   * 整数+小数的最大总位数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("decimal_total_places")
+  private Integer decimalTotalPlaces;
+
+  public Integer getNumberFieldType() {
+    return this.numberFieldType;
+  }
+
+  public void setNumberFieldType(Integer numberFieldType) {
+    this.numberFieldType = numberFieldType;
+  }
+
+  public Integer getDecimalPlaces() {
+    return this.decimalPlaces;
+  }
+
+  public void setDecimalPlaces(Integer decimalPlaces) {
+    this.decimalPlaces = decimalPlaces;
+  }
+
+  public Integer getRoundType() {
+    return this.roundType;
+  }
+
+  public void setRoundType(Integer roundType) {
+    this.roundType = roundType;
+  }
+
+  public Integer getDecimalTotalPlaces() {
+    return this.decimalTotalPlaces;
+  }
+
+  public void setDecimalTotalPlaces(Integer decimalTotalPlaces) {
+    this.decimalTotalPlaces = decimalTotalPlaces;
+  }
+
+  // builder 开始
+  public NumberFieldSetting() {}
+
+  public NumberFieldSetting(Builder builder) {
     /**
-     * 数字类型，含以下枚举值：;1. Percent 百分比;2. Integer 整数;3. Value 数值（浮点数）;4. Money 金额（浮点数）
-     * <p> 示例值：1
+     * 数字类型;;**可选值有：**;- `1`：Percent 百分比（定点小数）;- `2`：Integer 整数;- `3`：Value 数值（定点小数）;- `4`：Money
+     * 金额（定点小数）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("number_field_type")
+    this.numberFieldType = builder.numberFieldType;
+    /**
+     * 小数点后的位数
+     *
+     * <p>示例值：1
+     */
+    this.decimalPlaces = builder.decimalPlaces;
+    /**
+     * 四舍五入规则;;**可选值有：**;- `0`：Round 四舍五入;- `1`：Ceil 向上舍入;- `2`：Floor 向下舍入
+     *
+     * <p>示例值：1
+     */
+    this.roundType = builder.roundType;
+    /**
+     * 整数+小数的最大总位数
+     *
+     * <p>示例值：1
+     */
+    this.decimalTotalPlaces = builder.decimalTotalPlaces;
+  }
+
+  public static class Builder {
+    /**
+     * 数字类型;;**可选值有：**;- `1`：Percent 百分比（定点小数）;- `2`：Integer 整数;- `3`：Value 数值（定点小数）;- `4`：Money
+     * 金额（定点小数）
+     *
+     * <p>示例值：1
+     */
     private Integer numberFieldType;
+
     /**
-     * 小数部分位数（浮点数整数部分和小数部分分别最大30位）
-     * <p> 示例值：1
+     * 小数点后的位数
+     *
+     * <p>示例值：1
      */
-    @SerializedName("decimal_places")
     private Integer decimalPlaces;
+
     /**
-     * 四舍五入规则，含以下枚举值：;;0. Round 四舍五入;1. Ceil 向上舍入;2. Floor 向下舍入
-     * <p> 示例值：1
+     * 四舍五入规则;;**可选值有：**;- `0`：Round 四舍五入;- `1`：Ceil 向上舍入;- `2`：Floor 向下舍入
+     *
+     * <p>示例值：1
      */
-    @SerializedName("round_type")
     private Integer roundType;
+
     /**
-     * 整数+小数总位数
-     * <p> 示例值：1
+     * 整数+小数的最大总位数
+     *
+     * <p>示例值：1
      */
-    @SerializedName("decimal_total_places")
     private Integer decimalTotalPlaces;
 
-    // builder 开始
-    public NumberFieldSetting() {
+    /**
+     * 数字类型;;**可选值有：**;- `1`：Percent 百分比（定点小数）;- `2`：Integer 整数;- `3`：Value 数值（定点小数）;- `4`：Money
+     * 金额（定点小数）
+     *
+     * <p>示例值：1
+     *
+     * @param numberFieldType
+     * @return
+     */
+    public Builder numberFieldType(Integer numberFieldType) {
+      this.numberFieldType = numberFieldType;
+      return this;
     }
 
-    public NumberFieldSetting(Builder builder) {
-        /**
-         * 数字类型，含以下枚举值：;1. Percent 百分比;2. Integer 整数;3. Value 数值（浮点数）;4. Money 金额（浮点数）
-         * <p> 示例值：1
-         */
-        this.numberFieldType = builder.numberFieldType;
-        /**
-         * 小数部分位数（浮点数整数部分和小数部分分别最大30位）
-         * <p> 示例值：1
-         */
-        this.decimalPlaces = builder.decimalPlaces;
-        /**
-         * 四舍五入规则，含以下枚举值：;;0. Round 四舍五入;1. Ceil 向上舍入;2. Floor 向下舍入
-         * <p> 示例值：1
-         */
-        this.roundType = builder.roundType;
-        /**
-         * 整数+小数总位数
-         * <p> 示例值：1
-         */
-        this.decimalTotalPlaces = builder.decimalTotalPlaces;
+    /**
+     * 小数点后的位数
+     *
+     * <p>示例值：1
+     *
+     * @param decimalPlaces
+     * @return
+     */
+    public Builder decimalPlaces(Integer decimalPlaces) {
+      this.decimalPlaces = decimalPlaces;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 四舍五入规则;;**可选值有：**;- `0`：Round 四舍五入;- `1`：Ceil 向上舍入;- `2`：Floor 向下舍入
+     *
+     * <p>示例值：1
+     *
+     * @param roundType
+     * @return
+     */
+    public Builder roundType(Integer roundType) {
+      this.roundType = roundType;
+      return this;
     }
 
-    public Integer getNumberFieldType() {
-        return this.numberFieldType;
+    /**
+     * 整数+小数的最大总位数
+     *
+     * <p>示例值：1
+     *
+     * @param decimalTotalPlaces
+     * @return
+     */
+    public Builder decimalTotalPlaces(Integer decimalTotalPlaces) {
+      this.decimalTotalPlaces = decimalTotalPlaces;
+      return this;
     }
 
-    public void setNumberFieldType(Integer numberFieldType) {
-        this.numberFieldType = numberFieldType;
+    public NumberFieldSetting build() {
+      return new NumberFieldSetting(this);
     }
+  }
 
-    public Integer getDecimalPlaces() {
-        return this.decimalPlaces;
-    }
-
-    public void setDecimalPlaces(Integer decimalPlaces) {
-        this.decimalPlaces = decimalPlaces;
-    }
-
-    public Integer getRoundType() {
-        return this.roundType;
-    }
-
-    public void setRoundType(Integer roundType) {
-        this.roundType = roundType;
-    }
-
-    public Integer getDecimalTotalPlaces() {
-        return this.decimalTotalPlaces;
-    }
-
-    public void setDecimalTotalPlaces(Integer decimalTotalPlaces) {
-        this.decimalTotalPlaces = decimalTotalPlaces;
-    }
-
-    public static class Builder {
-        /**
-         * 数字类型，含以下枚举值：;1. Percent 百分比;2. Integer 整数;3. Value 数值（浮点数）;4. Money 金额（浮点数）
-         * <p> 示例值：1
-         */
-        private Integer numberFieldType;
-        /**
-         * 小数部分位数（浮点数整数部分和小数部分分别最大30位）
-         * <p> 示例值：1
-         */
-        private Integer decimalPlaces;
-        /**
-         * 四舍五入规则，含以下枚举值：;;0. Round 四舍五入;1. Ceil 向上舍入;2. Floor 向下舍入
-         * <p> 示例值：1
-         */
-        private Integer roundType;
-        /**
-         * 整数+小数总位数
-         * <p> 示例值：1
-         */
-        private Integer decimalTotalPlaces;
-
-        /**
-         * 数字类型，含以下枚举值：;1. Percent 百分比;2. Integer 整数;3. Value 数值（浮点数）;4. Money 金额（浮点数）
-         * <p> 示例值：1
-         *
-         * @param numberFieldType
-         * @return
-         */
-        public Builder numberFieldType(Integer numberFieldType) {
-            this.numberFieldType = numberFieldType;
-            return this;
-        }
-
-
-        /**
-         * 小数部分位数（浮点数整数部分和小数部分分别最大30位）
-         * <p> 示例值：1
-         *
-         * @param decimalPlaces
-         * @return
-         */
-        public Builder decimalPlaces(Integer decimalPlaces) {
-            this.decimalPlaces = decimalPlaces;
-            return this;
-        }
-
-
-        /**
-         * 四舍五入规则，含以下枚举值：;;0. Round 四舍五入;1. Ceil 向上舍入;2. Floor 向下舍入
-         * <p> 示例值：1
-         *
-         * @param roundType
-         * @return
-         */
-        public Builder roundType(Integer roundType) {
-            this.roundType = roundType;
-            return this;
-        }
-
-
-        /**
-         * 整数+小数总位数
-         * <p> 示例值：1
-         *
-         * @param decimalTotalPlaces
-         * @return
-         */
-        public Builder decimalTotalPlaces(Integer decimalTotalPlaces) {
-            this.decimalTotalPlaces = decimalTotalPlaces;
-            return this;
-        }
-
-
-        public NumberFieldSetting build() {
-            return new NumberFieldSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

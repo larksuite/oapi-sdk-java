@@ -13,112 +13,65 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserSummary {
-    /**
-     * 用户 ID
-     * <p> 示例值：123456
-     */
-    @SerializedName("user_id")
-    private String userId;
+  /**
+   * 个人月统计指标列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("metrics")
+  private UserSummaryMetric[] metrics;
+
+  public UserSummaryMetric[] getMetrics() {
+    return this.metrics;
+  }
+
+  public void setMetrics(UserSummaryMetric[] metrics) {
+    this.metrics = metrics;
+  }
+
+  // builder 开始
+  public UserSummary() {}
+
+  public UserSummary(Builder builder) {
     /**
      * 个人月统计指标列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("metrics")
+    this.metrics = builder.metrics;
+  }
+
+  public static class Builder {
+    /**
+     * 个人月统计指标列表
+     *
+     * <p>示例值：
+     */
     private UserSummaryMetric[] metrics;
 
-    // builder 开始
-    public UserSummary() {
+    /**
+     * 个人月统计指标列表
+     *
+     * <p>示例值：
+     *
+     * @param metrics
+     * @return
+     */
+    public Builder metrics(UserSummaryMetric[] metrics) {
+      this.metrics = metrics;
+      return this;
     }
 
-    public UserSummary(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         */
-        this.userId = builder.userId;
-        /**
-         * 个人月统计指标列表
-         * <p> 示例值：
-         */
-        this.metrics = builder.metrics;
+    public UserSummary build() {
+      return new UserSummary(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public UserSummaryMetric[] getMetrics() {
-        return this.metrics;
-    }
-
-    public void setMetrics(UserSummaryMetric[] metrics) {
-        this.metrics = metrics;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         */
-        private String userId;
-        /**
-         * 个人月统计指标列表
-         * <p> 示例值：
-         */
-        private UserSummaryMetric[] metrics;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 个人月统计指标列表
-         * <p> 示例值：
-         *
-         * @param metrics
-         * @return
-         */
-        public Builder metrics(UserSummaryMetric[] metrics) {
-            this.metrics = metrics;
-            return this;
-        }
-
-
-        public UserSummary build() {
-            return new UserSummary(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

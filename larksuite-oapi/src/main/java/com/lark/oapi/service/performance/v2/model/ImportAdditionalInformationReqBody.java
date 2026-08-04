@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportAdditionalInformationReqBody {
+  /**
+   * 评估周期
+   * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+   *
+   * <p>示例值：7348736302176534547
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 补充信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_informations")
+  private AdditionalInformation[] additionalInformations;
+
+  /**
+   * 补充信息导入记录名称，管理员可在补充信息管理的导入记录中查看。;;;**默认值**："API导入"
+   *
+   * <p>示例值：人工导入
+   */
+  @SerializedName("import_record_name")
+  private String importRecordName;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public AdditionalInformation[] getAdditionalInformations() {
+    return this.additionalInformations;
+  }
+
+  public void setAdditionalInformations(AdditionalInformation[] additionalInformations) {
+    this.additionalInformations = additionalInformations;
+  }
+
+  public String getImportRecordName() {
+    return this.importRecordName;
+  }
+
+  public void setImportRecordName(String importRecordName) {
+    this.importRecordName = importRecordName;
+  }
+
+  // builder 开始
+  public ImportAdditionalInformationReqBody() {}
+
+  public ImportAdditionalInformationReqBody(Builder builder) {
     /**
-     * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：7348736302176534547
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
      */
-    @SerializedName("semester_id")
+    this.semesterId = builder.semesterId;
+    /**
+     * 补充信息列表
+     *
+     * <p>示例值：
+     */
+    this.additionalInformations = builder.additionalInformations;
+    /**
+     * 补充信息导入记录名称，管理员可在补充信息管理的导入记录中查看。;;;**默认值**："API导入"
+     *
+     * <p>示例值：人工导入
+     */
+    this.importRecordName = builder.importRecordName;
+  }
+
+  public static class Builder {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
+     */
     private String semesterId;
+
     /**
-     * 补充信息列表，一次最多 1000 个
-     * <p> 示例值：
+     * 补充信息列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_informations")
     private AdditionalInformation[] additionalInformations;
+
     /**
-     * 导入记录名称，管理员可在补充信息管理的导入记录中查看。不传则默认为 API 导入。
-     * <p> 示例值：API导入
+     * 补充信息导入记录名称，管理员可在补充信息管理的导入记录中查看。;;;**默认值**："API导入"
+     *
+     * <p>示例值：人工导入
      */
-    @SerializedName("import_record_name")
     private String importRecordName;
 
-    // builder 开始
-    public ImportAdditionalInformationReqBody() {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public ImportAdditionalInformationReqBody(Builder builder) {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 补充信息列表，一次最多 1000 个
-         * <p> 示例值：
-         */
-        this.additionalInformations = builder.additionalInformations;
-        /**
-         * 导入记录名称，管理员可在补充信息管理的导入记录中查看。不传则默认为 API 导入。
-         * <p> 示例值：API导入
-         */
-        this.importRecordName = builder.importRecordName;
+    /**
+     * 补充信息列表
+     *
+     * <p>示例值：
+     *
+     * @param additionalInformations
+     * @return
+     */
+    public Builder additionalInformations(AdditionalInformation[] additionalInformations) {
+      this.additionalInformations = additionalInformations;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 补充信息导入记录名称，管理员可在补充信息管理的导入记录中查看。;;;**默认值**："API导入"
+     *
+     * <p>示例值：人工导入
+     *
+     * @param importRecordName
+     * @return
+     */
+    public Builder importRecordName(String importRecordName) {
+      this.importRecordName = importRecordName;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    public ImportAdditionalInformationReqBody build() {
+      return new ImportAdditionalInformationReqBody(this);
     }
+  }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public AdditionalInformation[] getAdditionalInformations() {
-        return this.additionalInformations;
-    }
-
-    public void setAdditionalInformations(AdditionalInformation[] additionalInformations) {
-        this.additionalInformations = additionalInformations;
-    }
-
-    public String getImportRecordName() {
-        return this.importRecordName;
-    }
-
-    public void setImportRecordName(String importRecordName) {
-        this.importRecordName = importRecordName;
-    }
-
-    public static class Builder {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        private String semesterId;
-        /**
-         * 补充信息列表，一次最多 1000 个
-         * <p> 示例值：
-         */
-        private AdditionalInformation[] additionalInformations;
-        /**
-         * 导入记录名称，管理员可在补充信息管理的导入记录中查看。不传则默认为 API 导入。
-         * <p> 示例值：API导入
-         */
-        private String importRecordName;
-
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 补充信息列表，一次最多 1000 个
-         * <p> 示例值：
-         *
-         * @param additionalInformations
-         * @return
-         */
-        public Builder additionalInformations(AdditionalInformation[] additionalInformations) {
-            this.additionalInformations = additionalInformations;
-            return this;
-        }
-
-
-        /**
-         * 导入记录名称，管理员可在补充信息管理的导入记录中查看。不传则默认为 API 导入。
-         * <p> 示例值：API导入
-         *
-         * @param importRecordName
-         * @return
-         */
-        public Builder importRecordName(String importRecordName) {
-            this.importRecordName = importRecordName;
-            return this;
-        }
-
-
-        public ImportAdditionalInformationReqBody build() {
-            return new ImportAdditionalInformationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

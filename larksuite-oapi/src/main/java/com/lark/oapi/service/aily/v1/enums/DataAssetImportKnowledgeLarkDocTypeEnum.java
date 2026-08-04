@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 云文档类型
- */
+/** 云文档类型 */
 public enum DataAssetImportKnowledgeLarkDocTypeEnum {
-    DOC("doc"), // 飞书文档
-    FILE("file"), // 飞书文件
-    WIKI("wiki"), // 飞书知识库
-    DOCX("docx"), // 飞书新版文档
-    FOLDER("folder"), // 飞书文件夹
-    ;
-    private String value;
+  DOC("doc"), // 飞书文档
+  FILE("file"), // 飞书文件
+  WIKI("wiki"), // 飞书知识库
+  DOCX("docx"), // 飞书新版文档
+  FOLDER("folder"), // 飞书文件夹
+  ;
+  private String value;
 
-    DataAssetImportKnowledgeLarkDocTypeEnum(String value) {
-        this.value = value;
-    }
+  DataAssetImportKnowledgeLarkDocTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

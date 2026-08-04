@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemoveTasklistTaskReqBody {
+  /**
+   * 要移除的清单的全局唯一ID
+   *
+   * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+   */
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  // builder 开始
+  public RemoveTasklistTaskReqBody() {}
+
+  public RemoveTasklistTaskReqBody(Builder builder) {
     /**
      * 要移除的清单的全局唯一ID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
      */
-    @SerializedName("tasklist_guid")
+    this.tasklistGuid = builder.tasklistGuid;
+  }
+
+  public static class Builder {
+    /**
+     * 要移除的清单的全局唯一ID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     */
     private String tasklistGuid;
 
-    // builder 开始
-    public RemoveTasklistTaskReqBody() {
+    /**
+     * 要移除的清单的全局唯一ID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public RemoveTasklistTaskReqBody(Builder builder) {
-        /**
-         * 要移除的清单的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.tasklistGuid = builder.tasklistGuid;
+    public RemoveTasklistTaskReqBody build() {
+      return new RemoveTasklistTaskReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public static class Builder {
-        /**
-         * 要移除的清单的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        private String tasklistGuid;
-
-        /**
-         * 要移除的清单的全局唯一ID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        public RemoveTasklistTaskReqBody build() {
-            return new RemoveTasklistTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdatePermissionPublicPasswordRespBody {
-    /**
-     * 密码
-     * <p> 示例值：A8e6
-     */
-    @SerializedName("password")
-    private String password;
+  /**
+   * 密码
+   *
+   * <p>示例值：q795dji2
+   */
+  @SerializedName("password")
+  private String password;
 
-    public String getPassword() {
-        return this.password;
-    }
+  public String getPassword() {
+    return this.password;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }

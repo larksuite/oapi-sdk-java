@@ -13,7 +13,6 @@
 package com.lark.oapi.service.bitable;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.bitable.v1.V1;
 import com.lark.oapi.service.bitable.v1.model.*;
 import com.lark.oapi.service.bitable.v1.resource.App;
@@ -31,91 +30,91 @@ import com.lark.oapi.service.bitable.v1.resource.AppTableView;
 import com.lark.oapi.service.bitable.v1.resource.AppWorkflow;
 
 public class BitableService {
-    private final V1 v1;
-    private final App app; // 多维表格
-    private final AppBlockWorkflow appBlockWorkflow; // app.block_workflow
-    private final AppDashboard appDashboard; // 仪表盘
-    private final AppRole appRole; // 自定义角色
-    private final AppRoleMember appRoleMember; // 协作者
-    private final AppTable appTable; // 数据表
-    private final AppTableField appTableField; // 字段
-    private final AppTableFieldGroup appTableFieldGroup; // app.table.field_group
-    private final AppTableForm appTableForm; // 表单
-    private final AppTableFormField appTableFormField; // 表单
-    private final AppTableRecord appTableRecord; // 记录
-    private final AppTableView appTableView; // 视图
-    private final AppWorkflow appWorkflow; // app.workflow
+  private final V1 v1;
+  private final App app; // app
+  private final AppBlockWorkflow appBlockWorkflow; // app.block_workflow
+  private final AppDashboard appDashboard; // app.dashboard
+  private final AppRole appRole; // app.role
+  private final AppRoleMember appRoleMember; // app.role.member
+  private final AppTable appTable; // app.table
+  private final AppTableField appTableField; // app.table.field
+  private final AppTableFieldGroup appTableFieldGroup; // app.table.field_group
+  private final AppTableForm appTableForm; // app.table.form
+  private final AppTableFormField appTableFormField; // app.table.form.field
+  private final AppTableRecord appTableRecord; // app.table.record
+  private final AppTableView appTableView; // app.table.view
+  private final AppWorkflow appWorkflow; // app.workflow
 
-    public BitableService(Config config) {
-        this.v1 = new V1(config);
-        this.app = new App(config);
-        this.appBlockWorkflow = new AppBlockWorkflow(config);
-        this.appDashboard = new AppDashboard(config);
-        this.appRole = new AppRole(config);
-        this.appRoleMember = new AppRoleMember(config);
-        this.appTable = new AppTable(config);
-        this.appTableField = new AppTableField(config);
-        this.appTableFieldGroup = new AppTableFieldGroup(config);
-        this.appTableForm = new AppTableForm(config);
-        this.appTableFormField = new AppTableFormField(config);
-        this.appTableRecord = new AppTableRecord(config);
-        this.appTableView = new AppTableView(config);
-        this.appWorkflow = new AppWorkflow(config);
-    }
+  public BitableService(Config config) {
+    this.v1 = new V1(config);
+    this.app = new App(config);
+    this.appBlockWorkflow = new AppBlockWorkflow(config);
+    this.appDashboard = new AppDashboard(config);
+    this.appRole = new AppRole(config);
+    this.appRoleMember = new AppRoleMember(config);
+    this.appTable = new AppTable(config);
+    this.appTableField = new AppTableField(config);
+    this.appTableFieldGroup = new AppTableFieldGroup(config);
+    this.appTableForm = new AppTableForm(config);
+    this.appTableFormField = new AppTableFormField(config);
+    this.appTableRecord = new AppTableRecord(config);
+    this.appTableView = new AppTableView(config);
+    this.appWorkflow = new AppWorkflow(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public App app() {
-        return app;
-    }
+  public App app() {
+    return app;
+  }
 
-    public AppBlockWorkflow appBlockWorkflow() {
-        return appBlockWorkflow;
-    }
+  public AppBlockWorkflow appBlockWorkflow() {
+    return appBlockWorkflow;
+  }
 
-    public AppDashboard appDashboard() {
-        return appDashboard;
-    }
+  public AppDashboard appDashboard() {
+    return appDashboard;
+  }
 
-    public AppRole appRole() {
-        return appRole;
-    }
+  public AppRole appRole() {
+    return appRole;
+  }
 
-    public AppRoleMember appRoleMember() {
-        return appRoleMember;
-    }
+  public AppRoleMember appRoleMember() {
+    return appRoleMember;
+  }
 
-    public AppTable appTable() {
-        return appTable;
-    }
+  public AppTable appTable() {
+    return appTable;
+  }
 
-    public AppTableField appTableField() {
-        return appTableField;
-    }
+  public AppTableField appTableField() {
+    return appTableField;
+  }
 
-    public AppTableFieldGroup appTableFieldGroup() {
-        return appTableFieldGroup;
-    }
+  public AppTableFieldGroup appTableFieldGroup() {
+    return appTableFieldGroup;
+  }
 
-    public AppTableForm appTableForm() {
-        return appTableForm;
-    }
+  public AppTableForm appTableForm() {
+    return appTableForm;
+  }
 
-    public AppTableFormField appTableFormField() {
-        return appTableFormField;
-    }
+  public AppTableFormField appTableFormField() {
+    return appTableFormField;
+  }
 
-    public AppTableRecord appTableRecord() {
-        return appTableRecord;
-    }
+  public AppTableRecord appTableRecord() {
+    return appTableRecord;
+  }
 
-    public AppTableView appTableView() {
-        return appTableView;
-    }
+  public AppTableView appTableView() {
+    return appTableView;
+  }
 
-    public AppWorkflow appWorkflow() {
-        return appWorkflow;
-    }
+  public AppWorkflow appWorkflow() {
+    return appWorkflow;
+  }
 }

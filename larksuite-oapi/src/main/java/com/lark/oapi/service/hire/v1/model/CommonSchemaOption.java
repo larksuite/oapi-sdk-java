@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CommonSchemaOption {
+  /**
+   * 选项 ID
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 选项名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 选项描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  // builder 开始
+  public CommonSchemaOption() {}
+
+  public CommonSchemaOption(Builder builder) {
     /**
      * 选项 ID
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 选项名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 选项描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 是否启用
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 选项 ID
+     *
+     * <p>示例值：test
+     */
+    private String key;
+
+    /**
+     * 选项名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 选项描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：1
+     */
     private Integer activeStatus;
 
-    // builder 开始
-    public CommonSchemaOption() {
+    /**
+     * 选项 ID
+     *
+     * <p>示例值：test
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public CommonSchemaOption(Builder builder) {
-        /**
-         * 选项 ID
-         * <p> 示例值：test
-         */
-        this.key = builder.key;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 选项描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
+    /**
+     * 选项名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getKey() {
-        return this.key;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public CommonSchemaOption build() {
+      return new CommonSchemaOption(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 选项 ID
-         * <p> 示例值：test
-         */
-        private String key;
-        /**
-         * 选项名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 选项描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-
-        /**
-         * 选项 ID
-         * <p> 示例值：test
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 选项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        public CommonSchemaOption build() {
-            return new CommonSchemaOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

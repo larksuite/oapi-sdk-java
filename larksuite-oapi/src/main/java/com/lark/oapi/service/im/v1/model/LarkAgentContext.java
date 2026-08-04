@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LarkAgentContext {
+  /**
+   * 智能体上下文会话 id
+   *
+   * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+   */
+  @SerializedName("active_chat_id")
+  private String activeChatId;
+
+  public String getActiveChatId() {
+    return this.activeChatId;
+  }
+
+  public void setActiveChatId(String activeChatId) {
+    this.activeChatId = activeChatId;
+  }
+
+  // builder 开始
+  public LarkAgentContext() {}
+
+  public LarkAgentContext(Builder builder) {
     /**
      * 智能体上下文会话 id
-     * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
      */
-    @SerializedName("active_chat_id")
+    this.activeChatId = builder.activeChatId;
+  }
+
+  public static class Builder {
+    /**
+     * 智能体上下文会话 id
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     */
     private String activeChatId;
 
-    // builder 开始
-    public LarkAgentContext() {
+    /**
+     * 智能体上下文会话 id
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     *
+     * @param activeChatId
+     * @return
+     */
+    public Builder activeChatId(String activeChatId) {
+      this.activeChatId = activeChatId;
+      return this;
     }
 
-    public LarkAgentContext(Builder builder) {
-        /**
-         * 智能体上下文会话 id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         */
-        this.activeChatId = builder.activeChatId;
+    public LarkAgentContext build() {
+      return new LarkAgentContext(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getActiveChatId() {
-        return this.activeChatId;
-    }
-
-    public void setActiveChatId(String activeChatId) {
-        this.activeChatId = activeChatId;
-    }
-
-    public static class Builder {
-        /**
-         * 智能体上下文会话 id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         */
-        private String activeChatId;
-
-        /**
-         * 智能体上下文会话 id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         *
-         * @param activeChatId
-         * @return
-         */
-        public Builder activeChatId(String activeChatId) {
-            this.activeChatId = activeChatId;
-            return this;
-        }
-
-
-        public LarkAgentContext build() {
-            return new LarkAgentContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,76 +13,86 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDepartmentRespBody {
-    /**
-     * 查询的部门信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Department[] items;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 是否拒绝导出(user_access_token 场景下使用)
-     * <p> 示例值：true
-     */
-    @SerializedName("reject_export")
-    private Boolean rejectExport;
+  /**
+   * 查询的部门信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Department[] items;
 
-    public Department[] getItems() {
-        return this.items;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：eyJldV9uYyI6IlswLFwiNjk2MTI4Njg0NjA5Mzc4ODY4MC03MjExMDM0ODcxMjA3OTUzOTc1XCJdIn0
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(Department[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 是否拒绝导出(user_access_token 场景下使用)
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("reject_export")
+  private Boolean rejectExport;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 搜索到数据的总数
+   *
+   * <p>示例值：500
+   */
+  @SerializedName("total_count")
+  private String totalCount;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public Department[] getItems() {
+    return this.items;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setItems(Department[] items) {
+    this.items = items;
+  }
 
-    public Boolean getRejectExport() {
-        return this.rejectExport;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setRejectExport(Boolean rejectExport) {
-        this.rejectExport = rejectExport;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public Boolean getRejectExport() {
+    return this.rejectExport;
+  }
+
+  public void setRejectExport(Boolean rejectExport) {
+    this.rejectExport = rejectExport;
+  }
+
+  public String getTotalCount() {
+    return this.totalCount;
+  }
+
+  public void setTotalCount(String totalCount) {
+    this.totalCount = totalCount;
+  }
 }

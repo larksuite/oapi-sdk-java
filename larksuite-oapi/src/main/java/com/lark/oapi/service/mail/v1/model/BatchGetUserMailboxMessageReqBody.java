@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetUserMailboxMessageReqBody {
+  /**
+   * 需要获取的邮件内容
+   *
+   * <p>示例值：full
+   */
+  @SerializedName("format")
+  private String format;
+
+  /**
+   * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_ids")
+  private String[] messageIds;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  public String[] getMessageIds() {
+    return this.messageIds;
+  }
+
+  public void setMessageIds(String[] messageIds) {
+    this.messageIds = messageIds;
+  }
+
+  // builder 开始
+  public BatchGetUserMailboxMessageReqBody() {}
+
+  public BatchGetUserMailboxMessageReqBody(Builder builder) {
     /**
-     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-     * <p> 示例值：full
+     * 需要获取的邮件内容
+     *
+     * <p>示例值：full
      */
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
      * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_ids")
+    this.messageIds = builder.messageIds;
+  }
+
+  public static class Builder {
+    /**
+     * 需要获取的邮件内容
+     *
+     * <p>示例值：full
+     */
+    private String format;
+
+    /**
+     * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
+     *
+     * <p>示例值：
+     */
     private String[] messageIds;
 
-    // builder 开始
-    public BatchGetUserMailboxMessageReqBody() {
+    /**
+     * 需要获取的邮件内容
+     *
+     * <p>示例值：full
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public BatchGetUserMailboxMessageReqBody(Builder builder) {
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         */
-        this.format = builder.format;
-        /**
-         * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
-         * <p> 示例值：
-         */
-        this.messageIds = builder.messageIds;
+    /**
+     * 需要获取的邮件内容
+     *
+     * <p>示例值：full
+     *
+     * @param format {@link
+     *     com.lark.oapi.service.mail.v1.enums.BatchGetUserMailboxMessageMailMessageFormatTypeEnum}
+     * @return
+     */
+    public Builder format(
+        com.lark.oapi.service.mail.v1.enums.BatchGetUserMailboxMessageMailMessageFormatTypeEnum
+            format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
+     *
+     * <p>示例值：
+     *
+     * @param messageIds
+     * @return
+     */
+    public Builder messageIds(String[] messageIds) {
+      this.messageIds = messageIds;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    public BatchGetUserMailboxMessageReqBody build() {
+      return new BatchGetUserMailboxMessageReqBody(this);
     }
+  }
 
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public String[] getMessageIds() {
-        return this.messageIds;
-    }
-
-    public void setMessageIds(String[] messageIds) {
-        this.messageIds = messageIds;
-    }
-
-    public static class Builder {
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         */
-        private String format;
-        /**
-         * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
-         * <p> 示例值：
-         */
-        private String[] messageIds;
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format {@link com.lark.oapi.service.mail.v1.enums.BatchGetUserMailboxMessageMailMessageFormatTypeEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.mail.v1.enums.BatchGetUserMailboxMessageMailMessageFormatTypeEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-
-        /**
-         * 需要的邮件ID，可以通过列出邮件列表、收信事件通知等方式获得
-         * <p> 示例值：
-         *
-         * @param messageIds
-         * @return
-         */
-        public Builder messageIds(String[] messageIds) {
-            this.messageIds = messageIds;
-            return this;
-        }
-
-
-        public BatchGetUserMailboxMessageReqBody build() {
-            return new BatchGetUserMailboxMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

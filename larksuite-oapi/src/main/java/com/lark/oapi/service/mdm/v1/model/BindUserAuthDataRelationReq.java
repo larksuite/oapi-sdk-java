@@ -13,109 +13,108 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mdm.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v1.enums.*;
 
 public class BindUserAuthDataRelationReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private UserAuthDataRelation body;
+
+  public UserAuthDataRelation getUserAuthDataRelation() {
+    return this.body;
+  }
+
+  public void setUserAuthDataRelation(UserAuthDataRelation body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BindUserAuthDataRelationReq() {}
+
+  public BindUserAuthDataRelationReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.mdm.v1.enums.BindUserAuthDataRelationBindUserAuthDataRelationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mdm.v1.enums
+                .BindUserAuthDataRelationBindUserAuthDataRelationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private UserAuthDataRelation body;
 
-    // builder 开始
-    public BindUserAuthDataRelationReq() {
-    }
-
-    public BindUserAuthDataRelationReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public UserAuthDataRelation getUserAuthDataRelation() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUserAuthDataRelation(UserAuthDataRelation body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder userAuthDataRelation(UserAuthDataRelation body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private UserAuthDataRelation body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.mdm.v1.enums.BindUserAuthDataRelationUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.mdm.v1.enums.BindUserAuthDataRelationUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public UserAuthDataRelation getUserAuthDataRelation() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder userAuthDataRelation(UserAuthDataRelation body) {
-            this.body = body;
-            return this;
-        }
-
-        public BindUserAuthDataRelationReq build() {
-            return new BindUserAuthDataRelationReq(this);
-        }
+    public BindUserAuthDataRelationReq build() {
+      return new BindUserAuthDataRelationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

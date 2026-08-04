@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferOnboardApplicationRespBody {
-    /**
-     * employee
-     * <p> 示例值：
-     */
-    @SerializedName("employee")
-    private Employee employee;
+  /**
+   * 员工信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee")
+  private Employee employee;
 
-    public Employee getEmployee() {
-        return this.employee;
-    }
+  public Employee getEmployee() {
+    return this.employee;
+  }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
+  }
 }

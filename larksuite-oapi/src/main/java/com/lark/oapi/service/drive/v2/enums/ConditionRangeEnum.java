@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 条件类型
- */
+/** 条件类型 */
 public enum ConditionRangeEnum {
-    POLICYRANGEDEPARTMENT(200), // 部门范围，range=200时，params为部门自定义id
-    POLICYRANGEOWNER(300), // 用户范围，range=300时，params为用户自定义id
-    POLICYRANGEOBJSUBTYPE(500), // 资源子类型，param可选值为1，2，4，100，代表文件、图片、视频、文件夹
-    POLICYRANGEOBJSIZE(600), // 资源大小限制，param为大小，单位byte
-    POLICYRANGECREATETIME(700), // 资源创建时间，params是时间戳，单位秒
-    ;
-    private Integer value;
+  POLICYRANGEDEPARTMENT(200), // 部门范围，range=200时，params为部门自定义id
+  POLICYRANGEOWNER(300), // 用户范围，range=300时，params为用户自定义id
+  POLICYRANGEOBJSUBTYPE(500), // 资源子类型，param可选值为1，2，4，100，代表文件、图片、视频、文件夹
+  POLICYRANGEOBJSIZE(600), // 资源大小限制，param为大小，单位byte
+  POLICYRANGECREATETIME(700), // 资源创建时间，params是时间戳，单位秒
+  ;
+  private Integer value;
 
-    ConditionRangeEnum(Integer value) {
-        this.value = value;
-    }
+  ConditionRangeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListSemesterRespBody {
-    /**
-     * 周期meta信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Semester[] items;
+  /**
+   * 周期列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Semester[] items;
 
-    public Semester[] getItems() {
-        return this.items;
-    }
+  public Semester[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(Semester[] items) {
-        this.items = items;
-    }
-
+  public void setItems(Semester[] items) {
+    this.items = items;
+  }
 }

@@ -13,98 +13,102 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.board.v1.enums.*;
 
 public class CreatePlantumlWhiteboardNodeReq {
+  /**
+   * 画板唯一标识，可通过云文档下的文档接口
+   * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+   * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+   *
+   * <p>示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
+   */
+  @Path
+  @SerializedName("whiteboard_id")
+  private String whiteboardId;
+
+  public String getWhiteboardId() {
+    return this.whiteboardId;
+  }
+
+  public void setWhiteboardId(String whiteboardId) {
+    this.whiteboardId = whiteboardId;
+  }
+
+  @Body private CreatePlantumlWhiteboardNodeReqBody body;
+
+  public CreatePlantumlWhiteboardNodeReqBody getCreatePlantumlWhiteboardNodeReqBody() {
+    return this.body;
+  }
+
+  public void setCreatePlantumlWhiteboardNodeReqBody(CreatePlantumlWhiteboardNodeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreatePlantumlWhiteboardNodeReq() {}
+
+  public CreatePlantumlWhiteboardNodeReq(Builder builder) {
     /**
-     * 画板 token
-     * <p> 示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
+     * 画板唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
      */
-    @Path
-    @SerializedName("whiteboard_id")
-    private String whiteboardId;
-    @Body
+    this.whiteboardId = builder.whiteboardId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String whiteboardId; // 画板唯一标识，可通过云文档下的文档接口
+
+    // [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+
+    /**
+     * 画板唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
+     *
+     * @param whiteboardId
+     * @return
+     */
+    public Builder whiteboardId(String whiteboardId) {
+      this.whiteboardId = whiteboardId;
+      return this;
+    }
+
     private CreatePlantumlWhiteboardNodeReqBody body;
 
-    // builder 开始
-    public CreatePlantumlWhiteboardNodeReq() {
-    }
-
-    public CreatePlantumlWhiteboardNodeReq(Builder builder) {
-        /**
-         * 画板 token
-         * <p> 示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
-         */
-        this.whiteboardId = builder.whiteboardId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWhiteboardId() {
-        return this.whiteboardId;
-    }
-
-    public void setWhiteboardId(String whiteboardId) {
-        this.whiteboardId = whiteboardId;
-    }
-
     public CreatePlantumlWhiteboardNodeReqBody getCreatePlantumlWhiteboardNodeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreatePlantumlWhiteboardNodeReqBody(CreatePlantumlWhiteboardNodeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createPlantumlWhiteboardNodeReqBody(CreatePlantumlWhiteboardNodeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String whiteboardId; // 画板 token
-        private CreatePlantumlWhiteboardNodeReqBody body;
-
-        /**
-         * 画板 token
-         * <p> 示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh
-         *
-         * @param whiteboardId
-         * @return
-         */
-        public Builder whiteboardId(String whiteboardId) {
-            this.whiteboardId = whiteboardId;
-            return this;
-        }
-
-        public CreatePlantumlWhiteboardNodeReqBody getCreatePlantumlWhiteboardNodeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createPlantumlWhiteboardNodeReqBody(CreatePlantumlWhiteboardNodeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreatePlantumlWhiteboardNodeReq build() {
-            return new CreatePlantumlWhiteboardNodeReq(this);
-        }
+    public CreatePlantumlWhiteboardNodeReq build() {
+      return new CreatePlantumlWhiteboardNodeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RelatedDimensionSetting {
+  /**
+   * 关联维度ID
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("dimension_id")
+  private String dimensionId;
+
+  /**
+   * 关联计算类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("related_operator_type")
+  private Integer relatedOperatorType;
+
+  /**
+   * 关联维度选项ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_option_ids")
+  private String[] dimensionOptionIds;
+
+  public String getDimensionId() {
+    return this.dimensionId;
+  }
+
+  public void setDimensionId(String dimensionId) {
+    this.dimensionId = dimensionId;
+  }
+
+  public Integer getRelatedOperatorType() {
+    return this.relatedOperatorType;
+  }
+
+  public void setRelatedOperatorType(Integer relatedOperatorType) {
+    this.relatedOperatorType = relatedOperatorType;
+  }
+
+  public String[] getDimensionOptionIds() {
+    return this.dimensionOptionIds;
+  }
+
+  public void setDimensionOptionIds(String[] dimensionOptionIds) {
+    this.dimensionOptionIds = dimensionOptionIds;
+  }
+
+  // builder 开始
+  public RelatedDimensionSetting() {}
+
+  public RelatedDimensionSetting(Builder builder) {
     /**
      * 关联维度ID
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("dimension_id")
-    private String dimensionId;
+    this.dimensionId = builder.dimensionId;
     /**
      * 关联计算类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("related_operator_type")
-    private Integer relatedOperatorType;
+    this.relatedOperatorType = builder.relatedOperatorType;
     /**
      * 关联维度选项ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_option_ids")
+    this.dimensionOptionIds = builder.dimensionOptionIds;
+  }
+
+  public static class Builder {
+    /**
+     * 关联维度ID
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String dimensionId;
+
+    /**
+     * 关联计算类型
+     *
+     * <p>示例值：
+     */
+    private Integer relatedOperatorType;
+
+    /**
+     * 关联维度选项ID列表
+     *
+     * <p>示例值：
+     */
     private String[] dimensionOptionIds;
 
-    // builder 开始
-    public RelatedDimensionSetting() {
+    /**
+     * 关联维度ID
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param dimensionId
+     * @return
+     */
+    public Builder dimensionId(String dimensionId) {
+      this.dimensionId = dimensionId;
+      return this;
     }
 
-    public RelatedDimensionSetting(Builder builder) {
-        /**
-         * 关联维度ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.dimensionId = builder.dimensionId;
-        /**
-         * 关联计算类型
-         * <p> 示例值：
-         */
-        this.relatedOperatorType = builder.relatedOperatorType;
-        /**
-         * 关联维度选项ID列表
-         * <p> 示例值：
-         */
-        this.dimensionOptionIds = builder.dimensionOptionIds;
+    /**
+     * 关联计算类型
+     *
+     * <p>示例值：
+     *
+     * @param relatedOperatorType
+     * @return
+     */
+    public Builder relatedOperatorType(Integer relatedOperatorType) {
+      this.relatedOperatorType = relatedOperatorType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联维度选项ID列表
+     *
+     * <p>示例值：
+     *
+     * @param dimensionOptionIds
+     * @return
+     */
+    public Builder dimensionOptionIds(String[] dimensionOptionIds) {
+      this.dimensionOptionIds = dimensionOptionIds;
+      return this;
     }
 
-    public String getDimensionId() {
-        return this.dimensionId;
+    public RelatedDimensionSetting build() {
+      return new RelatedDimensionSetting(this);
     }
+  }
 
-    public void setDimensionId(String dimensionId) {
-        this.dimensionId = dimensionId;
-    }
-
-    public Integer getRelatedOperatorType() {
-        return this.relatedOperatorType;
-    }
-
-    public void setRelatedOperatorType(Integer relatedOperatorType) {
-        this.relatedOperatorType = relatedOperatorType;
-    }
-
-    public String[] getDimensionOptionIds() {
-        return this.dimensionOptionIds;
-    }
-
-    public void setDimensionOptionIds(String[] dimensionOptionIds) {
-        this.dimensionOptionIds = dimensionOptionIds;
-    }
-
-    public static class Builder {
-        /**
-         * 关联维度ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String dimensionId;
-        /**
-         * 关联计算类型
-         * <p> 示例值：
-         */
-        private Integer relatedOperatorType;
-        /**
-         * 关联维度选项ID列表
-         * <p> 示例值：
-         */
-        private String[] dimensionOptionIds;
-
-        /**
-         * 关联维度ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param dimensionId
-         * @return
-         */
-        public Builder dimensionId(String dimensionId) {
-            this.dimensionId = dimensionId;
-            return this;
-        }
-
-
-        /**
-         * 关联计算类型
-         * <p> 示例值：
-         *
-         * @param relatedOperatorType
-         * @return
-         */
-        public Builder relatedOperatorType(Integer relatedOperatorType) {
-            this.relatedOperatorType = relatedOperatorType;
-            return this;
-        }
-
-
-        /**
-         * 关联维度选项ID列表
-         * <p> 示例值：
-         *
-         * @param dimensionOptionIds
-         * @return
-         */
-        public Builder dimensionOptionIds(String[] dimensionOptionIds) {
-            this.dimensionOptionIds = dimensionOptionIds;
-            return this;
-        }
-
-
-        public RelatedDimensionSetting build() {
-            return new RelatedDimensionSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

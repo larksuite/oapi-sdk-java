@@ -13,173 +13,179 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataAssetResource {
+  /**
+   * 数据知识资源ID
+   *
+   * <p>示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
+   */
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  /**
+   * 数据知识资源类型
+   *
+   * <p>示例值：dataset
+   */
+  @SerializedName("resouce_type")
+  private String resouceType;
+
+  /**
+   * 数据知识资源类型
+   *
+   * <p>示例值：dataset
+   */
+  @SerializedName("resource_type")
+  private String resourceType;
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public String getResouceType() {
+    return this.resouceType;
+  }
+
+  public void setResouceType(String resouceType) {
+    this.resouceType = resouceType;
+  }
+
+  public String getResourceType() {
+    return this.resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  // builder 开始
+  public DataAssetResource() {}
+
+  public DataAssetResource(Builder builder) {
     /**
      * 数据知识资源ID
-     * <p> 示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
+     *
+     * <p>示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
      */
-    @SerializedName("resource_id")
+    this.resourceId = builder.resourceId;
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     */
+    this.resouceType = builder.resouceType;
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     */
+    this.resourceType = builder.resourceType;
+  }
+
+  public static class Builder {
+    /**
+     * 数据知识资源ID
+     *
+     * <p>示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
+     */
     private String resourceId;
+
     /**
      * 数据知识资源类型
-     * <p> 示例值：dataset
+     *
+     * <p>示例值：dataset
      */
-    @SerializedName("resouce_type")
     private String resouceType;
+
     /**
      * 数据知识资源类型
-     * <p> 示例值：dataset
+     *
+     * <p>示例值：dataset
      */
-    @SerializedName("resource_type")
     private String resourceType;
 
-    // builder 开始
-    public DataAssetResource() {
+    /**
+     * 数据知识资源ID
+     *
+     * <p>示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public DataAssetResource(Builder builder) {
-        /**
-         * 数据知识资源ID
-         * <p> 示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         */
-        this.resouceType = builder.resouceType;
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         */
-        this.resourceType = builder.resourceType;
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     *
+     * @param resouceType
+     * @return
+     */
+    public Builder resouceType(String resouceType) {
+      this.resouceType = resouceType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     *
+     * @param resouceType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetResourceResouceTypeEnum}
+     * @return
+     */
+    public Builder resouceType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetResourceResouceTypeEnum resouceType) {
+      this.resouceType = resouceType.getValue();
+      return this;
     }
 
-    public String getResourceId() {
-        return this.resourceId;
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     *
+     * @param resourceType
+     * @return
+     */
+    public Builder resourceType(String resourceType) {
+      this.resourceType = resourceType;
+      return this;
     }
 
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
+    /**
+     * 数据知识资源类型
+     *
+     * <p>示例值：dataset
+     *
+     * @param resourceType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetResourceResourceTypeEnum}
+     * @return
+     */
+    public Builder resourceType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetResourceResourceTypeEnum resourceType) {
+      this.resourceType = resourceType.getValue();
+      return this;
     }
 
-    public String getResouceType() {
-        return this.resouceType;
+    public DataAssetResource build() {
+      return new DataAssetResource(this);
     }
+  }
 
-    public void setResouceType(String resouceType) {
-        this.resouceType = resouceType;
-    }
-
-    public String getResourceType() {
-        return this.resourceType;
-    }
-
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
-    }
-
-    public static class Builder {
-        /**
-         * 数据知识资源ID
-         * <p> 示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
-         */
-        private String resourceId;
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         */
-        private String resouceType;
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         */
-        private String resourceType;
-
-        /**
-         * 数据知识资源ID
-         * <p> 示例值：spring_5862e4fea8__c__dataset_aadg3lxm4j6mg
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         *
-         * @param resouceType
-         * @return
-         */
-        public Builder resouceType(String resouceType) {
-            this.resouceType = resouceType;
-            return this;
-        }
-
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         *
-         * @param resouceType {@link com.lark.oapi.service.aily.v1.enums.DataAssetResourceResouceTypeEnum}
-         * @return
-         */
-        public Builder resouceType(com.lark.oapi.service.aily.v1.enums.DataAssetResourceResouceTypeEnum resouceType) {
-            this.resouceType = resouceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         *
-         * @param resourceType
-         * @return
-         */
-        public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
-
-        /**
-         * 数据知识资源类型
-         * <p> 示例值：dataset
-         *
-         * @param resourceType {@link com.lark.oapi.service.aily.v1.enums.DataAssetResourceResourceTypeEnum}
-         * @return
-         */
-        public Builder resourceType(com.lark.oapi.service.aily.v1.enums.DataAssetResourceResourceTypeEnum resourceType) {
-            this.resourceType = resourceType.getValue();
-            return this;
-        }
-
-
-        public DataAssetResource build() {
-            return new DataAssetResource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

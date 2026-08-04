@@ -21,37 +21,37 @@ import com.lark.oapi.service.directory.v1.resource.Department;
 import com.lark.oapi.service.directory.v1.resource.Employee;
 
 public class V1 {
-    private final CollaborationRule collaborationRule; // collaboration_rule
-    private final CollaborationTenant collaborationTenant; // collaboration_tenant
-    private final CollborationShareEntity collborationShareEntity; // collboration_share_entity
-    private final Department department; // department
-    private final Employee employee; // employee
+  private final CollaborationRule collaborationRule; // collaboration_rule
+  private final CollaborationTenant collaborationTenant; // collaboration_tenant
+  private final CollborationShareEntity collborationShareEntity; // collboration_share_entity
+  private final Department department; // department
+  private final Employee employee; // employee
 
-    public V1(Config config) {
-        this.collaborationRule = new CollaborationRule(config);
-        this.collaborationTenant = new CollaborationTenant(config);
-        this.collborationShareEntity = new CollborationShareEntity(config);
-        this.department = new Department(config);
-        this.employee = new Employee(config);
-    }
+  public V1(Config config) {
+    this.collaborationRule = new CollaborationRule(config);
+    this.collaborationTenant = new CollaborationTenant(config);
+    this.collborationShareEntity = new CollborationShareEntity(config);
+    this.department = new Department(config);
+    this.employee = new Employee(config);
+  }
 
-    public CollaborationRule collaborationRule() {
-        return collaborationRule;
-    }
+  public CollaborationRule collaborationRule() {
+    return collaborationRule;
+  }
 
-    public CollaborationTenant collaborationTenant() {
-        return collaborationTenant;
-    }
+  public CollaborationTenant collaborationTenant() {
+    return collaborationTenant;
+  }
 
-    public CollborationShareEntity collborationShareEntity() {
-        return collborationShareEntity;
-    }
+  public CollborationShareEntity collborationShareEntity() {
+    return collborationShareEntity;
+  }
 
-    public Department department() {
-        return department;
-    }
+  public Department department() {
+    return department;
+  }
 
-    public Employee employee() {
-        return employee;
-    }
+  public Employee employee() {
+    return employee;
+  }
 }

@@ -13,445 +13,521 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalCreate {
+  /**
+   * 审批名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+   *
+   * <p>示例值：@i18n@approval_name
+   */
+  @SerializedName("approval_name")
+  private String approvalName;
+
+  /**
+   * 审批定义 Code。使用说明：;;- 该参数不传值时，表示新建审批定义，最终响应结果会返回由系统自动生成的审批定义 Code。;- 该参数传入指定审批定义 Code
+   * 时，表示调用该接口更新该审批定义内容，更新方式为覆盖原定义内容的全量更新。;;审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批描述的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+   *
+   * <p>示例值：@i18n@description
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * viewers 字段指定了哪些人能从审批应用的前台发起该审批。使用说明：;; - 当 viewer_type 为 USER，需要填写 viewer_user_id;; - 当
+   * viewer_type 为 DEPARTMENT，需要填写 viewer_department_id;; - 当 viewer_type 为 TENANT 或 NONE 时，无需填写
+   * viewer_user_id 和 viewer_department_id;;**注意**：列表最大长度为 200。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("viewers")
+  private ApprovalCreateViewers[] viewers;
+
+  /**
+   * 审批定义表单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("form")
+  private ApprovalForm form;
+
+  /**
+   * 审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list
+   * 最后一个元素。;;**说明**：API
+   * 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_list")
+  private ApprovalNode[] nodeList;
+
+  /**
+   * 审批定义其他设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("settings")
+  private ApprovalSetting settings;
+
+  /**
+   * 审批定义配置项，用于配置对应审批定义是否可以由用户在[审批后台](https://www.feishu.cn/approval/admin)进行修改。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("config")
+  private ApprovalConfig config;
+
+  /**
+   * 审批图标枚举，默认为 0。下图从左至右，从上到下依次为 0~24 号图标。; ;
+   * ;![icon.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/2c60da4397e18c0ae1fdf6bf50b36ad4_tQc0Lfgx4D.png?height=1080&lazyload=true&width=1066)
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("icon")
+  private Integer icon;
+
+  /**
+   * 国际化文案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_resources")
+  private I18nResource[] i18nResources;
+
+  /**
+   * 审批流程管理员的用户 ID 列表。;;- ID 类型与查询参数 user_id_type 取值一致;- 列表最大长度为 200
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_manager_ids")
+  private String[] processManagerIds;
+
+  public String getApprovalName() {
+    return this.approvalName;
+  }
+
+  public void setApprovalName(String approvalName) {
+    this.approvalName = approvalName;
+  }
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public ApprovalCreateViewers[] getViewers() {
+    return this.viewers;
+  }
+
+  public void setViewers(ApprovalCreateViewers[] viewers) {
+    this.viewers = viewers;
+  }
+
+  public ApprovalForm getForm() {
+    return this.form;
+  }
+
+  public void setForm(ApprovalForm form) {
+    this.form = form;
+  }
+
+  public ApprovalNode[] getNodeList() {
+    return this.nodeList;
+  }
+
+  public void setNodeList(ApprovalNode[] nodeList) {
+    this.nodeList = nodeList;
+  }
+
+  public ApprovalSetting getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(ApprovalSetting settings) {
+    this.settings = settings;
+  }
+
+  public ApprovalConfig getConfig() {
+    return this.config;
+  }
+
+  public void setConfig(ApprovalConfig config) {
+    this.config = config;
+  }
+
+  public Integer getIcon() {
+    return this.icon;
+  }
+
+  public void setIcon(Integer icon) {
+    this.icon = icon;
+  }
+
+  public I18nResource[] getI18nResources() {
+    return this.i18nResources;
+  }
+
+  public void setI18nResources(I18nResource[] i18nResources) {
+    this.i18nResources = i18nResources;
+  }
+
+  public String[] getProcessManagerIds() {
+    return this.processManagerIds;
+  }
+
+  public void setProcessManagerIds(String[] processManagerIds) {
+    this.processManagerIds = processManagerIds;
+  }
+
+  // builder 开始
+  public ApprovalCreate() {}
+
+  public ApprovalCreate(Builder builder) {
     /**
-     * 审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-     * <p> 示例值：@i18n@approval_name
+     * 审批名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@approval_name
      */
-    @SerializedName("approval_name")
-    private String approvalName;
+    this.approvalName = builder.approvalName;
     /**
-     * 传空表示新建
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。使用说明：;;- 该参数不传值时，表示新建审批定义，最终响应结果会返回由系统自动生成的审批定义 Code。;- 该参数传入指定审批定义 Code
+     * 时，表示调用该接口更新该审批定义内容，更新方式为覆盖原定义内容的全量更新。;;审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
-     * 审批描述的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-     * <p> 示例值：@i18n@description
+     * 审批描述的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@description
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
-     * viewers 字段指定了哪些人能从审批应用的前台发起该审批。;; 1. 当 viewer_type 为 USER，需要填写viewer_user_id；;; 2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；;; 3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写
-     * <p> 示例值：
+     * viewers 字段指定了哪些人能从审批应用的前台发起该审批。使用说明：;; - 当 viewer_type 为 USER，需要填写 viewer_user_id;; - 当
+     * viewer_type 为 DEPARTMENT，需要填写 viewer_department_id;; - 当 viewer_type 为 TENANT 或 NONE 时，无需填写
+     * viewer_user_id 和 viewer_department_id;;**注意**：列表最大长度为 200。
+     *
+     * <p>示例值：
      */
-    @SerializedName("viewers")
-    private ApprovalCreateViewers[] viewers;
+    this.viewers = builder.viewers;
     /**
      * 审批定义表单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("form")
-    private ApprovalForm form;
+    this.form = builder.form;
     /**
-     * 审批定义节点，需要将开始节点作为 list 第一个元素，结束节点作为最后一个元素
-     * <p> 示例值：
+     * 审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list
+     * 最后一个元素。;;**说明**：API
+     * 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_list")
-    private ApprovalNode[] nodeList;
+    this.nodeList = builder.nodeList;
     /**
      * 审批定义其他设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("settings")
-    private ApprovalSetting settings;
+    this.settings = builder.settings;
     /**
-     * 审批定义配置项，用于配置对应审批定义是否可以由用户在审批后台进行修改
-     * <p> 示例值：
+     * 审批定义配置项，用于配置对应审批定义是否可以由用户在[审批后台](https://www.feishu.cn/approval/admin)进行修改。
+     *
+     * <p>示例值：
      */
-    @SerializedName("config")
-    private ApprovalConfig config;
+    this.config = builder.config;
     /**
-     * 审批图标枚举，详见下方说明，默认为 0
-     * <p> 示例值：0
+     * 审批图标枚举，默认为 0。下图从左至右，从上到下依次为 0~24 号图标。; ;
+     * ;![icon.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/2c60da4397e18c0ae1fdf6bf50b36ad4_tQc0Lfgx4D.png?height=1080&lazyload=true&width=1066)
+     *
+     * <p>示例值：0
      */
-    @SerializedName("icon")
-    private Integer icon;
+    this.icon = builder.icon;
     /**
      * 国际化文案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_resources")
-    private I18nResource[] i18nResources;
+    this.i18nResources = builder.i18nResources;
     /**
-     * 根据user_id_type填写流程管理员的用户id
-     * <p> 示例值：["1c5ea995"]
+     * 审批流程管理员的用户 ID 列表。;;- ID 类型与查询参数 user_id_type 取值一致;- 列表最大长度为 200
+     *
+     * <p>示例值：
      */
-    @SerializedName("process_manager_ids")
+    this.processManagerIds = builder.processManagerIds;
+  }
+
+  public static class Builder {
+    /**
+     * 审批名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@approval_name
+     */
+    private String approvalName;
+
+    /**
+     * 审批定义 Code。使用说明：;;- 该参数不传值时，表示新建审批定义，最终响应结果会返回由系统自动生成的审批定义 Code。;- 该参数传入指定审批定义 Code
+     * 时，表示调用该接口更新该审批定义内容，更新方式为覆盖原定义内容的全量更新。;;审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
+    private String approvalCode;
+
+    /**
+     * 审批描述的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@description
+     */
+    private String description;
+
+    /**
+     * viewers 字段指定了哪些人能从审批应用的前台发起该审批。使用说明：;; - 当 viewer_type 为 USER，需要填写 viewer_user_id;; - 当
+     * viewer_type 为 DEPARTMENT，需要填写 viewer_department_id;; - 当 viewer_type 为 TENANT 或 NONE 时，无需填写
+     * viewer_user_id 和 viewer_department_id;;**注意**：列表最大长度为 200。
+     *
+     * <p>示例值：
+     */
+    private ApprovalCreateViewers[] viewers;
+
+    /**
+     * 审批定义表单
+     *
+     * <p>示例值：
+     */
+    private ApprovalForm form;
+
+    /**
+     * 审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list
+     * 最后一个元素。;;**说明**：API
+     * 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。
+     *
+     * <p>示例值：
+     */
+    private ApprovalNode[] nodeList;
+
+    /**
+     * 审批定义其他设置
+     *
+     * <p>示例值：
+     */
+    private ApprovalSetting settings;
+
+    /**
+     * 审批定义配置项，用于配置对应审批定义是否可以由用户在[审批后台](https://www.feishu.cn/approval/admin)进行修改。
+     *
+     * <p>示例值：
+     */
+    private ApprovalConfig config;
+
+    /**
+     * 审批图标枚举，默认为 0。下图从左至右，从上到下依次为 0~24 号图标。; ;
+     * ;![icon.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/2c60da4397e18c0ae1fdf6bf50b36ad4_tQc0Lfgx4D.png?height=1080&lazyload=true&width=1066)
+     *
+     * <p>示例值：0
+     */
+    private Integer icon;
+
+    /**
+     * 国际化文案
+     *
+     * <p>示例值：
+     */
+    private I18nResource[] i18nResources;
+
+    /**
+     * 审批流程管理员的用户 ID 列表。;;- ID 类型与查询参数 user_id_type 取值一致;- 列表最大长度为 200
+     *
+     * <p>示例值：
+     */
     private String[] processManagerIds;
 
-    // builder 开始
-    public ApprovalCreate() {
+    /**
+     * 审批名称的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@approval_name
+     *
+     * @param approvalName
+     * @return
+     */
+    public Builder approvalName(String approvalName) {
+      this.approvalName = approvalName;
+      return this;
     }
 
-    public ApprovalCreate(Builder builder) {
-        /**
-         * 审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@approval_name
-         */
-        this.approvalName = builder.approvalName;
-        /**
-         * 传空表示新建
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批描述的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@description
-         */
-        this.description = builder.description;
-        /**
-         * viewers 字段指定了哪些人能从审批应用的前台发起该审批。;; 1. 当 viewer_type 为 USER，需要填写viewer_user_id；;; 2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；;; 3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写
-         * <p> 示例值：
-         */
-        this.viewers = builder.viewers;
-        /**
-         * 审批定义表单
-         * <p> 示例值：
-         */
-        this.form = builder.form;
-        /**
-         * 审批定义节点，需要将开始节点作为 list 第一个元素，结束节点作为最后一个元素
-         * <p> 示例值：
-         */
-        this.nodeList = builder.nodeList;
-        /**
-         * 审批定义其他设置
-         * <p> 示例值：
-         */
-        this.settings = builder.settings;
-        /**
-         * 审批定义配置项，用于配置对应审批定义是否可以由用户在审批后台进行修改
-         * <p> 示例值：
-         */
-        this.config = builder.config;
-        /**
-         * 审批图标枚举，详见下方说明，默认为 0
-         * <p> 示例值：0
-         */
-        this.icon = builder.icon;
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         */
-        this.i18nResources = builder.i18nResources;
-        /**
-         * 根据user_id_type填写流程管理员的用户id
-         * <p> 示例值：["1c5ea995"]
-         */
-        this.processManagerIds = builder.processManagerIds;
+    /**
+     * 审批定义 Code。使用说明：;;- 该参数不传值时，表示新建审批定义，最终响应结果会返回由系统自动生成的审批定义 Code。;- 该参数传入指定审批定义 Code
+     * 时，表示调用该接口更新该审批定义内容，更新方式为覆盖原定义内容的全量更新。;;审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批描述的国际化文案 Key，以 `@i18n@` 开头，长度不得少于 9 个字符。
+     *
+     * <p>示例值：@i18n@description
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getApprovalName() {
-        return this.approvalName;
+    /**
+     * viewers 字段指定了哪些人能从审批应用的前台发起该审批。使用说明：;; - 当 viewer_type 为 USER，需要填写 viewer_user_id;; - 当
+     * viewer_type 为 DEPARTMENT，需要填写 viewer_department_id;; - 当 viewer_type 为 TENANT 或 NONE 时，无需填写
+     * viewer_user_id 和 viewer_department_id;;**注意**：列表最大长度为 200。
+     *
+     * <p>示例值：
+     *
+     * @param viewers
+     * @return
+     */
+    public Builder viewers(ApprovalCreateViewers[] viewers) {
+      this.viewers = viewers;
+      return this;
     }
 
-    public void setApprovalName(String approvalName) {
-        this.approvalName = approvalName;
+    /**
+     * 审批定义表单
+     *
+     * <p>示例值：
+     *
+     * @param form
+     * @return
+     */
+    public Builder form(ApprovalForm form) {
+      this.form = form;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list
+     * 最后一个元素。;;**说明**：API
+     * 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。
+     *
+     * <p>示例值：
+     *
+     * @param nodeList
+     * @return
+     */
+    public Builder nodeList(ApprovalNode[] nodeList) {
+      this.nodeList = nodeList;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 审批定义其他设置
+     *
+     * <p>示例值：
+     *
+     * @param settings
+     * @return
+     */
+    public Builder settings(ApprovalSetting settings) {
+      this.settings = settings;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 审批定义配置项，用于配置对应审批定义是否可以由用户在[审批后台](https://www.feishu.cn/approval/admin)进行修改。
+     *
+     * <p>示例值：
+     *
+     * @param config
+     * @return
+     */
+    public Builder config(ApprovalConfig config) {
+      this.config = config;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 审批图标枚举，默认为 0。下图从左至右，从上到下依次为 0~24 号图标。; ;
+     * ;![icon.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/2c60da4397e18c0ae1fdf6bf50b36ad4_tQc0Lfgx4D.png?height=1080&lazyload=true&width=1066)
+     *
+     * <p>示例值：0
+     *
+     * @param icon
+     * @return
+     */
+    public Builder icon(Integer icon) {
+      this.icon = icon;
+      return this;
     }
 
-    public ApprovalCreateViewers[] getViewers() {
-        return this.viewers;
+    /**
+     * 国际化文案
+     *
+     * <p>示例值：
+     *
+     * @param i18nResources
+     * @return
+     */
+    public Builder i18nResources(I18nResource[] i18nResources) {
+      this.i18nResources = i18nResources;
+      return this;
     }
 
-    public void setViewers(ApprovalCreateViewers[] viewers) {
-        this.viewers = viewers;
+    /**
+     * 审批流程管理员的用户 ID 列表。;;- ID 类型与查询参数 user_id_type 取值一致;- 列表最大长度为 200
+     *
+     * <p>示例值：
+     *
+     * @param processManagerIds
+     * @return
+     */
+    public Builder processManagerIds(String[] processManagerIds) {
+      this.processManagerIds = processManagerIds;
+      return this;
     }
 
-    public ApprovalForm getForm() {
-        return this.form;
+    public ApprovalCreate build() {
+      return new ApprovalCreate(this);
     }
+  }
 
-    public void setForm(ApprovalForm form) {
-        this.form = form;
-    }
-
-    public ApprovalNode[] getNodeList() {
-        return this.nodeList;
-    }
-
-    public void setNodeList(ApprovalNode[] nodeList) {
-        this.nodeList = nodeList;
-    }
-
-    public ApprovalSetting getSettings() {
-        return this.settings;
-    }
-
-    public void setSettings(ApprovalSetting settings) {
-        this.settings = settings;
-    }
-
-    public ApprovalConfig getConfig() {
-        return this.config;
-    }
-
-    public void setConfig(ApprovalConfig config) {
-        this.config = config;
-    }
-
-    public Integer getIcon() {
-        return this.icon;
-    }
-
-    public void setIcon(Integer icon) {
-        this.icon = icon;
-    }
-
-    public I18nResource[] getI18nResources() {
-        return this.i18nResources;
-    }
-
-    public void setI18nResources(I18nResource[] i18nResources) {
-        this.i18nResources = i18nResources;
-    }
-
-    public String[] getProcessManagerIds() {
-        return this.processManagerIds;
-    }
-
-    public void setProcessManagerIds(String[] processManagerIds) {
-        this.processManagerIds = processManagerIds;
-    }
-
-    public static class Builder {
-        /**
-         * 审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@approval_name
-         */
-        private String approvalName;
-        /**
-         * 传空表示新建
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String approvalCode;
-        /**
-         * 审批描述的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@description
-         */
-        private String description;
-        /**
-         * viewers 字段指定了哪些人能从审批应用的前台发起该审批。;; 1. 当 viewer_type 为 USER，需要填写viewer_user_id；;; 2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；;; 3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写
-         * <p> 示例值：
-         */
-        private ApprovalCreateViewers[] viewers;
-        /**
-         * 审批定义表单
-         * <p> 示例值：
-         */
-        private ApprovalForm form;
-        /**
-         * 审批定义节点，需要将开始节点作为 list 第一个元素，结束节点作为最后一个元素
-         * <p> 示例值：
-         */
-        private ApprovalNode[] nodeList;
-        /**
-         * 审批定义其他设置
-         * <p> 示例值：
-         */
-        private ApprovalSetting settings;
-        /**
-         * 审批定义配置项，用于配置对应审批定义是否可以由用户在审批后台进行修改
-         * <p> 示例值：
-         */
-        private ApprovalConfig config;
-        /**
-         * 审批图标枚举，详见下方说明，默认为 0
-         * <p> 示例值：0
-         */
-        private Integer icon;
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         */
-        private I18nResource[] i18nResources;
-        /**
-         * 根据user_id_type填写流程管理员的用户id
-         * <p> 示例值：["1c5ea995"]
-         */
-        private String[] processManagerIds;
-
-        /**
-         * 审批名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@approval_name
-         *
-         * @param approvalName
-         * @return
-         */
-        public Builder approvalName(String approvalName) {
-            this.approvalName = approvalName;
-            return this;
-        }
-
-
-        /**
-         * 传空表示新建
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批描述的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
-         * <p> 示例值：@i18n@description
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * viewers 字段指定了哪些人能从审批应用的前台发起该审批。;; 1. 当 viewer_type 为 USER，需要填写viewer_user_id；;; 2. 当 viewer_type 为DEPARTMENT，需要填写viewer_department_id；;; 3. 当 viewer_type 为TENANT或NONE时，viewer_user_id和viewer_department_id无需填写
-         * <p> 示例值：
-         *
-         * @param viewers
-         * @return
-         */
-        public Builder viewers(ApprovalCreateViewers[] viewers) {
-            this.viewers = viewers;
-            return this;
-        }
-
-
-        /**
-         * 审批定义表单
-         * <p> 示例值：
-         *
-         * @param form
-         * @return
-         */
-        public Builder form(ApprovalForm form) {
-            this.form = form;
-            return this;
-        }
-
-
-        /**
-         * 审批定义节点，需要将开始节点作为 list 第一个元素，结束节点作为最后一个元素
-         * <p> 示例值：
-         *
-         * @param nodeList
-         * @return
-         */
-        public Builder nodeList(ApprovalNode[] nodeList) {
-            this.nodeList = nodeList;
-            return this;
-        }
-
-
-        /**
-         * 审批定义其他设置
-         * <p> 示例值：
-         *
-         * @param settings
-         * @return
-         */
-        public Builder settings(ApprovalSetting settings) {
-            this.settings = settings;
-            return this;
-        }
-
-
-        /**
-         * 审批定义配置项，用于配置对应审批定义是否可以由用户在审批后台进行修改
-         * <p> 示例值：
-         *
-         * @param config
-         * @return
-         */
-        public Builder config(ApprovalConfig config) {
-            this.config = config;
-            return this;
-        }
-
-
-        /**
-         * 审批图标枚举，详见下方说明，默认为 0
-         * <p> 示例值：0
-         *
-         * @param icon
-         * @return
-         */
-        public Builder icon(Integer icon) {
-            this.icon = icon;
-            return this;
-        }
-
-
-        /**
-         * 国际化文案
-         * <p> 示例值：
-         *
-         * @param i18nResources
-         * @return
-         */
-        public Builder i18nResources(I18nResource[] i18nResources) {
-            this.i18nResources = i18nResources;
-            return this;
-        }
-
-
-        /**
-         * 根据user_id_type填写流程管理员的用户id
-         * <p> 示例值：["1c5ea995"]
-         *
-         * @param processManagerIds
-         * @return
-         */
-        public Builder processManagerIds(String[] processManagerIds) {
-            this.processManagerIds = processManagerIds;
-            return this;
-        }
-
-
-        public ApprovalCreate build() {
-            return new ApprovalCreate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

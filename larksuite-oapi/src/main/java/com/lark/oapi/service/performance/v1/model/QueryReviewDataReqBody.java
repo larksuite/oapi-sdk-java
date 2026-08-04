@@ -13,297 +13,321 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryReviewDataReqBody {
+  /**
+   * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+   *
+   * <p>示例值：1430425599999
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 环节类型，目前仅支持终评环节、结果沟通环节、查看绩效结果环节
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage_types")
+  private String[] stageTypes;
+
+  /**
+   * 环节状态，填写时按照指定状态获取绩效结果，不填查询所有状态的绩效结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage_progress")
+  private Integer[] stageProgress;
+
+  /**
+   * 评估周期 ID
+   * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("semester_id_list")
+  private String[] semesterIdList;
+
+  /**
+   * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewee_user_id_list")
+  private String[] revieweeUserIdList;
+
+  /**
+   * 环节更新时间最早时间，毫秒时间戳，可筛选出在此时间之后，有内容提交的环节数据
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("updated_later_than")
+  private String updatedLaterThan;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String[] getStageTypes() {
+    return this.stageTypes;
+  }
+
+  public void setStageTypes(String[] stageTypes) {
+    this.stageTypes = stageTypes;
+  }
+
+  public Integer[] getStageProgress() {
+    return this.stageProgress;
+  }
+
+  public void setStageProgress(Integer[] stageProgress) {
+    this.stageProgress = stageProgress;
+  }
+
+  public String[] getSemesterIdList() {
+    return this.semesterIdList;
+  }
+
+  public void setSemesterIdList(String[] semesterIdList) {
+    this.semesterIdList = semesterIdList;
+  }
+
+  public String[] getRevieweeUserIdList() {
+    return this.revieweeUserIdList;
+  }
+
+  public void setRevieweeUserIdList(String[] revieweeUserIdList) {
+    this.revieweeUserIdList = revieweeUserIdList;
+  }
+
+  public String getUpdatedLaterThan() {
+    return this.updatedLaterThan;
+  }
+
+  public void setUpdatedLaterThan(String updatedLaterThan) {
+    this.updatedLaterThan = updatedLaterThan;
+  }
+
+  // builder 开始
+  public QueryReviewDataReqBody() {}
+
+  public QueryReviewDataReqBody(Builder builder) {
     /**
-     * 查询范围的开始日期，毫秒级时间戳，开始日期不能晚于截止日期
-     * <p> 示例值：1430425599999
+     * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1430425599999
      */
-    @SerializedName("start_time")
+    this.startTime = builder.startTime;
+    /**
+     * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1630425599999
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 环节类型，目前仅支持终评环节、结果沟通环节、查看绩效结果环节
+     *
+     * <p>示例值：
+     */
+    this.stageTypes = builder.stageTypes;
+    /**
+     * 环节状态，填写时按照指定状态获取绩效结果，不填查询所有状态的绩效结果
+     *
+     * <p>示例值：
+     */
+    this.stageProgress = builder.stageProgress;
+    /**
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：
+     */
+    this.semesterIdList = builder.semesterIdList;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     */
+    this.revieweeUserIdList = builder.revieweeUserIdList;
+    /**
+     * 环节更新时间最早时间，毫秒时间戳，可筛选出在此时间之后，有内容提交的环节数据
+     *
+     * <p>示例值：1630425599999
+     */
+    this.updatedLaterThan = builder.updatedLaterThan;
+  }
+
+  public static class Builder {
+    /**
+     * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1430425599999
+     */
     private String startTime;
+
     /**
-     * 查询范围的截止日期，毫秒级时间戳，截止日期不能早于开始日期
-     * <p> 示例值：1630425599999
+     * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 评估环节类型，目前仅支持上级评估环节和结果沟通环节（不传默认包含所有的环节）;;**可选值有**：;- `leader_review`：上级评估环节;- `communication_and_open_result`：结果沟通环节
-     * <p> 示例值：["leader_review","communication_and_open_result"]
+     * 环节类型，目前仅支持终评环节、结果沟通环节、查看绩效结果环节
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage_types")
     private String[] stageTypes;
+
     /**
-     * 评估环节状态（不传默认包含所有的状态）;;**可选值有**：;- `0`：未开始，任务的开始时间未到达;- `1`：待完成，任务的开始时间到达而截止时间未到达，且任务未完成;- `2`：已截止，任务的截止时间已到达，且任务未完成;- `3`：已完成，任务已完成
-     * <p> 示例值：[0,1,2,3]
+     * 环节状态，填写时按照指定状态获取绩效结果，不填查询所有状态的绩效结果
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage_progress")
     private Integer[] stageProgress;
+
     /**
-     * 评估周期 ID 列表，semester_id 是一个评估周期的唯一标识，可以通过「我的评估」页面 url 获取，也可通过本接口的返回值获取
-     * <p> 示例值：["6992035450862224940"]
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("semester_id_list")
     private String[] semesterIdList;
+
     /**
-     * 被评估人 ID 列表
-     * <p> 示例值：["ou_3245842393d09e9428ad4655da6e30b3"]
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewee_user_id_list")
     private String[] revieweeUserIdList;
+
     /**
-     * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-     * <p> 示例值：1630425599999
+     * 环节更新时间最早时间，毫秒时间戳，可筛选出在此时间之后，有内容提交的环节数据
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("updated_later_than")
     private String updatedLaterThan;
 
-    // builder 开始
-    public QueryReviewDataReqBody() {
+    /**
+     * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1430425599999
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public QueryReviewDataReqBody(Builder builder) {
-        /**
-         * 查询范围的开始日期，毫秒级时间戳，开始日期不能晚于截止日期
-         * <p> 示例值：1430425599999
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 查询范围的截止日期，毫秒级时间戳，截止日期不能早于开始日期
-         * <p> 示例值：1630425599999
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 评估环节类型，目前仅支持上级评估环节和结果沟通环节（不传默认包含所有的环节）;;**可选值有**：;- `leader_review`：上级评估环节;- `communication_and_open_result`：结果沟通环节
-         * <p> 示例值：["leader_review","communication_and_open_result"]
-         */
-        this.stageTypes = builder.stageTypes;
-        /**
-         * 评估环节状态（不传默认包含所有的状态）;;**可选值有**：;- `0`：未开始，任务的开始时间未到达;- `1`：待完成，任务的开始时间到达而截止时间未到达，且任务未完成;- `2`：已截止，任务的截止时间已到达，且任务未完成;- `3`：已完成，任务已完成
-         * <p> 示例值：[0,1,2,3]
-         */
-        this.stageProgress = builder.stageProgress;
-        /**
-         * 评估周期 ID 列表，semester_id 是一个评估周期的唯一标识，可以通过「我的评估」页面 url 获取，也可通过本接口的返回值获取
-         * <p> 示例值：["6992035450862224940"]
-         */
-        this.semesterIdList = builder.semesterIdList;
-        /**
-         * 被评估人 ID 列表
-         * <p> 示例值：["ou_3245842393d09e9428ad4655da6e30b3"]
-         */
-        this.revieweeUserIdList = builder.revieweeUserIdList;
-        /**
-         * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-         * <p> 示例值：1630425599999
-         */
-        this.updatedLaterThan = builder.updatedLaterThan;
+    /**
+     * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉;;;**注意**：当填写了 `semester_id_list` 参数时，此参数无效
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节类型，目前仅支持终评环节、结果沟通环节、查看绩效结果环节
+     *
+     * <p>示例值：
+     *
+     * @param stageTypes
+     * @return
+     */
+    public Builder stageTypes(String[] stageTypes) {
+      this.stageTypes = stageTypes;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 环节状态，填写时按照指定状态获取绩效结果，不填查询所有状态的绩效结果
+     *
+     * <p>示例值：
+     *
+     * @param stageProgress
+     * @return
+     */
+    public Builder stageProgress(Integer[] stageProgress) {
+      this.stageProgress = stageProgress;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param semesterIdList
+     * @return
+     */
+    public Builder semesterIdList(String[] semesterIdList) {
+      this.semesterIdList = semesterIdList;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     *
+     * @param revieweeUserIdList
+     * @return
+     */
+    public Builder revieweeUserIdList(String[] revieweeUserIdList) {
+      this.revieweeUserIdList = revieweeUserIdList;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 环节更新时间最早时间，毫秒时间戳，可筛选出在此时间之后，有内容提交的环节数据
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param updatedLaterThan
+     * @return
+     */
+    public Builder updatedLaterThan(String updatedLaterThan) {
+      this.updatedLaterThan = updatedLaterThan;
+      return this;
     }
 
-    public String[] getStageTypes() {
-        return this.stageTypes;
+    public QueryReviewDataReqBody build() {
+      return new QueryReviewDataReqBody(this);
     }
+  }
 
-    public void setStageTypes(String[] stageTypes) {
-        this.stageTypes = stageTypes;
-    }
-
-    public Integer[] getStageProgress() {
-        return this.stageProgress;
-    }
-
-    public void setStageProgress(Integer[] stageProgress) {
-        this.stageProgress = stageProgress;
-    }
-
-    public String[] getSemesterIdList() {
-        return this.semesterIdList;
-    }
-
-    public void setSemesterIdList(String[] semesterIdList) {
-        this.semesterIdList = semesterIdList;
-    }
-
-    public String[] getRevieweeUserIdList() {
-        return this.revieweeUserIdList;
-    }
-
-    public void setRevieweeUserIdList(String[] revieweeUserIdList) {
-        this.revieweeUserIdList = revieweeUserIdList;
-    }
-
-    public String getUpdatedLaterThan() {
-        return this.updatedLaterThan;
-    }
-
-    public void setUpdatedLaterThan(String updatedLaterThan) {
-        this.updatedLaterThan = updatedLaterThan;
-    }
-
-    public static class Builder {
-        /**
-         * 查询范围的开始日期，毫秒级时间戳，开始日期不能晚于截止日期
-         * <p> 示例值：1430425599999
-         */
-        private String startTime;
-        /**
-         * 查询范围的截止日期，毫秒级时间戳，截止日期不能早于开始日期
-         * <p> 示例值：1630425599999
-         */
-        private String endTime;
-        /**
-         * 评估环节类型，目前仅支持上级评估环节和结果沟通环节（不传默认包含所有的环节）;;**可选值有**：;- `leader_review`：上级评估环节;- `communication_and_open_result`：结果沟通环节
-         * <p> 示例值：["leader_review","communication_and_open_result"]
-         */
-        private String[] stageTypes;
-        /**
-         * 评估环节状态（不传默认包含所有的状态）;;**可选值有**：;- `0`：未开始，任务的开始时间未到达;- `1`：待完成，任务的开始时间到达而截止时间未到达，且任务未完成;- `2`：已截止，任务的截止时间已到达，且任务未完成;- `3`：已完成，任务已完成
-         * <p> 示例值：[0,1,2,3]
-         */
-        private Integer[] stageProgress;
-        /**
-         * 评估周期 ID 列表，semester_id 是一个评估周期的唯一标识，可以通过「我的评估」页面 url 获取，也可通过本接口的返回值获取
-         * <p> 示例值：["6992035450862224940"]
-         */
-        private String[] semesterIdList;
-        /**
-         * 被评估人 ID 列表
-         * <p> 示例值：["ou_3245842393d09e9428ad4655da6e30b3"]
-         */
-        private String[] revieweeUserIdList;
-        /**
-         * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-         * <p> 示例值：1630425599999
-         */
-        private String updatedLaterThan;
-
-        /**
-         * 查询范围的开始日期，毫秒级时间戳，开始日期不能晚于截止日期
-         * <p> 示例值：1430425599999
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 查询范围的截止日期，毫秒级时间戳，截止日期不能早于开始日期
-         * <p> 示例值：1630425599999
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 评估环节类型，目前仅支持上级评估环节和结果沟通环节（不传默认包含所有的环节）;;**可选值有**：;- `leader_review`：上级评估环节;- `communication_and_open_result`：结果沟通环节
-         * <p> 示例值：["leader_review","communication_and_open_result"]
-         *
-         * @param stageTypes
-         * @return
-         */
-        public Builder stageTypes(String[] stageTypes) {
-            this.stageTypes = stageTypes;
-            return this;
-        }
-
-
-        /**
-         * 评估环节状态（不传默认包含所有的状态）;;**可选值有**：;- `0`：未开始，任务的开始时间未到达;- `1`：待完成，任务的开始时间到达而截止时间未到达，且任务未完成;- `2`：已截止，任务的截止时间已到达，且任务未完成;- `3`：已完成，任务已完成
-         * <p> 示例值：[0,1,2,3]
-         *
-         * @param stageProgress
-         * @return
-         */
-        public Builder stageProgress(Integer[] stageProgress) {
-            this.stageProgress = stageProgress;
-            return this;
-        }
-
-
-        /**
-         * 评估周期 ID 列表，semester_id 是一个评估周期的唯一标识，可以通过「我的评估」页面 url 获取，也可通过本接口的返回值获取
-         * <p> 示例值：["6992035450862224940"]
-         *
-         * @param semesterIdList
-         * @return
-         */
-        public Builder semesterIdList(String[] semesterIdList) {
-            this.semesterIdList = semesterIdList;
-            return this;
-        }
-
-
-        /**
-         * 被评估人 ID 列表
-         * <p> 示例值：["ou_3245842393d09e9428ad4655da6e30b3"]
-         *
-         * @param revieweeUserIdList
-         * @return
-         */
-        public Builder revieweeUserIdList(String[] revieweeUserIdList) {
-            this.revieweeUserIdList = revieweeUserIdList;
-            return this;
-        }
-
-
-        /**
-         * 环节更新时间晚于，可筛选出在此时间之后，有内容提交的环节数据
-         * <p> 示例值：1630425599999
-         *
-         * @param updatedLaterThan
-         * @return
-         */
-        public Builder updatedLaterThan(String updatedLaterThan) {
-            this.updatedLaterThan = updatedLaterThan;
-            return this;
-        }
-
-
-        public QueryReviewDataReqBody build() {
-            return new QueryReviewDataReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

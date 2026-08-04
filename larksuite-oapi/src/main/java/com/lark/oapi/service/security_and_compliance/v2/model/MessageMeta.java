@@ -13,407 +13,449 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageMeta {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_type")
+  private Integer messageType;
+
+  /**
+   * 会话元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_meta")
+  private ChatMeta chatMeta;
+
+  /**
+   * 消息发送人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender")
+  private User sender;
+
+  /**
+   * 发送时间; 时间格式: RFC3339
+   *
+   * <p>示例值：
+   */
+  @SerializedName("send_time")
+  private String sendTime;
+
+  /**
+   * 回复消息的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reply_message_id")
+  private String replyMessageId;
+
+  /**
+   * 转发的父消息ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transmit_parent_message_id")
+  private String transmitParentMessageId;
+
+  /**
+   * 发送消息者类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_type")
+  private Integer senderType;
+
+  /**
+   * 消息状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_status")
+  private Integer messageStatus;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Integer getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(Integer messageType) {
+    this.messageType = messageType;
+  }
+
+  public ChatMeta getChatMeta() {
+    return this.chatMeta;
+  }
+
+  public void setChatMeta(ChatMeta chatMeta) {
+    this.chatMeta = chatMeta;
+  }
+
+  public User getSender() {
+    return this.sender;
+  }
+
+  public void setSender(User sender) {
+    this.sender = sender;
+  }
+
+  public String getSendTime() {
+    return this.sendTime;
+  }
+
+  public void setSendTime(String sendTime) {
+    this.sendTime = sendTime;
+  }
+
+  public String getReplyMessageId() {
+    return this.replyMessageId;
+  }
+
+  public void setReplyMessageId(String replyMessageId) {
+    this.replyMessageId = replyMessageId;
+  }
+
+  public String getTransmitParentMessageId() {
+    return this.transmitParentMessageId;
+  }
+
+  public void setTransmitParentMessageId(String transmitParentMessageId) {
+    this.transmitParentMessageId = transmitParentMessageId;
+  }
+
+  public Integer getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(Integer senderType) {
+    this.senderType = senderType;
+  }
+
+  public Integer getMessageStatus() {
+    return this.messageStatus;
+  }
+
+  public void setMessageStatus(Integer messageStatus) {
+    this.messageStatus = messageStatus;
+  }
+
+  // builder 开始
+  public MessageMeta() {}
+
+  public MessageMeta(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 消息类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_type")
-    private Integer messageType;
+    this.messageType = builder.messageType;
     /**
      * 会话元信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_meta")
-    private ChatMeta chatMeta;
+    this.chatMeta = builder.chatMeta;
     /**
      * 消息发送人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender")
-    private User sender;
+    this.sender = builder.sender;
     /**
      * 发送时间; 时间格式: RFC3339
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("send_time")
-    private String sendTime;
+    this.sendTime = builder.sendTime;
     /**
      * 回复消息的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reply_message_id")
-    private String replyMessageId;
+    this.replyMessageId = builder.replyMessageId;
     /**
      * 转发的父消息ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("transmit_parent_message_id")
-    private String transmitParentMessageId;
+    this.transmitParentMessageId = builder.transmitParentMessageId;
     /**
      * 发送消息者类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender_type")
-    private Integer senderType;
+    this.senderType = builder.senderType;
     /**
      * 消息状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_status")
+    this.messageStatus = builder.messageStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：
+     */
+    private String messageId;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：
+     */
+    private Integer messageType;
+
+    /**
+     * 会话元信息
+     *
+     * <p>示例值：
+     */
+    private ChatMeta chatMeta;
+
+    /**
+     * 消息发送人
+     *
+     * <p>示例值：
+     */
+    private User sender;
+
+    /**
+     * 发送时间; 时间格式: RFC3339
+     *
+     * <p>示例值：
+     */
+    private String sendTime;
+
+    /**
+     * 回复消息的ID
+     *
+     * <p>示例值：
+     */
+    private String replyMessageId;
+
+    /**
+     * 转发的父消息ID
+     *
+     * <p>示例值：
+     */
+    private String transmitParentMessageId;
+
+    /**
+     * 发送消息者类型
+     *
+     * <p>示例值：
+     */
+    private Integer senderType;
+
+    /**
+     * 消息状态
+     *
+     * <p>示例值：
+     */
     private Integer messageStatus;
 
-    // builder 开始
-    public MessageMeta() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MessageMeta(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 会话元信息
-         * <p> 示例值：
-         */
-        this.chatMeta = builder.chatMeta;
-        /**
-         * 消息发送人
-         * <p> 示例值：
-         */
-        this.sender = builder.sender;
-        /**
-         * 发送时间; 时间格式: RFC3339
-         * <p> 示例值：
-         */
-        this.sendTime = builder.sendTime;
-        /**
-         * 回复消息的ID
-         * <p> 示例值：
-         */
-        this.replyMessageId = builder.replyMessageId;
-        /**
-         * 转发的父消息ID
-         * <p> 示例值：
-         */
-        this.transmitParentMessageId = builder.transmitParentMessageId;
-        /**
-         * 发送消息者类型
-         * <p> 示例值：
-         */
-        this.senderType = builder.senderType;
-        /**
-         * 消息状态
-         * <p> 示例值：
-         */
-        this.messageStatus = builder.messageStatus;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(Integer messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息类型
+     *
+     * <p>示例值：
+     *
+     * @param messageType {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageTypeEnum}
+     * @return
+     */
+    public Builder messageType(
+        com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageTypeEnum
+            messageType) {
+      this.messageType = messageType.getValue();
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 会话元信息
+     *
+     * <p>示例值：
+     *
+     * @param chatMeta
+     * @return
+     */
+    public Builder chatMeta(ChatMeta chatMeta) {
+      this.chatMeta = chatMeta;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 消息发送人
+     *
+     * <p>示例值：
+     *
+     * @param sender
+     * @return
+     */
+    public Builder sender(User sender) {
+      this.sender = sender;
+      return this;
     }
 
-    public Integer getMessageType() {
-        return this.messageType;
+    /**
+     * 发送时间; 时间格式: RFC3339
+     *
+     * <p>示例值：
+     *
+     * @param sendTime
+     * @return
+     */
+    public Builder sendTime(String sendTime) {
+      this.sendTime = sendTime;
+      return this;
     }
 
-    public void setMessageType(Integer messageType) {
-        this.messageType = messageType;
+    /**
+     * 回复消息的ID
+     *
+     * <p>示例值：
+     *
+     * @param replyMessageId
+     * @return
+     */
+    public Builder replyMessageId(String replyMessageId) {
+      this.replyMessageId = replyMessageId;
+      return this;
     }
 
-    public ChatMeta getChatMeta() {
-        return this.chatMeta;
+    /**
+     * 转发的父消息ID
+     *
+     * <p>示例值：
+     *
+     * @param transmitParentMessageId
+     * @return
+     */
+    public Builder transmitParentMessageId(String transmitParentMessageId) {
+      this.transmitParentMessageId = transmitParentMessageId;
+      return this;
     }
 
-    public void setChatMeta(ChatMeta chatMeta) {
-        this.chatMeta = chatMeta;
+    /**
+     * 发送消息者类型
+     *
+     * <p>示例值：
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(Integer senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public User getSender() {
-        return this.sender;
+    /**
+     * 发送消息者类型
+     *
+     * <p>示例值：
+     *
+     * @param senderType {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaSenderTypeEnum}
+     * @return
+     */
+    public Builder senderType(
+        com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaSenderTypeEnum
+            senderType) {
+      this.senderType = senderType.getValue();
+      return this;
     }
 
-    public void setSender(User sender) {
-        this.sender = sender;
+    /**
+     * 消息状态
+     *
+     * <p>示例值：
+     *
+     * @param messageStatus
+     * @return
+     */
+    public Builder messageStatus(Integer messageStatus) {
+      this.messageStatus = messageStatus;
+      return this;
     }
 
-    public String getSendTime() {
-        return this.sendTime;
+    /**
+     * 消息状态
+     *
+     * <p>示例值：
+     *
+     * @param messageStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageStatusEnum}
+     * @return
+     */
+    public Builder messageStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageStatusEnum
+            messageStatus) {
+      this.messageStatus = messageStatus.getValue();
+      return this;
     }
 
-    public void setSendTime(String sendTime) {
-        this.sendTime = sendTime;
+    public MessageMeta build() {
+      return new MessageMeta(this);
     }
+  }
 
-    public String getReplyMessageId() {
-        return this.replyMessageId;
-    }
-
-    public void setReplyMessageId(String replyMessageId) {
-        this.replyMessageId = replyMessageId;
-    }
-
-    public String getTransmitParentMessageId() {
-        return this.transmitParentMessageId;
-    }
-
-    public void setTransmitParentMessageId(String transmitParentMessageId) {
-        this.transmitParentMessageId = transmitParentMessageId;
-    }
-
-    public Integer getSenderType() {
-        return this.senderType;
-    }
-
-    public void setSenderType(Integer senderType) {
-        this.senderType = senderType;
-    }
-
-    public Integer getMessageStatus() {
-        return this.messageStatus;
-    }
-
-    public void setMessageStatus(Integer messageStatus) {
-        this.messageStatus = messageStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：
-         */
-        private String messageId;
-        /**
-         * 消息类型
-         * <p> 示例值：
-         */
-        private Integer messageType;
-        /**
-         * 会话元信息
-         * <p> 示例值：
-         */
-        private ChatMeta chatMeta;
-        /**
-         * 消息发送人
-         * <p> 示例值：
-         */
-        private User sender;
-        /**
-         * 发送时间; 时间格式: RFC3339
-         * <p> 示例值：
-         */
-        private String sendTime;
-        /**
-         * 回复消息的ID
-         * <p> 示例值：
-         */
-        private String replyMessageId;
-        /**
-         * 转发的父消息ID
-         * <p> 示例值：
-         */
-        private String transmitParentMessageId;
-        /**
-         * 发送消息者类型
-         * <p> 示例值：
-         */
-        private Integer senderType;
-        /**
-         * 消息状态
-         * <p> 示例值：
-         */
-        private Integer messageStatus;
-
-        /**
-         * 消息ID
-         * <p> 示例值：
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(Integer messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-        /**
-         * 消息类型
-         * <p> 示例值：
-         *
-         * @param messageType {@link com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageTypeEnum}
-         * @return
-         */
-        public Builder messageType(com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageTypeEnum messageType) {
-            this.messageType = messageType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 会话元信息
-         * <p> 示例值：
-         *
-         * @param chatMeta
-         * @return
-         */
-        public Builder chatMeta(ChatMeta chatMeta) {
-            this.chatMeta = chatMeta;
-            return this;
-        }
-
-
-        /**
-         * 消息发送人
-         * <p> 示例值：
-         *
-         * @param sender
-         * @return
-         */
-        public Builder sender(User sender) {
-            this.sender = sender;
-            return this;
-        }
-
-
-        /**
-         * 发送时间; 时间格式: RFC3339
-         * <p> 示例值：
-         *
-         * @param sendTime
-         * @return
-         */
-        public Builder sendTime(String sendTime) {
-            this.sendTime = sendTime;
-            return this;
-        }
-
-
-        /**
-         * 回复消息的ID
-         * <p> 示例值：
-         *
-         * @param replyMessageId
-         * @return
-         */
-        public Builder replyMessageId(String replyMessageId) {
-            this.replyMessageId = replyMessageId;
-            return this;
-        }
-
-
-        /**
-         * 转发的父消息ID
-         * <p> 示例值：
-         *
-         * @param transmitParentMessageId
-         * @return
-         */
-        public Builder transmitParentMessageId(String transmitParentMessageId) {
-            this.transmitParentMessageId = transmitParentMessageId;
-            return this;
-        }
-
-
-        /**
-         * 发送消息者类型
-         * <p> 示例值：
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(Integer senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-        /**
-         * 发送消息者类型
-         * <p> 示例值：
-         *
-         * @param senderType {@link com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaSenderTypeEnum}
-         * @return
-         */
-        public Builder senderType(com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaSenderTypeEnum senderType) {
-            this.senderType = senderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 消息状态
-         * <p> 示例值：
-         *
-         * @param messageStatus
-         * @return
-         */
-        public Builder messageStatus(Integer messageStatus) {
-            this.messageStatus = messageStatus;
-            return this;
-        }
-
-        /**
-         * 消息状态
-         * <p> 示例值：
-         *
-         * @param messageStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageStatusEnum}
-         * @return
-         */
-        public Builder messageStatus(com.lark.oapi.service.security_and_compliance.v2.enums.MessageMetaMessageStatusEnum messageStatus) {
-            this.messageStatus = messageStatus.getValue();
-            return this;
-        }
-
-
-        public MessageMeta build() {
-            return new MessageMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

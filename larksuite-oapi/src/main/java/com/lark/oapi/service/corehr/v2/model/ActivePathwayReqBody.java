@@ -13,112 +13,123 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivePathwayReqBody {
+  /**
+   * 通道ID。ID获取方式;-
+   * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+   * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+   *
+   * <p>示例值：6862995757234914823
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  /**
+   * 停启用状态；true：启用，false：停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public ActivePathwayReqBody() {}
+
+  public ActivePathwayReqBody(Builder builder) {
     /**
-     * 通道ID
-     * <p> 示例值：6862995757234914823
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914823
      */
-    @SerializedName("pathway_id")
+    this.pathwayId = builder.pathwayId;
+    /**
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
+     */
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914823
+     */
     private String pathwayId;
+
     /**
-     * 启用停用状态
-     * <p> 示例值：true
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
     private Boolean active;
 
-    // builder 开始
-    public ActivePathwayReqBody() {
+    /**
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914823
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
     }
 
-    public ActivePathwayReqBody(Builder builder) {
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914823
-         */
-        this.pathwayId = builder.pathwayId;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * 停启用状态；true：启用，false：停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ActivePathwayReqBody build() {
+      return new ActivePathwayReqBody(this);
     }
+  }
 
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
-
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914823
-         */
-        private String pathwayId;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914823
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public ActivePathwayReqBody build() {
-            return new ActivePathwayReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

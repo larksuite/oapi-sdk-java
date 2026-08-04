@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaseCity {
+  /**
+   * 中文名称
+   *
+   * <p>示例值：中文
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 英文名称
+   *
+   * <p>示例值：eng
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：400700
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("location_type")
+  private Integer locationType;
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public Integer getLocationType() {
+    return this.locationType;
+  }
+
+  public void setLocationType(Integer locationType) {
+    this.locationType = locationType;
+  }
+
+  // builder 开始
+  public BaseCity() {}
+
+  public BaseCity(Builder builder) {
     /**
      * 中文名称
-     * <p> 示例值：中文
+     *
+     * <p>示例值：中文
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 英文名称
-     * <p> 示例值：eng
+     *
+     * <p>示例值：eng
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 编码
-     * <p> 示例值：400700
+     *
+     * <p>示例值：400700
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
-     * 地址类型
-     * <p> 示例值：1
+     * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+     *
+     * <p>示例值：1
      */
-    @SerializedName("location_type")
+    this.locationType = builder.locationType;
+  }
+
+  public static class Builder {
+    /**
+     * 中文名称
+     *
+     * <p>示例值：中文
+     */
+    private String zhName;
+
+    /**
+     * 英文名称
+     *
+     * <p>示例值：eng
+     */
+    private String enName;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：400700
+     */
+    private String code;
+
+    /**
+     * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+     *
+     * <p>示例值：1
+     */
     private Integer locationType;
 
-    // builder 开始
-    public BaseCity() {
+    /**
+     * 中文名称
+     *
+     * <p>示例值：中文
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public BaseCity(Builder builder) {
-        /**
-         * 中文名称
-         * <p> 示例值：中文
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：eng
-         */
-        this.enName = builder.enName;
-        /**
-         * 编码
-         * <p> 示例值：400700
-         */
-        this.code = builder.code;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        this.locationType = builder.locationType;
+    /**
+     * 英文名称
+     *
+     * <p>示例值：eng
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编码
+     *
+     * <p>示例值：400700
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getZhName() {
-        return this.zhName;
+    /**
+     * 地址类型 1=COUNTRY, 2=STATE, 3=CITY, 4=DISTRICT, 5=ADDRESS,
+     *
+     * <p>示例值：1
+     *
+     * @param locationType
+     * @return
+     */
+    public Builder locationType(Integer locationType) {
+      this.locationType = locationType;
+      return this;
     }
 
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
+    public BaseCity build() {
+      return new BaseCity(this);
     }
+  }
 
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Integer getLocationType() {
-        return this.locationType;
-    }
-
-    public void setLocationType(Integer locationType) {
-        this.locationType = locationType;
-    }
-
-    public static class Builder {
-        /**
-         * 中文名称
-         * <p> 示例值：中文
-         */
-        private String zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：eng
-         */
-        private String enName;
-        /**
-         * 编码
-         * <p> 示例值：400700
-         */
-        private String code;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        private Integer locationType;
-
-        /**
-         * 中文名称
-         * <p> 示例值：中文
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名称
-         * <p> 示例值：eng
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：400700
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         *
-         * @param locationType
-         * @return
-         */
-        public Builder locationType(Integer locationType) {
-            this.locationType = locationType;
-            return this;
-        }
-
-
-        public BaseCity build() {
-            return new BaseCity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

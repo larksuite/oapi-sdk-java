@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkforcePlanEaiDetail {
+  /**
+   * 预估在职人数的日期，和集中填报页面上显示的预估在职人数的日期一致，且格式要依照示例给定，若二者不匹配，则无法完成识别更新。
+   *
+   * <p>示例值：2020-10-31
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 预估在职人数应与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看预估在职人数的小数位数。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("estimated_active_individuals")
+  private String estimatedActiveIndividuals;
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getEstimatedActiveIndividuals() {
+    return this.estimatedActiveIndividuals;
+  }
+
+  public void setEstimatedActiveIndividuals(String estimatedActiveIndividuals) {
+    this.estimatedActiveIndividuals = estimatedActiveIndividuals;
+  }
+
+  // builder 开始
+  public WorkforcePlanEaiDetail() {}
+
+  public WorkforcePlanEaiDetail(Builder builder) {
     /**
-     * 预估月份
-     * <p> 示例值：“2020-10-31”
+     * 预估在职人数的日期，和集中填报页面上显示的预估在职人数的日期一致，且格式要依照示例给定，若二者不匹配，则无法完成识别更新。
+     *
+     * <p>示例值：2020-10-31
      */
-    @SerializedName("date")
+    this.date = builder.date;
+    /**
+     * 预估在职人数应与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看预估在职人数的小数位数。
+     *
+     * <p>示例值：10
+     */
+    this.estimatedActiveIndividuals = builder.estimatedActiveIndividuals;
+  }
+
+  public static class Builder {
+    /**
+     * 预估在职人数的日期，和集中填报页面上显示的预估在职人数的日期一致，且格式要依照示例给定，若二者不匹配，则无法完成识别更新。
+     *
+     * <p>示例值：2020-10-31
+     */
     private String date;
+
     /**
-     * 预估在职人数
-     * <p> 示例值：“10.00”
+     * 预估在职人数应与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看预估在职人数的小数位数。
+     *
+     * <p>示例值：10
      */
-    @SerializedName("estimated_active_individuals")
     private String estimatedActiveIndividuals;
 
-    // builder 开始
-    public WorkforcePlanEaiDetail() {
+    /**
+     * 预估在职人数的日期，和集中填报页面上显示的预估在职人数的日期一致，且格式要依照示例给定，若二者不匹配，则无法完成识别更新。
+     *
+     * <p>示例值：2020-10-31
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public WorkforcePlanEaiDetail(Builder builder) {
-        /**
-         * 预估月份
-         * <p> 示例值：“2020-10-31”
-         */
-        this.date = builder.date;
-        /**
-         * 预估在职人数
-         * <p> 示例值：“10.00”
-         */
-        this.estimatedActiveIndividuals = builder.estimatedActiveIndividuals;
+    /**
+     * 预估在职人数应与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看预估在职人数的小数位数。
+     *
+     * <p>示例值：10
+     *
+     * @param estimatedActiveIndividuals
+     * @return
+     */
+    public Builder estimatedActiveIndividuals(String estimatedActiveIndividuals) {
+      this.estimatedActiveIndividuals = estimatedActiveIndividuals;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WorkforcePlanEaiDetail build() {
+      return new WorkforcePlanEaiDetail(this);
     }
+  }
 
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getEstimatedActiveIndividuals() {
-        return this.estimatedActiveIndividuals;
-    }
-
-    public void setEstimatedActiveIndividuals(String estimatedActiveIndividuals) {
-        this.estimatedActiveIndividuals = estimatedActiveIndividuals;
-    }
-
-    public static class Builder {
-        /**
-         * 预估月份
-         * <p> 示例值：“2020-10-31”
-         */
-        private String date;
-        /**
-         * 预估在职人数
-         * <p> 示例值：“10.00”
-         */
-        private String estimatedActiveIndividuals;
-
-        /**
-         * 预估月份
-         * <p> 示例值：“2020-10-31”
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 预估在职人数
-         * <p> 示例值：“10.00”
-         *
-         * @param estimatedActiveIndividuals
-         * @return
-         */
-        public Builder estimatedActiveIndividuals(String estimatedActiveIndividuals) {
-            this.estimatedActiveIndividuals = estimatedActiveIndividuals;
-            return this;
-        }
-
-
-        public WorkforcePlanEaiDetail build() {
-            return new WorkforcePlanEaiDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

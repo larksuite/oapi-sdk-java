@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionPassword {
+  /**
+   * 密码
+   *
+   * <p>示例值：A8e6
+   */
+  @SerializedName("passpord")
+  private String passpord;
+
+  public String getPasspord() {
+    return this.passpord;
+  }
+
+  public void setPasspord(String passpord) {
+    this.passpord = passpord;
+  }
+
+  // builder 开始
+  public PermissionPassword() {}
+
+  public PermissionPassword(Builder builder) {
     /**
      * 密码
-     * <p> 示例值：A8e6
+     *
+     * <p>示例值：A8e6
      */
-    @SerializedName("passpord")
+    this.passpord = builder.passpord;
+  }
+
+  public static class Builder {
+    /**
+     * 密码
+     *
+     * <p>示例值：A8e6
+     */
     private String passpord;
 
-    // builder 开始
-    public PermissionPassword() {
+    /**
+     * 密码
+     *
+     * <p>示例值：A8e6
+     *
+     * @param passpord
+     * @return
+     */
+    public Builder passpord(String passpord) {
+      this.passpord = passpord;
+      return this;
     }
 
-    public PermissionPassword(Builder builder) {
-        /**
-         * 密码
-         * <p> 示例值：A8e6
-         */
-        this.passpord = builder.passpord;
+    public PermissionPassword build() {
+      return new PermissionPassword(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPasspord() {
-        return this.passpord;
-    }
-
-    public void setPasspord(String passpord) {
-        this.passpord = passpord;
-    }
-
-    public static class Builder {
-        /**
-         * 密码
-         * <p> 示例值：A8e6
-         */
-        private String passpord;
-
-        /**
-         * 密码
-         * <p> 示例值：A8e6
-         *
-         * @param passpord
-         * @return
-         */
-        public Builder passpord(String passpord) {
-            this.passpord = passpord;
-            return this;
-        }
-
-
-        public PermissionPassword build() {
-            return new PermissionPassword(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

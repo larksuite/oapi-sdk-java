@@ -13,741 +13,849 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableFieldProperty {
+  /**
+   * 单选、多选字段的选项信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private AppTableFieldPropertyOption[] options;
+
+  /**
+   * 数字和公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。;
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("formatter")
+  private String formatter;
+
+  /**
+   * 日期、创建时间、最后更新时间字段的显示格式。默认为 "yyyy/MM/dd"。枚举值如下所示：;- "yyyy/MM/dd"：2021/1/30;- "yyyy-MM-dd
+   * HH:mm"：2021/1/30 14:00;- "MM-dd"：1月30日;- "MM/dd/yyyy"：2021/1/30;- "dd/MM/yyyy"：2021/1/30"
+   *
+   * <p>示例值：yyyy/MM/dd
+   */
+  @SerializedName("date_formatter")
+  private String dateFormatter;
+
+  /**
+   * 对于新记录，是否自动填写创建时间。默认为 false。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("auto_fill")
+  private Boolean autoFill;
+
+  /**
+   * 人员字段中是否允许添加多个成员，或单向关联、双向关联字段中是否允许添加多个记录。默认为 true。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("multiple")
+  private Boolean multiple;
+
+  /**
+   * 单向关联、双向关联字段中关联的数据表的 ID
+   *
+   * <p>示例值：tblsRc9GRRXKqhvW
+   */
+  @SerializedName("table_id")
+  private String tableId;
+
+  /**
+   * 单向关联、双向关联字段中关联的数据表的名称
+   *
+   * <p>示例值："table2"
+   */
+  @SerializedName("table_name")
+  private String tableName;
+
+  /**
+   * 双向关联字段中，关联的数据表中对应的双向关联字段名称
+   *
+   * <p>示例值：table1-双向关联
+   */
+  @SerializedName("back_field_name")
+  private String backFieldName;
+
+  /**
+   * 自动编号类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auto_serial")
+  private AppFieldPropertyAutoSerial autoSerial;
+
+  /**
+   * 地理位置输入方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location")
+  private AppFieldPropertyLocation location;
+
+  /**
+   * 公式字段的表达式。参考[飞书帮助中心文档](https://www.feishu.cn/hc/zh-CN/articles/360049067853-%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E5%85%AC%E5%BC%8F%E5%AD%97%E6%AE%B5%E6%A6%82%E8%BF%B0)了解如何设置公式。
+   *
+   * <p>示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+   */
+  @SerializedName("formula_expression")
+  private String formulaExpression;
+
+  /**
+   * 条码展示类型字段支持的配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allowed_edit_modes")
+  private AllowedEditModes allowedEditModes;
+
+  /**
+   * 进度和评分字段的数据范围最小值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("min")
+  private Double min;
+
+  /**
+   * 进度和评分字段的数据范围最大值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("max")
+  private Double max;
+
+  /**
+   * 进度字段是否允许自定义进度条值，默认为 false。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("range_customize")
+  private Boolean rangeCustomize;
+
+  /**
+   * 货币的具体类型，枚举值如下所示：;- CNY：人民币，货币符号为 ¥;- USD：美元，货币符号为 $;- EUR：欧元，货币符号为 €;- GBP：英镑，货币符号为 £;-
+   * AED：阿联酋迪拉姆，货币符号为 dh;- AUD：澳大利亚元，货币符号为 $;- BRL：巴西雷亚尔，货币符号为 R$;- CAD：加拿大元，货币符号为 $;-
+   * CHF：瑞士法郎，货币符号为 CHF;- HKD：港元，货币符号为 $;- INR：印度卢比，货币符号为 ₹;- IDR：印尼盾，货币符号为 Rp;- JPY：日元，货币符号为 ¥;-
+   * KRW：韩元，货币符号为 ₩;- MOP：澳门元，货币符号为 MOP$;- MXN：墨西哥比索，货币符号为 $;- MYR：马来西亚令吉，货币符号为 RM;- PHP：菲律宾比索，货币符号为
+   * ₱;- PLN：波兰兹罗提，货币符号为 zł;- RUB：俄罗斯卢布，货币符号为 ₽;- SGD：新加坡元，货币符号为 $;- THB：泰国铢，货币符号为 ฿;-
+   * TRY：土耳其里拉，货币符号为 ₺;- TWD：新台币，货币符号为 NT$;- VND：越南盾，货币符号为 ₫
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_code")
+  private String currencyCode;
+
+  /**
+   * 评分字段的相关设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rating")
+  private Rating rating;
+
+  /**
+   * 设置公式字段的数据类型;;**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type
+   * 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private AppTableFieldPropertyType type;
+
+  /**
+   * 查找引用关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_info")
+  private AppTableFieldPropertyLookupFilter filterInfo;
+
+  public AppTableFieldPropertyOption[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(AppTableFieldPropertyOption[] options) {
+    this.options = options;
+  }
+
+  public String getFormatter() {
+    return this.formatter;
+  }
+
+  public void setFormatter(String formatter) {
+    this.formatter = formatter;
+  }
+
+  public String getDateFormatter() {
+    return this.dateFormatter;
+  }
+
+  public void setDateFormatter(String dateFormatter) {
+    this.dateFormatter = dateFormatter;
+  }
+
+  public Boolean getAutoFill() {
+    return this.autoFill;
+  }
+
+  public void setAutoFill(Boolean autoFill) {
+    this.autoFill = autoFill;
+  }
+
+  public Boolean getMultiple() {
+    return this.multiple;
+  }
+
+  public void setMultiple(Boolean multiple) {
+    this.multiple = multiple;
+  }
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  public String getBackFieldName() {
+    return this.backFieldName;
+  }
+
+  public void setBackFieldName(String backFieldName) {
+    this.backFieldName = backFieldName;
+  }
+
+  public AppFieldPropertyAutoSerial getAutoSerial() {
+    return this.autoSerial;
+  }
+
+  public void setAutoSerial(AppFieldPropertyAutoSerial autoSerial) {
+    this.autoSerial = autoSerial;
+  }
+
+  public AppFieldPropertyLocation getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(AppFieldPropertyLocation location) {
+    this.location = location;
+  }
+
+  public String getFormulaExpression() {
+    return this.formulaExpression;
+  }
+
+  public void setFormulaExpression(String formulaExpression) {
+    this.formulaExpression = formulaExpression;
+  }
+
+  public AllowedEditModes getAllowedEditModes() {
+    return this.allowedEditModes;
+  }
+
+  public void setAllowedEditModes(AllowedEditModes allowedEditModes) {
+    this.allowedEditModes = allowedEditModes;
+  }
+
+  public Double getMin() {
+    return this.min;
+  }
+
+  public void setMin(Double min) {
+    this.min = min;
+  }
+
+  public Double getMax() {
+    return this.max;
+  }
+
+  public void setMax(Double max) {
+    this.max = max;
+  }
+
+  public Boolean getRangeCustomize() {
+    return this.rangeCustomize;
+  }
+
+  public void setRangeCustomize(Boolean rangeCustomize) {
+    this.rangeCustomize = rangeCustomize;
+  }
+
+  public String getCurrencyCode() {
+    return this.currencyCode;
+  }
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+  }
+
+  public Rating getRating() {
+    return this.rating;
+  }
+
+  public void setRating(Rating rating) {
+    this.rating = rating;
+  }
+
+  public AppTableFieldPropertyType getType() {
+    return this.type;
+  }
+
+  public void setType(AppTableFieldPropertyType type) {
+    this.type = type;
+  }
+
+  public AppTableFieldPropertyLookupFilter getFilterInfo() {
+    return this.filterInfo;
+  }
+
+  public void setFilterInfo(AppTableFieldPropertyLookupFilter filterInfo) {
+    this.filterInfo = filterInfo;
+  }
+
+  // builder 开始
+  public AppTableFieldProperty() {}
+
+  public AppTableFieldProperty(Builder builder) {
     /**
      * 单选、多选字段的选项信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private AppTableFieldPropertyOption[] options;
+    this.options = builder.options;
     /**
-     * 数字、公式字段的显示格式
-     * <p> 示例值：0
+     * 数字和公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。;
+     *
+     * <p>示例值：0
      */
-    @SerializedName("formatter")
-    private String formatter;
+    this.formatter = builder.formatter;
     /**
-     * 日期、创建时间、最后更新时间字段的显示格式
-     * <p> 示例值：yyyy/MM/dd
+     * 日期、创建时间、最后更新时间字段的显示格式。默认为 "yyyy/MM/dd"。枚举值如下所示：;- "yyyy/MM/dd"：2021/1/30;- "yyyy-MM-dd
+     * HH:mm"：2021/1/30 14:00;- "MM-dd"：1月30日;- "MM/dd/yyyy"：2021/1/30;- "dd/MM/yyyy"：2021/1/30"
+     *
+     * <p>示例值：yyyy/MM/dd
      */
-    @SerializedName("date_formatter")
-    private String dateFormatter;
+    this.dateFormatter = builder.dateFormatter;
     /**
-     * 日期字段中新纪录自动填写创建时间
-     * <p> 示例值：true
+     * 对于新记录，是否自动填写创建时间。默认为 false。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("auto_fill")
-    private Boolean autoFill;
+    this.autoFill = builder.autoFill;
     /**
-     * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-     * <p> 示例值：true
+     * 人员字段中是否允许添加多个成员，或单向关联、双向关联字段中是否允许添加多个记录。默认为 true。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("multiple")
-    private Boolean multiple;
+    this.multiple = builder.multiple;
     /**
-     * 单向关联、双向关联字段中关联的数据表的id
-     * <p> 示例值：tbl116kI1ZXWRAPR
+     * 单向关联、双向关联字段中关联的数据表的 ID
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
      */
-    @SerializedName("table_id")
-    private String tableId;
+    this.tableId = builder.tableId;
     /**
-     * 单向关联、双向关联字段中关联的数据表的名字
-     * <p> 示例值：被关联数据表
+     * 单向关联、双向关联字段中关联的数据表的名称
+     *
+     * <p>示例值："table2"
      */
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
     /**
-     * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-     * <p> 示例值：被关联字段
+     * 双向关联字段中，关联的数据表中对应的双向关联字段名称
+     *
+     * <p>示例值：table1-双向关联
      */
-    @SerializedName("back_field_name")
-    private String backFieldName;
+    this.backFieldName = builder.backFieldName;
     /**
      * 自动编号类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auto_serial")
-    private AppFieldPropertyAutoSerial autoSerial;
+    this.autoSerial = builder.autoSerial;
     /**
      * 地理位置输入方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("location")
-    private AppFieldPropertyLocation location;
+    this.location = builder.location;
     /**
-     * 公式字段的表达式
-     * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
+     * 公式字段的表达式。参考[飞书帮助中心文档](https://www.feishu.cn/hc/zh-CN/articles/360049067853-%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E5%85%AC%E5%BC%8F%E5%AD%97%E6%AE%B5%E6%A6%82%E8%BF%B0)了解如何设置公式。
+     *
+     * <p>示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
      */
-    @SerializedName("formula_expression")
-    private String formulaExpression;
+    this.formulaExpression = builder.formulaExpression;
     /**
-     * 字段支持的编辑模式
-     * <p> 示例值：
+     * 条码展示类型字段支持的配置
+     *
+     * <p>示例值：
      */
-    @SerializedName("allowed_edit_modes")
-    private AllowedEditModes allowedEditModes;
+    this.allowedEditModes = builder.allowedEditModes;
     /**
-     * 进度、评分等字段的数据范围最小值
-     * <p> 示例值：0
+     * 进度和评分字段的数据范围最小值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：0
      */
-    @SerializedName("min")
-    private Double min;
+    this.min = builder.min;
     /**
-     * 进度、评分等字段的数据范围最大值
-     * <p> 示例值：10
+     * 进度和评分字段的数据范围最大值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：10
      */
-    @SerializedName("max")
-    private Double max;
+    this.max = builder.max;
     /**
-     * 进度等字段是否支持自定义范围
-     * <p> 示例值：true
+     * 进度字段是否允许自定义进度条值，默认为 false。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("range_customize")
-    private Boolean rangeCustomize;
+    this.rangeCustomize = builder.rangeCustomize;
     /**
-     * 货币币种
-     * <p> 示例值：CNY
+     * 货币的具体类型，枚举值如下所示：;- CNY：人民币，货币符号为 ¥;- USD：美元，货币符号为 $;- EUR：欧元，货币符号为 €;- GBP：英镑，货币符号为 £;-
+     * AED：阿联酋迪拉姆，货币符号为 dh;- AUD：澳大利亚元，货币符号为 $;- BRL：巴西雷亚尔，货币符号为 R$;- CAD：加拿大元，货币符号为 $;-
+     * CHF：瑞士法郎，货币符号为 CHF;- HKD：港元，货币符号为 $;- INR：印度卢比，货币符号为 ₹;- IDR：印尼盾，货币符号为 Rp;- JPY：日元，货币符号为 ¥;-
+     * KRW：韩元，货币符号为 ₩;- MOP：澳门元，货币符号为 MOP$;- MXN：墨西哥比索，货币符号为 $;- MYR：马来西亚令吉，货币符号为 RM;-
+     * PHP：菲律宾比索，货币符号为 ₱;- PLN：波兰兹罗提，货币符号为 zł;- RUB：俄罗斯卢布，货币符号为 ₽;- SGD：新加坡元，货币符号为 $;- THB：泰国铢，货币符号为
+     * ฿;- TRY：土耳其里拉，货币符号为 ₺;- TWD：新台币，货币符号为 NT$;- VND：越南盾，货币符号为 ₫
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_code")
-    private String currencyCode;
+    this.currencyCode = builder.currencyCode;
     /**
      * 评分字段的相关设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rating")
-    private Rating rating;
+    this.rating = builder.rating;
     /**
-     * 公式字段数据类型
-     * <p> 示例值：
+     * 设置公式字段的数据类型;;**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type
+     * 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private AppTableFieldPropertyType type;
+    this.type = builder.type;
     /**
      * 查找引用关系
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_info")
+    this.filterInfo = builder.filterInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 单选、多选字段的选项信息
+     *
+     * <p>示例值：
+     */
+    private AppTableFieldPropertyOption[] options;
+
+    /**
+     * 数字和公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。;
+     *
+     * <p>示例值：0
+     */
+    private String formatter;
+
+    /**
+     * 日期、创建时间、最后更新时间字段的显示格式。默认为 "yyyy/MM/dd"。枚举值如下所示：;- "yyyy/MM/dd"：2021/1/30;- "yyyy-MM-dd
+     * HH:mm"：2021/1/30 14:00;- "MM-dd"：1月30日;- "MM/dd/yyyy"：2021/1/30;- "dd/MM/yyyy"：2021/1/30"
+     *
+     * <p>示例值：yyyy/MM/dd
+     */
+    private String dateFormatter;
+
+    /**
+     * 对于新记录，是否自动填写创建时间。默认为 false。
+     *
+     * <p>示例值：false
+     */
+    private Boolean autoFill;
+
+    /**
+     * 人员字段中是否允许添加多个成员，或单向关联、双向关联字段中是否允许添加多个记录。默认为 true。
+     *
+     * <p>示例值：false
+     */
+    private Boolean multiple;
+
+    /**
+     * 单向关联、双向关联字段中关联的数据表的 ID
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
+     */
+    private String tableId;
+
+    /**
+     * 单向关联、双向关联字段中关联的数据表的名称
+     *
+     * <p>示例值："table2"
+     */
+    private String tableName;
+
+    /**
+     * 双向关联字段中，关联的数据表中对应的双向关联字段名称
+     *
+     * <p>示例值：table1-双向关联
+     */
+    private String backFieldName;
+
+    /**
+     * 自动编号类型
+     *
+     * <p>示例值：
+     */
+    private AppFieldPropertyAutoSerial autoSerial;
+
+    /**
+     * 地理位置输入方式
+     *
+     * <p>示例值：
+     */
+    private AppFieldPropertyLocation location;
+
+    /**
+     * 公式字段的表达式。参考[飞书帮助中心文档](https://www.feishu.cn/hc/zh-CN/articles/360049067853-%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E5%85%AC%E5%BC%8F%E5%AD%97%E6%AE%B5%E6%A6%82%E8%BF%B0)了解如何设置公式。
+     *
+     * <p>示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+     */
+    private String formulaExpression;
+
+    /**
+     * 条码展示类型字段支持的配置
+     *
+     * <p>示例值：
+     */
+    private AllowedEditModes allowedEditModes;
+
+    /**
+     * 进度和评分字段的数据范围最小值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：0
+     */
+    private Double min;
+
+    /**
+     * 进度和评分字段的数据范围最大值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：10
+     */
+    private Double max;
+
+    /**
+     * 进度字段是否允许自定义进度条值，默认为 false。
+     *
+     * <p>示例值：true
+     */
+    private Boolean rangeCustomize;
+
+    /**
+     * 货币的具体类型，枚举值如下所示：;- CNY：人民币，货币符号为 ¥;- USD：美元，货币符号为 $;- EUR：欧元，货币符号为 €;- GBP：英镑，货币符号为 £;-
+     * AED：阿联酋迪拉姆，货币符号为 dh;- AUD：澳大利亚元，货币符号为 $;- BRL：巴西雷亚尔，货币符号为 R$;- CAD：加拿大元，货币符号为 $;-
+     * CHF：瑞士法郎，货币符号为 CHF;- HKD：港元，货币符号为 $;- INR：印度卢比，货币符号为 ₹;- IDR：印尼盾，货币符号为 Rp;- JPY：日元，货币符号为 ¥;-
+     * KRW：韩元，货币符号为 ₩;- MOP：澳门元，货币符号为 MOP$;- MXN：墨西哥比索，货币符号为 $;- MYR：马来西亚令吉，货币符号为 RM;-
+     * PHP：菲律宾比索，货币符号为 ₱;- PLN：波兰兹罗提，货币符号为 zł;- RUB：俄罗斯卢布，货币符号为 ₽;- SGD：新加坡元，货币符号为 $;- THB：泰国铢，货币符号为
+     * ฿;- TRY：土耳其里拉，货币符号为 ₺;- TWD：新台币，货币符号为 NT$;- VND：越南盾，货币符号为 ₫
+     *
+     * <p>示例值：CNY
+     */
+    private String currencyCode;
+
+    /**
+     * 评分字段的相关设置
+     *
+     * <p>示例值：
+     */
+    private Rating rating;
+
+    /**
+     * 设置公式字段的数据类型;;**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type
+     * 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。
+     *
+     * <p>示例值：
+     */
+    private AppTableFieldPropertyType type;
+
+    /**
+     * 查找引用关系
+     *
+     * <p>示例值：
+     */
     private AppTableFieldPropertyLookupFilter filterInfo;
 
-    // builder 开始
-    public AppTableFieldProperty() {
+    /**
+     * 单选、多选字段的选项信息
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(AppTableFieldPropertyOption[] options) {
+      this.options = options;
+      return this;
     }
 
-    public AppTableFieldProperty(Builder builder) {
-        /**
-         * 单选、多选字段的选项信息
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 数字、公式字段的显示格式
-         * <p> 示例值：0
-         */
-        this.formatter = builder.formatter;
-        /**
-         * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：yyyy/MM/dd
-         */
-        this.dateFormatter = builder.dateFormatter;
-        /**
-         * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：true
-         */
-        this.autoFill = builder.autoFill;
-        /**
-         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：true
-         */
-        this.multiple = builder.multiple;
-        /**
-         * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tbl116kI1ZXWRAPR
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值：被关联数据表
-         */
-        this.tableName = builder.tableName;
-        /**
-         * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值：被关联字段
-         */
-        this.backFieldName = builder.backFieldName;
-        /**
-         * 自动编号类型
-         * <p> 示例值：
-         */
-        this.autoSerial = builder.autoSerial;
-        /**
-         * 地理位置输入方式
-         * <p> 示例值：
-         */
-        this.location = builder.location;
-        /**
-         * 公式字段的表达式
-         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
-         */
-        this.formulaExpression = builder.formulaExpression;
-        /**
-         * 字段支持的编辑模式
-         * <p> 示例值：
-         */
-        this.allowedEditModes = builder.allowedEditModes;
-        /**
-         * 进度、评分等字段的数据范围最小值
-         * <p> 示例值：0
-         */
-        this.min = builder.min;
-        /**
-         * 进度、评分等字段的数据范围最大值
-         * <p> 示例值：10
-         */
-        this.max = builder.max;
-        /**
-         * 进度等字段是否支持自定义范围
-         * <p> 示例值：true
-         */
-        this.rangeCustomize = builder.rangeCustomize;
-        /**
-         * 货币币种
-         * <p> 示例值：CNY
-         */
-        this.currencyCode = builder.currencyCode;
-        /**
-         * 评分字段的相关设置
-         * <p> 示例值：
-         */
-        this.rating = builder.rating;
-        /**
-         * 公式字段数据类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 查找引用关系
-         * <p> 示例值：
-         */
-        this.filterInfo = builder.filterInfo;
+    /**
+     * 数字和公式字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。;
+     *
+     * <p>示例值：0
+     *
+     * @param formatter
+     * @return
+     */
+    public Builder formatter(String formatter) {
+      this.formatter = formatter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日期、创建时间、最后更新时间字段的显示格式。默认为 "yyyy/MM/dd"。枚举值如下所示：;- "yyyy/MM/dd"：2021/1/30;- "yyyy-MM-dd
+     * HH:mm"：2021/1/30 14:00;- "MM-dd"：1月30日;- "MM/dd/yyyy"：2021/1/30;- "dd/MM/yyyy"：2021/1/30"
+     *
+     * <p>示例值：yyyy/MM/dd
+     *
+     * @param dateFormatter
+     * @return
+     */
+    public Builder dateFormatter(String dateFormatter) {
+      this.dateFormatter = dateFormatter;
+      return this;
     }
 
-    public AppTableFieldPropertyOption[] getOptions() {
-        return this.options;
+    /**
+     * 对于新记录，是否自动填写创建时间。默认为 false。
+     *
+     * <p>示例值：false
+     *
+     * @param autoFill
+     * @return
+     */
+    public Builder autoFill(Boolean autoFill) {
+      this.autoFill = autoFill;
+      return this;
     }
 
-    public void setOptions(AppTableFieldPropertyOption[] options) {
-        this.options = options;
+    /**
+     * 人员字段中是否允许添加多个成员，或单向关联、双向关联字段中是否允许添加多个记录。默认为 true。
+     *
+     * <p>示例值：false
+     *
+     * @param multiple
+     * @return
+     */
+    public Builder multiple(Boolean multiple) {
+      this.multiple = multiple;
+      return this;
     }
 
-    public String getFormatter() {
-        return this.formatter;
+    /**
+     * 单向关联、双向关联字段中关联的数据表的 ID
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public void setFormatter(String formatter) {
-        this.formatter = formatter;
+    /**
+     * 单向关联、双向关联字段中关联的数据表的名称
+     *
+     * <p>示例值："table2"
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public String getDateFormatter() {
-        return this.dateFormatter;
+    /**
+     * 双向关联字段中，关联的数据表中对应的双向关联字段名称
+     *
+     * <p>示例值：table1-双向关联
+     *
+     * @param backFieldName
+     * @return
+     */
+    public Builder backFieldName(String backFieldName) {
+      this.backFieldName = backFieldName;
+      return this;
     }
 
-    public void setDateFormatter(String dateFormatter) {
-        this.dateFormatter = dateFormatter;
+    /**
+     * 自动编号类型
+     *
+     * <p>示例值：
+     *
+     * @param autoSerial
+     * @return
+     */
+    public Builder autoSerial(AppFieldPropertyAutoSerial autoSerial) {
+      this.autoSerial = autoSerial;
+      return this;
     }
 
-    public Boolean getAutoFill() {
-        return this.autoFill;
+    /**
+     * 地理位置输入方式
+     *
+     * <p>示例值：
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(AppFieldPropertyLocation location) {
+      this.location = location;
+      return this;
     }
 
-    public void setAutoFill(Boolean autoFill) {
-        this.autoFill = autoFill;
+    /**
+     * 公式字段的表达式。参考[飞书帮助中心文档](https://www.feishu.cn/hc/zh-CN/articles/360049067853-%E5%A4%9A%E7%BB%B4%E8%A1%A8%E6%A0%BC%E5%85%AC%E5%BC%8F%E5%AD%97%E6%AE%B5%E6%A6%82%E8%BF%B0)了解如何设置公式。
+     *
+     * <p>示例值：bitable::$table[tblNj92WQBAasdEf].$field[fldMV60rYs]*2
+     *
+     * @param formulaExpression
+     * @return
+     */
+    public Builder formulaExpression(String formulaExpression) {
+      this.formulaExpression = formulaExpression;
+      return this;
     }
 
-    public Boolean getMultiple() {
-        return this.multiple;
+    /**
+     * 条码展示类型字段支持的配置
+     *
+     * <p>示例值：
+     *
+     * @param allowedEditModes
+     * @return
+     */
+    public Builder allowedEditModes(AllowedEditModes allowedEditModes) {
+      this.allowedEditModes = allowedEditModes;
+      return this;
     }
 
-    public void setMultiple(Boolean multiple) {
-        this.multiple = multiple;
+    /**
+     * 进度和评分字段的数据范围最小值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：0
+     *
+     * @param min
+     * @return
+     */
+    public Builder min(Double min) {
+      this.min = min;
+      return this;
     }
 
-    public String getTableId() {
-        return this.tableId;
+    /**
+     * 进度和评分字段的数据范围最大值。不同字段类型中，该参数的必填属性和取值范围不同，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：10
+     *
+     * @param max
+     * @return
+     */
+    public Builder max(Double max) {
+      this.max = max;
+      return this;
     }
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
+    /**
+     * 进度字段是否允许自定义进度条值，默认为 false。
+     *
+     * <p>示例值：true
+     *
+     * @param rangeCustomize
+     * @return
+     */
+    public Builder rangeCustomize(Boolean rangeCustomize) {
+      this.rangeCustomize = rangeCustomize;
+      return this;
     }
 
-    public String getTableName() {
-        return this.tableName;
+    /**
+     * 货币的具体类型，枚举值如下所示：;- CNY：人民币，货币符号为 ¥;- USD：美元，货币符号为 $;- EUR：欧元，货币符号为 €;- GBP：英镑，货币符号为 £;-
+     * AED：阿联酋迪拉姆，货币符号为 dh;- AUD：澳大利亚元，货币符号为 $;- BRL：巴西雷亚尔，货币符号为 R$;- CAD：加拿大元，货币符号为 $;-
+     * CHF：瑞士法郎，货币符号为 CHF;- HKD：港元，货币符号为 $;- INR：印度卢比，货币符号为 ₹;- IDR：印尼盾，货币符号为 Rp;- JPY：日元，货币符号为 ¥;-
+     * KRW：韩元，货币符号为 ₩;- MOP：澳门元，货币符号为 MOP$;- MXN：墨西哥比索，货币符号为 $;- MYR：马来西亚令吉，货币符号为 RM;-
+     * PHP：菲律宾比索，货币符号为 ₱;- PLN：波兰兹罗提，货币符号为 zł;- RUB：俄罗斯卢布，货币符号为 ₽;- SGD：新加坡元，货币符号为 $;- THB：泰国铢，货币符号为
+     * ฿;- TRY：土耳其里拉，货币符号为 ₺;- TWD：新台币，货币符号为 NT$;- VND：越南盾，货币符号为 ₫
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyCode
+     * @return
+     */
+    public Builder currencyCode(String currencyCode) {
+      this.currencyCode = currencyCode;
+      return this;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    /**
+     * 评分字段的相关设置
+     *
+     * <p>示例值：
+     *
+     * @param rating
+     * @return
+     */
+    public Builder rating(Rating rating) {
+      this.rating = rating;
+      return this;
     }
 
-    public String getBackFieldName() {
-        return this.backFieldName;
+    /**
+     * 设置公式字段的数据类型;;**注意**：非所有多维表格都支持该能力。请参考[获取多维表格元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app/get)接口返回的formula_type
+     * 判断，当 `formula_type` 等于 2 时，表示需要设置该字段。
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(AppTableFieldPropertyType type) {
+      this.type = type;
+      return this;
     }
 
-    public void setBackFieldName(String backFieldName) {
-        this.backFieldName = backFieldName;
+    /**
+     * 查找引用关系
+     *
+     * <p>示例值：
+     *
+     * @param filterInfo
+     * @return
+     */
+    public Builder filterInfo(AppTableFieldPropertyLookupFilter filterInfo) {
+      this.filterInfo = filterInfo;
+      return this;
     }
 
-    public AppFieldPropertyAutoSerial getAutoSerial() {
-        return this.autoSerial;
+    public AppTableFieldProperty build() {
+      return new AppTableFieldProperty(this);
     }
+  }
 
-    public void setAutoSerial(AppFieldPropertyAutoSerial autoSerial) {
-        this.autoSerial = autoSerial;
-    }
-
-    public AppFieldPropertyLocation getLocation() {
-        return this.location;
-    }
-
-    public void setLocation(AppFieldPropertyLocation location) {
-        this.location = location;
-    }
-
-    public String getFormulaExpression() {
-        return this.formulaExpression;
-    }
-
-    public void setFormulaExpression(String formulaExpression) {
-        this.formulaExpression = formulaExpression;
-    }
-
-    public AllowedEditModes getAllowedEditModes() {
-        return this.allowedEditModes;
-    }
-
-    public void setAllowedEditModes(AllowedEditModes allowedEditModes) {
-        this.allowedEditModes = allowedEditModes;
-    }
-
-    public Double getMin() {
-        return this.min;
-    }
-
-    public void setMin(Double min) {
-        this.min = min;
-    }
-
-    public Double getMax() {
-        return this.max;
-    }
-
-    public void setMax(Double max) {
-        this.max = max;
-    }
-
-    public Boolean getRangeCustomize() {
-        return this.rangeCustomize;
-    }
-
-    public void setRangeCustomize(Boolean rangeCustomize) {
-        this.rangeCustomize = rangeCustomize;
-    }
-
-    public String getCurrencyCode() {
-        return this.currencyCode;
-    }
-
-    public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
-    }
-
-    public Rating getRating() {
-        return this.rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
-    }
-
-    public AppTableFieldPropertyType getType() {
-        return this.type;
-    }
-
-    public void setType(AppTableFieldPropertyType type) {
-        this.type = type;
-    }
-
-    public AppTableFieldPropertyLookupFilter getFilterInfo() {
-        return this.filterInfo;
-    }
-
-    public void setFilterInfo(AppTableFieldPropertyLookupFilter filterInfo) {
-        this.filterInfo = filterInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 单选、多选字段的选项信息
-         * <p> 示例值：
-         */
-        private AppTableFieldPropertyOption[] options;
-        /**
-         * 数字、公式字段的显示格式
-         * <p> 示例值：0
-         */
-        private String formatter;
-        /**
-         * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：yyyy/MM/dd
-         */
-        private String dateFormatter;
-        /**
-         * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：true
-         */
-        private Boolean autoFill;
-        /**
-         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：true
-         */
-        private Boolean multiple;
-        /**
-         * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tbl116kI1ZXWRAPR
-         */
-        private String tableId;
-        /**
-         * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值：被关联数据表
-         */
-        private String tableName;
-        /**
-         * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值：被关联字段
-         */
-        private String backFieldName;
-        /**
-         * 自动编号类型
-         * <p> 示例值：
-         */
-        private AppFieldPropertyAutoSerial autoSerial;
-        /**
-         * 地理位置输入方式
-         * <p> 示例值：
-         */
-        private AppFieldPropertyLocation location;
-        /**
-         * 公式字段的表达式
-         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
-         */
-        private String formulaExpression;
-        /**
-         * 字段支持的编辑模式
-         * <p> 示例值：
-         */
-        private AllowedEditModes allowedEditModes;
-        /**
-         * 进度、评分等字段的数据范围最小值
-         * <p> 示例值：0
-         */
-        private Double min;
-        /**
-         * 进度、评分等字段的数据范围最大值
-         * <p> 示例值：10
-         */
-        private Double max;
-        /**
-         * 进度等字段是否支持自定义范围
-         * <p> 示例值：true
-         */
-        private Boolean rangeCustomize;
-        /**
-         * 货币币种
-         * <p> 示例值：CNY
-         */
-        private String currencyCode;
-        /**
-         * 评分字段的相关设置
-         * <p> 示例值：
-         */
-        private Rating rating;
-        /**
-         * 公式字段数据类型
-         * <p> 示例值：
-         */
-        private AppTableFieldPropertyType type;
-        /**
-         * 查找引用关系
-         * <p> 示例值：
-         */
-        private AppTableFieldPropertyLookupFilter filterInfo;
-
-        /**
-         * 单选、多选字段的选项信息
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(AppTableFieldPropertyOption[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 数字、公式字段的显示格式
-         * <p> 示例值：0
-         *
-         * @param formatter
-         * @return
-         */
-        public Builder formatter(String formatter) {
-            this.formatter = formatter;
-            return this;
-        }
-
-
-        /**
-         * 日期、创建时间、最后更新时间字段的显示格式
-         * <p> 示例值：yyyy/MM/dd
-         *
-         * @param dateFormatter
-         * @return
-         */
-        public Builder dateFormatter(String dateFormatter) {
-            this.dateFormatter = dateFormatter;
-            return this;
-        }
-
-
-        /**
-         * 日期字段中新纪录自动填写创建时间
-         * <p> 示例值：true
-         *
-         * @param autoFill
-         * @return
-         */
-        public Builder autoFill(Boolean autoFill) {
-            this.autoFill = autoFill;
-            return this;
-        }
-
-
-        /**
-         * 人员、群组字段中允许添加多个成员，单向关联、双向关联中允许添加多个记录
-         * <p> 示例值：true
-         *
-         * @param multiple
-         * @return
-         */
-        public Builder multiple(Boolean multiple) {
-            this.multiple = multiple;
-            return this;
-        }
-
-
-        /**
-         * 单向关联、双向关联字段中关联的数据表的id
-         * <p> 示例值：tbl116kI1ZXWRAPR
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        /**
-         * 单向关联、双向关联字段中关联的数据表的名字
-         * <p> 示例值：被关联数据表
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        /**
-         * 双向关联字段中关联的数据表中对应的双向关联字段的名字
-         * <p> 示例值：被关联字段
-         *
-         * @param backFieldName
-         * @return
-         */
-        public Builder backFieldName(String backFieldName) {
-            this.backFieldName = backFieldName;
-            return this;
-        }
-
-
-        /**
-         * 自动编号类型
-         * <p> 示例值：
-         *
-         * @param autoSerial
-         * @return
-         */
-        public Builder autoSerial(AppFieldPropertyAutoSerial autoSerial) {
-            this.autoSerial = autoSerial;
-            return this;
-        }
-
-
-        /**
-         * 地理位置输入方式
-         * <p> 示例值：
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(AppFieldPropertyLocation location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * 公式字段的表达式
-         * <p> 示例值：CONTAINTEXT([多行文本],\"被包含的文本\")
-         *
-         * @param formulaExpression
-         * @return
-         */
-        public Builder formulaExpression(String formulaExpression) {
-            this.formulaExpression = formulaExpression;
-            return this;
-        }
-
-
-        /**
-         * 字段支持的编辑模式
-         * <p> 示例值：
-         *
-         * @param allowedEditModes
-         * @return
-         */
-        public Builder allowedEditModes(AllowedEditModes allowedEditModes) {
-            this.allowedEditModes = allowedEditModes;
-            return this;
-        }
-
-
-        /**
-         * 进度、评分等字段的数据范围最小值
-         * <p> 示例值：0
-         *
-         * @param min
-         * @return
-         */
-        public Builder min(Double min) {
-            this.min = min;
-            return this;
-        }
-
-
-        /**
-         * 进度、评分等字段的数据范围最大值
-         * <p> 示例值：10
-         *
-         * @param max
-         * @return
-         */
-        public Builder max(Double max) {
-            this.max = max;
-            return this;
-        }
-
-
-        /**
-         * 进度等字段是否支持自定义范围
-         * <p> 示例值：true
-         *
-         * @param rangeCustomize
-         * @return
-         */
-        public Builder rangeCustomize(Boolean rangeCustomize) {
-            this.rangeCustomize = rangeCustomize;
-            return this;
-        }
-
-
-        /**
-         * 货币币种
-         * <p> 示例值：CNY
-         *
-         * @param currencyCode
-         * @return
-         */
-        public Builder currencyCode(String currencyCode) {
-            this.currencyCode = currencyCode;
-            return this;
-        }
-
-
-        /**
-         * 评分字段的相关设置
-         * <p> 示例值：
-         *
-         * @param rating
-         * @return
-         */
-        public Builder rating(Rating rating) {
-            this.rating = rating;
-            return this;
-        }
-
-
-        /**
-         * 公式字段数据类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(AppTableFieldPropertyType type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 查找引用关系
-         * <p> 示例值：
-         *
-         * @param filterInfo
-         * @return
-         */
-        public Builder filterInfo(AppTableFieldPropertyLookupFilter filterInfo) {
-            this.filterInfo = filterInfo;
-            return this;
-        }
-
-
-        public AppTableFieldProperty build() {
-            return new AppTableFieldProperty(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

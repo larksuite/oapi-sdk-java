@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 甲乙方信息类型
- */
+/** 甲乙方信息类型 */
 public enum BankInfoBankTypeEnum {
-    BUYBANK("buy_bank"), // 甲方银行
-    SELLBANK("sell_bank"), // 乙方银行
-    THIRDBANK("third_bank"), // 第三方银行
-    UNCERTAINBANK("unceratin_bank"), // 其他方银行
-    ;
-    private String value;
+  BUYBANK("buy_bank"), // 甲方银行
+  SELLBANK("sell_bank"), // 乙方银行
+  THIRDBANK("third_bank"), // 第三方银行
+  UNCERTAINBANK("unceratin_bank"), // 其他方银行
+  ;
+  private String value;
 
-    BankInfoBankTypeEnum(String value) {
-        this.value = value;
-    }
+  BankInfoBankTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

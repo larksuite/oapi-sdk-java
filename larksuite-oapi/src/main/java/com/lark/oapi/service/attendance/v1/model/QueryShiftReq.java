@@ -13,71 +13,62 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class QueryShiftReq {
+  /**
+   * 班次名称
+   *
+   * <p>示例值：早班
+   */
+  @Query
+  @SerializedName("shift_name")
+  private String shiftName;
+
+  public String getShiftName() {
+    return this.shiftName;
+  }
+
+  public void setShiftName(String shiftName) {
+    this.shiftName = shiftName;
+  }
+
+  // builder 开始
+  public QueryShiftReq() {}
+
+  public QueryShiftReq(Builder builder) {
     /**
      * 班次名称
-     * <p> 示例值：早班
+     *
+     * <p>示例值：早班
      */
-    @Query
-    @SerializedName("shift_name")
-    private String shiftName;
+    this.shiftName = builder.shiftName;
+  }
 
-    // builder 开始
-    public QueryShiftReq() {
+  public static class Builder {
+    private String shiftName; // 班次名称
+
+    /**
+     * 班次名称
+     *
+     * <p>示例值：早班
+     *
+     * @param shiftName
+     * @return
+     */
+    public Builder shiftName(String shiftName) {
+      this.shiftName = shiftName;
+      return this;
     }
 
-    public QueryShiftReq(Builder builder) {
-        /**
-         * 班次名称
-         * <p> 示例值：早班
-         */
-        this.shiftName = builder.shiftName;
+    public QueryShiftReq build() {
+      return new QueryShiftReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getShiftName() {
-        return this.shiftName;
-    }
-
-    public void setShiftName(String shiftName) {
-        this.shiftName = shiftName;
-    }
-
-    public static class Builder {
-        private String shiftName; // 班次名称
-
-        /**
-         * 班次名称
-         * <p> 示例值：早班
-         *
-         * @param shiftName
-         * @return
-         */
-        public Builder shiftName(String shiftName) {
-            this.shiftName = shiftName;
-            return this;
-        }
-
-
-        public QueryShiftReq build() {
-            return new QueryShiftReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

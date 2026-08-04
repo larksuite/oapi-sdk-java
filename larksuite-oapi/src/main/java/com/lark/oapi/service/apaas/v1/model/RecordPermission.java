@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordPermission {
+  /**
+   * APIID
+   *
+   * <p>示例值：apiID
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * API 名称
+   *
+   * <p>示例值：adminRecordPermission
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  // builder 开始
+  public RecordPermission() {}
+
+  public RecordPermission(Builder builder) {
     /**
      * APIID
-     * <p> 示例值：apiID
+     *
+     * <p>示例值：apiID
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * API 名称
-     * <p> 示例值：adminRecordPermission
+     *
+     * <p>示例值：adminRecordPermission
      */
-    @SerializedName("api_name")
+    this.apiName = builder.apiName;
+  }
+
+  public static class Builder {
+    /**
+     * APIID
+     *
+     * <p>示例值：apiID
+     */
+    private String apiId;
+
+    /**
+     * API 名称
+     *
+     * <p>示例值：adminRecordPermission
+     */
     private String apiName;
 
-    // builder 开始
-    public RecordPermission() {
+    /**
+     * APIID
+     *
+     * <p>示例值：apiID
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public RecordPermission(Builder builder) {
-        /**
-         * APIID
-         * <p> 示例值：apiID
-         */
-        this.apiId = builder.apiId;
-        /**
-         * API 名称
-         * <p> 示例值：adminRecordPermission
-         */
-        this.apiName = builder.apiName;
+    /**
+     * API 名称
+     *
+     * <p>示例值：adminRecordPermission
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RecordPermission build() {
+      return new RecordPermission(this);
     }
+  }
 
-    public String getApiId() {
-        return this.apiId;
-    }
-
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
-    }
-
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public static class Builder {
-        /**
-         * APIID
-         * <p> 示例值：apiID
-         */
-        private String apiId;
-        /**
-         * API 名称
-         * <p> 示例值：adminRecordPermission
-         */
-        private String apiName;
-
-        /**
-         * APIID
-         * <p> 示例值：apiID
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * API 名称
-         * <p> 示例值：adminRecordPermission
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        public RecordPermission build() {
-            return new RecordPermission(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

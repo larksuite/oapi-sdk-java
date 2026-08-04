@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 语法类型
- */
+/** 语法类型（必传） */
 public enum CreatePlantumlWhiteboardNodeSyntaxTypeEnum {
-    UNKNOWN(0), // 未知
-    PLANT_UML(1), // Plantuml解析
-    MERMAID(2), // Mermaid解析
-    SVG(3), // SVG 语法解析
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  PLANT_UML(1), // Plantuml解析
+  MERMAID(2), // Mermaid解析
+  SVG(3), // SVG 语法解析
+  ;
+  private Integer value;
 
-    CreatePlantumlWhiteboardNodeSyntaxTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreatePlantumlWhiteboardNodeSyntaxTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

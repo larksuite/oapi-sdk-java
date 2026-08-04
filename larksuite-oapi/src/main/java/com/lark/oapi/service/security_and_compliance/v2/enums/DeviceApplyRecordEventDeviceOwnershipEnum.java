@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 申报设备归属
- */
+/** 申报设备归属 */
 public enum DeviceApplyRecordEventDeviceOwnershipEnum {
-    UNKNOWN(0), // 未知设备
-    PERSONAL(1), // 个人设备
-    COMPANY(2), // 企业设备
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知设备
+  PERSONAL(1), // 个人设备
+  COMPANY(2), // 企业设备
+  ;
+  private Integer value;
 
-    DeviceApplyRecordEventDeviceOwnershipEnum(Integer value) {
-        this.value = value;
-    }
+  DeviceApplyRecordEventDeviceOwnershipEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

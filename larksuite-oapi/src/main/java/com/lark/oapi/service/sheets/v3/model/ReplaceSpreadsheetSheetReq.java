@@ -13,131 +13,144 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.sheets.v3.enums.*;
 
 public class ReplaceSpreadsheetSheetReq {
+  /**
+   * 电子表格的
+   * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+   * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+   * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @Path
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  /**
+   * 工作表的
+   * ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。
+   *
+   * <p>示例值：PNIfrm
+   */
+  @Path
+  @SerializedName("sheet_id")
+  private String sheetId;
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
+  }
+
+  @Body private Replace body;
+
+  public Replace getReplace() {
+    return this.body;
+  }
+
+  public void setReplace(Replace body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ReplaceSpreadsheetSheetReq() {}
+
+  public ReplaceSpreadsheetSheetReq(Builder builder) {
     /**
-     * Spreadsheet token
-     * <p> 示例值：shtcnmBA*****yGehy8
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
+    this.spreadsheetToken = builder.spreadsheetToken;
     /**
-     * Sheet id
-     * <p> 示例值：0b**12
+     * 工作表的
+     * ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。
+     *
+     * <p>示例值：PNIfrm
      */
-    @Path
-    @SerializedName("sheet_id")
-    private String sheetId;
-    @Body
+    this.sheetId = builder.sheetId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String spreadsheetToken; // 电子表格的
+    // token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+    private String sheetId; // 工作表的
+
+    // ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。
+
+    /**
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
+    }
+
+    /**
+     * 工作表的
+     * ID，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)。
+     *
+     * <p>示例值：PNIfrm
+     *
+     * @param sheetId
+     * @return
+     */
+    public Builder sheetId(String sheetId) {
+      this.sheetId = sheetId;
+      return this;
+    }
+
     private Replace body;
 
-    // builder 开始
-    public ReplaceSpreadsheetSheetReq() {
-    }
-
-    public ReplaceSpreadsheetSheetReq(Builder builder) {
-        /**
-         * Spreadsheet token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        /**
-         * Sheet id
-         * <p> 示例值：0b**12
-         */
-        this.sheetId = builder.sheetId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
-    }
-
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
-    }
-
-    public String getSheetId() {
-        return this.sheetId;
-    }
-
-    public void setSheetId(String sheetId) {
-        this.sheetId = sheetId;
-    }
-
     public Replace getReplace() {
-        return this.body;
+      return this.body;
     }
 
-    public void setReplace(Replace body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder replace(Replace body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String spreadsheetToken; // Spreadsheet token
-        private String sheetId; // Sheet id
-        private Replace body;
-
-        /**
-         * Spreadsheet token
-         * <p> 示例值：shtcnmBA*****yGehy8
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-        /**
-         * Sheet id
-         * <p> 示例值：0b**12
-         *
-         * @param sheetId
-         * @return
-         */
-        public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
-        }
-
-        public Replace getReplace() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder replace(Replace body) {
-            this.body = body;
-            return this;
-        }
-
-        public ReplaceSpreadsheetSheetReq build() {
-            return new ReplaceSpreadsheetSheetReq(this);
-        }
+    public ReplaceSpreadsheetSheetReq build() {
+      return new ReplaceSpreadsheetSheetReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

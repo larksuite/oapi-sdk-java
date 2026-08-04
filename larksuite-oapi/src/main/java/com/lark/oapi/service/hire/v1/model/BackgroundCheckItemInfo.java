@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckItemInfo {
+  /**
+   * 附加项的ID
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附加项的名称
+   *
+   * <p>示例值：户籍查询
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public BackgroundCheckItemInfo() {}
+
+  public BackgroundCheckItemInfo(Builder builder) {
     /**
      * 附加项的ID
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 附加项的名称
-     * <p> 示例值：户籍查询
+     *
+     * <p>示例值：户籍查询
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 附加项的ID
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String id;
+
+    /**
+     * 附加项的名称
+     *
+     * <p>示例值：户籍查询
+     */
     private String name;
 
-    // builder 开始
-    public BackgroundCheckItemInfo() {
+    /**
+     * 附加项的ID
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BackgroundCheckItemInfo(Builder builder) {
-        /**
-         * 附加项的ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.id = builder.id;
-        /**
-         * 附加项的名称
-         * <p> 示例值：户籍查询
-         */
-        this.name = builder.name;
+    /**
+     * 附加项的名称
+     *
+     * <p>示例值：户籍查询
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BackgroundCheckItemInfo build() {
+      return new BackgroundCheckItemInfo(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 附加项的ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String id;
-        /**
-         * 附加项的名称
-         * <p> 示例值：户籍查询
-         */
-        private String name;
-
-        /**
-         * 附加项的ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附加项的名称
-         * <p> 示例值：户籍查询
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public BackgroundCheckItemInfo build() {
-            return new BackgroundCheckItemInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

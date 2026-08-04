@@ -13,136 +13,139 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AlignmentStyle {
+  /**
+   * 水平对齐策略
+   *
+   * <p>示例值：Left
+   */
+  @SerializedName("horizontal_alignment")
+  private String horizontalAlignment;
+
+  /**
+   * 垂直对齐策略
+   *
+   * <p>示例值：Top
+   */
+  @SerializedName("vertical_alignment")
+  private String verticalAlignment;
+
+  public String getHorizontalAlignment() {
+    return this.horizontalAlignment;
+  }
+
+  public void setHorizontalAlignment(String horizontalAlignment) {
+    this.horizontalAlignment = horizontalAlignment;
+  }
+
+  public String getVerticalAlignment() {
+    return this.verticalAlignment;
+  }
+
+  public void setVerticalAlignment(String verticalAlignment) {
+    this.verticalAlignment = verticalAlignment;
+  }
+
+  // builder 开始
+  public AlignmentStyle() {}
+
+  public AlignmentStyle(Builder builder) {
     /**
      * 水平对齐策略
-     * <p> 示例值：Left
+     *
+     * <p>示例值：Left
      */
-    @SerializedName("horizontal_alignment")
-    private String horizontalAlignment;
+    this.horizontalAlignment = builder.horizontalAlignment;
     /**
      * 垂直对齐策略
-     * <p> 示例值：Top
+     *
+     * <p>示例值：Top
      */
-    @SerializedName("vertical_alignment")
+    this.verticalAlignment = builder.verticalAlignment;
+  }
+
+  public static class Builder {
+    /**
+     * 水平对齐策略
+     *
+     * <p>示例值：Left
+     */
+    private String horizontalAlignment;
+
+    /**
+     * 垂直对齐策略
+     *
+     * <p>示例值：Top
+     */
     private String verticalAlignment;
 
-    // builder 开始
-    public AlignmentStyle() {
+    /**
+     * 水平对齐策略
+     *
+     * <p>示例值：Left
+     *
+     * @param horizontalAlignment
+     * @return
+     */
+    public Builder horizontalAlignment(String horizontalAlignment) {
+      this.horizontalAlignment = horizontalAlignment;
+      return this;
     }
 
-    public AlignmentStyle(Builder builder) {
-        /**
-         * 水平对齐策略
-         * <p> 示例值：Left
-         */
-        this.horizontalAlignment = builder.horizontalAlignment;
-        /**
-         * 垂直对齐策略
-         * <p> 示例值：Top
-         */
-        this.verticalAlignment = builder.verticalAlignment;
+    /**
+     * 水平对齐策略
+     *
+     * <p>示例值：Left
+     *
+     * @param horizontalAlignment {@link
+     *     com.lark.oapi.service.sheets.v3.enums.AlignmentStyleHorizontalAlignmentEnum}
+     * @return
+     */
+    public Builder horizontalAlignment(
+        com.lark.oapi.service.sheets.v3.enums.AlignmentStyleHorizontalAlignmentEnum
+            horizontalAlignment) {
+      this.horizontalAlignment = horizontalAlignment.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 垂直对齐策略
+     *
+     * <p>示例值：Top
+     *
+     * @param verticalAlignment
+     * @return
+     */
+    public Builder verticalAlignment(String verticalAlignment) {
+      this.verticalAlignment = verticalAlignment;
+      return this;
     }
 
-    public String getHorizontalAlignment() {
-        return this.horizontalAlignment;
+    /**
+     * 垂直对齐策略
+     *
+     * <p>示例值：Top
+     *
+     * @param verticalAlignment {@link
+     *     com.lark.oapi.service.sheets.v3.enums.AlignmentStyleVerticalAlignmentEnum}
+     * @return
+     */
+    public Builder verticalAlignment(
+        com.lark.oapi.service.sheets.v3.enums.AlignmentStyleVerticalAlignmentEnum
+            verticalAlignment) {
+      this.verticalAlignment = verticalAlignment.getValue();
+      return this;
     }
 
-    public void setHorizontalAlignment(String horizontalAlignment) {
-        this.horizontalAlignment = horizontalAlignment;
+    public AlignmentStyle build() {
+      return new AlignmentStyle(this);
     }
+  }
 
-    public String getVerticalAlignment() {
-        return this.verticalAlignment;
-    }
-
-    public void setVerticalAlignment(String verticalAlignment) {
-        this.verticalAlignment = verticalAlignment;
-    }
-
-    public static class Builder {
-        /**
-         * 水平对齐策略
-         * <p> 示例值：Left
-         */
-        private String horizontalAlignment;
-        /**
-         * 垂直对齐策略
-         * <p> 示例值：Top
-         */
-        private String verticalAlignment;
-
-        /**
-         * 水平对齐策略
-         * <p> 示例值：Left
-         *
-         * @param horizontalAlignment
-         * @return
-         */
-        public Builder horizontalAlignment(String horizontalAlignment) {
-            this.horizontalAlignment = horizontalAlignment;
-            return this;
-        }
-
-        /**
-         * 水平对齐策略
-         * <p> 示例值：Left
-         *
-         * @param horizontalAlignment {@link com.lark.oapi.service.sheets.v3.enums.AlignmentStyleHorizontalAlignmentEnum}
-         * @return
-         */
-        public Builder horizontalAlignment(com.lark.oapi.service.sheets.v3.enums.AlignmentStyleHorizontalAlignmentEnum horizontalAlignment) {
-            this.horizontalAlignment = horizontalAlignment.getValue();
-            return this;
-        }
-
-
-        /**
-         * 垂直对齐策略
-         * <p> 示例值：Top
-         *
-         * @param verticalAlignment
-         * @return
-         */
-        public Builder verticalAlignment(String verticalAlignment) {
-            this.verticalAlignment = verticalAlignment;
-            return this;
-        }
-
-        /**
-         * 垂直对齐策略
-         * <p> 示例值：Top
-         *
-         * @param verticalAlignment {@link com.lark.oapi.service.sheets.v3.enums.AlignmentStyleVerticalAlignmentEnum}
-         * @return
-         */
-        public Builder verticalAlignment(com.lark.oapi.service.sheets.v3.enums.AlignmentStyleVerticalAlignmentEnum verticalAlignment) {
-            this.verticalAlignment = verticalAlignment.getValue();
-            return this;
-        }
-
-
-        public AlignmentStyle build() {
-            return new AlignmentStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

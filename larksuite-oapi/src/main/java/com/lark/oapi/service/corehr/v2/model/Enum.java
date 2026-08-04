@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Enum {
+  /**
+   * 枚举值
+   *
+   * <p>示例值：phone_type
+   */
+  @SerializedName("enum_name")
+  private String enumName;
+
+  /**
+   * 枚举多语展示
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display")
+  private I18n[] display;
+
+  public String getEnumName() {
+    return this.enumName;
+  }
+
+  public void setEnumName(String enumName) {
+    this.enumName = enumName;
+  }
+
+  public I18n[] getDisplay() {
+    return this.display;
+  }
+
+  public void setDisplay(I18n[] display) {
+    this.display = display;
+  }
+
+  // builder 开始
+  public Enum() {}
+
+  public Enum(Builder builder) {
     /**
      * 枚举值
-     * <p> 示例值：phone_type
+     *
+     * <p>示例值：phone_type
      */
-    @SerializedName("enum_name")
-    private String enumName;
+    this.enumName = builder.enumName;
     /**
      * 枚举多语展示
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("display")
+    this.display = builder.display;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举值
+     *
+     * <p>示例值：phone_type
+     */
+    private String enumName;
+
+    /**
+     * 枚举多语展示
+     *
+     * <p>示例值：
+     */
     private I18n[] display;
 
-    // builder 开始
-    public Enum() {
+    /**
+     * 枚举值
+     *
+     * <p>示例值：phone_type
+     *
+     * @param enumName
+     * @return
+     */
+    public Builder enumName(String enumName) {
+      this.enumName = enumName;
+      return this;
     }
 
-    public Enum(Builder builder) {
-        /**
-         * 枚举值
-         * <p> 示例值：phone_type
-         */
-        this.enumName = builder.enumName;
-        /**
-         * 枚举多语展示
-         * <p> 示例值：
-         */
-        this.display = builder.display;
+    /**
+     * 枚举多语展示
+     *
+     * <p>示例值：
+     *
+     * @param display
+     * @return
+     */
+    public Builder display(I18n[] display) {
+      this.display = display;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Enum build() {
+      return new Enum(this);
     }
+  }
 
-    public String getEnumName() {
-        return this.enumName;
-    }
-
-    public void setEnumName(String enumName) {
-        this.enumName = enumName;
-    }
-
-    public I18n[] getDisplay() {
-        return this.display;
-    }
-
-    public void setDisplay(I18n[] display) {
-        this.display = display;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举值
-         * <p> 示例值：phone_type
-         */
-        private String enumName;
-        /**
-         * 枚举多语展示
-         * <p> 示例值：
-         */
-        private I18n[] display;
-
-        /**
-         * 枚举值
-         * <p> 示例值：phone_type
-         *
-         * @param enumName
-         * @return
-         */
-        public Builder enumName(String enumName) {
-            this.enumName = enumName;
-            return this;
-        }
-
-
-        /**
-         * 枚举多语展示
-         * <p> 示例值：
-         *
-         * @param display
-         * @return
-         */
-        public Builder display(I18n[] display) {
-            this.display = display;
-            return this;
-        }
-
-
-        public Enum build() {
-            return new Enum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

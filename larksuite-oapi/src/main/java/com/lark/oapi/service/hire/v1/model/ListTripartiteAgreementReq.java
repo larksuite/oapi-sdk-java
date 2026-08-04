@@ -13,172 +13,183 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTripartiteAgreementReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 投递
+   * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @Query
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 三方协议
+   * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回
+   *
+   * <p>示例值：6930815272790114325
+   */
+  @Query
+  @SerializedName("tripartite_agreement_id")
+  private String tripartiteAgreementId;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getTripartiteAgreementId() {
+    return this.tripartiteAgreementId;
+  }
+
+  public void setTripartiteAgreementId(String tripartiteAgreementId) {
+    this.tripartiteAgreementId = tripartiteAgreementId;
+  }
+
+  // builder 开始
+  public ListTripartiteAgreementReq() {}
+
+  public ListTripartiteAgreementReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 投递 ID，必填投递 id 与三方协议 ID 其中之一
-     * <p> 示例值：6930815272790114324
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：6930815272790114324
      */
-    @Query
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
-     * 三方协议 ID，必填投递 id 与三方协议 ID 其中之一
-     * <p> 示例值：6930815272790114325
+     * 三方协议
+     * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回
+     *
+     * <p>示例值：6930815272790114325
      */
-    @Query
-    @SerializedName("tripartite_agreement_id")
-    private String tripartiteAgreementId;
+    this.tripartiteAgreementId = builder.tripartiteAgreementId;
+  }
 
-    // builder 开始
-    public ListTripartiteAgreementReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String applicationId; // 投递
+    // ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+    private String tripartiteAgreementId; // 三方协议
+
+    // ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListTripartiteAgreementReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 投递 ID，必填投递 id 与三方协议 ID 其中之一
-         * <p> 示例值：6930815272790114324
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 三方协议 ID，必填投递 id 与三方协议 ID 其中之一
-         * <p> 示例值：6930815272790114325
-         */
-        this.tripartiteAgreementId = builder.tripartiteAgreementId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 三方协议
+     * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回
+     *
+     * <p>示例值：6930815272790114325
+     *
+     * @param tripartiteAgreementId
+     * @return
+     */
+    public Builder tripartiteAgreementId(String tripartiteAgreementId) {
+      this.tripartiteAgreementId = tripartiteAgreementId;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public ListTripartiteAgreementReq build() {
+      return new ListTripartiteAgreementReq(this);
     }
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public String getTripartiteAgreementId() {
-        return this.tripartiteAgreementId;
-    }
-
-    public void setTripartiteAgreementId(String tripartiteAgreementId) {
-        this.tripartiteAgreementId = tripartiteAgreementId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String applicationId; // 投递 ID，必填投递 id 与三方协议 ID 其中之一
-        private String tripartiteAgreementId; // 三方协议 ID，必填投递 id 与三方协议 ID 其中之一
-
-        /**
-         * 分页大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID，必填投递 id 与三方协议 ID 其中之一
-         * <p> 示例值：6930815272790114324
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 三方协议 ID，必填投递 id 与三方协议 ID 其中之一
-         * <p> 示例值：6930815272790114325
-         *
-         * @param tripartiteAgreementId
-         * @return
-         */
-        public Builder tripartiteAgreementId(String tripartiteAgreementId) {
-            this.tripartiteAgreementId = tripartiteAgreementId;
-            return this;
-        }
-
-
-        public ListTripartiteAgreementReq build() {
-            return new ListTripartiteAgreementReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

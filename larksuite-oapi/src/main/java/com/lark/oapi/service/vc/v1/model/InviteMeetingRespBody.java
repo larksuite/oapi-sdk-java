@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InviteMeetingRespBody {
-    /**
-     * 邀请结果
-     * <p> 示例值：
-     */
-    @SerializedName("invite_results")
-    private MeetingInviteStatus[] inviteResults;
+  /**
+   * 邀请结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invite_results")
+  private MeetingInviteStatus[] inviteResults;
 
-    public MeetingInviteStatus[] getInviteResults() {
-        return this.inviteResults;
-    }
+  public MeetingInviteStatus[] getInviteResults() {
+    return this.inviteResults;
+  }
 
-    public void setInviteResults(MeetingInviteStatus[] inviteResults) {
-        this.inviteResults = inviteResults;
-    }
-
+  public void setInviteResults(MeetingInviteStatus[] inviteResults) {
+    this.inviteResults = inviteResults;
+  }
 }

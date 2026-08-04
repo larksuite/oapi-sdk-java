@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTaskFollowerRespBody {
-    /**
-     * 创建后的任务关注者
-     * <p> 示例值：
-     */
-    @SerializedName("follower")
-    private Follower follower;
+  /**
+   * 创建后的任务关注者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("follower")
+  private Follower follower;
 
-    public Follower getFollower() {
-        return this.follower;
-    }
+  public Follower getFollower() {
+    return this.follower;
+  }
 
-    public void setFollower(Follower follower) {
-        this.follower = follower;
-    }
-
+  public void setFollower(Follower follower) {
+    this.follower = follower;
+  }
 }

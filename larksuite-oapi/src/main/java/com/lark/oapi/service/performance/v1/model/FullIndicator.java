@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FullIndicator {
+  /**
+   * 评估项id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  // builder 开始
+  public FullIndicator() {}
+
+  public FullIndicator(Builder builder) {
     /**
      * 评估项id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 评估项名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("rule_id")
+    this.ruleId = builder.ruleId;
+  }
+
+  public static class Builder {
+    /**
+     * 评估项id
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
+     *
+     * <p>示例值：1234
+     */
     private String ruleId;
 
-    // builder 开始
-    public FullIndicator() {
+    /**
+     * 评估项id
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public FullIndicator(Builder builder) {
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
-         * <p> 示例值：1234
-         */
-        this.ruleId = builder.ruleId;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
+     *
+     * <p>示例值：1234
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public FullIndicator build() {
+      return new FullIndicator(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getRuleId() {
-        return this.ruleId;
-    }
-
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
-    }
-
-    public static class Builder {
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
-         * <p> 示例值：1234
-         */
-        private String ruleId;
-
-        /**
-         * 评估项id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 评估项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估项引用规则id，对于旧模版评估项，评估规则没有单独的数据结构，rule_id ==id
-         * <p> 示例值：1234
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-
-        public FullIndicator build() {
-            return new FullIndicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryReviewTemplateReqBody {
+  /**
+   * 绩效模板 ID 列表，获取指定绩效模板的配置数据。如果不传则返回所有
+   *
+   * <p>示例值：
+   */
+  @SerializedName("review_template_ids")
+  private String[] reviewTemplateIds;
+
+  public String[] getReviewTemplateIds() {
+    return this.reviewTemplateIds;
+  }
+
+  public void setReviewTemplateIds(String[] reviewTemplateIds) {
+    this.reviewTemplateIds = reviewTemplateIds;
+  }
+
+  // builder 开始
+  public QueryReviewTemplateReqBody() {}
+
+  public QueryReviewTemplateReqBody(Builder builder) {
     /**
-     * 评估模板 ID 列表，获取指定评估模板的配置数据。如果不传则返回所有
-     * <p> 示例值：
+     * 绩效模板 ID 列表，获取指定绩效模板的配置数据。如果不传则返回所有
+     *
+     * <p>示例值：
      */
-    @SerializedName("review_template_ids")
+    this.reviewTemplateIds = builder.reviewTemplateIds;
+  }
+
+  public static class Builder {
+    /**
+     * 绩效模板 ID 列表，获取指定绩效模板的配置数据。如果不传则返回所有
+     *
+     * <p>示例值：
+     */
     private String[] reviewTemplateIds;
 
-    // builder 开始
-    public QueryReviewTemplateReqBody() {
+    /**
+     * 绩效模板 ID 列表，获取指定绩效模板的配置数据。如果不传则返回所有
+     *
+     * <p>示例值：
+     *
+     * @param reviewTemplateIds
+     * @return
+     */
+    public Builder reviewTemplateIds(String[] reviewTemplateIds) {
+      this.reviewTemplateIds = reviewTemplateIds;
+      return this;
     }
 
-    public QueryReviewTemplateReqBody(Builder builder) {
-        /**
-         * 评估模板 ID 列表，获取指定评估模板的配置数据。如果不传则返回所有
-         * <p> 示例值：
-         */
-        this.reviewTemplateIds = builder.reviewTemplateIds;
+    public QueryReviewTemplateReqBody build() {
+      return new QueryReviewTemplateReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getReviewTemplateIds() {
-        return this.reviewTemplateIds;
-    }
-
-    public void setReviewTemplateIds(String[] reviewTemplateIds) {
-        this.reviewTemplateIds = reviewTemplateIds;
-    }
-
-    public static class Builder {
-        /**
-         * 评估模板 ID 列表，获取指定评估模板的配置数据。如果不传则返回所有
-         * <p> 示例值：
-         */
-        private String[] reviewTemplateIds;
-
-        /**
-         * 评估模板 ID 列表，获取指定评估模板的配置数据。如果不传则返回所有
-         * <p> 示例值：
-         *
-         * @param reviewTemplateIds
-         * @return
-         */
-        public Builder reviewTemplateIds(String[] reviewTemplateIds) {
-            this.reviewTemplateIds = reviewTemplateIds;
-            return this;
-        }
-
-
-        public QueryReviewTemplateReqBody build() {
-            return new QueryReviewTemplateReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

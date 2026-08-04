@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFolderFileRespBody {
-    /**
-     * 创建文件夹的token
-     * <p> 示例值：fldbcddUuPz8VwnpPx5oc2abcef
-     */
-    @SerializedName("token")
-    private String token;
-    /**
-     * 创建文件夹的访问url
-     * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldbcddUuPz8VwnpPx5oc2abcef
-     */
-    @SerializedName("url")
-    private String url;
+  /**
+   * 新建的文件夹的 token
+   *
+   * <p>示例值：fldbcddUuPz8VwnpPx5oc2abcef
+   */
+  @SerializedName("token")
+  private String token;
 
-    public String getToken() {
-        return this.token;
-    }
+  /**
+   * 新建的文件夹的 URL 链接
+   *
+   * <p>示例值：https://feishu.cn/drive/folder/fldbcddUuPz8VwnpPx5oc2abcef
+   */
+  @SerializedName("url")
+  private String url;
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+  public String getToken() {
+    return this.token;
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
+  public void setToken(String token) {
+    this.token = token;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+  public String getUrl() {
+    return this.url;
+  }
 
+  public void setUrl(String url) {
+    this.url = url;
+  }
 }

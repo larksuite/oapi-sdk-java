@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableDateValue {
+  /**
+   * 日期变量的值，从1970起的天数
+   *
+   * <p>示例值：10000
+   */
+  @SerializedName("value")
+  private Integer value;
+
+  public Integer getValue() {
+    return this.value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FormFieldVariableDateValue() {}
+
+  public FormFieldVariableDateValue(Builder builder) {
     /**
      * 日期变量的值，从1970起的天数
-     * <p> 示例值：10000
+     *
+     * <p>示例值：10000
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 日期变量的值，从1970起的天数
+     *
+     * <p>示例值：10000
+     */
     private Integer value;
 
-    // builder 开始
-    public FormFieldVariableDateValue() {
+    /**
+     * 日期变量的值，从1970起的天数
+     *
+     * <p>示例值：10000
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(Integer value) {
+      this.value = value;
+      return this;
     }
 
-    public FormFieldVariableDateValue(Builder builder) {
-        /**
-         * 日期变量的值，从1970起的天数
-         * <p> 示例值：10000
-         */
-        this.value = builder.value;
+    public FormFieldVariableDateValue build() {
+      return new FormFieldVariableDateValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getValue() {
-        return this.value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 日期变量的值，从1970起的天数
-         * <p> 示例值：10000
-         */
-        private Integer value;
-
-        /**
-         * 日期变量的值，从1970起的天数
-         * <p> 示例值：10000
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(Integer value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FormFieldVariableDateValue build() {
-            return new FormFieldVariableDateValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

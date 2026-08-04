@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaseFlagItem {
+  /**
+   * 标记id，比如当标记类型为message时为message_id
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 标记子类型
+   *
+   * <p>示例值："1"
+   */
+  @SerializedName("item_type")
+  private String itemType;
+
+  /**
+   * 标记类型
+   *
+   * <p>示例值："1"
+   */
+  @SerializedName("flag_type")
+  private String flagType;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public String getItemType() {
+    return this.itemType;
+  }
+
+  public void setItemType(String itemType) {
+    this.itemType = itemType;
+  }
+
+  public String getFlagType() {
+    return this.flagType;
+  }
+
+  public void setFlagType(String flagType) {
+    this.flagType = flagType;
+  }
+
+  // builder 开始
+  public BaseFlagItem() {}
+
+  public BaseFlagItem(Builder builder) {
     /**
      * 标记id，比如当标记类型为message时为message_id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
      * 标记子类型
-     * <p> 示例值："1"
+     *
+     * <p>示例值："1"
      */
-    @SerializedName("item_type")
-    private String itemType;
+    this.itemType = builder.itemType;
     /**
      * 标记类型
-     * <p> 示例值："1"
+     *
+     * <p>示例值："1"
      */
-    @SerializedName("flag_type")
+    this.flagType = builder.flagType;
+  }
+
+  public static class Builder {
+    /**
+     * 标记id，比如当标记类型为message时为message_id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
+    private String itemId;
+
+    /**
+     * 标记子类型
+     *
+     * <p>示例值："1"
+     */
+    private String itemType;
+
+    /**
+     * 标记类型
+     *
+     * <p>示例值："1"
+     */
     private String flagType;
 
-    // builder 开始
-    public BaseFlagItem() {
+    /**
+     * 标记id，比如当标记类型为message时为message_id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public BaseFlagItem(Builder builder) {
-        /**
-         * 标记id，比如当标记类型为message时为message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 标记子类型
-         * <p> 示例值："1"
-         */
-        this.itemType = builder.itemType;
-        /**
-         * 标记类型
-         * <p> 示例值："1"
-         */
-        this.flagType = builder.flagType;
+    /**
+     * 标记子类型
+     *
+     * <p>示例值："1"
+     *
+     * @param itemType
+     * @return
+     */
+    public Builder itemType(String itemType) {
+      this.itemType = itemType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标记类型
+     *
+     * <p>示例值："1"
+     *
+     * @param flagType
+     * @return
+     */
+    public Builder flagType(String flagType) {
+      this.flagType = flagType;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    public BaseFlagItem build() {
+      return new BaseFlagItem(this);
     }
+  }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
-    }
-
-    public String getItemType() {
-        return this.itemType;
-    }
-
-    public void setItemType(String itemType) {
-        this.itemType = itemType;
-    }
-
-    public String getFlagType() {
-        return this.flagType;
-    }
-
-    public void setFlagType(String flagType) {
-        this.flagType = flagType;
-    }
-
-    public static class Builder {
-        /**
-         * 标记id，比如当标记类型为message时为message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        private String itemId;
-        /**
-         * 标记子类型
-         * <p> 示例值："1"
-         */
-        private String itemType;
-        /**
-         * 标记类型
-         * <p> 示例值："1"
-         */
-        private String flagType;
-
-        /**
-         * 标记id，比如当标记类型为message时为message_id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 标记子类型
-         * <p> 示例值："1"
-         *
-         * @param itemType
-         * @return
-         */
-        public Builder itemType(String itemType) {
-            this.itemType = itemType;
-            return this;
-        }
-
-
-        /**
-         * 标记类型
-         * <p> 示例值："1"
-         *
-         * @param flagType
-         * @return
-         */
-        public Builder flagType(String flagType) {
-            this.flagType = flagType;
-            return this;
-        }
-
-
-        public BaseFlagItem build() {
-            return new BaseFlagItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

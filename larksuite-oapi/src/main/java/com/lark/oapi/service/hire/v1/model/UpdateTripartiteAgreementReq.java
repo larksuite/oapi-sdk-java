@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTripartiteAgreementReq {
+  /**
+   * 三方协议
+   * ID，可通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取;
+   *
+   * <p>示例值：7084008015948283905
+   */
+  @Path
+  @SerializedName("tripartite_agreement_id")
+  private String tripartiteAgreementId;
+
+  public String getTripartiteAgreementId() {
+    return this.tripartiteAgreementId;
+  }
+
+  public void setTripartiteAgreementId(String tripartiteAgreementId) {
+    this.tripartiteAgreementId = tripartiteAgreementId;
+  }
+
+  @Body private TripartiteAgreementInfo body;
+
+  public TripartiteAgreementInfo getTripartiteAgreementInfo() {
+    return this.body;
+  }
+
+  public void setTripartiteAgreementInfo(TripartiteAgreementInfo body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateTripartiteAgreementReq() {}
+
+  public UpdateTripartiteAgreementReq(Builder builder) {
     /**
-     * 三方协议的 id
-     * <p> 示例值：7084008015948283905
+     * 三方协议
+     * ID，可通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取;
+     *
+     * <p>示例值：7084008015948283905
      */
-    @Path
-    @SerializedName("tripartite_agreement_id")
-    private String tripartiteAgreementId;
-    @Body
+    this.tripartiteAgreementId = builder.tripartiteAgreementId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String tripartiteAgreementId; // 三方协议
+
+    // ID，可通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取;
+
+    /**
+     * 三方协议
+     * ID，可通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取;
+     *
+     * <p>示例值：7084008015948283905
+     *
+     * @param tripartiteAgreementId
+     * @return
+     */
+    public Builder tripartiteAgreementId(String tripartiteAgreementId) {
+      this.tripartiteAgreementId = tripartiteAgreementId;
+      return this;
+    }
+
     private TripartiteAgreementInfo body;
 
-    // builder 开始
-    public UpdateTripartiteAgreementReq() {
-    }
-
-    public UpdateTripartiteAgreementReq(Builder builder) {
-        /**
-         * 三方协议的 id
-         * <p> 示例值：7084008015948283905
-         */
-        this.tripartiteAgreementId = builder.tripartiteAgreementId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTripartiteAgreementId() {
-        return this.tripartiteAgreementId;
-    }
-
-    public void setTripartiteAgreementId(String tripartiteAgreementId) {
-        this.tripartiteAgreementId = tripartiteAgreementId;
-    }
-
     public TripartiteAgreementInfo getTripartiteAgreementInfo() {
-        return this.body;
+      return this.body;
     }
 
-    public void setTripartiteAgreementInfo(TripartiteAgreementInfo body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder tripartiteAgreementInfo(TripartiteAgreementInfo body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String tripartiteAgreementId; // 三方协议的 id
-        private TripartiteAgreementInfo body;
-
-        /**
-         * 三方协议的 id
-         * <p> 示例值：7084008015948283905
-         *
-         * @param tripartiteAgreementId
-         * @return
-         */
-        public Builder tripartiteAgreementId(String tripartiteAgreementId) {
-            this.tripartiteAgreementId = tripartiteAgreementId;
-            return this;
-        }
-
-        public TripartiteAgreementInfo getTripartiteAgreementInfo() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder tripartiteAgreementInfo(TripartiteAgreementInfo body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateTripartiteAgreementReq build() {
-            return new UpdateTripartiteAgreementReq(this);
-        }
+    public UpdateTripartiteAgreementReq build() {
+      return new UpdateTripartiteAgreementReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

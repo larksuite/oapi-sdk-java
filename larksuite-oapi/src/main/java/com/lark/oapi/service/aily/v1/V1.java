@@ -14,6 +14,11 @@
 package com.lark.oapi.service.aily.v1;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.service.aily.v1.resource.AgentAgentArtifact;
+import com.lark.oapi.service.aily.v1.resource.AgentAgentAttachment;
+import com.lark.oapi.service.aily.v1.resource.AgentAgentChat;
+import com.lark.oapi.service.aily.v1.resource.AgentAgentChatSession;
+import com.lark.oapi.service.aily.v1.resource.AgentAgentVisibility;
 import com.lark.oapi.service.aily.v1.resource.AilySession;
 import com.lark.oapi.service.aily.v1.resource.AilySessionAilyMessage;
 import com.lark.oapi.service.aily.v1.resource.AilySessionRun;
@@ -24,55 +29,85 @@ import com.lark.oapi.service.aily.v1.resource.AppSkill;
 import com.lark.oapi.service.aily.v1.resource.TenantAppStat;
 
 public class V1 {
-    private final AilySession ailySession; // aily_session
-    private final AilySessionAilyMessage ailySessionAilyMessage; // aily_session.aily_message
-    private final AilySessionRun ailySessionRun; // aily_session.run
-    private final AppDataAsset appDataAsset; // app.data_asset
-    private final AppDataAssetTag appDataAssetTag; // app.data_asset_tag
-    private final AppKnowledge appKnowledge; // app.knowledge
-    private final AppSkill appSkill; // app.skill
-    private final TenantAppStat tenantAppStat; // tenant.app_stat
+  private final AgentAgentArtifact agentAgentArtifact; // agent.agent_artifact
+  private final AgentAgentAttachment agentAgentAttachment; // agent.agent_attachment
+  private final AgentAgentChat agentAgentChat; // agent.agent_chat
+  private final AgentAgentChatSession agentAgentChatSession; // agent.agent_chat_session
+  private final AgentAgentVisibility agentAgentVisibility; // agent.agent_visibility
+  private final AilySession ailySession; // aily_session
+  private final AilySessionAilyMessage ailySessionAilyMessage; // aily_session.aily_message
+  private final AilySessionRun ailySessionRun; // aily_session.run
+  private final AppDataAsset appDataAsset; // app.data_asset
+  private final AppDataAssetTag appDataAssetTag; // app.data_asset_tag
+  private final AppKnowledge appKnowledge; // app.knowledge
+  private final AppSkill appSkill; // app.skill
+  private final TenantAppStat tenantAppStat; // tenant.app_stat
 
-    public V1(Config config) {
-        this.ailySession = new AilySession(config);
-        this.ailySessionAilyMessage = new AilySessionAilyMessage(config);
-        this.ailySessionRun = new AilySessionRun(config);
-        this.appDataAsset = new AppDataAsset(config);
-        this.appDataAssetTag = new AppDataAssetTag(config);
-        this.appKnowledge = new AppKnowledge(config);
-        this.appSkill = new AppSkill(config);
-        this.tenantAppStat = new TenantAppStat(config);
-    }
+  public V1(Config config) {
+    this.agentAgentArtifact = new AgentAgentArtifact(config);
+    this.agentAgentAttachment = new AgentAgentAttachment(config);
+    this.agentAgentChat = new AgentAgentChat(config);
+    this.agentAgentChatSession = new AgentAgentChatSession(config);
+    this.agentAgentVisibility = new AgentAgentVisibility(config);
+    this.ailySession = new AilySession(config);
+    this.ailySessionAilyMessage = new AilySessionAilyMessage(config);
+    this.ailySessionRun = new AilySessionRun(config);
+    this.appDataAsset = new AppDataAsset(config);
+    this.appDataAssetTag = new AppDataAssetTag(config);
+    this.appKnowledge = new AppKnowledge(config);
+    this.appSkill = new AppSkill(config);
+    this.tenantAppStat = new TenantAppStat(config);
+  }
 
-    public AilySession ailySession() {
-        return ailySession;
-    }
+  public AgentAgentArtifact agentAgentArtifact() {
+    return agentAgentArtifact;
+  }
 
-    public AilySessionAilyMessage ailySessionAilyMessage() {
-        return ailySessionAilyMessage;
-    }
+  public AgentAgentAttachment agentAgentAttachment() {
+    return agentAgentAttachment;
+  }
 
-    public AilySessionRun ailySessionRun() {
-        return ailySessionRun;
-    }
+  public AgentAgentChat agentAgentChat() {
+    return agentAgentChat;
+  }
 
-    public AppDataAsset appDataAsset() {
-        return appDataAsset;
-    }
+  public AgentAgentChatSession agentAgentChatSession() {
+    return agentAgentChatSession;
+  }
 
-    public AppDataAssetTag appDataAssetTag() {
-        return appDataAssetTag;
-    }
+  public AgentAgentVisibility agentAgentVisibility() {
+    return agentAgentVisibility;
+  }
 
-    public AppKnowledge appKnowledge() {
-        return appKnowledge;
-    }
+  public AilySession ailySession() {
+    return ailySession;
+  }
 
-    public AppSkill appSkill() {
-        return appSkill;
-    }
+  public AilySessionAilyMessage ailySessionAilyMessage() {
+    return ailySessionAilyMessage;
+  }
 
-    public TenantAppStat tenantAppStat() {
-        return tenantAppStat;
-    }
+  public AilySessionRun ailySessionRun() {
+    return ailySessionRun;
+  }
+
+  public AppDataAsset appDataAsset() {
+    return appDataAsset;
+  }
+
+  public AppDataAssetTag appDataAssetTag() {
+    return appDataAssetTag;
+  }
+
+  public AppKnowledge appKnowledge() {
+    return appKnowledge;
+  }
+
+  public AppSkill appSkill() {
+    return appSkill;
+  }
+
+  public TenantAppStat tenantAppStat() {
+    return tenantAppStat;
+  }
 }

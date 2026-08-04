@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionIdInDataV2 {
+  /**
+   * 维度 key
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("dimension_key")
+  private String dimensionKey;
+
+  /**
+   * 维度 ids
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_ids")
+  private String[] dimensionIds;
+
+  /**
+   * 是否包含下级
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("include_children")
+  private Boolean includeChildren;
+
+  public String getDimensionKey() {
+    return this.dimensionKey;
+  }
+
+  public void setDimensionKey(String dimensionKey) {
+    this.dimensionKey = dimensionKey;
+  }
+
+  public String[] getDimensionIds() {
+    return this.dimensionIds;
+  }
+
+  public void setDimensionIds(String[] dimensionIds) {
+    this.dimensionIds = dimensionIds;
+  }
+
+  public Boolean getIncludeChildren() {
+    return this.includeChildren;
+  }
+
+  public void setIncludeChildren(Boolean includeChildren) {
+    this.includeChildren = includeChildren;
+  }
+
+  // builder 开始
+  public DimensionIdInDataV2() {}
+
+  public DimensionIdInDataV2(Builder builder) {
     /**
      * 维度 key
-     * <p> 示例值：department
+     *
+     * <p>示例值：department
      */
-    @SerializedName("dimension_key")
-    private String dimensionKey;
+    this.dimensionKey = builder.dimensionKey;
     /**
      * 维度 ids
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_ids")
-    private String[] dimensionIds;
+    this.dimensionIds = builder.dimensionIds;
     /**
      * 是否包含下级
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("include_children")
+    this.includeChildren = builder.includeChildren;
+  }
+
+  public static class Builder {
+    /**
+     * 维度 key
+     *
+     * <p>示例值：department
+     */
+    private String dimensionKey;
+
+    /**
+     * 维度 ids
+     *
+     * <p>示例值：
+     */
+    private String[] dimensionIds;
+
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：false
+     */
     private Boolean includeChildren;
 
-    // builder 开始
-    public DimensionIdInDataV2() {
+    /**
+     * 维度 key
+     *
+     * <p>示例值：department
+     *
+     * @param dimensionKey
+     * @return
+     */
+    public Builder dimensionKey(String dimensionKey) {
+      this.dimensionKey = dimensionKey;
+      return this;
     }
 
-    public DimensionIdInDataV2(Builder builder) {
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         */
-        this.dimensionKey = builder.dimensionKey;
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         */
-        this.dimensionIds = builder.dimensionIds;
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         */
-        this.includeChildren = builder.includeChildren;
+    /**
+     * 维度 ids
+     *
+     * <p>示例值：
+     *
+     * @param dimensionIds
+     * @return
+     */
+    public Builder dimensionIds(String[] dimensionIds) {
+      this.dimensionIds = dimensionIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：false
+     *
+     * @param includeChildren
+     * @return
+     */
+    public Builder includeChildren(Boolean includeChildren) {
+      this.includeChildren = includeChildren;
+      return this;
     }
 
-    public String getDimensionKey() {
-        return this.dimensionKey;
+    public DimensionIdInDataV2 build() {
+      return new DimensionIdInDataV2(this);
     }
+  }
 
-    public void setDimensionKey(String dimensionKey) {
-        this.dimensionKey = dimensionKey;
-    }
-
-    public String[] getDimensionIds() {
-        return this.dimensionIds;
-    }
-
-    public void setDimensionIds(String[] dimensionIds) {
-        this.dimensionIds = dimensionIds;
-    }
-
-    public Boolean getIncludeChildren() {
-        return this.includeChildren;
-    }
-
-    public void setIncludeChildren(Boolean includeChildren) {
-        this.includeChildren = includeChildren;
-    }
-
-    public static class Builder {
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         */
-        private String dimensionKey;
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         */
-        private String[] dimensionIds;
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         */
-        private Boolean includeChildren;
-
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         *
-         * @param dimensionKey
-         * @return
-         */
-        public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = dimensionKey;
-            return this;
-        }
-
-
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         *
-         * @param dimensionIds
-         * @return
-         */
-        public Builder dimensionIds(String[] dimensionIds) {
-            this.dimensionIds = dimensionIds;
-            return this;
-        }
-
-
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         *
-         * @param includeChildren
-         * @return
-         */
-        public Builder includeChildren(Boolean includeChildren) {
-            this.includeChildren = includeChildren;
-            return this;
-        }
-
-
-        public DimensionIdInDataV2 build() {
-            return new DimensionIdInDataV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

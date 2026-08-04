@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1)
- */
+/** 置顶项类型；决定 feed_card_id 的语义；当前版本仅支持 CHAT(1) */
 public enum OpenShortcutOpenShortcutTypeEnum {
-    UNKNOWN(0), // 未指定；调用方不应使用该值
-    CHAT(1), // 群；对应的 feed_card_id 为 open_chat_id（以 oc_ 开头）
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未指定；调用方不应使用该值
+  CHAT(1), // 群；对应的 feed_card_id 为 open_chat_id（以 oc_ 开头）
+  ;
+  private Integer value;
 
-    OpenShortcutOpenShortcutTypeEnum(Integer value) {
-        this.value = value;
-    }
+  OpenShortcutOpenShortcutTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

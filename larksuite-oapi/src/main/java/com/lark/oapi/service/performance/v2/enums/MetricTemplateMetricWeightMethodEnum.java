@@ -13,20 +13,20 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 指标权重计算方式
- */
+/** 指标权重计算方式 */
 public enum MetricTemplateMetricWeightMethodEnum {
-    SUM_OF_METRIC_WEIGHTS_FOR_EACH_DIMENSION_EQUALS_1("sum_of_metric_weights_for_each_dimension_equals_1"), // 每个维度内的指标权重之和等于 100%
-    TOTAL_SUM_OF_ALL_METRIC_WEIGHT_EQUALS_1("total_sum_of_all_metric_weight_equals_1"), // 全部指标权重之和等于 100%
-    ;
-    private String value;
+  SUM_OF_METRIC_WEIGHTS_FOR_EACH_DIMENSION_EQUALS_1(
+      "sum_of_metric_weights_for_each_dimension_equals_1"), // 每个维度内的指标权重之和等于 100%
+  TOTAL_SUM_OF_ALL_METRIC_WEIGHT_EQUALS_1(
+      "total_sum_of_all_metric_weight_equals_1"), // 全部指标权重之和等于 100%
+  ;
+  private String value;
 
-    MetricTemplateMetricWeightMethodEnum(String value) {
-        this.value = value;
-    }
+  MetricTemplateMetricWeightMethodEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

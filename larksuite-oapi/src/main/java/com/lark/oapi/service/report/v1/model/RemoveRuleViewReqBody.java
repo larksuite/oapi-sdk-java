@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.report.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.report.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemoveRuleViewReqBody {
+  /**
+   * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public RemoveRuleViewReqBody() {}
+
+  public RemoveRuleViewReqBody(Builder builder) {
     /**
      * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
-     * <p> 示例值：["ou_d6a5b5a55c77ca0b5b6c6ca0dd628c85","ou_d6a5b5a55c77ca0b5b6c6ca0dd628c55"]
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public RemoveRuleViewReqBody() {
+    /**
+     * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public RemoveRuleViewReqBody(Builder builder) {
-        /**
-         * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
-         * <p> 示例值：["ou_d6a5b5a55c77ca0b5b6c6ca0dd628c85","ou_d6a5b5a55c77ca0b5b6c6ca0dd628c55"]
-         */
-        this.userIds = builder.userIds;
+    public RemoveRuleViewReqBody build() {
+      return new RemoveRuleViewReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
-         * <p> 示例值：["ou_d6a5b5a55c77ca0b5b6c6ca0dd628c85","ou_d6a5b5a55c77ca0b5b6c6ca0dd628c55"]
-         */
-        private String[] userIds;
-
-        /**
-         * 列表为空删除规则下全用户视图，列表不为空删除指定用户视图，大小限制200。
-         * <p> 示例值：["ou_d6a5b5a55c77ca0b5b6c6ca0dd628c85","ou_d6a5b5a55c77ca0b5b6c6ca0dd628c55"]
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public RemoveRuleViewReqBody build() {
-            return new RemoveRuleViewReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

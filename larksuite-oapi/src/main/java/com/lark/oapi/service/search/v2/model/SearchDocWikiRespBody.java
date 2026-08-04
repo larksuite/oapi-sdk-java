@@ -13,76 +13,86 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDocWikiRespBody {
-    /**
-     * 匹配结果总数（辅助分页参考）
-     * <p> 示例值：100
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 是否有更多数据可供加载
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 搜索结果列表
-     * <p> 示例值：
-     */
-    @SerializedName("res_units")
-    private DocResUnit[] resUnits;
-    /**
-     * 下一页分页标记，无更多结果时为空
-     * <p> 示例值：token_1234567890fedcba
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 匹配结果总数（辅助分页参考）
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  /**
+   * 是否有更多数据可供加载
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  /**
+   * 搜索结果列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("res_units")
+  private DocResUnit[] resUnits;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 下一页分页标记，无更多结果时为空
+   *
+   * <p>示例值：token_1234567890fedcba
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 搜索补充提示信息，返回本次搜索的额外说明，例如：query被截断；搜索结果不全
+   *
+   * <p>示例值：The query is too long and has been truncated to the first 50 characters for search.
+   */
+  @SerializedName("notice")
+  private String notice;
 
-    public DocResUnit[] getResUnits() {
-        return this.resUnits;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
-    public void setResUnits(DocResUnit[] resUnits) {
-        this.resUnits = resUnits;
-    }
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public DocResUnit[] getResUnits() {
+    return this.resUnits;
+  }
+
+  public void setResUnits(DocResUnit[] resUnits) {
+    this.resUnits = resUnits;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getNotice() {
+    return this.notice;
+  }
+
+  public void setNotice(String notice) {
+    this.notice = notice;
+  }
 }

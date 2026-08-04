@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmpCustomOrgEmployeeCustomOrgRespBody {
-    /**
-     * 自定义组织ID
-     * <p> 示例值：7293841029445207596
-     */
-    @SerializedName("job_data_custom_org_id")
-    private String jobDataCustomOrgId;
-    /**
-     * 版本ID
-     * <p> 示例值：7293841029445207593
-     */
-    @SerializedName("version_id")
-    private String versionId;
+  /**
+   * 自定义组织ID
+   *
+   * <p>示例值：7293841029445207596
+   */
+  @SerializedName("job_data_custom_org_id")
+  private String jobDataCustomOrgId;
 
-    public String getJobDataCustomOrgId() {
-        return this.jobDataCustomOrgId;
-    }
+  /**
+   * 版本ID
+   *
+   * <p>示例值：7293841029445207593
+   */
+  @SerializedName("version_id")
+  private String versionId;
 
-    public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
-        this.jobDataCustomOrgId = jobDataCustomOrgId;
-    }
+  public String getJobDataCustomOrgId() {
+    return this.jobDataCustomOrgId;
+  }
 
-    public String getVersionId() {
-        return this.versionId;
-    }
+  public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
+    this.jobDataCustomOrgId = jobDataCustomOrgId;
+  }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
+  public String getVersionId() {
+    return this.versionId;
+  }
 
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
 }

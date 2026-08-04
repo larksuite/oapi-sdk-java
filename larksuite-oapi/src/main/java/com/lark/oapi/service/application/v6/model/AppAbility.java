@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppAbility {
+  /**
+   * 小程序能力
+   *
+   * <p>示例值：
+   */
+  @SerializedName("gadget")
+  private Gadget gadget;
+
+  /**
+   * 网页能力
+   *
+   * <p>示例值：
+   */
+  @SerializedName("web_app")
+  private WebApp webApp;
+
+  /**
+   * 机器人能力
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot")
+  private Bot bot;
+
+  /**
+   * 小组件能力
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workplace_widgets")
+  private WorkplaceWidget[] workplaceWidgets;
+
+  /**
+   * 主导航小程序
+   *
+   * <p>示例值：
+   */
+  @SerializedName("navigate")
+  private Navigate navigate;
+
+  /**
+   * 云文档应用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cloud_doc")
+  private CloudDoc cloudDoc;
+
+  /**
+   * 云文档小组件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("docs_blocks")
+  private DocsBlock[] docsBlocks;
+
+  /**
+   * 消息快捷操作
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_action")
+  private MessageAction messageAction;
+
+  /**
+   * 加号菜单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plus_menu")
+  private PlusMenu plusMenu;
+
+  public Gadget getGadget() {
+    return this.gadget;
+  }
+
+  public void setGadget(Gadget gadget) {
+    this.gadget = gadget;
+  }
+
+  public WebApp getWebApp() {
+    return this.webApp;
+  }
+
+  public void setWebApp(WebApp webApp) {
+    this.webApp = webApp;
+  }
+
+  public Bot getBot() {
+    return this.bot;
+  }
+
+  public void setBot(Bot bot) {
+    this.bot = bot;
+  }
+
+  public WorkplaceWidget[] getWorkplaceWidgets() {
+    return this.workplaceWidgets;
+  }
+
+  public void setWorkplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
+    this.workplaceWidgets = workplaceWidgets;
+  }
+
+  public Navigate getNavigate() {
+    return this.navigate;
+  }
+
+  public void setNavigate(Navigate navigate) {
+    this.navigate = navigate;
+  }
+
+  public CloudDoc getCloudDoc() {
+    return this.cloudDoc;
+  }
+
+  public void setCloudDoc(CloudDoc cloudDoc) {
+    this.cloudDoc = cloudDoc;
+  }
+
+  public DocsBlock[] getDocsBlocks() {
+    return this.docsBlocks;
+  }
+
+  public void setDocsBlocks(DocsBlock[] docsBlocks) {
+    this.docsBlocks = docsBlocks;
+  }
+
+  public MessageAction getMessageAction() {
+    return this.messageAction;
+  }
+
+  public void setMessageAction(MessageAction messageAction) {
+    this.messageAction = messageAction;
+  }
+
+  public PlusMenu getPlusMenu() {
+    return this.plusMenu;
+  }
+
+  public void setPlusMenu(PlusMenu plusMenu) {
+    this.plusMenu = plusMenu;
+  }
+
+  // builder 开始
+  public AppAbility() {}
+
+  public AppAbility(Builder builder) {
     /**
      * 小程序能力
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("gadget")
-    private Gadget gadget;
+    this.gadget = builder.gadget;
     /**
      * 网页能力
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("web_app")
-    private WebApp webApp;
+    this.webApp = builder.webApp;
     /**
      * 机器人能力
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bot")
-    private Bot bot;
+    this.bot = builder.bot;
     /**
      * 小组件能力
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("workplace_widgets")
-    private WorkplaceWidget[] workplaceWidgets;
+    this.workplaceWidgets = builder.workplaceWidgets;
     /**
      * 主导航小程序
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("navigate")
-    private Navigate navigate;
+    this.navigate = builder.navigate;
     /**
      * 云文档应用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cloud_doc")
-    private CloudDoc cloudDoc;
+    this.cloudDoc = builder.cloudDoc;
     /**
      * 云文档小组件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("docs_blocks")
-    private DocsBlock[] docsBlocks;
+    this.docsBlocks = builder.docsBlocks;
     /**
      * 消息快捷操作
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_action")
-    private MessageAction messageAction;
+    this.messageAction = builder.messageAction;
     /**
      * 加号菜单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plus_menu")
+    this.plusMenu = builder.plusMenu;
+  }
+
+  public static class Builder {
+    /**
+     * 小程序能力
+     *
+     * <p>示例值：
+     */
+    private Gadget gadget;
+
+    /**
+     * 网页能力
+     *
+     * <p>示例值：
+     */
+    private WebApp webApp;
+
+    /**
+     * 机器人能力
+     *
+     * <p>示例值：
+     */
+    private Bot bot;
+
+    /**
+     * 小组件能力
+     *
+     * <p>示例值：
+     */
+    private WorkplaceWidget[] workplaceWidgets;
+
+    /**
+     * 主导航小程序
+     *
+     * <p>示例值：
+     */
+    private Navigate navigate;
+
+    /**
+     * 云文档应用
+     *
+     * <p>示例值：
+     */
+    private CloudDoc cloudDoc;
+
+    /**
+     * 云文档小组件
+     *
+     * <p>示例值：
+     */
+    private DocsBlock[] docsBlocks;
+
+    /**
+     * 消息快捷操作
+     *
+     * <p>示例值：
+     */
+    private MessageAction messageAction;
+
+    /**
+     * 加号菜单
+     *
+     * <p>示例值：
+     */
     private PlusMenu plusMenu;
 
-    // builder 开始
-    public AppAbility() {
+    /**
+     * 小程序能力
+     *
+     * <p>示例值：
+     *
+     * @param gadget
+     * @return
+     */
+    public Builder gadget(Gadget gadget) {
+      this.gadget = gadget;
+      return this;
     }
 
-    public AppAbility(Builder builder) {
-        /**
-         * 小程序能力
-         * <p> 示例值：
-         */
-        this.gadget = builder.gadget;
-        /**
-         * 网页能力
-         * <p> 示例值：
-         */
-        this.webApp = builder.webApp;
-        /**
-         * 机器人能力
-         * <p> 示例值：
-         */
-        this.bot = builder.bot;
-        /**
-         * 小组件能力
-         * <p> 示例值：
-         */
-        this.workplaceWidgets = builder.workplaceWidgets;
-        /**
-         * 主导航小程序
-         * <p> 示例值：
-         */
-        this.navigate = builder.navigate;
-        /**
-         * 云文档应用
-         * <p> 示例值：
-         */
-        this.cloudDoc = builder.cloudDoc;
-        /**
-         * 云文档小组件
-         * <p> 示例值：
-         */
-        this.docsBlocks = builder.docsBlocks;
-        /**
-         * 消息快捷操作
-         * <p> 示例值：
-         */
-        this.messageAction = builder.messageAction;
-        /**
-         * 加号菜单
-         * <p> 示例值：
-         */
-        this.plusMenu = builder.plusMenu;
+    /**
+     * 网页能力
+     *
+     * <p>示例值：
+     *
+     * @param webApp
+     * @return
+     */
+    public Builder webApp(WebApp webApp) {
+      this.webApp = webApp;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 机器人能力
+     *
+     * <p>示例值：
+     *
+     * @param bot
+     * @return
+     */
+    public Builder bot(Bot bot) {
+      this.bot = bot;
+      return this;
     }
 
-    public Gadget getGadget() {
-        return this.gadget;
+    /**
+     * 小组件能力
+     *
+     * <p>示例值：
+     *
+     * @param workplaceWidgets
+     * @return
+     */
+    public Builder workplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
+      this.workplaceWidgets = workplaceWidgets;
+      return this;
     }
 
-    public void setGadget(Gadget gadget) {
-        this.gadget = gadget;
+    /**
+     * 主导航小程序
+     *
+     * <p>示例值：
+     *
+     * @param navigate
+     * @return
+     */
+    public Builder navigate(Navigate navigate) {
+      this.navigate = navigate;
+      return this;
     }
 
-    public WebApp getWebApp() {
-        return this.webApp;
+    /**
+     * 云文档应用
+     *
+     * <p>示例值：
+     *
+     * @param cloudDoc
+     * @return
+     */
+    public Builder cloudDoc(CloudDoc cloudDoc) {
+      this.cloudDoc = cloudDoc;
+      return this;
     }
 
-    public void setWebApp(WebApp webApp) {
-        this.webApp = webApp;
+    /**
+     * 云文档小组件
+     *
+     * <p>示例值：
+     *
+     * @param docsBlocks
+     * @return
+     */
+    public Builder docsBlocks(DocsBlock[] docsBlocks) {
+      this.docsBlocks = docsBlocks;
+      return this;
     }
 
-    public Bot getBot() {
-        return this.bot;
+    /**
+     * 消息快捷操作
+     *
+     * <p>示例值：
+     *
+     * @param messageAction
+     * @return
+     */
+    public Builder messageAction(MessageAction messageAction) {
+      this.messageAction = messageAction;
+      return this;
     }
 
-    public void setBot(Bot bot) {
-        this.bot = bot;
+    /**
+     * 加号菜单
+     *
+     * <p>示例值：
+     *
+     * @param plusMenu
+     * @return
+     */
+    public Builder plusMenu(PlusMenu plusMenu) {
+      this.plusMenu = plusMenu;
+      return this;
     }
 
-    public WorkplaceWidget[] getWorkplaceWidgets() {
-        return this.workplaceWidgets;
+    public AppAbility build() {
+      return new AppAbility(this);
     }
+  }
 
-    public void setWorkplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
-        this.workplaceWidgets = workplaceWidgets;
-    }
-
-    public Navigate getNavigate() {
-        return this.navigate;
-    }
-
-    public void setNavigate(Navigate navigate) {
-        this.navigate = navigate;
-    }
-
-    public CloudDoc getCloudDoc() {
-        return this.cloudDoc;
-    }
-
-    public void setCloudDoc(CloudDoc cloudDoc) {
-        this.cloudDoc = cloudDoc;
-    }
-
-    public DocsBlock[] getDocsBlocks() {
-        return this.docsBlocks;
-    }
-
-    public void setDocsBlocks(DocsBlock[] docsBlocks) {
-        this.docsBlocks = docsBlocks;
-    }
-
-    public MessageAction getMessageAction() {
-        return this.messageAction;
-    }
-
-    public void setMessageAction(MessageAction messageAction) {
-        this.messageAction = messageAction;
-    }
-
-    public PlusMenu getPlusMenu() {
-        return this.plusMenu;
-    }
-
-    public void setPlusMenu(PlusMenu plusMenu) {
-        this.plusMenu = plusMenu;
-    }
-
-    public static class Builder {
-        /**
-         * 小程序能力
-         * <p> 示例值：
-         */
-        private Gadget gadget;
-        /**
-         * 网页能力
-         * <p> 示例值：
-         */
-        private WebApp webApp;
-        /**
-         * 机器人能力
-         * <p> 示例值：
-         */
-        private Bot bot;
-        /**
-         * 小组件能力
-         * <p> 示例值：
-         */
-        private WorkplaceWidget[] workplaceWidgets;
-        /**
-         * 主导航小程序
-         * <p> 示例值：
-         */
-        private Navigate navigate;
-        /**
-         * 云文档应用
-         * <p> 示例值：
-         */
-        private CloudDoc cloudDoc;
-        /**
-         * 云文档小组件
-         * <p> 示例值：
-         */
-        private DocsBlock[] docsBlocks;
-        /**
-         * 消息快捷操作
-         * <p> 示例值：
-         */
-        private MessageAction messageAction;
-        /**
-         * 加号菜单
-         * <p> 示例值：
-         */
-        private PlusMenu plusMenu;
-
-        /**
-         * 小程序能力
-         * <p> 示例值：
-         *
-         * @param gadget
-         * @return
-         */
-        public Builder gadget(Gadget gadget) {
-            this.gadget = gadget;
-            return this;
-        }
-
-
-        /**
-         * 网页能力
-         * <p> 示例值：
-         *
-         * @param webApp
-         * @return
-         */
-        public Builder webApp(WebApp webApp) {
-            this.webApp = webApp;
-            return this;
-        }
-
-
-        /**
-         * 机器人能力
-         * <p> 示例值：
-         *
-         * @param bot
-         * @return
-         */
-        public Builder bot(Bot bot) {
-            this.bot = bot;
-            return this;
-        }
-
-
-        /**
-         * 小组件能力
-         * <p> 示例值：
-         *
-         * @param workplaceWidgets
-         * @return
-         */
-        public Builder workplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
-            this.workplaceWidgets = workplaceWidgets;
-            return this;
-        }
-
-
-        /**
-         * 主导航小程序
-         * <p> 示例值：
-         *
-         * @param navigate
-         * @return
-         */
-        public Builder navigate(Navigate navigate) {
-            this.navigate = navigate;
-            return this;
-        }
-
-
-        /**
-         * 云文档应用
-         * <p> 示例值：
-         *
-         * @param cloudDoc
-         * @return
-         */
-        public Builder cloudDoc(CloudDoc cloudDoc) {
-            this.cloudDoc = cloudDoc;
-            return this;
-        }
-
-
-        /**
-         * 云文档小组件
-         * <p> 示例值：
-         *
-         * @param docsBlocks
-         * @return
-         */
-        public Builder docsBlocks(DocsBlock[] docsBlocks) {
-            this.docsBlocks = docsBlocks;
-            return this;
-        }
-
-
-        /**
-         * 消息快捷操作
-         * <p> 示例值：
-         *
-         * @param messageAction
-         * @return
-         */
-        public Builder messageAction(MessageAction messageAction) {
-            this.messageAction = messageAction;
-            return this;
-        }
-
-
-        /**
-         * 加号菜单
-         * <p> 示例值：
-         *
-         * @param plusMenu
-         * @return
-         */
-        public Builder plusMenu(PlusMenu plusMenu) {
-            this.plusMenu = plusMenu;
-            return this;
-        }
-
-
-        public AppAbility build() {
-            return new AppAbility(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

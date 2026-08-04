@@ -13,198 +13,207 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MoveDocsToWikiSpaceNodeReqBody {
+  /**
+   * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
+   *
+   * <p>示例值：wikcnKQ1k3p******8Vabce
+   */
+  @SerializedName("parent_wiki_token")
+  private String parentWikiToken;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：doc
+   */
+  @SerializedName("obj_type")
+  private String objType;
+
+  /**
+   * 文档token
+   *
+   * <p>示例值：doccnzAaOD******Wabcdef
+   */
+  @SerializedName("obj_token")
+  private String objToken;
+
+  /**
+   * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("apply")
+  private Boolean apply;
+
+  public String getParentWikiToken() {
+    return this.parentWikiToken;
+  }
+
+  public void setParentWikiToken(String parentWikiToken) {
+    this.parentWikiToken = parentWikiToken;
+  }
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getObjToken() {
+    return this.objToken;
+  }
+
+  public void setObjToken(String objToken) {
+    this.objToken = objToken;
+  }
+
+  public Boolean getApply() {
+    return this.apply;
+  }
+
+  public void setApply(Boolean apply) {
+    this.apply = apply;
+  }
+
+  // builder 开始
+  public MoveDocsToWikiSpaceNodeReqBody() {}
+
+  public MoveDocsToWikiSpaceNodeReqBody(Builder builder) {
     /**
      * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
-     * <p> 示例值：wikcnKQ1k3p******8Vabce
+     *
+     * <p>示例值：wikcnKQ1k3p******8Vabce
      */
-    @SerializedName("parent_wiki_token")
-    private String parentWikiToken;
+    this.parentWikiToken = builder.parentWikiToken;
     /**
      * 文档类型
-     * <p> 示例值：doc
+     *
+     * <p>示例值：doc
      */
-    @SerializedName("obj_type")
-    private String objType;
+    this.objType = builder.objType;
     /**
      * 文档token
-     * <p> 示例值：doccnzAaOD******Wabcdef
+     *
+     * <p>示例值：doccnzAaOD******Wabcdef
      */
-    @SerializedName("obj_token")
-    private String objToken;
+    this.objToken = builder.objToken;
     /**
      * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("apply")
+    this.apply = builder.apply;
+  }
+
+  public static class Builder {
+    /**
+     * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
+     *
+     * <p>示例值：wikcnKQ1k3p******8Vabce
+     */
+    private String parentWikiToken;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：doc
+     */
+    private String objType;
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：doccnzAaOD******Wabcdef
+     */
+    private String objToken;
+
+    /**
+     * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
+     *
+     * <p>示例值：true
+     */
     private Boolean apply;
 
-    // builder 开始
-    public MoveDocsToWikiSpaceNodeReqBody() {
+    /**
+     * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
+     *
+     * <p>示例值：wikcnKQ1k3p******8Vabce
+     *
+     * @param parentWikiToken
+     * @return
+     */
+    public Builder parentWikiToken(String parentWikiToken) {
+      this.parentWikiToken = parentWikiToken;
+      return this;
     }
 
-    public MoveDocsToWikiSpaceNodeReqBody(Builder builder) {
-        /**
-         * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
-         * <p> 示例值：wikcnKQ1k3p******8Vabce
-         */
-        this.parentWikiToken = builder.parentWikiToken;
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.objType = builder.objType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnzAaOD******Wabcdef
-         */
-        this.objToken = builder.objToken;
-        /**
-         * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
-         * <p> 示例值：true
-         */
-        this.apply = builder.apply;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param objType {@link
+     *     com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum
+            objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public String getParentWikiToken() {
-        return this.parentWikiToken;
+    /**
+     * 文档token
+     *
+     * <p>示例值：doccnzAaOD******Wabcdef
+     *
+     * @param objToken
+     * @return
+     */
+    public Builder objToken(String objToken) {
+      this.objToken = objToken;
+      return this;
     }
 
-    public void setParentWikiToken(String parentWikiToken) {
-        this.parentWikiToken = parentWikiToken;
+    /**
+     * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
+     *
+     * <p>示例值：true
+     *
+     * @param apply
+     * @return
+     */
+    public Builder apply(Boolean apply) {
+      this.apply = apply;
+      return this;
     }
 
-    public String getObjType() {
-        return this.objType;
+    public MoveDocsToWikiSpaceNodeReqBody build() {
+      return new MoveDocsToWikiSpaceNodeReqBody(this);
     }
+  }
 
-    public void setObjType(String objType) {
-        this.objType = objType;
-    }
-
-    public String getObjToken() {
-        return this.objToken;
-    }
-
-    public void setObjToken(String objToken) {
-        this.objToken = objToken;
-    }
-
-    public Boolean getApply() {
-        return this.apply;
-    }
-
-    public void setApply(Boolean apply) {
-        this.apply = apply;
-    }
-
-    public static class Builder {
-        /**
-         * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
-         * <p> 示例值：wikcnKQ1k3p******8Vabce
-         */
-        private String parentWikiToken;
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        private String objType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnzAaOD******Wabcdef
-         */
-        private String objToken;
-        /**
-         * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
-         * <p> 示例值：true
-         */
-        private Boolean apply;
-
-        /**
-         * 节点的父亲token。;;传空或不传时将移动为知识空间一级节点。
-         * <p> 示例值：wikcnKQ1k3p******8Vabce
-         *
-         * @param parentWikiToken
-         * @return
-         */
-        public Builder parentWikiToken(String parentWikiToken) {
-            this.parentWikiToken = parentWikiToken;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param objType {@link com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档token
-         * <p> 示例值：doccnzAaOD******Wabcdef
-         *
-         * @param objToken
-         * @return
-         */
-        public Builder objToken(String objToken) {
-            this.objToken = objToken;
-            return this;
-        }
-
-
-        /**
-         * 没有权限时，是否申请移动文档。;;如果申请移动，文档将在处理人同意时自动移动至指定位置。
-         * <p> 示例值：true
-         *
-         * @param apply
-         * @return
-         */
-        public Builder apply(Boolean apply) {
-            this.apply = apply;
-            return this;
-        }
-
-
-        public MoveDocsToWikiSpaceNodeReqBody build() {
-            return new MoveDocsToWikiSpaceNodeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

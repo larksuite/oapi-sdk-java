@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 录入方式
- */
+/** 录入方式 */
 public enum RulemanagerTimeCodeInfoTimeInputWayEnum {
-    UNKNOWN(0), // 未知
-    PERIOD(1), // 按时段
-    DURATION(2), // 按时长
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  PERIOD(1), // 按时段
+  DURATION(2), // 按时长
+  ;
+  private Integer value;
 
-    RulemanagerTimeCodeInfoTimeInputWayEnum(Integer value) {
-        this.value = value;
-    }
+  RulemanagerTimeCodeInfoTimeInputWayEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

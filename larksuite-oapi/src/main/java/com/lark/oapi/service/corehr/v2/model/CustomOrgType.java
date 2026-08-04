@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgType {
+  /**
+   * object_api_name
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * name
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * active
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public CustomOrgType() {}
+
+  public CustomOrgType(Builder builder) {
     /**
      * object_api_name
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
      * name
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * active
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * object_api_name
+     *
+     * <p>示例值：example
+     */
+    private String objectApiName;
+
+    /**
+     * name
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * active
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public CustomOrgType() {
+    /**
+     * object_api_name
+     *
+     * <p>示例值：example
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public CustomOrgType(Builder builder) {
-        /**
-         * object_api_name
-         * <p> 示例值：example
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * name
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * name
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * active
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    public CustomOrgType build() {
+      return new CustomOrgType(this);
     }
+  }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public I18n[] getName() {
-        return this.name;
-    }
-
-    public void setName(I18n[] name) {
-        this.name = name;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * object_api_name
-         * <p> 示例值：example
-         */
-        private String objectApiName;
-        /**
-         * name
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * active
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * object_api_name
-         * <p> 示例值：example
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * name
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * active
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public CustomOrgType build() {
-            return new CustomOrgType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

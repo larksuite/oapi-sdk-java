@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 消息类型(file/image/media)
- */
+/** 消息类型(file/image/media) */
 public enum CreateMessageSearchMessageMessageTypeEnum {
-    FILE("file"), // 文件
-    IMAGE("image"), // 图片
-    MEDIA("media"), // 视频
-    ;
-    private String value;
+  FILE("file"), // 文件
+  IMAGE("image"), // 图片
+  MEDIA("media"), // 视频
+  ;
+  private String value;
 
-    CreateMessageSearchMessageMessageTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateMessageSearchMessageMessageTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

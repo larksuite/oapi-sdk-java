@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 协作者 ID 类型，与协作者 ID 需要对应
- */
+/** 协作者ID类型 */
 public enum BaseMemberMemberTypeEnum {
-    EMAIL("email"), // 飞书邮箱
-    OPEN_ID("openid"), // 开放平台OpenID
-    UNION_ID("unionid"), // 开放平台UnionID
-    OPEN_CHAT("openchat"), // 开放平台群组ID
-    OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门ID
-    USER_ID("userid"), // 用户自定义ID
-    GROUP_ID("groupid"), // 自定义用户组ID
-    WIKI_SPACE_ID("wikispaceid"), // 知识空间的唯一标识
-    APP_ID("appid"), // 应用 ID
-    ;
-    private String value;
+  EMAIL("email"), // 飞书邮箱
+  OPEN_ID("openid"), // 开放平台 ID
+  UNION_ID("unionid"), // 开放平台 UnionID
+  OPEN_CHAT("openchat"), // 开放平台群组 ID
+  OPEN_DEPARTMENT_ID("opendepartmentid"), // 开放平台部门 ID
+  USER_ID("userid"), // 用户自定义 ID
+  GROUP_ID("groupid"), // 自定义用户组 ID
+  WIKI_SPACE_ID("wikispaceid"), // 知识空间 ID
+  APP_ID("appid"), // 应用 ID
+  ;
+  private String value;
 
-    BaseMemberMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  BaseMemberMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

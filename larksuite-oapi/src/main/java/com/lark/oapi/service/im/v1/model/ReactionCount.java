@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReactionCount {
+  /**
+   * 表情类型
+   *
+   * <p>示例值：LAUGH
+   */
+  @SerializedName("reaction_type")
+  private String reactionType;
+
+  /**
+   * 表情数量
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("count")
+  private String count;
+
+  public String getReactionType() {
+    return this.reactionType;
+  }
+
+  public void setReactionType(String reactionType) {
+    this.reactionType = reactionType;
+  }
+
+  public String getCount() {
+    return this.count;
+  }
+
+  public void setCount(String count) {
+    this.count = count;
+  }
+
+  // builder 开始
+  public ReactionCount() {}
+
+  public ReactionCount(Builder builder) {
     /**
      * 表情类型
-     * <p> 示例值：LAUGH
+     *
+     * <p>示例值：LAUGH
      */
-    @SerializedName("reaction_type")
-    private String reactionType;
+    this.reactionType = builder.reactionType;
     /**
      * 表情数量
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @SerializedName("count")
+    this.count = builder.count;
+  }
+
+  public static class Builder {
+    /**
+     * 表情类型
+     *
+     * <p>示例值：LAUGH
+     */
+    private String reactionType;
+
+    /**
+     * 表情数量
+     *
+     * <p>示例值：20
+     */
     private String count;
 
-    // builder 开始
-    public ReactionCount() {
+    /**
+     * 表情类型
+     *
+     * <p>示例值：LAUGH
+     *
+     * @param reactionType
+     * @return
+     */
+    public Builder reactionType(String reactionType) {
+      this.reactionType = reactionType;
+      return this;
     }
 
-    public ReactionCount(Builder builder) {
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         */
-        this.reactionType = builder.reactionType;
-        /**
-         * 表情数量
-         * <p> 示例值：20
-         */
-        this.count = builder.count;
+    /**
+     * 表情数量
+     *
+     * <p>示例值：20
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(String count) {
+      this.count = count;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ReactionCount build() {
+      return new ReactionCount(this);
     }
+  }
 
-    public String getReactionType() {
-        return this.reactionType;
-    }
-
-    public void setReactionType(String reactionType) {
-        this.reactionType = reactionType;
-    }
-
-    public String getCount() {
-        return this.count;
-    }
-
-    public void setCount(String count) {
-        this.count = count;
-    }
-
-    public static class Builder {
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         */
-        private String reactionType;
-        /**
-         * 表情数量
-         * <p> 示例值：20
-         */
-        private String count;
-
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         *
-         * @param reactionType
-         * @return
-         */
-        public Builder reactionType(String reactionType) {
-            this.reactionType = reactionType;
-            return this;
-        }
-
-
-        /**
-         * 表情数量
-         * <p> 示例值：20
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(String count) {
-            this.count = count;
-            return this;
-        }
-
-
-        public ReactionCount build() {
-            return new ReactionCount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

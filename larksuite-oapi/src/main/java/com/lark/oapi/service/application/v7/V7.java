@@ -21,37 +21,37 @@ import com.lark.oapi.service.application.v7.resource.ApplicationConfig;
 import com.lark.oapi.service.application.v7.resource.ApplicationPublish;
 
 public class V7 {
-    private final AppAvatarUpload appAvatarUpload; // app_avatar.upload
-    private final ApplicationAbility applicationAbility; // application.ability
-    private final ApplicationBase applicationBase; // application.base
-    private final ApplicationConfig applicationConfig; // application.config
-    private final ApplicationPublish applicationPublish; // application.publish
+  private final AppAvatarUpload appAvatarUpload; // app_avatar.upload
+  private final ApplicationAbility applicationAbility; // application.ability
+  private final ApplicationBase applicationBase; // application.base
+  private final ApplicationConfig applicationConfig; // application.config
+  private final ApplicationPublish applicationPublish; // application.publish
 
-    public V7(Config config) {
-        this.appAvatarUpload = new AppAvatarUpload(config);
-        this.applicationAbility = new ApplicationAbility(config);
-        this.applicationBase = new ApplicationBase(config);
-        this.applicationConfig = new ApplicationConfig(config);
-        this.applicationPublish = new ApplicationPublish(config);
-    }
+  public V7(Config config) {
+    this.appAvatarUpload = new AppAvatarUpload(config);
+    this.applicationAbility = new ApplicationAbility(config);
+    this.applicationBase = new ApplicationBase(config);
+    this.applicationConfig = new ApplicationConfig(config);
+    this.applicationPublish = new ApplicationPublish(config);
+  }
 
-    public AppAvatarUpload appAvatarUpload() {
-        return appAvatarUpload;
-    }
+  public AppAvatarUpload appAvatarUpload() {
+    return appAvatarUpload;
+  }
 
-    public ApplicationAbility applicationAbility() {
-        return applicationAbility;
-    }
+  public ApplicationAbility applicationAbility() {
+    return applicationAbility;
+  }
 
-    public ApplicationBase applicationBase() {
-        return applicationBase;
-    }
+  public ApplicationBase applicationBase() {
+    return applicationBase;
+  }
 
-    public ApplicationConfig applicationConfig() {
-        return applicationConfig;
-    }
+  public ApplicationConfig applicationConfig() {
+    return applicationConfig;
+  }
 
-    public ApplicationPublish applicationPublish() {
-        return applicationPublish;
-    }
+  public ApplicationPublish applicationPublish() {
+    return applicationPublish;
+  }
 }

@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingRelatedArtifacts {
+  /**
+   * 智能纪要的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+   * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+   *
+   * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+   */
+  @SerializedName("note_doc_token")
+  private String noteDocToken;
+
+  /**
+   * 逐字稿的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+   * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+   *
+   * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+   */
+  @SerializedName("verbatim_doc_token")
+  private String verbatimDocToken;
+
+  public String getNoteDocToken() {
+    return this.noteDocToken;
+  }
+
+  public void setNoteDocToken(String noteDocToken) {
+    this.noteDocToken = noteDocToken;
+  }
+
+  public String getVerbatimDocToken() {
+    return this.verbatimDocToken;
+  }
+
+  public void setVerbatimDocToken(String verbatimDocToken) {
+    this.verbatimDocToken = verbatimDocToken;
+  }
+
+  // builder 开始
+  public MeetingRelatedArtifacts() {}
+
+  public MeetingRelatedArtifacts(Builder builder) {
     /**
-     * 会议纪要Doc Token
-     * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     * 智能纪要的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
      */
-    @SerializedName("note_doc_token")
+    this.noteDocToken = builder.noteDocToken;
+    /**
+     * 逐字稿的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     */
+    this.verbatimDocToken = builder.verbatimDocToken;
+  }
+
+  public static class Builder {
+    /**
+     * 智能纪要的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     */
     private String noteDocToken;
+
     /**
-     * 会议逐字稿Doc Token
-     * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     * 逐字稿的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
      */
-    @SerializedName("verbatim_doc_token")
     private String verbatimDocToken;
 
-    // builder 开始
-    public MeetingRelatedArtifacts() {
+    /**
+     * 智能纪要的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     *
+     * @param noteDocToken
+     * @return
+     */
+    public Builder noteDocToken(String noteDocToken) {
+      this.noteDocToken = noteDocToken;
+      return this;
     }
 
-    public MeetingRelatedArtifacts(Builder builder) {
-        /**
-         * 会议纪要Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         */
-        this.noteDocToken = builder.noteDocToken;
-        /**
-         * 会议逐字稿Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         */
-        this.verbatimDocToken = builder.verbatimDocToken;
+    /**
+     * 逐字稿的 doc_token;- 文档一旦生成，就可以查到对应 token;- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中;-
+     * 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串
+     *
+     * <p>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
+     *
+     * @param verbatimDocToken
+     * @return
+     */
+    public Builder verbatimDocToken(String verbatimDocToken) {
+      this.verbatimDocToken = verbatimDocToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MeetingRelatedArtifacts build() {
+      return new MeetingRelatedArtifacts(this);
     }
+  }
 
-    public String getNoteDocToken() {
-        return this.noteDocToken;
-    }
-
-    public void setNoteDocToken(String noteDocToken) {
-        this.noteDocToken = noteDocToken;
-    }
-
-    public String getVerbatimDocToken() {
-        return this.verbatimDocToken;
-    }
-
-    public void setVerbatimDocToken(String verbatimDocToken) {
-        this.verbatimDocToken = verbatimDocToken;
-    }
-
-    public static class Builder {
-        /**
-         * 会议纪要Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         */
-        private String noteDocToken;
-        /**
-         * 会议逐字稿Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         */
-        private String verbatimDocToken;
-
-        /**
-         * 会议纪要Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         *
-         * @param noteDocToken
-         * @return
-         */
-        public Builder noteDocToken(String noteDocToken) {
-            this.noteDocToken = noteDocToken;
-            return this;
-        }
-
-
-        /**
-         * 会议逐字稿Doc Token
-         * <p> 示例值：J1X5wG7bFilbFDk42VNdhfS6n6g
-         *
-         * @param verbatimDocToken
-         * @return
-         */
-        public Builder verbatimDocToken(String verbatimDocToken) {
-            this.verbatimDocToken = verbatimDocToken;
-            return this;
-        }
-
-
-        public MeetingRelatedArtifacts build() {
-            return new MeetingRelatedArtifacts(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

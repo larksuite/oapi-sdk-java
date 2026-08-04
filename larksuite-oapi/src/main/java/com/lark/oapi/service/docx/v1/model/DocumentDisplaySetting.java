@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocumentDisplaySetting {
+  /**
+   * 文档信息中是否展示文档作者
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_authors")
+  private Boolean showAuthors;
+
+  /**
+   * 文档信息中是否展示文档创建时间
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_create_time")
+  private Boolean showCreateTime;
+
+  /**
+   * 文档信息中是否展示文档访问次数
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_pv")
+  private Boolean showPv;
+
+  /**
+   * 文档信息中是否展示文档访问人数
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_uv")
+  private Boolean showUv;
+
+  /**
+   * 文档信息中是否展示点赞总数
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_like_count")
+  private Boolean showLikeCount;
+
+  /**
+   * 文档信息中是否展示评论总数
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_comment_count")
+  private Boolean showCommentCount;
+
+  /**
+   * 文档信息中是否展示关联事项。暂未支持
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_related_matters")
+  private Boolean showRelatedMatters;
+
+  public Boolean getShowAuthors() {
+    return this.showAuthors;
+  }
+
+  public void setShowAuthors(Boolean showAuthors) {
+    this.showAuthors = showAuthors;
+  }
+
+  public Boolean getShowCreateTime() {
+    return this.showCreateTime;
+  }
+
+  public void setShowCreateTime(Boolean showCreateTime) {
+    this.showCreateTime = showCreateTime;
+  }
+
+  public Boolean getShowPv() {
+    return this.showPv;
+  }
+
+  public void setShowPv(Boolean showPv) {
+    this.showPv = showPv;
+  }
+
+  public Boolean getShowUv() {
+    return this.showUv;
+  }
+
+  public void setShowUv(Boolean showUv) {
+    this.showUv = showUv;
+  }
+
+  public Boolean getShowLikeCount() {
+    return this.showLikeCount;
+  }
+
+  public void setShowLikeCount(Boolean showLikeCount) {
+    this.showLikeCount = showLikeCount;
+  }
+
+  public Boolean getShowCommentCount() {
+    return this.showCommentCount;
+  }
+
+  public void setShowCommentCount(Boolean showCommentCount) {
+    this.showCommentCount = showCommentCount;
+  }
+
+  public Boolean getShowRelatedMatters() {
+    return this.showRelatedMatters;
+  }
+
+  public void setShowRelatedMatters(Boolean showRelatedMatters) {
+    this.showRelatedMatters = showRelatedMatters;
+  }
+
+  // builder 开始
+  public DocumentDisplaySetting() {}
+
+  public DocumentDisplaySetting(Builder builder) {
     /**
      * 文档信息中是否展示文档作者
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_authors")
-    private Boolean showAuthors;
+    this.showAuthors = builder.showAuthors;
     /**
      * 文档信息中是否展示文档创建时间
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_create_time")
-    private Boolean showCreateTime;
+    this.showCreateTime = builder.showCreateTime;
     /**
      * 文档信息中是否展示文档访问次数
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_pv")
-    private Boolean showPv;
+    this.showPv = builder.showPv;
     /**
      * 文档信息中是否展示文档访问人数
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_uv")
-    private Boolean showUv;
+    this.showUv = builder.showUv;
     /**
      * 文档信息中是否展示点赞总数
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_like_count")
-    private Boolean showLikeCount;
+    this.showLikeCount = builder.showLikeCount;
     /**
      * 文档信息中是否展示评论总数
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_comment_count")
-    private Boolean showCommentCount;
+    this.showCommentCount = builder.showCommentCount;
     /**
-     * 文档信息中是否展示关联事项
-     * <p> 示例值：true
+     * 文档信息中是否展示关联事项。暂未支持
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_related_matters")
+    this.showRelatedMatters = builder.showRelatedMatters;
+  }
+
+  public static class Builder {
+    /**
+     * 文档信息中是否展示文档作者
+     *
+     * <p>示例值：true
+     */
+    private Boolean showAuthors;
+
+    /**
+     * 文档信息中是否展示文档创建时间
+     *
+     * <p>示例值：true
+     */
+    private Boolean showCreateTime;
+
+    /**
+     * 文档信息中是否展示文档访问次数
+     *
+     * <p>示例值：true
+     */
+    private Boolean showPv;
+
+    /**
+     * 文档信息中是否展示文档访问人数
+     *
+     * <p>示例值：true
+     */
+    private Boolean showUv;
+
+    /**
+     * 文档信息中是否展示点赞总数
+     *
+     * <p>示例值：true
+     */
+    private Boolean showLikeCount;
+
+    /**
+     * 文档信息中是否展示评论总数
+     *
+     * <p>示例值：true
+     */
+    private Boolean showCommentCount;
+
+    /**
+     * 文档信息中是否展示关联事项。暂未支持
+     *
+     * <p>示例值：true
+     */
     private Boolean showRelatedMatters;
 
-    // builder 开始
-    public DocumentDisplaySetting() {
+    /**
+     * 文档信息中是否展示文档作者
+     *
+     * <p>示例值：true
+     *
+     * @param showAuthors
+     * @return
+     */
+    public Builder showAuthors(Boolean showAuthors) {
+      this.showAuthors = showAuthors;
+      return this;
     }
 
-    public DocumentDisplaySetting(Builder builder) {
-        /**
-         * 文档信息中是否展示文档作者
-         * <p> 示例值：true
-         */
-        this.showAuthors = builder.showAuthors;
-        /**
-         * 文档信息中是否展示文档创建时间
-         * <p> 示例值：true
-         */
-        this.showCreateTime = builder.showCreateTime;
-        /**
-         * 文档信息中是否展示文档访问次数
-         * <p> 示例值：true
-         */
-        this.showPv = builder.showPv;
-        /**
-         * 文档信息中是否展示文档访问人数
-         * <p> 示例值：true
-         */
-        this.showUv = builder.showUv;
-        /**
-         * 文档信息中是否展示点赞总数
-         * <p> 示例值：true
-         */
-        this.showLikeCount = builder.showLikeCount;
-        /**
-         * 文档信息中是否展示评论总数
-         * <p> 示例值：true
-         */
-        this.showCommentCount = builder.showCommentCount;
-        /**
-         * 文档信息中是否展示关联事项
-         * <p> 示例值：true
-         */
-        this.showRelatedMatters = builder.showRelatedMatters;
+    /**
+     * 文档信息中是否展示文档创建时间
+     *
+     * <p>示例值：true
+     *
+     * @param showCreateTime
+     * @return
+     */
+    public Builder showCreateTime(Boolean showCreateTime) {
+      this.showCreateTime = showCreateTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档信息中是否展示文档访问次数
+     *
+     * <p>示例值：true
+     *
+     * @param showPv
+     * @return
+     */
+    public Builder showPv(Boolean showPv) {
+      this.showPv = showPv;
+      return this;
     }
 
-    public Boolean getShowAuthors() {
-        return this.showAuthors;
+    /**
+     * 文档信息中是否展示文档访问人数
+     *
+     * <p>示例值：true
+     *
+     * @param showUv
+     * @return
+     */
+    public Builder showUv(Boolean showUv) {
+      this.showUv = showUv;
+      return this;
     }
 
-    public void setShowAuthors(Boolean showAuthors) {
-        this.showAuthors = showAuthors;
+    /**
+     * 文档信息中是否展示点赞总数
+     *
+     * <p>示例值：true
+     *
+     * @param showLikeCount
+     * @return
+     */
+    public Builder showLikeCount(Boolean showLikeCount) {
+      this.showLikeCount = showLikeCount;
+      return this;
     }
 
-    public Boolean getShowCreateTime() {
-        return this.showCreateTime;
+    /**
+     * 文档信息中是否展示评论总数
+     *
+     * <p>示例值：true
+     *
+     * @param showCommentCount
+     * @return
+     */
+    public Builder showCommentCount(Boolean showCommentCount) {
+      this.showCommentCount = showCommentCount;
+      return this;
     }
 
-    public void setShowCreateTime(Boolean showCreateTime) {
-        this.showCreateTime = showCreateTime;
+    /**
+     * 文档信息中是否展示关联事项。暂未支持
+     *
+     * <p>示例值：true
+     *
+     * @param showRelatedMatters
+     * @return
+     */
+    public Builder showRelatedMatters(Boolean showRelatedMatters) {
+      this.showRelatedMatters = showRelatedMatters;
+      return this;
     }
 
-    public Boolean getShowPv() {
-        return this.showPv;
+    public DocumentDisplaySetting build() {
+      return new DocumentDisplaySetting(this);
     }
+  }
 
-    public void setShowPv(Boolean showPv) {
-        this.showPv = showPv;
-    }
-
-    public Boolean getShowUv() {
-        return this.showUv;
-    }
-
-    public void setShowUv(Boolean showUv) {
-        this.showUv = showUv;
-    }
-
-    public Boolean getShowLikeCount() {
-        return this.showLikeCount;
-    }
-
-    public void setShowLikeCount(Boolean showLikeCount) {
-        this.showLikeCount = showLikeCount;
-    }
-
-    public Boolean getShowCommentCount() {
-        return this.showCommentCount;
-    }
-
-    public void setShowCommentCount(Boolean showCommentCount) {
-        this.showCommentCount = showCommentCount;
-    }
-
-    public Boolean getShowRelatedMatters() {
-        return this.showRelatedMatters;
-    }
-
-    public void setShowRelatedMatters(Boolean showRelatedMatters) {
-        this.showRelatedMatters = showRelatedMatters;
-    }
-
-    public static class Builder {
-        /**
-         * 文档信息中是否展示文档作者
-         * <p> 示例值：true
-         */
-        private Boolean showAuthors;
-        /**
-         * 文档信息中是否展示文档创建时间
-         * <p> 示例值：true
-         */
-        private Boolean showCreateTime;
-        /**
-         * 文档信息中是否展示文档访问次数
-         * <p> 示例值：true
-         */
-        private Boolean showPv;
-        /**
-         * 文档信息中是否展示文档访问人数
-         * <p> 示例值：true
-         */
-        private Boolean showUv;
-        /**
-         * 文档信息中是否展示点赞总数
-         * <p> 示例值：true
-         */
-        private Boolean showLikeCount;
-        /**
-         * 文档信息中是否展示评论总数
-         * <p> 示例值：true
-         */
-        private Boolean showCommentCount;
-        /**
-         * 文档信息中是否展示关联事项
-         * <p> 示例值：true
-         */
-        private Boolean showRelatedMatters;
-
-        /**
-         * 文档信息中是否展示文档作者
-         * <p> 示例值：true
-         *
-         * @param showAuthors
-         * @return
-         */
-        public Builder showAuthors(Boolean showAuthors) {
-            this.showAuthors = showAuthors;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示文档创建时间
-         * <p> 示例值：true
-         *
-         * @param showCreateTime
-         * @return
-         */
-        public Builder showCreateTime(Boolean showCreateTime) {
-            this.showCreateTime = showCreateTime;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示文档访问次数
-         * <p> 示例值：true
-         *
-         * @param showPv
-         * @return
-         */
-        public Builder showPv(Boolean showPv) {
-            this.showPv = showPv;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示文档访问人数
-         * <p> 示例值：true
-         *
-         * @param showUv
-         * @return
-         */
-        public Builder showUv(Boolean showUv) {
-            this.showUv = showUv;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示点赞总数
-         * <p> 示例值：true
-         *
-         * @param showLikeCount
-         * @return
-         */
-        public Builder showLikeCount(Boolean showLikeCount) {
-            this.showLikeCount = showLikeCount;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示评论总数
-         * <p> 示例值：true
-         *
-         * @param showCommentCount
-         * @return
-         */
-        public Builder showCommentCount(Boolean showCommentCount) {
-            this.showCommentCount = showCommentCount;
-            return this;
-        }
-
-
-        /**
-         * 文档信息中是否展示关联事项
-         * <p> 示例值：true
-         *
-         * @param showRelatedMatters
-         * @return
-         */
-        public Builder showRelatedMatters(Boolean showRelatedMatters) {
-            this.showRelatedMatters = showRelatedMatters;
-            return this;
-        }
-
-
-        public DocumentDisplaySetting build() {
-            return new DocumentDisplaySetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

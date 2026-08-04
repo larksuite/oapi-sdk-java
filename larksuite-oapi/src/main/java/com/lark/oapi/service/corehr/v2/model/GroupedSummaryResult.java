@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupedSummaryResult {
+  /**
+   * 分组汇总数据列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private GroupedSummaryItem[] items;
+
+  /**
+   * 下一页游标
+   *
+   * <p>示例值：page_token_xxx
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 是否有更多数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+
+  public GroupedSummaryItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(GroupedSummaryItem[] items) {
+    this.items = items;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  // builder 开始
+  public GroupedSummaryResult() {}
+
+  public GroupedSummaryResult(Builder builder) {
     /**
      * 分组汇总数据列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
-    private GroupedSummaryItem[] items;
+    this.items = builder.items;
     /**
      * 下一页游标
-     * <p> 示例值：page_token_xxx
+     *
+     * <p>示例值：page_token_xxx
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 是否有更多数据
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("has_more")
+    this.hasMore = builder.hasMore;
+  }
+
+  public static class Builder {
+    /**
+     * 分组汇总数据列表
+     *
+     * <p>示例值：
+     */
+    private GroupedSummaryItem[] items;
+
+    /**
+     * 下一页游标
+     *
+     * <p>示例值：page_token_xxx
+     */
+    private String pageToken;
+
+    /**
+     * 是否有更多数据
+     *
+     * <p>示例值：true
+     */
     private Boolean hasMore;
 
-    // builder 开始
-    public GroupedSummaryResult() {
+    /**
+     * 分组汇总数据列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(GroupedSummaryItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public GroupedSummaryResult(Builder builder) {
-        /**
-         * 分组汇总数据列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 下一页游标
-         * <p> 示例值：page_token_xxx
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 是否有更多数据
-         * <p> 示例值：true
-         */
-        this.hasMore = builder.hasMore;
+    /**
+     * 下一页游标
+     *
+     * <p>示例值：page_token_xxx
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否有更多数据
+     *
+     * <p>示例值：true
+     *
+     * @param hasMore
+     * @return
+     */
+    public Builder hasMore(Boolean hasMore) {
+      this.hasMore = hasMore;
+      return this;
     }
 
-    public GroupedSummaryItem[] getItems() {
-        return this.items;
+    public GroupedSummaryResult build() {
+      return new GroupedSummaryResult(this);
     }
+  }
 
-    public void setItems(GroupedSummaryItem[] items) {
-        this.items = items;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
-
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public static class Builder {
-        /**
-         * 分组汇总数据列表
-         * <p> 示例值：
-         */
-        private GroupedSummaryItem[] items;
-        /**
-         * 下一页游标
-         * <p> 示例值：page_token_xxx
-         */
-        private String pageToken;
-        /**
-         * 是否有更多数据
-         * <p> 示例值：true
-         */
-        private Boolean hasMore;
-
-        /**
-         * 分组汇总数据列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(GroupedSummaryItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        /**
-         * 下一页游标
-         * <p> 示例值：page_token_xxx
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 是否有更多数据
-         * <p> 示例值：true
-         *
-         * @param hasMore
-         * @return
-         */
-        public Builder hasMore(Boolean hasMore) {
-            this.hasMore = hasMore;
-            return this;
-        }
-
-
-        public GroupedSummaryResult build() {
-            return new GroupedSummaryResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

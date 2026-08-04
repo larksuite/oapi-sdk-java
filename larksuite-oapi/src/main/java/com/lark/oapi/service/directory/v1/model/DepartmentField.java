@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class DepartmentField {
+  /**
+   * 所在部门的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  /**
+   * 部门路径ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("path")
+  private Map<String, String[]> path;
+
+  /**
+   * 用户部门路径名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("path_name")
+  private Map<String, I18nText> pathName;
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  public Map<String, String[]> getPath() {
+    return this.path;
+  }
+
+  public void setPath(Map<String, String[]> path) {
+    this.path = path;
+  }
+
+  public Map<String, I18nText> getPathName() {
+    return this.pathName;
+  }
+
+  public void setPathName(Map<String, I18nText> pathName) {
+    this.pathName = pathName;
+  }
+
+  // builder 开始
+  public DepartmentField() {}
+
+  public DepartmentField(Builder builder) {
     /**
      * 所在部门的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
-    private String[] ids;
+    this.ids = builder.ids;
     /**
      * 部门路径ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("path")
-    private Map<String, String[]> path;
+    this.path = builder.path;
     /**
      * 用户部门路径名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("path_name")
+    this.pathName = builder.pathName;
+  }
+
+  public static class Builder {
+    /**
+     * 所在部门的ID
+     *
+     * <p>示例值：
+     */
+    private String[] ids;
+
+    /**
+     * 部门路径ID
+     *
+     * <p>示例值：
+     */
+    private Map<String, String[]> path;
+
+    /**
+     * 用户部门路径名称
+     *
+     * <p>示例值：
+     */
     private Map<String, I18nText> pathName;
 
-    // builder 开始
-    public DepartmentField() {
+    /**
+     * 所在部门的ID
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public DepartmentField(Builder builder) {
-        /**
-         * 所在部门的ID
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
-        /**
-         * 部门路径ID
-         * <p> 示例值：
-         */
-        this.path = builder.path;
-        /**
-         * 用户部门路径名称
-         * <p> 示例值：
-         */
-        this.pathName = builder.pathName;
+    /**
+     * 部门路径ID
+     *
+     * <p>示例值：
+     *
+     * @param path
+     * @return
+     */
+    public Builder path(Map<String, String[]> path) {
+      this.path = path;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户部门路径名称
+     *
+     * <p>示例值：
+     *
+     * @param pathName
+     * @return
+     */
+    public Builder pathName(Map<String, I18nText> pathName) {
+      this.pathName = pathName;
+      return this;
     }
 
-    public String[] getIds() {
-        return this.ids;
+    public DepartmentField build() {
+      return new DepartmentField(this);
     }
+  }
 
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public Map<String, String[]> getPath() {
-        return this.path;
-    }
-
-    public void setPath(Map<String, String[]> path) {
-        this.path = path;
-    }
-
-    public Map<String, I18nText> getPathName() {
-        return this.pathName;
-    }
-
-    public void setPathName(Map<String, I18nText> pathName) {
-        this.pathName = pathName;
-    }
-
-    public static class Builder {
-        /**
-         * 所在部门的ID
-         * <p> 示例值：
-         */
-        private String[] ids;
-        /**
-         * 部门路径ID
-         * <p> 示例值：
-         */
-        private Map<String, String[]> path;
-        /**
-         * 用户部门路径名称
-         * <p> 示例值：
-         */
-        private Map<String, I18nText> pathName;
-
-        /**
-         * 所在部门的ID
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        /**
-         * 部门路径ID
-         * <p> 示例值：
-         *
-         * @param path
-         * @return
-         */
-        public Builder path(Map<String, String[]> path) {
-            this.path = path;
-            return this;
-        }
-
-
-        /**
-         * 用户部门路径名称
-         * <p> 示例值：
-         *
-         * @param pathName
-         * @return
-         */
-        public Builder pathName(Map<String, I18nText> pathName) {
-            this.pathName = pathName;
-            return this;
-        }
-
-
-        public DepartmentField build() {
-            return new DepartmentField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinutesSearchItem {
+  /**
+   * 妙记 Token（标识妙记唯一身份的凭证）
+   *
+   * <p>示例值：obbcwkkdw885tetaf82pu184
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+   *
+   * <p>示例值：2026-03-28 产品<h>周会</h>纪要
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 妙记元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private MinutesMeta metaData;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public MinutesMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(MinutesMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public MinutesSearchItem() {}
+
+  public MinutesSearchItem(Builder builder) {
     /**
-     * 妙记 Token
-     * <p> 示例值：obbcwkkdw885tetaf82pu184
+     * 妙记 Token（标识妙记唯一身份的凭证）
+     *
+     * <p>示例值：obbcwkkdw885tetaf82pu184
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-     * <p> 示例值：2026-03-28 产品<h>周会</h>纪要
+     *
+     * <p>示例值：2026-03-28 产品<h>周会</h>纪要
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 妙记元信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 妙记 Token（标识妙记唯一身份的凭证）
+     *
+     * <p>示例值：obbcwkkdw885tetaf82pu184
+     */
+    private String token;
+
+    /**
+     * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：2026-03-28 产品<h>周会</h>纪要
+     */
+    private String displayInfo;
+
+    /**
+     * 妙记元信息
+     *
+     * <p>示例值：
+     */
     private MinutesMeta metaData;
 
-    // builder 开始
-    public MinutesSearchItem() {
+    /**
+     * 妙记 Token（标识妙记唯一身份的凭证）
+     *
+     * <p>示例值：obbcwkkdw885tetaf82pu184
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public MinutesSearchItem(Builder builder) {
-        /**
-         * 妙记 Token
-         * <p> 示例值：obbcwkkdw885tetaf82pu184
-         */
-        this.token = builder.token;
-        /**
-         * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：2026-03-28 产品<h>周会</h>纪要
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 妙记元信息
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：2026-03-28 产品<h>周会</h>纪要
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 妙记元信息
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(MinutesMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public MinutesSearchItem build() {
+      return new MinutesSearchItem(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public MinutesMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(MinutesMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 妙记 Token
-         * <p> 示例值：obbcwkkdw885tetaf82pu184
-         */
-        private String token;
-        /**
-         * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：2026-03-28 产品<h>周会</h>纪要
-         */
-        private String displayInfo;
-        /**
-         * 妙记元信息
-         * <p> 示例值：
-         */
-        private MinutesMeta metaData;
-
-        /**
-         * 妙记 Token
-         * <p> 示例值：obbcwkkdw885tetaf82pu184
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 包含妙记基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：2026-03-28 产品<h>周会</h>纪要
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 妙记元信息
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(MinutesMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public MinutesSearchItem build() {
-            return new MinutesSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

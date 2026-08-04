@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExecuteApplicationFlowRespBody {
-    /**
-     * 状态
-     * <p> 示例值：123
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * 输出参数
-     * <p> 示例值：123
-     */
-    @SerializedName("out_params")
-    private String outParams;
-    /**
-     * 执行id
-     * <p> 示例值：123
-     */
-    @SerializedName("execution_id")
-    private String executionId;
-    /**
-     * 错误信息
-     * <p> 示例值：123
-     */
-    @SerializedName("error_msg")
-    private String errorMsg;
-    /**
-     * code
-     * <p> 示例值：123
-     */
-    @SerializedName("code")
-    private String code;
+  /**
+   * 状态
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("status")
+  private String status;
 
-    public String getStatus() {
-        return this.status;
-    }
+  /**
+   * 输出参数
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("out_params")
+  private String outParams;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  /**
+   * 执行id
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("execution_id")
+  private String executionId;
 
-    public String getOutParams() {
-        return this.outParams;
-    }
+  /**
+   * 错误信息
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("error_msg")
+  private String errorMsg;
 
-    public void setOutParams(String outParams) {
-        this.outParams = outParams;
-    }
+  /**
+   * code
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("code")
+  private String code;
 
-    public String getExecutionId() {
-        return this.executionId;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public void setExecutionId(String executionId) {
-        this.executionId = executionId;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-    public String getErrorMsg() {
-        return this.errorMsg;
-    }
+  public String getOutParams() {
+    return this.outParams;
+  }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
-    }
+  public void setOutParams(String outParams) {
+    this.outParams = outParams;
+  }
 
-    public String getCode() {
-        return this.code;
-    }
+  public String getExecutionId() {
+    return this.executionId;
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+  public void setExecutionId(String executionId) {
+    this.executionId = executionId;
+  }
 
+  public String getErrorMsg() {
+    return this.errorMsg;
+  }
+
+  public void setErrorMsg(String errorMsg) {
+    this.errorMsg = errorMsg;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
 }

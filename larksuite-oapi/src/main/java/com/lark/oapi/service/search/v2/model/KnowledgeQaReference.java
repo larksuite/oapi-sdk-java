@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaReference {
+  /**
+   * enterprise_refs
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enterprise_refs")
+  private KnowledgeQaEnterpriseReference[] enterpriseRefs;
+
+  /**
+   * internet_refs
+   *
+   * <p>示例值：
+   */
+  @SerializedName("internet_refs")
+  private KnowledgeQaInternetReference[] internetRefs;
+
+  public KnowledgeQaEnterpriseReference[] getEnterpriseRefs() {
+    return this.enterpriseRefs;
+  }
+
+  public void setEnterpriseRefs(KnowledgeQaEnterpriseReference[] enterpriseRefs) {
+    this.enterpriseRefs = enterpriseRefs;
+  }
+
+  public KnowledgeQaInternetReference[] getInternetRefs() {
+    return this.internetRefs;
+  }
+
+  public void setInternetRefs(KnowledgeQaInternetReference[] internetRefs) {
+    this.internetRefs = internetRefs;
+  }
+
+  // builder 开始
+  public KnowledgeQaReference() {}
+
+  public KnowledgeQaReference(Builder builder) {
     /**
      * enterprise_refs
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enterprise_refs")
-    private KnowledgeQaEnterpriseReference[] enterpriseRefs;
+    this.enterpriseRefs = builder.enterpriseRefs;
     /**
      * internet_refs
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("internet_refs")
+    this.internetRefs = builder.internetRefs;
+  }
+
+  public static class Builder {
+    /**
+     * enterprise_refs
+     *
+     * <p>示例值：
+     */
+    private KnowledgeQaEnterpriseReference[] enterpriseRefs;
+
+    /**
+     * internet_refs
+     *
+     * <p>示例值：
+     */
     private KnowledgeQaInternetReference[] internetRefs;
 
-    // builder 开始
-    public KnowledgeQaReference() {
+    /**
+     * enterprise_refs
+     *
+     * <p>示例值：
+     *
+     * @param enterpriseRefs
+     * @return
+     */
+    public Builder enterpriseRefs(KnowledgeQaEnterpriseReference[] enterpriseRefs) {
+      this.enterpriseRefs = enterpriseRefs;
+      return this;
     }
 
-    public KnowledgeQaReference(Builder builder) {
-        /**
-         * enterprise_refs
-         * <p> 示例值：
-         */
-        this.enterpriseRefs = builder.enterpriseRefs;
-        /**
-         * internet_refs
-         * <p> 示例值：
-         */
-        this.internetRefs = builder.internetRefs;
+    /**
+     * internet_refs
+     *
+     * <p>示例值：
+     *
+     * @param internetRefs
+     * @return
+     */
+    public Builder internetRefs(KnowledgeQaInternetReference[] internetRefs) {
+      this.internetRefs = internetRefs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KnowledgeQaReference build() {
+      return new KnowledgeQaReference(this);
     }
+  }
 
-    public KnowledgeQaEnterpriseReference[] getEnterpriseRefs() {
-        return this.enterpriseRefs;
-    }
-
-    public void setEnterpriseRefs(KnowledgeQaEnterpriseReference[] enterpriseRefs) {
-        this.enterpriseRefs = enterpriseRefs;
-    }
-
-    public KnowledgeQaInternetReference[] getInternetRefs() {
-        return this.internetRefs;
-    }
-
-    public void setInternetRefs(KnowledgeQaInternetReference[] internetRefs) {
-        this.internetRefs = internetRefs;
-    }
-
-    public static class Builder {
-        /**
-         * enterprise_refs
-         * <p> 示例值：
-         */
-        private KnowledgeQaEnterpriseReference[] enterpriseRefs;
-        /**
-         * internet_refs
-         * <p> 示例值：
-         */
-        private KnowledgeQaInternetReference[] internetRefs;
-
-        /**
-         * enterprise_refs
-         * <p> 示例值：
-         *
-         * @param enterpriseRefs
-         * @return
-         */
-        public Builder enterpriseRefs(KnowledgeQaEnterpriseReference[] enterpriseRefs) {
-            this.enterpriseRefs = enterpriseRefs;
-            return this;
-        }
-
-
-        /**
-         * internet_refs
-         * <p> 示例值：
-         *
-         * @param internetRefs
-         * @return
-         */
-        public Builder internetRefs(KnowledgeQaInternetReference[] internetRefs) {
-            this.internetRefs = internetRefs;
-            return this;
-        }
-
-
-        public KnowledgeQaReference build() {
-            return new KnowledgeQaReference(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

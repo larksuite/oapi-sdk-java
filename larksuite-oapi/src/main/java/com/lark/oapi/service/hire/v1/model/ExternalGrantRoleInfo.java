@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalGrantRoleInfo {
+  /**
+   * 角色ID
+   *
+   * <p>示例值：1001
+   */
+  @SerializedName("role_id")
+  private String roleId;
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  // builder 开始
+  public ExternalGrantRoleInfo() {}
+
+  public ExternalGrantRoleInfo(Builder builder) {
     /**
      * 角色ID
-     * <p> 示例值：1001
+     *
+     * <p>示例值：1001
      */
-    @SerializedName("role_id")
+    this.roleId = builder.roleId;
+  }
+
+  public static class Builder {
+    /**
+     * 角色ID
+     *
+     * <p>示例值：1001
+     */
     private String roleId;
 
-    // builder 开始
-    public ExternalGrantRoleInfo() {
+    /**
+     * 角色ID
+     *
+     * <p>示例值：1001
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public ExternalGrantRoleInfo(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：1001
-         */
-        this.roleId = builder.roleId;
+    public ExternalGrantRoleInfo build() {
+      return new ExternalGrantRoleInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public static class Builder {
-        /**
-         * 角色ID
-         * <p> 示例值：1001
-         */
-        private String roleId;
-
-        /**
-         * 角色ID
-         * <p> 示例值：1001
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        public ExternalGrantRoleInfo build() {
-            return new ExternalGrantRoleInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

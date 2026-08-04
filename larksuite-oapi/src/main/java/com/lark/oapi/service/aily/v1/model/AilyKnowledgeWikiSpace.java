@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyKnowledgeWikiSpace {
+  /**
+   * 知识空间标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 知识空间ID
+   *
+   * <p>示例值：7292969894047123456
+   */
+  @SerializedName("space_id")
+  private String spaceId;
+
+  /**
+   * 知识空间子节点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_docs")
+  private AilyKnowledgeDocs[] subDocs;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getSpaceId() {
+    return this.spaceId;
+  }
+
+  public void setSpaceId(String spaceId) {
+    this.spaceId = spaceId;
+  }
+
+  public AilyKnowledgeDocs[] getSubDocs() {
+    return this.subDocs;
+  }
+
+  public void setSubDocs(AilyKnowledgeDocs[] subDocs) {
+    this.subDocs = subDocs;
+  }
+
+  // builder 开始
+  public AilyKnowledgeWikiSpace() {}
+
+  public AilyKnowledgeWikiSpace(Builder builder) {
     /**
      * 知识空间标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 知识空间ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：7292969894047123456
      */
-    @SerializedName("space_id")
-    private String spaceId;
+    this.spaceId = builder.spaceId;
     /**
-     * 子节点
-     * <p> 示例值：
+     * 知识空间子节点
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_docs")
+    this.subDocs = builder.subDocs;
+  }
+
+  public static class Builder {
+    /**
+     * 知识空间标题
+     *
+     * <p>示例值：title
+     */
+    private String title;
+
+    /**
+     * 知识空间ID
+     *
+     * <p>示例值：7292969894047123456
+     */
+    private String spaceId;
+
+    /**
+     * 知识空间子节点
+     *
+     * <p>示例值：
+     */
     private AilyKnowledgeDocs[] subDocs;
 
-    // builder 开始
-    public AilyKnowledgeWikiSpace() {
+    /**
+     * 知识空间标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public AilyKnowledgeWikiSpace(Builder builder) {
-        /**
-         * 知识空间标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 知识空间ID
-         * <p> 示例值：123
-         */
-        this.spaceId = builder.spaceId;
-        /**
-         * 子节点
-         * <p> 示例值：
-         */
-        this.subDocs = builder.subDocs;
+    /**
+     * 知识空间ID
+     *
+     * <p>示例值：7292969894047123456
+     *
+     * @param spaceId
+     * @return
+     */
+    public Builder spaceId(String spaceId) {
+      this.spaceId = spaceId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 知识空间子节点
+     *
+     * <p>示例值：
+     *
+     * @param subDocs
+     * @return
+     */
+    public Builder subDocs(AilyKnowledgeDocs[] subDocs) {
+      this.subDocs = subDocs;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    public AilyKnowledgeWikiSpace build() {
+      return new AilyKnowledgeWikiSpace(this);
     }
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSpaceId() {
-        return this.spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
-
-    public AilyKnowledgeDocs[] getSubDocs() {
-        return this.subDocs;
-    }
-
-    public void setSubDocs(AilyKnowledgeDocs[] subDocs) {
-        this.subDocs = subDocs;
-    }
-
-    public static class Builder {
-        /**
-         * 知识空间标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 知识空间ID
-         * <p> 示例值：123
-         */
-        private String spaceId;
-        /**
-         * 子节点
-         * <p> 示例值：
-         */
-        private AilyKnowledgeDocs[] subDocs;
-
-        /**
-         * 知识空间标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 知识空间ID
-         * <p> 示例值：123
-         *
-         * @param spaceId
-         * @return
-         */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
-
-
-        /**
-         * 子节点
-         * <p> 示例值：
-         *
-         * @param subDocs
-         * @return
-         */
-        public Builder subDocs(AilyKnowledgeDocs[] subDocs) {
-            this.subDocs = subDocs;
-            return this;
-        }
-
-
-        public AilyKnowledgeWikiSpace build() {
-            return new AilyKnowledgeWikiSpace(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

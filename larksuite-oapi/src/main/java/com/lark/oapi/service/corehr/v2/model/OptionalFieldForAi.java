@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OptionalFieldForAi {
+  /**
+   * 接口api_name
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 子字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_fields")
+  private String[] subFields;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public String[] getSubFields() {
+    return this.subFields;
+  }
+
+  public void setSubFields(String[] subFields) {
+    this.subFields = subFields;
+  }
+
+  // builder 开始
+  public OptionalFieldForAi() {}
+
+  public OptionalFieldForAi(Builder builder) {
     /**
      * 接口api_name
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 子字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_fields")
+    this.subFields = builder.subFields;
+  }
+
+  public static class Builder {
+    /**
+     * 接口api_name
+     *
+     * <p>示例值：example
+     */
+    private String apiName;
+
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 子字段列表
+     *
+     * <p>示例值：
+     */
     private String[] subFields;
 
-    // builder 开始
-    public OptionalFieldForAi() {
+    /**
+     * 接口api_name
+     *
+     * <p>示例值：example
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public OptionalFieldForAi(Builder builder) {
-        /**
-         * 接口api_name
-         * <p> 示例值：example
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        this.subFields = builder.subFields;
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子字段列表
+     *
+     * <p>示例值：
+     *
+     * @param subFields
+     * @return
+     */
+    public Builder subFields(String[] subFields) {
+      this.subFields = subFields;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    public OptionalFieldForAi build() {
+      return new OptionalFieldForAi(this);
     }
+  }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public String[] getSubFields() {
-        return this.subFields;
-    }
-
-    public void setSubFields(String[] subFields) {
-        this.subFields = subFields;
-    }
-
-    public static class Builder {
-        /**
-         * 接口api_name
-         * <p> 示例值：example
-         */
-        private String apiName;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        private String[] subFields;
-
-        /**
-         * 接口api_name
-         * <p> 示例值：example
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         *
-         * @param subFields
-         * @return
-         */
-        public Builder subFields(String[] subFields) {
-            this.subFields = subFields;
-            return this;
-        }
-
-
-        public OptionalFieldForAi build() {
-            return new OptionalFieldForAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

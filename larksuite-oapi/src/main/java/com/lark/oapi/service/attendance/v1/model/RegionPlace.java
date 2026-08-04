@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RegionPlace {
+  /**
+   * 地理等级（国家｜省｜市｜区）;l1：国家级；;l2：省级；;l3：市级；;l4：区/县级
+   *
+   * <p>示例值：l1
+   */
+  @SerializedName("region_level")
+  private String regionLevel;
+
+  /**
+   * 地理id可以通过[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)或[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取（仅支持飞书人事企业版使用）
+   *
+   * <p>示例值：6863333418483058189
+   */
+  @SerializedName("region_id")
+  private String regionId;
+
+  public String getRegionLevel() {
+    return this.regionLevel;
+  }
+
+  public void setRegionLevel(String regionLevel) {
+    this.regionLevel = regionLevel;
+  }
+
+  public String getRegionId() {
+    return this.regionId;
+  }
+
+  public void setRegionId(String regionId) {
+    this.regionId = regionId;
+  }
+
+  // builder 开始
+  public RegionPlace() {}
+
+  public RegionPlace(Builder builder) {
     /**
-     * 地理位置的等级 国家｜省｜市｜区 一共四个级别
-     * <p> 示例值：l1
+     * 地理等级（国家｜省｜市｜区）;l1：国家级；;l2：省级；;l3：市级；;l4：区/县级
+     *
+     * <p>示例值：l1
      */
-    @SerializedName("region_level")
+    this.regionLevel = builder.regionLevel;
+    /**
+     * 地理id可以通过[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)或[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取（仅支持飞书人事企业版使用）
+     *
+     * <p>示例值：6863333418483058189
+     */
+    this.regionId = builder.regionId;
+  }
+
+  public static class Builder {
+    /**
+     * 地理等级（国家｜省｜市｜区）;l1：国家级；;l2：省级；;l3：市级；;l4：区/县级
+     *
+     * <p>示例值：l1
+     */
     private String regionLevel;
+
     /**
-     * 地理位置的id，从标准地理库获取
-     * <p> 示例值：6863333418483058189
+     * 地理id可以通过[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)或[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取（仅支持飞书人事企业版使用）
+     *
+     * <p>示例值：6863333418483058189
      */
-    @SerializedName("region_id")
     private String regionId;
 
-    // builder 开始
-    public RegionPlace() {
+    /**
+     * 地理等级（国家｜省｜市｜区）;l1：国家级；;l2：省级；;l3：市级；;l4：区/县级
+     *
+     * <p>示例值：l1
+     *
+     * @param regionLevel
+     * @return
+     */
+    public Builder regionLevel(String regionLevel) {
+      this.regionLevel = regionLevel;
+      return this;
     }
 
-    public RegionPlace(Builder builder) {
-        /**
-         * 地理位置的等级 国家｜省｜市｜区 一共四个级别
-         * <p> 示例值：l1
-         */
-        this.regionLevel = builder.regionLevel;
-        /**
-         * 地理位置的id，从标准地理库获取
-         * <p> 示例值：6863333418483058189
-         */
-        this.regionId = builder.regionId;
+    /**
+     * 地理id可以通过[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)或[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取（仅支持飞书人事企业版使用）
+     *
+     * <p>示例值：6863333418483058189
+     *
+     * @param regionId
+     * @return
+     */
+    public Builder regionId(String regionId) {
+      this.regionId = regionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RegionPlace build() {
+      return new RegionPlace(this);
     }
+  }
 
-    public String getRegionLevel() {
-        return this.regionLevel;
-    }
-
-    public void setRegionLevel(String regionLevel) {
-        this.regionLevel = regionLevel;
-    }
-
-    public String getRegionId() {
-        return this.regionId;
-    }
-
-    public void setRegionId(String regionId) {
-        this.regionId = regionId;
-    }
-
-    public static class Builder {
-        /**
-         * 地理位置的等级 国家｜省｜市｜区 一共四个级别
-         * <p> 示例值：l1
-         */
-        private String regionLevel;
-        /**
-         * 地理位置的id，从标准地理库获取
-         * <p> 示例值：6863333418483058189
-         */
-        private String regionId;
-
-        /**
-         * 地理位置的等级 国家｜省｜市｜区 一共四个级别
-         * <p> 示例值：l1
-         *
-         * @param regionLevel
-         * @return
-         */
-        public Builder regionLevel(String regionLevel) {
-            this.regionLevel = regionLevel;
-            return this;
-        }
-
-
-        /**
-         * 地理位置的id，从标准地理库获取
-         * <p> 示例值：6863333418483058189
-         *
-         * @param regionId
-         * @return
-         */
-        public Builder regionId(String regionId) {
-            this.regionId = regionId;
-            return this;
-        }
-
-
-        public RegionPlace build() {
-            return new RegionPlace(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

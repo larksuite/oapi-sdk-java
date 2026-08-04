@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SkillInstance {
+  /**
+   * skill_instance 的唯一标识
+   *
+   * <p>示例值：1234567890
+   */
+  @SerializedName("skill_instance_id")
+  private String skillInstanceId;
+
+  /**
+   * skill_instance 的状态
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * skill_instance 的输入，结构需要符合 skill 的 input schema
+   *
+   * <p>示例值：{ "userInput": "今天天气怎么样" }
+   */
+  @SerializedName("input")
+  private String input;
+
+  /**
+   * skill_instance 的输出，结构需要符合 skill 的 output schema
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("output")
+  private String output;
+
+  public String getSkillInstanceId() {
+    return this.skillInstanceId;
+  }
+
+  public void setSkillInstanceId(String skillInstanceId) {
+    this.skillInstanceId = skillInstanceId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getInput() {
+    return this.input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
+  }
+
+  public String getOutput() {
+    return this.output;
+  }
+
+  public void setOutput(String output) {
+    this.output = output;
+  }
+
+  // builder 开始
+  public SkillInstance() {}
+
+  public SkillInstance(Builder builder) {
     /**
      * skill_instance 的唯一标识
-     * <p> 示例值：1234567890
+     *
+     * <p>示例值：1234567890
      */
-    @SerializedName("skill_instance_id")
-    private String skillInstanceId;
+    this.skillInstanceId = builder.skillInstanceId;
     /**
      * skill_instance 的状态
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * skill_instance 的输入，结构需要符合 skill 的 input schema
-     * <p> 示例值：{     "userInput": "今天天气怎么样" }
+     *
+     * <p>示例值：{ "userInput": "今天天气怎么样" }
      */
-    @SerializedName("input")
-    private String input;
+    this.input = builder.input;
     /**
      * skill_instance 的输出，结构需要符合 skill 的 output schema
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("output")
+    this.output = builder.output;
+  }
+
+  public static class Builder {
+    /**
+     * skill_instance 的唯一标识
+     *
+     * <p>示例值：1234567890
+     */
+    private String skillInstanceId;
+
+    /**
+     * skill_instance 的状态
+     *
+     * <p>示例值：success
+     */
+    private String status;
+
+    /**
+     * skill_instance 的输入，结构需要符合 skill 的 input schema
+     *
+     * <p>示例值：{ "userInput": "今天天气怎么样" }
+     */
+    private String input;
+
+    /**
+     * skill_instance 的输出，结构需要符合 skill 的 output schema
+     *
+     * <p>示例值：{}
+     */
     private String output;
 
-    // builder 开始
-    public SkillInstance() {
+    /**
+     * skill_instance 的唯一标识
+     *
+     * <p>示例值：1234567890
+     *
+     * @param skillInstanceId
+     * @return
+     */
+    public Builder skillInstanceId(String skillInstanceId) {
+      this.skillInstanceId = skillInstanceId;
+      return this;
     }
 
-    public SkillInstance(Builder builder) {
-        /**
-         * skill_instance 的唯一标识
-         * <p> 示例值：1234567890
-         */
-        this.skillInstanceId = builder.skillInstanceId;
-        /**
-         * skill_instance 的状态
-         * <p> 示例值：success
-         */
-        this.status = builder.status;
-        /**
-         * skill_instance 的输入，结构需要符合 skill 的 input schema
-         * <p> 示例值：{     "userInput": "今天天气怎么样" }
-         */
-        this.input = builder.input;
-        /**
-         * skill_instance 的输出，结构需要符合 skill 的 output schema
-         * <p> 示例值：{}
-         */
-        this.output = builder.output;
+    /**
+     * skill_instance 的状态
+     *
+     * <p>示例值：success
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * skill_instance 的输入，结构需要符合 skill 的 input schema
+     *
+     * <p>示例值：{ "userInput": "今天天气怎么样" }
+     *
+     * @param input
+     * @return
+     */
+    public Builder input(String input) {
+      this.input = input;
+      return this;
     }
 
-    public String getSkillInstanceId() {
-        return this.skillInstanceId;
+    /**
+     * skill_instance 的输出，结构需要符合 skill 的 output schema
+     *
+     * <p>示例值：{}
+     *
+     * @param output
+     * @return
+     */
+    public Builder output(String output) {
+      this.output = output;
+      return this;
     }
 
-    public void setSkillInstanceId(String skillInstanceId) {
-        this.skillInstanceId = skillInstanceId;
+    public SkillInstance build() {
+      return new SkillInstance(this);
     }
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getInput() {
-        return this.input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public String getOutput() {
-        return this.output;
-    }
-
-    public void setOutput(String output) {
-        this.output = output;
-    }
-
-    public static class Builder {
-        /**
-         * skill_instance 的唯一标识
-         * <p> 示例值：1234567890
-         */
-        private String skillInstanceId;
-        /**
-         * skill_instance 的状态
-         * <p> 示例值：success
-         */
-        private String status;
-        /**
-         * skill_instance 的输入，结构需要符合 skill 的 input schema
-         * <p> 示例值：{     "userInput": "今天天气怎么样" }
-         */
-        private String input;
-        /**
-         * skill_instance 的输出，结构需要符合 skill 的 output schema
-         * <p> 示例值：{}
-         */
-        private String output;
-
-        /**
-         * skill_instance 的唯一标识
-         * <p> 示例值：1234567890
-         *
-         * @param skillInstanceId
-         * @return
-         */
-        public Builder skillInstanceId(String skillInstanceId) {
-            this.skillInstanceId = skillInstanceId;
-            return this;
-        }
-
-
-        /**
-         * skill_instance 的状态
-         * <p> 示例值：success
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * skill_instance 的输入，结构需要符合 skill 的 input schema
-         * <p> 示例值：{     "userInput": "今天天气怎么样" }
-         *
-         * @param input
-         * @return
-         */
-        public Builder input(String input) {
-            this.input = input;
-            return this;
-        }
-
-
-        /**
-         * skill_instance 的输出，结构需要符合 skill 的 output schema
-         * <p> 示例值：{}
-         *
-         * @param output
-         * @return
-         */
-        public Builder output(String output) {
-            this.output = output;
-            return this;
-        }
-
-
-        public SkillInstance build() {
-            return new SkillInstance(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.acs.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpeningTimeExternal {
+  /**
+   * 有效日期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("valid_day")
+  private OpeningTimeValidDayExternal validDay;
+
+  /**
+   * 有效星期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("weekdays")
+  private Integer[] weekdays;
+
+  /**
+   * 有效时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("day_times")
+  private OpeningTimePeriodExternal[] dayTimes;
+
+  public OpeningTimeValidDayExternal getValidDay() {
+    return this.validDay;
+  }
+
+  public void setValidDay(OpeningTimeValidDayExternal validDay) {
+    this.validDay = validDay;
+  }
+
+  public Integer[] getWeekdays() {
+    return this.weekdays;
+  }
+
+  public void setWeekdays(Integer[] weekdays) {
+    this.weekdays = weekdays;
+  }
+
+  public OpeningTimePeriodExternal[] getDayTimes() {
+    return this.dayTimes;
+  }
+
+  public void setDayTimes(OpeningTimePeriodExternal[] dayTimes) {
+    this.dayTimes = dayTimes;
+  }
+
+  // builder 开始
+  public OpeningTimeExternal() {}
+
+  public OpeningTimeExternal(Builder builder) {
     /**
      * 有效日期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("valid_day")
-    private OpeningTimeValidDayExternal validDay;
+    this.validDay = builder.validDay;
     /**
      * 有效星期
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("weekdays")
-    private Integer[] weekdays;
+    this.weekdays = builder.weekdays;
     /**
      * 有效时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("day_times")
+    this.dayTimes = builder.dayTimes;
+  }
+
+  public static class Builder {
+    /**
+     * 有效日期
+     *
+     * <p>示例值：
+     */
+    private OpeningTimeValidDayExternal validDay;
+
+    /**
+     * 有效星期
+     *
+     * <p>示例值：
+     */
+    private Integer[] weekdays;
+
+    /**
+     * 有效时间
+     *
+     * <p>示例值：
+     */
     private OpeningTimePeriodExternal[] dayTimes;
 
-    // builder 开始
-    public OpeningTimeExternal() {
+    /**
+     * 有效日期
+     *
+     * <p>示例值：
+     *
+     * @param validDay
+     * @return
+     */
+    public Builder validDay(OpeningTimeValidDayExternal validDay) {
+      this.validDay = validDay;
+      return this;
     }
 
-    public OpeningTimeExternal(Builder builder) {
-        /**
-         * 有效日期
-         * <p> 示例值：
-         */
-        this.validDay = builder.validDay;
-        /**
-         * 有效星期
-         * <p> 示例值：
-         */
-        this.weekdays = builder.weekdays;
-        /**
-         * 有效时间
-         * <p> 示例值：
-         */
-        this.dayTimes = builder.dayTimes;
+    /**
+     * 有效星期
+     *
+     * <p>示例值：
+     *
+     * @param weekdays
+     * @return
+     */
+    public Builder weekdays(Integer[] weekdays) {
+      this.weekdays = weekdays;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 有效时间
+     *
+     * <p>示例值：
+     *
+     * @param dayTimes
+     * @return
+     */
+    public Builder dayTimes(OpeningTimePeriodExternal[] dayTimes) {
+      this.dayTimes = dayTimes;
+      return this;
     }
 
-    public OpeningTimeValidDayExternal getValidDay() {
-        return this.validDay;
+    public OpeningTimeExternal build() {
+      return new OpeningTimeExternal(this);
     }
+  }
 
-    public void setValidDay(OpeningTimeValidDayExternal validDay) {
-        this.validDay = validDay;
-    }
-
-    public Integer[] getWeekdays() {
-        return this.weekdays;
-    }
-
-    public void setWeekdays(Integer[] weekdays) {
-        this.weekdays = weekdays;
-    }
-
-    public OpeningTimePeriodExternal[] getDayTimes() {
-        return this.dayTimes;
-    }
-
-    public void setDayTimes(OpeningTimePeriodExternal[] dayTimes) {
-        this.dayTimes = dayTimes;
-    }
-
-    public static class Builder {
-        /**
-         * 有效日期
-         * <p> 示例值：
-         */
-        private OpeningTimeValidDayExternal validDay;
-        /**
-         * 有效星期
-         * <p> 示例值：
-         */
-        private Integer[] weekdays;
-        /**
-         * 有效时间
-         * <p> 示例值：
-         */
-        private OpeningTimePeriodExternal[] dayTimes;
-
-        /**
-         * 有效日期
-         * <p> 示例值：
-         *
-         * @param validDay
-         * @return
-         */
-        public Builder validDay(OpeningTimeValidDayExternal validDay) {
-            this.validDay = validDay;
-            return this;
-        }
-
-
-        /**
-         * 有效星期
-         * <p> 示例值：
-         *
-         * @param weekdays
-         * @return
-         */
-        public Builder weekdays(Integer[] weekdays) {
-            this.weekdays = weekdays;
-            return this;
-        }
-
-
-        /**
-         * 有效时间
-         * <p> 示例值：
-         *
-         * @param dayTimes
-         * @return
-         */
-        public Builder dayTimes(OpeningTimePeriodExternal[] dayTimes) {
-            this.dayTimes = dayTimes;
-            return this;
-        }
-
-
-        public OpeningTimeExternal build() {
-            return new OpeningTimeExternal(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

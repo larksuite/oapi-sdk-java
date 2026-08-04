@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryIndicatorReqBody {
+  /**
+   * 评估项 ID 列表，填写时获取指定的评估项，不填时返回所有评估项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indicator_ids")
+  private String[] indicatorIds;
+
+  public String[] getIndicatorIds() {
+    return this.indicatorIds;
+  }
+
+  public void setIndicatorIds(String[] indicatorIds) {
+    this.indicatorIds = indicatorIds;
+  }
+
+  // builder 开始
+  public QueryIndicatorReqBody() {}
+
+  public QueryIndicatorReqBody(Builder builder) {
     /**
-     * 评估项 ID 列表，获取指定评估项的配置数据
-     * <p> 示例值：
+     * 评估项 ID 列表，填写时获取指定的评估项，不填时返回所有评估项
+     *
+     * <p>示例值：
      */
-    @SerializedName("indicator_ids")
+    this.indicatorIds = builder.indicatorIds;
+  }
+
+  public static class Builder {
+    /**
+     * 评估项 ID 列表，填写时获取指定的评估项，不填时返回所有评估项
+     *
+     * <p>示例值：
+     */
     private String[] indicatorIds;
 
-    // builder 开始
-    public QueryIndicatorReqBody() {
+    /**
+     * 评估项 ID 列表，填写时获取指定的评估项，不填时返回所有评估项
+     *
+     * <p>示例值：
+     *
+     * @param indicatorIds
+     * @return
+     */
+    public Builder indicatorIds(String[] indicatorIds) {
+      this.indicatorIds = indicatorIds;
+      return this;
     }
 
-    public QueryIndicatorReqBody(Builder builder) {
-        /**
-         * 评估项 ID 列表，获取指定评估项的配置数据
-         * <p> 示例值：
-         */
-        this.indicatorIds = builder.indicatorIds;
+    public QueryIndicatorReqBody build() {
+      return new QueryIndicatorReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getIndicatorIds() {
-        return this.indicatorIds;
-    }
-
-    public void setIndicatorIds(String[] indicatorIds) {
-        this.indicatorIds = indicatorIds;
-    }
-
-    public static class Builder {
-        /**
-         * 评估项 ID 列表，获取指定评估项的配置数据
-         * <p> 示例值：
-         */
-        private String[] indicatorIds;
-
-        /**
-         * 评估项 ID 列表，获取指定评估项的配置数据
-         * <p> 示例值：
-         *
-         * @param indicatorIds
-         * @return
-         */
-        public Builder indicatorIds(String[] indicatorIds) {
-            this.indicatorIds = indicatorIds;
-            return this;
-        }
-
-
-        public QueryIndicatorReqBody build() {
-            return new QueryIndicatorReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

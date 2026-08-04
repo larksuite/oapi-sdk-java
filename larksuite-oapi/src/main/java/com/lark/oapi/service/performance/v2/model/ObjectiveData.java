@@ -13,223 +13,237 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectiveData {
+  /**
+   * 目标 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("objective_id")
+  private String objectiveId;
+
+  /**
+   * 目标的评分
+   *
+   * <p>示例值：1.1
+   */
+  @SerializedName("score")
+  private String score;
+
+  /**
+   * 评估人在该填写项填写的文本
+   *
+   * <p>示例值：qwertyu
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("keyresult_data")
+  private KeyresultData[] keyresultData;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+   */
+  @SerializedName("richtext")
+  private String richtext;
+
+  public String getObjectiveId() {
+    return this.objectiveId;
+  }
+
+  public void setObjectiveId(String objectiveId) {
+    this.objectiveId = objectiveId;
+  }
+
+  public String getScore() {
+    return this.score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public KeyresultData[] getKeyresultData() {
+    return this.keyresultData;
+  }
+
+  public void setKeyresultData(KeyresultData[] keyresultData) {
+    this.keyresultData = keyresultData;
+  }
+
+  public String getRichtext() {
+    return this.richtext;
+  }
+
+  public void setRichtext(String richtext) {
+    this.richtext = richtext;
+  }
+
+  // builder 开始
+  public ObjectiveData() {}
+
+  public ObjectiveData(Builder builder) {
     /**
      * 目标 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("objective_id")
-    private String objectiveId;
+    this.objectiveId = builder.objectiveId;
     /**
      * 目标的评分
-     * <p> 示例值：1.1
+     *
+     * <p>示例值：1.1
      */
-    @SerializedName("score")
-    private String score;
+    this.score = builder.score;
     /**
      * 评估人在该填写项填写的文本
-     * <p> 示例值：qwertyu
+     *
+     * <p>示例值：qwertyu
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("keyresult_data")
-    private KeyresultData[] keyresultData;
+    this.keyresultData = builder.keyresultData;
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
      */
-    @SerializedName("richtext")
+    this.richtext = builder.richtext;
+  }
+
+  public static class Builder {
+    /**
+     * 目标 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String objectiveId;
+
+    /**
+     * 目标的评分
+     *
+     * <p>示例值：1.1
+     */
+    private String score;
+
+    /**
+     * 评估人在该填写项填写的文本
+     *
+     * <p>示例值：qwertyu
+     */
+    private String text;
+
+    /**
+     * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
+     *
+     * <p>示例值：
+     */
+    private KeyresultData[] keyresultData;
+
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     */
     private String richtext;
 
-    // builder 开始
-    public ObjectiveData() {
+    /**
+     * 目标 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param objectiveId
+     * @return
+     */
+    public Builder objectiveId(String objectiveId) {
+      this.objectiveId = objectiveId;
+      return this;
     }
 
-    public ObjectiveData(Builder builder) {
-        /**
-         * 目标 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.objectiveId = builder.objectiveId;
-        /**
-         * 目标的评分
-         * <p> 示例值：1.1
-         */
-        this.score = builder.score;
-        /**
-         * 评估人在该填写项填写的文本
-         * <p> 示例值：qwertyu
-         */
-        this.text = builder.text;
-        /**
-         * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
-         * <p> 示例值：
-         */
-        this.keyresultData = builder.keyresultData;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        this.richtext = builder.richtext;
+    /**
+     * 目标的评分
+     *
+     * <p>示例值：1.1
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(String score) {
+      this.score = score;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估人在该填写项填写的文本
+     *
+     * <p>示例值：qwertyu
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public String getObjectiveId() {
-        return this.objectiveId;
+    /**
+     * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
+     *
+     * <p>示例值：
+     *
+     * @param keyresultData
+     * @return
+     */
+    public Builder keyresultData(KeyresultData[] keyresultData) {
+      this.keyresultData = keyresultData;
+      return this;
     }
 
-    public void setObjectiveId(String objectiveId) {
-        this.objectiveId = objectiveId;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     *
+     * @param richtext
+     * @return
+     */
+    public Builder richtext(String richtext) {
+      this.richtext = richtext;
+      return this;
     }
 
-    public String getScore() {
-        return this.score;
+    public ObjectiveData build() {
+      return new ObjectiveData(this);
     }
+  }
 
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public KeyresultData[] getKeyresultData() {
-        return this.keyresultData;
-    }
-
-    public void setKeyresultData(KeyresultData[] keyresultData) {
-        this.keyresultData = keyresultData;
-    }
-
-    public String getRichtext() {
-        return this.richtext;
-    }
-
-    public void setRichtext(String richtext) {
-        this.richtext = richtext;
-    }
-
-    public static class Builder {
-        /**
-         * 目标 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String objectiveId;
-        /**
-         * 目标的评分
-         * <p> 示例值：1.1
-         */
-        private String score;
-        /**
-         * 评估人在该填写项填写的文本
-         * <p> 示例值：qwertyu
-         */
-        private String text;
-        /**
-         * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
-         * <p> 示例值：
-         */
-        private KeyresultData[] keyresultData;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        private String richtext;
-
-        /**
-         * 目标 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param objectiveId
-         * @return
-         */
-        public Builder objectiveId(String objectiveId) {
-            this.objectiveId = objectiveId;
-            return this;
-        }
-
-
-        /**
-         * 目标的评分
-         * <p> 示例值：1.1
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(String score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 评估人在该填写项填写的文本
-         * <p> 示例值：qwertyu
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 评估的关键举措，当评估内容是对关键举措（KR）评估时有值
-         * <p> 示例值：
-         *
-         * @param keyresultData
-         * @return
-         */
-        public Builder keyresultData(KeyresultData[] keyresultData) {
-            this.keyresultData = keyresultData;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         *
-         * @param richtext
-         * @return
-         */
-        public Builder richtext(String richtext) {
-            this.richtext = richtext;
-            return this;
-        }
-
-
-        public ObjectiveData build() {
-            return new ObjectiveData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

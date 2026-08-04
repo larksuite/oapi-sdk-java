@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TenantRestrictionDevicePolicy {
+  /**
+   * 策略启用状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enabled")
+  private Boolean enabled;
+
+  /**
+   * 限制登录租户范围策略
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allow_list_policy")
+  private TenantRestrictionDeviceAllowListPolicy allowListPolicy;
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public TenantRestrictionDeviceAllowListPolicy getAllowListPolicy() {
+    return this.allowListPolicy;
+  }
+
+  public void setAllowListPolicy(TenantRestrictionDeviceAllowListPolicy allowListPolicy) {
+    this.allowListPolicy = allowListPolicy;
+  }
+
+  // builder 开始
+  public TenantRestrictionDevicePolicy() {}
+
+  public TenantRestrictionDevicePolicy(Builder builder) {
     /**
      * 策略启用状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enabled")
-    private Boolean enabled;
+    this.enabled = builder.enabled;
     /**
      * 限制登录租户范围策略
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allow_list_policy")
+    this.allowListPolicy = builder.allowListPolicy;
+  }
+
+  public static class Builder {
+    /**
+     * 策略启用状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean enabled;
+
+    /**
+     * 限制登录租户范围策略
+     *
+     * <p>示例值：
+     */
     private TenantRestrictionDeviceAllowListPolicy allowListPolicy;
 
-    // builder 开始
-    public TenantRestrictionDevicePolicy() {
+    /**
+     * 策略启用状态
+     *
+     * <p>示例值：true
+     *
+     * @param enabled
+     * @return
+     */
+    public Builder enabled(Boolean enabled) {
+      this.enabled = enabled;
+      return this;
     }
 
-    public TenantRestrictionDevicePolicy(Builder builder) {
-        /**
-         * 策略启用状态
-         * <p> 示例值：true
-         */
-        this.enabled = builder.enabled;
-        /**
-         * 限制登录租户范围策略
-         * <p> 示例值：
-         */
-        this.allowListPolicy = builder.allowListPolicy;
+    /**
+     * 限制登录租户范围策略
+     *
+     * <p>示例值：
+     *
+     * @param allowListPolicy
+     * @return
+     */
+    public Builder allowListPolicy(TenantRestrictionDeviceAllowListPolicy allowListPolicy) {
+      this.allowListPolicy = allowListPolicy;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TenantRestrictionDevicePolicy build() {
+      return new TenantRestrictionDevicePolicy(this);
     }
+  }
 
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public TenantRestrictionDeviceAllowListPolicy getAllowListPolicy() {
-        return this.allowListPolicy;
-    }
-
-    public void setAllowListPolicy(TenantRestrictionDeviceAllowListPolicy allowListPolicy) {
-        this.allowListPolicy = allowListPolicy;
-    }
-
-    public static class Builder {
-        /**
-         * 策略启用状态
-         * <p> 示例值：true
-         */
-        private Boolean enabled;
-        /**
-         * 限制登录租户范围策略
-         * <p> 示例值：
-         */
-        private TenantRestrictionDeviceAllowListPolicy allowListPolicy;
-
-        /**
-         * 策略启用状态
-         * <p> 示例值：true
-         *
-         * @param enabled
-         * @return
-         */
-        public Builder enabled(Boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-
-        /**
-         * 限制登录租户范围策略
-         * <p> 示例值：
-         *
-         * @param allowListPolicy
-         * @return
-         */
-        public Builder allowListPolicy(TenantRestrictionDeviceAllowListPolicy allowListPolicy) {
-            this.allowListPolicy = allowListPolicy;
-            return this;
-        }
-
-
-        public TenantRestrictionDevicePolicy build() {
-            return new TenantRestrictionDevicePolicy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

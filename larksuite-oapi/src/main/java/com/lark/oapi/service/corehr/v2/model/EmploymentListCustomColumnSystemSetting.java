@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentListCustomColumnSystemSetting {
+  /**
+   * 字段唯一标识
+   *
+   * <p>示例值：work_location
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：工作地点
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：查找
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 是否可排序
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("sortable")
+  private Boolean sortable;
+
+  /**
+   * 是否可筛选
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("filterable")
+  private String filterable;
+
+  /**
+   * 可选择的操作符
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operators")
+  private String[] operators;
+
+  /**
+   * 是否可展示
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("displayable")
+  private Boolean displayable;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Boolean getSortable() {
+    return this.sortable;
+  }
+
+  public void setSortable(Boolean sortable) {
+    this.sortable = sortable;
+  }
+
+  public String getFilterable() {
+    return this.filterable;
+  }
+
+  public void setFilterable(String filterable) {
+    this.filterable = filterable;
+  }
+
+  public String[] getOperators() {
+    return this.operators;
+  }
+
+  public void setOperators(String[] operators) {
+    this.operators = operators;
+  }
+
+  public Boolean getDisplayable() {
+    return this.displayable;
+  }
+
+  public void setDisplayable(Boolean displayable) {
+    this.displayable = displayable;
+  }
+
+  // builder 开始
+  public EmploymentListCustomColumnSystemSetting() {}
+
+  public EmploymentListCustomColumnSystemSetting(Builder builder) {
     /**
      * 字段唯一标识
-     * <p> 示例值：work_location
+     *
+     * <p>示例值：work_location
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 字段名称
-     * <p> 示例值：工作地点
+     *
+     * <p>示例值：工作地点
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 字段类型
-     * <p> 示例值：查找
+     *
+     * <p>示例值：查找
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 是否可排序
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("sortable")
-    private Boolean sortable;
+    this.sortable = builder.sortable;
     /**
      * 是否可筛选
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("filterable")
-    private String filterable;
+    this.filterable = builder.filterable;
     /**
      * 可选择的操作符
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operators")
-    private String[] operators;
+    this.operators = builder.operators;
     /**
      * 是否可展示
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("displayable")
+    this.displayable = builder.displayable;
+  }
+
+  public static class Builder {
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：work_location
+     */
+    private String apiName;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：工作地点
+     */
+    private String name;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：查找
+     */
+    private String type;
+
+    /**
+     * 是否可排序
+     *
+     * <p>示例值：true
+     */
+    private Boolean sortable;
+
+    /**
+     * 是否可筛选
+     *
+     * <p>示例值：true
+     */
+    private String filterable;
+
+    /**
+     * 可选择的操作符
+     *
+     * <p>示例值：
+     */
+    private String[] operators;
+
+    /**
+     * 是否可展示
+     *
+     * <p>示例值：true
+     */
     private Boolean displayable;
 
-    // builder 开始
-    public EmploymentListCustomColumnSystemSetting() {
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：work_location
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public EmploymentListCustomColumnSystemSetting(Builder builder) {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：work_location
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 字段名称
-         * <p> 示例值：工作地点
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：查找
-         */
-        this.type = builder.type;
-        /**
-         * 是否可排序
-         * <p> 示例值：true
-         */
-        this.sortable = builder.sortable;
-        /**
-         * 是否可筛选
-         * <p> 示例值：true
-         */
-        this.filterable = builder.filterable;
-        /**
-         * 可选择的操作符
-         * <p> 示例值：
-         */
-        this.operators = builder.operators;
-        /**
-         * 是否可展示
-         * <p> 示例值：true
-         */
-        this.displayable = builder.displayable;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：工作地点
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：查找
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 是否可排序
+     *
+     * <p>示例值：true
+     *
+     * @param sortable
+     * @return
+     */
+    public Builder sortable(Boolean sortable) {
+      this.sortable = sortable;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 是否可筛选
+     *
+     * <p>示例值：true
+     *
+     * @param filterable
+     * @return
+     */
+    public Builder filterable(String filterable) {
+      this.filterable = filterable;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 可选择的操作符
+     *
+     * <p>示例值：
+     *
+     * @param operators
+     * @return
+     */
+    public Builder operators(String[] operators) {
+      this.operators = operators;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 是否可展示
+     *
+     * <p>示例值：true
+     *
+     * @param displayable
+     * @return
+     */
+    public Builder displayable(Boolean displayable) {
+      this.displayable = displayable;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public EmploymentListCustomColumnSystemSetting build() {
+      return new EmploymentListCustomColumnSystemSetting(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Boolean getSortable() {
-        return this.sortable;
-    }
-
-    public void setSortable(Boolean sortable) {
-        this.sortable = sortable;
-    }
-
-    public String getFilterable() {
-        return this.filterable;
-    }
-
-    public void setFilterable(String filterable) {
-        this.filterable = filterable;
-    }
-
-    public String[] getOperators() {
-        return this.operators;
-    }
-
-    public void setOperators(String[] operators) {
-        this.operators = operators;
-    }
-
-    public Boolean getDisplayable() {
-        return this.displayable;
-    }
-
-    public void setDisplayable(Boolean displayable) {
-        this.displayable = displayable;
-    }
-
-    public static class Builder {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：work_location
-         */
-        private String apiName;
-        /**
-         * 字段名称
-         * <p> 示例值：工作地点
-         */
-        private String name;
-        /**
-         * 字段类型
-         * <p> 示例值：查找
-         */
-        private String type;
-        /**
-         * 是否可排序
-         * <p> 示例值：true
-         */
-        private Boolean sortable;
-        /**
-         * 是否可筛选
-         * <p> 示例值：true
-         */
-        private String filterable;
-        /**
-         * 可选择的操作符
-         * <p> 示例值：
-         */
-        private String[] operators;
-        /**
-         * 是否可展示
-         * <p> 示例值：true
-         */
-        private Boolean displayable;
-
-        /**
-         * 字段唯一标识
-         * <p> 示例值：work_location
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：工作地点
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：查找
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 是否可排序
-         * <p> 示例值：true
-         *
-         * @param sortable
-         * @return
-         */
-        public Builder sortable(Boolean sortable) {
-            this.sortable = sortable;
-            return this;
-        }
-
-
-        /**
-         * 是否可筛选
-         * <p> 示例值：true
-         *
-         * @param filterable
-         * @return
-         */
-        public Builder filterable(String filterable) {
-            this.filterable = filterable;
-            return this;
-        }
-
-
-        /**
-         * 可选择的操作符
-         * <p> 示例值：
-         *
-         * @param operators
-         * @return
-         */
-        public Builder operators(String[] operators) {
-            this.operators = operators;
-            return this;
-        }
-
-
-        /**
-         * 是否可展示
-         * <p> 示例值：true
-         *
-         * @param displayable
-         * @return
-         */
-        public Builder displayable(Boolean displayable) {
-            this.displayable = displayable;
-            return this;
-        }
-
-
-        public EmploymentListCustomColumnSystemSetting build() {
-            return new EmploymentListCustomColumnSystemSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

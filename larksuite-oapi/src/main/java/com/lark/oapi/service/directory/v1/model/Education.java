@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Education {
+  /**
+   * ID -- 废弃
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("school")
+  private I18nText school;
+
+  /**
+   * 学历
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("level_of_education")
+  private String levelOfEducation;
+
+  /**
+   * 开始日期
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 结束日期
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 预计结束日期
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("expected_end_date")
+  private String expectedEndDate;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("field_of_study")
+  private I18nText fieldOfStudy;
+
+  /**
+   * 学位
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("degree")
+  private String degree;
+
+  /**
+   * 国家地区ID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 教育背景ID = wk_id
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("education_id")
+  private String educationId;
+
+  /**
+   * wukong枚举
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("school_enum")
+  private WuKongEnum schoolEnum;
+
+  /**
+   * wukong枚举
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_of_study_enum")
+  private WuKongEnum fieldOfStudyEnum;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getSchool() {
+    return this.school;
+  }
+
+  public void setSchool(I18nText school) {
+    this.school = school;
+  }
+
+  public String getLevelOfEducation() {
+    return this.levelOfEducation;
+  }
+
+  public void setLevelOfEducation(String levelOfEducation) {
+    this.levelOfEducation = levelOfEducation;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String getExpectedEndDate() {
+    return this.expectedEndDate;
+  }
+
+  public void setExpectedEndDate(String expectedEndDate) {
+    this.expectedEndDate = expectedEndDate;
+  }
+
+  public I18nText getFieldOfStudy() {
+    return this.fieldOfStudy;
+  }
+
+  public void setFieldOfStudy(I18nText fieldOfStudy) {
+    this.fieldOfStudy = fieldOfStudy;
+  }
+
+  public String getDegree() {
+    return this.degree;
+  }
+
+  public void setDegree(String degree) {
+    this.degree = degree;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public String getEducationId() {
+    return this.educationId;
+  }
+
+  public void setEducationId(String educationId) {
+    this.educationId = educationId;
+  }
+
+  public WuKongEnum getSchoolEnum() {
+    return this.schoolEnum;
+  }
+
+  public void setSchoolEnum(WuKongEnum schoolEnum) {
+    this.schoolEnum = schoolEnum;
+  }
+
+  public WuKongEnum getFieldOfStudyEnum() {
+    return this.fieldOfStudyEnum;
+  }
+
+  public void setFieldOfStudyEnum(WuKongEnum fieldOfStudyEnum) {
+    this.fieldOfStudyEnum = fieldOfStudyEnum;
+  }
+
+  // builder 开始
+  public Education() {}
+
+  public Education(Builder builder) {
     /**
      * ID -- 废弃
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：无
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
      */
-    @SerializedName("school")
-    private I18nText school;
+    this.school = builder.school;
     /**
      * 学历
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("level_of_education")
-    private String levelOfEducation;
+    this.levelOfEducation = builder.levelOfEducation;
     /**
      * 开始日期
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
      * 结束日期
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("end_date")
-    private String endDate;
+    this.endDate = builder.endDate;
     /**
      * 预计结束日期
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("expected_end_date")
-    private String expectedEndDate;
+    this.expectedEndDate = builder.expectedEndDate;
     /**
-     * i18n文本
-     * <p> 示例值：无
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
      */
-    @SerializedName("field_of_study")
-    private I18nText fieldOfStudy;
+    this.fieldOfStudy = builder.fieldOfStudy;
     /**
      * 学位
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("degree")
-    private String degree;
+    this.degree = builder.degree;
     /**
      * 国家地区ID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 教育背景ID = wk_id
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("education_id")
+    this.educationId = builder.educationId;
+    /**
+     * wukong枚举
+     *
+     * <p>示例值：1
+     */
+    this.schoolEnum = builder.schoolEnum;
+    /**
+     * wukong枚举
+     *
+     * <p>示例值：1
+     */
+    this.fieldOfStudyEnum = builder.fieldOfStudyEnum;
+  }
+
+  public static class Builder {
+    /**
+     * ID -- 废弃
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
+     */
+    private I18nText school;
+
+    /**
+     * 学历
+     *
+     * <p>示例值：无
+     */
+    private String levelOfEducation;
+
+    /**
+     * 开始日期
+     *
+     * <p>示例值：无
+     */
+    private String startDate;
+
+    /**
+     * 结束日期
+     *
+     * <p>示例值：无
+     */
+    private String endDate;
+
+    /**
+     * 预计结束日期
+     *
+     * <p>示例值：无
+     */
+    private String expectedEndDate;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
+     */
+    private I18nText fieldOfStudy;
+
+    /**
+     * 学位
+     *
+     * <p>示例值：无
+     */
+    private String degree;
+
+    /**
+     * 国家地区ID
+     *
+     * <p>示例值：无
+     */
+    private String countryRegionId;
+
+    /**
+     * 教育背景ID = wk_id
+     *
+     * <p>示例值：无
+     */
     private String educationId;
+
     /**
      * wukong枚举
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("school_enum")
     private WuKongEnum schoolEnum;
+
     /**
      * wukong枚举
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_of_study_enum")
     private WuKongEnum fieldOfStudyEnum;
 
-    // builder 开始
-    public Education() {
+    /**
+     * ID -- 废弃
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Education(Builder builder) {
-        /**
-         * ID -- 废弃
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         */
-        this.school = builder.school;
-        /**
-         * 学历
-         * <p> 示例值：无
-         */
-        this.levelOfEducation = builder.levelOfEducation;
-        /**
-         * 开始日期
-         * <p> 示例值：无
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：无
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 预计结束日期
-         * <p> 示例值：无
-         */
-        this.expectedEndDate = builder.expectedEndDate;
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         */
-        this.fieldOfStudy = builder.fieldOfStudy;
-        /**
-         * 学位
-         * <p> 示例值：无
-         */
-        this.degree = builder.degree;
-        /**
-         * 国家地区ID
-         * <p> 示例值：无
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 教育背景ID = wk_id
-         * <p> 示例值：无
-         */
-        this.educationId = builder.educationId;
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         */
-        this.schoolEnum = builder.schoolEnum;
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         */
-        this.fieldOfStudyEnum = builder.fieldOfStudyEnum;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
+     *
+     * @param school
+     * @return
+     */
+    public Builder school(I18nText school) {
+      this.school = school;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 学历
+     *
+     * <p>示例值：无
+     *
+     * @param levelOfEducation
+     * @return
+     */
+    public Builder levelOfEducation(String levelOfEducation) {
+      this.levelOfEducation = levelOfEducation;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 开始日期
+     *
+     * <p>示例值：无
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 结束日期
+     *
+     * <p>示例值：无
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public I18nText getSchool() {
-        return this.school;
+    /**
+     * 预计结束日期
+     *
+     * <p>示例值：无
+     *
+     * @param expectedEndDate
+     * @return
+     */
+    public Builder expectedEndDate(String expectedEndDate) {
+      this.expectedEndDate = expectedEndDate;
+      return this;
     }
 
-    public void setSchool(I18nText school) {
-        this.school = school;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：无
+     *
+     * @param fieldOfStudy
+     * @return
+     */
+    public Builder fieldOfStudy(I18nText fieldOfStudy) {
+      this.fieldOfStudy = fieldOfStudy;
+      return this;
     }
 
-    public String getLevelOfEducation() {
-        return this.levelOfEducation;
+    /**
+     * 学位
+     *
+     * <p>示例值：无
+     *
+     * @param degree
+     * @return
+     */
+    public Builder degree(String degree) {
+      this.degree = degree;
+      return this;
     }
 
-    public void setLevelOfEducation(String levelOfEducation) {
-        this.levelOfEducation = levelOfEducation;
+    /**
+     * 国家地区ID
+     *
+     * <p>示例值：无
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getStartDate() {
-        return this.startDate;
+    /**
+     * 教育背景ID = wk_id
+     *
+     * <p>示例值：无
+     *
+     * @param educationId
+     * @return
+     */
+    public Builder educationId(String educationId) {
+      this.educationId = educationId;
+      return this;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    /**
+     * wukong枚举
+     *
+     * <p>示例值：1
+     *
+     * @param schoolEnum
+     * @return
+     */
+    public Builder schoolEnum(WuKongEnum schoolEnum) {
+      this.schoolEnum = schoolEnum;
+      return this;
     }
 
-    public String getEndDate() {
-        return this.endDate;
+    /**
+     * wukong枚举
+     *
+     * <p>示例值：1
+     *
+     * @param fieldOfStudyEnum
+     * @return
+     */
+    public Builder fieldOfStudyEnum(WuKongEnum fieldOfStudyEnum) {
+      this.fieldOfStudyEnum = fieldOfStudyEnum;
+      return this;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public Education build() {
+      return new Education(this);
     }
+  }
 
-    public String getExpectedEndDate() {
-        return this.expectedEndDate;
-    }
-
-    public void setExpectedEndDate(String expectedEndDate) {
-        this.expectedEndDate = expectedEndDate;
-    }
-
-    public I18nText getFieldOfStudy() {
-        return this.fieldOfStudy;
-    }
-
-    public void setFieldOfStudy(I18nText fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
-    }
-
-    public String getDegree() {
-        return this.degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public String getEducationId() {
-        return this.educationId;
-    }
-
-    public void setEducationId(String educationId) {
-        this.educationId = educationId;
-    }
-
-    public WuKongEnum getSchoolEnum() {
-        return this.schoolEnum;
-    }
-
-    public void setSchoolEnum(WuKongEnum schoolEnum) {
-        this.schoolEnum = schoolEnum;
-    }
-
-    public WuKongEnum getFieldOfStudyEnum() {
-        return this.fieldOfStudyEnum;
-    }
-
-    public void setFieldOfStudyEnum(WuKongEnum fieldOfStudyEnum) {
-        this.fieldOfStudyEnum = fieldOfStudyEnum;
-    }
-
-    public static class Builder {
-        /**
-         * ID -- 废弃
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         */
-        private I18nText school;
-        /**
-         * 学历
-         * <p> 示例值：无
-         */
-        private String levelOfEducation;
-        /**
-         * 开始日期
-         * <p> 示例值：无
-         */
-        private String startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：无
-         */
-        private String endDate;
-        /**
-         * 预计结束日期
-         * <p> 示例值：无
-         */
-        private String expectedEndDate;
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         */
-        private I18nText fieldOfStudy;
-        /**
-         * 学位
-         * <p> 示例值：无
-         */
-        private String degree;
-        /**
-         * 国家地区ID
-         * <p> 示例值：无
-         */
-        private String countryRegionId;
-        /**
-         * 教育背景ID = wk_id
-         * <p> 示例值：无
-         */
-        private String educationId;
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         */
-        private WuKongEnum schoolEnum;
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         */
-        private WuKongEnum fieldOfStudyEnum;
-
-        /**
-         * ID -- 废弃
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         *
-         * @param school
-         * @return
-         */
-        public Builder school(I18nText school) {
-            this.school = school;
-            return this;
-        }
-
-
-        /**
-         * 学历
-         * <p> 示例值：无
-         *
-         * @param levelOfEducation
-         * @return
-         */
-        public Builder levelOfEducation(String levelOfEducation) {
-            this.levelOfEducation = levelOfEducation;
-            return this;
-        }
-
-
-        /**
-         * 开始日期
-         * <p> 示例值：无
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 结束日期
-         * <p> 示例值：无
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 预计结束日期
-         * <p> 示例值：无
-         *
-         * @param expectedEndDate
-         * @return
-         */
-        public Builder expectedEndDate(String expectedEndDate) {
-            this.expectedEndDate = expectedEndDate;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：无
-         *
-         * @param fieldOfStudy
-         * @return
-         */
-        public Builder fieldOfStudy(I18nText fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-            return this;
-        }
-
-
-        /**
-         * 学位
-         * <p> 示例值：无
-         *
-         * @param degree
-         * @return
-         */
-        public Builder degree(String degree) {
-            this.degree = degree;
-            return this;
-        }
-
-
-        /**
-         * 国家地区ID
-         * <p> 示例值：无
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 教育背景ID = wk_id
-         * <p> 示例值：无
-         *
-         * @param educationId
-         * @return
-         */
-        public Builder educationId(String educationId) {
-            this.educationId = educationId;
-            return this;
-        }
-
-
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         *
-         * @param schoolEnum
-         * @return
-         */
-        public Builder schoolEnum(WuKongEnum schoolEnum) {
-            this.schoolEnum = schoolEnum;
-            return this;
-        }
-
-
-        /**
-         * wukong枚举
-         * <p> 示例值：1
-         *
-         * @param fieldOfStudyEnum
-         * @return
-         */
-        public Builder fieldOfStudyEnum(WuKongEnum fieldOfStudyEnum) {
-            this.fieldOfStudyEnum = fieldOfStudyEnum;
-            return this;
-        }
-
-
-        public Education build() {
-            return new Education(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

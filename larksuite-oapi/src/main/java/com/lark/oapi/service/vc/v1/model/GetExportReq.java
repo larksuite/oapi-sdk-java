@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetExportReq {
+  /**
+   * 任务id
+   *
+   * <p>示例值：7108646852144136212
+   */
+  @Path
+  @SerializedName("task_id")
+  private String taskId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  // builder 开始
+  public GetExportReq() {}
+
+  public GetExportReq(Builder builder) {
     /**
      * 任务id
-     * <p> 示例值：7108646852144136212
+     *
+     * <p>示例值：7108646852144136212
      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
+  }
 
-    // builder 开始
-    public GetExportReq() {
+  public static class Builder {
+
+    private String taskId; // 任务id
+
+    /**
+     * 任务id
+     *
+     * <p>示例值：7108646852144136212
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public GetExportReq(Builder builder) {
-        /**
-         * 任务id
-         * <p> 示例值：7108646852144136212
-         */
-        this.taskId = builder.taskId;
+    public GetExportReq build() {
+      return new GetExportReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public static class Builder {
-
-        private String taskId; // 任务id
-
-        /**
-         * 任务id
-         * <p> 示例值：7108646852144136212
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        public GetExportReq build() {
-            return new GetExportReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

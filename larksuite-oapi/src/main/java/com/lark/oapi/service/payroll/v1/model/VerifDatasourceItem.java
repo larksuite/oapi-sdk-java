@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifDatasourceItem {
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private IdWithName name;
+
+  /**
+   * id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 对象 api_name
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 字段 api_name
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_api_name")
+  private String fieldApiName;
+
+  /**
+   * 小数位
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("decimal_places")
+  private Integer decimalPlaces;
+
+  /**
+   * 对象类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 对象来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_type")
+  private Integer sourceType;
+
+  public IdWithName getName() {
+    return this.name;
+  }
+
+  public void setName(IdWithName name) {
+    this.name = name;
+  }
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String getFieldApiName() {
+    return this.fieldApiName;
+  }
+
+  public void setFieldApiName(String fieldApiName) {
+    this.fieldApiName = fieldApiName;
+  }
+
+  public Integer getDecimalPlaces() {
+    return this.decimalPlaces;
+  }
+
+  public void setDecimalPlaces(Integer decimalPlaces) {
+    this.decimalPlaces = decimalPlaces;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public Integer getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(Integer sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  // builder 开始
+  public VerifDatasourceItem() {}
+
+  public VerifDatasourceItem(Builder builder) {
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private IdWithName name;
+    this.name = builder.name;
     /**
      * id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 对象 api_name
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
      * 字段 api_name
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_api_name")
-    private String fieldApiName;
+    this.fieldApiName = builder.fieldApiName;
     /**
      * 小数位
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("decimal_places")
-    private Integer decimalPlaces;
+    this.decimalPlaces = builder.decimalPlaces;
     /**
      * 对象类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
-    private Integer objectType;
+    this.objectType = builder.objectType;
     /**
      * 对象来源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_type")
+    this.sourceType = builder.sourceType;
+  }
+
+  public static class Builder {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private IdWithName name;
+
+    /**
+     * id
+     *
+     * <p>示例值：1
+     */
+    private String fieldId;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 对象 api_name
+     *
+     * <p>示例值：1
+     */
+    private String objectApiName;
+
+    /**
+     * 字段 api_name
+     *
+     * <p>示例值：1
+     */
+    private String fieldApiName;
+
+    /**
+     * 小数位
+     *
+     * <p>示例值：1
+     */
+    private Integer decimalPlaces;
+
+    /**
+     * 对象类型
+     *
+     * <p>示例值：1
+     */
+    private Integer objectType;
+
+    /**
+     * 对象来源
+     *
+     * <p>示例值：1
+     */
     private Integer sourceType;
 
-    // builder 开始
-    public VerifDatasourceItem() {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(IdWithName name) {
+      this.name = name;
+      return this;
     }
 
-    public VerifDatasourceItem(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 对象 api_name
-         * <p> 示例值：1
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 字段 api_name
-         * <p> 示例值：1
-         */
-        this.fieldApiName = builder.fieldApiName;
-        /**
-         * 小数位
-         * <p> 示例值：1
-         */
-        this.decimalPlaces = builder.decimalPlaces;
-        /**
-         * 对象类型
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 对象来源
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
+    /**
+     * id
+     *
+     * <p>示例值：1
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public IdWithName getName() {
-        return this.name;
+    /**
+     * 对象 api_name
+     *
+     * <p>示例值：1
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public void setName(IdWithName name) {
-        this.name = name;
+    /**
+     * 字段 api_name
+     *
+     * <p>示例值：1
+     *
+     * @param fieldApiName
+     * @return
+     */
+    public Builder fieldApiName(String fieldApiName) {
+      this.fieldApiName = fieldApiName;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 小数位
+     *
+     * <p>示例值：1
+     *
+     * @param decimalPlaces
+     * @return
+     */
+    public Builder decimalPlaces(Integer decimalPlaces) {
+      this.decimalPlaces = decimalPlaces;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 对象类型
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public Integer getFieldType() {
-        return this.fieldType;
+    /**
+     * 对象来源
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(Integer sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
+    public VerifDatasourceItem build() {
+      return new VerifDatasourceItem(this);
     }
+  }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public String getFieldApiName() {
-        return this.fieldApiName;
-    }
-
-    public void setFieldApiName(String fieldApiName) {
-        this.fieldApiName = fieldApiName;
-    }
-
-    public Integer getDecimalPlaces() {
-        return this.decimalPlaces;
-    }
-
-    public void setDecimalPlaces(Integer decimalPlaces) {
-        this.decimalPlaces = decimalPlaces;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public Integer getSourceType() {
-        return this.sourceType;
-    }
-
-    public void setSourceType(Integer sourceType) {
-        this.sourceType = sourceType;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private IdWithName name;
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        private String fieldId;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 对象 api_name
-         * <p> 示例值：1
-         */
-        private String objectApiName;
-        /**
-         * 字段 api_name
-         * <p> 示例值：1
-         */
-        private String fieldApiName;
-        /**
-         * 小数位
-         * <p> 示例值：1
-         */
-        private Integer decimalPlaces;
-        /**
-         * 对象类型
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 对象来源
-         * <p> 示例值：1
-         */
-        private Integer sourceType;
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(IdWithName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * id
-         * <p> 示例值：1
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 对象 api_name
-         * <p> 示例值：1
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 字段 api_name
-         * <p> 示例值：1
-         *
-         * @param fieldApiName
-         * @return
-         */
-        public Builder fieldApiName(String fieldApiName) {
-            this.fieldApiName = fieldApiName;
-            return this;
-        }
-
-
-        /**
-         * 小数位
-         * <p> 示例值：1
-         *
-         * @param decimalPlaces
-         * @return
-         */
-        public Builder decimalPlaces(Integer decimalPlaces) {
-            this.decimalPlaces = decimalPlaces;
-            return this;
-        }
-
-
-        /**
-         * 对象类型
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 对象来源
-         * <p> 示例值：1
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-
-        public VerifDatasourceItem build() {
-            return new VerifDatasourceItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

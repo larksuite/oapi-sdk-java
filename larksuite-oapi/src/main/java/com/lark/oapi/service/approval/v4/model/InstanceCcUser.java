@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceCcUser {
+  /**
+   * 抄送人的 user_id
+   *
+   * <p>示例值：eea5gefe
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批实例内抄送唯一标识
+   *
+   * <p>示例值：123445
+   */
+  @SerializedName("cc_id")
+  private String ccId;
+
+  /**
+   * 抄送人的 open_id
+   *
+   * <p>示例值：ou_12345
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getCcId() {
+    return this.ccId;
+  }
+
+  public void setCcId(String ccId) {
+    this.ccId = ccId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  // builder 开始
+  public InstanceCcUser() {}
+
+  public InstanceCcUser(Builder builder) {
     /**
-     * 抄送人 user id
-     * <p> 示例值：eea5gefe
+     * 抄送人的 user_id
+     *
+     * <p>示例值：eea5gefe
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 审批实例内抄送唯一标识
-     * <p> 示例值：123445
+     *
+     * <p>示例值：123445
      */
-    @SerializedName("cc_id")
-    private String ccId;
+    this.ccId = builder.ccId;
     /**
-     * 抄送人 open id
-     * <p> 示例值：ou_12345
+     * 抄送人的 open_id
+     *
+     * <p>示例值：ou_12345
      */
-    @SerializedName("open_id")
+    this.openId = builder.openId;
+  }
+
+  public static class Builder {
+    /**
+     * 抄送人的 user_id
+     *
+     * <p>示例值：eea5gefe
+     */
+    private String userId;
+
+    /**
+     * 审批实例内抄送唯一标识
+     *
+     * <p>示例值：123445
+     */
+    private String ccId;
+
+    /**
+     * 抄送人的 open_id
+     *
+     * <p>示例值：ou_12345
+     */
     private String openId;
 
-    // builder 开始
-    public InstanceCcUser() {
+    /**
+     * 抄送人的 user_id
+     *
+     * <p>示例值：eea5gefe
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public InstanceCcUser(Builder builder) {
-        /**
-         * 抄送人 user id
-         * <p> 示例值：eea5gefe
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批实例内抄送唯一标识
-         * <p> 示例值：123445
-         */
-        this.ccId = builder.ccId;
-        /**
-         * 抄送人 open id
-         * <p> 示例值：ou_12345
-         */
-        this.openId = builder.openId;
+    /**
+     * 审批实例内抄送唯一标识
+     *
+     * <p>示例值：123445
+     *
+     * @param ccId
+     * @return
+     */
+    public Builder ccId(String ccId) {
+      this.ccId = ccId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 抄送人的 open_id
+     *
+     * <p>示例值：ou_12345
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public InstanceCcUser build() {
+      return new InstanceCcUser(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getCcId() {
-        return this.ccId;
-    }
-
-    public void setCcId(String ccId) {
-        this.ccId = ccId;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public static class Builder {
-        /**
-         * 抄送人 user id
-         * <p> 示例值：eea5gefe
-         */
-        private String userId;
-        /**
-         * 审批实例内抄送唯一标识
-         * <p> 示例值：123445
-         */
-        private String ccId;
-        /**
-         * 抄送人 open id
-         * <p> 示例值：ou_12345
-         */
-        private String openId;
-
-        /**
-         * 抄送人 user id
-         * <p> 示例值：eea5gefe
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批实例内抄送唯一标识
-         * <p> 示例值：123445
-         *
-         * @param ccId
-         * @return
-         */
-        public Builder ccId(String ccId) {
-            this.ccId = ccId;
-            return this;
-        }
-
-
-        /**
-         * 抄送人 open id
-         * <p> 示例值：ou_12345
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        public InstanceCcUser build() {
-            return new InstanceCcUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatGroupUserTaskRespBody {
-    /**
-     * 创建的群聊ID
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-     */
-    @SerializedName("chat_id")
-    private String chatId;
+  /**
+   * 创建的群聊ID
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("chat_id")
+  private String chatId;
 
-    public String getChatId() {
-        return this.chatId;
-    }
+  public String getChatId() {
+    return this.chatId;
+  }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
 }

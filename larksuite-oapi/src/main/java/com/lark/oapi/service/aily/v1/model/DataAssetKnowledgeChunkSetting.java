@@ -13,210 +13,222 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataAssetKnowledgeChunkSetting {
+  /**
+   * 切片规则
+   *
+   * <p>示例值：intelligent
+   */
+  @SerializedName("rule_type")
+  private String ruleType;
+
+  /**
+   * 切片分割符类型
+   *
+   * <p>示例值：paragraph
+   */
+  @SerializedName("separate_type")
+  private String separateType;
+
+  /**
+   * 分段最大长度（字符），按标识符切片时必须填写
+   *
+   * <p>示例值：600
+   */
+  @SerializedName("size")
+  private Integer size;
+
+  /**
+   * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("overlap")
+  private Integer overlap;
+
+  public String getRuleType() {
+    return this.ruleType;
+  }
+
+  public void setRuleType(String ruleType) {
+    this.ruleType = ruleType;
+  }
+
+  public String getSeparateType() {
+    return this.separateType;
+  }
+
+  public void setSeparateType(String separateType) {
+    this.separateType = separateType;
+  }
+
+  public Integer getSize() {
+    return this.size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  public Integer getOverlap() {
+    return this.overlap;
+  }
+
+  public void setOverlap(Integer overlap) {
+    this.overlap = overlap;
+  }
+
+  // builder 开始
+  public DataAssetKnowledgeChunkSetting() {}
+
+  public DataAssetKnowledgeChunkSetting(Builder builder) {
     /**
      * 切片规则
-     * <p> 示例值：intelligent
+     *
+     * <p>示例值：intelligent
      */
-    @SerializedName("rule_type")
-    private String ruleType;
+    this.ruleType = builder.ruleType;
     /**
      * 切片分割符类型
-     * <p> 示例值：paragraph
+     *
+     * <p>示例值：paragraph
      */
-    @SerializedName("separate_type")
-    private String separateType;
+    this.separateType = builder.separateType;
     /**
      * 分段最大长度（字符），按标识符切片时必须填写
-     * <p> 示例值：600
+     *
+     * <p>示例值：600
      */
-    @SerializedName("size")
-    private Integer size;
+    this.size = builder.size;
     /**
      * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("overlap")
+    this.overlap = builder.overlap;
+  }
+
+  public static class Builder {
+    /**
+     * 切片规则
+     *
+     * <p>示例值：intelligent
+     */
+    private String ruleType;
+
+    /**
+     * 切片分割符类型
+     *
+     * <p>示例值：paragraph
+     */
+    private String separateType;
+
+    /**
+     * 分段最大长度（字符），按标识符切片时必须填写
+     *
+     * <p>示例值：600
+     */
+    private Integer size;
+
+    /**
+     * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
+     *
+     * <p>示例值：10
+     */
     private Integer overlap;
 
-    // builder 开始
-    public DataAssetKnowledgeChunkSetting() {
+    /**
+     * 切片规则
+     *
+     * <p>示例值：intelligent
+     *
+     * @param ruleType
+     * @return
+     */
+    public Builder ruleType(String ruleType) {
+      this.ruleType = ruleType;
+      return this;
     }
 
-    public DataAssetKnowledgeChunkSetting(Builder builder) {
-        /**
-         * 切片规则
-         * <p> 示例值：intelligent
-         */
-        this.ruleType = builder.ruleType;
-        /**
-         * 切片分割符类型
-         * <p> 示例值：paragraph
-         */
-        this.separateType = builder.separateType;
-        /**
-         * 分段最大长度（字符），按标识符切片时必须填写
-         * <p> 示例值：600
-         */
-        this.size = builder.size;
-        /**
-         * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
-         * <p> 示例值：10
-         */
-        this.overlap = builder.overlap;
+    /**
+     * 切片规则
+     *
+     * <p>示例值：intelligent
+     *
+     * @param ruleType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingRuleTypeEnum}
+     * @return
+     */
+    public Builder ruleType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingRuleTypeEnum ruleType) {
+      this.ruleType = ruleType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 切片分割符类型
+     *
+     * <p>示例值：paragraph
+     *
+     * @param separateType
+     * @return
+     */
+    public Builder separateType(String separateType) {
+      this.separateType = separateType;
+      return this;
     }
 
-    public String getRuleType() {
-        return this.ruleType;
+    /**
+     * 切片分割符类型
+     *
+     * <p>示例值：paragraph
+     *
+     * @param separateType {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingSeparateTypeEnum}
+     * @return
+     */
+    public Builder separateType(
+        com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingSeparateTypeEnum
+            separateType) {
+      this.separateType = separateType.getValue();
+      return this;
     }
 
-    public void setRuleType(String ruleType) {
-        this.ruleType = ruleType;
+    /**
+     * 分段最大长度（字符），按标识符切片时必须填写
+     *
+     * <p>示例值：600
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
     }
 
-    public String getSeparateType() {
-        return this.separateType;
+    /**
+     * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
+     *
+     * <p>示例值：10
+     *
+     * @param overlap
+     * @return
+     */
+    public Builder overlap(Integer overlap) {
+      this.overlap = overlap;
+      return this;
     }
 
-    public void setSeparateType(String separateType) {
-        this.separateType = separateType;
+    public DataAssetKnowledgeChunkSetting build() {
+      return new DataAssetKnowledgeChunkSetting(this);
     }
+  }
 
-    public Integer getSize() {
-        return this.size;
-    }
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public Integer getOverlap() {
-        return this.overlap;
-    }
-
-    public void setOverlap(Integer overlap) {
-        this.overlap = overlap;
-    }
-
-    public static class Builder {
-        /**
-         * 切片规则
-         * <p> 示例值：intelligent
-         */
-        private String ruleType;
-        /**
-         * 切片分割符类型
-         * <p> 示例值：paragraph
-         */
-        private String separateType;
-        /**
-         * 分段最大长度（字符），按标识符切片时必须填写
-         * <p> 示例值：600
-         */
-        private Integer size;
-        /**
-         * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
-         * <p> 示例值：10
-         */
-        private Integer overlap;
-
-        /**
-         * 切片规则
-         * <p> 示例值：intelligent
-         *
-         * @param ruleType
-         * @return
-         */
-        public Builder ruleType(String ruleType) {
-            this.ruleType = ruleType;
-            return this;
-        }
-
-        /**
-         * 切片规则
-         * <p> 示例值：intelligent
-         *
-         * @param ruleType {@link com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingRuleTypeEnum}
-         * @return
-         */
-        public Builder ruleType(com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingRuleTypeEnum ruleType) {
-            this.ruleType = ruleType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 切片分割符类型
-         * <p> 示例值：paragraph
-         *
-         * @param separateType
-         * @return
-         */
-        public Builder separateType(String separateType) {
-            this.separateType = separateType;
-            return this;
-        }
-
-        /**
-         * 切片分割符类型
-         * <p> 示例值：paragraph
-         *
-         * @param separateType {@link com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingSeparateTypeEnum}
-         * @return
-         */
-        public Builder separateType(com.lark.oapi.service.aily.v1.enums.DataAssetKnowledgeChunkSettingSeparateTypeEnum separateType) {
-            this.separateType = separateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分段最大长度（字符），按标识符切片时必须填写
-         * <p> 示例值：600
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(Integer size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 分段重叠字符数，按标识符切片时必须填写，不能超过size的数值
-         * <p> 示例值：10
-         *
-         * @param overlap
-         * @return
-         */
-        public Builder overlap(Integer overlap) {
-            this.overlap = overlap;
-            return this;
-        }
-
-
-        public DataAssetKnowledgeChunkSetting build() {
-            return new DataAssetKnowledgeChunkSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,279 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Currency {
+  /**
+   * 货币id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 货币所属国家/地区id，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list)接口查询获得
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 货币名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency_name")
+  private I18n[] currencyName;
+
+  /**
+   * 对应币种的指代代码，通过系统内部查找，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+   *
+   * <p>示例值：156
+   */
+  @SerializedName("numeric_code")
+  private Integer numericCode;
+
+  /**
+   * 法定货币对应代码，如CNY
+   * 、USD等.通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_alpha_3_code")
+  private String currencyAlpha3Code;
+
+  /**
+   * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region_id_list")
+  private String[] countryRegionIdList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public I18n[] getCurrencyName() {
+    return this.currencyName;
+  }
+
+  public void setCurrencyName(I18n[] currencyName) {
+    this.currencyName = currencyName;
+  }
+
+  public Integer getNumericCode() {
+    return this.numericCode;
+  }
+
+  public void setNumericCode(Integer numericCode) {
+    this.numericCode = numericCode;
+  }
+
+  public String getCurrencyAlpha3Code() {
+    return this.currencyAlpha3Code;
+  }
+
+  public void setCurrencyAlpha3Code(String currencyAlpha3Code) {
+    this.currencyAlpha3Code = currencyAlpha3Code;
+  }
+
+  public String[] getCountryRegionIdList() {
+    return this.countryRegionIdList;
+  }
+
+  public void setCountryRegionIdList(String[] countryRegionIdList) {
+    this.countryRegionIdList = countryRegionIdList;
+  }
+
+  // builder 开始
+  public Currency() {}
+
+  public Currency(Builder builder) {
     /**
      * 货币id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-     * <p> 示例值：12
+     * 货币所属国家/地区id，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list)接口查询获得
+     *
+     * <p>示例值：12
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 货币名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency_name")
-    private I18n[] currencyName;
+    this.currencyName = builder.currencyName;
     /**
-     * 数字代码
-     * <p> 示例值：12
+     * 对应币种的指代代码，通过系统内部查找，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：156
      */
-    @SerializedName("numeric_code")
-    private Integer numericCode;
+    this.numericCode = builder.numericCode;
     /**
-     * 三位字母代码
-     * <p> 示例值：12
+     * 法定货币对应代码，如CNY
+     * 、USD等.通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_alpha_3_code")
-    private String currencyAlpha3Code;
+    this.currencyAlpha3Code = builder.currencyAlpha3Code;
     /**
      * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region_id_list")
+    this.countryRegionIdList = builder.countryRegionIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 货币id
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 货币所属国家/地区id，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list)接口查询获得
+     *
+     * <p>示例值：12
+     */
+    private String countryRegionId;
+
+    /**
+     * 货币名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] currencyName;
+
+    /**
+     * 对应币种的指代代码，通过系统内部查找，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：156
+     */
+    private Integer numericCode;
+
+    /**
+     * 法定货币对应代码，如CNY
+     * 、USD等.通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：CNY
+     */
+    private String currencyAlpha3Code;
+
+    /**
+     * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+     *
+     * <p>示例值：
+     */
     private String[] countryRegionIdList;
 
-    // builder 开始
-    public Currency() {
+    /**
+     * 货币id
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Currency(Builder builder) {
-        /**
-         * 货币id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 货币名称
-         * <p> 示例值：
-         */
-        this.currencyName = builder.currencyName;
-        /**
-         * 数字代码
-         * <p> 示例值：12
-         */
-        this.numericCode = builder.numericCode;
-        /**
-         * 三位字母代码
-         * <p> 示例值：12
-         */
-        this.currencyAlpha3Code = builder.currencyAlpha3Code;
-        /**
-         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
-         * <p> 示例值：
-         */
-        this.countryRegionIdList = builder.countryRegionIdList;
+    /**
+     * 货币所属国家/地区id，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list)接口查询获得
+     *
+     * <p>示例值：12
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 货币名称
+     *
+     * <p>示例值：
+     *
+     * @param currencyName
+     * @return
+     */
+    public Builder currencyName(I18n[] currencyName) {
+      this.currencyName = currencyName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 对应币种的指代代码，通过系统内部查找，通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：156
+     *
+     * @param numericCode
+     * @return
+     */
+    public Builder numericCode(Integer numericCode) {
+      this.numericCode = numericCode;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 法定货币对应代码，如CNY
+     * 、USD等.通过[查询货币信息v2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)查询获取。
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyAlpha3Code
+     * @return
+     */
+    public Builder currencyAlpha3Code(String currencyAlpha3Code) {
+      this.currencyAlpha3Code = currencyAlpha3Code;
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param countryRegionIdList
+     * @return
+     */
+    public Builder countryRegionIdList(String[] countryRegionIdList) {
+      this.countryRegionIdList = countryRegionIdList;
+      return this;
     }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    public Currency build() {
+      return new Currency(this);
     }
+  }
 
-    public I18n[] getCurrencyName() {
-        return this.currencyName;
-    }
-
-    public void setCurrencyName(I18n[] currencyName) {
-        this.currencyName = currencyName;
-    }
-
-    public Integer getNumericCode() {
-        return this.numericCode;
-    }
-
-    public void setNumericCode(Integer numericCode) {
-        this.numericCode = numericCode;
-    }
-
-    public String getCurrencyAlpha3Code() {
-        return this.currencyAlpha3Code;
-    }
-
-    public void setCurrencyAlpha3Code(String currencyAlpha3Code) {
-        this.currencyAlpha3Code = currencyAlpha3Code;
-    }
-
-    public String[] getCountryRegionIdList() {
-        return this.countryRegionIdList;
-    }
-
-    public void setCountryRegionIdList(String[] countryRegionIdList) {
-        this.countryRegionIdList = countryRegionIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 货币id
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         */
-        private String countryRegionId;
-        /**
-         * 货币名称
-         * <p> 示例值：
-         */
-        private I18n[] currencyName;
-        /**
-         * 数字代码
-         * <p> 示例值：12
-         */
-        private Integer numericCode;
-        /**
-         * 三位字母代码
-         * <p> 示例值：12
-         */
-        private String currencyAlpha3Code;
-        /**
-         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
-         * <p> 示例值：
-         */
-        private String[] countryRegionIdList;
-
-        /**
-         * 货币id
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 货币所属国家/地区id，详细信息可通过【查询国家/地区信息】接口查询获得
-         * <p> 示例值：12
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 货币名称
-         * <p> 示例值：
-         *
-         * @param currencyName
-         * @return
-         */
-        public Builder currencyName(I18n[] currencyName) {
-            this.currencyName = currencyName;
-            return this;
-        }
-
-
-        /**
-         * 数字代码
-         * <p> 示例值：12
-         *
-         * @param numericCode
-         * @return
-         */
-        public Builder numericCode(Integer numericCode) {
-            this.numericCode = numericCode;
-            return this;
-        }
-
-
-        /**
-         * 三位字母代码
-         * <p> 示例值：12
-         *
-         * @param currencyAlpha3Code
-         * @return
-         */
-        public Builder currencyAlpha3Code(String currencyAlpha3Code) {
-            this.currencyAlpha3Code = currencyAlpha3Code;
-            return this;
-        }
-
-
-        /**
-         * 货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息]接口查询获得
-         * <p> 示例值：
-         *
-         * @param countryRegionIdList
-         * @return
-         */
-        public Builder countryRegionIdList(String[] countryRegionIdList) {
-            this.countryRegionIdList = countryRegionIdList;
-            return this;
-        }
-
-
-        public Currency build() {
-            return new Currency(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

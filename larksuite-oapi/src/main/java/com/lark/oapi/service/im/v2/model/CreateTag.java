@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTag {
+  /**
+   * 标签类型
+   *
+   * <p>示例值：tenant
+   */
+  @SerializedName("tag_type")
+  private String tagType;
+
+  /**
+   * 标签默认名称
+   *
+   * <p>示例值：default name
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * i18n多语言标签名称集合
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private TagI18nName[] i18nNames;
+
+  public String getTagType() {
+    return this.tagType;
+  }
+
+  public void setTagType(String tagType) {
+    this.tagType = tagType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public TagI18nName[] getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(TagI18nName[] i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  // builder 开始
+  public CreateTag() {}
+
+  public CreateTag(Builder builder) {
     /**
      * 标签类型
-     * <p> 示例值：tenant
+     *
+     * <p>示例值：tenant
      */
-    @SerializedName("tag_type")
-    private String tagType;
+    this.tagType = builder.tagType;
     /**
      * 标签默认名称
-     * <p> 示例值：default name
+     *
+     * <p>示例值：default name
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * i18n标签名称集合
-     * <p> 示例值：
+     * i18n多语言标签名称集合
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
+    this.i18nNames = builder.i18nNames;
+  }
+
+  public static class Builder {
+    /**
+     * 标签类型
+     *
+     * <p>示例值：tenant
+     */
+    private String tagType;
+
+    /**
+     * 标签默认名称
+     *
+     * <p>示例值：default name
+     */
+    private String name;
+
+    /**
+     * i18n多语言标签名称集合
+     *
+     * <p>示例值：
+     */
     private TagI18nName[] i18nNames;
 
-    // builder 开始
-    public CreateTag() {
+    /**
+     * 标签类型
+     *
+     * <p>示例值：tenant
+     *
+     * @param tagType
+     * @return
+     */
+    public Builder tagType(String tagType) {
+      this.tagType = tagType;
+      return this;
     }
 
-    public CreateTag(Builder builder) {
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         */
-        this.tagType = builder.tagType;
-        /**
-         * 标签默认名称
-         * <p> 示例值：default name
-         */
-        this.name = builder.name;
-        /**
-         * i18n标签名称集合
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
+    /**
+     * 标签类型
+     *
+     * <p>示例值：tenant
+     *
+     * @param tagType {@link
+     *     com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum}
+     * @return
+     */
+    public Builder tagType(
+        com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum tagType) {
+      this.tagType = tagType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签默认名称
+     *
+     * <p>示例值：default name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getTagType() {
-        return this.tagType;
+    /**
+     * i18n多语言标签名称集合
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(TagI18nName[] i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public void setTagType(String tagType) {
-        this.tagType = tagType;
+    public CreateTag build() {
+      return new CreateTag(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public TagI18nName[] getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(TagI18nName[] i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public static class Builder {
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         */
-        private String tagType;
-        /**
-         * 标签默认名称
-         * <p> 示例值：default name
-         */
-        private String name;
-        /**
-         * i18n标签名称集合
-         * <p> 示例值：
-         */
-        private TagI18nName[] i18nNames;
-
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         *
-         * @param tagType
-         * @return
-         */
-        public Builder tagType(String tagType) {
-            this.tagType = tagType;
-            return this;
-        }
-
-        /**
-         * 标签类型
-         * <p> 示例值：tenant
-         *
-         * @param tagType {@link com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum}
-         * @return
-         */
-        public Builder tagType(com.lark.oapi.service.im.v2.enums.CreateTagLarkImDatasyncEntityTagTypeEnum tagType) {
-            this.tagType = tagType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 标签默认名称
-         * <p> 示例值：default name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * i18n标签名称集合
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(TagI18nName[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        public CreateTag build() {
-            return new CreateTag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

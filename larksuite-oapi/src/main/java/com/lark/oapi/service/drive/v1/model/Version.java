@@ -13,444 +13,483 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Version {
+  /**
+   * 版本文档的标题
+   *
+   * <p>示例值：文档标题
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 版本文档的版本标识
+   *
+   * <p>示例值：fnJfyX
+   */
+  @SerializedName("version")
+  private String version;
+
+  /**
+   * 源文档token
+   *
+   * <p>示例值：doxcnMycg4ryxQofSeoKkJuXYOb
+   */
+  @SerializedName("parent_token")
+  private String parentToken;
+
+  /**
+   * 版本文档的所有者的 ID
+   *
+   * <p>示例值：694699009591869450
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 版本文档的创建者的 ID
+   *
+   * <p>示例值：694699009591869451
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 版本文档的创建时间，Unix 时间戳，单位为秒
+   *
+   * <p>示例值：1660708537
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 版本文档更新时间
+   *
+   * <p>示例值：1660708537
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 版本文档状态
+   *
+   * <p>示例值：0，1，2
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 版本文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("obj_type")
+  private String objType;
+
+  /**
+   * 源文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("parent_type")
+  private String parentType;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getParentToken() {
+    return this.parentToken;
+  }
+
+  public void setParentToken(String parentToken) {
+    this.parentToken = parentToken;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getParentType() {
+    return this.parentType;
+  }
+
+  public void setParentType(String parentType) {
+    this.parentType = parentType;
+  }
+
+  // builder 开始
+  public Version() {}
+
+  public Version(Builder builder) {
     /**
-     * 版本文档标题
-     * <p> 示例值：文档标题
+     * 版本文档的标题
+     *
+     * <p>示例值：文档标题
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 版本文档版本号
-     * <p> 示例值：version1
+     * 版本文档的版本标识
+     *
+     * <p>示例值：fnJfyX
      */
-    @SerializedName("version")
-    private String version;
+    this.version = builder.version;
     /**
-     * shtbcpM2mm3znrLfWnf4browTYp
-     * <p> 示例值：1665739388
+     * 源文档token
+     *
+     * <p>示例值：doxcnMycg4ryxQofSeoKkJuXYOb
      */
-    @SerializedName("parent_token")
-    private String parentToken;
+    this.parentToken = builder.parentToken;
     /**
-     * 版本文档所有者id
-     * <p> 示例值：694699009591869450
+     * 版本文档的所有者的 ID
+     *
+     * <p>示例值：694699009591869450
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
-     * 版本文档创建者id
-     * <p> 示例值：694699009591869451
+     * 版本文档的创建者的 ID
+     *
+     * <p>示例值：694699009591869451
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
-     * 版本文档创建时间
-     * <p> 示例值：1660708537
+     * 版本文档的创建时间，Unix 时间戳，单位为秒
+     *
+     * <p>示例值：1660708537
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 版本文档更新时间
-     * <p> 示例值：1660708537
+     *
+     * <p>示例值：1660708537
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 版本文档状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0，1，2
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 版本文档类型
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("obj_type")
-    private String objType;
+    this.objType = builder.objType;
     /**
      * 源文档类型
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("parent_type")
+    this.parentType = builder.parentType;
+  }
+
+  public static class Builder {
+    /**
+     * 版本文档的标题
+     *
+     * <p>示例值：文档标题
+     */
+    private String name;
+
+    /**
+     * 版本文档的版本标识
+     *
+     * <p>示例值：fnJfyX
+     */
+    private String version;
+
+    /**
+     * 源文档token
+     *
+     * <p>示例值：doxcnMycg4ryxQofSeoKkJuXYOb
+     */
+    private String parentToken;
+
+    /**
+     * 版本文档的所有者的 ID
+     *
+     * <p>示例值：694699009591869450
+     */
+    private String ownerId;
+
+    /**
+     * 版本文档的创建者的 ID
+     *
+     * <p>示例值：694699009591869451
+     */
+    private String creatorId;
+
+    /**
+     * 版本文档的创建时间，Unix 时间戳，单位为秒
+     *
+     * <p>示例值：1660708537
+     */
+    private String createTime;
+
+    /**
+     * 版本文档更新时间
+     *
+     * <p>示例值：1660708537
+     */
+    private String updateTime;
+
+    /**
+     * 版本文档状态
+     *
+     * <p>示例值：0，1，2
+     */
+    private String status;
+
+    /**
+     * 版本文档类型
+     *
+     * <p>示例值：docx
+     */
+    private String objType;
+
+    /**
+     * 源文档类型
+     *
+     * <p>示例值：docx
+     */
     private String parentType;
 
-    // builder 开始
-    public Version() {
+    /**
+     * 版本文档的标题
+     *
+     * <p>示例值：文档标题
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public Version(Builder builder) {
-        /**
-         * 版本文档标题
-         * <p> 示例值：文档标题
-         */
-        this.name = builder.name;
-        /**
-         * 版本文档版本号
-         * <p> 示例值：version1
-         */
-        this.version = builder.version;
-        /**
-         * shtbcpM2mm3znrLfWnf4browTYp
-         * <p> 示例值：1665739388
-         */
-        this.parentToken = builder.parentToken;
-        /**
-         * 版本文档所有者id
-         * <p> 示例值：694699009591869450
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 版本文档创建者id
-         * <p> 示例值：694699009591869451
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 版本文档创建时间
-         * <p> 示例值：1660708537
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 版本文档更新时间
-         * <p> 示例值：1660708537
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 版本文档状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-        /**
-         * 版本文档类型
-         * <p> 示例值：docx
-         */
-        this.objType = builder.objType;
-        /**
-         * 源文档类型
-         * <p> 示例值：docx
-         */
-        this.parentType = builder.parentType;
+    /**
+     * 版本文档的版本标识
+     *
+     * <p>示例值：fnJfyX
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 源文档token
+     *
+     * <p>示例值：doxcnMycg4ryxQofSeoKkJuXYOb
+     *
+     * @param parentToken
+     * @return
+     */
+    public Builder parentToken(String parentToken) {
+      this.parentToken = parentToken;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 版本文档的所有者的 ID
+     *
+     * <p>示例值：694699009591869450
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 版本文档的创建者的 ID
+     *
+     * <p>示例值：694699009591869451
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public String getVersion() {
-        return this.version;
+    /**
+     * 版本文档的创建时间，Unix 时间戳，单位为秒
+     *
+     * <p>示例值：1660708537
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    /**
+     * 版本文档更新时间
+     *
+     * <p>示例值：1660708537
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getParentToken() {
-        return this.parentToken;
+    /**
+     * 版本文档状态
+     *
+     * <p>示例值：0，1，2
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setParentToken(String parentToken) {
-        this.parentToken = parentToken;
+    /**
+     * 版本文档状态
+     *
+     * <p>示例值：0，1，2
+     *
+     * @param status {@link com.lark.oapi.service.drive.v1.enums.VersionStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.drive.v1.enums.VersionStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 版本文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    /**
+     * 版本文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType {@link com.lark.oapi.service.drive.v1.enums.VersionObjTypeEnum}
+     * @return
+     */
+    public Builder objType(com.lark.oapi.service.drive.v1.enums.VersionObjTypeEnum objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public String getCreatorId() {
-        return this.creatorId;
+    /**
+     * 源文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param parentType
+     * @return
+     */
+    public Builder parentType(String parentType) {
+      this.parentType = parentType;
+      return this;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    /**
+     * 源文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.VersionParentTypeEnum}
+     * @return
+     */
+    public Builder parentType(
+        com.lark.oapi.service.drive.v1.enums.VersionParentTypeEnum parentType) {
+      this.parentType = parentType.getValue();
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    public Version build() {
+      return new Version(this);
     }
+  }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getObjType() {
-        return this.objType;
-    }
-
-    public void setObjType(String objType) {
-        this.objType = objType;
-    }
-
-    public String getParentType() {
-        return this.parentType;
-    }
-
-    public void setParentType(String parentType) {
-        this.parentType = parentType;
-    }
-
-    public static class Builder {
-        /**
-         * 版本文档标题
-         * <p> 示例值：文档标题
-         */
-        private String name;
-        /**
-         * 版本文档版本号
-         * <p> 示例值：version1
-         */
-        private String version;
-        /**
-         * shtbcpM2mm3znrLfWnf4browTYp
-         * <p> 示例值：1665739388
-         */
-        private String parentToken;
-        /**
-         * 版本文档所有者id
-         * <p> 示例值：694699009591869450
-         */
-        private String ownerId;
-        /**
-         * 版本文档创建者id
-         * <p> 示例值：694699009591869451
-         */
-        private String creatorId;
-        /**
-         * 版本文档创建时间
-         * <p> 示例值：1660708537
-         */
-        private String createTime;
-        /**
-         * 版本文档更新时间
-         * <p> 示例值：1660708537
-         */
-        private String updateTime;
-        /**
-         * 版本文档状态
-         * <p> 示例值：0
-         */
-        private String status;
-        /**
-         * 版本文档类型
-         * <p> 示例值：docx
-         */
-        private String objType;
-        /**
-         * 源文档类型
-         * <p> 示例值：docx
-         */
-        private String parentType;
-
-        /**
-         * 版本文档标题
-         * <p> 示例值：文档标题
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 版本文档版本号
-         * <p> 示例值：version1
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        /**
-         * shtbcpM2mm3znrLfWnf4browTYp
-         * <p> 示例值：1665739388
-         *
-         * @param parentToken
-         * @return
-         */
-        public Builder parentToken(String parentToken) {
-            this.parentToken = parentToken;
-            return this;
-        }
-
-
-        /**
-         * 版本文档所有者id
-         * <p> 示例值：694699009591869450
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 版本文档创建者id
-         * <p> 示例值：694699009591869451
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 版本文档创建时间
-         * <p> 示例值：1660708537
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 版本文档更新时间
-         * <p> 示例值：1660708537
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 版本文档状态
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 版本文档状态
-         * <p> 示例值：0
-         *
-         * @param status {@link com.lark.oapi.service.drive.v1.enums.VersionStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.drive.v1.enums.VersionStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 版本文档类型
-         * <p> 示例值：docx
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 版本文档类型
-         * <p> 示例值：docx
-         *
-         * @param objType {@link com.lark.oapi.service.drive.v1.enums.VersionObjTypeEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.drive.v1.enums.VersionObjTypeEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 源文档类型
-         * <p> 示例值：docx
-         *
-         * @param parentType
-         * @return
-         */
-        public Builder parentType(String parentType) {
-            this.parentType = parentType;
-            return this;
-        }
-
-        /**
-         * 源文档类型
-         * <p> 示例值：docx
-         *
-         * @param parentType {@link com.lark.oapi.service.drive.v1.enums.VersionParentTypeEnum}
-         * @return
-         */
-        public Builder parentType(com.lark.oapi.service.drive.v1.enums.VersionParentTypeEnum parentType) {
-            this.parentType = parentType.getValue();
-            return this;
-        }
-
-
-        public Version build() {
-            return new Version(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
- */
+/** 待增/减员操作类型 */
 public enum SocialArchiveAdjustRecordEventOperateTypeEnum {
-    INCREASE("increase"), // 新增
-    ADJUST("adjust"), // 编辑
-    CONFIRM("confirm"), // 确认
-    SUBMIT_CONFIRM("submit_confirm"), // 提交并确认
-    DELETE("delete"), // 删除
-    ;
-    private String value;
+  INCREASE("increase"), // 新增
+  ADJUST("adjust"), // 编辑
+  CONFIRM("confirm"), // 确认
+  SUBMIT_CONFIRM("submit_confirm"), // 提交并确认
+  DELETE("delete"), // 删除
+  ;
+  private String value;
 
-    SocialArchiveAdjustRecordEventOperateTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveAdjustRecordEventOperateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

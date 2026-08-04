@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifFilterCondition {
+  /**
+   * 左值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("left_value")
+  private VerifFilterValue leftValue;
+
+  /**
+   * 操作符
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator_type")
+  private Integer operatorType;
+
+  /**
+   * 右值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("right_values")
+  private VerifFilterValue[] rightValues;
+
+  public VerifFilterValue getLeftValue() {
+    return this.leftValue;
+  }
+
+  public void setLeftValue(VerifFilterValue leftValue) {
+    this.leftValue = leftValue;
+  }
+
+  public Integer getOperatorType() {
+    return this.operatorType;
+  }
+
+  public void setOperatorType(Integer operatorType) {
+    this.operatorType = operatorType;
+  }
+
+  public VerifFilterValue[] getRightValues() {
+    return this.rightValues;
+  }
+
+  public void setRightValues(VerifFilterValue[] rightValues) {
+    this.rightValues = rightValues;
+  }
+
+  // builder 开始
+  public VerifFilterCondition() {}
+
+  public VerifFilterCondition(Builder builder) {
     /**
      * 左值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("left_value")
-    private VerifFilterValue leftValue;
+    this.leftValue = builder.leftValue;
     /**
      * 操作符
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operator_type")
-    private Integer operatorType;
+    this.operatorType = builder.operatorType;
     /**
      * 右值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("right_values")
+    this.rightValues = builder.rightValues;
+  }
+
+  public static class Builder {
+    /**
+     * 左值
+     *
+     * <p>示例值：
+     */
+    private VerifFilterValue leftValue;
+
+    /**
+     * 操作符
+     *
+     * <p>示例值：1
+     */
+    private Integer operatorType;
+
+    /**
+     * 右值
+     *
+     * <p>示例值：
+     */
     private VerifFilterValue[] rightValues;
 
-    // builder 开始
-    public VerifFilterCondition() {
+    /**
+     * 左值
+     *
+     * <p>示例值：
+     *
+     * @param leftValue
+     * @return
+     */
+    public Builder leftValue(VerifFilterValue leftValue) {
+      this.leftValue = leftValue;
+      return this;
     }
 
-    public VerifFilterCondition(Builder builder) {
-        /**
-         * 左值
-         * <p> 示例值：
-         */
-        this.leftValue = builder.leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：1
-         */
-        this.operatorType = builder.operatorType;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        this.rightValues = builder.rightValues;
+    /**
+     * 操作符
+     *
+     * <p>示例值：1
+     *
+     * @param operatorType
+     * @return
+     */
+    public Builder operatorType(Integer operatorType) {
+      this.operatorType = operatorType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 右值
+     *
+     * <p>示例值：
+     *
+     * @param rightValues
+     * @return
+     */
+    public Builder rightValues(VerifFilterValue[] rightValues) {
+      this.rightValues = rightValues;
+      return this;
     }
 
-    public VerifFilterValue getLeftValue() {
-        return this.leftValue;
+    public VerifFilterCondition build() {
+      return new VerifFilterCondition(this);
     }
+  }
 
-    public void setLeftValue(VerifFilterValue leftValue) {
-        this.leftValue = leftValue;
-    }
-
-    public Integer getOperatorType() {
-        return this.operatorType;
-    }
-
-    public void setOperatorType(Integer operatorType) {
-        this.operatorType = operatorType;
-    }
-
-    public VerifFilterValue[] getRightValues() {
-        return this.rightValues;
-    }
-
-    public void setRightValues(VerifFilterValue[] rightValues) {
-        this.rightValues = rightValues;
-    }
-
-    public static class Builder {
-        /**
-         * 左值
-         * <p> 示例值：
-         */
-        private VerifFilterValue leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：1
-         */
-        private Integer operatorType;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        private VerifFilterValue[] rightValues;
-
-        /**
-         * 左值
-         * <p> 示例值：
-         *
-         * @param leftValue
-         * @return
-         */
-        public Builder leftValue(VerifFilterValue leftValue) {
-            this.leftValue = leftValue;
-            return this;
-        }
-
-
-        /**
-         * 操作符
-         * <p> 示例值：1
-         *
-         * @param operatorType
-         * @return
-         */
-        public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
-        }
-
-
-        /**
-         * 右值
-         * <p> 示例值：
-         *
-         * @param rightValues
-         * @return
-         */
-        public Builder rightValues(VerifFilterValue[] rightValues) {
-            this.rightValues = rightValues;
-            return this;
-        }
-
-
-        public VerifFilterCondition build() {
-            return new VerifFilterCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

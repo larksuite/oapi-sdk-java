@@ -13,26 +13,24 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 排序方式
- */
+/** 排序方式 */
 public enum DocFilterSortTypeEnum {
-    DEFAULT_TYPE("DEFAULT_TYPE"), // 默认排序
-    OPEN_TIME("OPEN_TIME"), // User打开时间排序
-    EDIT_TIME("EDIT_TIME"), // User编辑时间降序
-    EDIT_TIME_ASC("EDIT_TIME_ASC"), // User编辑时间升序
-    ENTITY_CREATE_TIME_ASC("ENTITY_CREATE_TIME_ASC"), // 实体创建时间升序
-    ENTITY_CREATE_TIME_DESC("ENTITY_CREATE_TIME_DESC"), // 实体创建时间降序
-    CREATE_TIME("CREATE_TIME"), // 按文档创建时间排序
-    CREATE_TIME_ASC("CREATE_TIME_ASC"), // 按文档创建时间正序
-    ;
-    private String value;
+  DEFAULT_TYPE("DEFAULT_TYPE"), // 默认排序
+  OPEN_TIME("OPEN_TIME"), // User打开时间排序
+  EDIT_TIME("EDIT_TIME"), // User编辑时间降序
+  EDIT_TIME_ASC("EDIT_TIME_ASC"), // User编辑时间升序
+  ENTITY_CREATE_TIME_ASC("ENTITY_CREATE_TIME_ASC"), // 实体创建时间升序（已废弃）
+  ENTITY_CREATE_TIME_DESC("ENTITY_CREATE_TIME_DESC"), // 实体创建时间降序（已废弃）
+  CREATE_TIME("CREATE_TIME"), // 按文档创建时间排序
+  CREATE_TIME_ASC("CREATE_TIME_ASC"), // 按文档创建时间正序（该排序暂不支持）
+  ;
+  private String value;
 
-    DocFilterSortTypeEnum(String value) {
-        this.value = value;
-    }
+  DocFilterSortTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

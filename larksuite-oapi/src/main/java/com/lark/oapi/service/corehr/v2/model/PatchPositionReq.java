@@ -13,175 +13,198 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class PatchPositionReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：1245464678
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+   * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取
+   *
+   * <p>示例值：people_corehr_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 岗位 ID
+   * 列表，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @Path
+  @SerializedName("position_id")
+  private String positionId;
+
+  public String getPositionId() {
+    return this.positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  @Body private PositionUpdate body;
+
+  public PositionUpdate getPositionUpdate() {
+    return this.body;
+  }
+
+  public void setPositionUpdate(PositionUpdate body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchPositionReq() {}
+
+  public PatchPositionReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：1245464678
+     *
+     * <p>示例值：1245464678
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：people_corehr_department_id
+     * 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：people_corehr_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 岗位ID
-     * <p> 示例值：6862995757234914824
+     * 岗位 ID
+     * 列表，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @Path
-    @SerializedName("position_id")
-    private String positionId;
-    @Body
+    this.positionId = builder.positionId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+
+    // V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+    // 来获取
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：1245464678
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：people_corehr_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：people_corehr_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.PatchPositionPatchPositionDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums.PatchPositionPatchPositionDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String positionId; // 岗位 ID
+
+    // 列表，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+
+    /**
+     * 岗位 ID
+     * 列表，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param positionId
+     * @return
+     */
+    public Builder positionId(String positionId) {
+      this.positionId = positionId;
+      return this;
+    }
+
     private PositionUpdate body;
 
-    // builder 开始
-    public PatchPositionReq() {
-    }
-
-    public PatchPositionReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：1245464678
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.positionId = builder.positionId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getPositionId() {
-        return this.positionId;
-    }
-
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
     public PositionUpdate getPositionUpdate() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPositionUpdate(PositionUpdate body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder positionUpdate(PositionUpdate body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String positionId; // 岗位ID
-        private PositionUpdate body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：1245464678
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.PatchPositionPatchPositionDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.PatchPositionPatchPositionDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param positionId
-         * @return
-         */
-        public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
-        }
-
-        public PositionUpdate getPositionUpdate() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder positionUpdate(PositionUpdate body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchPositionReq build() {
-            return new PatchPositionReq(this);
-        }
+    public PatchPositionReq build() {
+      return new PatchPositionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

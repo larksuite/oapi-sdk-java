@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageCardContent {
+  /**
+   * 卡片标题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public MessageCardContent() {}
+
+  public MessageCardContent(Builder builder) {
     /**
      * 卡片标题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片标题
+     *
+     * <p>示例值：
+     */
     private String title;
 
-    // builder 开始
-    public MessageCardContent() {
+    /**
+     * 卡片标题
+     *
+     * <p>示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public MessageCardContent(Builder builder) {
-        /**
-         * 卡片标题
-         * <p> 示例值：
-         */
-        this.title = builder.title;
+    public MessageCardContent build() {
+      return new MessageCardContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片标题
-         * <p> 示例值：
-         */
-        private String title;
-
-        /**
-         * 卡片标题
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public MessageCardContent build() {
-            return new MessageCardContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,1121 +13,1264 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Application {
+  /**
+   * 应用的 app_id
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 应用创建者（所有者）
+   *
+   * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 应用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 应用类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("scene_type")
+  private Integer sceneType;
+
+  /**
+   * 付费类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("payment_type")
+  private Integer paymentType;
+
+  /**
+   * 应用创建来源(目前仅Base应用返回)
+   *
+   * <p>示例值：base
+   */
+  @SerializedName("create_source")
+  private String createSource;
+
+  /**
+   * 安全设置中的重定向 URL
+   *
+   * <p>示例值：
+   */
+  @SerializedName("redirect_urls")
+  private String[] redirectUrls;
+
+  /**
+   * 发布在线上的应用版本 ID，若没有则为空
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("online_version_id")
+  private String onlineVersionId;
+
+  /**
+   * 在审核中的版本 ID，若没有则为空
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("unaudit_version_id")
+  private String unauditVersionId;
+
+  /**
+   * 应用名称
+   *
+   * <p>示例值：应用名称
+   */
+  @SerializedName("app_name")
+  private String appName;
+
+  /**
+   * 应用图标 url
+   *
+   * <p>示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 应用默认描述
+   *
+   * <p>示例值：应用描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 应用权限列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scopes")
+  private AppScope[] scopes;
+
+  /**
+   * 后台主页地址
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("back_home_url")
+  private String backHomeUrl;
+
+  /**
+   * 应用的国际化信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n")
+  private AppI18nInfo[] i18n;
+
+  /**
+   * 应用主语言
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("primary_language")
+  private String primaryLanguage;
+
+  /**
+   * 应用分类的国际化描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("common_categories")
+  private String[] commonCategories;
+
+  /**
+   * 应用的所有者信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private ApplicationOwner owner;
+
+  /**
+   * 移动端默认能力
+   *
+   * <p>示例值：gadget
+   */
+  @SerializedName("mobile_default_ability")
+  private String mobileDefaultAbility;
+
+  /**
+   * PC端默认能力
+   *
+   * <p>示例值：gadget
+   */
+  @SerializedName("pc_default_ability")
+  private String pcDefaultAbility;
+
+  /**
+   * 应用密钥
+   *
+   * <p>示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+   */
+  @SerializedName("secret")
+  private String secret;
+
+  /**
+   * 应用事件订阅信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("event")
+  private SubscribedEvent event;
+
+  /**
+   * 应用回调配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("callback")
+  private Callback callback;
+
+  /**
+   * 应用加密策略
+   *
+   * <p>示例值：
+   */
+  @SerializedName("encryption")
+  private EventAndCallbackEncryptStrategy encryption;
+
+  /**
+   * 应用安全配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("security")
+  private AppConfigSecurityItem security;
+
+  /**
+   * 是否允许刷新user_access_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allow_refresh_token")
+  private Boolean allowRefreshToken;
+
+  /**
+   * 应用回调配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("callback_info")
+  private CallbackInfo callbackInfo;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public Integer getSceneType() {
+    return this.sceneType;
+  }
+
+  public void setSceneType(Integer sceneType) {
+    this.sceneType = sceneType;
+  }
+
+  public Integer getPaymentType() {
+    return this.paymentType;
+  }
+
+  public void setPaymentType(Integer paymentType) {
+    this.paymentType = paymentType;
+  }
+
+  public String getCreateSource() {
+    return this.createSource;
+  }
+
+  public void setCreateSource(String createSource) {
+    this.createSource = createSource;
+  }
+
+  public String[] getRedirectUrls() {
+    return this.redirectUrls;
+  }
+
+  public void setRedirectUrls(String[] redirectUrls) {
+    this.redirectUrls = redirectUrls;
+  }
+
+  public String getOnlineVersionId() {
+    return this.onlineVersionId;
+  }
+
+  public void setOnlineVersionId(String onlineVersionId) {
+    this.onlineVersionId = onlineVersionId;
+  }
+
+  public String getUnauditVersionId() {
+    return this.unauditVersionId;
+  }
+
+  public void setUnauditVersionId(String unauditVersionId) {
+    this.unauditVersionId = unauditVersionId;
+  }
+
+  public String getAppName() {
+    return this.appName;
+  }
+
+  public void setAppName(String appName) {
+    this.appName = appName;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AppScope[] getScopes() {
+    return this.scopes;
+  }
+
+  public void setScopes(AppScope[] scopes) {
+    this.scopes = scopes;
+  }
+
+  public String getBackHomeUrl() {
+    return this.backHomeUrl;
+  }
+
+  public void setBackHomeUrl(String backHomeUrl) {
+    this.backHomeUrl = backHomeUrl;
+  }
+
+  public AppI18nInfo[] getI18n() {
+    return this.i18n;
+  }
+
+  public void setI18n(AppI18nInfo[] i18n) {
+    this.i18n = i18n;
+  }
+
+  public String getPrimaryLanguage() {
+    return this.primaryLanguage;
+  }
+
+  public void setPrimaryLanguage(String primaryLanguage) {
+    this.primaryLanguage = primaryLanguage;
+  }
+
+  public String[] getCommonCategories() {
+    return this.commonCategories;
+  }
+
+  public void setCommonCategories(String[] commonCategories) {
+    this.commonCategories = commonCategories;
+  }
+
+  public ApplicationOwner getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(ApplicationOwner owner) {
+    this.owner = owner;
+  }
+
+  public String getMobileDefaultAbility() {
+    return this.mobileDefaultAbility;
+  }
+
+  public void setMobileDefaultAbility(String mobileDefaultAbility) {
+    this.mobileDefaultAbility = mobileDefaultAbility;
+  }
+
+  public String getPcDefaultAbility() {
+    return this.pcDefaultAbility;
+  }
+
+  public void setPcDefaultAbility(String pcDefaultAbility) {
+    this.pcDefaultAbility = pcDefaultAbility;
+  }
+
+  public String getSecret() {
+    return this.secret;
+  }
+
+  public void setSecret(String secret) {
+    this.secret = secret;
+  }
+
+  public SubscribedEvent getEvent() {
+    return this.event;
+  }
+
+  public void setEvent(SubscribedEvent event) {
+    this.event = event;
+  }
+
+  public Callback getCallback() {
+    return this.callback;
+  }
+
+  public void setCallback(Callback callback) {
+    this.callback = callback;
+  }
+
+  public EventAndCallbackEncryptStrategy getEncryption() {
+    return this.encryption;
+  }
+
+  public void setEncryption(EventAndCallbackEncryptStrategy encryption) {
+    this.encryption = encryption;
+  }
+
+  public AppConfigSecurityItem getSecurity() {
+    return this.security;
+  }
+
+  public void setSecurity(AppConfigSecurityItem security) {
+    this.security = security;
+  }
+
+  public Boolean getAllowRefreshToken() {
+    return this.allowRefreshToken;
+  }
+
+  public void setAllowRefreshToken(Boolean allowRefreshToken) {
+    this.allowRefreshToken = allowRefreshToken;
+  }
+
+  public CallbackInfo getCallbackInfo() {
+    return this.callbackInfo;
+  }
+
+  public void setCallbackInfo(CallbackInfo callbackInfo) {
+    this.callbackInfo = callbackInfo;
+  }
+
+  // builder 开始
+  public Application() {}
+
+  public Application(Builder builder) {
     /**
      * 应用的 app_id
-     * <p> 示例值：cli_9b445f5258795107
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
      * 应用创建者（所有者）
-     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 应用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 应用类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("scene_type")
-    private Integer sceneType;
+    this.sceneType = builder.sceneType;
     /**
      * 付费类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("payment_type")
-    private Integer paymentType;
+    this.paymentType = builder.paymentType;
     /**
      * 应用创建来源(目前仅Base应用返回)
-     * <p> 示例值：base
+     *
+     * <p>示例值：base
      */
-    @SerializedName("create_source")
-    private String createSource;
+    this.createSource = builder.createSource;
     /**
      * 安全设置中的重定向 URL
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("redirect_urls")
-    private String[] redirectUrls;
+    this.redirectUrls = builder.redirectUrls;
     /**
      * 发布在线上的应用版本 ID，若没有则为空
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
-    @SerializedName("online_version_id")
-    private String onlineVersionId;
+    this.onlineVersionId = builder.onlineVersionId;
     /**
      * 在审核中的版本 ID，若没有则为空
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
      */
-    @SerializedName("unaudit_version_id")
-    private String unauditVersionId;
+    this.unauditVersionId = builder.unauditVersionId;
     /**
      * 应用名称
-     * <p> 示例值：应用名称
+     *
+     * <p>示例值：应用名称
      */
-    @SerializedName("app_name")
-    private String appName;
+    this.appName = builder.appName;
     /**
      * 应用图标 url
-     * <p> 示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
+     *
+     * <p>示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
      * 应用默认描述
-     * <p> 示例值：应用描述
+     *
+     * <p>示例值：应用描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 应用权限列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scopes")
-    private AppScope[] scopes;
+    this.scopes = builder.scopes;
     /**
      * 后台主页地址
-     * <p> 示例值：https://www.example.com
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("back_home_url")
-    private String backHomeUrl;
+    this.backHomeUrl = builder.backHomeUrl;
     /**
      * 应用的国际化信息列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n")
-    private AppI18nInfo[] i18n;
+    this.i18n = builder.i18n;
     /**
      * 应用主语言
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("primary_language")
-    private String primaryLanguage;
+    this.primaryLanguage = builder.primaryLanguage;
     /**
      * 应用分类的国际化描述
-     * <p> 示例值：["办公效率"]
+     *
+     * <p>示例值：
      */
-    @SerializedName("common_categories")
-    private String[] commonCategories;
+    this.commonCategories = builder.commonCategories;
     /**
      * 应用的所有者信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private ApplicationOwner owner;
+    this.owner = builder.owner;
     /**
      * 移动端默认能力
-     * <p> 示例值：gadget
+     *
+     * <p>示例值：gadget
      */
-    @SerializedName("mobile_default_ability")
-    private String mobileDefaultAbility;
+    this.mobileDefaultAbility = builder.mobileDefaultAbility;
     /**
      * PC端默认能力
-     * <p> 示例值：gadget
+     *
+     * <p>示例值：gadget
      */
-    @SerializedName("pc_default_ability")
-    private String pcDefaultAbility;
+    this.pcDefaultAbility = builder.pcDefaultAbility;
     /**
      * 应用密钥
-     * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+     *
+     * <p>示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
      */
-    @SerializedName("secret")
-    private String secret;
+    this.secret = builder.secret;
     /**
      * 应用事件订阅信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("event")
-    private SubscribedEvent event;
+    this.event = builder.event;
     /**
      * 应用回调配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("callback")
-    private Callback callback;
+    this.callback = builder.callback;
     /**
      * 应用加密策略
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("encryption")
-    private EventAndCallbackEncryptStrategy encryption;
+    this.encryption = builder.encryption;
     /**
      * 应用安全配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("security")
-    private AppConfigSecurityItem security;
+    this.security = builder.security;
     /**
      * 是否允许刷新user_access_token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allow_refresh_token")
-    private Boolean allowRefreshToken;
+    this.allowRefreshToken = builder.allowRefreshToken;
     /**
      * 应用回调配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("callback_info")
+    this.callbackInfo = builder.callbackInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 应用的 app_id
+     *
+     * <p>示例值：cli_***
+     */
+    private String appId;
+
+    /**
+     * 应用创建者（所有者）
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
+    private String creatorId;
+
+    /**
+     * 应用状态
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 应用类型
+     *
+     * <p>示例值：0
+     */
+    private Integer sceneType;
+
+    /**
+     * 付费类型
+     *
+     * <p>示例值：0
+     */
+    private Integer paymentType;
+
+    /**
+     * 应用创建来源(目前仅Base应用返回)
+     *
+     * <p>示例值：base
+     */
+    private String createSource;
+
+    /**
+     * 安全设置中的重定向 URL
+     *
+     * <p>示例值：
+     */
+    private String[] redirectUrls;
+
+    /**
+     * 发布在线上的应用版本 ID，若没有则为空
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+     */
+    private String onlineVersionId;
+
+    /**
+     * 在审核中的版本 ID，若没有则为空
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+     */
+    private String unauditVersionId;
+
+    /**
+     * 应用名称
+     *
+     * <p>示例值：应用名称
+     */
+    private String appName;
+
+    /**
+     * 应用图标 url
+     *
+     * <p>示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
+     */
+    private String avatarUrl;
+
+    /**
+     * 应用默认描述
+     *
+     * <p>示例值：应用描述
+     */
+    private String description;
+
+    /**
+     * 应用权限列表
+     *
+     * <p>示例值：
+     */
+    private AppScope[] scopes;
+
+    /**
+     * 后台主页地址
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String backHomeUrl;
+
+    /**
+     * 应用的国际化信息列表
+     *
+     * <p>示例值：
+     */
+    private AppI18nInfo[] i18n;
+
+    /**
+     * 应用主语言
+     *
+     * <p>示例值：zh_cn
+     */
+    private String primaryLanguage;
+
+    /**
+     * 应用分类的国际化描述
+     *
+     * <p>示例值：
+     */
+    private String[] commonCategories;
+
+    /**
+     * 应用的所有者信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationOwner owner;
+
+    /**
+     * 移动端默认能力
+     *
+     * <p>示例值：gadget
+     */
+    private String mobileDefaultAbility;
+
+    /**
+     * PC端默认能力
+     *
+     * <p>示例值：gadget
+     */
+    private String pcDefaultAbility;
+
+    /**
+     * 应用密钥
+     *
+     * <p>示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+     */
+    private String secret;
+
+    /**
+     * 应用事件订阅信息
+     *
+     * <p>示例值：
+     */
+    private SubscribedEvent event;
+
+    /**
+     * 应用回调配置
+     *
+     * <p>示例值：
+     */
+    private Callback callback;
+
+    /**
+     * 应用加密策略
+     *
+     * <p>示例值：
+     */
+    private EventAndCallbackEncryptStrategy encryption;
+
+    /**
+     * 应用安全配置
+     *
+     * <p>示例值：
+     */
+    private AppConfigSecurityItem security;
+
+    /**
+     * 是否允许刷新user_access_token
+     *
+     * <p>示例值：
+     */
+    private Boolean allowRefreshToken;
+
+    /**
+     * 应用回调配置
+     *
+     * <p>示例值：
+     */
     private CallbackInfo callbackInfo;
 
-    // builder 开始
-    public Application() {
+    /**
+     * 应用的 app_id
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public Application(Builder builder) {
-        /**
-         * 应用的 app_id
-         * <p> 示例值：cli_9b445f5258795107
-         */
-        this.appId = builder.appId;
-        /**
-         * 应用创建者（所有者）
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 应用状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 应用类型
-         * <p> 示例值：0
-         */
-        this.sceneType = builder.sceneType;
-        /**
-         * 付费类型
-         * <p> 示例值：0
-         */
-        this.paymentType = builder.paymentType;
-        /**
-         * 应用创建来源(目前仅Base应用返回)
-         * <p> 示例值：base
-         */
-        this.createSource = builder.createSource;
-        /**
-         * 安全设置中的重定向 URL
-         * <p> 示例值：
-         */
-        this.redirectUrls = builder.redirectUrls;
-        /**
-         * 发布在线上的应用版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        this.onlineVersionId = builder.onlineVersionId;
-        /**
-         * 在审核中的版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        this.unauditVersionId = builder.unauditVersionId;
-        /**
-         * 应用名称
-         * <p> 示例值：应用名称
-         */
-        this.appName = builder.appName;
-        /**
-         * 应用图标 url
-         * <p> 示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 应用默认描述
-         * <p> 示例值：应用描述
-         */
-        this.description = builder.description;
-        /**
-         * 应用权限列表
-         * <p> 示例值：
-         */
-        this.scopes = builder.scopes;
-        /**
-         * 后台主页地址
-         * <p> 示例值：https://www.example.com
-         */
-        this.backHomeUrl = builder.backHomeUrl;
-        /**
-         * 应用的国际化信息列表
-         * <p> 示例值：
-         */
-        this.i18n = builder.i18n;
-        /**
-         * 应用主语言
-         * <p> 示例值：zh_cn
-         */
-        this.primaryLanguage = builder.primaryLanguage;
-        /**
-         * 应用分类的国际化描述
-         * <p> 示例值：["办公效率"]
-         */
-        this.commonCategories = builder.commonCategories;
-        /**
-         * 应用的所有者信息
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         */
-        this.mobileDefaultAbility = builder.mobileDefaultAbility;
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         */
-        this.pcDefaultAbility = builder.pcDefaultAbility;
-        /**
-         * 应用密钥
-         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
-         */
-        this.secret = builder.secret;
-        /**
-         * 应用事件订阅信息
-         * <p> 示例值：
-         */
-        this.event = builder.event;
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         */
-        this.callback = builder.callback;
-        /**
-         * 应用加密策略
-         * <p> 示例值：
-         */
-        this.encryption = builder.encryption;
-        /**
-         * 应用安全配置
-         * <p> 示例值：
-         */
-        this.security = builder.security;
-        /**
-         * 是否允许刷新user_access_token
-         * <p> 示例值：
-         */
-        this.allowRefreshToken = builder.allowRefreshToken;
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         */
-        this.callbackInfo = builder.callbackInfo;
+    /**
+     * 应用创建者（所有者）
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * 应用状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link com.lark.oapi.service.application.v6.enums.ApplicationAppStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.application.v6.enums.ApplicationAppStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    /**
+     * 应用类型
+     *
+     * <p>示例值：0
+     *
+     * @param sceneType
+     * @return
+     */
+    public Builder sceneType(Integer sceneType) {
+      this.sceneType = sceneType;
+      return this;
     }
 
-    public String getCreatorId() {
-        return this.creatorId;
+    /**
+     * 应用类型
+     *
+     * <p>示例值：0
+     *
+     * @param sceneType {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationAppSceneTypeEnum}
+     * @return
+     */
+    public Builder sceneType(
+        com.lark.oapi.service.application.v6.enums.ApplicationAppSceneTypeEnum sceneType) {
+      this.sceneType = sceneType.getValue();
+      return this;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    /**
+     * 付费类型
+     *
+     * <p>示例值：0
+     *
+     * @param paymentType
+     * @return
+     */
+    public Builder paymentType(Integer paymentType) {
+      this.paymentType = paymentType;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    /**
+     * 付费类型
+     *
+     * <p>示例值：0
+     *
+     * @param paymentType {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationPaymentTypeEnum}
+     * @return
+     */
+    public Builder paymentType(
+        com.lark.oapi.service.application.v6.enums.ApplicationPaymentTypeEnum paymentType) {
+      this.paymentType = paymentType.getValue();
+      return this;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    /**
+     * 应用创建来源(目前仅Base应用返回)
+     *
+     * <p>示例值：base
+     *
+     * @param createSource
+     * @return
+     */
+    public Builder createSource(String createSource) {
+      this.createSource = createSource;
+      return this;
     }
 
-    public Integer getSceneType() {
-        return this.sceneType;
+    /**
+     * 应用创建来源(目前仅Base应用返回)
+     *
+     * <p>示例值：base
+     *
+     * @param createSource {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationApplicationCreateSourceEnum}
+     * @return
+     */
+    public Builder createSource(
+        com.lark.oapi.service.application.v6.enums.ApplicationApplicationCreateSourceEnum
+            createSource) {
+      this.createSource = createSource.getValue();
+      return this;
     }
 
-    public void setSceneType(Integer sceneType) {
-        this.sceneType = sceneType;
+    /**
+     * 安全设置中的重定向 URL
+     *
+     * <p>示例值：
+     *
+     * @param redirectUrls
+     * @return
+     */
+    public Builder redirectUrls(String[] redirectUrls) {
+      this.redirectUrls = redirectUrls;
+      return this;
     }
 
-    public Integer getPaymentType() {
-        return this.paymentType;
+    /**
+     * 发布在线上的应用版本 ID，若没有则为空
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param onlineVersionId
+     * @return
+     */
+    public Builder onlineVersionId(String onlineVersionId) {
+      this.onlineVersionId = onlineVersionId;
+      return this;
     }
 
-    public void setPaymentType(Integer paymentType) {
-        this.paymentType = paymentType;
+    /**
+     * 在审核中的版本 ID，若没有则为空
+     *
+     * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param unauditVersionId
+     * @return
+     */
+    public Builder unauditVersionId(String unauditVersionId) {
+      this.unauditVersionId = unauditVersionId;
+      return this;
     }
 
-    public String getCreateSource() {
-        return this.createSource;
+    /**
+     * 应用名称
+     *
+     * <p>示例值：应用名称
+     *
+     * @param appName
+     * @return
+     */
+    public Builder appName(String appName) {
+      this.appName = appName;
+      return this;
     }
 
-    public void setCreateSource(String createSource) {
-        this.createSource = createSource;
+    /**
+     * 应用图标 url
+     *
+     * <p>示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public String[] getRedirectUrls() {
-        return this.redirectUrls;
+    /**
+     * 应用默认描述
+     *
+     * <p>示例值：应用描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setRedirectUrls(String[] redirectUrls) {
-        this.redirectUrls = redirectUrls;
+    /**
+     * 应用权限列表
+     *
+     * <p>示例值：
+     *
+     * @param scopes
+     * @return
+     */
+    public Builder scopes(AppScope[] scopes) {
+      this.scopes = scopes;
+      return this;
     }
 
-    public String getOnlineVersionId() {
-        return this.onlineVersionId;
+    /**
+     * 后台主页地址
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param backHomeUrl
+     * @return
+     */
+    public Builder backHomeUrl(String backHomeUrl) {
+      this.backHomeUrl = backHomeUrl;
+      return this;
     }
 
-    public void setOnlineVersionId(String onlineVersionId) {
-        this.onlineVersionId = onlineVersionId;
+    /**
+     * 应用的国际化信息列表
+     *
+     * <p>示例值：
+     *
+     * @param i18n
+     * @return
+     */
+    public Builder i18n(AppI18nInfo[] i18n) {
+      this.i18n = i18n;
+      return this;
     }
 
-    public String getUnauditVersionId() {
-        return this.unauditVersionId;
+    /**
+     * 应用主语言
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param primaryLanguage
+     * @return
+     */
+    public Builder primaryLanguage(String primaryLanguage) {
+      this.primaryLanguage = primaryLanguage;
+      return this;
     }
 
-    public void setUnauditVersionId(String unauditVersionId) {
-        this.unauditVersionId = unauditVersionId;
+    /**
+     * 应用主语言
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param primaryLanguage {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationI18nKeyEnum}
+     * @return
+     */
+    public Builder primaryLanguage(
+        com.lark.oapi.service.application.v6.enums.ApplicationI18nKeyEnum primaryLanguage) {
+      this.primaryLanguage = primaryLanguage.getValue();
+      return this;
     }
 
-    public String getAppName() {
-        return this.appName;
+    /**
+     * 应用分类的国际化描述
+     *
+     * <p>示例值：
+     *
+     * @param commonCategories
+     * @return
+     */
+    public Builder commonCategories(String[] commonCategories) {
+      this.commonCategories = commonCategories;
+      return this;
     }
 
-    public void setAppName(String appName) {
-        this.appName = appName;
+    /**
+     * 应用的所有者信息
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(ApplicationOwner owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public String getAvatarUrl() {
-        return this.avatarUrl;
+    /**
+     * 移动端默认能力
+     *
+     * <p>示例值：gadget
+     *
+     * @param mobileDefaultAbility
+     * @return
+     */
+    public Builder mobileDefaultAbility(String mobileDefaultAbility) {
+      this.mobileDefaultAbility = mobileDefaultAbility;
+      return this;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    /**
+     * 移动端默认能力
+     *
+     * <p>示例值：gadget
+     *
+     * @param mobileDefaultAbility {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationApplicationMobileDefaultAbilityEnum}
+     * @return
+     */
+    public Builder mobileDefaultAbility(
+        com.lark.oapi.service.application.v6.enums.ApplicationApplicationMobileDefaultAbilityEnum
+            mobileDefaultAbility) {
+      this.mobileDefaultAbility = mobileDefaultAbility.getValue();
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * PC端默认能力
+     *
+     * <p>示例值：gadget
+     *
+     * @param pcDefaultAbility
+     * @return
+     */
+    public Builder pcDefaultAbility(String pcDefaultAbility) {
+      this.pcDefaultAbility = pcDefaultAbility;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * PC端默认能力
+     *
+     * <p>示例值：gadget
+     *
+     * @param pcDefaultAbility {@link
+     *     com.lark.oapi.service.application.v6.enums.ApplicationApplicationPcDefaultAbilityEnum}
+     * @return
+     */
+    public Builder pcDefaultAbility(
+        com.lark.oapi.service.application.v6.enums.ApplicationApplicationPcDefaultAbilityEnum
+            pcDefaultAbility) {
+      this.pcDefaultAbility = pcDefaultAbility.getValue();
+      return this;
     }
 
-    public AppScope[] getScopes() {
-        return this.scopes;
+    /**
+     * 应用密钥
+     *
+     * <p>示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
+     *
+     * @param secret
+     * @return
+     */
+    public Builder secret(String secret) {
+      this.secret = secret;
+      return this;
     }
 
-    public void setScopes(AppScope[] scopes) {
-        this.scopes = scopes;
+    /**
+     * 应用事件订阅信息
+     *
+     * <p>示例值：
+     *
+     * @param event
+     * @return
+     */
+    public Builder event(SubscribedEvent event) {
+      this.event = event;
+      return this;
     }
 
-    public String getBackHomeUrl() {
-        return this.backHomeUrl;
+    /**
+     * 应用回调配置
+     *
+     * <p>示例值：
+     *
+     * @param callback
+     * @return
+     */
+    public Builder callback(Callback callback) {
+      this.callback = callback;
+      return this;
     }
 
-    public void setBackHomeUrl(String backHomeUrl) {
-        this.backHomeUrl = backHomeUrl;
+    /**
+     * 应用加密策略
+     *
+     * <p>示例值：
+     *
+     * @param encryption
+     * @return
+     */
+    public Builder encryption(EventAndCallbackEncryptStrategy encryption) {
+      this.encryption = encryption;
+      return this;
     }
 
-    public AppI18nInfo[] getI18n() {
-        return this.i18n;
+    /**
+     * 应用安全配置
+     *
+     * <p>示例值：
+     *
+     * @param security
+     * @return
+     */
+    public Builder security(AppConfigSecurityItem security) {
+      this.security = security;
+      return this;
     }
 
-    public void setI18n(AppI18nInfo[] i18n) {
-        this.i18n = i18n;
+    /**
+     * 是否允许刷新user_access_token
+     *
+     * <p>示例值：
+     *
+     * @param allowRefreshToken
+     * @return
+     */
+    public Builder allowRefreshToken(Boolean allowRefreshToken) {
+      this.allowRefreshToken = allowRefreshToken;
+      return this;
     }
 
-    public String getPrimaryLanguage() {
-        return this.primaryLanguage;
+    /**
+     * 应用回调配置
+     *
+     * <p>示例值：
+     *
+     * @param callbackInfo
+     * @return
+     */
+    public Builder callbackInfo(CallbackInfo callbackInfo) {
+      this.callbackInfo = callbackInfo;
+      return this;
     }
 
-    public void setPrimaryLanguage(String primaryLanguage) {
-        this.primaryLanguage = primaryLanguage;
+    public Application build() {
+      return new Application(this);
     }
-
-    public String[] getCommonCategories() {
-        return this.commonCategories;
-    }
-
-    public void setCommonCategories(String[] commonCategories) {
-        this.commonCategories = commonCategories;
-    }
-
-    public ApplicationOwner getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(ApplicationOwner owner) {
-        this.owner = owner;
-    }
-
-    public String getMobileDefaultAbility() {
-        return this.mobileDefaultAbility;
-    }
-
-    public void setMobileDefaultAbility(String mobileDefaultAbility) {
-        this.mobileDefaultAbility = mobileDefaultAbility;
-    }
-
-    public String getPcDefaultAbility() {
-        return this.pcDefaultAbility;
-    }
-
-    public void setPcDefaultAbility(String pcDefaultAbility) {
-        this.pcDefaultAbility = pcDefaultAbility;
-    }
-
-    public String getSecret() {
-        return this.secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public SubscribedEvent getEvent() {
-        return this.event;
-    }
-
-    public void setEvent(SubscribedEvent event) {
-        this.event = event;
-    }
-
-    public Callback getCallback() {
-        return this.callback;
-    }
-
-    public void setCallback(Callback callback) {
-        this.callback = callback;
-    }
-
-    public EventAndCallbackEncryptStrategy getEncryption() {
-        return this.encryption;
-    }
-
-    public void setEncryption(EventAndCallbackEncryptStrategy encryption) {
-        this.encryption = encryption;
-    }
-
-    public AppConfigSecurityItem getSecurity() {
-        return this.security;
-    }
-
-    public void setSecurity(AppConfigSecurityItem security) {
-        this.security = security;
-    }
-
-    public Boolean getAllowRefreshToken() {
-        return this.allowRefreshToken;
-    }
-
-    public void setAllowRefreshToken(Boolean allowRefreshToken) {
-        this.allowRefreshToken = allowRefreshToken;
-    }
-
-    public CallbackInfo getCallbackInfo() {
-        return this.callbackInfo;
-    }
-
-    public void setCallbackInfo(CallbackInfo callbackInfo) {
-        this.callbackInfo = callbackInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 应用的 app_id
-         * <p> 示例值：cli_9b445f5258795107
-         */
-        private String appId;
-        /**
-         * 应用创建者（所有者）
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
-        private String creatorId;
-        /**
-         * 应用状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 应用类型
-         * <p> 示例值：0
-         */
-        private Integer sceneType;
-        /**
-         * 付费类型
-         * <p> 示例值：0
-         */
-        private Integer paymentType;
-        /**
-         * 应用创建来源(目前仅Base应用返回)
-         * <p> 示例值：base
-         */
-        private String createSource;
-        /**
-         * 安全设置中的重定向 URL
-         * <p> 示例值：
-         */
-        private String[] redirectUrls;
-        /**
-         * 发布在线上的应用版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        private String onlineVersionId;
-        /**
-         * 在审核中的版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         */
-        private String unauditVersionId;
-        /**
-         * 应用名称
-         * <p> 示例值：应用名称
-         */
-        private String appName;
-        /**
-         * 应用图标 url
-         * <p> 示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
-         */
-        private String avatarUrl;
-        /**
-         * 应用默认描述
-         * <p> 示例值：应用描述
-         */
-        private String description;
-        /**
-         * 应用权限列表
-         * <p> 示例值：
-         */
-        private AppScope[] scopes;
-        /**
-         * 后台主页地址
-         * <p> 示例值：https://www.example.com
-         */
-        private String backHomeUrl;
-        /**
-         * 应用的国际化信息列表
-         * <p> 示例值：
-         */
-        private AppI18nInfo[] i18n;
-        /**
-         * 应用主语言
-         * <p> 示例值：zh_cn
-         */
-        private String primaryLanguage;
-        /**
-         * 应用分类的国际化描述
-         * <p> 示例值：["办公效率"]
-         */
-        private String[] commonCategories;
-        /**
-         * 应用的所有者信息
-         * <p> 示例值：
-         */
-        private ApplicationOwner owner;
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         */
-        private String mobileDefaultAbility;
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         */
-        private String pcDefaultAbility;
-        /**
-         * 应用密钥
-         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
-         */
-        private String secret;
-        /**
-         * 应用事件订阅信息
-         * <p> 示例值：
-         */
-        private SubscribedEvent event;
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         */
-        private Callback callback;
-        /**
-         * 应用加密策略
-         * <p> 示例值：
-         */
-        private EventAndCallbackEncryptStrategy encryption;
-        /**
-         * 应用安全配置
-         * <p> 示例值：
-         */
-        private AppConfigSecurityItem security;
-        /**
-         * 是否允许刷新user_access_token
-         * <p> 示例值：
-         */
-        private Boolean allowRefreshToken;
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         */
-        private CallbackInfo callbackInfo;
-
-        /**
-         * 应用的 app_id
-         * <p> 示例值：cli_9b445f5258795107
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 应用创建者（所有者）
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 应用状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 应用状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.application.v6.enums.ApplicationAppStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.application.v6.enums.ApplicationAppStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用类型
-         * <p> 示例值：0
-         *
-         * @param sceneType
-         * @return
-         */
-        public Builder sceneType(Integer sceneType) {
-            this.sceneType = sceneType;
-            return this;
-        }
-
-        /**
-         * 应用类型
-         * <p> 示例值：0
-         *
-         * @param sceneType {@link com.lark.oapi.service.application.v6.enums.ApplicationAppSceneTypeEnum}
-         * @return
-         */
-        public Builder sceneType(com.lark.oapi.service.application.v6.enums.ApplicationAppSceneTypeEnum sceneType) {
-            this.sceneType = sceneType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 付费类型
-         * <p> 示例值：0
-         *
-         * @param paymentType
-         * @return
-         */
-        public Builder paymentType(Integer paymentType) {
-            this.paymentType = paymentType;
-            return this;
-        }
-
-        /**
-         * 付费类型
-         * <p> 示例值：0
-         *
-         * @param paymentType {@link com.lark.oapi.service.application.v6.enums.ApplicationPaymentTypeEnum}
-         * @return
-         */
-        public Builder paymentType(com.lark.oapi.service.application.v6.enums.ApplicationPaymentTypeEnum paymentType) {
-            this.paymentType = paymentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用创建来源(目前仅Base应用返回)
-         * <p> 示例值：base
-         *
-         * @param createSource
-         * @return
-         */
-        public Builder createSource(String createSource) {
-            this.createSource = createSource;
-            return this;
-        }
-
-        /**
-         * 应用创建来源(目前仅Base应用返回)
-         * <p> 示例值：base
-         *
-         * @param createSource {@link com.lark.oapi.service.application.v6.enums.ApplicationApplicationCreateSourceEnum}
-         * @return
-         */
-        public Builder createSource(com.lark.oapi.service.application.v6.enums.ApplicationApplicationCreateSourceEnum createSource) {
-            this.createSource = createSource.getValue();
-            return this;
-        }
-
-
-        /**
-         * 安全设置中的重定向 URL
-         * <p> 示例值：
-         *
-         * @param redirectUrls
-         * @return
-         */
-        public Builder redirectUrls(String[] redirectUrls) {
-            this.redirectUrls = redirectUrls;
-            return this;
-        }
-
-
-        /**
-         * 发布在线上的应用版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         *
-         * @param onlineVersionId
-         * @return
-         */
-        public Builder onlineVersionId(String onlineVersionId) {
-            this.onlineVersionId = onlineVersionId;
-            return this;
-        }
-
-
-        /**
-         * 在审核中的版本 ID，若没有则为空
-         * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-         *
-         * @param unauditVersionId
-         * @return
-         */
-        public Builder unauditVersionId(String unauditVersionId) {
-            this.unauditVersionId = unauditVersionId;
-            return this;
-        }
-
-
-        /**
-         * 应用名称
-         * <p> 示例值：应用名称
-         *
-         * @param appName
-         * @return
-         */
-        public Builder appName(String appName) {
-            this.appName = appName;
-            return this;
-        }
-
-
-        /**
-         * 应用图标 url
-         * <p> 示例值：https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 应用默认描述
-         * <p> 示例值：应用描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 应用权限列表
-         * <p> 示例值：
-         *
-         * @param scopes
-         * @return
-         */
-        public Builder scopes(AppScope[] scopes) {
-            this.scopes = scopes;
-            return this;
-        }
-
-
-        /**
-         * 后台主页地址
-         * <p> 示例值：https://www.example.com
-         *
-         * @param backHomeUrl
-         * @return
-         */
-        public Builder backHomeUrl(String backHomeUrl) {
-            this.backHomeUrl = backHomeUrl;
-            return this;
-        }
-
-
-        /**
-         * 应用的国际化信息列表
-         * <p> 示例值：
-         *
-         * @param i18n
-         * @return
-         */
-        public Builder i18n(AppI18nInfo[] i18n) {
-            this.i18n = i18n;
-            return this;
-        }
-
-
-        /**
-         * 应用主语言
-         * <p> 示例值：zh_cn
-         *
-         * @param primaryLanguage
-         * @return
-         */
-        public Builder primaryLanguage(String primaryLanguage) {
-            this.primaryLanguage = primaryLanguage;
-            return this;
-        }
-
-        /**
-         * 应用主语言
-         * <p> 示例值：zh_cn
-         *
-         * @param primaryLanguage {@link com.lark.oapi.service.application.v6.enums.ApplicationI18nKeyEnum}
-         * @return
-         */
-        public Builder primaryLanguage(com.lark.oapi.service.application.v6.enums.ApplicationI18nKeyEnum primaryLanguage) {
-            this.primaryLanguage = primaryLanguage.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用分类的国际化描述
-         * <p> 示例值：["办公效率"]
-         *
-         * @param commonCategories
-         * @return
-         */
-        public Builder commonCategories(String[] commonCategories) {
-            this.commonCategories = commonCategories;
-            return this;
-        }
-
-
-        /**
-         * 应用的所有者信息
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(ApplicationOwner owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param mobileDefaultAbility
-         * @return
-         */
-        public Builder mobileDefaultAbility(String mobileDefaultAbility) {
-            this.mobileDefaultAbility = mobileDefaultAbility;
-            return this;
-        }
-
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param mobileDefaultAbility {@link com.lark.oapi.service.application.v6.enums.ApplicationApplicationMobileDefaultAbilityEnum}
-         * @return
-         */
-        public Builder mobileDefaultAbility(com.lark.oapi.service.application.v6.enums.ApplicationApplicationMobileDefaultAbilityEnum mobileDefaultAbility) {
-            this.mobileDefaultAbility = mobileDefaultAbility.getValue();
-            return this;
-        }
-
-
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param pcDefaultAbility
-         * @return
-         */
-        public Builder pcDefaultAbility(String pcDefaultAbility) {
-            this.pcDefaultAbility = pcDefaultAbility;
-            return this;
-        }
-
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param pcDefaultAbility {@link com.lark.oapi.service.application.v6.enums.ApplicationApplicationPcDefaultAbilityEnum}
-         * @return
-         */
-        public Builder pcDefaultAbility(com.lark.oapi.service.application.v6.enums.ApplicationApplicationPcDefaultAbilityEnum pcDefaultAbility) {
-            this.pcDefaultAbility = pcDefaultAbility.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用密钥
-         * <p> 示例值：XJG4pdMq5CtWIL5xPrYqGtbMIANvLqFV
-         *
-         * @param secret
-         * @return
-         */
-        public Builder secret(String secret) {
-            this.secret = secret;
-            return this;
-        }
-
-
-        /**
-         * 应用事件订阅信息
-         * <p> 示例值：
-         *
-         * @param event
-         * @return
-         */
-        public Builder event(SubscribedEvent event) {
-            this.event = event;
-            return this;
-        }
-
-
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         *
-         * @param callback
-         * @return
-         */
-        public Builder callback(Callback callback) {
-            this.callback = callback;
-            return this;
-        }
-
-
-        /**
-         * 应用加密策略
-         * <p> 示例值：
-         *
-         * @param encryption
-         * @return
-         */
-        public Builder encryption(EventAndCallbackEncryptStrategy encryption) {
-            this.encryption = encryption;
-            return this;
-        }
-
-
-        /**
-         * 应用安全配置
-         * <p> 示例值：
-         *
-         * @param security
-         * @return
-         */
-        public Builder security(AppConfigSecurityItem security) {
-            this.security = security;
-            return this;
-        }
-
-
-        /**
-         * 是否允许刷新user_access_token
-         * <p> 示例值：
-         *
-         * @param allowRefreshToken
-         * @return
-         */
-        public Builder allowRefreshToken(Boolean allowRefreshToken) {
-            this.allowRefreshToken = allowRefreshToken;
-            return this;
-        }
-
-
-        /**
-         * 应用回调配置
-         * <p> 示例值：
-         *
-         * @param callbackInfo
-         * @return
-         */
-        public Builder callbackInfo(CallbackInfo callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
-        }
-
-
-        public Application build() {
-            return new Application(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

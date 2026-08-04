@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Object {
+  /**
+   * 对象 ID
+   *
+   * <p>示例值：1764024447556775
+   */
+  @SerializedName("id")
+  private Integer id;
+
+  /**
+   * 对象 API 名称
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 对象名称
+   *
+   * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+   */
+  @SerializedName("label")
+  private Map<String, String> label;
+
+  /**
+   * 对象配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("settings")
+  private ObjectSettings settings;
+
+  public Integer getId() {
+    return this.id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Map<String, String> label) {
+    this.label = label;
+  }
+
+  public ObjectSettings getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(ObjectSettings settings) {
+    this.settings = settings;
+  }
+
+  // builder 开始
+  public Object() {}
+
+  public Object(Builder builder) {
     /**
      * 对象 ID
-     * <p> 示例值：1764024447556775
+     *
+     * <p>示例值：1764024447556775
      */
-    @SerializedName("id")
-    private Integer id;
+    this.id = builder.id;
     /**
      * 对象 API 名称
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 对象名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
      */
-    @SerializedName("label")
-    private Map<String, String> label;
+    this.label = builder.label;
     /**
      * 对象配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("settings")
+    this.settings = builder.settings;
+  }
+
+  public static class Builder {
+    /**
+     * 对象 ID
+     *
+     * <p>示例值：1764024447556775
+     */
+    private Integer id;
+
+    /**
+     * 对象 API 名称
+     *
+     * <p>示例值：user
+     */
+    private String apiName;
+
+    /**
+     * 对象名称
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     */
+    private Map<String, String> label;
+
+    /**
+     * 对象配置
+     *
+     * <p>示例值：
+     */
     private ObjectSettings settings;
 
-    // builder 开始
-    public Object() {
+    /**
+     * 对象 ID
+     *
+     * <p>示例值：1764024447556775
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(Integer id) {
+      this.id = id;
+      return this;
     }
 
-    public Object(Builder builder) {
-        /**
-         * 对象 ID
-         * <p> 示例值：1764024447556775
-         */
-        this.id = builder.id;
-        /**
-         * 对象 API 名称
-         * <p> 示例值：user
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 对象配置
-         * <p> 示例值：
-         */
-        this.settings = builder.settings;
+    /**
+     * 对象 API 名称
+     *
+     * <p>示例值：user
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对象名称
+     *
+     * <p>示例值：{"en_us": "Approval Flow1", "zh_cn": "审批流程1"}
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Map<String, String> label) {
+      this.label = label;
+      return this;
     }
 
-    public Integer getId() {
-        return this.id;
+    /**
+     * 对象配置
+     *
+     * <p>示例值：
+     *
+     * @param settings
+     * @return
+     */
+    public Builder settings(ObjectSettings settings) {
+      this.settings = settings;
+      return this;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Object build() {
+      return new Object(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public Map<String, String> getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(Map<String, String> label) {
-        this.label = label;
-    }
-
-    public ObjectSettings getSettings() {
-        return this.settings;
-    }
-
-    public void setSettings(ObjectSettings settings) {
-        this.settings = settings;
-    }
-
-    public static class Builder {
-        /**
-         * 对象 ID
-         * <p> 示例值：1764024447556775
-         */
-        private Integer id;
-        /**
-         * 对象 API 名称
-         * <p> 示例值：user
-         */
-        private String apiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        private Map<String, String> label;
-        /**
-         * 对象配置
-         * <p> 示例值：
-         */
-        private ObjectSettings settings;
-
-        /**
-         * 对象 ID
-         * <p> 示例值：1764024447556775
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(Integer id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 对象 API 名称
-         * <p> 示例值：user
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 对象名称
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Map<String, String> label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 对象配置
-         * <p> 示例值：
-         *
-         * @param settings
-         * @return
-         */
-        public Builder settings(ObjectSettings settings) {
-            this.settings = settings;
-            return this;
-        }
-
-
-        public Object build() {
-            return new Object(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

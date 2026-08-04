@@ -13,149 +13,185 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryTimelineDepartmentReqBody {
+  /**
+   * 部门 ID 列表;-
+   * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+   * 日期范围要求:1900-01-01～9999-12-31
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 需要返回的字段列表，字段可填写的列表如下：;- department_name：部门名称;- sub_type：部门子类型;- tree_order：树形排序;-
+   * list_order：列表排序;- is_root：是否根部门;- is_confidential：是否保密;- staffing_model：岗职务模式;-
+   * cost_center_id：部门默认成本中心;- code：部门编码;- active：是否启用;- parent_department_id：上级部门ID;- manager：负责人;-
+   * description：部门描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+   * custom_fields(自定义字段需传入具体的"custom_api_name"详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   * ,比如:"shifouleixing_7795__c)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryTimelineDepartmentReqBody() {}
+
+  public QueryTimelineDepartmentReqBody(Builder builder) {
     /**
-     * 部门 ID 列表
-     * <p> 示例值：
+     * 部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+    /**
+     * 需要返回的字段列表，字段可填写的列表如下：;- department_name：部门名称;- sub_type：部门子类型;- tree_order：树形排序;-
+     * list_order：列表排序;- is_root：是否根部门;- is_confidential：是否保密;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- code：部门编码;- active：是否启用;- parent_department_id：上级部门ID;-
+     * manager：负责人;- description：部门描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * custom_fields(自定义字段需传入具体的"custom_api_name"详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c)
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
+     */
     private String[] departmentIds;
+
     /**
-     * 生效日期
-     * <p> 示例值：2020-01-01
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
+
     /**
-     * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-     * <p> 示例值：
+     * 需要返回的字段列表，字段可填写的列表如下：;- department_name：部门名称;- sub_type：部门子类型;- tree_order：树形排序;-
+     * list_order：列表排序;- is_root：是否根部门;- is_confidential：是否保密;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- code：部门编码;- active：是否启用;- parent_department_id：上级部门ID;-
+     * manager：负责人;- description：部门描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * custom_fields(自定义字段需传入具体的"custom_api_name"详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c)
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryTimelineDepartmentReqBody() {
+    /**
+     * 部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public QueryTimelineDepartmentReqBody(Builder builder) {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要返回的字段列表，字段可填写的列表如下：;- department_name：部门名称;- sub_type：部门子类型;- tree_order：树形排序;-
+     * list_order：列表排序;- is_root：是否根部门;- is_confidential：是否保密;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- code：部门编码;- active：是否启用;- parent_department_id：上级部门ID;-
+     * manager：负责人;- description：部门描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * custom_fields(自定义字段需传入具体的"custom_api_name"详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c)
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
+    public QueryTimelineDepartmentReqBody build() {
+      return new QueryTimelineDepartmentReqBody(this);
     }
+  }
 
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["department_name", "code", "active", "parent_department_id", "manager", "description", "effective_date"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryTimelineDepartmentReqBody build() {
-            return new QueryTimelineDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

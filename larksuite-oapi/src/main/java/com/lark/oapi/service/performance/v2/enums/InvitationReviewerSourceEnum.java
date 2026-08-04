@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 来源
- */
+/** 来源 */
 public enum InvitationReviewerSourceEnum {
-    FILE("file"), // 名单导入
-    OPENAPI("openapi"), // openapi导入
-    ;
-    private String value;
+  FILE("file"), // 名单导入
+  OPENAPI("openapi"), // openapi导入
+  ;
+  private String value;
 
-    InvitationReviewerSourceEnum(String value) {
-        this.value = value;
-    }
+  InvitationReviewerSourceEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgdraftOrgroleAssignment {
+  /**
+   * 授权用户id;- 通过[【批量获取员工信息】](
+   * https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/mget)获取员工其他信息。
+   *
+   * <p>示例值：6967286856077673994
+   */
+  @SerializedName("grantee_id")
+  private String granteeId;
+
+  /**
+   * 管理范围，组织角色为交叉角色时有值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("management_scopes")
+  private OrgroleAssignmentOrg[] managementScopes;
+
+  public String getGranteeId() {
+    return this.granteeId;
+  }
+
+  public void setGranteeId(String granteeId) {
+    this.granteeId = granteeId;
+  }
+
+  public OrgroleAssignmentOrg[] getManagementScopes() {
+    return this.managementScopes;
+  }
+
+  public void setManagementScopes(OrgroleAssignmentOrg[] managementScopes) {
+    this.managementScopes = managementScopes;
+  }
+
+  // builder 开始
+  public OrgdraftOrgroleAssignment() {}
+
+  public OrgdraftOrgroleAssignment(Builder builder) {
     /**
-     * 授权用户id
-     * <p> 示例值：6967286856077673994
+     * 授权用户id;- 通过[【批量获取员工信息】](
+     * https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/mget)获取员工其他信息。
+     *
+     * <p>示例值：6967286856077673994
      */
-    @SerializedName("grantee_id")
+    this.granteeId = builder.granteeId;
+    /**
+     * 管理范围，组织角色为交叉角色时有值。
+     *
+     * <p>示例值：
+     */
+    this.managementScopes = builder.managementScopes;
+  }
+
+  public static class Builder {
+    /**
+     * 授权用户id;- 通过[【批量获取员工信息】](
+     * https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/mget)获取员工其他信息。
+     *
+     * <p>示例值：6967286856077673994
+     */
     private String granteeId;
+
     /**
-     * 管理范围，交叉角色时有值
-     * <p> 示例值：
+     * 管理范围，组织角色为交叉角色时有值。
+     *
+     * <p>示例值：
      */
-    @SerializedName("management_scopes")
     private OrgroleAssignmentOrg[] managementScopes;
 
-    // builder 开始
-    public OrgdraftOrgroleAssignment() {
+    /**
+     * 授权用户id;- 通过[【批量获取员工信息】](
+     * https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/mget)获取员工其他信息。
+     *
+     * <p>示例值：6967286856077673994
+     *
+     * @param granteeId
+     * @return
+     */
+    public Builder granteeId(String granteeId) {
+      this.granteeId = granteeId;
+      return this;
     }
 
-    public OrgdraftOrgroleAssignment(Builder builder) {
-        /**
-         * 授权用户id
-         * <p> 示例值：6967286856077673994
-         */
-        this.granteeId = builder.granteeId;
-        /**
-         * 管理范围，交叉角色时有值
-         * <p> 示例值：
-         */
-        this.managementScopes = builder.managementScopes;
+    /**
+     * 管理范围，组织角色为交叉角色时有值。
+     *
+     * <p>示例值：
+     *
+     * @param managementScopes
+     * @return
+     */
+    public Builder managementScopes(OrgroleAssignmentOrg[] managementScopes) {
+      this.managementScopes = managementScopes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OrgdraftOrgroleAssignment build() {
+      return new OrgdraftOrgroleAssignment(this);
     }
+  }
 
-    public String getGranteeId() {
-        return this.granteeId;
-    }
-
-    public void setGranteeId(String granteeId) {
-        this.granteeId = granteeId;
-    }
-
-    public OrgroleAssignmentOrg[] getManagementScopes() {
-        return this.managementScopes;
-    }
-
-    public void setManagementScopes(OrgroleAssignmentOrg[] managementScopes) {
-        this.managementScopes = managementScopes;
-    }
-
-    public static class Builder {
-        /**
-         * 授权用户id
-         * <p> 示例值：6967286856077673994
-         */
-        private String granteeId;
-        /**
-         * 管理范围，交叉角色时有值
-         * <p> 示例值：
-         */
-        private OrgroleAssignmentOrg[] managementScopes;
-
-        /**
-         * 授权用户id
-         * <p> 示例值：6967286856077673994
-         *
-         * @param granteeId
-         * @return
-         */
-        public Builder granteeId(String granteeId) {
-            this.granteeId = granteeId;
-            return this;
-        }
-
-
-        /**
-         * 管理范围，交叉角色时有值
-         * <p> 示例值：
-         *
-         * @param managementScopes
-         * @return
-         */
-        public Builder managementScopes(OrgroleAssignmentOrg[] managementScopes) {
-            this.managementScopes = managementScopes;
-            return this;
-        }
-
-
-        public OrgdraftOrgroleAssignment build() {
-            return new OrgdraftOrgroleAssignment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 任务名称
- */
+/** 任务名称 */
 public enum OnboardingTaskTaskStatusEnum {
-    INITIATING("initiating"), // 发起中
-    TERMINATED("terminated"), // 已终止
-    EXCEPTION("exception"), // 异常
-    INPROGRESS("in_progress"), // 进行中
-    NOTSTARTED("not_started"), // 未开始
-    SKIPPED("skipped"), // 已跳过
-    UNINITIALIZED("uninitialized"), // 未初始化
-    FAILED("failed"), // 已失败
-    INREVIEW("in_review"), // 审核中
-    REJECTED("rejected"), // 已退回
-    COMPLETED("completed"), // 已完成
-    ;
-    private String value;
+  INITIATING("initiating"), // 发起中
+  TERMINATED("terminated"), // 已终止
+  EXCEPTION("exception"), // 异常
+  INPROGRESS("in_progress"), // 进行中
+  NOTSTARTED("not_started"), // 未开始
+  SKIPPED("skipped"), // 已跳过
+  UNINITIALIZED("uninitialized"), // 未初始化
+  FAILED("failed"), // 已失败
+  INREVIEW("in_review"), // 审核中
+  REJECTED("rejected"), // 已退回
+  COMPLETED("completed"), // 已完成
+  ;
+  private String value;
 
-    OnboardingTaskTaskStatusEnum(String value) {
-        this.value = value;
-    }
+  OnboardingTaskTaskStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

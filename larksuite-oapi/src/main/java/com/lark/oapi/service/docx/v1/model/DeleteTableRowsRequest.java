@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteTableRowsRequest {
+  /**
+   * 行开始索引（区间左闭右开）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("row_start_index")
+  private Integer rowStartIndex;
+
+  /**
+   * 行结束索引（区间左闭右开）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("row_end_index")
+  private Integer rowEndIndex;
+
+  public Integer getRowStartIndex() {
+    return this.rowStartIndex;
+  }
+
+  public void setRowStartIndex(Integer rowStartIndex) {
+    this.rowStartIndex = rowStartIndex;
+  }
+
+  public Integer getRowEndIndex() {
+    return this.rowEndIndex;
+  }
+
+  public void setRowEndIndex(Integer rowEndIndex) {
+    this.rowEndIndex = rowEndIndex;
+  }
+
+  // builder 开始
+  public DeleteTableRowsRequest() {}
+
+  public DeleteTableRowsRequest(Builder builder) {
     /**
      * 行开始索引（区间左闭右开）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("row_start_index")
-    private Integer rowStartIndex;
+    this.rowStartIndex = builder.rowStartIndex;
     /**
      * 行结束索引（区间左闭右开）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("row_end_index")
+    this.rowEndIndex = builder.rowEndIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 行开始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     */
+    private Integer rowStartIndex;
+
+    /**
+     * 行结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     */
     private Integer rowEndIndex;
 
-    // builder 开始
-    public DeleteTableRowsRequest() {
+    /**
+     * 行开始索引（区间左闭右开）
+     *
+     * <p>示例值：0
+     *
+     * @param rowStartIndex
+     * @return
+     */
+    public Builder rowStartIndex(Integer rowStartIndex) {
+      this.rowStartIndex = rowStartIndex;
+      return this;
     }
 
-    public DeleteTableRowsRequest(Builder builder) {
-        /**
-         * 行开始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        this.rowStartIndex = builder.rowStartIndex;
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        this.rowEndIndex = builder.rowEndIndex;
+    /**
+     * 行结束索引（区间左闭右开）
+     *
+     * <p>示例值：1
+     *
+     * @param rowEndIndex
+     * @return
+     */
+    public Builder rowEndIndex(Integer rowEndIndex) {
+      this.rowEndIndex = rowEndIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteTableRowsRequest build() {
+      return new DeleteTableRowsRequest(this);
     }
+  }
 
-    public Integer getRowStartIndex() {
-        return this.rowStartIndex;
-    }
-
-    public void setRowStartIndex(Integer rowStartIndex) {
-        this.rowStartIndex = rowStartIndex;
-    }
-
-    public Integer getRowEndIndex() {
-        return this.rowEndIndex;
-    }
-
-    public void setRowEndIndex(Integer rowEndIndex) {
-        this.rowEndIndex = rowEndIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 行开始索引（区间左闭右开）
-         * <p> 示例值：0
-         */
-        private Integer rowStartIndex;
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         */
-        private Integer rowEndIndex;
-
-        /**
-         * 行开始索引（区间左闭右开）
-         * <p> 示例值：0
-         *
-         * @param rowStartIndex
-         * @return
-         */
-        public Builder rowStartIndex(Integer rowStartIndex) {
-            this.rowStartIndex = rowStartIndex;
-            return this;
-        }
-
-
-        /**
-         * 行结束索引（区间左闭右开）
-         * <p> 示例值：1
-         *
-         * @param rowEndIndex
-         * @return
-         */
-        public Builder rowEndIndex(Integer rowEndIndex) {
-            this.rowEndIndex = rowEndIndex;
-            return this;
-        }
-
-
-        public DeleteTableRowsRequest build() {
-            return new DeleteTableRowsRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

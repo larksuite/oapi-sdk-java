@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.acs.v1.enums.*;
 
 public class GetUserFaceReq {
+  /**
+   * 裁剪图
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("is_cropped")
+  private Boolean isCropped;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Boolean getIsCropped() {
+    return this.isCropped;
+  }
+
+  public void setIsCropped(Boolean isCropped) {
+    this.isCropped = isCropped;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @Path
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public GetUserFaceReq() {}
+
+  public GetUserFaceReq(Builder builder) {
     /**
      * 裁剪图
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("is_cropped")
-    private Boolean isCropped;
+    this.isCropped = builder.isCropped;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
+  }
 
-    // builder 开始
-    public GetUserFaceReq() {
+  public static class Builder {
+    private Boolean isCropped; // 裁剪图
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 裁剪图
+     *
+     * <p>示例值：true
+     *
+     * @param isCropped
+     * @return
+     */
+    public Builder isCropped(Boolean isCropped) {
+      this.isCropped = isCropped;
+      return this;
     }
 
-    public GetUserFaceReq(Builder builder) {
-        /**
-         * 裁剪图
-         * <p> 示例值：true
-         */
-        this.isCropped = builder.isCropped;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.acs.v1.enums.GetUserFaceGetUserFaceUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.acs.v1.enums.GetUserFaceGetUserFaceUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Boolean getIsCropped() {
-        return this.isCropped;
+    private String userId; // 用户 ID
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setIsCropped(Boolean isCropped) {
-        this.isCropped = isCropped;
+    public GetUserFaceReq build() {
+      return new GetUserFaceReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        private Boolean isCropped; // 裁剪图
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String userId; // 用户 ID
-
-        /**
-         * 裁剪图
-         * <p> 示例值：true
-         *
-         * @param isCropped
-         * @return
-         */
-        public Builder isCropped(Boolean isCropped) {
-            this.isCropped = isCropped;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.GetUserFaceUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.GetUserFaceUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public GetUserFaceReq build() {
-            return new GetUserFaceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

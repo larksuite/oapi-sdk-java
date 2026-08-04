@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckCity {
+  /**
+   * 中文描述
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 英文描述
+   *
+   * <p>示例值：Beijing
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public BackgroundCheckCity() {}
+
+  public BackgroundCheckCity(Builder builder) {
     /**
      * 中文描述
-     * <p> 示例值：
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 英文描述
-     * <p> 示例值：
+     *
+     * <p>示例值：Beijing
      */
-    @SerializedName("en_us")
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * 中文描述
+     *
+     * <p>示例值：北京
+     */
+    private String zhCn;
+
+    /**
+     * 英文描述
+     *
+     * <p>示例值：Beijing
+     */
     private String enUs;
 
-    // builder 开始
-    public BackgroundCheckCity() {
+    /**
+     * 中文描述
+     *
+     * <p>示例值：北京
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public BackgroundCheckCity(Builder builder) {
-        /**
-         * 中文描述
-         * <p> 示例值：
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文描述
-         * <p> 示例值：
-         */
-        this.enUs = builder.enUs;
+    /**
+     * 英文描述
+     *
+     * <p>示例值：Beijing
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BackgroundCheckCity build() {
+      return new BackgroundCheckCity(this);
     }
+  }
 
-    public String getZhCn() {
-        return this.zhCn;
-    }
-
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * 中文描述
-         * <p> 示例值：
-         */
-        private String zhCn;
-        /**
-         * 英文描述
-         * <p> 示例值：
-         */
-        private String enUs;
-
-        /**
-         * 中文描述
-         * <p> 示例值：
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 英文描述
-         * <p> 示例值：
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public BackgroundCheckCity build() {
-            return new BackgroundCheckCity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

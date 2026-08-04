@@ -13,173 +13,187 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemoveGroupMemberReqBody {
+  /**
+   * 用户组成员的类型，目前仅支持选择 user。
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("member_type")
+  private String memberType;
+
+  /**
+   * 移除的用户 ID，ID 类型与 member_id_type
+   * 的取值保持一致。;;你可以调用[查询用户组成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist)接口，获取用户组内的成员
+   * ID，并将需要移除的成员 ID 传入当前参数。注意仅支持移除用户类型的成员，且需要使用相同的用户 ID 类型，否则会报错。
+   *
+   * <p>示例值：xj82871k
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  /**
+   * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("member_id_type")
+  private String memberIdType;
+
+  public String getMemberType() {
+    return this.memberType;
+  }
+
+  public void setMemberType(String memberType) {
+    this.memberType = memberType;
+  }
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  public String getMemberIdType() {
+    return this.memberIdType;
+  }
+
+  public void setMemberIdType(String memberIdType) {
+    this.memberIdType = memberIdType;
+  }
+
+  // builder 开始
+  public RemoveGroupMemberReqBody() {}
+
+  public RemoveGroupMemberReqBody(Builder builder) {
     /**
-     * 用户组成员的类型，取值为 user
-     * <p> 示例值：user
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
      */
-    @SerializedName("member_type")
+    this.memberType = builder.memberType;
+    /**
+     * 移除的用户 ID，ID 类型与 member_id_type
+     * 的取值保持一致。;;你可以调用[查询用户组成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist)接口，获取用户组内的成员
+     * ID，并将需要移除的成员 ID 传入当前参数。注意仅支持移除用户类型的成员，且需要使用相同的用户 ID 类型，否则会报错。
+     *
+     * <p>示例值：xj82871k
+     */
+    this.memberId = builder.memberId;
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     */
+    this.memberIdType = builder.memberIdType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     */
     private String memberType;
+
     /**
-     * 操作移除的用户组成员ID
-     * <p> 示例值：xj82871k
+     * 移除的用户 ID，ID 类型与 member_id_type
+     * 的取值保持一致。;;你可以调用[查询用户组成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist)接口，获取用户组内的成员
+     * ID，并将需要移除的成员 ID 传入当前参数。注意仅支持移除用户类型的成员，且需要使用相同的用户 ID 类型，否则会报错。
+     *
+     * <p>示例值：xj82871k
      */
-    @SerializedName("member_id")
     private String memberId;
+
     /**
-     * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-     * <p> 示例值：open_id
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
      */
-    @SerializedName("member_id_type")
     private String memberIdType;
 
-    // builder 开始
-    public RemoveGroupMemberReqBody() {
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType
+     * @return
+     */
+    public Builder memberType(String memberType) {
+      this.memberType = memberType;
+      return this;
     }
 
-    public RemoveGroupMemberReqBody(Builder builder) {
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         */
-        this.memberType = builder.memberType;
-        /**
-         * 操作移除的用户组成员ID
-         * <p> 示例值：xj82871k
-         */
-        this.memberId = builder.memberId;
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         */
-        this.memberIdType = builder.memberIdType;
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType {@link
+     *     com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberTypeEnum}
+     * @return
+     */
+    public Builder memberType(
+        com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberTypeEnum memberType) {
+      this.memberType = memberType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 移除的用户 ID，ID 类型与 member_id_type
+     * 的取值保持一致。;;你可以调用[查询用户组成员列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group-member/simplelist)接口，获取用户组内的成员
+     * ID，并将需要移除的成员 ID 传入当前参数。注意仅支持移除用户类型的成员，且需要使用相同的用户 ID 类型，否则会报错。
+     *
+     * <p>示例值：xj82871k
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public String getMemberType() {
-        return this.memberType;
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
+    public Builder memberIdType(String memberIdType) {
+      this.memberIdType = memberIdType;
+      return this;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberIdTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberIdTypeEnum memberIdType) {
+      this.memberIdType = memberIdType.getValue();
+      return this;
     }
 
-    public String getMemberId() {
-        return this.memberId;
+    public RemoveGroupMemberReqBody build() {
+      return new RemoveGroupMemberReqBody(this);
     }
+  }
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getMemberIdType() {
-        return this.memberIdType;
-    }
-
-    public void setMemberIdType(String memberIdType) {
-        this.memberIdType = memberIdType;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         */
-        private String memberType;
-        /**
-         * 操作移除的用户组成员ID
-         * <p> 示例值：xj82871k
-         */
-        private String memberId;
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         */
-        private String memberIdType;
-
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         *
-         * @param memberType
-         * @return
-         */
-        public Builder memberType(String memberType) {
-            this.memberType = memberType;
-            return this;
-        }
-
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         *
-         * @param memberType {@link com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberTypeEnum}
-         * @return
-         */
-        public Builder memberType(com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberTypeEnum memberType) {
-            this.memberType = memberType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作移除的用户组成员ID
-         * <p> 示例值：xj82871k
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType
-         * @return
-         */
-        public Builder memberIdType(String memberIdType) {
-            this.memberIdType = memberIdType;
-            return this;
-        }
-
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberIdTypeEnum}
-         * @return
-         */
-        public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.RemoveGroupMemberMemberIdTypeEnum memberIdType) {
-            this.memberIdType = memberIdType.getValue();
-            return this;
-        }
-
-
-        public RemoveGroupMemberReqBody build() {
-            return new RemoveGroupMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 此次调用中使用的用户ID的类型
- */
+/** 此次调用中使用的用户ID的类型 */
 public enum CreateAppSearchAppUserIDTypeEnum {
-    USER_ID("user_id"), // 以 user_id 来识别用户
-    UNION_ID("union_id"), // 以 union_id 来识别用户
-    OPEN_ID("open_id"), // 以 open_id 来识别用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以 user_id 来识别用户
+  UNION_ID("union_id"), // 以 union_id 来识别用户
+  OPEN_ID("open_id"), // 以 open_id 来识别用户
+  ;
+  private String value;
 
-    CreateAppSearchAppUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateAppSearchAppUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

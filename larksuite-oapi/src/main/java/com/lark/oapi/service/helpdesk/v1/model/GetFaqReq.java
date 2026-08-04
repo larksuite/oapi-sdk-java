@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class GetFaqReq {
+  /**
+   * 知识库ID
+   *
+   * <p>示例值：6856395634652479491
+   */
+  @Path
+  @SerializedName("id")
+  private String id;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public GetFaqReq() {}
+
+  public GetFaqReq(Builder builder) {
     /**
      * 知识库ID
-     * <p> 示例值：6856395634652479491
+     *
+     * <p>示例值：6856395634652479491
      */
-    @Path
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
+  }
 
-    // builder 开始
-    public GetFaqReq() {
+  public static class Builder {
+
+    private String id; // 知识库ID
+
+    /**
+     * 知识库ID
+     *
+     * <p>示例值：6856395634652479491
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public GetFaqReq(Builder builder) {
-        /**
-         * 知识库ID
-         * <p> 示例值：6856395634652479491
-         */
-        this.id = builder.id;
+    public GetFaqReq build() {
+      return new GetFaqReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-
-        private String id; // 知识库ID
-
-        /**
-         * 知识库ID
-         * <p> 示例值：6856395634652479491
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public GetFaqReq build() {
-            return new GetFaqReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

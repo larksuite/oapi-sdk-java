@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 该收件人的撤回状态
- */
+/** 该收件人的撤回状态 */
 public enum RecallDetailItemRecallDetailStatusTypeEnum {
-    SUCCESS("success"), // 撤回成功
-    FAIL("fail"), // 撤回失败
-    PROCESSING("processing"), // 处理中
-    ;
-    private String value;
+  SUCCESS("success"), // 撤回成功
+  FAIL("fail"), // 撤回失败
+  PROCESSING("processing"), // 处理中
+  ;
+  private String value;
 
-    RecallDetailItemRecallDetailStatusTypeEnum(String value) {
-        this.value = value;
-    }
+  RecallDetailItemRecallDetailStatusTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

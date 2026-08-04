@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 设备操作系统
- */
+/** 设备操作系统 */
 public enum ListDeviceRecordOsEnum {
-    UNKNOWN(0), // 未知
-    WINDOWS(1), // Windows
-    MACOS(2), // macOS
-    LINUX(3), // Linux
-    ANDROID(4), // Android
-    IOS(5), // iOS
-    OPENHARMONY(6), // 鸿蒙
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  WINDOWS(1), // Windows
+  MACOS(2), // macOS
+  LINUX(3), // Linux
+  ANDROID(4), // Android
+  IOS(5), // iOS
+  OPENHARMONY(6), // OpenHarmony
+  ;
+  private Integer value;
 
-    ListDeviceRecordOsEnum(Integer value) {
-        this.value = value;
-    }
+  ListDeviceRecordOsEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

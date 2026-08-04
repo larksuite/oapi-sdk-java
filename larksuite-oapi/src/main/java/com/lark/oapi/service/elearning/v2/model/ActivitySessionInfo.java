@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivitySessionInfo {
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1663761600
+   */
+  @SerializedName("start_at")
+  private Integer startAt;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1663761600
+   */
+  @SerializedName("end_at")
+  private Integer endAt;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("timezone")
+  private String timezone;
+
+  public Integer getStartAt() {
+    return this.startAt;
+  }
+
+  public void setStartAt(Integer startAt) {
+    this.startAt = startAt;
+  }
+
+  public Integer getEndAt() {
+    return this.endAt;
+  }
+
+  public void setEndAt(Integer endAt) {
+    this.endAt = endAt;
+  }
+
+  public String getTimezone() {
+    return this.timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+  // builder 开始
+  public ActivitySessionInfo() {}
+
+  public ActivitySessionInfo(Builder builder) {
     /**
      * 开始时间
-     * <p> 示例值：1663761600
+     *
+     * <p>示例值：1663761600
      */
-    @SerializedName("start_at")
-    private Integer startAt;
+    this.startAt = builder.startAt;
     /**
      * 结束时间
-     * <p> 示例值：1663761600
+     *
+     * <p>示例值：1663761600
      */
-    @SerializedName("end_at")
-    private Integer endAt;
+    this.endAt = builder.endAt;
     /**
      * 时区
-     * <p> 示例值：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @SerializedName("timezone")
+    this.timezone = builder.timezone;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1663761600
+     */
+    private Integer startAt;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1663761600
+     */
+    private Integer endAt;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     */
     private String timezone;
 
-    // builder 开始
-    public ActivitySessionInfo() {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1663761600
+     *
+     * @param startAt
+     * @return
+     */
+    public Builder startAt(Integer startAt) {
+      this.startAt = startAt;
+      return this;
     }
 
-    public ActivitySessionInfo(Builder builder) {
-        /**
-         * 开始时间
-         * <p> 示例值：1663761600
-         */
-        this.startAt = builder.startAt;
-        /**
-         * 结束时间
-         * <p> 示例值：1663761600
-         */
-        this.endAt = builder.endAt;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timezone = builder.timezone;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1663761600
+     *
+     * @param endAt
+     * @return
+     */
+    public Builder endAt(Integer endAt) {
+      this.endAt = endAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 时区
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timezone
+     * @return
+     */
+    public Builder timezone(String timezone) {
+      this.timezone = timezone;
+      return this;
     }
 
-    public Integer getStartAt() {
-        return this.startAt;
+    public ActivitySessionInfo build() {
+      return new ActivitySessionInfo(this);
     }
+  }
 
-    public void setStartAt(Integer startAt) {
-        this.startAt = startAt;
-    }
-
-    public Integer getEndAt() {
-        return this.endAt;
-    }
-
-    public void setEndAt(Integer endAt) {
-        this.endAt = endAt;
-    }
-
-    public String getTimezone() {
-        return this.timezone;
-    }
-
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间
-         * <p> 示例值：1663761600
-         */
-        private Integer startAt;
-        /**
-         * 结束时间
-         * <p> 示例值：1663761600
-         */
-        private Integer endAt;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timezone;
-
-        /**
-         * 开始时间
-         * <p> 示例值：1663761600
-         *
-         * @param startAt
-         * @return
-         */
-        public Builder startAt(Integer startAt) {
-            this.startAt = startAt;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1663761600
-         *
-         * @param endAt
-         * @return
-         */
-        public Builder endAt(Integer endAt) {
-            this.endAt = endAt;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timezone
-         * @return
-         */
-        public Builder timezone(String timezone) {
-            this.timezone = timezone;
-            return this;
-        }
-
-
-        public ActivitySessionInfo build() {
-            return new ActivitySessionInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

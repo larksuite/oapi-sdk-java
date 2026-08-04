@@ -13,75 +13,89 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddManagersChatManagersReqBody {
+  /**
+   * 要设置为管理员的 ID，ID 类型与查询参数 member_id_type 取值一致。;;- 如果是用户（member_id_type 取值为
+   * user_id/open_id/union_id），推荐使用用户的 open_id，获取方式可参考文档[如何获取 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+   * 如果是机器人（member_id_type 取值为 app_id），请参考[如何获取应用的 App
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;;-
+   * 对于普通群，最多可指定 10 个管理员。;- 对于超大群，最多可指定 20 个管理员。;- 单次请求指定机器人时，最多可指定 5
+   * 个机器人。;;超大群和普通群的区别，参见[超大群与普通群有什么区别](https://www.feishu.cn/hc/zh-CN/articles/374791927841)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("manager_ids")
+  private String[] managerIds;
+
+  public String[] getManagerIds() {
+    return this.managerIds;
+  }
+
+  public void setManagerIds(String[] managerIds) {
+    this.managerIds = managerIds;
+  }
+
+  // builder 开始
+  public AddManagersChatManagersReqBody() {}
+
+  public AddManagersChatManagersReqBody(Builder builder) {
     /**
-     * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
-     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     * 要设置为管理员的 ID，ID 类型与查询参数 member_id_type 取值一致。;;- 如果是用户（member_id_type 取值为
+     * user_id/open_id/union_id），推荐使用用户的 open_id，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 如果是机器人（member_id_type 取值为 app_id），请参考[如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;;-
+     * 对于普通群，最多可指定 10 个管理员。;- 对于超大群，最多可指定 20 个管理员。;- 单次请求指定机器人时，最多可指定 5
+     * 个机器人。;;超大群和普通群的区别，参见[超大群与普通群有什么区别](https://www.feishu.cn/hc/zh-CN/articles/374791927841)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("manager_ids")
+    this.managerIds = builder.managerIds;
+  }
+
+  public static class Builder {
+    /**
+     * 要设置为管理员的 ID，ID 类型与查询参数 member_id_type 取值一致。;;- 如果是用户（member_id_type 取值为
+     * user_id/open_id/union_id），推荐使用用户的 open_id，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 如果是机器人（member_id_type 取值为 app_id），请参考[如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;;-
+     * 对于普通群，最多可指定 10 个管理员。;- 对于超大群，最多可指定 20 个管理员。;- 单次请求指定机器人时，最多可指定 5
+     * 个机器人。;;超大群和普通群的区别，参见[超大群与普通群有什么区别](https://www.feishu.cn/hc/zh-CN/articles/374791927841)。
+     *
+     * <p>示例值：
+     */
     private String[] managerIds;
 
-    // builder 开始
-    public AddManagersChatManagersReqBody() {
+    /**
+     * 要设置为管理员的 ID，ID 类型与查询参数 member_id_type 取值一致。;;- 如果是用户（member_id_type 取值为
+     * user_id/open_id/union_id），推荐使用用户的 open_id，获取方式可参考文档[如何获取 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;-
+     * 如果是机器人（member_id_type 取值为 app_id），请参考[如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id);;**注意**：;;-
+     * 对于普通群，最多可指定 10 个管理员。;- 对于超大群，最多可指定 20 个管理员。;- 单次请求指定机器人时，最多可指定 5
+     * 个机器人。;;超大群和普通群的区别，参见[超大群与普通群有什么区别](https://www.feishu.cn/hc/zh-CN/articles/374791927841)。
+     *
+     * <p>示例值：
+     *
+     * @param managerIds
+     * @return
+     */
+    public Builder managerIds(String[] managerIds) {
+      this.managerIds = managerIds;
+      return this;
     }
 
-    public AddManagersChatManagersReqBody(Builder builder) {
-        /**
-         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
-        this.managerIds = builder.managerIds;
+    public AddManagersChatManagersReqBody build() {
+      return new AddManagersChatManagersReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getManagerIds() {
-        return this.managerIds;
-    }
-
-    public void setManagerIds(String[] managerIds) {
-        this.managerIds = managerIds;
-    }
-
-    public static class Builder {
-        /**
-         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         */
-        private String[] managerIds;
-
-        /**
-         * 要增加的 manager_id;;**注意**：;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人
-         * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
-         *
-         * @param managerIds
-         * @return
-         */
-        public Builder managerIds(String[] managerIds) {
-            this.managerIds = managerIds;
-            return this;
-        }
-
-
-        public AddManagersChatManagersReqBody build() {
-            return new AddManagersChatManagersReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

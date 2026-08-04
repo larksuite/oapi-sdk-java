@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 编组成员类型
- */
+/** 编组成员类型 */
 public enum FieldGroupChildFieldGroupChildTypeEnum {
-    FIELD("field"), // 字段
-    ;
-    private String value;
+  FIELD("field"), // 字段
+  ;
+  private String value;
 
-    FieldGroupChildFieldGroupChildTypeEnum(String value) {
-        this.value = value;
-    }
+  FieldGroupChildFieldGroupChildTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

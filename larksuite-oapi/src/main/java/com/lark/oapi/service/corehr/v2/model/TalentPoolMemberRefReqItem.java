@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentPoolMemberRefReqItem {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7345313696725172404
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 入池日期
+   *
+   * <p>示例值：2025-01-15
+   */
+  @SerializedName("tagged_at_date")
+  private String taggedAtDate;
+
+  /**
+   * 入池原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason_for_joining")
+  private I18n[] reasonForJoining;
+
+  /**
+   * 出池日期
+   *
+   * <p>示例值：2025-01-16
+   */
+  @SerializedName("removed_at_date")
+  private String removedAtDate;
+
+  /**
+   * 出池原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason_for_removal")
+  private I18n[] reasonForRemoval;
+
+  /**
+   * 自定义字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 人才池与员工关联记录 ID ，添加记录时无需填写
+   *
+   * <p>示例值：7345313696725173123
+   */
+  @SerializedName("talent_pool_ref")
+  private String talentPoolRef;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getTaggedAtDate() {
+    return this.taggedAtDate;
+  }
+
+  public void setTaggedAtDate(String taggedAtDate) {
+    this.taggedAtDate = taggedAtDate;
+  }
+
+  public I18n[] getReasonForJoining() {
+    return this.reasonForJoining;
+  }
+
+  public void setReasonForJoining(I18n[] reasonForJoining) {
+    this.reasonForJoining = reasonForJoining;
+  }
+
+  public String getRemovedAtDate() {
+    return this.removedAtDate;
+  }
+
+  public void setRemovedAtDate(String removedAtDate) {
+    this.removedAtDate = removedAtDate;
+  }
+
+  public I18n[] getReasonForRemoval() {
+    return this.reasonForRemoval;
+  }
+
+  public void setReasonForRemoval(I18n[] reasonForRemoval) {
+    this.reasonForRemoval = reasonForRemoval;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getTalentPoolRef() {
+    return this.talentPoolRef;
+  }
+
+  public void setTalentPoolRef(String talentPoolRef) {
+    this.talentPoolRef = talentPoolRef;
+  }
+
+  // builder 开始
+  public TalentPoolMemberRefReqItem() {}
+
+  public TalentPoolMemberRefReqItem(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7345313696725172404
+     *
+     * <p>示例值：7345313696725172404
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 入池日期
-     * <p> 示例值：2025-01-15
+     *
+     * <p>示例值：2025-01-15
      */
-    @SerializedName("tagged_at_date")
-    private String taggedAtDate;
+    this.taggedAtDate = builder.taggedAtDate;
     /**
      * 入池原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason_for_joining")
-    private I18n[] reasonForJoining;
+    this.reasonForJoining = builder.reasonForJoining;
     /**
      * 出池日期
-     * <p> 示例值：2025-01-16
+     *
+     * <p>示例值：2025-01-16
      */
-    @SerializedName("removed_at_date")
-    private String removedAtDate;
+    this.removedAtDate = builder.removedAtDate;
     /**
      * 出池原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason_for_removal")
-    private I18n[] reasonForRemoval;
+    this.reasonForRemoval = builder.reasonForRemoval;
     /**
      * 自定义字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 人才池与员工关联记录 ID ，添加记录时无需填写
-     * <p> 示例值：7345313696725173123
+     *
+     * <p>示例值：7345313696725173123
      */
-    @SerializedName("talent_pool_ref")
+    this.talentPoolRef = builder.talentPoolRef;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7345313696725172404
+     */
+    private String employmentId;
+
+    /**
+     * 入池日期
+     *
+     * <p>示例值：2025-01-15
+     */
+    private String taggedAtDate;
+
+    /**
+     * 入池原因
+     *
+     * <p>示例值：
+     */
+    private I18n[] reasonForJoining;
+
+    /**
+     * 出池日期
+     *
+     * <p>示例值：2025-01-16
+     */
+    private String removedAtDate;
+
+    /**
+     * 出池原因
+     *
+     * <p>示例值：
+     */
+    private I18n[] reasonForRemoval;
+
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 人才池与员工关联记录 ID ，添加记录时无需填写
+     *
+     * <p>示例值：7345313696725173123
+     */
     private String talentPoolRef;
 
-    // builder 开始
-    public TalentPoolMemberRefReqItem() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7345313696725172404
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public TalentPoolMemberRefReqItem(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172404
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 入池日期
-         * <p> 示例值：2025-01-15
-         */
-        this.taggedAtDate = builder.taggedAtDate;
-        /**
-         * 入池原因
-         * <p> 示例值：
-         */
-        this.reasonForJoining = builder.reasonForJoining;
-        /**
-         * 出池日期
-         * <p> 示例值：2025-01-16
-         */
-        this.removedAtDate = builder.removedAtDate;
-        /**
-         * 出池原因
-         * <p> 示例值：
-         */
-        this.reasonForRemoval = builder.reasonForRemoval;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 人才池与员工关联记录 ID ，添加记录时无需填写
-         * <p> 示例值：7345313696725173123
-         */
-        this.talentPoolRef = builder.talentPoolRef;
+    /**
+     * 入池日期
+     *
+     * <p>示例值：2025-01-15
+     *
+     * @param taggedAtDate
+     * @return
+     */
+    public Builder taggedAtDate(String taggedAtDate) {
+      this.taggedAtDate = taggedAtDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 入池原因
+     *
+     * <p>示例值：
+     *
+     * @param reasonForJoining
+     * @return
+     */
+    public Builder reasonForJoining(I18n[] reasonForJoining) {
+      this.reasonForJoining = reasonForJoining;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 出池日期
+     *
+     * <p>示例值：2025-01-16
+     *
+     * @param removedAtDate
+     * @return
+     */
+    public Builder removedAtDate(String removedAtDate) {
+      this.removedAtDate = removedAtDate;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 出池原因
+     *
+     * <p>示例值：
+     *
+     * @param reasonForRemoval
+     * @return
+     */
+    public Builder reasonForRemoval(I18n[] reasonForRemoval) {
+      this.reasonForRemoval = reasonForRemoval;
+      return this;
     }
 
-    public String getTaggedAtDate() {
-        return this.taggedAtDate;
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setTaggedAtDate(String taggedAtDate) {
-        this.taggedAtDate = taggedAtDate;
+    /**
+     * 人才池与员工关联记录 ID ，添加记录时无需填写
+     *
+     * <p>示例值：7345313696725173123
+     *
+     * @param talentPoolRef
+     * @return
+     */
+    public Builder talentPoolRef(String talentPoolRef) {
+      this.talentPoolRef = talentPoolRef;
+      return this;
     }
 
-    public I18n[] getReasonForJoining() {
-        return this.reasonForJoining;
+    public TalentPoolMemberRefReqItem build() {
+      return new TalentPoolMemberRefReqItem(this);
     }
+  }
 
-    public void setReasonForJoining(I18n[] reasonForJoining) {
-        this.reasonForJoining = reasonForJoining;
-    }
-
-    public String getRemovedAtDate() {
-        return this.removedAtDate;
-    }
-
-    public void setRemovedAtDate(String removedAtDate) {
-        this.removedAtDate = removedAtDate;
-    }
-
-    public I18n[] getReasonForRemoval() {
-        return this.reasonForRemoval;
-    }
-
-    public void setReasonForRemoval(I18n[] reasonForRemoval) {
-        this.reasonForRemoval = reasonForRemoval;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getTalentPoolRef() {
-        return this.talentPoolRef;
-    }
-
-    public void setTalentPoolRef(String talentPoolRef) {
-        this.talentPoolRef = talentPoolRef;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172404
-         */
-        private String employmentId;
-        /**
-         * 入池日期
-         * <p> 示例值：2025-01-15
-         */
-        private String taggedAtDate;
-        /**
-         * 入池原因
-         * <p> 示例值：
-         */
-        private I18n[] reasonForJoining;
-        /**
-         * 出池日期
-         * <p> 示例值：2025-01-16
-         */
-        private String removedAtDate;
-        /**
-         * 出池原因
-         * <p> 示例值：
-         */
-        private I18n[] reasonForRemoval;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 人才池与员工关联记录 ID ，添加记录时无需填写
-         * <p> 示例值：7345313696725173123
-         */
-        private String talentPoolRef;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7345313696725172404
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 入池日期
-         * <p> 示例值：2025-01-15
-         *
-         * @param taggedAtDate
-         * @return
-         */
-        public Builder taggedAtDate(String taggedAtDate) {
-            this.taggedAtDate = taggedAtDate;
-            return this;
-        }
-
-
-        /**
-         * 入池原因
-         * <p> 示例值：
-         *
-         * @param reasonForJoining
-         * @return
-         */
-        public Builder reasonForJoining(I18n[] reasonForJoining) {
-            this.reasonForJoining = reasonForJoining;
-            return this;
-        }
-
-
-        /**
-         * 出池日期
-         * <p> 示例值：2025-01-16
-         *
-         * @param removedAtDate
-         * @return
-         */
-        public Builder removedAtDate(String removedAtDate) {
-            this.removedAtDate = removedAtDate;
-            return this;
-        }
-
-
-        /**
-         * 出池原因
-         * <p> 示例值：
-         *
-         * @param reasonForRemoval
-         * @return
-         */
-        public Builder reasonForRemoval(I18n[] reasonForRemoval) {
-            this.reasonForRemoval = reasonForRemoval;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 人才池与员工关联记录 ID ，添加记录时无需填写
-         * <p> 示例值：7345313696725173123
-         *
-         * @param talentPoolRef
-         * @return
-         */
-        public Builder talentPoolRef(String talentPoolRef) {
-            this.talentPoolRef = talentPoolRef;
-            return this;
-        }
-
-
-        public TalentPoolMemberRefReqItem build() {
-            return new TalentPoolMemberRefReqItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

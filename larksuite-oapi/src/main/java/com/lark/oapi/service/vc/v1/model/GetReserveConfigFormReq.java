@@ -13,149 +13,154 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetReserveConfigFormReq {
+  /**
+   * 1代表层级，2代表会议室
+   *
+   * <p>示例值：2
+   */
+  @Query
+  @SerializedName("scope_type")
+  private Integer scopeType;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(Integer scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 会议室或层级id
+   *
+   * <p>示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+   */
+  @Path
+  @SerializedName("reserve_config_id")
+  private String reserveConfigId;
+
+  public String getReserveConfigId() {
+    return this.reserveConfigId;
+  }
+
+  public void setReserveConfigId(String reserveConfigId) {
+    this.reserveConfigId = reserveConfigId;
+  }
+
+  // builder 开始
+  public GetReserveConfigFormReq() {}
+
+  public GetReserveConfigFormReq(Builder builder) {
     /**
      * 1代表层级，2代表会议室
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @Query
-    @SerializedName("scope_type")
-    private Integer scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 会议室或层级id
-     * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+     *
+     * <p>示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
      */
-    @Path
-    @SerializedName("reserve_config_id")
-    private String reserveConfigId;
+    this.reserveConfigId = builder.reserveConfigId;
+  }
 
-    // builder 开始
-    public GetReserveConfigFormReq() {
+  public static class Builder {
+    private Integer scopeType; // 1代表层级，2代表会议室
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 1代表层级，2代表会议室
+     *
+     * <p>示例值：2
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(Integer scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public GetReserveConfigFormReq(Builder builder) {
-        /**
-         * 1代表层级，2代表会议室
-         * <p> 示例值：2
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 会议室或层级id
-         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
-         */
-        this.reserveConfigId = builder.reserveConfigId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetReserveConfigFormGetReserveFormUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetReserveConfigFormGetReserveFormUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getScopeType() {
-        return this.scopeType;
+    private String reserveConfigId; // 会议室或层级id
+
+    /**
+     * 会议室或层级id
+     *
+     * <p>示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+     *
+     * @param reserveConfigId
+     * @return
+     */
+    public Builder reserveConfigId(String reserveConfigId) {
+      this.reserveConfigId = reserveConfigId;
+      return this;
     }
 
-    public void setScopeType(Integer scopeType) {
-        this.scopeType = scopeType;
+    public GetReserveConfigFormReq build() {
+      return new GetReserveConfigFormReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getReserveConfigId() {
-        return this.reserveConfigId;
-    }
-
-    public void setReserveConfigId(String reserveConfigId) {
-        this.reserveConfigId = reserveConfigId;
-    }
-
-    public static class Builder {
-        private Integer scopeType; // 1代表层级，2代表会议室
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String reserveConfigId; // 会议室或层级id
-
-        /**
-         * 1代表层级，2代表会议室
-         * <p> 示例值：2
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(Integer scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetReserveConfigFormGetReserveFormUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetReserveConfigFormGetReserveFormUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 会议室或层级id
-         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
-         *
-         * @param reserveConfigId
-         * @return
-         */
-        public Builder reserveConfigId(String reserveConfigId) {
-            this.reserveConfigId = reserveConfigId;
-            return this;
-        }
-
-
-        public GetReserveConfigFormReq build() {
-            return new GetReserveConfigFormReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

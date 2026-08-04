@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InvalidId {
+  /**
+   * 不可用的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 不可用的原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("msg")
+  private String msg;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getMsg() {
+    return this.msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
+
+  // builder 开始
+  public InvalidId() {}
+
+  public InvalidId(Builder builder) {
     /**
      * 不可用的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 不可用的原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("msg")
+    this.msg = builder.msg;
+  }
+
+  public static class Builder {
+    /**
+     * 不可用的ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 不可用的原因
+     *
+     * <p>示例值：
+     */
     private String msg;
 
-    // builder 开始
-    public InvalidId() {
+    /**
+     * 不可用的ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InvalidId(Builder builder) {
-        /**
-         * 不可用的ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 不可用的原因
-         * <p> 示例值：
-         */
-        this.msg = builder.msg;
+    /**
+     * 不可用的原因
+     *
+     * <p>示例值：
+     *
+     * @param msg
+     * @return
+     */
+    public Builder msg(String msg) {
+      this.msg = msg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public InvalidId build() {
+      return new InvalidId(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public static class Builder {
-        /**
-         * 不可用的ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 不可用的原因
-         * <p> 示例值：
-         */
-        private String msg;
-
-        /**
-         * 不可用的ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 不可用的原因
-         * <p> 示例值：
-         *
-         * @param msg
-         * @return
-         */
-        public Builder msg(String msg) {
-            this.msg = msg;
-            return this;
-        }
-
-
-        public InvalidId build() {
-            return new InvalidId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

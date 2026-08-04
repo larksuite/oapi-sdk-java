@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TicketUpdatedV1Data {
-    /**
-     * ticket after update
-     * <p> 示例值：
-     */
-    @SerializedName("object")
-    private TicketEvent object;
-    /**
-     * ticket before update, only has updated fields
-     * <p> 示例值：
-     */
-    @SerializedName("old_object")
-    private TicketEventUpdateInfo oldObject;
+  /**
+   * ticket after update
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object")
+  private TicketEvent object;
 
-    public TicketEvent getObject() {
-        return this.object;
-    }
+  /**
+   * ticket before update, only has updated fields
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_object")
+  private TicketEventUpdateInfo oldObject;
 
-    public void setObject(TicketEvent object) {
-        this.object = object;
-    }
+  public TicketEvent getObject() {
+    return this.object;
+  }
 
-    public TicketEventUpdateInfo getOldObject() {
-        return this.oldObject;
-    }
+  public void setObject(TicketEvent object) {
+    this.object = object;
+  }
 
-    public void setOldObject(TicketEventUpdateInfo oldObject) {
-        this.oldObject = oldObject;
-    }
+  public TicketEventUpdateInfo getOldObject() {
+    return this.oldObject;
+  }
 
+  public void setOldObject(TicketEventUpdateInfo oldObject) {
+    this.oldObject = oldObject;
+  }
 }

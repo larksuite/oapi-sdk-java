@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 属性类型
- */
+/** 属性类型 */
 public enum SchemaPropertySchemaPropertyTypeEnum {
-    TEXT("text"), // 长文本类型
-    INT("int"), // 64位整数类型
-    TAG("tag"), // 标签类型
-    TIMESTAMP("timestamp"), // Unix 时间戳类型（单位为秒）
-    DOUBLE("double"), // 浮点数类型（小数）
-    TINYTEXT("tinytext"), // 短文本类型，（utf8 编码）长度小于 140 的文本
-    USERIDS("user_ids"), // 用户ID类型（数组类型）
-    ;
-    private String value;
+  TEXT("text"), // 长文本类型
+  INT("int"), // 64位整数类型
+  TAG("tag"), // 标签类型
+  TIMESTAMP("timestamp"), // Unix 时间戳类型（单位为秒）
+  DOUBLE("double"), // 浮点数类型（小数）
+  TINYTEXT("tinytext"), // 短文本类型，（utf8 编码）长度小于 140 的文本。在设置 search_options 时，与 text 类型有区别，支持更多召回策略
+  USERIDS("user_ids"), // 用户ID类型（数组类型）
+  ;
+  private String value;
 
-    SchemaPropertySchemaPropertyTypeEnum(String value) {
-        this.value = value;
-    }
+  SchemaPropertySchemaPropertyTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

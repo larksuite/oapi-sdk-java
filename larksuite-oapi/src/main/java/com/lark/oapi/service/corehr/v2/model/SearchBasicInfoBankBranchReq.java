@@ -13,130 +13,131 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class SearchBasicInfoBankBranchReq {
+  /**
+   * 分页大小，最大 100
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：MDBK00000120
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  @Body private SearchBasicInfoBankBranchReqBody body;
+
+  public SearchBasicInfoBankBranchReqBody getSearchBasicInfoBankBranchReqBody() {
+    return this.body;
+  }
+
+  public void setSearchBasicInfoBankBranchReqBody(SearchBasicInfoBankBranchReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchBasicInfoBankBranchReq() {}
+
+  public SearchBasicInfoBankBranchReq(Builder builder) {
     /**
      * 分页大小，最大 100
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：MDBK00000120
+     *
+     * <p>示例值：MDBK00000120
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    @Body
+    this.pageToken = builder.pageToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Integer pageSize; // 分页大小，最大 100
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果
+
+    /**
+     * 分页大小，最大 100
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：MDBK00000120
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
     private SearchBasicInfoBankBranchReqBody body;
 
-    // builder 开始
-    public SearchBasicInfoBankBranchReq() {
-    }
-
-    public SearchBasicInfoBankBranchReq(Builder builder) {
-        /**
-         * 分页大小，最大 100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：MDBK00000120
-         */
-        this.pageToken = builder.pageToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public SearchBasicInfoBankBranchReqBody getSearchBasicInfoBankBranchReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchBasicInfoBankBranchReqBody(SearchBasicInfoBankBranchReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchBasicInfoBankBranchReqBody(SearchBasicInfoBankBranchReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Integer pageSize; // 分页大小，最大 100
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private SearchBasicInfoBankBranchReqBody body;
-
-        /**
-         * 分页大小，最大 100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：MDBK00000120
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        public SearchBasicInfoBankBranchReqBody getSearchBasicInfoBankBranchReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchBasicInfoBankBranchReqBody(SearchBasicInfoBankBranchReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchBasicInfoBankBranchReq build() {
-            return new SearchBasicInfoBankBranchReq(this);
-        }
+    public SearchBasicInfoBankBranchReq build() {
+      return new SearchBasicInfoBankBranchReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

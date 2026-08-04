@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BodyInfo {
+  /**
+   * 主体类型
+   *
+   * <p>示例值：buy
+   */
+  @SerializedName("body_type")
+  private String bodyType;
+
+  /**
+   * 值
+   *
+   * <p>示例值：value
+   */
+  @SerializedName("value")
+  private BodyEntity value;
+
+  public String getBodyType() {
+    return this.bodyType;
+  }
+
+  public void setBodyType(String bodyType) {
+    this.bodyType = bodyType;
+  }
+
+  public BodyEntity getValue() {
+    return this.value;
+  }
+
+  public void setValue(BodyEntity value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public BodyInfo() {}
+
+  public BodyInfo(Builder builder) {
     /**
      * 主体类型
-     * <p> 示例值：buy
+     *
+     * <p>示例值：buy
      */
-    @SerializedName("body_type")
-    private String bodyType;
+    this.bodyType = builder.bodyType;
     /**
      * 值
-     * <p> 示例值：value
+     *
+     * <p>示例值：value
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 主体类型
+     *
+     * <p>示例值：buy
+     */
+    private String bodyType;
+
+    /**
+     * 值
+     *
+     * <p>示例值：value
+     */
     private BodyEntity value;
 
-    // builder 开始
-    public BodyInfo() {
+    /**
+     * 主体类型
+     *
+     * <p>示例值：buy
+     *
+     * @param bodyType
+     * @return
+     */
+    public Builder bodyType(String bodyType) {
+      this.bodyType = bodyType;
+      return this;
     }
 
-    public BodyInfo(Builder builder) {
-        /**
-         * 主体类型
-         * <p> 示例值：buy
-         */
-        this.bodyType = builder.bodyType;
-        /**
-         * 值
-         * <p> 示例值：value
-         */
-        this.value = builder.value;
+    /**
+     * 主体类型
+     *
+     * <p>示例值：buy
+     *
+     * @param bodyType {@link com.lark.oapi.service.document_ai.v1.enums.BodyInfoBodyTypeEnum}
+     * @return
+     */
+    public Builder bodyType(
+        com.lark.oapi.service.document_ai.v1.enums.BodyInfoBodyTypeEnum bodyType) {
+      this.bodyType = bodyType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 值
+     *
+     * <p>示例值：value
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(BodyEntity value) {
+      this.value = value;
+      return this;
     }
 
-    public String getBodyType() {
-        return this.bodyType;
+    public BodyInfo build() {
+      return new BodyInfo(this);
     }
+  }
 
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
-    public BodyEntity getValue() {
-        return this.value;
-    }
-
-    public void setValue(BodyEntity value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 主体类型
-         * <p> 示例值：buy
-         */
-        private String bodyType;
-        /**
-         * 值
-         * <p> 示例值：value
-         */
-        private BodyEntity value;
-
-        /**
-         * 主体类型
-         * <p> 示例值：buy
-         *
-         * @param bodyType
-         * @return
-         */
-        public Builder bodyType(String bodyType) {
-            this.bodyType = bodyType;
-            return this;
-        }
-
-        /**
-         * 主体类型
-         * <p> 示例值：buy
-         *
-         * @param bodyType {@link com.lark.oapi.service.document_ai.v1.enums.BodyInfoBodyTypeEnum}
-         * @return
-         */
-        public Builder bodyType(com.lark.oapi.service.document_ai.v1.enums.BodyInfoBodyTypeEnum bodyType) {
-            this.bodyType = bodyType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 值
-         * <p> 示例值：value
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(BodyEntity value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public BodyInfo build() {
-            return new BodyInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

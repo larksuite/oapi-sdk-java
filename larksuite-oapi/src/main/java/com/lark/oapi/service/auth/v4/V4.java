@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.auth.v4.resource.UserAccessToken;
 
 public class V4 {
-    private final UserAccessToken userAccessToken; // user_access_token
+  private final UserAccessToken userAccessToken; // user_access_token
 
-    public V4(Config config) {
-        this.userAccessToken = new UserAccessToken(config);
-    }
+  public V4(Config config) {
+    this.userAccessToken = new UserAccessToken(config);
+  }
 
-    public UserAccessToken userAccessToken() {
-        return userAccessToken;
-    }
+  public UserAccessToken userAccessToken() {
+    return userAccessToken;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoLanguageReqBody {
+  /**
+   * 语言 ID 列表，如果为空，返回所有数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("language_id_list")
+  private String[] languageIdList;
+
+  /**
+   * 状态列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status_list")
+  private Integer[] statusList;
+
+  public String[] getLanguageIdList() {
+    return this.languageIdList;
+  }
+
+  public void setLanguageIdList(String[] languageIdList) {
+    this.languageIdList = languageIdList;
+  }
+
+  public Integer[] getStatusList() {
+    return this.statusList;
+  }
+
+  public void setStatusList(Integer[] statusList) {
+    this.statusList = statusList;
+  }
+
+  // builder 开始
+  public SearchBasicInfoLanguageReqBody() {}
+
+  public SearchBasicInfoLanguageReqBody(Builder builder) {
     /**
-     * 语言 ID 列表
-     * <p> 示例值：
+     * 语言 ID 列表，如果为空，返回所有数据
+     *
+     * <p>示例值：
      */
-    @SerializedName("language_id_list")
-    private String[] languageIdList;
+    this.languageIdList = builder.languageIdList;
     /**
      * 状态列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status_list")
+    this.statusList = builder.statusList;
+  }
+
+  public static class Builder {
+    /**
+     * 语言 ID 列表，如果为空，返回所有数据
+     *
+     * <p>示例值：
+     */
+    private String[] languageIdList;
+
+    /**
+     * 状态列表
+     *
+     * <p>示例值：
+     */
     private Integer[] statusList;
 
-    // builder 开始
-    public SearchBasicInfoLanguageReqBody() {
+    /**
+     * 语言 ID 列表，如果为空，返回所有数据
+     *
+     * <p>示例值：
+     *
+     * @param languageIdList
+     * @return
+     */
+    public Builder languageIdList(String[] languageIdList) {
+      this.languageIdList = languageIdList;
+      return this;
     }
 
-    public SearchBasicInfoLanguageReqBody(Builder builder) {
-        /**
-         * 语言 ID 列表
-         * <p> 示例值：
-         */
-        this.languageIdList = builder.languageIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
+    /**
+     * 状态列表
+     *
+     * <p>示例值：
+     *
+     * @param statusList
+     * @return
+     */
+    public Builder statusList(Integer[] statusList) {
+      this.statusList = statusList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchBasicInfoLanguageReqBody build() {
+      return new SearchBasicInfoLanguageReqBody(this);
     }
+  }
 
-    public String[] getLanguageIdList() {
-        return this.languageIdList;
-    }
-
-    public void setLanguageIdList(String[] languageIdList) {
-        this.languageIdList = languageIdList;
-    }
-
-    public Integer[] getStatusList() {
-        return this.statusList;
-    }
-
-    public void setStatusList(Integer[] statusList) {
-        this.statusList = statusList;
-    }
-
-    public static class Builder {
-        /**
-         * 语言 ID 列表
-         * <p> 示例值：
-         */
-        private String[] languageIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        private Integer[] statusList;
-
-        /**
-         * 语言 ID 列表
-         * <p> 示例值：
-         *
-         * @param languageIdList
-         * @return
-         */
-        public Builder languageIdList(String[] languageIdList) {
-            this.languageIdList = languageIdList;
-            return this;
-        }
-
-
-        /**
-         * 状态列表
-         * <p> 示例值：
-         *
-         * @param statusList
-         * @return
-         */
-        public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
-        }
-
-
-        public SearchBasicInfoLanguageReqBody build() {
-            return new SearchBasicInfoLanguageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -23,44 +23,45 @@ import com.lark.oapi.service.auth.v4.V4;
 import com.lark.oapi.service.auth.v4.model.*;
 
 public class AuthService {
-    private final V3 v3;
-    private final AppAccessToken appAccessToken; // app_access_token
-    private final AppTicket appTicket; // app_ticket
-    private final TenantAccessToken tenantAccessToken; // tenant_access_token
-    private final V4 v4;
+  private final V3 v3;
+  private final AppAccessToken appAccessToken; // app_access_token
+  private final AppTicket appTicket; // app_ticket
+  private final TenantAccessToken tenantAccessToken; // tenant_access_token
+  private final V4 v4;
 
-    public AuthService(Config config) {
-        this.v3 = new V3(config);
-        this.appAccessToken = new AppAccessToken(config);
-        this.appTicket = new AppTicket(config);
-        this.tenantAccessToken = new TenantAccessToken(config);
-        this.v4 = new V4(config);
-    }
+  public AuthService(Config config) {
+    this.v3 = new V3(config);
+    this.appAccessToken = new AppAccessToken(config);
+    this.appTicket = new AppTicket(config);
+    this.tenantAccessToken = new TenantAccessToken(config);
+    this.v4 = new V4(config);
+  }
 
-    public V3 v3() {
-        return v3;
-    }
+  public V3 v3() {
+    return v3;
+  }
 
-    public AppAccessToken appAccessToken() {
-        return appAccessToken;
-    }
+  public AppAccessToken appAccessToken() {
+    return appAccessToken;
+  }
 
-    public AppTicket appTicket() {
-        return appTicket;
-    }
+  public AppTicket appTicket() {
+    return appTicket;
+  }
 
-    public TenantAccessToken tenantAccessToken() {
-        return tenantAccessToken;
-    }
+  public TenantAccessToken tenantAccessToken() {
+    return tenantAccessToken;
+  }
 
-    public V4 v4() {
-        return v4;
-    }
+  public V4 v4() {
+    return v4;
+  }
 
-    public abstract static class P2UserAccessTokenRevokedV4Handler implements IEventHandler<P2UserAccessTokenRevokedV4> {
-        @Override
-        public P2UserAccessTokenRevokedV4 getEvent() {
-            return new P2UserAccessTokenRevokedV4();
-        }
+  public abstract static class P2UserAccessTokenRevokedV4Handler
+      implements IEventHandler<P2UserAccessTokenRevokedV4> {
+    @Override
+    public P2UserAccessTokenRevokedV4 getEvent() {
+      return new P2UserAccessTokenRevokedV4();
     }
+  }
 }

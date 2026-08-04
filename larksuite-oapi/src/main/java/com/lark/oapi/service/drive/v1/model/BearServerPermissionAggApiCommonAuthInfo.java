@@ -13,334 +13,346 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class BearServerPermissionAggApiCommonAuthInfo {
+  /**
+   * $ session key
+   *
+   * <p>示例值：
+   */
+  @SerializedName("session_key")
+  private String sessionKey;
+
+  /**
+   * $ feishu id for internal app.
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * $ app id of open platform.
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_app_id")
+  private String openAppId;
+
+  /**
+   * $ user account region. cn for china; va for oversea
+   *
+   * <p>示例值：
+   */
+  @SerializedName("region")
+  private String region;
+
+  /**
+   * $ open bot id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_bot_id")
+  private String openBotId;
+
+  /**
+   * $ bot id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot_id")
+  private String botId;
+
+  /**
+   * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth_type")
+  private String authType;
+
+  /** 示例值： */
+  @SerializedName("extra")
+  private Map<String, String> extra;
+
+  public String getSessionKey() {
+    return this.sessionKey;
+  }
+
+  public void setSessionKey(String sessionKey) {
+    this.sessionKey = sessionKey;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenAppId() {
+    return this.openAppId;
+  }
+
+  public void setOpenAppId(String openAppId) {
+    this.openAppId = openAppId;
+  }
+
+  public String getRegion() {
+    return this.region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public String getOpenBotId() {
+    return this.openBotId;
+  }
+
+  public void setOpenBotId(String openBotId) {
+    this.openBotId = openBotId;
+  }
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  public String getAuthType() {
+    return this.authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public BearServerPermissionAggApiCommonAuthInfo() {}
+
+  public BearServerPermissionAggApiCommonAuthInfo(Builder builder) {
     /**
      * $ session key
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("session_key")
-    private String sessionKey;
+    this.sessionKey = builder.sessionKey;
     /**
      * $ feishu id for internal app.
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * $ app id of open platform.
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_app_id")
-    private String openAppId;
+    this.openAppId = builder.openAppId;
     /**
      * $ user account region. cn for china; va for oversea
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("region")
-    private String region;
+    this.region = builder.region;
     /**
      * $ open bot id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_bot_id")
-    private String openBotId;
+    this.openBotId = builder.openBotId;
     /**
      * $ bot id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bot_id")
-    private String botId;
+    this.botId = builder.botId;
     /**
      * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth_type")
-    private String authType;
+    this.authType = builder.authType;
+    /** 示例值： */
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
     /**
-     * <p> 示例值：
+     * $ session key
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
+    private String sessionKey;
+
+    /**
+     * $ feishu id for internal app.
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * $ app id of open platform.
+     *
+     * <p>示例值：
+     */
+    private String openAppId;
+
+    /**
+     * $ user account region. cn for china; va for oversea
+     *
+     * <p>示例值：
+     */
+    private String region;
+
+    /**
+     * $ open bot id
+     *
+     * <p>示例值：
+     */
+    private String openBotId;
+
+    /**
+     * $ bot id
+     *
+     * <p>示例值：
+     */
+    private String botId;
+
+    /**
+     * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
+     *
+     * <p>示例值：
+     */
+    private String authType;
+
+    /** 示例值： */
     private Map<String, String> extra;
 
-    // builder 开始
-    public BearServerPermissionAggApiCommonAuthInfo() {
+    /**
+     * $ session key
+     *
+     * <p>示例值：
+     *
+     * @param sessionKey
+     * @return
+     */
+    public Builder sessionKey(String sessionKey) {
+      this.sessionKey = sessionKey;
+      return this;
     }
 
-    public BearServerPermissionAggApiCommonAuthInfo(Builder builder) {
-        /**
-         * $ session key
-         * <p> 示例值：
-         */
-        this.sessionKey = builder.sessionKey;
-        /**
-         * $ feishu id for internal app.
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * $ app id of open platform.
-         * <p> 示例值：
-         */
-        this.openAppId = builder.openAppId;
-        /**
-         * $ user account region. cn for china; va for oversea
-         * <p> 示例值：
-         */
-        this.region = builder.region;
-        /**
-         * $ open bot id
-         * <p> 示例值：
-         */
-        this.openBotId = builder.openBotId;
-        /**
-         * $ bot id
-         * <p> 示例值：
-         */
-        this.botId = builder.botId;
-        /**
-         * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
-         * <p> 示例值：
-         */
-        this.authType = builder.authType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * $ feishu id for internal app.
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * $ app id of open platform.
+     *
+     * <p>示例值：
+     *
+     * @param openAppId
+     * @return
+     */
+    public Builder openAppId(String openAppId) {
+      this.openAppId = openAppId;
+      return this;
     }
 
-    public String getSessionKey() {
-        return this.sessionKey;
+    /**
+     * $ user account region. cn for china; va for oversea
+     *
+     * <p>示例值：
+     *
+     * @param region
+     * @return
+     */
+    public Builder region(String region) {
+      this.region = region;
+      return this;
     }
 
-    public void setSessionKey(String sessionKey) {
-        this.sessionKey = sessionKey;
+    /**
+     * $ open bot id
+     *
+     * <p>示例值：
+     *
+     * @param openBotId
+     * @return
+     */
+    public Builder openBotId(String openBotId) {
+      this.openBotId = openBotId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * $ bot id
+     *
+     * <p>示例值：
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
+     *
+     * <p>示例值：
+     *
+     * @param authType
+     * @return
+     */
+    public Builder authType(String authType) {
+      this.authType = authType;
+      return this;
     }
 
-    public String getOpenAppId() {
-        return this.openAppId;
+    /**
+     * 示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setOpenAppId(String openAppId) {
-        this.openAppId = openAppId;
+    public BearServerPermissionAggApiCommonAuthInfo build() {
+      return new BearServerPermissionAggApiCommonAuthInfo(this);
     }
+  }
 
-    public String getRegion() {
-        return this.region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public String getOpenBotId() {
-        return this.openBotId;
-    }
-
-    public void setOpenBotId(String openBotId) {
-        this.openBotId = openBotId;
-    }
-
-    public String getBotId() {
-        return this.botId;
-    }
-
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
-    public String getAuthType() {
-        return this.authType;
-    }
-
-    public void setAuthType(String authType) {
-        this.authType = authType;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * $ session key
-         * <p> 示例值：
-         */
-        private String sessionKey;
-        /**
-         * $ feishu id for internal app.
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * $ app id of open platform.
-         * <p> 示例值：
-         */
-        private String openAppId;
-        /**
-         * $ user account region. cn for china; va for oversea
-         * <p> 示例值：
-         */
-        private String region;
-        /**
-         * $ open bot id
-         * <p> 示例值：
-         */
-        private String openBotId;
-        /**
-         * $ bot id
-         * <p> 示例值：
-         */
-        private String botId;
-        /**
-         * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
-         * <p> 示例值：
-         */
-        private String authType;
-        /**
-         * <p> 示例值：
-         */
-        private Map<String, String> extra;
-
-        /**
-         * $ session key
-         * <p> 示例值：
-         *
-         * @param sessionKey
-         * @return
-         */
-        public Builder sessionKey(String sessionKey) {
-            this.sessionKey = sessionKey;
-            return this;
-        }
-
-
-        /**
-         * $ feishu id for internal app.
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * $ app id of open platform.
-         * <p> 示例值：
-         *
-         * @param openAppId
-         * @return
-         */
-        public Builder openAppId(String openAppId) {
-            this.openAppId = openAppId;
-            return this;
-        }
-
-
-        /**
-         * $ user account region. cn for china; va for oversea
-         * <p> 示例值：
-         *
-         * @param region
-         * @return
-         */
-        public Builder region(String region) {
-            this.region = region;
-            return this;
-        }
-
-
-        /**
-         * $ open bot id
-         * <p> 示例值：
-         *
-         * @param openBotId
-         * @return
-         */
-        public Builder openBotId(String openBotId) {
-            this.openBotId = openBotId;
-            return this;
-        }
-
-
-        /**
-         * $ bot id
-         * <p> 示例值：
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        /**
-         * $ 鉴权类型: LarkSession, TenantAccessToken, UserAccessToken, OpenSession等
-         * <p> 示例值：
-         *
-         * @param authType
-         * @return
-         */
-        public Builder authType(String authType) {
-            this.authType = authType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public BearServerPermissionAggApiCommonAuthInfo build() {
-            return new BearServerPermissionAggApiCommonAuthInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

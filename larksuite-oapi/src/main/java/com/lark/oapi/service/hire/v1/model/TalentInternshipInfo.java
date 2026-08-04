@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentInternshipInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：6986199832494934316
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 公司
+   *
+   * <p>示例值：小米
+   */
+  @SerializedName("company")
+  private String company;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：研发部实习
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1618500278638
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1618500278639
+   */
+  @SerializedName("start_time")
+  private Long startTime;
+
+  /**
+   * 职称
+   *
+   * <p>示例值：高级工程师
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 标记, 只会出现学校部分
+   *
+   * <p>示例值：[1, 2, 3]
+   */
+  @SerializedName("tag_list")
+  private Integer[] tagList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCompany() {
+    return this.company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public Long getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Long startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Integer[] getTagList() {
+    return this.tagList;
+  }
+
+  public void setTagList(Integer[] tagList) {
+    this.tagList = tagList;
+  }
+
+  // builder 开始
+  public TalentInternshipInfo() {}
+
+  public TalentInternshipInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：6986199832494934316
+     *
+     * <p>示例值：6986199832494934316
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 公司
-     * <p> 示例值：小米
+     *
+     * <p>示例值：小米
      */
-    @SerializedName("company")
-    private String company;
+    this.company = builder.company;
     /**
      * 描述
-     * <p> 示例值：研发部实习
+     *
+     * <p>示例值：研发部实习
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 结束时间
-     * <p> 示例值：1618500278638
+     *
+     * <p>示例值：1618500278638
      */
-    @SerializedName("end_time")
-    private Long endTime;
+    this.endTime = builder.endTime;
     /**
      * 开始时间
-     * <p> 示例值：1618500278639
+     *
+     * <p>示例值：1618500278639
      */
-    @SerializedName("start_time")
-    private Long startTime;
+    this.startTime = builder.startTime;
     /**
      * 职称
-     * <p> 示例值：高级工程师
+     *
+     * <p>示例值：高级工程师
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 标记, 只会出现学校部分
-     * <p> 示例值：[1, 2, 3]
+     *
+     * <p>示例值：[1, 2, 3]
      */
-    @SerializedName("tag_list")
+    this.tagList = builder.tagList;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：6986199832494934316
+     */
+    private String id;
+
+    /**
+     * 公司
+     *
+     * <p>示例值：小米
+     */
+    private String company;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：研发部实习
+     */
+    private String desc;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1618500278638
+     */
+    private Long endTime;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1618500278639
+     */
+    private Long startTime;
+
+    /**
+     * 职称
+     *
+     * <p>示例值：高级工程师
+     */
+    private String title;
+
+    /**
+     * 标记, 只会出现学校部分
+     *
+     * <p>示例值：[1, 2, 3]
+     */
     private Integer[] tagList;
 
-    // builder 开始
-    public TalentInternshipInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：6986199832494934316
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentInternshipInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6986199832494934316
-         */
-        this.id = builder.id;
-        /**
-         * 公司
-         * <p> 示例值：小米
-         */
-        this.company = builder.company;
-        /**
-         * 描述
-         * <p> 示例值：研发部实习
-         */
-        this.desc = builder.desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278638
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278639
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 职称
-         * <p> 示例值：高级工程师
-         */
-        this.title = builder.title;
-        /**
-         * 标记, 只会出现学校部分
-         * <p> 示例值：[1, 2, 3]
-         */
-        this.tagList = builder.tagList;
+    /**
+     * 公司
+     *
+     * <p>示例值：小米
+     *
+     * @param company
+     * @return
+     */
+    public Builder company(String company) {
+      this.company = company;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：研发部实习
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1618500278638
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1618500278639
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Long startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getCompany() {
-        return this.company;
+    /**
+     * 职称
+     *
+     * <p>示例值：高级工程师
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    /**
+     * 标记, 只会出现学校部分
+     *
+     * <p>示例值：[1, 2, 3]
+     *
+     * @param tagList
+     * @return
+     */
+    public Builder tagList(Integer[] tagList) {
+      this.tagList = tagList;
+      return this;
     }
 
-    public String getDesc() {
-        return this.desc;
+    public TalentInternshipInfo build() {
+      return new TalentInternshipInfo(this);
     }
+  }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Long getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
-    }
-
-    public Long getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer[] getTagList() {
-        return this.tagList;
-    }
-
-    public void setTagList(Integer[] tagList) {
-        this.tagList = tagList;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6986199832494934316
-         */
-        private String id;
-        /**
-         * 公司
-         * <p> 示例值：小米
-         */
-        private String company;
-        /**
-         * 描述
-         * <p> 示例值：研发部实习
-         */
-        private String desc;
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278638
-         */
-        private Long endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278639
-         */
-        private Long startTime;
-        /**
-         * 职称
-         * <p> 示例值：高级工程师
-         */
-        private String title;
-        /**
-         * 标记, 只会出现学校部分
-         * <p> 示例值：[1, 2, 3]
-         */
-        private Integer[] tagList;
-
-        /**
-         * ID
-         * <p> 示例值：6986199832494934316
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 公司
-         * <p> 示例值：小米
-         *
-         * @param company
-         * @return
-         */
-        public Builder company(String company) {
-            this.company = company;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：研发部实习
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1618500278638
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1618500278639
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Long startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 职称
-         * <p> 示例值：高级工程师
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 标记, 只会出现学校部分
-         * <p> 示例值：[1, 2, 3]
-         *
-         * @param tagList
-         * @return
-         */
-        public Builder tagList(Integer[] tagList) {
-            this.tagList = tagList;
-            return this;
-        }
-
-
-        public TalentInternshipInfo build() {
-            return new TalentInternshipInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

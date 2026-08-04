@@ -13,112 +13,79 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureCustomFieldValueMultilingualValue {
-    /**
-     * 电子签自定义字段(v2)的多语言value的中文
-     * <p> 示例值：中文
-     */
-    @SerializedName("zh")
+  /** 示例值：中国 */
+  @SerializedName("zh")
+  private String zh;
+
+  /** 示例值：China */
+  @SerializedName("en")
+  private String en;
+
+  public String getZh() {
+    return this.zh;
+  }
+
+  public void setZh(String zh) {
+    this.zh = zh;
+  }
+
+  public String getEn() {
+    return this.en;
+  }
+
+  public void setEn(String en) {
+    this.en = en;
+  }
+
+  // builder 开始
+  public SignatureCustomFieldValueMultilingualValue() {}
+
+  public SignatureCustomFieldValueMultilingualValue(Builder builder) {
+    /** 示例值：中国 */
+    this.zh = builder.zh;
+    /** 示例值：China */
+    this.en = builder.en;
+  }
+
+  public static class Builder {
+    /** 示例值：中国 */
     private String zh;
-    /**
-     * 电子签自定义字段(v2)的多语言value的英文
-     * <p> 示例值：英文
-     */
-    @SerializedName("en")
+
+    /** 示例值：China */
     private String en;
 
-    // builder 开始
-    public SignatureCustomFieldValueMultilingualValue() {
+    /**
+     * 示例值：中国
+     *
+     * @param zh
+     * @return
+     */
+    public Builder zh(String zh) {
+      this.zh = zh;
+      return this;
     }
 
-    public SignatureCustomFieldValueMultilingualValue(Builder builder) {
-        /**
-         * 电子签自定义字段(v2)的多语言value的中文
-         * <p> 示例值：中文
-         */
-        this.zh = builder.zh;
-        /**
-         * 电子签自定义字段(v2)的多语言value的英文
-         * <p> 示例值：英文
-         */
-        this.en = builder.en;
+    /**
+     * 示例值：China
+     *
+     * @param en
+     * @return
+     */
+    public Builder en(String en) {
+      this.en = en;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SignatureCustomFieldValueMultilingualValue build() {
+      return new SignatureCustomFieldValueMultilingualValue(this);
     }
+  }
 
-    public String getZh() {
-        return this.zh;
-    }
-
-    public void setZh(String zh) {
-        this.zh = zh;
-    }
-
-    public String getEn() {
-        return this.en;
-    }
-
-    public void setEn(String en) {
-        this.en = en;
-    }
-
-    public static class Builder {
-        /**
-         * 电子签自定义字段(v2)的多语言value的中文
-         * <p> 示例值：中文
-         */
-        private String zh;
-        /**
-         * 电子签自定义字段(v2)的多语言value的英文
-         * <p> 示例值：英文
-         */
-        private String en;
-
-        /**
-         * 电子签自定义字段(v2)的多语言value的中文
-         * <p> 示例值：中文
-         *
-         * @param zh
-         * @return
-         */
-        public Builder zh(String zh) {
-            this.zh = zh;
-            return this;
-        }
-
-
-        /**
-         * 电子签自定义字段(v2)的多语言value的英文
-         * <p> 示例值：英文
-         *
-         * @param en
-         * @return
-         */
-        public Builder en(String en) {
-            this.en = en;
-            return this;
-        }
-
-
-        public SignatureCustomFieldValueMultilingualValue build() {
-            return new SignatureCustomFieldValueMultilingualValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

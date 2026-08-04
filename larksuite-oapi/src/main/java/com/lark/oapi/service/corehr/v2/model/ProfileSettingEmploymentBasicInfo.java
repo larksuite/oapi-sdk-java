@@ -13,408 +13,451 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmploymentBasicInfo {
+  /**
+   * 员工编号
+   *
+   * <p>示例值：1000000
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 是否离职重聘
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("rehire")
+  private Boolean rehire;
+
+  /**
+   * 重聘前雇佣ID
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("employment_info_before_rehire")
+  private String employmentInfoBeforeRehire;
+
+  /**
+   * 入职日期
+   *
+   * <p>示例值：2021-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 转正式员工日期
+   *
+   * <p>示例值：2021-02-01
+   */
+  @SerializedName("regular_employee_start_date")
+  private String regularEmployeeStartDate;
+
+  /**
+   * 资历起算日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("seniority_date")
+  private String seniorityDate;
+
+  /**
+   * 工作邮箱
+   *
+   * <p>示例值：12456@test.com
+   */
+  @SerializedName("work_email")
+  private String workEmail;
+
+  /**
+   * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+   * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone")
+  private ProfileSettingPhone phone;
+
+  /**
+   * 数据驻留地;;开通了飞书数据驻留服务的企业，该字段为必填
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("user_geo")
+  private String userGeo;
+
+  /**
+   * 自定义字段;-
+   * 请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ProfileSettingCustomField[] customFields;
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public Boolean getRehire() {
+    return this.rehire;
+  }
+
+  public void setRehire(Boolean rehire) {
+    this.rehire = rehire;
+  }
+
+  public String getEmploymentInfoBeforeRehire() {
+    return this.employmentInfoBeforeRehire;
+  }
+
+  public void setEmploymentInfoBeforeRehire(String employmentInfoBeforeRehire) {
+    this.employmentInfoBeforeRehire = employmentInfoBeforeRehire;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getRegularEmployeeStartDate() {
+    return this.regularEmployeeStartDate;
+  }
+
+  public void setRegularEmployeeStartDate(String regularEmployeeStartDate) {
+    this.regularEmployeeStartDate = regularEmployeeStartDate;
+  }
+
+  public String getSeniorityDate() {
+    return this.seniorityDate;
+  }
+
+  public void setSeniorityDate(String seniorityDate) {
+    this.seniorityDate = seniorityDate;
+  }
+
+  public String getWorkEmail() {
+    return this.workEmail;
+  }
+
+  public void setWorkEmail(String workEmail) {
+    this.workEmail = workEmail;
+  }
+
+  public ProfileSettingPhone getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(ProfileSettingPhone phone) {
+    this.phone = phone;
+  }
+
+  public String getUserGeo() {
+    return this.userGeo;
+  }
+
+  public void setUserGeo(String userGeo) {
+    this.userGeo = userGeo;
+  }
+
+  public ProfileSettingCustomField[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ProfileSettingCustomField[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public ProfileSettingEmploymentBasicInfo() {}
+
+  public ProfileSettingEmploymentBasicInfo(Builder builder) {
     /**
      * 员工编号
-     * <p> 示例值：1000000
+     *
+     * <p>示例值：1000000
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 是否离职重聘
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("rehire")
-    private Boolean rehire;
+    this.rehire = builder.rehire;
     /**
      * 重聘前雇佣ID
-     * <p> 示例值：7140964208476371111
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("employment_info_before_rehire")
-    private String employmentInfoBeforeRehire;
+    this.employmentInfoBeforeRehire = builder.employmentInfoBeforeRehire;
     /**
      * 入职日期
-     * <p> 示例值：2021-01-01
+     *
+     * <p>示例值：2021-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 转正式员工日期
-     * <p> 示例值：2021-02-01
+     *
+     * <p>示例值：2021-02-01
      */
-    @SerializedName("regular_employee_start_date")
-    private String regularEmployeeStartDate;
+    this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
     /**
      * 资历起算日期
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("seniority_date")
-    private String seniorityDate;
+    this.seniorityDate = builder.seniorityDate;
     /**
      * 工作邮箱
-     * <p> 示例值：12456@test.com
+     *
+     * <p>示例值：12456@test.com
      */
-    @SerializedName("work_email")
+    this.workEmail = builder.workEmail;
+    /**
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
+     */
+    this.phone = builder.phone;
+    /**
+     * 数据驻留地;;开通了飞书数据驻留服务的企业，该字段为必填
+     *
+     * <p>示例值：cn
+     */
+    this.userGeo = builder.userGeo;
+    /**
+     * 自定义字段;-
+     * 请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     */
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 员工编号
+     *
+     * <p>示例值：1000000
+     */
+    private String employeeNumber;
+
+    /**
+     * 是否离职重聘
+     *
+     * <p>示例值：true
+     */
+    private Boolean rehire;
+
+    /**
+     * 重聘前雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     */
+    private String employmentInfoBeforeRehire;
+
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2021-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 转正式员工日期
+     *
+     * <p>示例值：2021-02-01
+     */
+    private String regularEmployeeStartDate;
+
+    /**
+     * 资历起算日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String seniorityDate;
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：12456@test.com
+     */
     private String workEmail;
+
     /**
-     * 工作电话
-     * <p> 示例值：
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone")
     private ProfileSettingPhone phone;
+
     /**
-     * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
-     * <p> 示例值：cn
+     * 数据驻留地;;开通了飞书数据驻留服务的企业，该字段为必填
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("user_geo")
     private String userGeo;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段;-
+     * 请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
     private ProfileSettingCustomField[] customFields;
 
-    // builder 开始
-    public ProfileSettingEmploymentBasicInfo() {
+    /**
+     * 员工编号
+     *
+     * <p>示例值：1000000
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public ProfileSettingEmploymentBasicInfo(Builder builder) {
-        /**
-         * 员工编号
-         * <p> 示例值：1000000
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 是否离职重聘
-         * <p> 示例值：true
-         */
-        this.rehire = builder.rehire;
-        /**
-         * 重聘前雇佣ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.employmentInfoBeforeRehire = builder.employmentInfoBeforeRehire;
-        /**
-         * 入职日期
-         * <p> 示例值：2021-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2021-02-01
-         */
-        this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
-        /**
-         * 资历起算日期
-         * <p> 示例值：2020-01-01
-         */
-        this.seniorityDate = builder.seniorityDate;
-        /**
-         * 工作邮箱
-         * <p> 示例值：12456@test.com
-         */
-        this.workEmail = builder.workEmail;
-        /**
-         * 工作电话
-         * <p> 示例值：
-         */
-        this.phone = builder.phone;
-        /**
-         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
-         * <p> 示例值：cn
-         */
-        this.userGeo = builder.userGeo;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 是否离职重聘
+     *
+     * <p>示例值：true
+     *
+     * @param rehire
+     * @return
+     */
+    public Builder rehire(Boolean rehire) {
+      this.rehire = rehire;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 重聘前雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param employmentInfoBeforeRehire
+     * @return
+     */
+    public Builder employmentInfoBeforeRehire(String employmentInfoBeforeRehire) {
+      this.employmentInfoBeforeRehire = employmentInfoBeforeRehire;
+      return this;
     }
 
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2021-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
+    /**
+     * 转正式员工日期
+     *
+     * <p>示例值：2021-02-01
+     *
+     * @param regularEmployeeStartDate
+     * @return
+     */
+    public Builder regularEmployeeStartDate(String regularEmployeeStartDate) {
+      this.regularEmployeeStartDate = regularEmployeeStartDate;
+      return this;
     }
 
-    public Boolean getRehire() {
-        return this.rehire;
+    /**
+     * 资历起算日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param seniorityDate
+     * @return
+     */
+    public Builder seniorityDate(String seniorityDate) {
+      this.seniorityDate = seniorityDate;
+      return this;
     }
 
-    public void setRehire(Boolean rehire) {
-        this.rehire = rehire;
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：12456@test.com
+     *
+     * @param workEmail
+     * @return
+     */
+    public Builder workEmail(String workEmail) {
+      this.workEmail = workEmail;
+      return this;
     }
 
-    public String getEmploymentInfoBeforeRehire() {
-        return this.employmentInfoBeforeRehire;
+    /**
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(ProfileSettingPhone phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public void setEmploymentInfoBeforeRehire(String employmentInfoBeforeRehire) {
-        this.employmentInfoBeforeRehire = employmentInfoBeforeRehire;
+    /**
+     * 数据驻留地;;开通了飞书数据驻留服务的企业，该字段为必填
+     *
+     * <p>示例值：cn
+     *
+     * @param userGeo
+     * @return
+     */
+    public Builder userGeo(String userGeo) {
+      this.userGeo = userGeo;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    /**
+     * 自定义字段;-
+     * 请参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ProfileSettingCustomField[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
+    public ProfileSettingEmploymentBasicInfo build() {
+      return new ProfileSettingEmploymentBasicInfo(this);
     }
+  }
 
-    public String getRegularEmployeeStartDate() {
-        return this.regularEmployeeStartDate;
-    }
-
-    public void setRegularEmployeeStartDate(String regularEmployeeStartDate) {
-        this.regularEmployeeStartDate = regularEmployeeStartDate;
-    }
-
-    public String getSeniorityDate() {
-        return this.seniorityDate;
-    }
-
-    public void setSeniorityDate(String seniorityDate) {
-        this.seniorityDate = seniorityDate;
-    }
-
-    public String getWorkEmail() {
-        return this.workEmail;
-    }
-
-    public void setWorkEmail(String workEmail) {
-        this.workEmail = workEmail;
-    }
-
-    public ProfileSettingPhone getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(ProfileSettingPhone phone) {
-        this.phone = phone;
-    }
-
-    public String getUserGeo() {
-        return this.userGeo;
-    }
-
-    public void setUserGeo(String userGeo) {
-        this.userGeo = userGeo;
-    }
-
-    public ProfileSettingCustomField[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ProfileSettingCustomField[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 员工编号
-         * <p> 示例值：1000000
-         */
-        private String employeeNumber;
-        /**
-         * 是否离职重聘
-         * <p> 示例值：true
-         */
-        private Boolean rehire;
-        /**
-         * 重聘前雇佣ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String employmentInfoBeforeRehire;
-        /**
-         * 入职日期
-         * <p> 示例值：2021-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2021-02-01
-         */
-        private String regularEmployeeStartDate;
-        /**
-         * 资历起算日期
-         * <p> 示例值：2020-01-01
-         */
-        private String seniorityDate;
-        /**
-         * 工作邮箱
-         * <p> 示例值：12456@test.com
-         */
-        private String workEmail;
-        /**
-         * 工作电话
-         * <p> 示例值：
-         */
-        private ProfileSettingPhone phone;
-        /**
-         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
-         * <p> 示例值：cn
-         */
-        private String userGeo;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomField[] customFields;
-
-        /**
-         * 员工编号
-         * <p> 示例值：1000000
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 是否离职重聘
-         * <p> 示例值：true
-         *
-         * @param rehire
-         * @return
-         */
-        public Builder rehire(Boolean rehire) {
-            this.rehire = rehire;
-            return this;
-        }
-
-
-        /**
-         * 重聘前雇佣ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param employmentInfoBeforeRehire
-         * @return
-         */
-        public Builder employmentInfoBeforeRehire(String employmentInfoBeforeRehire) {
-            this.employmentInfoBeforeRehire = employmentInfoBeforeRehire;
-            return this;
-        }
-
-
-        /**
-         * 入职日期
-         * <p> 示例值：2021-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2021-02-01
-         *
-         * @param regularEmployeeStartDate
-         * @return
-         */
-        public Builder regularEmployeeStartDate(String regularEmployeeStartDate) {
-            this.regularEmployeeStartDate = regularEmployeeStartDate;
-            return this;
-        }
-
-
-        /**
-         * 资历起算日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param seniorityDate
-         * @return
-         */
-        public Builder seniorityDate(String seniorityDate) {
-            this.seniorityDate = seniorityDate;
-            return this;
-        }
-
-
-        /**
-         * 工作邮箱
-         * <p> 示例值：12456@test.com
-         *
-         * @param workEmail
-         * @return
-         */
-        public Builder workEmail(String workEmail) {
-            this.workEmail = workEmail;
-            return this;
-        }
-
-
-        /**
-         * 工作电话
-         * <p> 示例值：
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(ProfileSettingPhone phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地，开通了飞书数据驻留服务的企业，该字段为必填
-         * <p> 示例值：cn
-         *
-         * @param userGeo
-         * @return
-         */
-        public Builder userGeo(String userGeo) {
-            this.userGeo = userGeo;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ProfileSettingCustomField[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public ProfileSettingEmploymentBasicInfo build() {
-            return new ProfileSettingEmploymentBasicInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

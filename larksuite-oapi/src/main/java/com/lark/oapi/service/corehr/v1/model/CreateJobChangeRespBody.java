@@ -13,146 +13,150 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateJobChangeRespBody {
-    /**
-     * 异动记录 id
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
-    /**
-     * 雇员 id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 异动状态
-     * <p> 示例值：4
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 异动类型
-     * <p> 示例值：direct_leader_change
-     */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因
-     * <p> 示例值：involuntary_transfer
-     */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
-    /**
-     * 异动流程 id
-     * <p> 示例值：6991776078461142564
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 生效时间
-     * <p> 示例值：2022-03-01
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 创建时间
-     * <p> 示例值：1627899724000
-     */
-    @SerializedName("created_time")
-    private String createdTime;
-    /**
-     * 异动详细信息
-     * <p> 示例值：
-     */
-    @SerializedName("transfer_info")
-    private TransferInfo transferInfo;
+  /**
+   * 异动记录 id
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  /**
+   * 雇员 id
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  /**
+   * 异动状态
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 异动类型唯一标识
+   *
+   * <p>示例值：direct_leader_change
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 异动原因唯一标识
+   *
+   * <p>示例值：involuntary_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 异动发起后审批流程 id
+   *
+   * <p>示例值：6991776078461142564
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 异动生效日期
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1627899724000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
+  /**
+   * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transfer_info")
+  private TransferInfo transferInfo;
 
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
 
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
 
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
 
-    public TransferInfo getTransferInfo() {
-        return this.transferInfo;
-    }
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
 
-    public void setTransferInfo(TransferInfo transferInfo) {
-        this.transferInfo = transferInfo;
-    }
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
 
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public TransferInfo getTransferInfo() {
+    return this.transferInfo;
+  }
+
+  public void setTransferInfo(TransferInfo transferInfo) {
+    this.transferInfo = transferInfo;
+  }
 }

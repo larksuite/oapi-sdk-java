@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataAssetImportKnowledgeLarkDoc {
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 云文档token，可以通过[搜索云文档](https://open.larkoffice.com/document/server-docs/docs/drive-v1/search/document-search)API获取
+   *
+   * <p>示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 是否包含子文档，只有wiki类型的云文档支持
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("with_sub_docs")
+  private Boolean withSubDocs;
+
+  /**
+   * 文档链接
+   *
+   * <p>示例值：https://abc.feihsu.cn/docx/abcd123
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Boolean getWithSubDocs() {
+    return this.withSubDocs;
+  }
+
+  public void setWithSubDocs(Boolean withSubDocs) {
+    this.withSubDocs = withSubDocs;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public DataAssetImportKnowledgeLarkDoc() {}
+
+  public DataAssetImportKnowledgeLarkDoc(Builder builder) {
     /**
      * 云文档类型
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 云文档标识
-     * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+     * 云文档token，可以通过[搜索云文档](https://open.larkoffice.com/document/server-docs/docs/drive-v1/search/document-search)API获取
+     *
+     * <p>示例值：T8FAcuilgC1fdaxkt58vcp91xngh
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 是否包含子文档，只有wiki类型的云文档支持
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("with_sub_docs")
-    private Boolean withSubDocs;
+    this.withSubDocs = builder.withSubDocs;
     /**
      * 文档链接
-     * <p> 示例值：https://abc.feihsu.cn/docx/abcd123
+     *
+     * <p>示例值：https://abc.feihsu.cn/docx/abcd123
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     */
+    private String type;
+
+    /**
+     * 云文档token，可以通过[搜索云文档](https://open.larkoffice.com/document/server-docs/docs/drive-v1/search/document-search)API获取
+     *
+     * <p>示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+     */
+    private String token;
+
+    /**
+     * 是否包含子文档，只有wiki类型的云文档支持
+     *
+     * <p>示例值：false
+     */
+    private Boolean withSubDocs;
+
+    /**
+     * 文档链接
+     *
+     * <p>示例值：https://abc.feihsu.cn/docx/abcd123
+     */
     private String url;
 
-    // builder 开始
-    public DataAssetImportKnowledgeLarkDoc() {
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public DataAssetImportKnowledgeLarkDoc(Builder builder) {
-        /**
-         * 云文档类型
-         * <p> 示例值：docx
-         */
-        this.type = builder.type;
-        /**
-         * 云文档标识
-         * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         */
-        this.token = builder.token;
-        /**
-         * 是否包含子文档，只有wiki类型的云文档支持
-         * <p> 示例值：
-         */
-        this.withSubDocs = builder.withSubDocs;
-        /**
-         * 文档链接
-         * <p> 示例值：https://abc.feihsu.cn/docx/abcd123
-         */
-        this.url = builder.url;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeLarkDocTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeLarkDocTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 云文档token，可以通过[搜索云文档](https://open.larkoffice.com/document/server-docs/docs/drive-v1/search/document-search)API获取
+     *
+     * <p>示例值：T8FAcuilgC1fdaxkt58vcp91xngh
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 是否包含子文档，只有wiki类型的云文档支持
+     *
+     * <p>示例值：false
+     *
+     * @param withSubDocs
+     * @return
+     */
+    public Builder withSubDocs(Boolean withSubDocs) {
+      this.withSubDocs = withSubDocs;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 文档链接
+     *
+     * <p>示例值：https://abc.feihsu.cn/docx/abcd123
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public DataAssetImportKnowledgeLarkDoc build() {
+      return new DataAssetImportKnowledgeLarkDoc(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Boolean getWithSubDocs() {
-        return this.withSubDocs;
-    }
-
-    public void setWithSubDocs(Boolean withSubDocs) {
-        this.withSubDocs = withSubDocs;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 云文档类型
-         * <p> 示例值：docx
-         */
-        private String type;
-        /**
-         * 云文档标识
-         * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         */
-        private String token;
-        /**
-         * 是否包含子文档，只有wiki类型的云文档支持
-         * <p> 示例值：
-         */
-        private Boolean withSubDocs;
-        /**
-         * 文档链接
-         * <p> 示例值：https://abc.feihsu.cn/docx/abcd123
-         */
-        private String url;
-
-        /**
-         * 云文档类型
-         * <p> 示例值：docx
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 云文档类型
-         * <p> 示例值：docx
-         *
-         * @param type {@link com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeLarkDocTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.aily.v1.enums.DataAssetImportKnowledgeLarkDocTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 云文档标识
-         * <p> 示例值：T8FAcuilgC1fdaxkt58vcp91xngh
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 是否包含子文档，只有wiki类型的云文档支持
-         * <p> 示例值：
-         *
-         * @param withSubDocs
-         * @return
-         */
-        public Builder withSubDocs(Boolean withSubDocs) {
-            this.withSubDocs = withSubDocs;
-            return this;
-        }
-
-
-        /**
-         * 文档链接
-         * <p> 示例值：https://abc.feihsu.cn/docx/abcd123
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public DataAssetImportKnowledgeLarkDoc build() {
-            return new DataAssetImportKnowledgeLarkDoc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

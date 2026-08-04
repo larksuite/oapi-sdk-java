@@ -13,222 +13,233 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class Value {
+  /**
+   * 字符串值
+   *
+   * <p>示例值：安道尔
+   */
+  @SerializedName("string_value")
+  private String stringValue;
+
+  /**
+   * 布尔值
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("bool_value")
+  private Boolean boolValue;
+
+  /**
+   * 整型值
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("int_value")
+  private String intValue;
+
+  /**
+   * 字符串列表值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("string_list_value")
+  private String[] stringListValue;
+
+  /**
+   * 整型列表值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("int_list_value")
+  private String[] intListValue;
+
+  public String getStringValue() {
+    return this.stringValue;
+  }
+
+  public void setStringValue(String stringValue) {
+    this.stringValue = stringValue;
+  }
+
+  public Boolean getBoolValue() {
+    return this.boolValue;
+  }
+
+  public void setBoolValue(Boolean boolValue) {
+    this.boolValue = boolValue;
+  }
+
+  public String getIntValue() {
+    return this.intValue;
+  }
+
+  public void setIntValue(String intValue) {
+    this.intValue = intValue;
+  }
+
+  public String[] getStringListValue() {
+    return this.stringListValue;
+  }
+
+  public void setStringListValue(String[] stringListValue) {
+    this.stringListValue = stringListValue;
+  }
+
+  public String[] getIntListValue() {
+    return this.intListValue;
+  }
+
+  public void setIntListValue(String[] intListValue) {
+    this.intListValue = intListValue;
+  }
+
+  // builder 开始
+  public Value() {}
+
+  public Value(Builder builder) {
     /**
      * 字符串值
-     * <p> 示例值：
+     *
+     * <p>示例值：安道尔
      */
-    @SerializedName("string_value")
-    private String stringValue;
+    this.stringValue = builder.stringValue;
     /**
      * 布尔值
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("bool_value")
-    private Boolean boolValue;
+    this.boolValue = builder.boolValue;
     /**
-     * 整形值
-     * <p> 示例值：
+     * 整型值
+     *
+     * <p>示例值：111
      */
-    @SerializedName("int_value")
-    private String intValue;
+    this.intValue = builder.intValue;
     /**
      * 字符串列表值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("string_list_value")
-    private String[] stringListValue;
+    this.stringListValue = builder.stringListValue;
     /**
-     * 整形列表值
-     * <p> 示例值：
+     * 整型列表值
+     *
+     * <p>示例值：
      */
-    @SerializedName("int_list_value")
+    this.intListValue = builder.intListValue;
+  }
+
+  public static class Builder {
+    /**
+     * 字符串值
+     *
+     * <p>示例值：安道尔
+     */
+    private String stringValue;
+
+    /**
+     * 布尔值
+     *
+     * <p>示例值：true
+     */
+    private Boolean boolValue;
+
+    /**
+     * 整型值
+     *
+     * <p>示例值：111
+     */
+    private String intValue;
+
+    /**
+     * 字符串列表值
+     *
+     * <p>示例值：
+     */
+    private String[] stringListValue;
+
+    /**
+     * 整型列表值
+     *
+     * <p>示例值：
+     */
     private String[] intListValue;
 
-    // builder 开始
-    public Value() {
+    /**
+     * 字符串值
+     *
+     * <p>示例值：安道尔
+     *
+     * @param stringValue
+     * @return
+     */
+    public Builder stringValue(String stringValue) {
+      this.stringValue = stringValue;
+      return this;
     }
 
-    public Value(Builder builder) {
-        /**
-         * 字符串值
-         * <p> 示例值：
-         */
-        this.stringValue = builder.stringValue;
-        /**
-         * 布尔值
-         * <p> 示例值：
-         */
-        this.boolValue = builder.boolValue;
-        /**
-         * 整形值
-         * <p> 示例值：
-         */
-        this.intValue = builder.intValue;
-        /**
-         * 字符串列表值
-         * <p> 示例值：
-         */
-        this.stringListValue = builder.stringListValue;
-        /**
-         * 整形列表值
-         * <p> 示例值：
-         */
-        this.intListValue = builder.intListValue;
+    /**
+     * 布尔值
+     *
+     * <p>示例值：true
+     *
+     * @param boolValue
+     * @return
+     */
+    public Builder boolValue(Boolean boolValue) {
+      this.boolValue = boolValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 整型值
+     *
+     * <p>示例值：111
+     *
+     * @param intValue
+     * @return
+     */
+    public Builder intValue(String intValue) {
+      this.intValue = intValue;
+      return this;
     }
 
-    public String getStringValue() {
-        return this.stringValue;
+    /**
+     * 字符串列表值
+     *
+     * <p>示例值：
+     *
+     * @param stringListValue
+     * @return
+     */
+    public Builder stringListValue(String[] stringListValue) {
+      this.stringListValue = stringListValue;
+      return this;
     }
 
-    public void setStringValue(String stringValue) {
-        this.stringValue = stringValue;
+    /**
+     * 整型列表值
+     *
+     * <p>示例值：
+     *
+     * @param intListValue
+     * @return
+     */
+    public Builder intListValue(String[] intListValue) {
+      this.intListValue = intListValue;
+      return this;
     }
 
-    public Boolean getBoolValue() {
-        return this.boolValue;
+    public Value build() {
+      return new Value(this);
     }
+  }
 
-    public void setBoolValue(Boolean boolValue) {
-        this.boolValue = boolValue;
-    }
-
-    public String getIntValue() {
-        return this.intValue;
-    }
-
-    public void setIntValue(String intValue) {
-        this.intValue = intValue;
-    }
-
-    public String[] getStringListValue() {
-        return this.stringListValue;
-    }
-
-    public void setStringListValue(String[] stringListValue) {
-        this.stringListValue = stringListValue;
-    }
-
-    public String[] getIntListValue() {
-        return this.intListValue;
-    }
-
-    public void setIntListValue(String[] intListValue) {
-        this.intListValue = intListValue;
-    }
-
-    public static class Builder {
-        /**
-         * 字符串值
-         * <p> 示例值：
-         */
-        private String stringValue;
-        /**
-         * 布尔值
-         * <p> 示例值：
-         */
-        private Boolean boolValue;
-        /**
-         * 整形值
-         * <p> 示例值：
-         */
-        private String intValue;
-        /**
-         * 字符串列表值
-         * <p> 示例值：
-         */
-        private String[] stringListValue;
-        /**
-         * 整形列表值
-         * <p> 示例值：
-         */
-        private String[] intListValue;
-
-        /**
-         * 字符串值
-         * <p> 示例值：
-         *
-         * @param stringValue
-         * @return
-         */
-        public Builder stringValue(String stringValue) {
-            this.stringValue = stringValue;
-            return this;
-        }
-
-
-        /**
-         * 布尔值
-         * <p> 示例值：
-         *
-         * @param boolValue
-         * @return
-         */
-        public Builder boolValue(Boolean boolValue) {
-            this.boolValue = boolValue;
-            return this;
-        }
-
-
-        /**
-         * 整形值
-         * <p> 示例值：
-         *
-         * @param intValue
-         * @return
-         */
-        public Builder intValue(String intValue) {
-            this.intValue = intValue;
-            return this;
-        }
-
-
-        /**
-         * 字符串列表值
-         * <p> 示例值：
-         *
-         * @param stringListValue
-         * @return
-         */
-        public Builder stringListValue(String[] stringListValue) {
-            this.stringListValue = stringListValue;
-            return this;
-        }
-
-
-        /**
-         * 整形列表值
-         * <p> 示例值：
-         *
-         * @param intListValue
-         * @return
-         */
-        public Builder intListValue(String[] intListValue) {
-            this.intListValue = intListValue;
-            return this;
-        }
-
-
-        public Value build() {
-            return new Value(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

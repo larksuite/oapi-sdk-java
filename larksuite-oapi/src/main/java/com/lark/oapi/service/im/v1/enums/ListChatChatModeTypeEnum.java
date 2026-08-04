@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 群模式;group=普通群/topic=话题群/p2p=单聊
- */
+/** 群模式;group=普通群/topic=话题群/p2p=单聊 */
 public enum ListChatChatModeTypeEnum {
-    GROUP("group"), // 普通群
-    TOPIC("topic"), // 话题群
-    P2P("p2p"), // 单聊
-    ;
-    private String value;
+  GROUP("group"), // 普通群
+  TOPIC("topic"), // 话题群
+  P2P("p2p"), // 单聊
+  ;
+  private String value;
 
-    ListChatChatModeTypeEnum(String value) {
-        this.value = value;
-    }
+  ListChatChatModeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

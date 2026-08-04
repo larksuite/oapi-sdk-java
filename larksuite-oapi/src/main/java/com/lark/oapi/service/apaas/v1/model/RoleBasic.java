@@ -13,448 +13,486 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class RoleBasic {
+  /**
+   * 角色的apiId
+   *
+   * <p>示例值：package_99d11a__c__rolePermission_aadismvk2cocs
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 角色的API名称
+   *
+   * <p>示例值：role_7f60dacb16e
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 角色名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("name")
+  private Map<String, String> name;
+
+  /**
+   * 角色描述
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("description")
+  private Map<String, String> description;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enabled")
+  private Boolean enabled;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：1290381290389
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1682503024586
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：17728391812
+   */
+  @SerializedName("updated_by")
+  private String updatedBy;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1682503024586
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
+
+  /**
+   * 创建环境
+   *
+   * <p>示例值：sandbox
+   */
+  @SerializedName("created_env")
+  private String createdEnv;
+
+  /**
+   * 创建方式
+   *
+   * <p>示例值：page
+   */
+  @SerializedName("created_way")
+  private String createdWay;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getName() {
+    return this.name;
+  }
+
+  public void setName(Map<String, String> name) {
+    this.name = name;
+  }
+
+  public Map<String, String> getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Map<String, String> description) {
+    this.description = description;
+  }
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedBy() {
+    return this.updatedBy;
+  }
+
+  public void setUpdatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
+  }
+
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getCreatedEnv() {
+    return this.createdEnv;
+  }
+
+  public void setCreatedEnv(String createdEnv) {
+    this.createdEnv = createdEnv;
+  }
+
+  public String getCreatedWay() {
+    return this.createdWay;
+  }
+
+  public void setCreatedWay(String createdWay) {
+    this.createdWay = createdWay;
+  }
+
+  // builder 开始
+  public RoleBasic() {}
+
+  public RoleBasic(Builder builder) {
     /**
      * 角色的apiId
-     * <p> 示例值：package_99d11a__c__rolePermission_aadismvk2cocs
+     *
+     * <p>示例值：package_99d11a__c__rolePermission_aadismvk2cocs
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * 角色的API名称
-     * <p> 示例值：role_7f60dacb16e
+     *
+     * <p>示例值：role_7f60dacb16e
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 角色名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("name")
-    private Map<String, String> name;
+    this.name = builder.name;
     /**
      * 角色描述
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("description")
-    private Map<String, String> description;
+    this.description = builder.description;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enabled")
-    private Boolean enabled;
+    this.enabled = builder.enabled;
     /**
      * 创建人
-     * <p> 示例值：1290381290389
+     *
+     * <p>示例值：1290381290389
      */
-    @SerializedName("created_by")
-    private String createdBy;
+    this.createdBy = builder.createdBy;
     /**
      * 创建时间
-     * <p> 示例值：1682503024586
+     *
+     * <p>示例值：1682503024586
      */
-    @SerializedName("created_at")
-    private Integer createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 更新人
-     * <p> 示例值：17728391812
+     *
+     * <p>示例值：17728391812
      */
-    @SerializedName("updated_by")
-    private String updatedBy;
+    this.updatedBy = builder.updatedBy;
     /**
      * 更新时间
-     * <p> 示例值：1682503024586
+     *
+     * <p>示例值：1682503024586
      */
-    @SerializedName("updated_at")
-    private Integer updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 创建环境
-     * <p> 示例值：sandbox
+     *
+     * <p>示例值：sandbox
      */
-    @SerializedName("created_env")
-    private String createdEnv;
+    this.createdEnv = builder.createdEnv;
     /**
      * 创建方式
-     * <p> 示例值：page
+     *
+     * <p>示例值：page
      */
-    @SerializedName("created_way")
+    this.createdWay = builder.createdWay;
+  }
+
+  public static class Builder {
+    /**
+     * 角色的apiId
+     *
+     * <p>示例值：package_99d11a__c__rolePermission_aadismvk2cocs
+     */
+    private String apiId;
+
+    /**
+     * 角色的API名称
+     *
+     * <p>示例值：role_7f60dacb16e
+     */
+    private String apiName;
+
+    /**
+     * 角色名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> name;
+
+    /**
+     * 角色描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> description;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean enabled;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：1290381290389
+     */
+    private String createdBy;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1682503024586
+     */
+    private Integer createdAt;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：17728391812
+     */
+    private String updatedBy;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1682503024586
+     */
+    private Integer updatedAt;
+
+    /**
+     * 创建环境
+     *
+     * <p>示例值：sandbox
+     */
+    private String createdEnv;
+
+    /**
+     * 创建方式
+     *
+     * <p>示例值：page
+     */
     private String createdWay;
 
-    // builder 开始
-    public RoleBasic() {
+    /**
+     * 角色的apiId
+     *
+     * <p>示例值：package_99d11a__c__rolePermission_aadismvk2cocs
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public RoleBasic(Builder builder) {
-        /**
-         * 角色的apiId
-         * <p> 示例值：package_99d11a__c__rolePermission_aadismvk2cocs
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.enabled = builder.enabled;
-        /**
-         * 创建人
-         * <p> 示例值：1290381290389
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1682503024586
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新人
-         * <p> 示例值：17728391812
-         */
-        this.updatedBy = builder.updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1682503024586
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 创建环境
-         * <p> 示例值：sandbox
-         */
-        this.createdEnv = builder.createdEnv;
-        /**
-         * 创建方式
-         * <p> 示例值：page
-         */
-        this.createdWay = builder.createdWay;
+    /**
+     * 角色的API名称
+     *
+     * <p>示例值：role_7f60dacb16e
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 角色名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Map<String, String> name) {
+      this.name = name;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 角色描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Map<String, String> description) {
+      this.description = description;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param enabled
+     * @return
+     */
+    public Builder enabled(Boolean enabled) {
+      this.enabled = enabled;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 创建人
+     *
+     * <p>示例值：1290381290389
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1682503024586
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public Map<String, String> getName() {
-        return this.name;
+    /**
+     * 更新人
+     *
+     * <p>示例值：17728391812
+     *
+     * @param updatedBy
+     * @return
+     */
+    public Builder updatedBy(String updatedBy) {
+      this.updatedBy = updatedBy;
+      return this;
     }
 
-    public void setName(Map<String, String> name) {
-        this.name = name;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1682503024586
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(Integer updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public Map<String, String> getDescription() {
-        return this.description;
+    /**
+     * 创建环境
+     *
+     * <p>示例值：sandbox
+     *
+     * @param createdEnv
+     * @return
+     */
+    public Builder createdEnv(String createdEnv) {
+      this.createdEnv = createdEnv;
+      return this;
     }
 
-    public void setDescription(Map<String, String> description) {
-        this.description = description;
+    /**
+     * 创建方式
+     *
+     * <p>示例值：page
+     *
+     * @param createdWay
+     * @return
+     */
+    public Builder createdWay(String createdWay) {
+      this.createdWay = createdWay;
+      return this;
     }
 
-    public Boolean getEnabled() {
-        return this.enabled;
+    public RoleBasic build() {
+      return new RoleBasic(this);
     }
+  }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getCreatedEnv() {
-        return this.createdEnv;
-    }
-
-    public void setCreatedEnv(String createdEnv) {
-        this.createdEnv = createdEnv;
-    }
-
-    public String getCreatedWay() {
-        return this.createdWay;
-    }
-
-    public void setCreatedWay(String createdWay) {
-        this.createdWay = createdWay;
-    }
-
-    public static class Builder {
-        /**
-         * 角色的apiId
-         * <p> 示例值：package_99d11a__c__rolePermission_aadismvk2cocs
-         */
-        private String apiId;
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         */
-        private String apiName;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        private Map<String, String> name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        private Map<String, String> description;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean enabled;
-        /**
-         * 创建人
-         * <p> 示例值：1290381290389
-         */
-        private String createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1682503024586
-         */
-        private Integer createdAt;
-        /**
-         * 更新人
-         * <p> 示例值：17728391812
-         */
-        private String updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1682503024586
-         */
-        private Integer updatedAt;
-        /**
-         * 创建环境
-         * <p> 示例值：sandbox
-         */
-        private String createdEnv;
-        /**
-         * 创建方式
-         * <p> 示例值：page
-         */
-        private String createdWay;
-
-        /**
-         * 角色的apiId
-         * <p> 示例值：package_99d11a__c__rolePermission_aadismvk2cocs
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 角色的API名称
-         * <p> 示例值：role_7f60dacb16e
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 角色名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Map<String, String> name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 角色描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Map<String, String> description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param enabled
-         * @return
-         */
-        public Builder enabled(Boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：1290381290389
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1682503024586
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：17728391812
-         *
-         * @param updatedBy
-         * @return
-         */
-        public Builder updatedBy(String updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1682503024586
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 创建环境
-         * <p> 示例值：sandbox
-         *
-         * @param createdEnv
-         * @return
-         */
-        public Builder createdEnv(String createdEnv) {
-            this.createdEnv = createdEnv;
-            return this;
-        }
-
-
-        /**
-         * 创建方式
-         * <p> 示例值：page
-         *
-         * @param createdWay
-         * @return
-         */
-        public Builder createdWay(String createdWay) {
-            this.createdWay = createdWay;
-            return this;
-        }
-
-
-        public RoleBasic build() {
-            return new RoleBasic(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileLike {
+  /**
+   * 用户 ID。与查询参数 user_id_type 一致
+   *
+   * <p>示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户最后点赞时间，秒级时间戳
+   *
+   * <p>示例值：1690857821
+   */
+  @SerializedName("last_liked_time")
+  private String lastLikedTime;
+
+  /**
+   * 用户名字，用户信息被脱敏时此值不会返回
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 用户英文名字，用户信息被脱敏时此值不会返回
+   *
+   * <p>示例值：San Zhang
+   */
+  @SerializedName("user_en_name")
+  private String userEnName;
+
+  /**
+   * 用户头像，用户信息被脱敏时此值不会返回
+   *
+   * <p>示例值：https://foo.icon.com/xxxx
+   */
+  @SerializedName("user_avatar_url")
+  private String userAvatarUrl;
+
+  /**
+   * 用户信息是否脱敏
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("user_is_desensitized")
+  private Boolean userIsDesensitized;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getLastLikedTime() {
+    return this.lastLikedTime;
+  }
+
+  public void setLastLikedTime(String lastLikedTime) {
+    this.lastLikedTime = lastLikedTime;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getUserEnName() {
+    return this.userEnName;
+  }
+
+  public void setUserEnName(String userEnName) {
+    this.userEnName = userEnName;
+  }
+
+  public String getUserAvatarUrl() {
+    return this.userAvatarUrl;
+  }
+
+  public void setUserAvatarUrl(String userAvatarUrl) {
+    this.userAvatarUrl = userAvatarUrl;
+  }
+
+  public Boolean getUserIsDesensitized() {
+    return this.userIsDesensitized;
+  }
+
+  public void setUserIsDesensitized(Boolean userIsDesensitized) {
+    this.userIsDesensitized = userIsDesensitized;
+  }
+
+  // builder 开始
+  public FileLike() {}
+
+  public FileLike(Builder builder) {
     /**
-     * 用户 ID
-     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     * 用户 ID。与查询参数 user_id_type 一致
+     *
+     * <p>示例值：ou_3bbe8a09c20e89cce9bff989ed840674
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户最后点赞时间，秒级时间戳
-     * <p> 示例值：1690857821
+     *
+     * <p>示例值：1690857821
      */
-    @SerializedName("last_liked_time")
-    private String lastLikedTime;
+    this.lastLikedTime = builder.lastLikedTime;
     /**
      * 用户名字，用户信息被脱敏时此值不会返回
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
      * 用户英文名字，用户信息被脱敏时此值不会返回
-     * <p> 示例值：San Zhang
+     *
+     * <p>示例值：San Zhang
      */
-    @SerializedName("user_en_name")
-    private String userEnName;
+    this.userEnName = builder.userEnName;
     /**
      * 用户头像，用户信息被脱敏时此值不会返回
-     * <p> 示例值：https://foo.icon.com/xxxx
+     *
+     * <p>示例值：https://foo.icon.com/xxxx
      */
-    @SerializedName("user_avatar_url")
-    private String userAvatarUrl;
+    this.userAvatarUrl = builder.userAvatarUrl;
     /**
      * 用户信息是否脱敏
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("user_is_desensitized")
+    this.userIsDesensitized = builder.userIsDesensitized;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID。与查询参数 user_id_type 一致
+     *
+     * <p>示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     */
+    private String userId;
+
+    /**
+     * 用户最后点赞时间，秒级时间戳
+     *
+     * <p>示例值：1690857821
+     */
+    private String lastLikedTime;
+
+    /**
+     * 用户名字，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：张三
+     */
+    private String userName;
+
+    /**
+     * 用户英文名字，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：San Zhang
+     */
+    private String userEnName;
+
+    /**
+     * 用户头像，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：https://foo.icon.com/xxxx
+     */
+    private String userAvatarUrl;
+
+    /**
+     * 用户信息是否脱敏
+     *
+     * <p>示例值：false
+     */
     private Boolean userIsDesensitized;
 
-    // builder 开始
-    public FileLike() {
+    /**
+     * 用户 ID。与查询参数 user_id_type 一致
+     *
+     * <p>示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public FileLike(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         */
-        this.lastLikedTime = builder.lastLikedTime;
-        /**
-         * 用户名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
-        /**
-         * 用户英文名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：San Zhang
-         */
-        this.userEnName = builder.userEnName;
-        /**
-         * 用户头像，用户信息被脱敏时此值不会返回
-         * <p> 示例值：https://foo.icon.com/xxxx
-         */
-        this.userAvatarUrl = builder.userAvatarUrl;
-        /**
-         * 用户信息是否脱敏
-         * <p> 示例值：false
-         */
-        this.userIsDesensitized = builder.userIsDesensitized;
+    /**
+     * 用户最后点赞时间，秒级时间戳
+     *
+     * <p>示例值：1690857821
+     *
+     * @param lastLikedTime
+     * @return
+     */
+    public Builder lastLikedTime(String lastLikedTime) {
+      this.lastLikedTime = lastLikedTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户名字，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：张三
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 用户英文名字，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：San Zhang
+     *
+     * @param userEnName
+     * @return
+     */
+    public Builder userEnName(String userEnName) {
+      this.userEnName = userEnName;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 用户头像，用户信息被脱敏时此值不会返回
+     *
+     * <p>示例值：https://foo.icon.com/xxxx
+     *
+     * @param userAvatarUrl
+     * @return
+     */
+    public Builder userAvatarUrl(String userAvatarUrl) {
+      this.userAvatarUrl = userAvatarUrl;
+      return this;
     }
 
-    public String getLastLikedTime() {
-        return this.lastLikedTime;
+    /**
+     * 用户信息是否脱敏
+     *
+     * <p>示例值：false
+     *
+     * @param userIsDesensitized
+     * @return
+     */
+    public Builder userIsDesensitized(Boolean userIsDesensitized) {
+      this.userIsDesensitized = userIsDesensitized;
+      return this;
     }
 
-    public void setLastLikedTime(String lastLikedTime) {
-        this.lastLikedTime = lastLikedTime;
+    public FileLike build() {
+      return new FileLike(this);
     }
+  }
 
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserEnName() {
-        return this.userEnName;
-    }
-
-    public void setUserEnName(String userEnName) {
-        this.userEnName = userEnName;
-    }
-
-    public String getUserAvatarUrl() {
-        return this.userAvatarUrl;
-    }
-
-    public void setUserAvatarUrl(String userAvatarUrl) {
-        this.userAvatarUrl = userAvatarUrl;
-    }
-
-    public Boolean getUserIsDesensitized() {
-        return this.userIsDesensitized;
-    }
-
-    public void setUserIsDesensitized(Boolean userIsDesensitized) {
-        this.userIsDesensitized = userIsDesensitized;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-         */
-        private String userId;
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         */
-        private String lastLikedTime;
-        /**
-         * 用户名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：张三
-         */
-        private String userName;
-        /**
-         * 用户英文名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：San Zhang
-         */
-        private String userEnName;
-        /**
-         * 用户头像，用户信息被脱敏时此值不会返回
-         * <p> 示例值：https://foo.icon.com/xxxx
-         */
-        private String userAvatarUrl;
-        /**
-         * 用户信息是否脱敏
-         * <p> 示例值：false
-         */
-        private Boolean userIsDesensitized;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户最后点赞时间，秒级时间戳
-         * <p> 示例值：1690857821
-         *
-         * @param lastLikedTime
-         * @return
-         */
-        public Builder lastLikedTime(String lastLikedTime) {
-            this.lastLikedTime = lastLikedTime;
-            return this;
-        }
-
-
-        /**
-         * 用户名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：张三
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 用户英文名字，用户信息被脱敏时此值不会返回
-         * <p> 示例值：San Zhang
-         *
-         * @param userEnName
-         * @return
-         */
-        public Builder userEnName(String userEnName) {
-            this.userEnName = userEnName;
-            return this;
-        }
-
-
-        /**
-         * 用户头像，用户信息被脱敏时此值不会返回
-         * <p> 示例值：https://foo.icon.com/xxxx
-         *
-         * @param userAvatarUrl
-         * @return
-         */
-        public Builder userAvatarUrl(String userAvatarUrl) {
-            this.userAvatarUrl = userAvatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 用户信息是否脱敏
-         * <p> 示例值：false
-         *
-         * @param userIsDesensitized
-         * @return
-         */
-        public Builder userIsDesensitized(Boolean userIsDesensitized) {
-            this.userIsDesensitized = userIsDesensitized;
-            return this;
-        }
-
-
-        public FileLike build() {
-            return new FileLike(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

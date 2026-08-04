@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConfidentialMember {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 是否机密。;;**可能值有**：;- true：是;- false：否
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_confidential")
+  private Boolean isConfidential;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Boolean getIsConfidential() {
+    return this.isConfidential;
+  }
+
+  public void setIsConfidential(Boolean isConfidential) {
+    this.isConfidential = isConfidential;
+  }
+
+  // builder 开始
+  public ConfidentialMember() {}
+
+  public ConfidentialMember(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
+     *
+     * <p>示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 是否机密
-     * <p> 示例值：true
+     * 是否机密。;;**可能值有**：;- true：是;- false：否
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_confidential")
+    this.isConfidential = builder.isConfidential;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
+     */
+    private String userId;
+
+    /**
+     * 是否机密。;;**可能值有**：;- true：是;- false：否
+     *
+     * <p>示例值：true
+     */
     private Boolean isConfidential;
 
-    // builder 开始
-    public ConfidentialMember() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ConfidentialMember(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
-         */
-        this.userId = builder.userId;
-        /**
-         * 是否机密
-         * <p> 示例值：true
-         */
-        this.isConfidential = builder.isConfidential;
+    /**
+     * 是否机密。;;**可能值有**：;- true：是;- false：否
+     *
+     * <p>示例值：true
+     *
+     * @param isConfidential
+     * @return
+     */
+    public Builder isConfidential(Boolean isConfidential) {
+      this.isConfidential = isConfidential;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ConfidentialMember build() {
+      return new ConfidentialMember(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Boolean getIsConfidential() {
-        return this.isConfidential;
-    }
-
-    public void setIsConfidential(Boolean isConfidential) {
-        this.isConfidential = isConfidential;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
-         */
-        private String userId;
-        /**
-         * 是否机密
-         * <p> 示例值：true
-         */
-        private Boolean isConfidential;
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_ddbbb39b7b4a1a6366e6021f2efec495
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 是否机密
-         * <p> 示例值：true
-         *
-         * @param isConfidential
-         * @return
-         */
-        public Builder isConfidential(Boolean isConfidential) {
-            this.isConfidential = isConfidential;
-            return this;
-        }
-
-
-        public ConfidentialMember build() {
-            return new ConfidentialMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

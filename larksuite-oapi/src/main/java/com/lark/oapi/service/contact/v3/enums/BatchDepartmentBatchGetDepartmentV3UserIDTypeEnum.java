@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 指定调用结果中包含用户（如部门leader）关联的用户ID类型
- */
+/** 指定调用结果中包含用户（如部门leader）关联的用户ID类型 */
 public enum BatchDepartmentBatchGetDepartmentV3UserIDTypeEnum {
-    OPEN_ID("open_id"), // 指定使用open_id作为用户ID类型
-    UNION_ID("union_id"), // 指定使用union_id作为用户ID类型
-    USER_ID("user_id"), // 指定使用user_id作为用户ID类型
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 指定使用open_id作为用户ID类型
+  UNION_ID("union_id"), // 指定使用union_id作为用户ID类型
+  USER_ID("user_id"), // 指定使用user_id作为用户ID类型
+  ;
+  private String value;
 
-    BatchDepartmentBatchGetDepartmentV3UserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  BatchDepartmentBatchGetDepartmentV3UserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

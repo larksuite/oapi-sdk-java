@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobFamily {
+  /**
+   * ID，不存在时默认返回"0"
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_name")
+  private I18nText jobFamilyName;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 上级序列
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("parent_job_family_id")
+  private String parentJobFamilyId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("updator_id")
+  private String updatorId;
+
+  /**
+   * 外部ID
+   *
+   * <p>示例值：erfsdfqw
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public I18nText getJobFamilyName() {
+    return this.jobFamilyName;
+  }
+
+  public void setJobFamilyName(I18nText jobFamilyName) {
+    this.jobFamilyName = jobFamilyName;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public String getParentJobFamilyId() {
+    return this.parentJobFamilyId;
+  }
+
+  public void setParentJobFamilyId(String parentJobFamilyId) {
+    this.parentJobFamilyId = parentJobFamilyId;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getUpdatorId() {
+    return this.updatorId;
+  }
+
+  public void setUpdatorId(String updatorId) {
+    this.updatorId = updatorId;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public JobFamily() {}
+
+  public JobFamily(Builder builder) {
     /**
-     * 序列ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * ID，不存在时默认返回"0"
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
     /**
      * 租户ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_name")
-    private I18nText jobFamilyName;
+    this.jobFamilyName = builder.jobFamilyName;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 是否删除
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_deleted")
-    private Boolean isDeleted;
+    this.isDeleted = builder.isDeleted;
     /**
      * 上级序列
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("parent_job_family_id")
-    private String parentJobFamilyId;
+    this.parentJobFamilyId = builder.parentJobFamilyId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 创建时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 创建人
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 更新人
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("updator_id")
-    private String updatorId;
+    this.updatorId = builder.updatorId;
     /**
      * 外部ID
-     * <p> 示例值：erfsdfqw
+     *
+     * <p>示例值：erfsdfqw
      */
-    @SerializedName("external_id")
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * ID，不存在时默认返回"0"
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String jobFamilyId;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：1
+     */
+    private String tenantId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText jobFamilyName;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     */
+    private Boolean isDeleted;
+
+    /**
+     * 上级序列
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String parentJobFamilyId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1
+     */
+    private String updateTime;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：1
+     */
+    private String creatorId;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：1
+     */
+    private String updatorId;
+
+    /**
+     * 外部ID
+     *
+     * <p>示例值：erfsdfqw
+     */
     private String externalId;
 
-    // builder 开始
-    public JobFamily() {
+    /**
+     * ID，不存在时默认返回"0"
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
     }
 
-    public JobFamily(Builder builder) {
-        /**
-         * 序列ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.jobFamilyName = builder.jobFamilyName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 上级序列
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.parentJobFamilyId = builder.parentJobFamilyId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：1
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：1
-         */
-        this.updatorId = builder.updatorId;
-        /**
-         * 外部ID
-         * <p> 示例值：erfsdfqw
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyName
+     * @return
+     */
+    public Builder jobFamilyName(I18nText jobFamilyName) {
+      this.jobFamilyName = jobFamilyName;
+      return this;
     }
 
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 上级序列
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param parentJobFamilyId
+     * @return
+     */
+    public Builder parentJobFamilyId(String parentJobFamilyId) {
+      this.parentJobFamilyId = parentJobFamilyId;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public I18nText getJobFamilyName() {
-        return this.jobFamilyName;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setJobFamilyName(I18nText jobFamilyName) {
-        this.jobFamilyName = jobFamilyName;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
+    /**
+     * 创建人
+     *
+     * <p>示例值：1
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+    /**
+     * 更新人
+     *
+     * <p>示例值：1
+     *
+     * @param updatorId
+     * @return
+     */
+    public Builder updatorId(String updatorId) {
+      this.updatorId = updatorId;
+      return this;
     }
 
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
+    /**
+     * 外部ID
+     *
+     * <p>示例值：erfsdfqw
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public JobFamily build() {
+      return new JobFamily(this);
     }
+  }
 
-    public String getParentJobFamilyId() {
-        return this.parentJobFamilyId;
-    }
-
-    public void setParentJobFamilyId(String parentJobFamilyId) {
-        this.parentJobFamilyId = parentJobFamilyId;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUpdatorId() {
-        return this.updatorId;
-    }
-
-    public void setUpdatorId(String updatorId) {
-        this.updatorId = updatorId;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * 序列ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String jobFamilyId;
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         */
-        private String tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText jobFamilyName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean isEnabled;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        private Boolean isDeleted;
-        /**
-         * 上级序列
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String parentJobFamilyId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        private String updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：1
-         */
-        private String creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：1
-         */
-        private String updatorId;
-        /**
-         * 外部ID
-         * <p> 示例值：erfsdfqw
-         */
-        private String externalId;
-
-        /**
-         * 序列ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param jobFamilyName
-         * @return
-         */
-        public Builder jobFamilyName(I18nText jobFamilyName) {
-            this.jobFamilyName = jobFamilyName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 上级序列
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param parentJobFamilyId
-         * @return
-         */
-        public Builder parentJobFamilyId(String parentJobFamilyId) {
-            this.parentJobFamilyId = parentJobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：1
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：1
-         *
-         * @param updatorId
-         * @return
-         */
-        public Builder updatorId(String updatorId) {
-            this.updatorId = updatorId;
-            return this;
-        }
-
-
-        /**
-         * 外部ID
-         * <p> 示例值：erfsdfqw
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public JobFamily build() {
-            return new JobFamily(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

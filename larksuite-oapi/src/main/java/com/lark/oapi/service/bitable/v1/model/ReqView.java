@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReqView {
+  /**
+   * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+   *
+   * <p>示例值：表格视图 1
+   */
+  @SerializedName("view_name")
+  private String viewName;
+
+  /**
+   * 视图类型，不填默认为表格视图。
+   *
+   * <p>示例值：grid
+   */
+  @SerializedName("view_type")
+  private String viewType;
+
+  public String getViewName() {
+    return this.viewName;
+  }
+
+  public void setViewName(String viewName) {
+    this.viewName = viewName;
+  }
+
+  public String getViewType() {
+    return this.viewType;
+  }
+
+  public void setViewType(String viewType) {
+    this.viewType = viewType;
+  }
+
+  // builder 开始
+  public ReqView() {}
+
+  public ReqView(Builder builder) {
     /**
-     * 视图名字
-     * <p> 示例值：表格视图1
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
      */
-    @SerializedName("view_name")
+    this.viewName = builder.viewName;
+    /**
+     * 视图类型，不填默认为表格视图。
+     *
+     * <p>示例值：grid
+     */
+    this.viewType = builder.viewType;
+  }
+
+  public static class Builder {
+    /**
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
+     */
     private String viewName;
+
     /**
-     * 视图类型
-     * <p> 示例值：grid
+     * 视图类型，不填默认为表格视图。
+     *
+     * <p>示例值：grid
      */
-    @SerializedName("view_type")
     private String viewType;
 
-    // builder 开始
-    public ReqView() {
+    /**
+     * 视图名称。名称不能包含特殊字符，请确保其符合以下规则：;- 长度不超过 100 个字符;- 不为空且不包含这些特殊符号：[ ]
+     *
+     * <p>示例值：表格视图 1
+     *
+     * @param viewName
+     * @return
+     */
+    public Builder viewName(String viewName) {
+      this.viewName = viewName;
+      return this;
     }
 
-    public ReqView(Builder builder) {
-        /**
-         * 视图名字
-         * <p> 示例值：表格视图1
-         */
-        this.viewName = builder.viewName;
-        /**
-         * 视图类型
-         * <p> 示例值：grid
-         */
-        this.viewType = builder.viewType;
+    /**
+     * 视图类型，不填默认为表格视图。
+     *
+     * <p>示例值：grid
+     *
+     * @param viewType
+     * @return
+     */
+    public Builder viewType(String viewType) {
+      this.viewType = viewType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 视图类型，不填默认为表格视图。
+     *
+     * <p>示例值：grid
+     *
+     * @param viewType {@link com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum viewType) {
+      this.viewType = viewType.getValue();
+      return this;
     }
 
-    public String getViewName() {
-        return this.viewName;
+    public ReqView build() {
+      return new ReqView(this);
     }
+  }
 
-    public void setViewName(String viewName) {
-        this.viewName = viewName;
-    }
-
-    public String getViewType() {
-        return this.viewType;
-    }
-
-    public void setViewType(String viewType) {
-        this.viewType = viewType;
-    }
-
-    public static class Builder {
-        /**
-         * 视图名字
-         * <p> 示例值：表格视图1
-         */
-        private String viewName;
-        /**
-         * 视图类型
-         * <p> 示例值：grid
-         */
-        private String viewType;
-
-        /**
-         * 视图名字
-         * <p> 示例值：表格视图1
-         *
-         * @param viewName
-         * @return
-         */
-        public Builder viewName(String viewName) {
-            this.viewName = viewName;
-            return this;
-        }
-
-
-        /**
-         * 视图类型
-         * <p> 示例值：grid
-         *
-         * @param viewType
-         * @return
-         */
-        public Builder viewType(String viewType) {
-            this.viewType = viewType;
-            return this;
-        }
-
-        /**
-         * 视图类型
-         * <p> 示例值：grid
-         *
-         * @param viewType {@link com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum}
-         * @return
-         */
-        public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum viewType) {
-            this.viewType = viewType.getValue();
-            return this;
-        }
-
-
-        public ReqView build() {
-            return new ReqView(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

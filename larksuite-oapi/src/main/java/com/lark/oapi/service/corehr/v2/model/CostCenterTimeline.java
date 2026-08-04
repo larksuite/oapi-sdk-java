@@ -13,408 +13,447 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenterTimeline {
+  /**
+   * 成本中心ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 成本中心版本ID
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 成本中心名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 上级成本中心ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("parent_cost_center_id")
+  private String parentCostCenterId;
+
+  /**
+   * 成本中心负责人ID
+   * 列表，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("managers")
+  private String[] managers;
+
+  /**
+   * 成本中心描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 版本生效日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 版本失效日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 当前实体是否启用
+   *
+   * <p>示例值：true;
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getParentCostCenterId() {
+    return this.parentCostCenterId;
+  }
+
+  public void setParentCostCenterId(String parentCostCenterId) {
+    this.parentCostCenterId = parentCostCenterId;
+  }
+
+  public String[] getManagers() {
+    return this.managers;
+  }
+
+  public void setManagers(String[] managers) {
+    this.managers = managers;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public CostCenterTimeline() {}
+
+  public CostCenterTimeline(Builder builder) {
     /**
-     * 成本中心ID
-     * <p> 示例值：6969828847121885087
+     * 成本中心ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6969828847121885087
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * 成本中心版本ID
-     * <p> 示例值：6969828847121885087
+     *
+     * <p>示例值：6969828847121885087
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 成本中心名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 编码
-     * <p> 示例值：MDPD00000023
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 上级成本中心ID
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("parent_cost_center_id")
-    private String parentCostCenterId;
+    this.parentCostCenterId = builder.parentCostCenterId;
     /**
-     * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-     * <p> 示例值：
+     * 成本中心负责人ID
+     * 列表，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("managers")
-    private String[] managers;
+    this.managers = builder.managers;
     /**
      * 成本中心描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 版本生效日期
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
-     * 过期时间
-     * <p> 示例值：2020-01-01
+     * 版本失效日期
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("expiration_date")
-    private String expirationDate;
+    this.expirationDate = builder.expirationDate;
     /**
      * 当前实体是否启用
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：true;
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6969828847121885087
+     */
+    private String costCenterId;
+
+    /**
+     * 成本中心版本ID
+     *
+     * <p>示例值：6969828847121885087
+     */
+    private String versionId;
+
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：MDPD00000023
+     */
+    private String code;
+
+    /**
+     * 上级成本中心ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String parentCostCenterId;
+
+    /**
+     * 成本中心负责人ID
+     * 列表，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得
+     *
+     * <p>示例值：
+     */
+    private String[] managers;
+
+    /**
+     * 成本中心描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 版本生效日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 版本失效日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String expirationDate;
+
+    /**
+     * 当前实体是否启用
+     *
+     * <p>示例值：true;
+     */
     private Boolean active;
 
-    // builder 开始
-    public CostCenterTimeline() {
+    /**
+     * 成本中心ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6969828847121885087
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public CostCenterTimeline(Builder builder) {
-        /**
-         * 成本中心ID
-         * <p> 示例值：6969828847121885087
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 成本中心版本ID
-         * <p> 示例值：6969828847121885087
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 编码
-         * <p> 示例值：MDPD00000023
-         */
-        this.code = builder.code;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.parentCostCenterId = builder.parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
-        this.managers = builder.managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 过期时间
-         * <p> 示例值：2020-01-01
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：2020-01-01
-         */
-        this.active = builder.active;
+    /**
+     * 成本中心版本ID
+     *
+     * <p>示例值：6969828847121885087
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    /**
+     * 编码
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
+    /**
+     * 上级成本中心ID
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param parentCostCenterId
+     * @return
+     */
+    public Builder parentCostCenterId(String parentCostCenterId) {
+      this.parentCostCenterId = parentCostCenterId;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 成本中心负责人ID
+     * 列表，详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param managers
+     * @return
+     */
+    public Builder managers(String[] managers) {
+      this.managers = managers;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    /**
+     * 成本中心描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 版本生效日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 版本失效日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 当前实体是否启用
+     *
+     * <p>示例值：true;
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public CostCenterTimeline build() {
+      return new CostCenterTimeline(this);
     }
+  }
 
-    public String getParentCostCenterId() {
-        return this.parentCostCenterId;
-    }
-
-    public void setParentCostCenterId(String parentCostCenterId) {
-        this.parentCostCenterId = parentCostCenterId;
-    }
-
-    public String[] getManagers() {
-        return this.managers;
-    }
-
-    public void setManagers(String[] managers) {
-        this.managers = managers;
-    }
-
-    public I18n[] getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心ID
-         * <p> 示例值：6969828847121885087
-         */
-        private String costCenterId;
-        /**
-         * 成本中心版本ID
-         * <p> 示例值：6969828847121885087
-         */
-        private String versionId;
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 编码
-         * <p> 示例值：MDPD00000023
-         */
-        private String code;
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String parentCostCenterId;
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         */
-        private String[] managers;
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 过期时间
-         * <p> 示例值：2020-01-01
-         */
-        private String expirationDate;
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：2020-01-01
-         */
-        private Boolean active;
-
-        /**
-         * 成本中心ID
-         * <p> 示例值：6969828847121885087
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 成本中心版本ID
-         * <p> 示例值：6969828847121885087
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 成本中心名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：MDPD00000023
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 上级成本中心ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param parentCostCenterId
-         * @return
-         */
-        public Builder parentCostCenterId(String parentCostCenterId) {
-            this.parentCostCenterId = parentCostCenterId;
-            return this;
-        }
-
-
-        /**
-         * 成本中心负责人ID 列表，可通过雇佣信息接口查询获得
-         * <p> 示例值：
-         *
-         * @param managers
-         * @return
-         */
-        public Builder managers(String[] managers) {
-            this.managers = managers;
-            return this;
-        }
-
-
-        /**
-         * 成本中心描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 过期时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：2020-01-01
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public CostCenterTimeline build() {
-            return new CostCenterTimeline(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

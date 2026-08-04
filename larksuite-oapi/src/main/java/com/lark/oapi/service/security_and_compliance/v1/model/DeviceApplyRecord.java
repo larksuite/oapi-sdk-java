@@ -13,826 +13,929 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeviceApplyRecord {
+  /**
+   * 设备申请单id
+   *
+   * <p>示例值：321321311
+   */
+  @SerializedName("apply_id")
+  private String applyId;
+
+  /**
+   * 设备类型
+   *
+   * <p>示例值：Mobile
+   */
+  @SerializedName("device_terminal_type")
+  private String deviceTerminalType;
+
+  /**
+   * 设备型号
+   *
+   * <p>示例值：MacBookPro16,2
+   */
+  @SerializedName("model")
+  private String model;
+
+  /**
+   * 生产序列号
+   *
+   * <p>示例值：C02DTHRMML7H
+   */
+  @SerializedName("serial_number")
+  private String serialNumber;
+
+  /**
+   * 主板UUID
+   *
+   * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * Mac地址
+   *
+   * <p>示例值：ac:de:48:00:11:22
+   */
+  @SerializedName("mac_address")
+  private String macAddress;
+
+  /**
+   * 国际移动设备识别码
+   *
+   * <p>示例值：123456-78-901234-5
+   */
+  @SerializedName("imei")
+  private String imei;
+
+  /**
+   * Android 标识符
+   *
+   * <p>示例值：02a11ac4a83b918e
+   */
+  @SerializedName("android_id")
+  private String androidId;
+
+  /**
+   * google广告id
+   *
+   * <p>示例值：02a11ac4a83b918e
+   */
+  @SerializedName("google_aid")
+  private String googleAid;
+
+  /**
+   * Ios广告主标识符
+   *
+   * <p>示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
+   */
+  @SerializedName("idfa")
+  private String idfa;
+
+  /**
+   * Ios 供应商标识符
+   *
+   * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+   */
+  @SerializedName("idfv")
+  private String idfv;
+
+  /**
+   * 申报状态
+   *
+   * <p>示例值：Processing
+   */
+  @SerializedName("apply_status")
+  private String applyStatus;
+
+  /**
+   * 申请人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private UserId operator;
+
+  /**
+   * 申请时间
+   *
+   * <p>示例值：2022-11-28 17:21:26
+   */
+  @SerializedName("apply_time")
+  private String applyTime;
+
+  /**
+   * 硬盘序列号
+   *
+   * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+   */
+  @SerializedName("disk_serial_number")
+  private String diskSerialNumber;
+
+  /**
+   * 设备归属
+   *
+   * <p>示例值：Company
+   */
+  @SerializedName("device_ownership")
+  private String deviceOwnership;
+
+  /**
+   * 操作系统
+   *
+   * <p>示例值：Windows
+   */
+  @SerializedName("device_system")
+  private String deviceSystem;
+
+  /**
+   * 设备名称
+   *
+   * <p>示例值：xx的设备
+   */
+  @SerializedName("device_name")
+  private String deviceName;
+
+  /**
+   * 设备单ID
+   *
+   * <p>示例值：321321311112
+   */
+  @SerializedName("device_record_id")
+  private String deviceRecordId;
+
+  /**
+   * 鸿蒙系统应用匿名标识符
+   *
+   * <p>示例值：84a5a123-04c5-6789-9d71-3706e50f9250
+   */
+  @SerializedName("aaid")
+  private String aaid;
+
+  public String getApplyId() {
+    return this.applyId;
+  }
+
+  public void setApplyId(String applyId) {
+    this.applyId = applyId;
+  }
+
+  public String getDeviceTerminalType() {
+    return this.deviceTerminalType;
+  }
+
+  public void setDeviceTerminalType(String deviceTerminalType) {
+    this.deviceTerminalType = deviceTerminalType;
+  }
+
+  public String getModel() {
+    return this.model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public String getSerialNumber() {
+    return this.serialNumber;
+  }
+
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public String getMacAddress() {
+    return this.macAddress;
+  }
+
+  public void setMacAddress(String macAddress) {
+    this.macAddress = macAddress;
+  }
+
+  public String getImei() {
+    return this.imei;
+  }
+
+  public void setImei(String imei) {
+    this.imei = imei;
+  }
+
+  public String getAndroidId() {
+    return this.androidId;
+  }
+
+  public void setAndroidId(String androidId) {
+    this.androidId = androidId;
+  }
+
+  public String getGoogleAid() {
+    return this.googleAid;
+  }
+
+  public void setGoogleAid(String googleAid) {
+    this.googleAid = googleAid;
+  }
+
+  public String getIdfa() {
+    return this.idfa;
+  }
+
+  public void setIdfa(String idfa) {
+    this.idfa = idfa;
+  }
+
+  public String getIdfv() {
+    return this.idfv;
+  }
+
+  public void setIdfv(String idfv) {
+    this.idfv = idfv;
+  }
+
+  public String getApplyStatus() {
+    return this.applyStatus;
+  }
+
+  public void setApplyStatus(String applyStatus) {
+    this.applyStatus = applyStatus;
+  }
+
+  public UserId getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(UserId operator) {
+    this.operator = operator;
+  }
+
+  public String getApplyTime() {
+    return this.applyTime;
+  }
+
+  public void setApplyTime(String applyTime) {
+    this.applyTime = applyTime;
+  }
+
+  public String getDiskSerialNumber() {
+    return this.diskSerialNumber;
+  }
+
+  public void setDiskSerialNumber(String diskSerialNumber) {
+    this.diskSerialNumber = diskSerialNumber;
+  }
+
+  public String getDeviceOwnership() {
+    return this.deviceOwnership;
+  }
+
+  public void setDeviceOwnership(String deviceOwnership) {
+    this.deviceOwnership = deviceOwnership;
+  }
+
+  public String getDeviceSystem() {
+    return this.deviceSystem;
+  }
+
+  public void setDeviceSystem(String deviceSystem) {
+    this.deviceSystem = deviceSystem;
+  }
+
+  public String getDeviceName() {
+    return this.deviceName;
+  }
+
+  public void setDeviceName(String deviceName) {
+    this.deviceName = deviceName;
+  }
+
+  public String getDeviceRecordId() {
+    return this.deviceRecordId;
+  }
+
+  public void setDeviceRecordId(String deviceRecordId) {
+    this.deviceRecordId = deviceRecordId;
+  }
+
+  public String getAaid() {
+    return this.aaid;
+  }
+
+  public void setAaid(String aaid) {
+    this.aaid = aaid;
+  }
+
+  // builder 开始
+  public DeviceApplyRecord() {}
+
+  public DeviceApplyRecord(Builder builder) {
     /**
      * 设备申请单id
-     * <p> 示例值：321321311
+     *
+     * <p>示例值：321321311
      */
-    @SerializedName("apply_id")
-    private String applyId;
+    this.applyId = builder.applyId;
     /**
      * 设备类型
-     * <p> 示例值：Mobile
+     *
+     * <p>示例值：Mobile
      */
-    @SerializedName("device_terminal_type")
-    private String deviceTerminalType;
+    this.deviceTerminalType = builder.deviceTerminalType;
     /**
      * 设备型号
-     * <p> 示例值：MacBookPro16,2
+     *
+     * <p>示例值：MacBookPro16,2
      */
-    @SerializedName("model")
-    private String model;
+    this.model = builder.model;
     /**
      * 生产序列号
-     * <p> 示例值：C02DTHRMML7H
+     *
+     * <p>示例值：C02DTHRMML7H
      */
-    @SerializedName("serial_number")
-    private String serialNumber;
+    this.serialNumber = builder.serialNumber;
     /**
      * 主板UUID
-     * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
      */
-    @SerializedName("uuid")
-    private String uuid;
+    this.uuid = builder.uuid;
     /**
      * Mac地址
-     * <p> 示例值：ac:de:48:00:11:22
+     *
+     * <p>示例值：ac:de:48:00:11:22
      */
-    @SerializedName("mac_address")
-    private String macAddress;
+    this.macAddress = builder.macAddress;
     /**
      * 国际移动设备识别码
-     * <p> 示例值：123456-78-901234-5
+     *
+     * <p>示例值：123456-78-901234-5
      */
-    @SerializedName("imei")
-    private String imei;
+    this.imei = builder.imei;
     /**
      * Android 标识符
-     * <p> 示例值：02a11ac4a83b918e
+     *
+     * <p>示例值：02a11ac4a83b918e
      */
-    @SerializedName("android_id")
-    private String androidId;
+    this.androidId = builder.androidId;
     /**
      * google广告id
-     * <p> 示例值：02a11ac4a83b918e
+     *
+     * <p>示例值：02a11ac4a83b918e
      */
-    @SerializedName("google_aid")
-    private String googleAid;
+    this.googleAid = builder.googleAid;
     /**
      * Ios广告主标识符
-     * <p> 示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
+     *
+     * <p>示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
      */
-    @SerializedName("idfa")
-    private String idfa;
+    this.idfa = builder.idfa;
     /**
      * Ios 供应商标识符
-     * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+     *
+     * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
      */
-    @SerializedName("idfv")
-    private String idfv;
+    this.idfv = builder.idfv;
     /**
      * 申报状态
-     * <p> 示例值：Processing
+     *
+     * <p>示例值：Processing
      */
-    @SerializedName("apply_status")
-    private String applyStatus;
+    this.applyStatus = builder.applyStatus;
     /**
      * 申请人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private UserId operator;
+    this.operator = builder.operator;
     /**
      * 申请时间
-     * <p> 示例值：2022-11-28 17:21:26
+     *
+     * <p>示例值：2022-11-28 17:21:26
      */
-    @SerializedName("apply_time")
-    private String applyTime;
+    this.applyTime = builder.applyTime;
     /**
      * 硬盘序列号
-     * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
      */
-    @SerializedName("disk_serial_number")
-    private String diskSerialNumber;
+    this.diskSerialNumber = builder.diskSerialNumber;
     /**
      * 设备归属
-     * <p> 示例值：Company
+     *
+     * <p>示例值：Company
      */
-    @SerializedName("device_ownership")
-    private String deviceOwnership;
+    this.deviceOwnership = builder.deviceOwnership;
     /**
      * 操作系统
-     * <p> 示例值：Windows
+     *
+     * <p>示例值：Windows
      */
-    @SerializedName("device_system")
-    private String deviceSystem;
+    this.deviceSystem = builder.deviceSystem;
     /**
      * 设备名称
-     * <p> 示例值：xx的设备
+     *
+     * <p>示例值：xx的设备
      */
-    @SerializedName("device_name")
-    private String deviceName;
+    this.deviceName = builder.deviceName;
     /**
      * 设备单ID
-     * <p> 示例值：321321311112
+     *
+     * <p>示例值：321321311112
      */
-    @SerializedName("device_record_id")
-    private String deviceRecordId;
+    this.deviceRecordId = builder.deviceRecordId;
     /**
      * 鸿蒙系统应用匿名标识符
-     * <p> 示例值：84a5a123-04c5-6789-9d71-3706e50f9250
+     *
+     * <p>示例值：84a5a123-04c5-6789-9d71-3706e50f9250
      */
-    @SerializedName("aaid")
+    this.aaid = builder.aaid;
+  }
+
+  public static class Builder {
+    /**
+     * 设备申请单id
+     *
+     * <p>示例值：321321311
+     */
+    private String applyId;
+
+    /**
+     * 设备类型
+     *
+     * <p>示例值：Mobile
+     */
+    private String deviceTerminalType;
+
+    /**
+     * 设备型号
+     *
+     * <p>示例值：MacBookPro16,2
+     */
+    private String model;
+
+    /**
+     * 生产序列号
+     *
+     * <p>示例值：C02DTHRMML7H
+     */
+    private String serialNumber;
+
+    /**
+     * 主板UUID
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     */
+    private String uuid;
+
+    /**
+     * Mac地址
+     *
+     * <p>示例值：ac:de:48:00:11:22
+     */
+    private String macAddress;
+
+    /**
+     * 国际移动设备识别码
+     *
+     * <p>示例值：123456-78-901234-5
+     */
+    private String imei;
+
+    /**
+     * Android 标识符
+     *
+     * <p>示例值：02a11ac4a83b918e
+     */
+    private String androidId;
+
+    /**
+     * google广告id
+     *
+     * <p>示例值：02a11ac4a83b918e
+     */
+    private String googleAid;
+
+    /**
+     * Ios广告主标识符
+     *
+     * <p>示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
+     */
+    private String idfa;
+
+    /**
+     * Ios 供应商标识符
+     *
+     * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+     */
+    private String idfv;
+
+    /**
+     * 申报状态
+     *
+     * <p>示例值：Processing
+     */
+    private String applyStatus;
+
+    /**
+     * 申请人
+     *
+     * <p>示例值：
+     */
+    private UserId operator;
+
+    /**
+     * 申请时间
+     *
+     * <p>示例值：2022-11-28 17:21:26
+     */
+    private String applyTime;
+
+    /**
+     * 硬盘序列号
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     */
+    private String diskSerialNumber;
+
+    /**
+     * 设备归属
+     *
+     * <p>示例值：Company
+     */
+    private String deviceOwnership;
+
+    /**
+     * 操作系统
+     *
+     * <p>示例值：Windows
+     */
+    private String deviceSystem;
+
+    /**
+     * 设备名称
+     *
+     * <p>示例值：xx的设备
+     */
+    private String deviceName;
+
+    /**
+     * 设备单ID
+     *
+     * <p>示例值：321321311112
+     */
+    private String deviceRecordId;
+
+    /**
+     * 鸿蒙系统应用匿名标识符
+     *
+     * <p>示例值：84a5a123-04c5-6789-9d71-3706e50f9250
+     */
     private String aaid;
 
-    // builder 开始
-    public DeviceApplyRecord() {
+    /**
+     * 设备申请单id
+     *
+     * <p>示例值：321321311
+     *
+     * @param applyId
+     * @return
+     */
+    public Builder applyId(String applyId) {
+      this.applyId = applyId;
+      return this;
     }
 
-    public DeviceApplyRecord(Builder builder) {
-        /**
-         * 设备申请单id
-         * <p> 示例值：321321311
-         */
-        this.applyId = builder.applyId;
-        /**
-         * 设备类型
-         * <p> 示例值：Mobile
-         */
-        this.deviceTerminalType = builder.deviceTerminalType;
-        /**
-         * 设备型号
-         * <p> 示例值：MacBookPro16,2
-         */
-        this.model = builder.model;
-        /**
-         * 生产序列号
-         * <p> 示例值：C02DTHRMML7H
-         */
-        this.serialNumber = builder.serialNumber;
-        /**
-         * 主板UUID
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         */
-        this.uuid = builder.uuid;
-        /**
-         * Mac地址
-         * <p> 示例值：ac:de:48:00:11:22
-         */
-        this.macAddress = builder.macAddress;
-        /**
-         * 国际移动设备识别码
-         * <p> 示例值：123456-78-901234-5
-         */
-        this.imei = builder.imei;
-        /**
-         * Android 标识符
-         * <p> 示例值：02a11ac4a83b918e
-         */
-        this.androidId = builder.androidId;
-        /**
-         * google广告id
-         * <p> 示例值：02a11ac4a83b918e
-         */
-        this.googleAid = builder.googleAid;
-        /**
-         * Ios广告主标识符
-         * <p> 示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
-         */
-        this.idfa = builder.idfa;
-        /**
-         * Ios 供应商标识符
-         * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
-         */
-        this.idfv = builder.idfv;
-        /**
-         * 申报状态
-         * <p> 示例值：Processing
-         */
-        this.applyStatus = builder.applyStatus;
-        /**
-         * 申请人
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 申请时间
-         * <p> 示例值：2022-11-28 17:21:26
-         */
-        this.applyTime = builder.applyTime;
-        /**
-         * 硬盘序列号
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         */
-        this.diskSerialNumber = builder.diskSerialNumber;
-        /**
-         * 设备归属
-         * <p> 示例值：Company
-         */
-        this.deviceOwnership = builder.deviceOwnership;
-        /**
-         * 操作系统
-         * <p> 示例值：Windows
-         */
-        this.deviceSystem = builder.deviceSystem;
-        /**
-         * 设备名称
-         * <p> 示例值：xx的设备
-         */
-        this.deviceName = builder.deviceName;
-        /**
-         * 设备单ID
-         * <p> 示例值：321321311112
-         */
-        this.deviceRecordId = builder.deviceRecordId;
-        /**
-         * 鸿蒙系统应用匿名标识符
-         * <p> 示例值：84a5a123-04c5-6789-9d71-3706e50f9250
-         */
-        this.aaid = builder.aaid;
+    /**
+     * 设备类型
+     *
+     * <p>示例值：Mobile
+     *
+     * @param deviceTerminalType
+     * @return
+     */
+    public Builder deviceTerminalType(String deviceTerminalType) {
+      this.deviceTerminalType = deviceTerminalType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设备类型
+     *
+     * <p>示例值：Mobile
+     *
+     * @param deviceTerminalType {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceTerminalTypeEnum}
+     * @return
+     */
+    public Builder deviceTerminalType(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .DeviceApplyRecordDeviceTerminalTypeEnum
+            deviceTerminalType) {
+      this.deviceTerminalType = deviceTerminalType.getValue();
+      return this;
     }
 
-    public String getApplyId() {
-        return this.applyId;
+    /**
+     * 设备型号
+     *
+     * <p>示例值：MacBookPro16,2
+     *
+     * @param model
+     * @return
+     */
+    public Builder model(String model) {
+      this.model = model;
+      return this;
     }
 
-    public void setApplyId(String applyId) {
-        this.applyId = applyId;
+    /**
+     * 生产序列号
+     *
+     * <p>示例值：C02DTHRMML7H
+     *
+     * @param serialNumber
+     * @return
+     */
+    public Builder serialNumber(String serialNumber) {
+      this.serialNumber = serialNumber;
+      return this;
     }
 
-    public String getDeviceTerminalType() {
-        return this.deviceTerminalType;
+    /**
+     * 主板UUID
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public void setDeviceTerminalType(String deviceTerminalType) {
-        this.deviceTerminalType = deviceTerminalType;
+    /**
+     * Mac地址
+     *
+     * <p>示例值：ac:de:48:00:11:22
+     *
+     * @param macAddress
+     * @return
+     */
+    public Builder macAddress(String macAddress) {
+      this.macAddress = macAddress;
+      return this;
     }
 
-    public String getModel() {
-        return this.model;
+    /**
+     * 国际移动设备识别码
+     *
+     * <p>示例值：123456-78-901234-5
+     *
+     * @param imei
+     * @return
+     */
+    public Builder imei(String imei) {
+      this.imei = imei;
+      return this;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    /**
+     * Android 标识符
+     *
+     * <p>示例值：02a11ac4a83b918e
+     *
+     * @param androidId
+     * @return
+     */
+    public Builder androidId(String androidId) {
+      this.androidId = androidId;
+      return this;
     }
 
-    public String getSerialNumber() {
-        return this.serialNumber;
+    /**
+     * google广告id
+     *
+     * <p>示例值：02a11ac4a83b918e
+     *
+     * @param googleAid
+     * @return
+     */
+    public Builder googleAid(String googleAid) {
+      this.googleAid = googleAid;
+      return this;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    /**
+     * Ios广告主标识符
+     *
+     * <p>示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
+     *
+     * @param idfa
+     * @return
+     */
+    public Builder idfa(String idfa) {
+      this.idfa = idfa;
+      return this;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    /**
+     * Ios 供应商标识符
+     *
+     * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+     *
+     * @param idfv
+     * @return
+     */
+    public Builder idfv(String idfv) {
+      this.idfv = idfv;
+      return this;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    /**
+     * 申报状态
+     *
+     * <p>示例值：Processing
+     *
+     * @param applyStatus
+     * @return
+     */
+    public Builder applyStatus(String applyStatus) {
+      this.applyStatus = applyStatus;
+      return this;
     }
 
-    public String getMacAddress() {
-        return this.macAddress;
+    /**
+     * 申报状态
+     *
+     * <p>示例值：Processing
+     *
+     * @param applyStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceApplyStatusEnum}
+     * @return
+     */
+    public Builder applyStatus(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .DeviceApplyRecordDeviceApplyStatusEnum
+            applyStatus) {
+      this.applyStatus = applyStatus.getValue();
+      return this;
     }
 
-    public void setMacAddress(String macAddress) {
-        this.macAddress = macAddress;
+    /**
+     * 申请人
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(UserId operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getImei() {
-        return this.imei;
+    /**
+     * 申请时间
+     *
+     * <p>示例值：2022-11-28 17:21:26
+     *
+     * @param applyTime
+     * @return
+     */
+    public Builder applyTime(String applyTime) {
+      this.applyTime = applyTime;
+      return this;
     }
 
-    public void setImei(String imei) {
-        this.imei = imei;
+    /**
+     * 硬盘序列号
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * @param diskSerialNumber
+     * @return
+     */
+    public Builder diskSerialNumber(String diskSerialNumber) {
+      this.diskSerialNumber = diskSerialNumber;
+      return this;
     }
 
-    public String getAndroidId() {
-        return this.androidId;
+    /**
+     * 设备归属
+     *
+     * <p>示例值：Company
+     *
+     * @param deviceOwnership
+     * @return
+     */
+    public Builder deviceOwnership(String deviceOwnership) {
+      this.deviceOwnership = deviceOwnership;
+      return this;
     }
 
-    public void setAndroidId(String androidId) {
-        this.androidId = androidId;
+    /**
+     * 设备归属
+     *
+     * <p>示例值：Company
+     *
+     * @param deviceOwnership {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceOwnershipEnum}
+     * @return
+     */
+    public Builder deviceOwnership(
+        com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceOwnershipEnum
+            deviceOwnership) {
+      this.deviceOwnership = deviceOwnership.getValue();
+      return this;
     }
 
-    public String getGoogleAid() {
-        return this.googleAid;
+    /**
+     * 操作系统
+     *
+     * <p>示例值：Windows
+     *
+     * @param deviceSystem
+     * @return
+     */
+    public Builder deviceSystem(String deviceSystem) {
+      this.deviceSystem = deviceSystem;
+      return this;
     }
 
-    public void setGoogleAid(String googleAid) {
-        this.googleAid = googleAid;
+    /**
+     * 操作系统
+     *
+     * <p>示例值：Windows
+     *
+     * @param deviceSystem {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceSystemEnum}
+     * @return
+     */
+    public Builder deviceSystem(
+        com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceSystemEnum
+            deviceSystem) {
+      this.deviceSystem = deviceSystem.getValue();
+      return this;
     }
 
-    public String getIdfa() {
-        return this.idfa;
+    /**
+     * 设备名称
+     *
+     * <p>示例值：xx的设备
+     *
+     * @param deviceName
+     * @return
+     */
+    public Builder deviceName(String deviceName) {
+      this.deviceName = deviceName;
+      return this;
     }
 
-    public void setIdfa(String idfa) {
-        this.idfa = idfa;
+    /**
+     * 设备单ID
+     *
+     * <p>示例值：321321311112
+     *
+     * @param deviceRecordId
+     * @return
+     */
+    public Builder deviceRecordId(String deviceRecordId) {
+      this.deviceRecordId = deviceRecordId;
+      return this;
     }
 
-    public String getIdfv() {
-        return this.idfv;
+    /**
+     * 鸿蒙系统应用匿名标识符
+     *
+     * <p>示例值：84a5a123-04c5-6789-9d71-3706e50f9250
+     *
+     * @param aaid
+     * @return
+     */
+    public Builder aaid(String aaid) {
+      this.aaid = aaid;
+      return this;
     }
 
-    public void setIdfv(String idfv) {
-        this.idfv = idfv;
+    public DeviceApplyRecord build() {
+      return new DeviceApplyRecord(this);
     }
-
-    public String getApplyStatus() {
-        return this.applyStatus;
-    }
-
-    public void setApplyStatus(String applyStatus) {
-        this.applyStatus = applyStatus;
-    }
-
-    public UserId getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(UserId operator) {
-        this.operator = operator;
-    }
-
-    public String getApplyTime() {
-        return this.applyTime;
-    }
-
-    public void setApplyTime(String applyTime) {
-        this.applyTime = applyTime;
-    }
-
-    public String getDiskSerialNumber() {
-        return this.diskSerialNumber;
-    }
-
-    public void setDiskSerialNumber(String diskSerialNumber) {
-        this.diskSerialNumber = diskSerialNumber;
-    }
-
-    public String getDeviceOwnership() {
-        return this.deviceOwnership;
-    }
-
-    public void setDeviceOwnership(String deviceOwnership) {
-        this.deviceOwnership = deviceOwnership;
-    }
-
-    public String getDeviceSystem() {
-        return this.deviceSystem;
-    }
-
-    public void setDeviceSystem(String deviceSystem) {
-        this.deviceSystem = deviceSystem;
-    }
-
-    public String getDeviceName() {
-        return this.deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public String getDeviceRecordId() {
-        return this.deviceRecordId;
-    }
-
-    public void setDeviceRecordId(String deviceRecordId) {
-        this.deviceRecordId = deviceRecordId;
-    }
-
-    public String getAaid() {
-        return this.aaid;
-    }
-
-    public void setAaid(String aaid) {
-        this.aaid = aaid;
-    }
-
-    public static class Builder {
-        /**
-         * 设备申请单id
-         * <p> 示例值：321321311
-         */
-        private String applyId;
-        /**
-         * 设备类型
-         * <p> 示例值：Mobile
-         */
-        private String deviceTerminalType;
-        /**
-         * 设备型号
-         * <p> 示例值：MacBookPro16,2
-         */
-        private String model;
-        /**
-         * 生产序列号
-         * <p> 示例值：C02DTHRMML7H
-         */
-        private String serialNumber;
-        /**
-         * 主板UUID
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         */
-        private String uuid;
-        /**
-         * Mac地址
-         * <p> 示例值：ac:de:48:00:11:22
-         */
-        private String macAddress;
-        /**
-         * 国际移动设备识别码
-         * <p> 示例值：123456-78-901234-5
-         */
-        private String imei;
-        /**
-         * Android 标识符
-         * <p> 示例值：02a11ac4a83b918e
-         */
-        private String androidId;
-        /**
-         * google广告id
-         * <p> 示例值：02a11ac4a83b918e
-         */
-        private String googleAid;
-        /**
-         * Ios广告主标识符
-         * <p> 示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
-         */
-        private String idfa;
-        /**
-         * Ios 供应商标识符
-         * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
-         */
-        private String idfv;
-        /**
-         * 申报状态
-         * <p> 示例值：Processing
-         */
-        private String applyStatus;
-        /**
-         * 申请人
-         * <p> 示例值：
-         */
-        private UserId operator;
-        /**
-         * 申请时间
-         * <p> 示例值：2022-11-28 17:21:26
-         */
-        private String applyTime;
-        /**
-         * 硬盘序列号
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         */
-        private String diskSerialNumber;
-        /**
-         * 设备归属
-         * <p> 示例值：Company
-         */
-        private String deviceOwnership;
-        /**
-         * 操作系统
-         * <p> 示例值：Windows
-         */
-        private String deviceSystem;
-        /**
-         * 设备名称
-         * <p> 示例值：xx的设备
-         */
-        private String deviceName;
-        /**
-         * 设备单ID
-         * <p> 示例值：321321311112
-         */
-        private String deviceRecordId;
-        /**
-         * 鸿蒙系统应用匿名标识符
-         * <p> 示例值：84a5a123-04c5-6789-9d71-3706e50f9250
-         */
-        private String aaid;
-
-        /**
-         * 设备申请单id
-         * <p> 示例值：321321311
-         *
-         * @param applyId
-         * @return
-         */
-        public Builder applyId(String applyId) {
-            this.applyId = applyId;
-            return this;
-        }
-
-
-        /**
-         * 设备类型
-         * <p> 示例值：Mobile
-         *
-         * @param deviceTerminalType
-         * @return
-         */
-        public Builder deviceTerminalType(String deviceTerminalType) {
-            this.deviceTerminalType = deviceTerminalType;
-            return this;
-        }
-
-        /**
-         * 设备类型
-         * <p> 示例值：Mobile
-         *
-         * @param deviceTerminalType {@link com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceTerminalTypeEnum}
-         * @return
-         */
-        public Builder deviceTerminalType(com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceTerminalTypeEnum deviceTerminalType) {
-            this.deviceTerminalType = deviceTerminalType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备型号
-         * <p> 示例值：MacBookPro16,2
-         *
-         * @param model
-         * @return
-         */
-        public Builder model(String model) {
-            this.model = model;
-            return this;
-        }
-
-
-        /**
-         * 生产序列号
-         * <p> 示例值：C02DTHRMML7H
-         *
-         * @param serialNumber
-         * @return
-         */
-        public Builder serialNumber(String serialNumber) {
-            this.serialNumber = serialNumber;
-            return this;
-        }
-
-
-        /**
-         * 主板UUID
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * Mac地址
-         * <p> 示例值：ac:de:48:00:11:22
-         *
-         * @param macAddress
-         * @return
-         */
-        public Builder macAddress(String macAddress) {
-            this.macAddress = macAddress;
-            return this;
-        }
-
-
-        /**
-         * 国际移动设备识别码
-         * <p> 示例值：123456-78-901234-5
-         *
-         * @param imei
-         * @return
-         */
-        public Builder imei(String imei) {
-            this.imei = imei;
-            return this;
-        }
-
-
-        /**
-         * Android 标识符
-         * <p> 示例值：02a11ac4a83b918e
-         *
-         * @param androidId
-         * @return
-         */
-        public Builder androidId(String androidId) {
-            this.androidId = androidId;
-            return this;
-        }
-
-
-        /**
-         * google广告id
-         * <p> 示例值：02a11ac4a83b918e
-         *
-         * @param googleAid
-         * @return
-         */
-        public Builder googleAid(String googleAid) {
-            this.googleAid = googleAid;
-            return this;
-        }
-
-
-        /**
-         * Ios广告主标识符
-         * <p> 示例值：EA7583CD-A667-48BC-B806-42ECB2B48606
-         *
-         * @param idfa
-         * @return
-         */
-        public Builder idfa(String idfa) {
-            this.idfa = idfa;
-            return this;
-        }
-
-
-        /**
-         * Ios 供应商标识符
-         * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
-         *
-         * @param idfv
-         * @return
-         */
-        public Builder idfv(String idfv) {
-            this.idfv = idfv;
-            return this;
-        }
-
-
-        /**
-         * 申报状态
-         * <p> 示例值：Processing
-         *
-         * @param applyStatus
-         * @return
-         */
-        public Builder applyStatus(String applyStatus) {
-            this.applyStatus = applyStatus;
-            return this;
-        }
-
-        /**
-         * 申报状态
-         * <p> 示例值：Processing
-         *
-         * @param applyStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceApplyStatusEnum}
-         * @return
-         */
-        public Builder applyStatus(com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceApplyStatusEnum applyStatus) {
-            this.applyStatus = applyStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 申请人
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(UserId operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 申请时间
-         * <p> 示例值：2022-11-28 17:21:26
-         *
-         * @param applyTime
-         * @return
-         */
-        public Builder applyTime(String applyTime) {
-            this.applyTime = applyTime;
-            return this;
-        }
-
-
-        /**
-         * 硬盘序列号
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         *
-         * @param diskSerialNumber
-         * @return
-         */
-        public Builder diskSerialNumber(String diskSerialNumber) {
-            this.diskSerialNumber = diskSerialNumber;
-            return this;
-        }
-
-
-        /**
-         * 设备归属
-         * <p> 示例值：Company
-         *
-         * @param deviceOwnership
-         * @return
-         */
-        public Builder deviceOwnership(String deviceOwnership) {
-            this.deviceOwnership = deviceOwnership;
-            return this;
-        }
-
-        /**
-         * 设备归属
-         * <p> 示例值：Company
-         *
-         * @param deviceOwnership {@link com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceOwnershipEnum}
-         * @return
-         */
-        public Builder deviceOwnership(com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceOwnershipEnum deviceOwnership) {
-            this.deviceOwnership = deviceOwnership.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作系统
-         * <p> 示例值：Windows
-         *
-         * @param deviceSystem
-         * @return
-         */
-        public Builder deviceSystem(String deviceSystem) {
-            this.deviceSystem = deviceSystem;
-            return this;
-        }
-
-        /**
-         * 操作系统
-         * <p> 示例值：Windows
-         *
-         * @param deviceSystem {@link com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceSystemEnum}
-         * @return
-         */
-        public Builder deviceSystem(com.lark.oapi.service.security_and_compliance.v1.enums.DeviceApplyRecordDeviceSystemEnum deviceSystem) {
-            this.deviceSystem = deviceSystem.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备名称
-         * <p> 示例值：xx的设备
-         *
-         * @param deviceName
-         * @return
-         */
-        public Builder deviceName(String deviceName) {
-            this.deviceName = deviceName;
-            return this;
-        }
-
-
-        /**
-         * 设备单ID
-         * <p> 示例值：321321311112
-         *
-         * @param deviceRecordId
-         * @return
-         */
-        public Builder deviceRecordId(String deviceRecordId) {
-            this.deviceRecordId = deviceRecordId;
-            return this;
-        }
-
-
-        /**
-         * 鸿蒙系统应用匿名标识符
-         * <p> 示例值：84a5a123-04c5-6789-9d71-3706e50f9250
-         *
-         * @param aaid
-         * @return
-         */
-        public Builder aaid(String aaid) {
-            this.aaid = aaid;
-            return this;
-        }
-
-
-        public DeviceApplyRecord build() {
-            return new DeviceApplyRecord(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 部门状态
- */
+/** 部门状态 */
 public enum DepartmentDeleteStatusEnum {
-    DEPARTMENT_STATUS_DIRECTORY_DELETE(0), // 已删除
-    DEPARTMENT_STATUS_DIRECTORY_NORMAL(1), // 正常
-    ;
-    private Integer value;
+  DEPARTMENT_STATUS_DIRECTORY_DELETE(0), // 已删除
+  DEPARTMENT_STATUS_DIRECTORY_NORMAL(1), // 正常
+  ;
+  private Integer value;
 
-    DepartmentDeleteStatusEnum(Integer value) {
-        this.value = value;
-    }
+  DepartmentDeleteStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

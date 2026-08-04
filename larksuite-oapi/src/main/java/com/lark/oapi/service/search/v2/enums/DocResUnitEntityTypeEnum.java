@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 结果类型
- */
+/** 结果类型 */
 public enum DocResUnitEntityTypeEnum {
-    DOC("DOC"), // doc实体
-    WIKI("WIKI"), // wiki类型
-    ;
-    private String value;
+  DOC("DOC"), // doc实体
+  WIKI("WIKI"), // wiki类型
+  ;
+  private String value;
 
-    DocResUnitEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  DocResUnitEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

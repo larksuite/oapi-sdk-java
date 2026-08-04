@@ -13,149 +13,185 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetDepartmentReqBody {
+  /**
+   * 部门ID列表，和 department_name_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。;;ID获取方式：;-
+   * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID;-
+   * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+   * 获取部门ID信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_id_list")
+  private String[] departmentIdList;
+
+  /**
+   * 返回数据的字段列表，都不传则只返回部门 ID，可选值：;- version_id：当前版本ID;- sub_type：部门子类型;- manager：负责人;-
+   * is_root：是否根部门;- is_confidential：是否保密;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+   * department_name：部门名称;- parent_department_id：上级部门ID;- tree_order：树形排序;- list_order：列表排序;-
+   * code：部门编码;- active：是否启用;- description：部门描述;- custom_fields：自定义字段;- staffing_model：岗职务模式;-
+   * cost_center_id：部门默认成本中心;- created_time：创建时间(版本创建时间);- updated_time：更新时间;- created_by：创建人;-
+   * updated_by：更新人;- record_created_time：记录创建时间(第一个版本的创建时间);- record_updated_time：记录更新时间;-
+   * record_created_by：记录创建人;- record_updated_by：记录更新人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  /**
+   * 部门名称精确匹配，最多传100个。和 department_id_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_name_list")
+  private String[] departmentNameList;
+
+  public String[] getDepartmentIdList() {
+    return this.departmentIdList;
+  }
+
+  public void setDepartmentIdList(String[] departmentIdList) {
+    this.departmentIdList = departmentIdList;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  public String[] getDepartmentNameList() {
+    return this.departmentNameList;
+  }
+
+  public void setDepartmentNameList(String[] departmentNameList) {
+    this.departmentNameList = departmentNameList;
+  }
+
+  // builder 开始
+  public BatchGetDepartmentReqBody() {}
+
+  public BatchGetDepartmentReqBody(Builder builder) {
     /**
-     * 部门 ID 列表
-     * <p> 示例值：
+     * 部门ID列表，和 department_name_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。;;ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_id_list")
+    this.departmentIdList = builder.departmentIdList;
+    /**
+     * 返回数据的字段列表，都不传则只返回部门 ID，可选值：;- version_id：当前版本ID;- sub_type：部门子类型;- manager：负责人;-
+     * is_root：是否根部门;- is_confidential：是否保密;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * department_name：部门名称;- parent_department_id：上级部门ID;- tree_order：树形排序;- list_order：列表排序;-
+     * code：部门编码;- active：是否启用;- description：部门描述;- custom_fields：自定义字段;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- created_time：创建时间(版本创建时间);- updated_time：更新时间;- created_by：创建人;-
+     * updated_by：更新人;- record_created_time：记录创建时间(第一个版本的创建时间);- record_updated_time：记录更新时间;-
+     * record_created_by：记录创建人;- record_updated_by：记录更新人
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+    /**
+     * 部门名称精确匹配，最多传100个。和 department_id_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。
+     *
+     * <p>示例值：
+     */
+    this.departmentNameList = builder.departmentNameList;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID列表，和 department_name_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。;;ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID信息
+     *
+     * <p>示例值：
+     */
     private String[] departmentIdList;
+
     /**
-     * 返回数据的字段列表
-     * <p> 示例值：
+     * 返回数据的字段列表，都不传则只返回部门 ID，可选值：;- version_id：当前版本ID;- sub_type：部门子类型;- manager：负责人;-
+     * is_root：是否根部门;- is_confidential：是否保密;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * department_name：部门名称;- parent_department_id：上级部门ID;- tree_order：树形排序;- list_order：列表排序;-
+     * code：部门编码;- active：是否启用;- description：部门描述;- custom_fields：自定义字段;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- created_time：创建时间(版本创建时间);- updated_time：更新时间;- created_by：创建人;-
+     * updated_by：更新人;- record_created_time：记录创建时间(第一个版本的创建时间);- record_updated_time：记录更新时间;-
+     * record_created_by：记录创建人;- record_updated_by：记录更新人
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
+
     /**
-     * 部门名称精确匹配，最多传100个
-     * <p> 示例值：
+     * 部门名称精确匹配，最多传100个。和 department_id_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_name_list")
     private String[] departmentNameList;
 
-    // builder 开始
-    public BatchGetDepartmentReqBody() {
+    /**
+     * 部门ID列表，和 department_name_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。;;ID获取方式：;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID;-
+     * 也可以通过[【事件】创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created)[【事件】更新部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)
+     * 获取部门ID信息
+     *
+     * <p>示例值：
+     *
+     * @param departmentIdList
+     * @return
+     */
+    public Builder departmentIdList(String[] departmentIdList) {
+      this.departmentIdList = departmentIdList;
+      return this;
     }
 
-    public BatchGetDepartmentReqBody(Builder builder) {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIdList = builder.departmentIdList;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 部门名称精确匹配，最多传100个
-         * <p> 示例值：
-         */
-        this.departmentNameList = builder.departmentNameList;
+    /**
+     * 返回数据的字段列表，都不传则只返回部门 ID，可选值：;- version_id：当前版本ID;- sub_type：部门子类型;- manager：负责人;-
+     * is_root：是否根部门;- is_confidential：是否保密;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;-
+     * department_name：部门名称;- parent_department_id：上级部门ID;- tree_order：树形排序;- list_order：列表排序;-
+     * code：部门编码;- active：是否启用;- description：部门描述;- custom_fields：自定义字段;- staffing_model：岗职务模式;-
+     * cost_center_id：部门默认成本中心;- created_time：创建时间(版本创建时间);- updated_time：更新时间;- created_by：创建人;-
+     * updated_by：更新人;- record_created_time：记录创建时间(第一个版本的创建时间);- record_updated_time：记录更新时间;-
+     * record_created_by：记录创建人;- record_updated_by：记录更新人
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称精确匹配，最多传100个。和 department_id_list 至少传一种，两个字段都传会按照 AND 方式查询，都不传则返回空。
+     *
+     * <p>示例值：
+     *
+     * @param departmentNameList
+     * @return
+     */
+    public Builder departmentNameList(String[] departmentNameList) {
+      this.departmentNameList = departmentNameList;
+      return this;
     }
 
-    public String[] getDepartmentIdList() {
-        return this.departmentIdList;
+    public BatchGetDepartmentReqBody build() {
+      return new BatchGetDepartmentReqBody(this);
     }
+  }
 
-    public void setDepartmentIdList(String[] departmentIdList) {
-        this.departmentIdList = departmentIdList;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public String[] getDepartmentNameList() {
-        return this.departmentNameList;
-    }
-
-    public void setDepartmentNameList(String[] departmentNameList) {
-        this.departmentNameList = departmentNameList;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIdList;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] fields;
-        /**
-         * 部门名称精确匹配，最多传100个
-         * <p> 示例值：
-         */
-        private String[] departmentNameList;
-
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIdList
-         * @return
-         */
-        public Builder departmentIdList(String[] departmentIdList) {
-            this.departmentIdList = departmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 部门名称精确匹配，最多传100个
-         * <p> 示例值：
-         *
-         * @param departmentNameList
-         * @return
-         */
-        public Builder departmentNameList(String[] departmentNameList) {
-            this.departmentNameList = departmentNameList;
-            return this;
-        }
-
-
-        public BatchGetDepartmentReqBody build() {
-            return new BatchGetDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

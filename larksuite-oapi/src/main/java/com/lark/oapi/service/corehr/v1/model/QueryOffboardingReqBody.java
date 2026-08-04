@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryOffboardingReqBody {
+  /**
+   * 离职原因状态，为空时默认搜索所有状态的离职原因。可选项有:;;-true: 启用;;-false: 停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 离职原因唯一标识列表，用于过滤离职原因，为空时默认搜索所有离职原因，最多支持20个
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offboarding_reason_unique_identifier")
+  private String[] offboardingReasonUniqueIdentifier;
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String[] getOffboardingReasonUniqueIdentifier() {
+    return this.offboardingReasonUniqueIdentifier;
+  }
+
+  public void setOffboardingReasonUniqueIdentifier(String[] offboardingReasonUniqueIdentifier) {
+    this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+  }
+
+  // builder 开始
+  public QueryOffboardingReqBody() {}
+
+  public QueryOffboardingReqBody(Builder builder) {
     /**
-     * 是否启用
-     * <p> 示例值：true
+     * 离职原因状态，为空时默认搜索所有状态的离职原因。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+    /**
+     * 离职原因唯一标识列表，用于过滤离职原因，为空时默认搜索所有离职原因，最多支持20个
+     *
+     * <p>示例值：
+     */
+    this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
+  }
+
+  public static class Builder {
+    /**
+     * 离职原因状态，为空时默认搜索所有状态的离职原因。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
+
     /**
-     * 离职原因唯一标识列表，用于过滤，最大20个
-     * <p> 示例值：["reason_for_offboarding_option"]
+     * 离职原因唯一标识列表，用于过滤离职原因，为空时默认搜索所有离职原因，最多支持20个
+     *
+     * <p>示例值：
      */
-    @SerializedName("offboarding_reason_unique_identifier")
     private String[] offboardingReasonUniqueIdentifier;
 
-    // builder 开始
-    public QueryOffboardingReqBody() {
+    /**
+     * 离职原因状态，为空时默认搜索所有状态的离职原因。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public QueryOffboardingReqBody(Builder builder) {
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 离职原因唯一标识列表，用于过滤，最大20个
-         * <p> 示例值：["reason_for_offboarding_option"]
-         */
-        this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
+    /**
+     * 离职原因唯一标识列表，用于过滤离职原因，为空时默认搜索所有离职原因，最多支持20个
+     *
+     * <p>示例值：
+     *
+     * @param offboardingReasonUniqueIdentifier
+     * @return
+     */
+    public Builder offboardingReasonUniqueIdentifier(String[] offboardingReasonUniqueIdentifier) {
+      this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryOffboardingReqBody build() {
+      return new QueryOffboardingReqBody(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String[] getOffboardingReasonUniqueIdentifier() {
-        return this.offboardingReasonUniqueIdentifier;
-    }
-
-    public void setOffboardingReasonUniqueIdentifier(String[] offboardingReasonUniqueIdentifier) {
-        this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-    }
-
-    public static class Builder {
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 离职原因唯一标识列表，用于过滤，最大20个
-         * <p> 示例值：["reason_for_offboarding_option"]
-         */
-        private String[] offboardingReasonUniqueIdentifier;
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 离职原因唯一标识列表，用于过滤，最大20个
-         * <p> 示例值：["reason_for_offboarding_option"]
-         *
-         * @param offboardingReasonUniqueIdentifier
-         * @return
-         */
-        public Builder offboardingReasonUniqueIdentifier(String[] offboardingReasonUniqueIdentifier) {
-            this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        public QueryOffboardingReqBody build() {
-            return new QueryOffboardingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateExchangeBindingRespBody {
-    /**
-     * admin账户
-     * <p> 示例值：email_admin_example@outlook.com
-     */
-    @SerializedName("admin_account")
-    private String adminAccount;
-    /**
-     * 用户绑定的Exchange账户
-     * <p> 示例值：email_account_example@outlook.com
-     */
-    @SerializedName("exchange_account")
-    private String exchangeAccount;
-    /**
-     * Exchange账户绑定user唯一标识id
-     * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * Exchange账户同步状态
-     * <p> 示例值：
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * exchange绑定唯一标识id
-     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
-     */
-    @SerializedName("exchange_binding_id")
-    private String exchangeBindingId;
+  /**
+   * Exchange 的 admin 账户。
+   *
+   * <p>示例值：email_admin_example@outlook.com
+   */
+  @SerializedName("admin_account")
+  private String adminAccount;
 
-    public String getAdminAccount() {
-        return this.adminAccount;
-    }
+  /**
+   * 需绑定的 Exchange 账户。
+   *
+   * <p>示例值：email_account_example@outlook.com
+   */
+  @SerializedName("exchange_account")
+  private String exchangeAccount;
 
-    public void setAdminAccount(String adminAccount) {
-        this.adminAccount = adminAccount;
-    }
+  /**
+   * 用户 ID，即 Exchange 账户绑定的飞书账户 ID。
+   *
+   * <p>示例值：ou_xxxxxxxxxxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public String getExchangeAccount() {
-        return this.exchangeAccount;
-    }
+  /**
+   * Exchange 账户的同步状态。
+   *
+   * <p>示例值：doing
+   */
+  @SerializedName("status")
+  private String status;
 
-    public void setExchangeAccount(String exchangeAccount) {
-        this.exchangeAccount = exchangeAccount;
-    }
+  /**
+   * Exchange 绑定的唯一标识 ID，是 admin 账户、Exchange 账户、用户三元组的唯一标识 ID。你可以通过该 ID 查询绑定关系、日历同步状态，或者解除绑定关系。
+   *
+   * <p>示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+   */
+  @SerializedName("exchange_binding_id")
+  private String exchangeBindingId;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  public String getAdminAccount() {
+    return this.adminAccount;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setAdminAccount(String adminAccount) {
+    this.adminAccount = adminAccount;
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
+  public String getExchangeAccount() {
+    return this.exchangeAccount;
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  public void setExchangeAccount(String exchangeAccount) {
+    this.exchangeAccount = exchangeAccount;
+  }
 
-    public String getExchangeBindingId() {
-        return this.exchangeBindingId;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public void setExchangeBindingId(String exchangeBindingId) {
-        this.exchangeBindingId = exchangeBindingId;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getExchangeBindingId() {
+    return this.exchangeBindingId;
+  }
+
+  public void setExchangeBindingId(String exchangeBindingId) {
+    this.exchangeBindingId = exchangeBindingId;
+  }
 }

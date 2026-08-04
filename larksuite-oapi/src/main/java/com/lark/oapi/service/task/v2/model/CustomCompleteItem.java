@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomCompleteItem {
+  /**
+   * 自定义完成的跳转url
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("href")
+  private String href;
+
+  /**
+   * 自定义完成的弹出提示
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tip")
+  private I18nText tip;
+
+  public String getHref() {
+    return this.href;
+  }
+
+  public void setHref(String href) {
+    this.href = href;
+  }
+
+  public I18nText getTip() {
+    return this.tip;
+  }
+
+  public void setTip(I18nText tip) {
+    this.tip = tip;
+  }
+
+  // builder 开始
+  public CustomCompleteItem() {}
+
+  public CustomCompleteItem(Builder builder) {
     /**
      * 自定义完成的跳转url
-     * <p> 示例值：https://www.example.com
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("href")
-    private String href;
+    this.href = builder.href;
     /**
-     * 自定义完成的弹出提示为
-     * <p> 示例值：
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
      */
-    @SerializedName("tip")
+    this.tip = builder.tip;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义完成的跳转url
+     *
+     * <p>示例值：https://www.example.com
+     */
+    private String href;
+
+    /**
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
+     */
     private I18nText tip;
 
-    // builder 开始
-    public CustomCompleteItem() {
+    /**
+     * 自定义完成的跳转url
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param href
+     * @return
+     */
+    public Builder href(String href) {
+      this.href = href;
+      return this;
     }
 
-    public CustomCompleteItem(Builder builder) {
-        /**
-         * 自定义完成的跳转url
-         * <p> 示例值：https://www.example.com
-         */
-        this.href = builder.href;
-        /**
-         * 自定义完成的弹出提示为
-         * <p> 示例值：
-         */
-        this.tip = builder.tip;
+    /**
+     * 自定义完成的弹出提示
+     *
+     * <p>示例值：
+     *
+     * @param tip
+     * @return
+     */
+    public Builder tip(I18nText tip) {
+      this.tip = tip;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomCompleteItem build() {
+      return new CustomCompleteItem(this);
     }
+  }
 
-    public String getHref() {
-        return this.href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    public I18nText getTip() {
-        return this.tip;
-    }
-
-    public void setTip(I18nText tip) {
-        this.tip = tip;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义完成的跳转url
-         * <p> 示例值：https://www.example.com
-         */
-        private String href;
-        /**
-         * 自定义完成的弹出提示为
-         * <p> 示例值：
-         */
-        private I18nText tip;
-
-        /**
-         * 自定义完成的跳转url
-         * <p> 示例值：https://www.example.com
-         *
-         * @param href
-         * @return
-         */
-        public Builder href(String href) {
-            this.href = href;
-            return this;
-        }
-
-
-        /**
-         * 自定义完成的弹出提示为
-         * <p> 示例值：
-         *
-         * @param tip
-         * @return
-         */
-        public Builder tip(I18nText tip) {
-            this.tip = tip;
-            return this;
-        }
-
-
-        public CustomCompleteItem build() {
-            return new CustomCompleteItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

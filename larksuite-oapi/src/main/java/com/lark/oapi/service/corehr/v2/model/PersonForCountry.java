@@ -13,297 +13,324 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonForCountry {
+  /**
+   * ID
+   *
+   * <p>示例值：7631172813931613916
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 国家 / 地区
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+   *
+   * <p>示例值：
+   */
+  @SerializedName("gender")
+  private Enum gender;
+
+  /**
+   * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+   *
+   * <p>示例值：
+   */
+  @SerializedName("religion")
+  private Enum religion;
+
+  /**
+   * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
+   *
+   * <p>示例值：
+   */
+  @SerializedName("marital_status")
+  private Enum maritalStatus;
+
+  /**
+   * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race -
+   * object_api_name：person
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ethnicity_race")
+  private Enum ethnicityRace;
+
+  /**
+   * 婚姻状况生效日期
+   *
+   * <p>示例值：2020-10-01
+   */
+  @SerializedName("marital_status_date")
+  private String maritalStatusDate;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public Enum getGender() {
+    return this.gender;
+  }
+
+  public void setGender(Enum gender) {
+    this.gender = gender;
+  }
+
+  public Enum getReligion() {
+    return this.religion;
+  }
+
+  public void setReligion(Enum religion) {
+    this.religion = religion;
+  }
+
+  public Enum getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(Enum maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public Enum getEthnicityRace() {
+    return this.ethnicityRace;
+  }
+
+  public void setEthnicityRace(Enum ethnicityRace) {
+    this.ethnicityRace = ethnicityRace;
+  }
+
+  public String getMaritalStatusDate() {
+    return this.maritalStatusDate;
+  }
+
+  public void setMaritalStatusDate(String maritalStatusDate) {
+    this.maritalStatusDate = maritalStatusDate;
+  }
+
+  // builder 开始
+  public PersonForCountry() {}
+
+  public PersonForCountry(Builder builder) {
     /**
      * ID
-     * <p> 示例值：7631172813931613916
+     *
+     * <p>示例值：7631172813931613916
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 国家 / 地区
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("gender")
-    private Enum gender;
+    this.gender = builder.gender;
     /**
      * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("religion")
-    private Enum religion;
+    this.religion = builder.religion;
     /**
-     * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-     * <p> 示例值：
+     * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status -
+     * object_api_name：person
+     *
+     * <p>示例值：
      */
-    @SerializedName("marital_status")
-    private Enum maritalStatus;
+    this.maritalStatus = builder.maritalStatus;
     /**
-     * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-     * <p> 示例值：
+     * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race -
+     * object_api_name：person
+     *
+     * <p>示例值：
      */
-    @SerializedName("ethnicity_race")
-    private Enum ethnicityRace;
+    this.ethnicityRace = builder.ethnicityRace;
     /**
      * 婚姻状况生效日期
-     * <p> 示例值：2020-10-01
+     *
+     * <p>示例值：2020-10-01
      */
-    @SerializedName("marital_status_date")
+    this.maritalStatusDate = builder.maritalStatusDate;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：7631172813931613916
+     */
+    private String wkId;
+
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String countryRegionId;
+
+    /**
+     * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+     *
+     * <p>示例值：
+     */
+    private Enum gender;
+
+    /**
+     * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+     *
+     * <p>示例值：
+     */
+    private Enum religion;
+
+    /**
+     * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status -
+     * object_api_name：person
+     *
+     * <p>示例值：
+     */
+    private Enum maritalStatus;
+
+    /**
+     * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race -
+     * object_api_name：person
+     *
+     * <p>示例值：
+     */
+    private Enum ethnicityRace;
+
+    /**
+     * 婚姻状况生效日期
+     *
+     * <p>示例值：2020-10-01
+     */
     private String maritalStatusDate;
 
-    // builder 开始
-    public PersonForCountry() {
+    /**
+     * ID
+     *
+     * <p>示例值：7631172813931613916
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public PersonForCountry(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：7631172813931613916
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-         * <p> 示例值：
-         */
-        this.gender = builder.gender;
-        /**
-         * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-         * <p> 示例值：
-         */
-        this.religion = builder.religion;
-        /**
-         * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-         * <p> 示例值：
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-         * <p> 示例值：
-         */
-        this.ethnicityRace = builder.ethnicityRace;
-        /**
-         * 婚姻状况生效日期
-         * <p> 示例值：2020-10-01
-         */
-        this.maritalStatusDate = builder.maritalStatusDate;
+    /**
+     * 国家 / 地区
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
+     *
+     * <p>示例值：
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(Enum gender) {
+      this.gender = gender;
+      return this;
     }
 
-    public String getWkId() {
-        return this.wkId;
+    /**
+     * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
+     *
+     * <p>示例值：
+     *
+     * @param religion
+     * @return
+     */
+    public Builder religion(Enum religion) {
+      this.religion = religion;
+      return this;
     }
 
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
+    /**
+     * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status -
+     * object_api_name：person
+     *
+     * <p>示例值：
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(Enum maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race -
+     * object_api_name：person
+     *
+     * <p>示例值：
+     *
+     * @param ethnicityRace
+     * @return
+     */
+    public Builder ethnicityRace(Enum ethnicityRace) {
+      this.ethnicityRace = ethnicityRace;
+      return this;
     }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    /**
+     * 婚姻状况生效日期
+     *
+     * <p>示例值：2020-10-01
+     *
+     * @param maritalStatusDate
+     * @return
+     */
+    public Builder maritalStatusDate(String maritalStatusDate) {
+      this.maritalStatusDate = maritalStatusDate;
+      return this;
     }
 
-    public Enum getGender() {
-        return this.gender;
+    public PersonForCountry build() {
+      return new PersonForCountry(this);
     }
+  }
 
-    public void setGender(Enum gender) {
-        this.gender = gender;
-    }
-
-    public Enum getReligion() {
-        return this.religion;
-    }
-
-    public void setReligion(Enum religion) {
-        this.religion = religion;
-    }
-
-    public Enum getMaritalStatus() {
-        return this.maritalStatus;
-    }
-
-    public void setMaritalStatus(Enum maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public Enum getEthnicityRace() {
-        return this.ethnicityRace;
-    }
-
-    public void setEthnicityRace(Enum ethnicityRace) {
-        this.ethnicityRace = ethnicityRace;
-    }
-
-    public String getMaritalStatusDate() {
-        return this.maritalStatusDate;
-    }
-
-    public void setMaritalStatusDate(String maritalStatusDate) {
-        this.maritalStatusDate = maritalStatusDate;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：7631172813931613916
-         */
-        private String wkId;
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegionId;
-        /**
-         * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-         * <p> 示例值：
-         */
-        private Enum gender;
-        /**
-         * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-         * <p> 示例值：
-         */
-        private Enum religion;
-        /**
-         * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-         * <p> 示例值：
-         */
-        private Enum maritalStatus;
-        /**
-         * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-         * <p> 示例值：
-         */
-        private Enum ethnicityRace;
-        /**
-         * 婚姻状况生效日期
-         * <p> 示例值：2020-10-01
-         */
-        private String maritalStatusDate;
-
-        /**
-         * ID
-         * <p> 示例值：7631172813931613916
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 国家 / 地区
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * -| 性别，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：gender - object_api_name：person
-         * <p> 示例值：
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(Enum gender) {
-            this.gender = gender;
-            return this;
-        }
-
-
-        /**
-         * -| 宗教信仰，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - object_api_name：person - custom_api_name：religion
-         * <p> 示例值：
-         *
-         * @param religion
-         * @return
-         */
-        public Builder religion(Enum religion) {
-            this.religion = religion;
-            return this;
-        }
-
-
-        /**
-         * -| 婚姻状况，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：marital_status - object_api_name：person
-         * <p> 示例值：
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(Enum maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * -| 民族 / 种族，枚举值可查询【获取字段详情】接口获取，按如下参数查询即可： - custom_api_name：ethnicity_race - object_api_name：person
-         * <p> 示例值：
-         *
-         * @param ethnicityRace
-         * @return
-         */
-        public Builder ethnicityRace(Enum ethnicityRace) {
-            this.ethnicityRace = ethnicityRace;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状况生效日期
-         * <p> 示例值：2020-10-01
-         *
-         * @param maritalStatusDate
-         * @return
-         */
-        public Builder maritalStatusDate(String maritalStatusDate) {
-            this.maritalStatusDate = maritalStatusDate;
-            return this;
-        }
-
-
-        public PersonForCountry build() {
-            return new PersonForCountry(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

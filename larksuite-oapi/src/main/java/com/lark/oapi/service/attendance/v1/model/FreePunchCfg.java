@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FreePunchCfg {
+  /**
+   * 自由班制打卡开始时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+   *
+   * <p>示例值：7:00
+   */
+  @SerializedName("free_start_time")
+  private String freeStartTime;
+
+  /**
+   * 自由班制打卡结束时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+   *
+   * <p>示例值：18:00
+   */
+  @SerializedName("free_end_time")
+  private String freeEndTime;
+
+  /**
+   * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+   *
+   * <p>示例值：1111100
+   */
+  @SerializedName("punch_day")
+  private Integer punchDay;
+
+  /**
+   * 工作日不打卡是否记为缺卡，默认为空
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("work_day_no_punch_as_lack")
+  private Boolean workDayNoPunchAsLack;
+
+  /**
+   * 工作日出勤是否需满足时长要求
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("work_hours_demand")
+  private Boolean workHoursDemand;
+
+  /**
+   * 每日工作时长（分钟),范围[0,1440]
+   *
+   * <p>示例值：480
+   */
+  @SerializedName("work_hours")
+  private Integer workHours;
+
+  /**
+   * 自由班制的打卡配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("free_clock_setting")
+  private FreeClockSetting freeClockSetting;
+
+  public String getFreeStartTime() {
+    return this.freeStartTime;
+  }
+
+  public void setFreeStartTime(String freeStartTime) {
+    this.freeStartTime = freeStartTime;
+  }
+
+  public String getFreeEndTime() {
+    return this.freeEndTime;
+  }
+
+  public void setFreeEndTime(String freeEndTime) {
+    this.freeEndTime = freeEndTime;
+  }
+
+  public Integer getPunchDay() {
+    return this.punchDay;
+  }
+
+  public void setPunchDay(Integer punchDay) {
+    this.punchDay = punchDay;
+  }
+
+  public Boolean getWorkDayNoPunchAsLack() {
+    return this.workDayNoPunchAsLack;
+  }
+
+  public void setWorkDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
+    this.workDayNoPunchAsLack = workDayNoPunchAsLack;
+  }
+
+  public Boolean getWorkHoursDemand() {
+    return this.workHoursDemand;
+  }
+
+  public void setWorkHoursDemand(Boolean workHoursDemand) {
+    this.workHoursDemand = workHoursDemand;
+  }
+
+  public Integer getWorkHours() {
+    return this.workHours;
+  }
+
+  public void setWorkHours(Integer workHours) {
+    this.workHours = workHours;
+  }
+
+  public FreeClockSetting getFreeClockSetting() {
+    return this.freeClockSetting;
+  }
+
+  public void setFreeClockSetting(FreeClockSetting freeClockSetting) {
+    this.freeClockSetting = freeClockSetting;
+  }
+
+  // builder 开始
+  public FreePunchCfg() {}
+
+  public FreePunchCfg(Builder builder) {
     /**
-     * 自由班制打卡开始时间
-     * <p> 示例值：7:00
+     * 自由班制打卡开始时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：7:00
      */
-    @SerializedName("free_start_time")
-    private String freeStartTime;
+    this.freeStartTime = builder.freeStartTime;
     /**
-     * 自由班制打卡结束时间
-     * <p> 示例值：18:00
+     * 自由班制打卡结束时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：18:00
      */
-    @SerializedName("free_end_time")
-    private String freeEndTime;
+    this.freeEndTime = builder.freeEndTime;
     /**
      * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
-     * <p> 示例值：1111100
+     *
+     * <p>示例值：1111100
      */
-    @SerializedName("punch_day")
-    private Integer punchDay;
+    this.punchDay = builder.punchDay;
     /**
-     * 工作日不打卡是否记为缺卡
-     * <p> 示例值：true
+     * 工作日不打卡是否记为缺卡，默认为空
+     *
+     * <p>示例值：true
      */
-    @SerializedName("work_day_no_punch_as_lack")
-    private Boolean workDayNoPunchAsLack;
+    this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
     /**
      * 工作日出勤是否需满足时长要求
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("work_hours_demand")
-    private Boolean workHoursDemand;
+    this.workHoursDemand = builder.workHoursDemand;
     /**
      * 每日工作时长（分钟),范围[0,1440]
-     * <p> 示例值：480
+     *
+     * <p>示例值：480
      */
-    @SerializedName("work_hours")
-    private Integer workHours;
+    this.workHours = builder.workHours;
     /**
      * 自由班制的打卡配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("free_clock_setting")
+    this.freeClockSetting = builder.freeClockSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 自由班制打卡开始时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：7:00
+     */
+    private String freeStartTime;
+
+    /**
+     * 自由班制打卡结束时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：18:00
+     */
+    private String freeEndTime;
+
+    /**
+     * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+     *
+     * <p>示例值：1111100
+     */
+    private Integer punchDay;
+
+    /**
+     * 工作日不打卡是否记为缺卡，默认为空
+     *
+     * <p>示例值：true
+     */
+    private Boolean workDayNoPunchAsLack;
+
+    /**
+     * 工作日出勤是否需满足时长要求
+     *
+     * <p>示例值：false
+     */
+    private Boolean workHoursDemand;
+
+    /**
+     * 每日工作时长（分钟),范围[0,1440]
+     *
+     * <p>示例值：480
+     */
+    private Integer workHours;
+
+    /**
+     * 自由班制的打卡配置
+     *
+     * <p>示例值：
+     */
     private FreeClockSetting freeClockSetting;
 
-    // builder 开始
-    public FreePunchCfg() {
+    /**
+     * 自由班制打卡开始时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：7:00
+     *
+     * @param freeStartTime
+     * @return
+     */
+    public Builder freeStartTime(String freeStartTime) {
+      this.freeStartTime = freeStartTime;
+      return this;
     }
 
-    public FreePunchCfg(Builder builder) {
-        /**
-         * 自由班制打卡开始时间
-         * <p> 示例值：7:00
-         */
-        this.freeStartTime = builder.freeStartTime;
-        /**
-         * 自由班制打卡结束时间
-         * <p> 示例值：18:00
-         */
-        this.freeEndTime = builder.freeEndTime;
-        /**
-         * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
-         * <p> 示例值：1111100
-         */
-        this.punchDay = builder.punchDay;
-        /**
-         * 工作日不打卡是否记为缺卡
-         * <p> 示例值：true
-         */
-        this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
-        /**
-         * 工作日出勤是否需满足时长要求
-         * <p> 示例值：false
-         */
-        this.workHoursDemand = builder.workHoursDemand;
-        /**
-         * 每日工作时长（分钟),范围[0,1440]
-         * <p> 示例值：480
-         */
-        this.workHours = builder.workHours;
-        /**
-         * 自由班制的打卡配置
-         * <p> 示例值：
-         */
-        this.freeClockSetting = builder.freeClockSetting;
+    /**
+     * 自由班制打卡结束时间，格式为x点x分，注意这里小时如果小于10点，是不需要补零的
+     *
+     * <p>示例值：18:00
+     *
+     * @param freeEndTime
+     * @return
+     */
+    public Builder freeEndTime(String freeEndTime) {
+      this.freeEndTime = freeEndTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+     *
+     * <p>示例值：1111100
+     *
+     * @param punchDay
+     * @return
+     */
+    public Builder punchDay(Integer punchDay) {
+      this.punchDay = punchDay;
+      return this;
     }
 
-    public String getFreeStartTime() {
-        return this.freeStartTime;
+    /**
+     * 工作日不打卡是否记为缺卡，默认为空
+     *
+     * <p>示例值：true
+     *
+     * @param workDayNoPunchAsLack
+     * @return
+     */
+    public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
+      this.workDayNoPunchAsLack = workDayNoPunchAsLack;
+      return this;
     }
 
-    public void setFreeStartTime(String freeStartTime) {
-        this.freeStartTime = freeStartTime;
+    /**
+     * 工作日出勤是否需满足时长要求
+     *
+     * <p>示例值：false
+     *
+     * @param workHoursDemand
+     * @return
+     */
+    public Builder workHoursDemand(Boolean workHoursDemand) {
+      this.workHoursDemand = workHoursDemand;
+      return this;
     }
 
-    public String getFreeEndTime() {
-        return this.freeEndTime;
+    /**
+     * 每日工作时长（分钟),范围[0,1440]
+     *
+     * <p>示例值：480
+     *
+     * @param workHours
+     * @return
+     */
+    public Builder workHours(Integer workHours) {
+      this.workHours = workHours;
+      return this;
     }
 
-    public void setFreeEndTime(String freeEndTime) {
-        this.freeEndTime = freeEndTime;
+    /**
+     * 自由班制的打卡配置
+     *
+     * <p>示例值：
+     *
+     * @param freeClockSetting
+     * @return
+     */
+    public Builder freeClockSetting(FreeClockSetting freeClockSetting) {
+      this.freeClockSetting = freeClockSetting;
+      return this;
     }
 
-    public Integer getPunchDay() {
-        return this.punchDay;
+    public FreePunchCfg build() {
+      return new FreePunchCfg(this);
     }
+  }
 
-    public void setPunchDay(Integer punchDay) {
-        this.punchDay = punchDay;
-    }
-
-    public Boolean getWorkDayNoPunchAsLack() {
-        return this.workDayNoPunchAsLack;
-    }
-
-    public void setWorkDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
-        this.workDayNoPunchAsLack = workDayNoPunchAsLack;
-    }
-
-    public Boolean getWorkHoursDemand() {
-        return this.workHoursDemand;
-    }
-
-    public void setWorkHoursDemand(Boolean workHoursDemand) {
-        this.workHoursDemand = workHoursDemand;
-    }
-
-    public Integer getWorkHours() {
-        return this.workHours;
-    }
-
-    public void setWorkHours(Integer workHours) {
-        this.workHours = workHours;
-    }
-
-    public FreeClockSetting getFreeClockSetting() {
-        return this.freeClockSetting;
-    }
-
-    public void setFreeClockSetting(FreeClockSetting freeClockSetting) {
-        this.freeClockSetting = freeClockSetting;
-    }
-
-    public static class Builder {
-        /**
-         * 自由班制打卡开始时间
-         * <p> 示例值：7:00
-         */
-        private String freeStartTime;
-        /**
-         * 自由班制打卡结束时间
-         * <p> 示例值：18:00
-         */
-        private String freeEndTime;
-        /**
-         * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
-         * <p> 示例值：1111100
-         */
-        private Integer punchDay;
-        /**
-         * 工作日不打卡是否记为缺卡
-         * <p> 示例值：true
-         */
-        private Boolean workDayNoPunchAsLack;
-        /**
-         * 工作日出勤是否需满足时长要求
-         * <p> 示例值：false
-         */
-        private Boolean workHoursDemand;
-        /**
-         * 每日工作时长（分钟),范围[0,1440]
-         * <p> 示例值：480
-         */
-        private Integer workHours;
-        /**
-         * 自由班制的打卡配置
-         * <p> 示例值：
-         */
-        private FreeClockSetting freeClockSetting;
-
-        /**
-         * 自由班制打卡开始时间
-         * <p> 示例值：7:00
-         *
-         * @param freeStartTime
-         * @return
-         */
-        public Builder freeStartTime(String freeStartTime) {
-            this.freeStartTime = freeStartTime;
-            return this;
-        }
-
-
-        /**
-         * 自由班制打卡结束时间
-         * <p> 示例值：18:00
-         *
-         * @param freeEndTime
-         * @return
-         */
-        public Builder freeEndTime(String freeEndTime) {
-            this.freeEndTime = freeEndTime;
-            return this;
-        }
-
-
-        /**
-         * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
-         * <p> 示例值：1111100
-         *
-         * @param punchDay
-         * @return
-         */
-        public Builder punchDay(Integer punchDay) {
-            this.punchDay = punchDay;
-            return this;
-        }
-
-
-        /**
-         * 工作日不打卡是否记为缺卡
-         * <p> 示例值：true
-         *
-         * @param workDayNoPunchAsLack
-         * @return
-         */
-        public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
-            this.workDayNoPunchAsLack = workDayNoPunchAsLack;
-            return this;
-        }
-
-
-        /**
-         * 工作日出勤是否需满足时长要求
-         * <p> 示例值：false
-         *
-         * @param workHoursDemand
-         * @return
-         */
-        public Builder workHoursDemand(Boolean workHoursDemand) {
-            this.workHoursDemand = workHoursDemand;
-            return this;
-        }
-
-
-        /**
-         * 每日工作时长（分钟),范围[0,1440]
-         * <p> 示例值：480
-         *
-         * @param workHours
-         * @return
-         */
-        public Builder workHours(Integer workHours) {
-            this.workHours = workHours;
-            return this;
-        }
-
-
-        /**
-         * 自由班制的打卡配置
-         * <p> 示例值：
-         *
-         * @param freeClockSetting
-         * @return
-         */
-        public Builder freeClockSetting(FreeClockSetting freeClockSetting) {
-            this.freeClockSetting = freeClockSetting;
-            return this;
-        }
-
-
-        public FreePunchCfg build() {
-            return new FreePunchCfg(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

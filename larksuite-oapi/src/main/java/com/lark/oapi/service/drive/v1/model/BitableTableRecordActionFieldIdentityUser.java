@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableTableRecordActionFieldIdentityUser {
+  /**
+   * 用户的 User ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
+
+  /**
+   * 用户名称
+   *
+   * <p>示例值：张敏
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户英文名称
+   *
+   * <p>示例值：Zhangmin
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 用户头像 URL
+   *
+   * <p>示例值：https://internal-api-lark-file.feishu.cn/static-resource/v1/v2_q86-fcb6-4f18-85c7-87ca8881e50j~?image_size=72x72&amp;cut_type=default-face&amp;quality=&amp;format=jpeg&amp;sticker_format=.webp
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  public UserId getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  // builder 开始
+  public BitableTableRecordActionFieldIdentityUser() {}
+
+  public BitableTableRecordActionFieldIdentityUser(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：
+     * 用户的 User ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private UserId userId;
+    this.userId = builder.userId;
     /**
      * 用户名称
-     * <p> 示例值：
+     *
+     * <p>示例值：张敏
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户英文名称
-     * <p> 示例值：
+     *
+     * <p>示例值：Zhangmin
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
-     * 用户头像URL
-     * <p> 示例值：
+     * 用户头像 URL
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu.cn/static-resource/v1/v2_q86-fcb6-4f18-85c7-87ca8881e50j~?image_size=72x72&amp;cut_type=default-face&amp;quality=&amp;format=jpeg&amp;sticker_format=.webp
      */
-    @SerializedName("avatar_url")
+    this.avatarUrl = builder.avatarUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 用户的 User ID
+     *
+     * <p>示例值：
+     */
+    private UserId userId;
+
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张敏
+     */
+    private String name;
+
+    /**
+     * 用户英文名称
+     *
+     * <p>示例值：Zhangmin
+     */
+    private String enName;
+
+    /**
+     * 用户头像 URL
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu.cn/static-resource/v1/v2_q86-fcb6-4f18-85c7-87ca8881e50j~?image_size=72x72&amp;cut_type=default-face&amp;quality=&amp;format=jpeg&amp;sticker_format=.webp
+     */
     private String avatarUrl;
 
-    // builder 开始
-    public BitableTableRecordActionFieldIdentityUser() {
+    /**
+     * 用户的 User ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(UserId userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public BitableTableRecordActionFieldIdentityUser(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户英文名称
-         * <p> 示例值：
-         */
-        this.enName = builder.enName;
-        /**
-         * 用户头像URL
-         * <p> 示例值：
-         */
-        this.avatarUrl = builder.avatarUrl;
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张敏
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户英文名称
+     *
+     * <p>示例值：Zhangmin
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public UserId getUserId() {
-        return this.userId;
+    /**
+     * 用户头像 URL
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu.cn/static-resource/v1/v2_q86-fcb6-4f18-85c7-87ca8881e50j~?image_size=72x72&amp;cut_type=default-face&amp;quality=&amp;format=jpeg&amp;sticker_format=.webp
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
+    public BitableTableRecordActionFieldIdentityUser build() {
+      return new BitableTableRecordActionFieldIdentityUser(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private UserId userId;
-        /**
-         * 用户名称
-         * <p> 示例值：
-         */
-        private String name;
-        /**
-         * 用户英文名称
-         * <p> 示例值：
-         */
-        private String enName;
-        /**
-         * 用户头像URL
-         * <p> 示例值：
-         */
-        private String avatarUrl;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户英文名称
-         * <p> 示例值：
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 用户头像URL
-         * <p> 示例值：
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        public BitableTableRecordActionFieldIdentityUser build() {
-            return new BitableTableRecordActionFieldIdentityUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

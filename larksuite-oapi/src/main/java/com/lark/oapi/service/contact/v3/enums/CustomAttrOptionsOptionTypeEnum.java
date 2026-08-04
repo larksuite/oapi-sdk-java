@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 选项类型
- */
+/** 选项类型。 */
 public enum CustomAttrOptionsOptionTypeEnum {
-    TEXT("TEXT"), // text选项
-    PICTURE("PICTURE"), // 图片选项
-    ;
-    private String value;
+  TEXT("TEXT"), // 文本选项
+  PICTURE("PICTURE"), // 图片选项
+  ;
+  private String value;
 
-    CustomAttrOptionsOptionTypeEnum(String value) {
-        this.value = value;
-    }
+  CustomAttrOptionsOptionTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class DeleteReserveReq {
+  /**
+   * 预约ID（预约的唯一标识）
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @Path
+  @SerializedName("reserve_id")
+  private String reserveId;
+
+  public String getReserveId() {
+    return this.reserveId;
+  }
+
+  public void setReserveId(String reserveId) {
+    this.reserveId = reserveId;
+  }
+
+  // builder 开始
+  public DeleteReserveReq() {}
+
+  public DeleteReserveReq(Builder builder) {
     /**
      * 预约ID（预约的唯一标识）
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @Path
-    @SerializedName("reserve_id")
-    private String reserveId;
+    this.reserveId = builder.reserveId;
+  }
 
-    // builder 开始
-    public DeleteReserveReq() {
+  public static class Builder {
+
+    private String reserveId; // 预约ID（预约的唯一标识）
+
+    /**
+     * 预约ID（预约的唯一标识）
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param reserveId
+     * @return
+     */
+    public Builder reserveId(String reserveId) {
+      this.reserveId = reserveId;
+      return this;
     }
 
-    public DeleteReserveReq(Builder builder) {
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411932033028
-         */
-        this.reserveId = builder.reserveId;
+    public DeleteReserveReq build() {
+      return new DeleteReserveReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getReserveId() {
-        return this.reserveId;
-    }
-
-    public void setReserveId(String reserveId) {
-        this.reserveId = reserveId;
-    }
-
-    public static class Builder {
-
-        private String reserveId; // 预约ID（预约的唯一标识）
-
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411932033028
-         *
-         * @param reserveId
-         * @return
-         */
-        public Builder reserveId(String reserveId) {
-            this.reserveId = reserveId;
-            return this;
-        }
-
-
-        public DeleteReserveReq build() {
-            return new DeleteReserveReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

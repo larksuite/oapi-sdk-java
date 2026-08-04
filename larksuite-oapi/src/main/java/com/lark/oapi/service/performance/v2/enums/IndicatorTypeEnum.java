@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 评估项类型
- */
+/** 评估项类型 */
 public enum IndicatorTypeEnum {
-    GENERAL_REVIEW_ITEM("general_review_item"), // 常规评估项
-    REVIEW_ITEM_BASED_ON_KEY_METRIC("review_item_based_on_key_metric"), // 关键指标评估项
-    OKR_REVIEW_ITEM("okr_review_item"), // OKR 评估项
-    PLUS("plus"), // 加分项
-    MINUS("minus"), // 减分项
-    ;
-    private String value;
+  GENERAL_REVIEW_ITEM("general_review_item"), // 常规评估项
+  REVIEW_ITEM_BASED_ON_KEY_METRIC("review_item_based_on_key_metric"), // 关键指标评估项
+  OKR_REVIEW_ITEM("okr_review_item"), // OKR 评估项
+  PLUS("plus"), // 加分项
+  MINUS("minus"), // 减分项
+  ;
+  private String value;
 
-    IndicatorTypeEnum(String value) {
-        this.value = value;
-    }
+  IndicatorTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

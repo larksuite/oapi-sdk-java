@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUserMailboxLabelReqBody {
+  /**
+   * 邮件标签，必须填写标签名称，可选填写背景颜色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Object label;
+
+  public Object getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Object label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public CreateUserMailboxLabelReqBody() {}
+
+  public CreateUserMailboxLabelReqBody(Builder builder) {
     /**
      * 邮件标签，必须填写标签名称，可选填写背景颜色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件标签，必须填写标签名称，可选填写背景颜色
+     *
+     * <p>示例值：
+     */
     private Object label;
 
-    // builder 开始
-    public CreateUserMailboxLabelReqBody() {
+    /**
+     * 邮件标签，必须填写标签名称，可选填写背景颜色
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Object label) {
+      this.label = label;
+      return this;
     }
 
-    public CreateUserMailboxLabelReqBody(Builder builder) {
-        /**
-         * 邮件标签，必须填写标签名称，可选填写背景颜色
-         * <p> 示例值：
-         */
-        this.label = builder.label;
+    public CreateUserMailboxLabelReqBody build() {
+      return new CreateUserMailboxLabelReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Object getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(Object label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件标签，必须填写标签名称，可选填写背景颜色
-         * <p> 示例值：
-         */
-        private Object label;
-
-        /**
-         * 邮件标签，必须填写标签名称，可选填写背景颜色
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Object label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public CreateUserMailboxLabelReqBody build() {
-            return new CreateUserMailboxLabelReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserCustomAttrValue {
+  /**
+   * 属性文本
+   *
+   * <p>示例值：文本1
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * URL
+   *
+   * <p>示例值：https://www.feishu.cn
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * PC上的URL
+   *
+   * <p>示例值：https://www.feishu.cn
+   */
+  @SerializedName("pc_url")
+  private String pcUrl;
+
+  /**
+   * 选项id，自定义选项和图片此项必填
+   *
+   * <p>示例值：2379dfg5
+   */
+  @SerializedName("option_id")
+  private String optionId;
+
+  /**
+   * 选项值
+   *
+   * <p>示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
+   */
+  @SerializedName("option_value")
+  private String optionValue;
+
+  /**
+   * 图片链接
+   *
+   * <p>示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
+   */
+  @SerializedName("picture_url")
+  private String pictureUrl;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：名字
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("generic_user")
+  private CustomAttrGenericUser genericUser;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getPcUrl() {
+    return this.pcUrl;
+  }
+
+  public void setPcUrl(String pcUrl) {
+    this.pcUrl = pcUrl;
+  }
+
+  public String getOptionId() {
+    return this.optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = optionId;
+  }
+
+  public String getOptionValue() {
+    return this.optionValue;
+  }
+
+  public void setOptionValue(String optionValue) {
+    this.optionValue = optionValue;
+  }
+
+  public String getPictureUrl() {
+    return this.pictureUrl;
+  }
+
+  public void setPictureUrl(String pictureUrl) {
+    this.pictureUrl = pictureUrl;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public CustomAttrGenericUser getGenericUser() {
+    return this.genericUser;
+  }
+
+  public void setGenericUser(CustomAttrGenericUser genericUser) {
+    this.genericUser = genericUser;
+  }
+
+  // builder 开始
+  public UserCustomAttrValue() {}
+
+  public UserCustomAttrValue(Builder builder) {
     /**
      * 属性文本
-     * <p> 示例值：文本1
+     *
+     * <p>示例值：文本1
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * URL
-     * <p> 示例值：https://www.feishu.cn
+     *
+     * <p>示例值：https://www.feishu.cn
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * PC上的URL
-     * <p> 示例值：https://www.feishu.cn
+     *
+     * <p>示例值：https://www.feishu.cn
      */
-    @SerializedName("pc_url")
-    private String pcUrl;
+    this.pcUrl = builder.pcUrl;
     /**
      * 选项id，自定义选项和图片此项必填
-     * <p> 示例值：2379dfg5
+     *
+     * <p>示例值：2379dfg5
      */
-    @SerializedName("option_id")
-    private String optionId;
+    this.optionId = builder.optionId;
     /**
      * 选项值
-     * <p> 示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
+     *
+     * <p>示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
      */
-    @SerializedName("option_value")
-    private String optionValue;
+    this.optionValue = builder.optionValue;
     /**
      * 图片链接
-     * <p> 示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
+     *
+     * <p>示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
      */
-    @SerializedName("picture_url")
-    private String pictureUrl;
+    this.pictureUrl = builder.pictureUrl;
     /**
      * 名称
-     * <p> 示例值：名字
+     *
+     * <p>示例值：名字
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("generic_user")
+    this.genericUser = builder.genericUser;
+  }
+
+  public static class Builder {
+    /**
+     * 属性文本
+     *
+     * <p>示例值：文本1
+     */
+    private String text;
+
+    /**
+     * URL
+     *
+     * <p>示例值：https://www.feishu.cn
+     */
+    private String url;
+
+    /**
+     * PC上的URL
+     *
+     * <p>示例值：https://www.feishu.cn
+     */
+    private String pcUrl;
+
+    /**
+     * 选项id，自定义选项和图片此项必填
+     *
+     * <p>示例值：2379dfg5
+     */
+    private String optionId;
+
+    /**
+     * 选项值
+     *
+     * <p>示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
+     */
+    private String optionValue;
+
+    /**
+     * 图片链接
+     *
+     * <p>示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
+     */
+    private String pictureUrl;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：名字
+     */
+    private String name;
+
+    /**
+     * 用户信息
+     *
+     * <p>示例值：
+     */
     private CustomAttrGenericUser genericUser;
 
-    // builder 开始
-    public UserCustomAttrValue() {
+    /**
+     * 属性文本
+     *
+     * <p>示例值：文本1
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public UserCustomAttrValue(Builder builder) {
-        /**
-         * 属性文本
-         * <p> 示例值：文本1
-         */
-        this.text = builder.text;
-        /**
-         * URL
-         * <p> 示例值：https://www.feishu.cn
-         */
-        this.url = builder.url;
-        /**
-         * PC上的URL
-         * <p> 示例值：https://www.feishu.cn
-         */
-        this.pcUrl = builder.pcUrl;
-        /**
-         * 选项id，自定义选项和图片此项必填
-         * <p> 示例值：2379dfg5
-         */
-        this.optionId = builder.optionId;
-        /**
-         * 选项值
-         * <p> 示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
-         */
-        this.optionValue = builder.optionValue;
-        /**
-         * 图片链接
-         * <p> 示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
-         */
-        this.pictureUrl = builder.pictureUrl;
-        /**
-         * 名称
-         * <p> 示例值：名字
-         */
-        this.name = builder.name;
-        /**
-         * 用户信息
-         * <p> 示例值：
-         */
-        this.genericUser = builder.genericUser;
+    /**
+     * URL
+     *
+     * <p>示例值：https://www.feishu.cn
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * PC上的URL
+     *
+     * <p>示例值：https://www.feishu.cn
+     *
+     * @param pcUrl
+     * @return
+     */
+    public Builder pcUrl(String pcUrl) {
+      this.pcUrl = pcUrl;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 选项id，自定义选项和图片此项必填
+     *
+     * <p>示例值：2379dfg5
+     *
+     * @param optionId
+     * @return
+     */
+    public Builder optionId(String optionId) {
+      this.optionId = optionId;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    /**
+     * 选项值
+     *
+     * <p>示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
+     *
+     * @param optionValue
+     * @return
+     */
+    public Builder optionValue(String optionValue) {
+      this.optionValue = optionValue;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 图片链接
+     *
+     * <p>示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
+     *
+     * @param pictureUrl
+     * @return
+     */
+    public Builder pictureUrl(String pictureUrl) {
+      this.pictureUrl = pictureUrl;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    /**
+     * 名称
+     *
+     * <p>示例值：名字
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getPcUrl() {
-        return this.pcUrl;
+    /**
+     * 用户信息
+     *
+     * <p>示例值：
+     *
+     * @param genericUser
+     * @return
+     */
+    public Builder genericUser(CustomAttrGenericUser genericUser) {
+      this.genericUser = genericUser;
+      return this;
     }
 
-    public void setPcUrl(String pcUrl) {
-        this.pcUrl = pcUrl;
+    public UserCustomAttrValue build() {
+      return new UserCustomAttrValue(this);
     }
+  }
 
-    public String getOptionId() {
-        return this.optionId;
-    }
-
-    public void setOptionId(String optionId) {
-        this.optionId = optionId;
-    }
-
-    public String getOptionValue() {
-        return this.optionValue;
-    }
-
-    public void setOptionValue(String optionValue) {
-        this.optionValue = optionValue;
-    }
-
-    public String getPictureUrl() {
-        return this.pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public CustomAttrGenericUser getGenericUser() {
-        return this.genericUser;
-    }
-
-    public void setGenericUser(CustomAttrGenericUser genericUser) {
-        this.genericUser = genericUser;
-    }
-
-    public static class Builder {
-        /**
-         * 属性文本
-         * <p> 示例值：文本1
-         */
-        private String text;
-        /**
-         * URL
-         * <p> 示例值：https://www.feishu.cn
-         */
-        private String url;
-        /**
-         * PC上的URL
-         * <p> 示例值：https://www.feishu.cn
-         */
-        private String pcUrl;
-        /**
-         * 选项id，自定义选项和图片此项必填
-         * <p> 示例值：2379dfg5
-         */
-        private String optionId;
-        /**
-         * 选项值
-         * <p> 示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
-         */
-        private String optionValue;
-        /**
-         * 图片链接
-         * <p> 示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
-         */
-        private String pictureUrl;
-        /**
-         * 名称
-         * <p> 示例值：名字
-         */
-        private String name;
-        /**
-         * 用户信息
-         * <p> 示例值：
-         */
-        private CustomAttrGenericUser genericUser;
-
-        /**
-         * 属性文本
-         * <p> 示例值：文本1
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * URL
-         * <p> 示例值：https://www.feishu.cn
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * PC上的URL
-         * <p> 示例值：https://www.feishu.cn
-         *
-         * @param pcUrl
-         * @return
-         */
-        public Builder pcUrl(String pcUrl) {
-            this.pcUrl = pcUrl;
-            return this;
-        }
-
-
-        /**
-         * 选项id，自定义选项和图片此项必填
-         * <p> 示例值：2379dfg5
-         *
-         * @param optionId
-         * @return
-         */
-        public Builder optionId(String optionId) {
-            this.optionId = optionId;
-            return this;
-        }
-
-
-        /**
-         * 选项值
-         * <p> 示例值：v2_d9033c89-a483-4efa-8d17-d02340fb16dj
-         *
-         * @param optionValue
-         * @return
-         */
-        public Builder optionValue(String optionValue) {
-            this.optionValue = optionValue;
-            return this;
-        }
-
-
-        /**
-         * 图片链接
-         * <p> 示例值：https://www.xxxx.com/~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp
-         *
-         * @param pictureUrl
-         * @return
-         */
-        public Builder pictureUrl(String pictureUrl) {
-            this.pictureUrl = pictureUrl;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：名字
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户信息
-         * <p> 示例值：
-         *
-         * @param genericUser
-         * @return
-         */
-        public Builder genericUser(CustomAttrGenericUser genericUser) {
-            this.genericUser = genericUser;
-            return this;
-        }
-
-
-        public UserCustomAttrValue build() {
-            return new UserCustomAttrValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

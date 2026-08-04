@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MineDeviceRecordRespBody {
-    /**
-     * 设备认证编码
-     * <p> 示例值：7089353870308032531
-     */
-    @SerializedName("device_record_id")
-    private String deviceRecordId;
-    /**
-     * 设备归属
-     * <p> 示例值：0
-     */
-    @SerializedName("device_ownership")
-    private Integer deviceOwnership;
-    /**
-     * 可信状态
-     * <p> 示例值：0
-     */
-    @SerializedName("device_status")
-    private Integer deviceStatus;
+  /**
+   * 设备认证编码
+   *
+   * <p>示例值：7089353870308032531
+   */
+  @SerializedName("device_record_id")
+  private String deviceRecordId;
 
-    public String getDeviceRecordId() {
-        return this.deviceRecordId;
-    }
+  /**
+   * 设备归属
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("device_ownership")
+  private Integer deviceOwnership;
 
-    public void setDeviceRecordId(String deviceRecordId) {
-        this.deviceRecordId = deviceRecordId;
-    }
+  /**
+   * 可信状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("device_status")
+  private Integer deviceStatus;
 
-    public Integer getDeviceOwnership() {
-        return this.deviceOwnership;
-    }
+  public String getDeviceRecordId() {
+    return this.deviceRecordId;
+  }
 
-    public void setDeviceOwnership(Integer deviceOwnership) {
-        this.deviceOwnership = deviceOwnership;
-    }
+  public void setDeviceRecordId(String deviceRecordId) {
+    this.deviceRecordId = deviceRecordId;
+  }
 
-    public Integer getDeviceStatus() {
-        return this.deviceStatus;
-    }
+  public Integer getDeviceOwnership() {
+    return this.deviceOwnership;
+  }
 
-    public void setDeviceStatus(Integer deviceStatus) {
-        this.deviceStatus = deviceStatus;
-    }
+  public void setDeviceOwnership(Integer deviceOwnership) {
+    this.deviceOwnership = deviceOwnership;
+  }
 
+  public Integer getDeviceStatus() {
+    return this.deviceStatus;
+  }
+
+  public void setDeviceStatus(Integer deviceStatus) {
+    this.deviceStatus = deviceStatus;
+  }
 }

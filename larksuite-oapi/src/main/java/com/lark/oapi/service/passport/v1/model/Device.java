@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.passport.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.passport.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Device {
+  /**
+   * 当前设备ID
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("device_id")
+  private String deviceId;
+
+  /**
+   * 历史使用的设备ID
+   *
+   * <p>示例值：4567
+   */
+  @SerializedName("legacy_device_id")
+  private String legacyDeviceId;
+
+  public String getDeviceId() {
+    return this.deviceId;
+  }
+
+  public void setDeviceId(String deviceId) {
+    this.deviceId = deviceId;
+  }
+
+  public String getLegacyDeviceId() {
+    return this.legacyDeviceId;
+  }
+
+  public void setLegacyDeviceId(String legacyDeviceId) {
+    this.legacyDeviceId = legacyDeviceId;
+  }
+
+  // builder 开始
+  public Device() {}
+
+  public Device(Builder builder) {
     /**
      * 当前设备ID
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("device_id")
-    private String deviceId;
+    this.deviceId = builder.deviceId;
     /**
      * 历史使用的设备ID
-     * <p> 示例值：4567
+     *
+     * <p>示例值：4567
      */
-    @SerializedName("legacy_device_id")
+    this.legacyDeviceId = builder.legacyDeviceId;
+  }
+
+  public static class Builder {
+    /**
+     * 当前设备ID
+     *
+     * <p>示例值：1234
+     */
+    private String deviceId;
+
+    /**
+     * 历史使用的设备ID
+     *
+     * <p>示例值：4567
+     */
     private String legacyDeviceId;
 
-    // builder 开始
-    public Device() {
+    /**
+     * 当前设备ID
+     *
+     * <p>示例值：1234
+     *
+     * @param deviceId
+     * @return
+     */
+    public Builder deviceId(String deviceId) {
+      this.deviceId = deviceId;
+      return this;
     }
 
-    public Device(Builder builder) {
-        /**
-         * 当前设备ID
-         * <p> 示例值：1234
-         */
-        this.deviceId = builder.deviceId;
-        /**
-         * 历史使用的设备ID
-         * <p> 示例值：4567
-         */
-        this.legacyDeviceId = builder.legacyDeviceId;
+    /**
+     * 历史使用的设备ID
+     *
+     * <p>示例值：4567
+     *
+     * @param legacyDeviceId
+     * @return
+     */
+    public Builder legacyDeviceId(String legacyDeviceId) {
+      this.legacyDeviceId = legacyDeviceId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Device build() {
+      return new Device(this);
     }
+  }
 
-    public String getDeviceId() {
-        return this.deviceId;
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
-    }
-
-    public String getLegacyDeviceId() {
-        return this.legacyDeviceId;
-    }
-
-    public void setLegacyDeviceId(String legacyDeviceId) {
-        this.legacyDeviceId = legacyDeviceId;
-    }
-
-    public static class Builder {
-        /**
-         * 当前设备ID
-         * <p> 示例值：1234
-         */
-        private String deviceId;
-        /**
-         * 历史使用的设备ID
-         * <p> 示例值：4567
-         */
-        private String legacyDeviceId;
-
-        /**
-         * 当前设备ID
-         * <p> 示例值：1234
-         *
-         * @param deviceId
-         * @return
-         */
-        public Builder deviceId(String deviceId) {
-            this.deviceId = deviceId;
-            return this;
-        }
-
-
-        /**
-         * 历史使用的设备ID
-         * <p> 示例值：4567
-         *
-         * @param legacyDeviceId
-         * @return
-         */
-        public Builder legacyDeviceId(String legacyDeviceId) {
-            this.legacyDeviceId = legacyDeviceId;
-            return this;
-        }
-
-
-        public Device build() {
-            return new Device(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,22 +13,21 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
- */
+/** 能力类型，按能力类型进行筛选，返回对应能力的活跃数据 */
 public enum OverviewApplicationAppUsageOverviewApplicationAppUsageAbilityEnum {
-    APP("app"), // 返回应用整体的数据
-    MP("mp"), // 返回小程序的数据
-    H5("h5"), // 返回网页的数据
-    BOT("bot"), // 返回机器人的数据
-    ;
-    private String value;
+  APP(
+      "app"), // 返回应用整体的数据，指标值包括：uv：活跃用户数，total_users：累计用户数，new_users：新增用户数，pv：在应用（小程序或网页）中访问的页面数，lifecycle：打开应用（小程序或网页）的次数
+  MP("mp"), // 返回小程序能力的数据，指标值包括：uv（小程序活跃用户数）、pv（用户在小程序中的访问页面数）、lifecycle（小程序的打开次数）
+  H5("h5"), // 返回网页能力的数据，指标值包括：uv（网页应用活跃用户数）、pv（用户在网页应用中的访问页面数）、lifecycle（网页应用的打开次数）
+  BOT("bot"), // 返回机器人能力的数据，指标值包括：uv（机器人的活跃用户数）
+  ;
+  private String value;
 
-    OverviewApplicationAppUsageOverviewApplicationAppUsageAbilityEnum(String value) {
-        this.value = value;
-    }
+  OverviewApplicationAppUsageOverviewApplicationAppUsageAbilityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

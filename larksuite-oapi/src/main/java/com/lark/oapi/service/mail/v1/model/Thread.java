@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Thread {
+  /**
+   * 会话ID
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
+   *
+   * <p>示例值：hello world
+   */
+  @SerializedName("body_preview")
+  private String bodyPreview;
+
+  /**
+   * 会话中的邮件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("messages")
+  private Message[] messages;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getBodyPreview() {
+    return this.bodyPreview;
+  }
+
+  public void setBodyPreview(String bodyPreview) {
+    this.bodyPreview = bodyPreview;
+  }
+
+  public Message[] getMessages() {
+    return this.messages;
+  }
+
+  public void setMessages(Message[] messages) {
+    this.messages = messages;
+  }
+
+  // builder 开始
+  public Thread() {}
+
+  public Thread(Builder builder) {
     /**
      * 会话ID
-     * <p> 示例值：xx
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
-     * <p> 示例值：hello world
+     *
+     * <p>示例值：hello world
      */
-    @SerializedName("body_preview")
-    private String bodyPreview;
+    this.bodyPreview = builder.bodyPreview;
     /**
      * 会话中的邮件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("messages")
+    this.messages = builder.messages;
+  }
+
+  public static class Builder {
+    /**
+     * 会话ID
+     *
+     * <p>示例值：xx
+     */
+    private String id;
+
+    /**
+     * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
+     *
+     * <p>示例值：hello world
+     */
+    private String bodyPreview;
+
+    /**
+     * 会话中的邮件列表
+     *
+     * <p>示例值：
+     */
     private Message[] messages;
 
-    // builder 开始
-    public Thread() {
+    /**
+     * 会话ID
+     *
+     * <p>示例值：xx
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Thread(Builder builder) {
-        /**
-         * 会话ID
-         * <p> 示例值：xx
-         */
-        this.id = builder.id;
-        /**
-         * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
-         * <p> 示例值：hello world
-         */
-        this.bodyPreview = builder.bodyPreview;
-        /**
-         * 会话中的邮件列表
-         * <p> 示例值：
-         */
-        this.messages = builder.messages;
+    /**
+     * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
+     *
+     * <p>示例值：hello world
+     *
+     * @param bodyPreview
+     * @return
+     */
+    public Builder bodyPreview(String bodyPreview) {
+      this.bodyPreview = bodyPreview;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话中的邮件列表
+     *
+     * <p>示例值：
+     *
+     * @param messages
+     * @return
+     */
+    public Builder messages(Message[] messages) {
+      this.messages = messages;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Thread build() {
+      return new Thread(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getBodyPreview() {
-        return this.bodyPreview;
-    }
-
-    public void setBodyPreview(String bodyPreview) {
-        this.bodyPreview = bodyPreview;
-    }
-
-    public Message[] getMessages() {
-        return this.messages;
-    }
-
-    public void setMessages(Message[] messages) {
-        this.messages = messages;
-    }
-
-    public static class Builder {
-        /**
-         * 会话ID
-         * <p> 示例值：xx
-         */
-        private String id;
-        /**
-         * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
-         * <p> 示例值：hello world
-         */
-        private String bodyPreview;
-        /**
-         * 会话中的邮件列表
-         * <p> 示例值：
-         */
-        private Message[] messages;
-
-        /**
-         * 会话ID
-         * <p> 示例值：xx
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 会话内的最新的一封邮件摘要，用于快速预览邮件核心内容
-         * <p> 示例值：hello world
-         *
-         * @param bodyPreview
-         * @return
-         */
-        public Builder bodyPreview(String bodyPreview) {
-            this.bodyPreview = bodyPreview;
-            return this;
-        }
-
-
-        /**
-         * 会话中的邮件列表
-         * <p> 示例值：
-         *
-         * @param messages
-         * @return
-         */
-        public Builder messages(Message[] messages) {
-            this.messages = messages;
-            return this;
-        }
-
-
-        public Thread build() {
-            return new Thread(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

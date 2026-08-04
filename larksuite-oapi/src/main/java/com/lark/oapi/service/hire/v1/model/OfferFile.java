@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferFile {
+  /**
+   * 文件 id
+   *
+   * <p>示例值：12345678901
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 文件模板 id
+   *
+   * <p>示例值：1718959426734
+   */
+  @SerializedName("file_template_id")
+  private String fileTemplateId;
+
+  /**
+   * 文件模板名称
+   *
+   * <p>示例值：offer 文件
+   */
+  @SerializedName("file_template_name")
+  private String fileTemplateName;
+
+  /**
+   * 文件模板类型 id
+   *
+   * <p>示例值：1718959426734
+   */
+  @SerializedName("file_template_type_id")
+  private String fileTemplateTypeId;
+
+  /**
+   * 文件模板类型名称
+   *
+   * <p>示例值：offer 文件
+   */
+  @SerializedName("file_template_type_name")
+  private String fileTemplateTypeName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getFileTemplateId() {
+    return this.fileTemplateId;
+  }
+
+  public void setFileTemplateId(String fileTemplateId) {
+    this.fileTemplateId = fileTemplateId;
+  }
+
+  public String getFileTemplateName() {
+    return this.fileTemplateName;
+  }
+
+  public void setFileTemplateName(String fileTemplateName) {
+    this.fileTemplateName = fileTemplateName;
+  }
+
+  public String getFileTemplateTypeId() {
+    return this.fileTemplateTypeId;
+  }
+
+  public void setFileTemplateTypeId(String fileTemplateTypeId) {
+    this.fileTemplateTypeId = fileTemplateTypeId;
+  }
+
+  public String getFileTemplateTypeName() {
+    return this.fileTemplateTypeName;
+  }
+
+  public void setFileTemplateTypeName(String fileTemplateTypeName) {
+    this.fileTemplateTypeName = fileTemplateTypeName;
+  }
+
+  // builder 开始
+  public OfferFile() {}
+
+  public OfferFile(Builder builder) {
     /**
      * 文件 id
-     * <p> 示例值：12345678901
+     *
+     * <p>示例值：12345678901
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 文件模板 id
-     * <p> 示例值：1718959426734
+     *
+     * <p>示例值：1718959426734
      */
-    @SerializedName("file_template_id")
-    private String fileTemplateId;
+    this.fileTemplateId = builder.fileTemplateId;
     /**
      * 文件模板名称
-     * <p> 示例值：offer 文件
+     *
+     * <p>示例值：offer 文件
      */
-    @SerializedName("file_template_name")
-    private String fileTemplateName;
+    this.fileTemplateName = builder.fileTemplateName;
     /**
      * 文件模板类型 id
-     * <p> 示例值：1718959426734
+     *
+     * <p>示例值：1718959426734
      */
-    @SerializedName("file_template_type_id")
-    private String fileTemplateTypeId;
+    this.fileTemplateTypeId = builder.fileTemplateTypeId;
     /**
      * 文件模板类型名称
-     * <p> 示例值：offer 文件
+     *
+     * <p>示例值：offer 文件
      */
-    @SerializedName("file_template_type_name")
+    this.fileTemplateTypeName = builder.fileTemplateTypeName;
+  }
+
+  public static class Builder {
+    /**
+     * 文件 id
+     *
+     * <p>示例值：12345678901
+     */
+    private String id;
+
+    /**
+     * 文件模板 id
+     *
+     * <p>示例值：1718959426734
+     */
+    private String fileTemplateId;
+
+    /**
+     * 文件模板名称
+     *
+     * <p>示例值：offer 文件
+     */
+    private String fileTemplateName;
+
+    /**
+     * 文件模板类型 id
+     *
+     * <p>示例值：1718959426734
+     */
+    private String fileTemplateTypeId;
+
+    /**
+     * 文件模板类型名称
+     *
+     * <p>示例值：offer 文件
+     */
     private String fileTemplateTypeName;
 
-    // builder 开始
-    public OfferFile() {
+    /**
+     * 文件 id
+     *
+     * <p>示例值：12345678901
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OfferFile(Builder builder) {
-        /**
-         * 文件 id
-         * <p> 示例值：12345678901
-         */
-        this.id = builder.id;
-        /**
-         * 文件模板 id
-         * <p> 示例值：1718959426734
-         */
-        this.fileTemplateId = builder.fileTemplateId;
-        /**
-         * 文件模板名称
-         * <p> 示例值：offer 文件
-         */
-        this.fileTemplateName = builder.fileTemplateName;
-        /**
-         * 文件模板类型 id
-         * <p> 示例值：1718959426734
-         */
-        this.fileTemplateTypeId = builder.fileTemplateTypeId;
-        /**
-         * 文件模板类型名称
-         * <p> 示例值：offer 文件
-         */
-        this.fileTemplateTypeName = builder.fileTemplateTypeName;
+    /**
+     * 文件模板 id
+     *
+     * <p>示例值：1718959426734
+     *
+     * @param fileTemplateId
+     * @return
+     */
+    public Builder fileTemplateId(String fileTemplateId) {
+      this.fileTemplateId = fileTemplateId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件模板名称
+     *
+     * <p>示例值：offer 文件
+     *
+     * @param fileTemplateName
+     * @return
+     */
+    public Builder fileTemplateName(String fileTemplateName) {
+      this.fileTemplateName = fileTemplateName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 文件模板类型 id
+     *
+     * <p>示例值：1718959426734
+     *
+     * @param fileTemplateTypeId
+     * @return
+     */
+    public Builder fileTemplateTypeId(String fileTemplateTypeId) {
+      this.fileTemplateTypeId = fileTemplateTypeId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 文件模板类型名称
+     *
+     * <p>示例值：offer 文件
+     *
+     * @param fileTemplateTypeName
+     * @return
+     */
+    public Builder fileTemplateTypeName(String fileTemplateTypeName) {
+      this.fileTemplateTypeName = fileTemplateTypeName;
+      return this;
     }
 
-    public String getFileTemplateId() {
-        return this.fileTemplateId;
+    public OfferFile build() {
+      return new OfferFile(this);
     }
+  }
 
-    public void setFileTemplateId(String fileTemplateId) {
-        this.fileTemplateId = fileTemplateId;
-    }
-
-    public String getFileTemplateName() {
-        return this.fileTemplateName;
-    }
-
-    public void setFileTemplateName(String fileTemplateName) {
-        this.fileTemplateName = fileTemplateName;
-    }
-
-    public String getFileTemplateTypeId() {
-        return this.fileTemplateTypeId;
-    }
-
-    public void setFileTemplateTypeId(String fileTemplateTypeId) {
-        this.fileTemplateTypeId = fileTemplateTypeId;
-    }
-
-    public String getFileTemplateTypeName() {
-        return this.fileTemplateTypeName;
-    }
-
-    public void setFileTemplateTypeName(String fileTemplateTypeName) {
-        this.fileTemplateTypeName = fileTemplateTypeName;
-    }
-
-    public static class Builder {
-        /**
-         * 文件 id
-         * <p> 示例值：12345678901
-         */
-        private String id;
-        /**
-         * 文件模板 id
-         * <p> 示例值：1718959426734
-         */
-        private String fileTemplateId;
-        /**
-         * 文件模板名称
-         * <p> 示例值：offer 文件
-         */
-        private String fileTemplateName;
-        /**
-         * 文件模板类型 id
-         * <p> 示例值：1718959426734
-         */
-        private String fileTemplateTypeId;
-        /**
-         * 文件模板类型名称
-         * <p> 示例值：offer 文件
-         */
-        private String fileTemplateTypeName;
-
-        /**
-         * 文件 id
-         * <p> 示例值：12345678901
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 文件模板 id
-         * <p> 示例值：1718959426734
-         *
-         * @param fileTemplateId
-         * @return
-         */
-        public Builder fileTemplateId(String fileTemplateId) {
-            this.fileTemplateId = fileTemplateId;
-            return this;
-        }
-
-
-        /**
-         * 文件模板名称
-         * <p> 示例值：offer 文件
-         *
-         * @param fileTemplateName
-         * @return
-         */
-        public Builder fileTemplateName(String fileTemplateName) {
-            this.fileTemplateName = fileTemplateName;
-            return this;
-        }
-
-
-        /**
-         * 文件模板类型 id
-         * <p> 示例值：1718959426734
-         *
-         * @param fileTemplateTypeId
-         * @return
-         */
-        public Builder fileTemplateTypeId(String fileTemplateTypeId) {
-            this.fileTemplateTypeId = fileTemplateTypeId;
-            return this;
-        }
-
-
-        /**
-         * 文件模板类型名称
-         * <p> 示例值：offer 文件
-         *
-         * @param fileTemplateTypeName
-         * @return
-         */
-        public Builder fileTemplateTypeName(String fileTemplateTypeName) {
-            this.fileTemplateTypeName = fileTemplateTypeName;
-            return this;
-        }
-
-
-        public OfferFile build() {
-            return new OfferFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentBp {
+  /**
+   * 员工雇佣 ID
+   *
+   * <p>示例值：6863326262618752123
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 员工直属 HRBP 雇佣 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hrbp_ids")
+  private String[] hrbpIds;
+
+  /**
+   * 属地 bp 雇佣 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_bp_ids")
+  private String[] locationBpIds;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String[] getHrbpIds() {
+    return this.hrbpIds;
+  }
+
+  public void setHrbpIds(String[] hrbpIds) {
+    this.hrbpIds = hrbpIds;
+  }
+
+  public String[] getLocationBpIds() {
+    return this.locationBpIds;
+  }
+
+  public void setLocationBpIds(String[] locationBpIds) {
+    this.locationBpIds = locationBpIds;
+  }
+
+  // builder 开始
+  public EmploymentBp() {}
+
+  public EmploymentBp(Builder builder) {
     /**
      * 员工雇佣 ID
-     * <p> 示例值：6863326262618752123
+     *
+     * <p>示例值：6863326262618752123
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 部门 hrbp 雇佣 ID 列表
-     * <p> 示例值：
+     * 员工直属 HRBP 雇佣 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("hrbp_ids")
-    private String[] hrbpIds;
+    this.hrbpIds = builder.hrbpIds;
     /**
      * 属地 bp 雇佣 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("location_bp_ids")
+    this.locationBpIds = builder.locationBpIds;
+  }
+
+  public static class Builder {
+    /**
+     * 员工雇佣 ID
+     *
+     * <p>示例值：6863326262618752123
+     */
+    private String employmentId;
+
+    /**
+     * 员工直属 HRBP 雇佣 ID
+     *
+     * <p>示例值：
+     */
+    private String[] hrbpIds;
+
+    /**
+     * 属地 bp 雇佣 ID 列表
+     *
+     * <p>示例值：
+     */
     private String[] locationBpIds;
 
-    // builder 开始
-    public EmploymentBp() {
+    /**
+     * 员工雇佣 ID
+     *
+     * <p>示例值：6863326262618752123
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmploymentBp(Builder builder) {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6863326262618752123
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 部门 hrbp 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.hrbpIds = builder.hrbpIds;
-        /**
-         * 属地 bp 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.locationBpIds = builder.locationBpIds;
+    /**
+     * 员工直属 HRBP 雇佣 ID
+     *
+     * <p>示例值：
+     *
+     * @param hrbpIds
+     * @return
+     */
+    public Builder hrbpIds(String[] hrbpIds) {
+      this.hrbpIds = hrbpIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 属地 bp 雇佣 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param locationBpIds
+     * @return
+     */
+    public Builder locationBpIds(String[] locationBpIds) {
+      this.locationBpIds = locationBpIds;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    public EmploymentBp build() {
+      return new EmploymentBp(this);
     }
+  }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public String[] getHrbpIds() {
-        return this.hrbpIds;
-    }
-
-    public void setHrbpIds(String[] hrbpIds) {
-        this.hrbpIds = hrbpIds;
-    }
-
-    public String[] getLocationBpIds() {
-        return this.locationBpIds;
-    }
-
-    public void setLocationBpIds(String[] locationBpIds) {
-        this.locationBpIds = locationBpIds;
-    }
-
-    public static class Builder {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6863326262618752123
-         */
-        private String employmentId;
-        /**
-         * 部门 hrbp 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] hrbpIds;
-        /**
-         * 属地 bp 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] locationBpIds;
-
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6863326262618752123
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门 hrbp 雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param hrbpIds
-         * @return
-         */
-        public Builder hrbpIds(String[] hrbpIds) {
-            this.hrbpIds = hrbpIds;
-            return this;
-        }
-
-
-        /**
-         * 属地 bp 雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param locationBpIds
-         * @return
-         */
-        public Builder locationBpIds(String[] locationBpIds) {
-            this.locationBpIds = locationBpIds;
-            return this;
-        }
-
-
-        public EmploymentBp build() {
-            return new EmploymentBp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

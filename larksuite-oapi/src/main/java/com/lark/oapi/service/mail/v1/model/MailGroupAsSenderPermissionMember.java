@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailGroupAsSenderPermissionMember {
+  /**
+   * 租户内用户的唯一标识。ID 类型需与查询参数 user_id_type 的取值保持一致。
+   *
+   * <p>示例值：xxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public MailGroupAsSenderPermissionMember() {}
+
+  public MailGroupAsSenderPermissionMember(Builder builder) {
     /**
-     * 租户内用户的唯一标识
-     * <p> 示例值：
+     * 租户内用户的唯一标识。ID 类型需与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：xxxx
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 租户内用户的唯一标识。ID 类型需与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：xxxx
+     */
     private String userId;
 
-    // builder 开始
-    public MailGroupAsSenderPermissionMember() {
+    /**
+     * 租户内用户的唯一标识。ID 类型需与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：xxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public MailGroupAsSenderPermissionMember(Builder builder) {
-        /**
-         * 租户内用户的唯一标识
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    public MailGroupAsSenderPermissionMember build() {
+      return new MailGroupAsSenderPermissionMember(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 租户内用户的唯一标识
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * 租户内用户的唯一标识
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public MailGroupAsSenderPermissionMember build() {
-            return new MailGroupAsSenderPermissionMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

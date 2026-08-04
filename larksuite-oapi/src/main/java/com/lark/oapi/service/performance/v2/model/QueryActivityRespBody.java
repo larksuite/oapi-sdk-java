@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryActivityRespBody {
-    /**
-     * 绩效评估项目列表。
-     * <p> 示例值：
-     */
-    @SerializedName("activities")
-    private Activity[] activities;
+  /**
+   * 项目列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activities")
+  private Activity[] activities;
 
-    public Activity[] getActivities() {
-        return this.activities;
-    }
+  public Activity[] getActivities() {
+    return this.activities;
+  }
 
-    public void setActivities(Activity[] activities) {
-        this.activities = activities;
-    }
-
+  public void setActivities(Activity[] activities) {
+    this.activities = activities;
+  }
 }

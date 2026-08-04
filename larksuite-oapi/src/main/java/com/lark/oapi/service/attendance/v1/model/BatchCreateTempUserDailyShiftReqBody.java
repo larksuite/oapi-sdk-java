@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateTempUserDailyShiftReqBody {
+  /**
+   * 临时班表信息列表（数量限制50以内）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_tmp_daily_shifts")
+  private UserTmpDailyShift[] userTmpDailyShifts;
+
+  /**
+   * 操作人uid，与employee_type对应
+   *
+   * <p>示例值：dd31248a
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  public UserTmpDailyShift[] getUserTmpDailyShifts() {
+    return this.userTmpDailyShifts;
+  }
+
+  public void setUserTmpDailyShifts(UserTmpDailyShift[] userTmpDailyShifts) {
+    this.userTmpDailyShifts = userTmpDailyShifts;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  // builder 开始
+  public BatchCreateTempUserDailyShiftReqBody() {}
+
+  public BatchCreateTempUserDailyShiftReqBody(Builder builder) {
     /**
      * 临时班表信息列表（数量限制50以内）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_tmp_daily_shifts")
-    private UserTmpDailyShift[] userTmpDailyShifts;
+    this.userTmpDailyShifts = builder.userTmpDailyShifts;
     /**
-     * 操作人uid
-     * <p> 示例值：dd31248a
+     * 操作人uid，与employee_type对应
+     *
+     * <p>示例值：dd31248a
      */
-    @SerializedName("operator_id")
+    this.operatorId = builder.operatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 临时班表信息列表（数量限制50以内）
+     *
+     * <p>示例值：
+     */
+    private UserTmpDailyShift[] userTmpDailyShifts;
+
+    /**
+     * 操作人uid，与employee_type对应
+     *
+     * <p>示例值：dd31248a
+     */
     private String operatorId;
 
-    // builder 开始
-    public BatchCreateTempUserDailyShiftReqBody() {
+    /**
+     * 临时班表信息列表（数量限制50以内）
+     *
+     * <p>示例值：
+     *
+     * @param userTmpDailyShifts
+     * @return
+     */
+    public Builder userTmpDailyShifts(UserTmpDailyShift[] userTmpDailyShifts) {
+      this.userTmpDailyShifts = userTmpDailyShifts;
+      return this;
     }
 
-    public BatchCreateTempUserDailyShiftReqBody(Builder builder) {
-        /**
-         * 临时班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         */
-        this.userTmpDailyShifts = builder.userTmpDailyShifts;
-        /**
-         * 操作人uid
-         * <p> 示例值：dd31248a
-         */
-        this.operatorId = builder.operatorId;
+    /**
+     * 操作人uid，与employee_type对应
+     *
+     * <p>示例值：dd31248a
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchCreateTempUserDailyShiftReqBody build() {
+      return new BatchCreateTempUserDailyShiftReqBody(this);
     }
+  }
 
-    public UserTmpDailyShift[] getUserTmpDailyShifts() {
-        return this.userTmpDailyShifts;
-    }
-
-    public void setUserTmpDailyShifts(UserTmpDailyShift[] userTmpDailyShifts) {
-        this.userTmpDailyShifts = userTmpDailyShifts;
-    }
-
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 临时班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         */
-        private UserTmpDailyShift[] userTmpDailyShifts;
-        /**
-         * 操作人uid
-         * <p> 示例值：dd31248a
-         */
-        private String operatorId;
-
-        /**
-         * 临时班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         *
-         * @param userTmpDailyShifts
-         * @return
-         */
-        public Builder userTmpDailyShifts(UserTmpDailyShift[] userTmpDailyShifts) {
-            this.userTmpDailyShifts = userTmpDailyShifts;
-            return this;
-        }
-
-
-        /**
-         * 操作人uid
-         * <p> 示例值：dd31248a
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        public BatchCreateTempUserDailyShiftReqBody build() {
-            return new BatchCreateTempUserDailyShiftReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

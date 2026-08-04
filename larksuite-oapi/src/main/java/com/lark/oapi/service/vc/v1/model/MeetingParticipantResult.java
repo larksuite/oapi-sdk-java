@@ -13,173 +13,178 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingParticipantResult {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private Integer userType;
+
+  /**
+   * 结果
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("result")
+  private Integer result;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(Integer userType) {
+    this.userType = userType;
+  }
+
+  public Integer getResult() {
+    return this.result;
+  }
+
+  public void setResult(Integer result) {
+    this.result = result;
+  }
+
+  // builder 开始
+  public MeetingParticipantResult() {}
+
+  public MeetingParticipantResult(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_type")
-    private Integer userType;
+    this.userType = builder.userType;
     /**
-     * 移除结果
-     * <p> 示例值：1
+     * 结果
+     *
+     * <p>示例值：1
      */
-    @SerializedName("result")
+    this.result = builder.result;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private String id;
+
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     */
+    private Integer userType;
+
+    /**
+     * 结果
+     *
+     * <p>示例值：1
+     */
     private Integer result;
 
-    // builder 开始
-    public MeetingParticipantResult() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MeetingParticipantResult(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.id = builder.id;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
-        /**
-         * 移除结果
-         * <p> 示例值：1
-         */
-        this.result = builder.result;
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType
+     * @return
+     */
+    public Builder userType(Integer userType) {
+      this.userType = userType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType {@link
+     *     com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultUserTypeEnum}
+     * @return
+     */
+    public Builder userType(
+        com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultUserTypeEnum userType) {
+      this.userType = userType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 结果
+     *
+     * <p>示例值：1
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(Integer result) {
+      this.result = result;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 结果
+     *
+     * <p>示例值：1
+     *
+     * @param result {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultResultEnum}
+     * @return
+     */
+    public Builder result(
+        com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultResultEnum result) {
+      this.result = result.getValue();
+      return this;
     }
 
-    public Integer getUserType() {
-        return this.userType;
+    public MeetingParticipantResult build() {
+      return new MeetingParticipantResult(this);
     }
+  }
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
-    public Integer getResult() {
-        return this.result;
-    }
-
-    public void setResult(Integer result) {
-        this.result = result;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private String id;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        private Integer userType;
-        /**
-         * 移除结果
-         * <p> 示例值：1
-         */
-        private Integer result;
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         *
-         * @param userType
-         * @return
-         */
-        public Builder userType(Integer userType) {
-            this.userType = userType;
-            return this;
-        }
-
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         *
-         * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultUserTypeEnum}
-         * @return
-         */
-        public Builder userType(com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultUserTypeEnum userType) {
-            this.userType = userType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 移除结果
-         * <p> 示例值：1
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(Integer result) {
-            this.result = result;
-            return this;
-        }
-
-        /**
-         * 移除结果
-         * <p> 示例值：1
-         *
-         * @param result {@link com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultResultEnum}
-         * @return
-         */
-        public Builder result(com.lark.oapi.service.vc.v1.enums.MeetingParticipantResultResultEnum result) {
-            this.result = result.getValue();
-            return this;
-        }
-
-
-        public MeetingParticipantResult build() {
-            return new MeetingParticipantResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

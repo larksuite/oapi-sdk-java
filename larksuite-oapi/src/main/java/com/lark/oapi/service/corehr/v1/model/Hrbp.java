@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Hrbp {
+  /**
+   * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于
+   * 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP; >
+   * ;如想获取BP的详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_id_list")
+  private String[] employmentIdList;
+
+  /**
+   * 部门 ID; >
+   * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+   *
+   * <p>示例值：7063072995761456670
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 工作地点 ID
+   *
+   * <p>示例值：6892687221355185677
+   */
+  @SerializedName("work_location_id")
+  private String workLocationId;
+
+  public String[] getEmploymentIdList() {
+    return this.employmentIdList;
+  }
+
+  public void setEmploymentIdList(String[] employmentIdList) {
+    this.employmentIdList = employmentIdList;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getWorkLocationId() {
+    return this.workLocationId;
+  }
+
+  public void setWorkLocationId(String workLocationId) {
+    this.workLocationId = workLocationId;
+  }
+
+  // builder 开始
+  public Hrbp() {}
+
+  public Hrbp(Builder builder) {
     /**
-     * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP
-     * <p> 示例值：
+     * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于
+     * 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP; >
+     * ;如想获取BP的详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_id_list")
-    private String[] employmentIdList;
+    this.employmentIdList = builder.employmentIdList;
     /**
-     * 部门 ID
-     * <p> 示例值：7063072995761456670
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 工作地点 ID
-     * <p> 示例值：6892687221355185677
+     *
+     * <p>示例值：6892687221355185677
      */
-    @SerializedName("work_location_id")
+    this.workLocationId = builder.workLocationId;
+  }
+
+  public static class Builder {
+    /**
+     * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于
+     * 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP; >
+     * ;如想获取BP的详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：
+     */
+    private String[] employmentIdList;
+
+    /**
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
+     */
+    private String departmentId;
+
+    /**
+     * 工作地点 ID
+     *
+     * <p>示例值：6892687221355185677
+     */
     private String workLocationId;
 
-    // builder 开始
-    public Hrbp() {
+    /**
+     * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于
+     * 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP; >
+     * ;如想获取BP的详细信息，可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param employmentIdList
+     * @return
+     */
+    public Builder employmentIdList(String[] employmentIdList) {
+      this.employmentIdList = employmentIdList;
+      return this;
     }
 
-    public Hrbp(Builder builder) {
-        /**
-         * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP
-         * <p> 示例值：
-         */
-        this.employmentIdList = builder.employmentIdList;
-        /**
-         * 部门 ID
-         * <p> 示例值：7063072995761456670
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         */
-        this.workLocationId = builder.workLocationId;
+    /**
+     * 部门 ID; >
+     * ;如想获取部门详细信息，可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作地点 ID
+     *
+     * <p>示例值：6892687221355185677
+     *
+     * @param workLocationId
+     * @return
+     */
+    public Builder workLocationId(String workLocationId) {
+      this.workLocationId = workLocationId;
+      return this;
     }
 
-    public String[] getEmploymentIdList() {
-        return this.employmentIdList;
+    public Hrbp build() {
+      return new Hrbp(this);
     }
+  }
 
-    public void setEmploymentIdList(String[] employmentIdList) {
-        this.employmentIdList = employmentIdList;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getWorkLocationId() {
-        return this.workLocationId;
-    }
-
-    public void setWorkLocationId(String workLocationId) {
-        this.workLocationId = workLocationId;
-    }
-
-    public static class Builder {
-        /**
-         * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP
-         * <p> 示例值：
-         */
-        private String[] employmentIdList;
-        /**
-         * 部门 ID
-         * <p> 示例值：7063072995761456670
-         */
-        private String departmentId;
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         */
-        private String workLocationId;
-
-        /**
-         * HRBP/属地 BP 的雇员ID ：;;对于 HRBP 而言，若入参的部门没有找到对应的 HRBP，将向上找寻，即向其上级部门取对应的 HRBP，且同一部门可能有多个 HRBP；;;对于 属地 BP 而言，若入参的部门和地点没有找到对应的属地 BP，将优先拿地点向上找寻，即向其上级地点取对应的属地 BP
-         * <p> 示例值：
-         *
-         * @param employmentIdList
-         * @return
-         */
-        public Builder employmentIdList(String[] employmentIdList) {
-            this.employmentIdList = employmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID
-         * <p> 示例值：7063072995761456670
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         *
-         * @param workLocationId
-         * @return
-         */
-        public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
-        }
-
-
-        public Hrbp build() {
-            return new Hrbp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

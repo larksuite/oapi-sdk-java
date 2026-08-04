@@ -13,149 +13,155 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class ListTasklistActivitySubscriptionReq {
+  /**
+   * 返回结果的最大数量
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("limit")
+  private Integer limit;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+   *
+   * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+   */
+  @Path
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  // builder 开始
+  public ListTasklistActivitySubscriptionReq() {}
+
+  public ListTasklistActivitySubscriptionReq(Builder builder) {
     /**
      * 返回结果的最大数量
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("limit")
-    private Integer limit;
+    this.limit = builder.limit;
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 清单GUID
-     * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
+    this.tasklistGuid = builder.tasklistGuid;
+  }
 
-    // builder 开始
-    public ListTasklistActivitySubscriptionReq() {
+  public static class Builder {
+    private Integer limit; // 返回结果的最大数量
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 返回结果的最大数量
+     *
+     * <p>示例值：50
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public ListTasklistActivitySubscriptionReq(Builder builder) {
-        /**
-         * 返回结果的最大数量
-         * <p> 示例值：50
-         */
-        this.limit = builder.limit;
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 清单GUID
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         */
-        this.tasklistGuid = builder.tasklistGuid;
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.task.v2.enums.ListTasklistActivitySubscriptionUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.ListTasklistActivitySubscriptionUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getLimit() {
-        return this.limit;
+    private String
+        tasklistGuid; // 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+
+    /**
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    public ListTasklistActivitySubscriptionReq build() {
+      return new ListTasklistActivitySubscriptionReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public static class Builder {
-        private Integer limit; // 返回结果的最大数量
-        private String userIdType; // 用户ID类型
-        private String tasklistGuid; // 清单GUID
-
-        /**
-         * 返回结果的最大数量
-         * <p> 示例值：50
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.ListTasklistActivitySubscriptionUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.ListTasklistActivitySubscriptionUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 清单GUID
-         * <p> 示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        public ListTasklistActivitySubscriptionReq build() {
-            return new ListTasklistActivitySubscriptionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

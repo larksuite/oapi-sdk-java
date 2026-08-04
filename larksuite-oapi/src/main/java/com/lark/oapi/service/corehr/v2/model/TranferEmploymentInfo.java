@@ -13,186 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TranferEmploymentInfo {
+  /**
+   * 转正式员工日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2023-01-01
+   */
+  @SerializedName("regular_employee_start_date")
+  private String regularEmployeeStartDate;
+
+  /**
+   * 司龄起算日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2023-01-01
+   */
+  @SerializedName("seniority_date")
+  private String seniorityDate;
+
+  /**
+   * 员工编号，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：1111111
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 通知期
+   *
+   * <p>示例值：
+   */
+  @SerializedName("notice_period_change_record")
+  private OpenNoticePeriodChangeRecord noticePeriodChangeRecord;
+
+  public String getRegularEmployeeStartDate() {
+    return this.regularEmployeeStartDate;
+  }
+
+  public void setRegularEmployeeStartDate(String regularEmployeeStartDate) {
+    this.regularEmployeeStartDate = regularEmployeeStartDate;
+  }
+
+  public String getSeniorityDate() {
+    return this.seniorityDate;
+  }
+
+  public void setSeniorityDate(String seniorityDate) {
+    this.seniorityDate = seniorityDate;
+  }
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public OpenNoticePeriodChangeRecord getNoticePeriodChangeRecord() {
+    return this.noticePeriodChangeRecord;
+  }
+
+  public void setNoticePeriodChangeRecord(OpenNoticePeriodChangeRecord noticePeriodChangeRecord) {
+    this.noticePeriodChangeRecord = noticePeriodChangeRecord;
+  }
+
+  // builder 开始
+  public TranferEmploymentInfo() {}
+
+  public TranferEmploymentInfo(Builder builder) {
     /**
-     * 转正式员工日期
-     * <p> 示例值：2023-01-01
+     * 转正式员工日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
      */
-    @SerializedName("regular_employee_start_date")
-    private String regularEmployeeStartDate;
+    this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
     /**
-     * 司龄起算日期
-     * <p> 示例值：2023-01-01
+     * 司龄起算日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
      */
-    @SerializedName("seniority_date")
-    private String seniorityDate;
+    this.seniorityDate = builder.seniorityDate;
     /**
-     * 员工编号
-     * <p> 示例值：1111111
+     * 员工编号，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：1111111
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+    /**
+     * 通知期
+     *
+     * <p>示例值：
+     */
+    this.noticePeriodChangeRecord = builder.noticePeriodChangeRecord;
+  }
+
+  public static class Builder {
+    /**
+     * 转正式员工日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
+     */
+    private String regularEmployeeStartDate;
+
+    /**
+     * 司龄起算日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
+     */
+    private String seniorityDate;
+
+    /**
+     * 员工编号，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：1111111
+     */
+    private String employeeNumber;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public TranferEmploymentInfo() {
+    /**
+     * 通知期
+     *
+     * <p>示例值：
+     */
+    private OpenNoticePeriodChangeRecord noticePeriodChangeRecord;
+
+    /**
+     * 转正式员工日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
+     *
+     * @param regularEmployeeStartDate
+     * @return
+     */
+    public Builder regularEmployeeStartDate(String regularEmployeeStartDate) {
+      this.regularEmployeeStartDate = regularEmployeeStartDate;
+      return this;
     }
 
-    public TranferEmploymentInfo(Builder builder) {
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2023-01-01
-         */
-        this.regularEmployeeStartDate = builder.regularEmployeeStartDate;
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2023-01-01
-         */
-        this.seniorityDate = builder.seniorityDate;
-        /**
-         * 员工编号
-         * <p> 示例值：1111111
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 司龄起算日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-01-01
+     *
+     * @param seniorityDate
+     * @return
+     */
+    public Builder seniorityDate(String seniorityDate) {
+      this.seniorityDate = seniorityDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工编号，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：1111111
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public String getRegularEmployeeStartDate() {
-        return this.regularEmployeeStartDate;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setRegularEmployeeStartDate(String regularEmployeeStartDate) {
-        this.regularEmployeeStartDate = regularEmployeeStartDate;
+    /**
+     * 通知期
+     *
+     * <p>示例值：
+     *
+     * @param noticePeriodChangeRecord
+     * @return
+     */
+    public Builder noticePeriodChangeRecord(OpenNoticePeriodChangeRecord noticePeriodChangeRecord) {
+      this.noticePeriodChangeRecord = noticePeriodChangeRecord;
+      return this;
     }
 
-    public String getSeniorityDate() {
-        return this.seniorityDate;
+    public TranferEmploymentInfo build() {
+      return new TranferEmploymentInfo(this);
     }
+  }
 
-    public void setSeniorityDate(String seniorityDate) {
-        this.seniorityDate = seniorityDate;
-    }
-
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
-    }
-
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2023-01-01
-         */
-        private String regularEmployeeStartDate;
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2023-01-01
-         */
-        private String seniorityDate;
-        /**
-         * 员工编号
-         * <p> 示例值：1111111
-         */
-        private String employeeNumber;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 转正式员工日期
-         * <p> 示例值：2023-01-01
-         *
-         * @param regularEmployeeStartDate
-         * @return
-         */
-        public Builder regularEmployeeStartDate(String regularEmployeeStartDate) {
-            this.regularEmployeeStartDate = regularEmployeeStartDate;
-            return this;
-        }
-
-
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2023-01-01
-         *
-         * @param seniorityDate
-         * @return
-         */
-        public Builder seniorityDate(String seniorityDate) {
-            this.seniorityDate = seniorityDate;
-            return this;
-        }
-
-
-        /**
-         * 员工编号
-         * <p> 示例值：1111111
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public TranferEmploymentInfo build() {
-            return new TranferEmploymentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,134 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppFieldPropertyAutoSerialOptions {
+  /**
+   * 自动编号的可选规则项类型
+   *
+   * <p>示例值：created_time
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 规则类型对应的值。;- 若规则类型为 `"type": "system_number"`，value 为范围在 1-9 的整数，表示自增数字的位数;- 若规则类型为 `"type":
+   * "fixed_text"`，value 为范围在 20 个字符以内的固定字符;- 若规则类型为 `"type": "created_time"`，value
+   * 用于指定日期的格式。可选值如下所示：; - "yyyyMMdd"：日期为 20220130 的格式; - "yyyyMM"：日期为 202201 的格式; - "yyyy"：日期为 2022
+   * 的格式; - "MMdd"：日期为 130 的格式，表示 1 月 30 日; - "MM"：日期为 1 的格式，表示月份; - "dd"：日期为 30 的格式
+   *
+   * <p>示例值：yyyyMMdd
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public AppFieldPropertyAutoSerialOptions() {}
+
+  public AppFieldPropertyAutoSerialOptions(Builder builder) {
     /**
      * 自动编号的可选规则项类型
-     * <p> 示例值：created_time
+     *
+     * <p>示例值：created_time
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 与类型相对应的取值
-     * <p> 示例值：yyyyMMdd
+     * 规则类型对应的值。;- 若规则类型为 `"type": "system_number"`，value 为范围在 1-9 的整数，表示自增数字的位数;- 若规则类型为 `"type":
+     * "fixed_text"`，value 为范围在 20 个字符以内的固定字符;- 若规则类型为 `"type": "created_time"`，value
+     * 用于指定日期的格式。可选值如下所示：; - "yyyyMMdd"：日期为 20220130 的格式; - "yyyyMM"：日期为 202201 的格式; - "yyyy"：日期为
+     * 2022 的格式; - "MMdd"：日期为 130 的格式，表示 1 月 30 日; - "MM"：日期为 1 的格式，表示月份; - "dd"：日期为 30 的格式
+     *
+     * <p>示例值：yyyyMMdd
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自动编号的可选规则项类型
+     *
+     * <p>示例值：created_time
+     */
+    private String type;
+
+    /**
+     * 规则类型对应的值。;- 若规则类型为 `"type": "system_number"`，value 为范围在 1-9 的整数，表示自增数字的位数;- 若规则类型为 `"type":
+     * "fixed_text"`，value 为范围在 20 个字符以内的固定字符;- 若规则类型为 `"type": "created_time"`，value
+     * 用于指定日期的格式。可选值如下所示：; - "yyyyMMdd"：日期为 20220130 的格式; - "yyyyMM"：日期为 202201 的格式; - "yyyy"：日期为
+     * 2022 的格式; - "MMdd"：日期为 130 的格式，表示 1 月 30 日; - "MM"：日期为 1 的格式，表示月份; - "dd"：日期为 30 的格式
+     *
+     * <p>示例值：yyyyMMdd
+     */
     private String value;
 
-    // builder 开始
-    public AppFieldPropertyAutoSerialOptions() {
+    /**
+     * 自动编号的可选规则项类型
+     *
+     * <p>示例值：created_time
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public AppFieldPropertyAutoSerialOptions(Builder builder) {
-        /**
-         * 自动编号的可选规则项类型
-         * <p> 示例值：created_time
-         */
-        this.type = builder.type;
-        /**
-         * 与类型相对应的取值
-         * <p> 示例值：yyyyMMdd
-         */
-        this.value = builder.value;
+    /**
+     * 自动编号的可选规则项类型
+     *
+     * <p>示例值：created_time
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 规则类型对应的值。;- 若规则类型为 `"type": "system_number"`，value 为范围在 1-9 的整数，表示自增数字的位数;- 若规则类型为 `"type":
+     * "fixed_text"`，value 为范围在 20 个字符以内的固定字符;- 若规则类型为 `"type": "created_time"`，value
+     * 用于指定日期的格式。可选值如下所示：; - "yyyyMMdd"：日期为 20220130 的格式; - "yyyyMM"：日期为 202201 的格式; - "yyyy"：日期为
+     * 2022 的格式; - "MMdd"：日期为 130 的格式，表示 1 月 30 日; - "MM"：日期为 1 的格式，表示月份; - "dd"：日期为 30 的格式
+     *
+     * <p>示例值：yyyyMMdd
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public AppFieldPropertyAutoSerialOptions build() {
+      return new AppFieldPropertyAutoSerialOptions(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自动编号的可选规则项类型
-         * <p> 示例值：created_time
-         */
-        private String type;
-        /**
-         * 与类型相对应的取值
-         * <p> 示例值：yyyyMMdd
-         */
-        private String value;
-
-        /**
-         * 自动编号的可选规则项类型
-         * <p> 示例值：created_time
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 自动编号的可选规则项类型
-         * <p> 示例值：created_time
-         *
-         * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.bitable.v1.enums.AppFieldPropertyAutoSerialOptionsTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 与类型相对应的取值
-         * <p> 示例值：yyyyMMdd
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public AppFieldPropertyAutoSerialOptions build() {
-            return new AppFieldPropertyAutoSerialOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

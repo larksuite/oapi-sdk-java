@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 发送消息者类型
- */
+/** 发送消息者类型 */
 public enum MessageMetaSenderTypeEnum {
-    USER(1), // 用户
-    BOT(2), // 机器人
-    SYSTEM(3), // 系统
-    ;
-    private Integer value;
+  USER(1), // 用户
+  BOT(2), // 机器人
+  SYSTEM(3), // 系统
+  ;
+  private Integer value;
 
-    MessageMetaSenderTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MessageMetaSenderTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

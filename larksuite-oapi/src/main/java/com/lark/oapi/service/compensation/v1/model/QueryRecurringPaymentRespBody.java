@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecurringPaymentRespBody {
-    /**
-     * 搜索下一批时提供的page token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有更多的数据
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 经常性支付授予记录
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private RecurringPayment[] records;
+  /**
+   * 搜索下一批时提供的page token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 是否有更多的数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 经常性支付授予记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private RecurringPayment[] records;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public RecurringPayment[] getRecords() {
-        return this.records;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setRecords(RecurringPayment[] records) {
-        this.records = records;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public RecurringPayment[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(RecurringPayment[] records) {
+    this.records = records;
+  }
 }

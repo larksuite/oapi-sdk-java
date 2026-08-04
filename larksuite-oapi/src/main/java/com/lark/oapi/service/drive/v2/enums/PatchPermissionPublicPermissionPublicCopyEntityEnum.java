@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 谁可以复制内容
- */
+/** 谁可以复制内容 */
 public enum PatchPermissionPublicPermissionPublicCopyEntityEnum {
-    ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
-    ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
-    ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的协作者
-    ;
-    private String value;
+  ANYONECANVIEW("anyone_can_view"), // 拥有可阅读权限的用户
+  ANYONECANEDIT("anyone_can_edit"), // 拥有可编辑权限的用户
+  ONLYFULLACCESS("only_full_access"), // 拥有可管理权限（包括我）的协作者
+  ;
+  private String value;
 
-    PatchPermissionPublicPermissionPublicCopyEntityEnum(String value) {
-        this.value = value;
-    }
+  PatchPermissionPublicPermissionPublicCopyEntityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

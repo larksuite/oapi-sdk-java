@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateThemeWhiteboardReqBody {
+  /**
+   * 主题名称，可选值有 classic、minimalist_gray、retro、vibrant_color、default
+   *
+   * <p>示例值：classic
+   */
+  @SerializedName("theme")
+  private String theme;
+
+  public String getTheme() {
+    return this.theme;
+  }
+
+  public void setTheme(String theme) {
+    this.theme = theme;
+  }
+
+  // builder 开始
+  public UpdateThemeWhiteboardReqBody() {}
+
+  public UpdateThemeWhiteboardReqBody(Builder builder) {
     /**
-     * 主题名称
-     * <p> 示例值：classic
+     * 主题名称，可选值有 classic、minimalist_gray、retro、vibrant_color、default
+     *
+     * <p>示例值：classic
      */
-    @SerializedName("theme")
+    this.theme = builder.theme;
+  }
+
+  public static class Builder {
+    /**
+     * 主题名称，可选值有 classic、minimalist_gray、retro、vibrant_color、default
+     *
+     * <p>示例值：classic
+     */
     private String theme;
 
-    // builder 开始
-    public UpdateThemeWhiteboardReqBody() {
+    /**
+     * 主题名称，可选值有 classic、minimalist_gray、retro、vibrant_color、default
+     *
+     * <p>示例值：classic
+     *
+     * @param theme
+     * @return
+     */
+    public Builder theme(String theme) {
+      this.theme = theme;
+      return this;
     }
 
-    public UpdateThemeWhiteboardReqBody(Builder builder) {
-        /**
-         * 主题名称
-         * <p> 示例值：classic
-         */
-        this.theme = builder.theme;
+    public UpdateThemeWhiteboardReqBody build() {
+      return new UpdateThemeWhiteboardReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTheme() {
-        return this.theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    public static class Builder {
-        /**
-         * 主题名称
-         * <p> 示例值：classic
-         */
-        private String theme;
-
-        /**
-         * 主题名称
-         * <p> 示例值：classic
-         *
-         * @param theme
-         * @return
-         */
-        public Builder theme(String theme) {
-            this.theme = theme;
-            return this;
-        }
-
-
-        public UpdateThemeWhiteboardReqBody build() {
-            return new UpdateThemeWhiteboardReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

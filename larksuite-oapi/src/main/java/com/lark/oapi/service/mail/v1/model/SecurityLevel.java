@@ -13,370 +13,403 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SecurityLevel {
+  /**
+   * 是否风险邮件
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_risk")
+  private Boolean isRisk;
+
+  /**
+   * 风险邮件等级
+   *
+   * <p>示例值：WARNING
+   */
+  @SerializedName("risk_banner_level")
+  private String riskBannerLevel;
+
+  /**
+   * 风险邮件原因
+   *
+   * <p>示例值：IMPERSONATE_DOMAIN
+   */
+  @SerializedName("risk_banner_reason")
+  private String riskBannerReason;
+
+  /**
+   * 发件人是否外部邮件
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_header_from_external")
+  private Boolean isHeaderFromExternal;
+
+  /**
+   * 代发或伪造邮件展示SPF或DKIM域名
+   *
+   * <p>示例值：larksuite.com
+   */
+  @SerializedName("via_domain")
+  private String viaDomain;
+
+  /**
+   * 垃圾邮件原因
+   *
+   * <p>示例值：USER_REPORT
+   */
+  @SerializedName("spam_banner_type")
+  private String spamBannerType;
+
+  /**
+   * 命中的收信规则ID
+   *
+   * <p>示例值：7618365627924925388
+   */
+  @SerializedName("spam_user_rule_id")
+  private String spamUserRuleId;
+
+  /**
+   * 命中用户黑名单的地址或域名信息
+   *
+   * <p>示例值：larksuite.com
+   */
+  @SerializedName("spam_banner_info")
+  private String spamBannerInfo;
+
+  public Boolean getIsRisk() {
+    return this.isRisk;
+  }
+
+  public void setIsRisk(Boolean isRisk) {
+    this.isRisk = isRisk;
+  }
+
+  public String getRiskBannerLevel() {
+    return this.riskBannerLevel;
+  }
+
+  public void setRiskBannerLevel(String riskBannerLevel) {
+    this.riskBannerLevel = riskBannerLevel;
+  }
+
+  public String getRiskBannerReason() {
+    return this.riskBannerReason;
+  }
+
+  public void setRiskBannerReason(String riskBannerReason) {
+    this.riskBannerReason = riskBannerReason;
+  }
+
+  public Boolean getIsHeaderFromExternal() {
+    return this.isHeaderFromExternal;
+  }
+
+  public void setIsHeaderFromExternal(Boolean isHeaderFromExternal) {
+    this.isHeaderFromExternal = isHeaderFromExternal;
+  }
+
+  public String getViaDomain() {
+    return this.viaDomain;
+  }
+
+  public void setViaDomain(String viaDomain) {
+    this.viaDomain = viaDomain;
+  }
+
+  public String getSpamBannerType() {
+    return this.spamBannerType;
+  }
+
+  public void setSpamBannerType(String spamBannerType) {
+    this.spamBannerType = spamBannerType;
+  }
+
+  public String getSpamUserRuleId() {
+    return this.spamUserRuleId;
+  }
+
+  public void setSpamUserRuleId(String spamUserRuleId) {
+    this.spamUserRuleId = spamUserRuleId;
+  }
+
+  public String getSpamBannerInfo() {
+    return this.spamBannerInfo;
+  }
+
+  public void setSpamBannerInfo(String spamBannerInfo) {
+    this.spamBannerInfo = spamBannerInfo;
+  }
+
+  // builder 开始
+  public SecurityLevel() {}
+
+  public SecurityLevel(Builder builder) {
     /**
      * 是否风险邮件
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_risk")
-    private Boolean isRisk;
+    this.isRisk = builder.isRisk;
     /**
      * 风险邮件等级
-     * <p> 示例值：WARNING
+     *
+     * <p>示例值：WARNING
      */
-    @SerializedName("risk_banner_level")
-    private String riskBannerLevel;
+    this.riskBannerLevel = builder.riskBannerLevel;
     /**
      * 风险邮件原因
-     * <p> 示例值：IMPERSONATE_DOMAIN
+     *
+     * <p>示例值：IMPERSONATE_DOMAIN
      */
-    @SerializedName("risk_banner_reason")
-    private String riskBannerReason;
+    this.riskBannerReason = builder.riskBannerReason;
     /**
      * 发件人是否外部邮件
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_header_from_external")
-    private Boolean isHeaderFromExternal;
+    this.isHeaderFromExternal = builder.isHeaderFromExternal;
     /**
      * 代发或伪造邮件展示SPF或DKIM域名
-     * <p> 示例值：larksuite.com
+     *
+     * <p>示例值：larksuite.com
      */
-    @SerializedName("via_domain")
-    private String viaDomain;
+    this.viaDomain = builder.viaDomain;
     /**
      * 垃圾邮件原因
-     * <p> 示例值：USER_REPORT
+     *
+     * <p>示例值：USER_REPORT
      */
-    @SerializedName("spam_banner_type")
-    private String spamBannerType;
+    this.spamBannerType = builder.spamBannerType;
     /**
      * 命中的收信规则ID
-     * <p> 示例值：7618365627924925388
+     *
+     * <p>示例值：7618365627924925388
      */
-    @SerializedName("spam_user_rule_id")
-    private String spamUserRuleId;
+    this.spamUserRuleId = builder.spamUserRuleId;
     /**
      * 命中用户黑名单的地址或域名信息
-     * <p> 示例值：larksuite.com
+     *
+     * <p>示例值：larksuite.com
      */
-    @SerializedName("spam_banner_info")
+    this.spamBannerInfo = builder.spamBannerInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 是否风险邮件
+     *
+     * <p>示例值：false
+     */
+    private Boolean isRisk;
+
+    /**
+     * 风险邮件等级
+     *
+     * <p>示例值：WARNING
+     */
+    private String riskBannerLevel;
+
+    /**
+     * 风险邮件原因
+     *
+     * <p>示例值：IMPERSONATE_DOMAIN
+     */
+    private String riskBannerReason;
+
+    /**
+     * 发件人是否外部邮件
+     *
+     * <p>示例值：false
+     */
+    private Boolean isHeaderFromExternal;
+
+    /**
+     * 代发或伪造邮件展示SPF或DKIM域名
+     *
+     * <p>示例值：larksuite.com
+     */
+    private String viaDomain;
+
+    /**
+     * 垃圾邮件原因
+     *
+     * <p>示例值：USER_REPORT
+     */
+    private String spamBannerType;
+
+    /**
+     * 命中的收信规则ID
+     *
+     * <p>示例值：7618365627924925388
+     */
+    private String spamUserRuleId;
+
+    /**
+     * 命中用户黑名单的地址或域名信息
+     *
+     * <p>示例值：larksuite.com
+     */
     private String spamBannerInfo;
 
-    // builder 开始
-    public SecurityLevel() {
+    /**
+     * 是否风险邮件
+     *
+     * <p>示例值：false
+     *
+     * @param isRisk
+     * @return
+     */
+    public Builder isRisk(Boolean isRisk) {
+      this.isRisk = isRisk;
+      return this;
     }
 
-    public SecurityLevel(Builder builder) {
-        /**
-         * 是否风险邮件
-         * <p> 示例值：
-         */
-        this.isRisk = builder.isRisk;
-        /**
-         * 风险邮件等级
-         * <p> 示例值：WARNING
-         */
-        this.riskBannerLevel = builder.riskBannerLevel;
-        /**
-         * 风险邮件原因
-         * <p> 示例值：IMPERSONATE_DOMAIN
-         */
-        this.riskBannerReason = builder.riskBannerReason;
-        /**
-         * 发件人是否外部邮件
-         * <p> 示例值：
-         */
-        this.isHeaderFromExternal = builder.isHeaderFromExternal;
-        /**
-         * 代发或伪造邮件展示SPF或DKIM域名
-         * <p> 示例值：larksuite.com
-         */
-        this.viaDomain = builder.viaDomain;
-        /**
-         * 垃圾邮件原因
-         * <p> 示例值：USER_REPORT
-         */
-        this.spamBannerType = builder.spamBannerType;
-        /**
-         * 命中的收信规则ID
-         * <p> 示例值：7618365627924925388
-         */
-        this.spamUserRuleId = builder.spamUserRuleId;
-        /**
-         * 命中用户黑名单的地址或域名信息
-         * <p> 示例值：larksuite.com
-         */
-        this.spamBannerInfo = builder.spamBannerInfo;
+    /**
+     * 风险邮件等级
+     *
+     * <p>示例值：WARNING
+     *
+     * @param riskBannerLevel
+     * @return
+     */
+    public Builder riskBannerLevel(String riskBannerLevel) {
+      this.riskBannerLevel = riskBannerLevel;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 风险邮件等级
+     *
+     * <p>示例值：WARNING
+     *
+     * @param riskBannerLevel {@link com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskLevelEnum}
+     * @return
+     */
+    public Builder riskBannerLevel(
+        com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskLevelEnum riskBannerLevel) {
+      this.riskBannerLevel = riskBannerLevel.getValue();
+      return this;
     }
 
-    public Boolean getIsRisk() {
-        return this.isRisk;
+    /**
+     * 风险邮件原因
+     *
+     * <p>示例值：IMPERSONATE_DOMAIN
+     *
+     * @param riskBannerReason
+     * @return
+     */
+    public Builder riskBannerReason(String riskBannerReason) {
+      this.riskBannerReason = riskBannerReason;
+      return this;
     }
 
-    public void setIsRisk(Boolean isRisk) {
-        this.isRisk = isRisk;
+    /**
+     * 风险邮件原因
+     *
+     * <p>示例值：IMPERSONATE_DOMAIN
+     *
+     * @param riskBannerReason {@link
+     *     com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskReasonEnum}
+     * @return
+     */
+    public Builder riskBannerReason(
+        com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskReasonEnum riskBannerReason) {
+      this.riskBannerReason = riskBannerReason.getValue();
+      return this;
     }
 
-    public String getRiskBannerLevel() {
-        return this.riskBannerLevel;
+    /**
+     * 发件人是否外部邮件
+     *
+     * <p>示例值：false
+     *
+     * @param isHeaderFromExternal
+     * @return
+     */
+    public Builder isHeaderFromExternal(Boolean isHeaderFromExternal) {
+      this.isHeaderFromExternal = isHeaderFromExternal;
+      return this;
     }
 
-    public void setRiskBannerLevel(String riskBannerLevel) {
-        this.riskBannerLevel = riskBannerLevel;
+    /**
+     * 代发或伪造邮件展示SPF或DKIM域名
+     *
+     * <p>示例值：larksuite.com
+     *
+     * @param viaDomain
+     * @return
+     */
+    public Builder viaDomain(String viaDomain) {
+      this.viaDomain = viaDomain;
+      return this;
     }
 
-    public String getRiskBannerReason() {
-        return this.riskBannerReason;
+    /**
+     * 垃圾邮件原因
+     *
+     * <p>示例值：USER_REPORT
+     *
+     * @param spamBannerType
+     * @return
+     */
+    public Builder spamBannerType(String spamBannerType) {
+      this.spamBannerType = spamBannerType;
+      return this;
     }
 
-    public void setRiskBannerReason(String riskBannerReason) {
-        this.riskBannerReason = riskBannerReason;
+    /**
+     * 垃圾邮件原因
+     *
+     * <p>示例值：USER_REPORT
+     *
+     * @param spamBannerType {@link
+     *     com.lark.oapi.service.mail.v1.enums.SecurityLevelSpamBannerTypeEnum}
+     * @return
+     */
+    public Builder spamBannerType(
+        com.lark.oapi.service.mail.v1.enums.SecurityLevelSpamBannerTypeEnum spamBannerType) {
+      this.spamBannerType = spamBannerType.getValue();
+      return this;
     }
 
-    public Boolean getIsHeaderFromExternal() {
-        return this.isHeaderFromExternal;
+    /**
+     * 命中的收信规则ID
+     *
+     * <p>示例值：7618365627924925388
+     *
+     * @param spamUserRuleId
+     * @return
+     */
+    public Builder spamUserRuleId(String spamUserRuleId) {
+      this.spamUserRuleId = spamUserRuleId;
+      return this;
     }
 
-    public void setIsHeaderFromExternal(Boolean isHeaderFromExternal) {
-        this.isHeaderFromExternal = isHeaderFromExternal;
+    /**
+     * 命中用户黑名单的地址或域名信息
+     *
+     * <p>示例值：larksuite.com
+     *
+     * @param spamBannerInfo
+     * @return
+     */
+    public Builder spamBannerInfo(String spamBannerInfo) {
+      this.spamBannerInfo = spamBannerInfo;
+      return this;
     }
 
-    public String getViaDomain() {
-        return this.viaDomain;
+    public SecurityLevel build() {
+      return new SecurityLevel(this);
     }
+  }
 
-    public void setViaDomain(String viaDomain) {
-        this.viaDomain = viaDomain;
-    }
-
-    public String getSpamBannerType() {
-        return this.spamBannerType;
-    }
-
-    public void setSpamBannerType(String spamBannerType) {
-        this.spamBannerType = spamBannerType;
-    }
-
-    public String getSpamUserRuleId() {
-        return this.spamUserRuleId;
-    }
-
-    public void setSpamUserRuleId(String spamUserRuleId) {
-        this.spamUserRuleId = spamUserRuleId;
-    }
-
-    public String getSpamBannerInfo() {
-        return this.spamBannerInfo;
-    }
-
-    public void setSpamBannerInfo(String spamBannerInfo) {
-        this.spamBannerInfo = spamBannerInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 是否风险邮件
-         * <p> 示例值：
-         */
-        private Boolean isRisk;
-        /**
-         * 风险邮件等级
-         * <p> 示例值：WARNING
-         */
-        private String riskBannerLevel;
-        /**
-         * 风险邮件原因
-         * <p> 示例值：IMPERSONATE_DOMAIN
-         */
-        private String riskBannerReason;
-        /**
-         * 发件人是否外部邮件
-         * <p> 示例值：
-         */
-        private Boolean isHeaderFromExternal;
-        /**
-         * 代发或伪造邮件展示SPF或DKIM域名
-         * <p> 示例值：larksuite.com
-         */
-        private String viaDomain;
-        /**
-         * 垃圾邮件原因
-         * <p> 示例值：USER_REPORT
-         */
-        private String spamBannerType;
-        /**
-         * 命中的收信规则ID
-         * <p> 示例值：7618365627924925388
-         */
-        private String spamUserRuleId;
-        /**
-         * 命中用户黑名单的地址或域名信息
-         * <p> 示例值：larksuite.com
-         */
-        private String spamBannerInfo;
-
-        /**
-         * 是否风险邮件
-         * <p> 示例值：
-         *
-         * @param isRisk
-         * @return
-         */
-        public Builder isRisk(Boolean isRisk) {
-            this.isRisk = isRisk;
-            return this;
-        }
-
-
-        /**
-         * 风险邮件等级
-         * <p> 示例值：WARNING
-         *
-         * @param riskBannerLevel
-         * @return
-         */
-        public Builder riskBannerLevel(String riskBannerLevel) {
-            this.riskBannerLevel = riskBannerLevel;
-            return this;
-        }
-
-        /**
-         * 风险邮件等级
-         * <p> 示例值：WARNING
-         *
-         * @param riskBannerLevel {@link com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskLevelEnum}
-         * @return
-         */
-        public Builder riskBannerLevel(com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskLevelEnum riskBannerLevel) {
-            this.riskBannerLevel = riskBannerLevel.getValue();
-            return this;
-        }
-
-
-        /**
-         * 风险邮件原因
-         * <p> 示例值：IMPERSONATE_DOMAIN
-         *
-         * @param riskBannerReason
-         * @return
-         */
-        public Builder riskBannerReason(String riskBannerReason) {
-            this.riskBannerReason = riskBannerReason;
-            return this;
-        }
-
-        /**
-         * 风险邮件原因
-         * <p> 示例值：IMPERSONATE_DOMAIN
-         *
-         * @param riskBannerReason {@link com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskReasonEnum}
-         * @return
-         */
-        public Builder riskBannerReason(com.lark.oapi.service.mail.v1.enums.SecurityLevelRiskReasonEnum riskBannerReason) {
-            this.riskBannerReason = riskBannerReason.getValue();
-            return this;
-        }
-
-
-        /**
-         * 发件人是否外部邮件
-         * <p> 示例值：
-         *
-         * @param isHeaderFromExternal
-         * @return
-         */
-        public Builder isHeaderFromExternal(Boolean isHeaderFromExternal) {
-            this.isHeaderFromExternal = isHeaderFromExternal;
-            return this;
-        }
-
-
-        /**
-         * 代发或伪造邮件展示SPF或DKIM域名
-         * <p> 示例值：larksuite.com
-         *
-         * @param viaDomain
-         * @return
-         */
-        public Builder viaDomain(String viaDomain) {
-            this.viaDomain = viaDomain;
-            return this;
-        }
-
-
-        /**
-         * 垃圾邮件原因
-         * <p> 示例值：USER_REPORT
-         *
-         * @param spamBannerType
-         * @return
-         */
-        public Builder spamBannerType(String spamBannerType) {
-            this.spamBannerType = spamBannerType;
-            return this;
-        }
-
-        /**
-         * 垃圾邮件原因
-         * <p> 示例值：USER_REPORT
-         *
-         * @param spamBannerType {@link com.lark.oapi.service.mail.v1.enums.SecurityLevelSpamBannerTypeEnum}
-         * @return
-         */
-        public Builder spamBannerType(com.lark.oapi.service.mail.v1.enums.SecurityLevelSpamBannerTypeEnum spamBannerType) {
-            this.spamBannerType = spamBannerType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 命中的收信规则ID
-         * <p> 示例值：7618365627924925388
-         *
-         * @param spamUserRuleId
-         * @return
-         */
-        public Builder spamUserRuleId(String spamUserRuleId) {
-            this.spamUserRuleId = spamUserRuleId;
-            return this;
-        }
-
-
-        /**
-         * 命中用户黑名单的地址或域名信息
-         * <p> 示例值：larksuite.com
-         *
-         * @param spamBannerInfo
-         * @return
-         */
-        public Builder spamBannerInfo(String spamBannerInfo) {
-            this.spamBannerInfo = spamBannerInfo;
-            return this;
-        }
-
-
-        public SecurityLevel build() {
-            return new SecurityLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

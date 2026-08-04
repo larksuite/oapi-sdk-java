@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinuteChapter {
+  /**
+   * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
+   *
+   * <p>示例值：项目进度回顾与风险评估
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
+   *
+   * <p>示例值：31000
+   */
+  @SerializedName("start_ms")
+  private String startMs;
+
+  /**
+   * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
+   *
+   * <p>示例值：33000
+   */
+  @SerializedName("stop_ms")
+  private String stopMs;
+
+  /**
+   * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
+   *
+   * <p>示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3.
+   * 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
+   */
+  @SerializedName("summary_content")
+  private String summaryContent;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getStartMs() {
+    return this.startMs;
+  }
+
+  public void setStartMs(String startMs) {
+    this.startMs = startMs;
+  }
+
+  public String getStopMs() {
+    return this.stopMs;
+  }
+
+  public void setStopMs(String stopMs) {
+    this.stopMs = stopMs;
+  }
+
+  public String getSummaryContent() {
+    return this.summaryContent;
+  }
+
+  public void setSummaryContent(String summaryContent) {
+    this.summaryContent = summaryContent;
+  }
+
+  // builder 开始
+  public MinuteChapter() {}
+
+  public MinuteChapter(Builder builder) {
     /**
      * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
-     * <p> 示例值：项目进度回顾与风险评估
+     *
+     * <p>示例值：项目进度回顾与风险评估
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
-     * <p> 示例值：31000
+     *
+     * <p>示例值：31000
      */
-    @SerializedName("start_ms")
-    private String startMs;
+    this.startMs = builder.startMs;
     /**
      * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
-     * <p> 示例值：33000
+     *
+     * <p>示例值：33000
      */
-    @SerializedName("stop_ms")
-    private String stopMs;
+    this.stopMs = builder.stopMs;
     /**
      * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
-     * <p> 示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3. 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
+     *
+     * <p>示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3.
+     * 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
      */
-    @SerializedName("summary_content")
+    this.summaryContent = builder.summaryContent;
+  }
+
+  public static class Builder {
+    /**
+     * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
+     *
+     * <p>示例值：项目进度回顾与风险评估
+     */
+    private String title;
+
+    /**
+     * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
+     *
+     * <p>示例值：31000
+     */
+    private String startMs;
+
+    /**
+     * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
+     *
+     * <p>示例值：33000
+     */
+    private String stopMs;
+
+    /**
+     * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
+     *
+     * <p>示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3.
+     * 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
+     */
     private String summaryContent;
 
-    // builder 开始
-    public MinuteChapter() {
+    /**
+     * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
+     *
+     * <p>示例值：项目进度回顾与风险评估
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public MinuteChapter(Builder builder) {
-        /**
-         * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
-         * <p> 示例值：项目进度回顾与风险评估
-         */
-        this.title = builder.title;
-        /**
-         * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
-         * <p> 示例值：31000
-         */
-        this.startMs = builder.startMs;
-        /**
-         * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
-         * <p> 示例值：33000
-         */
-        this.stopMs = builder.stopMs;
-        /**
-         * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
-         * <p> 示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3. 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
-         */
-        this.summaryContent = builder.summaryContent;
+    /**
+     * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
+     *
+     * <p>示例值：31000
+     *
+     * @param startMs
+     * @return
+     */
+    public Builder startMs(String startMs) {
+      this.startMs = startMs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
+     *
+     * <p>示例值：33000
+     *
+     * @param stopMs
+     * @return
+     */
+    public Builder stopMs(String stopMs) {
+      this.stopMs = stopMs;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
+     *
+     * <p>示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3.
+     * 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
+     *
+     * @param summaryContent
+     * @return
+     */
+    public Builder summaryContent(String summaryContent) {
+      this.summaryContent = summaryContent;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public MinuteChapter build() {
+      return new MinuteChapter(this);
     }
+  }
 
-    public String getStartMs() {
-        return this.startMs;
-    }
-
-    public void setStartMs(String startMs) {
-        this.startMs = startMs;
-    }
-
-    public String getStopMs() {
-        return this.stopMs;
-    }
-
-    public void setStopMs(String stopMs) {
-        this.stopMs = stopMs;
-    }
-
-    public String getSummaryContent() {
-        return this.summaryContent;
-    }
-
-    public void setSummaryContent(String summaryContent) {
-        this.summaryContent = summaryContent;
-    }
-
-    public static class Builder {
-        /**
-         * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
-         * <p> 示例值：项目进度回顾与风险评估
-         */
-        private String title;
-        /**
-         * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
-         * <p> 示例值：31000
-         */
-        private String startMs;
-        /**
-         * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
-         * <p> 示例值：33000
-         */
-        private String stopMs;
-        /**
-         * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
-         * <p> 示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3. 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
-         */
-        private String summaryContent;
-
-        /**
-         * 章节标题，用于区分纪要内不同的讨论模块，需简洁明确概括章节核心内容
-         * <p> 示例值：项目进度回顾与风险评估
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 章节对应的讨论内容开始时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与stop_ms配合使用，且数值需小于stop_ms。
-         * <p> 示例值：31000
-         *
-         * @param startMs
-         * @return
-         */
-        public Builder startMs(String startMs) {
-            this.startMs = startMs;
-            return this;
-        }
-
-
-        /**
-         * 章节对应的讨论内容结束时间戳，单位为毫秒，用于定位会议录像或录音的对应片段。需与start_ms配合使用，且数值需大于start_ms。
-         * <p> 示例值：33000
-         *
-         * @param stopMs
-         * @return
-         */
-        public Builder stopMs(String stopMs) {
-            this.stopMs = stopMs;
-            return this;
-        }
-
-
-        /**
-         * 章节的核心讨论内容摘要，需准确提炼该章节的决策结果、行动项、待跟进事项等关键信息。支持富文本格式，最大长度限制为10000字符。
-         * <p> 示例值：1. 确认Q3项目交付节点为9月30日，延迟交付将触发合同违约条款；;2. 指派张三负责协调供应商资源，需在7月15日前提交资源保障方案；;3. 风险预警：核心组件供应链可能存在断供风险，需启动备选供应商评估流程。
-         *
-         * @param summaryContent
-         * @return
-         */
-        public Builder summaryContent(String summaryContent) {
-            this.summaryContent = summaryContent;
-            return this;
-        }
-
-
-        public MinuteChapter build() {
-            return new MinuteChapter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

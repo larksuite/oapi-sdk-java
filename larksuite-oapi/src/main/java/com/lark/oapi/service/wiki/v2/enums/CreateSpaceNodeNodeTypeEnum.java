@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * 节点类型
- */
+/** 节点类型 */
 public enum CreateSpaceNodeNodeTypeEnum {
-    NODETYPEENTITY("origin"), // 实体
-    NODETYPESHORTCUT("shortcut"), // 快捷方式
-    ;
-    private String value;
+  NODETYPEENTITY("origin"), // 实体
+  NODETYPESHORTCUT("shortcut"), // 快捷方式
+  ;
+  private String value;
 
-    CreateSpaceNodeNodeTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateSpaceNodeNodeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

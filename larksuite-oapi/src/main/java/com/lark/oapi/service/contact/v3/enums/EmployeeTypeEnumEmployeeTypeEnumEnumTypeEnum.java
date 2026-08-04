@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 类型
- */
+/** 人员类型的选项类型。 */
 public enum EmployeeTypeEnumEmployeeTypeEnumEnumTypeEnum {
-    DEFUALT(1), // 内置类型
-    CUSTOM(2), // 自定义
-    ;
-    private Integer value;
+  DEFUALT(1), // 内置类型
+  CUSTOM(2), // 自定义
+  ;
+  private Integer value;
 
-    EmployeeTypeEnumEmployeeTypeEnumEnumTypeEnum(Integer value) {
-        this.value = value;
-    }
+  EmployeeTypeEnumEmployeeTypeEnumEnumTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

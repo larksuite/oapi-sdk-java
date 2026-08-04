@@ -13,247 +13,264 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SetEmployeePreResigned {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 离职日期
+   *
+   * <p>示例值：2024-06-21
+   */
+  @SerializedName("resign_date")
+  private String resignDate;
+
+  /**
+   * 离职原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resign_reason")
+  private String resignReason;
+
+  /**
+   * 离职类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resign_type")
+  private String resignType;
+
+  /**
+   * 离职备注
+   *
+   * <p>示例值：留学深造
+   */
+  @SerializedName("resign_remark")
+  private String resignRemark;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getResignDate() {
+    return this.resignDate;
+  }
+
+  public void setResignDate(String resignDate) {
+    this.resignDate = resignDate;
+  }
+
+  public String getResignReason() {
+    return this.resignReason;
+  }
+
+  public void setResignReason(String resignReason) {
+    this.resignReason = resignReason;
+  }
+
+  public String getResignType() {
+    return this.resignType;
+  }
+
+  public void setResignType(String resignType) {
+    this.resignType = resignType;
+  }
+
+  public String getResignRemark() {
+    return this.resignRemark;
+  }
+
+  public void setResignRemark(String resignRemark) {
+    this.resignRemark = resignRemark;
+  }
+
+  // builder 开始
+  public SetEmployeePreResigned() {}
+
+  public SetEmployeePreResigned(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：eehsdna
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 离职日期
-     * <p> 示例值：2024-06-21
+     *
+     * <p>示例值：2024-06-21
      */
-    @SerializedName("resign_date")
-    private String resignDate;
+    this.resignDate = builder.resignDate;
     /**
      * 离职原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resign_reason")
-    private String resignReason;
+    this.resignReason = builder.resignReason;
     /**
      * 离职类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resign_type")
-    private String resignType;
+    this.resignType = builder.resignType;
     /**
      * 离职备注
-     * <p> 示例值：留学深造
+     *
+     * <p>示例值：留学深造
      */
-    @SerializedName("resign_remark")
+    this.resignRemark = builder.resignRemark;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：eehsdna
+     */
+    private String employeeId;
+
+    /**
+     * 离职日期
+     *
+     * <p>示例值：2024-06-21
+     */
+    private String resignDate;
+
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     */
+    private String resignReason;
+
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     */
+    private String resignType;
+
+    /**
+     * 离职备注
+     *
+     * <p>示例值：留学深造
+     */
     private String resignRemark;
 
-    // builder 开始
-    public SetEmployeePreResigned() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public SetEmployeePreResigned(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：eehsdna
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 离职日期
-         * <p> 示例值：2024-06-21
-         */
-        this.resignDate = builder.resignDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
-        this.resignReason = builder.resignReason;
-        /**
-         * 离职类型
-         * <p> 示例值：
-         */
-        this.resignType = builder.resignType;
-        /**
-         * 离职备注
-         * <p> 示例值：留学深造
-         */
-        this.resignRemark = builder.resignRemark;
+    /**
+     * 离职日期
+     *
+     * <p>示例值：2024-06-21
+     *
+     * @param resignDate
+     * @return
+     */
+    public Builder resignDate(String resignDate) {
+      this.resignDate = resignDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     *
+     * @param resignReason
+     * @return
+     */
+    public Builder resignReason(String resignReason) {
+      this.resignReason = resignReason;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     *
+     * @param resignReason {@link
+     *     com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignReasonEnum}
+     * @return
+     */
+    public Builder resignReason(
+        com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignReasonEnum
+            resignReason) {
+      this.resignReason = resignReason.getValue();
+      return this;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     *
+     * @param resignType
+     * @return
+     */
+    public Builder resignType(String resignType) {
+      this.resignType = resignType;
+      return this;
     }
 
-    public String getResignDate() {
-        return this.resignDate;
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     *
+     * @param resignType {@link
+     *     com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignTypeEnum}
+     * @return
+     */
+    public Builder resignType(
+        com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignTypeEnum resignType) {
+      this.resignType = resignType.getValue();
+      return this;
     }
 
-    public void setResignDate(String resignDate) {
-        this.resignDate = resignDate;
+    /**
+     * 离职备注
+     *
+     * <p>示例值：留学深造
+     *
+     * @param resignRemark
+     * @return
+     */
+    public Builder resignRemark(String resignRemark) {
+      this.resignRemark = resignRemark;
+      return this;
     }
 
-    public String getResignReason() {
-        return this.resignReason;
+    public SetEmployeePreResigned build() {
+      return new SetEmployeePreResigned(this);
     }
+  }
 
-    public void setResignReason(String resignReason) {
-        this.resignReason = resignReason;
-    }
-
-    public String getResignType() {
-        return this.resignType;
-    }
-
-    public void setResignType(String resignType) {
-        this.resignType = resignType;
-    }
-
-    public String getResignRemark() {
-        return this.resignRemark;
-    }
-
-    public void setResignRemark(String resignRemark) {
-        this.resignRemark = resignRemark;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：eehsdna
-         */
-        private String employeeId;
-        /**
-         * 离职日期
-         * <p> 示例值：2024-06-21
-         */
-        private String resignDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
-        private String resignReason;
-        /**
-         * 离职类型
-         * <p> 示例值：
-         */
-        private String resignType;
-        /**
-         * 离职备注
-         * <p> 示例值：留学深造
-         */
-        private String resignRemark;
-
-        /**
-         * 员工ID
-         * <p> 示例值：eehsdna
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 离职日期
-         * <p> 示例值：2024-06-21
-         *
-         * @param resignDate
-         * @return
-         */
-        public Builder resignDate(String resignDate) {
-            this.resignDate = resignDate;
-            return this;
-        }
-
-
-        /**
-         * 离职原因
-         * <p> 示例值：
-         *
-         * @param resignReason
-         * @return
-         */
-        public Builder resignReason(String resignReason) {
-            this.resignReason = resignReason;
-            return this;
-        }
-
-        /**
-         * 离职原因
-         * <p> 示例值：
-         *
-         * @param resignReason {@link com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignReasonEnum}
-         * @return
-         */
-        public Builder resignReason(com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignReasonEnum resignReason) {
-            this.resignReason = resignReason.getValue();
-            return this;
-        }
-
-
-        /**
-         * 离职类型
-         * <p> 示例值：
-         *
-         * @param resignType
-         * @return
-         */
-        public Builder resignType(String resignType) {
-            this.resignType = resignType;
-            return this;
-        }
-
-        /**
-         * 离职类型
-         * <p> 示例值：
-         *
-         * @param resignType {@link com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignTypeEnum}
-         * @return
-         */
-        public Builder resignType(com.lark.oapi.service.directory.v1.enums.SetEmployeePreResignedResignTypeEnum resignType) {
-            this.resignType = resignType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 离职备注
-         * <p> 示例值：留学深造
-         *
-         * @param resignRemark
-         * @return
-         */
-        public Builder resignRemark(String resignRemark) {
-            this.resignRemark = resignRemark;
-            return this;
-        }
-
-
-        public SetEmployeePreResigned build() {
-            return new SetEmployeePreResigned(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class AddAssigneeApprovalTaskReq {
+  /**
+   * 人工任务 ID
+   *
+   * <p>示例值：1785771068261436
+   */
+  @Path
+  @SerializedName("approval_task_id")
+  private String approvalTaskId;
+
+  public String getApprovalTaskId() {
+    return this.approvalTaskId;
+  }
+
+  public void setApprovalTaskId(String approvalTaskId) {
+    this.approvalTaskId = approvalTaskId;
+  }
+
+  @Body private AddAssigneeApprovalTaskReqBody body;
+
+  public AddAssigneeApprovalTaskReqBody getAddAssigneeApprovalTaskReqBody() {
+    return this.body;
+  }
+
+  public void setAddAssigneeApprovalTaskReqBody(AddAssigneeApprovalTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AddAssigneeApprovalTaskReq() {}
+
+  public AddAssigneeApprovalTaskReq(Builder builder) {
     /**
-     * 审批任务id
-     * <p> 示例值：1785771068261436
+     * 人工任务 ID
+     *
+     * <p>示例值：1785771068261436
      */
-    @Path
-    @SerializedName("approval_task_id")
-    private String approvalTaskId;
-    @Body
+    this.approvalTaskId = builder.approvalTaskId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String approvalTaskId; // 人工任务 ID
+
+    /**
+     * 人工任务 ID
+     *
+     * <p>示例值：1785771068261436
+     *
+     * @param approvalTaskId
+     * @return
+     */
+    public Builder approvalTaskId(String approvalTaskId) {
+      this.approvalTaskId = approvalTaskId;
+      return this;
+    }
+
     private AddAssigneeApprovalTaskReqBody body;
 
-    // builder 开始
-    public AddAssigneeApprovalTaskReq() {
-    }
-
-    public AddAssigneeApprovalTaskReq(Builder builder) {
-        /**
-         * 审批任务id
-         * <p> 示例值：1785771068261436
-         */
-        this.approvalTaskId = builder.approvalTaskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApprovalTaskId() {
-        return this.approvalTaskId;
-    }
-
-    public void setApprovalTaskId(String approvalTaskId) {
-        this.approvalTaskId = approvalTaskId;
-    }
-
     public AddAssigneeApprovalTaskReqBody getAddAssigneeApprovalTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAddAssigneeApprovalTaskReqBody(AddAssigneeApprovalTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder addAssigneeApprovalTaskReqBody(AddAssigneeApprovalTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String approvalTaskId; // 审批任务id
-        private AddAssigneeApprovalTaskReqBody body;
-
-        /**
-         * 审批任务id
-         * <p> 示例值：1785771068261436
-         *
-         * @param approvalTaskId
-         * @return
-         */
-        public Builder approvalTaskId(String approvalTaskId) {
-            this.approvalTaskId = approvalTaskId;
-            return this;
-        }
-
-        public AddAssigneeApprovalTaskReqBody getAddAssigneeApprovalTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder addAssigneeApprovalTaskReqBody(AddAssigneeApprovalTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AddAssigneeApprovalTaskReq build() {
-            return new AddAssigneeApprovalTaskReq(this);
-        }
+    public AddAssigneeApprovalTaskReq build() {
+      return new AddAssigneeApprovalTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

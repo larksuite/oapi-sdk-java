@@ -13,111 +13,107 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class Sort {
+  /**
+   * 字段名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 是否倒序
+   *
+   * <p>示例值：
+   */
+  @SerializedName("desc")
+  private Boolean desc;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public Boolean getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(Boolean desc) {
+    this.desc = desc;
+  }
+
+  // builder 开始
+  public Sort() {}
+
+  public Sort(Builder builder) {
     /**
      * 字段名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 是否倒序
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("desc")
+    this.desc = builder.desc;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名
+     *
+     * <p>示例值：
+     */
+    private String field;
+
+    /**
+     * 是否倒序
+     *
+     * <p>示例值：
+     */
     private Boolean desc;
 
-    // builder 开始
-    public Sort() {
+    /**
+     * 字段名
+     *
+     * <p>示例值：
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public Sort(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：
-         */
-        this.field = builder.field;
-        /**
-         * 是否倒序
-         * <p> 示例值：
-         */
-        this.desc = builder.desc;
+    /**
+     * 是否倒序
+     *
+     * <p>示例值：
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(Boolean desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Sort build() {
+      return new Sort(this);
     }
+  }
 
-    public String getField() {
-        return this.field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public Boolean getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(Boolean desc) {
-        this.desc = desc;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：
-         */
-        private String field;
-        /**
-         * 是否倒序
-         * <p> 示例值：
-         */
-        private Boolean desc;
-
-        /**
-         * 字段名
-         * <p> 示例值：
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 是否倒序
-         * <p> 示例值：
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(Boolean desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        public Sort build() {
-            return new Sort(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

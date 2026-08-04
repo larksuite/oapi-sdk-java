@@ -13,347 +13,433 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class ListCalendarEventReq {
+  /**
+   * 一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用 page_token 或
+   * sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。;;**使用说明**：;;- 对于单次日程，会获取到 **日程结束时间 >= anchor_time**
+   * 的日程信息。;- 对于重复性日程，目前设置 anchor_time 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。;- 对于例外日程，会获取到
+   * **original_time >= anchor_time** 以及 **日程结束时间 >= anchor_time** 的日程信息，其中 original_time 从例外日程 ID
+   * 中获取，ID 结构为 `{uid}_{original_time}`。;;**注意**：该参数不可与 start_time 和 end_time 一起使用。;;**默认值**：空
+   *
+   * <p>示例值：1609430400
+   */
+  @Query
+  @SerializedName("anchor_time")
+  private String anchorTime;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：ListCalendarsPageToken_1632452910_1632539310
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+   * 增量获取日历变更数据。;;**默认值**：空
+   *
+   * <p>示例值：ListCalendarsSyncToken_1632452910
+   */
+  @Query
+  @SerializedName("sync_token")
+  private String syncToken;
+
+  /**
+   * 时间区间的开始时间， Unix 时间戳（秒），与end_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+   * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+   * 在使用start_time和end_time时，不能与page_token或sync_token一起使用。;-
+   * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+   *
+   * <p>示例值：1631777271
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 时间区间的结束时间， Unix 时间戳（秒）。与start_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+   * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+   * 在使用start_time和end_time时不能与page_token或sync_token一起使用。;-
+   * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+   *
+   * <p>示例值：1631777271
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 应用身份下指定操作用户的日历日程数据
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @Query
+  @SerializedName("op_user_id")
+  private String opUserId;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getAnchorTime() {
+    return this.anchorTime;
+  }
+
+  public void setAnchorTime(String anchorTime) {
+    this.anchorTime = anchorTime;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getSyncToken() {
+    return this.syncToken;
+  }
+
+  public void setSyncToken(String syncToken) {
+    this.syncToken = syncToken;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getOpUserId() {
+    return this.opUserId;
+  }
+
+  public void setOpUserId(String opUserId) {
+    this.opUserId = opUserId;
+  }
+
+  /**
+   * 日历 ID。关于日历 ID 可参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  // builder 开始
+  public ListCalendarEventReq() {}
+
+  public ListCalendarEventReq(Builder builder) {
     /**
-     * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-     * <p> 示例值：50
+     * 一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 拉取anchor_time之后的日程，为timestamp
-     * <p> 示例值：1609430400
+     * 时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用 page_token 或
+     * sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。;;**使用说明**：;;- 对于单次日程，会获取到 **日程结束时间 >=
+     * anchor_time** 的日程信息。;- 对于重复性日程，目前设置 anchor_time 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。;-
+     * 对于例外日程，会获取到 **original_time >= anchor_time** 以及 **日程结束时间 >= anchor_time** 的日程信息，其中
+     * original_time 从例外日程 ID 中获取，ID 结构为 `{uid}_{original_time}`。;;**注意**：该参数不可与 start_time 和
+     * end_time 一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1609430400
      */
-    @Query
-    @SerializedName("anchor_time")
-    private String anchorTime;
+    this.anchorTime = builder.anchorTime;
     /**
-     * 上次请求Response返回的分页标记，首次请求时为空
-     * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：ListCalendarsPageToken_1632452910_1632539310
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-     * <p> 示例值：ListCalendarsSyncToken_1632452910
+     * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+     * 增量获取日历变更数据。;;**默认值**：空
+     *
+     * <p>示例值：ListCalendarsSyncToken_1632452910
      */
-    @Query
-    @SerializedName("sync_token")
-    private String syncToken;
+    this.syncToken = builder.syncToken;
     /**
-     * 日程开始Unix时间戳，单位为秒
-     * <p> 示例值：1631777271
+     * 时间区间的开始时间， Unix 时间戳（秒），与end_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+     * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+     * 在使用start_time和end_time时，不能与page_token或sync_token一起使用。;-
+     * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1631777271
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 日程结束Unix时间戳，单位为秒
-     * <p> 示例值：1631777271
+     * 时间区间的结束时间， Unix 时间戳（秒）。与start_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+     * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+     * 在使用start_time和end_time时不能与page_token或sync_token一起使用。;-
+     * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1631777271
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 应用身份下指定操作用户的日历日程数据
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @Query
-    @SerializedName("op_user_id")
-    private String opUserId;
+    this.opUserId = builder.opUserId;
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
+  }
 
-    // builder 开始
-    public ListCalendarEventReq() {
+  public static class Builder {
+    private Integer
+        pageSize; // 一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。
+    private String
+        anchorTime; // 时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用
+    // page_token 或 sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。;;**使用说明**：;;-
+    // 对于单次日程，会获取到 **日程结束时间 >= anchor_time** 的日程信息。;- 对于重复性日程，目前设置 anchor_time
+    // 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。;- 对于例外日程，会获取到 **original_time >=
+    // anchor_time** 以及 **日程结束时间 >= anchor_time** 的日程信息，其中 original_time 从例外日程 ID
+    // 中获取，ID 结构为 `{uid}_{original_time}`。;;**注意**：该参数不可与 start_time 和 end_time
+    // 一起使用。;;**默认值**：空
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String
+        syncToken; // 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该
+    // sync_token 增量获取日历变更数据。;;**默认值**：空
+    private String startTime; // 时间区间的开始时间， Unix 时间戳（秒），与end_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+    // 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+    // 在使用start_time和end_time时，不能与page_token或sync_token一起使用。;-
+    // 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+    private String endTime; // 时间区间的结束时间， Unix 时间戳（秒）。与start_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+    // 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+    // 在使用start_time和end_time时不能与page_token或sync_token一起使用。;-
+    // 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String opUserId; // 应用身份下指定操作用户的日历日程数据
+
+    /**
+     * 一次请求要求返回的最大日程数量。实际返回的日程数量可能小于该值，也可能为空，可以根据响应体里的has_more字段来判断是否还有更多日程。
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListCalendarEventReq(Builder builder) {
-        /**
-         * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 拉取anchor_time之后的日程，为timestamp
-         * <p> 示例值：1609430400
-         */
-        this.anchorTime = builder.anchorTime;
-        /**
-         * 上次请求Response返回的分页标记，首次请求时为空
-         * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-         * <p> 示例值：ListCalendarsSyncToken_1632452910
-         */
-        this.syncToken = builder.syncToken;
-        /**
-         * 日程开始Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 日程结束Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.opUserId = builder.opUserId;
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
+    /**
+     * 时间锚点，Unix 时间戳（秒）。anchor_time 用于设置一个时间点，以便直接拉取该时间点之后的日程数据，从而避免拉取全量日程数据。可使用 page_token 或
+     * sync_token 进行分页或增量拉取 anchor_time 之后的所有日程数据。;;**使用说明**：;;- 对于单次日程，会获取到 **日程结束时间 >=
+     * anchor_time** 的日程信息。;- 对于重复性日程，目前设置 anchor_time 后均会获取到，包括在 anchor_time 之前的已结束的历史重复性日程。;-
+     * 对于例外日程，会获取到 **original_time >= anchor_time** 以及 **日程结束时间 >= anchor_time** 的日程信息，其中
+     * original_time 从例外日程 ID 中获取，ID 结构为 `{uid}_{original_time}`。;;**注意**：该参数不可与 start_time 和
+     * end_time 一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1609430400
+     *
+     * @param anchorTime
+     * @return
+     */
+    public Builder anchorTime(String anchorTime) {
+      this.anchorTime = anchorTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：ListCalendarsPageToken_1632452910_1632539310
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 增量同步标记，第一次请求不填。当分页查询结束（page_token 返回值为空）时，接口会返回 sync_token 字段，下次调用可使用该 sync_token
+     * 增量获取日历变更数据。;;**默认值**：空
+     *
+     * <p>示例值：ListCalendarsSyncToken_1632452910
+     *
+     * @param syncToken
+     * @return
+     */
+    public Builder syncToken(String syncToken) {
+      this.syncToken = syncToken;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 时间区间的开始时间， Unix 时间戳（秒），与end_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+     * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+     * 在使用start_time和end_time时，不能与page_token或sync_token一起使用。;-
+     * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1631777271
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getAnchorTime() {
-        return this.anchorTime;
+    /**
+     * 时间区间的结束时间， Unix 时间戳（秒）。与start_time搭配使用，用于拉取指定时间区间内的日程数据.;;**注意**：;;-
+     * 该方式只能一次性返回数据，无法进行分页。一次性返回的数据大小受page_size限制，超过限制的数据将被截断。;-
+     * 在使用start_time和end_time时不能与page_token或sync_token一起使用。;-
+     * 在使用start_time和end_time时，不能与anchor_time一起使用。;;**默认值**：空
+     *
+     * <p>示例值：1631777271
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setAnchorTime(String anchorTime) {
-        this.anchorTime = anchorTime;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 应用身份下指定操作用户的日历日程数据
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param opUserId
+     * @return
+     */
+    public Builder opUserId(String opUserId) {
+      this.opUserId = opUserId;
+      return this;
     }
 
-    public String getSyncToken() {
-        return this.syncToken;
+    private String calendarId; // 日历 ID。关于日历 ID 可参见[日历 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+
+    /**
+     * 日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public void setSyncToken(String syncToken) {
-        this.syncToken = syncToken;
+    public ListCalendarEventReq build() {
+      return new ListCalendarEventReq(this);
     }
+  }
 
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getOpUserId() {
-        return this.opUserId;
-    }
-
-    public void setOpUserId(String opUserId) {
-        this.opUserId = opUserId;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-        private String anchorTime; // 拉取anchor_time之后的日程，为timestamp
-        private String pageToken; // 上次请求Response返回的分页标记，首次请求时为空
-        private String syncToken; // 上次请求Response返回的增量同步标记，分页请求未结束时为空
-        private String startTime; // 日程开始Unix时间戳，单位为秒
-        private String endTime; // 日程结束Unix时间戳，单位为秒
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String opUserId; // 应用身份下指定操作用户的日历日程数据
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-
-        /**
-         * 一次请求要求返回最大数量，默认500，取值范围为[50, 1000]
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 拉取anchor_time之后的日程，为timestamp
-         * <p> 示例值：1609430400
-         *
-         * @param anchorTime
-         * @return
-         */
-        public Builder anchorTime(String anchorTime) {
-            this.anchorTime = anchorTime;
-            return this;
-        }
-
-        /**
-         * 上次请求Response返回的分页标记，首次请求时为空
-         * <p> 示例值：ListCalendarsPageToken_1632452910_1632539310
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 上次请求Response返回的增量同步标记，分页请求未结束时为空
-         * <p> 示例值：ListCalendarsSyncToken_1632452910
-         *
-         * @param syncToken
-         * @return
-         */
-        public Builder syncToken(String syncToken) {
-            this.syncToken = syncToken;
-            return this;
-        }
-
-        /**
-         * 日程开始Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-        /**
-         * 日程结束Unix时间戳，单位为秒
-         * <p> 示例值：1631777271
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param opUserId
-         * @return
-         */
-        public Builder opUserId(String opUserId) {
-            this.opUserId = opUserId;
-            return this;
-        }
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        public ListCalendarEventReq build() {
-            return new ListCalendarEventReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

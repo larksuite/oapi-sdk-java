@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetInstanceInfoFailMsg {
+  /**
+   * 日程实例id
+   *
+   * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+   */
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  /**
+   * 失败信息
+   *
+   * <p>示例值：No Permission
+   */
+  @SerializedName("fail_msg")
+  private String failMsg;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public String getFailMsg() {
+    return this.failMsg;
+  }
+
+  public void setFailMsg(String failMsg) {
+    this.failMsg = failMsg;
+  }
+
+  // builder 开始
+  public MgetInstanceInfoFailMsg() {}
+
+  public MgetInstanceInfoFailMsg(Builder builder) {
     /**
      * 日程实例id
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
      */
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
     /**
      * 失败信息
-     * <p> 示例值：No Permission
+     *
+     * <p>示例值：No Permission
      */
-    @SerializedName("fail_msg")
+    this.failMsg = builder.failMsg;
+  }
+
+  public static class Builder {
+    /**
+     * 日程实例id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     */
+    private String instanceId;
+
+    /**
+     * 失败信息
+     *
+     * <p>示例值：No Permission
+     */
     private String failMsg;
 
-    // builder 开始
-    public MgetInstanceInfoFailMsg() {
+    /**
+     * 日程实例id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public MgetInstanceInfoFailMsg(Builder builder) {
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         */
-        this.instanceId = builder.instanceId;
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         */
-        this.failMsg = builder.failMsg;
+    /**
+     * 失败信息
+     *
+     * <p>示例值：No Permission
+     *
+     * @param failMsg
+     * @return
+     */
+    public Builder failMsg(String failMsg) {
+      this.failMsg = failMsg;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MgetInstanceInfoFailMsg build() {
+      return new MgetInstanceInfoFailMsg(this);
     }
+  }
 
-    public String getInstanceId() {
-        return this.instanceId;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public String getFailMsg() {
-        return this.failMsg;
-    }
-
-    public void setFailMsg(String failMsg) {
-        this.failMsg = failMsg;
-    }
-
-    public static class Builder {
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         */
-        private String instanceId;
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         */
-        private String failMsg;
-
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        /**
-         * 失败信息
-         * <p> 示例值：No Permission
-         *
-         * @param failMsg
-         * @return
-         */
-        public Builder failMsg(String failMsg) {
-            this.failMsg = failMsg;
-            return this;
-        }
-
-
-        public MgetInstanceInfoFailMsg build() {
-            return new MgetInstanceInfoFailMsg(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

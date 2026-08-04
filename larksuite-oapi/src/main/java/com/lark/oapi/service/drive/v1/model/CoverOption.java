@@ -13,259 +13,272 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CoverOption {
+  /**
+   * 封面业务类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("bus_type")
+  private Integer busType;
+
+  /**
+   * 平台类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("platform")
+  private Integer platform;
+
+  /**
+   * 封面宽度(像素)
+   *
+   * <p>示例值：1280
+   */
+  @SerializedName("width")
+  private String width;
+
+  /**
+   * 封面高度(像素)
+   *
+   * <p>示例值：1280
+   */
+  @SerializedName("height")
+  private String height;
+
+  /**
+   * 封面策略
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("policy")
+  private Integer policy;
+
+  public Integer getBusType() {
+    return this.busType;
+  }
+
+  public void setBusType(Integer busType) {
+    this.busType = busType;
+  }
+
+  public Integer getPlatform() {
+    return this.platform;
+  }
+
+  public void setPlatform(Integer platform) {
+    this.platform = platform;
+  }
+
+  public String getWidth() {
+    return this.width;
+  }
+
+  public void setWidth(String width) {
+    this.width = width;
+  }
+
+  public String getHeight() {
+    return this.height;
+  }
+
+  public void setHeight(String height) {
+    this.height = height;
+  }
+
+  public Integer getPolicy() {
+    return this.policy;
+  }
+
+  public void setPolicy(Integer policy) {
+    this.policy = policy;
+  }
+
+  // builder 开始
+  public CoverOption() {}
+
+  public CoverOption(Builder builder) {
     /**
      * 封面业务类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("bus_type")
-    private Integer busType;
+    this.busType = builder.busType;
     /**
      * 平台类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("platform")
-    private Integer platform;
+    this.platform = builder.platform;
     /**
      * 封面宽度(像素)
-     * <p> 示例值：1280
+     *
+     * <p>示例值：1280
      */
-    @SerializedName("width")
-    private String width;
+    this.width = builder.width;
     /**
      * 封面高度(像素)
-     * <p> 示例值：1280
+     *
+     * <p>示例值：1280
      */
-    @SerializedName("height")
-    private String height;
+    this.height = builder.height;
     /**
      * 封面策略
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("policy")
+    this.policy = builder.policy;
+  }
+
+  public static class Builder {
+    /**
+     * 封面业务类型
+     *
+     * <p>示例值：1
+     */
+    private Integer busType;
+
+    /**
+     * 平台类型
+     *
+     * <p>示例值：0
+     */
+    private Integer platform;
+
+    /**
+     * 封面宽度(像素)
+     *
+     * <p>示例值：1280
+     */
+    private String width;
+
+    /**
+     * 封面高度(像素)
+     *
+     * <p>示例值：1280
+     */
+    private String height;
+
+    /**
+     * 封面策略
+     *
+     * <p>示例值：0
+     */
     private Integer policy;
 
-    // builder 开始
-    public CoverOption() {
+    /**
+     * 封面业务类型
+     *
+     * <p>示例值：1
+     *
+     * @param busType
+     * @return
+     */
+    public Builder busType(Integer busType) {
+      this.busType = busType;
+      return this;
     }
 
-    public CoverOption(Builder builder) {
-        /**
-         * 封面业务类型
-         * <p> 示例值：1
-         */
-        this.busType = builder.busType;
-        /**
-         * 平台类型
-         * <p> 示例值：0
-         */
-        this.platform = builder.platform;
-        /**
-         * 封面宽度(像素)
-         * <p> 示例值：1280
-         */
-        this.width = builder.width;
-        /**
-         * 封面高度(像素)
-         * <p> 示例值：1280
-         */
-        this.height = builder.height;
-        /**
-         * 封面策略
-         * <p> 示例值：0
-         */
-        this.policy = builder.policy;
+    /**
+     * 封面业务类型
+     *
+     * <p>示例值：1
+     *
+     * @param busType {@link com.lark.oapi.service.drive.v1.enums.CoverOptionBusTypeEnum}
+     * @return
+     */
+    public Builder busType(com.lark.oapi.service.drive.v1.enums.CoverOptionBusTypeEnum busType) {
+      this.busType = busType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 平台类型
+     *
+     * <p>示例值：0
+     *
+     * @param platform
+     * @return
+     */
+    public Builder platform(Integer platform) {
+      this.platform = platform;
+      return this;
     }
 
-    public Integer getBusType() {
-        return this.busType;
+    /**
+     * 平台类型
+     *
+     * <p>示例值：0
+     *
+     * @param platform {@link com.lark.oapi.service.drive.v1.enums.CoverOptionPlatformEnum}
+     * @return
+     */
+    public Builder platform(com.lark.oapi.service.drive.v1.enums.CoverOptionPlatformEnum platform) {
+      this.platform = platform.getValue();
+      return this;
     }
 
-    public void setBusType(Integer busType) {
-        this.busType = busType;
+    /**
+     * 封面宽度(像素)
+     *
+     * <p>示例值：1280
+     *
+     * @param width
+     * @return
+     */
+    public Builder width(String width) {
+      this.width = width;
+      return this;
     }
 
-    public Integer getPlatform() {
-        return this.platform;
+    /**
+     * 封面高度(像素)
+     *
+     * <p>示例值：1280
+     *
+     * @param height
+     * @return
+     */
+    public Builder height(String height) {
+      this.height = height;
+      return this;
     }
 
-    public void setPlatform(Integer platform) {
-        this.platform = platform;
+    /**
+     * 封面策略
+     *
+     * <p>示例值：0
+     *
+     * @param policy
+     * @return
+     */
+    public Builder policy(Integer policy) {
+      this.policy = policy;
+      return this;
     }
 
-    public String getWidth() {
-        return this.width;
+    /**
+     * 封面策略
+     *
+     * <p>示例值：0
+     *
+     * @param policy {@link com.lark.oapi.service.drive.v1.enums.CoverOptionPolicyEnum}
+     * @return
+     */
+    public Builder policy(com.lark.oapi.service.drive.v1.enums.CoverOptionPolicyEnum policy) {
+      this.policy = policy.getValue();
+      return this;
     }
 
-    public void setWidth(String width) {
-        this.width = width;
+    public CoverOption build() {
+      return new CoverOption(this);
     }
+  }
 
-    public String getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
-    }
-
-    public Integer getPolicy() {
-        return this.policy;
-    }
-
-    public void setPolicy(Integer policy) {
-        this.policy = policy;
-    }
-
-    public static class Builder {
-        /**
-         * 封面业务类型
-         * <p> 示例值：1
-         */
-        private Integer busType;
-        /**
-         * 平台类型
-         * <p> 示例值：0
-         */
-        private Integer platform;
-        /**
-         * 封面宽度(像素)
-         * <p> 示例值：1280
-         */
-        private String width;
-        /**
-         * 封面高度(像素)
-         * <p> 示例值：1280
-         */
-        private String height;
-        /**
-         * 封面策略
-         * <p> 示例值：0
-         */
-        private Integer policy;
-
-        /**
-         * 封面业务类型
-         * <p> 示例值：1
-         *
-         * @param busType
-         * @return
-         */
-        public Builder busType(Integer busType) {
-            this.busType = busType;
-            return this;
-        }
-
-        /**
-         * 封面业务类型
-         * <p> 示例值：1
-         *
-         * @param busType {@link com.lark.oapi.service.drive.v1.enums.CoverOptionBusTypeEnum}
-         * @return
-         */
-        public Builder busType(com.lark.oapi.service.drive.v1.enums.CoverOptionBusTypeEnum busType) {
-            this.busType = busType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 平台类型
-         * <p> 示例值：0
-         *
-         * @param platform
-         * @return
-         */
-        public Builder platform(Integer platform) {
-            this.platform = platform;
-            return this;
-        }
-
-        /**
-         * 平台类型
-         * <p> 示例值：0
-         *
-         * @param platform {@link com.lark.oapi.service.drive.v1.enums.CoverOptionPlatformEnum}
-         * @return
-         */
-        public Builder platform(com.lark.oapi.service.drive.v1.enums.CoverOptionPlatformEnum platform) {
-            this.platform = platform.getValue();
-            return this;
-        }
-
-
-        /**
-         * 封面宽度(像素)
-         * <p> 示例值：1280
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(String width) {
-            this.width = width;
-            return this;
-        }
-
-
-        /**
-         * 封面高度(像素)
-         * <p> 示例值：1280
-         *
-         * @param height
-         * @return
-         */
-        public Builder height(String height) {
-            this.height = height;
-            return this;
-        }
-
-
-        /**
-         * 封面策略
-         * <p> 示例值：0
-         *
-         * @param policy
-         * @return
-         */
-        public Builder policy(Integer policy) {
-            this.policy = policy;
-            return this;
-        }
-
-        /**
-         * 封面策略
-         * <p> 示例值：0
-         *
-         * @param policy {@link com.lark.oapi.service.drive.v1.enums.CoverOptionPolicyEnum}
-         * @return
-         */
-        public Builder policy(com.lark.oapi.service.drive.v1.enums.CoverOptionPolicyEnum policy) {
-            this.policy = policy.getValue();
-            return this;
-        }
-
-
-        public CoverOption build() {
-            return new CoverOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateEcoBackgroundCheckCustomFieldReq {
-    @Body
+  @Body private EcoBackgroundCheckCustomField body;
+
+  public EcoBackgroundCheckCustomField getEcoBackgroundCheckCustomField() {
+    return this.body;
+  }
+
+  public void setEcoBackgroundCheckCustomField(EcoBackgroundCheckCustomField body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchUpdateEcoBackgroundCheckCustomFieldReq() {}
+
+  public BatchUpdateEcoBackgroundCheckCustomFieldReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private EcoBackgroundCheckCustomField body;
 
-    // builder 开始
-    public BatchUpdateEcoBackgroundCheckCustomFieldReq() {
-    }
-
-    public BatchUpdateEcoBackgroundCheckCustomFieldReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public EcoBackgroundCheckCustomField getEcoBackgroundCheckCustomField() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEcoBackgroundCheckCustomField(EcoBackgroundCheckCustomField body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder ecoBackgroundCheckCustomField(EcoBackgroundCheckCustomField body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private EcoBackgroundCheckCustomField body;
-
-        public EcoBackgroundCheckCustomField getEcoBackgroundCheckCustomField() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder ecoBackgroundCheckCustomField(EcoBackgroundCheckCustomField body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchUpdateEcoBackgroundCheckCustomFieldReq build() {
-            return new BatchUpdateEcoBackgroundCheckCustomFieldReq(this);
-        }
+    public BatchUpdateEcoBackgroundCheckCustomFieldReq build() {
+      return new BatchUpdateEcoBackgroundCheckCustomFieldReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

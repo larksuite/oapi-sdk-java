@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.mdm.v1.resource.UserAuthDataRelation;
 
 public class V1 {
-    private final UserAuthDataRelation userAuthDataRelation; // 数据维度
+  private final UserAuthDataRelation userAuthDataRelation; // user_auth_data_relation
 
-    public V1(Config config) {
-        this.userAuthDataRelation = new UserAuthDataRelation(config);
-    }
+  public V1(Config config) {
+    this.userAuthDataRelation = new UserAuthDataRelation(config);
+  }
 
-    public UserAuthDataRelation userAuthDataRelation() {
-        return userAuthDataRelation;
-    }
+  public UserAuthDataRelation userAuthDataRelation() {
+    return userAuthDataRelation;
+  }
 }

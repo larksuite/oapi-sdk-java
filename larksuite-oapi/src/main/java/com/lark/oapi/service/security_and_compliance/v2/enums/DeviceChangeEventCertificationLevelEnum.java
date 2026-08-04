@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 认证方式
- */
+/** 认证方式 */
 public enum DeviceChangeEventCertificationLevelEnum {
-    UNKNOWN(0), // 未知
-    REGISTERED(1), // 飞书认证
-    MANAGED(2), // 终端管理认证
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  REGISTERED(1), // 飞书认证
+  MANAGED(2), // 终端管理认证
+  ;
+  private Integer value;
 
-    DeviceChangeEventCertificationLevelEnum(Integer value) {
-        this.value = value;
-    }
+  DeviceChangeEventCertificationLevelEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

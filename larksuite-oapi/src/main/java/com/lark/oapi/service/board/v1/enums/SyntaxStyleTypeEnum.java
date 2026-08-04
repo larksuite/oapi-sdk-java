@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 语法样式（画板样式/经典样式）
- */
+/** 语法样式（画板样式/经典样式） */
 public enum SyntaxStyleTypeEnum {
-    BOARD(1), // 画板样式
-    CLASSIC(2), // 经典样式
-    ;
-    private Integer value;
+  BOARD(1), // 画板样式（解析之后为多个画板节点，粘贴到画板中，不可对语法进行二次编辑）
+  CLASSIC(2), // 经典样式（解析之后为一张图片，粘贴到画板中，可对语法进行二次编辑）（只有PlantUml语法支持经典样式）
+  ;
+  private Integer value;
 
-    SyntaxStyleTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SyntaxStyleTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

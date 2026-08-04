@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ClearStyleMultiRange {
+  /**
+   * 范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ranges")
+  private String[] ranges;
+
+  public String[] getRanges() {
+    return this.ranges;
+  }
+
+  public void setRanges(String[] ranges) {
+    this.ranges = ranges;
+  }
+
+  // builder 开始
+  public ClearStyleMultiRange() {}
+
+  public ClearStyleMultiRange(Builder builder) {
     /**
      * 范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ranges")
+    this.ranges = builder.ranges;
+  }
+
+  public static class Builder {
+    /**
+     * 范围
+     *
+     * <p>示例值：
+     */
     private String[] ranges;
 
-    // builder 开始
-    public ClearStyleMultiRange() {
+    /**
+     * 范围
+     *
+     * <p>示例值：
+     *
+     * @param ranges
+     * @return
+     */
+    public Builder ranges(String[] ranges) {
+      this.ranges = ranges;
+      return this;
     }
 
-    public ClearStyleMultiRange(Builder builder) {
-        /**
-         * 范围
-         * <p> 示例值：
-         */
-        this.ranges = builder.ranges;
+    public ClearStyleMultiRange build() {
+      return new ClearStyleMultiRange(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getRanges() {
-        return this.ranges;
-    }
-
-    public void setRanges(String[] ranges) {
-        this.ranges = ranges;
-    }
-
-    public static class Builder {
-        /**
-         * 范围
-         * <p> 示例值：
-         */
-        private String[] ranges;
-
-        /**
-         * 范围
-         * <p> 示例值：
-         *
-         * @param ranges
-         * @return
-         */
-        public Builder ranges(String[] ranges) {
-            this.ranges = ranges;
-            return this;
-        }
-
-
-        public ClearStyleMultiRange build() {
-            return new ClearStyleMultiRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

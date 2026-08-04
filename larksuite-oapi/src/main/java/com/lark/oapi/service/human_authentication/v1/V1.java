@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.human_authentication.v1.resource.Identity;
 
 public class V1 {
-    private final Identity identity; // 实名认证
+  private final Identity identity; // identity
 
-    public V1(Config config) {
-        this.identity = new Identity(config);
-    }
+  public V1(Config config) {
+    this.identity = new Identity(config);
+  }
 
-    public Identity identity() {
-        return identity;
-    }
+  public Identity identity() {
+    return identity;
+  }
 }

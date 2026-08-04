@@ -13,132 +13,118 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldExtractionContractRespBody {
-    /**
-     * 文件的唯一id
-     * <p> 示例值：7216597635774283796
-     */
-    @SerializedName("file_id")
-    private String fileId;
-    /**
-     * 总交易金额
-     * <p> 示例值：
-     */
-    @SerializedName("price")
-    private ExtractPrice price;
-    /**
-     * 期限相关信息，包括开始日期、结束日期、有效时长
-     * <p> 示例值：
-     */
-    @SerializedName("time")
-    private ExtractTime time;
-    /**
-     * 盖章份数
-     * <p> 示例值：
-     */
-    @SerializedName("copy")
-    private ExtractCopy copy;
-    /**
-     * 币种
-     * <p> 示例值：
-     */
-    @SerializedName("currency")
-    private ExtractCurrency currency;
-    /**
-     * 合同标题
-     * <p> 示例值：项目活动框架协议
-     */
-    @SerializedName("header")
-    private String header;
-    /**
-     * 主体信息
-     * <p> 示例值：
-     */
-    @SerializedName("body_info")
-    private BodyInfo[] bodyInfo;
-    /**
-     * 银行信息
-     * <p> 示例值：
-     */
-    @SerializedName("bank_info")
-    private BankInfo[] bankInfo;
+  /**
+   * 文件的唯一id
+   *
+   * <p>示例值：121345678
+   */
+  @SerializedName("file_id")
+  private String fileId;
 
-    public String getFileId() {
-        return this.fileId;
-    }
+  /** 示例值： */
+  @SerializedName("price")
+  private ExtractPrice price;
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
+  /** 示例值： */
+  @SerializedName("time")
+  private ExtractTime time;
 
-    public ExtractPrice getPrice() {
-        return this.price;
-    }
+  /** 示例值： */
+  @SerializedName("copy")
+  private ExtractCopy copy;
 
-    public void setPrice(ExtractPrice price) {
-        this.price = price;
-    }
+  /** 示例值： */
+  @SerializedName("currency")
+  private ExtractCurrency currency;
 
-    public ExtractTime getTime() {
-        return this.time;
-    }
+  /**
+   * 合同标题
+   *
+   * <p>示例值：项目活动框架协议
+   */
+  @SerializedName("header")
+  private String header;
 
-    public void setTime(ExtractTime time) {
-        this.time = time;
-    }
+  /**
+   * 主体信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("body_info")
+  private BodyInfo[] bodyInfo;
 
-    public ExtractCopy getCopy() {
-        return this.copy;
-    }
+  /**
+   * 银行信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_info")
+  private BankInfo[] bankInfo;
 
-    public void setCopy(ExtractCopy copy) {
-        this.copy = copy;
-    }
+  public String getFileId() {
+    return this.fileId;
+  }
 
-    public ExtractCurrency getCurrency() {
-        return this.currency;
-    }
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
 
-    public void setCurrency(ExtractCurrency currency) {
-        this.currency = currency;
-    }
+  public ExtractPrice getPrice() {
+    return this.price;
+  }
 
-    public String getHeader() {
-        return this.header;
-    }
+  public void setPrice(ExtractPrice price) {
+    this.price = price;
+  }
 
-    public void setHeader(String header) {
-        this.header = header;
-    }
+  public ExtractTime getTime() {
+    return this.time;
+  }
 
-    public BodyInfo[] getBodyInfo() {
-        return this.bodyInfo;
-    }
+  public void setTime(ExtractTime time) {
+    this.time = time;
+  }
 
-    public void setBodyInfo(BodyInfo[] bodyInfo) {
-        this.bodyInfo = bodyInfo;
-    }
+  public ExtractCopy getCopy() {
+    return this.copy;
+  }
 
-    public BankInfo[] getBankInfo() {
-        return this.bankInfo;
-    }
+  public void setCopy(ExtractCopy copy) {
+    this.copy = copy;
+  }
 
-    public void setBankInfo(BankInfo[] bankInfo) {
-        this.bankInfo = bankInfo;
-    }
+  public ExtractCurrency getCurrency() {
+    return this.currency;
+  }
 
+  public void setCurrency(ExtractCurrency currency) {
+    this.currency = currency;
+  }
+
+  public String getHeader() {
+    return this.header;
+  }
+
+  public void setHeader(String header) {
+    this.header = header;
+  }
+
+  public BodyInfo[] getBodyInfo() {
+    return this.bodyInfo;
+  }
+
+  public void setBodyInfo(BodyInfo[] bodyInfo) {
+    this.bodyInfo = bodyInfo;
+  }
+
+  public BankInfo[] getBankInfo() {
+    return this.bankInfo;
+  }
+
+  public void setBankInfo(BankInfo[] bankInfo) {
+    this.bankInfo = bankInfo;
+  }
 }

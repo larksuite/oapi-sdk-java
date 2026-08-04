@@ -13,778 +13,863 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditAndroidContext {
+  /**
+   * UDID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("udid")
+  private String udid;
+
+  /**
+   * 设备ID
+   *
+   * <p>示例值：7204623689634104876
+   */
+  @SerializedName("did")
+  private String did;
+
+  /**
+   * app的版本
+   *
+   * <p>示例值：7.26.0-beta3
+   */
+  @SerializedName("app_ver")
+  private String appVer;
+
+  /**
+   * SecSDK版本
+   *
+   * <p>示例值：3.0.0.0
+   */
+  @SerializedName("ver")
+  private String ver;
+
+  /**
+   * 设备语言
+   *
+   * <p>示例值：zh_CN
+   */
+  @SerializedName("region")
+  private String region;
+
+  /**
+   * 安卓版本号
+   *
+   * <p>示例值：33
+   */
+  @SerializedName("id_i")
+  private String idI;
+
+  /**
+   * 安卓版本
+   *
+   * <p>示例值：13
+   */
+  @SerializedName("id_r")
+  private String idR;
+
+  /**
+   * Brand
+   *
+   * <p>示例值：Xiaomi
+   */
+  @SerializedName("hw_brand")
+  private String hwBrand;
+
+  /**
+   * 制造商
+   *
+   * <p>示例值：Xiaomi
+   */
+  @SerializedName("hw_manuf")
+  private String hwManuf;
+
+  /**
+   * wifi ip
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("wifip")
+  private String wifip;
+
+  /**
+   * 路由IP
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("route_iip")
+  private String routeIip;
+
+  /**
+   * 路由网关IP
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("route_gip")
+  private String routeGip;
+
+  /**
+   * 表示当前是否root
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("env_su")
+  private String envSu;
+
+  /**
+   * 手机系统时区
+   *
+   * <p>示例值：GMT+8:00
+   */
+  @SerializedName("env_tz")
+  private String envTz;
+
+  /**
+   * 手机系统语言
+   *
+   * <p>示例值：zh_CN
+   */
+  @SerializedName("env_ml")
+  private String envMl;
+
+  /**
+   * GPS经纬度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location")
+  private String location;
+
+  /**
+   * 当前设备活跃ip
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("active_ip")
+  private String activeIp;
+
+  /**
+   * 当前设备活跃ip对应网卡类型
+   *
+   * <p>示例值：wlan0
+   */
+  @SerializedName("active_ip_detail")
+  private String activeIpDetail;
+
+  /**
+   * 基站信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cell_base_station")
+  private String cellBaseStation;
+
+  /**
+   * 公网ip
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("IP")
+  private String iP;
+
+  public String getUdid() {
+    return this.udid;
+  }
+
+  public void setUdid(String udid) {
+    this.udid = udid;
+  }
+
+  public String getDid() {
+    return this.did;
+  }
+
+  public void setDid(String did) {
+    this.did = did;
+  }
+
+  public String getAppVer() {
+    return this.appVer;
+  }
+
+  public void setAppVer(String appVer) {
+    this.appVer = appVer;
+  }
+
+  public String getVer() {
+    return this.ver;
+  }
+
+  public void setVer(String ver) {
+    this.ver = ver;
+  }
+
+  public String getRegion() {
+    return this.region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public String getIdI() {
+    return this.idI;
+  }
+
+  public void setIdI(String idI) {
+    this.idI = idI;
+  }
+
+  public String getIdR() {
+    return this.idR;
+  }
+
+  public void setIdR(String idR) {
+    this.idR = idR;
+  }
+
+  public String getHwBrand() {
+    return this.hwBrand;
+  }
+
+  public void setHwBrand(String hwBrand) {
+    this.hwBrand = hwBrand;
+  }
+
+  public String getHwManuf() {
+    return this.hwManuf;
+  }
+
+  public void setHwManuf(String hwManuf) {
+    this.hwManuf = hwManuf;
+  }
+
+  public String getWifip() {
+    return this.wifip;
+  }
+
+  public void setWifip(String wifip) {
+    this.wifip = wifip;
+  }
+
+  public String getRouteIip() {
+    return this.routeIip;
+  }
+
+  public void setRouteIip(String routeIip) {
+    this.routeIip = routeIip;
+  }
+
+  public String getRouteGip() {
+    return this.routeGip;
+  }
+
+  public void setRouteGip(String routeGip) {
+    this.routeGip = routeGip;
+  }
+
+  public String getEnvSu() {
+    return this.envSu;
+  }
+
+  public void setEnvSu(String envSu) {
+    this.envSu = envSu;
+  }
+
+  public String getEnvTz() {
+    return this.envTz;
+  }
+
+  public void setEnvTz(String envTz) {
+    this.envTz = envTz;
+  }
+
+  public String getEnvMl() {
+    return this.envMl;
+  }
+
+  public void setEnvMl(String envMl) {
+    this.envMl = envMl;
+  }
+
+  public String getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getActiveIp() {
+    return this.activeIp;
+  }
+
+  public void setActiveIp(String activeIp) {
+    this.activeIp = activeIp;
+  }
+
+  public String getActiveIpDetail() {
+    return this.activeIpDetail;
+  }
+
+  public void setActiveIpDetail(String activeIpDetail) {
+    this.activeIpDetail = activeIpDetail;
+  }
+
+  public String getCellBaseStation() {
+    return this.cellBaseStation;
+  }
+
+  public void setCellBaseStation(String cellBaseStation) {
+    this.cellBaseStation = cellBaseStation;
+  }
+
+  public String getIP() {
+    return this.iP;
+  }
+
+  public void setIP(String iP) {
+    this.iP = iP;
+  }
+
+  // builder 开始
+  public AuditAndroidContext() {}
+
+  public AuditAndroidContext(Builder builder) {
     /**
      * UDID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("udid")
-    private String udid;
+    this.udid = builder.udid;
     /**
      * 设备ID
-     * <p> 示例值：7204623689634104876
+     *
+     * <p>示例值：7204623689634104876
      */
-    @SerializedName("did")
-    private String did;
+    this.did = builder.did;
     /**
      * app的版本
-     * <p> 示例值：7.26.0-beta3
+     *
+     * <p>示例值：7.26.0-beta3
      */
-    @SerializedName("app_ver")
-    private String appVer;
+    this.appVer = builder.appVer;
     /**
      * SecSDK版本
-     * <p> 示例值：3.0.0.0
+     *
+     * <p>示例值：3.0.0.0
      */
-    @SerializedName("ver")
-    private String ver;
+    this.ver = builder.ver;
     /**
      * 设备语言
-     * <p> 示例值：zh_CN
+     *
+     * <p>示例值：zh_CN
      */
-    @SerializedName("region")
-    private String region;
+    this.region = builder.region;
     /**
      * 安卓版本号
-     * <p> 示例值：33
+     *
+     * <p>示例值：33
      */
-    @SerializedName("id_i")
-    private String idI;
+    this.idI = builder.idI;
     /**
      * 安卓版本
-     * <p> 示例值：13
+     *
+     * <p>示例值：13
      */
-    @SerializedName("id_r")
-    private String idR;
+    this.idR = builder.idR;
     /**
      * Brand
-     * <p> 示例值：Xiaomi
+     *
+     * <p>示例值：Xiaomi
      */
-    @SerializedName("hw_brand")
-    private String hwBrand;
+    this.hwBrand = builder.hwBrand;
     /**
      * 制造商
-     * <p> 示例值：Xiaomi
+     *
+     * <p>示例值：Xiaomi
      */
-    @SerializedName("hw_manuf")
-    private String hwManuf;
+    this.hwManuf = builder.hwManuf;
     /**
      * wifi ip
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("wifip")
-    private String wifip;
+    this.wifip = builder.wifip;
     /**
      * 路由IP
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("route_iip")
-    private String routeIip;
+    this.routeIip = builder.routeIip;
     /**
      * 路由网关IP
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("route_gip")
-    private String routeGip;
+    this.routeGip = builder.routeGip;
     /**
      * 表示当前是否root
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("env_su")
-    private String envSu;
+    this.envSu = builder.envSu;
     /**
      * 手机系统时区
-     * <p> 示例值：GMT+8:00
+     *
+     * <p>示例值：GMT+8:00
      */
-    @SerializedName("env_tz")
-    private String envTz;
+    this.envTz = builder.envTz;
     /**
      * 手机系统语言
-     * <p> 示例值：zh_CN
+     *
+     * <p>示例值：zh_CN
      */
-    @SerializedName("env_ml")
-    private String envMl;
+    this.envMl = builder.envMl;
     /**
      * GPS经纬度
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("location")
-    private String location;
+    this.location = builder.location;
     /**
      * 当前设备活跃ip
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("active_ip")
-    private String activeIp;
+    this.activeIp = builder.activeIp;
     /**
      * 当前设备活跃ip对应网卡类型
-     * <p> 示例值：wlan0
+     *
+     * <p>示例值：wlan0
      */
-    @SerializedName("active_ip_detail")
-    private String activeIpDetail;
+    this.activeIpDetail = builder.activeIpDetail;
     /**
      * 基站信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cell_base_station")
-    private String cellBaseStation;
+    this.cellBaseStation = builder.cellBaseStation;
     /**
      * 公网ip
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("IP")
+    this.iP = builder.iP;
+  }
+
+  public static class Builder {
+    /**
+     * UDID
+     *
+     * <p>示例值：
+     */
+    private String udid;
+
+    /**
+     * 设备ID
+     *
+     * <p>示例值：7204623689634104876
+     */
+    private String did;
+
+    /**
+     * app的版本
+     *
+     * <p>示例值：7.26.0-beta3
+     */
+    private String appVer;
+
+    /**
+     * SecSDK版本
+     *
+     * <p>示例值：3.0.0.0
+     */
+    private String ver;
+
+    /**
+     * 设备语言
+     *
+     * <p>示例值：zh_CN
+     */
+    private String region;
+
+    /**
+     * 安卓版本号
+     *
+     * <p>示例值：33
+     */
+    private String idI;
+
+    /**
+     * 安卓版本
+     *
+     * <p>示例值：13
+     */
+    private String idR;
+
+    /**
+     * Brand
+     *
+     * <p>示例值：Xiaomi
+     */
+    private String hwBrand;
+
+    /**
+     * 制造商
+     *
+     * <p>示例值：Xiaomi
+     */
+    private String hwManuf;
+
+    /**
+     * wifi ip
+     *
+     * <p>示例值：1.1.1.1
+     */
+    private String wifip;
+
+    /**
+     * 路由IP
+     *
+     * <p>示例值：1.1.1.1
+     */
+    private String routeIip;
+
+    /**
+     * 路由网关IP
+     *
+     * <p>示例值：1.1.1.1
+     */
+    private String routeGip;
+
+    /**
+     * 表示当前是否root
+     *
+     * <p>示例值：0
+     */
+    private String envSu;
+
+    /**
+     * 手机系统时区
+     *
+     * <p>示例值：GMT+8:00
+     */
+    private String envTz;
+
+    /**
+     * 手机系统语言
+     *
+     * <p>示例值：zh_CN
+     */
+    private String envMl;
+
+    /**
+     * GPS经纬度
+     *
+     * <p>示例值：
+     */
+    private String location;
+
+    /**
+     * 当前设备活跃ip
+     *
+     * <p>示例值：1.1.1.1
+     */
+    private String activeIp;
+
+    /**
+     * 当前设备活跃ip对应网卡类型
+     *
+     * <p>示例值：wlan0
+     */
+    private String activeIpDetail;
+
+    /**
+     * 基站信息
+     *
+     * <p>示例值：
+     */
+    private String cellBaseStation;
+
+    /**
+     * 公网ip
+     *
+     * <p>示例值：1.1.1.1
+     */
     private String iP;
 
-    // builder 开始
-    public AuditAndroidContext() {
+    /**
+     * UDID
+     *
+     * <p>示例值：
+     *
+     * @param udid
+     * @return
+     */
+    public Builder udid(String udid) {
+      this.udid = udid;
+      return this;
     }
 
-    public AuditAndroidContext(Builder builder) {
-        /**
-         * UDID
-         * <p> 示例值：
-         */
-        this.udid = builder.udid;
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         */
-        this.did = builder.did;
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0-beta3
-         */
-        this.appVer = builder.appVer;
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         */
-        this.ver = builder.ver;
-        /**
-         * 设备语言
-         * <p> 示例值：zh_CN
-         */
-        this.region = builder.region;
-        /**
-         * 安卓版本号
-         * <p> 示例值：33
-         */
-        this.idI = builder.idI;
-        /**
-         * 安卓版本
-         * <p> 示例值：13
-         */
-        this.idR = builder.idR;
-        /**
-         * Brand
-         * <p> 示例值：Xiaomi
-         */
-        this.hwBrand = builder.hwBrand;
-        /**
-         * 制造商
-         * <p> 示例值：Xiaomi
-         */
-        this.hwManuf = builder.hwManuf;
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         */
-        this.wifip = builder.wifip;
-        /**
-         * 路由IP
-         * <p> 示例值：1.1.1.1
-         */
-        this.routeIip = builder.routeIip;
-        /**
-         * 路由网关IP
-         * <p> 示例值：1.1.1.1
-         */
-        this.routeGip = builder.routeGip;
-        /**
-         * 表示当前是否root
-         * <p> 示例值：0
-         */
-        this.envSu = builder.envSu;
-        /**
-         * 手机系统时区
-         * <p> 示例值：GMT+8:00
-         */
-        this.envTz = builder.envTz;
-        /**
-         * 手机系统语言
-         * <p> 示例值：zh_CN
-         */
-        this.envMl = builder.envMl;
-        /**
-         * GPS经纬度
-         * <p> 示例值：
-         */
-        this.location = builder.location;
-        /**
-         * 当前设备活跃ip
-         * <p> 示例值：1.1.1.1
-         */
-        this.activeIp = builder.activeIp;
-        /**
-         * 当前设备活跃ip对应网卡类型
-         * <p> 示例值：wlan0
-         */
-        this.activeIpDetail = builder.activeIpDetail;
-        /**
-         * 基站信息
-         * <p> 示例值：
-         */
-        this.cellBaseStation = builder.cellBaseStation;
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         */
-        this.iP = builder.iP;
+    /**
+     * 设备ID
+     *
+     * <p>示例值：7204623689634104876
+     *
+     * @param did
+     * @return
+     */
+    public Builder did(String did) {
+      this.did = did;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * app的版本
+     *
+     * <p>示例值：7.26.0-beta3
+     *
+     * @param appVer
+     * @return
+     */
+    public Builder appVer(String appVer) {
+      this.appVer = appVer;
+      return this;
     }
 
-    public String getUdid() {
-        return this.udid;
+    /**
+     * SecSDK版本
+     *
+     * <p>示例值：3.0.0.0
+     *
+     * @param ver
+     * @return
+     */
+    public Builder ver(String ver) {
+      this.ver = ver;
+      return this;
     }
 
-    public void setUdid(String udid) {
-        this.udid = udid;
+    /**
+     * 设备语言
+     *
+     * <p>示例值：zh_CN
+     *
+     * @param region
+     * @return
+     */
+    public Builder region(String region) {
+      this.region = region;
+      return this;
     }
 
-    public String getDid() {
-        return this.did;
+    /**
+     * 安卓版本号
+     *
+     * <p>示例值：33
+     *
+     * @param idI
+     * @return
+     */
+    public Builder idI(String idI) {
+      this.idI = idI;
+      return this;
     }
 
-    public void setDid(String did) {
-        this.did = did;
+    /**
+     * 安卓版本
+     *
+     * <p>示例值：13
+     *
+     * @param idR
+     * @return
+     */
+    public Builder idR(String idR) {
+      this.idR = idR;
+      return this;
     }
 
-    public String getAppVer() {
-        return this.appVer;
+    /**
+     * Brand
+     *
+     * <p>示例值：Xiaomi
+     *
+     * @param hwBrand
+     * @return
+     */
+    public Builder hwBrand(String hwBrand) {
+      this.hwBrand = hwBrand;
+      return this;
     }
 
-    public void setAppVer(String appVer) {
-        this.appVer = appVer;
+    /**
+     * 制造商
+     *
+     * <p>示例值：Xiaomi
+     *
+     * @param hwManuf
+     * @return
+     */
+    public Builder hwManuf(String hwManuf) {
+      this.hwManuf = hwManuf;
+      return this;
     }
 
-    public String getVer() {
-        return this.ver;
+    /**
+     * wifi ip
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param wifip
+     * @return
+     */
+    public Builder wifip(String wifip) {
+      this.wifip = wifip;
+      return this;
     }
 
-    public void setVer(String ver) {
-        this.ver = ver;
+    /**
+     * 路由IP
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param routeIip
+     * @return
+     */
+    public Builder routeIip(String routeIip) {
+      this.routeIip = routeIip;
+      return this;
     }
 
-    public String getRegion() {
-        return this.region;
+    /**
+     * 路由网关IP
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param routeGip
+     * @return
+     */
+    public Builder routeGip(String routeGip) {
+      this.routeGip = routeGip;
+      return this;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    /**
+     * 表示当前是否root
+     *
+     * <p>示例值：0
+     *
+     * @param envSu
+     * @return
+     */
+    public Builder envSu(String envSu) {
+      this.envSu = envSu;
+      return this;
     }
 
-    public String getIdI() {
-        return this.idI;
+    /**
+     * 手机系统时区
+     *
+     * <p>示例值：GMT+8:00
+     *
+     * @param envTz
+     * @return
+     */
+    public Builder envTz(String envTz) {
+      this.envTz = envTz;
+      return this;
     }
 
-    public void setIdI(String idI) {
-        this.idI = idI;
+    /**
+     * 手机系统语言
+     *
+     * <p>示例值：zh_CN
+     *
+     * @param envMl
+     * @return
+     */
+    public Builder envMl(String envMl) {
+      this.envMl = envMl;
+      return this;
     }
 
-    public String getIdR() {
-        return this.idR;
+    /**
+     * GPS经纬度
+     *
+     * <p>示例值：
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(String location) {
+      this.location = location;
+      return this;
     }
 
-    public void setIdR(String idR) {
-        this.idR = idR;
+    /**
+     * 当前设备活跃ip
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param activeIp
+     * @return
+     */
+    public Builder activeIp(String activeIp) {
+      this.activeIp = activeIp;
+      return this;
     }
 
-    public String getHwBrand() {
-        return this.hwBrand;
+    /**
+     * 当前设备活跃ip对应网卡类型
+     *
+     * <p>示例值：wlan0
+     *
+     * @param activeIpDetail
+     * @return
+     */
+    public Builder activeIpDetail(String activeIpDetail) {
+      this.activeIpDetail = activeIpDetail;
+      return this;
     }
 
-    public void setHwBrand(String hwBrand) {
-        this.hwBrand = hwBrand;
+    /**
+     * 基站信息
+     *
+     * <p>示例值：
+     *
+     * @param cellBaseStation
+     * @return
+     */
+    public Builder cellBaseStation(String cellBaseStation) {
+      this.cellBaseStation = cellBaseStation;
+      return this;
     }
 
-    public String getHwManuf() {
-        return this.hwManuf;
+    /**
+     * 公网ip
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param iP
+     * @return
+     */
+    public Builder iP(String iP) {
+      this.iP = iP;
+      return this;
     }
 
-    public void setHwManuf(String hwManuf) {
-        this.hwManuf = hwManuf;
+    public AuditAndroidContext build() {
+      return new AuditAndroidContext(this);
     }
-
-    public String getWifip() {
-        return this.wifip;
-    }
-
-    public void setWifip(String wifip) {
-        this.wifip = wifip;
-    }
-
-    public String getRouteIip() {
-        return this.routeIip;
-    }
-
-    public void setRouteIip(String routeIip) {
-        this.routeIip = routeIip;
-    }
-
-    public String getRouteGip() {
-        return this.routeGip;
-    }
-
-    public void setRouteGip(String routeGip) {
-        this.routeGip = routeGip;
-    }
-
-    public String getEnvSu() {
-        return this.envSu;
-    }
-
-    public void setEnvSu(String envSu) {
-        this.envSu = envSu;
-    }
-
-    public String getEnvTz() {
-        return this.envTz;
-    }
-
-    public void setEnvTz(String envTz) {
-        this.envTz = envTz;
-    }
-
-    public String getEnvMl() {
-        return this.envMl;
-    }
-
-    public void setEnvMl(String envMl) {
-        this.envMl = envMl;
-    }
-
-    public String getLocation() {
-        return this.location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getActiveIp() {
-        return this.activeIp;
-    }
-
-    public void setActiveIp(String activeIp) {
-        this.activeIp = activeIp;
-    }
-
-    public String getActiveIpDetail() {
-        return this.activeIpDetail;
-    }
-
-    public void setActiveIpDetail(String activeIpDetail) {
-        this.activeIpDetail = activeIpDetail;
-    }
-
-    public String getCellBaseStation() {
-        return this.cellBaseStation;
-    }
-
-    public void setCellBaseStation(String cellBaseStation) {
-        this.cellBaseStation = cellBaseStation;
-    }
-
-    public String getIP() {
-        return this.iP;
-    }
-
-    public void setIP(String iP) {
-        this.iP = iP;
-    }
-
-    public static class Builder {
-        /**
-         * UDID
-         * <p> 示例值：
-         */
-        private String udid;
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         */
-        private String did;
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0-beta3
-         */
-        private String appVer;
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         */
-        private String ver;
-        /**
-         * 设备语言
-         * <p> 示例值：zh_CN
-         */
-        private String region;
-        /**
-         * 安卓版本号
-         * <p> 示例值：33
-         */
-        private String idI;
-        /**
-         * 安卓版本
-         * <p> 示例值：13
-         */
-        private String idR;
-        /**
-         * Brand
-         * <p> 示例值：Xiaomi
-         */
-        private String hwBrand;
-        /**
-         * 制造商
-         * <p> 示例值：Xiaomi
-         */
-        private String hwManuf;
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         */
-        private String wifip;
-        /**
-         * 路由IP
-         * <p> 示例值：1.1.1.1
-         */
-        private String routeIip;
-        /**
-         * 路由网关IP
-         * <p> 示例值：1.1.1.1
-         */
-        private String routeGip;
-        /**
-         * 表示当前是否root
-         * <p> 示例值：0
-         */
-        private String envSu;
-        /**
-         * 手机系统时区
-         * <p> 示例值：GMT+8:00
-         */
-        private String envTz;
-        /**
-         * 手机系统语言
-         * <p> 示例值：zh_CN
-         */
-        private String envMl;
-        /**
-         * GPS经纬度
-         * <p> 示例值：
-         */
-        private String location;
-        /**
-         * 当前设备活跃ip
-         * <p> 示例值：1.1.1.1
-         */
-        private String activeIp;
-        /**
-         * 当前设备活跃ip对应网卡类型
-         * <p> 示例值：wlan0
-         */
-        private String activeIpDetail;
-        /**
-         * 基站信息
-         * <p> 示例值：
-         */
-        private String cellBaseStation;
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         */
-        private String iP;
-
-        /**
-         * UDID
-         * <p> 示例值：
-         *
-         * @param udid
-         * @return
-         */
-        public Builder udid(String udid) {
-            this.udid = udid;
-            return this;
-        }
-
-
-        /**
-         * 设备ID
-         * <p> 示例值：7204623689634104876
-         *
-         * @param did
-         * @return
-         */
-        public Builder did(String did) {
-            this.did = did;
-            return this;
-        }
-
-
-        /**
-         * app的版本
-         * <p> 示例值：7.26.0-beta3
-         *
-         * @param appVer
-         * @return
-         */
-        public Builder appVer(String appVer) {
-            this.appVer = appVer;
-            return this;
-        }
-
-
-        /**
-         * SecSDK版本
-         * <p> 示例值：3.0.0.0
-         *
-         * @param ver
-         * @return
-         */
-        public Builder ver(String ver) {
-            this.ver = ver;
-            return this;
-        }
-
-
-        /**
-         * 设备语言
-         * <p> 示例值：zh_CN
-         *
-         * @param region
-         * @return
-         */
-        public Builder region(String region) {
-            this.region = region;
-            return this;
-        }
-
-
-        /**
-         * 安卓版本号
-         * <p> 示例值：33
-         *
-         * @param idI
-         * @return
-         */
-        public Builder idI(String idI) {
-            this.idI = idI;
-            return this;
-        }
-
-
-        /**
-         * 安卓版本
-         * <p> 示例值：13
-         *
-         * @param idR
-         * @return
-         */
-        public Builder idR(String idR) {
-            this.idR = idR;
-            return this;
-        }
-
-
-        /**
-         * Brand
-         * <p> 示例值：Xiaomi
-         *
-         * @param hwBrand
-         * @return
-         */
-        public Builder hwBrand(String hwBrand) {
-            this.hwBrand = hwBrand;
-            return this;
-        }
-
-
-        /**
-         * 制造商
-         * <p> 示例值：Xiaomi
-         *
-         * @param hwManuf
-         * @return
-         */
-        public Builder hwManuf(String hwManuf) {
-            this.hwManuf = hwManuf;
-            return this;
-        }
-
-
-        /**
-         * wifi ip
-         * <p> 示例值：1.1.1.1
-         *
-         * @param wifip
-         * @return
-         */
-        public Builder wifip(String wifip) {
-            this.wifip = wifip;
-            return this;
-        }
-
-
-        /**
-         * 路由IP
-         * <p> 示例值：1.1.1.1
-         *
-         * @param routeIip
-         * @return
-         */
-        public Builder routeIip(String routeIip) {
-            this.routeIip = routeIip;
-            return this;
-        }
-
-
-        /**
-         * 路由网关IP
-         * <p> 示例值：1.1.1.1
-         *
-         * @param routeGip
-         * @return
-         */
-        public Builder routeGip(String routeGip) {
-            this.routeGip = routeGip;
-            return this;
-        }
-
-
-        /**
-         * 表示当前是否root
-         * <p> 示例值：0
-         *
-         * @param envSu
-         * @return
-         */
-        public Builder envSu(String envSu) {
-            this.envSu = envSu;
-            return this;
-        }
-
-
-        /**
-         * 手机系统时区
-         * <p> 示例值：GMT+8:00
-         *
-         * @param envTz
-         * @return
-         */
-        public Builder envTz(String envTz) {
-            this.envTz = envTz;
-            return this;
-        }
-
-
-        /**
-         * 手机系统语言
-         * <p> 示例值：zh_CN
-         *
-         * @param envMl
-         * @return
-         */
-        public Builder envMl(String envMl) {
-            this.envMl = envMl;
-            return this;
-        }
-
-
-        /**
-         * GPS经纬度
-         * <p> 示例值：
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(String location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * 当前设备活跃ip
-         * <p> 示例值：1.1.1.1
-         *
-         * @param activeIp
-         * @return
-         */
-        public Builder activeIp(String activeIp) {
-            this.activeIp = activeIp;
-            return this;
-        }
-
-
-        /**
-         * 当前设备活跃ip对应网卡类型
-         * <p> 示例值：wlan0
-         *
-         * @param activeIpDetail
-         * @return
-         */
-        public Builder activeIpDetail(String activeIpDetail) {
-            this.activeIpDetail = activeIpDetail;
-            return this;
-        }
-
-
-        /**
-         * 基站信息
-         * <p> 示例值：
-         *
-         * @param cellBaseStation
-         * @return
-         */
-        public Builder cellBaseStation(String cellBaseStation) {
-            this.cellBaseStation = cellBaseStation;
-            return this;
-        }
-
-
-        /**
-         * 公网ip
-         * <p> 示例值：1.1.1.1
-         *
-         * @param iP
-         * @return
-         */
-        public Builder iP(String iP) {
-            this.iP = iP;
-            return this;
-        }
-
-
-        public AuditAndroidContext build() {
-            return new AuditAndroidContext(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

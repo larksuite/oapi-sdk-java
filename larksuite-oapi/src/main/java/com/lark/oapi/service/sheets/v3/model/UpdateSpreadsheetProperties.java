@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateSpreadsheetProperties {
+  /**
+   * 新的电子表格标题。参数为空时，表格标题将显示为“未命名表格”或本地语言环境对应内容。
+   *
+   * <p>示例值：Sales sheet
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public UpdateSpreadsheetProperties() {}
+
+  public UpdateSpreadsheetProperties(Builder builder) {
     /**
-     * 表格标题
-     * <p> 示例值：title
+     * 新的电子表格标题。参数为空时，表格标题将显示为“未命名表格”或本地语言环境对应内容。
+     *
+     * <p>示例值：Sales sheet
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 新的电子表格标题。参数为空时，表格标题将显示为“未命名表格”或本地语言环境对应内容。
+     *
+     * <p>示例值：Sales sheet
+     */
     private String title;
 
-    // builder 开始
-    public UpdateSpreadsheetProperties() {
+    /**
+     * 新的电子表格标题。参数为空时，表格标题将显示为“未命名表格”或本地语言环境对应内容。
+     *
+     * <p>示例值：Sales sheet
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public UpdateSpreadsheetProperties(Builder builder) {
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
+    public UpdateSpreadsheetProperties build() {
+      return new UpdateSpreadsheetProperties(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         */
-        private String title;
-
-        /**
-         * 表格标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public UpdateSpreadsheetProperties build() {
-            return new UpdateSpreadsheetProperties(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

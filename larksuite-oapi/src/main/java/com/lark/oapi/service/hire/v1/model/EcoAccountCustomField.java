@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoAccountCustomField {
+  /**
+   * 适用范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("scope")
+  private Integer scope;
+
+  /**
+   * 自定义字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_list")
+  private EcoAccountCustomFieldData[] customFieldList;
+
+  public Integer getScope() {
+    return this.scope;
+  }
+
+  public void setScope(Integer scope) {
+    this.scope = scope;
+  }
+
+  public EcoAccountCustomFieldData[] getCustomFieldList() {
+    return this.customFieldList;
+  }
+
+  public void setCustomFieldList(EcoAccountCustomFieldData[] customFieldList) {
+    this.customFieldList = customFieldList;
+  }
+
+  // builder 开始
+  public EcoAccountCustomField() {}
+
+  public EcoAccountCustomField(Builder builder) {
     /**
      * 适用范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("scope")
-    private Integer scope;
+    this.scope = builder.scope;
     /**
      * 自定义字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_list")
+    this.customFieldList = builder.customFieldList;
+  }
+
+  public static class Builder {
+    /**
+     * 适用范围
+     *
+     * <p>示例值：1
+     */
+    private Integer scope;
+
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     */
     private EcoAccountCustomFieldData[] customFieldList;
 
-    // builder 开始
-    public EcoAccountCustomField() {
+    /**
+     * 适用范围
+     *
+     * <p>示例值：1
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(Integer scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public EcoAccountCustomField(Builder builder) {
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         */
-        this.scope = builder.scope;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        this.customFieldList = builder.customFieldList;
+    /**
+     * 自定义字段列表
+     *
+     * <p>示例值：
+     *
+     * @param customFieldList
+     * @return
+     */
+    public Builder customFieldList(EcoAccountCustomFieldData[] customFieldList) {
+      this.customFieldList = customFieldList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EcoAccountCustomField build() {
+      return new EcoAccountCustomField(this);
     }
+  }
 
-    public Integer getScope() {
-        return this.scope;
-    }
-
-    public void setScope(Integer scope) {
-        this.scope = scope;
-    }
-
-    public EcoAccountCustomFieldData[] getCustomFieldList() {
-        return this.customFieldList;
-    }
-
-    public void setCustomFieldList(EcoAccountCustomFieldData[] customFieldList) {
-        this.customFieldList = customFieldList;
-    }
-
-    public static class Builder {
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         */
-        private Integer scope;
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         */
-        private EcoAccountCustomFieldData[] customFieldList;
-
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(Integer scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段列表
-         * <p> 示例值：
-         *
-         * @param customFieldList
-         * @return
-         */
-        public Builder customFieldList(EcoAccountCustomFieldData[] customFieldList) {
-            this.customFieldList = customFieldList;
-            return this;
-        }
-
-
-        public EcoAccountCustomField build() {
-            return new EcoAccountCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

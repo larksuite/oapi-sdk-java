@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 会话类型（单聊、群聊） 单选
- */
+/** 会话类型（单聊、群聊） 单选 */
 public enum MessageSearchFilterChatTypeEnum {
-    GROUP("group"), // group
-    P2P("p2p"), // p2p
-    ;
-    private String value;
+  GROUP("group"), // group
+  P2P("p2p"), // p2p
+  ;
+  private String value;
 
-    MessageSearchFilterChatTypeEnum(String value) {
-        this.value = value;
-    }
+  MessageSearchFilterChatTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,174 +13,183 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2OffboardingUpdatedV2Data {
-    /**
-     * Saas租户ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("tenant_id")
-    private String tenantId;
-    /**
-     * 离职记录ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("offboarding_info_id")
-    private String offboardingInfoId;
-    /**
-     * 离职流程ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 离职手续办了流程ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("checklist_process_id")
-    private String checklistProcessId;
-    /**
-     * 离职员工雇佣ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 操作人雇佣ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("operator")
-    private String operator;
-    /**
-     * 变更后的离职状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 变更后的离职手续办理状态
-     * <p> 示例值：1
-     */
-    @SerializedName("checklist_status")
-    private Integer checklistStatus;
-    /**
-     * 更新时间毫秒时间戳
-     * <p> 示例值：1714985958000
-     */
-    @SerializedName("updated_time")
-    private String updatedTime;
-    /**
-     * 所有变更的离职信息字段
-     * <p> 示例值：
-     */
-    @SerializedName("updated_fields")
-    private String[] updatedFields;
-    /**
-     * 员工的飞书用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
+  /**
+   * 飞书人事的租户ID
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
 
-    public String getTenantId() {
-        return this.tenantId;
-    }
+  /**
+   * 离职记录ID，每条离职记录的唯一标识。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("offboarding_info_id")
+  private String offboardingInfoId;
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
+  /**
+   * 离职申请流程的实例
+   * ID，可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getOffboardingInfoId() {
-        return this.offboardingInfoId;
-    }
+  /**
+   * 离职流转流程的实例ID，可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("checklist_process_id")
+  private String checklistProcessId;
 
-    public void setOffboardingInfoId(String offboardingInfoId) {
-        this.offboardingInfoId = offboardingInfoId;
-    }
+  /**
+   * 离职员工雇佣ID，可通过[批量查询员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取员工信息。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 操作人雇佣ID，可通过[批量查询员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取员工信息。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("operator")
+  private String operator;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 变更后的离职状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getChecklistProcessId() {
-        return this.checklistProcessId;
-    }
+  /**
+   * 变更后的离职手续办理状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("checklist_status")
+  private Integer checklistStatus;
 
-    public void setChecklistProcessId(String checklistProcessId) {
-        this.checklistProcessId = checklistProcessId;
-    }
+  /**
+   * 更新时间毫秒时间戳
+   *
+   * <p>示例值：1714985958000
+   */
+  @SerializedName("updated_time")
+  private String updatedTime;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 变更离职信息字段的唯一标识列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("updated_fields")
+  private String[] updatedFields;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 离职员工的用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public String getOperator() {
-        return this.operator;
-    }
+  public String getTenantId() {
+    return this.tenantId;
+  }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public String getOffboardingInfoId() {
+    return this.offboardingInfoId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public void setOffboardingInfoId(String offboardingInfoId) {
+    this.offboardingInfoId = offboardingInfoId;
+  }
 
-    public Integer getChecklistStatus() {
-        return this.checklistStatus;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setChecklistStatus(Integer checklistStatus) {
-        this.checklistStatus = checklistStatus;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public String getUpdatedTime() {
-        return this.updatedTime;
-    }
+  public String getChecklistProcessId() {
+    return this.checklistProcessId;
+  }
 
-    public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
+  public void setChecklistProcessId(String checklistProcessId) {
+    this.checklistProcessId = checklistProcessId;
+  }
 
-    public String[] getUpdatedFields() {
-        return this.updatedFields;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setUpdatedFields(String[] updatedFields) {
-        this.updatedFields = updatedFields;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  public String getOperator() {
+    return this.operator;
+  }
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
 
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public Integer getChecklistStatus() {
+    return this.checklistStatus;
+  }
+
+  public void setChecklistStatus(Integer checklistStatus) {
+    this.checklistStatus = checklistStatus;
+  }
+
+  public String getUpdatedTime() {
+    return this.updatedTime;
+  }
+
+  public void setUpdatedTime(String updatedTime) {
+    this.updatedTime = updatedTime;
+  }
+
+  public String[] getUpdatedFields() {
+    return this.updatedFields;
+  }
+
+  public void setUpdatedFields(String[] updatedFields) {
+    this.updatedFields = updatedFields;
+  }
+
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
+
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 }

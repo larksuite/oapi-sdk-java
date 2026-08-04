@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgdraftDepartmentId {
+  /**
+   * 部门 ID ，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 调整过程部门 ID ，固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为 td_xxx
+   * 的过程部门 ID，生效后将返回正式的people_corehr_department_id
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("draft_department_id")
+  private String draftDepartmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDraftDepartmentId() {
+    return this.draftDepartmentId;
+  }
+
+  public void setDraftDepartmentId(String draftDepartmentId) {
+    this.draftDepartmentId = draftDepartmentId;
+  }
+
+  // builder 开始
+  public OrgdraftDepartmentId() {}
+
+  public OrgdraftDepartmentId(Builder builder) {
     /**
-     * 部门 ID ，新建部门审批通过前会返回空值
-     * <p> 示例值：6974659700705068581
+     * 部门 ID ，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+    /**
+     * 调整过程部门 ID ，固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6974659700705068581
+     */
+    this.draftDepartmentId = builder.draftDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID ，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6974659700705068581
+     */
     private String departmentId;
+
     /**
-     * 调整部门 ID ，新建部门审批通过前会返回格式为 td_xxx 的临时 ID
-     * <p> 示例值：6974659700705068581
+     * 调整过程部门 ID ，固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("draft_department_id")
     private String draftDepartmentId;
 
-    // builder 开始
-    public OrgdraftDepartmentId() {
+    /**
+     * 部门 ID ，对于在本次调整中新建的部门，在调整未生效时将返回为空。支持根据部门 ID 类型转换。
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public OrgdraftDepartmentId(Builder builder) {
-        /**
-         * 部门 ID ，新建部门审批通过前会返回空值
-         * <p> 示例值：6974659700705068581
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 调整部门 ID ，新建部门审批通过前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.draftDepartmentId = builder.draftDepartmentId;
+    /**
+     * 调整过程部门 ID ，固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为
+     * td_xxx 的过程部门 ID，生效后将返回正式的people_corehr_department_id
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param draftDepartmentId
+     * @return
+     */
+    public Builder draftDepartmentId(String draftDepartmentId) {
+      this.draftDepartmentId = draftDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OrgdraftDepartmentId build() {
+      return new OrgdraftDepartmentId(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDraftDepartmentId() {
-        return this.draftDepartmentId;
-    }
-
-    public void setDraftDepartmentId(String draftDepartmentId) {
-        this.draftDepartmentId = draftDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID ，新建部门审批通过前会返回空值
-         * <p> 示例值：6974659700705068581
-         */
-        private String departmentId;
-        /**
-         * 调整部门 ID ，新建部门审批通过前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String draftDepartmentId;
-
-        /**
-         * 部门 ID ，新建部门审批通过前会返回空值
-         * <p> 示例值：6974659700705068581
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 调整部门 ID ，新建部门审批通过前会返回格式为 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param draftDepartmentId
-         * @return
-         */
-        public Builder draftDepartmentId(String draftDepartmentId) {
-            this.draftDepartmentId = draftDepartmentId;
-            return this;
-        }
-
-
-        public OrgdraftDepartmentId build() {
-            return new OrgdraftDepartmentId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

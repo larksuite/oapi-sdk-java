@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTenantOption {
+  /**
+   * 跳过域名长度校验
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_skip_domain_check")
+  private Boolean isSkipDomainCheck;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  public Boolean getIsSkipDomainCheck() {
+    return this.isSkipDomainCheck;
+  }
+
+  public void setIsSkipDomainCheck(Boolean isSkipDomainCheck) {
+    this.isSkipDomainCheck = isSkipDomainCheck;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  // builder 开始
+  public UpdateTenantOption() {}
+
+  public UpdateTenantOption(Builder builder) {
     /**
      * 跳过域名长度校验
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_skip_domain_check")
-    private Boolean isSkipDomainCheck;
+    this.isSkipDomainCheck = builder.isSkipDomainCheck;
     /**
      * 数据来源
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
+    this.dataSource = builder.dataSource;
+  }
+
+  public static class Builder {
+    /**
+     * 跳过域名长度校验
+     *
+     * <p>示例值：
+     */
+    private Boolean isSkipDomainCheck;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
     private Integer dataSource;
 
-    // builder 开始
-    public UpdateTenantOption() {
+    /**
+     * 跳过域名长度校验
+     *
+     * <p>示例值：
+     *
+     * @param isSkipDomainCheck
+     * @return
+     */
+    public Builder isSkipDomainCheck(Boolean isSkipDomainCheck) {
+      this.isSkipDomainCheck = isSkipDomainCheck;
+      return this;
     }
 
-    public UpdateTenantOption(Builder builder) {
-        /**
-         * 跳过域名长度校验
-         * <p> 示例值：
-         */
-        this.isSkipDomainCheck = builder.isSkipDomainCheck;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.dataSource = builder.dataSource;
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateTenantOption build() {
+      return new UpdateTenantOption(this);
     }
+  }
 
-    public Boolean getIsSkipDomainCheck() {
-        return this.isSkipDomainCheck;
-    }
-
-    public void setIsSkipDomainCheck(Boolean isSkipDomainCheck) {
-        this.isSkipDomainCheck = isSkipDomainCheck;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public static class Builder {
-        /**
-         * 跳过域名长度校验
-         * <p> 示例值：
-         */
-        private Boolean isSkipDomainCheck;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        private Integer dataSource;
-
-        /**
-         * 跳过域名长度校验
-         * <p> 示例值：
-         *
-         * @param isSkipDomainCheck
-         * @return
-         */
-        public Builder isSkipDomainCheck(Boolean isSkipDomainCheck) {
-            this.isSkipDomainCheck = isSkipDomainCheck;
-            return this;
-        }
-
-
-        /**
-         * 数据来源
-         * <p> 示例值：
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        public UpdateTenantOption build() {
-            return new UpdateTenantOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

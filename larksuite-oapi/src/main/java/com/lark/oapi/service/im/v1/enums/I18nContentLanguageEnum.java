@@ -13,34 +13,32 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 语言
- */
+/** 语言类型。 */
 public enum I18nContentLanguageEnum {
-    ENGLISH("en_us"), // 英文
-    SIMPLIFIEDCHINESE("zh_cn"), // 简体中文
-    SIMPLIFIEDCHINESEHONGKONG("zh_hk"), // 繁体中文-香港
-    SIMPLIFIEDCHINESETAIWAN("zh_tw"), // 繁体中文-台湾
-    JAPANESE("ja_jp"), // 日语
-    INDONESIAN("id_id"), // 印尼语
-    VIETNAMESE("vi_vn"), // 越南语
-    THAI("th_th"), // 泰语
-    PORTUGUESE("pt_br"), // 葡萄牙语
-    SPANISH("es_es"), // 西班牙语
-    KOREAN("ko_kr"), // 韩语
-    GERMAN("de_de"), // 德语
-    FRENCH("fr_fr"), // 法语
-    ITALIAN("it_it"), // 意大利语
-    RUSSIAN("ru_ru"), // 俄语
-    MALAY("ms_my"), // 马来语
-    ;
-    private String value;
+  ENGLISH("en_us"), // 英文
+  SIMPLIFIEDCHINESE("zh_cn"), // 简体中文
+  SIMPLIFIEDCHINESEHONGKONG("zh_hk"), // 繁体中文-香港
+  SIMPLIFIEDCHINESETAIWAN("zh_tw"), // 繁体中文-台湾
+  JAPANESE("ja_jp"), // 日语
+  INDONESIAN("id_id"), // 印尼语
+  VIETNAMESE("vi_vn"), // 越南语
+  THAI("th_th"), // 泰语
+  PORTUGUESE("pt_br"), // 葡萄牙语
+  SPANISH("es_es"), // 西班牙语
+  KOREAN("ko_kr"), // 韩语
+  GERMAN("de_de"), // 德语
+  FRENCH("fr_fr"), // 法语
+  ITALIAN("it_it"), // 意大利语
+  RUSSIAN("ru_ru"), // 俄语
+  MALAY("ms_my"), // 马来语
+  ;
+  private String value;
 
-    I18nContentLanguageEnum(String value) {
-        this.value = value;
-    }
+  I18nContentLanguageEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,131 +13,164 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class CopyAppDashboardReq {
+  /**
+   * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+   * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+   * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+   * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+   * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+   * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+   * app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+   *
+   * <p>示例值：basbcldP5xZeskcHDFZQfeToydb
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+   * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+   * ;-
+   * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+   *
+   * <p>示例值：blkEsvEEaNllY2UV
+   */
+  @Path
+  @SerializedName("block_id")
+  private String blockId;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  @Body private CopyAppDashboardReqBody body;
+
+  public CopyAppDashboardReqBody getCopyAppDashboardReqBody() {
+    return this.body;
+  }
+
+  public void setCopyAppDashboardReqBody(CopyAppDashboardReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CopyAppDashboardReq() {}
+
+  public CopyAppDashboardReq(Builder builder) {
     /**
-     * 多维表格 token
-     * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：basbcldP5xZeskcHDFZQfeToydb
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
-     * 多维表格 block_id
-     * <p> 示例值：blkEsvEEaNllY2UV
+     * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+     * ;-
+     * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+     *
+     * <p>示例值：blkEsvEEaNllY2UV
      */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
-    @Body
+    this.blockId = builder.blockId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appToken; // 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以
+    // ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：;
+    // ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+    private String
+        blockId; // 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+
+    // ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397); ;- 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+
+    /**
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：basbcldP5xZeskcHDFZQfeToydb
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
+    }
+
+    /**
+     * 多维表格仪表盘的唯一标识，以 blk 开头。获取方式：;;- 在多维表格的 URL 地址栏中，`block_id` 是下图中高亮部分：; ;
+     * ![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a966d15323ee73c66b1e9a31d34ae6c7_x3ctncH2nO.png?height=575&lazyload=true&width=1397);
+     * ;-
+     * 通过[列出仪表盘](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-dashboard/list)接口获取
+     *
+     * <p>示例值：blkEsvEEaNllY2UV
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
+    }
+
     private CopyAppDashboardReqBody body;
 
-    // builder 开始
-    public CopyAppDashboardReq() {
-    }
-
-    public CopyAppDashboardReq(Builder builder) {
-        /**
-         * 多维表格 token
-         * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 多维表格 block_id
-         * <p> 示例值：blkEsvEEaNllY2UV
-         */
-        this.blockId = builder.blockId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getBlockId() {
-        return this.blockId;
-    }
-
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
-    }
-
     public CopyAppDashboardReqBody getCopyAppDashboardReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCopyAppDashboardReqBody(CopyAppDashboardReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder copyAppDashboardReqBody(CopyAppDashboardReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appToken; // 多维表格 token
-        private String blockId; // 多维表格 block_id
-        private CopyAppDashboardReqBody body;
-
-        /**
-         * 多维表格 token
-         * <p> 示例值：basbcldP5xZeskcHDFZQfeToydb
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-        /**
-         * 多维表格 block_id
-         * <p> 示例值：blkEsvEEaNllY2UV
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-        public CopyAppDashboardReqBody getCopyAppDashboardReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder copyAppDashboardReqBody(CopyAppDashboardReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CopyAppDashboardReq build() {
-            return new CopyAppDashboardReq(this);
-        }
+    public CopyAppDashboardReq build() {
+      return new CopyAppDashboardReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

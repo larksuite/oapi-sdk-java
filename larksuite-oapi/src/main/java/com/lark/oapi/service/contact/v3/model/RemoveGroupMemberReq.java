@@ -13,98 +13,100 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class RemoveGroupMemberReq {
+  /**
+   * 用户组 ID。;;用户组 ID
+   * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+   * ID。
+   *
+   * <p>示例值：g198123
+   */
+  @Path
+  @SerializedName("group_id")
+  private String groupId;
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  @Body private RemoveGroupMemberReqBody body;
+
+  public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
+    return this.body;
+  }
+
+  public void setRemoveGroupMemberReqBody(RemoveGroupMemberReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RemoveGroupMemberReq() {}
+
+  public RemoveGroupMemberReq(Builder builder) {
     /**
-     * 用户组ID
-     * <p> 示例值：g198123
+     * 用户组 ID。;;用户组 ID
+     * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+     * ID。
+     *
+     * <p>示例值：g198123
      */
-    @Path
-    @SerializedName("group_id")
-    private String groupId;
-    @Body
+    this.groupId = builder.groupId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String groupId; // 用户组 ID。;;用户组 ID
+
+    // 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。
+
+    /**
+     * 用户组 ID。;;用户组 ID
+     * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+     * ID。
+     *
+     * <p>示例值：g198123
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
+    }
+
     private RemoveGroupMemberReqBody body;
 
-    // builder 开始
-    public RemoveGroupMemberReq() {
-    }
-
-    public RemoveGroupMemberReq(Builder builder) {
-        /**
-         * 用户组ID
-         * <p> 示例值：g198123
-         */
-        this.groupId = builder.groupId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
     public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRemoveGroupMemberReqBody(RemoveGroupMemberReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder removeGroupMemberReqBody(RemoveGroupMemberReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String groupId; // 用户组ID
-        private RemoveGroupMemberReqBody body;
-
-        /**
-         * 用户组ID
-         * <p> 示例值：g198123
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-        public RemoveGroupMemberReqBody getRemoveGroupMemberReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder removeGroupMemberReqBody(RemoveGroupMemberReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RemoveGroupMemberReq build() {
-            return new RemoveGroupMemberReq(this);
-        }
+    public RemoveGroupMemberReq build() {
+      return new RemoveGroupMemberReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

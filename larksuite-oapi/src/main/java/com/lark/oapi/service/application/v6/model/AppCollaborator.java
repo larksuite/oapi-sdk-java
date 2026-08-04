@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppCollaborator {
+  /**
+   * 人员类型
+   *
+   * <p>示例值：administrator
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public AppCollaborator() {}
+
+  public AppCollaborator(Builder builder) {
     /**
      * 人员类型
-     * <p> 示例值：administrator
+     *
+     * <p>示例值：administrator
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 用户ID
-     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 人员类型
+     *
+     * <p>示例值：administrator
+     */
+    private String type;
+
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
     private String userId;
 
-    // builder 开始
-    public AppCollaborator() {
+    /**
+     * 人员类型
+     *
+     * <p>示例值：administrator
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public AppCollaborator(Builder builder) {
-        /**
-         * 人员类型
-         * <p> 示例值：administrator
-         */
-        this.type = builder.type;
-        /**
-         * 用户ID
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
-        this.userId = builder.userId;
+    /**
+     * 人员类型
+     *
+     * <p>示例值：administrator
+     *
+     * @param type {@link com.lark.oapi.service.application.v6.enums.AppCollaboratorTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.application.v6.enums.AppCollaboratorTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public AppCollaborator build() {
+      return new AppCollaborator(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 人员类型
-         * <p> 示例值：administrator
-         */
-        private String type;
-        /**
-         * 用户ID
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         */
-        private String userId;
-
-        /**
-         * 人员类型
-         * <p> 示例值：administrator
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 人员类型
-         * <p> 示例值：administrator
-         *
-         * @param type {@link com.lark.oapi.service.application.v6.enums.AppCollaboratorTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.application.v6.enums.AppCollaboratorTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public AppCollaborator build() {
-            return new AppCollaborator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

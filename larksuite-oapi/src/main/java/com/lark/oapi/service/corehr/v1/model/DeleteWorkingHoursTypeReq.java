@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteWorkingHoursTypeReq {
+  /**
+   * 需要删除的工时制度 ID;-
+   * 可通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+   *
+   * <p>示例值：325325254
+   */
+  @Path
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  // builder 开始
+  public DeleteWorkingHoursTypeReq() {}
+
+  public DeleteWorkingHoursTypeReq(Builder builder) {
     /**
-     * 需要删除的工时制度 ID
-     * <p> 示例值：325325254
+     * 需要删除的工时制度 ID;-
+     * 可通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+     *
+     * <p>示例值：325325254
      */
-    @Path
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
+    this.workingHoursTypeId = builder.workingHoursTypeId;
+  }
 
-    // builder 开始
-    public DeleteWorkingHoursTypeReq() {
+  public static class Builder {
+
+    private String workingHoursTypeId; // 需要删除的工时制度 ID;-
+
+    // 可通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+
+    /**
+     * 需要删除的工时制度 ID;-
+     * 可通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取
+     *
+     * <p>示例值：325325254
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public DeleteWorkingHoursTypeReq(Builder builder) {
-        /**
-         * 需要删除的工时制度 ID
-         * <p> 示例值：325325254
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
+    public DeleteWorkingHoursTypeReq build() {
+      return new DeleteWorkingHoursTypeReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
-    }
-
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public static class Builder {
-
-        private String workingHoursTypeId; // 需要删除的工时制度 ID
-
-        /**
-         * 需要删除的工时制度 ID
-         * <p> 示例值：325325254
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        public DeleteWorkingHoursTypeReq build() {
-            return new DeleteWorkingHoursTypeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

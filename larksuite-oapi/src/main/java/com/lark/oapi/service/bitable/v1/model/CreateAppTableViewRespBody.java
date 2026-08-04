@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppTableViewRespBody {
-    /**
-     * 视图
-     * <p> 示例值：
-     */
-    @SerializedName("view")
-    private AppTableView view;
+  /**
+   * 视图
+   *
+   * <p>示例值：
+   */
+  @SerializedName("view")
+  private AppTableView view;
 
-    public AppTableView getView() {
-        return this.view;
-    }
+  public AppTableView getView() {
+    return this.view;
+  }
 
-    public void setView(AppTableView view) {
-        this.view = view;
-    }
-
+  public void setView(AppTableView view) {
+    this.view = view;
+  }
 }

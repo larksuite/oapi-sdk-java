@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 阅读状态，空值表示不支持已读未读：
- */
+/** 抄送人的阅读状态 */
 public enum CcNodeReadStatusEnum {
-    READ("READ"), // 已读
-    UNREAD("UNREAD"), // 未读
-    ;
-    private String value;
+  READ("READ"), // 已读
+  UNREAD("UNREAD"), // 未读
+  ;
+  private String value;
 
-    CcNodeReadStatusEnum(String value) {
-        this.value = value;
-    }
+  CcNodeReadStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class CreateExternalInstanceReq {
-    @Body
+  @Body private ExternalInstance body;
+
+  public ExternalInstance getExternalInstance() {
+    return this.body;
+  }
+
+  public void setExternalInstance(ExternalInstance body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateExternalInstanceReq() {}
+
+  public CreateExternalInstanceReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private ExternalInstance body;
 
-    // builder 开始
-    public CreateExternalInstanceReq() {
-    }
-
-    public CreateExternalInstanceReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ExternalInstance getExternalInstance() {
-        return this.body;
+      return this.body;
     }
 
-    public void setExternalInstance(ExternalInstance body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder externalInstance(ExternalInstance body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private ExternalInstance body;
-
-        public ExternalInstance getExternalInstance() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder externalInstance(ExternalInstance body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateExternalInstanceReq build() {
-            return new CreateExternalInstanceReq(this);
-        }
+    public CreateExternalInstanceReq build() {
+      return new CreateExternalInstanceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

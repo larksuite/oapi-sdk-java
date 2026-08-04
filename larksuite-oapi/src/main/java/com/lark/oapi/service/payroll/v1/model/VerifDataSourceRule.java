@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifDataSourceRule {
+  /**
+   * 数据源key
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 数据源名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datasource_name")
+  private IdWithName datasourceName;
+
+  /**
+   * 集成对象
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 数据源明细字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datasource_items")
+  private VerifDatasourceItem[] datasourceItems;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public IdWithName getDatasourceName() {
+    return this.datasourceName;
+  }
+
+  public void setDatasourceName(IdWithName datasourceName) {
+    this.datasourceName = datasourceName;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public VerifDatasourceItem[] getDatasourceItems() {
+    return this.datasourceItems;
+  }
+
+  public void setDatasourceItems(VerifDatasourceItem[] datasourceItems) {
+    this.datasourceItems = datasourceItems;
+  }
+
+  // builder 开始
+  public VerifDataSourceRule() {}
+
+  public VerifDataSourceRule(Builder builder) {
     /**
      * 数据源key
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 数据源名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datasource_name")
-    private IdWithName datasourceName;
+    this.datasourceName = builder.datasourceName;
     /**
      * 集成对象
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
-    private Integer objectType;
+    this.objectType = builder.objectType;
     /**
      * 数据源明细字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datasource_items")
+    this.datasourceItems = builder.datasourceItems;
+  }
+
+  public static class Builder {
+    /**
+     * 数据源key
+     *
+     * <p>示例值：1
+     */
+    private String apiName;
+
+    /**
+     * 数据源名称
+     *
+     * <p>示例值：
+     */
+    private IdWithName datasourceName;
+
+    /**
+     * 集成对象
+     *
+     * <p>示例值：1
+     */
+    private Integer objectType;
+
+    /**
+     * 数据源明细字段
+     *
+     * <p>示例值：
+     */
     private VerifDatasourceItem[] datasourceItems;
 
-    // builder 开始
-    public VerifDataSourceRule() {
+    /**
+     * 数据源key
+     *
+     * <p>示例值：1
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public VerifDataSourceRule(Builder builder) {
-        /**
-         * 数据源key
-         * <p> 示例值：1
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 数据源名称
-         * <p> 示例值：
-         */
-        this.datasourceName = builder.datasourceName;
-        /**
-         * 集成对象
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 数据源明细字段
-         * <p> 示例值：
-         */
-        this.datasourceItems = builder.datasourceItems;
+    /**
+     * 数据源名称
+     *
+     * <p>示例值：
+     *
+     * @param datasourceName
+     * @return
+     */
+    public Builder datasourceName(IdWithName datasourceName) {
+      this.datasourceName = datasourceName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 集成对象
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 数据源明细字段
+     *
+     * <p>示例值：
+     *
+     * @param datasourceItems
+     * @return
+     */
+    public Builder datasourceItems(VerifDatasourceItem[] datasourceItems) {
+      this.datasourceItems = datasourceItems;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public VerifDataSourceRule build() {
+      return new VerifDataSourceRule(this);
     }
+  }
 
-    public IdWithName getDatasourceName() {
-        return this.datasourceName;
-    }
-
-    public void setDatasourceName(IdWithName datasourceName) {
-        this.datasourceName = datasourceName;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public VerifDatasourceItem[] getDatasourceItems() {
-        return this.datasourceItems;
-    }
-
-    public void setDatasourceItems(VerifDatasourceItem[] datasourceItems) {
-        this.datasourceItems = datasourceItems;
-    }
-
-    public static class Builder {
-        /**
-         * 数据源key
-         * <p> 示例值：1
-         */
-        private String apiName;
-        /**
-         * 数据源名称
-         * <p> 示例值：
-         */
-        private IdWithName datasourceName;
-        /**
-         * 集成对象
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 数据源明细字段
-         * <p> 示例值：
-         */
-        private VerifDatasourceItem[] datasourceItems;
-
-        /**
-         * 数据源key
-         * <p> 示例值：1
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 数据源名称
-         * <p> 示例值：
-         *
-         * @param datasourceName
-         * @return
-         */
-        public Builder datasourceName(IdWithName datasourceName) {
-            this.datasourceName = datasourceName;
-            return this;
-        }
-
-
-        /**
-         * 集成对象
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 数据源明细字段
-         * <p> 示例值：
-         *
-         * @param datasourceItems
-         * @return
-         */
-        public Builder datasourceItems(VerifDatasourceItem[] datasourceItems) {
-            this.datasourceItems = datasourceItems;
-            return this;
-        }
-
-
-        public VerifDataSourceRule build() {
-            return new VerifDataSourceRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

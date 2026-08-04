@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Role {
+  /**
+   * 角色 ID
+   *
+   * <p>示例值：101
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 角色名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 角色描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 适用范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("scope_of_application")
+  private Integer scopeOfApplication;
+
+  /**
+   * 更新时间，单位ms的Unix时间戳
+   *
+   * <p>示例值：1716535727510
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 停启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("role_status")
+  private Integer roleStatus;
+
+  /**
+   * 角色类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("role_type")
+  private Integer roleType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getScopeOfApplication() {
+    return this.scopeOfApplication;
+  }
+
+  public void setScopeOfApplication(Integer scopeOfApplication) {
+    this.scopeOfApplication = scopeOfApplication;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public Integer getRoleStatus() {
+    return this.roleStatus;
+  }
+
+  public void setRoleStatus(Integer roleStatus) {
+    this.roleStatus = roleStatus;
+  }
+
+  public Integer getRoleType() {
+    return this.roleType;
+  }
+
+  public void setRoleType(Integer roleType) {
+    this.roleType = roleType;
+  }
+
+  // builder 开始
+  public Role() {}
+
+  public Role(Builder builder) {
     /**
      * 角色 ID
-     * <p> 示例值：101
+     *
+     * <p>示例值：101
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 角色名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 角色描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 适用范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("scope_of_application")
-    private Integer scopeOfApplication;
+    this.scopeOfApplication = builder.scopeOfApplication;
     /**
-     * 更新时间
-     * <p> 示例值：1716535727510
+     * 更新时间，单位ms的Unix时间戳
+     *
+     * <p>示例值：1716535727510
      */
-    @SerializedName("modify_time")
-    private String modifyTime;
+    this.modifyTime = builder.modifyTime;
     /**
      * 停启用状态
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("role_status")
-    private Integer roleStatus;
+    this.roleStatus = builder.roleStatus;
     /**
      * 角色类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("role_type")
+    this.roleType = builder.roleType;
+  }
+
+  public static class Builder {
+    /**
+     * 角色 ID
+     *
+     * <p>示例值：101
+     */
+    private String id;
+
+    /**
+     * 角色名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 角色描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 适用范围
+     *
+     * <p>示例值：1
+     */
+    private Integer scopeOfApplication;
+
+    /**
+     * 更新时间，单位ms的Unix时间戳
+     *
+     * <p>示例值：1716535727510
+     */
+    private String modifyTime;
+
+    /**
+     * 停启用状态
+     *
+     * <p>示例值：1
+     */
+    private Integer roleStatus;
+
+    /**
+     * 角色类型
+     *
+     * <p>示例值：1
+     */
     private Integer roleType;
 
-    // builder 开始
-    public Role() {
+    /**
+     * 角色 ID
+     *
+     * <p>示例值：101
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Role(Builder builder) {
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         */
-        this.id = builder.id;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         */
-        this.scopeOfApplication = builder.scopeOfApplication;
-        /**
-         * 更新时间
-         * <p> 示例值：1716535727510
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 停启用状态
-         * <p> 示例值：
-         */
-        this.roleStatus = builder.roleStatus;
-        /**
-         * 角色类型
-         * <p> 示例值：
-         */
-        this.roleType = builder.roleType;
+    /**
+     * 角色名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 角色描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 适用范围
+     *
+     * <p>示例值：1
+     *
+     * @param scopeOfApplication
+     * @return
+     */
+    public Builder scopeOfApplication(Integer scopeOfApplication) {
+      this.scopeOfApplication = scopeOfApplication;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 更新时间，单位ms的Unix时间戳
+     *
+     * <p>示例值：1716535727510
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 停启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param roleStatus
+     * @return
+     */
+    public Builder roleStatus(Integer roleStatus) {
+      this.roleStatus = roleStatus;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 角色类型
+     *
+     * <p>示例值：1
+     *
+     * @param roleType
+     * @return
+     */
+    public Builder roleType(Integer roleType) {
+      this.roleType = roleType;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    public Role build() {
+      return new Role(this);
     }
+  }
 
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public Integer getScopeOfApplication() {
-        return this.scopeOfApplication;
-    }
-
-    public void setScopeOfApplication(Integer scopeOfApplication) {
-        this.scopeOfApplication = scopeOfApplication;
-    }
-
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Integer getRoleStatus() {
-        return this.roleStatus;
-    }
-
-    public void setRoleStatus(Integer roleStatus) {
-        this.roleStatus = roleStatus;
-    }
-
-    public Integer getRoleType() {
-        return this.roleType;
-    }
-
-    public void setRoleType(Integer roleType) {
-        this.roleType = roleType;
-    }
-
-    public static class Builder {
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         */
-        private String id;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         */
-        private Integer scopeOfApplication;
-        /**
-         * 更新时间
-         * <p> 示例值：1716535727510
-         */
-        private String modifyTime;
-        /**
-         * 停启用状态
-         * <p> 示例值：
-         */
-        private Integer roleStatus;
-        /**
-         * 角色类型
-         * <p> 示例值：
-         */
-        private Integer roleType;
-
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 角色名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 角色描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 适用范围
-         * <p> 示例值：1
-         *
-         * @param scopeOfApplication
-         * @return
-         */
-        public Builder scopeOfApplication(Integer scopeOfApplication) {
-            this.scopeOfApplication = scopeOfApplication;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1716535727510
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 停启用状态
-         * <p> 示例值：
-         *
-         * @param roleStatus
-         * @return
-         */
-        public Builder roleStatus(Integer roleStatus) {
-            this.roleStatus = roleStatus;
-            return this;
-        }
-
-
-        /**
-         * 角色类型
-         * <p> 示例值：
-         *
-         * @param roleType
-         * @return
-         */
-        public Builder roleType(Integer roleType) {
-            this.roleType = roleType;
-            return this;
-        }
-
-
-        public Role build() {
-            return new Role(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

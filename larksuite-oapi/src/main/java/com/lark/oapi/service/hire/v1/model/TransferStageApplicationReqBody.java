@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferStageApplicationReqBody {
+  /**
+   * 要转移到的阶段
+   * ID，可通过[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口获取
+   *
+   * <p>示例值：6960663240925956402
+   */
+  @SerializedName("stage_id")
+  private String stageId;
+
+  public String getStageId() {
+    return this.stageId;
+  }
+
+  public void setStageId(String stageId) {
+    this.stageId = stageId;
+  }
+
+  // builder 开始
+  public TransferStageApplicationReqBody() {}
+
+  public TransferStageApplicationReqBody(Builder builder) {
     /**
-     * 要转移到的阶段 ID，可通过「获取招聘流程信息」接口获取阶段 ID 枚举
-     * <p> 示例值：6960663240925956402
+     * 要转移到的阶段
+     * ID，可通过[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口获取
+     *
+     * <p>示例值：6960663240925956402
      */
-    @SerializedName("stage_id")
+    this.stageId = builder.stageId;
+  }
+
+  public static class Builder {
+    /**
+     * 要转移到的阶段
+     * ID，可通过[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口获取
+     *
+     * <p>示例值：6960663240925956402
+     */
     private String stageId;
 
-    // builder 开始
-    public TransferStageApplicationReqBody() {
+    /**
+     * 要转移到的阶段
+     * ID，可通过[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)接口获取
+     *
+     * <p>示例值：6960663240925956402
+     *
+     * @param stageId
+     * @return
+     */
+    public Builder stageId(String stageId) {
+      this.stageId = stageId;
+      return this;
     }
 
-    public TransferStageApplicationReqBody(Builder builder) {
-        /**
-         * 要转移到的阶段 ID，可通过「获取招聘流程信息」接口获取阶段 ID 枚举
-         * <p> 示例值：6960663240925956402
-         */
-        this.stageId = builder.stageId;
+    public TransferStageApplicationReqBody build() {
+      return new TransferStageApplicationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getStageId() {
-        return this.stageId;
-    }
-
-    public void setStageId(String stageId) {
-        this.stageId = stageId;
-    }
-
-    public static class Builder {
-        /**
-         * 要转移到的阶段 ID，可通过「获取招聘流程信息」接口获取阶段 ID 枚举
-         * <p> 示例值：6960663240925956402
-         */
-        private String stageId;
-
-        /**
-         * 要转移到的阶段 ID，可通过「获取招聘流程信息」接口获取阶段 ID 枚举
-         * <p> 示例值：6960663240925956402
-         *
-         * @param stageId
-         * @return
-         */
-        public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
-        }
-
-
-        public TransferStageApplicationReqBody build() {
-            return new TransferStageApplicationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

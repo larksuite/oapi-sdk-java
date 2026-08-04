@@ -13,704 +13,791 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkforcePlanDetail {
+  /**
+   * 编制规划明细 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("workforce_plan_detail_id")
+  private String workforcePlanDetailId;
+
+  /**
+   * 部门信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department")
+  private DimensionInfo department;
+
+  /**
+   * 人员类型信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type")
+  private DimensionInfo employeeType;
+
+  /**
+   * 工作地点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_location")
+  private DimensionInfo workLocation;
+
+  /**
+   * 序列信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family")
+  private DimensionInfo jobFamily;
+
+  /**
+   * 职级信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level")
+  private DimensionInfo jobLevel;
+
+  /**
+   * 职务信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job")
+  private DimensionInfo job;
+
+  /**
+   * 成本中心信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center")
+  private DimensionInfo costCenter;
+
+  /**
+   * 编制规划值
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("workforce_plan")
+  private String workforcePlan;
+
+  /**
+   * 在职人数
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("active_individuals")
+  private String activeIndividuals;
+
+  /**
+   * 预增员数量
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("individuals_to_be_added")
+  private String individualsToBeAdded;
+
+  /**
+   * 预减员
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("individuals_to_be_removed")
+  private String individualsToBeRemoved;
+
+  /**
+   * 缺编数
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("vacancy")
+  private String vacancy;
+
+  /**
+   * 缺编数（含在途）
+   *
+   * <p>示例值：10.00
+   */
+  @SerializedName("vacancy_including_individuals_to_be_added_and_removed")
+  private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+
+  /**
+   * 满编率， 返回 0.5 表示满编率为 50%
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("fulfillment_rate")
+  private String fulfillmentRate;
+
+  /**
+   * 满编率（含在途）， 返回 0.5 表示满编率为 50%
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("fulfillment_rate_including_individuals_to_be_added_and_removed")
+  private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+
+  /**
+   * 预估在职人数明细
+   *
+   * <p>示例值：
+   */
+  @SerializedName("estimated_active_individuals_detail")
+  private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail;
+
+  /**
+   * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_missing_dimension")
+  private Boolean isMissingDimension;
+
+  public String getWorkforcePlanDetailId() {
+    return this.workforcePlanDetailId;
+  }
+
+  public void setWorkforcePlanDetailId(String workforcePlanDetailId) {
+    this.workforcePlanDetailId = workforcePlanDetailId;
+  }
+
+  public DimensionInfo getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(DimensionInfo department) {
+    this.department = department;
+  }
+
+  public DimensionInfo getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(DimensionInfo employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public DimensionInfo getWorkLocation() {
+    return this.workLocation;
+  }
+
+  public void setWorkLocation(DimensionInfo workLocation) {
+    this.workLocation = workLocation;
+  }
+
+  public DimensionInfo getJobFamily() {
+    return this.jobFamily;
+  }
+
+  public void setJobFamily(DimensionInfo jobFamily) {
+    this.jobFamily = jobFamily;
+  }
+
+  public DimensionInfo getJobLevel() {
+    return this.jobLevel;
+  }
+
+  public void setJobLevel(DimensionInfo jobLevel) {
+    this.jobLevel = jobLevel;
+  }
+
+  public DimensionInfo getJob() {
+    return this.job;
+  }
+
+  public void setJob(DimensionInfo job) {
+    this.job = job;
+  }
+
+  public DimensionInfo getCostCenter() {
+    return this.costCenter;
+  }
+
+  public void setCostCenter(DimensionInfo costCenter) {
+    this.costCenter = costCenter;
+  }
+
+  public String getWorkforcePlan() {
+    return this.workforcePlan;
+  }
+
+  public void setWorkforcePlan(String workforcePlan) {
+    this.workforcePlan = workforcePlan;
+  }
+
+  public String getActiveIndividuals() {
+    return this.activeIndividuals;
+  }
+
+  public void setActiveIndividuals(String activeIndividuals) {
+    this.activeIndividuals = activeIndividuals;
+  }
+
+  public String getIndividualsToBeAdded() {
+    return this.individualsToBeAdded;
+  }
+
+  public void setIndividualsToBeAdded(String individualsToBeAdded) {
+    this.individualsToBeAdded = individualsToBeAdded;
+  }
+
+  public String getIndividualsToBeRemoved() {
+    return this.individualsToBeRemoved;
+  }
+
+  public void setIndividualsToBeRemoved(String individualsToBeRemoved) {
+    this.individualsToBeRemoved = individualsToBeRemoved;
+  }
+
+  public String getVacancy() {
+    return this.vacancy;
+  }
+
+  public void setVacancy(String vacancy) {
+    this.vacancy = vacancy;
+  }
+
+  public String getVacancyIncludingIndividualsToBeAddedAndRemoved() {
+    return this.vacancyIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public void setVacancyIncludingIndividualsToBeAddedAndRemoved(
+      String vacancyIncludingIndividualsToBeAddedAndRemoved) {
+    this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+        vacancyIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public String getFulfillmentRate() {
+    return this.fulfillmentRate;
+  }
+
+  public void setFulfillmentRate(String fulfillmentRate) {
+    this.fulfillmentRate = fulfillmentRate;
+  }
+
+  public String getFulfillmentRateIncludingIndividualsToBeAddedAndRemoved() {
+    return this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public void setFulfillmentRateIncludingIndividualsToBeAddedAndRemoved(
+      String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
+    this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+        fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public WorkforcePlanEaiDetail[] getEstimatedActiveIndividualsDetail() {
+    return this.estimatedActiveIndividualsDetail;
+  }
+
+  public void setEstimatedActiveIndividualsDetail(
+      WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail) {
+    this.estimatedActiveIndividualsDetail = estimatedActiveIndividualsDetail;
+  }
+
+  public Boolean getIsMissingDimension() {
+    return this.isMissingDimension;
+  }
+
+  public void setIsMissingDimension(Boolean isMissingDimension) {
+    this.isMissingDimension = isMissingDimension;
+  }
+
+  // builder 开始
+  public WorkforcePlanDetail() {}
+
+  public WorkforcePlanDetail(Builder builder) {
     /**
      * 编制规划明细 ID
-     * <p> 示例值："123456"
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("workforce_plan_detail_id")
-    private String workforcePlanDetailId;
+    this.workforcePlanDetailId = builder.workforcePlanDetailId;
     /**
      * 部门信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department")
-    private DimensionInfo department;
+    this.department = builder.department;
     /**
      * 人员类型信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type")
-    private DimensionInfo employeeType;
+    this.employeeType = builder.employeeType;
     /**
      * 工作地点信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_location")
-    private DimensionInfo workLocation;
+    this.workLocation = builder.workLocation;
     /**
      * 序列信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family")
-    private DimensionInfo jobFamily;
+    this.jobFamily = builder.jobFamily;
     /**
      * 职级信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level")
-    private DimensionInfo jobLevel;
+    this.jobLevel = builder.jobLevel;
     /**
      * 职务信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job")
-    private DimensionInfo job;
+    this.job = builder.job;
     /**
      * 成本中心信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center")
-    private DimensionInfo costCenter;
+    this.costCenter = builder.costCenter;
     /**
      * 编制规划值
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("workforce_plan")
-    private String workforcePlan;
+    this.workforcePlan = builder.workforcePlan;
     /**
      * 在职人数
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("active_individuals")
-    private String activeIndividuals;
+    this.activeIndividuals = builder.activeIndividuals;
     /**
      * 预增员数量
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("individuals_to_be_added")
-    private String individualsToBeAdded;
+    this.individualsToBeAdded = builder.individualsToBeAdded;
     /**
      * 预减员
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("individuals_to_be_removed")
-    private String individualsToBeRemoved;
+    this.individualsToBeRemoved = builder.individualsToBeRemoved;
     /**
      * 缺编数
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("vacancy")
-    private String vacancy;
+    this.vacancy = builder.vacancy;
     /**
      * 缺编数（含在途）
-     * <p> 示例值：10.00
+     *
+     * <p>示例值：10.00
      */
-    @SerializedName("vacancy_including_individuals_to_be_added_and_removed")
-    private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+    this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+        builder.vacancyIncludingIndividualsToBeAddedAndRemoved;
     /**
      * 满编率， 返回 0.5 表示满编率为 50%
-     * <p> 示例值：0.5
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("fulfillment_rate")
-    private String fulfillmentRate;
+    this.fulfillmentRate = builder.fulfillmentRate;
     /**
      * 满编率（含在途）， 返回 0.5 表示满编率为 50%
-     * <p> 示例值：0.5
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("fulfillment_rate_including_individuals_to_be_added_and_removed")
-    private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+    this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+        builder.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
     /**
      * 预估在职人数明细
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("estimated_active_individuals_detail")
-    private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail;
+    this.estimatedActiveIndividualsDetail = builder.estimatedActiveIndividualsDetail;
     /**
      * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_missing_dimension")
+    this.isMissingDimension = builder.isMissingDimension;
+  }
+
+  public static class Builder {
+    /**
+     * 编制规划明细 ID
+     *
+     * <p>示例值：123456
+     */
+    private String workforcePlanDetailId;
+
+    /**
+     * 部门信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo department;
+
+    /**
+     * 人员类型信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo employeeType;
+
+    /**
+     * 工作地点信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo workLocation;
+
+    /**
+     * 序列信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo jobFamily;
+
+    /**
+     * 职级信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo jobLevel;
+
+    /**
+     * 职务信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo job;
+
+    /**
+     * 成本中心信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfo costCenter;
+
+    /**
+     * 编制规划值
+     *
+     * <p>示例值：10.00
+     */
+    private String workforcePlan;
+
+    /**
+     * 在职人数
+     *
+     * <p>示例值：10.00
+     */
+    private String activeIndividuals;
+
+    /**
+     * 预增员数量
+     *
+     * <p>示例值：10.00
+     */
+    private String individualsToBeAdded;
+
+    /**
+     * 预减员
+     *
+     * <p>示例值：10.00
+     */
+    private String individualsToBeRemoved;
+
+    /**
+     * 缺编数
+     *
+     * <p>示例值：10.00
+     */
+    private String vacancy;
+
+    /**
+     * 缺编数（含在途）
+     *
+     * <p>示例值：10.00
+     */
+    private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+
+    /**
+     * 满编率， 返回 0.5 表示满编率为 50%
+     *
+     * <p>示例值：0.5
+     */
+    private String fulfillmentRate;
+
+    /**
+     * 满编率（含在途）， 返回 0.5 表示满编率为 50%
+     *
+     * <p>示例值：0.5
+     */
+    private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+
+    /**
+     * 预估在职人数明细
+     *
+     * <p>示例值：
+     */
+    private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail;
+
+    /**
+     * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
+     *
+     * <p>示例值：false
+     */
     private Boolean isMissingDimension;
 
-    // builder 开始
-    public WorkforcePlanDetail() {
+    /**
+     * 编制规划明细 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param workforcePlanDetailId
+     * @return
+     */
+    public Builder workforcePlanDetailId(String workforcePlanDetailId) {
+      this.workforcePlanDetailId = workforcePlanDetailId;
+      return this;
     }
 
-    public WorkforcePlanDetail(Builder builder) {
-        /**
-         * 编制规划明细 ID
-         * <p> 示例值："123456"
-         */
-        this.workforcePlanDetailId = builder.workforcePlanDetailId;
-        /**
-         * 部门信息
-         * <p> 示例值：
-         */
-        this.department = builder.department;
-        /**
-         * 人员类型信息
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 工作地点信息
-         * <p> 示例值：
-         */
-        this.workLocation = builder.workLocation;
-        /**
-         * 序列信息
-         * <p> 示例值：
-         */
-        this.jobFamily = builder.jobFamily;
-        /**
-         * 职级信息
-         * <p> 示例值：
-         */
-        this.jobLevel = builder.jobLevel;
-        /**
-         * 职务信息
-         * <p> 示例值：
-         */
-        this.job = builder.job;
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         */
-        this.costCenter = builder.costCenter;
-        /**
-         * 编制规划值
-         * <p> 示例值：10.00
-         */
-        this.workforcePlan = builder.workforcePlan;
-        /**
-         * 在职人数
-         * <p> 示例值：10.00
-         */
-        this.activeIndividuals = builder.activeIndividuals;
-        /**
-         * 预增员数量
-         * <p> 示例值：10.00
-         */
-        this.individualsToBeAdded = builder.individualsToBeAdded;
-        /**
-         * 预减员
-         * <p> 示例值：10.00
-         */
-        this.individualsToBeRemoved = builder.individualsToBeRemoved;
-        /**
-         * 缺编数
-         * <p> 示例值：10.00
-         */
-        this.vacancy = builder.vacancy;
-        /**
-         * 缺编数（含在途）
-         * <p> 示例值：10.00
-         */
-        this.vacancyIncludingIndividualsToBeAddedAndRemoved = builder.vacancyIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 满编率， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         */
-        this.fulfillmentRate = builder.fulfillmentRate;
-        /**
-         * 满编率（含在途）， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         */
-        this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = builder.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 预估在职人数明细
-         * <p> 示例值：
-         */
-        this.estimatedActiveIndividualsDetail = builder.estimatedActiveIndividualsDetail;
-        /**
-         * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
-         * <p> 示例值：false
-         */
-        this.isMissingDimension = builder.isMissingDimension;
+    /**
+     * 部门信息
+     *
+     * <p>示例值：
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(DimensionInfo department) {
+      this.department = department;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人员类型信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(DimensionInfo employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public String getWorkforcePlanDetailId() {
-        return this.workforcePlanDetailId;
+    /**
+     * 工作地点信息
+     *
+     * <p>示例值：
+     *
+     * @param workLocation
+     * @return
+     */
+    public Builder workLocation(DimensionInfo workLocation) {
+      this.workLocation = workLocation;
+      return this;
     }
 
-    public void setWorkforcePlanDetailId(String workforcePlanDetailId) {
-        this.workforcePlanDetailId = workforcePlanDetailId;
+    /**
+     * 序列信息
+     *
+     * <p>示例值：
+     *
+     * @param jobFamily
+     * @return
+     */
+    public Builder jobFamily(DimensionInfo jobFamily) {
+      this.jobFamily = jobFamily;
+      return this;
     }
 
-    public DimensionInfo getDepartment() {
-        return this.department;
+    /**
+     * 职级信息
+     *
+     * <p>示例值：
+     *
+     * @param jobLevel
+     * @return
+     */
+    public Builder jobLevel(DimensionInfo jobLevel) {
+      this.jobLevel = jobLevel;
+      return this;
     }
 
-    public void setDepartment(DimensionInfo department) {
-        this.department = department;
+    /**
+     * 职务信息
+     *
+     * <p>示例值：
+     *
+     * @param job
+     * @return
+     */
+    public Builder job(DimensionInfo job) {
+      this.job = job;
+      return this;
     }
 
-    public DimensionInfo getEmployeeType() {
-        return this.employeeType;
+    /**
+     * 成本中心信息
+     *
+     * <p>示例值：
+     *
+     * @param costCenter
+     * @return
+     */
+    public Builder costCenter(DimensionInfo costCenter) {
+      this.costCenter = costCenter;
+      return this;
     }
 
-    public void setEmployeeType(DimensionInfo employeeType) {
-        this.employeeType = employeeType;
+    /**
+     * 编制规划值
+     *
+     * <p>示例值：10.00
+     *
+     * @param workforcePlan
+     * @return
+     */
+    public Builder workforcePlan(String workforcePlan) {
+      this.workforcePlan = workforcePlan;
+      return this;
     }
 
-    public DimensionInfo getWorkLocation() {
-        return this.workLocation;
+    /**
+     * 在职人数
+     *
+     * <p>示例值：10.00
+     *
+     * @param activeIndividuals
+     * @return
+     */
+    public Builder activeIndividuals(String activeIndividuals) {
+      this.activeIndividuals = activeIndividuals;
+      return this;
     }
 
-    public void setWorkLocation(DimensionInfo workLocation) {
-        this.workLocation = workLocation;
+    /**
+     * 预增员数量
+     *
+     * <p>示例值：10.00
+     *
+     * @param individualsToBeAdded
+     * @return
+     */
+    public Builder individualsToBeAdded(String individualsToBeAdded) {
+      this.individualsToBeAdded = individualsToBeAdded;
+      return this;
     }
 
-    public DimensionInfo getJobFamily() {
-        return this.jobFamily;
+    /**
+     * 预减员
+     *
+     * <p>示例值：10.00
+     *
+     * @param individualsToBeRemoved
+     * @return
+     */
+    public Builder individualsToBeRemoved(String individualsToBeRemoved) {
+      this.individualsToBeRemoved = individualsToBeRemoved;
+      return this;
     }
 
-    public void setJobFamily(DimensionInfo jobFamily) {
-        this.jobFamily = jobFamily;
+    /**
+     * 缺编数
+     *
+     * <p>示例值：10.00
+     *
+     * @param vacancy
+     * @return
+     */
+    public Builder vacancy(String vacancy) {
+      this.vacancy = vacancy;
+      return this;
     }
 
-    public DimensionInfo getJobLevel() {
-        return this.jobLevel;
+    /**
+     * 缺编数（含在途）
+     *
+     * <p>示例值：10.00
+     *
+     * @param vacancyIncludingIndividualsToBeAddedAndRemoved
+     * @return
+     */
+    public Builder vacancyIncludingIndividualsToBeAddedAndRemoved(
+        String vacancyIncludingIndividualsToBeAddedAndRemoved) {
+      this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+          vacancyIncludingIndividualsToBeAddedAndRemoved;
+      return this;
     }
 
-    public void setJobLevel(DimensionInfo jobLevel) {
-        this.jobLevel = jobLevel;
+    /**
+     * 满编率， 返回 0.5 表示满编率为 50%
+     *
+     * <p>示例值：0.5
+     *
+     * @param fulfillmentRate
+     * @return
+     */
+    public Builder fulfillmentRate(String fulfillmentRate) {
+      this.fulfillmentRate = fulfillmentRate;
+      return this;
     }
 
-    public DimensionInfo getJob() {
-        return this.job;
+    /**
+     * 满编率（含在途）， 返回 0.5 表示满编率为 50%
+     *
+     * <p>示例值：0.5
+     *
+     * @param fulfillmentRateIncludingIndividualsToBeAddedAndRemoved
+     * @return
+     */
+    public Builder fulfillmentRateIncludingIndividualsToBeAddedAndRemoved(
+        String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
+      this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+          fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+      return this;
     }
 
-    public void setJob(DimensionInfo job) {
-        this.job = job;
+    /**
+     * 预估在职人数明细
+     *
+     * <p>示例值：
+     *
+     * @param estimatedActiveIndividualsDetail
+     * @return
+     */
+    public Builder estimatedActiveIndividualsDetail(
+        WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail) {
+      this.estimatedActiveIndividualsDetail = estimatedActiveIndividualsDetail;
+      return this;
     }
 
-    public DimensionInfo getCostCenter() {
-        return this.costCenter;
+    /**
+     * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
+     *
+     * <p>示例值：false
+     *
+     * @param isMissingDimension
+     * @return
+     */
+    public Builder isMissingDimension(Boolean isMissingDimension) {
+      this.isMissingDimension = isMissingDimension;
+      return this;
     }
 
-    public void setCostCenter(DimensionInfo costCenter) {
-        this.costCenter = costCenter;
+    public WorkforcePlanDetail build() {
+      return new WorkforcePlanDetail(this);
     }
+  }
 
-    public String getWorkforcePlan() {
-        return this.workforcePlan;
-    }
-
-    public void setWorkforcePlan(String workforcePlan) {
-        this.workforcePlan = workforcePlan;
-    }
-
-    public String getActiveIndividuals() {
-        return this.activeIndividuals;
-    }
-
-    public void setActiveIndividuals(String activeIndividuals) {
-        this.activeIndividuals = activeIndividuals;
-    }
-
-    public String getIndividualsToBeAdded() {
-        return this.individualsToBeAdded;
-    }
-
-    public void setIndividualsToBeAdded(String individualsToBeAdded) {
-        this.individualsToBeAdded = individualsToBeAdded;
-    }
-
-    public String getIndividualsToBeRemoved() {
-        return this.individualsToBeRemoved;
-    }
-
-    public void setIndividualsToBeRemoved(String individualsToBeRemoved) {
-        this.individualsToBeRemoved = individualsToBeRemoved;
-    }
-
-    public String getVacancy() {
-        return this.vacancy;
-    }
-
-    public void setVacancy(String vacancy) {
-        this.vacancy = vacancy;
-    }
-
-    public String getVacancyIncludingIndividualsToBeAddedAndRemoved() {
-        return this.vacancyIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public void setVacancyIncludingIndividualsToBeAddedAndRemoved(String vacancyIncludingIndividualsToBeAddedAndRemoved) {
-        this.vacancyIncludingIndividualsToBeAddedAndRemoved = vacancyIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public String getFulfillmentRate() {
-        return this.fulfillmentRate;
-    }
-
-    public void setFulfillmentRate(String fulfillmentRate) {
-        this.fulfillmentRate = fulfillmentRate;
-    }
-
-    public String getFulfillmentRateIncludingIndividualsToBeAddedAndRemoved() {
-        return this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public void setFulfillmentRateIncludingIndividualsToBeAddedAndRemoved(String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
-        this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public WorkforcePlanEaiDetail[] getEstimatedActiveIndividualsDetail() {
-        return this.estimatedActiveIndividualsDetail;
-    }
-
-    public void setEstimatedActiveIndividualsDetail(WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail) {
-        this.estimatedActiveIndividualsDetail = estimatedActiveIndividualsDetail;
-    }
-
-    public Boolean getIsMissingDimension() {
-        return this.isMissingDimension;
-    }
-
-    public void setIsMissingDimension(Boolean isMissingDimension) {
-        this.isMissingDimension = isMissingDimension;
-    }
-
-    public static class Builder {
-        /**
-         * 编制规划明细 ID
-         * <p> 示例值："123456"
-         */
-        private String workforcePlanDetailId;
-        /**
-         * 部门信息
-         * <p> 示例值：
-         */
-        private DimensionInfo department;
-        /**
-         * 人员类型信息
-         * <p> 示例值：
-         */
-        private DimensionInfo employeeType;
-        /**
-         * 工作地点信息
-         * <p> 示例值：
-         */
-        private DimensionInfo workLocation;
-        /**
-         * 序列信息
-         * <p> 示例值：
-         */
-        private DimensionInfo jobFamily;
-        /**
-         * 职级信息
-         * <p> 示例值：
-         */
-        private DimensionInfo jobLevel;
-        /**
-         * 职务信息
-         * <p> 示例值：
-         */
-        private DimensionInfo job;
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         */
-        private DimensionInfo costCenter;
-        /**
-         * 编制规划值
-         * <p> 示例值：10.00
-         */
-        private String workforcePlan;
-        /**
-         * 在职人数
-         * <p> 示例值：10.00
-         */
-        private String activeIndividuals;
-        /**
-         * 预增员数量
-         * <p> 示例值：10.00
-         */
-        private String individualsToBeAdded;
-        /**
-         * 预减员
-         * <p> 示例值：10.00
-         */
-        private String individualsToBeRemoved;
-        /**
-         * 缺编数
-         * <p> 示例值：10.00
-         */
-        private String vacancy;
-        /**
-         * 缺编数（含在途）
-         * <p> 示例值：10.00
-         */
-        private String vacancyIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 满编率， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         */
-        private String fulfillmentRate;
-        /**
-         * 满编率（含在途）， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         */
-        private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 预估在职人数明细
-         * <p> 示例值：
-         */
-        private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail;
-        /**
-         * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
-         * <p> 示例值：false
-         */
-        private Boolean isMissingDimension;
-
-        /**
-         * 编制规划明细 ID
-         * <p> 示例值："123456"
-         *
-         * @param workforcePlanDetailId
-         * @return
-         */
-        public Builder workforcePlanDetailId(String workforcePlanDetailId) {
-            this.workforcePlanDetailId = workforcePlanDetailId;
-            return this;
-        }
-
-
-        /**
-         * 部门信息
-         * <p> 示例值：
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(DimensionInfo department) {
-            this.department = department;
-            return this;
-        }
-
-
-        /**
-         * 人员类型信息
-         * <p> 示例值：
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(DimensionInfo employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-
-        /**
-         * 工作地点信息
-         * <p> 示例值：
-         *
-         * @param workLocation
-         * @return
-         */
-        public Builder workLocation(DimensionInfo workLocation) {
-            this.workLocation = workLocation;
-            return this;
-        }
-
-
-        /**
-         * 序列信息
-         * <p> 示例值：
-         *
-         * @param jobFamily
-         * @return
-         */
-        public Builder jobFamily(DimensionInfo jobFamily) {
-            this.jobFamily = jobFamily;
-            return this;
-        }
-
-
-        /**
-         * 职级信息
-         * <p> 示例值：
-         *
-         * @param jobLevel
-         * @return
-         */
-        public Builder jobLevel(DimensionInfo jobLevel) {
-            this.jobLevel = jobLevel;
-            return this;
-        }
-
-
-        /**
-         * 职务信息
-         * <p> 示例值：
-         *
-         * @param job
-         * @return
-         */
-        public Builder job(DimensionInfo job) {
-            this.job = job;
-            return this;
-        }
-
-
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         *
-         * @param costCenter
-         * @return
-         */
-        public Builder costCenter(DimensionInfo costCenter) {
-            this.costCenter = costCenter;
-            return this;
-        }
-
-
-        /**
-         * 编制规划值
-         * <p> 示例值：10.00
-         *
-         * @param workforcePlan
-         * @return
-         */
-        public Builder workforcePlan(String workforcePlan) {
-            this.workforcePlan = workforcePlan;
-            return this;
-        }
-
-
-        /**
-         * 在职人数
-         * <p> 示例值：10.00
-         *
-         * @param activeIndividuals
-         * @return
-         */
-        public Builder activeIndividuals(String activeIndividuals) {
-            this.activeIndividuals = activeIndividuals;
-            return this;
-        }
-
-
-        /**
-         * 预增员数量
-         * <p> 示例值：10.00
-         *
-         * @param individualsToBeAdded
-         * @return
-         */
-        public Builder individualsToBeAdded(String individualsToBeAdded) {
-            this.individualsToBeAdded = individualsToBeAdded;
-            return this;
-        }
-
-
-        /**
-         * 预减员
-         * <p> 示例值：10.00
-         *
-         * @param individualsToBeRemoved
-         * @return
-         */
-        public Builder individualsToBeRemoved(String individualsToBeRemoved) {
-            this.individualsToBeRemoved = individualsToBeRemoved;
-            return this;
-        }
-
-
-        /**
-         * 缺编数
-         * <p> 示例值：10.00
-         *
-         * @param vacancy
-         * @return
-         */
-        public Builder vacancy(String vacancy) {
-            this.vacancy = vacancy;
-            return this;
-        }
-
-
-        /**
-         * 缺编数（含在途）
-         * <p> 示例值：10.00
-         *
-         * @param vacancyIncludingIndividualsToBeAddedAndRemoved
-         * @return
-         */
-        public Builder vacancyIncludingIndividualsToBeAddedAndRemoved(String vacancyIncludingIndividualsToBeAddedAndRemoved) {
-            this.vacancyIncludingIndividualsToBeAddedAndRemoved = vacancyIncludingIndividualsToBeAddedAndRemoved;
-            return this;
-        }
-
-
-        /**
-         * 满编率， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         *
-         * @param fulfillmentRate
-         * @return
-         */
-        public Builder fulfillmentRate(String fulfillmentRate) {
-            this.fulfillmentRate = fulfillmentRate;
-            return this;
-        }
-
-
-        /**
-         * 满编率（含在途）， 返回 0.5 表示满编率为 50%
-         * <p> 示例值：0.5
-         *
-         * @param fulfillmentRateIncludingIndividualsToBeAddedAndRemoved
-         * @return
-         */
-        public Builder fulfillmentRateIncludingIndividualsToBeAddedAndRemoved(String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
-            this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-            return this;
-        }
-
-
-        /**
-         * 预估在职人数明细
-         * <p> 示例值：
-         *
-         * @param estimatedActiveIndividualsDetail
-         * @return
-         */
-        public Builder estimatedActiveIndividualsDetail(WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetail) {
-            this.estimatedActiveIndividualsDetail = estimatedActiveIndividualsDetail;
-            return this;
-        }
-
-
-        /**
-         * 是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行
-         * <p> 示例值：false
-         *
-         * @param isMissingDimension
-         * @return
-         */
-        public Builder isMissingDimension(Boolean isMissingDimension) {
-            this.isMissingDimension = isMissingDimension;
-            return this;
-        }
-
-
-        public WorkforcePlanDetail build() {
-            return new WorkforcePlanDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

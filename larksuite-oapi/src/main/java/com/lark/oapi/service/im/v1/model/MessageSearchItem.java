@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageSearchItem {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 包含消息基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
+   *
+   * <p>示例值：飞书<h>搜索</h>
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 消息元数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private MessageSearchMeta metaData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public MessageSearchMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(MessageSearchMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public MessageSearchItem() {}
+
+  public MessageSearchItem(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 包含群组基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
-     * <p> 示例值：飞书<h>搜索</h>
+     * 包含消息基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
+     *
+     * <p>示例值：飞书<h>搜索</h>
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 消息元数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     */
+    private String id;
+
+    /**
+     * 包含消息基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
+     *
+     * <p>示例值：飞书<h>搜索</h>
+     */
+    private String displayInfo;
+
+    /**
+     * 消息元数据
+     *
+     * <p>示例值：
+     */
     private MessageSearchMeta metaData;
 
-    // builder 开始
-    public MessageSearchItem() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_40eb06e7b84dc71c03e00ida3c754892
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MessageSearchItem(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         */
-        this.id = builder.id;
-        /**
-         * 包含群组基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 消息元数据
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含消息基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
+     *
+     * <p>示例值：飞书<h>搜索</h>
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息元数据
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(MessageSearchMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public MessageSearchItem build() {
+      return new MessageSearchItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public MessageSearchMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(MessageSearchMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         */
-        private String id;
-        /**
-         * 包含群组基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         */
-        private String displayInfo;
-        /**
-         * 消息元数据
-         * <p> 示例值：
-         */
-        private MessageSearchMeta metaData;
-
-        /**
-         * 消息ID
-         * <p> 示例值：om_40eb06e7b84dc71c03e00ida3c754892
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 包含群组基本信息的卡片,用户搜索关键词命中的文本 片段,使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 消息元数据
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(MessageSearchMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public MessageSearchItem build() {
-            return new MessageSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

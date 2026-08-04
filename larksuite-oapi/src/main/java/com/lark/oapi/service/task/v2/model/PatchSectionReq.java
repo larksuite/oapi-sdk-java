@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class PatchSectionReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要更新的自定义分组GUID
+   *
+   * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+   */
+  @Path
+  @SerializedName("section_guid")
+  private String sectionGuid;
+
+  public String getSectionGuid() {
+    return this.sectionGuid;
+  }
+
+  public void setSectionGuid(String sectionGuid) {
+    this.sectionGuid = sectionGuid;
+  }
+
+  @Body private PatchSectionReqBody body;
+
+  public PatchSectionReqBody getPatchSectionReqBody() {
+    return this.body;
+  }
+
+  public void setPatchSectionReqBody(PatchSectionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchSectionReq() {}
+
+  public PatchSectionReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 要更新的自定义分组GUID
-     * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+     *
+     * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
      */
-    @Path
-    @SerializedName("section_guid")
-    private String sectionGuid;
-    @Body
+    this.sectionGuid = builder.sectionGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    private String sectionGuid; // 要更新的自定义分组GUID
+
+    /**
+     * 要更新的自定义分组GUID
+     *
+     * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+     *
+     * @param sectionGuid
+     * @return
+     */
+    public Builder sectionGuid(String sectionGuid) {
+      this.sectionGuid = sectionGuid;
+      return this;
+    }
+
     private PatchSectionReqBody body;
 
-    // builder 开始
-    public PatchSectionReq() {
-    }
-
-    public PatchSectionReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要更新的自定义分组GUID
-         * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-         */
-        this.sectionGuid = builder.sectionGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getSectionGuid() {
-        return this.sectionGuid;
-    }
-
-    public void setSectionGuid(String sectionGuid) {
-        this.sectionGuid = sectionGuid;
-    }
-
     public PatchSectionReqBody getPatchSectionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchSectionReqBody(PatchSectionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchSectionReqBody(PatchSectionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String sectionGuid; // 要更新的自定义分组GUID
-        private PatchSectionReqBody body;
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 要更新的自定义分组GUID
-         * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-         *
-         * @param sectionGuid
-         * @return
-         */
-        public Builder sectionGuid(String sectionGuid) {
-            this.sectionGuid = sectionGuid;
-            return this;
-        }
-
-        public PatchSectionReqBody getPatchSectionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchSectionReqBody(PatchSectionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchSectionReq build() {
-            return new PatchSectionReq(this);
-        }
+    public PatchSectionReq build() {
+      return new PatchSectionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

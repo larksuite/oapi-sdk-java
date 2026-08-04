@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreatePlace {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("place_name")
+  private I18nText placeName;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 地点多用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usages")
+  private String[] usages;
+
+  /**
+   * 上级ID
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 外部ID
+   *
+   * <p>示例值：custom_id
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public I18nText getPlaceName() {
+    return this.placeName;
+  }
+
+  public void setPlaceName(I18nText placeName) {
+    this.placeName = placeName;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String[] getUsages() {
+    return this.usages;
+  }
+
+  public void setUsages(String[] usages) {
+    this.usages = usages;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public CreatePlace() {}
+
+  public CreatePlace(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("place_name")
-    private I18nText placeName;
+    this.placeName = builder.placeName;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 地点多用途
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("usages")
-    private String[] usages;
+    this.usages = builder.usages;
     /**
      * 上级ID
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 外部ID
-     * <p> 示例值：custom_id
+     *
+     * <p>示例值：custom_id
      */
-    @SerializedName("external_id")
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText placeName;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 地点多用途
+     *
+     * <p>示例值：
+     */
+    private String[] usages;
+
+    /**
+     * 上级ID
+     *
+     * <p>示例值：6872549699048439828
+     */
+    private String parentId;
+
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     */
     private String externalId;
 
-    // builder 开始
-    public CreatePlace() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param placeName
+     * @return
+     */
+    public Builder placeName(I18nText placeName) {
+      this.placeName = placeName;
+      return this;
     }
 
-    public CreatePlace(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.placeName = builder.placeName;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         */
-        this.usages = builder.usages;
-        /**
-         * 上级ID
-         * <p> 示例值：6872549699048439828
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public I18nText getPlaceName() {
-        return this.placeName;
+    /**
+     * 地点多用途
+     *
+     * <p>示例值：
+     *
+     * @param usages
+     * @return
+     */
+    public Builder usages(String[] usages) {
+      this.usages = usages;
+      return this;
     }
 
-    public void setPlaceName(I18nText placeName) {
-        this.placeName = placeName;
+    /**
+     * 上级ID
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+    public CreatePlace build() {
+      return new CreatePlace(this);
     }
+  }
 
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String[] getUsages() {
-        return this.usages;
-    }
-
-    public void setUsages(String[] usages) {
-        this.usages = usages;
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText placeName;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         */
-        private String[] usages;
-        /**
-         * 上级ID
-         * <p> 示例值：6872549699048439828
-         */
-        private String parentId;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        private String externalId;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param placeName
-         * @return
-         */
-        public Builder placeName(I18nText placeName) {
-            this.placeName = placeName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         *
-         * @param usages
-         * @return
-         */
-        public Builder usages(String[] usages) {
-            this.usages = usages;
-            return this;
-        }
-
-
-        /**
-         * 上级ID
-         * <p> 示例值：6872549699048439828
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public CreatePlace build() {
-            return new CreatePlace(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

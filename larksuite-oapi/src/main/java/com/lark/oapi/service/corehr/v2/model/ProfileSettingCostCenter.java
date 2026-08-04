@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingCostCenter {
+  /**
+   * 支持的成本中心
+   * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 分摊比例
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("rate")
+  private Integer rate;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getRate() {
+    return this.rate;
+  }
+
+  public void setRate(Integer rate) {
+    this.rate = rate;
+  }
+
+  // builder 开始
+  public ProfileSettingCostCenter() {}
+
+  public ProfileSettingCostCenter(Builder builder) {
     /**
-     * 100
-     * <p> 示例值：6950635856373745165
+     * 支持的成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 分摊比例
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("rate")
+    this.rate = builder.rate;
+  }
+
+  public static class Builder {
+    /**
+     * 支持的成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String id;
+
+    /**
+     * 分摊比例
+     *
+     * <p>示例值：100
+     */
     private Integer rate;
 
-    // builder 开始
-    public ProfileSettingCostCenter() {
+    /**
+     * 支持的成本中心
+     * ID，详细信息可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ProfileSettingCostCenter(Builder builder) {
-        /**
-         * 100
-         * <p> 示例值：6950635856373745165
-         */
-        this.id = builder.id;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
-        this.rate = builder.rate;
+    /**
+     * 分摊比例
+     *
+     * <p>示例值：100
+     *
+     * @param rate
+     * @return
+     */
+    public Builder rate(Integer rate) {
+      this.rate = rate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProfileSettingCostCenter build() {
+      return new ProfileSettingCostCenter(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getRate() {
-        return this.rate;
-    }
-
-    public void setRate(Integer rate) {
-        this.rate = rate;
-    }
-
-    public static class Builder {
-        /**
-         * 100
-         * <p> 示例值：6950635856373745165
-         */
-        private String id;
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         */
-        private Integer rate;
-
-        /**
-         * 100
-         * <p> 示例值：6950635856373745165
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 分摊比例
-         * <p> 示例值：100
-         *
-         * @param rate
-         * @return
-         */
-        public Builder rate(Integer rate) {
-            this.rate = rate;
-            return this;
-        }
-
-
-        public ProfileSettingCostCenter build() {
-            return new ProfileSettingCostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

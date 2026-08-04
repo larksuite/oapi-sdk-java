@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExcludedEventTime {
+  /**
+   * 开始时间
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("event_start_time")
+  private String eventStartTime;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("event_end_time")
+  private String eventEndTime;
+
+  public String getEventStartTime() {
+    return this.eventStartTime;
+  }
+
+  public void setEventStartTime(String eventStartTime) {
+    this.eventStartTime = eventStartTime;
+  }
+
+  public String getEventEndTime() {
+    return this.eventEndTime;
+  }
+
+  public void setEventEndTime(String eventEndTime) {
+    this.eventEndTime = eventEndTime;
+  }
+
+  // builder 开始
+  public ExcludedEventTime() {}
+
+  public ExcludedEventTime(Builder builder) {
     /**
      * 开始时间
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("event_start_time")
-    private String eventStartTime;
+    this.eventStartTime = builder.eventStartTime;
     /**
      * 结束时间
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("event_end_time")
+    this.eventEndTime = builder.eventEndTime;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：none
+     */
+    private String eventStartTime;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：none
+     */
     private String eventEndTime;
 
-    // builder 开始
-    public ExcludedEventTime() {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：none
+     *
+     * @param eventStartTime
+     * @return
+     */
+    public Builder eventStartTime(String eventStartTime) {
+      this.eventStartTime = eventStartTime;
+      return this;
     }
 
-    public ExcludedEventTime(Builder builder) {
-        /**
-         * 开始时间
-         * <p> 示例值：none
-         */
-        this.eventStartTime = builder.eventStartTime;
-        /**
-         * 结束时间
-         * <p> 示例值：none
-         */
-        this.eventEndTime = builder.eventEndTime;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：none
+     *
+     * @param eventEndTime
+     * @return
+     */
+    public Builder eventEndTime(String eventEndTime) {
+      this.eventEndTime = eventEndTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ExcludedEventTime build() {
+      return new ExcludedEventTime(this);
     }
+  }
 
-    public String getEventStartTime() {
-        return this.eventStartTime;
-    }
-
-    public void setEventStartTime(String eventStartTime) {
-        this.eventStartTime = eventStartTime;
-    }
-
-    public String getEventEndTime() {
-        return this.eventEndTime;
-    }
-
-    public void setEventEndTime(String eventEndTime) {
-        this.eventEndTime = eventEndTime;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间
-         * <p> 示例值：none
-         */
-        private String eventStartTime;
-        /**
-         * 结束时间
-         * <p> 示例值：none
-         */
-        private String eventEndTime;
-
-        /**
-         * 开始时间
-         * <p> 示例值：none
-         *
-         * @param eventStartTime
-         * @return
-         */
-        public Builder eventStartTime(String eventStartTime) {
-            this.eventStartTime = eventStartTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：none
-         *
-         * @param eventEndTime
-         * @return
-         */
-        public Builder eventEndTime(String eventEndTime) {
-            this.eventEndTime = eventEndTime;
-            return this;
-        }
-
-
-        public ExcludedEventTime build() {
-            return new ExcludedEventTime(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

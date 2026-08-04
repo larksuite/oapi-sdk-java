@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrListInfo {
+  /**
+   * 中文内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("current_okr")
+  private Okr currentOkr;
+
+  /**
+   * 英文内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("okr_list")
+  private Okr[] okrList;
+
+  public Okr getCurrentOkr() {
+    return this.currentOkr;
+  }
+
+  public void setCurrentOkr(Okr currentOkr) {
+    this.currentOkr = currentOkr;
+  }
+
+  public Okr[] getOkrList() {
+    return this.okrList;
+  }
+
+  public void setOkrList(Okr[] okrList) {
+    this.okrList = okrList;
+  }
+
+  // builder 开始
+  public OkrListInfo() {}
+
+  public OkrListInfo(Builder builder) {
     /**
      * 中文内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("current_okr")
-    private Okr currentOkr;
+    this.currentOkr = builder.currentOkr;
     /**
      * 英文内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("okr_list")
+    this.okrList = builder.okrList;
+  }
+
+  public static class Builder {
+    /**
+     * 中文内容
+     *
+     * <p>示例值：
+     */
+    private Okr currentOkr;
+
+    /**
+     * 英文内容
+     *
+     * <p>示例值：
+     */
     private Okr[] okrList;
 
-    // builder 开始
-    public OkrListInfo() {
+    /**
+     * 中文内容
+     *
+     * <p>示例值：
+     *
+     * @param currentOkr
+     * @return
+     */
+    public Builder currentOkr(Okr currentOkr) {
+      this.currentOkr = currentOkr;
+      return this;
     }
 
-    public OkrListInfo(Builder builder) {
-        /**
-         * 中文内容
-         * <p> 示例值：
-         */
-        this.currentOkr = builder.currentOkr;
-        /**
-         * 英文内容
-         * <p> 示例值：
-         */
-        this.okrList = builder.okrList;
+    /**
+     * 英文内容
+     *
+     * <p>示例值：
+     *
+     * @param okrList
+     * @return
+     */
+    public Builder okrList(Okr[] okrList) {
+      this.okrList = okrList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OkrListInfo build() {
+      return new OkrListInfo(this);
     }
+  }
 
-    public Okr getCurrentOkr() {
-        return this.currentOkr;
-    }
-
-    public void setCurrentOkr(Okr currentOkr) {
-        this.currentOkr = currentOkr;
-    }
-
-    public Okr[] getOkrList() {
-        return this.okrList;
-    }
-
-    public void setOkrList(Okr[] okrList) {
-        this.okrList = okrList;
-    }
-
-    public static class Builder {
-        /**
-         * 中文内容
-         * <p> 示例值：
-         */
-        private Okr currentOkr;
-        /**
-         * 英文内容
-         * <p> 示例值：
-         */
-        private Okr[] okrList;
-
-        /**
-         * 中文内容
-         * <p> 示例值：
-         *
-         * @param currentOkr
-         * @return
-         */
-        public Builder currentOkr(Okr currentOkr) {
-            this.currentOkr = currentOkr;
-            return this;
-        }
-
-
-        /**
-         * 英文内容
-         * <p> 示例值：
-         *
-         * @param okrList
-         * @return
-         */
-        public Builder okrList(Okr[] okrList) {
-            this.okrList = okrList;
-            return this;
-        }
-
-
-        public OkrListInfo build() {
-            return new OkrListInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class SubPageSimpleInfo {
+  /**
+   * 子页面的key
+   *
+   * <p>示例值：sub_page_test01
+   */
+  @SerializedName("sub_page_key")
+  private String subPageKey;
+
+  /**
+   * 子页面的描述
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("display_name")
+  private Map<String, String> displayName;
+
+  /**
+   * 子页面的apiName
+   *
+   * <p>示例值：aadikuwdc7mju
+   */
+  @SerializedName("sub_page_api_name")
+  private String subPageApiName;
+
+  public String getSubPageKey() {
+    return this.subPageKey;
+  }
+
+  public void setSubPageKey(String subPageKey) {
+    this.subPageKey = subPageKey;
+  }
+
+  public Map<String, String> getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(Map<String, String> displayName) {
+    this.displayName = displayName;
+  }
+
+  public String getSubPageApiName() {
+    return this.subPageApiName;
+  }
+
+  public void setSubPageApiName(String subPageApiName) {
+    this.subPageApiName = subPageApiName;
+  }
+
+  // builder 开始
+  public SubPageSimpleInfo() {}
+
+  public SubPageSimpleInfo(Builder builder) {
     /**
      * 子页面的key
-     * <p> 示例值：sub_page_test01
+     *
+     * <p>示例值：sub_page_test01
      */
-    @SerializedName("sub_page_key")
-    private String subPageKey;
+    this.subPageKey = builder.subPageKey;
     /**
      * 子页面的描述
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("display_name")
-    private Map<String, String> displayName;
+    this.displayName = builder.displayName;
     /**
      * 子页面的apiName
-     * <p> 示例值：aadikuwdc7mju
+     *
+     * <p>示例值：aadikuwdc7mju
      */
-    @SerializedName("sub_page_api_name")
+    this.subPageApiName = builder.subPageApiName;
+  }
+
+  public static class Builder {
+    /**
+     * 子页面的key
+     *
+     * <p>示例值：sub_page_test01
+     */
+    private String subPageKey;
+
+    /**
+     * 子页面的描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> displayName;
+
+    /**
+     * 子页面的apiName
+     *
+     * <p>示例值：aadikuwdc7mju
+     */
     private String subPageApiName;
 
-    // builder 开始
-    public SubPageSimpleInfo() {
+    /**
+     * 子页面的key
+     *
+     * <p>示例值：sub_page_test01
+     *
+     * @param subPageKey
+     * @return
+     */
+    public Builder subPageKey(String subPageKey) {
+      this.subPageKey = subPageKey;
+      return this;
     }
 
-    public SubPageSimpleInfo(Builder builder) {
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_test01
-         */
-        this.subPageKey = builder.subPageKey;
-        /**
-         * 子页面的描述
-         * <p> 示例值：
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 子页面的apiName
-         * <p> 示例值：aadikuwdc7mju
-         */
-        this.subPageApiName = builder.subPageApiName;
+    /**
+     * 子页面的描述
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(Map<String, String> displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子页面的apiName
+     *
+     * <p>示例值：aadikuwdc7mju
+     *
+     * @param subPageApiName
+     * @return
+     */
+    public Builder subPageApiName(String subPageApiName) {
+      this.subPageApiName = subPageApiName;
+      return this;
     }
 
-    public String getSubPageKey() {
-        return this.subPageKey;
+    public SubPageSimpleInfo build() {
+      return new SubPageSimpleInfo(this);
     }
+  }
 
-    public void setSubPageKey(String subPageKey) {
-        this.subPageKey = subPageKey;
-    }
-
-    public Map<String, String> getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(Map<String, String> displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getSubPageApiName() {
-        return this.subPageApiName;
-    }
-
-    public void setSubPageApiName(String subPageApiName) {
-        this.subPageApiName = subPageApiName;
-    }
-
-    public static class Builder {
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_test01
-         */
-        private String subPageKey;
-        /**
-         * 子页面的描述
-         * <p> 示例值：
-         */
-        private Map<String, String> displayName;
-        /**
-         * 子页面的apiName
-         * <p> 示例值：aadikuwdc7mju
-         */
-        private String subPageApiName;
-
-        /**
-         * 子页面的key
-         * <p> 示例值：sub_page_test01
-         *
-         * @param subPageKey
-         * @return
-         */
-        public Builder subPageKey(String subPageKey) {
-            this.subPageKey = subPageKey;
-            return this;
-        }
-
-
-        /**
-         * 子页面的描述
-         * <p> 示例值：
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(Map<String, String> displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 子页面的apiName
-         * <p> 示例值：aadikuwdc7mju
-         *
-         * @param subPageApiName
-         * @return
-         */
-        public Builder subPageApiName(String subPageApiName) {
-            this.subPageApiName = subPageApiName;
-            return this;
-        }
-
-
-        public SubPageSimpleInfo build() {
-            return new SubPageSimpleInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

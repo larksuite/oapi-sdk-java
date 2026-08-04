@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ContractCreatedV1Data {
-    /**
-     * ID
-     * <p> 示例值：201571108
-     */
-    @SerializedName("contract_id")
-    private String contractId;
+  /**
+   * 合同ID，该合同详细信息可通过[【合同信息查询接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/contract/get)获取
+   *
+   * <p>示例值：7371271712380618284
+   */
+  @SerializedName("contract_id")
+  private String contractId;
 
-    public String getContractId() {
-        return this.contractId;
-    }
+  public String getContractId() {
+    return this.contractId;
+  }
 
-    public void setContractId(String contractId) {
-        this.contractId = contractId;
-    }
-
+  public void setContractId(String contractId) {
+    this.contractId = contractId;
+  }
 }

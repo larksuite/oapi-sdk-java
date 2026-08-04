@@ -13,395 +13,443 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TextElementStyle {
+  /**
+   * 加粗
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("bold")
+  private Boolean bold;
+
+  /**
+   * 斜体
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("italic")
+  private Boolean italic;
+
+  /**
+   * 删除线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("strikethrough")
+  private Boolean strikethrough;
+
+  /**
+   * 下划线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("underline")
+  private Boolean underline;
+
+  /**
+   * inline 代码
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("inline_code")
+  private Boolean inlineCode;
+
+  /**
+   * 背景色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("background_color")
+  private Integer backgroundColor;
+
+  /**
+   * 字体颜色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("text_color")
+  private Integer textColor;
+
+  /**
+   * 链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link")
+  private Link link;
+
+  /**
+   * 评论 ID 列表。在创建 Block 时，不支持传入评论 ID；在更新文本 Block 的 Element 时，允许将对应版本已存在的评论 ID 移动到同一个 Block 内的任意
+   * Element 中，但不支持传入新的评论
+   * ID。如需查询评论内容请阅览「[获取回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list)」
+   * API。
+   *
+   * <p>示例值：["1660030311959965796"]
+   */
+  @SerializedName("comment_ids")
+  private String[] commentIds;
+
+  public Boolean getBold() {
+    return this.bold;
+  }
+
+  public void setBold(Boolean bold) {
+    this.bold = bold;
+  }
+
+  public Boolean getItalic() {
+    return this.italic;
+  }
+
+  public void setItalic(Boolean italic) {
+    this.italic = italic;
+  }
+
+  public Boolean getStrikethrough() {
+    return this.strikethrough;
+  }
+
+  public void setStrikethrough(Boolean strikethrough) {
+    this.strikethrough = strikethrough;
+  }
+
+  public Boolean getUnderline() {
+    return this.underline;
+  }
+
+  public void setUnderline(Boolean underline) {
+    this.underline = underline;
+  }
+
+  public Boolean getInlineCode() {
+    return this.inlineCode;
+  }
+
+  public void setInlineCode(Boolean inlineCode) {
+    this.inlineCode = inlineCode;
+  }
+
+  public Integer getBackgroundColor() {
+    return this.backgroundColor;
+  }
+
+  public void setBackgroundColor(Integer backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  public Integer getTextColor() {
+    return this.textColor;
+  }
+
+  public void setTextColor(Integer textColor) {
+    this.textColor = textColor;
+  }
+
+  public Link getLink() {
+    return this.link;
+  }
+
+  public void setLink(Link link) {
+    this.link = link;
+  }
+
+  public String[] getCommentIds() {
+    return this.commentIds;
+  }
+
+  public void setCommentIds(String[] commentIds) {
+    this.commentIds = commentIds;
+  }
+
+  // builder 开始
+  public TextElementStyle() {}
+
+  public TextElementStyle(Builder builder) {
     /**
      * 加粗
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("bold")
-    private Boolean bold;
+    this.bold = builder.bold;
     /**
      * 斜体
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("italic")
-    private Boolean italic;
+    this.italic = builder.italic;
     /**
      * 删除线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("strikethrough")
-    private Boolean strikethrough;
+    this.strikethrough = builder.strikethrough;
     /**
      * 下划线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("underline")
-    private Boolean underline;
+    this.underline = builder.underline;
     /**
      * inline 代码
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("inline_code")
-    private Boolean inlineCode;
+    this.inlineCode = builder.inlineCode;
     /**
      * 背景色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("background_color")
-    private Integer backgroundColor;
+    this.backgroundColor = builder.backgroundColor;
     /**
      * 字体颜色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("text_color")
-    private Integer textColor;
+    this.textColor = builder.textColor;
     /**
      * 链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("link")
-    private Link link;
+    this.link = builder.link;
     /**
-     * 评论 id 列表
-     * <p> 示例值：["1660030311959965796"]
+     * 评论 ID 列表。在创建 Block 时，不支持传入评论 ID；在更新文本 Block 的 Element 时，允许将对应版本已存在的评论 ID 移动到同一个 Block 内的任意
+     * Element 中，但不支持传入新的评论
+     * ID。如需查询评论内容请阅览「[获取回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list)」
+     * API。
+     *
+     * <p>示例值：["1660030311959965796"]
      */
-    @SerializedName("comment_ids")
+    this.commentIds = builder.commentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 加粗
+     *
+     * <p>示例值：true
+     */
+    private Boolean bold;
+
+    /**
+     * 斜体
+     *
+     * <p>示例值：true
+     */
+    private Boolean italic;
+
+    /**
+     * 删除线
+     *
+     * <p>示例值：true
+     */
+    private Boolean strikethrough;
+
+    /**
+     * 下划线
+     *
+     * <p>示例值：true
+     */
+    private Boolean underline;
+
+    /**
+     * inline 代码
+     *
+     * <p>示例值：true
+     */
+    private Boolean inlineCode;
+
+    /**
+     * 背景色
+     *
+     * <p>示例值：1
+     */
+    private Integer backgroundColor;
+
+    /**
+     * 字体颜色
+     *
+     * <p>示例值：1
+     */
+    private Integer textColor;
+
+    /**
+     * 链接
+     *
+     * <p>示例值：
+     */
+    private Link link;
+
+    /**
+     * 评论 ID 列表。在创建 Block 时，不支持传入评论 ID；在更新文本 Block 的 Element 时，允许将对应版本已存在的评论 ID 移动到同一个 Block 内的任意
+     * Element 中，但不支持传入新的评论
+     * ID。如需查询评论内容请阅览「[获取回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list)」
+     * API。
+     *
+     * <p>示例值：["1660030311959965796"]
+     */
     private String[] commentIds;
 
-    // builder 开始
-    public TextElementStyle() {
+    /**
+     * 加粗
+     *
+     * <p>示例值：true
+     *
+     * @param bold
+     * @return
+     */
+    public Builder bold(Boolean bold) {
+      this.bold = bold;
+      return this;
     }
 
-    public TextElementStyle(Builder builder) {
-        /**
-         * 加粗
-         * <p> 示例值：true
-         */
-        this.bold = builder.bold;
-        /**
-         * 斜体
-         * <p> 示例值：true
-         */
-        this.italic = builder.italic;
-        /**
-         * 删除线
-         * <p> 示例值：true
-         */
-        this.strikethrough = builder.strikethrough;
-        /**
-         * 下划线
-         * <p> 示例值：true
-         */
-        this.underline = builder.underline;
-        /**
-         * inline 代码
-         * <p> 示例值：true
-         */
-        this.inlineCode = builder.inlineCode;
-        /**
-         * 背景色
-         * <p> 示例值：1
-         */
-        this.backgroundColor = builder.backgroundColor;
-        /**
-         * 字体颜色
-         * <p> 示例值：1
-         */
-        this.textColor = builder.textColor;
-        /**
-         * 链接
-         * <p> 示例值：
-         */
-        this.link = builder.link;
-        /**
-         * 评论 id 列表
-         * <p> 示例值：["1660030311959965796"]
-         */
-        this.commentIds = builder.commentIds;
+    /**
+     * 斜体
+     *
+     * <p>示例值：true
+     *
+     * @param italic
+     * @return
+     */
+    public Builder italic(Boolean italic) {
+      this.italic = italic;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 删除线
+     *
+     * <p>示例值：true
+     *
+     * @param strikethrough
+     * @return
+     */
+    public Builder strikethrough(Boolean strikethrough) {
+      this.strikethrough = strikethrough;
+      return this;
     }
 
-    public Boolean getBold() {
-        return this.bold;
+    /**
+     * 下划线
+     *
+     * <p>示例值：true
+     *
+     * @param underline
+     * @return
+     */
+    public Builder underline(Boolean underline) {
+      this.underline = underline;
+      return this;
     }
 
-    public void setBold(Boolean bold) {
-        this.bold = bold;
+    /**
+     * inline 代码
+     *
+     * <p>示例值：true
+     *
+     * @param inlineCode
+     * @return
+     */
+    public Builder inlineCode(Boolean inlineCode) {
+      this.inlineCode = inlineCode;
+      return this;
     }
 
-    public Boolean getItalic() {
-        return this.italic;
+    /**
+     * 背景色
+     *
+     * <p>示例值：1
+     *
+     * @param backgroundColor
+     * @return
+     */
+    public Builder backgroundColor(Integer backgroundColor) {
+      this.backgroundColor = backgroundColor;
+      return this;
     }
 
-    public void setItalic(Boolean italic) {
-        this.italic = italic;
+    /**
+     * 背景色
+     *
+     * <p>示例值：1
+     *
+     * @param backgroundColor {@link
+     *     com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum}
+     * @return
+     */
+    public Builder backgroundColor(
+        com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum
+            backgroundColor) {
+      this.backgroundColor = backgroundColor.getValue();
+      return this;
     }
 
-    public Boolean getStrikethrough() {
-        return this.strikethrough;
+    /**
+     * 字体颜色
+     *
+     * <p>示例值：1
+     *
+     * @param textColor
+     * @return
+     */
+    public Builder textColor(Integer textColor) {
+      this.textColor = textColor;
+      return this;
     }
 
-    public void setStrikethrough(Boolean strikethrough) {
-        this.strikethrough = strikethrough;
+    /**
+     * 字体颜色
+     *
+     * <p>示例值：1
+     *
+     * @param textColor {@link com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum}
+     * @return
+     */
+    public Builder textColor(
+        com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum textColor) {
+      this.textColor = textColor.getValue();
+      return this;
     }
 
-    public Boolean getUnderline() {
-        return this.underline;
+    /**
+     * 链接
+     *
+     * <p>示例值：
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(Link link) {
+      this.link = link;
+      return this;
     }
 
-    public void setUnderline(Boolean underline) {
-        this.underline = underline;
+    /**
+     * 评论 ID 列表。在创建 Block 时，不支持传入评论 ID；在更新文本 Block 的 Element 时，允许将对应版本已存在的评论 ID 移动到同一个 Block 内的任意
+     * Element 中，但不支持传入新的评论
+     * ID。如需查询评论内容请阅览「[获取回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/list)」
+     * API。
+     *
+     * <p>示例值：["1660030311959965796"]
+     *
+     * @param commentIds
+     * @return
+     */
+    public Builder commentIds(String[] commentIds) {
+      this.commentIds = commentIds;
+      return this;
     }
 
-    public Boolean getInlineCode() {
-        return this.inlineCode;
+    public TextElementStyle build() {
+      return new TextElementStyle(this);
     }
+  }
 
-    public void setInlineCode(Boolean inlineCode) {
-        this.inlineCode = inlineCode;
-    }
-
-    public Integer getBackgroundColor() {
-        return this.backgroundColor;
-    }
-
-    public void setBackgroundColor(Integer backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
-    public Integer getTextColor() {
-        return this.textColor;
-    }
-
-    public void setTextColor(Integer textColor) {
-        this.textColor = textColor;
-    }
-
-    public Link getLink() {
-        return this.link;
-    }
-
-    public void setLink(Link link) {
-        this.link = link;
-    }
-
-    public String[] getCommentIds() {
-        return this.commentIds;
-    }
-
-    public void setCommentIds(String[] commentIds) {
-        this.commentIds = commentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 加粗
-         * <p> 示例值：true
-         */
-        private Boolean bold;
-        /**
-         * 斜体
-         * <p> 示例值：true
-         */
-        private Boolean italic;
-        /**
-         * 删除线
-         * <p> 示例值：true
-         */
-        private Boolean strikethrough;
-        /**
-         * 下划线
-         * <p> 示例值：true
-         */
-        private Boolean underline;
-        /**
-         * inline 代码
-         * <p> 示例值：true
-         */
-        private Boolean inlineCode;
-        /**
-         * 背景色
-         * <p> 示例值：1
-         */
-        private Integer backgroundColor;
-        /**
-         * 字体颜色
-         * <p> 示例值：1
-         */
-        private Integer textColor;
-        /**
-         * 链接
-         * <p> 示例值：
-         */
-        private Link link;
-        /**
-         * 评论 id 列表
-         * <p> 示例值：["1660030311959965796"]
-         */
-        private String[] commentIds;
-
-        /**
-         * 加粗
-         * <p> 示例值：true
-         *
-         * @param bold
-         * @return
-         */
-        public Builder bold(Boolean bold) {
-            this.bold = bold;
-            return this;
-        }
-
-
-        /**
-         * 斜体
-         * <p> 示例值：true
-         *
-         * @param italic
-         * @return
-         */
-        public Builder italic(Boolean italic) {
-            this.italic = italic;
-            return this;
-        }
-
-
-        /**
-         * 删除线
-         * <p> 示例值：true
-         *
-         * @param strikethrough
-         * @return
-         */
-        public Builder strikethrough(Boolean strikethrough) {
-            this.strikethrough = strikethrough;
-            return this;
-        }
-
-
-        /**
-         * 下划线
-         * <p> 示例值：true
-         *
-         * @param underline
-         * @return
-         */
-        public Builder underline(Boolean underline) {
-            this.underline = underline;
-            return this;
-        }
-
-
-        /**
-         * inline 代码
-         * <p> 示例值：true
-         *
-         * @param inlineCode
-         * @return
-         */
-        public Builder inlineCode(Boolean inlineCode) {
-            this.inlineCode = inlineCode;
-            return this;
-        }
-
-
-        /**
-         * 背景色
-         * <p> 示例值：1
-         *
-         * @param backgroundColor
-         * @return
-         */
-        public Builder backgroundColor(Integer backgroundColor) {
-            this.backgroundColor = backgroundColor;
-            return this;
-        }
-
-        /**
-         * 背景色
-         * <p> 示例值：1
-         *
-         * @param backgroundColor {@link com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum}
-         * @return
-         */
-        public Builder backgroundColor(com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum backgroundColor) {
-            this.backgroundColor = backgroundColor.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字体颜色
-         * <p> 示例值：1
-         *
-         * @param textColor
-         * @return
-         */
-        public Builder textColor(Integer textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-
-        /**
-         * 字体颜色
-         * <p> 示例值：1
-         *
-         * @param textColor {@link com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum}
-         * @return
-         */
-        public Builder textColor(com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum textColor) {
-            this.textColor = textColor.getValue();
-            return this;
-        }
-
-
-        /**
-         * 链接
-         * <p> 示例值：
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(Link link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * 评论 id 列表
-         * <p> 示例值：["1660030311959965796"]
-         *
-         * @param commentIds
-         * @return
-         */
-        public Builder commentIds(String[] commentIds) {
-            this.commentIds = commentIds;
-            return this;
-        }
-
-
-        public TextElementStyle build() {
-            return new TextElementStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

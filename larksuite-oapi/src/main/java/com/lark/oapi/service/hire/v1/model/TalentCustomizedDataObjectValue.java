@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCustomizedDataObjectValue {
+  /**
+   * 自定义字段 ID
+   *
+   * <p>示例值：6934193211960330504
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 自定义字段 value
+   *
+   * <p>示例值：自定字段值
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 子字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private TalentCustomizedDataObjectValueChild[] children;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public TalentCustomizedDataObjectValueChild[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(TalentCustomizedDataObjectValueChild[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public TalentCustomizedDataObjectValue() {}
+
+  public TalentCustomizedDataObjectValue(Builder builder) {
     /**
      * 自定义字段 ID
-     * <p> 示例值：6934193211960330504
+     *
+     * <p>示例值：6934193211960330504
      */
-    @SerializedName("object_id")
-    private String objectId;
+    this.objectId = builder.objectId;
     /**
      * 自定义字段 value
-     * <p> 示例值：自定字段值
+     *
+     * <p>示例值：自定字段值
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 子字段列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段 ID
+     *
+     * <p>示例值：6934193211960330504
+     */
+    private String objectId;
+
+    /**
+     * 自定义字段 value
+     *
+     * <p>示例值：自定字段值
+     */
+    private String value;
+
+    /**
+     * 子字段列表
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataObjectValueChild[] children;
 
-    // builder 开始
-    public TalentCustomizedDataObjectValue() {
+    /**
+     * 自定义字段 ID
+     *
+     * <p>示例值：6934193211960330504
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public TalentCustomizedDataObjectValue(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 自定义字段 value
-         * <p> 示例值：自定字段值
-         */
-        this.value = builder.value;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 自定义字段 value
+     *
+     * <p>示例值：自定字段值
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子字段列表
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(TalentCustomizedDataObjectValueChild[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getObjectId() {
-        return this.objectId;
+    public TalentCustomizedDataObjectValue build() {
+      return new TalentCustomizedDataObjectValue(this);
     }
+  }
 
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public TalentCustomizedDataObjectValueChild[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(TalentCustomizedDataObjectValueChild[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         */
-        private String objectId;
-        /**
-         * 自定义字段 value
-         * <p> 示例值：自定字段值
-         */
-        private String value;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataObjectValueChild[] children;
-
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段 value
-         * <p> 示例值：自定字段值
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(TalentCustomizedDataObjectValueChild[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public TalentCustomizedDataObjectValue build() {
-            return new TalentCustomizedDataObjectValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

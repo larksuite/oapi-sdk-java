@@ -13,235 +13,247 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalUser {
+  /**
+   * 外部用户ID
+   *
+   * <p>示例值：66822819a2c0062c
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
+   *
+   * <p>示例值：xxx@xxx.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
+   *
+   * <p>示例值：+86139xxxxxxxx
+   */
+  @SerializedName("phone")
+  private String phone;
+
+  /**
+   * 外部用户姓名
+   *
+   * <p>示例值：小李
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active")
+  private Integer active;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getActive() {
+    return this.active;
+  }
+
+  public void setActive(Integer active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public ExternalUser() {}
+
+  public ExternalUser(Builder builder) {
     /**
      * 外部用户ID
-     * <p> 示例值：66822819a2c0062c
+     *
+     * <p>示例值：66822819a2c0062c
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
-     * <p> 示例值：xxx@xxx.com
+     *
+     * <p>示例值：xxx@xxx.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
-     * <p> 示例值：+86139xxxxxxxx
+     *
+     * <p>示例值：+86139xxxxxxxx
      */
-    @SerializedName("phone")
-    private String phone;
+    this.phone = builder.phone;
     /**
      * 外部用户姓名
-     * <p> 示例值：小李
+     *
+     * <p>示例值：小李
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 外部用户ID
+     *
+     * <p>示例值：66822819a2c0062c
+     */
+    private String userId;
+
+    /**
+     * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
+     *
+     * <p>示例值：xxx@xxx.com
+     */
+    private String email;
+
+    /**
+     * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
+     *
+     * <p>示例值：+86139xxxxxxxx
+     */
+    private String phone;
+
+    /**
+     * 外部用户姓名
+     *
+     * <p>示例值：小李
+     */
+    private String name;
+
+    /**
+     * 用户状态
+     *
+     * <p>示例值：1
+     */
     private Integer active;
 
-    // builder 开始
-    public ExternalUser() {
+    /**
+     * 外部用户ID
+     *
+     * <p>示例值：66822819a2c0062c
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ExternalUser(Builder builder) {
-        /**
-         * 外部用户ID
-         * <p> 示例值：66822819a2c0062c
-         */
-        this.userId = builder.userId;
-        /**
-         * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
-         * <p> 示例值：xxx@xxx.com
-         */
-        this.email = builder.email;
-        /**
-         * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
-         * <p> 示例值：+86139xxxxxxxx
-         */
-        this.phone = builder.phone;
-        /**
-         * 外部用户姓名
-         * <p> 示例值：小李
-         */
-        this.name = builder.name;
-        /**
-         * 用户状态
-         * <p> 示例值：1
-         */
-        this.active = builder.active;
+    /**
+     * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
+     *
+     * <p>示例值：xxx@xxx.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
+     *
+     * <p>示例值：+86139xxxxxxxx
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 外部用户姓名
+     *
+     * <p>示例值：小李
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 用户状态
+     *
+     * <p>示例值：1
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Integer active) {
+      this.active = active;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 用户状态
+     *
+     * <p>示例值：1
+     *
+     * @param active {@link com.lark.oapi.service.elearning.v2.enums.ExternalUserUserActiveEnum}
+     * @return
+     */
+    public Builder active(
+        com.lark.oapi.service.elearning.v2.enums.ExternalUserUserActiveEnum active) {
+      this.active = active.getValue();
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public ExternalUser build() {
+      return new ExternalUser(this);
     }
+  }
 
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getActive() {
-        return this.active;
-    }
-
-    public void setActive(Integer active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 外部用户ID
-         * <p> 示例值：66822819a2c0062c
-         */
-        private String userId;
-        /**
-         * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
-         * <p> 示例值：xxx@xxx.com
-         */
-        private String email;
-        /**
-         * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
-         * <p> 示例值：+86139xxxxxxxx
-         */
-        private String phone;
-        /**
-         * 外部用户姓名
-         * <p> 示例值：小李
-         */
-        private String name;
-        /**
-         * 用户状态
-         * <p> 示例值：1
-         */
-        private Integer active;
-
-        /**
-         * 外部用户ID
-         * <p> 示例值：66822819a2c0062c
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 外部用户邮箱，当查询参数targets_type为email时，此值才返回
-         * <p> 示例值：xxx@xxx.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 外部用户手机号码，当查询参数targets_type为phone时，此值才返回
-         * <p> 示例值：+86139xxxxxxxx
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 外部用户姓名
-         * <p> 示例值：小李
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户状态
-         * <p> 示例值：1
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Integer active) {
-            this.active = active;
-            return this;
-        }
-
-        /**
-         * 用户状态
-         * <p> 示例值：1
-         *
-         * @param active {@link com.lark.oapi.service.elearning.v2.enums.ExternalUserUserActiveEnum}
-         * @return
-         */
-        public Builder active(com.lark.oapi.service.elearning.v2.enums.ExternalUserUserActiveEnum active) {
-            this.active = active.getValue();
-            return this;
-        }
-
-
-        public ExternalUser build() {
-            return new ExternalUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

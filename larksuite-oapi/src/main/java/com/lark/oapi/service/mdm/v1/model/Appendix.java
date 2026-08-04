@@ -13,235 +13,246 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Appendix {
+  /**
+   * 文件id(文件的唯一标识)
+   *
+   * <p>示例值：5c7237e821a8409d9b8b2e1041cdc9a4
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 文件名称
+   *
+   * <p>示例值：附件
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：DOX
+   */
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 文件大小
+   *
+   * <p>示例值：1024
+   */
+  @SerializedName("file_size")
+  private Integer fileSize;
+
+  /**
+   * 文件下载地址
+   *
+   * <p>示例值：http://download.com/xxxxx
+   */
+  @SerializedName("download_url")
+  private String downloadUrl;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public Integer getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(Integer fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public String getDownloadUrl() {
+    return this.downloadUrl;
+  }
+
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+  }
+
+  // builder 开始
+  public Appendix() {}
+
+  public Appendix(Builder builder) {
     /**
      * 文件id(文件的唯一标识)
-     * <p> 示例值：5c7237e821a8409d9b8b2e1041cdc9a4
+     *
+     * <p>示例值：5c7237e821a8409d9b8b2e1041cdc9a4
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 文件名称
-     * <p> 示例值：附件
+     *
+     * <p>示例值：附件
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 文件类型
-     * <p> 示例值：DOX
+     *
+     * <p>示例值：DOX
      */
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 文件大小
-     * <p> 示例值：1024
+     *
+     * <p>示例值：1024
      */
-    @SerializedName("file_size")
-    private Integer fileSize;
+    this.fileSize = builder.fileSize;
     /**
      * 文件下载地址
-     * <p> 示例值：http://download.com/xxxxx
+     *
+     * <p>示例值：http://download.com/xxxxx
      */
-    @SerializedName("download_url")
+    this.downloadUrl = builder.downloadUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 文件id(文件的唯一标识)
+     *
+     * <p>示例值：5c7237e821a8409d9b8b2e1041cdc9a4
+     */
+    private String fileId;
+
+    /**
+     * 文件名称
+     *
+     * <p>示例值：附件
+     */
+    private String fileName;
+
+    /**
+     * 文件类型
+     *
+     * <p>示例值：DOX
+     */
+    private String fileType;
+
+    /**
+     * 文件大小
+     *
+     * <p>示例值：1024
+     */
+    private Integer fileSize;
+
+    /**
+     * 文件下载地址
+     *
+     * <p>示例值：http://download.com/xxxxx
+     */
     private String downloadUrl;
 
-    // builder 开始
-    public Appendix() {
+    /**
+     * 文件id(文件的唯一标识)
+     *
+     * <p>示例值：5c7237e821a8409d9b8b2e1041cdc9a4
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public Appendix(Builder builder) {
-        /**
-         * 文件id(文件的唯一标识)
-         * <p> 示例值：5c7237e821a8409d9b8b2e1041cdc9a4
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：附件
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件类型
-         * <p> 示例值：DOX
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 文件下载地址
-         * <p> 示例值：http://download.com/xxxxx
-         */
-        this.downloadUrl = builder.downloadUrl;
+    /**
+     * 文件名称
+     *
+     * <p>示例值：附件
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件类型
+     *
+     * <p>示例值：DOX
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    /**
+     * 文件类型
+     *
+     * <p>示例值：DOX
+     *
+     * @param fileType {@link com.lark.oapi.service.mdm.v1.enums.AppendixFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(com.lark.oapi.service.mdm.v1.enums.AppendixFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    /**
+     * 文件大小
+     *
+     * <p>示例值：1024
+     *
+     * @param fileSize
+     * @return
+     */
+    public Builder fileSize(Integer fileSize) {
+      this.fileSize = fileSize;
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    /**
+     * 文件下载地址
+     *
+     * <p>示例值：http://download.com/xxxxx
+     *
+     * @param downloadUrl
+     * @return
+     */
+    public Builder downloadUrl(String downloadUrl) {
+      this.downloadUrl = downloadUrl;
+      return this;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public Appendix build() {
+      return new Appendix(this);
     }
+  }
 
-    public String getFileType() {
-        return this.fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public String getDownloadUrl() {
-        return this.downloadUrl;
-    }
-
-    public void setDownloadUrl(String downloadUrl) {
-        this.downloadUrl = downloadUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 文件id(文件的唯一标识)
-         * <p> 示例值：5c7237e821a8409d9b8b2e1041cdc9a4
-         */
-        private String fileId;
-        /**
-         * 文件名称
-         * <p> 示例值：附件
-         */
-        private String fileName;
-        /**
-         * 文件类型
-         * <p> 示例值：DOX
-         */
-        private String fileType;
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         */
-        private Integer fileSize;
-        /**
-         * 文件下载地址
-         * <p> 示例值：http://download.com/xxxxx
-         */
-        private String downloadUrl;
-
-        /**
-         * 文件id(文件的唯一标识)
-         * <p> 示例值：5c7237e821a8409d9b8b2e1041cdc9a4
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 文件名称
-         * <p> 示例值：附件
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：DOX
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文件类型
-         * <p> 示例值：DOX
-         *
-         * @param fileType {@link com.lark.oapi.service.mdm.v1.enums.AppendixFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.mdm.v1.enums.AppendixFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文件大小
-         * <p> 示例值：1024
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
-            return this;
-        }
-
-
-        /**
-         * 文件下载地址
-         * <p> 示例值：http://download.com/xxxxx
-         *
-         * @param downloadUrl
-         * @return
-         */
-        public Builder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
-        }
-
-
-        public Appendix build() {
-            return new Appendix(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

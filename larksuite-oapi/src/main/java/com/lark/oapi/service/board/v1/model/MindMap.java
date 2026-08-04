@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MindMap {
+  /**
+   * 父节点id
+   *
+   * <p>示例值：z1:1
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  // builder 开始
+  public MindMap() {}
+
+  public MindMap(Builder builder) {
     /**
      * 父节点id
-     * <p> 示例值：z1:1
+     *
+     * <p>示例值：z1:1
      */
-    @SerializedName("parent_id")
+    this.parentId = builder.parentId;
+  }
+
+  public static class Builder {
+    /**
+     * 父节点id
+     *
+     * <p>示例值：z1:1
+     */
     private String parentId;
 
-    // builder 开始
-    public MindMap() {
+    /**
+     * 父节点id
+     *
+     * <p>示例值：z1:1
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public MindMap(Builder builder) {
-        /**
-         * 父节点id
-         * <p> 示例值：z1:1
-         */
-        this.parentId = builder.parentId;
+    public MindMap build() {
+      return new MindMap(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public static class Builder {
-        /**
-         * 父节点id
-         * <p> 示例值：z1:1
-         */
-        private String parentId;
-
-        /**
-         * 父节点id
-         * <p> 示例值：z1:1
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        public MindMap build() {
-            return new MindMap(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

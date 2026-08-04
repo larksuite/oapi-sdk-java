@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchTrashUserMailboxThreadReqBody {
+  /**
+   * 邮箱会话ID，可通过列出邮件会话接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("thread_ids")
+  private String[] threadIds;
+
+  public String[] getThreadIds() {
+    return this.threadIds;
+  }
+
+  public void setThreadIds(String[] threadIds) {
+    this.threadIds = threadIds;
+  }
+
+  // builder 开始
+  public BatchTrashUserMailboxThreadReqBody() {}
+
+  public BatchTrashUserMailboxThreadReqBody(Builder builder) {
     /**
      * 邮箱会话ID，可通过列出邮件会话接口获取
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("thread_ids")
+    this.threadIds = builder.threadIds;
+  }
+
+  public static class Builder {
+    /**
+     * 邮箱会话ID，可通过列出邮件会话接口获取
+     *
+     * <p>示例值：
+     */
     private String[] threadIds;
 
-    // builder 开始
-    public BatchTrashUserMailboxThreadReqBody() {
+    /**
+     * 邮箱会话ID，可通过列出邮件会话接口获取
+     *
+     * <p>示例值：
+     *
+     * @param threadIds
+     * @return
+     */
+    public Builder threadIds(String[] threadIds) {
+      this.threadIds = threadIds;
+      return this;
     }
 
-    public BatchTrashUserMailboxThreadReqBody(Builder builder) {
-        /**
-         * 邮箱会话ID，可通过列出邮件会话接口获取
-         * <p> 示例值：
-         */
-        this.threadIds = builder.threadIds;
+    public BatchTrashUserMailboxThreadReqBody build() {
+      return new BatchTrashUserMailboxThreadReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getThreadIds() {
-        return this.threadIds;
-    }
-
-    public void setThreadIds(String[] threadIds) {
-        this.threadIds = threadIds;
-    }
-
-    public static class Builder {
-        /**
-         * 邮箱会话ID，可通过列出邮件会话接口获取
-         * <p> 示例值：
-         */
-        private String[] threadIds;
-
-        /**
-         * 邮箱会话ID，可通过列出邮件会话接口获取
-         * <p> 示例值：
-         *
-         * @param threadIds
-         * @return
-         */
-        public Builder threadIds(String[] threadIds) {
-            this.threadIds = threadIds;
-            return this;
-        }
-
-
-        public BatchTrashUserMailboxThreadReqBody build() {
-            return new BatchTrashUserMailboxThreadReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteNationalIdTypeReq {
+  /**
+   * 需要删除的国家证件类型 ID
+   *
+   * <p>示例值：27837817381
+   */
+  @Path
+  @SerializedName("national_id_type_id")
+  private String nationalIdTypeId;
+
+  public String getNationalIdTypeId() {
+    return this.nationalIdTypeId;
+  }
+
+  public void setNationalIdTypeId(String nationalIdTypeId) {
+    this.nationalIdTypeId = nationalIdTypeId;
+  }
+
+  // builder 开始
+  public DeleteNationalIdTypeReq() {}
+
+  public DeleteNationalIdTypeReq(Builder builder) {
     /**
      * 需要删除的国家证件类型 ID
-     * <p> 示例值：27837817381
+     *
+     * <p>示例值：27837817381
      */
-    @Path
-    @SerializedName("national_id_type_id")
-    private String nationalIdTypeId;
+    this.nationalIdTypeId = builder.nationalIdTypeId;
+  }
 
-    // builder 开始
-    public DeleteNationalIdTypeReq() {
+  public static class Builder {
+
+    private String nationalIdTypeId; // 需要删除的国家证件类型 ID
+
+    /**
+     * 需要删除的国家证件类型 ID
+     *
+     * <p>示例值：27837817381
+     *
+     * @param nationalIdTypeId
+     * @return
+     */
+    public Builder nationalIdTypeId(String nationalIdTypeId) {
+      this.nationalIdTypeId = nationalIdTypeId;
+      return this;
     }
 
-    public DeleteNationalIdTypeReq(Builder builder) {
-        /**
-         * 需要删除的国家证件类型 ID
-         * <p> 示例值：27837817381
-         */
-        this.nationalIdTypeId = builder.nationalIdTypeId;
+    public DeleteNationalIdTypeReq build() {
+      return new DeleteNationalIdTypeReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getNationalIdTypeId() {
-        return this.nationalIdTypeId;
-    }
-
-    public void setNationalIdTypeId(String nationalIdTypeId) {
-        this.nationalIdTypeId = nationalIdTypeId;
-    }
-
-    public static class Builder {
-
-        private String nationalIdTypeId; // 需要删除的国家证件类型 ID
-
-        /**
-         * 需要删除的国家证件类型 ID
-         * <p> 示例值：27837817381
-         *
-         * @param nationalIdTypeId
-         * @return
-         */
-        public Builder nationalIdTypeId(String nationalIdTypeId) {
-            this.nationalIdTypeId = nationalIdTypeId;
-            return this;
-        }
-
-
-        public DeleteNationalIdTypeReq build() {
-            return new DeleteNationalIdTypeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

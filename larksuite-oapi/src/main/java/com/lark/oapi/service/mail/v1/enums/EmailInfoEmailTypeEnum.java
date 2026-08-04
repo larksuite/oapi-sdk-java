@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 邮箱地址类型
- */
+/** 邮箱地址类型 */
 public enum EmailInfoEmailTypeEnum {
-    MAILGROUP("MAIL_GROUP"), // 邮件组
-    PUBLIXMAILBOX("PUBLIC_MAILBOX"), // 公共邮箱
-    USERPRIMARY("USER_PRIMARY"), // 用户主地址
-    USERALIAS("USER_ALIAS"), // 用户别名
-    PUBLIXMAILBOXALIAS("PUBLIC_MAILBOX_ALIAS"), // 公共邮箱别名
-    ;
-    private String value;
+  MAILGROUP("MAIL_GROUP"), // 邮件组
+  PUBLIXMAILBOX("PUBLIC_MAILBOX"), // 公共邮箱
+  USERPRIMARY("USER_PRIMARY"), // 用户主地址
+  USERALIAS("USER_ALIAS"), // 用户别名
+  PUBLIXMAILBOXALIAS("PUBLIC_MAILBOX_ALIAS"), // 公共邮箱别名
+  ;
+  private String value;
 
-    EmailInfoEmailTypeEnum(String value) {
-        this.value = value;
-    }
+  EmailInfoEmailTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

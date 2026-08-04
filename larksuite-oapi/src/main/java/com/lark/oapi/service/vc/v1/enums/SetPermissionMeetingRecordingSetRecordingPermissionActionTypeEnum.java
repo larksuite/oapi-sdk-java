@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 授权或者取消授权，默认授权
- */
+/** 授权或者取消授权，默认授权 */
 public enum SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum {
-    AUTHORIZE(0), // 授权
-    REVOKE(1), // 取消授权
-    ;
-    private Integer value;
+  AUTHORIZE(0), // 授权
+  REVOKE(1), // 取消授权
+  ;
+  private Integer value;
 
-    SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

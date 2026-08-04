@@ -13,259 +13,281 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalDailyDetail {
+  /**
+   * 日期
+   *
+   * <p>示例值：2024-10-21
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 加班时长
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("duration")
+  private String duration;
+
+  /**
+   * 加班时长单位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overtime_unit")
+  private Integer overtimeUnit;
+
+  /**
+   * 加班日期类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overtime_date_type")
+  private Integer overtimeDateType;
+
+  /**
+   * 加班结算方式类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("settle_type_enum")
+  private Integer settleTypeEnum;
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getDuration() {
+    return this.duration;
+  }
+
+  public void setDuration(String duration) {
+    this.duration = duration;
+  }
+
+  public Integer getOvertimeUnit() {
+    return this.overtimeUnit;
+  }
+
+  public void setOvertimeUnit(Integer overtimeUnit) {
+    this.overtimeUnit = overtimeUnit;
+  }
+
+  public Integer getOvertimeDateType() {
+    return this.overtimeDateType;
+  }
+
+  public void setOvertimeDateType(Integer overtimeDateType) {
+    this.overtimeDateType = overtimeDateType;
+  }
+
+  public Integer getSettleTypeEnum() {
+    return this.settleTypeEnum;
+  }
+
+  public void setSettleTypeEnum(Integer settleTypeEnum) {
+    this.settleTypeEnum = settleTypeEnum;
+  }
+
+  // builder 开始
+  public ApprovalDailyDetail() {}
+
+  public ApprovalDailyDetail(Builder builder) {
     /**
      * 日期
-     * <p> 示例值：2024-10-21
+     *
+     * <p>示例值：2024-10-21
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
      * 加班时长
-     * <p> 示例值：5
+     *
+     * <p>示例值：5
      */
-    @SerializedName("duration")
-    private String duration;
+    this.duration = builder.duration;
     /**
      * 加班时长单位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overtime_unit")
-    private Integer overtimeUnit;
+    this.overtimeUnit = builder.overtimeUnit;
     /**
      * 加班日期类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overtime_date_type")
-    private Integer overtimeDateType;
+    this.overtimeDateType = builder.overtimeDateType;
     /**
      * 加班结算方式类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("settle_type_enum")
+    this.settleTypeEnum = builder.settleTypeEnum;
+  }
+
+  public static class Builder {
+    /**
+     * 日期
+     *
+     * <p>示例值：2024-10-21
+     */
+    private String date;
+
+    /**
+     * 加班时长
+     *
+     * <p>示例值：5
+     */
+    private String duration;
+
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：
+     */
+    private Integer overtimeUnit;
+
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：
+     */
+    private Integer overtimeDateType;
+
+    /**
+     * 加班结算方式类型
+     *
+     * <p>示例值：1
+     */
     private Integer settleTypeEnum;
 
-    // builder 开始
-    public ApprovalDailyDetail() {
+    /**
+     * 日期
+     *
+     * <p>示例值：2024-10-21
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public ApprovalDailyDetail(Builder builder) {
-        /**
-         * 日期
-         * <p> 示例值：2024-10-21
-         */
-        this.date = builder.date;
-        /**
-         * 加班时长
-         * <p> 示例值：5
-         */
-        this.duration = builder.duration;
-        /**
-         * 加班时长单位
-         * <p> 示例值：
-         */
-        this.overtimeUnit = builder.overtimeUnit;
-        /**
-         * 加班日期类型
-         * <p> 示例值：
-         */
-        this.overtimeDateType = builder.overtimeDateType;
-        /**
-         * 加班结算方式类型
-         * <p> 示例值：1
-         */
-        this.settleTypeEnum = builder.settleTypeEnum;
+    /**
+     * 加班时长
+     *
+     * <p>示例值：5
+     *
+     * @param duration
+     * @return
+     */
+    public Builder duration(String duration) {
+      this.duration = duration;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：
+     *
+     * @param overtimeUnit
+     * @return
+     */
+    public Builder overtimeUnit(Integer overtimeUnit) {
+      this.overtimeUnit = overtimeUnit;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    /**
+     * 加班时长单位
+     *
+     * <p>示例值：
+     *
+     * @param overtimeUnit {@link
+     *     com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeUnitEnum}
+     * @return
+     */
+    public Builder overtimeUnit(
+        com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeUnitEnum
+            overtimeUnit) {
+      this.overtimeUnit = overtimeUnit.getValue();
+      return this;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：
+     *
+     * @param overtimeDateType
+     * @return
+     */
+    public Builder overtimeDateType(Integer overtimeDateType) {
+      this.overtimeDateType = overtimeDateType;
+      return this;
     }
 
-    public String getDuration() {
-        return this.duration;
+    /**
+     * 加班日期类型
+     *
+     * <p>示例值：
+     *
+     * @param overtimeDateType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeDateTypeEnum}
+     * @return
+     */
+    public Builder overtimeDateType(
+        com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeDateTypeEnum
+            overtimeDateType) {
+      this.overtimeDateType = overtimeDateType.getValue();
+      return this;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    /**
+     * 加班结算方式类型
+     *
+     * <p>示例值：1
+     *
+     * @param settleTypeEnum
+     * @return
+     */
+    public Builder settleTypeEnum(Integer settleTypeEnum) {
+      this.settleTypeEnum = settleTypeEnum;
+      return this;
     }
 
-    public Integer getOvertimeUnit() {
-        return this.overtimeUnit;
+    /**
+     * 加班结算方式类型
+     *
+     * <p>示例值：1
+     *
+     * @param settleTypeEnum {@link
+     *     com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailSettleTypeEnumEnum}
+     * @return
+     */
+    public Builder settleTypeEnum(
+        com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailSettleTypeEnumEnum
+            settleTypeEnum) {
+      this.settleTypeEnum = settleTypeEnum.getValue();
+      return this;
     }
 
-    public void setOvertimeUnit(Integer overtimeUnit) {
-        this.overtimeUnit = overtimeUnit;
+    public ApprovalDailyDetail build() {
+      return new ApprovalDailyDetail(this);
     }
+  }
 
-    public Integer getOvertimeDateType() {
-        return this.overtimeDateType;
-    }
-
-    public void setOvertimeDateType(Integer overtimeDateType) {
-        this.overtimeDateType = overtimeDateType;
-    }
-
-    public Integer getSettleTypeEnum() {
-        return this.settleTypeEnum;
-    }
-
-    public void setSettleTypeEnum(Integer settleTypeEnum) {
-        this.settleTypeEnum = settleTypeEnum;
-    }
-
-    public static class Builder {
-        /**
-         * 日期
-         * <p> 示例值：2024-10-21
-         */
-        private String date;
-        /**
-         * 加班时长
-         * <p> 示例值：5
-         */
-        private String duration;
-        /**
-         * 加班时长单位
-         * <p> 示例值：
-         */
-        private Integer overtimeUnit;
-        /**
-         * 加班日期类型
-         * <p> 示例值：
-         */
-        private Integer overtimeDateType;
-        /**
-         * 加班结算方式类型
-         * <p> 示例值：1
-         */
-        private Integer settleTypeEnum;
-
-        /**
-         * 日期
-         * <p> 示例值：2024-10-21
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 加班时长
-         * <p> 示例值：5
-         *
-         * @param duration
-         * @return
-         */
-        public Builder duration(String duration) {
-            this.duration = duration;
-            return this;
-        }
-
-
-        /**
-         * 加班时长单位
-         * <p> 示例值：
-         *
-         * @param overtimeUnit
-         * @return
-         */
-        public Builder overtimeUnit(Integer overtimeUnit) {
-            this.overtimeUnit = overtimeUnit;
-            return this;
-        }
-
-        /**
-         * 加班时长单位
-         * <p> 示例值：
-         *
-         * @param overtimeUnit {@link com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeUnitEnum}
-         * @return
-         */
-        public Builder overtimeUnit(com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeUnitEnum overtimeUnit) {
-            this.overtimeUnit = overtimeUnit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加班日期类型
-         * <p> 示例值：
-         *
-         * @param overtimeDateType
-         * @return
-         */
-        public Builder overtimeDateType(Integer overtimeDateType) {
-            this.overtimeDateType = overtimeDateType;
-            return this;
-        }
-
-        /**
-         * 加班日期类型
-         * <p> 示例值：
-         *
-         * @param overtimeDateType {@link com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeDateTypeEnum}
-         * @return
-         */
-        public Builder overtimeDateType(com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailOvertimeDateTypeEnum overtimeDateType) {
-            this.overtimeDateType = overtimeDateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加班结算方式类型
-         * <p> 示例值：1
-         *
-         * @param settleTypeEnum
-         * @return
-         */
-        public Builder settleTypeEnum(Integer settleTypeEnum) {
-            this.settleTypeEnum = settleTypeEnum;
-            return this;
-        }
-
-        /**
-         * 加班结算方式类型
-         * <p> 示例值：1
-         *
-         * @param settleTypeEnum {@link com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailSettleTypeEnumEnum}
-         * @return
-         */
-        public Builder settleTypeEnum(com.lark.oapi.service.attendance.v1.enums.ApprovalDailyDetailSettleTypeEnumEnum settleTypeEnum) {
-            this.settleTypeEnum = settleTypeEnum.getValue();
-            return this;
-        }
-
-
-        public ApprovalDailyDetail build() {
-            return new ApprovalDailyDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

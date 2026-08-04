@@ -13,173 +13,227 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PlanCondition {
+  /**
+   * 适用范围左值
+   *
+   * <p>示例值：7
+   */
+  @SerializedName("left_type")
+  private Integer leftType;
+
+  /**
+   * 适用范围操作
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator")
+  private Integer operator;
+
+  /**
+   * -
+   * 适用范围左值为：部门、部门（包含下级部门），返回：部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得;;-
+   * 适用范围左值为：工作地点、工作地点（包含下级工作地点），返回：工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得;;-
+   * 适用范围左值为：公司、公司（包含下级公司），返回：公司ID，详细信息可以通过[通过公司 ID
+   * 批量获取公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询获得;;-
+   * 适用范围左值为：序列、序列（包含子序列），返回：序列ID，详细信息可以通过[通过序列 ID
+   * 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得;;-
+   * 适用范围左值为：职务，返回：职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得;;-
+   * 适用范围左值为：职级，返回：职级ID，详细信息可以通过[通过职级 ID
+   * 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得;;-
+   * 适用范围左值为：人员类型，返回：人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得;;-
+   * 适用范围左值为：招聘类型，返回：招聘类型;;- 适用范围左值为：国家/地区，返回：国家/地区;;-
+   * 适用范围左值为：职等，返回：职等ID，详细信息可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口查询获得
+   *
+   * <p>示例值：21341234
+   */
+  @SerializedName("right_value")
+  private String[] rightValue;
+
+  public Integer getLeftType() {
+    return this.leftType;
+  }
+
+  public void setLeftType(Integer leftType) {
+    this.leftType = leftType;
+  }
+
+  public Integer getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(Integer operator) {
+    this.operator = operator;
+  }
+
+  public String[] getRightValue() {
+    return this.rightValue;
+  }
+
+  public void setRightValue(String[] rightValue) {
+    this.rightValue = rightValue;
+  }
+
+  // builder 开始
+  public PlanCondition() {}
+
+  public PlanCondition(Builder builder) {
     /**
      * 适用范围左值
-     * <p> 示例值：7
+     *
+     * <p>示例值：7
      */
-    @SerializedName("left_type")
-    private Integer leftType;
+    this.leftType = builder.leftType;
     /**
      * 适用范围操作
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operator")
-    private Integer operator;
+    this.operator = builder.operator;
     /**
-     * 适用范围右值
-     * <p> 示例值：21341234
+     * -
+     * 适用范围左值为：部门、部门（包含下级部门），返回：部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得;;-
+     * 适用范围左值为：工作地点、工作地点（包含下级工作地点），返回：工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得;;-
+     * 适用范围左值为：公司、公司（包含下级公司），返回：公司ID，详细信息可以通过[通过公司 ID
+     * 批量获取公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询获得;;-
+     * 适用范围左值为：序列、序列（包含子序列），返回：序列ID，详细信息可以通过[通过序列 ID
+     * 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得;;-
+     * 适用范围左值为：职务，返回：职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得;;-
+     * 适用范围左值为：职级，返回：职级ID，详细信息可以通过[通过职级 ID
+     * 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得;;-
+     * 适用范围左值为：人员类型，返回：人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得;;-
+     * 适用范围左值为：招聘类型，返回：招聘类型;;- 适用范围左值为：国家/地区，返回：国家/地区;;-
+     * 适用范围左值为：职等，返回：职等ID，详细信息可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口查询获得
+     *
+     * <p>示例值：21341234
      */
-    @SerializedName("right_value")
+    this.rightValue = builder.rightValue;
+  }
+
+  public static class Builder {
+    /**
+     * 适用范围左值
+     *
+     * <p>示例值：7
+     */
+    private Integer leftType;
+
+    /**
+     * 适用范围操作
+     *
+     * <p>示例值：1
+     */
+    private Integer operator;
+
+    /**
+     * -
+     * 适用范围左值为：部门、部门（包含下级部门），返回：部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得;;-
+     * 适用范围左值为：工作地点、工作地点（包含下级工作地点），返回：工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得;;-
+     * 适用范围左值为：公司、公司（包含下级公司），返回：公司ID，详细信息可以通过[通过公司 ID
+     * 批量获取公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询获得;;-
+     * 适用范围左值为：序列、序列（包含子序列），返回：序列ID，详细信息可以通过[通过序列 ID
+     * 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得;;-
+     * 适用范围左值为：职务，返回：职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得;;-
+     * 适用范围左值为：职级，返回：职级ID，详细信息可以通过[通过职级 ID
+     * 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得;;-
+     * 适用范围左值为：人员类型，返回：人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得;;-
+     * 适用范围左值为：招聘类型，返回：招聘类型;;- 适用范围左值为：国家/地区，返回：国家/地区;;-
+     * 适用范围左值为：职等，返回：职等ID，详细信息可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口查询获得
+     *
+     * <p>示例值：21341234
+     */
     private String[] rightValue;
 
-    // builder 开始
-    public PlanCondition() {
+    /**
+     * 适用范围左值
+     *
+     * <p>示例值：7
+     *
+     * @param leftType
+     * @return
+     */
+    public Builder leftType(Integer leftType) {
+      this.leftType = leftType;
+      return this;
     }
 
-    public PlanCondition(Builder builder) {
-        /**
-         * 适用范围左值
-         * <p> 示例值：7
-         */
-        this.leftType = builder.leftType;
-        /**
-         * 适用范围操作
-         * <p> 示例值：1
-         */
-        this.operator = builder.operator;
-        /**
-         * 适用范围右值
-         * <p> 示例值：21341234
-         */
-        this.rightValue = builder.rightValue;
+    /**
+     * 适用范围左值
+     *
+     * <p>示例值：7
+     *
+     * @param leftType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeLeftTypeEnum}
+     * @return
+     */
+    public Builder leftType(
+        com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeLeftTypeEnum leftType) {
+      this.leftType = leftType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 适用范围操作
+     *
+     * <p>示例值：1
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(Integer operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public Integer getLeftType() {
-        return this.leftType;
+    /**
+     * 适用范围操作
+     *
+     * <p>示例值：1
+     *
+     * @param operator {@link
+     *     com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeOperatorEnum}
+     * @return
+     */
+    public Builder operator(
+        com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeOperatorEnum operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public void setLeftType(Integer leftType) {
-        this.leftType = leftType;
+    /**
+     * -
+     * 适用范围左值为：部门、部门（包含下级部门），返回：部门ID，详细信息可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询获得;;-
+     * 适用范围左值为：工作地点、工作地点（包含下级工作地点），返回：工作地点ID，详细信息可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得;;-
+     * 适用范围左值为：公司、公司（包含下级公司），返回：公司ID，详细信息可以通过[通过公司 ID
+     * 批量获取公司信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询获得;;-
+     * 适用范围左值为：序列、序列（包含子序列），返回：序列ID，详细信息可以通过[通过序列 ID
+     * 批量获取序列信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口查询获得;;-
+     * 适用范围左值为：职务，返回：职务ID，详细信息可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口查询获得;;-
+     * 适用范围左值为：职级，返回：职级ID，详细信息可以通过[通过职级 ID
+     * 批量获取职级信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口查询获得;;-
+     * 适用范围左值为：人员类型，返回：人员类型ID，详细信息可以通过[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)接口查询获得;;-
+     * 适用范围左值为：招聘类型，返回：招聘类型;;- 适用范围左值为：国家/地区，返回：国家/地区;;-
+     * 适用范围左值为：职等，返回：职等ID，详细信息可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口查询获得
+     *
+     * <p>示例值：21341234
+     *
+     * @param rightValue
+     * @return
+     */
+    public Builder rightValue(String[] rightValue) {
+      this.rightValue = rightValue;
+      return this;
     }
 
-    public Integer getOperator() {
-        return this.operator;
+    public PlanCondition build() {
+      return new PlanCondition(this);
     }
+  }
 
-    public void setOperator(Integer operator) {
-        this.operator = operator;
-    }
-
-    public String[] getRightValue() {
-        return this.rightValue;
-    }
-
-    public void setRightValue(String[] rightValue) {
-        this.rightValue = rightValue;
-    }
-
-    public static class Builder {
-        /**
-         * 适用范围左值
-         * <p> 示例值：7
-         */
-        private Integer leftType;
-        /**
-         * 适用范围操作
-         * <p> 示例值：1
-         */
-        private Integer operator;
-        /**
-         * 适用范围右值
-         * <p> 示例值：21341234
-         */
-        private String[] rightValue;
-
-        /**
-         * 适用范围左值
-         * <p> 示例值：7
-         *
-         * @param leftType
-         * @return
-         */
-        public Builder leftType(Integer leftType) {
-            this.leftType = leftType;
-            return this;
-        }
-
-        /**
-         * 适用范围左值
-         * <p> 示例值：7
-         *
-         * @param leftType {@link com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeLeftTypeEnum}
-         * @return
-         */
-        public Builder leftType(com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeLeftTypeEnum leftType) {
-            this.leftType = leftType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 适用范围操作
-         * <p> 示例值：1
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(Integer operator) {
-            this.operator = operator;
-            return this;
-        }
-
-        /**
-         * 适用范围操作
-         * <p> 示例值：1
-         *
-         * @param operator {@link com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeOperatorEnum}
-         * @return
-         */
-        public Builder operator(com.lark.oapi.service.compensation.v1.enums.PlanConditionScopeOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 适用范围右值
-         * <p> 示例值：21341234
-         *
-         * @param rightValue
-         * @return
-         */
-        public Builder rightValue(String[] rightValue) {
-            this.rightValue = rightValue;
-            return this;
-        }
-
-
-        public PlanCondition build() {
-            return new PlanCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

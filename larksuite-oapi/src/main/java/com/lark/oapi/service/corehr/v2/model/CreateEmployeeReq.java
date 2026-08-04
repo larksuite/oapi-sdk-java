@@ -13,229 +13,259 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class CreateEmployeeReq {
+  /**
+   * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+   *
+   * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 是否为离职重聘;- false：系统直接标为非离职重聘人员，不再做重复判断;- true：要求 rehire_employment_id
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("rehire")
+  private Boolean rehire;
+
+  /**
+   * 离职重聘员工雇佣
+   * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @Query
+  @SerializedName("rehire_employment_id")
+  private String rehireEmploymentId;
+
+  /**
+   * 是否强制提交;- true：是，跳过超编等校验;- false：否，被拦截报错
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("force_submit")
+  private Boolean forceSubmit;
+
+  /**
+   * 是否忽略工时制度自动生成规则;- 值为 false 时，以下字段必填：; - emp_contract_record.first_party; -
+   * employment_record.work_location; - employment_record.employee_type; -
+   * employment_record.job_family; - employment_record.job; - employment_record.job_level; -
+   * employment_record.department
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("ignore_working_hours_type_rule")
+  private Boolean ignoreWorkingHoursTypeRule;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public Boolean getRehire() {
+    return this.rehire;
+  }
+
+  public void setRehire(Boolean rehire) {
+    this.rehire = rehire;
+  }
+
+  public String getRehireEmploymentId() {
+    return this.rehireEmploymentId;
+  }
+
+  public void setRehireEmploymentId(String rehireEmploymentId) {
+    this.rehireEmploymentId = rehireEmploymentId;
+  }
+
+  public Boolean getForceSubmit() {
+    return this.forceSubmit;
+  }
+
+  public void setForceSubmit(Boolean forceSubmit) {
+    this.forceSubmit = forceSubmit;
+  }
+
+  public Boolean getIgnoreWorkingHoursTypeRule() {
+    return this.ignoreWorkingHoursTypeRule;
+  }
+
+  public void setIgnoreWorkingHoursTypeRule(Boolean ignoreWorkingHoursTypeRule) {
+    this.ignoreWorkingHoursTypeRule = ignoreWorkingHoursTypeRule;
+  }
+
+  @Body private CreateEmployeeReqBody body;
+
+  public CreateEmployeeReqBody getCreateEmployeeReqBody() {
+    return this.body;
+  }
+
+  public void setCreateEmployeeReqBody(CreateEmployeeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateEmployeeReq() {}
+
+  public CreateEmployeeReq(Builder builder) {
     /**
-     * 幂等标识，服务端会忽略client_token重复的请求
-     * <p> 示例值：12454646
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 是否为离职重聘：;false: 否，系统直接标为非离职重聘人员，不再做重复判断";true: 是，要求rehire_employment_id
-     * <p> 示例值：true
+     * 是否为离职重聘;- false：系统直接标为非离职重聘人员，不再做重复判断;- true：要求 rehire_employment_id
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("rehire")
-    private Boolean rehire;
+    this.rehire = builder.rehire;
     /**
-     * 离职重聘员工雇佣ID, rehire
-     * <p> 示例值：7140964208476371111
+     * 离职重聘员工雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：7140964208476371111
      */
-    @Query
-    @SerializedName("rehire_employment_id")
-    private String rehireEmploymentId;
+    this.rehireEmploymentId = builder.rehireEmploymentId;
     /**
-     * 是否强制提交，超编等场景需要用户确认影响才能提交
-     * <p> 示例值：false
+     * 是否强制提交;- true：是，跳过超编等校验;- false：否，被拦截报错
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("force_submit")
-    private Boolean forceSubmit;
+    this.forceSubmit = builder.forceSubmit;
     /**
-     * 是否忽略工时制度自动生成规则
-     * <p> 示例值：true
+     * 是否忽略工时制度自动生成规则;- 值为 false 时，以下字段必填：; - emp_contract_record.first_party; -
+     * employment_record.work_location; - employment_record.employee_type; -
+     * employment_record.job_family; - employment_record.job; - employment_record.job_level; -
+     * employment_record.department
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("ignore_working_hours_type_rule")
-    private Boolean ignoreWorkingHoursTypeRule;
-    @Body
+    this.ignoreWorkingHoursTypeRule = builder.ignoreWorkingHoursTypeRule;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+    private Boolean rehire; // 是否为离职重聘;- false：系统直接标为非离职重聘人员，不再做重复判断;- true：要求 rehire_employment_id
+    private String rehireEmploymentId; // 离职重聘员工雇佣
+    // ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+    private Boolean forceSubmit; // 是否强制提交;- true：是，跳过超编等校验;- false：否，被拦截报错
+    private Boolean ignoreWorkingHoursTypeRule; // 是否忽略工时制度自动生成规则;- 值为 false 时，以下字段必填：; -
+
+    // emp_contract_record.first_party; -
+    // employment_record.work_location; -
+    // employment_record.employee_type; -
+    // employment_record.job_family; - employment_record.job; -
+    // employment_record.job_level; - employment_record.department
+
+    /**
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 是否为离职重聘;- false：系统直接标为非离职重聘人员，不再做重复判断;- true：要求 rehire_employment_id
+     *
+     * <p>示例值：true
+     *
+     * @param rehire
+     * @return
+     */
+    public Builder rehire(Boolean rehire) {
+      this.rehire = rehire;
+      return this;
+    }
+
+    /**
+     * 离职重聘员工雇佣
+     * ID;;可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param rehireEmploymentId
+     * @return
+     */
+    public Builder rehireEmploymentId(String rehireEmploymentId) {
+      this.rehireEmploymentId = rehireEmploymentId;
+      return this;
+    }
+
+    /**
+     * 是否强制提交;- true：是，跳过超编等校验;- false：否，被拦截报错
+     *
+     * <p>示例值：false
+     *
+     * @param forceSubmit
+     * @return
+     */
+    public Builder forceSubmit(Boolean forceSubmit) {
+      this.forceSubmit = forceSubmit;
+      return this;
+    }
+
+    /**
+     * 是否忽略工时制度自动生成规则;- 值为 false 时，以下字段必填：; - emp_contract_record.first_party; -
+     * employment_record.work_location; - employment_record.employee_type; -
+     * employment_record.job_family; - employment_record.job; - employment_record.job_level; -
+     * employment_record.department
+     *
+     * <p>示例值：true
+     *
+     * @param ignoreWorkingHoursTypeRule
+     * @return
+     */
+    public Builder ignoreWorkingHoursTypeRule(Boolean ignoreWorkingHoursTypeRule) {
+      this.ignoreWorkingHoursTypeRule = ignoreWorkingHoursTypeRule;
+      return this;
+    }
+
     private CreateEmployeeReqBody body;
 
-    // builder 开始
-    public CreateEmployeeReq() {
-    }
-
-    public CreateEmployeeReq(Builder builder) {
-        /**
-         * 幂等标识，服务端会忽略client_token重复的请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 是否为离职重聘：;false: 否，系统直接标为非离职重聘人员，不再做重复判断";true: 是，要求rehire_employment_id
-         * <p> 示例值：true
-         */
-        this.rehire = builder.rehire;
-        /**
-         * 离职重聘员工雇佣ID, rehire
-         * <p> 示例值：7140964208476371111
-         */
-        this.rehireEmploymentId = builder.rehireEmploymentId;
-        /**
-         * 是否强制提交，超编等场景需要用户确认影响才能提交
-         * <p> 示例值：false
-         */
-        this.forceSubmit = builder.forceSubmit;
-        /**
-         * 是否忽略工时制度自动生成规则
-         * <p> 示例值：true
-         */
-        this.ignoreWorkingHoursTypeRule = builder.ignoreWorkingHoursTypeRule;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public Boolean getRehire() {
-        return this.rehire;
-    }
-
-    public void setRehire(Boolean rehire) {
-        this.rehire = rehire;
-    }
-
-    public String getRehireEmploymentId() {
-        return this.rehireEmploymentId;
-    }
-
-    public void setRehireEmploymentId(String rehireEmploymentId) {
-        this.rehireEmploymentId = rehireEmploymentId;
-    }
-
-    public Boolean getForceSubmit() {
-        return this.forceSubmit;
-    }
-
-    public void setForceSubmit(Boolean forceSubmit) {
-        this.forceSubmit = forceSubmit;
-    }
-
-    public Boolean getIgnoreWorkingHoursTypeRule() {
-        return this.ignoreWorkingHoursTypeRule;
-    }
-
-    public void setIgnoreWorkingHoursTypeRule(Boolean ignoreWorkingHoursTypeRule) {
-        this.ignoreWorkingHoursTypeRule = ignoreWorkingHoursTypeRule;
-    }
-
     public CreateEmployeeReqBody getCreateEmployeeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateEmployeeReqBody(CreateEmployeeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createEmployeeReqBody(CreateEmployeeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 幂等标识，服务端会忽略client_token重复的请求
-        private Boolean rehire; // 是否为离职重聘：;false: 否，系统直接标为非离职重聘人员，不再做重复判断";true: 是，要求rehire_employment_id
-        private String rehireEmploymentId; // 离职重聘员工雇佣ID, rehire
-        private Boolean forceSubmit; // 是否强制提交，超编等场景需要用户确认影响才能提交
-        private Boolean ignoreWorkingHoursTypeRule; // 是否忽略工时制度自动生成规则
-        private CreateEmployeeReqBody body;
-
-        /**
-         * 幂等标识，服务端会忽略client_token重复的请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 是否为离职重聘：;false: 否，系统直接标为非离职重聘人员，不再做重复判断";true: 是，要求rehire_employment_id
-         * <p> 示例值：true
-         *
-         * @param rehire
-         * @return
-         */
-        public Builder rehire(Boolean rehire) {
-            this.rehire = rehire;
-            return this;
-        }
-
-        /**
-         * 离职重聘员工雇佣ID, rehire
-         * <p> 示例值：7140964208476371111
-         *
-         * @param rehireEmploymentId
-         * @return
-         */
-        public Builder rehireEmploymentId(String rehireEmploymentId) {
-            this.rehireEmploymentId = rehireEmploymentId;
-            return this;
-        }
-
-        /**
-         * 是否强制提交，超编等场景需要用户确认影响才能提交
-         * <p> 示例值：false
-         *
-         * @param forceSubmit
-         * @return
-         */
-        public Builder forceSubmit(Boolean forceSubmit) {
-            this.forceSubmit = forceSubmit;
-            return this;
-        }
-
-        /**
-         * 是否忽略工时制度自动生成规则
-         * <p> 示例值：true
-         *
-         * @param ignoreWorkingHoursTypeRule
-         * @return
-         */
-        public Builder ignoreWorkingHoursTypeRule(Boolean ignoreWorkingHoursTypeRule) {
-            this.ignoreWorkingHoursTypeRule = ignoreWorkingHoursTypeRule;
-            return this;
-        }
-
-        public CreateEmployeeReqBody getCreateEmployeeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createEmployeeReqBody(CreateEmployeeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateEmployeeReq build() {
-            return new CreateEmployeeReq(this);
-        }
+    public CreateEmployeeReq build() {
+      return new CreateEmployeeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

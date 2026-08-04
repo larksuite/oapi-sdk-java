@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiMessageCallbackRequest {
+  /**
+   * message ID
+   *
+   * <p>示例值：om_xxxxxxxx
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * context
+   *
+   * <p>示例值："{\"biz_id\":\"xxx\"}"
+   */
+  @SerializedName("callback_info")
+  private String callbackInfo;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getCallbackInfo() {
+    return this.callbackInfo;
+  }
+
+  public void setCallbackInfo(String callbackInfo) {
+    this.callbackInfo = callbackInfo;
+  }
+
+  // builder 开始
+  public MyAiMessageCallbackRequest() {}
+
+  public MyAiMessageCallbackRequest(Builder builder) {
     /**
      * message ID
-     * <p> 示例值：om_xxxxxxxx
+     *
+     * <p>示例值：om_xxxxxxxx
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * context
-     * <p> 示例值："{\"biz_id\":\"xxx\"}"
+     *
+     * <p>示例值："{\"biz_id\":\"xxx\"}"
      */
-    @SerializedName("callback_info")
+    this.callbackInfo = builder.callbackInfo;
+  }
+
+  public static class Builder {
+    /**
+     * message ID
+     *
+     * <p>示例值：om_xxxxxxxx
+     */
+    private String messageId;
+
+    /**
+     * context
+     *
+     * <p>示例值："{\"biz_id\":\"xxx\"}"
+     */
     private String callbackInfo;
 
-    // builder 开始
-    public MyAiMessageCallbackRequest() {
+    /**
+     * message ID
+     *
+     * <p>示例值：om_xxxxxxxx
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MyAiMessageCallbackRequest(Builder builder) {
-        /**
-         * message ID
-         * <p> 示例值：om_xxxxxxxx
-         */
-        this.messageId = builder.messageId;
-        /**
-         * context
-         * <p> 示例值："{\"biz_id\":\"xxx\"}"
-         */
-        this.callbackInfo = builder.callbackInfo;
+    /**
+     * context
+     *
+     * <p>示例值："{\"biz_id\":\"xxx\"}"
+     *
+     * @param callbackInfo
+     * @return
+     */
+    public Builder callbackInfo(String callbackInfo) {
+      this.callbackInfo = callbackInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiMessageCallbackRequest build() {
+      return new MyAiMessageCallbackRequest(this);
     }
+  }
 
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getCallbackInfo() {
-        return this.callbackInfo;
-    }
-
-    public void setCallbackInfo(String callbackInfo) {
-        this.callbackInfo = callbackInfo;
-    }
-
-    public static class Builder {
-        /**
-         * message ID
-         * <p> 示例值：om_xxxxxxxx
-         */
-        private String messageId;
-        /**
-         * context
-         * <p> 示例值："{\"biz_id\":\"xxx\"}"
-         */
-        private String callbackInfo;
-
-        /**
-         * message ID
-         * <p> 示例值：om_xxxxxxxx
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * context
-         * <p> 示例值："{\"biz_id\":\"xxx\"}"
-         *
-         * @param callbackInfo
-         * @return
-         */
-        public Builder callbackInfo(String callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
-        }
-
-
-        public MyAiMessageCallbackRequest build() {
-            return new MyAiMessageCallbackRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

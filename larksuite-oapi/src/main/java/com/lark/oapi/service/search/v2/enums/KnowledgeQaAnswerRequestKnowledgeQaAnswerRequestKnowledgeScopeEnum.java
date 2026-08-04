@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 指定答案生成的知识范围
- */
+/** */
 public enum KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum {
-    ENTERPRISE("enterprise"), // 企业内知识
-    INTERNET("internet"), // 联网搜索
-    LLM("llm"), // 仅大模型
-    HYBRID("hybrid"), // 企业内知识和互联网知识融合
-    ;
-    private String value;
+  ENTERPRISE("enterprise"), //
+  INTERNET("internet"), //
+  LLM("llm"), //
+  HYBRID("hybrid"), //
+  ;
+  private String value;
 
-    KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum(String value) {
-        this.value = value;
-    }
+  KnowledgeQaAnswerRequestKnowledgeQaAnswerRequestKnowledgeScopeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

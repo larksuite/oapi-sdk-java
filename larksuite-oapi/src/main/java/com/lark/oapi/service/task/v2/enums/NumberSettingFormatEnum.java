@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 数字展示的格式
- */
+/** 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。 */
 public enum NumberSettingFormatEnum {
-    NORMAL("normal"), // 常规数字
-    PERCENTAGE("percentage"), // 百分比格式
-    CNY("cny"), // 人民币格式
-    USD("usd"), // 美元格式
-    CUSTOM("custom"), // 自定义符号
-    ;
-    private String value;
+  NORMAL("normal"), // 常规数字格式
+  PERCENTAGE("percentage"), // 百分比格式
+  CNY("cny"), // 人民币格式
+  USD("usd"), // 美元格式
+  CUSTOM("custom"), // 自定义符号
+  ;
+  private String value;
 
-    NumberSettingFormatEnum(String value) {
-        this.value = value;
-    }
+  NumberSettingFormatEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

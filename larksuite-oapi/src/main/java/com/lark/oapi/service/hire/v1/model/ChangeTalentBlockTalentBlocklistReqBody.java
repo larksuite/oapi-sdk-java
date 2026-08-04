@@ -13,148 +13,152 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChangeTalentBlockTalentBlocklistReqBody {
+  /**
+   * 人才
+   * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+   *
+   * <p>示例值：6930815272790114325
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("option")
+  private Integer option;
+
+  /**
+   * 屏蔽原因，当`option`为`1`时必填
+   *
+   * <p>示例值：人才作弊
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public Integer getOption() {
+    return this.option;
+  }
+
+  public void setOption(Integer option) {
+    this.option = option;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public ChangeTalentBlockTalentBlocklistReqBody() {}
+
+  public ChangeTalentBlockTalentBlocklistReqBody(Builder builder) {
     /**
-     * 人才 ID
-     * <p> 示例值：6930815272790114325
+     * 人才
+     * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114325
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 操作类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("option")
-    private Integer option;
+    this.option = builder.option;
     /**
-     * 原因，当执行加入屏蔽名单操作时必填
-     * <p> 示例值：人才作弊
+     * 屏蔽原因，当`option`为`1`时必填
+     *
+     * <p>示例值：人才作弊
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 人才
+     * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114325
+     */
+    private String talentId;
+
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
+    private Integer option;
+
+    /**
+     * 屏蔽原因，当`option`为`1`时必填
+     *
+     * <p>示例值：人才作弊
+     */
     private String reason;
 
-    // builder 开始
-    public ChangeTalentBlockTalentBlocklistReqBody() {
+    /**
+     * 人才
+     * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114325
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public ChangeTalentBlockTalentBlocklistReqBody(Builder builder) {
-        /**
-         * 人才 ID
-         * <p> 示例值：6930815272790114325
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.option = builder.option;
-        /**
-         * 原因，当执行加入屏蔽名单操作时必填
-         * <p> 示例值：人才作弊
-         */
-        this.reason = builder.reason;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param option
+     * @return
+     */
+    public Builder option(Integer option) {
+      this.option = option;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 屏蔽原因，当`option`为`1`时必填
+     *
+     * <p>示例值：人才作弊
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    public ChangeTalentBlockTalentBlocklistReqBody build() {
+      return new ChangeTalentBlockTalentBlocklistReqBody(this);
     }
+  }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public Integer getOption() {
-        return this.option;
-    }
-
-    public void setOption(Integer option) {
-        this.option = option;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 人才 ID
-         * <p> 示例值：6930815272790114325
-         */
-        private String talentId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        private Integer option;
-        /**
-         * 原因，当执行加入屏蔽名单操作时必填
-         * <p> 示例值：人才作弊
-         */
-        private String reason;
-
-        /**
-         * 人才 ID
-         * <p> 示例值：6930815272790114325
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：
-         *
-         * @param option
-         * @return
-         */
-        public Builder option(Integer option) {
-            this.option = option;
-            return this;
-        }
-
-
-        /**
-         * 原因，当执行加入屏蔽名单操作时必填
-         * <p> 示例值：人才作弊
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public ChangeTalentBlockTalentBlocklistReqBody build() {
-            return new ChangeTalentBlockTalentBlocklistReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

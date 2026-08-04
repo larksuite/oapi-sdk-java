@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 操作类型: add/delete
- */
+/** 操作类型 */
 public enum UpdateReactionCommentReactionActionEnum {
-    ADD("add"), // 添加表情回复
-    DELETE("delete"), // 删除添加的reaction
-    ;
-    private String value;
+  ADD("add"), // 添加表情回复
+  DELETE("delete"), // 删除添加的reaction
+  ;
+  private String value;
 
-    UpdateReactionCommentReactionActionEnum(String value) {
-        this.value = value;
-    }
+  UpdateReactionCommentReactionActionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

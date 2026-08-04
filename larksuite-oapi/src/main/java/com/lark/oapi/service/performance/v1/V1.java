@@ -19,25 +19,25 @@ import com.lark.oapi.service.performance.v1.resource.Semester;
 import com.lark.oapi.service.performance.v1.resource.StageTask;
 
 public class V1 {
-    private final ReviewData reviewData; // 绩效
-    private final Semester semester; // semester
-    private final StageTask stageTask; // stage_task
+  private final ReviewData reviewData; // review_data
+  private final Semester semester; // semester
+  private final StageTask stageTask; // stage_task
 
-    public V1(Config config) {
-        this.reviewData = new ReviewData(config);
-        this.semester = new Semester(config);
-        this.stageTask = new StageTask(config);
-    }
+  public V1(Config config) {
+    this.reviewData = new ReviewData(config);
+    this.semester = new Semester(config);
+    this.stageTask = new StageTask(config);
+  }
 
-    public ReviewData reviewData() {
-        return reviewData;
-    }
+  public ReviewData reviewData() {
+    return reviewData;
+  }
 
-    public Semester semester() {
-        return semester;
-    }
+  public Semester semester() {
+    return semester;
+  }
 
-    public StageTask stageTask() {
-        return stageTask;
-    }
+  public StageTask stageTask() {
+    return stageTask;
+  }
 }

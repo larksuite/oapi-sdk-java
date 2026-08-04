@@ -13,593 +13,653 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Place {
+  /**
+   * ID
+   *
+   * <p>示例值：place100
+   */
+  @SerializedName("place_id")
+  private String placeId;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：dsadqwe
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("place_name")
+  private I18nText placeName;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 地点多用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usages")
+  private String[] usages;
+
+  /**
+   * 地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address_ids")
+  private String[] addressIds;
+
+  /**
+   * 主要地址
+   *
+   * <p>示例值：dsadqwe
+   */
+  @SerializedName("main_address_id")
+  private String mainAddressId;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("updator_id")
+  private String updatorId;
+
+  /**
+   * 外部ID
+   *
+   * <p>示例值：qwasdewrq
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 上级ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  public String getPlaceId() {
+    return this.placeId;
+  }
+
+  public void setPlaceId(String placeId) {
+    this.placeId = placeId;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public I18nText getPlaceName() {
+    return this.placeName;
+  }
+
+  public void setPlaceName(I18nText placeName) {
+    this.placeName = placeName;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String[] getUsages() {
+    return this.usages;
+  }
+
+  public void setUsages(String[] usages) {
+    this.usages = usages;
+  }
+
+  public String[] getAddressIds() {
+    return this.addressIds;
+  }
+
+  public void setAddressIds(String[] addressIds) {
+    this.addressIds = addressIds;
+  }
+
+  public String getMainAddressId() {
+    return this.mainAddressId;
+  }
+
+  public void setMainAddressId(String mainAddressId) {
+    this.mainAddressId = mainAddressId;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getUpdatorId() {
+    return this.updatorId;
+  }
+
+  public void setUpdatorId(String updatorId) {
+    this.updatorId = updatorId;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  // builder 开始
+  public Place() {}
+
+  public Place(Builder builder) {
     /**
      * ID
-     * <p> 示例值：place100
+     *
+     * <p>示例值：place100
      */
-    @SerializedName("place_id")
-    private String placeId;
+    this.placeId = builder.placeId;
     /**
      * 租户ID
-     * <p> 示例值：dsadqwe
+     *
+     * <p>示例值：dsadqwe
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("place_name")
-    private I18nText placeName;
+    this.placeName = builder.placeName;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 地点多用途
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("usages")
-    private String[] usages;
+    this.usages = builder.usages;
     /**
      * 地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("address_ids")
-    private String[] addressIds;
+    this.addressIds = builder.addressIds;
     /**
      * 主要地址
-     * <p> 示例值：dsadqwe
+     *
+     * <p>示例值：dsadqwe
      */
-    @SerializedName("main_address_id")
-    private String mainAddressId;
+    this.mainAddressId = builder.mainAddressId;
     /**
      * 是否删除
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_deleted")
-    private Boolean isDeleted;
+    this.isDeleted = builder.isDeleted;
     /**
      * 创建时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 创建人
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 更新人
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("updator_id")
-    private String updatorId;
+    this.updatorId = builder.updatorId;
     /**
      * 外部ID
-     * <p> 示例值：qwasdewrq
+     *
+     * <p>示例值：qwasdewrq
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 上级ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("parent_id")
+    this.parentId = builder.parentId;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：place100
+     */
+    private String placeId;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：dsadqwe
+     */
+    private String tenantId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText placeName;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 地点多用途
+     *
+     * <p>示例值：
+     */
+    private String[] usages;
+
+    /**
+     * 地址
+     *
+     * <p>示例值：
+     */
+    private String[] addressIds;
+
+    /**
+     * 主要地址
+     *
+     * <p>示例值：dsadqwe
+     */
+    private String mainAddressId;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     */
+    private Boolean isDeleted;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1
+     */
+    private String updateTime;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：1
+     */
+    private String creatorId;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：1
+     */
+    private String updatorId;
+
+    /**
+     * 外部ID
+     *
+     * <p>示例值：qwasdewrq
+     */
+    private String externalId;
+
+    /**
+     * 上级ID
+     *
+     * <p>示例值：1
+     */
     private String parentId;
 
-    // builder 开始
-    public Place() {
+    /**
+     * ID
+     *
+     * <p>示例值：place100
+     *
+     * @param placeId
+     * @return
+     */
+    public Builder placeId(String placeId) {
+      this.placeId = placeId;
+      return this;
     }
 
-    public Place(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：place100
-         */
-        this.placeId = builder.placeId;
-        /**
-         * 租户ID
-         * <p> 示例值：dsadqwe
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.placeName = builder.placeName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         */
-        this.usages = builder.usages;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
-        this.addressIds = builder.addressIds;
-        /**
-         * 主要地址
-         * <p> 示例值：dsadqwe
-         */
-        this.mainAddressId = builder.mainAddressId;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：1
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：1
-         */
-        this.updatorId = builder.updatorId;
-        /**
-         * 外部ID
-         * <p> 示例值：qwasdewrq
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 上级ID
-         * <p> 示例值：1
-         */
-        this.parentId = builder.parentId;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：dsadqwe
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param placeName
+     * @return
+     */
+    public Builder placeName(I18nText placeName) {
+      this.placeName = placeName;
+      return this;
     }
 
-    public String getPlaceId() {
-        return this.placeId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 地点多用途
+     *
+     * <p>示例值：
+     *
+     * @param usages
+     * @return
+     */
+    public Builder usages(String[] usages) {
+      this.usages = usages;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 地址
+     *
+     * <p>示例值：
+     *
+     * @param addressIds
+     * @return
+     */
+    public Builder addressIds(String[] addressIds) {
+      this.addressIds = addressIds;
+      return this;
     }
 
-    public I18nText getPlaceName() {
-        return this.placeName;
+    /**
+     * 主要地址
+     *
+     * <p>示例值：dsadqwe
+     *
+     * @param mainAddressId
+     * @return
+     */
+    public Builder mainAddressId(String mainAddressId) {
+      this.mainAddressId = mainAddressId;
+      return this;
     }
 
-    public void setPlaceName(I18nText placeName) {
-        this.placeName = placeName;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：true
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public I18nText getDescription() {
-        return this.description;
+    /**
+     * 创建人
+     *
+     * <p>示例值：1
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setDescription(I18nText description) {
-        this.description = description;
+    /**
+     * 更新人
+     *
+     * <p>示例值：1
+     *
+     * @param updatorId
+     * @return
+     */
+    public Builder updatorId(String updatorId) {
+      this.updatorId = updatorId;
+      return this;
     }
 
-    public String[] getUsages() {
-        return this.usages;
+    /**
+     * 外部ID
+     *
+     * <p>示例值：qwasdewrq
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public void setUsages(String[] usages) {
-        this.usages = usages;
+    /**
+     * 上级ID
+     *
+     * <p>示例值：1
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public String[] getAddressIds() {
-        return this.addressIds;
+    public Place build() {
+      return new Place(this);
     }
+  }
 
-    public void setAddressIds(String[] addressIds) {
-        this.addressIds = addressIds;
-    }
-
-    public String getMainAddressId() {
-        return this.mainAddressId;
-    }
-
-    public void setMainAddressId(String mainAddressId) {
-        this.mainAddressId = mainAddressId;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUpdatorId() {
-        return this.updatorId;
-    }
-
-    public void setUpdatorId(String updatorId) {
-        this.updatorId = updatorId;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public String getParentId() {
-        return this.parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：place100
-         */
-        private String placeId;
-        /**
-         * 租户ID
-         * <p> 示例值：dsadqwe
-         */
-        private String tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText placeName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean isEnabled;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         */
-        private String[] usages;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
-        private String[] addressIds;
-        /**
-         * 主要地址
-         * <p> 示例值：dsadqwe
-         */
-        private String mainAddressId;
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         */
-        private Boolean isDeleted;
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        private String updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：1
-         */
-        private String creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：1
-         */
-        private String updatorId;
-        /**
-         * 外部ID
-         * <p> 示例值：qwasdewrq
-         */
-        private String externalId;
-        /**
-         * 上级ID
-         * <p> 示例值：1
-         */
-        private String parentId;
-
-        /**
-         * ID
-         * <p> 示例值：place100
-         *
-         * @param placeId
-         * @return
-         */
-        public Builder placeId(String placeId) {
-            this.placeId = placeId;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：dsadqwe
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param placeName
-         * @return
-         */
-        public Builder placeName(I18nText placeName) {
-            this.placeName = placeName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 地点多用途
-         * <p> 示例值：
-         *
-         * @param usages
-         * @return
-         */
-        public Builder usages(String[] usages) {
-            this.usages = usages;
-            return this;
-        }
-
-
-        /**
-         * 地址
-         * <p> 示例值：
-         *
-         * @param addressIds
-         * @return
-         */
-        public Builder addressIds(String[] addressIds) {
-            this.addressIds = addressIds;
-            return this;
-        }
-
-
-        /**
-         * 主要地址
-         * <p> 示例值：dsadqwe
-         *
-         * @param mainAddressId
-         * @return
-         */
-        public Builder mainAddressId(String mainAddressId) {
-            this.mainAddressId = mainAddressId;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：true
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：1
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：1
-         *
-         * @param updatorId
-         * @return
-         */
-        public Builder updatorId(String updatorId) {
-            this.updatorId = updatorId;
-            return this;
-        }
-
-
-        /**
-         * 外部ID
-         * <p> 示例值：qwasdewrq
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 上级ID
-         * <p> 示例值：1
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        public Place build() {
-            return new Place(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,104 +13,102 @@
 
 package com.lark.oapi.service.authen.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateOidcAccessTokenRespBody {
-    /**
-     * user_access_token，用于获取用户资源和访问某些open api
-     * <p> 示例值：u-5Dak9ZAxJ9tFUn8MaTD_BFM51FNdg5xzO0y010000HWb
-     */
-    @SerializedName("access_token")
-    private String accessToken;
-    /**
-     * 刷新用户 `access_token` 时使用的 token
-     * <p> 示例值：ur-6EyFQZyplb9URrOx5NtT_HM53zrJg59HXwy040400G.e
-     */
-    @SerializedName("refresh_token")
-    private String refreshToken;
-    /**
-     * token 类型，固定值
-     * <p> 示例值：Bearer
-     */
-    @SerializedName("token_type")
-    private String tokenType;
-    /**
-     * `access_token`的有效期，单位: 秒，一般是两个小时左右，需要以返回结果为准
-     * <p> 示例值：7199
-     */
-    @SerializedName("expires_in")
-    private Integer expiresIn;
-    /**
-     * `refresh_token` 的有效期，单位: 秒，一般是30天左右，需要以返回结果为准
-     * <p> 示例值：2591999
-     */
-    @SerializedName("refresh_expires_in")
-    private Integer refreshExpiresIn;
-    /**
-     * 用户授予app的权限全集
-     * <p> 示例值：auth:user.id:read bitable:app
-     */
-    @SerializedName("scope")
-    private String scope;
+  /**
+   * 字段`access_token`即user_access_token，用于获取用户资源和访问某些open api
+   *
+   * <p>示例值：u-***
+   */
+  @SerializedName("access_token")
+  private String accessToken;
 
-    public String getAccessToken() {
-        return this.accessToken;
-    }
+  /**
+   * 刷新用户 `access_token` 时使用的 token
+   *
+   * <p>示例值：ur-6EyFQZyplb9URrOx5NtT_HM53zrJg59HXwy040400G.e
+   */
+  @SerializedName("refresh_token")
+  private String refreshToken;
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
+  /**
+   * token 类型，固定值
+   *
+   * <p>示例值：Bearer
+   */
+  @SerializedName("token_type")
+  private String tokenType;
 
-    public String getRefreshToken() {
-        return this.refreshToken;
-    }
+  /**
+   * user_access_token有效期，单位: 秒，有效时间两个小时左右，需要以返回结果为准
+   *
+   * <p>示例值：7199
+   */
+  @SerializedName("expires_in")
+  private Integer expiresIn;
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
-    }
+  /**
+   * refresh_token有效期，单位: 秒，一般是30天左右，需要以返回结果为准
+   *
+   * <p>示例值：2591999
+   */
+  @SerializedName("refresh_expires_in")
+  private Integer refreshExpiresIn;
 
-    public String getTokenType() {
-        return this.tokenType;
-    }
+  /**
+   * 用户授予app的权限全集
+   *
+   * <p>示例值：auth:user.id:read bitable:app
+   */
+  @SerializedName("scope")
+  private String scope;
 
-    public void setTokenType(String tokenType) {
-        this.tokenType = tokenType;
-    }
+  public String getAccessToken() {
+    return this.accessToken;
+  }
 
-    public Integer getExpiresIn() {
-        return this.expiresIn;
-    }
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
 
-    public void setExpiresIn(Integer expiresIn) {
-        this.expiresIn = expiresIn;
-    }
+  public String getRefreshToken() {
+    return this.refreshToken;
+  }
 
-    public Integer getRefreshExpiresIn() {
-        return this.refreshExpiresIn;
-    }
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+  }
 
-    public void setRefreshExpiresIn(Integer refreshExpiresIn) {
-        this.refreshExpiresIn = refreshExpiresIn;
-    }
+  public String getTokenType() {
+    return this.tokenType;
+  }
 
-    public String getScope() {
-        return this.scope;
-    }
+  public void setTokenType(String tokenType) {
+    this.tokenType = tokenType;
+  }
 
-    public void setScope(String scope) {
-        this.scope = scope;
-    }
+  public Integer getExpiresIn() {
+    return this.expiresIn;
+  }
 
+  public void setExpiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
+  }
+
+  public Integer getRefreshExpiresIn() {
+    return this.refreshExpiresIn;
+  }
+
+  public void setRefreshExpiresIn(Integer refreshExpiresIn) {
+    this.refreshExpiresIn = refreshExpiresIn;
+  }
+
+  public String getScope() {
+    return this.scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
 }

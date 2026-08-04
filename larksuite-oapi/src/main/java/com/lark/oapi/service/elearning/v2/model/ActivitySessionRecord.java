@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivitySessionRecord {
+  /**
+   * 班次
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activity_session_info")
+  private ActivitySessionInfo activitySessionInfo;
+
+  /**
+   * 签到时间
+   *
+   * <p>示例值：1663761600
+   */
+  @SerializedName("sign_in_at")
+  private Integer signInAt;
+
+  /**
+   * 观看时长
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("online_seconds")
+  private Integer onlineSeconds;
+
+  public ActivitySessionInfo getActivitySessionInfo() {
+    return this.activitySessionInfo;
+  }
+
+  public void setActivitySessionInfo(ActivitySessionInfo activitySessionInfo) {
+    this.activitySessionInfo = activitySessionInfo;
+  }
+
+  public Integer getSignInAt() {
+    return this.signInAt;
+  }
+
+  public void setSignInAt(Integer signInAt) {
+    this.signInAt = signInAt;
+  }
+
+  public Integer getOnlineSeconds() {
+    return this.onlineSeconds;
+  }
+
+  public void setOnlineSeconds(Integer onlineSeconds) {
+    this.onlineSeconds = onlineSeconds;
+  }
+
+  // builder 开始
+  public ActivitySessionRecord() {}
+
+  public ActivitySessionRecord(Builder builder) {
     /**
      * 班次
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("activity_session_info")
-    private ActivitySessionInfo activitySessionInfo;
+    this.activitySessionInfo = builder.activitySessionInfo;
     /**
      * 签到时间
-     * <p> 示例值：1663761600
+     *
+     * <p>示例值：1663761600
      */
-    @SerializedName("sign_in_at")
-    private Integer signInAt;
+    this.signInAt = builder.signInAt;
     /**
      * 观看时长
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("online_seconds")
+    this.onlineSeconds = builder.onlineSeconds;
+  }
+
+  public static class Builder {
+    /**
+     * 班次
+     *
+     * <p>示例值：
+     */
+    private ActivitySessionInfo activitySessionInfo;
+
+    /**
+     * 签到时间
+     *
+     * <p>示例值：1663761600
+     */
+    private Integer signInAt;
+
+    /**
+     * 观看时长
+     *
+     * <p>示例值：10
+     */
     private Integer onlineSeconds;
 
-    // builder 开始
-    public ActivitySessionRecord() {
+    /**
+     * 班次
+     *
+     * <p>示例值：
+     *
+     * @param activitySessionInfo
+     * @return
+     */
+    public Builder activitySessionInfo(ActivitySessionInfo activitySessionInfo) {
+      this.activitySessionInfo = activitySessionInfo;
+      return this;
     }
 
-    public ActivitySessionRecord(Builder builder) {
-        /**
-         * 班次
-         * <p> 示例值：
-         */
-        this.activitySessionInfo = builder.activitySessionInfo;
-        /**
-         * 签到时间
-         * <p> 示例值：1663761600
-         */
-        this.signInAt = builder.signInAt;
-        /**
-         * 观看时长
-         * <p> 示例值：10
-         */
-        this.onlineSeconds = builder.onlineSeconds;
+    /**
+     * 签到时间
+     *
+     * <p>示例值：1663761600
+     *
+     * @param signInAt
+     * @return
+     */
+    public Builder signInAt(Integer signInAt) {
+      this.signInAt = signInAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 观看时长
+     *
+     * <p>示例值：10
+     *
+     * @param onlineSeconds
+     * @return
+     */
+    public Builder onlineSeconds(Integer onlineSeconds) {
+      this.onlineSeconds = onlineSeconds;
+      return this;
     }
 
-    public ActivitySessionInfo getActivitySessionInfo() {
-        return this.activitySessionInfo;
+    public ActivitySessionRecord build() {
+      return new ActivitySessionRecord(this);
     }
+  }
 
-    public void setActivitySessionInfo(ActivitySessionInfo activitySessionInfo) {
-        this.activitySessionInfo = activitySessionInfo;
-    }
-
-    public Integer getSignInAt() {
-        return this.signInAt;
-    }
-
-    public void setSignInAt(Integer signInAt) {
-        this.signInAt = signInAt;
-    }
-
-    public Integer getOnlineSeconds() {
-        return this.onlineSeconds;
-    }
-
-    public void setOnlineSeconds(Integer onlineSeconds) {
-        this.onlineSeconds = onlineSeconds;
-    }
-
-    public static class Builder {
-        /**
-         * 班次
-         * <p> 示例值：
-         */
-        private ActivitySessionInfo activitySessionInfo;
-        /**
-         * 签到时间
-         * <p> 示例值：1663761600
-         */
-        private Integer signInAt;
-        /**
-         * 观看时长
-         * <p> 示例值：10
-         */
-        private Integer onlineSeconds;
-
-        /**
-         * 班次
-         * <p> 示例值：
-         *
-         * @param activitySessionInfo
-         * @return
-         */
-        public Builder activitySessionInfo(ActivitySessionInfo activitySessionInfo) {
-            this.activitySessionInfo = activitySessionInfo;
-            return this;
-        }
-
-
-        /**
-         * 签到时间
-         * <p> 示例值：1663761600
-         *
-         * @param signInAt
-         * @return
-         */
-        public Builder signInAt(Integer signInAt) {
-            this.signInAt = signInAt;
-            return this;
-        }
-
-
-        /**
-         * 观看时长
-         * <p> 示例值：10
-         *
-         * @param onlineSeconds
-         * @return
-         */
-        public Builder onlineSeconds(Integer onlineSeconds) {
-            this.onlineSeconds = onlineSeconds;
-            return this;
-        }
-
-
-        public ActivitySessionRecord build() {
-            return new ActivitySessionRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

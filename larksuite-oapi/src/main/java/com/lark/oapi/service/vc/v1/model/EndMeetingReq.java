@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class EndMeetingReq {
+  /**
+   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @Path
+  @SerializedName("meeting_id")
+  private String meetingId;
+
+  public String getMeetingId() {
+    return this.meetingId;
+  }
+
+  public void setMeetingId(String meetingId) {
+    this.meetingId = meetingId;
+  }
+
+  // builder 开始
+  public EndMeetingReq() {}
+
+  public EndMeetingReq(Builder builder) {
     /**
      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @Path
-    @SerializedName("meeting_id")
-    private String meetingId;
+    this.meetingId = builder.meetingId;
+  }
 
-    // builder 开始
-    public EndMeetingReq() {
+  public static class Builder {
+
+    private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param meetingId
+     * @return
+     */
+    public Builder meetingId(String meetingId) {
+      this.meetingId = meetingId;
+      return this;
     }
 
-    public EndMeetingReq(Builder builder) {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         */
-        this.meetingId = builder.meetingId;
+    public EndMeetingReq build() {
+      return new EndMeetingReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMeetingId() {
-        return this.meetingId;
-    }
-
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
-    }
-
-    public static class Builder {
-
-        private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         *
-         * @param meetingId
-         * @return
-         */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
-
-
-        public EndMeetingReq build() {
-            return new EndMeetingReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileStatistics {
+  /**
+   * 文档历史访问人数，同一用户（user_id）多次访问按一次计算。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("uv")
+  private Integer uv;
+
+  /**
+   * 文档历史访问次数，同一用户（user_id）多次访问按多次计算，但同一用户在间隔在半小时内访问两次视为一次访问
+   *
+   * <p>示例值：15
+   */
+  @SerializedName("pv")
+  private Integer pv;
+
+  /**
+   * 文档历史点赞总数。`-1` 表示对应的文档类型不支持点赞
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("like_count")
+  private Integer likeCount;
+
+  /**
+   * 时间戳（单位：秒）
+   *
+   * <p>示例值：1627367349
+   */
+  @SerializedName("timestamp")
+  private Integer timestamp;
+
+  /**
+   * 今日新增文档访问人数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("uv_today")
+  private Integer uvToday;
+
+  /**
+   * 今日新增文档访问次数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("pv_today")
+  private Integer pvToday;
+
+  /**
+   * 今日新增文档点赞数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("like_count_today")
+  private Integer likeCountToday;
+
+  public Integer getUv() {
+    return this.uv;
+  }
+
+  public void setUv(Integer uv) {
+    this.uv = uv;
+  }
+
+  public Integer getPv() {
+    return this.pv;
+  }
+
+  public void setPv(Integer pv) {
+    this.pv = pv;
+  }
+
+  public Integer getLikeCount() {
+    return this.likeCount;
+  }
+
+  public void setLikeCount(Integer likeCount) {
+    this.likeCount = likeCount;
+  }
+
+  public Integer getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(Integer timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public Integer getUvToday() {
+    return this.uvToday;
+  }
+
+  public void setUvToday(Integer uvToday) {
+    this.uvToday = uvToday;
+  }
+
+  public Integer getPvToday() {
+    return this.pvToday;
+  }
+
+  public void setPvToday(Integer pvToday) {
+    this.pvToday = pvToday;
+  }
+
+  public Integer getLikeCountToday() {
+    return this.likeCountToday;
+  }
+
+  public void setLikeCountToday(Integer likeCountToday) {
+    this.likeCountToday = likeCountToday;
+  }
+
+  // builder 开始
+  public FileStatistics() {}
+
+  public FileStatistics(Builder builder) {
     /**
-     * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
-     * <p> 示例值：10
+     * 文档历史访问人数，同一用户（user_id）多次访问按一次计算。
+     *
+     * <p>示例值：10
      */
-    @SerializedName("uv")
-    private Integer uv;
+    this.uv = builder.uv;
     /**
-     * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
-     * <p> 示例值：15
+     * 文档历史访问次数，同一用户（user_id）多次访问按多次计算，但同一用户在间隔在半小时内访问两次视为一次访问
+     *
+     * <p>示例值：15
      */
-    @SerializedName("pv")
-    private Integer pv;
+    this.pv = builder.pv;
     /**
-     * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
-     * <p> 示例值：2
+     * 文档历史点赞总数。`-1` 表示对应的文档类型不支持点赞
+     *
+     * <p>示例值：2
      */
-    @SerializedName("like_count")
-    private Integer likeCount;
+    this.likeCount = builder.likeCount;
     /**
-     * 时间戳（秒）
-     * <p> 示例值：1627367349
+     * 时间戳（单位：秒）
+     *
+     * <p>示例值：1627367349
      */
-    @SerializedName("timestamp")
-    private Integer timestamp;
+    this.timestamp = builder.timestamp;
     /**
      * 今日新增文档访问人数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("uv_today")
-    private Integer uvToday;
+    this.uvToday = builder.uvToday;
     /**
      * 今日新增文档访问次数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("pv_today")
-    private Integer pvToday;
+    this.pvToday = builder.pvToday;
     /**
      * 今日新增文档点赞数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("like_count_today")
+    this.likeCountToday = builder.likeCountToday;
+  }
+
+  public static class Builder {
+    /**
+     * 文档历史访问人数，同一用户（user_id）多次访问按一次计算。
+     *
+     * <p>示例值：10
+     */
+    private Integer uv;
+
+    /**
+     * 文档历史访问次数，同一用户（user_id）多次访问按多次计算，但同一用户在间隔在半小时内访问两次视为一次访问
+     *
+     * <p>示例值：15
+     */
+    private Integer pv;
+
+    /**
+     * 文档历史点赞总数。`-1` 表示对应的文档类型不支持点赞
+     *
+     * <p>示例值：2
+     */
+    private Integer likeCount;
+
+    /**
+     * 时间戳（单位：秒）
+     *
+     * <p>示例值：1627367349
+     */
+    private Integer timestamp;
+
+    /**
+     * 今日新增文档访问人数
+     *
+     * <p>示例值：1
+     */
+    private Integer uvToday;
+
+    /**
+     * 今日新增文档访问次数
+     *
+     * <p>示例值：1
+     */
+    private Integer pvToday;
+
+    /**
+     * 今日新增文档点赞数
+     *
+     * <p>示例值：1
+     */
     private Integer likeCountToday;
 
-    // builder 开始
-    public FileStatistics() {
+    /**
+     * 文档历史访问人数，同一用户（user_id）多次访问按一次计算。
+     *
+     * <p>示例值：10
+     *
+     * @param uv
+     * @return
+     */
+    public Builder uv(Integer uv) {
+      this.uv = uv;
+      return this;
     }
 
-    public FileStatistics(Builder builder) {
-        /**
-         * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
-         * <p> 示例值：10
-         */
-        this.uv = builder.uv;
-        /**
-         * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
-         * <p> 示例值：15
-         */
-        this.pv = builder.pv;
-        /**
-         * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
-         * <p> 示例值：2
-         */
-        this.likeCount = builder.likeCount;
-        /**
-         * 时间戳（秒）
-         * <p> 示例值：1627367349
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * 今日新增文档访问人数
-         * <p> 示例值：1
-         */
-        this.uvToday = builder.uvToday;
-        /**
-         * 今日新增文档访问次数
-         * <p> 示例值：1
-         */
-        this.pvToday = builder.pvToday;
-        /**
-         * 今日新增文档点赞数
-         * <p> 示例值：1
-         */
-        this.likeCountToday = builder.likeCountToday;
+    /**
+     * 文档历史访问次数，同一用户（user_id）多次访问按多次计算，但同一用户在间隔在半小时内访问两次视为一次访问
+     *
+     * <p>示例值：15
+     *
+     * @param pv
+     * @return
+     */
+    public Builder pv(Integer pv) {
+      this.pv = pv;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档历史点赞总数。`-1` 表示对应的文档类型不支持点赞
+     *
+     * <p>示例值：2
+     *
+     * @param likeCount
+     * @return
+     */
+    public Builder likeCount(Integer likeCount) {
+      this.likeCount = likeCount;
+      return this;
     }
 
-    public Integer getUv() {
-        return this.uv;
+    /**
+     * 时间戳（单位：秒）
+     *
+     * <p>示例值：1627367349
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(Integer timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public void setUv(Integer uv) {
-        this.uv = uv;
+    /**
+     * 今日新增文档访问人数
+     *
+     * <p>示例值：1
+     *
+     * @param uvToday
+     * @return
+     */
+    public Builder uvToday(Integer uvToday) {
+      this.uvToday = uvToday;
+      return this;
     }
 
-    public Integer getPv() {
-        return this.pv;
+    /**
+     * 今日新增文档访问次数
+     *
+     * <p>示例值：1
+     *
+     * @param pvToday
+     * @return
+     */
+    public Builder pvToday(Integer pvToday) {
+      this.pvToday = pvToday;
+      return this;
     }
 
-    public void setPv(Integer pv) {
-        this.pv = pv;
+    /**
+     * 今日新增文档点赞数
+     *
+     * <p>示例值：1
+     *
+     * @param likeCountToday
+     * @return
+     */
+    public Builder likeCountToday(Integer likeCountToday) {
+      this.likeCountToday = likeCountToday;
+      return this;
     }
 
-    public Integer getLikeCount() {
-        return this.likeCount;
+    public FileStatistics build() {
+      return new FileStatistics(this);
     }
+  }
 
-    public void setLikeCount(Integer likeCount) {
-        this.likeCount = likeCount;
-    }
-
-    public Integer getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Integer getUvToday() {
-        return this.uvToday;
-    }
-
-    public void setUvToday(Integer uvToday) {
-        this.uvToday = uvToday;
-    }
-
-    public Integer getPvToday() {
-        return this.pvToday;
-    }
-
-    public void setPvToday(Integer pvToday) {
-        this.pvToday = pvToday;
-    }
-
-    public Integer getLikeCountToday() {
-        return this.likeCountToday;
-    }
-
-    public void setLikeCountToday(Integer likeCountToday) {
-        this.likeCountToday = likeCountToday;
-    }
-
-    public static class Builder {
-        /**
-         * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
-         * <p> 示例值：10
-         */
-        private Integer uv;
-        /**
-         * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
-         * <p> 示例值：15
-         */
-        private Integer pv;
-        /**
-         * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
-         * <p> 示例值：2
-         */
-        private Integer likeCount;
-        /**
-         * 时间戳（秒）
-         * <p> 示例值：1627367349
-         */
-        private Integer timestamp;
-        /**
-         * 今日新增文档访问人数
-         * <p> 示例值：1
-         */
-        private Integer uvToday;
-        /**
-         * 今日新增文档访问次数
-         * <p> 示例值：1
-         */
-        private Integer pvToday;
-        /**
-         * 今日新增文档点赞数
-         * <p> 示例值：1
-         */
-        private Integer likeCountToday;
-
-        /**
-         * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
-         * <p> 示例值：10
-         *
-         * @param uv
-         * @return
-         */
-        public Builder uv(Integer uv) {
-            this.uv = uv;
-            return this;
-        }
-
-
-        /**
-         * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
-         * <p> 示例值：15
-         *
-         * @param pv
-         * @return
-         */
-        public Builder pv(Integer pv) {
-            this.pv = pv;
-            return this;
-        }
-
-
-        /**
-         * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
-         * <p> 示例值：2
-         *
-         * @param likeCount
-         * @return
-         */
-        public Builder likeCount(Integer likeCount) {
-            this.likeCount = likeCount;
-            return this;
-        }
-
-
-        /**
-         * 时间戳（秒）
-         * <p> 示例值：1627367349
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(Integer timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * 今日新增文档访问人数
-         * <p> 示例值：1
-         *
-         * @param uvToday
-         * @return
-         */
-        public Builder uvToday(Integer uvToday) {
-            this.uvToday = uvToday;
-            return this;
-        }
-
-
-        /**
-         * 今日新增文档访问次数
-         * <p> 示例值：1
-         *
-         * @param pvToday
-         * @return
-         */
-        public Builder pvToday(Integer pvToday) {
-            this.pvToday = pvToday;
-            return this;
-        }
-
-
-        /**
-         * 今日新增文档点赞数
-         * <p> 示例值：1
-         *
-         * @param likeCountToday
-         * @return
-         */
-        public Builder likeCountToday(Integer likeCountToday) {
-            this.likeCountToday = likeCountToday;
-            return this;
-        }
-
-
-        public FileStatistics build() {
-            return new FileStatistics(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 字段类型
- */
+/** 指标字段类型 */
 public enum MetricFieldTypeEnum {
-    TEXT("text"), // 文本
-    NUMBER("number"), // 数字
-    PENCENTAGE("pencentage"), // 百分比
-    PERSON("person"), // 人员单选
-    ;
-    private String value;
+  TEXT("text"), // 文本
+  NUMBER("number"), // 数字
+  PENCENTAGE("pencentage"), // 百分比
+  PERSON("person"), // 人员单选
+  ;
+  private String value;
 
-    MetricFieldTypeEnum(String value) {
-        this.value = value;
-    }
+  MetricFieldTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

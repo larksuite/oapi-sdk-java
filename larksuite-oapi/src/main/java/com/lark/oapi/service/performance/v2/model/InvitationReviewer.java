@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InvitationReviewer {
+  /**
+   * 评估人ID
+   *
+   * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+   */
+  @SerializedName("reviewer_user_id")
+  private String reviewerUserId;
+
+  /**
+   * 来源
+   *
+   * <p>示例值：openapi
+   */
+  @SerializedName("source")
+  private String source;
+
+  public String getReviewerUserId() {
+    return this.reviewerUserId;
+  }
+
+  public void setReviewerUserId(String reviewerUserId) {
+    this.reviewerUserId = reviewerUserId;
+  }
+
+  public String getSource() {
+    return this.source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  // builder 开始
+  public InvitationReviewer() {}
+
+  public InvitationReviewer(Builder builder) {
     /**
      * 评估人ID
-     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
      */
-    @SerializedName("reviewer_user_id")
-    private String reviewerUserId;
+    this.reviewerUserId = builder.reviewerUserId;
     /**
      * 来源
-     * <p> 示例值：openapi
+     *
+     * <p>示例值：openapi
      */
-    @SerializedName("source")
+    this.source = builder.source;
+  }
+
+  public static class Builder {
+    /**
+     * 评估人ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     */
+    private String reviewerUserId;
+
+    /**
+     * 来源
+     *
+     * <p>示例值：openapi
+     */
     private String source;
 
-    // builder 开始
-    public InvitationReviewer() {
+    /**
+     * 评估人ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * @param reviewerUserId
+     * @return
+     */
+    public Builder reviewerUserId(String reviewerUserId) {
+      this.reviewerUserId = reviewerUserId;
+      return this;
     }
 
-    public InvitationReviewer(Builder builder) {
-        /**
-         * 评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        this.reviewerUserId = builder.reviewerUserId;
-        /**
-         * 来源
-         * <p> 示例值：openapi
-         */
-        this.source = builder.source;
+    /**
+     * 来源
+     *
+     * <p>示例值：openapi
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(String source) {
+      this.source = source;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 来源
+     *
+     * <p>示例值：openapi
+     *
+     * @param source {@link com.lark.oapi.service.performance.v2.enums.InvitationReviewerSourceEnum}
+     * @return
+     */
+    public Builder source(
+        com.lark.oapi.service.performance.v2.enums.InvitationReviewerSourceEnum source) {
+      this.source = source.getValue();
+      return this;
     }
 
-    public String getReviewerUserId() {
-        return this.reviewerUserId;
+    public InvitationReviewer build() {
+      return new InvitationReviewer(this);
     }
+  }
 
-    public void setReviewerUserId(String reviewerUserId) {
-        this.reviewerUserId = reviewerUserId;
-    }
-
-    public String getSource() {
-        return this.source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public static class Builder {
-        /**
-         * 评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        private String reviewerUserId;
-        /**
-         * 来源
-         * <p> 示例值：openapi
-         */
-        private String source;
-
-        /**
-         * 评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         *
-         * @param reviewerUserId
-         * @return
-         */
-        public Builder reviewerUserId(String reviewerUserId) {
-            this.reviewerUserId = reviewerUserId;
-            return this;
-        }
-
-
-        /**
-         * 来源
-         * <p> 示例值：openapi
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(String source) {
-            this.source = source;
-            return this;
-        }
-
-        /**
-         * 来源
-         * <p> 示例值：openapi
-         *
-         * @param source {@link com.lark.oapi.service.performance.v2.enums.InvitationReviewerSourceEnum}
-         * @return
-         */
-        public Builder source(com.lark.oapi.service.performance.v2.enums.InvitationReviewerSourceEnum source) {
-            this.source = source.getValue();
-            return this;
-        }
-
-
-        public InvitationReviewer build() {
-            return new InvitationReviewer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

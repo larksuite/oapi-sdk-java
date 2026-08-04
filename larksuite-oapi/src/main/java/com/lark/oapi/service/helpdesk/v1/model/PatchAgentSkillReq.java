@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class PatchAgentSkillReq {
+  /**
+   * agent skill id
+   *
+   * <p>示例值：test-skill-id
+   */
+  @Path
+  @SerializedName("agent_skill_id")
+  private String agentSkillId;
+
+  public String getAgentSkillId() {
+    return this.agentSkillId;
+  }
+
+  public void setAgentSkillId(String agentSkillId) {
+    this.agentSkillId = agentSkillId;
+  }
+
+  @Body private PatchAgentSkillReqBody body;
+
+  public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
+    return this.body;
+  }
+
+  public void setPatchAgentSkillReqBody(PatchAgentSkillReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchAgentSkillReq() {}
+
+  public PatchAgentSkillReq(Builder builder) {
     /**
      * agent skill id
-     * <p> 示例值：test-skill-id
+     *
+     * <p>示例值：test-skill-id
      */
-    @Path
-    @SerializedName("agent_skill_id")
-    private String agentSkillId;
-    @Body
+    this.agentSkillId = builder.agentSkillId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String agentSkillId; // agent skill id
+
+    /**
+     * agent skill id
+     *
+     * <p>示例值：test-skill-id
+     *
+     * @param agentSkillId
+     * @return
+     */
+    public Builder agentSkillId(String agentSkillId) {
+      this.agentSkillId = agentSkillId;
+      return this;
+    }
+
     private PatchAgentSkillReqBody body;
 
-    // builder 开始
-    public PatchAgentSkillReq() {
-    }
-
-    public PatchAgentSkillReq(Builder builder) {
-        /**
-         * agent skill id
-         * <p> 示例值：test-skill-id
-         */
-        this.agentSkillId = builder.agentSkillId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAgentSkillId() {
-        return this.agentSkillId;
-    }
-
-    public void setAgentSkillId(String agentSkillId) {
-        this.agentSkillId = agentSkillId;
-    }
-
     public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchAgentSkillReqBody(PatchAgentSkillReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchAgentSkillReqBody(PatchAgentSkillReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String agentSkillId; // agent skill id
-        private PatchAgentSkillReqBody body;
-
-        /**
-         * agent skill id
-         * <p> 示例值：test-skill-id
-         *
-         * @param agentSkillId
-         * @return
-         */
-        public Builder agentSkillId(String agentSkillId) {
-            this.agentSkillId = agentSkillId;
-            return this;
-        }
-
-        public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchAgentSkillReqBody(PatchAgentSkillReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchAgentSkillReq build() {
-            return new PatchAgentSkillReq(this);
-        }
+    public PatchAgentSkillReq build() {
+      return new PatchAgentSkillReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

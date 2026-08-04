@@ -13,131 +13,133 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class BatchCreateAuthorizationApplicationRecordPermissionMemberReq {
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 记录权限 API 名称
+   *
+   * <p>示例值：adminRecordPermission
+   */
+  @Path
+  @SerializedName("record_permission_api_name")
+  private String recordPermissionApiName;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getRecordPermissionApiName() {
+    return this.recordPermissionApiName;
+  }
+
+  public void setRecordPermissionApiName(String recordPermissionApiName) {
+    this.recordPermissionApiName = recordPermissionApiName;
+  }
+
+  @Body private BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body;
+
+  public BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody
+      getBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody() {
+    return this.body;
+  }
+
+  public void setBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody(
+      BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchCreateAuthorizationApplicationRecordPermissionMemberReq() {}
+
+  public BatchCreateAuthorizationApplicationRecordPermissionMemberReq(Builder builder) {
     /**
      * 应用命名空间
-     * <p> 示例值：package_test__c
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 记录权限 API 名称
-     * <p> 示例值：adminRecordPermission
+     *
+     * <p>示例值：adminRecordPermission
      */
-    @Path
-    @SerializedName("record_permission_api_name")
-    private String recordPermissionApiName;
-    @Body
+    this.recordPermissionApiName = builder.recordPermissionApiName;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String namespace; // 应用命名空间
+    private String recordPermissionApiName; // 记录权限 API 名称
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
+    }
+
+    /**
+     * 记录权限 API 名称
+     *
+     * <p>示例值：adminRecordPermission
+     *
+     * @param recordPermissionApiName
+     * @return
+     */
+    public Builder recordPermissionApiName(String recordPermissionApiName) {
+      this.recordPermissionApiName = recordPermissionApiName;
+      return this;
+    }
+
     private BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body;
 
-    // builder 开始
-    public BatchCreateAuthorizationApplicationRecordPermissionMemberReq() {
+    public BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody
+        getBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody() {
+      return this.body;
     }
 
-    public BatchCreateAuthorizationApplicationRecordPermissionMemberReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 记录权限 API 名称
-         * <p> 示例值：adminRecordPermission
-         */
-        this.recordPermissionApiName = builder.recordPermissionApiName;
-        this.body = builder.body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchCreateAuthorizationApplicationRecordPermissionMemberReqBody(
+        BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchCreateAuthorizationApplicationRecordPermissionMemberReq build() {
+      return new BatchCreateAuthorizationApplicationRecordPermissionMemberReq(this);
     }
+  }
 
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getRecordPermissionApiName() {
-        return this.recordPermissionApiName;
-    }
-
-    public void setRecordPermissionApiName(String recordPermissionApiName) {
-        this.recordPermissionApiName = recordPermissionApiName;
-    }
-
-    public BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody getBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody() {
-        return this.body;
-    }
-
-    public void setBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody(BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body) {
-        this.body = body;
-    }
-
-    public static class Builder {
-
-        private String namespace; // 应用命名空间
-        private String recordPermissionApiName; // 记录权限 API 名称
-        private BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body;
-
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-        /**
-         * 记录权限 API 名称
-         * <p> 示例值：adminRecordPermission
-         *
-         * @param recordPermissionApiName
-         * @return
-         */
-        public Builder recordPermissionApiName(String recordPermissionApiName) {
-            this.recordPermissionApiName = recordPermissionApiName;
-            return this;
-        }
-
-        public BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody getBatchCreateAuthorizationApplicationRecordPermissionMemberReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchCreateAuthorizationApplicationRecordPermissionMemberReqBody(BatchCreateAuthorizationApplicationRecordPermissionMemberReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchCreateAuthorizationApplicationRecordPermissionMemberReq build() {
-            return new BatchCreateAuthorizationApplicationRecordPermissionMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

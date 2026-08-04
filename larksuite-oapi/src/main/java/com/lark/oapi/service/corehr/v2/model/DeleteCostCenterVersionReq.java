@@ -13,131 +13,131 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeleteCostCenterVersionReq {
+  /**
+   * 成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @Path
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @Path
+  @SerializedName("version_id")
+  private String versionId;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  @Body private DeleteCostCenterVersionReqBody body;
+
+  public DeleteCostCenterVersionReqBody getDeleteCostCenterVersionReqBody() {
+    return this.body;
+  }
+
+  public void setDeleteCostCenterVersionReqBody(DeleteCostCenterVersionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public DeleteCostCenterVersionReq() {}
+
+  public DeleteCostCenterVersionReq(Builder builder) {
     /**
-     * 成本中心ID
-     * <p> 示例值：6862995757234914824
+     * 成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @Path
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
-     * 版本ID
-     * <p> 示例值：6862995757234914824
+     * 版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
-    @Body
+    this.versionId = builder.versionId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String
+        costCenterId; // 成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+    private String
+        versionId; // 版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+
+    /**
+     * 成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
+    }
+
+    /**
+     * 版本ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
+    }
+
     private DeleteCostCenterVersionReqBody body;
 
-    // builder 开始
-    public DeleteCostCenterVersionReq() {
-    }
-
-    public DeleteCostCenterVersionReq(Builder builder) {
-        /**
-         * 成本中心ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 版本ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.versionId = builder.versionId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCostCenterId() {
-        return this.costCenterId;
-    }
-
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
     public DeleteCostCenterVersionReqBody getDeleteCostCenterVersionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setDeleteCostCenterVersionReqBody(DeleteCostCenterVersionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder deleteCostCenterVersionReqBody(DeleteCostCenterVersionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String costCenterId; // 成本中心ID
-        private String versionId; // 版本ID
-        private DeleteCostCenterVersionReqBody body;
-
-        /**
-         * 成本中心ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-        /**
-         * 版本ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-        public DeleteCostCenterVersionReqBody getDeleteCostCenterVersionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder deleteCostCenterVersionReqBody(DeleteCostCenterVersionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public DeleteCostCenterVersionReq build() {
-            return new DeleteCostCenterVersionReq(this);
-        }
+    public DeleteCostCenterVersionReq build() {
+      return new DeleteCostCenterVersionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

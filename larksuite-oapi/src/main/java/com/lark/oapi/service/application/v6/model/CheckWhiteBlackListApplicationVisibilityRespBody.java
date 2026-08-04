@@ -13,62 +13,56 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CheckWhiteBlackListApplicationVisibilityRespBody {
-    /**
-     * 用户可见性信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_visibility_list")
-    private ApplicationVisibilityUserWhiteBlackInfo[] userVisibilityList;
-    /**
-     * 部门可见性信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("department_visibility_list")
-    private ApplicationVisibilityDepartmentWhiteBlackInfo[] departmentVisibilityList;
-    /**
-     * 用户组可见性信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("group_visibility_list")
-    private ApplicationVisibilityGroupWhiteBlackInfo[] groupVisibilityList;
+  /**
+   * 查询的用户可见性结果列表，如果用户在白名单或付费白名单，且不在黑名单中，则可见该应用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_visibility_list")
+  private ApplicationVisibilityUserWhiteBlackInfo[] userVisibilityList;
 
-    public ApplicationVisibilityUserWhiteBlackInfo[] getUserVisibilityList() {
-        return this.userVisibilityList;
-    }
+  /**
+   * 查询的部门可见性结果列表，如果部门在白名单，且不在黑名单，则该部门下的用户可见该应用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_visibility_list")
+  private ApplicationVisibilityDepartmentWhiteBlackInfo[] departmentVisibilityList;
 
-    public void setUserVisibilityList(ApplicationVisibilityUserWhiteBlackInfo[] userVisibilityList) {
-        this.userVisibilityList = userVisibilityList;
-    }
+  /**
+   * 查询的用户组可见性结果列表，如果用户组在白名单，且不在黑名单，则该用户组下的用户可见该应用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("group_visibility_list")
+  private ApplicationVisibilityGroupWhiteBlackInfo[] groupVisibilityList;
 
-    public ApplicationVisibilityDepartmentWhiteBlackInfo[] getDepartmentVisibilityList() {
-        return this.departmentVisibilityList;
-    }
+  public ApplicationVisibilityUserWhiteBlackInfo[] getUserVisibilityList() {
+    return this.userVisibilityList;
+  }
 
-    public void setDepartmentVisibilityList(ApplicationVisibilityDepartmentWhiteBlackInfo[] departmentVisibilityList) {
-        this.departmentVisibilityList = departmentVisibilityList;
-    }
+  public void setUserVisibilityList(ApplicationVisibilityUserWhiteBlackInfo[] userVisibilityList) {
+    this.userVisibilityList = userVisibilityList;
+  }
 
-    public ApplicationVisibilityGroupWhiteBlackInfo[] getGroupVisibilityList() {
-        return this.groupVisibilityList;
-    }
+  public ApplicationVisibilityDepartmentWhiteBlackInfo[] getDepartmentVisibilityList() {
+    return this.departmentVisibilityList;
+  }
 
-    public void setGroupVisibilityList(ApplicationVisibilityGroupWhiteBlackInfo[] groupVisibilityList) {
-        this.groupVisibilityList = groupVisibilityList;
-    }
+  public void setDepartmentVisibilityList(
+      ApplicationVisibilityDepartmentWhiteBlackInfo[] departmentVisibilityList) {
+    this.departmentVisibilityList = departmentVisibilityList;
+  }
 
+  public ApplicationVisibilityGroupWhiteBlackInfo[] getGroupVisibilityList() {
+    return this.groupVisibilityList;
+  }
+
+  public void setGroupVisibilityList(
+      ApplicationVisibilityGroupWhiteBlackInfo[] groupVisibilityList) {
+    this.groupVisibilityList = groupVisibilityList;
+  }
 }

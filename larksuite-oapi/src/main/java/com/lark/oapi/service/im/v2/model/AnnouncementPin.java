@@ -13,140 +13,107 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AnnouncementPin {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("use_opendoc")
+  /** 示例值： */
+  @SerializedName("use_opendoc")
+  private Boolean useOpendoc;
+
+  /** 示例值： */
+  @SerializedName("url")
+  private String url;
+
+  /** 示例值： */
+  @SerializedName("preview_content")
+  private PreviewContent previewContent;
+
+  public Boolean getUseOpendoc() {
+    return this.useOpendoc;
+  }
+
+  public void setUseOpendoc(Boolean useOpendoc) {
+    this.useOpendoc = useOpendoc;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public PreviewContent getPreviewContent() {
+    return this.previewContent;
+  }
+
+  public void setPreviewContent(PreviewContent previewContent) {
+    this.previewContent = previewContent;
+  }
+
+  // builder 开始
+  public AnnouncementPin() {}
+
+  public AnnouncementPin(Builder builder) {
+    /** 示例值： */
+    this.useOpendoc = builder.useOpendoc;
+    /** 示例值： */
+    this.url = builder.url;
+    /** 示例值： */
+    this.previewContent = builder.previewContent;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Boolean useOpendoc;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("url")
+
+    /** 示例值： */
     private String url;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("preview_content")
+
+    /** 示例值： */
     private PreviewContent previewContent;
 
-    // builder 开始
-    public AnnouncementPin() {
+    /**
+     * 示例值：
+     *
+     * @param useOpendoc
+     * @return
+     */
+    public Builder useOpendoc(Boolean useOpendoc) {
+      this.useOpendoc = useOpendoc;
+      return this;
     }
 
-    public AnnouncementPin(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.useOpendoc = builder.useOpendoc;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.url = builder.url;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.previewContent = builder.previewContent;
+    /**
+     * 示例值：
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param previewContent
+     * @return
+     */
+    public Builder previewContent(PreviewContent previewContent) {
+      this.previewContent = previewContent;
+      return this;
     }
 
-    public Boolean getUseOpendoc() {
-        return this.useOpendoc;
+    public AnnouncementPin build() {
+      return new AnnouncementPin(this);
     }
+  }
 
-    public void setUseOpendoc(Boolean useOpendoc) {
-        this.useOpendoc = useOpendoc;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public PreviewContent getPreviewContent() {
-        return this.previewContent;
-    }
-
-    public void setPreviewContent(PreviewContent previewContent) {
-        this.previewContent = previewContent;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Boolean useOpendoc;
-        /**
-         * <p> 示例值：
-         */
-        private String url;
-        /**
-         * <p> 示例值：
-         */
-        private PreviewContent previewContent;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param useOpendoc
-         * @return
-         */
-        public Builder useOpendoc(Boolean useOpendoc) {
-            this.useOpendoc = useOpendoc;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param previewContent
-         * @return
-         */
-        public Builder previewContent(PreviewContent previewContent) {
-            this.previewContent = previewContent;
-            return this;
-        }
-
-
-        public AnnouncementPin build() {
-            return new AnnouncementPin(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 快捷方式指向的文档类型
- */
+/** 快捷方式指向的文档类型 */
 public enum ReferEntityReferTypeEnum {
-    FILE("file"), // 普通文件类型
-    DOCX("docx"), // 新版文档类型
-    BITABLE("bitable"), // 多维表格类型
-    DOC("doc"), // doc文档类型
-    SHEET("sheet"), // 电子表格类型
-    MINDNOTE("mindnote"), // 思维笔记类型
-    SLIDES("slides"), // 幻灯片类型
-    ;
-    private String value;
+  FILE("file"), // 普通文件类型
+  DOCX("docx"), // 新版文档类型
+  BITABLE("bitable"), // 多维表格类型
+  DOC("doc"), // doc文档类型
+  SHEET("sheet"), // 电子表格类型
+  MINDNOTE("mindnote"), // 思维笔记类型
+  SLIDES("slides"), // 幻灯片类型
+  ;
+  private String value;
 
-    ReferEntityReferTypeEnum(String value) {
-        this.value = value;
-    }
+  ReferEntityReferTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

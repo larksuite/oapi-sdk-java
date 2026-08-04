@@ -13,137 +13,137 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetJobManagerReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 职位 ID
+   *
+   * <p>示例值：1618209327096
+   */
+  @Path
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 此处传入职位 ID
+   *
+   * <p>示例值：1618209327096
+   */
+  @Path
+  @SerializedName("manager_id")
+  private String managerId;
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getManagerId() {
+    return this.managerId;
+  }
+
+  public void setManagerId(String managerId) {
+    this.managerId = managerId;
+  }
+
+  // builder 开始
+  public GetJobManagerReq() {}
+
+  public GetJobManagerReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 职位 ID
-     * <p> 示例值：1618209327096
+     *
+     * <p>示例值：1618209327096
      */
-    @Path
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 此处传入职位 ID
-     * <p> 示例值：1618209327096
+     *
+     * <p>示例值：1618209327096
      */
-    @Path
-    @SerializedName("manager_id")
-    private String managerId;
+    this.managerId = builder.managerId;
+  }
 
-    // builder 开始
-    public GetJobManagerReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetJobManagerReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 职位 ID
-         * <p> 示例值：1618209327096
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 此处传入职位 ID
-         * <p> 示例值：1618209327096
-         */
-        this.managerId = builder.managerId;
+    private String jobId; // 职位 ID
+    private String managerId; // 此处传入职位 ID
+
+    /**
+     * 职位 ID
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此处传入职位 ID
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param managerId
+     * @return
+     */
+    public Builder managerId(String managerId) {
+      this.managerId = managerId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetJobManagerReq build() {
+      return new GetJobManagerReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getJobId() {
-        return this.jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public String getManagerId() {
-        return this.managerId;
-    }
-
-    public void setManagerId(String managerId) {
-        this.managerId = managerId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String jobId; // 职位 ID
-        private String managerId; // 此处传入职位 ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 职位 ID
-         * <p> 示例值：1618209327096
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 此处传入职位 ID
-         * <p> 示例值：1618209327096
-         *
-         * @param managerId
-         * @return
-         */
-        public Builder managerId(String managerId) {
-            this.managerId = managerId;
-            return this;
-        }
-
-
-        public GetJobManagerReq build() {
-            return new GetJobManagerReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

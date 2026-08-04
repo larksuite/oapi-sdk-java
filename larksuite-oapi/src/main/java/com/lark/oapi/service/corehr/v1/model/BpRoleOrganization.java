@@ -13,149 +13,165 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BpRoleOrganization {
+  /**
+   * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
+   *
+   * <p>示例值：location_bp
+   */
+  @SerializedName("role_key")
+  private String roleKey;
+
+  /**
+   * 部门 ID，查询 HRBP 需输入部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+   * ==department_id==; >
+   * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+   *
+   * <p>示例值：7063072995761456670
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点
+   * ID;>;可从[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取，或者在「[飞书人事](https://people.feishu.cn/people/)-组织管理-地点」中查看。
+   *
+   * <p>示例值：6892687221355185677
+   */
+  @SerializedName("work_location_id")
+  private String workLocationId;
+
+  public String getRoleKey() {
+    return this.roleKey;
+  }
+
+  public void setRoleKey(String roleKey) {
+    this.roleKey = roleKey;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getWorkLocationId() {
+    return this.workLocationId;
+  }
+
+  public void setWorkLocationId(String workLocationId) {
+    this.workLocationId = workLocationId;
+  }
+
+  // builder 开始
+  public BpRoleOrganization() {}
+
+  public BpRoleOrganization(Builder builder) {
     /**
      * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
-     * <p> 示例值：location_bp
+     *
+     * <p>示例值：location_bp
      */
-    @SerializedName("role_key")
+    this.roleKey = builder.roleKey;
+    /**
+     * 部门 ID，查询 HRBP 需输入部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
+     */
+    this.departmentId = builder.departmentId;
+    /**
+     * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点
+     * ID;>;可从[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取，或者在「[飞书人事](https://people.feishu.cn/people/)-组织管理-地点」中查看。
+     *
+     * <p>示例值：6892687221355185677
+     */
+    this.workLocationId = builder.workLocationId;
+  }
+
+  public static class Builder {
+    /**
+     * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
+     *
+     * <p>示例值：location_bp
+     */
     private String roleKey;
+
     /**
-     * 部门 ID，查询 HRBP 需输入部门 ID
-     * <p> 示例值：7063072995761456670
+     * 部门 ID，查询 HRBP 需输入部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
      */
-    @SerializedName("department_id")
     private String departmentId;
+
     /**
-     * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点 ID
-     * <p> 示例值：6892687221355185677
+     * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点
+     * ID;>;可从[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取，或者在「[飞书人事](https://people.feishu.cn/people/)-组织管理-地点」中查看。
+     *
+     * <p>示例值：6892687221355185677
      */
-    @SerializedName("work_location_id")
     private String workLocationId;
 
-    // builder 开始
-    public BpRoleOrganization() {
+    /**
+     * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
+     *
+     * <p>示例值：location_bp
+     *
+     * @param roleKey
+     * @return
+     */
+    public Builder roleKey(String roleKey) {
+      this.roleKey = roleKey;
+      return this;
     }
 
-    public BpRoleOrganization(Builder builder) {
-        /**
-         * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
-         * <p> 示例值：location_bp
-         */
-        this.roleKey = builder.roleKey;
-        /**
-         * 部门 ID，查询 HRBP 需输入部门 ID
-         * <p> 示例值：7063072995761456670
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         */
-        this.workLocationId = builder.workLocationId;
+    /**
+     * 部门 ID，查询 HRBP 需输入部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：7063072995761456670
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点
+     * ID;>;可从[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取，或者在「[飞书人事](https://people.feishu.cn/people/)-组织管理-地点」中查看。
+     *
+     * <p>示例值：6892687221355185677
+     *
+     * @param workLocationId
+     * @return
+     */
+    public Builder workLocationId(String workLocationId) {
+      this.workLocationId = workLocationId;
+      return this;
     }
 
-    public String getRoleKey() {
-        return this.roleKey;
+    public BpRoleOrganization build() {
+      return new BpRoleOrganization(this);
     }
+  }
 
-    public void setRoleKey(String roleKey) {
-        this.roleKey = roleKey;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getWorkLocationId() {
-        return this.workLocationId;
-    }
-
-    public void setWorkLocationId(String workLocationId) {
-        this.workLocationId = workLocationId;
-    }
-
-    public static class Builder {
-        /**
-         * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
-         * <p> 示例值：location_bp
-         */
-        private String roleKey;
-        /**
-         * 部门 ID，查询 HRBP 需输入部门 ID
-         * <p> 示例值：7063072995761456670
-         */
-        private String departmentId;
-        /**
-         * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         */
-        private String workLocationId;
-
-        /**
-         * 角色类型的唯一标识;- HRBP：与部门有关，role_key 固定为 「hrbp」;- 属地 BP：与部门、工作地点有关，role_key 固定为 「location_bp」
-         * <p> 示例值：location_bp
-         *
-         * @param roleKey
-         * @return
-         */
-        public Builder roleKey(String roleKey) {
-            this.roleKey = roleKey;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID，查询 HRBP 需输入部门 ID
-         * <p> 示例值：7063072995761456670
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 工作地点 ID，查询属地 BP 需要输入部门 ID 与 工作地点 ID
-         * <p> 示例值：6892687221355185677
-         *
-         * @param workLocationId
-         * @return
-         */
-        public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
-        }
-
-
-        public BpRoleOrganization build() {
-            return new BpRoleOrganization(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

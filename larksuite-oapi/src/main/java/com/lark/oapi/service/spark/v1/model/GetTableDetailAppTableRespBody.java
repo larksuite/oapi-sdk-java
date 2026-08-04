@@ -13,62 +13,134 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetTableDetailAppTableRespBody {
-    /**
-     * 数据表名，如 student
-     * <p> 示例值：student
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 数据表描述
-     * <p> 示例值：这是student表的描述
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * 数据表列
-     * <p> 示例值：
-     */
-    @SerializedName("columns")
-    private AppTableColumn[] columns;
+  /**
+   * 数据表名，如 student
+   *
+   * <p>示例值：student
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 数据表描述
+   *
+   * <p>示例值：这是student表的描述
+   */
+  @SerializedName("description")
+  private String description;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 数据表列
+   *
+   * <p>示例值：
+   */
+  @SerializedName("columns")
+  private AppTableColumn[] columns;
 
-    public String getDescription() {
-        return this.description;
-    }
+  /**
+   * 数据表索引
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indexes")
+  private AppTableIndex[] indexes;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  /**
+   * 数据表约束
+   *
+   * <p>示例值：
+   */
+  @SerializedName("constraints")
+  private AppTableConstraint[] constraints;
 
-    public AppTableColumn[] getColumns() {
-        return this.columns;
-    }
+  /**
+   * 表预估行数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("estimated_row_count")
+  private Integer estimatedRowCount;
 
-    public void setColumns(AppTableColumn[] columns) {
-        this.columns = columns;
-    }
+  /**
+   * 表占用字节数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("size_bytes")
+  private Integer sizeBytes;
 
+  /**
+   * 建表ddl语句
+   *
+   * <p>示例值：CREATE TABLE IF NOT EXISTS users ( id uuid)
+   */
+  @SerializedName("ddl")
+  private String ddl;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AppTableColumn[] getColumns() {
+    return this.columns;
+  }
+
+  public void setColumns(AppTableColumn[] columns) {
+    this.columns = columns;
+  }
+
+  public AppTableIndex[] getIndexes() {
+    return this.indexes;
+  }
+
+  public void setIndexes(AppTableIndex[] indexes) {
+    this.indexes = indexes;
+  }
+
+  public AppTableConstraint[] getConstraints() {
+    return this.constraints;
+  }
+
+  public void setConstraints(AppTableConstraint[] constraints) {
+    this.constraints = constraints;
+  }
+
+  public Integer getEstimatedRowCount() {
+    return this.estimatedRowCount;
+  }
+
+  public void setEstimatedRowCount(Integer estimatedRowCount) {
+    this.estimatedRowCount = estimatedRowCount;
+  }
+
+  public Integer getSizeBytes() {
+    return this.sizeBytes;
+  }
+
+  public void setSizeBytes(Integer sizeBytes) {
+    this.sizeBytes = sizeBytes;
+  }
+
+  public String getDdl() {
+    return this.ddl;
+  }
+
+  public void setDdl(String ddl) {
+    this.ddl = ddl;
+  }
 }

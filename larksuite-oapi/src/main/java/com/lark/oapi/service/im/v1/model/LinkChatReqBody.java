@@ -13,87 +13,79 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LinkChatReqBody {
+  /**
+   * 群分享链接有效时长
+   *
+   * <p>示例值：week
+   */
+  @SerializedName("validity_period")
+  private String validityPeriod;
+
+  public String getValidityPeriod() {
+    return this.validityPeriod;
+  }
+
+  public void setValidityPeriod(String validityPeriod) {
+    this.validityPeriod = validityPeriod;
+  }
+
+  // builder 开始
+  public LinkChatReqBody() {}
+
+  public LinkChatReqBody(Builder builder) {
     /**
-     * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
-     * <p> 示例值：week
+     * 群分享链接有效时长
+     *
+     * <p>示例值：week
      */
-    @SerializedName("validity_period")
+    this.validityPeriod = builder.validityPeriod;
+  }
+
+  public static class Builder {
+    /**
+     * 群分享链接有效时长
+     *
+     * <p>示例值：week
+     */
     private String validityPeriod;
 
-    // builder 开始
-    public LinkChatReqBody() {
+    /**
+     * 群分享链接有效时长
+     *
+     * <p>示例值：week
+     *
+     * @param validityPeriod
+     * @return
+     */
+    public Builder validityPeriod(String validityPeriod) {
+      this.validityPeriod = validityPeriod;
+      return this;
     }
 
-    public LinkChatReqBody(Builder builder) {
-        /**
-         * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
-         * <p> 示例值：week
-         */
-        this.validityPeriod = builder.validityPeriod;
+    /**
+     * 群分享链接有效时长
+     *
+     * <p>示例值：week
+     *
+     * @param validityPeriod {@link com.lark.oapi.service.im.v1.enums.LinkChatValidityPeriodEnum}
+     * @return
+     */
+    public Builder validityPeriod(
+        com.lark.oapi.service.im.v1.enums.LinkChatValidityPeriodEnum validityPeriod) {
+      this.validityPeriod = validityPeriod.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public LinkChatReqBody build() {
+      return new LinkChatReqBody(this);
     }
+  }
 
-    public String getValidityPeriod() {
-        return this.validityPeriod;
-    }
-
-    public void setValidityPeriod(String validityPeriod) {
-        this.validityPeriod = validityPeriod;
-    }
-
-    public static class Builder {
-        /**
-         * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
-         * <p> 示例值：week
-         */
-        private String validityPeriod;
-
-        /**
-         * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
-         * <p> 示例值：week
-         *
-         * @param validityPeriod
-         * @return
-         */
-        public Builder validityPeriod(String validityPeriod) {
-            this.validityPeriod = validityPeriod;
-            return this;
-        }
-
-        /**
-         * 群分享链接有效时长，可选值week、year、permanently，分别表示7天、1年以及永久有效
-         * <p> 示例值：week
-         *
-         * @param validityPeriod {@link com.lark.oapi.service.im.v1.enums.LinkChatValidityPeriodEnum}
-         * @return
-         */
-        public Builder validityPeriod(com.lark.oapi.service.im.v1.enums.LinkChatValidityPeriodEnum validityPeriod) {
-            this.validityPeriod = validityPeriod.getValue();
-            return this;
-        }
-
-
-        public LinkChatReqBody build() {
-            return new LinkChatReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

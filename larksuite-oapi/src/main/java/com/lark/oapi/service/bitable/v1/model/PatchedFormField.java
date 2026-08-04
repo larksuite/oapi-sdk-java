@@ -13,242 +13,191 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchedFormField {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("pre_field_id")
+  /** 示例值： */
+  @SerializedName("pre_field_id")
+  private String preFieldId;
+
+  /** 示例值： */
+  @SerializedName("title")
+  private String title;
+
+  /** 示例值： */
+  @SerializedName("description")
+  private String description;
+
+  /** 示例值： */
+  @SerializedName("required")
+  private Boolean required;
+
+  /** 示例值： */
+  @SerializedName("visible")
+  private Boolean visible;
+
+  /** 示例值： */
+  @SerializedName("rich_description")
+  private AppRichDescriptionSegment[] richDescription;
+
+  public String getPreFieldId() {
+    return this.preFieldId;
+  }
+
+  public void setPreFieldId(String preFieldId) {
+    this.preFieldId = preFieldId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Boolean getRequired() {
+    return this.required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public Boolean getVisible() {
+    return this.visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+  public AppRichDescriptionSegment[] getRichDescription() {
+    return this.richDescription;
+  }
+
+  public void setRichDescription(AppRichDescriptionSegment[] richDescription) {
+    this.richDescription = richDescription;
+  }
+
+  // builder 开始
+  public PatchedFormField() {}
+
+  public PatchedFormField(Builder builder) {
+    /** 示例值： */
+    this.preFieldId = builder.preFieldId;
+    /** 示例值： */
+    this.title = builder.title;
+    /** 示例值： */
+    this.description = builder.description;
+    /** 示例值： */
+    this.required = builder.required;
+    /** 示例值： */
+    this.visible = builder.visible;
+    /** 示例值： */
+    this.richDescription = builder.richDescription;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String preFieldId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("title")
+
+    /** 示例值： */
     private String title;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("description")
+
+    /** 示例值： */
     private String description;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("required")
+
+    /** 示例值： */
     private Boolean required;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("visible")
+
+    /** 示例值： */
     private Boolean visible;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("rich_description")
+
+    /** 示例值： */
     private AppRichDescriptionSegment[] richDescription;
 
-    // builder 开始
-    public PatchedFormField() {
+    /**
+     * 示例值：
+     *
+     * @param preFieldId
+     * @return
+     */
+    public Builder preFieldId(String preFieldId) {
+      this.preFieldId = preFieldId;
+      return this;
     }
 
-    public PatchedFormField(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.preFieldId = builder.preFieldId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.required = builder.required;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.visible = builder.visible;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.richDescription = builder.richDescription;
+    /**
+     * 示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getPreFieldId() {
-        return this.preFieldId;
+    /**
+     * 示例值：
+     *
+     * @param required
+     * @return
+     */
+    public Builder required(Boolean required) {
+      this.required = required;
+      return this;
     }
 
-    public void setPreFieldId(String preFieldId) {
-        this.preFieldId = preFieldId;
+    /**
+     * 示例值：
+     *
+     * @param visible
+     * @return
+     */
+    public Builder visible(Boolean visible) {
+      this.visible = visible;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 示例值：
+     *
+     * @param richDescription
+     * @return
+     */
+    public Builder richDescription(AppRichDescriptionSegment[] richDescription) {
+      this.richDescription = richDescription;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public PatchedFormField build() {
+      return new PatchedFormField(this);
     }
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getRequired() {
-        return this.required;
-    }
-
-    public void setRequired(Boolean required) {
-        this.required = required;
-    }
-
-    public Boolean getVisible() {
-        return this.visible;
-    }
-
-    public void setVisible(Boolean visible) {
-        this.visible = visible;
-    }
-
-    public AppRichDescriptionSegment[] getRichDescription() {
-        return this.richDescription;
-    }
-
-    public void setRichDescription(AppRichDescriptionSegment[] richDescription) {
-        this.richDescription = richDescription;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String preFieldId;
-        /**
-         * <p> 示例值：
-         */
-        private String title;
-        /**
-         * <p> 示例值：
-         */
-        private String description;
-        /**
-         * <p> 示例值：
-         */
-        private Boolean required;
-        /**
-         * <p> 示例值：
-         */
-        private Boolean visible;
-        /**
-         * <p> 示例值：
-         */
-        private AppRichDescriptionSegment[] richDescription;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param preFieldId
-         * @return
-         */
-        public Builder preFieldId(String preFieldId) {
-            this.preFieldId = preFieldId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param required
-         * @return
-         */
-        public Builder required(Boolean required) {
-            this.required = required;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param visible
-         * @return
-         */
-        public Builder visible(Boolean visible) {
-            this.visible = visible;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param richDescription
-         * @return
-         */
-        public Builder richDescription(AppRichDescriptionSegment[] richDescription) {
-            this.richDescription = richDescription;
-            return this;
-        }
-
-
-        public PatchedFormField build() {
-            return new PatchedFormField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetWebsiteJobPostRespBody {
-    /**
-     * 职位广告信息
-     * <p> 示例值：
-     */
-    @SerializedName("job_post")
-    private WebsiteJobPost jobPost;
+  /**
+   * 职位广告信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_post")
+  private WebsiteJobPost jobPost;
 
-    public WebsiteJobPost getJobPost() {
-        return this.jobPost;
-    }
+  public WebsiteJobPost getJobPost() {
+    return this.jobPost;
+  }
 
-    public void setJobPost(WebsiteJobPost jobPost) {
-        this.jobPost = jobPost;
-    }
-
+  public void setJobPost(WebsiteJobPost jobPost) {
+    this.jobPost = jobPost;
+  }
 }

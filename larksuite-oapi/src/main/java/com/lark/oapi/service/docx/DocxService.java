@@ -13,7 +13,6 @@
 package com.lark.oapi.service.docx;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.docx.v1.V1;
 import com.lark.oapi.service.docx.v1.model.*;
 import com.lark.oapi.service.docx.v1.resource.ChatAnnouncement;
@@ -25,55 +24,56 @@ import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlockDescendant;
 
 public class DocxService {
-    private final V1 v1;
-    private final ChatAnnouncement chatAnnouncement; // chat.announcement
-    private final ChatAnnouncementBlock chatAnnouncementBlock; // chat.announcement.block
-    private final ChatAnnouncementBlockChildren chatAnnouncementBlockChildren; // chat.announcement.block.children
-    private final Document document; // 文档
-    private final DocumentBlock documentBlock; // 块
-    private final DocumentBlockChildren documentBlockChildren; // document.block.children
-    private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
+  private final V1 v1;
+  private final ChatAnnouncement chatAnnouncement; // chat.announcement
+  private final ChatAnnouncementBlock chatAnnouncementBlock; // chat.announcement.block
+  private final ChatAnnouncementBlockChildren
+      chatAnnouncementBlockChildren; // chat.announcement.block.children
+  private final Document document; // document
+  private final DocumentBlock documentBlock; // document.block
+  private final DocumentBlockChildren documentBlockChildren; // document.block.children
+  private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
 
-    public DocxService(Config config) {
-        this.v1 = new V1(config);
-        this.chatAnnouncement = new ChatAnnouncement(config);
-        this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
-        this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
-        this.document = new Document(config);
-        this.documentBlock = new DocumentBlock(config);
-        this.documentBlockChildren = new DocumentBlockChildren(config);
-        this.documentBlockDescendant = new DocumentBlockDescendant(config);
-    }
+  public DocxService(Config config) {
+    this.v1 = new V1(config);
+    this.chatAnnouncement = new ChatAnnouncement(config);
+    this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
+    this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
+    this.document = new Document(config);
+    this.documentBlock = new DocumentBlock(config);
+    this.documentBlockChildren = new DocumentBlockChildren(config);
+    this.documentBlockDescendant = new DocumentBlockDescendant(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public ChatAnnouncement chatAnnouncement() {
-        return chatAnnouncement;
-    }
+  public ChatAnnouncement chatAnnouncement() {
+    return chatAnnouncement;
+  }
 
-    public ChatAnnouncementBlock chatAnnouncementBlock() {
-        return chatAnnouncementBlock;
-    }
+  public ChatAnnouncementBlock chatAnnouncementBlock() {
+    return chatAnnouncementBlock;
+  }
 
-    public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
-        return chatAnnouncementBlockChildren;
-    }
+  public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
+    return chatAnnouncementBlockChildren;
+  }
 
-    public Document document() {
-        return document;
-    }
+  public Document document() {
+    return document;
+  }
 
-    public DocumentBlock documentBlock() {
-        return documentBlock;
-    }
+  public DocumentBlock documentBlock() {
+    return documentBlock;
+  }
 
-    public DocumentBlockChildren documentBlockChildren() {
-        return documentBlockChildren;
-    }
+  public DocumentBlockChildren documentBlockChildren() {
+    return documentBlockChildren;
+  }
 
-    public DocumentBlockDescendant documentBlockDescendant() {
-        return documentBlockDescendant;
-    }
+  public DocumentBlockDescendant documentBlockDescendant() {
+    return documentBlockDescendant;
+  }
 }

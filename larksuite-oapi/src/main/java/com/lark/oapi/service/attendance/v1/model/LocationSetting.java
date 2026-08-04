@@ -13,146 +13,135 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationSetting {
+  /**
+   * 位置配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location")
+  private LocationInfo location;
+
+  /**
+   * wifi配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wifi")
+  private WifiInfo wifi;
+
+  /** 示例值： */
+  @SerializedName("user_id")
+  private String userId;
+
+  public LocationInfo getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(LocationInfo location) {
+    this.location = location;
+  }
+
+  public WifiInfo getWifi() {
+    return this.wifi;
+  }
+
+  public void setWifi(WifiInfo wifi) {
+    this.wifi = wifi;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public LocationSetting() {}
+
+  public LocationSetting(Builder builder) {
     /**
      * 位置配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("location")
-    private LocationInfo location;
+    this.location = builder.location;
     /**
      * wifi配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("wifi")
-    private WifiInfo wifi;
+    this.wifi = builder.wifi;
+    /** 示例值： */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
     /**
-     * <p> 示例值：
+     * 位置配置
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
+    private LocationInfo location;
+
+    /**
+     * wifi配置
+     *
+     * <p>示例值：
+     */
+    private WifiInfo wifi;
+
+    /** 示例值： */
     private String userId;
 
-    // builder 开始
-    public LocationSetting() {
+    /**
+     * 位置配置
+     *
+     * <p>示例值：
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(LocationInfo location) {
+      this.location = location;
+      return this;
     }
 
-    public LocationSetting(Builder builder) {
-        /**
-         * 位置配置
-         * <p> 示例值：
-         */
-        this.location = builder.location;
-        /**
-         * wifi配置
-         * <p> 示例值：
-         */
-        this.wifi = builder.wifi;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * wifi配置
+     *
+     * <p>示例值：
+     *
+     * @param wifi
+     * @return
+     */
+    public Builder wifi(WifiInfo wifi) {
+      this.wifi = wifi;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public LocationInfo getLocation() {
-        return this.location;
+    public LocationSetting build() {
+      return new LocationSetting(this);
     }
+  }
 
-    public void setLocation(LocationInfo location) {
-        this.location = location;
-    }
-
-    public WifiInfo getWifi() {
-        return this.wifi;
-    }
-
-    public void setWifi(WifiInfo wifi) {
-        this.wifi = wifi;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 位置配置
-         * <p> 示例值：
-         */
-        private LocationInfo location;
-        /**
-         * wifi配置
-         * <p> 示例值：
-         */
-        private WifiInfo wifi;
-        /**
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * 位置配置
-         * <p> 示例值：
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(LocationInfo location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * wifi配置
-         * <p> 示例值：
-         *
-         * @param wifi
-         * @return
-         */
-        public Builder wifi(WifiInfo wifi) {
-            this.wifi = wifi;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public LocationSetting build() {
-            return new LocationSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

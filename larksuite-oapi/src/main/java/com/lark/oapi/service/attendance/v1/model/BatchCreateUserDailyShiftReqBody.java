@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateUserDailyShiftReqBody {
+  /**
+   * 排班表信息列表（数量限制50以内）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_daily_shifts")
+  private UserDailyShift[] userDailyShifts;
+
+  /**
+   * 操作人uid，与employee_type对应。如果您未操作[考勤管理后台“API
+   * 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+   *
+   * <p>示例值：dd31248a
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  public UserDailyShift[] getUserDailyShifts() {
+    return this.userDailyShifts;
+  }
+
+  public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
+    this.userDailyShifts = userDailyShifts;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  // builder 开始
+  public BatchCreateUserDailyShiftReqBody() {}
+
+  public BatchCreateUserDailyShiftReqBody(Builder builder) {
     /**
-     * 班表信息列表（数量限制50以内）
-     * <p> 示例值：
+     * 排班表信息列表（数量限制50以内）
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_daily_shifts")
+    this.userDailyShifts = builder.userDailyShifts;
+    /**
+     * 操作人uid，与employee_type对应。如果您未操作[考勤管理后台“API
+     * 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     *
+     * <p>示例值：dd31248a
+     */
+    this.operatorId = builder.operatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 排班表信息列表（数量限制50以内）
+     *
+     * <p>示例值：
+     */
     private UserDailyShift[] userDailyShifts;
+
     /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-     * <p> 示例值：dd31248a
+     * 操作人uid，与employee_type对应。如果您未操作[考勤管理后台“API
+     * 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     *
+     * <p>示例值：dd31248a
      */
-    @SerializedName("operator_id")
     private String operatorId;
 
-    // builder 开始
-    public BatchCreateUserDailyShiftReqBody() {
+    /**
+     * 排班表信息列表（数量限制50以内）
+     *
+     * <p>示例值：
+     *
+     * @param userDailyShifts
+     * @return
+     */
+    public Builder userDailyShifts(UserDailyShift[] userDailyShifts) {
+      this.userDailyShifts = userDailyShifts;
+      return this;
     }
 
-    public BatchCreateUserDailyShiftReqBody(Builder builder) {
-        /**
-         * 班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         */
-        this.userDailyShifts = builder.userDailyShifts;
-        /**
-         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-         * <p> 示例值：dd31248a
-         */
-        this.operatorId = builder.operatorId;
+    /**
+     * 操作人uid，与employee_type对应。如果您未操作[考勤管理后台“API
+     * 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     *
+     * <p>示例值：dd31248a
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchCreateUserDailyShiftReqBody build() {
+      return new BatchCreateUserDailyShiftReqBody(this);
     }
+  }
 
-    public UserDailyShift[] getUserDailyShifts() {
-        return this.userDailyShifts;
-    }
-
-    public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
-        this.userDailyShifts = userDailyShifts;
-    }
-
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         */
-        private UserDailyShift[] userDailyShifts;
-        /**
-         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-         * <p> 示例值：dd31248a
-         */
-        private String operatorId;
-
-        /**
-         * 班表信息列表（数量限制50以内）
-         * <p> 示例值：
-         *
-         * @param userDailyShifts
-         * @return
-         */
-        public Builder userDailyShifts(UserDailyShift[] userDailyShifts) {
-            this.userDailyShifts = userDailyShifts;
-            return this;
-        }
-
-
-        /**
-         * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
-         * <p> 示例值：dd31248a
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        public BatchCreateUserDailyShiftReqBody build() {
-            return new BatchCreateUserDailyShiftReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

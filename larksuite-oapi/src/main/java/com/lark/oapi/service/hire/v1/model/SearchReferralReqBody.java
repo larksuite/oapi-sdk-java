@@ -13,148 +13,152 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchReferralReqBody {
+  /**
+   * 人才 ID
+   * ，可通过[批量获取人才ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)获取
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 内推记录最早创建时间，毫秒时间戳。若不填，默认为指定人才下的全部记录，但最多返回200条
+   *
+   * <p>示例值：1701226882718
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 内推记录最晚创建时间，毫秒时间戳。默认为指定人才下的全部记录，但最多返回200条
+   *
+   * <p>示例值：1701226882719
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public SearchReferralReqBody() {}
+
+  public SearchReferralReqBody(Builder builder) {
     /**
-     * 人才id
-     * <p> 示例值：6930815272790114324
+     * 人才 ID
+     * ，可通过[批量获取人才ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)获取
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("talent_id")
+    this.talentId = builder.talentId;
+    /**
+     * 内推记录最早创建时间，毫秒时间戳。若不填，默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882718
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 内推记录最晚创建时间，毫秒时间戳。默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882719
+     */
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 人才 ID
+     * ，可通过[批量获取人才ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)获取
+     *
+     * <p>示例值：6930815272790114324
+     */
     private String talentId;
+
     /**
-     * 投递起始时间，若不填，默认为全部，但最多返回200条
-     * <p> 示例值：
+     * 内推记录最早创建时间，毫秒时间戳。若不填，默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882718
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 投递终止时间，若不填，默认为全部，但最多返回200条
-     * <p> 示例值：
+     * 内推记录最晚创建时间，毫秒时间戳。默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882719
      */
-    @SerializedName("end_time")
     private String endTime;
 
-    // builder 开始
-    public SearchReferralReqBody() {
+    /**
+     * 人才 ID
+     * ，可通过[批量获取人才ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)获取
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public SearchReferralReqBody(Builder builder) {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 投递起始时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 投递终止时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 内推记录最早创建时间，毫秒时间戳。若不填，默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882718
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 内推记录最晚创建时间，毫秒时间戳。默认为指定人才下的全部记录，但最多返回200条
+     *
+     * <p>示例值：1701226882719
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    public SearchReferralReqBody build() {
+      return new SearchReferralReqBody(this);
     }
+  }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
-        private String talentId;
-        /**
-         * 投递起始时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        private String startTime;
-        /**
-         * 投递终止时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         */
-        private String endTime;
-
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 投递起始时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 投递终止时间，若不填，默认为全部，但最多返回200条
-         * <p> 示例值：
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public SearchReferralReqBody build() {
-            return new SearchReferralReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

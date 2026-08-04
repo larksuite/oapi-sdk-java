@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppAvatarUploadRespBody {
-    /**
-     * 图片 URL，给创建/更新应用使用
-     * <p> 示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v3_006n_24c0a858-0b0d-490b-a8d4-b1e2ef421c8g
-     */
-    @SerializedName("url")
-    private String url;
+  /**
+   * 图片 URL，给创建/更新应用使用
+   *
+   * <p>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v3_006n_24c0a858-0b0d-490b-a8d4-b1e2ef421c8g
+   */
+  @SerializedName("url")
+  private String url;
 
-    public String getUrl() {
-        return this.url;
-    }
+  public String getUrl() {
+    return this.url;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
+  public void setUrl(String url) {
+    this.url = url;
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddDependenciesTaskReqBody {
+  /**
+   * 要添加的依赖
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dependencies")
+  private TaskDependency[] dependencies;
+
+  public TaskDependency[] getDependencies() {
+    return this.dependencies;
+  }
+
+  public void setDependencies(TaskDependency[] dependencies) {
+    this.dependencies = dependencies;
+  }
+
+  // builder 开始
+  public AddDependenciesTaskReqBody() {}
+
+  public AddDependenciesTaskReqBody(Builder builder) {
     /**
      * 要添加的依赖
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dependencies")
+    this.dependencies = builder.dependencies;
+  }
+
+  public static class Builder {
+    /**
+     * 要添加的依赖
+     *
+     * <p>示例值：
+     */
     private TaskDependency[] dependencies;
 
-    // builder 开始
-    public AddDependenciesTaskReqBody() {
+    /**
+     * 要添加的依赖
+     *
+     * <p>示例值：
+     *
+     * @param dependencies
+     * @return
+     */
+    public Builder dependencies(TaskDependency[] dependencies) {
+      this.dependencies = dependencies;
+      return this;
     }
 
-    public AddDependenciesTaskReqBody(Builder builder) {
-        /**
-         * 要添加的依赖
-         * <p> 示例值：
-         */
-        this.dependencies = builder.dependencies;
+    public AddDependenciesTaskReqBody build() {
+      return new AddDependenciesTaskReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public TaskDependency[] getDependencies() {
-        return this.dependencies;
-    }
-
-    public void setDependencies(TaskDependency[] dependencies) {
-        this.dependencies = dependencies;
-    }
-
-    public static class Builder {
-        /**
-         * 要添加的依赖
-         * <p> 示例值：
-         */
-        private TaskDependency[] dependencies;
-
-        /**
-         * 要添加的依赖
-         * <p> 示例值：
-         *
-         * @param dependencies
-         * @return
-         */
-        public Builder dependencies(TaskDependency[] dependencies) {
-            this.dependencies = dependencies;
-            return this;
-        }
-
-
-        public AddDependenciesTaskReqBody build() {
-            return new AddDependenciesTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

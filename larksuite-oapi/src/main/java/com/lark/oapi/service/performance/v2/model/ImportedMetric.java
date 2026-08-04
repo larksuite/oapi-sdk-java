@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportedMetric {
+  /**
+   * 被评估人 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+   */
+  @SerializedName("reviewee_user_id")
+  private String revieweeUserId;
+
+  /**
+   * 指标
+   * ID，可通过[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取
+   *
+   * <p>示例值：7272580325522276372
+   */
+  @SerializedName("metric_id")
+  private String metricId;
+
+  /**
+   * 指标字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private ImportedMetricField[] fields;
+
+  public String getRevieweeUserId() {
+    return this.revieweeUserId;
+  }
+
+  public void setRevieweeUserId(String revieweeUserId) {
+    this.revieweeUserId = revieweeUserId;
+  }
+
+  public String getMetricId() {
+    return this.metricId;
+  }
+
+  public void setMetricId(String metricId) {
+    this.metricId = metricId;
+  }
+
+  public ImportedMetricField[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(ImportedMetricField[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public ImportedMetric() {}
+
+  public ImportedMetric(Builder builder) {
     /**
-     * 被评估人 ID
-     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+     * 被评估人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
      */
-    @SerializedName("reviewee_user_id")
-    private String revieweeUserId;
+    this.revieweeUserId = builder.revieweeUserId;
     /**
-     * 指标 ID，指标的统一标识
-     * <p> 示例值：7272580325522276372
+     * 指标
+     * ID，可通过[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取
+     *
+     * <p>示例值：7272580325522276372
      */
-    @SerializedName("metric_id")
-    private String metricId;
+    this.metricId = builder.metricId;
     /**
      * 指标字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 被评估人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     */
+    private String revieweeUserId;
+
+    /**
+     * 指标
+     * ID，可通过[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取
+     *
+     * <p>示例值：7272580325522276372
+     */
+    private String metricId;
+
+    /**
+     * 指标字段信息
+     *
+     * <p>示例值：
+     */
     private ImportedMetricField[] fields;
 
-    // builder 开始
-    public ImportedMetric() {
+    /**
+     * 被评估人 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * @param revieweeUserId
+     * @return
+     */
+    public Builder revieweeUserId(String revieweeUserId) {
+      this.revieweeUserId = revieweeUserId;
+      return this;
     }
 
-    public ImportedMetric(Builder builder) {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 指标 ID，指标的统一标识
-         * <p> 示例值：7272580325522276372
-         */
-        this.metricId = builder.metricId;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 指标
+     * ID，可通过[获取指标列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/metric_lib/query)接口获取
+     *
+     * <p>示例值：7272580325522276372
+     *
+     * @param metricId
+     * @return
+     */
+    public Builder metricId(String metricId) {
+      this.metricId = metricId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指标字段信息
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(ImportedMetricField[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getRevieweeUserId() {
-        return this.revieweeUserId;
+    public ImportedMetric build() {
+      return new ImportedMetric(this);
     }
+  }
 
-    public void setRevieweeUserId(String revieweeUserId) {
-        this.revieweeUserId = revieweeUserId;
-    }
-
-    public String getMetricId() {
-        return this.metricId;
-    }
-
-    public void setMetricId(String metricId) {
-        this.metricId = metricId;
-    }
-
-    public ImportedMetricField[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(ImportedMetricField[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        private String revieweeUserId;
-        /**
-         * 指标 ID，指标的统一标识
-         * <p> 示例值：7272580325522276372
-         */
-        private String metricId;
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         */
-        private ImportedMetricField[] fields;
-
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         *
-         * @param revieweeUserId
-         * @return
-         */
-        public Builder revieweeUserId(String revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
-        }
-
-
-        /**
-         * 指标 ID，指标的统一标识
-         * <p> 示例值：7272580325522276372
-         *
-         * @param metricId
-         * @return
-         */
-        public Builder metricId(String metricId) {
-            this.metricId = metricId;
-            return this;
-        }
-
-
-        /**
-         * 指标字段信息
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(ImportedMetricField[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public ImportedMetric build() {
-            return new ImportedMetric(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

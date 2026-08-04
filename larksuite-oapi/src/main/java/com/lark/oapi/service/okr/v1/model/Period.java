@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Period {
+  /**
+   * OKD周期ID
+   *
+   * <p>示例值：635782378412311
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 中文名称
+   *
+   * <p>示例值：中文周期
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 英文名称
+   *
+   * <p>示例值：english period
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 启用状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 周期开始时间
+   *
+   * <p>示例值：1686740948123
+   */
+  @SerializedName("period_start_time")
+  private String periodStartTime;
+
+  /**
+   * 周期结束时间
+   *
+   * <p>示例值：1686740948123
+   */
+  @SerializedName("period_end_time")
+  private String periodEndTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getPeriodStartTime() {
+    return this.periodStartTime;
+  }
+
+  public void setPeriodStartTime(String periodStartTime) {
+    this.periodStartTime = periodStartTime;
+  }
+
+  public String getPeriodEndTime() {
+    return this.periodEndTime;
+  }
+
+  public void setPeriodEndTime(String periodEndTime) {
+    this.periodEndTime = periodEndTime;
+  }
+
+  // builder 开始
+  public Period() {}
+
+  public Period(Builder builder) {
     /**
-     * id
-     * <p> 示例值：635782378412311
+     * OKD周期ID
+     *
+     * <p>示例值：635782378412311
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 中文名称
-     * <p> 示例值：中文周期
+     *
+     * <p>示例值：中文周期
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 英文名称
-     * <p> 示例值：english period
+     *
+     * <p>示例值：english period
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 启用状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 周期开始时间
-     * <p> 示例值：1686740948123
+     *
+     * <p>示例值：1686740948123
      */
-    @SerializedName("period_start_time")
-    private String periodStartTime;
+    this.periodStartTime = builder.periodStartTime;
     /**
      * 周期结束时间
-     * <p> 示例值：1686740948123
+     *
+     * <p>示例值：1686740948123
      */
-    @SerializedName("period_end_time")
+    this.periodEndTime = builder.periodEndTime;
+  }
+
+  public static class Builder {
+    /**
+     * OKD周期ID
+     *
+     * <p>示例值：635782378412311
+     */
+    private String id;
+
+    /**
+     * 中文名称
+     *
+     * <p>示例值：中文周期
+     */
+    private String zhName;
+
+    /**
+     * 英文名称
+     *
+     * <p>示例值：english period
+     */
+    private String enName;
+
+    /**
+     * 启用状态
+     *
+     * <p>示例值：0
+     */
+    private Integer status;
+
+    /**
+     * 周期开始时间
+     *
+     * <p>示例值：1686740948123
+     */
+    private String periodStartTime;
+
+    /**
+     * 周期结束时间
+     *
+     * <p>示例值：1686740948123
+     */
     private String periodEndTime;
 
-    // builder 开始
-    public Period() {
+    /**
+     * OKD周期ID
+     *
+     * <p>示例值：635782378412311
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Period(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：635782378412311
-         */
-        this.id = builder.id;
-        /**
-         * 中文名称
-         * <p> 示例值：中文周期
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：english period
-         */
-        this.enName = builder.enName;
-        /**
-         * 启用状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-        /**
-         * 周期开始时间
-         * <p> 示例值：1686740948123
-         */
-        this.periodStartTime = builder.periodStartTime;
-        /**
-         * 周期结束时间
-         * <p> 示例值：1686740948123
-         */
-        this.periodEndTime = builder.periodEndTime;
+    /**
+     * 中文名称
+     *
+     * <p>示例值：中文周期
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名称
+     *
+     * <p>示例值：english period
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 启用状态
+     *
+     * <p>示例值：0
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 启用状态
+     *
+     * <p>示例值：0
+     *
+     * @param status {@link com.lark.oapi.service.okr.v1.enums.PeriodPeriodStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.okr.v1.enums.PeriodPeriodStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getZhName() {
-        return this.zhName;
+    /**
+     * 周期开始时间
+     *
+     * <p>示例值：1686740948123
+     *
+     * @param periodStartTime
+     * @return
+     */
+    public Builder periodStartTime(String periodStartTime) {
+      this.periodStartTime = periodStartTime;
+      return this;
     }
 
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
+    /**
+     * 周期结束时间
+     *
+     * <p>示例值：1686740948123
+     *
+     * @param periodEndTime
+     * @return
+     */
+    public Builder periodEndTime(String periodEndTime) {
+      this.periodEndTime = periodEndTime;
+      return this;
     }
 
-    public String getEnName() {
-        return this.enName;
+    public Period build() {
+      return new Period(this);
     }
+  }
 
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getPeriodStartTime() {
-        return this.periodStartTime;
-    }
-
-    public void setPeriodStartTime(String periodStartTime) {
-        this.periodStartTime = periodStartTime;
-    }
-
-    public String getPeriodEndTime() {
-        return this.periodEndTime;
-    }
-
-    public void setPeriodEndTime(String periodEndTime) {
-        this.periodEndTime = periodEndTime;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：635782378412311
-         */
-        private String id;
-        /**
-         * 中文名称
-         * <p> 示例值：中文周期
-         */
-        private String zhName;
-        /**
-         * 英文名称
-         * <p> 示例值：english period
-         */
-        private String enName;
-        /**
-         * 启用状态
-         * <p> 示例值：0
-         */
-        private Integer status;
-        /**
-         * 周期开始时间
-         * <p> 示例值：1686740948123
-         */
-        private String periodStartTime;
-        /**
-         * 周期结束时间
-         * <p> 示例值：1686740948123
-         */
-        private String periodEndTime;
-
-        /**
-         * id
-         * <p> 示例值：635782378412311
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 中文名称
-         * <p> 示例值：中文周期
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名称
-         * <p> 示例值：english period
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 启用状态
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 启用状态
-         * <p> 示例值：0
-         *
-         * @param status {@link com.lark.oapi.service.okr.v1.enums.PeriodPeriodStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.okr.v1.enums.PeriodPeriodStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 周期开始时间
-         * <p> 示例值：1686740948123
-         *
-         * @param periodStartTime
-         * @return
-         */
-        public Builder periodStartTime(String periodStartTime) {
-            this.periodStartTime = periodStartTime;
-            return this;
-        }
-
-
-        /**
-         * 周期结束时间
-         * <p> 示例值：1686740948123
-         *
-         * @param periodEndTime
-         * @return
-         */
-        public Builder periodEndTime(String periodEndTime) {
-            this.periodEndTime = periodEndTime;
-            return this;
-        }
-
-
-        public Period build() {
-            return new Period(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

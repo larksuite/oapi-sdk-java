@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetWebsiteDeliveryTaskRespBody {
-    /**
-     * 任务状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 官网投递信息
-     * <p> 示例值：
-     */
-    @SerializedName("delivery")
-    private WebsiteDeliveryDto delivery;
-    /**
-     * 状态信息，仅 status 为 3 时返回
-     * <p> 示例值：same application exist
-     */
-    @SerializedName("status_msg")
-    private String statusMsg;
-    /**
-     * 附加信息，当前返回投递 ID，仅当 status 为 3 且 status_msg 标识为重复投递时，将返回重复投递的 ID
-     * <p> 示例值：7100825663201052972
-     */
-    @SerializedName("extra_info")
-    private String extraInfo;
+  /**
+   * 任务状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 官网投递信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("delivery")
+  private WebsiteDeliveryDto delivery;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 状态信息，仅在任务状态（status）为失败（3）时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status_msg")
+  private String statusMsg;
 
-    public WebsiteDeliveryDto getDelivery() {
-        return this.delivery;
-    }
+  /**
+   * 附加信息，在任务状态（status）为失败（3）时、且状态信息（status_msg）标识为重复投递时，返回重复投递的 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra_info")
+  private String extraInfo;
 
-    public void setDelivery(WebsiteDeliveryDto delivery) {
-        this.delivery = delivery;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public String getStatusMsg() {
-        return this.statusMsg;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public void setStatusMsg(String statusMsg) {
-        this.statusMsg = statusMsg;
-    }
+  public WebsiteDeliveryDto getDelivery() {
+    return this.delivery;
+  }
 
-    public String getExtraInfo() {
-        return this.extraInfo;
-    }
+  public void setDelivery(WebsiteDeliveryDto delivery) {
+    this.delivery = delivery;
+  }
 
-    public void setExtraInfo(String extraInfo) {
-        this.extraInfo = extraInfo;
-    }
+  public String getStatusMsg() {
+    return this.statusMsg;
+  }
 
+  public void setStatusMsg(String statusMsg) {
+    this.statusMsg = statusMsg;
+  }
+
+  public String getExtraInfo() {
+    return this.extraInfo;
+  }
+
+  public void setExtraInfo(String extraInfo) {
+    this.extraInfo = extraInfo;
+  }
 }

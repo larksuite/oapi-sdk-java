@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PostTableRecordsAppTableRespBody {
-    /**
-     * 按照记录顺序创建或更新的记录 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("record_ids")
-    private String[] recordIds;
+  /**
+   * 按照记录顺序创建或更新的记录 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("record_ids")
+  private String[] recordIds;
 
-    public String[] getRecordIds() {
-        return this.recordIds;
-    }
+  public String[] getRecordIds() {
+    return this.recordIds;
+  }
 
-    public void setRecordIds(String[] recordIds) {
-        this.recordIds = recordIds;
-    }
-
+  public void setRecordIds(String[] recordIds) {
+    this.recordIds = recordIds;
+  }
 }

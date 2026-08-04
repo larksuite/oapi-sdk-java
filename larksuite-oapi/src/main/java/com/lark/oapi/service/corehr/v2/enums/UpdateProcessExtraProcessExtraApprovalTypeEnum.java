@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 多人加签时的审批方式
- */
+/** 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签 */
 public enum UpdateProcessExtraProcessExtraApprovalTypeEnum {
-    OR(0), // 或签
-    AND(1), // 会签
-    ;
-    private Integer value;
+  OR(0), //
+  AND(1), //
+  ;
+  private Integer value;
 
-    UpdateProcessExtraProcessExtraApprovalTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UpdateProcessExtraProcessExtraApprovalTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

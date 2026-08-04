@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecommendEventInfo {
+  /**
+   * 日程开始时间
+   *
+   * <p>示例值：2025-03-01 14:00:00
+   */
+  @SerializedName("event_start_time")
+  private String eventStartTime;
+
+  /**
+   * 日程结束时间
+   *
+   * <p>示例值：2025-03-01 15:00:00
+   */
+  @SerializedName("event_end_time")
+  private String eventEndTime;
+
+  /**
+   * 推荐原因
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("recommend_reason")
+  private String recommendReason;
+
+  public String getEventStartTime() {
+    return this.eventStartTime;
+  }
+
+  public void setEventStartTime(String eventStartTime) {
+    this.eventStartTime = eventStartTime;
+  }
+
+  public String getEventEndTime() {
+    return this.eventEndTime;
+  }
+
+  public void setEventEndTime(String eventEndTime) {
+    this.eventEndTime = eventEndTime;
+  }
+
+  public String getRecommendReason() {
+    return this.recommendReason;
+  }
+
+  public void setRecommendReason(String recommendReason) {
+    this.recommendReason = recommendReason;
+  }
+
+  // builder 开始
+  public RecommendEventInfo() {}
+
+  public RecommendEventInfo(Builder builder) {
     /**
      * 日程开始时间
-     * <p> 示例值：2025-03-01 14:00:00
+     *
+     * <p>示例值：2025-03-01 14:00:00
      */
-    @SerializedName("event_start_time")
-    private String eventStartTime;
+    this.eventStartTime = builder.eventStartTime;
     /**
      * 日程结束时间
-     * <p> 示例值：2025-03-01 15:00:00
+     *
+     * <p>示例值：2025-03-01 15:00:00
      */
-    @SerializedName("event_end_time")
-    private String eventEndTime;
+    this.eventEndTime = builder.eventEndTime;
     /**
      * 推荐原因
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("recommend_reason")
+    this.recommendReason = builder.recommendReason;
+  }
+
+  public static class Builder {
+    /**
+     * 日程开始时间
+     *
+     * <p>示例值：2025-03-01 14:00:00
+     */
+    private String eventStartTime;
+
+    /**
+     * 日程结束时间
+     *
+     * <p>示例值：2025-03-01 15:00:00
+     */
+    private String eventEndTime;
+
+    /**
+     * 推荐原因
+     *
+     * <p>示例值：无
+     */
     private String recommendReason;
 
-    // builder 开始
-    public RecommendEventInfo() {
+    /**
+     * 日程开始时间
+     *
+     * <p>示例值：2025-03-01 14:00:00
+     *
+     * @param eventStartTime
+     * @return
+     */
+    public Builder eventStartTime(String eventStartTime) {
+      this.eventStartTime = eventStartTime;
+      return this;
     }
 
-    public RecommendEventInfo(Builder builder) {
-        /**
-         * 日程开始时间
-         * <p> 示例值：2025-03-01 14:00:00
-         */
-        this.eventStartTime = builder.eventStartTime;
-        /**
-         * 日程结束时间
-         * <p> 示例值：2025-03-01 15:00:00
-         */
-        this.eventEndTime = builder.eventEndTime;
-        /**
-         * 推荐原因
-         * <p> 示例值：无
-         */
-        this.recommendReason = builder.recommendReason;
+    /**
+     * 日程结束时间
+     *
+     * <p>示例值：2025-03-01 15:00:00
+     *
+     * @param eventEndTime
+     * @return
+     */
+    public Builder eventEndTime(String eventEndTime) {
+      this.eventEndTime = eventEndTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 推荐原因
+     *
+     * <p>示例值：无
+     *
+     * @param recommendReason
+     * @return
+     */
+    public Builder recommendReason(String recommendReason) {
+      this.recommendReason = recommendReason;
+      return this;
     }
 
-    public String getEventStartTime() {
-        return this.eventStartTime;
+    public RecommendEventInfo build() {
+      return new RecommendEventInfo(this);
     }
+  }
 
-    public void setEventStartTime(String eventStartTime) {
-        this.eventStartTime = eventStartTime;
-    }
-
-    public String getEventEndTime() {
-        return this.eventEndTime;
-    }
-
-    public void setEventEndTime(String eventEndTime) {
-        this.eventEndTime = eventEndTime;
-    }
-
-    public String getRecommendReason() {
-        return this.recommendReason;
-    }
-
-    public void setRecommendReason(String recommendReason) {
-        this.recommendReason = recommendReason;
-    }
-
-    public static class Builder {
-        /**
-         * 日程开始时间
-         * <p> 示例值：2025-03-01 14:00:00
-         */
-        private String eventStartTime;
-        /**
-         * 日程结束时间
-         * <p> 示例值：2025-03-01 15:00:00
-         */
-        private String eventEndTime;
-        /**
-         * 推荐原因
-         * <p> 示例值：无
-         */
-        private String recommendReason;
-
-        /**
-         * 日程开始时间
-         * <p> 示例值：2025-03-01 14:00:00
-         *
-         * @param eventStartTime
-         * @return
-         */
-        public Builder eventStartTime(String eventStartTime) {
-            this.eventStartTime = eventStartTime;
-            return this;
-        }
-
-
-        /**
-         * 日程结束时间
-         * <p> 示例值：2025-03-01 15:00:00
-         *
-         * @param eventEndTime
-         * @return
-         */
-        public Builder eventEndTime(String eventEndTime) {
-            this.eventEndTime = eventEndTime;
-            return this;
-        }
-
-
-        /**
-         * 推荐原因
-         * <p> 示例值：无
-         *
-         * @param recommendReason
-         * @return
-         */
-        public Builder recommendReason(String recommendReason) {
-            this.recommendReason = recommendReason;
-            return this;
-        }
-
-
-        public RecommendEventInfo build() {
-            return new RecommendEventInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

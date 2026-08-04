@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenEventRsvpInfo {
+  /**
+   * 用户类型参与人的用户 ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("from_user_id")
+  private UserId fromUserId;
+
+  /**
+   * RSVP 操作状态。;;**可能值有：**;- accept：接收;- decline：拒绝;- tentative：待定
+   *
+   * <p>示例值：accept
+   */
+  @SerializedName("rsvp_status")
+  private String rsvpStatus;
+
+  public UserId getFromUserId() {
+    return this.fromUserId;
+  }
+
+  public void setFromUserId(UserId fromUserId) {
+    this.fromUserId = fromUserId;
+  }
+
+  public String getRsvpStatus() {
+    return this.rsvpStatus;
+  }
+
+  public void setRsvpStatus(String rsvpStatus) {
+    this.rsvpStatus = rsvpStatus;
+  }
+
+  // builder 开始
+  public OpenEventRsvpInfo() {}
+
+  public OpenEventRsvpInfo(Builder builder) {
     /**
-     * RSVP操作者
-     * <p> 示例值：
+     * 用户类型参与人的用户 ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("from_user_id")
+    this.fromUserId = builder.fromUserId;
+    /**
+     * RSVP 操作状态。;;**可能值有：**;- accept：接收;- decline：拒绝;- tentative：待定
+     *
+     * <p>示例值：accept
+     */
+    this.rsvpStatus = builder.rsvpStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 用户类型参与人的用户 ID。
+     *
+     * <p>示例值：
+     */
     private UserId fromUserId;
+
     /**
-     * RSVP操作状态
-     * <p> 示例值：accept
+     * RSVP 操作状态。;;**可能值有：**;- accept：接收;- decline：拒绝;- tentative：待定
+     *
+     * <p>示例值：accept
      */
-    @SerializedName("rsvp_status")
     private String rsvpStatus;
 
-    // builder 开始
-    public OpenEventRsvpInfo() {
+    /**
+     * 用户类型参与人的用户 ID。
+     *
+     * <p>示例值：
+     *
+     * @param fromUserId
+     * @return
+     */
+    public Builder fromUserId(UserId fromUserId) {
+      this.fromUserId = fromUserId;
+      return this;
     }
 
-    public OpenEventRsvpInfo(Builder builder) {
-        /**
-         * RSVP操作者
-         * <p> 示例值：
-         */
-        this.fromUserId = builder.fromUserId;
-        /**
-         * RSVP操作状态
-         * <p> 示例值：accept
-         */
-        this.rsvpStatus = builder.rsvpStatus;
+    /**
+     * RSVP 操作状态。;;**可能值有：**;- accept：接收;- decline：拒绝;- tentative：待定
+     *
+     * <p>示例值：accept
+     *
+     * @param rsvpStatus
+     * @return
+     */
+    public Builder rsvpStatus(String rsvpStatus) {
+      this.rsvpStatus = rsvpStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OpenEventRsvpInfo build() {
+      return new OpenEventRsvpInfo(this);
     }
+  }
 
-    public UserId getFromUserId() {
-        return this.fromUserId;
-    }
-
-    public void setFromUserId(UserId fromUserId) {
-        this.fromUserId = fromUserId;
-    }
-
-    public String getRsvpStatus() {
-        return this.rsvpStatus;
-    }
-
-    public void setRsvpStatus(String rsvpStatus) {
-        this.rsvpStatus = rsvpStatus;
-    }
-
-    public static class Builder {
-        /**
-         * RSVP操作者
-         * <p> 示例值：
-         */
-        private UserId fromUserId;
-        /**
-         * RSVP操作状态
-         * <p> 示例值：accept
-         */
-        private String rsvpStatus;
-
-        /**
-         * RSVP操作者
-         * <p> 示例值：
-         *
-         * @param fromUserId
-         * @return
-         */
-        public Builder fromUserId(UserId fromUserId) {
-            this.fromUserId = fromUserId;
-            return this;
-        }
-
-
-        /**
-         * RSVP操作状态
-         * <p> 示例值：accept
-         *
-         * @param rsvpStatus
-         * @return
-         */
-        public Builder rsvpStatus(String rsvpStatus) {
-            this.rsvpStatus = rsvpStatus;
-            return this;
-        }
-
-
-        public OpenEventRsvpInfo build() {
-            return new OpenEventRsvpInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,76 +13,72 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRecentChangeJobFamilyRespBody {
-    /**
-     * 序列 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("job_family_ids")
-    private String[] jobFamilyIds;
-    /**
-     * 下一页页码
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 删除的序列 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("deleted_job_family_ids")
-    private String[] deletedJobFamilyIds;
+  /**
+   * 序列 ID 列表，其中包含新建、更新以及删除的ID列表。;-
+   * 非删除的数据，可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_ids")
+  private String[] jobFamilyIds;
 
-    public String[] getJobFamilyIds() {
-        return this.jobFamilyIds;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setJobFamilyIds(String[] jobFamilyIds) {
-        this.jobFamilyIds = jobFamilyIds;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 目标查询时间范围内被删除的序列列表， 该列表是 job_family_ids 的子集，便于获取在指定的[start_date, end_date+1) 的范围内被删除的序列 IDs。;-
+   * **由于对应的序列已经被删除，无法通过 ID 查询到历史数据。**
+   *
+   * <p>示例值：
+   */
+  @SerializedName("deleted_job_family_ids")
+  private String[] deletedJobFamilyIds;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getJobFamilyIds() {
+    return this.jobFamilyIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setJobFamilyIds(String[] jobFamilyIds) {
+    this.jobFamilyIds = jobFamilyIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public String[] getDeletedJobFamilyIds() {
-        return this.deletedJobFamilyIds;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setDeletedJobFamilyIds(String[] deletedJobFamilyIds) {
-        this.deletedJobFamilyIds = deletedJobFamilyIds;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String[] getDeletedJobFamilyIds() {
+    return this.deletedJobFamilyIds;
+  }
+
+  public void setDeletedJobFamilyIds(String[] deletedJobFamilyIds) {
+    this.deletedJobFamilyIds = deletedJobFamilyIds;
+  }
 }

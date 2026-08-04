@@ -13,139 +13,134 @@
 
 package com.lark.oapi.service.report.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.report.v1.enums.*;
 
 public class RemoveRuleViewReq {
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+  /** 示例值： */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 汇报规则ID
+   *
+   * <p>示例值：6894419345318182122
+   */
+  @Path
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  @Body private RemoveRuleViewReqBody body;
+
+  public RemoveRuleViewReqBody getRemoveRuleViewReqBody() {
+    return this.body;
+  }
+
+  public void setRemoveRuleViewReqBody(RemoveRuleViewReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RemoveRuleViewReq() {}
+
+  public RemoveRuleViewReq(Builder builder) {
+    /** 示例值： */
+    this.userIdType = builder.userIdType;
     /**
      * 汇报规则ID
-     * <p> 示例值：6894419345318182122
+     *
+     * <p>示例值：6894419345318182122
      */
-    @Path
-    @SerializedName("rule_id")
-    private String ruleId;
-    @Body
+    this.ruleId = builder.ruleId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; //
+
+    /**
+     * 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.report.v1.enums.RemoveRuleViewRemoveRuleViewUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.report.v1.enums.RemoveRuleViewRemoveRuleViewUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String ruleId; // 汇报规则ID
+
+    /**
+     * 汇报规则ID
+     *
+     * <p>示例值：6894419345318182122
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
+    }
+
     private RemoveRuleViewReqBody body;
 
-    // builder 开始
-    public RemoveRuleViewReq() {
-    }
-
-    public RemoveRuleViewReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 汇报规则ID
-         * <p> 示例值：6894419345318182122
-         */
-        this.ruleId = builder.ruleId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getRuleId() {
-        return this.ruleId;
-    }
-
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
-    }
-
     public RemoveRuleViewReqBody getRemoveRuleViewReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRemoveRuleViewReqBody(RemoveRuleViewReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder removeRuleViewReqBody(RemoveRuleViewReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; //
-        private String ruleId; // 汇报规则ID
-        private RemoveRuleViewReqBody body;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.report.v1.enums.RemoveRuleViewUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.report.v1.enums.RemoveRuleViewUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 汇报规则ID
-         * <p> 示例值：6894419345318182122
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-        public RemoveRuleViewReqBody getRemoveRuleViewReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder removeRuleViewReqBody(RemoveRuleViewReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RemoveRuleViewReq build() {
-            return new RemoveRuleViewReq(this);
-        }
+    public RemoveRuleViewReq build() {
+      return new RemoveRuleViewReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

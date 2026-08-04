@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReferenceSynced {
+  /**
+   * 源文档的文档 ID
+   *
+   * <p>示例值：doxcnSS4ouQkQEouGSUkTgabcef
+   */
+  @SerializedName("source_document_id")
+  private String sourceDocumentId;
+
+  /**
+   * 源同步块的 Block ID
+   *
+   * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+   */
+  @SerializedName("source_block_id")
+  private String sourceBlockId;
+
+  public String getSourceDocumentId() {
+    return this.sourceDocumentId;
+  }
+
+  public void setSourceDocumentId(String sourceDocumentId) {
+    this.sourceDocumentId = sourceDocumentId;
+  }
+
+  public String getSourceBlockId() {
+    return this.sourceBlockId;
+  }
+
+  public void setSourceBlockId(String sourceBlockId) {
+    this.sourceBlockId = sourceBlockId;
+  }
+
+  // builder 开始
+  public ReferenceSynced() {}
+
+  public ReferenceSynced(Builder builder) {
     /**
      * 源文档的文档 ID
-     * <p> 示例值：doxcnSS4ouQkQEouGSUkTgabcef
+     *
+     * <p>示例值：doxcnSS4ouQkQEouGSUkTgabcef
      */
-    @SerializedName("source_document_id")
-    private String sourceDocumentId;
+    this.sourceDocumentId = builder.sourceDocumentId;
     /**
      * 源同步块的 Block ID
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Iabcef
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
      */
-    @SerializedName("source_block_id")
+    this.sourceBlockId = builder.sourceBlockId;
+  }
+
+  public static class Builder {
+    /**
+     * 源文档的文档 ID
+     *
+     * <p>示例值：doxcnSS4ouQkQEouGSUkTgabcef
+     */
+    private String sourceDocumentId;
+
+    /**
+     * 源同步块的 Block ID
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+     */
     private String sourceBlockId;
 
-    // builder 开始
-    public ReferenceSynced() {
+    /**
+     * 源文档的文档 ID
+     *
+     * <p>示例值：doxcnSS4ouQkQEouGSUkTgabcef
+     *
+     * @param sourceDocumentId
+     * @return
+     */
+    public Builder sourceDocumentId(String sourceDocumentId) {
+      this.sourceDocumentId = sourceDocumentId;
+      return this;
     }
 
-    public ReferenceSynced(Builder builder) {
-        /**
-         * 源文档的文档 ID
-         * <p> 示例值：doxcnSS4ouQkQEouGSUkTgabcef
-         */
-        this.sourceDocumentId = builder.sourceDocumentId;
-        /**
-         * 源同步块的 Block ID
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Iabcef
-         */
-        this.sourceBlockId = builder.sourceBlockId;
+    /**
+     * 源同步块的 Block ID
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+     *
+     * @param sourceBlockId
+     * @return
+     */
+    public Builder sourceBlockId(String sourceBlockId) {
+      this.sourceBlockId = sourceBlockId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ReferenceSynced build() {
+      return new ReferenceSynced(this);
     }
+  }
 
-    public String getSourceDocumentId() {
-        return this.sourceDocumentId;
-    }
-
-    public void setSourceDocumentId(String sourceDocumentId) {
-        this.sourceDocumentId = sourceDocumentId;
-    }
-
-    public String getSourceBlockId() {
-        return this.sourceBlockId;
-    }
-
-    public void setSourceBlockId(String sourceBlockId) {
-        this.sourceBlockId = sourceBlockId;
-    }
-
-    public static class Builder {
-        /**
-         * 源文档的文档 ID
-         * <p> 示例值：doxcnSS4ouQkQEouGSUkTgabcef
-         */
-        private String sourceDocumentId;
-        /**
-         * 源同步块的 Block ID
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Iabcef
-         */
-        private String sourceBlockId;
-
-        /**
-         * 源文档的文档 ID
-         * <p> 示例值：doxcnSS4ouQkQEouGSUkTgabcef
-         *
-         * @param sourceDocumentId
-         * @return
-         */
-        public Builder sourceDocumentId(String sourceDocumentId) {
-            this.sourceDocumentId = sourceDocumentId;
-            return this;
-        }
-
-
-        /**
-         * 源同步块的 Block ID
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Iabcef
-         *
-         * @param sourceBlockId
-         * @return
-         */
-        public Builder sourceBlockId(String sourceBlockId) {
-            this.sourceBlockId = sourceBlockId;
-            return this;
-        }
-
-
-        public ReferenceSynced build() {
-            return new ReferenceSynced(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

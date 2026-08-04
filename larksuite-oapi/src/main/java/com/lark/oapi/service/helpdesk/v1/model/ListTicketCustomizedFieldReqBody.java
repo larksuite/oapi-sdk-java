@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListTicketCustomizedFieldReqBody {
+  /**
+   * if the field is visible
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visible")
+  private Boolean visible;
+
+  public Boolean getVisible() {
+    return this.visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+  // builder 开始
+  public ListTicketCustomizedFieldReqBody() {}
+
+  public ListTicketCustomizedFieldReqBody(Builder builder) {
     /**
-     * 是否可见
-     * <p> 示例值：true
+     * if the field is visible
+     *
+     * <p>示例值：
      */
-    @SerializedName("visible")
+    this.visible = builder.visible;
+  }
+
+  public static class Builder {
+    /**
+     * if the field is visible
+     *
+     * <p>示例值：
+     */
     private Boolean visible;
 
-    // builder 开始
-    public ListTicketCustomizedFieldReqBody() {
+    /**
+     * if the field is visible
+     *
+     * <p>示例值：
+     *
+     * @param visible
+     * @return
+     */
+    public Builder visible(Boolean visible) {
+      this.visible = visible;
+      return this;
     }
 
-    public ListTicketCustomizedFieldReqBody(Builder builder) {
-        /**
-         * 是否可见
-         * <p> 示例值：true
-         */
-        this.visible = builder.visible;
+    public ListTicketCustomizedFieldReqBody build() {
+      return new ListTicketCustomizedFieldReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getVisible() {
-        return this.visible;
-    }
-
-    public void setVisible(Boolean visible) {
-        this.visible = visible;
-    }
-
-    public static class Builder {
-        /**
-         * 是否可见
-         * <p> 示例值：true
-         */
-        private Boolean visible;
-
-        /**
-         * 是否可见
-         * <p> 示例值：true
-         *
-         * @param visible
-         * @return
-         */
-        public Builder visible(Boolean visible) {
-            this.visible = visible;
-            return this;
-        }
-
-
-        public ListTicketCustomizedFieldReqBody build() {
-            return new ListTicketCustomizedFieldReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

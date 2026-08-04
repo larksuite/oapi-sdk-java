@@ -13,109 +13,106 @@
 
 package com.lark.oapi.service.passport.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.passport.v1.enums.*;
 
 public class LogoutSessionReq {
+  /**
+   * user_id_type
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private LogoutSessionReqBody body;
+
+  public LogoutSessionReqBody getLogoutSessionReqBody() {
+    return this.body;
+  }
+
+  public void setLogoutSessionReqBody(LogoutSessionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public LogoutSessionReq() {}
+
+  public LogoutSessionReq(Builder builder) {
     /**
      * user_id_type
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // user_id_type
+
+    /**
+     * user_id_type
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * user_id_type
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private LogoutSessionReqBody body;
 
-    // builder 开始
-    public LogoutSessionReq() {
-    }
-
-    public LogoutSessionReq(Builder builder) {
-        /**
-         * user_id_type
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public LogoutSessionReqBody getLogoutSessionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setLogoutSessionReqBody(LogoutSessionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder logoutSessionReqBody(LogoutSessionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // user_id_type
-        private LogoutSessionReqBody body;
-
-        /**
-         * user_id_type
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * user_id_type
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.passport.v1.enums.LogoutSessionLogoutUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public LogoutSessionReqBody getLogoutSessionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder logoutSessionReqBody(LogoutSessionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public LogoutSessionReq build() {
-            return new LogoutSessionReq(this);
-        }
+    public LogoutSessionReq build() {
+      return new LogoutSessionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

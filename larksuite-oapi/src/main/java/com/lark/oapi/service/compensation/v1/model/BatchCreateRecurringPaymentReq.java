@@ -13,109 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.compensation.v1.enums.*;
 
 public class BatchCreateRecurringPaymentReq {
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private BatchCreateRecurringPaymentReqBody body;
+
+  public BatchCreateRecurringPaymentReqBody getBatchCreateRecurringPaymentReqBody() {
+    return this.body;
+  }
+
+  public void setBatchCreateRecurringPaymentReqBody(BatchCreateRecurringPaymentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchCreateRecurringPaymentReq() {}
+
+  public BatchCreateRecurringPaymentReq(Builder builder) {
     /**
      * 用户ID类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.BatchCreateRecurringPaymentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.compensation.v1.enums.BatchCreateRecurringPaymentUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private BatchCreateRecurringPaymentReqBody body;
 
-    // builder 开始
-    public BatchCreateRecurringPaymentReq() {
-    }
-
-    public BatchCreateRecurringPaymentReq(Builder builder) {
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public BatchCreateRecurringPaymentReqBody getBatchCreateRecurringPaymentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchCreateRecurringPaymentReqBody(BatchCreateRecurringPaymentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchCreateRecurringPaymentReqBody(BatchCreateRecurringPaymentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户ID类型
-        private BatchCreateRecurringPaymentReqBody body;
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.compensation.v1.enums.BatchCreateRecurringPaymentUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.compensation.v1.enums.BatchCreateRecurringPaymentUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public BatchCreateRecurringPaymentReqBody getBatchCreateRecurringPaymentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchCreateRecurringPaymentReqBody(BatchCreateRecurringPaymentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchCreateRecurringPaymentReq build() {
-            return new BatchCreateRecurringPaymentReq(this);
-        }
+    public BatchCreateRecurringPaymentReq build() {
+      return new BatchCreateRecurringPaymentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

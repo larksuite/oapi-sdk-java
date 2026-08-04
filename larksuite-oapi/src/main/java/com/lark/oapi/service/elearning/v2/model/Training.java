@@ -13,346 +13,373 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Training {
+  /**
+   * 培训ID
+   *
+   * <p>示例值：5e943ade0bb519d693a885e9
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 培训标题
+   *
+   * <p>示例值：互联：脑机交互如何走出实验室
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 培训描述
+   *
+   * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 培训封面
+   *
+   * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+   */
+  @SerializedName("cover_url")
+  private String coverUrl;
+
+  /**
+   * 培训分类
+   *
+   * <p>示例值：
+   */
+  @SerializedName("category_list")
+  private CourseCategory[] categoryList;
+
+  /**
+   * 培训频道信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("channel_list")
+  private CourseChannel[] channelList;
+
+  /**
+   * 培训内容信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("session_list")
+  private Session[] sessionList;
+
+  /**
+   * 活动期次类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("session_limit")
+  private Integer sessionLimit;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getCoverUrl() {
+    return this.coverUrl;
+  }
+
+  public void setCoverUrl(String coverUrl) {
+    this.coverUrl = coverUrl;
+  }
+
+  public CourseCategory[] getCategoryList() {
+    return this.categoryList;
+  }
+
+  public void setCategoryList(CourseCategory[] categoryList) {
+    this.categoryList = categoryList;
+  }
+
+  public CourseChannel[] getChannelList() {
+    return this.channelList;
+  }
+
+  public void setChannelList(CourseChannel[] channelList) {
+    this.channelList = channelList;
+  }
+
+  public Session[] getSessionList() {
+    return this.sessionList;
+  }
+
+  public void setSessionList(Session[] sessionList) {
+    this.sessionList = sessionList;
+  }
+
+  public Integer getSessionLimit() {
+    return this.sessionLimit;
+  }
+
+  public void setSessionLimit(Integer sessionLimit) {
+    this.sessionLimit = sessionLimit;
+  }
+
+  // builder 开始
+  public Training() {}
+
+  public Training(Builder builder) {
     /**
      * 培训ID
-     * <p> 示例值：5e943ade0bb519d693a885e9
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 培训标题
-     * <p> 示例值：互联：脑机交互如何走出实验室
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 培训描述
-     * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 培训封面
-     * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
      */
-    @SerializedName("cover_url")
-    private String coverUrl;
+    this.coverUrl = builder.coverUrl;
     /**
      * 培训分类
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("category_list")
-    private CourseCategory[] categoryList;
+    this.categoryList = builder.categoryList;
     /**
      * 培训频道信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("channel_list")
-    private CourseChannel[] channelList;
+    this.channelList = builder.channelList;
     /**
      * 培训内容信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("session_list")
-    private Session[] sessionList;
+    this.sessionList = builder.sessionList;
     /**
      * 活动期次类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("session_limit")
+    this.sessionLimit = builder.sessionLimit;
+  }
+
+  public static class Builder {
+    /**
+     * 培训ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     */
+    private String id;
+
+    /**
+     * 培训标题
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
+     */
+    private String title;
+
+    /**
+     * 培训描述
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     */
+    private String description;
+
+    /**
+     * 培训封面
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     */
+    private String coverUrl;
+
+    /**
+     * 培训分类
+     *
+     * <p>示例值：
+     */
+    private CourseCategory[] categoryList;
+
+    /**
+     * 培训频道信息
+     *
+     * <p>示例值：
+     */
+    private CourseChannel[] channelList;
+
+    /**
+     * 培训内容信息
+     *
+     * <p>示例值：
+     */
+    private Session[] sessionList;
+
+    /**
+     * 活动期次类型
+     *
+     * <p>示例值：1
+     */
     private Integer sessionLimit;
 
-    // builder 开始
-    public Training() {
+    /**
+     * 培训ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Training(Builder builder) {
-        /**
-         * 培训ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        this.id = builder.id;
-        /**
-         * 培训标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         */
-        this.title = builder.title;
-        /**
-         * 培训描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         */
-        this.description = builder.description;
-        /**
-         * 培训封面
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         */
-        this.coverUrl = builder.coverUrl;
-        /**
-         * 培训分类
-         * <p> 示例值：
-         */
-        this.categoryList = builder.categoryList;
-        /**
-         * 培训频道信息
-         * <p> 示例值：
-         */
-        this.channelList = builder.channelList;
-        /**
-         * 培训内容信息
-         * <p> 示例值：
-         */
-        this.sessionList = builder.sessionList;
-        /**
-         * 活动期次类型
-         * <p> 示例值：1
-         */
-        this.sessionLimit = builder.sessionLimit;
+    /**
+     * 培训标题
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 培训描述
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 培训封面
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     *
+     * @param coverUrl
+     * @return
+     */
+    public Builder coverUrl(String coverUrl) {
+      this.coverUrl = coverUrl;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 培训分类
+     *
+     * <p>示例值：
+     *
+     * @param categoryList
+     * @return
+     */
+    public Builder categoryList(CourseCategory[] categoryList) {
+      this.categoryList = categoryList;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 培训频道信息
+     *
+     * <p>示例值：
+     *
+     * @param channelList
+     * @return
+     */
+    public Builder channelList(CourseChannel[] channelList) {
+      this.channelList = channelList;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 培训内容信息
+     *
+     * <p>示例值：
+     *
+     * @param sessionList
+     * @return
+     */
+    public Builder sessionList(Session[] sessionList) {
+      this.sessionList = sessionList;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 活动期次类型
+     *
+     * <p>示例值：1
+     *
+     * @param sessionLimit
+     * @return
+     */
+    public Builder sessionLimit(Integer sessionLimit) {
+      this.sessionLimit = sessionLimit;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 活动期次类型
+     *
+     * <p>示例值：1
+     *
+     * @param sessionLimit {@link com.lark.oapi.service.elearning.v2.enums.TrainingSessionLimitEnum}
+     * @return
+     */
+    public Builder sessionLimit(
+        com.lark.oapi.service.elearning.v2.enums.TrainingSessionLimitEnum sessionLimit) {
+      this.sessionLimit = sessionLimit.getValue();
+      return this;
     }
 
-    public String getCoverUrl() {
-        return this.coverUrl;
+    public Training build() {
+      return new Training(this);
     }
+  }
 
-    public void setCoverUrl(String coverUrl) {
-        this.coverUrl = coverUrl;
-    }
-
-    public CourseCategory[] getCategoryList() {
-        return this.categoryList;
-    }
-
-    public void setCategoryList(CourseCategory[] categoryList) {
-        this.categoryList = categoryList;
-    }
-
-    public CourseChannel[] getChannelList() {
-        return this.channelList;
-    }
-
-    public void setChannelList(CourseChannel[] channelList) {
-        this.channelList = channelList;
-    }
-
-    public Session[] getSessionList() {
-        return this.sessionList;
-    }
-
-    public void setSessionList(Session[] sessionList) {
-        this.sessionList = sessionList;
-    }
-
-    public Integer getSessionLimit() {
-        return this.sessionLimit;
-    }
-
-    public void setSessionLimit(Integer sessionLimit) {
-        this.sessionLimit = sessionLimit;
-    }
-
-    public static class Builder {
-        /**
-         * 培训ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        private String id;
-        /**
-         * 培训标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         */
-        private String title;
-        /**
-         * 培训描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         */
-        private String description;
-        /**
-         * 培训封面
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         */
-        private String coverUrl;
-        /**
-         * 培训分类
-         * <p> 示例值：
-         */
-        private CourseCategory[] categoryList;
-        /**
-         * 培训频道信息
-         * <p> 示例值：
-         */
-        private CourseChannel[] channelList;
-        /**
-         * 培训内容信息
-         * <p> 示例值：
-         */
-        private Session[] sessionList;
-        /**
-         * 活动期次类型
-         * <p> 示例值：1
-         */
-        private Integer sessionLimit;
-
-        /**
-         * 培训ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 培训标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 培训描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 培训封面
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         *
-         * @param coverUrl
-         * @return
-         */
-        public Builder coverUrl(String coverUrl) {
-            this.coverUrl = coverUrl;
-            return this;
-        }
-
-
-        /**
-         * 培训分类
-         * <p> 示例值：
-         *
-         * @param categoryList
-         * @return
-         */
-        public Builder categoryList(CourseCategory[] categoryList) {
-            this.categoryList = categoryList;
-            return this;
-        }
-
-
-        /**
-         * 培训频道信息
-         * <p> 示例值：
-         *
-         * @param channelList
-         * @return
-         */
-        public Builder channelList(CourseChannel[] channelList) {
-            this.channelList = channelList;
-            return this;
-        }
-
-
-        /**
-         * 培训内容信息
-         * <p> 示例值：
-         *
-         * @param sessionList
-         * @return
-         */
-        public Builder sessionList(Session[] sessionList) {
-            this.sessionList = sessionList;
-            return this;
-        }
-
-
-        /**
-         * 活动期次类型
-         * <p> 示例值：1
-         *
-         * @param sessionLimit
-         * @return
-         */
-        public Builder sessionLimit(Integer sessionLimit) {
-            this.sessionLimit = sessionLimit;
-            return this;
-        }
-
-        /**
-         * 活动期次类型
-         * <p> 示例值：1
-         *
-         * @param sessionLimit {@link com.lark.oapi.service.elearning.v2.enums.TrainingSessionLimitEnum}
-         * @return
-         */
-        public Builder sessionLimit(com.lark.oapi.service.elearning.v2.enums.TrainingSessionLimitEnum sessionLimit) {
-            this.sessionLimit = sessionLimit.getValue();
-            return this;
-        }
-
-
-        public Training build() {
-            return new Training(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

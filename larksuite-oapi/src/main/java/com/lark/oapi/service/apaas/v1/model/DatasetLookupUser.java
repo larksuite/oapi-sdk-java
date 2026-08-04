@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DatasetLookupUser {
+  /**
+   * 唯一标识
+   *
+   * <p>示例值：1763666400112647
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 是否已删除
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  // builder 开始
+  public DatasetLookupUser() {}
+
+  public DatasetLookupUser(Builder builder) {
     /**
      * 唯一标识
-     * <p> 示例值：1763666400112647
+     *
+     * <p>示例值：1763666400112647
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 是否已删除
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_deleted")
+    this.isDeleted = builder.isDeleted;
+  }
+
+  public static class Builder {
+    /**
+     * 唯一标识
+     *
+     * <p>示例值：1763666400112647
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 是否已删除
+     *
+     * <p>示例值：false
+     */
     private Boolean isDeleted;
 
-    // builder 开始
-    public DatasetLookupUser() {
+    /**
+     * 唯一标识
+     *
+     * <p>示例值：1763666400112647
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DatasetLookupUser(Builder builder) {
-        /**
-         * 唯一标识
-         * <p> 示例值：1763666400112647
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 是否已删除
-         * <p> 示例值：false
-         */
-        this.isDeleted = builder.isDeleted;
+    /**
+     * 名称
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否已删除
+     *
+     * <p>示例值：false
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public DatasetLookupUser build() {
+      return new DatasetLookupUser(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public static class Builder {
-        /**
-         * 唯一标识
-         * <p> 示例值：1763666400112647
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：张三
-         */
-        private String name;
-        /**
-         * 是否已删除
-         * <p> 示例值：false
-         */
-        private Boolean isDeleted;
-
-        /**
-         * 唯一标识
-         * <p> 示例值：1763666400112647
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：张三
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否已删除
-         * <p> 示例值：false
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        public DatasetLookupUser build() {
-            return new DatasetLookupUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

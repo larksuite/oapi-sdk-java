@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetPublicMailboxReq {
+  /**
+   * 公共邮箱唯一标识或公共邮箱地址
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+   */
+  @Path
+  @SerializedName("public_mailbox_id")
+  private String publicMailboxId;
+
+  public String getPublicMailboxId() {
+    return this.publicMailboxId;
+  }
+
+  public void setPublicMailboxId(String publicMailboxId) {
+    this.publicMailboxId = publicMailboxId;
+  }
+
+  // builder 开始
+  public GetPublicMailboxReq() {}
+
+  public GetPublicMailboxReq(Builder builder) {
     /**
      * 公共邮箱唯一标识或公共邮箱地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
      */
-    @Path
-    @SerializedName("public_mailbox_id")
-    private String publicMailboxId;
+    this.publicMailboxId = builder.publicMailboxId;
+  }
 
-    // builder 开始
-    public GetPublicMailboxReq() {
+  public static class Builder {
+
+    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
+
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
+    public Builder publicMailboxId(String publicMailboxId) {
+      this.publicMailboxId = publicMailboxId;
+      return this;
     }
 
-    public GetPublicMailboxReq(Builder builder) {
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         */
-        this.publicMailboxId = builder.publicMailboxId;
+    public GetPublicMailboxReq build() {
+      return new GetPublicMailboxReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPublicMailboxId() {
-        return this.publicMailboxId;
-    }
-
-    public void setPublicMailboxId(String publicMailboxId) {
-        this.publicMailboxId = publicMailboxId;
-    }
-
-    public static class Builder {
-
-        private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
-
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         *
-         * @param publicMailboxId
-         * @return
-         */
-        public Builder publicMailboxId(String publicMailboxId) {
-            this.publicMailboxId = publicMailboxId;
-            return this;
-        }
-
-
-        public GetPublicMailboxReq build() {
-            return new GetPublicMailboxReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

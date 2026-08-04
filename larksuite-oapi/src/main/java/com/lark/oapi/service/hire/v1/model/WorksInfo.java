@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorksInfo {
+  /**
+   * 作品集附件ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_id")
+  private String attachmentId;
+
+  /**
+   * 作品描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 作品链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getAttachmentId() {
+    return this.attachmentId;
+  }
+
+  public void setAttachmentId(String attachmentId) {
+    this.attachmentId = attachmentId;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public WorksInfo() {}
+
+  public WorksInfo(Builder builder) {
     /**
      * 作品集附件ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_id")
-    private String attachmentId;
+    this.attachmentId = builder.attachmentId;
     /**
      * 作品描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 作品链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * 作品集附件ID
+     *
+     * <p>示例值：
+     */
+    private String attachmentId;
+
+    /**
+     * 作品描述
+     *
+     * <p>示例值：
+     */
+    private String desc;
+
+    /**
+     * 作品链接
+     *
+     * <p>示例值：
+     */
     private String link;
 
-    // builder 开始
-    public WorksInfo() {
+    /**
+     * 作品集附件ID
+     *
+     * <p>示例值：
+     *
+     * @param attachmentId
+     * @return
+     */
+    public Builder attachmentId(String attachmentId) {
+      this.attachmentId = attachmentId;
+      return this;
     }
 
-    public WorksInfo(Builder builder) {
-        /**
-         * 作品集附件ID
-         * <p> 示例值：
-         */
-        this.attachmentId = builder.attachmentId;
-        /**
-         * 作品描述
-         * <p> 示例值：
-         */
-        this.desc = builder.desc;
-        /**
-         * 作品链接
-         * <p> 示例值：
-         */
-        this.link = builder.link;
+    /**
+     * 作品描述
+     *
+     * <p>示例值：
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 作品链接
+     *
+     * <p>示例值：
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public String getAttachmentId() {
-        return this.attachmentId;
+    public WorksInfo build() {
+      return new WorksInfo(this);
     }
+  }
 
-    public void setAttachmentId(String attachmentId) {
-        this.attachmentId = attachmentId;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * 作品集附件ID
-         * <p> 示例值：
-         */
-        private String attachmentId;
-        /**
-         * 作品描述
-         * <p> 示例值：
-         */
-        private String desc;
-        /**
-         * 作品链接
-         * <p> 示例值：
-         */
-        private String link;
-
-        /**
-         * 作品集附件ID
-         * <p> 示例值：
-         *
-         * @param attachmentId
-         * @return
-         */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
-
-
-        /**
-         * 作品描述
-         * <p> 示例值：
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 作品链接
-         * <p> 示例值：
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public WorksInfo build() {
-            return new WorksInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

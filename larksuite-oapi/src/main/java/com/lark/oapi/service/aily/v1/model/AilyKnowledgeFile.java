@@ -13,186 +13,199 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyKnowledgeFile {
+  /**
+   * 标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文件mime类型。;可选值：;- text/plain;- application/pdf;-
+   * application/vnd.openxmlformats-officedocument.presentationml.presentation;-
+   * application/vnd.openxmlformats-officedocument.wordprocessingml.document
+   *
+   * <p>示例值：text/plain
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  /**
+   * 文件内容。仅请求时传入。
+   *
+   * <p>示例值：content
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 文件来源URL
+   *
+   * <p>示例值：https://www.xx.xx
+   */
+  @SerializedName("source_url")
+  private String sourceUrl;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSourceUrl() {
+    return this.sourceUrl;
+  }
+
+  public void setSourceUrl(String sourceUrl) {
+    this.sourceUrl = sourceUrl;
+  }
+
+  // builder 开始
+  public AilyKnowledgeFile() {}
+
+  public AilyKnowledgeFile(Builder builder) {
     /**
      * 标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 文件mime类型
-     * <p> 示例值：text/plain
+     * 文件mime类型。;可选值：;- text/plain;- application/pdf;-
+     * application/vnd.openxmlformats-officedocument.presentationml.presentation;-
+     * application/vnd.openxmlformats-officedocument.wordprocessingml.document
+     *
+     * <p>示例值：text/plain
      */
-    @SerializedName("mime_type")
-    private String mimeType;
+    this.mimeType = builder.mimeType;
     /**
-     * 文件内容
-     * <p> 示例值：content
+     * 文件内容。仅请求时传入。
+     *
+     * <p>示例值：content
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 文件来源URL
-     * <p> 示例值：https://www.xx.xx
+     *
+     * <p>示例值：https://www.xx.xx
      */
-    @SerializedName("source_url")
+    this.sourceUrl = builder.sourceUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 标题
+     *
+     * <p>示例值：title
+     */
+    private String title;
+
+    /**
+     * 文件mime类型。;可选值：;- text/plain;- application/pdf;-
+     * application/vnd.openxmlformats-officedocument.presentationml.presentation;-
+     * application/vnd.openxmlformats-officedocument.wordprocessingml.document
+     *
+     * <p>示例值：text/plain
+     */
+    private String mimeType;
+
+    /**
+     * 文件内容。仅请求时传入。
+     *
+     * <p>示例值：content
+     */
+    private String content;
+
+    /**
+     * 文件来源URL
+     *
+     * <p>示例值：https://www.xx.xx
+     */
     private String sourceUrl;
 
-    // builder 开始
-    public AilyKnowledgeFile() {
+    /**
+     * 标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public AilyKnowledgeFile(Builder builder) {
-        /**
-         * 标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 文件mime类型
-         * <p> 示例值：text/plain
-         */
-        this.mimeType = builder.mimeType;
-        /**
-         * 文件内容
-         * <p> 示例值：content
-         */
-        this.content = builder.content;
-        /**
-         * 文件来源URL
-         * <p> 示例值：https://www.xx.xx
-         */
-        this.sourceUrl = builder.sourceUrl;
+    /**
+     * 文件mime类型。;可选值：;- text/plain;- application/pdf;-
+     * application/vnd.openxmlformats-officedocument.presentationml.presentation;-
+     * application/vnd.openxmlformats-officedocument.wordprocessingml.document
+     *
+     * <p>示例值：text/plain
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件内容。仅请求时传入。
+     *
+     * <p>示例值：content
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 文件来源URL
+     *
+     * <p>示例值：https://www.xx.xx
+     *
+     * @param sourceUrl
+     * @return
+     */
+    public Builder sourceUrl(String sourceUrl) {
+      this.sourceUrl = sourceUrl;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public AilyKnowledgeFile build() {
+      return new AilyKnowledgeFile(this);
     }
+  }
 
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getSourceUrl() {
-        return this.sourceUrl;
-    }
-
-    public void setSourceUrl(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 文件mime类型
-         * <p> 示例值：text/plain
-         */
-        private String mimeType;
-        /**
-         * 文件内容
-         * <p> 示例值：content
-         */
-        private String content;
-        /**
-         * 文件来源URL
-         * <p> 示例值：https://www.xx.xx
-         */
-        private String sourceUrl;
-
-        /**
-         * 标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文件mime类型
-         * <p> 示例值：text/plain
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        /**
-         * 文件内容
-         * <p> 示例值：content
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 文件来源URL
-         * <p> 示例值：https://www.xx.xx
-         *
-         * @param sourceUrl
-         * @return
-         */
-        public Builder sourceUrl(String sourceUrl) {
-            this.sourceUrl = sourceUrl;
-            return this;
-        }
-
-
-        public AilyKnowledgeFile build() {
-            return new AilyKnowledgeFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

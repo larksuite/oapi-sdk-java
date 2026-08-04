@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 分享范围(可读可写)
- */
+/** 分享范围(可读可写) */
 public enum DashboardShareConfigShareScopeTypeEnum {
-    SPECIFIC("1"), // 仅受邀请的人可阅读
-    ORGANIZATION("2"), // 组织内的人可阅读
-    EVERYONE("3"), // 任何人可阅读(互联可分享)
-    ;
-    private String value;
+  SPECIFIC("1"), // 仅受邀请的人可阅读
+  ORGANIZATION("2"), // 组织内的人可阅读
+  EVERYONE("3"), // 任何人可阅读(互联可分享)
+  ;
+  private String value;
 
-    DashboardShareConfigShareScopeTypeEnum(String value) {
-        this.value = value;
-    }
+  DashboardShareConfigShareScopeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

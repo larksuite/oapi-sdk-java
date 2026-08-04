@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShiftAttendanceTimeConfig {
+  /**
+   * 应出勤时长，单位为分钟。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("attendance_time")
+  private Double attendanceTime;
+
+  /**
+   * 上半天应出勤时长，单位为分钟。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("on_attendance_time")
+  private Double onAttendanceTime;
+
+  /**
+   * 下半天应出勤时长，单位为分钟。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("off_attendance_time")
+  private Double offAttendanceTime;
+
+  public Double getAttendanceTime() {
+    return this.attendanceTime;
+  }
+
+  public void setAttendanceTime(Double attendanceTime) {
+    this.attendanceTime = attendanceTime;
+  }
+
+  public Double getOnAttendanceTime() {
+    return this.onAttendanceTime;
+  }
+
+  public void setOnAttendanceTime(Double onAttendanceTime) {
+    this.onAttendanceTime = onAttendanceTime;
+  }
+
+  public Double getOffAttendanceTime() {
+    return this.offAttendanceTime;
+  }
+
+  public void setOffAttendanceTime(Double offAttendanceTime) {
+    this.offAttendanceTime = offAttendanceTime;
+  }
+
+  // builder 开始
+  public ShiftAttendanceTimeConfig() {}
+
+  public ShiftAttendanceTimeConfig(Builder builder) {
     /**
-     * 应出勤时长
-     * <p> 示例值：1
+     * 应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("attendance_time")
+    this.attendanceTime = builder.attendanceTime;
+    /**
+     * 上半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     */
+    this.onAttendanceTime = builder.onAttendanceTime;
+    /**
+     * 下半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     */
+    this.offAttendanceTime = builder.offAttendanceTime;
+  }
+
+  public static class Builder {
+    /**
+     * 应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     */
     private Double attendanceTime;
+
     /**
-     * 上半天应出勤时长
-     * <p> 示例值：1
+     * 上半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("on_attendance_time")
     private Double onAttendanceTime;
+
     /**
-     * 下半天应出勤时长
-     * <p> 示例值：1
+     * 下半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("off_attendance_time")
     private Double offAttendanceTime;
 
-    // builder 开始
-    public ShiftAttendanceTimeConfig() {
+    /**
+     * 应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     *
+     * @param attendanceTime
+     * @return
+     */
+    public Builder attendanceTime(Double attendanceTime) {
+      this.attendanceTime = attendanceTime;
+      return this;
     }
 
-    public ShiftAttendanceTimeConfig(Builder builder) {
-        /**
-         * 应出勤时长
-         * <p> 示例值：1
-         */
-        this.attendanceTime = builder.attendanceTime;
-        /**
-         * 上半天应出勤时长
-         * <p> 示例值：1
-         */
-        this.onAttendanceTime = builder.onAttendanceTime;
-        /**
-         * 下半天应出勤时长
-         * <p> 示例值：1
-         */
-        this.offAttendanceTime = builder.offAttendanceTime;
+    /**
+     * 上半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     *
+     * @param onAttendanceTime
+     * @return
+     */
+    public Builder onAttendanceTime(Double onAttendanceTime) {
+      this.onAttendanceTime = onAttendanceTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 下半天应出勤时长，单位为分钟。
+     *
+     * <p>示例值：1
+     *
+     * @param offAttendanceTime
+     * @return
+     */
+    public Builder offAttendanceTime(Double offAttendanceTime) {
+      this.offAttendanceTime = offAttendanceTime;
+      return this;
     }
 
-    public Double getAttendanceTime() {
-        return this.attendanceTime;
+    public ShiftAttendanceTimeConfig build() {
+      return new ShiftAttendanceTimeConfig(this);
     }
+  }
 
-    public void setAttendanceTime(Double attendanceTime) {
-        this.attendanceTime = attendanceTime;
-    }
-
-    public Double getOnAttendanceTime() {
-        return this.onAttendanceTime;
-    }
-
-    public void setOnAttendanceTime(Double onAttendanceTime) {
-        this.onAttendanceTime = onAttendanceTime;
-    }
-
-    public Double getOffAttendanceTime() {
-        return this.offAttendanceTime;
-    }
-
-    public void setOffAttendanceTime(Double offAttendanceTime) {
-        this.offAttendanceTime = offAttendanceTime;
-    }
-
-    public static class Builder {
-        /**
-         * 应出勤时长
-         * <p> 示例值：1
-         */
-        private Double attendanceTime;
-        /**
-         * 上半天应出勤时长
-         * <p> 示例值：1
-         */
-        private Double onAttendanceTime;
-        /**
-         * 下半天应出勤时长
-         * <p> 示例值：1
-         */
-        private Double offAttendanceTime;
-
-        /**
-         * 应出勤时长
-         * <p> 示例值：1
-         *
-         * @param attendanceTime
-         * @return
-         */
-        public Builder attendanceTime(Double attendanceTime) {
-            this.attendanceTime = attendanceTime;
-            return this;
-        }
-
-
-        /**
-         * 上半天应出勤时长
-         * <p> 示例值：1
-         *
-         * @param onAttendanceTime
-         * @return
-         */
-        public Builder onAttendanceTime(Double onAttendanceTime) {
-            this.onAttendanceTime = onAttendanceTime;
-            return this;
-        }
-
-
-        /**
-         * 下半天应出勤时长
-         * <p> 示例值：1
-         *
-         * @param offAttendanceTime
-         * @return
-         */
-        public Builder offAttendanceTime(Double offAttendanceTime) {
-            this.offAttendanceTime = offAttendanceTime;
-            return this;
-        }
-
-
-        public ShiftAttendanceTimeConfig build() {
-            return new ShiftAttendanceTimeConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -17,10 +17,11 @@ import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.vc.v1.V1;
 import com.lark.oapi.service.vc.v1.model.*;
 import com.lark.oapi.service.vc.v1.resource.Alert;
+import com.lark.oapi.service.vc.v1.resource.Bot;
 import com.lark.oapi.service.vc.v1.resource.Export;
 import com.lark.oapi.service.vc.v1.resource.Meeting;
-import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
 import com.lark.oapi.service.vc.v1.resource.MeetingList;
+import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
 import com.lark.oapi.service.vc.v1.resource.Note;
 import com.lark.oapi.service.vc.v1.resource.ParticipantList;
 import com.lark.oapi.service.vc.v1.resource.ParticipantQualityList;
@@ -37,260 +38,290 @@ import com.lark.oapi.service.vc.v1.resource.RoomLevel;
 import com.lark.oapi.service.vc.v1.resource.ScopeConfig;
 
 public class VcService {
-    private final V1 v1;
-    private final Alert alert; // 告警中心
-    private final Export export; // 导出
-    private final Meeting meeting; // 会议
-    private final MeetingRecording meetingRecording; // 录制
-    private final MeetingList meetingList; // meeting_list
-    private final Note note; // note
-    private final ParticipantList participantList; // participant_list
-    private final ParticipantQualityList participantQualityList; // participant_quality_list
-    private final Report report; // 会议报告
-    private final Reserve reserve; // 预约
-    private final ReserveConfig reserveConfig; // reserve_config
-    private final ReserveConfigAdmin reserveConfigAdmin; // reserve_config.admin
-    private final ReserveConfigDisableInform reserveConfigDisableInform; // reserve_config.disable_inform
-    private final ReserveConfigForm reserveConfigForm; // reserve_config.form
-    private final ResourceReservationList resourceReservationList; // resource_reservation_list
-    private final Room room; // 会议室
-    private final RoomConfig roomConfig; // room_config
-    private final RoomLevel roomLevel; // 会议室层级
-    private final ScopeConfig scopeConfig; // 会议室配置
+  private final V1 v1;
+  private final Alert alert; // alert
+  private final Bot bot; // bot
+  private final Export export; // export
+  private final Meeting meeting; // meeting
+  private final MeetingRecording meetingRecording; // meeting.recording
+  private final MeetingList meetingList; // meeting_list
+  private final Note note; // note
+  private final ParticipantList participantList; // participant_list
+  private final ParticipantQualityList participantQualityList; // participant_quality_list
+  private final Report report; // report
+  private final Reserve reserve; // reserve
+  private final ReserveConfig reserveConfig; // reserve_config
+  private final ReserveConfigAdmin reserveConfigAdmin; // reserve_config.admin
+  private final ReserveConfigDisableInform
+      reserveConfigDisableInform; // reserve_config.disable_inform
+  private final ReserveConfigForm reserveConfigForm; // reserve_config.form
+  private final ResourceReservationList resourceReservationList; // resource_reservation_list
+  private final Room room; // room
+  private final RoomConfig roomConfig; // room_config
+  private final RoomLevel roomLevel; // room_level
+  private final ScopeConfig scopeConfig; // scope_config
 
-    public VcService(Config config) {
-        this.v1 = new V1(config);
-        this.alert = new Alert(config);
-        this.export = new Export(config);
-        this.meeting = new Meeting(config);
-        this.meetingRecording = new MeetingRecording(config);
-        this.meetingList = new MeetingList(config);
-        this.note = new Note(config);
-        this.participantList = new ParticipantList(config);
-        this.participantQualityList = new ParticipantQualityList(config);
-        this.report = new Report(config);
-        this.reserve = new Reserve(config);
-        this.reserveConfig = new ReserveConfig(config);
-        this.reserveConfigAdmin = new ReserveConfigAdmin(config);
-        this.reserveConfigDisableInform = new ReserveConfigDisableInform(config);
-        this.reserveConfigForm = new ReserveConfigForm(config);
-        this.resourceReservationList = new ResourceReservationList(config);
-        this.room = new Room(config);
-        this.roomConfig = new RoomConfig(config);
-        this.roomLevel = new RoomLevel(config);
-        this.scopeConfig = new ScopeConfig(config);
-    }
+  public VcService(Config config) {
+    this.v1 = new V1(config);
+    this.alert = new Alert(config);
+    this.bot = new Bot(config);
+    this.export = new Export(config);
+    this.meeting = new Meeting(config);
+    this.meetingRecording = new MeetingRecording(config);
+    this.meetingList = new MeetingList(config);
+    this.note = new Note(config);
+    this.participantList = new ParticipantList(config);
+    this.participantQualityList = new ParticipantQualityList(config);
+    this.report = new Report(config);
+    this.reserve = new Reserve(config);
+    this.reserveConfig = new ReserveConfig(config);
+    this.reserveConfigAdmin = new ReserveConfigAdmin(config);
+    this.reserveConfigDisableInform = new ReserveConfigDisableInform(config);
+    this.reserveConfigForm = new ReserveConfigForm(config);
+    this.resourceReservationList = new ResourceReservationList(config);
+    this.room = new Room(config);
+    this.roomConfig = new RoomConfig(config);
+    this.roomLevel = new RoomLevel(config);
+    this.scopeConfig = new ScopeConfig(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Alert alert() {
-        return alert;
-    }
+  public Alert alert() {
+    return alert;
+  }
 
-    public Export export() {
-        return export;
-    }
+  public Bot bot() {
+    return bot;
+  }
 
-    public Meeting meeting() {
-        return meeting;
-    }
+  public Export export() {
+    return export;
+  }
 
-    public MeetingRecording meetingRecording() {
-        return meetingRecording;
-    }
+  public Meeting meeting() {
+    return meeting;
+  }
 
-    public MeetingList meetingList() {
-        return meetingList;
-    }
+  public MeetingRecording meetingRecording() {
+    return meetingRecording;
+  }
 
-    public Note note() {
-        return note;
-    }
+  public MeetingList meetingList() {
+    return meetingList;
+  }
 
-    public ParticipantList participantList() {
-        return participantList;
-    }
+  public Note note() {
+    return note;
+  }
 
-    public ParticipantQualityList participantQualityList() {
-        return participantQualityList;
-    }
+  public ParticipantList participantList() {
+    return participantList;
+  }
 
-    public Report report() {
-        return report;
-    }
+  public ParticipantQualityList participantQualityList() {
+    return participantQualityList;
+  }
 
-    public Reserve reserve() {
-        return reserve;
-    }
+  public Report report() {
+    return report;
+  }
 
-    public ReserveConfig reserveConfig() {
-        return reserveConfig;
-    }
+  public Reserve reserve() {
+    return reserve;
+  }
 
-    public ReserveConfigAdmin reserveConfigAdmin() {
-        return reserveConfigAdmin;
-    }
+  public ReserveConfig reserveConfig() {
+    return reserveConfig;
+  }
 
-    public ReserveConfigDisableInform reserveConfigDisableInform() {
-        return reserveConfigDisableInform;
-    }
+  public ReserveConfigAdmin reserveConfigAdmin() {
+    return reserveConfigAdmin;
+  }
 
-    public ReserveConfigForm reserveConfigForm() {
-        return reserveConfigForm;
-    }
+  public ReserveConfigDisableInform reserveConfigDisableInform() {
+    return reserveConfigDisableInform;
+  }
 
-    public ResourceReservationList resourceReservationList() {
-        return resourceReservationList;
-    }
+  public ReserveConfigForm reserveConfigForm() {
+    return reserveConfigForm;
+  }
 
-    public Room room() {
-        return room;
-    }
+  public ResourceReservationList resourceReservationList() {
+    return resourceReservationList;
+  }
 
-    public RoomConfig roomConfig() {
-        return roomConfig;
-    }
+  public Room room() {
+    return room;
+  }
 
-    public RoomLevel roomLevel() {
-        return roomLevel;
-    }
+  public RoomConfig roomConfig() {
+    return roomConfig;
+  }
 
-    public ScopeConfig scopeConfig() {
-        return scopeConfig;
-    }
+  public RoomLevel roomLevel() {
+    return roomLevel;
+  }
 
-    public abstract static class P2MeetingAllMeetingEndedV1Handler implements IEventHandler<P2MeetingAllMeetingEndedV1> {
-        @Override
-        public P2MeetingAllMeetingEndedV1 getEvent() {
-            return new P2MeetingAllMeetingEndedV1();
-        }
-    }
+  public ScopeConfig scopeConfig() {
+    return scopeConfig;
+  }
 
-    public abstract static class P2MeetingAllMeetingStartedV1Handler implements IEventHandler<P2MeetingAllMeetingStartedV1> {
-        @Override
-        public P2MeetingAllMeetingStartedV1 getEvent() {
-            return new P2MeetingAllMeetingStartedV1();
-        }
+  public abstract static class P2MeetingAllMeetingEndedV1Handler
+      implements IEventHandler<P2MeetingAllMeetingEndedV1> {
+    @Override
+    public P2MeetingAllMeetingEndedV1 getEvent() {
+      return new P2MeetingAllMeetingEndedV1();
     }
+  }
 
-    public abstract static class P2MeetingJoinMeetingV1Handler implements IEventHandler<P2MeetingJoinMeetingV1> {
-        @Override
-        public P2MeetingJoinMeetingV1 getEvent() {
-            return new P2MeetingJoinMeetingV1();
-        }
+  public abstract static class P2MeetingAllMeetingStartedV1Handler
+      implements IEventHandler<P2MeetingAllMeetingStartedV1> {
+    @Override
+    public P2MeetingAllMeetingStartedV1 getEvent() {
+      return new P2MeetingAllMeetingStartedV1();
     }
+  }
 
-    public abstract static class P2MeetingLeaveMeetingV1Handler implements IEventHandler<P2MeetingLeaveMeetingV1> {
-        @Override
-        public P2MeetingLeaveMeetingV1 getEvent() {
-            return new P2MeetingLeaveMeetingV1();
-        }
+  public abstract static class P2MeetingJoinMeetingV1Handler
+      implements IEventHandler<P2MeetingJoinMeetingV1> {
+    @Override
+    public P2MeetingJoinMeetingV1 getEvent() {
+      return new P2MeetingJoinMeetingV1();
     }
+  }
 
-    public abstract static class P2MeetingEndedV1Handler implements IEventHandler<P2MeetingEndedV1> {
-        @Override
-        public P2MeetingEndedV1 getEvent() {
-            return new P2MeetingEndedV1();
-        }
+  public abstract static class P2MeetingLeaveMeetingV1Handler
+      implements IEventHandler<P2MeetingLeaveMeetingV1> {
+    @Override
+    public P2MeetingLeaveMeetingV1 getEvent() {
+      return new P2MeetingLeaveMeetingV1();
     }
+  }
 
-    public abstract static class P2MeetingStartedV1Handler implements IEventHandler<P2MeetingStartedV1> {
-        @Override
-        public P2MeetingStartedV1 getEvent() {
-            return new P2MeetingStartedV1();
-        }
+  public abstract static class P2MeetingEndedV1Handler implements IEventHandler<P2MeetingEndedV1> {
+    @Override
+    public P2MeetingEndedV1 getEvent() {
+      return new P2MeetingEndedV1();
     }
+  }
 
-    public abstract static class P2MeetingParticipantMeetingEndedV1Handler implements IEventHandler<P2MeetingParticipantMeetingEndedV1> {
-        @Override
-        public P2MeetingParticipantMeetingEndedV1 getEvent() {
-            return new P2MeetingParticipantMeetingEndedV1();
-        }
+  public abstract static class P2MeetingStartedV1Handler
+      implements IEventHandler<P2MeetingStartedV1> {
+    @Override
+    public P2MeetingStartedV1 getEvent() {
+      return new P2MeetingStartedV1();
     }
+  }
 
-    public abstract static class P2MeetingRecordingEndedV1Handler implements IEventHandler<P2MeetingRecordingEndedV1> {
-        @Override
-        public P2MeetingRecordingEndedV1 getEvent() {
-            return new P2MeetingRecordingEndedV1();
-        }
+  public abstract static class P2MeetingParticipantMeetingEndedV1Handler
+      implements IEventHandler<P2MeetingParticipantMeetingEndedV1> {
+    @Override
+    public P2MeetingParticipantMeetingEndedV1 getEvent() {
+      return new P2MeetingParticipantMeetingEndedV1();
     }
+  }
 
-    public abstract static class P2MeetingRecordingReadyV1Handler implements IEventHandler<P2MeetingRecordingReadyV1> {
-        @Override
-        public P2MeetingRecordingReadyV1 getEvent() {
-            return new P2MeetingRecordingReadyV1();
-        }
+  public abstract static class P2MeetingRecordingEndedV1Handler
+      implements IEventHandler<P2MeetingRecordingEndedV1> {
+    @Override
+    public P2MeetingRecordingEndedV1 getEvent() {
+      return new P2MeetingRecordingEndedV1();
     }
+  }
 
-    public abstract static class P2MeetingRecordingStartedV1Handler implements IEventHandler<P2MeetingRecordingStartedV1> {
-        @Override
-        public P2MeetingRecordingStartedV1 getEvent() {
-            return new P2MeetingRecordingStartedV1();
-        }
+  public abstract static class P2MeetingRecordingReadyV1Handler
+      implements IEventHandler<P2MeetingRecordingReadyV1> {
+    @Override
+    public P2MeetingRecordingReadyV1 getEvent() {
+      return new P2MeetingRecordingReadyV1();
     }
+  }
 
-    public abstract static class P2MeetingShareEndedV1Handler implements IEventHandler<P2MeetingShareEndedV1> {
-        @Override
-        public P2MeetingShareEndedV1 getEvent() {
-            return new P2MeetingShareEndedV1();
-        }
+  public abstract static class P2MeetingRecordingStartedV1Handler
+      implements IEventHandler<P2MeetingRecordingStartedV1> {
+    @Override
+    public P2MeetingRecordingStartedV1 getEvent() {
+      return new P2MeetingRecordingStartedV1();
     }
+  }
 
-    public abstract static class P2MeetingShareStartedV1Handler implements IEventHandler<P2MeetingShareStartedV1> {
-        @Override
-        public P2MeetingShareStartedV1 getEvent() {
-            return new P2MeetingShareStartedV1();
-        }
+  public abstract static class P2MeetingShareEndedV1Handler
+      implements IEventHandler<P2MeetingShareEndedV1> {
+    @Override
+    public P2MeetingShareEndedV1 getEvent() {
+      return new P2MeetingShareEndedV1();
     }
+  }
 
-    public abstract static class P2ReserveConfigUpdatedV1Handler implements IEventHandler<P2ReserveConfigUpdatedV1> {
-        @Override
-        public P2ReserveConfigUpdatedV1 getEvent() {
-            return new P2ReserveConfigUpdatedV1();
-        }
+  public abstract static class P2MeetingShareStartedV1Handler
+      implements IEventHandler<P2MeetingShareStartedV1> {
+    @Override
+    public P2MeetingShareStartedV1 getEvent() {
+      return new P2MeetingShareStartedV1();
     }
+  }
 
-    public abstract static class P2RoomCreatedV1Handler implements IEventHandler<P2RoomCreatedV1> {
-        @Override
-        public P2RoomCreatedV1 getEvent() {
-            return new P2RoomCreatedV1();
-        }
+  public abstract static class P2NoteGeneratedV1Handler
+      implements IEventHandler<P2NoteGeneratedV1> {
+    @Override
+    public P2NoteGeneratedV1 getEvent() {
+      return new P2NoteGeneratedV1();
     }
+  }
 
-    public abstract static class P2RoomDeletedV1Handler implements IEventHandler<P2RoomDeletedV1> {
-        @Override
-        public P2RoomDeletedV1 getEvent() {
-            return new P2RoomDeletedV1();
-        }
+  public abstract static class P2ReserveConfigUpdatedV1Handler
+      implements IEventHandler<P2ReserveConfigUpdatedV1> {
+    @Override
+    public P2ReserveConfigUpdatedV1 getEvent() {
+      return new P2ReserveConfigUpdatedV1();
     }
+  }
 
-    public abstract static class P2RoomUpdatedV1Handler implements IEventHandler<P2RoomUpdatedV1> {
-        @Override
-        public P2RoomUpdatedV1 getEvent() {
-            return new P2RoomUpdatedV1();
-        }
+  public abstract static class P2RoomCreatedV1Handler implements IEventHandler<P2RoomCreatedV1> {
+    @Override
+    public P2RoomCreatedV1 getEvent() {
+      return new P2RoomCreatedV1();
     }
+  }
 
-    public abstract static class P2RoomLevelCreatedV1Handler implements IEventHandler<P2RoomLevelCreatedV1> {
-        @Override
-        public P2RoomLevelCreatedV1 getEvent() {
-            return new P2RoomLevelCreatedV1();
-        }
+  public abstract static class P2RoomDeletedV1Handler implements IEventHandler<P2RoomDeletedV1> {
+    @Override
+    public P2RoomDeletedV1 getEvent() {
+      return new P2RoomDeletedV1();
     }
+  }
 
-    public abstract static class P2RoomLevelDeletedV1Handler implements IEventHandler<P2RoomLevelDeletedV1> {
-        @Override
-        public P2RoomLevelDeletedV1 getEvent() {
-            return new P2RoomLevelDeletedV1();
-        }
+  public abstract static class P2RoomUpdatedV1Handler implements IEventHandler<P2RoomUpdatedV1> {
+    @Override
+    public P2RoomUpdatedV1 getEvent() {
+      return new P2RoomUpdatedV1();
     }
+  }
 
-    public abstract static class P2RoomLevelUpdatedV1Handler implements IEventHandler<P2RoomLevelUpdatedV1> {
-        @Override
-        public P2RoomLevelUpdatedV1 getEvent() {
-            return new P2RoomLevelUpdatedV1();
-        }
+  public abstract static class P2RoomLevelCreatedV1Handler
+      implements IEventHandler<P2RoomLevelCreatedV1> {
+    @Override
+    public P2RoomLevelCreatedV1 getEvent() {
+      return new P2RoomLevelCreatedV1();
     }
+  }
+
+  public abstract static class P2RoomLevelDeletedV1Handler
+      implements IEventHandler<P2RoomLevelDeletedV1> {
+    @Override
+    public P2RoomLevelDeletedV1 getEvent() {
+      return new P2RoomLevelDeletedV1();
+    }
+  }
+
+  public abstract static class P2RoomLevelUpdatedV1Handler
+      implements IEventHandler<P2RoomLevelUpdatedV1> {
+    @Override
+    public P2RoomLevelUpdatedV1 getEvent() {
+      return new P2RoomLevelUpdatedV1();
+    }
+  }
 }

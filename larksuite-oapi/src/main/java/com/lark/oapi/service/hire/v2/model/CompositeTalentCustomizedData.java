@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompositeTalentCustomizedData {
+  /**
+   * 模块 ID
+   *
+   * <p>示例值：7106698109352479020
+   */
+  @SerializedName("module_id")
+  private String moduleId;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 模块下的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private TalentCustomizedDataChild[] children;
+
+  public String getModuleId() {
+    return this.moduleId;
+  }
+
+  public void setModuleId(String moduleId) {
+    this.moduleId = moduleId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public TalentCustomizedDataChild[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(TalentCustomizedDataChild[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public CompositeTalentCustomizedData() {}
+
+  public CompositeTalentCustomizedData(Builder builder) {
     /**
      * 模块 ID
-     * <p> 示例值：7106698109352479020
+     *
+     * <p>示例值：7106698109352479020
      */
-    @SerializedName("module_id")
-    private String moduleId;
+    this.moduleId = builder.moduleId;
     /**
-     * 模块名称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
-    private Integer objectType;
+    this.objectType = builder.objectType;
     /**
      * 模块下的字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 模块 ID
+     *
+     * <p>示例值：7106698109352479020
+     */
+    private String moduleId;
+
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     */
+    private Integer objectType;
+
+    /**
+     * 模块下的字段
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataChild[] children;
 
-    // builder 开始
-    public CompositeTalentCustomizedData() {
+    /**
+     * 模块 ID
+     *
+     * <p>示例值：7106698109352479020
+     *
+     * @param moduleId
+     * @return
+     */
+    public Builder moduleId(String moduleId) {
+      this.moduleId = moduleId;
+      return this;
     }
 
-    public CompositeTalentCustomizedData(Builder builder) {
-        /**
-         * 模块 ID
-         * <p> 示例值：7106698109352479020
-         */
-        this.moduleId = builder.moduleId;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public String getModuleId() {
-        return this.moduleId;
+    /**
+     * 模块下的字段
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(TalentCustomizedDataChild[] children) {
+      this.children = children;
+      return this;
     }
 
-    public void setModuleId(String moduleId) {
-        this.moduleId = moduleId;
+    public CompositeTalentCustomizedData build() {
+      return new CompositeTalentCustomizedData(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public TalentCustomizedDataChild[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(TalentCustomizedDataChild[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 模块 ID
-         * <p> 示例值：7106698109352479020
-         */
-        private String moduleId;
-        /**
-         * 模块名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataChild[] children;
-
-        /**
-         * 模块 ID
-         * <p> 示例值：7106698109352479020
-         *
-         * @param moduleId
-         * @return
-         */
-        public Builder moduleId(String moduleId) {
-            this.moduleId = moduleId;
-            return this;
-        }
-
-
-        /**
-         * 模块名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 模块下的字段
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(TalentCustomizedDataChild[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public CompositeTalentCustomizedData build() {
-            return new CompositeTalentCustomizedData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

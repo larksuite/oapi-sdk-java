@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectData {
+  /**
+   * 自定义实体名称
+   *
+   * <p>示例值：custom_location
+   */
+  @SerializedName("object_name")
+  private String objectName;
+
+  /**
+   * 自定义实体ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 自定义实体字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_list")
+  private ObjectFieldData[] fieldList;
+
+  public String getObjectName() {
+    return this.objectName;
+  }
+
+  public void setObjectName(String objectName) {
+    this.objectName = objectName;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ObjectFieldData[] getFieldList() {
+    return this.fieldList;
+  }
+
+  public void setFieldList(ObjectFieldData[] fieldList) {
+    this.fieldList = fieldList;
+  }
+
+  // builder 开始
+  public ObjectData() {}
+
+  public ObjectData(Builder builder) {
     /**
      * 自定义实体名称
-     * <p> 示例值：custom_location
+     *
+     * <p>示例值：custom_location
      */
-    @SerializedName("object_name")
-    private String objectName;
+    this.objectName = builder.objectName;
     /**
      * 自定义实体ID
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 自定义实体字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_list")
+    this.fieldList = builder.fieldList;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义实体名称
+     *
+     * <p>示例值：custom_location
+     */
+    private String objectName;
+
+    /**
+     * 自定义实体ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String id;
+
+    /**
+     * 自定义实体字段
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] fieldList;
 
-    // builder 开始
-    public ObjectData() {
+    /**
+     * 自定义实体名称
+     *
+     * <p>示例值：custom_location
+     *
+     * @param objectName
+     * @return
+     */
+    public Builder objectName(String objectName) {
+      this.objectName = objectName;
+      return this;
     }
 
-    public ObjectData(Builder builder) {
-        /**
-         * 自定义实体名称
-         * <p> 示例值：custom_location
-         */
-        this.objectName = builder.objectName;
-        /**
-         * 自定义实体ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.id = builder.id;
-        /**
-         * 自定义实体字段
-         * <p> 示例值：
-         */
-        this.fieldList = builder.fieldList;
+    /**
+     * 自定义实体ID
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义实体字段
+     *
+     * <p>示例值：
+     *
+     * @param fieldList
+     * @return
+     */
+    public Builder fieldList(ObjectFieldData[] fieldList) {
+      this.fieldList = fieldList;
+      return this;
     }
 
-    public String getObjectName() {
-        return this.objectName;
+    public ObjectData build() {
+      return new ObjectData(this);
     }
+  }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public ObjectFieldData[] getFieldList() {
-        return this.fieldList;
-    }
-
-    public void setFieldList(ObjectFieldData[] fieldList) {
-        this.fieldList = fieldList;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义实体名称
-         * <p> 示例值：custom_location
-         */
-        private String objectName;
-        /**
-         * 自定义实体ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String id;
-        /**
-         * 自定义实体字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] fieldList;
-
-        /**
-         * 自定义实体名称
-         * <p> 示例值：custom_location
-         *
-         * @param objectName
-         * @return
-         */
-        public Builder objectName(String objectName) {
-            this.objectName = objectName;
-            return this;
-        }
-
-
-        /**
-         * 自定义实体ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 自定义实体字段
-         * <p> 示例值：
-         *
-         * @param fieldList
-         * @return
-         */
-        public Builder fieldList(ObjectFieldData[] fieldList) {
-            this.fieldList = fieldList;
-            return this;
-        }
-
-
-        public ObjectData build() {
-            return new ObjectData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

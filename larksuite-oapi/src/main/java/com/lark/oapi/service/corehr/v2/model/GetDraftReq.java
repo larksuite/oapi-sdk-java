@@ -13,116 +13,118 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class GetDraftReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 组织架构调整 ID。用户在「飞书人事-我的团队/人员管理 -组织架构-发起调整」时生成的唯一 ID，可通过「组织架构调整状态变更事件」的事件获取
+   *
+   * <p>示例值：6893014062142064111
+   */
+  @Path
+  @SerializedName("draft_id")
+  private String draftId;
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  // builder 开始
+  public GetDraftReq() {}
+
+  public GetDraftReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 组织架构调整 ID
-     * <p> 示例值：6893014062142064111
+     * 组织架构调整 ID。用户在「飞书人事-我的团队/人员管理 -组织架构-发起调整」时生成的唯一 ID，可通过「组织架构调整状态变更事件」的事件获取
+     *
+     * <p>示例值：6893014062142064111
      */
-    @Path
-    @SerializedName("draft_id")
-    private String draftId;
+    this.draftId = builder.draftId;
+  }
 
-    // builder 开始
-    public GetDraftReq() {
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetDraftReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 组织架构调整 ID
-         * <p> 示例值：6893014062142064111
-         */
-        this.draftId = builder.draftId;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.GetDraftGetProcessInfoListByDraftIDUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums.GetDraftGetProcessInfoListByDraftIDUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        draftId; // 组织架构调整 ID。用户在「飞书人事-我的团队/人员管理 -组织架构-发起调整」时生成的唯一 ID，可通过「组织架构调整状态变更事件」的事件获取
+
+    /**
+     * 组织架构调整 ID。用户在「飞书人事-我的团队/人员管理 -组织架构-发起调整」时生成的唯一 ID，可通过「组织架构调整状态变更事件」的事件获取
+     *
+     * <p>示例值：6893014062142064111
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetDraftReq build() {
+      return new GetDraftReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDraftId() {
-        return this.draftId;
-    }
-
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String draftId; // 组织架构调整 ID
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.GetDraftGetProcessInfoListByDraftIDUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.GetDraftGetProcessInfoListByDraftIDUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 组织架构调整 ID
-         * <p> 示例值：6893014062142064111
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-
-        public GetDraftReq build() {
-            return new GetDraftReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

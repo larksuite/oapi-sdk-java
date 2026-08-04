@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedGroupRuleV2 {
+  /**
+   * 条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("condition")
+  private FeedGroupRuleCondV2 condition;
+
+  /**
+   * 动作
+   *
+   * <p>示例值：add
+   */
+  @SerializedName("action")
+  private String action;
+
+  public FeedGroupRuleCondV2 getCondition() {
+    return this.condition;
+  }
+
+  public void setCondition(FeedGroupRuleCondV2 condition) {
+    this.condition = condition;
+  }
+
+  public String getAction() {
+    return this.action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  // builder 开始
+  public FeedGroupRuleV2() {}
+
+  public FeedGroupRuleV2(Builder builder) {
     /**
      * 条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("condition")
-    private FeedGroupRuleCondV2 condition;
+    this.condition = builder.condition;
     /**
      * 动作
-     * <p> 示例值：add
+     *
+     * <p>示例值：add
      */
-    @SerializedName("action")
+    this.action = builder.action;
+  }
+
+  public static class Builder {
+    /**
+     * 条件
+     *
+     * <p>示例值：
+     */
+    private FeedGroupRuleCondV2 condition;
+
+    /**
+     * 动作
+     *
+     * <p>示例值：add
+     */
     private String action;
 
-    // builder 开始
-    public FeedGroupRuleV2() {
+    /**
+     * 条件
+     *
+     * <p>示例值：
+     *
+     * @param condition
+     * @return
+     */
+    public Builder condition(FeedGroupRuleCondV2 condition) {
+      this.condition = condition;
+      return this;
     }
 
-    public FeedGroupRuleV2(Builder builder) {
-        /**
-         * 条件
-         * <p> 示例值：
-         */
-        this.condition = builder.condition;
-        /**
-         * 动作
-         * <p> 示例值：add
-         */
-        this.action = builder.action;
+    /**
+     * 动作
+     *
+     * <p>示例值：add
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String action) {
+      this.action = action;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 动作
+     *
+     * <p>示例值：add
+     *
+     * @param action {@link
+     *     com.lark.oapi.service.im.v2.enums.FeedGroupRuleV2FeedGroupRuleActionEnum}
+     * @return
+     */
+    public Builder action(
+        com.lark.oapi.service.im.v2.enums.FeedGroupRuleV2FeedGroupRuleActionEnum action) {
+      this.action = action.getValue();
+      return this;
     }
 
-    public FeedGroupRuleCondV2 getCondition() {
-        return this.condition;
+    public FeedGroupRuleV2 build() {
+      return new FeedGroupRuleV2(this);
     }
+  }
 
-    public void setCondition(FeedGroupRuleCondV2 condition) {
-        this.condition = condition;
-    }
-
-    public String getAction() {
-        return this.action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public static class Builder {
-        /**
-         * 条件
-         * <p> 示例值：
-         */
-        private FeedGroupRuleCondV2 condition;
-        /**
-         * 动作
-         * <p> 示例值：add
-         */
-        private String action;
-
-        /**
-         * 条件
-         * <p> 示例值：
-         *
-         * @param condition
-         * @return
-         */
-        public Builder condition(FeedGroupRuleCondV2 condition) {
-            this.condition = condition;
-            return this;
-        }
-
-
-        /**
-         * 动作
-         * <p> 示例值：add
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String action) {
-            this.action = action;
-            return this;
-        }
-
-        /**
-         * 动作
-         * <p> 示例值：add
-         *
-         * @param action {@link com.lark.oapi.service.im.v2.enums.FeedGroupRuleV2FeedGroupRuleActionEnum}
-         * @return
-         */
-        public Builder action(com.lark.oapi.service.im.v2.enums.FeedGroupRuleV2FeedGroupRuleActionEnum action) {
-            this.action = action.getValue();
-            return this;
-        }
-
-
-        public FeedGroupRuleV2 build() {
-            return new FeedGroupRuleV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }
